@@ -113,6 +113,8 @@ export type PriceReviewItem = {
     condition?: PriceReviewCondition | string | null;
     note?: string | null;
     reasonCode?: PriceReviewRejectReason | null;
+    reviewBatch?: string;
+    reviewer?: string;
     originalContents?: OriginalGameContentKey[] | null;
   };
 };

@@ -1,0 +1,640 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "gameboy",
+  "batch": "gameboy-visual-reviewed-20260908",
+  "reviewedAt": "2026-09-08",
+  "sources": {
+    "137429610296": {
+      "url": "https://www.ebay.es/itm/137429610296",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.webp"
+      ]
+    },
+    "267386966583": {
+      "url": "https://www.ebay.es/itm/267386966583",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/WPAAAOSwg0Fmy0Ah/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/hVcAAOSw7BNmy0Ao/s-l1600.webp"
+      ]
+    },
+    "335866722818": {
+      "url": "https://www.ebay.es/itm/335866722818",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/YOsAAOSwHVtn2Gps/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/d5sAAOSwNHJn2Gpr/s-l1600.webp"
+      ]
+    },
+    "800612078639": {
+      "url": "https://www.ebay.es/itm/800612078639",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l1600.webp"
+      ]
+    },
+    "267775480937": {
+      "url": "https://www.ebay.es/itm/267775480937",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.webp"
+      ]
+    },
+    "326091056529": {
+      "url": "https://www.ebay.es/itm/326091056529",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/v2UAAOSwRGJmHZGo/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/FikAAOSwGKhmHZGq/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/nOYAAOSwBu1mHZGr/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/~DsAAOSwzdpmHZGv/s-l1600.webp"
+      ]
+    },
+    "305715721792": {
+      "url": "https://www.ebay.es/itm/305715721792",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/~xkAAOSwShBms05g/s-l1600.webp"
+      ]
+    },
+    "800395252020": {
+      "url": "https://www.ebay.es/itm/800395252020",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/71sAAeSwtZBqAAR-/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/BaYAAeSwxChqAAR-/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/-nIAAeSwCmBqAAR~/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/wGYAAeSwCy1qAASB/s-l300.webp"
+      ]
+    },
+    "407058967122": {
+      "url": "https://www.ebay.es/itm/407058967122",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/xZ4AAeSw7EJqToPX/s-l1600.webp"
+      ]
+    },
+    "146943102104": {
+      "url": "https://www.ebay.es/itm/146943102104",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.webp"
+      ]
+    },
+    "800220276200": {
+      "url": "https://www.ebay.es/itm/800220276200",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l1600.webp"
+      ]
+    },
+    "127861119657": {
+      "url": "https://www.ebay.es/itm/127861119657",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l1600.webp"
+      ]
+    },
+    "143915168489": {
+      "url": "https://www.ebay.es/itm/143915168489",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l1600.webp"
+      ]
+    },
+    "275605922422": {
+      "url": "https://www.ebay.es/itm/275605922422",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l300.webp"
+      ]
+    },
+    "267343476891": {
+      "url": "https://www.ebay.es/itm/267343476891",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/5X0AAOSwRCdjXuBX/s-l1600.webp"
+      ]
+    },
+    "297478441978": {
+      "url": "https://www.ebay.es/itm/297478441978",
+      "kind": "visually_reviewed_listing",
+      "reviewedAt": "2026-09-08",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/l58AAeSwoNBoeoug/s-l1600.webp"
+      ]
+    }
+  },
+  "inspectionRules": [
+    {
+      "id": "component-language",
+      "sourceIds": [
+        "800612078639"
+      ],
+      "text": "Separar el idioma impreso de cada pieza y el idioma de ROM. Super Mario Land 2 muestra ESP en el cartucho; esto no demuestra textos jugables traducidos."
+    },
+    {
+      "id": "mixed-vs-documented",
+      "sourceIds": [
+        "335866722818"
+      ],
+      "text": "Un manual FAH y un cartucho NOE son observaciones por separado; no aplanar a un solo pais ni declarar mezcla ilegítima sin contrastar una distribucion documentada."
+    },
+    {
+      "id": "actual-contents",
+      "sourceIds": [
+        "297478441978"
+      ],
+      "text": "Un manual vendido solo no es juego + manual. Distinguir las piezas efectivamente vendidas de las mencionadas por un titulo o impresas en la caja."
+    },
+    {
+      "id": "independent-photos",
+      "sourceIds": [
+        "326091056529"
+      ],
+      "text": "Priorizar imagenes distintas y legibles. Miniatura y ampliacion de la misma foto no acreditan frontal y trasera; no inventar PEGI ni componentes invisibles."
+    }
+  ],
+  "gameReferences": [
+    {
+      "id": "gameboy-listing-137429610296",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-it-tetris",
+        "gameboy-tetris",
+        "gameboy-es-tetris"
+      ],
+      "sourceIds": [
+        "137429610296"
+      ],
+      "text": "Tetris (GiG Italy): Italian localized packaging is positive evidence. The worker already detected Italy but left a conflict against the Spanish target; no Italian Game Boy catalog entries exist at the pinned snapshot. Do not adopt the worker's alleged PEGI or DMG-TR-ITA-3: neither was independently read in this review. Do not copy the Spanish price to a new Italian entry.",
+      "distributionVariants": [
+        {
+          "id": "specimen-137429610296",
+          "associationStatus": "observed_regional_specimen",
+          "marketRegion": "PAL Italia",
+          "period": null,
+          "distributor": "GiG",
+          "recognitionDistributors": [
+            "GiG"
+          ],
+          "manualLanguageForRecognition": "it",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "it"
+              ],
+              "productCodes": [],
+              "observedMarkers": [
+                "GiG"
+              ],
+              "description": "Italian text and GiG branding on the packaging."
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "it"
+              ],
+              "productCodes": [],
+              "observedMarkers": [],
+              "description": "MANUALE DI ISTRUZIONI; cartridge, box and manual visible together."
+            }
+          ],
+          "sourceIds": [
+            "137429610296"
+          ],
+          "limitation": "Observed together in this listing; not a factory-pairing certificate or universal inventory."
+        }
+      ]
+    },
+    {
+      "id": "gameboy-listing-267386966583",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-pinball-revenge-gator",
+        "gameboy-es-pinball-revenge-of-the-gator"
+      ],
+      "sourceIds": [
+        "267386966583"
+      ],
+      "text": "Pinball: Revenge of the Gator: NOE component identified; loose, not game_manual. No Spanish distribution evidence is shown. Do not turn NOE into a universal exclusion of Spanish distribution. This loose component does not establish the packaging market of a complete edition.",
+      "distributionVariants": []
+    },
+    {
+      "id": "gameboy-listing-335866722818",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-skate-or-die-bad-n-rad",
+        "gameboy-es-skate-or-die-bad-n-rad"
+      ],
+      "sourceIds": [
+        "335866722818"
+      ],
+      "text": "Skate or Die: Bad 'N Rad: The listing is game plus manual, not complete. Different component codes must remain separately recorded instead of flattening the set to France. Mixed component codes are not, by themselves, proof of an illegitimate set or a new French edition.",
+      "distributionVariants": []
+    },
+    {
+      "id": "gameboy-listing-800612078639",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-es-super-mario-land-2",
+        "gameboy-es-super-mario-land"
+      ],
+      "sourceIds": [
+        "800612078639"
+      ],
+      "text": "Super Mario Land 2: Recover Spanish entry for Super Mario Land 2. The batch searched Super Mario Land 1, read the code incorrectly and asserted a manual not present. Do not attach this listing to Super Mario Land 1 or infer gameplay Spanish from the cartridge label.",
+      "distributionVariants": [
+        {
+          "id": "specimen-800612078639",
+          "associationStatus": "observed_regional_specimen",
+          "marketRegion": "PAL España",
+          "period": null,
+          "distributor": null,
+          "recognitionDistributors": [],
+          "components": [
+            {
+              "role": "cartridge",
+              "printedLanguages": [
+                "es"
+              ],
+              "productCodes": [
+                "DMG-MQ-ESP-1"
+              ],
+              "observedMarkers": [
+                "Super Mario Land 2"
+              ],
+              "description": "ESTE LADO HACIA ARRIBA. Only a cartridge is shown."
+            }
+          ],
+          "sourceIds": [
+            "800612078639"
+          ],
+          "limitation": "Observed together in this listing; not a factory-pairing certificate or universal inventory."
+        }
+      ]
+    },
+    {
+      "id": "gameboy-listing-267775480937",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-pal-super-mario-land-3-wario-land",
+        "gameboy-es-wario-land-super-mario-land-3"
+      ],
+      "sourceIds": [
+        "267775480937"
+      ],
+      "text": "Wario Land: Super Mario Land 3: European ficha exists under Super Mario Land 3: Wario Land. The missing-variant decision is a matching failure, not evidence that a new entry is needed. The photographed EUR cartridge does not distinguish Spain from other European distribution. The worker's PEGI and Spanish-language observations were not visible.",
+      "distributionVariants": [
+        {
+          "id": "specimen-267775480937",
+          "associationStatus": "observed_regional_specimen",
+          "marketRegion": "PAL Europa",
+          "period": null,
+          "distributor": null,
+          "recognitionDistributors": [],
+          "components": [
+            {
+              "role": "cartridge",
+              "printedLanguages": [
+                "en",
+                "fr",
+                "de"
+              ],
+              "productCodes": [
+                "DMG-WJ-EUR"
+              ],
+              "observedMarkers": [],
+              "description": "Multilingual orientation text on the label; upper label damaged. No manual shown."
+            }
+          ],
+          "sourceIds": [
+            "267775480937"
+          ],
+          "limitation": "Observed together in this listing; not a factory-pairing certificate or universal inventory."
+        }
+      ]
+    },
+    {
+      "id": "gameboy-listing-326091056529",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-pal-mickeys-dangerous-chase",
+        "gameboy-es-mickey-s-dangerous-chase"
+      ],
+      "sourceIds": [
+        "326091056529"
+      ],
+      "text": "Mickey's Dangerous Chase: UKV cartridge and English-oriented set, not substantiation for the worker's Spain conclusion. Strong UK-edition candidate; a box-flap code was not verified. Photo 10 failed to display and was not reviewed. Do not invent a box code, PEGI or a Spanish back cover.",
+      "distributionVariants": []
+    },
+    {
+      "id": "gameboy-listing-305715721792",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-pal-tetris-attack",
+        "gameboy-es-tetris-attack"
+      ],
+      "sourceIds": [
+        "305715721792"
+      ],
+      "text": "Tetris Attack: Recover as a loose EUR cartridge, without assigning a Spanish-exclusive distribution from the listing title. An EUR cartridge can have been distributed in Spain; this photograph alone does not demonstrate that national edition.",
+      "distributionVariants": [
+        {
+          "id": "specimen-305715721792",
+          "associationStatus": "observed_regional_specimen",
+          "marketRegion": "PAL Europa",
+          "period": null,
+          "distributor": null,
+          "recognitionDistributors": [],
+          "components": [
+            {
+              "role": "cartridge",
+              "printedLanguages": [
+                "en",
+                "fr",
+                "de"
+              ],
+              "productCodes": [
+                "DMG-AYLP-EUR"
+              ],
+              "observedMarkers": [],
+              "description": "Multilingual orientation label; cartridge and protective case, no localized outer packaging in the two reviewed photos."
+            }
+          ],
+          "sourceIds": [
+            "305715721792"
+          ],
+          "limitation": "Observed together in this listing; not a factory-pairing certificate or universal inventory."
+        }
+      ]
+    },
+    {
+      "id": "gameboy-listing-800395252020",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-pal-street-fighter-ii"
+      ],
+      "sourceIds": [
+        "800395252020"
+      ],
+      "text": "Street Fighter II: European multilingual packaging recognized. State can progress from unknown to box plus game; a complete-set price classification still lacks observed manual evidence. The printed reference to a Dutch/French manual is not proof that a manual is included in this sale. No exclusive France or Spain edition inferred.",
+      "distributionVariants": []
+    },
+    {
+      "id": "gameboy-listing-407058967122",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-uk-super-hunchback",
+        "gameboy-pal-super-hunchback"
+      ],
+      "sourceIds": [
+        "407058967122"
+      ],
+      "text": "Super Hunchback: UKV cartridge and manual agree and identify a UK regional version absent from the pinned Game Boy catalog. Do not invent a box-flap code or migrate the existing Spanish/European records. Photo 11 was not inspected.",
+      "distributionVariants": [
+        {
+          "id": "specimen-407058967122",
+          "associationStatus": "observed_regional_specimen",
+          "marketRegion": "PAL UK/ENG",
+          "period": null,
+          "distributor": null,
+          "recognitionDistributors": [],
+          "components": [
+            {
+              "role": "cartridge",
+              "printedLanguages": [
+                "en"
+              ],
+              "productCodes": [
+                "DMG-HU-UKV"
+              ],
+              "observedMarkers": [],
+              "description": "UKV label on the cartridge."
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "en"
+              ],
+              "productCodes": [
+                "DMG-HU-UKV"
+              ],
+              "observedMarkers": [],
+              "description": "Matching UKV instruction booklet; box and tray visible in the set."
+            }
+          ],
+          "sourceIds": [
+            "407058967122"
+          ],
+          "limitation": "Observed together in this listing; not a factory-pairing certificate or universal inventory."
+        }
+      ]
+    },
+    {
+      "id": "gameboy-listing-146943102104",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-de-snoopys-magic-show",
+        "gameboy-snoopys-magic-show",
+        "gameboy-es-snoopy-s-magic-show"
+      ],
+      "sourceIds": [
+        "146943102104"
+      ],
+      "text": "Snoopy's Magic Show: German localized packaging with explicit distributor evidence, not merely a German seller. This regional entry is absent. The printed German packaging does not prove German gameplay text.",
+      "distributionVariants": [
+        {
+          "id": "specimen-146943102104",
+          "associationStatus": "observed_regional_specimen",
+          "marketRegion": "PAL Alemania",
+          "period": null,
+          "distributor": null,
+          "recognitionDistributors": [],
+          "components": [
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "de"
+              ],
+              "productCodes": [
+                "DMG-SN-NOE"
+              ],
+              "observedMarkers": [
+                "Mitsui & Co. Deutschland GmbH",
+                "Hamburg"
+              ],
+              "description": "German distribution information on the rear of the booklet."
+            },
+            {
+              "role": "box",
+              "printedLanguages": [
+                "de"
+              ],
+              "productCodes": [
+                "DMG-SN-NOE"
+              ],
+              "observedMarkers": [],
+              "description": "German back cover and NOE box flap; full core set shown."
+            }
+          ],
+          "sourceIds": [
+            "146943102104"
+          ],
+          "limitation": "Observed together in this listing; not a factory-pairing certificate or universal inventory."
+        }
+      ]
+    },
+    {
+      "id": "gameboy-listing-800220276200",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-legend-zelda-links-awakening",
+        "gameboy-es-zelda-link-s-awakening"
+      ],
+      "sourceIds": [
+        "800220276200"
+      ],
+      "text": "The Legend of Zelda: Link's Awakening (original Game Boy): Existing European ficha found under an alternative title. Recover the loose listing there, without creating a duplicate. Do not associate this with DX, Game Boy Color or the Switch remake.",
+      "distributionVariants": [
+        {
+          "id": "specimen-800220276200",
+          "associationStatus": "observed_regional_specimen",
+          "marketRegion": "PAL Europa",
+          "period": null,
+          "distributor": null,
+          "recognitionDistributors": [],
+          "components": [
+            {
+              "role": "cartridge",
+              "printedLanguages": [
+                "en",
+                "fr",
+                "de"
+              ],
+              "productCodes": [
+                "DMG-ZL-EUR"
+              ],
+              "observedMarkers": [],
+              "description": "Original Game Boy cartridge and protective case, with multilingual label orientation."
+            }
+          ],
+          "sourceIds": [
+            "800220276200"
+          ],
+          "limitation": "Observed together in this listing; not a factory-pairing certificate or universal inventory."
+        }
+      ]
+    },
+    {
+      "id": "gameboy-listing-127861119657",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-usa-quarth",
+        "gameboy-es-quarth"
+      ],
+      "sourceIds": [
+        "127861119657"
+      ],
+      "text": "Quarth: Recognizable USA loose cartridge with an existing USA entry. Not eligible to price the Spanish or European ficha. Recovering the correct region does not authorize changing the worker's daily search scope or starting a USA campaign.",
+      "distributionVariants": [
+        {
+          "id": "specimen-127861119657",
+          "associationStatus": "observed_regional_specimen",
+          "marketRegion": "USA",
+          "period": null,
+          "distributor": null,
+          "recognitionDistributors": [],
+          "components": [
+            {
+              "role": "cartridge",
+              "printedLanguages": [
+                "en"
+              ],
+              "productCodes": [
+                "DMG-QR-USA"
+              ],
+              "observedMarkers": [
+                "ULTRA"
+              ],
+              "description": "USA product code on the cartridge, despite PAL in the listing title."
+            }
+          ],
+          "sourceIds": [
+            "127861119657"
+          ],
+          "limitation": "Observed together in this listing; not a factory-pairing certificate or universal inventory."
+        }
+      ]
+    },
+    {
+      "id": "gameboy-listing-143915168489",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-monster-max"
+      ],
+      "sourceIds": [
+        "143915168489"
+      ],
+      "text": "Monster Max fridge magnet: Exclude the merchandise listing, not a regional edition to discover. Printed game artwork on merchandise is not evidence for a physical game listing or for its regional packaging.",
+      "distributionVariants": []
+    },
+    {
+      "id": "gameboy-listing-275605922422",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-es-waterworld"
+      ],
+      "sourceIds": [
+        "275605922422"
+      ],
+      "text": "Waterworld VHS: Exclude a different product category rather than leaving its game condition unresolved. Spanish film packaging says nothing about the Spanish Game Boy release of the same name.",
+      "distributionVariants": []
+    },
+    {
+      "id": "gameboy-listing-267343476891",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-es-pokemon-blue"
+      ],
+      "sourceIds": [
+        "267343476891"
+      ],
+      "text": "Pokemon Blue (loose cartridge listing): The batch lists this as game_manual. It is loose. The unusual mixed label and listing presentation warrant an originality check before treating it as verified original pricing. Not proven counterfeit by this audit. No PCB or gameplay was inspected. Seller's Spanish-language claim remains attributed, not a verified ROM fact. Presence in ingest.listings is not proof of publication.",
+      "distributionVariants": []
+    },
+    {
+      "id": "gameboy-listing-297478441978",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "gameboy-es-super-mario-land-2"
+      ],
+      "sourceIds": [
+        "297478441978"
+      ],
+      "text": "Super Mario Land 2 manual only: The batch includes this as Spanish game_manual. Exclude from game-plus-manual pricing: the game itself is not included. FAH manual is neither evidence of a Spanish whole edition nor a reason to update the price of an entire game. Presence in ingest.listings is not proof of publication.",
+      "distributionVariants": []
+    }
+  ]
+}

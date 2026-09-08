@@ -101,6 +101,9 @@ const nextConfig: NextConfig = {
       "data/covers-report.json",
       "data/covers-upload-one.txt",
       "data/logs/**",
+      // Raw worker journals and the offline replay report are not runtime inputs.
+      "data/ebay-regional-campaigns/ai-usage/**",
+      "data/research/gameboy-reviewed-batch-report.json",
       "data/research/company-credit-ps4-pal-high-additions-report.*",
       "data/research/company-credit-ps4-pal-compilations-*",
       "data/research/ps4-pal-compilations-source.json",

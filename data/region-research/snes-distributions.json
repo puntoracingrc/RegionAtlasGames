@@ -1,0 +1,1789 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "snes",
+  "reviewedAt": "2026-09-08",
+  "batch": "snes-component-distributions-w-z-v1",
+  "mode": "inspection_guidance_not_acceptance",
+  "model": "One game can have multiple independent distribution/tirage combinations, including multiple combinations in the same market. Unknown date or component stays null.",
+  "sources": {
+    "user-w-z": {
+      "url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176",
+      "kind": "user_supplied_community_guide_extract",
+      "attribution": "MikeHaggar; SpineCard guide",
+      "suppliedFileSha256": "99d3fd167cdcd4ce226b9666b301d37fb0e8413fead9ac284ed41f613d0babcb",
+      "scope": "User-pasted W-Z section; source claims paraphrased, no images copied"
+    },
+    "rom-post-276": {
+      "url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/276?page=17",
+      "kind": "community_rom_language_list",
+      "attribution": "Apelmor, 2021-12-31",
+      "use": "language_research_candidates_not_physical_distribution"
+    },
+    "kirby-post-95": {
+      "url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/95?page=5",
+      "kind": "unanswered_question",
+      "attribution": "Xbetax, 2018-08-28",
+      "use": "question_not_verified_pairing"
+    }
+  },
+  "inspectionRules": [
+    {
+      "id": "independent-distribution-combinations",
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Un juego puede tener varias combinaciones de distribuidor, caja, cartucho, manual original, traduccion adjunta y pegatinas. Comparar alternativas completas, no juntar rasgos de tiradas distintas. Diferentes paises impresos no bastan para declarar un conjunto mezclado."
+    },
+    {
+      "id": "positive-recognition-not-restrictions",
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Una pegatina legible de distribucion local puede resolver un caso antes desconocido aunque el codigo base sea UKV, FAH o EUR. No exigir ESP en todas las piezas ni convertir la ausencia de datos en descarte."
+    },
+    {
+      "id": "rom-list-not-market-proof",
+      "sourceIds": [
+        "rom-post-276"
+      ],
+      "text": "El post 276 enumera idiomas de software e incluye regiones no europeas y prototipos. Sirve para investigar idioma jugable, no para acreditar caja, manual, distribucion espanola o lanzamiento comercial de un anuncio."
+    }
+  ],
+  "gameReferences": [
+    {
+      "id": "snes-distribution-warios-woods",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-warios-woods"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Wario's Woods: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "warios-woods-1",
+          "marketRegion": null,
+          "associationStatus": "spanish_distribution_unresolved",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "GPS",
+          "components": [],
+          "stickers": [],
+          "distributor": null,
+          "notes": "La fuente no documenta la distribucion espanola; no es una prueba de inexistencia ni una regla de descarte."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-warlock",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-warlock-beware-ultimate-evil",
+        "snes-pal-warlock-beware-ultimate-evil",
+        "snes-pal-eu-warlock"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Warlock (Beware the Ultimate Evil of): comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "warlock-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-warpspeed",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-warpspeed"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "WarpSpeed: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "warpspeed-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-waterworld",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-waterworld"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Waterworld: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "waterworld-1",
+          "marketRegion": "PAL Italia",
+          "associationStatus": "spanish_distribution_unresolved",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ITA",
+          "components": [],
+          "stickers": [],
+          "distributor": null,
+          "notes": "La fuente no documenta la distribucion espanola; no es una prueba de inexistencia ni una regla de descarte."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-waynes-world",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-waynes-world"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Wayne's World: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "waynes-world-1",
+          "marketRegion": "PAL UK/ENG",
+          "associationStatus": "spanish_distribution_unresolved",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [],
+          "stickers": [],
+          "distributor": null,
+          "notes": "La fuente no documenta la distribucion espanola; no es una prueba de inexistencia ni una regla de descarte."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-were-back",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-were-back-dinosaurs-story",
+        "snes-pal-eu-we-re-back-a-dinosaur-story"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "We're Back!: A Dinosaur's Story: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "were-back-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": null
+            },
+            {
+              "role": "warning_leaflet",
+              "localization": "Spaco Spanish adaptation"
+            }
+          ],
+          "stickers": [
+            {
+              "position": "front",
+              "purpose": "Spanish instructions notice"
+            },
+            {
+              "position": "back",
+              "purpose": "distribution mark"
+            }
+          ],
+          "distributor": "Spaco",
+          "recognitionDistributors": [
+            "Spaco"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-weaponlord",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-weaponlord"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Weaponlord: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "weaponlord-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": "monochrome, satin paper"
+            },
+            {
+              "role": "registration_card",
+              "issuer": "Arcadia"
+            }
+          ],
+          "stickers": [
+            {
+              "position": "back",
+              "purpose": "Spanish translation of synopsis"
+            }
+          ],
+          "distributor": "Arcadia",
+          "recognitionDistributors": [
+            "Arcadia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-carmen-sandiego",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-where-world-carmen-sandiego"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Where in the World is Carmen Sandiego?: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "carmen-sandiego-1",
+          "marketRegion": null,
+          "associationStatus": "spanish_distribution_unresolved",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "NOE",
+          "components": [],
+          "stickers": [],
+          "distributor": null,
+          "notes": "La fuente no documenta la distribucion espanola; no es una prueba de inexistencia ni una regla de descarte."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-whirlo",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-whirlo"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Whirlo: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "whirlo-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-whizz",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-whizz"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Whizz: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "whizz-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wild-guns",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-wild-guns"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Wild Guns: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wild-guns-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [
+            {
+              "position": "front",
+              "color": "red",
+              "purpose": "Spanish instructions notice"
+            }
+          ],
+          "distributor": "Spaco",
+          "recognitionDistributors": [
+            "Spaco"
+          ],
+          "exceptions": [
+            "Guide says no separate Spanish supplement despite the front notice",
+            "Guide says no rear blue sticker"
+          ],
+          "notes": "No convertir la ausencia descrita en obligacion negativa para otras tiradas. No aplicar a Strictly Limited."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wing-commander",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-eu-wing-commander"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Wing Commander: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wing-commander-1",
+          "marketRegion": "PAL UK/ENG",
+          "associationStatus": "spanish_distribution_unresolved",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [],
+          "stickers": [],
+          "distributor": null,
+          "notes": "La fuente no documenta la distribucion espanola; no es una prueba de inexistencia ni una regla de descarte."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wing-commander-secret",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-wing-commander-secret-missions",
+        "snes-pal-wing-commander-secret-missions"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Wing Commander Secret Missions: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wing-commander-secret-1",
+          "marketRegion": "PAL UK/ENG",
+          "associationStatus": "spanish_distribution_unresolved",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [
+            {
+              "role": "poster",
+              "title": "game poster"
+            }
+          ],
+          "stickers": [],
+          "distributor": null,
+          "notes": "La fuente no documenta la distribucion espanola; no es una prueba de inexistencia ni una regla de descarte."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-winter-gold",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-winter-gold"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Winter Gold: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "winter-gold-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-winter-olympics",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-winter-olympic-games-lillehammer-94",
+        "snes-winter-olympics-lillehammer-%2794",
+        "snes-pal-eu-winter-olympics-lillehammer-94"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Winter Olympic Games: Lillehammer '94: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "winter-olympics-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "commemorative_card",
+              "event": "1994 Winter Olympics",
+              "size": "small"
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wolfenstein",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-wolfenstein-3-d",
+        "snes-pal-eu-wolfenstein-3d"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Wolfenstein 3-D: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wolfenstein-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "FAH",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": null
+            },
+            {
+              "role": "warning_leaflet",
+              "localization": "Spaco Spanish adaptation"
+            }
+          ],
+          "stickers": [
+            {
+              "position": "front",
+              "purpose": "Spanish instructions notice"
+            },
+            {
+              "position": "back",
+              "purpose": "distribution mark"
+            }
+          ],
+          "distributor": "Spaco",
+          "recognitionDistributors": [
+            "Spaco"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wolverine",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-wolverine-adamantium-rage"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Wolverine: Adamantium Rage: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wolverine-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-world-class-rugby",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-world-class-rugby"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "World Class Rugby: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "world-class-rugby-1",
+          "marketRegion": "PAL UK/ENG",
+          "associationStatus": "spanish_distribution_unresolved",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [],
+          "stickers": [],
+          "distributor": null,
+          "notes": "La fuente no documenta la distribucion espanola; no es una prueba de inexistencia ni una regla de descarte."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-world-cup-striker",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-world-cup-striker",
+        "snes-pal-world-cup-striker"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "World Cup Striker: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "world-cup-striker-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": "low-quality supplementary print described by guide; exact format unconfirmed"
+            }
+          ],
+          "stickers": [],
+          "distributor": "Shine Star",
+          "recognitionDistributors": [
+            "Shine Star"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-world-cup-usa94",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-world-cup-usa-94"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "World Cup USA 94: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "world-cup-usa94-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "poster",
+              "subject": "World Cup 1994 tournament bracket"
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-world-heroes",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-world-heroes"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "World Heroes: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "world-heroes-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "FAH",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": "low-quality supplementary print described by guide; exact format unconfirmed"
+            }
+          ],
+          "stickers": [],
+          "distributor": "Shine Star",
+          "recognitionDistributors": [
+            "Shine Star"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-world-league-basketball",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-world-league-basketball"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "World League Basketball: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "world-league-basketball-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-world-masters-golf",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-world-masters-golf"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "World Masters Golf: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "world-masters-golf-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-worms",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-worms"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Worms: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "worms-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": "A4"
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wwf-raw",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-wwf-raw"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "WWF Raw: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wwf-raw-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wwf-royal-rumble",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-wwf-royal-rumble"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "WWF Royal Rumble: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wwf-royal-rumble-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wwf-super-wrestlemania",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-wwf-super-wrestlemania"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "WWF Super WrestleMania: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wwf-super-wrestlemania-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-wwf-arcade",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-wwf-wrestlemania-arcade-game"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "WWF WrestleMania: The Arcade Game: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "wwf-arcade-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-x-kaliber",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-x-kaliber-2097"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "X-Kaliber 2097: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "x-kaliber-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-x-men",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-x-men-mutant-apocalypse"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "X-Men: Mutant Apocalypse: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "x-men-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": "monochrome, satin paper"
+            },
+            {
+              "role": "registration_card",
+              "issuer": "Arcadia"
+            }
+          ],
+          "stickers": [
+            {
+              "position": "back",
+              "purpose": "Spanish translation of synopsis"
+            },
+            {
+              "position": "front",
+              "purpose": "Arcadia mark"
+            }
+          ],
+          "distributor": "Arcadia",
+          "recognitionDistributors": [
+            "Arcadia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-x-zone",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-x-zone"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "X-Zone: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "x-zone-1",
+          "marketRegion": "Escandinavia",
+          "associationStatus": "spanish_distribution_unresolved",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "SCN",
+          "components": [],
+          "stickers": [],
+          "distributor": null,
+          "notes": "La guia afirma distribucion sueca y ausencia en Espana; conservar como afirmacion comunitaria revisable, no veto automatico."
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-yogi-bear",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-yogi-bears-cartoon-capers",
+        "snes-pal-eu-yogi-bear-s-cartoon-caper"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Yogi Bear's Cartoon Capers: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "yogi-bear-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-yoshi-cookie",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-eu-yoshi-s-cookie"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Yoshi's Cookie: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "yoshi-cookie-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": "monochrome, satin paper"
+            }
+          ],
+          "stickers": [
+            {
+              "position": "back",
+              "purpose": "Spanish translation of synopsis"
+            }
+          ],
+          "distributor": "Arcadia",
+          "recognitionDistributors": [
+            "Arcadia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-yoshi-safari",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-yoshi%27s-safari"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Yoshi's Safari: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "yoshi-safari-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-young-merlin",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-young-merlin"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Young Merlin: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "young-merlin-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "ESP",
+          "components": [
+            {
+              "role": "box",
+              "printedLanguages": [
+                "es"
+              ]
+            },
+            {
+              "role": "manual",
+              "printedLanguages": [
+                "es"
+              ]
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-zero",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-zero-the-kamikaze-squirrel"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Zero the Kamikaze Squirrel: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "zero-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "FAH",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": null
+            },
+            {
+              "role": "warning_leaflet",
+              "localization": "Spaco Spanish adaptation"
+            }
+          ],
+          "stickers": [
+            {
+              "position": "front",
+              "purpose": "Spanish instructions notice"
+            },
+            {
+              "position": "back",
+              "purpose": "distribution mark"
+            }
+          ],
+          "distributor": "Spaco",
+          "recognitionDistributors": [
+            "Spaco"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-zombies",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-zombies"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Zombies: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "zombies-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "FAH",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": null
+            }
+          ],
+          "stickers": [],
+          "distributor": "Bandai",
+          "recognitionDistributors": [
+            "Bandai"
+          ],
+          "manualLanguageForRecognition": "es"
+        },
+        {
+          "id": "zombies-2",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "NOE",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": "A4"
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-zool",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-zool-ninja-nth-dimension",
+        "snes-pal-eu-zool"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Zool: Ninja of the Nth Dimension: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "zool-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "UKV",
+          "components": [
+            {
+              "role": "translated_supplement",
+              "printedLanguages": [
+                "es"
+              ],
+              "format": "A4"
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "snes-distribution-zoop",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-pal-zoop"
+      ],
+      "sourceIds": [
+        "user-w-z"
+      ],
+      "text": "Zoop: comparar cada combinacion documental por separado. Las piezas descritas son pistas positivas, no un inventario obligatorio universal; no extrapolar fechas, idioma de ROM ni autenticidad.",
+      "distributionVariants": [
+        {
+          "id": "zoop-1",
+          "marketRegion": "PAL España",
+          "associationStatus": "community_documented_distribution",
+          "confidence": "community_source_not_factory_certificate",
+          "sourceIds": [
+            "user-w-z"
+          ],
+          "period": null,
+          "editionCodeSuffix": "EUR",
+          "components": [
+            {
+              "role": "box",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "manual",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "cartridge",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            },
+            {
+              "role": "warning_leaflet",
+              "codeSuffixes": [
+                "EUR"
+              ],
+              "printedLanguages": null
+            }
+          ],
+          "stickers": [],
+          "distributor": null
+        }
+      ]
+    },
+    {
+      "id": "kirby-question-not-proof",
+      "status": "reviewed_guidance",
+      "catalogIds": [
+        "snes-kirby%27s-fun-pak"
+      ],
+      "sourceIds": [
+        "kirby-post-95"
+      ],
+      "text": "El post 95 pregunta que cartucho acompana a Kirby's Fun Pak espanol y menciona una etiqueta UKV rosa. Es una pregunta, no confirmacion de la combinacion correcta; no resolver el emparejamiento por el color solo.",
+      "distributionVariants": []
+    }
+  ]
+}

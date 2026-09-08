@@ -12,6 +12,7 @@ from collectors.reference_match import (
     reference_implies_region,
 )
 from collectors.region_inference import detect_listing_regions
+from collectors.reviewed_regional_examples import same_reviewed_regional_family
 
 
 @dataclass(frozen=True)
@@ -102,6 +103,8 @@ def same_regional_edition_family(origin: dict[str, Any], candidate: dict[str, An
         return False
     if _physical_variant_key(origin) != _physical_variant_key(candidate):
         return False
+    if same_reviewed_regional_family(origin.get("id"), candidate.get("id")):
+        return True
     origin_slug = _normalize(origin.get("slug"))
     candidate_slug = _normalize(candidate.get("slug"))
     if origin_slug and origin_slug == candidate_slug:

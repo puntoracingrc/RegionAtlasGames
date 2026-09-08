@@ -285,13 +285,13 @@ def browse_search(
                     image_url,
                     *[
                         image.get("imageUrl")
-                        for image in thumb
+                        for image in [*thumb, *(item.get("additionalImages") or [])]
                         if isinstance(image, dict)
                     ],
                 ]
                 if url
             )
-        )[:3]
+        )
         origin_country = (item.get("itemLocation") or {}).get("country")
         parsed.append(
             {

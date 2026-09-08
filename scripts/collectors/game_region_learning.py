@@ -9,6 +9,8 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import ROOT, load_json
+from collectors.reviewed_regional_examples import reviewed_examples
+from collectors.visual_image_urls import image_identity
 from collectors.collector_intelligence import (
     VISUAL_REJECT_REASONS,
     collector_game_learning,
@@ -123,6 +125,16 @@ def game_region_profile(catalog_id: str | None) -> dict[str, Any] | None:
     )
     if not rejected_examples:
         rejected_examples = _rejected_examples(clean_id)
+    reviewed_approved, reviewed_rejected = reviewed_examples(clean_id)
+    # Later operational decisions override a versioned reference for that photo.
+    rejected_urls = {image_identity(url) for item in rejected_examples for url in item.get("imageUrls", [])}
+    approved_urls = {image_identity(url) for item in examples for url in item.get("imageUrls", [])}
+    examples = [*examples, *(item for item in reviewed_approved
+                            if not rejected_urls.intersection(map(image_identity, item["imageUrls"]))
+                            and not approved_urls.intersection(map(image_identity, item["imageUrls"])))][:3]
+    rejected_examples = [*rejected_examples, *(item for item in reviewed_rejected
+                        if not approved_urls.intersection(map(image_identity, item["imageUrls"]))
+                        and not rejected_urls.intersection(map(image_identity, item["imageUrls"])))][:3]
     if not examples and not rejected_examples:
         return None
     profile = {

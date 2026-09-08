@@ -165,7 +165,7 @@ def _normalized_text(value: str) -> str:
 
 
 def infer_region_from_visual_observations(
-    value: Any,
+    value: Any, *, platform_slug: str | None = None, catalog_id: str | None = None,
 ) -> tuple[str | None, list[str]]:
     observations = normalize_visual_observations(value)
     ratings = {
@@ -195,6 +195,12 @@ def infer_region_from_visual_observations(
         return "USA", ["cover_usa", "photo_region_mark", "sku_regional"]
     if "CERO" in ratings or re.search(r"\b(?:SLPS|SCPS|ULJS|BLJM|BCJS|JPN)\b", codes):
         return "Japón", ["cover_japan", "photo_region_mark", "sku_regional"]
+    if platform_slug and catalog_id:
+        from collectors.region_research import observed_distribution_region
+        local_region = observed_distribution_region(platform_slug, catalog_id, observations)
+        if local_region:
+            cover = "cover_spain" if local_region == "PAL España" else "cover_pal_eu"
+            return local_region, [cover, "distributor_regional", "photo_region_mark"]
     if "USK" in ratings or re.search(r"(?:[-/(]|\b)(?:NOE|GER)(?:[-/)]|\b)", codes):
         return "PAL Alemania", ["cover_pal_eu", "photo_region_mark", "sku_regional"]
     if re.search(r"(?:[-/(]|\b)ESP(?:[-/)]|\b)", codes) or any(
@@ -207,6 +213,8 @@ def infer_region_from_visual_observations(
         return "PAL Italia", ["cover_pal_eu", "sku_regional"]
     if re.search(r"(?:[-/(]|\b)(?:UKV|UK)(?:[-/)]|\b)", codes):
         return "PAL UK/ENG", ["cover_pal_eu", "sku_regional"]
+    if re.search(r"\b(?:DMG|SNSP)-[A-Z0-9]+-EUR(?:-\d+)?\b", codes):
+        return "PAL Europa", ["cover_pal_eu", "sku_regional"]
 
     if "PEGI" in ratings:
         evidence.extend(["cover_pal_eu", "photo_region_mark"])
