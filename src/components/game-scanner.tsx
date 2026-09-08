@@ -3,9 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Camera, Download, ExternalLink, Eye, LoaderCircle, ScanLine, Trash2, X } from "lucide-react";
+import { Camera, Download, ExternalLink, Eye, FolderOpen, LoaderCircle, ScanLine, Trash2, X } from "lucide-react";
 import { SCANNER_COMPONENT_LABELS, SCANNER_MAX_HINT, SCANNER_MAX_PHOTOS, type ScannerResult } from "@/lib/game-scanner";
 import { prepareScannerPhoto } from "@/lib/scanner-photo-client";
+import { prefersNativeCamera } from "@/lib/scanner-camera-client";
+import { ScannerCamera } from "@/components/scanner-camera";
 import { SCANNER_DEFAULT_MODEL, SCANNER_MODELS, SCANNER_MODEL_PRICING_DATE, SCANNER_MODEL_PRICING_URL, scannerModel, type ScannerModelId } from "@/lib/scanner-models";
 
 type Photo = { file: File; url: string; id: string };
@@ -26,6 +28,12 @@ export function GameScanner({ platforms }: { platforms: Platform[] }) {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const photoRef = useRef<Photo[]>([]);
   const fileInput = useRef<HTMLInputElement>(null);
+  const cameraInput = useRef<HTMLInputElement>(null);
+  const preparingRef = useRef(false);
+  const mounted = useRef(true);
+  const dragDepth = useRef(0);
+  const [dragging, setDragging] = useState(false);
+  const [cameraOpen, setCameraOpen] = useState(false);
   const [platform, setPlatform] = useState("");
   const [hint, setHint] = useState("");
   const [model, setModel] = useState<ScannerModelId>(SCANNER_DEFAULT_MODEL);
@@ -51,13 +59,14 @@ export function GameScanner({ platforms }: { platforms: Platform[] }) {
     setAvailability(data);
   }
   useEffect(() => {
+    mounted.current = true;
     const controller = new AbortController();
     fetch("/api/scanner", { cache: "no-store", signal: controller.signal }).then(async (response) => {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "No se pudo consultar la disponibilidad.");
       setAvailability(data);
     }).catch((error) => { if (!controller.signal.aborted) setError(error.message); });
-    return () => { controller.abort(); for (const photo of photoRef.current) URL.revokeObjectURL(photo.url); };
+    return () => { mounted.current = false; controller.abort(); for (const photo of photoRef.current) URL.revokeObjectURL(photo.url); };
   }, []);
   useEffect(() => { if (selectedPhoto) dialog.current?.showModal(); }, [selectedPhoto]);
 
@@ -67,21 +76,36 @@ export function GameScanner({ platforms }: { platforms: Platform[] }) {
     clearAnalyses();
   }
   async function addPhotos(files: FileList | File[]) {
-    if (locked) return;
-    if (photos.length + files.length > SCANNER_MAX_PHOTOS) { setError("Puedes añadir hasta seis fotos."); return; }
+    const inputs = Array.from(files);
+    if (fileInput.current) fileInput.current.value = "";
+    if (cameraInput.current) cameraInput.current.value = "";
+    if (locked || preparingRef.current || !inputs.length) return false;
+    if (photoRef.current.length + inputs.length > SCANNER_MAX_PHOTOS) { setError("Puedes añadir hasta seis fotos."); return false; }
+    preparingRef.current = true;
     setPreparing(true);
     setError("");
     const added: Photo[] = [];
     try {
-      for (const file of Array.from(files)) {
+      for (const file of inputs) {
         const prepared = await prepareScannerPhoto(file);
+        if (!mounted.current) throw new Error("Vista cerrada");
         added.push({ file: prepared, url: URL.createObjectURL(prepared), id: crypto.randomUUID() });
       }
-      replacePhotos([...photos, ...added]);
+      replacePhotos([...photoRef.current, ...added]);
+      return true;
     } catch (error) {
       for (const photo of added) URL.revokeObjectURL(photo.url);
-      setError(error instanceof Error ? error.message : "No se pudieron preparar las fotos.");
-    } finally { setPreparing(false); if (fileInput.current) fileInput.current.value = ""; }
+      if (mounted.current) setError(error instanceof Error ? error.message : "No se pudieron preparar las fotos.");
+      return false;
+    } finally { preparingRef.current = false; if (mounted.current) setPreparing(false); }
+  }
+  function openCamera() {
+    if (prefersNativeCamera(navigator.userAgent, navigator.maxTouchPoints)) cameraInput.current?.click();
+    else setCameraOpen(true);
+  }
+  function emptyPhotos() {
+    for (const photo of photoRef.current) URL.revokeObjectURL(photo.url);
+    photoRef.current = []; setPhotos([]); setSelectedPhoto(null); setError("");
   }
   function removePhoto(id: string) {
     const photo = photos.find((photo) => photo.id === id);
@@ -120,10 +144,16 @@ export function GameScanner({ platforms }: { platforms: Platform[] }) {
 
   return <div className="space-y-8">
     <form onSubmit={scan} className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
-      <section aria-labelledby="scanner-photos" className="min-w-0" onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); void addPhotos(event.dataTransfer.files); }}>
+      <section aria-labelledby="scanner-photos" className={`min-w-0 rounded-md outline-2 outline-offset-4 transition-colors ${dragging ? "bg-accent/5 outline-accent" : "outline-transparent"}`}
+        onDragEnter={(event) => { event.preventDefault(); if (!locked && event.dataTransfer.types.includes("Files")) { dragDepth.current++; setDragging(true); } }}
+        onDragLeave={(event) => { event.preventDefault(); dragDepth.current = Math.max(0, dragDepth.current - 1); if (!dragDepth.current) setDragging(false); }}
+        onDragOver={(event) => { event.preventDefault(); event.dataTransfer.dropEffect = locked || photos.length === 6 ? "none" : "copy"; }}
+        onDrop={(event) => { event.preventDefault(); dragDepth.current = 0; setDragging(false); void addPhotos(event.dataTransfer.files); }}>
         <div className="mb-3 flex items-center justify-between gap-3">
           <h2 id="scanner-photos" className="text-lg font-semibold">Fotos del ejemplar</h2>
-          <span className="text-sm tabular-nums text-muted" aria-live="polite">{photos.length} / 6</span>
+          <div className="flex items-center gap-3"><span className="text-sm tabular-nums text-muted" aria-live="polite">{photos.length} / 6</span>
+            <button type="button" disabled={locked || !photos.length} onClick={emptyPhotos} aria-label="Vaciar fotos" title="Vaciar fotos" className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card hover:bg-card-hover disabled:opacity-40"><Trash2 className="h-4 w-4" /></button>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {Array.from({ length: 6 }, (_, index) => {
@@ -140,9 +170,13 @@ export function GameScanner({ platforms }: { platforms: Platform[] }) {
           })}
         </div>
         <input ref={fileInput} type="file" multiple accept="image/jpeg,image/png,image/webp" className="sr-only" aria-label="Añadir fotos del juego" disabled={locked || photos.length === 6} onChange={(event) => { if (event.target.files) void addPhotos(event.target.files); }} />
-        <button type="button" onClick={() => fileInput.current?.click()} disabled={locked || photos.length === 6} className={`${command} mt-3 w-full bg-card`}>
-          {preparing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Camera className="h-4 w-4" />}{preparing ? "Preparando fotos…" : "Añadir fotos"}
-        </button>
+        <input ref={cameraInput} type="file" accept="image/jpeg,image/png,image/webp" capture="environment" className="sr-only" aria-label="Tomar foto del juego" disabled={locked || photos.length === 6} onChange={(event) => { if (event.target.files) void addPhotos(event.target.files); }} />
+        <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <button type="button" onClick={() => fileInput.current?.click()} disabled={locked || photos.length === 6} className={`${command} bg-card`}>
+            {preparing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <FolderOpen className="h-4 w-4" />}{preparing ? "Preparando fotos…" : "Elegir archivos"}
+          </button>
+          <button type="button" onClick={openCamera} disabled={locked || photos.length === 6} className={`${command} bg-card`}><Camera className="h-4 w-4" />Usar cámara</button>
+        </div>
         <p className="mt-2 text-xs text-muted">JPG, PNG o WebP · hasta 12 MB por foto</p>
       </section>
 
@@ -178,6 +212,7 @@ export function GameScanner({ platforms }: { platforms: Platform[] }) {
         <p className="text-xs leading-relaxed text-muted">Las fotos se envían a OpenAI para el análisis. No se conservan en Region Atlas ni se publican. El resultado es una interpretación automática, no un certificado de autenticidad.</p>
       </div>
     </form>
+    {cameraOpen && <ScannerCamera onClose={() => setCameraOpen(false)} onAdd={(file) => addPhotos([file])} />}
     {error && <div role="alert" className="rounded-md border border-red-300 bg-red-50 p-4 text-sm text-red-900 dark:bg-red-950 dark:text-red-100">{error}</div>}
     {analyses.length > 1 && <section aria-labelledby="scanner-comparison" className="min-w-0 border-t border-border pt-6">
       <h2 id="scanner-comparison" className="text-xl font-semibold">Comparación de las mismas fotos</h2>

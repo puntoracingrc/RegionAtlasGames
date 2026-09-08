@@ -93,3 +93,21 @@ QA de escritorio 1440x1000, escritorio compacto 1024x900, tablet 768x1024 y movi
 Sol, Terra y Luna tienen contrato de peticion probado con doubles y capacidades oficiales verificadas, pero no se han lanzado analisis pagados con ellos en esta QA. No se presenta esa cobertura como una prueba real de vision de los cinco modelos.
 
 No se ha modificado el modelo de los workers existentes. No se ha fusionado ni publicado el escaner en Production.
+
+## Ampliacion de entrada de fotos y publicacion
+
+Actualizacion 2026-09-08 autorizada por el usuario antes de publicar:
+
+- Archivos locales, arrastre de archivos en escritorio y camara comparten la misma preparacion y el limite de seis fotos. Se bloquean entradas simultaneas mientras se preparan.
+- Movil: entrada nativa `capture=environment` para solicitar la camara trasera. El comportamiento final del selector depende del navegador y del dispositivo; sigue existiendo el selector de archivos separado.
+- Escritorio: webcam sin audio, vista sin espejo para no invertir textos, captura, revision, repetir y aceptar. Solo se solicita acceso tras pulsar Usar camara.
+- Las pistas se detienen al capturar, cerrar, cambiar de pestana o desmontar. Una concesion tardia de permisos tras cerrar tambien detiene su stream.
+- Vaciar fotos libera sus URLs y archivos en memoria del navegador, conservando el resultado ya obtenido. Las fotos no se guardan en localStorage ni se suben a ningun servidor hasta solicitar el analisis. No hay nuevo almacen temporal que limpiar en SFTP/CDN.
+- Se mantiene el limite vigente de 12 MiB de entrada por foto, 24 megapixeles y preparacion de hasta 1800 pixeles de lado mayor. No se prometen originales sin compresion ni borrado inmediato en el proveedor de IA por usar `store: false`.
+- La comparacion con otros modelos puede reutilizar las fotos hasta vaciarlas o salir de la pagina. Anadir nuevas fotos limpia los analisis anteriores; vaciar por privacidad conserva el resultado para leerlo o descargarlo.
+
+Rebase sin conflictos sobre `8d785a9305bfaa40a02c8159f07d62cb5a469af2`, avance del worker de eBay. `git range-diff` confirma que el commit inicial del escaner se reprodujo sin cambios funcionales. El blob del catalogo en esta nueva base es `98a7efa283a1a53d290d0305af3b4ebd5cf683cc`; sigue identico en la rama del escaner. Companias: `f1499edd5650d013ac3d9c9a3b1948b14262b4af`, tambien sin cambios. Se mantienen 73.107 fichas/IDs unicos y 4.481 companias.
+
+Pruebas de entrada: 35/35 en `test:scanner`, typecheck correcto y lint de los archivos nuevos sin advertencias. QA local automatizada con video sintetico: archivos, arrastre, captura, revision, repetir, aceptar, cancelacion tardia, denegacion de permisos, limite de seis y liberacion de URLs. Entrada de camara movil verificada mediante emulacion del navegador, no mediante hardware fisico. Escritorio 1440x1000 y movil 390x844 sin overflow, imagenes rotas ni errores de consola. Cero peticiones POST al escaner durante esta QA; sin gasto adicional de IA.
+
+Las investigaciones PS1/Wispa444 y PS2/shoot-em-ups siguen como informes y candidatos separados. No se han convertido en cambios de catalogo ni reglas aprobadas del engine en esta PR.
