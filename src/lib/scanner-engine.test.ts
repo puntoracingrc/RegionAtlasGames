@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { scanGamePhotos, ScannerError } from "./scanner-engine";
 import { SCANNER_MODELS, scannerModelsForAccess } from "./scanner-models";
+import { scannerDocumentaryKnowledge } from "./scanner-knowledge";
 
 const input = { userId: "test-user", platformSlug: "gameboy", hint: "PROPIETARIO_DICE_ESP", photoUrls: ["data:image/jpeg;base64,TEST"], allowedPlatforms: ["gameboy", "snes"] };
 const knowledge = async () => ({ sources: [], entries: [], knownVariantIds: [], examples: [], knowledge: { platformGuidance: false, exactGameMatches: 0, learningAvailable: false } });
@@ -36,6 +37,29 @@ test("quota errors stop immediately; no text-only fallback is performed", async 
     await assert.rejects(scanGamePhotos(input, { knowledge, journal: async () => {}, fetch: async () => { calls++; return Response.json({ error: { code: "insufficient_quota" } }, { status: 429 }); } }),
       (error: unknown) => error instanceof ScannerError && error.code === "balance_exhausted");
     assert.equal(calls, 1);
+  } finally { if (key === undefined) delete process.env.OPENAI_API_KEY; else process.env.OPENAI_API_KEY = key; }
+});
+
+test("PS2 packaging guidance reaches interpretation only; perception does not borrow specimen details", async () => {
+  const key = process.env.OPENAI_API_KEY; process.env.OPENAI_API_KEY = "test-key";
+  try {
+    const bodies: string[] = [];
+    await scanGamePhotos({ ...input, platformSlug: "ps2", allowedPlatforms: ["ps2"] }, {
+      knowledge: async () => ({ ...scannerDocumentaryKnowledge("ps2", ["ps2-kingdom-hearts-2"]),
+        examples: [], knowledge: { platformGuidance: true, exactGameMatches: 1, learningAvailable: false } }),
+      journal: async () => {},
+      fetch: async (_url, options) => {
+        bodies.push(String(options?.body));
+        return response(bodies.length === 1 ? { ...observation, title: "Kingdom Hearts 2", platformSlug: "ps2" } : {});
+      },
+    });
+    assert.equal(bodies.length, 2);
+    assert.ok(bodies[0].includes("carcasa de plastico"));
+    assert.ok(bodies[0].includes("solo si el interior se ve"));
+    assert.ok(!bodies[0].includes("BVG"));
+    assert.ok(bodies[1].includes("BVG"));
+    assert.ok(!bodies[1].includes("spinecard-com-s3"));
+    assert.ok(!bodies[1].includes("data:image"));
   } finally { if (key === undefined) delete process.env.OPENAI_API_KEY; else process.env.OPENAI_API_KEY = key; }
 });
 

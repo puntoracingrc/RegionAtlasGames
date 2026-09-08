@@ -15,6 +15,8 @@ Responde en espanol, JSON: {title:string|null,platformSlug:string|null,identityC
 observations:[{photo:number 1..6,component:"box"|"game"|"manual"|"supplement"|"sticker"|"seal"|"other",
 description:string,texts:string[],codes:string[],languages:string[],distributors:string[]}],uncertainties:string[]}.
 Una misma foto puede mostrar varias piezas: devuelve una observacion independiente por pieza.
+En cajas distingue carcasa de plastico y caratula impresa en description: color visible, logos, soporte de discos y alojamiento de tarjeta solo si el interior se ve.
+En papel/disco transcribe marcas comerciales, banda de edicion y codigos legibles por separado. No deduzcas color real con luz ambigua ni piezas ausentes desde una caja cerrada.
 No copies el codigo del manual al cartucho. No conviertas idioma impreso en idioma de ROM.
 Asigna idiomas solo a frases que hayas transcrito: INSTRUCTION BOOKLET es ingles; MODE D'EMPLOI es frances, no espanol. Los titulos y marcas no demuestran un idioma.
 No supongas contenido de una caja cerrada, ni precinto de fabrica. No inventes PEGI en juegos anteriores a PEGI.
