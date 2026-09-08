@@ -34,6 +34,10 @@ Se conserva la logica existente de estimaciones orientativas: no se inventa un
 tamano de muestra suficiente ni se copian importes/IDs de PriceCharting desde
 otra region. Se conservan los restantes estados de precio existentes.
 
+Italia se incorpora a la presentacion publica, bandera y filtro. Antes de este
+lote no habia fichas PAL Italia; su canonical nuevo usa `pal-it` y no cambia
+ninguna URL anterior.
+
 Las tres nuevas fichas usan fotografias del ejemplar revisado como imagen
 provisional, sin alterar sus piezas. Las URL de origen y de todas las fotos
 examinadas se conservan en `data/region-research/gameboy-reviewed-listings.json`.

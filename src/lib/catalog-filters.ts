@@ -356,6 +356,7 @@ const PUBLIC_REGION_LABELS = [
   "Australia",
   "PAL UK",
   "PAL Alemania",
+  "PAL Italia",
 ];
 
 export function publicRegionFilterOptions(): CatalogRegionFilterOption[] {
