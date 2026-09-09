@@ -26090,6 +26090,116 @@
         "sealed": 15.86,
         "newRetail": null
       }
+    ],
+    "wii-acb-total-2010-2011": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 16.4,
+        "newRetail": null
+      }
+    ],
+    "wii-all-star-cheerleader": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.97,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "wii-animal-crossing-let%27s-go-to-the-city": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "wii-battalion-wars-2": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.47,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "wii-bleach-shattered-blade": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 37.45,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "wii-boogie-superstar": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "wii-boom-blox": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 46.25,
+        "newRetail": null
+      }
+    ],
+    "wii-cabela%27s-big-game-hunter": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.9,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "wii-carnival-games-mini-golf": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.65,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "wii-cursed-mountain": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 109.93,
+        "newRetail": null
+      }
+    ],
+    "wii-dance-on-broadway": [
+      {
+        "at": "2026-09-09T11:34:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.97,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }

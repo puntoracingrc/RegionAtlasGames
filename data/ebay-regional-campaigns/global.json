@@ -9,8 +9,8 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 51,
-    "dailySearchesRemaining": 949,
+    "dailySearchesUsed": 301,
+    "dailySearchesRemaining": 699,
     "regions": [
       "PAL España",
       "PAL Europa"
@@ -20,38 +20,38 @@
   "currentPlatform": "wii",
   "currentPlatformName": "Nintendo Wii",
   "currentRegion": "PAL España",
-  "updatedAt": "2026-09-09T05:04:44Z",
+  "updatedAt": "2026-09-09T12:24:29Z",
   "lastRun": {
-    "at": "2026-09-09T05:04:44Z",
-    "platformSlug": "gamecube",
-    "platformName": "Nintendo GameCube",
+    "at": "2026-09-09T12:24:29Z",
+    "platformSlug": "wii",
+    "platformName": "Nintendo Wii",
     "region": "PAL España",
-    "selected": 51,
-    "processed": 51,
-    "matched": 11,
-    "listingsAdded": 27,
+    "selected": 250,
+    "processed": 250,
+    "matched": 66,
+    "listingsAdded": 115,
     "regionalReroutes": 0,
-    "regionalReviews": 101,
-    "apiSearches": 51,
+    "regionalReviews": 388,
+    "apiSearches": 250,
     "searchBudget": 250,
-    "searchBudgetExhausted": false,
+    "searchBudgetExhausted": true,
     "failed": 0,
     "systemicError": null,
     "aiUsage": {
-      "batchId": "3196fdcc199e46c5a0604936e243d11d",
-      "responses": 196,
+      "batchId": "c7b044b4dc4b4fe4ad4cedc6167d7264",
+      "responses": 846,
       "responsesMissingUsage": 0,
-      "inputTokens": 6714287,
-      "cachedInputTokens": 238848,
-      "outputTokens": 74996,
-      "totalTokens": 6789283,
+      "inputTokens": 27139953,
+      "cachedInputTokens": 757376,
+      "outputTokens": 297766,
+      "totalTokens": 27437719,
       "responsesMissingCacheUsage": 0,
       "byModel": {
         "gpt-4o-mini-2024-07-18": {
-          "inputTokens": 6714287,
-          "outputTokens": 74996,
-          "totalTokens": 6789283,
-          "cachedInputTokens": 238848
+          "inputTokens": 27139953,
+          "outputTokens": 297766,
+          "totalTokens": 27437719,
+          "cachedInputTokens": 757376
         }
       }
     },
@@ -59,17 +59,17 @@
   },
   "dailyUsage": {
     "date": "2026-09-09",
-    "apiSearches": 51
+    "apiSearches": 301
   },
   "totals": {
     "catalogGames": 25777,
-    "completed": 5958,
-    "matched": 1690,
-    "noMatch": 4268,
+    "completed": 6208,
+    "matched": 1756,
+    "noMatch": 4452,
     "deferred": 0,
-    "pending": 19819
+    "pending": 19569
   },
-  "estimatedRunsRemaining": 80,
+  "estimatedRunsRemaining": 79,
   "estimatedDaysRemaining": 20,
   "platforms": [
     {
@@ -307,16 +307,16 @@
     {
       "platformSlug": "wii",
       "platformName": "Nintendo Wii",
-      "status": "ready",
+      "status": "running",
       "currentRegion": "PAL España",
-      "updatedAt": null,
+      "updatedAt": "2026-09-09T12:24:29Z",
       "totals": {
         "catalogGames": 1294,
-        "completed": 0,
-        "matched": 0,
-        "noMatch": 0,
+        "completed": 250,
+        "matched": 66,
+        "noMatch": 184,
         "deferred": 0,
-        "pending": 1294
+        "pending": 1044
       },
       "regions": [
         {
@@ -326,11 +326,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 1294,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
+          "completed": 250,
+          "matched": 66,
+          "noMatch": 184,
           "deferred": 0,
-          "pending": 1294
+          "pending": 1044
         }
       ]
     },
@@ -1491,6 +1491,32 @@
             "outputTokens": 74996,
             "totalTokens": 6789283,
             "cachedInputTokens": 238848
+          }
+        }
+      },
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-09T12:24:29Z",
+      "level": "info",
+      "message": "Nintendo Wii · PAL España: 250/250 consultados, 66 con evidencias, 115 anuncios aceptados, 0 aprovechados en otra región, 388 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "wii",
+      "region": "PAL España",
+      "aiUsage": {
+        "batchId": "c7b044b4dc4b4fe4ad4cedc6167d7264",
+        "responses": 846,
+        "responsesMissingUsage": 0,
+        "inputTokens": 27139953,
+        "cachedInputTokens": 757376,
+        "outputTokens": 297766,
+        "totalTokens": 27437719,
+        "responsesMissingCacheUsage": 0,
+        "byModel": {
+          "gpt-4o-mini-2024-07-18": {
+            "inputTokens": 27139953,
+            "outputTokens": 297766,
+            "totalTokens": 27437719,
+            "cachedInputTokens": 757376
           }
         }
       },
