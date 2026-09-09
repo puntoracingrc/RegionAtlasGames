@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   closeUnresolvedPriceReviewQueue,
+  buildPriceReviewTriageView,
+  priceReviewEditConflict,
   normalizePriceReviewTriageFilter,
   normalizeTodoConsolasReviewItem,
   priceReviewCatalogPreview,
@@ -13,6 +15,7 @@ import {
 } from "./admin-price-review";
 import { todoConsolasListingMetadata } from "./todoconsolas-listing";
 import { buildCollectorLearningSnapshot } from "./collector-learning";
+import "./price-review-store.test";
 
 function review(overrides: Partial<PriceReviewItem> = {}): PriceReviewItem {
   return {
@@ -26,6 +29,39 @@ function review(overrides: Partial<PriceReviewItem> = {}): PriceReviewItem {
     ...overrides,
   };
 }
+
+test("retries cannot reapply a resolved decision or overwrite a changed pending item", () => {
+  assert.match(priceReviewEditConflict(review({ status: "accepted" }))!, /resuelto/);
+  assert.match(priceReviewEditConflict(review({ status: "rejected" }))!, /resuelto/);
+  assert.match(priceReviewEditConflict(review({ updatedAt: "new" }), "old")!, /cambió/);
+  assert.equal(priceReviewEditConflict(review({ updatedAt: "new" }), "new"), null);
+  assert.equal(priceReviewEditConflict(review(), null), null);
+});
+
+test("search and facets cover the entire queue, including Game Boy after the first 500 items", () => {
+  const queue: PriceReviewQueue = {
+    schemaVersion: 1, updatedAt: "2026-09-09", decisions: [],
+    items: Array.from({ length: 620 }, (_, i) => review({
+      id: `review-${String(i).padStart(4, "0")}`, platformSlug: i < 600 ? "ps5" : "gameboy",
+      source: "ebay", listingTitle: i === 619 ? "Pokémon España" : `Game ${i}`,
+    })),
+  };
+  const first = buildPriceReviewTriageView(queue, 40, "all");
+  assert.equal(first.total, 620);
+  assert.deepEqual(first.platforms, [{ value: "gameboy", count: 20 }, { value: "ps5", count: 600 }]);
+  const search = buildPriceReviewTriageView(queue, 40, "all", { platformSlug: "gameboy", query: "pokemon" });
+  assert.equal(search.filteredTotal, 1);
+  assert.equal(search.items[0].id, "review-0619");
+  const seen = new Set(first.items.map((item) => item.id));
+  let page = first;
+  while (page.nextOffset !== null) {
+    page = buildPriceReviewTriageView(queue, 40, "all", { offset: page.nextOffset, revision: first.revision });
+    for (const item of page.items) { assert.equal(seen.has(item.id), false); seen.add(item.id); }
+  }
+  assert.equal(seen.size, 620);
+  queue.items[0].status = "rejected";
+  assert.throws(() => buildPriceReviewTriageView(queue, 40, "all", { offset: 40, revision: first.revision }), /cambió/);
+});
 
 test("uses persisted TodoConsolas triage buckets", () => {
   assert.equal(priceReviewTriageBucket(review({ triageBucket: "regional_variant" })), "regional_variant");

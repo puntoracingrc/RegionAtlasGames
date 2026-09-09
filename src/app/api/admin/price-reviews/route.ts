@@ -12,5 +12,15 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const limit = Math.max(1, Math.min(1_000, Number.parseInt(searchParams.get("limit") || "200", 10) || 200));
   const filter = normalizePriceReviewTriageFilter(searchParams.get("bucket"));
-  return NextResponse.json({ ok: true, ...(await getPriceReviewTriageView(limit, filter)) });
+  try {
+    return NextResponse.json({ ok: true, ...(await getPriceReviewTriageView(limit, filter, {
+      platformSlug: searchParams.get("platform") || undefined,
+      source: searchParams.get("source") || undefined,
+      query: searchParams.get("q") || undefined,
+      offset: Math.max(0, Number.parseInt(searchParams.get("offset") || "0", 10) || 0),
+      revision: searchParams.get("revision") || undefined,
+    })) });
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof Error ? error.message : "No se pudo leer la cola." }, { status: 503 });
+  }
 }

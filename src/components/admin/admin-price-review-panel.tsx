@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, ChevronDown, ExternalLink, ImageOff, Images, X } from "lucide-react";
 import type {
   PriceReviewCondition,
   PriceReviewItem,
   PriceReviewTriageCounts,
   PriceReviewTriageFilter,
+  PriceReviewTriageView,
 } from "@/lib/admin-price-review";
 import { getCoverSrc } from "@/lib/cover-url";
 import {
@@ -20,9 +21,7 @@ import { adminToneClass } from "./admin-visual";
 import type { PriceReviewRejectReason } from "@/lib/collector-learning";
 
 type Props = {
-  initialItems: PriceReviewItem[];
-  initialCounts: PriceReviewTriageCounts;
-  initialTotal: number;
+  initialView: PriceReviewTriageView;
 };
 
 type AutoRetroplayzoneCandidate = {
@@ -173,30 +172,6 @@ function todoConsolasRegionLabel(item: PriceReviewItem): string | null {
   return null;
 }
 
-function normalizedText(value: string | null | undefined): string {
-  return (value ?? "")
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .toLowerCase()
-    .trim();
-}
-
-function optionCounts<T extends string>(
-  items: PriceReviewItem[],
-  valueForItem: (item: PriceReviewItem) => T | null | undefined,
-  labelForValue: (value: T) => string = (value) => value,
-): Array<{ value: T; label: string; count: number }> {
-  const counts = new Map<T, number>();
-  for (const item of items) {
-    const value = valueForItem(item);
-    if (!value) continue;
-    counts.set(value, (counts.get(value) ?? 0) + 1);
-  }
-  return [...counts.entries()]
-    .map(([value, count]) => ({ value, label: labelForValue(value), count }))
-    .sort((a, b) => a.label.localeCompare(b.label, "es"));
-}
-
 function formatConfidence(value: number | null | undefined): string {
   if (value == null || !Number.isFinite(Number(value))) return "—";
   const numeric = Number(value);
@@ -253,6 +228,7 @@ function ReviewCard({
   onDone: (id: string) => void;
 }) {
   const [catalogId, setCatalogId] = useState(item.catalogId ?? item.candidateCatalogId ?? "");
+  const [expectedUpdatedAt, setExpectedUpdatedAt] = useState(item.updatedAt ?? item.createdAt ?? null);
   const [region, setRegion] = useState(item.detectedRegion ?? item.targetRegion ?? "");
   const [condition, setCondition] = useState<PriceReviewCondition>((item.condition as PriceReviewCondition) || "unknown");
   const [note, setNote] = useState("");
@@ -328,26 +304,32 @@ function ReviewCard({
     }
     setState("saving");
     setMessage("");
-    const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        action,
-        catalogId,
-        region,
-        condition,
-        note,
-        ...(action === "reject" ? { reasonCode: rejectReason } : {}),
-        ...(originalContentsTouched ? { originalContents } : {}),
-      }),
-    });
-    const data = await response.json().catch(() => null) as { error?: string } | null;
-    if (!response.ok) {
+    try {
+      const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action,
+          expectedUpdatedAt,
+          catalogId,
+          region,
+          condition,
+          note,
+          ...(action === "reject" ? { reasonCode: rejectReason } : {}),
+          ...(originalContentsTouched ? { originalContents } : {}),
+        }),
+      });
+      const data = await response.json().catch(() => null) as { error?: string; ok?: boolean; workerSynced?: boolean } | null;
+      if (!response.ok || !data?.ok || data.workerSynced !== true) {
+        setState("error");
+        setMessage(data?.error ?? "No se pudo guardar la decisión.");
+        return;
+      }
+      onDone(item.id);
+    } catch {
       setState("error");
-      setMessage(data?.error ?? "No se pudo guardar la decisión.");
-      return;
+      setMessage("Conexión interrumpida: guardado no confirmado. Actualiza la cola antes de reintentar.");
     }
-    onDone(item.id);
   }
 
   function toggleOriginalContent(content: OriginalGameContentKey) {
@@ -365,22 +347,28 @@ function ReviewCard({
     setCloneState("saving");
     setCloneMessage("");
     setMessage("");
-    const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}/clone-region`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ sourceCatalogId: cloneBaseCatalogId, region: cloneRegion }),
-    });
-    const data = await response.json().catch(() => null) as { error?: string; catalogId?: string; region?: string; url?: string } | null;
-    if (!response.ok || !data?.catalogId) {
+    try {
+      const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}/clone-region`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sourceCatalogId: cloneBaseCatalogId, region: cloneRegion, expectedUpdatedAt }),
+      });
+      const data = await response.json().catch(() => null) as { error?: string; catalogId?: string; region?: string; url?: string; workerSynced?: boolean; item?: PriceReviewItem } | null;
+      if (!response.ok || !data?.catalogId || data.workerSynced !== true) {
+        setCloneState("error");
+        setCloneMessage(data?.error ?? "No se pudo crear la ficha regional.");
+        return;
+      }
+      setCatalogId(data.catalogId);
+      setExpectedUpdatedAt(data.item?.updatedAt ?? expectedUpdatedAt);
+      setCloneBaseCatalogId(data.catalogId);
+      setRegion(data.region ?? cloneRegion);
+      setCloneState("done");
+      setCloneMessage(`Ficha creada: ${data.catalogId}. Ahora puedes aceptar el precio sobre esa ficha.`);
+    } catch {
       setCloneState("error");
-      setCloneMessage(data?.error ?? "No se pudo crear la ficha regional.");
-      return;
+      setCloneMessage("Guardado no confirmado. Actualiza antes de volver a crear una ficha.");
     }
-    setCatalogId(data.catalogId);
-    setCloneBaseCatalogId(data.catalogId);
-    setRegion(data.region ?? cloneRegion);
-    setCloneState("done");
-    setCloneMessage(`Ficha creada: ${data.catalogId}. Ahora puedes aceptar el precio sobre esa ficha.`);
   }
 
   function toggleMergeId(value: string | null | undefined) {
@@ -393,26 +381,34 @@ function ReviewCard({
     setMergeState("saving");
     setMergeMessage("");
     setMessage("");
-    const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}/merge-catalog`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ catalogIds: mergeIds }),
-    });
-    const data = await response.json().catch(() => null) as {
-      error?: string;
-      targetCatalogId?: string;
-      mergedCatalogIds?: string[];
-    } | null;
-    if (!response.ok || !data?.targetCatalogId) {
+    try {
+      const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}/merge-catalog`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ catalogIds: mergeIds, expectedUpdatedAt }),
+      });
+      const data = await response.json().catch(() => null) as {
+        error?: string;
+        targetCatalogId?: string;
+        mergedCatalogIds?: string[];
+        workerSynced?: boolean;
+        item?: PriceReviewItem;
+      } | null;
+      if (!response.ok || !data?.targetCatalogId || data.workerSynced !== true) {
+        setMergeState("error");
+        setMergeMessage(data?.error ?? "No se pudieron fusionar las fichas.");
+        return;
+      }
+      setCatalogId(data.targetCatalogId);
+      setExpectedUpdatedAt(data.item?.updatedAt ?? expectedUpdatedAt);
+      setCloneBaseCatalogId(data.targetCatalogId);
+      setMergeIds([data.targetCatalogId]);
+      setMergeState("done");
+      setMergeMessage(`Fusionadas en ${data.targetCatalogId}. Absorbidas: ${(data.mergedCatalogIds ?? []).join(", ") || "—"}.`);
+    } catch {
       setMergeState("error");
-      setMergeMessage(data?.error ?? "No se pudieron fusionar las fichas.");
-      return;
+      setMergeMessage("Guardado no confirmado. Actualiza antes de reintentar la fusión.");
     }
-    setCatalogId(data.targetCatalogId);
-    setCloneBaseCatalogId(data.targetCatalogId);
-    setMergeIds([data.targetCatalogId]);
-    setMergeState("done");
-    setMergeMessage(`Fusionadas en ${data.targetCatalogId}. Absorbidas: ${(data.mergedCatalogIds ?? []).join(", ") || "—"}.`);
   }
 
   return (
@@ -620,10 +616,16 @@ function ReviewCard({
   );
 }
 
-export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTotal }: Props) {
-  const [items, setItems] = useState(initialItems);
-  const [triageCounts, setTriageCounts] = useState(initialCounts);
-  const [totalPending, setTotalPending] = useState(initialTotal);
+export function AdminPriceReviewPanel({ initialView }: Props) {
+  const [items, setItems] = useState(initialView.items);
+  const [triageCounts, setTriageCounts] = useState(initialView.counts);
+  const [totalPending, setTotalPending] = useState(initialView.total);
+  const [facets, setFacets] = useState({ platforms: initialView.platforms, sources: initialView.sources });
+  const [filteredTotal, setFilteredTotal] = useState(initialView.filteredTotal);
+  const [gamePs4Pending, setGamePs4Pending] = useState(initialView.gamePs4Pending);
+  const [nextOffset, setNextOffset] = useState(initialView.nextOffset);
+  const [revision, setRevision] = useState(initialView.revision);
+  const requestSequence = useRef(0);
   const [activeBucket, setActiveBucket] = useState<PriceReviewTriageFilter>("actionable");
   const [autoState, setAutoState] = useState<"idle" | "previewing" | "applying" | "error" | "done">("idle");
   const [autoResult, setAutoResult] = useState<AutoRetroplayzoneResponse | null>(null);
@@ -635,6 +637,8 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
   const [platformFilter, setPlatformFilter] = useState("all");
   const [sourceFilter, setSourceFilter] = useState("all");
   const [query, setQuery] = useState("");
+  const filterKey = JSON.stringify([activeBucket, platformFilter, sourceFilter, query]);
+  const [loadedFilterKey, setLoadedFilterKey] = useState(JSON.stringify(["actionable", "all", "all", ""]));
   const [visibleLimit, setVisibleLimit] = useState(40);
   const [refreshState, setRefreshState] = useState<"idle" | "loading" | "error">("idle");
   const [refreshMessage, setRefreshMessage] = useState("");
@@ -647,36 +651,10 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
   const activeBucketMeta = triageTabs.find((tab) => tab.value === activeBucket) ?? triageTabs[0];
   const activeBucketTotal = triageCounts[activeBucket] ?? 0;
 
-  const platformOptions = useMemo(
-    () => optionCounts(items, (item) => item.platformSlug, (value) => value.toUpperCase()),
-    [items],
-  );
-  const sourceOptions = useMemo(
-    () => optionCounts(items, (item) => item.source, sourceLabel),
-    [items],
-  );
-  const filteredItems = useMemo(() => {
-    const cleanQuery = normalizedText(query);
-    return items.filter((item) => {
-      if (platformFilter !== "all" && item.platformSlug !== platformFilter) return false;
-      if (sourceFilter !== "all" && item.source !== sourceFilter) return false;
-      if (!cleanQuery) return true;
-      const haystack = normalizedText([
-        item.listingTitle,
-        item.evidence?.displayTitle,
-        item.catalogId,
-        item.candidateCatalogId,
-        item.targetRegion,
-        item.detectedRegion,
-        item.reason,
-        item.source,
-        item.platformSlug,
-      ].filter(Boolean).join(" "));
-      return haystack.includes(cleanQuery);
-    });
-  }, [items, platformFilter, query, sourceFilter]);
+  const platformOptions = facets.platforms.map((option) => ({ ...option, label: option.value.toUpperCase() }));
+  const sourceOptions = facets.sources.map((option) => ({ ...option, label: sourceLabel(option.value) }));
+  const filteredItems = loadedFilterKey === filterKey ? items : [];
   const visibleItems = filteredItems.slice(0, visibleLimit);
-  const gamePs4Pending = items.filter((item) => item.platformSlug === "ps4" && item.source.startsWith("game-es")).length;
   const activeReviewLabel = [
     activeBucketMeta.label,
     platformFilter !== "all" ? platformFilter.toUpperCase() : null,
@@ -737,7 +715,6 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
     setQuery("");
     setVisibleLimit(40);
     resetAutoPreview();
-    void refreshItems(value);
   }
 
   function updateAssumedRegion(value: string) {
@@ -760,29 +737,50 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
     resetAutoPreview();
   }
 
-  async function refreshItems(bucket: PriceReviewTriageFilter = activeBucket) {
+  const refreshItems = useCallback(async (bucket: PriceReviewTriageFilter = activeBucket, page?: { offset: number; revision: string }) => {
+    const sequence = ++requestSequence.current;
     setRefreshState("loading");
     setRefreshMessage("");
-    const response = await fetch(`/api/admin/price-reviews?limit=500&bucket=${encodeURIComponent(bucket)}`, { cache: "no-store" });
-    const data = await response.json().catch(() => null) as {
-      ok?: boolean;
-      items?: PriceReviewItem[];
-      counts?: PriceReviewTriageCounts;
-      total?: number;
-      error?: string;
-    } | null;
-    if (!response.ok || !data?.ok || !Array.isArray(data.items)) {
+    try {
+      const params = new URLSearchParams({ limit: "80", bucket, platform: platformFilter, source: sourceFilter, q: query });
+      if (page) {
+        params.set("offset", String(page.offset));
+        params.set("revision", page.revision);
+      }
+      const response = await fetch(`/api/admin/price-reviews?${params}`, { cache: "no-store" });
+      const data = await response.json().catch(() => null) as (PriceReviewTriageView & { ok?: boolean; error?: string }) | null;
+      if (sequence !== requestSequence.current) return;
+      if (!response.ok || !data?.ok || !Array.isArray(data.items)) {
+        setRefreshState("error");
+        setRefreshMessage(data?.error ?? "No se pudo actualizar la cola.");
+        return;
+      }
+      setItems((current) => page ? [...current, ...data.items] : data.items);
+      setLoadedFilterKey(JSON.stringify([bucket, platformFilter, sourceFilter, query]));
+      setFacets({ platforms: data.platforms, sources: data.sources });
+      setFilteredTotal(data.filteredTotal);
+      setGamePs4Pending(data.gamePs4Pending);
+      setNextOffset(data.nextOffset);
+      setRevision(data.revision);
+      setVisibleLimit((current) => page ? current + 40 : 40);
+      if (data.counts) setTriageCounts(data.counts);
+      if (typeof data.total === "number") setTotalPending(data.total);
+      setRefreshState("idle");
+      setRefreshMessage(`${(page?.offset ?? 0) + data.items.length} de ${data.filteredTotal} cargados.`);
+    } catch {
+      if (sequence !== requestSequence.current) return;
       setRefreshState("error");
-      setRefreshMessage(data?.error ?? "No se pudo actualizar la cola.");
-      return;
+      setRefreshMessage("No se pudo leer la cola del servidor. Vuelve a actualizar.");
     }
-    setItems(data.items);
-    if (data.counts) setTriageCounts(data.counts);
-    if (typeof data.total === "number") setTotalPending(data.total);
-    setRefreshState("idle");
-    setRefreshMessage(`${data.items.length} de ${data.counts?.[bucket] ?? data.items.length} cargados.`);
-    resetAutoPreview();
-  }
+  }, [activeBucket, platformFilter, sourceFilter, query]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => { void refreshItems(); }, 250);
+    return () => {
+      window.clearTimeout(timer);
+      requestSequence.current += 1;
+    };
+  }, [refreshItems]);
 
   async function closeUnresolved() {
     const scope = activeReviewLabel;
@@ -791,73 +789,83 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
     }
     setCloseState("closing");
     setCloseMessage("");
-    const response = await fetch("/api/admin/price-reviews/close-unresolved", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        confirmation: "CERRAR PENDIENTES",
-        platformSlug: platformFilter === "all" ? undefined : platformFilter,
-        source: sourceFilter === "all" ? undefined : sourceFilter,
-        query: query.trim() || undefined,
-        triageBucket: activeBucket,
-      }),
-    });
-    const data = await response.json().catch(() => null) as {
-      ok?: boolean;
-      closed?: number;
-      remaining?: number;
-      workerSynced?: boolean;
-      workerSyncError?: string;
-      error?: string;
-    } | null;
-    if (!response.ok || !data?.ok) {
+    try {
+      const response = await fetch("/api/admin/price-reviews/close-unresolved", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          confirmation: "CERRAR PENDIENTES",
+          platformSlug: platformFilter === "all" ? undefined : platformFilter,
+          source: sourceFilter === "all" ? undefined : sourceFilter,
+          query: query.trim() || undefined,
+          triageBucket: activeBucket,
+        }),
+      });
+      const data = await response.json().catch(() => null) as {
+        ok?: boolean;
+        closed?: number;
+        remaining?: number;
+        workerSynced?: boolean;
+        workerSyncError?: string;
+        error?: string;
+      } | null;
+      if (!response.ok || !data?.ok || data.workerSynced !== true) {
+        setCloseState("error");
+        setCloseMessage(data?.error ?? "No se pudieron cerrar los pendientes.");
+        return;
+      }
+      setCloseState("done");
+      setCloseMessage(`${data.closed ?? 0} casos cerrados; ${data.remaining ?? 0} pendientes en total.${data.workerSynced ? "" : ` Worker no sincronizado${data.workerSyncError ? `: ${data.workerSyncError}` : "."}`}`);
+      await refreshItems(activeBucket);
+    } catch {
       setCloseState("error");
-      setCloseMessage(data?.error ?? "No se pudieron cerrar los pendientes.");
-      return;
+      setCloseMessage("Guardado no confirmado. Actualiza la cola antes de reintentar.");
     }
-    setCloseState("done");
-    setCloseMessage(`${data.closed ?? 0} casos cerrados; ${data.remaining ?? 0} pendientes en total.${data.workerSynced ? "" : ` Worker no sincronizado${data.workerSyncError ? `: ${data.workerSyncError}` : "."}`}`);
-    await refreshItems(activeBucket);
   }
 
   async function runAutoRetroplayzone(apply: boolean) {
     setAutoState(apply ? "applying" : "previewing");
-    const response = await fetch("/api/admin/price-reviews/auto-retroplayzone", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        apply,
-        platformSlug: platformFilter === "all" ? undefined : platformFilter,
-        source: sourceFilter === "all" ? undefined : sourceFilter,
-        query: query.trim() || undefined,
-        assumedRegion: assumedRegion || undefined,
-        assumedCondition,
-        useVision,
-        visionLimit,
-        triageBucket: activeBucket,
-      }),
-    });
-    const rawText = await response.text().catch(() => "");
-    let data: AutoRetroplayzoneResponse | null = null;
     try {
-      data = rawText ? JSON.parse(rawText) as AutoRetroplayzoneResponse : null;
+      const response = await fetch("/api/admin/price-reviews/auto-retroplayzone", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          apply,
+          platformSlug: platformFilter === "all" ? undefined : platformFilter,
+          source: sourceFilter === "all" ? undefined : sourceFilter,
+          query: query.trim() || undefined,
+          assumedRegion: assumedRegion || undefined,
+          assumedCondition,
+          useVision,
+          visionLimit,
+          triageBucket: activeBucket,
+        }),
+      });
+      const rawText = await response.text().catch(() => "");
+      let data: AutoRetroplayzoneResponse | null = null;
+      try {
+        data = rawText ? JSON.parse(rawText) as AutoRetroplayzoneResponse : null;
+      } catch {
+        data = null;
+      }
+      if (!response.ok || !data?.ok || (apply && data.workerSynced !== true)) {
+        const detail = data?.error
+          ?? rawText.slice(0, 500).trim()
+          ?? `HTTP ${response.status}`;
+        setAutoResult({ error: `No se pudo revisar automáticamente. ${detail}` });
+        setAutoState("error");
+        return;
+      }
+      setAutoResult(data);
+      setAutoState("done");
+      if (apply) {
+        const acceptedIds = new Set((data.candidates ?? []).filter((candidate) => candidate.decision === "accept").map((candidate) => candidate.id));
+        setItems((current) => current.filter((item) => !acceptedIds.has(item.id)));
+        await refreshItems();
+      }
     } catch {
-      data = null;
-    }
-    if (!response.ok || !data?.ok) {
-      const detail = data?.error
-        ?? rawText.slice(0, 500).trim()
-        ?? `HTTP ${response.status}`;
-      setAutoResult({ error: `No se pudo revisar automáticamente. ${detail}` });
       setAutoState("error");
-      return;
-    }
-    setAutoResult(data);
-    setAutoState("done");
-    if (apply) {
-      const acceptedIds = new Set((data.candidates ?? []).filter((candidate) => candidate.decision === "accept").map((candidate) => candidate.id));
-      setItems((current) => current.filter((item) => !acceptedIds.has(item.id)));
-      await refreshItems();
+      setAutoResult({ error: "Conexión interrumpida. Guardado no confirmado; actualiza antes de reintentar." });
     }
   }
 
@@ -968,6 +976,7 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
   function markItemDone(id: string) {
     const completed = items.find((item) => item.id === id);
     setItems((current) => current.filter((item) => item.id !== id));
+    void refreshItems();
     if (!completed) return;
     setTotalPending((current) => Math.max(0, current - 1));
     setTriageCounts((current) => {
@@ -1035,7 +1044,7 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
               onChange={(event) => updatePlatformFilter(event.target.value)}
               className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
             >
-              <option value="all">Todas ({items.length})</option>
+              <option value="all">Todas ({totalPending})</option>
               {platformOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label} ({option.count})
@@ -1050,7 +1059,7 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
               onChange={(event) => updateSourceFilter(event.target.value)}
               className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
             >
-              <option value="all">Todas ({items.length})</option>
+              <option value="all">Todas ({totalPending})</option>
               {sourceOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label} ({option.count})
@@ -1082,7 +1091,7 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
         </div>
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
           <span>
-            Mostrando {visibleItems.length} de {filteredItems.length} filtrados.
+            Mostrando {visibleItems.length} de {filteredTotal} filtrados.
             {items.length < activeBucketTotal ? ` La bandeja contiene ${activeBucketTotal}; usa los filtros para afinar.` : ""}
           </span>
           {refreshMessage ? (
@@ -1236,17 +1245,20 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
       {filteredItems.length > 0 ? (
         <div className="mt-4 grid gap-3">
           {visibleItems.map((item) => (
-            <ReviewCard key={item.id} item={item} onDone={markItemDone} />
+            <ReviewCard key={`${item.id}:${item.updatedAt ?? item.createdAt ?? ""}`} item={item} onDone={markItemDone} />
           ))}
-          {visibleItems.length < filteredItems.length ? (
-            <button type="button" onClick={() => setVisibleLimit((current) => current + 40)} className="btn-secondary justify-self-center text-xs">
+          {visibleItems.length < filteredItems.length || nextOffset !== null ? (
+            <button type="button" disabled={refreshState === "loading"} onClick={() => {
+              if (visibleItems.length < filteredItems.length) setVisibleLimit((current) => current + 40);
+              else if (nextOffset !== null) void refreshItems(activeBucket, { offset: nextOffset, revision });
+            }} className="btn-secondary justify-self-center text-xs">
               Ver 40 más
             </button>
           ) : null}
         </div>
       ) : (
         <p className="mt-4 rounded-xl border border-border bg-background/45 p-3 text-sm text-muted">
-          No hay precios pendientes con esos filtros. Cuando un collector marque región, match o estado como dudoso aparecerá aquí.
+          {loadedFilterKey !== filterKey || refreshState === "loading" ? "Consultando la cola…" : refreshState === "error" ? "No se ha podido confirmar el contenido de la cola." : "No hay precios pendientes con esos filtros. Cuando un collector marque región, match o estado como dudoso aparecerá aquí."}
         </p>
       )}
     </Panel>

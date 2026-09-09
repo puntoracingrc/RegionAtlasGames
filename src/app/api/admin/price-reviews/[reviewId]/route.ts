@@ -8,6 +8,7 @@ import {
 } from "@/lib/collector-learning";
 
 type RouteParams = { params: Promise<{ reviewId: string }> };
+export const maxDuration = 120;
 
 export async function POST(request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) {
@@ -16,6 +17,7 @@ export async function POST(request: Request, { params }: RouteParams) {
   const reviewId = decodeURIComponent((await params).reviewId);
   const body = (await request.json().catch(() => null)) as {
     action?: "accept" | "reject";
+    expectedUpdatedAt?: string | null;
     catalogId?: string;
     region?: string;
     condition?: "loose" | "game_manual" | "complete" | "sealed" | "unknown";
@@ -37,6 +39,7 @@ export async function POST(request: Request, { params }: RouteParams) {
   }
   const result = await decidePriceReviewItem(reviewId, {
     action: body.action,
+    expectedUpdatedAt: body.expectedUpdatedAt,
     catalogId: body.catalogId,
     region: body.region,
     condition: body.condition,

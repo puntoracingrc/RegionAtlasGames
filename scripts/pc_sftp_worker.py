@@ -22,6 +22,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from collectors.review_store import atomic_review_write, review_lock, validate_review_document
 
 from pc_worker_update import (
     DEFAULT_PRODUCTION_RELEASE_URL,
@@ -822,11 +823,7 @@ def upload_price_review_queue(queue: SftpQueue) -> None:
     review_file = ROOT / "data" / "admin" / "price-review-queue.json"
     if not review_file.exists():
         return
-    queue.upload_file(queue.remote("app", "data", "admin", "price-review-queue.json"), review_file)
-    upload_collector_learning_snapshot(
-        queue,
-        json.loads(review_file.read_text(encoding="utf-8")),
-    )
+    upload_price_review_queue_verified(queue)
 
 
 def upload_collector_learning_snapshot(
@@ -841,7 +838,7 @@ def upload_collector_learning_snapshot(
         updated_at=str(review_payload.get("updatedAt") or now_iso()),
     )
     remote_path = queue.remote("app", "data", "admin", "collector-learning.json")
-    queue.upload_file(remote_path, COLLECTOR_LEARNING_FILE)
+    atomic_review_write(queue.sftp, remote_path, snapshot)
     verified = queue.read_json(remote_path)
     if verified != snapshot:
         raise RuntimeError("La lectura posterior no coincide con la memoria común subida.")
@@ -849,6 +846,12 @@ def upload_collector_learning_snapshot(
 
 
 def sync_collector_learning_snapshot(queue: SftpQueue, *, force: bool = False) -> bool:
+    remote_queue = queue.remote("app", "data", "admin", "price-review-queue.json")
+    with review_lock(queue.sftp, remote_queue):
+        return _sync_collector_learning_snapshot_locked(queue, force=force)
+
+
+def _sync_collector_learning_snapshot_locked(queue: SftpQueue, *, force: bool = False) -> bool:
     remote_queue = queue.remote("app", "data", "admin", "price-review-queue.json")
     remote_learning = queue.remote("app", "data", "admin", "collector-learning.json")
     if not queue.exists(remote_queue):
@@ -874,6 +877,7 @@ def sync_collector_learning_snapshot(queue: SftpQueue, *, force: bool = False) -
     local_queue = ROOT / "data" / "admin" / "price-review-queue.json"
     queue.download(remote_queue, local_queue)
     payload = json.loads(local_queue.read_text(encoding="utf-8"))
+    validate_review_document(payload)
     game_count = upload_collector_learning_snapshot(queue, payload)
     COLLECTOR_LEARNING_SYNC_STATE.parent.mkdir(parents=True, exist_ok=True)
     COLLECTOR_LEARNING_SYNC_STATE.write_text(
@@ -893,6 +897,12 @@ def sync_collector_learning_snapshot(queue: SftpQueue, *, force: bool = False) -
 
 
 def upload_price_review_queue_verified(queue: SftpQueue) -> int:
+    remote_path = queue.remote("app", "data", "admin", "price-review-queue.json")
+    with review_lock(queue.sftp, remote_path):
+        return _upload_price_review_queue_locked(queue)
+
+
+def _upload_price_review_queue_locked(queue: SftpQueue) -> int:
     from collectors.price_review_queue import merge_price_review_queue_documents
 
     review_file = ROOT / "data" / "admin" / "price-review-queue.json"
@@ -900,13 +910,14 @@ def upload_price_review_queue_verified(queue: SftpQueue) -> int:
         raise RuntimeError(f"No existe la cola local: {review_file}")
     remote_path = queue.remote("app", "data", "admin", "price-review-queue.json")
     local_payload = json.loads(review_file.read_text(encoding="utf-8"))
-    if queue.exists(remote_path):
-        remote_payload = queue.read_json(remote_path)
-    else:
-        remote_payload = {"items": [], "decisions": []}
+    validate_review_document(local_payload)
+    # A missing, unreadable or invalid authoritative queue is never an empty queue.
+    remote_payload = queue.read_json(remote_path)
+    validate_review_document(remote_payload)
     merged_payload = merge_price_review_queue_documents(remote_payload, local_payload)
     review_file.write_text(json_text(merged_payload), encoding="utf-8")
-    queue.upload_file(remote_path, review_file)
+    validate_review_document(merged_payload)
+    atomic_review_write(queue.sftp, remote_path, merged_payload)
     verified_payload = queue.read_json(remote_path)
     if verified_payload != merged_payload:
         raise RuntimeError("La lectura posterior no coincide con la cola local subida.")

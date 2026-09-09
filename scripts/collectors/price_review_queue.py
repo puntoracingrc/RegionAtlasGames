@@ -12,7 +12,6 @@ from collectors.tcns_match import infer_tcns_region, tcns_listing_metadata
 from collectors.tcns_policy import POLICY_VERSION
 
 QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
-MAX_REVIEW_QUEUE_ITEMS = 5_000
 REVIEW_KEYS = (
     "listings",
     "regionalCandidates",
@@ -192,6 +191,11 @@ def merge_price_review_queue_documents(existing: dict[str, Any], incoming: dict[
         previous = existing_items.get(item_id)
         if previous and previous.get("status") in {"accepted", "rejected"}:
             continue
+        if previous and previous.get("adminEditedAt") != item.get("adminEditedAt") and previous.get("adminEditedAt"):
+            # The PC may have started before a human changed the pending match.
+            continue
+        if previous and str(previous.get("updatedAt") or "") > str(item.get("updatedAt") or ""):
+            continue
         existing_items[item_id] = {
             **(previous or {}),
             **item,
@@ -215,7 +219,7 @@ def merge_price_review_queue_documents(existing: dict[str, Any], incoming: dict[
             existing_items.values(),
             key=lambda item: str(item.get("updatedAt") or item.get("createdAt") or ""),
             reverse=True,
-        )[:MAX_REVIEW_QUEUE_ITEMS],
+        ),
         "decisions": decisions,
     }
 
@@ -267,7 +271,7 @@ def record_price_review_candidates(ingest: dict[str, Any], platform_slug: str) -
         existing.values(),
         key=lambda item: str(item.get("updatedAt") or ""),
         reverse=True,
-    )[:MAX_REVIEW_QUEUE_ITEMS]
+    )
     queue["updatedAt"] = now_iso()
     save_json(QUEUE_FILE, queue)
     return {"added": added, "updated": updated, "pending": sum(1 for item in queue["items"] if item.get("status") == "pending")}
@@ -275,7 +279,6 @@ def record_price_review_candidates(ingest: dict[str, Any], platform_slug: str) -
 
 __all__ = [
     "QUEUE_FILE",
-    "MAX_REVIEW_QUEUE_ITEMS",
     "load_price_review_queue",
     "merge_price_review_queue_documents",
     "record_price_review_candidates",
