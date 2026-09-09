@@ -3,6 +3,7 @@ import { assertAdminApi } from "@/lib/admin-auth";
 import { clonePriceReviewCatalogRegion } from "@/lib/admin-price-review";
 
 type RouteParams = { params: Promise<{ reviewId: string }> };
+export const maxDuration = 120;
 
 export async function POST(request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) {
@@ -11,10 +12,12 @@ export async function POST(request: Request, { params }: RouteParams) {
   const reviewId = decodeURIComponent((await params).reviewId);
   const body = (await request.json().catch(() => null)) as {
     sourceCatalogId?: string;
+    expectedUpdatedAt?: string | null;
     region?: string;
   } | null;
   const result = await clonePriceReviewCatalogRegion(reviewId, {
     sourceCatalogId: body?.sourceCatalogId,
+    expectedUpdatedAt: body?.expectedUpdatedAt,
     region: body?.region,
   });
   if ("error" in result) {

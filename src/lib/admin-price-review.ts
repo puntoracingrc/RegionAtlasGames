@@ -1,7 +1,7 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import path from "path";
+import { createHash } from "crypto";
 import { appDataDir } from "./app-data-dir";
-import { canWriteCatalogFiles } from "./admin-auth";
 import { clonePublishedCatalogGameToRegion, mergePublishedCatalogGames, updatePublishedCatalogPrices } from "./admin-catalog-publish";
 import {
   buildCollectorLearningSnapshot,
@@ -19,13 +19,13 @@ import type { CatalogGame } from "./types";
 import catalogData from "../../data/catalog.json";
 import ebayReviewInbox from "../../data/ebay-regional-campaigns/review-queue.json";
 import { mergeEbayReviewInbox } from "./ebay-review-inbox";
+import { assertReviewHistoryPreserved, atomicReviewWrite, validateReviewDocument, withReviewLock, type ReviewSftpClient } from "./price-review-store";
 
 const REVIEW_FILE =
   process.env.ADMIN_PRICE_REVIEW_FILE ??
   (process.env.VERCEL
     ? path.join(appDataDir(), "price-review-queue.json")
     : path.join(process.cwd(), "data", "admin", "price-review-queue.json"));
-const MAX_PRICE_REVIEW_DECISIONS = 5_000;
 
 export type PriceReviewStatus = "pending" | "accepted" | "rejected";
 export type PriceReviewCondition = "loose" | "game_manual" | "complete" | "sealed" | "unknown";
@@ -105,6 +105,7 @@ export type PriceReviewItem = {
   collectedAt?: string | null;
   createdAt?: string | null;
   updatedAt?: string | null;
+  adminEditedAt?: string | null;
   decidedAt?: string | null;
   decision?: {
     action: "accept" | "reject";
@@ -169,6 +170,7 @@ type CoverVisionResult = {
 
 export type PriceReviewDecisionInput = {
   action: "accept" | "reject";
+  expectedUpdatedAt?: string | null;
   catalogId?: string;
   region?: string;
   condition?: PriceReviewCondition;
@@ -178,11 +180,13 @@ export type PriceReviewDecisionInput = {
 };
 
 export type PriceReviewCloneRegionInput = {
+  expectedUpdatedAt?: string | null;
   sourceCatalogId?: string;
   region?: string;
 };
 
 export type PriceReviewMergeCatalogInput = {
+  expectedUpdatedAt?: string | null;
   catalogIds?: string[];
 };
 
@@ -217,6 +221,20 @@ export type PriceReviewTriageView = {
   counts: PriceReviewTriageCounts;
   total: number;
   filter: PriceReviewTriageFilter;
+  filteredTotal: number;
+  nextOffset: number | null;
+  revision: string;
+  platforms: Array<{ value: string; count: number }>;
+  sources: Array<{ value: string; count: number }>;
+  gamePs4Pending: number;
+};
+
+export type PriceReviewSearch = {
+  platformSlug?: string;
+  source?: string;
+  query?: string;
+  offset?: number;
+  revision?: string;
 };
 
 export type PriceReviewAutoRetroplayzoneCandidate = {
@@ -279,10 +297,10 @@ export function normalizeTodoConsolasReviewItem(item: PriceReviewItem): PriceRev
 }
 
 function normalizeQueue(input: unknown): PriceReviewQueue {
+  validateReviewDocument(input);
   const raw = input && typeof input === "object" ? (input as Partial<PriceReviewQueue>) : {};
   const items = Array.isArray(raw.items)
     ? raw.items
-      .filter((item): item is PriceReviewItem => Boolean(item?.id && item?.listingTitle))
       .map(normalizeTodoConsolasReviewItem)
     : [];
   return {
@@ -297,21 +315,22 @@ async function readQueueFromWorker(): Promise<PriceReviewQueue | null> {
   const base = priceWorkerPublicBaseUrl();
   if (!base) return null;
   try {
-    const response = await fetch(`${base}/app/data/admin/price-review-queue.json`, {
+    const response = await fetch(`${base}/app/data/admin/price-review-queue.json?t=${Date.now()}`, {
       cache: "no-store",
       headers: { Accept: "application/json" },
     });
-    if (!response.ok) return null;
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return mergeEbayReviewInbox(normalizeQueue(await response.json()), normalizeQueue(ebayReviewInbox));
   } catch {
-    return null;
+    throw new Error("No se pudo leer la cola del servidor. No se utiliza una copia local incompleta; vuelve a actualizar.");
   }
 }
 
 function readQueueFromDisk(): PriceReviewQueue {
   try {
     return mergeEbayReviewInbox(normalizeQueue(JSON.parse(readFileSync(REVIEW_FILE, "utf8"))), normalizeQueue(ebayReviewInbox));
-  } catch {
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
     return mergeEbayReviewInbox(emptyQueue(), normalizeQueue(ebayReviewInbox));
   }
 }
@@ -334,27 +353,14 @@ function workerSftpConfig(): { host: string; port: number; username: string; pas
   return { host, port: portRaw ? Number(portRaw) : 22, username, password };
 }
 
-async function writeQueue(queue: PriceReviewQueue): Promise<{ workerSynced: boolean; error?: string }> {
-  queue.updatedAt = new Date().toISOString();
-  const learning = buildCollectorLearningSnapshot(queue, queue.updatedAt);
-  if (canWriteCatalogFiles() || !process.env.VERCEL) {
-    const dir = path.dirname(REVIEW_FILE);
-    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-    writeFileSync(REVIEW_FILE, `${JSON.stringify(queue, null, 2)}\n`, "utf8");
-    writeFileSync(
-      path.join(dir, "collector-learning.json"),
-      `${JSON.stringify(learning, null, 2)}\n`,
-      "utf8",
-    );
-  }
-
+async function mutateReviewQueue<R>(
+  operation: (queue: PriceReviewQueue, save: (queue: PriceReviewQueue) => Promise<{ workerSynced: true; error?: never }>) => Promise<R>,
+): Promise<R | { error: string }> {
   const config = workerSftpConfig();
-  if (!config) return { workerSynced: false, error: "SFTP del worker no configurado." };
+  if (!config) return { error: "SFTP del worker no configurado. No se ha aplicado la decisión." };
   const mod = (await import("ssh2-sftp-client")) as unknown as {
-    default: new () => {
+    default: new () => ReviewSftpClient & {
       connect(config: Record<string, unknown>): Promise<void>;
-      mkdir(remotePath: string, recursive?: boolean): Promise<void>;
-      put(input: Buffer | string, remotePath: string): Promise<void>;
       end(): Promise<void>;
     };
   };
@@ -363,16 +369,20 @@ async function writeQueue(queue: PriceReviewQueue): Promise<{ workerSynced: bool
   const remotePath = path.posix.join(remoteDir, "price-review-queue.json");
   const learningPath = path.posix.join(remoteDir, "collector-learning.json");
   try {
-    await client.connect({ ...config, readyTimeout: 60_000, retries: 1 });
-    await client.mkdir(remoteDir, true);
-    await client.put(Buffer.from(`${JSON.stringify(queue, null, 2)}\n`, "utf8"), remotePath);
-    await client.put(
-      Buffer.from(`${JSON.stringify(learning, null, 2)}\n`, "utf8"),
-      learningPath,
-    );
-    return { workerSynced: true };
+    await client.connect({ ...config, readyTimeout: 15_000, retries: 0 });
+    return await withReviewLock(client, remotePath, async (raw) => {
+      const queue = mergeEbayReviewInbox(normalizeQueue(raw), normalizeQueue(ebayReviewInbox));
+      const original = structuredClone(raw);
+      return operation(queue, async (next) => {
+        assertReviewHistoryPreserved(original, next);
+        next.updatedAt = new Date().toISOString();
+        await atomicReviewWrite(client, remotePath, next);
+        await atomicReviewWrite(client, learningPath, buildCollectorLearningSnapshot(next, next.updatedAt));
+        return { workerSynced: true };
+      });
+    });
   } catch (error) {
-    return { workerSynced: false, error: error instanceof Error ? error.message : "No se pudo sincronizar el worker." };
+    return { error: `Guardado no confirmado: ${error instanceof Error ? error.message : "fallo del servidor"}. Actualiza la cola antes de reintentar.` };
   } finally {
     await client.end().catch(() => undefined);
   }
@@ -405,10 +415,10 @@ async function writeWorkerFile(remote: string, payload: Buffer): Promise<{ ok: t
 
 async function syncEbayInboxForPc(): Promise<{ error: string } | null> {
   if (!ebayReviewInbox.items.length) return null;
-  const queue = await readQueueFromWorker();
-  if (!queue) return { error: "No se pudo leer la cola remota; no se envía el trabajo ni se sobrescribe la revisión." };
-  const result = await writeQueue(queue);
-  return result.workerSynced ? null : { error: result.error || "No se pudo sincronizar la revisión eBay con el PC." };
+  return mutateReviewQueue(async (queue, save) => {
+    await save(queue);
+    return null;
+  });
 }
 
 export async function startPriceReviewPcVisionJob(
@@ -605,8 +615,22 @@ export function priceReviewMatchesTriageFilter(
 export async function getPriceReviewTriageView(
   limit = 200,
   requestedFilter: PriceReviewTriageFilter = "actionable",
+  search: PriceReviewSearch = {},
 ): Promise<PriceReviewTriageView> {
   const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
+  return buildPriceReviewTriageView(queue, limit, requestedFilter, search);
+}
+
+export function buildPriceReviewTriageView(
+  queue: PriceReviewQueue,
+  limit = 200,
+  requestedFilter: PriceReviewTriageFilter = "actionable",
+  search: PriceReviewSearch = {},
+): PriceReviewTriageView {
+  const revision = createHash("sha256").update(JSON.stringify(queue.items)).digest("hex");
+  if (search.offset && search.revision !== revision) {
+    throw new Error("La cola cambió entre páginas. Actualiza para volver a la primera página.");
+  }
   const filter = normalizePriceReviewTriageFilter(requestedFilter);
   const counts = emptyTriageCounts();
   const pending = queue.items
@@ -622,9 +646,26 @@ export async function getPriceReviewTriageView(
         catalogPreview: priceReviewCatalogPreview(item),
       };
     })
-    .sort((a, b) => Date.parse(b.updatedAt ?? b.createdAt ?? "") - Date.parse(a.updatedAt ?? a.createdAt ?? ""));
-  const items = pending.filter((item) => priceReviewMatchesTriageFilter(item, filter)).slice(0, limit);
-  return { items, counts, total: counts.all, filter };
+    .sort((a, b) => (Date.parse(b.updatedAt ?? b.createdAt ?? "") || 0) - (Date.parse(a.updatedAt ?? a.createdAt ?? "") || 0) || a.id.localeCompare(b.id));
+  const facets = (key: "platformSlug" | "source") => {
+    const values = new Map<string, number>();
+    for (const item of pending) if (item[key]) values.set(item[key], (values.get(item[key]) ?? 0) + 1);
+    return [...values].sort(([a], [b]) => a.localeCompare(b)).map(([value, count]) => ({ value, count }));
+  };
+  const query = normalizedText(search.query?.trim());
+  const matches = pending.filter((item) => priceReviewMatchesTriageFilter(item, filter)
+    && (!search.platformSlug || search.platformSlug === "all" || item.platformSlug === search.platformSlug)
+    && (!search.source || search.source === "all" || item.source === search.source)
+    && (!query || normalizedText([item.listingTitle, item.evidence?.displayTitle, item.catalogId, item.candidateCatalogId,
+      item.targetRegion, item.detectedRegion, item.reason, item.source, item.platformSlug].filter(Boolean).join(" ")).includes(query)));
+  const offset = Math.max(0, Math.trunc(search.offset || 0));
+  const items = matches.slice(offset, offset + limit);
+  return {
+    items, counts, total: counts.all, filter, revision, filteredTotal: matches.length,
+    nextOffset: offset + items.length < matches.length ? offset + items.length : null,
+    platforms: facets("platformSlug"), sources: facets("source"),
+    gamePs4Pending: pending.filter((item) => item.platformSlug === "ps4" && item.source.startsWith("game-es")).length,
+  };
 }
 
 export async function listPriceReviewItems(limit = 40): Promise<PriceReviewItem[]> {
@@ -1078,7 +1119,7 @@ export function closeUnresolvedPriceReviewQueue(
         note,
       })),
       ...queue.decisions,
-    ].slice(0, MAX_PRICE_REVIEW_DECISIONS),
+    ],
   };
   return {
     queue: nextQueue,
@@ -1161,132 +1202,141 @@ export async function autoReviewRetroplayzonePrices(
     };
   }
 
-  const now = new Date().toISOString();
-  const acceptedById = new Map(acceptedCandidates.map((candidate) => [candidate.id, candidate]));
-  const errors: string[] = [];
-  for (const item of targetItems) {
-    const candidate = acceptedById.get(item.id);
-    if (!candidate?.catalogId || !candidate.condition) continue;
-    const patch = patchFromReview(item, {
-      action: "accept",
-      catalogId: candidate.catalogId,
-      region: candidate.region ?? undefined,
-      condition: candidate.condition,
-      note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
-    });
-    const result = await updatePublishedCatalogPrices(candidate.catalogId, patch);
-    if ("error" in result) {
-      errors.push(`${item.id}: ${result.error}`);
-      acceptedById.delete(item.id);
+  return mutateReviewQueue(async (queue, writeQueue): Promise<PriceReviewAutoRetroplayzoneResult | { error: string }> => {
+    const currentById = new Map(queue.items.map((item) => [item.id, item]));
+    if (targetItems.some((item) => JSON.stringify(currentById.get(item.id)) !== JSON.stringify(item))) {
+      return { error: "La cola cambió durante el análisis. Actualiza y vuelve a preparar la revisión." };
     }
-  }
-  if (errors.length) return { error: `No se pudieron aplicar todos los precios: ${errors.slice(0, 3).join(" · ")}` };
+    const now = new Date().toISOString();
+    const acceptedById = new Map(acceptedCandidates.map((candidate) => [candidate.id, candidate]));
+    const errors: string[] = [];
+    for (const item of targetItems) {
+      const candidate = acceptedById.get(item.id);
+      if (!candidate?.catalogId || !candidate.condition) continue;
+      const patch = patchFromReview(item, {
+        action: "accept",
+        catalogId: candidate.catalogId,
+        region: candidate.region ?? undefined,
+        condition: candidate.condition,
+        note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
+      });
+      const result = await updatePublishedCatalogPrices(candidate.catalogId, patch);
+      if ("error" in result) {
+        errors.push(`${item.id}: ${result.error}`);
+        acceptedById.delete(item.id);
+      }
+    }
 
-  queue.items = queue.items.map((item) => {
-    const candidate = acceptedById.get(item.id);
-    if (!candidate) return item;
-    return {
-      ...item,
-      status: "accepted",
-      catalogId: candidate.catalogId,
-      candidateCatalogId: candidate.catalogId,
-      targetRegion: candidate.region ?? item.targetRegion ?? item.detectedRegion ?? null,
-      condition: candidate.condition,
-      decidedAt: now,
-      updatedAt: now,
-      decision: {
+    queue.items = queue.items.map((item) => {
+      const candidate = acceptedById.get(item.id);
+      if (!candidate) return item;
+      return {
+        ...item,
+        status: "accepted",
+        catalogId: candidate.catalogId,
+        candidateCatalogId: candidate.catalogId,
+        targetRegion: candidate.region ?? item.targetRegion ?? item.detectedRegion ?? null,
+        condition: candidate.condition,
+        decidedAt: now,
+        updatedAt: now,
+        decision: {
+          action: "accept",
+          catalogId: candidate.catalogId,
+          region: candidate.region,
+          condition: candidate.condition,
+          note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
+        },
+        evidence: {
+          ...(item.evidence ?? {}),
+          reviewNotes: [
+            ...(item.evidence?.reviewNotes ?? []),
+            `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
+          ],
+        },
+      };
+    });
+    queue.decisions = [
+      ...[...acceptedById.values()].map((candidate) => ({
+        id: candidate.id,
+        at: now,
         action: "accept",
         catalogId: candidate.catalogId,
         region: candidate.region,
         condition: candidate.condition,
         note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
-      },
-      evidence: {
-        ...(item.evidence ?? {}),
-        reviewNotes: [
-          ...(item.evidence?.reviewNotes ?? []),
-          `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
-        ],
-      },
+      })),
+      ...queue.decisions,
+    ];
+    const write = await writeQueue(queue);
+    if (errors.length) return { error: `${acceptedById.size} decisiones guardadas. No se pudieron aplicar los restantes precios: ${errors.slice(0, 3).join(" · ")}. Actualiza la cola.` };
+    return {
+      ok: true,
+      mode: "apply",
+      label,
+      totalPending: targetItems.length,
+      totalRetroplayzonePending: targetItems.length,
+      accepted: acceptedById.size,
+      skipped: candidates.length - acceptedById.size,
+      workerSynced: write.workerSynced,
+      workerSyncError: write.error,
+      candidates: candidates.map((candidate) => acceptedById.has(candidate.id) ? candidate : { ...candidate, decision: candidate.decision === "accept" ? "skip" : candidate.decision }),
     };
   });
-  queue.decisions = [
-    ...[...acceptedById.values()].map((candidate) => ({
-      id: candidate.id,
-      at: now,
-      action: "accept",
-      catalogId: candidate.catalogId,
-      region: candidate.region,
-      condition: candidate.condition,
-      note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
-    })),
-    ...queue.decisions,
-  ].slice(0, MAX_PRICE_REVIEW_DECISIONS);
-  const write = await writeQueue(queue);
-  return {
-    ok: true,
-    mode: "apply",
-    label,
-    totalPending: targetItems.length,
-    totalRetroplayzonePending: targetItems.length,
-    accepted: acceptedById.size,
-    skipped: candidates.length - acceptedById.size,
-    workerSynced: write.workerSynced,
-    workerSyncError: write.error,
-    candidates: candidates.map((candidate) => acceptedById.has(candidate.id) ? candidate : { ...candidate, decision: candidate.decision === "accept" ? "skip" : candidate.decision }),
-  };
 }
 
 export async function decidePriceReviewItem(
   id: string,
   input: PriceReviewDecisionInput,
 ): Promise<{ ok: true; item: PriceReviewItem; workerSynced: boolean; apply?: unknown } | { error: string }> {
-  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
-  const index = queue.items.findIndex((item) => item.id === id);
-  if (index < 0) return { error: "Pendiente no encontrado." };
-  const item = queue.items[index];
-  const now = new Date().toISOString();
+  return mutateReviewQueue(async (queue, writeQueue): Promise<{ ok: true; item: PriceReviewItem; workerSynced: boolean; apply?: unknown } | { error: string }> => {
+    const index = queue.items.findIndex((item) => item.id === id);
+    if (index < 0) return { error: "Pendiente no encontrado." };
+    const item = queue.items[index];
+    const conflict = priceReviewEditConflict(item, input.expectedUpdatedAt);
+    if (conflict) return { error: conflict };
+    const now = new Date().toISOString();
 
-  let apply: unknown;
-  if (input.action === "accept") {
-    const catalogId = input.catalogId?.trim() || item.catalogId || item.candidateCatalogId;
-    if (!catalogId) return { error: "Falta juego destino para aceptar." };
-    const patch = patchFromReview(item, input);
-    const result = await updatePublishedCatalogPrices(catalogId, patch);
-    if ("error" in result) return { error: result.error };
-    apply = result;
-  }
+    let apply: unknown;
+    if (input.action === "accept") {
+      const catalogId = input.catalogId?.trim() || item.catalogId || item.candidateCatalogId;
+      if (!catalogId) return { error: "Falta juego destino para aceptar." };
+      const patch = patchFromReview(item, input);
+      const result = await updatePublishedCatalogPrices(catalogId, patch);
+      if ("error" in result) return { error: result.error };
+      apply = result;
+    }
 
-  const nextItem: PriceReviewItem = {
-    ...item,
-    status: input.action === "accept" ? "accepted" : "rejected",
-    decidedAt: now,
-    updatedAt: now,
-    decision: {
-      action: input.action,
-      catalogId: input.catalogId?.trim() || item.catalogId || item.candidateCatalogId || null,
-      region: input.region?.trim() || item.targetRegion || item.detectedRegion || null,
-      condition: input.condition || item.condition || null,
-      note: input.note?.trim() || null,
-      ...(input.action === "reject"
-        ? {
-            reasonCode: PRICE_REVIEW_REJECT_REASON_CODES.includes(input.reasonCode as PriceReviewRejectReason)
-              ? input.reasonCode
-              : undefined,
-          }
-        : {}),
-      ...(input.originalContents === undefined
-        ? {}
-        : { originalContents: normalizeOriginalGameContents(input.originalContents) }),
-    },
-  };
-  queue.items[index] = nextItem;
-  queue.decisions = [
-    { id, at: now, ...nextItem.decision },
-    ...queue.decisions,
-  ].slice(0, MAX_PRICE_REVIEW_DECISIONS);
-  const write = await writeQueue(queue);
-  return { ok: true, item: nextItem, workerSynced: write.workerSynced, apply };
+    const nextItem: PriceReviewItem = {
+      ...item,
+      status: input.action === "accept" ? "accepted" : "rejected",
+      decidedAt: now,
+      updatedAt: now,
+      decision: {
+        action: input.action,
+        catalogId: input.catalogId?.trim() || item.catalogId || item.candidateCatalogId || null,
+        region: input.region?.trim() || item.targetRegion || item.detectedRegion || null,
+        condition: input.condition || item.condition || null,
+        note: input.note?.trim() || null,
+        ...(input.action === "reject"
+          ? {
+              reasonCode: PRICE_REVIEW_REJECT_REASON_CODES.includes(input.reasonCode as PriceReviewRejectReason)
+                ? input.reasonCode
+                : undefined,
+            }
+          : {}),
+        ...(input.originalContents === undefined
+          ? {}
+          : { originalContents: normalizeOriginalGameContents(input.originalContents) }),
+      },
+    };
+    queue.items[index] = nextItem;
+    queue.decisions = [
+      { id, at: now, ...nextItem.decision },
+      ...queue.decisions,
+    ];
+    const write = await writeQueue(queue);
+    return { ok: true, item: nextItem, workerSynced: write.workerSynced, apply };
+  });
 }
 
 export async function closeUnresolvedPriceReviewItems(
@@ -1298,24 +1348,25 @@ export async function closeUnresolvedPriceReviewItems(
   if (input.confirmation !== "CERRAR PENDIENTES") {
     return { error: "Confirmación incorrecta." };
   }
-  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
-  const closed = closeUnresolvedPriceReviewQueue(queue, input);
-  if (!closed.closed) {
+  return mutateReviewQueue(async (queue, writeQueue) => {
+    const closed = closeUnresolvedPriceReviewQueue(queue, input);
+    if (!closed.closed) {
+      return {
+        ok: true as const,
+        closed: 0,
+        remaining: closed.remaining,
+        workerSynced: true,
+      };
+    }
+    const write = await writeQueue(closed.queue);
     return {
-      ok: true,
-      closed: 0,
+      ok: true as const,
+      closed: closed.closed,
       remaining: closed.remaining,
-      workerSynced: true,
+      workerSynced: write.workerSynced,
+      ...(write.error ? { workerSyncError: write.error } : {}),
     };
-  }
-  const write = await writeQueue(closed.queue);
-  return {
-    ok: true,
-    closed: closed.closed,
-    remaining: closed.remaining,
-    workerSynced: write.workerSynced,
-    ...(write.error ? { workerSyncError: write.error } : {}),
-  };
+  });
 }
 
 export async function clonePriceReviewCatalogRegion(
@@ -1333,48 +1384,52 @@ export async function clonePriceReviewCatalogRegion(
     }
   | { error: string }
 > {
-  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
-  const index = queue.items.findIndex((item) => item.id === id);
-  if (index < 0) return { error: "Pendiente no encontrado." };
-  const item = queue.items[index];
-  const sourceCatalogId = input.sourceCatalogId?.trim() || item.catalogId || item.candidateCatalogId || "";
-  const region = input.region?.trim() || item.targetRegion || item.detectedRegion || "";
-  if (!sourceCatalogId) return { error: "Elige la ficha base para clonar." };
-  if (!region) return { error: "Elige la región nueva." };
+  return mutateReviewQueue(async (queue, writeQueue) => {
+    const index = queue.items.findIndex((item) => item.id === id);
+    if (index < 0) return { error: "Pendiente no encontrado." };
+    const item = queue.items[index];
+    const conflict = priceReviewEditConflict(item, input.expectedUpdatedAt);
+    if (conflict) return { error: conflict };
+    const sourceCatalogId = input.sourceCatalogId?.trim() || item.catalogId || item.candidateCatalogId || "";
+    const region = input.region?.trim() || item.targetRegion || item.detectedRegion || "";
+    if (!sourceCatalogId) return { error: "Elige la ficha base para clonar." };
+    if (!region) return { error: "Elige la región nueva." };
 
-  const clone = await clonePublishedCatalogGameToRegion({ sourceCatalogId, region });
-  if ("error" in clone) return clone;
+    const clone = await clonePublishedCatalogGameToRegion({ sourceCatalogId, region });
+    if ("error" in clone) return clone;
 
-  const now = new Date().toISOString();
-  const nextItem: PriceReviewItem = {
-    ...item,
-    catalogId: clone.catalogId,
-    candidateCatalogId: clone.catalogId,
-    targetRegion: region,
-    updatedAt: now,
-    evidence: {
-      ...(item.evidence ?? {}),
-      reviewNotes: [
-        ...(item.evidence?.reviewNotes ?? []),
-        `Ficha creada desde ${sourceCatalogId} para región ${region}`,
-      ],
-      matchAlternatives: [
-        { catalogId: clone.catalogId, title: item.listingTitle, region, score: 1 },
-        ...(item.evidence?.matchAlternatives ?? []),
-      ],
-    },
-  };
-  queue.items[index] = nextItem;
-  const write = await writeQueue(queue);
-  return {
-    ok: true,
-    item: nextItem,
-    catalogId: clone.catalogId,
-    region,
-    url: clone.url,
-    workerSynced: write.workerSynced,
-    clone,
-  };
+    const now = new Date().toISOString();
+    const nextItem: PriceReviewItem = {
+      ...item,
+      catalogId: clone.catalogId,
+      candidateCatalogId: clone.catalogId,
+      targetRegion: region,
+      updatedAt: now,
+      adminEditedAt: now,
+      evidence: {
+        ...(item.evidence ?? {}),
+        reviewNotes: [
+          ...(item.evidence?.reviewNotes ?? []),
+          `Ficha creada desde ${sourceCatalogId} para región ${region}`,
+        ],
+        matchAlternatives: [
+          { catalogId: clone.catalogId, title: item.listingTitle, region, score: 1 },
+          ...(item.evidence?.matchAlternatives ?? []),
+        ],
+      },
+    };
+    queue.items[index] = nextItem;
+    const write = await writeQueue(queue);
+    return {
+      ok: true as const,
+      item: nextItem,
+      catalogId: clone.catalogId,
+      region,
+      url: clone.url,
+      workerSynced: write.workerSynced,
+      clone,
+    };
+  });
 }
 
 export async function mergePriceReviewCatalogGames(
@@ -1392,47 +1447,59 @@ export async function mergePriceReviewCatalogGames(
     }
   | { error: string }
 > {
-  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
-  const index = queue.items.findIndex((item) => item.id === id);
-  if (index < 0) return { error: "Pendiente no encontrado." };
-  const item = queue.items[index];
-  const catalogIds = [...new Set((input.catalogIds ?? []).map((value) => value.trim()).filter(Boolean))];
-  if (catalogIds.length < 2) return { error: "Selecciona al menos dos fichas para fusionar." };
+  return mutateReviewQueue(async (queue, writeQueue) => {
+    const index = queue.items.findIndex((item) => item.id === id);
+    if (index < 0) return { error: "Pendiente no encontrado." };
+    const item = queue.items[index];
+    const conflict = priceReviewEditConflict(item, input.expectedUpdatedAt);
+    if (conflict) return { error: conflict };
+    const catalogIds = [...new Set((input.catalogIds ?? []).map((value) => value.trim()).filter(Boolean))];
+    if (catalogIds.length < 2) return { error: "Selecciona al menos dos fichas para fusionar." };
 
-  const merge = await mergePublishedCatalogGames({ catalogIds });
-  if ("error" in merge) return merge;
+    const merge = await mergePublishedCatalogGames({ catalogIds });
+    if ("error" in merge) return merge;
 
-  const now = new Date().toISOString();
-  const mergedSet = new Set(merge.mergedCatalogIds);
-  const alternatives = (item.evidence?.matchAlternatives ?? [])
-    .filter((alt) => !alt.catalogId || !mergedSet.has(alt.catalogId))
-    .map((alt) => (alt.catalogId && alt.catalogId !== merge.targetCatalogId ? alt : { ...alt, catalogId: merge.targetCatalogId, score: 1 }));
-  if (!alternatives.some((alt) => alt.catalogId === merge.targetCatalogId)) {
-    alternatives.unshift({ catalogId: merge.targetCatalogId, title: item.listingTitle, region: item.targetRegion ?? undefined, score: 1 });
+    const now = new Date().toISOString();
+    const mergedSet = new Set(merge.mergedCatalogIds);
+    const alternatives = (item.evidence?.matchAlternatives ?? [])
+      .filter((alt) => !alt.catalogId || !mergedSet.has(alt.catalogId))
+      .map((alt) => (alt.catalogId && alt.catalogId !== merge.targetCatalogId ? alt : { ...alt, catalogId: merge.targetCatalogId, score: 1 }));
+    if (!alternatives.some((alt) => alt.catalogId === merge.targetCatalogId)) {
+      alternatives.unshift({ catalogId: merge.targetCatalogId, title: item.listingTitle, region: item.targetRegion ?? undefined, score: 1 });
+    }
+    const nextItem: PriceReviewItem = {
+      ...item,
+      catalogId: merge.targetCatalogId,
+      candidateCatalogId: merge.targetCatalogId,
+      updatedAt: now,
+      adminEditedAt: now,
+      evidence: {
+        ...(item.evidence ?? {}),
+        matchAlternatives: alternatives,
+        reviewNotes: [
+          ...(item.evidence?.reviewNotes ?? []),
+          `Fichas fusionadas en ${merge.targetCatalogId}: ${merge.mergedCatalogIds.join(", ")}`,
+        ],
+      },
+    };
+    queue.items[index] = nextItem;
+    const write = await writeQueue(queue);
+    return {
+      ok: true as const,
+      item: nextItem,
+      targetCatalogId: merge.targetCatalogId,
+      mergedCatalogIds: merge.mergedCatalogIds,
+      url: merge.url,
+      workerSynced: write.workerSynced,
+      merge,
+    };
+  });
+}
+
+export function priceReviewEditConflict(item: PriceReviewItem, expectedUpdatedAt?: string | null): string | null {
+  if (item.status !== "pending") return "Este anuncio ya está resuelto. Actualiza la cola; no se ha reescrito su decisión.";
+  if (expectedUpdatedAt !== undefined && expectedUpdatedAt !== (item.updatedAt ?? item.createdAt ?? null)) {
+    return "El anuncio cambió desde que lo abriste. Actualiza antes de guardar.";
   }
-  const nextItem: PriceReviewItem = {
-    ...item,
-    catalogId: merge.targetCatalogId,
-    candidateCatalogId: merge.targetCatalogId,
-    updatedAt: now,
-    evidence: {
-      ...(item.evidence ?? {}),
-      matchAlternatives: alternatives,
-      reviewNotes: [
-        ...(item.evidence?.reviewNotes ?? []),
-        `Fichas fusionadas en ${merge.targetCatalogId}: ${merge.mergedCatalogIds.join(", ")}`,
-      ],
-    },
-  };
-  queue.items[index] = nextItem;
-  const write = await writeQueue(queue);
-  return {
-    ok: true,
-    item: nextItem,
-    targetCatalogId: merge.targetCatalogId,
-    mergedCatalogIds: merge.mergedCatalogIds,
-    url: merge.url,
-    workerSynced: write.workerSynced,
-    merge,
-  };
+  return null;
 }

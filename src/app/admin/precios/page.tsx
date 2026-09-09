@@ -599,7 +599,9 @@ export default async function AdminPricesPage({
   ] = await Promise.all([
     needsDashboard ? getAdminPriceDashboard(20) : Promise.resolve(null),
     view === "fuentes" ? readPriceSourceSettings() : Promise.resolve(null),
-    view === "revision" ? getPriceReviewTriageView(500, "actionable") : Promise.resolve(null),
+    view === "revision" ? getPriceReviewTriageView(80, "actionable").catch((error: unknown) => ({
+      error: error instanceof Error ? error.message : "No se pudo leer la cola del servidor.",
+    })) : Promise.resolve(null),
     view === "game" ? listLocalGameRunnerJobs(20) : Promise.resolve([]),
     view === "fuentes" ? listMarketResearchBatches(12) : Promise.resolve([]),
     view === "revision" ? getAdminCollectionPriceDiscrepancies() : Promise.resolve([]),
@@ -1012,11 +1014,12 @@ export default async function AdminPricesPage({
       {view === "revision" && priceReviewView ? (
         <>
           <AdminCollectionPriceDiscrepancyPanel items={collectionPriceDiscrepancies} />
-          <AdminPriceReviewPanel
-            initialItems={priceReviewView.items}
-            initialCounts={priceReviewView.counts}
-            initialTotal={priceReviewView.total}
-          />
+          {"error" in priceReviewView ? (
+            <Panel>
+              <p role="alert" className="text-sm text-danger">{priceReviewView.error}</p>
+              <Link className="btn-secondary mt-3" href="/admin/precios?vista=revision">Volver a intentar</Link>
+            </Panel>
+          ) : <AdminPriceReviewPanel initialView={priceReviewView} />}
         </>
       ) : null}
 

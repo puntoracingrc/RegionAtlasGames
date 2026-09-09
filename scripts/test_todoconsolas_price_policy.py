@@ -333,30 +333,32 @@ def main() -> None:
     assert "tcnsRetailPrice" not in rejected_target
 
     class FakeQueue:
-        payload = {"items": [{"id": "remote-review", "status": "pending"}], "decisions": []}
+        def __init__(self):
+            from test_review_store import MemorySftp
+            self.sftp = MemorySftp()
+            self.sftp.files[self.remote("app", "data", "admin", "price-review-queue.json")] = json.dumps({
+                "items": [{"id": "remote-review", "status": "pending", "listingTitle": "Remote"}], "decisions": [],
+            }).encode()
 
         def remote(self, *parts):
             return "/".join(parts)
 
-        def upload_file(self, _remote, local_path):
-            self.payload = json.loads(local_path.read_text(encoding="utf-8"))
-
-        def exists(self, _remote):
-            return True
-
-        def read_json(self, _remote):
-            return self.payload
+        def read_json(self, remote):
+            return json.loads(self.sftp.files[remote])
 
     original_root = pc_sftp_worker.ROOT
+    original_learning = pc_sftp_worker.COLLECTOR_LEARNING_FILE
     with tempfile.TemporaryDirectory() as tmp:
         pc_sftp_worker.ROOT = Path(tmp)
         review_file = Path(tmp) / "data" / "admin" / "price-review-queue.json"
         review_file.parent.mkdir(parents=True)
-        review_file.write_text(json.dumps({"items": [{"id": "review-1"}]}), encoding="utf-8")
+        pc_sftp_worker.COLLECTOR_LEARNING_FILE = review_file.with_name("collector-learning.json")
+        review_file.write_text(json.dumps({"items": [{"id": "review-1", "status": "pending", "listingTitle": "Local"}], "decisions": []}), encoding="utf-8")
         try:
             assert upload_price_review_queue_verified(FakeQueue()) == 2
         finally:
             pc_sftp_worker.ROOT = original_root
+            pc_sftp_worker.COLLECTOR_LEARNING_FILE = original_learning
     print("OK TodoConsolas exact price policy")
 
 

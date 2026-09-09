@@ -114,6 +114,9 @@ const nextConfig: NextConfig = {
       "data/research/ps4-pal-compilations-source.json",
       "data/research/ps4-pal-high-*.csv",
       "data/research/ps4-pal-residual-company-research-queue.csv",
+      // Offline credit-audit inputs, never read by the web or price worker sync.
+      "data/research/ps4-pal-rapid-review-decisions.csv",
+      "data/research/ps4-pal-rapid-review-resolved.csv",
       // Award runtime data is statically imported from public.json; research is build-time only.
       "data/research/award-study/**",
       "data/research/award-editorial-approvals.json",

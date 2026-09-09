@@ -341,13 +341,12 @@ def test_manual_update_clears_stale_health_marker() -> None:
 
 
 def test_collector_learning_sync() -> None:
+    from test_review_store import MemorySftp
     class FakeQueue:
         def __init__(self) -> None:
             self.files: dict[str, bytes] = {}
             self.config = SimpleNamespace(runner_id="test-worker")
-            self.sftp = SimpleNamespace(
-                stat=lambda _path: SimpleNamespace(st_mtime=1788120000),
-            )
+            self.sftp = MemorySftp(self.files)
 
         def remote(self, *parts: str) -> str:
             return "/".join(("price-worker", *parts))
@@ -383,6 +382,7 @@ def test_collector_learning_sync() -> None:
             queue.files[remote_queue] = json.dumps(
                 {
                     "updatedAt": "2026-08-30T22:00:00Z",
+                    "decisions": [],
                     "items": [
                         {
                             "id": "accepted-wallapop-example",

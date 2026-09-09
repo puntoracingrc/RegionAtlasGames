@@ -17,6 +17,7 @@
     "awards:audit": "tsx scripts/audit-awards-baseline.ts",
     "test:awards": "npm run awards:check && tsx --test src/lib/award-domain.test.ts src/lib/award-backfill.test.ts src/lib/award-calendar.test.ts",
     "posttest:unit": "npm run test:awards",
+    "posttest:collector-controls": "python3 scripts/test_review_store.py",
     "test:verified-company-credits": "python3 scripts/build_verified_company_credit_index.py --check",
     "test:company-credit-ps4-pal-high": "python3 scripts/apply_company_credit_ps4_pal_high_additions.py --check && python3 scripts/test_company_credit_ps4_pal_high_additions.py",
     "test:company-credit-ps4-pal-rapid-review": "python3 scripts/apply_company_credit_ps4_pal_rapid_review.py --check && python3 scripts/test_company_credit_ps4_pal_rapid_review.py",
