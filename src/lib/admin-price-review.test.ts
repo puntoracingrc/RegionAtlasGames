@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   closeUnresolvedPriceReviewQueue,
+  isSafeAutoAccept,
   buildPriceReviewTriageView,
   priceReviewEditConflict,
   normalizePriceReviewTriageFilter,
@@ -30,6 +31,27 @@ function review(overrides: Partial<PriceReviewItem> = {}): PriceReviewItem {
     ...overrides,
   };
 }
+
+test("partial or negative PC vision cannot inherit stale pricing certainty", () => {
+  for (const assessment of ["identified", "wrong_platform", "non_game", "insufficient_identity"]) {
+    const item = review({ catalogId: "ps5-test", targetRegion: "PAL España", detectedRegion: "PAL España", condition: "complete",
+      evidence: { aiConfidence: 1, matchScore: 1, regionEvidence: ["cover_spain"],
+        coverVision: { analysisVersion: 2, assessment, valuationReady: false, isTargetGame: assessment === "identified" } } });
+    assert.equal(isSafeAutoAccept(item, { assumedRegion: "PAL España", assumedCondition: "complete" }).decision, "skip");
+  }
+});
+
+test("complete PC evidence is usable without changing queue identity or assuming a country", () => {
+  const item = review({ catalogId: "ps5-test", targetRegion: "PAL España", evidence: {
+    coverVision: { analysisVersion: 2, valuationReady: true, isTargetGame: true,
+      region: "PAL España", condition: "complete", gameConfidence: 0.95, regionConfidence: 0.9,
+      conditionConfidence: 0.95, validationWarnings: [], regionEvidence: ["cover_spain"] },
+  } });
+  const before = JSON.stringify(item);
+  assert.equal(isSafeAutoAccept(item, {}).decision, "accept");
+  assert.equal(isSafeAutoAccept(item, { assumedRegion: "USA" }).decision, "skip");
+  assert.equal(JSON.stringify(item), before);
+});
 
 test("retries cannot reapply a resolved decision or overwrite a changed pending item", () => {
   assert.match(priceReviewEditConflict(review({ status: "accepted" }))!, /resuelto/);

@@ -13,6 +13,18 @@ from collectors.ai_usage import record_usage, summarize_usage, usage_batch
 
 
 class UsageTests(unittest.TestCase):
+    def test_responses_api_usage(self):
+        with tempfile.TemporaryDirectory() as directory, usage_batch(directory) as path:
+            record_usage({"model": "actual-mini", "usage": {
+                "input_tokens": 100, "input_tokens_details": {"cached_tokens": 40},
+                "output_tokens": 20, "total_tokens": 120}}, model="requested-mini", operation="pc_review_vision_v2")
+            result = summarize_usage(path)
+            self.assertEqual(result["inputTokens"], 100)
+            self.assertEqual(result["cachedInputTokens"], 40)
+            self.assertEqual(result["totalTokens"], 120)
+            self.assertEqual(result["responsesMissingUsage"], 0)
+            self.assertIn("actual-mini", result["byModel"])
+
     def test_subprocess_and_models(self):
         with tempfile.TemporaryDirectory() as directory, usage_batch(directory) as path:
             payload = {"id": "test-response", "model": "model-a", "usage": {

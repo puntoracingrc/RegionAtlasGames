@@ -985,13 +985,35 @@ function hasUsefulRegionEvidence(item: PriceReviewItem, explicitRegion: string |
   return Boolean(explicitRegion) && (strongEvidence || explicitTextEvidence);
 }
 
-function isSafeAutoAccept(
+export function isSafeAutoAccept(
   item: PriceReviewItem,
   input: PriceReviewAutoRetroplayzoneInput,
   vision: CoverVisionResult | null = null,
   visionUnavailableReason?: string,
 ): PriceReviewAutoRetroplayzoneCandidate {
   const catalogId = item.catalogId || item.candidateCatalogId || null;
+  const pcVision = item.evidence?.coverVision;
+  if (pcVision?.analysisVersion === 2) {
+    const pcRegion = mapVisionRegion(pcVision.region);
+    const pcCondition = mapVisionCondition(pcVision.condition);
+    const warnings = pcVision.validationWarnings;
+    const finiteConfidences = [pcVision.gameConfidence, pcVision.regionConfidence, pcVision.conditionConfidence]
+      .every((value) => typeof value === "number" && Number.isFinite(value));
+    if (pcVision.valuationReady !== true || pcVision.isTargetGame !== true || !pcRegion || !pcCondition
+      || !finiteConfidences
+      || Number(pcVision.gameConfidence) < 0.65 || Number(pcVision.regionConfidence) < 0.65
+      || Number(pcVision.conditionConfidence) < 0.7 || !Array.isArray(warnings) || warnings.length > 0
+      || pcVision.regionConflict === true || !regionsCompatible(pcRegion, item.targetRegion)
+      || !regionsCompatible(pcRegion, input.assumedRegion)) {
+      return { id: item.id, listingTitle: item.listingTitle, catalogId, region: pcRegion,
+        condition: pcCondition, priceEur: item.priceEur, decision: "skip",
+        reason: `Análisis PC: ${String(pcVision.assessment || "incompleto")} · ${String(pcVision.reason || "faltan pruebas de región o contenido")}` };
+    }
+    vision = { isTargetGame: true, region: pcRegion, condition: pcCondition,
+      confidence: Math.min(Number(pcVision.gameConfidence), Number(pcVision.regionConfidence), Number(pcVision.conditionConfidence)),
+      evidence: Array.isArray(pcVision.regionEvidence) ? pcVision.regionEvidence.map(String) : [],
+      reason: String(pcVision.reason || "") };
+  }
   const assumedRegion = input.assumedRegion?.trim();
   const assumedCondition = input.assumedCondition && input.assumedCondition !== "none" ? input.assumedCondition : null;
   const listingText = reviewListingText(item);
@@ -1164,6 +1186,10 @@ async function buildAutoReviewCandidates(
   let visionAttempts = 0;
 
   for (const item of items) {
+    if (item.evidence?.coverVision?.analysisVersion === 2) {
+      candidates.push(isSafeAutoAccept(item, input));
+      continue;
+    }
     let vision: CoverVisionResult | null = null;
     let visionUnavailableReason: string | undefined;
     if (!hasReviewImageSource(item)) {
