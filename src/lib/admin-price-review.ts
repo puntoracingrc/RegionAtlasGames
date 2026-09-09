@@ -19,7 +19,8 @@ import type { CatalogGame } from "./types";
 import catalogData from "../../data/catalog.json";
 import ebayReviewInbox from "../../data/ebay-regional-campaigns/review-queue.json";
 import { mergeEbayReviewInbox } from "./ebay-review-inbox";
-import { assertReviewHistoryPreserved, atomicReviewWrite, validateReviewDocument, withReviewLock, type ReviewSftpClient } from "./price-review-store";
+import { assertReviewHistoryPreserved, atomicReviewWrite, validateReviewDocument, withReviewLock } from "./price-review-store";
+import { withParallelReviewReads, type ReviewTransferClient } from "./price-review-transfer";
 
 const REVIEW_FILE =
   process.env.ADMIN_PRICE_REVIEW_FILE ??
@@ -359,7 +360,7 @@ async function mutateReviewQueue<R>(
   const config = workerSftpConfig();
   if (!config) return { error: "SFTP del worker no configurado. No se ha aplicado la decisión." };
   const mod = (await import("ssh2-sftp-client")) as unknown as {
-    default: new () => ReviewSftpClient & {
+    default: new () => ReviewTransferClient & {
       connect(config: Record<string, unknown>): Promise<void>;
       end(): Promise<void>;
     };
@@ -370,14 +371,15 @@ async function mutateReviewQueue<R>(
   const learningPath = path.posix.join(remoteDir, "collector-learning.json");
   try {
     await client.connect({ ...config, readyTimeout: 15_000, retries: 0 });
-    return await withReviewLock(client, remotePath, async (raw) => {
+    const transfer = withParallelReviewReads(client);
+    return await withReviewLock(transfer, remotePath, async (raw) => {
       const queue = mergeEbayReviewInbox(normalizeQueue(raw), normalizeQueue(ebayReviewInbox));
       const original = structuredClone(raw);
       return operation(queue, async (next) => {
         assertReviewHistoryPreserved(original, next);
         next.updatedAt = new Date().toISOString();
-        await atomicReviewWrite(client, remotePath, next);
-        await atomicReviewWrite(client, learningPath, buildCollectorLearningSnapshot(next, next.updatedAt));
+        await atomicReviewWrite(transfer, remotePath, next);
+        await atomicReviewWrite(transfer, learningPath, buildCollectorLearningSnapshot(next, next.updatedAt));
         return { workerSynced: true };
       });
     });

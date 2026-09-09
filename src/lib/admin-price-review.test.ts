@@ -16,6 +16,7 @@ import {
 import { todoConsolasListingMetadata } from "./todoconsolas-listing";
 import { buildCollectorLearningSnapshot } from "./collector-learning";
 import "./price-review-store.test";
+import "./price-review-transfer.test";
 
 function review(overrides: Partial<PriceReviewItem> = {}): PriceReviewItem {
   return {
