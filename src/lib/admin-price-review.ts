@@ -21,6 +21,7 @@ import ebayReviewInbox from "../../data/ebay-regional-campaigns/review-queue.jso
 import { mergeEbayReviewInbox } from "./ebay-review-inbox";
 import { assertReviewHistoryPreserved, atomicReviewWrite, validateReviewDocument, withReviewLock } from "./price-review-store";
 import { withParallelReviewReads, type ReviewTransferClient } from "./price-review-transfer";
+import { readAuthoritativeReviewDocument } from "./price-review-reader";
 
 const REVIEW_FILE =
   process.env.ADMIN_PRICE_REVIEW_FILE ??
@@ -315,15 +316,31 @@ function normalizeQueue(input: unknown): PriceReviewQueue {
 async function readQueueFromWorker(): Promise<PriceReviewQueue | null> {
   const base = priceWorkerPublicBaseUrl();
   if (!base) return null;
+  const raw = await readAuthoritativeReviewDocument({
+    url: `${base}/app/data/admin/price-review-queue.json?t=${Date.now()}`,
+    readSftp: readQueueFromSftp,
+    onFailure: (failure) => console.warn(JSON.stringify({ event: "price_review_read_failed", ...failure })),
+  });
+  return mergeEbayReviewInbox(normalizeQueue(raw), normalizeQueue(ebayReviewInbox));
+}
+
+async function readQueueFromSftp(): Promise<unknown> {
+  const config = workerSftpConfig();
+  if (!config) throw new Error("SFTP del worker no configurado.");
+  const mod = (await import("ssh2-sftp-client")) as unknown as {
+    default: new () => ReviewTransferClient & {
+      connect(config: Record<string, unknown>): Promise<void>;
+      end(): Promise<void>;
+    };
+  };
+  const client = new mod.default();
+  const remotePath = path.posix.join(priceWorkerRemoteRoot(), "app", "data", "admin", "price-review-queue.json");
   try {
-    const response = await fetch(`${base}/app/data/admin/price-review-queue.json?t=${Date.now()}`, {
-      cache: "no-store",
-      headers: { Accept: "application/json" },
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return mergeEbayReviewInbox(normalizeQueue(await response.json()), normalizeQueue(ebayReviewInbox));
-  } catch {
-    throw new Error("No se pudo leer la cola del servidor. No se utiliza una copia local incompleta; vuelve a actualizar.");
+    await client.connect({ ...config, readyTimeout: 15_000, retries: 0, keepaliveInterval: 5_000, keepaliveCountMax: 2 });
+    const bytes = await withParallelReviewReads(client).get(remotePath);
+    return JSON.parse(bytes.toString("utf8"));
+  } finally {
+    await client.end().catch(() => undefined);
   }
 }
 
