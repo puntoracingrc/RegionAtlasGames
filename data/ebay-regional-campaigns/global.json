@@ -9,65 +9,65 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 970,
-    "dailySearchesRemaining": 30,
+    "dailySearchesUsed": 51,
+    "dailySearchesRemaining": 949,
     "regions": [
       "PAL España",
       "PAL Europa"
     ]
   },
   "status": "running",
-  "currentPlatform": "gamecube",
-  "currentPlatformName": "Nintendo GameCube",
+  "currentPlatform": "wii",
+  "currentPlatformName": "Nintendo Wii",
   "currentRegion": "PAL España",
-  "updatedAt": "2026-09-08T22:22:40Z",
+  "updatedAt": "2026-09-09T05:04:44Z",
   "lastRun": {
-    "at": "2026-09-08T22:22:40Z",
+    "at": "2026-09-09T05:04:44Z",
     "platformSlug": "gamecube",
     "platformName": "Nintendo GameCube",
     "region": "PAL España",
-    "selected": 250,
-    "processed": 250,
-    "matched": 66,
-    "listingsAdded": 115,
+    "selected": 51,
+    "processed": 51,
+    "matched": 11,
+    "listingsAdded": 27,
     "regionalReroutes": 0,
-    "regionalReviews": 503,
-    "apiSearches": 250,
+    "regionalReviews": 101,
+    "apiSearches": 51,
     "searchBudget": 250,
-    "searchBudgetExhausted": true,
+    "searchBudgetExhausted": false,
     "failed": 0,
     "systemicError": null,
     "aiUsage": {
-      "batchId": "9d5d5fbbc7594db4a41481eb3a5dc46a",
-      "responses": 986,
+      "batchId": "3196fdcc199e46c5a0604936e243d11d",
+      "responses": 196,
       "responsesMissingUsage": 0,
-      "inputTokens": 32933386,
-      "cachedInputTokens": 464128,
-      "outputTokens": 369142,
-      "totalTokens": 33302528,
+      "inputTokens": 6714287,
+      "cachedInputTokens": 238848,
+      "outputTokens": 74996,
+      "totalTokens": 6789283,
       "responsesMissingCacheUsage": 0,
       "byModel": {
         "gpt-4o-mini-2024-07-18": {
-          "inputTokens": 32933386,
-          "outputTokens": 369142,
-          "totalTokens": 33302528,
-          "cachedInputTokens": 464128
+          "inputTokens": 6714287,
+          "outputTokens": 74996,
+          "totalTokens": 6789283,
+          "cachedInputTokens": 238848
         }
       }
     },
     "coverCandidatesAdded": 0
   },
   "dailyUsage": {
-    "date": "2026-09-08",
-    "apiSearches": 970
+    "date": "2026-09-09",
+    "apiSearches": 51
   },
   "totals": {
     "catalogGames": 25777,
-    "completed": 5907,
-    "matched": 1679,
-    "noMatch": 4228,
+    "completed": 5958,
+    "matched": 1690,
+    "noMatch": 4268,
     "deferred": 0,
-    "pending": 19870
+    "pending": 19819
   },
   "estimatedRunsRemaining": 80,
   "estimatedDaysRemaining": 20,
@@ -277,16 +277,16 @@
     {
       "platformSlug": "gamecube",
       "platformName": "Nintendo GameCube",
-      "status": "running",
-      "currentRegion": "PAL España",
-      "updatedAt": "2026-09-08T22:22:40Z",
+      "status": "completed",
+      "currentRegion": null,
+      "updatedAt": "2026-09-09T05:04:44Z",
       "totals": {
         "catalogGames": 551,
-        "completed": 500,
-        "matched": 145,
-        "noMatch": 355,
+        "completed": 551,
+        "matched": 156,
+        "noMatch": 395,
         "deferred": 0,
-        "pending": 51
+        "pending": 0
       },
       "regions": [
         {
@@ -296,11 +296,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 551,
-          "completed": 500,
-          "matched": 145,
-          "noMatch": 355,
+          "completed": 551,
+          "matched": 156,
+          "noMatch": 395,
           "deferred": 0,
-          "pending": 51
+          "pending": 0
         }
       ]
     },
@@ -1465,6 +1465,32 @@
             "outputTokens": 369142,
             "totalTokens": 33302528,
             "cachedInputTokens": 464128
+          }
+        }
+      },
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-09T05:04:44Z",
+      "level": "info",
+      "message": "Nintendo GameCube · PAL España: 51/51 consultados, 11 con evidencias, 27 anuncios aceptados, 0 aprovechados en otra región, 101 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "gamecube",
+      "region": "PAL España",
+      "aiUsage": {
+        "batchId": "3196fdcc199e46c5a0604936e243d11d",
+        "responses": 196,
+        "responsesMissingUsage": 0,
+        "inputTokens": 6714287,
+        "cachedInputTokens": 238848,
+        "outputTokens": 74996,
+        "totalTokens": 6789283,
+        "responsesMissingCacheUsage": 0,
+        "byModel": {
+          "gpt-4o-mini-2024-07-18": {
+            "inputTokens": 6714287,
+            "outputTokens": 74996,
+            "totalTokens": 6789283,
+            "cachedInputTokens": 238848
           }
         }
       },
