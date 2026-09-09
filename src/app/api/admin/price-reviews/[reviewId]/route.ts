@@ -8,7 +8,8 @@ import {
 } from "@/lib/collector-learning";
 
 type RouteParams = { params: Promise<{ reviewId: string }> };
-export const maxDuration = 120;
+// The shared SFTP transaction includes full upload and readback verification.
+export const maxDuration = 300;
 
 export async function POST(request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) {
