@@ -3,7 +3,7 @@ import { assertAdminApi } from "@/lib/admin-auth";
 import { clonePriceReviewCatalogRegion } from "@/lib/admin-price-review";
 
 type RouteParams = { params: Promise<{ reviewId: string }> };
-export const maxDuration = 120;
+export const maxDuration = 300;
 
 export async function POST(request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) {
