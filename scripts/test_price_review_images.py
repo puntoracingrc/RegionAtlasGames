@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+import unittest
+from test_price_review_visual_contract import VisualContractTests
 
 from auto_price_review_vision import (
     apply_vision_to_item,
@@ -114,6 +116,7 @@ def main() -> None:
     assert spanish_back["detectedRegion"] == "PAL España"
     assert "back_cover_language" in spanish_back["evidence"]["regionEvidence"]
     print("OK price review images")
+    assert unittest.TextTestRunner().run(unittest.defaultTestLoader.loadTestsFromTestCase(VisualContractTests)).wasSuccessful()
 
 
 if __name__ == "__main__":

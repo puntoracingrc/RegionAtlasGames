@@ -36,14 +36,15 @@ def record_usage(payload, *, model, operation):
     if not destination:
         return
     usage = payload.get("usage") or {}
-    details = usage.get("prompt_tokens_details") or {}
+    responses_api = "input_tokens" in usage
+    details = usage.get("input_tokens_details" if responses_api else "prompt_tokens_details") or {}
     _append(Path(destination), {
         "event": "response", "at": datetime.now(timezone.utc).isoformat(),
         "model": payload.get("model") or model, "operation": operation,
         "responseId": payload.get("id"),
-        "inputTokens": usage.get("prompt_tokens"),
+        "inputTokens": usage.get("input_tokens" if responses_api else "prompt_tokens"),
         "cachedInputTokens": details.get("cached_tokens"),
-        "outputTokens": usage.get("completion_tokens"),
+        "outputTokens": usage.get("output_tokens" if responses_api else "completion_tokens"),
         "totalTokens": usage.get("total_tokens"),
     })
 
