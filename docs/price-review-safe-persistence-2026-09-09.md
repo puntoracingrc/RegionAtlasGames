@@ -32,6 +32,10 @@ no limites permanentes del producto.
   snapshot para impedir saltos/duplicados si cambia la cola entre paginas.
 - La lectura HTTP evita copias intermedias antiguas y no oculta fallos con fallback.
   Si falla la carga inicial, Admin muestra el error y permite reintentar.
+- El primer Preview compilo, pero Vercel rechazo `admin/precios` por superar
+  ligeramente 250 MB (250,09 MB). Se excluyen del empaquetado dos CSV usados solo
+  por la auditoria offline de creditos (1.500.850 bytes), siguiendo las exclusiones
+  existentes. Permanecen intactos en Git; no cambia ningun limite del servidor.
 
 ## Pruebas
 
@@ -117,3 +121,8 @@ valoracion de mercado. No se ha aplicado. El boton legacy de aceptar aun copia u
 muestra a precio recomendado/minimo/maximo; no se debe usar para publicar este caso
 como valoracion. Conservar la evidencia y pasarla por la agregacion/revision de
 precios separada despues de activar el guardado seguro.
+
+El agregador exige normalmente dos observaciones, pero su excepcion legacy
+`humanReviewed` permite una: el dry-run de una unica muestra de 90 EUR se bloquea
+sin esa excepcion y devuelve 90/90/90 con ella. Por tanto, tampoco se enviara este
+anuncio por ese atajo. Esta PR no cambia la politica de valoracion.
