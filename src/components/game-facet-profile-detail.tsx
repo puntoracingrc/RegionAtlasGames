@@ -14,6 +14,7 @@ import {
   publicPlatformFilterOptions,
 } from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
+import { catalogReviewCounts, isDefaultCatalogGame } from "@/lib/catalog-review-policy";
 
 function entityTypeLabel(type: "genre" | "subgenre" | "facet"): string {
   if (type === "genre") return "Género";
@@ -38,7 +39,8 @@ export async function GameFacetProfileDetail({
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const ownedSet = new Set(ownedCatalogIds);
-  const games = [...view.games]
+  const reviewCounts = catalogReviewCounts(view.games);
+  const games = view.games.filter(isDefaultCatalogGame)
     .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }))
     .slice(0, CATALOG_PAGE_SIZE)
     .map(toCatalogListGame)
@@ -115,7 +117,8 @@ export async function GameFacetProfileDetail({
             games={games}
             contextName={view.title}
             source={{ kind: "taxonomy", filter: view.entity.type, slug: view.entity.slug }}
-            totalCatalogEntryCount={view.catalogEntryCount}
+            totalCatalogEntryCount={reviewCounts.documented}
+            reviewCounts={reviewCounts}
             regions={publicCatalogRegionFilterOptions()}
             regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
             platforms={publicPlatformFilterOptions()}

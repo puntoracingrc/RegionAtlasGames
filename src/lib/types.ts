@@ -441,6 +441,7 @@ export type CatalogListGame = Pick<
   | "platformSlug"
   | "region"
   | "canonicalSeoSlug"
+  | "regionalStatus"
   | "physicalVariant"
   | "coverUrl"
   | "recommendedPrice"

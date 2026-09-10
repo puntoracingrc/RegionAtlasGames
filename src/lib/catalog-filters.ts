@@ -6,6 +6,7 @@ import { publicRegionLabelForPlatform } from "@/lib/platform-region-policy";
 import { getRegionDisplay } from "@/lib/region-display";
 import { regionNavigationGroup, selectedRegionGroup } from "@/lib/region-navigation";
 import type { CatalogListGame } from "@/lib/types";
+import { catalogReviewCounts, isGroupedCatalogName, isPendingCatalogGame, pendingEditionForGame, type CatalogReviewCounts, type PendingEdition } from "@/lib/catalog-review-policy";
 
 export type CatalogSort =
   | "title-asc"
@@ -233,6 +234,8 @@ export type CatalogFilterState = {
   facet?: string;
   company?: string;
   queryScope?: "full" | "game";
+  includePending?: boolean;
+  pendingEdition?: PendingEdition;
 };
 
 export type CatalogTaxonomyFilterOption = {
@@ -279,9 +282,11 @@ export function filterCatalogGames(
     facet = "all",
     company = "",
     queryScope = "full",
+    includePending = false,
+    pendingEdition = "all",
   }: CatalogFilterState,
   options?: { regions?: boolean; platforms?: boolean },
-): { items: CatalogListGame[]; total: number } {
+): { items: CatalogListGame[]; total: number; reviewCounts: CatalogReviewCounts } {
   let list = games;
 
   if (options?.regions !== false && region !== "all") {
@@ -315,11 +320,17 @@ export function filterCatalogGames(
     list = list.filter((g) => matchesScopedQuery(g, q, queryScope));
   }
 
+  const reviewCounts = catalogReviewCounts(list);
+  list = list.filter((game) => !isGroupedCatalogName(game));
+  list = list.filter((game) => includePending
+    ? pendingEdition === "all" || (isPendingCatalogGame(game) && pendingEditionForGame(game) === pendingEdition)
+    : !isPendingCatalogGame(game));
   list = sortCatalogListGames(list, sort, priceType);
 
   return {
     items: list,
     total: list.length,
+    reviewCounts,
   };
 }
 

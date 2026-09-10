@@ -75,6 +75,7 @@ export function PlatformCard({
 
       <div className="relative z-10 mt-4 space-y-2">
         <p className="text-xs text-muted">{listedLabel}</p>
+        {stats.pendingCatalogEntryCount > 0 ? <p className="text-xs text-muted">+ {stats.pendingCatalogEntryCount.toLocaleString("es-ES")} fichas pendientes de revisar</p> : null}
         {stats.owned > 0 && (
           <p className="text-xs text-accent/90">
             Tienes {stats.owned} en tu colección

@@ -25,6 +25,7 @@ import {
   publicPlatformFilterOptions,
 } from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
+import { isDefaultCatalogGame, parsePendingEdition } from "@/lib/catalog-review-policy";
 
 type Props = {
   searchParams?: Promise<{
@@ -35,6 +36,8 @@ type Props = {
     subgenre?: string;
     facet?: string;
     priceType?: string;
+    includePending?: string;
+    pendingEdition?: string;
   }>;
 };
 
@@ -43,6 +46,8 @@ export const dynamic = "force-dynamic";
 export default async function CatalogPage({ searchParams }: Props) {
   const params = await searchParams;
   const initialQuery = typeof params?.q === "string" ? params.q : "";
+  const initialIncludePending = params?.includePending === "1";
+  const initialPendingEdition = parsePendingEdition(params?.pendingEdition);
   const initialPlatform = typeof params?.platform === "string" ? params.platform : "all";
   const initialRegion = typeof params?.region === "string" ? params.region : "all";
   const initialGenre = typeof params?.genre === "string" ? params.genre : "all";
@@ -60,6 +65,7 @@ export default async function CatalogPage({ searchParams }: Props) {
   ]);
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const hasInitialFilters =
+    initialIncludePending ||
     initialQuery.trim() !== "" ||
     initialPlatform !== "all" ||
     initialRegion !== "all" ||
@@ -80,6 +86,8 @@ export default async function CatalogPage({ searchParams }: Props) {
           genre: initialGenre,
           subgenre: initialSubgenre,
           facet: initialFacet,
+          includePending: initialIncludePending,
+          pendingEdition: initialPendingEdition,
         },
         { regions: true, platforms: true },
       )
@@ -98,7 +106,7 @@ export default async function CatalogPage({ searchParams }: Props) {
           </p>
           <h1 className="text-3xl font-bold text-foreground">Buscar en todo Region Atlas</h1>
           <p className="max-w-3xl text-muted">
-            Explora {formatCatalogEntryCount(publicListedCatalog.length)} por título, compañía,
+            Explora {formatCatalogEntryCount(publicListedCatalog.filter(isDefaultCatalogGame).length)} por título, compañía,
             género, saga, referencia, plataforma o región.
           </p>
         </header>
@@ -108,6 +116,9 @@ export default async function CatalogPage({ searchParams }: Props) {
           contextName="todo el catálogo"
           source={{ kind: "catalog" }}
           totalCatalogEntryCount={initialCatalog.total}
+          reviewCounts={initialCatalog.reviewCounts}
+          initialIncludePending={initialIncludePending}
+          initialPendingEdition={initialPendingEdition}
           regions={publicCatalogRegionFilterOptions()}
           regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
           platforms={publicPlatformFilterOptions()}

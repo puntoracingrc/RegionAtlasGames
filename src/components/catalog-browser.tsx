@@ -42,7 +42,8 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { catalogConditionPriceRows } from "@/lib/price-display";
 import { formatEur } from "@/lib/price-format";
 import { cn } from "@/lib/cn";
-import { isRegionSelectionAvailable } from "@/lib/region-navigation";
+import { isRegionSelectionAvailable, regionNavigationGroup, selectedRegionGroup } from "@/lib/region-navigation";
+import { catalogReviewCounts, isPendingCatalogGame, parsePendingEdition, PENDING_EDITION_OPTIONS, type CatalogReviewCounts, type PendingEdition } from "@/lib/catalog-review-policy";
 
 const selectClass =
   "h-10 w-full rounded-lg border border-border bg-input px-3 text-sm outline-none ring-accent/25 transition focus:border-accent/50 focus:ring-2";
@@ -101,6 +102,7 @@ function CatalogCompactRow({
           <h3 className="truncate text-sm font-semibold text-foreground group-hover:text-accent">
             {decodeHtmlEntities(game.title)}
           </h3>
+          {isPendingCatalogGame(game) ? <p className="mt-1 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
           <p className="mt-0.5 flex flex-wrap items-center gap-1 text-[11px] text-muted">
             <span>{game.displayPlatform}</span>
             <span aria-hidden>·</span>
@@ -181,6 +183,11 @@ type Props = {
     | { kind: "genre"; slug: string }
     | { kind: "taxonomy"; filter: "genre" | "subgenre" | "facet"; slug: string };
   totalCatalogEntryCount?: number;
+  reviewCounts?: CatalogReviewCounts;
+  initialIncludePending?: boolean;
+  initialPendingEdition?: PendingEdition;
+  includePending?: boolean;
+  onIncludePendingChange?: (value: boolean) => void;
   regions?: CatalogRegionFilterOption[];
   regionsByPlatform?: Record<string, CatalogRegionFilterOption[]>;
   platforms?: CatalogPlatformFilterOption[];
@@ -214,6 +221,11 @@ export function CatalogBrowser({
   contextName,
   source,
   totalCatalogEntryCount,
+  reviewCounts: initialReviewCounts,
+  initialIncludePending = false,
+  initialPendingEdition = "all",
+  includePending: controlledIncludePending,
+  onIncludePendingChange,
   regions: initialRegions,
   regionsByPlatform,
   platforms: initialPlatforms,
@@ -253,6 +265,11 @@ export function CatalogBrowser({
   const [internalRegion, setInternalRegion] = useState(initialRegion);
   const region = controlledRegion ?? internalRegion;
   const setRegion = onRegionChange ?? setInternalRegion;
+  const [internalIncludePending, setInternalIncludePending] = useState(initialIncludePending);
+  const includePending = controlledIncludePending ?? internalIncludePending;
+  const setIncludePending = onIncludePendingChange ?? setInternalIncludePending;
+  const [pendingEdition, setPendingEdition] = useState<PendingEdition>(initialPendingEdition);
+  const [serverReviewCounts, setServerReviewCounts] = useState(() => initialReviewCounts ?? catalogReviewCounts(games));
   const [platform, setPlatform] = useState(initialPlatform);
   const [genre, setGenre] = useState(initialGenre);
   const [subgenre, setSubgenre] = useState(initialSubgenre);
@@ -307,11 +324,9 @@ export function CatalogBrowser({
   );
 
   const visibleRegions = useMemo(() => {
-    if (showPlatformFilter && platform !== "all") {
-      return regionsByPlatform?.[platform] ?? [];
-    }
-    return activeRegions;
-  }, [activeRegions, platform, regionsByPlatform, showPlatformFilter]);
+    const options = showPlatformFilter && platform !== "all" ? regionsByPlatform?.[platform] ?? [] : activeRegions;
+    return includePending ? options : options.filter((option) => regionNavigationGroup(option.label) !== "pending");
+  }, [activeRegions, includePending, platform, regionsByPlatform, showPlatformFilter]);
 
   useEffect(() => {
     setActiveRegions(regions);
@@ -329,7 +344,8 @@ export function CatalogBrowser({
   useEffect(() => {
     if (!persistKey) return;
     try {
-      const raw = window.localStorage.getItem(persistKey);
+      const hasUrlFilters = ["q", "region", "genre", "subgenre", "facet", "includePending", "pendingEdition"].some((key) => new URLSearchParams(window.location.search).has(key));
+      const raw = hasUrlFilters ? null : window.localStorage.getItem(persistKey);
       if (raw) {
         const saved = JSON.parse(raw) as {
           q?: string;
@@ -342,13 +358,18 @@ export function CatalogBrowser({
           priceType?: CatalogPriceType;
           sort?: CatalogSort;
           page?: number;
+          includePending?: boolean;
+          pendingEdition?: string;
         };
         skipNextResetRef.current = true;
         if (typeof saved.q === "string") {
           setDraftQ(saved.q);
           setQ(saved.q.trim().length === 1 ? "" : saved.q);
         }
-        if (typeof saved.region === "string") setRegion(saved.region);
+        const restorePending = saved.includePending === true;
+        setIncludePending(restorePending);
+        setPendingEdition(restorePending ? parsePendingEdition(saved.pendingEdition) : "all");
+        if (typeof saved.region === "string") setRegion(!restorePending && (regionNavigationGroup(saved.region) === "pending" || selectedRegionGroup(saved.region)?.id === "pending") ? "all" : saved.region);
         if (typeof saved.platform === "string") setPlatform(saved.platform);
         if (typeof saved.genre === "string") setGenre(saved.genre);
         if (typeof saved.subgenre === "string") setSubgenre(saved.subgenre);
@@ -363,15 +384,15 @@ export function CatalogBrowser({
     } finally {
       setSavedStateLoaded(true);
     }
-  }, [persistKey, setRegion]);
+  }, [persistKey, setIncludePending, setRegion]);
 
   useEffect(() => {
     if (!persistKey || !savedStateLoaded) return;
     window.localStorage.setItem(
       persistKey,
-      JSON.stringify({ q: draftQ, region, platform, genre, subgenre, facet, company, priceType, sort, page }),
+      JSON.stringify({ q: draftQ, region, platform, genre, subgenre, facet, company, priceType, sort, page, includePending, pendingEdition }),
     );
-  }, [company, draftQ, facet, genre, page, persistKey, platform, priceType, region, savedStateLoaded, sort, subgenre]);
+  }, [company, draftQ, facet, genre, includePending, pendingEdition, page, persistKey, platform, priceType, region, savedStateLoaded, sort, subgenre]);
 
   useEffect(() => {
     const timeout = window.setTimeout(
@@ -385,18 +406,20 @@ export function CatalogBrowser({
   }, [draftQ]);
 
   const localResult = useMemo(() => {
-    if (source) return { items: serverItems, total: serverTotal };
+    if (source) return { items: serverItems, total: serverTotal, reviewCounts: serverReviewCounts };
     return filterCatalogGames(
       games,
-      { q, region, platform, sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "full" },
+      { q, region, platform, sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "full", includePending, pendingEdition },
       {
         regions: showRegionFilter,
         platforms: showPlatformFilter,
       },
     );
-  }, [company, facet, games, genre, platform, priceType, q, region, serverItems, serverTotal, showPlatformFilter, showRegionFilter, sort, source, subgenre]);
+  }, [company, facet, games, genre, includePending, pendingEdition, platform, priceType, q, region, serverItems, serverReviewCounts, serverTotal, showPlatformFilter, showRegionFilter, sort, source, subgenre]);
   const filteredItems = source ? serverItems : localResult.items;
   const total = source ? serverTotal : localResult.total;
+  const reviewCounts = localResult.reviewCounts;
+  const showPendingControl = source?.kind === "catalog" || (source?.kind === "platform" && source.slug === "ps1") || reviewCounts.pending > 0 || includePending;
 
   const totalPages = Math.max(1, Math.ceil(total / CATALOG_PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
@@ -408,7 +431,7 @@ export function CatalogBrowser({
       return;
     }
     setPage(1);
-  }, [company, q, region, platform, priceType, sort, genre, subgenre, facet, savedStateLoaded]);
+  }, [company, q, region, platform, priceType, sort, genre, subgenre, facet, includePending, pendingEdition, savedStateLoaded]);
 
   useEffect(() => {
     if (page > totalPages) {
@@ -420,20 +443,23 @@ export function CatalogBrowser({
     if (!source) return;
 
     const defaultServerView =
-      q.trim() === "" &&
-      region === "all" &&
-      genre === "all" &&
-      subgenre === "all" &&
-      facet === "all" &&
+      q === (initialQuery.trim().length === 1 ? "" : initialQuery) &&
+      region === initialRegion &&
+      genre === initialGenre &&
+      subgenre === initialSubgenre &&
+      facet === initialFacet &&
       company.trim() === "" &&
-      priceType === DEFAULT_CATALOG_PRICE_TYPE &&
-      sort === DEFAULT_SORT &&
+      priceType === initialPriceType &&
+      sort === (initialPriceType === DEFAULT_CATALOG_PRICE_TYPE ? DEFAULT_SORT : "price-desc") &&
+      includePending === initialIncludePending &&
+      pendingEdition === initialPendingEdition &&
       page === 1 &&
-      (source.kind === "platform" || platform === "all");
+      (source.kind === "platform" || platform === initialPlatform);
 
     if (defaultServerView) {
       setServerItems(games);
       setServerTotal(totalCatalogEntryCount ?? games.length);
+      setServerReviewCounts(initialReviewCounts ?? catalogReviewCounts(games));
       setActiveRegions(regions);
       setActiveGenres(genres);
       setActiveSubgenres(subgenres);
@@ -454,6 +480,8 @@ export function CatalogBrowser({
           priceType,
           priceFilter: "all",
           page: String(page),
+          includePending: includePending ? "1" : "0",
+          pendingEdition,
         });
         if (company.trim()) params.set("company", company.trim());
         if (source.kind === "catalog" || source.kind === "genre" || source.kind === "taxonomy") {
@@ -478,9 +506,11 @@ export function CatalogBrowser({
         const payload = (await response.json()) as {
           items: CatalogListGame[];
           total: number;
+          reviewCounts?: CatalogReviewCounts;
         };
         setServerItems(payload.items);
         setServerTotal(payload.total);
+        setServerReviewCounts(payload.reviewCounts ?? catalogReviewCounts(payload.items));
       } catch (error) {
         if (!controller.signal.aborted) {
           console.warn("[catalog-browser] fetch failed", error);
@@ -493,7 +523,7 @@ export function CatalogBrowser({
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [companies, company, facet, facets, games, genre, genres, page, platform, priceType, q, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
+  }, [companies, company, facet, facets, games, genre, genres, includePending, pendingEdition, initialFacet, initialGenre, initialIncludePending, initialPendingEdition, initialPlatform, initialPriceType, initialQuery, initialRegion, initialReviewCounts, initialSubgenre, page, platform, priceType, q, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
@@ -509,6 +539,7 @@ export function CatalogBrowser({
     genre !== "all" ||
     subgenre !== "all" ||
     facet !== "all" ||
+    includePending ||
     priceType !== DEFAULT_CATALOG_PRICE_TYPE ||
     sort !== DEFAULT_SORT;
 
@@ -621,6 +652,32 @@ export function CatalogBrowser({
         </div>
 
         <div className="space-y-3">
+          {showPendingControl ? (
+            <div className="space-y-3 rounded-xl border border-border bg-background/50 p-3">
+              <label className="flex cursor-pointer items-center gap-3 text-sm font-medium">
+                <input type="checkbox" checked={includePending} onChange={(event) => {
+                  setIncludePending(event.target.checked);
+                  if (!event.target.checked) {
+                    setPendingEdition("all");
+                    if (regionNavigationGroup(region) === "pending" || selectedRegionGroup(region)?.id === "pending") setRegion("all");
+                  }
+                }} className="h-4 w-4 accent-accent" />
+                Incluir fichas pendientes
+              </label>
+              <p className="text-xs leading-5 text-muted" aria-live="polite">
+                {reviewCounts.documented.toLocaleString("es-ES")} {source?.kind === "platform" && source.slug === "ps1" ? "ediciones documentadas" : "fichas catalogadas"}
+                {" · "}{reviewCounts.pending.toLocaleString("es-ES")} pendientes de identificar con estos filtros.
+              </p>
+              {includePending ? (
+                <label className="block max-w-md space-y-1 text-xs text-muted">
+                  <span>Revisar variantes pendientes</span>
+                  <select value={pendingEdition} onChange={(event) => setPendingEdition(parsePendingEdition(event.target.value))} className={selectClass}>
+                    {PENDING_EDITION_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.value === "all" ? "Catálogo y todas las pendientes" : `${option.label} (${reviewCounts.variants[option.value].toLocaleString("es-ES")})`}</option>)}
+                  </select>
+                </label>
+              ) : null}
+            </div>
+          ) : null}
           <label className="block space-y-1">
             <span className="block text-[10px] font-black uppercase tracking-[0.18em] text-muted">Buscador</span>
             <input

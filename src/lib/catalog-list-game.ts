@@ -7,6 +7,7 @@ import { getGameDetails } from "@/lib/indexes";
 import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import { findGameFacetEntityByNameOrAlias, findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
 import type { CatalogGame, CatalogListGame } from "@/lib/types";
+import { catalogBrowseAliases } from "@/lib/catalog-review-policy";
 
 const catalogListGameCache = new WeakMap<CatalogGame, CatalogListGame>();
 
@@ -43,6 +44,7 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
     game.titlePc,
     game.slug,
     game.id,
+    ...catalogBrowseAliases(game.id),
     game.edition,
     game.museumSlug,
     game.museumRegion,
@@ -70,6 +72,7 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
     title: game.title,
     platformSlug: game.platformSlug,
     region: game.region,
+    regionalStatus: game.regionalStatus,
     canonicalSeoSlug: game.canonicalSeoSlug,
     coverUrl: game.coverUrl,
     recommendedPrice: game.recommendedPrice,
@@ -91,6 +94,7 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
       game.titlePc,
       game.slug,
       game.id,
+      ...catalogBrowseAliases(game.id),
       game.region,
       game.edition,
       game.museumSlug,

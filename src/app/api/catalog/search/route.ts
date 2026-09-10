@@ -23,6 +23,7 @@ import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import type { CatalogGame, CatalogListGame } from "@/lib/types";
 import { toCatalogCardGame } from "@/lib/catalog-card-game";
+import { catalogBrowseAliases, parsePendingEdition } from "@/lib/catalog-review-policy";
 
 const MAX_RESULTS = 12;
 const MAX_TAXONOMY_OPTIONS = 16;
@@ -52,6 +53,7 @@ function toQuickSearchGame(game: CatalogGame): CatalogListGame {
     game.titlePc,
     game.slug,
     game.id,
+    ...catalogBrowseAliases(game.id),
     game.region,
     game.edition,
     game.museumSlug,
@@ -72,6 +74,7 @@ function toQuickSearchGame(game: CatalogGame): CatalogListGame {
     title: game.title,
     platformSlug: game.platformSlug,
     region: game.region,
+    regionalStatus: game.regionalStatus,
     ...(game.canonicalSeoSlug ? { canonicalSeoSlug: game.canonicalSeoSlug } : {}),
     physicalVariant: game.physicalVariant,
     coverUrl: game.coverUrl,
@@ -137,6 +140,8 @@ function isKnownTaxonomyQuery(rawQuery: string): boolean {
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const q = url.searchParams.get("q") ?? "";
+  const includePending = url.searchParams.get("includePending") === "1";
+  const pendingEdition = parsePendingEdition(url.searchParams.get("pendingEdition"));
   const platform = url.searchParams.get("platform") ?? "all";
   const region = url.searchParams.get("region") ?? "all";
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
@@ -178,6 +183,8 @@ export async function GET(request: Request) {
     sort,
     priceType,
     priceFilter,
+    includePending,
+    pendingEdition,
     genre: genreSlug || "all",
     subgenre: subgenreSlug || "all",
     facet: facetSlug || "all",
@@ -199,6 +206,7 @@ export async function GET(request: Request) {
       {
         items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE).map(toCatalogCardGame),
         total: filtered.total,
+        reviewCounts: filtered.reviewCounts,
       },
       { headers: PUBLIC_CACHE_HEADERS },
     );

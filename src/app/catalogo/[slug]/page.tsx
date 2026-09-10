@@ -181,6 +181,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const regionalPackaging = normalizeRegionalPackaging(game.regionalPackaging);
   const showPhysicalEdition = originalContentProfile.explicit || regionalPackaging.length > 0;
   const regionLabel = getRegionDisplay(game.region).label;
+  const pendingPs1 = game.platformSlug === "ps1" && game.regionalStatus === "review";
   const similar = getSimilarGames(game);
   const faqs = buildGameFaq(game, platform, details);
   const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
@@ -256,7 +257,13 @@ export default async function CatalogGamePage({ params }: Props) {
 
         <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-10">
           <div className="space-y-4 lg:self-start">
-            <div>
+            {pendingPs1 && !game.coverUrl ? (
+              <Panel>
+                <PanelTitle>Edición pendiente de identificar</PanelTitle>
+                <p className="text-sm leading-6 text-muted">La portada de esta ficha aún no está confirmada. Consulta las ediciones documentadas y las referencias disponibles para contrastar tu ejemplar.</p>
+                <a href="#ps1-edition-details" className="mt-3 inline-block text-sm font-semibold text-accent underline">Ver ediciones y referencias</a>
+              </Panel>
+            ) : <div>
               <DetailCoverArt
                 src={getCoverSrc(game.coverUrl, game.id)}
                 alt={coverAlt}
@@ -265,7 +272,7 @@ export default async function CatalogGamePage({ params }: Props) {
                 grail={grail}
                 topSegment={topSegment}
               />
-            </div>
+            </div>}
 
             <CatalogMarketplacePanel catalogId={game.id} />
           </div>
@@ -311,6 +318,8 @@ export default async function CatalogGamePage({ params }: Props) {
               )}
             </header>
 
+            {pendingPs1 ? <div id="ps1-edition-details" className="scroll-mt-24"><Ps1EditionPanel game={game} details={details} /></div> : null}
+
             <GamePriceHero game={game} />
 
             {priceHistory.length > 0 && (
@@ -319,7 +328,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
             <GameProductReference game={game} details={details} />
 
-            <Ps1EditionPanel game={game} details={details} />
+            {!pendingPs1 ? <Ps1EditionPanel game={game} details={details} /> : null}
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />
 

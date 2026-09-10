@@ -18,6 +18,7 @@ import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { IntentLink } from "@/components/intent-link";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
+import { isPendingCatalogGame } from "@/lib/catalog-review-policy";
 import {
   formatCollectionConditionSummary,
   type CollectionConditionValue,
@@ -113,6 +114,7 @@ export function CatalogGameCard({
           topSegment={topSegment}
           listingsForSale={listingsForSale}
         />
+        {isPendingCatalogGame(game) ? <p className="px-3 pb-3 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
       </IntentLink>
       <CollectionQuickAdd

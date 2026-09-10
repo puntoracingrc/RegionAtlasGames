@@ -15,6 +15,7 @@ import {
   publicPlatformFilterOptions,
 } from "@/lib/public-catalog-filter-options";
 import type { GenreProfileView } from "@/lib/genre-profile";
+import { catalogReviewCounts, isDefaultCatalogGame } from "@/lib/catalog-review-policy";
 
 type Props = {
   view: GenreProfileView;
@@ -27,7 +28,8 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCata
   const ownedSet = new Set(ownedCatalogIds);
   const { originGame, recommendedGames } = pickRecommendedGames(view.games, fromCatalogId);
   const recommendedListGames = recommendedGames.map(toCatalogListGame);
-  const initialGames = [...view.games]
+  const reviewCounts = catalogReviewCounts(view.games);
+  const initialGames = view.games.filter(isDefaultCatalogGame)
     .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }))
     .slice(0, CATALOG_PAGE_SIZE)
     .map(toCatalogListGame)
@@ -101,7 +103,8 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCata
             games={initialGames}
             contextName={view.name}
             source={{ kind: "genre", slug: view.slug }}
-            totalCatalogEntryCount={view.catalogEntryCount}
+            totalCatalogEntryCount={reviewCounts.documented}
+            reviewCounts={reviewCounts}
             regions={publicCatalogRegionFilterOptions()}
             regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
             platforms={publicPlatformFilterOptions()}

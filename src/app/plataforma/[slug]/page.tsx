@@ -8,6 +8,8 @@ import { SiteNav } from "@/components/site-nav";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import {
   CATALOG_PAGE_SIZE,
+  DEFAULT_SORT,
+  filterCatalogGames,
   publicFacetFilterOptions,
   publicGenreFilterOptions,
   publicSubgenreFilterOptions,
@@ -23,10 +25,11 @@ import { listNewsForSection } from "@/lib/news-cache";
 import { platformNewsTopicForSlug } from "@/lib/news-platform-topics";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
+import { catalogReviewCounts, isDefaultCatalogGame, isGroupedCatalogName, parsePendingEdition } from "@/lib/catalog-review-policy";
 
 type Props = {
   params: Promise<{ slug: string }>;
-  searchParams?: Promise<{ q?: string; region?: string; genre?: string; subgenre?: string; facet?: string }>;
+  searchParams?: Promise<{ q?: string; region?: string; genre?: string; subgenre?: string; facet?: string; includePending?: string; pendingEdition?: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -63,7 +66,14 @@ export default async function PlatformPage({ params, searchParams }: Props) {
     ? [...new Set(owned.map((item) => item.catalogId).filter((id): id is string => Boolean(id)))]
     : [];
   const ownedOnPlatform = owned.filter((c) => c.platformSlug === slug);
-  const initialGames = sortCatalogByTitle(catalogGames)
+  const includePending = query?.includePending === "1";
+  const pendingEdition = parsePendingEdition(query?.pendingEdition);
+  const browseGames = catalogGames.filter((game) => !isGroupedCatalogName(game));
+  const initialFilters = { q: query?.q ?? "", region: query?.region ?? "all", genre: query?.genre ?? "all", subgenre: query?.subgenre ?? "all", facet: query?.facet ?? "all", platform: "all", sort: DEFAULT_SORT, priceFilter: "all" as const, queryScope: "game" as const, includePending, pendingEdition };
+  const hasInitialFilters = includePending || Boolean(query?.q || query?.region || query?.genre || query?.subgenre || query?.facet);
+  const initialResult = hasInitialFilters ? filterCatalogGames(catalogGames.map(toCatalogListGame), initialFilters) : null;
+  const defaultGames = browseGames.filter(isDefaultCatalogGame);
+  const initialGames = initialResult ? initialResult.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame) : sortCatalogByTitle(defaultGames)
     .slice(0, CATALOG_PAGE_SIZE)
     .map(toCatalogListGame)
     .map(toCatalogCardGame);
@@ -90,8 +100,9 @@ export default async function PlatformPage({ params, searchParams }: Props) {
             <PlatformCatalogSection
               platform={platform}
               games={initialGames}
-              totalCatalogEntryCount={catalogGames.length}
-              insights={buildPlatformCatalogInsights(catalogGames, platform.slug)}
+              totalCatalogEntryCount={initialResult?.total ?? defaultGames.length}
+              reviewCounts={initialResult?.reviewCounts ?? catalogReviewCounts(catalogGames)}
+              insights={buildPlatformCatalogInsights(browseGames, platform.slug)}
               regions={publicCatalogRegionFilterOptionsForPlatform(platform.slug)}
               genres={publicGenreFilterOptions()}
               subgenres={publicSubgenreFilterOptions()}
@@ -107,6 +118,8 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               initialGenre={typeof query?.genre === "string" ? query.genre : "all"}
               initialSubgenre={typeof query?.subgenre === "string" ? query.subgenre : "all"}
               initialFacet={typeof query?.facet === "string" ? query.facet : "all"}
+              initialIncludePending={includePending}
+              initialPendingEdition={pendingEdition}
             />
           </>
         )}
