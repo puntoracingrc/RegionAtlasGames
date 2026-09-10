@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import catalogRouteRedirectsData from "./data/catalog-route-redirects.json";
+import coverAssetRedirects from "./data/cover-asset-redirects.json";
 
 type CatalogRouteRedirectsData = {
   redirects: Array<{
@@ -62,6 +63,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...catalogRouteRedirects,
+      ...coverAssetRedirects,
       {
         source: "/:path*",
         has: [{ type: "host", value: "regionatlas.games" }],
@@ -97,6 +99,7 @@ const nextConfig: NextConfig = {
   outputFileTracingExcludes: {
     "/*": [
       "artifacts/ps1-region-migration/**",
+      "artifacts/ps1-pending-covers/**",
       "data/_catalog_backup_gg.json",
       "data/descriptions/**",
       "data/covers-report.json",

@@ -111,7 +111,10 @@ export function Ps1EditionPanel({ game, details }: { game: CatalogGame; details?
                 <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar ${label.toLowerCase()} de ${game.title}`}>
                   <Image unoptimized src={src} width={asset.width ?? 400} height={asset.height ?? 400} alt={`${label} de ${game.title} · ${asset.marketHints.join(" / ") || "Mercado por confirmar"}`} className="h-44 w-full object-contain" />
                 </a>
-                <figcaption className="mt-2 text-xs text-muted">{label} · {asset.marketHints.join(" / ") || "Mercado por confirmar"} · <a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">Fuente</a></figcaption>
+                <figcaption className="mt-2 text-xs text-muted">
+                  {label} · {asset.marketHints.join(" / ") || "Mercado por confirmar"} · <a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">Fuente</a>
+                  {asset.thumbnailOnly ? <span className="mt-1 block">Miniatura de referencia; escaneo completo no disponible.</span> : null}
+                </figcaption>
               </figure>;
             })}
           </div>
