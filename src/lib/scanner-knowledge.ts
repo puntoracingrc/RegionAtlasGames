@@ -6,6 +6,7 @@ import snes from "../../data/region-research/snes.json";
 import snesDistributions from "../../data/region-research/snes-distributions.json";
 import megadrive from "../../data/region-research/megadrive.json";
 import nes from "../../data/region-research/nes.json";
+import ps2 from "../../data/region-research/ps2.json";
 import { loadMarketplaceCollectorLearning } from "./marketplace-collector-context";
 import { object, scannerEquivalentTitles, scannerText, type ScannerPerception, type ScannerSource } from "./game-scanner";
 import { ps1ScannerKnowledge, type Ps1ScannerIdentity } from "./ps1-scanner-knowledge";
@@ -16,7 +17,7 @@ type ResearchDocument = {
   sources: Record<string, { url: string; attribution?: string; kind?: string }>;
   inspectionRules: ResearchEntry[]; gameReferences: ResearchEntry[];
 };
-const documents = [gameboy, gameboyReviewed, snes, snesDistributions, megadrive, nes] as ResearchDocument[];
+const documents = [gameboy, gameboyReviewed, snes, snesDistributions, megadrive, nes, ps2] as ResearchDocument[];
 type CatalogIdentity = Ps1ScannerIdentity & { titlePc?: string | null; listingStatus?: string; catalogKind?: string };
 let identities: Promise<CatalogIdentity[]> | undefined;
 
