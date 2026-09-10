@@ -1,0 +1,30 @@
+{
+  "historicalPackage": "/Users/macbookpro14/Documents/New project 2/research/psxdatacenter-audit-2026-09-10",
+  "inputs": [
+    {
+      "file": "psx-facts.json.gz",
+      "sha256": "c1612429b07a50be62650bc1dc7b6983b3aa2cf4212457294b0bbe998b6437e6",
+      "uncompressedBytes": 22532637
+    },
+    {
+      "file": "psx-relationships.json.gz",
+      "sha256": "17c00a2b5c1d65bb396465c5ececc269053800be920850e15d8fb6bdebbab5b6",
+      "uncompressedBytes": 2421285
+    },
+    {
+      "file": "psx-assets.json.gz",
+      "sha256": "71a2b0bfc245539462d26cd2c9c6b8b501a61cf15faf5a05eaef7df54b5b631d",
+      "uncompressedBytes": 30373048
+    },
+    {
+      "file": "psx-manuals-index.json.gz",
+      "sha256": "668573713d0de206280c17d88fc832f591e1f17928d6b5eb361488897a01ffb7",
+      "uncompressedBytes": 210096
+    },
+    {
+      "file": "psx-index.json.gz",
+      "sha256": "90c085a37a5d9de867417e83a77a40ef191fe7cc2263adcacd1ec54011d7c22e",
+      "uncompressedBytes": 2994019
+    }
+  ]
+}

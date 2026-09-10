@@ -6,6 +6,7 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   {
+    files: ["**/*.{js,jsx,mjs,ts,tsx,mts,cts}"],
     rules: {
       // Existing client components use effects for route-driven resets and initial loads.
       // Keep the React 19 recommendation visible without blocking the safety gate.

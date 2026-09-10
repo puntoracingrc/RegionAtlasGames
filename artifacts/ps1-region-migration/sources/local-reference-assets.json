@@ -1,0 +1,38 @@
+{
+  "psxdc-asset-08760df5ab495c7a6056": {
+    "url": "/catalog-covers/ps1-regional-v2/17e30186c07a56709dcbc84cd272ca7044abad04e6fb2f7b9a2dcdd0e8ad173a.jpg",
+    "sha256": "17e30186c07a56709dcbc84cd272ca7044abad04e6fb2f7b9a2dcdd0e8ad173a",
+    "bytes": 874728,
+    "stored": true,
+    "storageLocation": "regionatlas-static",
+    "sourceImageUrl": "https://psxdatacenter.com/images/hires/P/M/SCES-03086/SCES-03086-F-ALL.jpg",
+    "verifiedAt": "2026-09-10"
+  },
+  "psxdc-asset-a6be8c62da9d005e0c22": {
+    "url": "/catalog-covers/ps1-regional-v2/05319437367e5bc5c50cea14d946eabc87f8271bbcf4be4a22e1a8220381673c.jpg",
+    "sha256": "05319437367e5bc5c50cea14d946eabc87f8271bbcf4be4a22e1a8220381673c",
+    "bytes": 1179336,
+    "stored": true,
+    "storageLocation": "regionatlas-static",
+    "sourceImageUrl": "https://psxdatacenter.com/images/hires/P/M/SCES-03086/SCES-03086-B-ALL.jpg",
+    "verifiedAt": "2026-09-10"
+  },
+  "psxdc-asset-67f75cb7d3c605c964c3": {
+    "url": "/catalog-covers/ps1-regional-v2/fa14e00145625b8596565c68a7e344560dab974ceb36c8df60229f88dc859656.jpg",
+    "sha256": "fa14e00145625b8596565c68a7e344560dab974ceb36c8df60229f88dc859656",
+    "bytes": 292761,
+    "stored": true,
+    "storageLocation": "regionatlas-static",
+    "sourceImageUrl": "https://psxdatacenter.com/images/hires/P/M/SCES-03087/SCES-03087-F-ALL.jpg",
+    "verifiedAt": "2026-09-10"
+  },
+  "psxdc-asset-a676ebde2b530645f5c2": {
+    "url": "/catalog-covers/ps1-regional-v2/a8d781a8bfd2b0cb5da8c2500e12d3918ebaa0e8d3345c07e002ae7c983da3fb.jpg",
+    "sha256": "a8d781a8bfd2b0cb5da8c2500e12d3918ebaa0e8d3345c07e002ae7c983da3fb",
+    "bytes": 417093,
+    "stored": true,
+    "storageLocation": "regionatlas-static",
+    "sourceImageUrl": "https://psxdatacenter.com/images/hires/P/M/SCES-03087/SCES-03087-B-ALL.jpg",
+    "verifiedAt": "2026-09-10"
+  }
+}

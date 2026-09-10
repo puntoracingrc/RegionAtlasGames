@@ -1,6 +1,6 @@
 {
-  "total": 73107,
-  "listed": 70933,
+  "total": 77399,
+  "listed": 75225,
   "excluded": 2174,
   "byCategory": {
     "accessory": 145,
@@ -29,7 +29,7 @@
     "neogeocd": 183,
     "neogeopocket": 169,
     "nes": 2297,
-    "ps1": 6142,
+    "ps1": 10434,
     "ps2": 7944,
     "ps3": 5343,
     "ps4": 8495,

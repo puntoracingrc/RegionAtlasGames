@@ -1,0 +1,1175 @@
+[
+  {
+    "serial": "SLES-02723",
+    "http": 200,
+    "response": {
+      "platform": "ps1",
+      "serial": "SLES-02723",
+      "physicalVariantResolved": false,
+      "candidates": [
+        {
+          "catalogId": "ps1-eu-sles-02723",
+          "title": "F1 2000",
+          "url": "/catalogo/f1-2000-sles-02723-ps1-pal-eu",
+          "edition": "standard",
+          "regionFamily": "PAL",
+          "marketRegion": "Europe",
+          "regionCode": "EU",
+          "languages": [
+            "da",
+            "en",
+            "es",
+            "fi",
+            "sv"
+          ],
+          "canonicalSerials": [
+            "SLES-02723"
+          ],
+          "components": [
+            {
+              "kind": "disc",
+              "number": 1,
+              "serial": "SLES-02723",
+              "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html"
+            }
+          ],
+          "languageEvidence": {
+            "all": [
+              "da",
+              "en",
+              "es",
+              "fi",
+              "sv"
+            ],
+            "text": [
+              "da",
+              "en",
+              "es",
+              "fi",
+              "sv"
+            ],
+            "audio": [],
+            "index": [
+              "es"
+            ],
+            "discrepancy": true,
+            "claims": [
+              {
+                "value": [
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "da",
+                  "en",
+                  "es",
+                  "fi",
+                  "sv"
+                ],
+                "raw": "English Swedish Finnish Danks Spanish Menus and gameplay are in Multi-5 (English, Swedish, Finnish, Danks & Spanish).",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "da",
+                  "en",
+                  "es",
+                  "fi",
+                  "sv"
+                ],
+                "source": "redump-org",
+                "sourceUrl": "http://redump.org/datfile/psx/serial,version",
+                "verifiedAt": "2026-09-10",
+                "confidence": "high"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "label": "PSX Datacenter",
+              "url": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+              "sha256": "6d1d4bc6e400282a894243f2649d8f3807717edfd1818bb5cab5fbbce2690083"
+            },
+            {
+              "label": "Redump",
+              "url": "http://redump.org/datfile/psx/serial,version"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/48119/"
+            }
+          ],
+          "fieldProvenance": {
+            "market": {
+              "value": "Europe",
+              "source": "redump-org",
+              "sourceUrl": "http://redump.org/datfile/psx/serial,version",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc_release_not_country_of_every_box"
+            },
+            "languages": [
+              {
+                "value": [
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "da",
+                  "en",
+                  "es",
+                  "fi",
+                  "sv"
+                ],
+                "raw": "English Swedish Finnish Danks Spanish Menus and gameplay are in Multi-5 (English, Swedish, Finnish, Danks & Spanish).",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "da",
+                  "en",
+                  "es",
+                  "fi",
+                  "sv"
+                ],
+                "source": "redump-org",
+                "sourceUrl": "http://redump.org/datfile/psx/serial,version",
+                "verifiedAt": "2026-09-10",
+                "confidence": "high"
+              }
+            ],
+            "serials": {
+              "value": [
+                "SLES-02723"
+              ],
+              "source": "psxdatacenter-and-redump",
+              "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc"
+            },
+            "support": {
+              "value": "CD-ROM",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "players": {
+              "value": 2,
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "developer": {
+              "value": {
+                "name": "Visual Sciences",
+                "slug": "visual-sciences",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "publisher": {
+              "value": {
+                "name": "Electronic Arts",
+                "slug": "electronic-arts",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "releaseDate": {
+              "value": "2000-06-10",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "year": {
+              "value": 2000,
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/F/SLES-02723.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            }
+          },
+          "sourceWarnings": []
+        }
+      ]
+    }
+  },
+  {
+    "serial": "SLES-03225",
+    "http": 200,
+    "response": {
+      "platform": "ps1",
+      "serial": "SLES-03225",
+      "physicalVariantResolved": false,
+      "candidates": [
+        {
+          "catalogId": "ps1-es-sles-03225",
+          "title": "Dino Crisis 2",
+          "url": "/catalogo/dino-crisis-2-sles-03225-ps1-pal-es",
+          "edition": "standard",
+          "regionFamily": "PAL",
+          "marketRegion": "Spain",
+          "regionCode": "ES",
+          "languages": [
+            "en",
+            "es"
+          ],
+          "canonicalSerials": [
+            "SLES-03225"
+          ],
+          "components": [
+            {
+              "kind": "disc",
+              "number": 1,
+              "serial": "SLES-03225",
+              "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html"
+            }
+          ],
+          "languageEvidence": {
+            "all": [
+              "en",
+              "es"
+            ],
+            "text": [
+              "es"
+            ],
+            "audio": [
+              "en"
+            ],
+            "index": [
+              "en",
+              "es"
+            ],
+            "discrepancy": false,
+            "claims": [
+              {
+                "value": [
+                  "en",
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "en",
+                  "es"
+                ],
+                "raw": "Spanish Menus and gameplay are in Spanish (English voices).",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "label": "PSX Datacenter",
+              "url": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+              "sha256": "a690d9fea3e4b5b6bcfd3d670e03e9c6a8879aa075facbd806fb9db183a9b762"
+            },
+            {
+              "label": "Redump",
+              "url": "http://redump.org/datfile/psx/serial,version"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/27941/"
+            }
+          ],
+          "fieldProvenance": {
+            "market": {
+              "value": "Spain",
+              "source": "redump-org",
+              "sourceUrl": "http://redump.org/datfile/psx/serial,version",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc_release_not_country_of_every_box"
+            },
+            "languages": [
+              {
+                "value": [
+                  "en",
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "en",
+                  "es"
+                ],
+                "raw": "Spanish Menus and gameplay are in Spanish (English voices).",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ],
+            "serials": {
+              "value": [
+                "SLES-03225"
+              ],
+              "source": "psxdatacenter-and-redump",
+              "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc"
+            },
+            "support": {
+              "value": "CD-ROM",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "players": {
+              "value": 1,
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "developer": {
+              "value": {
+                "name": "Capcom",
+                "slug": "capcom",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "publisher": {
+              "value": {
+                "name": "Virgin Interactive",
+                "slug": "virgin-interactive",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "releaseDate": {
+              "value": "2000-11-24",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "year": {
+              "value": 2000,
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-03225.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            }
+          },
+          "sourceWarnings": []
+        }
+      ]
+    }
+  },
+  {
+    "serial": "SCES-03047",
+    "http": 200,
+    "response": {
+      "platform": "ps1",
+      "serial": "SCES-03047",
+      "physicalVariantResolved": false,
+      "candidates": [
+        {
+          "catalogId": "ps1-legend-of-dragoon",
+          "title": "Legend of Dragoon",
+          "url": "/catalogo/legend-of-dragoon-ps1-pal-es",
+          "edition": "standard",
+          "regionFamily": "PAL",
+          "marketRegion": "Spain",
+          "regionCode": "ES",
+          "languages": [
+            "es"
+          ],
+          "canonicalSerials": [
+            "SCES-03047",
+            "SCES-13047",
+            "SCES-23047",
+            "SCES-33047"
+          ],
+          "components": [
+            {
+              "kind": "disc",
+              "number": 1,
+              "serial": "SCES-03047",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html"
+            },
+            {
+              "kind": "disc",
+              "number": 2,
+              "serial": "SCES-13047",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html"
+            },
+            {
+              "kind": "disc",
+              "number": 3,
+              "serial": "SCES-23047",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html"
+            },
+            {
+              "kind": "disc",
+              "number": 4,
+              "serial": "SCES-33047",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html"
+            }
+          ],
+          "languageEvidence": {
+            "all": [
+              "es"
+            ],
+            "text": [
+              "es"
+            ],
+            "audio": [],
+            "index": [
+              "es"
+            ],
+            "discrepancy": false,
+            "claims": [
+              {
+                "value": [
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "es"
+                ],
+                "raw": "Spanish Menus and gameplay are in Spanish.",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "label": "PSX Datacenter",
+              "url": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "sha256": "3086a48f7dff457bd0fdc9db8e7b375a7a406145a6fac2b6ca686a49d2537271"
+            },
+            {
+              "label": "Redump",
+              "url": "http://redump.org/datfile/psx/serial,version"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/28041/"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/28045/"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/28046/"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/48292/"
+            }
+          ],
+          "fieldProvenance": {
+            "market": {
+              "value": "Spain",
+              "source": "redump-org",
+              "sourceUrl": "http://redump.org/datfile/psx/serial,version",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc_release_not_country_of_every_box"
+            },
+            "languages": [
+              {
+                "value": [
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "es"
+                ],
+                "raw": "Spanish Menus and gameplay are in Spanish.",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ],
+            "serials": {
+              "value": [
+                "SCES-03047",
+                "SCES-13047",
+                "SCES-23047",
+                "SCES-33047"
+              ],
+              "source": "psxdatacenter-and-redump",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc"
+            },
+            "support": {
+              "value": "CD-ROM",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "developer": {
+              "value": {
+                "name": "Sony",
+                "slug": "sony",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "publisher": {
+              "value": {
+                "name": "Sony",
+                "slug": "sony",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            }
+          },
+          "sourceWarnings": []
+        }
+      ]
+    }
+  },
+  {
+    "serial": "SCES-33047",
+    "http": 200,
+    "response": {
+      "platform": "ps1",
+      "serial": "SCES-33047",
+      "physicalVariantResolved": false,
+      "candidates": [
+        {
+          "catalogId": "ps1-legend-of-dragoon",
+          "title": "Legend of Dragoon",
+          "url": "/catalogo/legend-of-dragoon-ps1-pal-es",
+          "edition": "standard",
+          "regionFamily": "PAL",
+          "marketRegion": "Spain",
+          "regionCode": "ES",
+          "languages": [
+            "es"
+          ],
+          "canonicalSerials": [
+            "SCES-03047",
+            "SCES-13047",
+            "SCES-23047",
+            "SCES-33047"
+          ],
+          "components": [
+            {
+              "kind": "disc",
+              "number": 1,
+              "serial": "SCES-03047",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html"
+            },
+            {
+              "kind": "disc",
+              "number": 2,
+              "serial": "SCES-13047",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html"
+            },
+            {
+              "kind": "disc",
+              "number": 3,
+              "serial": "SCES-23047",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html"
+            },
+            {
+              "kind": "disc",
+              "number": 4,
+              "serial": "SCES-33047",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html"
+            }
+          ],
+          "languageEvidence": {
+            "all": [
+              "es"
+            ],
+            "text": [
+              "es"
+            ],
+            "audio": [],
+            "index": [
+              "es"
+            ],
+            "discrepancy": false,
+            "claims": [
+              {
+                "value": [
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "es"
+                ],
+                "raw": "Spanish Menus and gameplay are in Spanish.",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "label": "PSX Datacenter",
+              "url": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "sha256": "3086a48f7dff457bd0fdc9db8e7b375a7a406145a6fac2b6ca686a49d2537271"
+            },
+            {
+              "label": "Redump",
+              "url": "http://redump.org/datfile/psx/serial,version"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/28041/"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/28045/"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/28046/"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/48292/"
+            }
+          ],
+          "fieldProvenance": {
+            "market": {
+              "value": "Spain",
+              "source": "redump-org",
+              "sourceUrl": "http://redump.org/datfile/psx/serial,version",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc_release_not_country_of_every_box"
+            },
+            "languages": [
+              {
+                "value": [
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "es"
+                ],
+                "raw": "Spanish Menus and gameplay are in Spanish.",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ],
+            "serials": {
+              "value": [
+                "SCES-03047",
+                "SCES-13047",
+                "SCES-23047",
+                "SCES-33047"
+              ],
+              "source": "psxdatacenter-and-redump",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc"
+            },
+            "support": {
+              "value": "CD-ROM",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "developer": {
+              "value": {
+                "name": "Sony",
+                "slug": "sony",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "publisher": {
+              "value": {
+                "name": "Sony",
+                "slug": "sony",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/T/SCES-03047.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            }
+          },
+          "sourceWarnings": []
+        }
+      ]
+    }
+  },
+  {
+    "serial": "SLES-02458",
+    "http": 200,
+    "response": {
+      "platform": "ps1",
+      "serial": "SLES-02458",
+      "physicalVariantResolved": false,
+      "candidates": [
+        {
+          "catalogId": "ps1-fr-sles-02458",
+          "title": "Grand Theft Auto 2",
+          "url": "/catalogo/grand-theft-auto-2-sles-02458-ps1-pal-fr",
+          "edition": "standard",
+          "regionFamily": "PAL",
+          "marketRegion": "France",
+          "regionCode": "FR",
+          "languages": [
+            "de",
+            "en",
+            "es",
+            "fr",
+            "it"
+          ],
+          "canonicalSerials": [
+            "SLES-02458"
+          ],
+          "components": [
+            {
+              "kind": "back_cover",
+              "number": 1,
+              "serial": "SLES-02458",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html"
+            }
+          ],
+          "languageEvidence": {
+            "all": [
+              "de",
+              "en",
+              "es",
+              "fr",
+              "it"
+            ],
+            "text": [
+              "de",
+              "en",
+              "es",
+              "fr",
+              "it"
+            ],
+            "audio": [],
+            "index": [
+              "de",
+              "en",
+              "es",
+              "fr",
+              "it"
+            ],
+            "discrepancy": false,
+            "claims": [
+              {
+                "value": [
+                  "de",
+                  "en",
+                  "es",
+                  "fr",
+                  "it"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "de",
+                  "en",
+                  "es",
+                  "fr",
+                  "it"
+                ],
+                "raw": "English French German Italian Spanish Menus and gameplay are in Multi-5 (English, French, German, Italian & Spanish).",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "label": "PSX Datacenter",
+              "url": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "sha256": "269399613a6056372ac627da80e4d86be33acfdd87ff48d0f30ba0413fa208fe"
+            }
+          ],
+          "fieldProvenance": {
+            "market": {
+              "value": "France",
+              "source": "physical-packaging",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented",
+              "scope": "packaging_market_disc_serial_unverified",
+              "imageSha256": "dba3abad6346974957957ac4eba3dbc865b9e1214bde52537e7b1f9611aab8e1"
+            },
+            "languages": [
+              {
+                "value": [
+                  "de",
+                  "en",
+                  "es",
+                  "fr",
+                  "it"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "de",
+                  "en",
+                  "es",
+                  "fr",
+                  "it"
+                ],
+                "raw": "English French German Italian Spanish Menus and gameplay are in Multi-5 (English, French, German, Italian & Spanish).",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ],
+            "serials": {
+              "value": [
+                "SLES-02458"
+              ],
+              "source": "physical-packaging",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented",
+              "scope": "packaging"
+            },
+            "support": {
+              "value": "CD-ROM",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "players": {
+              "value": 1,
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "developer": {
+              "value": {
+                "name": "DMA Design",
+                "slug": "dma-design",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "publisher": {
+              "value": {
+                "name": "Rockstar Games",
+                "slug": "rockstar-games",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "releaseDate": {
+              "value": "2002-03-08",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "year": {
+              "value": 2002,
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            }
+          },
+          "sourceWarnings": [
+            "packaging_code_has_no_verified_disc_serial_equivalence"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "serial": "SLES-03137-T",
+    "http": 200,
+    "response": {
+      "platform": "ps1",
+      "serial": "SLES-03137-T",
+      "physicalVariantResolved": false,
+      "candidates": [
+        {
+          "catalogId": "ps1-es-sles-03137",
+          "title": "007 - El mundo nunca es suficiente",
+          "url": "/catalogo/007-el-mundo-nunca-es-suficiente-sles-03137-ps1-pal-es",
+          "edition": "standard",
+          "regionFamily": "PAL",
+          "marketRegion": "Spain",
+          "regionCode": "ES",
+          "languages": [
+            "es"
+          ],
+          "canonicalSerials": [
+            "SLES-03137"
+          ],
+          "components": [
+            {
+              "kind": "disc",
+              "number": 1,
+              "serial": "SLES-03137",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html"
+            }
+          ],
+          "languageEvidence": {
+            "all": [
+              "es"
+            ],
+            "text": [
+              "es"
+            ],
+            "audio": [],
+            "index": [
+              "es"
+            ],
+            "discrepancy": false,
+            "claims": [
+              {
+                "value": [
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "es"
+                ],
+                "raw": "Spanish Menus and gameplay are in Spanish.",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "label": "PSX Datacenter",
+              "url": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "sha256": "7dd737f59b85f57f2655ba864507af7f91e8cf35894e06577a29f69d93482ca3"
+            },
+            {
+              "label": "Redump",
+              "url": "http://redump.org/datfile/psx/serial,version"
+            },
+            {
+              "label": "Redump",
+              "url": "https://redump.info/disc/4881/"
+            }
+          ],
+          "fieldProvenance": {
+            "market": {
+              "value": "Spain",
+              "source": "redump-org",
+              "sourceUrl": "http://redump.org/datfile/psx/serial,version",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc_release_not_country_of_every_box"
+            },
+            "languages": [
+              {
+                "value": [
+                  "es"
+                ],
+                "source": "psxdatacenter-index",
+                "sourceUrl": "https://psxdatacenter.com/plist.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              },
+              {
+                "value": [
+                  "es"
+                ],
+                "raw": "Spanish Menus and gameplay are in Spanish.",
+                "source": "psxdatacenter-detail",
+                "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+                "verifiedAt": "2026-09-10",
+                "confidence": "documented"
+              }
+            ],
+            "serials": {
+              "value": [
+                "SLES-03137"
+              ],
+              "source": "psxdatacenter-and-redump",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "high",
+              "scope": "disc"
+            },
+            "cover": {
+              "assetId": "psxdc-asset-bb02e7c57b6c1554cb84",
+              "sha256": "96301e488fc0190e5c8b89ac2550b433c4eeab4ad439cb2b658c9822822b8dab",
+              "value": "/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/96/96301e488fc0190e5c8b89ac2550b433c4eeab4ad439cb2b658c9822822b8dab.jpg",
+              "source": "psxdatacenter-gallery",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented",
+              "assignmentBasis": "exact_serial_source_market_and_edition",
+              "visuallyInspected": false
+            },
+            "support": {
+              "value": "CD-ROM",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "players": {
+              "value": 1,
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "developer": {
+              "value": {
+                "name": "Black Ops Entertaiment",
+                "slug": "black-ops-entertaiment",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "publisher": {
+              "value": {
+                "name": "Electronic Arts",
+                "slug": "electronic-arts",
+                "source": "research"
+              },
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "releaseDate": {
+              "value": "2000-11-17",
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            },
+            "year": {
+              "value": 2000,
+              "source": "psxdatacenter",
+              "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SLES-03137.html",
+              "verifiedAt": "2026-09-10",
+              "confidence": "documented"
+            }
+          },
+          "sourceWarnings": []
+        }
+      ]
+    }
+  }
+]

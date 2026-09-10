@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "browser": "agent-browser 0.37.1 / Chromium",
+  "baseUrl": "http://localhost:3077",
+  "checks": [
+    {
+      "case": "home",
+      "result": "HTTP200; h1 visible; no runtime errors",
+      "screenshot": "home.png"
+    },
+    {
+      "case": "France filter",
+      "result": "292 matching editions; regional buttons and old card URLs preserved",
+      "screenshot": "ps1-france-filter.png"
+    },
+    {
+      "case": "serial search SLES-02723",
+      "result": "All regions + exact query returns one F1 2000 EU card; clicking resolves the card URL"
+    },
+    {
+      "case": "F1 2000 detail",
+      "result": "Europe; DA EN ES FI SV Multi-5; stable canonical path"
+    },
+    {
+      "case": "Dino Crisis 2 detail",
+      "result": "ES text and menus; EN voices",
+      "screenshot": "dino-languages.png"
+    },
+    {
+      "case": "Ms Pac-Man French packaging",
+      "result": "Expanded gallery; front and back loaded with naturalWidth > 0; packaging code labeled",
+      "screenshot": "ms-pac-man-front-back.png"
+    },
+    {
+      "case": "Legend of Dragoon mobile",
+      "result": "Old URL HTTP200; four disc codes; 390x844 viewport without horizontal overflow",
+      "screenshot": "dragoon-mobile.png"
+    },
+    {
+      "case": "runtime errors",
+      "result": "agent-browser errors returned no entries"
+    }
+  ],
+  "limits": [
+    "Browser checks do not certify physical matching of images.",
+    "The first attempted platform URL /plataformas/ps1 was a tester typo and returned 404; the actual /plataforma/ps1 route passed.",
+    "No paid AI recognition requests were sent."
+  ]
+}

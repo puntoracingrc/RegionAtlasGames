@@ -1,0 +1,14 @@
+✔ PS1 scanner retrieves Dino Crisis 2 text and voice facts from the observed exact serial (517.339125ms)
+✔ PS1 scanner preserves documentary packaging scope and cannot alias GTA 2 to a different disc (34.400042ms)
+✔ PS1 scanner never invents code observations and refuses an unmatched suffix (34.064584ms)
+✔ PS1 scanner keeps different title candidates apart and identity conflicts unassigned (31.645375ms)
+✔ PS1 scanner retrieves a multidisc edition once using its fourth disc (31.288333ms)
+✔ actual scanner loader uses V2 and does not apply unversioned legacy learning (418.770875ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1646.1135

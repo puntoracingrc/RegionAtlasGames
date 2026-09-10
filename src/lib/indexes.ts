@@ -4,6 +4,7 @@ import seriesIndexData from "../../data/index/series.json";
 import { mergeCompanyIndex, resolveCanonicalCompanySlug } from "./company-canonical";
 import { mergeGenreIndex, resolveCanonicalGenreSlug } from "./genre-canonical";
 import { normalizeGameDetailsPresentation } from "./catalog-presentation";
+import { getPs1EditionDetails, getPs1Work } from "./ps1-edition-data";
 import type { CatalogGame, GameDetails, IndexEntry } from "./types";
 import { getCatalogGame, getPlatform, isPublicCatalogGame, meta } from "./catalog";
 
@@ -23,6 +24,7 @@ function isGameDetails(value: unknown): value is GameDetails {
   if (!value || typeof value !== "object") return false;
   if ("error" in value) return false;
   const detail = value as GameDetails;
+  if (detail.ps1Edition?.schemaVersion === 2) return true;
   if (detail.description?.trim()) return true;
   if (!("fetchedAt" in value)) return false;
   return Boolean(
@@ -113,7 +115,17 @@ export function resolveIndexEntry(entry: IndexEntry): IndexEntry {
 }
 
 export function getGameDetails(id: string): GameDetails | undefined {
-  return loadGameDetails()[id];
+  const details = loadGameDetails()[id];
+  if (!details?.ps1Edition) return details;
+  const ps1Edition = getPs1EditionDetails(id);
+  if (!ps1Edition) return details;
+  const common = getPs1Work(ps1Edition.workId)?.commonDetails;
+  return {
+    ...details,
+    ps1Edition,
+    genres: details.genres?.length ? details.genres : common?.genres ?? [],
+    series: details.series ?? common?.series ?? null,
+  };
 }
 
 export function getCompany(slug: string): IndexEntry | undefined {

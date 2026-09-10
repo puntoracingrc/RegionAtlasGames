@@ -96,6 +96,7 @@ const nextConfig: NextConfig = {
   },
   outputFileTracingExcludes: {
     "/*": [
+      "artifacts/ps1-region-migration/**",
       "data/_catalog_backup_gg.json",
       "data/descriptions/**",
       "data/covers-report.json",

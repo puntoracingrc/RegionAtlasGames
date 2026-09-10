@@ -1,0 +1,20 @@
+[
+  {
+    "file": "artifacts/ps1-region-migration/sources/redump-org.xml.zip",
+    "url": "http://redump.org/datfile/psx/serial,version",
+    "sha256": "fccee75f004fa876ca10085940808f2d311b9893d3728ff768aa99b53a6d15aa",
+    "retrievedAt": "2026-09-10T01:23:41.292801+00:00"
+  },
+  {
+    "file": "artifacts/ps1-region-migration/sources/redump-info.xml.zip",
+    "url": "https://redump.info/datfile/psx/serial,version",
+    "sha256": "db03803de3054e678f8a594200c026dc7cfc5fca7176f5aed006d8f7c5962b58",
+    "retrievedAt": "2026-09-10T01:23:45.367769+00:00"
+  },
+  {
+    "file": "artifacts/ps1-region-migration/sources/libretro-redump.dat",
+    "url": "https://raw.githubusercontent.com/libretro/libretro-database/master/metadat/redump/Sony%20-%20PlayStation.dat",
+    "sha256": "55453a532d8a659b3723eaf818bce83afea2ba926b3a0021adc904d54f46ab11",
+    "retrievedAt": "2026-09-10T01:23:47.345217+00:00"
+  }
+]

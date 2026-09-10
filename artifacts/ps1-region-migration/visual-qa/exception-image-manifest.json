@@ -1,0 +1,20 @@
+[
+  {
+    "file": "artifacts/ps1-region-migration/visual-qa/gta2-sles02458-back.jpg",
+    "sourceUrl": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/db/dba3abad6346974957957ac4eba3dbc865b9e1214bde52537e7b1f9611aab8e1.jpg",
+    "sha256": "dba3abad6346974957957ac4eba3dbc865b9e1214bde52537e7b1f9611aab8e1",
+    "bytes": 114028
+  },
+  {
+    "file": "artifacts/ps1-region-migration/visual-qa/mspacman-sces03086-back.jpg",
+    "sourceUrl": "https://psxdatacenter.com/images/hires/P/M/SCES-03086/SCES-03086-B-ALL.jpg",
+    "sha256": "05319437367e5bc5c50cea14d946eabc87f8271bbcf4be4a22e1a8220381673c",
+    "bytes": 1179336
+  },
+  {
+    "file": "artifacts/ps1-region-migration/visual-qa/mspacman-sces03087-back.jpg",
+    "sourceUrl": "https://psxdatacenter.com/images/hires/P/M/SCES-03087/SCES-03087-B-ALL.jpg",
+    "sha256": "a8d781a8bfd2b0cb5da8c2500e12d3918ebaa0e8d3345c07e002ae7c983da3fb",
+    "bytes": 417093
+  }
+]

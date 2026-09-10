@@ -54,6 +54,8 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
     normalizedReference,
     normalizedReference?.replace(/-/g, ""),
     sortReference,
+    ...(game.canonicalSerials ?? []),
+    ...(game.resolutionSerials ?? []),
   ]);
   const companySearchText = normalizeCatalogSearchParts([
     details?.developer?.name,
@@ -68,6 +70,7 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
     title: game.title,
     platformSlug: game.platformSlug,
     region: game.region,
+    canonicalSeoSlug: game.canonicalSeoSlug,
     coverUrl: game.coverUrl,
     recommendedPrice: game.recommendedPrice,
     estimatedPriceLoose: game.estimatedPriceLoose,
@@ -103,6 +106,10 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
       normalizedReference,
       normalizedReference?.replace(/-/g, ""),
       sortReference,
+      ...(game.canonicalSerials ?? []),
+      ...(game.resolutionSerials ?? []),
+      ...(game.languages ?? []),
+      game.marketRegion,
       details?.developer?.name,
       details?.developer?.slug,
       details?.publisher?.name,

@@ -16,7 +16,7 @@ import {
   type OriginalGameContentKey,
 } from "./original-game-contents";
 import type { CatalogGame } from "./types";
-import catalogData from "../../data/catalog.json";
+import { catalogData } from "./catalog-data";
 import ebayReviewInbox from "../../data/ebay-regional-campaigns/review-queue.json";
 import { mergeEbayReviewInbox } from "./ebay-review-inbox";
 import { assertReviewHistoryPreserved, atomicReviewWrite, validateReviewDocument, withReviewLock } from "./price-review-store";

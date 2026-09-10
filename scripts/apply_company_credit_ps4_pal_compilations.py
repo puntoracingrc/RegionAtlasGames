@@ -625,6 +625,22 @@ def update_protected_manifest(
         ),
         None,
     )
+    ledger = updated.get("protectedFileHashUpdates", [])
+    later_updates = ledger[ledger.index(previous_update) + 1:] if previous_update else []
+    if later_updates:
+        # Revalidating this historical batch must not rewrite or move its ledger
+        # entry after a newer catalog migration. Validate the complete hash chain.
+        for relative_path, after_hash in after_hashes.items():
+            expected = previous_update["files"][relative_path]["after"]
+            for update in later_updates:
+                change = update.get("files", {}).get(relative_path)
+                if change:
+                    if change["before"] != expected:
+                        raise ValueError(f"Broken protected hash chain: {relative_path}")
+                    expected = change["after"]
+            if expected != after_hash or updated["protectedFileHashes"][relative_path] != after_hash:
+                raise ValueError(f"Later protected batch is out of sync: {relative_path}")
+        return updated
     files = {}
     for relative_path, after_hash in after_hashes.items():
         recorded_before = (
@@ -1616,6 +1632,11 @@ def apply_to_memory(source: dict[str, Any]) -> dict[str, Any]:
     catalog_allowed_ids = apply_catalog_changes(catalog_by_id)
     for slug in affected_company_slugs:
         refresh_company_entry(companies[slug], catalog_by_id)
+        for field in ["gameIds", "asDeveloper", "asPublisher", "asDigitalPublisher", "asPhysicalPublisherOrDistributor"]:
+            before_ids = companies_before.get(slug, {}).get(field)
+            after_ids = companies[slug].get(field)
+            if isinstance(before_ids, list) and isinstance(after_ids, list) and len(before_ids) == len(after_ids) and set(before_ids) == set(after_ids):
+                companies[slug][field] = before_ids
 
     commercial_relations = build_commercial_relations(source, catalog_by_id)
     company_relations = build_corporate_relations(source)

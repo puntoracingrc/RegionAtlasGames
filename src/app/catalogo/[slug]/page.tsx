@@ -10,6 +10,7 @@ import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
 import { GamePriceHistoryChart } from "@/components/game-price-history-chart";
 import { GameProductReference } from "@/components/game-product-reference";
+import { Ps1EditionPanel } from "@/components/ps1-edition-panel";
 import { GameTaxonomyLinks, type GameTaxonomyLink } from "@/components/game-taxonomy-links";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
 import { SimilarGames } from "@/components/similar-games";
@@ -317,6 +318,8 @@ export default async function CatalogGamePage({ params }: Props) {
             )}
 
             <GameProductReference game={game} details={details} />
+
+            <Ps1EditionPanel game={game} details={details} />
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />
 

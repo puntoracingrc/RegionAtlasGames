@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "scope": "Next.js traced files; Vercel final packaging verified separately",
+  "limitBytes": 262144000,
+  "largest": [
+    {
+      "manifest": ".next/server/app/admin/precios/page.js.nft.json",
+      "bytes": 215577848
+    },
+    {
+      "manifest": ".next/server/app/api/admin/price-reviews/[reviewId]/route.js.nft.json",
+      "bytes": 214971547
+    },
+    {
+      "manifest": ".next/server/app/api/admin/price-reviews/auto-retroplayzone/route.js.nft.json",
+      "bytes": 214971248
+    },
+    {
+      "manifest": ".next/server/app/api/admin/price-reviews/route.js.nft.json",
+      "bytes": 214971080
+    },
+    {
+      "manifest": ".next/server/app/api/admin/price-reviews/pc-vision/route.js.nft.json",
+      "bytes": 214970977
+    },
+    {
+      "manifest": ".next/server/app/api/admin/price-reviews/[reviewId]/clone-region/route.js.nft.json",
+      "bytes": 214970976
+    },
+    {
+      "manifest": ".next/server/app/api/admin/price-reviews/[reviewId]/merge-catalog/route.js.nft.json",
+      "bytes": 214970957
+    },
+    {
+      "manifest": ".next/server/app/api/admin/price-reviews/close-unresolved/route.js.nft.json",
+      "bytes": 214970885
+    },
+    {
+      "manifest": ".next/server/app/api/admin/price-reviews/pc-images/route.js.nft.json",
+      "bytes": 214970857
+    },
+    {
+      "manifest": ".next/server/app/admin/juegos/[catalogId]/page.js.nft.json",
+      "bytes": 205556832
+    }
+  ],
+  "ps1CompressedInputsTraced": true
+}
