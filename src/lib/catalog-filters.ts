@@ -4,6 +4,7 @@ import { esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { publicRegionLabelForPlatform } from "@/lib/platform-region-policy";
 import { getRegionDisplay } from "@/lib/region-display";
+import { regionNavigationGroup, selectedRegionGroup } from "@/lib/region-navigation";
 import type { CatalogListGame } from "@/lib/types";
 
 export type CatalogSort =
@@ -284,8 +285,10 @@ export function filterCatalogGames(
   let list = games;
 
   if (options?.regions !== false && region !== "all") {
+    const group = selectedRegionGroup(region);
     list = list.filter((g) => {
       const standardLabel = getRegionDisplay(g.region).label;
+      if (group) return regionNavigationGroup(publicRegionLabelForPlatform(g.platformSlug, g.region)) === group.id;
       return standardLabel === region
         || publicRegionLabelForPlatform(g.platformSlug, g.region) === region;
     });

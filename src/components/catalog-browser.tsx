@@ -42,6 +42,7 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { catalogConditionPriceRows } from "@/lib/price-display";
 import { formatEur } from "@/lib/price-format";
 import { cn } from "@/lib/cn";
+import { isRegionSelectionAvailable } from "@/lib/region-navigation";
 
 const selectClass =
   "h-10 w-full rounded-lg border border-border bg-input px-3 text-sm outline-none ring-accent/25 transition focus:border-accent/50 focus:ring-2";
@@ -321,8 +322,7 @@ export function CatalogBrowser({
   }, [companies, facets, genres, regions, subgenres]);
 
   useEffect(() => {
-    if (region === "all") return;
-    if (visibleRegions.some((option) => option.value === region)) return;
+    if (isRegionSelectionAvailable(region, visibleRegions)) return;
     setRegion("all");
   }, [region, setRegion, visibleRegions]);
 
