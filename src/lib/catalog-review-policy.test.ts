@@ -21,6 +21,7 @@ test("default PS1 browsing separates documented editions, pending records and gr
   assert.equal(result.total, 8123);
   assert(result.items.every((game) => !isPendingCatalogGame(game)));
   assert.equal(result.reviewCounts.pending, 2304);
+  assert.equal(result.reviewCounts.groupedNames, 7);
   const included = filterCatalogGames(listGames, { ...defaults, includePending: true });
   assert.equal(included.total, 10427);
   assert(!included.items.some(isGroupedCatalogName));

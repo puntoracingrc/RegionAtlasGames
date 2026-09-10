@@ -71,7 +71,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
   const browseGames = catalogGames.filter((game) => !isGroupedCatalogName(game));
   const initialFilters = { q: query?.q ?? "", region: query?.region ?? "all", genre: query?.genre ?? "all", subgenre: query?.subgenre ?? "all", facet: query?.facet ?? "all", platform: "all", sort: DEFAULT_SORT, priceFilter: "all" as const, queryScope: "game" as const, includePending, pendingEdition };
   const hasInitialFilters = includePending || Boolean(query?.q || query?.region || query?.genre || query?.subgenre || query?.facet);
-  const initialResult = hasInitialFilters ? filterCatalogGames(browseGames.map(toCatalogListGame), initialFilters) : null;
+  const initialResult = hasInitialFilters ? filterCatalogGames(catalogGames.map(toCatalogListGame), initialFilters) : null;
   const defaultGames = browseGames.filter(isDefaultCatalogGame);
   const initialGames = initialResult ? initialResult.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame) : sortCatalogByTitle(defaultGames)
     .slice(0, CATALOG_PAGE_SIZE)
@@ -101,7 +101,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               platform={platform}
               games={initialGames}
               totalCatalogEntryCount={initialResult?.total ?? defaultGames.length}
-              reviewCounts={initialResult?.reviewCounts ?? catalogReviewCounts(browseGames)}
+              reviewCounts={initialResult?.reviewCounts ?? catalogReviewCounts(catalogGames)}
               insights={buildPlatformCatalogInsights(browseGames, platform.slug)}
               regions={publicCatalogRegionFilterOptionsForPlatform(platform.slug)}
               genres={publicGenreFilterOptions()}

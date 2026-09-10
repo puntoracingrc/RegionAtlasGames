@@ -287,7 +287,7 @@ export function filterCatalogGames(
   }: CatalogFilterState,
   options?: { regions?: boolean; platforms?: boolean },
 ): { items: CatalogListGame[]; total: number; reviewCounts: CatalogReviewCounts } {
-  let list = games.filter((game) => !isGroupedCatalogName(game));
+  let list = games;
 
   if (options?.regions !== false && region !== "all") {
     const group = selectedRegionGroup(region);
@@ -321,6 +321,7 @@ export function filterCatalogGames(
   }
 
   const reviewCounts = catalogReviewCounts(list);
+  list = list.filter((game) => !isGroupedCatalogName(game));
   list = list.filter((game) => includePending
     ? pendingEdition === "all" || (isPendingCatalogGame(game) && pendingEditionForGame(game) === pendingEdition)
     : !isPendingCatalogGame(game));
