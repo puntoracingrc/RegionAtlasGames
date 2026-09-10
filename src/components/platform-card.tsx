@@ -4,6 +4,7 @@ import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import { RegionFlag } from "@/components/region-flag";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { compactPlatformRegions } from "@/lib/region-navigation";
+import { getRegionDisplay } from "@/lib/region-display";
 import type { CollectionView, Platform } from "@/lib/types";
 import { getPlatformRegions, getPlatformStats } from "@/lib/catalog";
 
@@ -37,9 +38,9 @@ export function PlatformCard({
       href={`/plataforma/${platform.slug}`}
       className={`group relative min-h-[168px] overflow-hidden rounded-xl border bg-gradient-to-br p-4 ${HOVER_LIFT} hover:border-white/25 ${MANUFACTURER_STYLE[platform.manufacturer]}`}
     >
-      <PlatformCardArt platform={platform} />
+      <PlatformCardArt platform={platform} compact />
 
-      <div className="relative z-10 flex max-w-[calc(100%-6.25rem)] items-start justify-between gap-2">
+      <div className="relative z-10 flex max-w-[calc(100%-7rem)] items-start justify-between gap-2">
         <div>
           <ManufacturerLogo manufacturer={platform.manufacturer} />
           <h3 className="mt-1 text-xl font-bold text-foreground">{platform.shortName}</h3>
@@ -54,7 +55,7 @@ export function PlatformCard({
       {regions.length > 0 && (
         <div
           className="relative z-10 mt-3 flex flex-wrap gap-1.5 text-xs"
-          aria-label="Regiones disponibles"
+          aria-label={`Regiones disponibles: ${regionPreview.visible.map((region) => getRegionDisplay(region).label).join(", ")}${regionPreview.remaining > 0 ? `, y ${regionPreview.remaining} más` : ""}`}
         >
           {regionPreview.visible.map((region) => (
             <span

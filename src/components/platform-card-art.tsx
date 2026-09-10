@@ -64,14 +64,14 @@ function platformImageSrc(slug: string) {
   return `/platform-consoles/${slug}.${PLATFORM_IMAGE_EXTENSION[slug] ?? "png"}`;
 }
 
-export function PlatformCardArt({ platform }: { platform: Platform }) {
+export function PlatformCardArt({ platform, compact = false }: { platform: Platform; compact?: boolean }) {
   if (!PLATFORM_IMAGE_SLUGS.has(platform.slug)) return null;
 
   return (
     <div
       className={cn(
         "pointer-events-none absolute z-0 flex items-end justify-end opacity-95 transition duration-200 group-hover:-translate-y-1 group-hover:opacity-100",
-        PLATFORM_ART_CLASS[platform.slug] ?? DEFAULT_PLATFORM_ART_CLASS,
+        compact ? "right-4 top-4 h-20 w-24" : PLATFORM_ART_CLASS[platform.slug] ?? DEFAULT_PLATFORM_ART_CLASS,
       )}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
