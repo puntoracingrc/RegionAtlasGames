@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
+import copy
 import json
 from collections import Counter
 from pathlib import Path
@@ -76,6 +77,24 @@ def main() -> int:
         "scripts/build_verified_company_credit_index.py",
         "verified_credit_builder_compilations",
     )
+    for study in ["company-study", "person-study"]:
+        manifest = load_json(f"data/research/{study}/manifest.json")
+        after = {name: manifest["protectedFileHashes"][name] for name in ["data/game-details.json", "data/index/companies.json"]}
+        assert importer.update_protected_manifest(manifest, after) == manifest
+        broken = copy.deepcopy(manifest)
+        broken["protectedFileHashUpdates"][-1]["files"]["data/game-details.json"]["before"] = "invalid"
+        try:
+            importer.update_protected_manifest(broken, after)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("A broken later hash chain must be rejected")
+        try:
+            importer.update_protected_manifest(manifest, {**after, "data/game-details.json": "unrecorded-change"})
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Unrecorded changes after a protected migration must be rejected")
     importer.validate_committed()
 
     catalog = load_json("data/catalog.json")

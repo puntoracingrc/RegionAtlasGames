@@ -1,0 +1,43 @@
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.321s
+
+OK
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK
+...................................
+----------------------------------------------------------------------
+Ran 35 tests in 5.832s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.024s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.836s
+
+OK
+✔ existing reviews and decisions are authoritative; no duplicate or unrelated additions (1.026791ms)
+✔ empty inbox preserves existing queue (0.132292ms)
+✔ versioned reviewed decisions resolve pending inbox and survive repeated reads (0.165125ms)
+✔ later live decision is authoritative over versioned visual batch (0.077667ms)
+✔ unsigned terminal rows and inconsistent decision logs cannot auto-resolve (0.098125ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 191.777333
+
+> region-atlas-games@0.1.0 test:affiliate-offers-v1
+> node scripts/test-affiliate-offers-v1.mjs
+
+AFFILIATE_OFFERS_V1 tests OK.

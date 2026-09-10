@@ -10,13 +10,13 @@
   "source": "data/game-details.json",
   "publicChunks": "public/catalog-details",
   "output": "public/catalog-details/by-id",
-  "removed": 41696,
+  "removed": 41714,
   "publicChunkEntries": 29559,
   "written": 41714,
   "skipped": 7
 }
 ▲ Next.js 16.3.3 (Turbopack)
-✓ Running next.config.ts took 71ms
+✓ Running next.config.ts took 117ms
 - Experiments (use with caution):
   ⨯ serverSourceMaps
   ⨯ turbopackInputSourceMaps
@@ -24,15 +24,15 @@
   ⨯ turbopackSourceMaps
 
   Creating an optimized production build ...
-✓ Compiled successfully in 10.2s
+✓ Compiled successfully in 11.5s
   Running TypeScript ...
-  Finished TypeScript in 54s ...
+  Finished TypeScript in 30.0s ...
   Collecting page data using 7 workers ...
   Generating static pages using 7 workers (0/134) ...
   Generating static pages using 7 workers (33/134) 
   Generating static pages using 7 workers (66/134) 
   Generating static pages using 7 workers (100/134) 
-✓ Generating static pages using 7 workers (134/134) in 4.9s
+✓ Generating static pages using 7 workers (134/134) in 1899ms
   Finalizing page optimization ...
 
 Route (app)

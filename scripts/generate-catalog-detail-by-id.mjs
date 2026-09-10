@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { gunzipSync } from "node:zlib";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const detailsFile = path.join(rootDir, "data", "game-details.json");
@@ -19,10 +20,10 @@ function detailFileName(catalogId) {
 
 function readDetails() {
   const details = JSON.parse(readFileSync(detailsFile, "utf8"));
-  const ps1File = path.join(rootDir, "data", "ps1-edition-evidence.json");
+  const ps1File = path.join(rootDir, "data", "ps1-edition-evidence.json.gz");
   if (existsSync(ps1File)) {
-    const evidence = JSON.parse(readFileSync(ps1File, "utf8"));
-    const works = JSON.parse(readFileSync(path.join(rootDir, "data", "ps1-works.json"), "utf8")).works;
+    const evidence = JSON.parse(gunzipSync(readFileSync(ps1File)).toString("utf8"));
+    const works = JSON.parse(gunzipSync(readFileSync(path.join(rootDir, "data", "ps1-works.json.gz"))).toString("utf8")).works;
     for (const [id, ps1Edition] of Object.entries(evidence)) {
       if (details[id]) {
         details[id].ps1Edition = ps1Edition;

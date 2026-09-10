@@ -12,11 +12,11 @@ require.extensions['.ts'] = (module, filename) => {
   module._compile(ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true } }).outputText, filename);
 };
 const root = path.resolve(__dirname, '..');
-const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
+const read = (name) => JSON.parse(name.endsWith('.gz') ? zlib.gunzipSync(fs.readFileSync(path.join(root, name))) : fs.readFileSync(path.join(root, name), 'utf8'));
 const baseline = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root, 'artifacts/ps1-region-migration/baseline-ps1.json.gz'))));
 const catalog = read('data/catalog.json');
 const details = read('data/game-details.json');
-const profiles = read('data/ps1-edition-evidence.json');
+const profiles = read('data/ps1-edition-evidence.json.gz');
 const games = catalog.filter((g) => g.platformSlug === 'ps1');
 const byId = new Map(catalog.map((g) => [g.id, g]));
 const { buildCatalogSeoSlug } = require('../src/lib/catalog-path.ts');

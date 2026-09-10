@@ -16,7 +16,7 @@ def main():
     baseline = json.load(gzip.open(ART / "baseline-ps1.json.gz", "rt"))
     catalog = json.loads((ROOT / "data/catalog.json").read_text())
     details = json.loads((ROOT / "data/game-details.json").read_text())
-    works = json.loads((ROOT / "data/ps1-works.json").read_text())["works"]
+    works = json.load(gzip.open(ROOT / "data/ps1-works.json.gz", "rt"))["works"]
     for d in details.values():
         wid = d.get("ps1Edition", {}).get("workId")
         common = works.get(wid, {}).get("commonDetails", {})
@@ -78,6 +78,12 @@ def main():
     meta["indexCompanies"] = report["companies"]["entries"]
     meta["lastPs1RegionalMigrationAt"] = AT
     meta_file.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n")
+    curation_file = ROOT / "data/curation-report.json"
+    curation = json.loads(curation_file.read_text())
+    curation["total"] = meta["catalogTotal"]
+    curation["listed"] = meta["catalogListed"]
+    curation["listedByPlatform"]["ps1"] = meta["listedByPlatform"]["ps1"]
+    curation_file.write_text(json.dumps(curation, ensure_ascii=False, indent=2) + "\n")
     (ART / "index-refresh.json").write_text(json.dumps(report, indent=2) + "\n")
     # These research manifests already keep a ledger of legitimate catalog
     # changes. Advance only the two PS1 projections; retain all other hashes.

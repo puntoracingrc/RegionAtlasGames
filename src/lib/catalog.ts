@@ -1,4 +1,4 @@
-import catalogData from "../../data/catalog.json";
+import { catalogData } from "./catalog-data";
 import catalogIdAliasesData from "../../data/catalog-id-aliases.json";
 import collectionData from "../../data/collection.json";
 import metaData from "../../data/meta.json";

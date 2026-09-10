@@ -1,0 +1,129 @@
+
+> region-atlas-games@0.1.0 pretest:collector-controls
+> python3 scripts/test_neogeo_aes_regions.py && python3 scripts/test_neogeo_cd_regions.py && python3 scripts/test_neogeo_aes_plus_catalog.py && python3 scripts/test_company_entity_separations.py && python3 scripts/build_verified_company_credit_index.py --check && python3 scripts/test_company_credit_verified_batch.py && python3 scripts/test_company_credit_ps4_pal_batch_1.py && npm run test:company-credit-ps4-pal-high && npm run test:company-credit-ps4-pal-rapid-review && npm run test:company-credit-ps4-pal-compilations && npm run test:annapurna-region-correction
+
+OK: neogeo_aes_regions
+OK: neogeo_cd_regions
+OK: neogeo_aes_plus_catalog
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.558s
+
+OK
+OK verified company credit index: 1874 entries, 1555 legacy fields, 1889 role-separated company credits, 3 individual credits
+OK company credit verified batch 1: 19 exact mutations, 7 retained rows and 3 HIGH replacements blocked
+OK PS4 PAL company credits: 53 exact mutations, 49 entries, no stale rows or regional propagation
+
+> region-atlas-games@0.1.0 test:company-credit-ps4-pal-high
+> python3 scripts/apply_company_credit_ps4_pal_high_additions.py --check && python3 scripts/test_company_credit_ps4_pal_high_additions.py
+
+OK PS4 PAL HIGH credits: 749 additions, 1428 RETAIN rows, 100 replacements blocked and no propagation
+OK PS4 PAL HIGH credits: 749 exact additions over 657 entries, 1428 RETAIN confirmations and 100 replacements blocked
+
+> region-atlas-games@0.1.0 test:company-credit-ps4-pal-rapid-review
+> python3 scripts/apply_company_credit_ps4_pal_rapid_review.py --check && python3 scripts/test_company_credit_ps4_pal_rapid_review.py
+
+OK PS4 PAL rapid review: 1655 role rows, 95 conflicts blocked, 6 non-games excluded, 77399 unique catalog IDs
+OK PS4 PAL rapid review: 1655 role rows, 95 conflicts blocked, 6 non-games excluded, 77399 unique catalog IDs
+OK PS4 PAL rapid-review semantics: 1655 reviewed role rows, 1660 explicit credits, 95 conflicts blocked and 6 non-games excluded
+
+> region-atlas-games@0.1.0 test:company-credit-ps4-pal-compilations
+> python3 scripts/apply_company_credit_ps4_pal_compilations.py --check && python3 scripts/test_company_credit_ps4_pal_compilations.py && tsx --test src/lib/catalog-commercial-relations.test.ts src/lib/catalog-route-redirects.test.ts
+
+OK PS4 PAL compilations: 58 editorial entries, 24 compilations, 82 components and 9 blocked cases
+OK PS4 PAL compilations: 58 editorial entries, 24 compilations, 82 components and 9 blocked cases
+OK PS4 PAL compilations semantics: 83 credited entries, 247 company credits, 82 components, 13 verified variants, 7 redirects and 9 blocked cases
+✔ preserves a compilation entry while exposing its verified components (0.763834ms)
+✔ publishes only verified physical-variant relationships (0.103833ms)
+✔ verified variants share a work identity without removing their catalog entries (0.108167ms)
+✔ resolves safe duplicate redirects by catalog id and legacy SEO slug (0.566ms)
+✔ redirects workbook-scoped wrong-platform records to their verified catalog entry (0.091917ms)
+✔ redirects the retired PAL Annapurna record to the real USA collection (0.078083ms)
+✔ every consolidated slug has a stable canonical destination (0.064208ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 111.164375
+
+> region-atlas-games@0.1.0 test:annapurna-region-correction
+> python3 scripts/apply_annapurna_collection_region_correction.py --check
+
+OK Annapurna region correction: PAL record retired, USA record canonical, collection data and position preserved
+
+> region-atlas-games@0.1.0 test:collector-controls
+> python3 scripts/test_catalog_identity.py && python3 scripts/audit_catalog_duplicates.py --fail-on-owned && python3 scripts/test_price_source_modes.py && python3 scripts/test_generic_source_pagination.py && python3 scripts/test_collector_intelligence.py && python3 scripts/test_ebay_region_policy.py && python3 scripts/test_ebay_listing_cache.py && python3 scripts/test_ebay_regional_routing.py && python3 scripts/test_ebay_regional_campaign.py && python3 scripts/test_ebay_delivery_estimates.py && python3 scripts/test_local_game_runner.py && python3 scripts/test_game_release_discovery.py && python3 scripts/test_import_game_release_catalog.py && python3 scripts/test_catalog_hygiene.py && python3 scripts/test_todoconsolas_category_pilot.py && python3 scripts/test_price_review_images.py && python3 scripts/test_todoconsolas_price_policy.py && python3 scripts/test_todoconsolas_weekly.py && python3 scripts/test_game_preowned_auto_policy.py && python3 scripts/test_price_confidence.py && python3 scripts/test_provisional_price_seeds.py && python3 scripts/test_pc_worker_update.py && python3 scripts/test_price_artifact_publisher.py && python3 scripts/test_price_condition_sources.py && python3 scripts/test_price_search_queries.py && python3 scripts/test_wallapop_evidence.py && python3 scripts/test_wallapop_batch_job.py && python3 scripts/test_wallapop_pal_campaign.py && python3 scripts/test_pc_worker_wallapop_campaign.py && python3 scripts/test_wallapop_block_stop.py
+
+catalog identity tests: ok
+Duplicados canónicos: 381 grupos / 386 filas sobrantes
+Ligados a la colección base: 2
+En revisión explícita: 2 / sin reconocer: 0
+- ps4::pal-espana::standard::default::dishonored-prey-the-arkane-collection: ps4-dishonored-pray-arkane-collection, ps4-dishonored-prey-the-arkane-collection
+- ps4::pal-espana::standard::default::the-truth-is-out-there-mystery-adventure-pack: ps4-the-truth-is-out-here-mystery-adventure-pack, ps4-the-truth-is-out-there-mystery-adventure-pack
+OK price source manual/rotation modes
+OK
+OK: memoria común aprobada con políticas y consultas aisladas por fuente
+OK: eBay regional policy
+OK: eBay listing cache tracks delivery and origin
+OK: eBay regional rerouting is strict, confirmed and review-safe
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.018s
+
+OK
+Siguiente lote: PS4 · PAL España · 1 juegos · presupuesto API: 250 · pendientes globales: 1
+OpenAI tokens de la tanda: {'batchId': 'daa8d1e9a0d24ce7a2e54a92d3fbc5aa', 'responses': 1, 'responsesMissingUsage': 0, 'inputTokens': 10, 'cachedInputTokens': 0, 'outputTokens': 2, 'totalTokens': 12, 'responsesMissingCacheUsage': 1, 'byModel': {'test-model': {'inputTokens': 10, 'outputTokens': 2, 'totalTokens': 12, 'cachedInputTokens': 0}}}
+::warning::Pausado por saldo agotado de IA. El lote permanece pendiente.
+Pausado por saldo agotado de IA. Recarga el saldo y reanuda la campaña manualmente.
+Siguiente lote: PS4 · PAL España · 1 juegos · presupuesto API: 250 · pendientes globales: 1
+OpenAI tokens de la tanda: {'batchId': '5495d4eb46a047159d4f8f7485235295', 'responses': 1, 'responsesMissingUsage': 0, 'inputTokens': 10, 'cachedInputTokens': 0, 'outputTokens': 2, 'totalTokens': 12, 'responsesMissingCacheUsage': 1, 'byModel': {'test-model': {'inputTokens': 10, 'outputTokens': 2, 'totalTokens': 12, 'cachedInputTokens': 0}}}
+::warning::Pausado por saldo agotado de IA. El lote permanece pendiente.
+OK: eBay global regional campaign
+OK: eBay delivery estimates stay separate from item price
+Job recibido: local-game-test · ps4 · preowned · api_collect · límite 2
+Job completado: local-game-test · estado OK
+Job recibido: local-game-switch2-test · switch2 · preowned · api_collect · límite 2
+Job completado: local-game-switch2-test · estado OK
+Job recibido: local-game-release-test · ps4 · new · catalog_discovery · límite 80
+Job completado: local-game-release-test · estado OK
+Job recibido: local-catalog-ai-test · ps5 · new · catalog_enrichment · límite 5
+Job completado: local-catalog-ai-test · estado OK
+OK local GAME runner flow
+  GAME new página 1: raw 1 · nuevos 1 · recientes saltados 0 · total 1
+  GAME new página 2: raw 1 · nuevos 1 · recientes saltados 0 · total 2
+OK GAME release discovery
+OK GAME catalog import
+catalog hygiene decisions: ok
+OK TodoConsolas category pilot
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 0.940s
+
+OK
+OK price review images
+OK TodoConsolas exact price policy
+OK TodoConsolas weekly engine
+OK GAME seminuevo auto policy
+price confidence tests: OK
+OK provisional price seeds
+OK PC worker safe update
+OK verified price artifact publisher
+OK weighted stored price sources
+OK: Wallapop usa título base + plataforma; resto sin sufijos
+OK Wallapop evidence v3
+OK Wallapop batch job
+OK Wallapop PAL campaign
+OK PC worker Wallapop campaign
+OK Wallapop blocking stop
+
+> region-atlas-games@0.1.0 posttest:collector-controls
+> python3 scripts/test_review_store.py
+
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.029s
+
+OK

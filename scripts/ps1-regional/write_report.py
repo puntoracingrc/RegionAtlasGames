@@ -7,7 +7,7 @@ from reference import ART, ROOT
 
 read=lambda name:json.loads((ART/name).read_text())
 m=read('migration-summary.json');audit=read('audit-summary.json');comparison=read('list-comparison-summary.json')
-profiles=json.loads((ROOT/'data/ps1-edition-evidence.json').read_text())
+profiles=json.load(gzip.open(ROOT/'data/ps1-edition-evidence.json.gz','rt'))
 baseline=json.load(gzip.open(ART/'baseline-ps1.json.gz','rt'))
 catalog=[g for g in json.loads((ROOT/'data/catalog.json').read_text()) if g['platformSlug']=='ps1']
 byid={g['id']:g for g in catalog}
@@ -24,7 +24,7 @@ Fecha de la evidencia: 10 de septiembre de 2026. Base: `80b6bf1010ae547f585fd7e4
 
 La reconstrucción separa familia regional, mercado, idiomas y componentes; conserva las 6.184 identidades y URLs anteriores y añade publicaciones documentadas que faltaban. La auditoría abarca PAL, USA y Japón. Las cifras son fichas/publicaciones regionales, no una afirmación de cuántos videojuegos únicos o variantes de caja existen en todo el mundo.
 
-El estado de pruebas está en los informes enlazados al final; la comprobación del despliegue se registra en `deployment-readback.json` cuando exista. Este documento por sí solo no afirma que producción esté desplegada.
+El estado de pruebas está en los informes enlazados al final. El estado vigente de CI y la comprobación de Preview se documentan en el [PR #220](https://github.com/puntoracingrc/RegionAtlasGames/pull/220). Este documento por sí solo no afirma que producción esté desplegada.
 
 ## Antes y después
 
@@ -116,6 +116,8 @@ El loader real del escáner usa `ps1-scanner-knowledge.ts` después de la percep
 
 {sum(bool(p.get('legacyPricing')) for p in profiles.values())} fichas mantienen asociaciones/importes anteriores en `legacyPricing`. Los precios, enlaces comerciales y referencias PriceCharting cuya identidad regional cambió se retiran de la ficha activa hasta revalidarlos. El overlay solo puede aportar precios para la misma identidad V2 resuelta, con familia, mercado, regionCode y seriales canónicos coincidentes. El worker de la otra task no se ha modificado ni activado. El contrato de integración está en [ENGINE-CONTRACT.md](ENGINE-CONTRACT.md).
 
+La documentación PS1 se almacena como JSON comprimido sin pérdida. El catálogo general se carga una sola vez desde su archivo, evitando otra copia completa en el código compilado. Esto resuelve el exceso de tamaño detectado en el primer intento de Vercel. La validación de lotes anteriores conserva el orden de las membresías sin cambios y comprueba la cadena de hashes posterior, sin reescribir el historial.
+
 ## Pendientes exactos y límites
 
 Los {m['actions']['REVIEW']} registros históricos no determinables están enumerados individualmente en [review-queue.json](review-queue.json), con explicación en español, códigos anteriores, origen y candidatos documentados. El mapeado completo está en [PS1-REGION-MAP.csv](PS1-REGION-MAP.csv). No se esconden asignándolos a Europa, España, USA o Japón por defecto: se conserva solo su familia anterior como contexto pendiente.
@@ -132,7 +134,7 @@ Los {m['actions']['REVIEW']} registros históricos no determinables están enume
 - [ps1-scanner-tests.log](ps1-scanner-tests.log) y [scanner-tests.log](scanner-tests.log): adapter PS1 y pruebas existentes del escáner.
 - [unit-tests.log](unit-tests.log), [lint.log](lint.log), [typecheck.log](typecheck.log) y [build.log](build.log): pruebas generales y compilación. Las advertencias históricas de lint se mantienen visibles.
 - [http-qa.json](http-qa.json): resolvedor, rechazo de consultas inválidas, filtro Francia, búsqueda de F1 por serial y URLs antiguas. Las capturas de navegador están en `visual-qa/`; se comprobaron móvil de 390 px sin desbordamiento y carga real de portada/contraportada.
-- [reproducibility.json](reproducibility.json): la reconstrucción desde fuentes congeladas debe producir exactamente los mismos bytes. Los manifests de compañía/persona conservan su historial y solo actualizan hashes de las proyecciones PS1 autorizadas.
+- [reproducibility.json](reproducibility.json): la reconstrucción desde fuentes congeladas debe producir exactamente los mismos bytes de datos (los GZip se comparan tras descomprimir). Los manifests de compañía/persona conservan su historial y solo actualizan hashes de las proyecciones PS1 autorizadas.
 - [cover-http-verification.json](cover-http-verification.json) y [gallery-http-verification.json](gallery-http-verification.json): comprobación íntegra de URLs activas.
 
 Reproducir desde esta rama con Node 24 y Python 3.11 o posterior. Ejecutar la migración y su comprobación sin un servidor, build o importador leyendo simultáneamente el catálogo:

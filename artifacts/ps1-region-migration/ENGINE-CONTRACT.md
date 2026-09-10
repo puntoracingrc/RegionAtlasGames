@@ -2,7 +2,7 @@
 
 `data/catalog.json` contiene identidad pública: `id`, `canonicalSeoSlug`, `workId`, `regionFamily`, `marketRegion`, `regionCode`, `regionalStatus`, `languages`, `canonicalSerials`, `resolutionSerials`. Las URLs existentes son estables aunque cambie el mercado.
 
-`data/ps1-edition-evidence.json` contiene procedencia por campo, códigos de origen, aliases explícitos, idiomas de texto/audio/índice, componentes, imágenes y evidencias históricas apartadas. `data/ps1-works.json` enlaza ediciones y contexto común sin propagar créditos específicos.
+`data/ps1-edition-evidence.json.gz` contiene procedencia por campo, códigos de origen, aliases explícitos, idiomas de texto/audio/índice, componentes, imágenes y evidencias históricas apartadas. `data/ps1-works.json.gz` enlaza ediciones y contexto común sin propagar créditos específicos. Son documentos JSON comprimidos sin pérdida; los loaders los descomprimen una vez y conservan el resultado en memoria.
 
 Un consumidor puede consultar `/api/catalog/ps1/resolve?serial=...`. Debe:
 

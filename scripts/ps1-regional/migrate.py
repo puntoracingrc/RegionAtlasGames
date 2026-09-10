@@ -43,6 +43,14 @@ def dump(path, value):
     temporary.replace(path)
 
 
+def dump_gzip(path, value):
+    temporary = path.with_name(path.name + ".ps1-v2-tmp")
+    with temporary.open("wb") as output:
+        with gzip.GzipFile(filename="", fileobj=output, mode="wb", mtime=0) as compressed:
+            compressed.write((json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n").encode())
+    temporary.replace(path)
+
+
 def empty_details():
     return {"year": None, "releaseDate": None, "reference": None, "players": None, "support": None, "developer": None, "publisher": None, "genres": [], "series": None, "fetchedAt": AT}
 
@@ -275,11 +283,8 @@ def main():
     detail_rank = {gid: n for n, gid in enumerate(original_details)}
     details = dict(sorted(details.items(), key=lambda row: (detail_rank.get(row[0], len(detail_rank)), row[0])))
     dump(ROOT / "data/game-details.json", details)
-    profile_path = ROOT / "data/ps1-edition-evidence.json"
-    temporary = profile_path.with_name(profile_path.name + ".ps1-v2-tmp")
-    temporary.write_text(json.dumps(profiles, ensure_ascii=False, separators=(",", ":")) + "\n")
-    temporary.replace(profile_path)
-    dump(ROOT / "data/ps1-works.json", {"schemaVersion": 1, "works": active_works})
+    dump_gzip(ROOT / "data/ps1-edition-evidence.json.gz", profiles)
+    dump_gzip(ROOT / "data/ps1-works.json.gz", {"schemaVersion": 1, "works": active_works})
     dump(ROOT / "data/ps1-region-markets.json", {"schemaVersion": 1, "markets": region_registry})
     with (ART / "PS1-REGION-MAP.csv").open("w", newline="") as output:
         writer = csv.DictWriter(output, fieldnames=list(rows[0]))

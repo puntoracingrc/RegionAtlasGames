@@ -11,10 +11,14 @@
   "typecheck": "passed",
   "build": "passed",
   "httpChecks": 15,
-  "reproducibilityFiles": 24,
+  "reproducibilityFiles": 25,
   "coverUrls": 3811,
   "galleryUrls": 8779,
   "imageHttpFailures": 0,
-  "preview": "pending",
-  "productionChanged": false
+  "preview": "first_attempt_failed_size_limit_fixed_locally_redeployment_pending",
+  "productionChanged": false,
+  "collectorSafetyTests": "passed",
+  "additionalQualityTests": "passed",
+  "productionBuildHttpChecks": 15,
+  "largestTracedFunctionBytes": 215577848
 }

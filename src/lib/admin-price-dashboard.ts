@@ -1,4 +1,4 @@
-import catalogData from "../../data/catalog.json";
+import { catalogData } from "./catalog-data";
 import platformsData from "../../data/platforms.json";
 import batchesData from "../../data/price-sync-batches.json";
 import priceSyncStateData from "../../data/price-sync-state.json";

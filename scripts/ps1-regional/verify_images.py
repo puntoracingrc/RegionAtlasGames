@@ -1,6 +1,7 @@
 """Read-only HTTP verification of assigned images; no FTP connections or writes."""
 import concurrent.futures
 import hashlib
+import gzip
 import json
 import time
 import sys
@@ -15,7 +16,7 @@ def main():
     assets=json.loads((ART/'assigned-cover-evidence.json').read_text())
     gallery = '--gallery' in sys.argv
     if gallery:
-        profiles=json.loads((ROOT/'data/ps1-edition-evidence.json').read_text())
+        profiles=json.load(gzip.open(ROOT/'data/ps1-edition-evidence.json.gz','rt'))
         catalog=json.loads((ROOT/'data/catalog.json').read_text())
         assets=[a for g in catalog if g['platformSlug']=='ps1' for a in profiles[g['id']]['graphics']
                 if a.get('stored') and a.get('url') and any(unquote(a['sourceImageReference'].split('/')[-1]).upper().startswith(code+'-') for code in g.get('canonicalSerials',[]))]

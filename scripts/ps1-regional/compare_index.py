@@ -1,5 +1,6 @@
 """Account for every row of the three PSX lists, including rows without links."""
 import csv
+import gzip
 import json
 from collections import Counter, defaultdict
 from reference import ART, ROOT, load_gzip
@@ -7,7 +8,7 @@ from reference import ART, ROOT, load_gzip
 rows=load_gzip('psx-index.json.gz')
 pages=json.loads((ART/'source-resolution.json').read_text())
 audit=json.loads((ART/'catalog-resolution.json').read_text())
-profiles=json.loads((ROOT/'data/ps1-edition-evidence.json').read_text())
+profiles=json.load(gzip.open(ROOT/'data/ps1-edition-evidence.json.gz','rt'))
 pages_by_url=defaultdict(list)
 for page in pages:
     pages_by_url[page['sourceUrl']].append(page)
