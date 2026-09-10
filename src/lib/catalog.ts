@@ -9,6 +9,7 @@ import { getRegionDisplay } from "@/lib/region-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { normalizeCatalogGamePresentation } from "./catalog-presentation";
 import { resolveEncodedCatalogIdParam } from "./catalog-id-param";
+import { catalogReviewCounts, isDefaultCatalogGame } from "./catalog-review-policy";
 import type {
   CatalogGame,
   CatalogMeta,
@@ -134,18 +135,19 @@ export function getCollectionByPlatform(slug: string): CollectionView[] {
 
 export function getPlatformStats(slug: string, ownedItems: CollectionView[] = []) {
   const platform = getPlatform(slug);
-  const catalogEntryCount = meta.listedByPlatform[slug] ?? 0;
+  const reviewCounts = catalogReviewCounts(listedCatalog.filter((game) => game.platformSlug === slug));
+  const catalogEntryCount = slug === "ps1" ? reviewCounts.documented : meta.listedByPlatform[slug] ?? 0;
   const owned = ownedItems.filter((c) => c.platformSlug === slug).length;
   const estimated = platform?.estimatedCatalogSize ?? 0;
   const completion = estimated > 0 ? Math.round((owned / estimated) * 100) : 0;
 
-  return { platform, catalogEntryCount, owned, estimated, completion };
+  return { platform, catalogEntryCount, pendingCatalogEntryCount: reviewCounts.pending, owned, estimated, completion };
 }
 
 export function getPlatformRegions(slug: string): string[] {
   const regions = new Set(
     listedCatalog
-      .filter((game) => game.platformSlug === slug && game.region?.trim())
+      .filter((game) => game.platformSlug === slug && game.region?.trim() && isDefaultCatalogGame(game))
       .map((game) => getRegionDisplay(game.region).label),
   );
 

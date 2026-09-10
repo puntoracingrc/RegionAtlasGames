@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-10",
+  "scope": "browse_aliases_only_not_physical_edition_equivalence",
+  "groups": [
+    {
+      "id": "fifa-2002",
+      "decision": "group_names",
+      "primaryId": "ps1-fifa-football-2002",
+      "catalogIds": ["ps1-fifa-2002", "ps1-fifa-football-2002"],
+      "note": "FIFA 2002 y FIFA Football 2002 son nombres de la misma obra. Se agrupan en la navegación; la caja y el mercado de estas fichas de origen siguen pendientes. La referencia europea documentada es SLES-03666.",
+      "sourceUrls": ["https://psxdatacenter.com/games/P/F/SLES-03666.html"]
+    },
+    {
+      "id": "gex-3d",
+      "decision": "group_names",
+      "primaryId": "ps1-gex-3d-return-of-the-gecko",
+      "catalogIds": ["ps1-gex-3d-enter-the-gecko", "ps1-gex-3d-return-of-the-gecko"],
+      "note": "Return of the Gecko es el título de la referencia PAL SLES-00596; Enter the Gecko es el nombre de la versión americana relacionada. Se agrupan los nombres de las fichas PAL pendientes sin equiparar sus cajas ni la edición americana SLUS-00598.",
+      "sourceUrls": ["https://psxdatacenter.com/games/P/G/SLES-00596.html"]
+    },
+    {
+      "id": "shadow-master",
+      "decision": "group_names",
+      "primaryId": "ps1-shadow-master",
+      "catalogIds": ["ps1-shadowmaster", "ps1-shadow-master"],
+      "note": "Shadowmaster y Shadow Master se agrupan como nombres de la misma obra. La fuente documenta Shadow Master con SLES-00888; no acredita una variante de caja por la diferencia de espaciado.",
+      "sourceUrls": ["https://psxdatacenter.com/games/P/S/SLES-00888.html"]
+    },
+    {
+      "id": "starfighter-3000",
+      "decision": "group_names",
+      "primaryId": "ps1-starfighter-3000",
+      "catalogIds": ["ps1-star-fighter-3000", "ps1-starfighter-3000"],
+      "note": "La fuente enumera Starfighter 3000 y Star Fighter 3000 como nombres de SLES-00293. Se muestra una sola ficha pendiente en los listados; ambas direcciones siguen disponibles.",
+      "sourceUrls": ["https://psxdatacenter.com/games/P/S/SLES-00293.html"]
+    },
+    {
+      "id": "nba-fastbreak-98",
+      "decision": "group_names",
+      "primaryId": "ps1-usa-nba-fastbreak-98",
+      "catalogIds": ["ps1-usa-nba-fast-break-98", "ps1-usa-nba-fastbreak-98"],
+      "note": "Fast Break y Fastbreak son las dos grafías de estas fichas del mismo juego. La referencia americana documentada es NBA Fastbreak '98, SLUS-00492. La agrupación no certifica una caja concreta.",
+      "sourceUrls": ["https://psxdatacenter.com/games/U/N/SLUS-00492.html"]
+    },
+    {
+      "id": "donpachi",
+      "decision": "group_names",
+      "primaryId": "ps1-japon-donpachi",
+      "catalogIds": ["ps1-japon-don-pachi", "ps1-japon-donpachi"],
+      "note": "Don Pachi y Donpachi se agrupan como grafías del mismo título japonés. SLPS-00548 identifica la publicación documentada; una reedición o un obi distinto requieren evidencia adicional.",
+      "sourceUrls": ["https://psxdatacenter.com/games/J/D/SLPS-00548.html"]
+    },
+    {
+      "id": "koneko-mo-issyo",
+      "decision": "group_names",
+      "primaryId": "ps1-japon-koneko-mo-issyo",
+      "catalogIds": ["ps1-japon-koneko-mo-issho", "ps1-japon-koneko-mo-issyo"],
+      "note": "Issho e Issyo son romanizaciones del mismo título. Se agrupan los nombres, con SCPS-10127 como referencia documental. Los componentes del ejemplar siguen pendientes de comprobar.",
+      "sourceUrls": ["https://psxdatacenter.com/games/J/K/SCPS-10127.html"]
+    },
+    {
+      "id": "pool-shark-actua-pool",
+      "decision": "keep_separate",
+      "catalogIds": ["ps1-actua-pool", "ps1-pool-shark"],
+      "note": "Pool Shark (SLES-01537) y Actua Pool (SLES-01647) tienen publicaciones documentadas con códigos diferentes. El código heredado de la ficha Actua Pool entra en conflicto con su título; deben contrastarse el disco y la caja antes de asignar una edición.",
+      "sourceUrls": ["https://psxdatacenter.com/games/P/P/SLES-01537.html", "https://psxdatacenter.com/games/P/A/SLES-01647.html"]
+    },
+    {
+      "id": "1xtreme-espn",
+      "decision": "keep_separate",
+      "catalogIds": ["ps1-usa-1xtreme", "ps1-usa-espn-extreme-games"],
+      "note": "1Xtreme es una reedición Greatest Hits de ESPN Extreme Games que retira la licencia ESPN y material de vídeo. Comparten la referencia SCUS-94503, pero no deben tratarse como la misma edición física. Hay que comprobar el título y el diseño de la caja y del disco.",
+      "sourceUrls": ["https://psxdatacenter.com/games/U/E/SCUS-94503.html"]
+    },
+    {
+      "id": "lunar-complete",
+      "decision": "keep_separate",
+      "catalogIds": ["ps1-usa-lunar-silver-star-story-complete", "ps1-usa-lunar-silver-star-story-complete-4-disc"],
+      "note": "El conjunto documentado incluye dos discos de juego, making of, banda sonora, manual de tapa dura y mapa de tela. Los tres códigos de software no cuentan el CD de audio. La ficha genérica y la marcada 4 Disc se conservan separadas hasta verificar la caja y los extras de cada conjunto.",
+      "sourceUrls": ["https://psxdatacenter.com/games/U/L/SLUS-00628.html"]
+    },
+    {
+      "id": "resident-evil-3-bonus",
+      "decision": "keep_separate",
+      "catalogIds": ["ps1-usa-resident-evil-3-nemesis", "ps1-usa-resident-evil-3-nemesis-2-disc"],
+      "note": "La fuente documenta primeras copias con un CD de demos de Capcom que incluye Dino Crisis. SLUS-00923 identifica el juego y no demuestra que esté presente ese disco extra. La variante 2 Disc requiere comprobar el CD de demos y su embalaje.",
+      "sourceUrls": ["https://psxdatacenter.com/games/U/R/SLUS-00923.html"]
+    }
+  ]
+}

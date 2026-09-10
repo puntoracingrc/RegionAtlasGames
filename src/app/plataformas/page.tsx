@@ -1,7 +1,8 @@
 import { PlatformGrid } from "@/components/platform-card";
 import { SiteNav } from "@/components/site-nav";
 import { getUserCollectionViews } from "@/lib/collection-store";
-import { meta } from "@/lib/catalog";
+import { publicListedCatalog } from "@/lib/catalog";
+import { catalogReviewCounts } from "@/lib/catalog-review-policy";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { getCurrentUser } from "@/lib/users";
 
@@ -9,6 +10,7 @@ export default async function PlatformsPage() {
   const user = await getCurrentUser();
   const ownedItems = user ? await getUserCollectionViews(user.id) : [];
   const platforms = (await listAdminPlatforms()).filter((platform) => platform.active !== false);
+  const reviewCounts = catalogReviewCounts(publicListedCatalog);
 
   return (
     <>
@@ -18,7 +20,8 @@ export default async function PlatformsPage() {
           <h1 className="text-3xl font-bold text-foreground">Plataformas</h1>
           <p className="max-w-2xl text-muted">
             {platforms.length} sistemas activos con catálogo multiregión —{" "}
-            {meta.catalogListed.toLocaleString("es-ES")} fichas catalogadas.
+            {reviewCounts.documented.toLocaleString("es-ES")} fichas catalogadas
+            {reviewCounts.pending > 0 ? ` y ${reviewCounts.pending.toLocaleString("es-ES")} pendientes de revisar` : ""}.
           </p>
         </header>
         <PlatformGrid items={platforms} ownedItems={ownedItems} />

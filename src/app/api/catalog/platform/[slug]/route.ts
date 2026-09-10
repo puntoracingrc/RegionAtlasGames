@@ -15,6 +15,7 @@ import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { isPublicPlatformSlug } from "@/lib/catalog";
 import type { CatalogListGame } from "@/lib/types";
+import { parsePendingEdition } from "@/lib/catalog-review-policy";
 
 type PlatformSearchCacheEntry = {
   games: CatalogListGame[];
@@ -54,6 +55,8 @@ export async function GET(
 
   const url = new URL(request.url);
   const q = url.searchParams.get("q") ?? "";
+  const includePending = url.searchParams.get("includePending") === "1";
+  const pendingEdition = parsePendingEdition(url.searchParams.get("pendingEdition"));
   const region = url.searchParams.get("region") ?? "all";
   const genre = url.searchParams.get("genre") ?? "all";
   const subgenre = url.searchParams.get("subgenre") ?? "all";
@@ -73,12 +76,13 @@ export async function GET(
   const { games } = await getPlatformSearchData(slug);
   const filtered = filterCatalogGames(
     games,
-    { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game" },
+    { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game", includePending, pendingEdition },
     { regions: true, platforms: false },
   );
   const start = (page - 1) * CATALOG_PAGE_SIZE;
   return NextResponse.json({
     items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE).map(toCatalogCardGame),
     total: filtered.total,
+    reviewCounts: filtered.reviewCounts,
   }, { headers: PUBLIC_CACHE_HEADERS });
 }

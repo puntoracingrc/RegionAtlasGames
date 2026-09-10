@@ -10,6 +10,8 @@ import { PlatformRegionSelector } from "@/components/platform-region-selector";
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { PlatformHeroArt } from "@/components/platform-card-art";
 import { formatEur } from "@/lib/price-format";
+import { regionNavigationGroup } from "@/lib/region-navigation";
+import type { CatalogReviewCounts, PendingEdition } from "@/lib/catalog-review-policy";
 import type {
   CatalogCompanyFilterOption,
   CatalogRegionFilterOption,
@@ -28,6 +30,9 @@ type Props = {
   platform: Platform;
   games: CatalogListGame[];
   totalCatalogEntryCount: number;
+  reviewCounts: CatalogReviewCounts;
+  initialIncludePending?: boolean;
+  initialPendingEdition?: PendingEdition;
   insights: PlatformCatalogInsights;
   regions: CatalogRegionFilterOption[];
   genres: CatalogTaxonomyFilterOption[];
@@ -50,6 +55,9 @@ export function PlatformCatalogSection({
   platform,
   games,
   totalCatalogEntryCount,
+  reviewCounts,
+  initialIncludePending = false,
+  initialPendingEdition = "all",
   insights,
   regions,
   genres,
@@ -68,6 +76,7 @@ export function PlatformCatalogSection({
   initialFacet = "all",
 }: Props) {
   const [region, setRegion] = useState(initialRegion);
+  const [includePending, setIncludePending] = useState(initialIncludePending);
   const ownedOnPlatform = ownedItems.filter((c) => c.platformSlug === platform.slug);
   const stats = { owned: ownedOnPlatform.length };
   const collectionValue = ownedOnPlatform.reduce((s, g) => s + (g.totalValue || 0), 0);
@@ -96,7 +105,7 @@ export function PlatformCatalogSection({
 
             <div className="md:max-w-[calc(100%-17rem)] lg:max-w-[calc(100%-21rem)]">
               <PlatformRegionSelector
-                regions={insights.topRegions}
+                regions={includePending ? insights.topRegions : insights.topRegions.filter((region) => regionNavigationGroup(region.label) !== "pending")}
                 selectedRegion={region}
                 onSelectRegion={setRegion}
               />
@@ -128,6 +137,11 @@ export function PlatformCatalogSection({
         contextName={platform.shortName}
         source={{ kind: "platform", slug: platform.slug }}
         totalCatalogEntryCount={totalCatalogEntryCount}
+        reviewCounts={reviewCounts}
+        initialIncludePending={initialIncludePending}
+        initialPendingEdition={initialPendingEdition}
+        includePending={includePending}
+        onIncludePendingChange={setIncludePending}
         regions={regions}
         genres={genres}
         subgenres={subgenres}
@@ -142,6 +156,7 @@ export function PlatformCatalogSection({
         showPriceLegend={false}
         persistKey={`region-atlas:platform-catalog:${platform.slug}`}
         initialQuery={initialQuery}
+        initialRegion={initialRegion}
         initialGenre={initialGenre}
         initialSubgenre={initialSubgenre}
         initialFacet={initialFacet}

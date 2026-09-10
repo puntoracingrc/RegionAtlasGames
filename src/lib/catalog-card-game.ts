@@ -11,6 +11,7 @@ export function toCatalogCardGame(game: CatalogListGame): CatalogListGame {
     title: game.title,
     platformSlug: game.platformSlug,
     region: game.region,
+    regionalStatus: game.regionalStatus,
     ...(game.canonicalSeoSlug ? { canonicalSeoSlug: game.canonicalSeoSlug } : {}),
     physicalVariant: game.physicalVariant,
     coverUrl: game.coverUrl,

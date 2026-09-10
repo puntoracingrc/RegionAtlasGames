@@ -33,7 +33,9 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node scripts/test-ps1-regional-v2.cjs
       - run: npx tsx --test src/lib/ps1-scanner-knowledge.test.ts
+      - run: npx tsx --test src/lib/catalog-review-policy.test.ts
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - run: python3 scripts/ps1-regional/verify_reproducibility.py
+      - run: python3 scripts/ps1-regional/build_pending_review.py --check

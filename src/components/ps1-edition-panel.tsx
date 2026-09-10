@@ -9,6 +9,8 @@ import { getCatalogGame, isPublicCatalogGame } from "@/lib/catalog";
 import { getPs1Work } from "@/lib/ps1-edition-data";
 import { languageNames, languageSummary } from "@/lib/ps1-regional";
 import type { CatalogGame, GameDetails } from "@/lib/types";
+import { Ps1PendingReview } from "@/components/ps1-pending-review";
+import { Ps1RelatedEditions } from "@/components/ps1-related-editions";
 
 const METADATA_LABELS: Record<string, string> = {
   "Genre / Style": "Género y estilo según la fuente",
@@ -95,6 +97,8 @@ export function Ps1EditionPanel({ game, details }: { game: CatalogGame; details?
           ))}
         </dl>
       )}
+      {profile.status === "review" ? <Ps1RelatedEditions game={game} editions={related} /> : null}
+      {profile.status === "review" ? <Ps1PendingReview game={game} /> : null}
       {languages?.discrepancy ? (
         <p className="mt-4 text-xs leading-5 text-muted">Las fuentes no enumeran los idiomas de la misma forma. Esta ficha conserva el detalle de textos y voces cuando está documentado.</p>
       ) : null}
@@ -106,7 +110,8 @@ export function Ps1EditionPanel({ game, details }: { game: CatalogGame; details?
             {graphics.map((asset) => {
               const src = getCoverSrc(asset.url);
               if (!src) return null;
-              const label = referenceLabel(asset.roles);
+              const range = /platinum/i.test(asset.label ?? "") ? "Platinum" : /greatest hits/i.test(asset.label ?? "") ? "Greatest Hits" : /long box/i.test(asset.label ?? "") ? "Long Box" : null;
+              const label = `${referenceLabel(asset.roles)}${range ? ` · ${range}` : ""}`;
               return <figure key={`${asset.assetId}:${asset.group}:${asset.marketHints.join("-")}`} className="min-w-0 rounded-lg border border-border p-2">
                 <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar ${label.toLowerCase()} de ${game.title}`}>
                   <Image unoptimized src={src} width={asset.width ?? 400} height={asset.height ?? 400} alt={`${label} de ${game.title} · ${asset.marketHints.join(" / ") || "Mercado por confirmar"}`} className="h-44 w-full object-contain" />
@@ -120,14 +125,7 @@ export function Ps1EditionPanel({ game, details }: { game: CatalogGame; details?
           </div>
         </details>
       ) : null}
-      {related.length > 0 ? (
-        <details className="mt-5 border-t border-border pt-4">
-          <summary className="cursor-pointer text-sm font-semibold">Otras ediciones documentadas ({related.length})</summary>
-          <ul className="mt-3 space-y-2 text-sm">
-            {related.map((edition) => <li key={edition.id}><Link href={catalogGamePath(edition)} className="hover:underline">{edition.title} · {edition.region}{edition.canonicalSerials?.[0] ? ` · ${edition.canonicalSerials[0]}` : ""}</Link></li>)}
-          </ul>
-        </details>
-      ) : null}
+      {profile.status !== "review" ? <Ps1RelatedEditions game={game} editions={related} /> : null}
       {contextGames.length > 0 ? (
         <details className="mt-5 border-t border-border pt-4">
           <summary className="cursor-pointer text-sm font-semibold">Historia y relaciones del juego</summary>
