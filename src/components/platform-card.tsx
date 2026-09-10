@@ -3,6 +3,7 @@ import { PlatformCardArt } from "@/components/platform-card-art";
 import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import { RegionFlag } from "@/components/region-flag";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
+import { compactPlatformRegions } from "@/lib/region-navigation";
 import type { CollectionView, Platform } from "@/lib/types";
 import { getPlatformRegions, getPlatformStats } from "@/lib/catalog";
 
@@ -26,6 +27,7 @@ export function PlatformCard({
 }) {
   const stats = getPlatformStats(platform.slug, ownedItems);
   const regions = getPlatformRegions(platform.slug);
+  const regionPreview = compactPlatformRegions(regions);
   const listedLabel = `${formatCatalogEntryCount(stats.catalogEntryCount)} ${
     stats.catalogEntryCount === 1 ? "catalogada" : "catalogadas"
   }`;
@@ -51,10 +53,10 @@ export function PlatformCard({
 
       {regions.length > 0 && (
         <div
-          className="relative z-10 mt-3 flex max-w-[calc(100%-5.5rem)] flex-wrap gap-1.5"
+          className="relative z-10 mt-3 flex flex-wrap gap-1.5 text-xs"
           aria-label="Regiones disponibles"
         >
-          {regions.map((region) => (
+          {regionPreview.visible.map((region) => (
             <span
               key={region}
               className="inline-flex min-h-7 items-center rounded-full border border-border/60 bg-card/60 px-2"
@@ -62,6 +64,11 @@ export function PlatformCard({
               <RegionFlag region={region} size="xs" showLabel labelMode="short" />
             </span>
           ))}
+          {regionPreview.remaining > 0 && (
+            <span className="inline-flex min-h-7 items-center whitespace-nowrap rounded-full border border-border/60 bg-card/60 px-2 text-[11px] font-medium text-muted">
+              +{regionPreview.remaining} {regionPreview.remaining === 1 ? "región" : "regiones"}
+            </span>
+          )}
         </div>
       )}
 

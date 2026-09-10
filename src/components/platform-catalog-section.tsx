@@ -6,7 +6,7 @@ import type { CatalogListGame, CollectionView, Platform } from "@/lib/types";
 import { BackLink } from "@/components/breadcrumbs";
 import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import type { PlatformCatalogInsights } from "@/lib/platform-catalog-insights";
-import { PlatformRegionBar } from "@/components/platform-region-bar";
+import { PlatformRegionSelector } from "@/components/platform-region-selector";
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { PlatformHeroArt } from "@/components/platform-card-art";
 import { formatEur } from "@/lib/price-format";
@@ -95,7 +95,7 @@ export function PlatformCatalogSection({
             </div>
 
             <div className="md:max-w-[calc(100%-17rem)] lg:max-w-[calc(100%-21rem)]">
-              <PlatformRegionBar
+              <PlatformRegionSelector
                 regions={insights.topRegions}
                 selectedRegion={region}
                 onSelectRegion={setRegion}
@@ -133,7 +133,7 @@ export function PlatformCatalogSection({
         subgenres={subgenres}
         facets={facets}
         companies={companies}
-        showRegionFilter
+        showRegionFilter={false}
         showTaxonomyFilters
         ownedCatalogIds={ownedCatalogIds}
         listingCounts={listingCounts}
