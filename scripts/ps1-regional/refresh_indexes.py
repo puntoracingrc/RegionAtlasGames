@@ -84,6 +84,10 @@ def main():
     curation["listed"] = meta["catalogListed"]
     curation["listedByPlatform"]["ps1"] = meta["listedByPlatform"]["ps1"]
     curation_file.write_text(json.dumps(curation, ensure_ascii=False, indent=2) + "\n")
+    platforms_file = ROOT / "data/platforms.json"
+    platforms = json.loads(platforms_file.read_text())
+    next(p for p in platforms if p["slug"] == "ps1")["estimatedCatalogSize"] = meta["listedByPlatform"]["ps1"]
+    platforms_file.write_text(json.dumps(platforms, ensure_ascii=False, indent=2) + "\n")
     (ART / "index-refresh.json").write_text(json.dumps(report, indent=2) + "\n")
     # These research manifests already keep a ledger of legitimate catalog
     # changes. Advance only the two PS1 projections; retain all other hashes.

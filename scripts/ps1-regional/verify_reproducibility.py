@@ -9,6 +9,7 @@ from reference import ART, ROOT
 paths = [
     'data/catalog.json', 'data/game-details.json', 'data/meta.json',
     'data/curation-report.json',
+    'data/platforms.json',
     'data/index/companies.json', 'data/index/genres.json', 'data/index/series.json',
     'data/ps1-edition-evidence.json.gz', 'data/ps1-region-markets.json', 'data/ps1-works.json.gz',
     'data/research/company-study/manifest.json', 'data/research/person-study/manifest.json',

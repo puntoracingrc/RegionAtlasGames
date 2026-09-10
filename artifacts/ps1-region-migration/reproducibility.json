@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "files": 25,
+  "files": 26,
   "changed": [],
   "hashScope": "Raw bytes; gzip files compared after decompression to avoid container-header or zlib-version differences.",
   "hashes": {
@@ -8,6 +8,7 @@
     "data/game-details.json": "a7c8250bbc54e0c88a8ded58075ff6315f219c4dfa9422845343f9deaa0e1fbb",
     "data/meta.json": "378f4eeff210d6a9499831f5faf7fec97905a3315adf36b7ea3feef2dff22e18",
     "data/curation-report.json": "6af6a655b12a9e14a9ea5417c53bf2c36fa1e6ae911819b3cac199e6de332a0f",
+    "data/platforms.json": "bc7ece1ec486ba8c1451c4539a5e7dd40f44cc9f6fab984d9582908ba8573dd1",
     "data/index/companies.json": "50ba8ef5b02e22a983dde0cdea93407f97b4a644a7c97448e6a6d1ae7b97027d",
     "data/index/genres.json": "b0f81b4b9740e3c27ac8767a8968af38c995444de0b5802636de35933b38af27",
     "data/index/series.json": "2576f6ee0384b88addcd4eb90299e4c27ce2e0b79ad916465f8a530ccd21add9",
