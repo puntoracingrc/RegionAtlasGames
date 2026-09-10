@@ -1,0 +1,8 @@
+Rebuilding reference
+Rebuilding audit
+Rebuilding migrate
+Rebuilding refresh_indexes
+Rebuilding describe_review
+Rebuilding reconcile_reference
+Rebuilding compare_index
+{"status": "passed", "files": 24, "changed": []}

@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "baseUrl": "http://localhost:3077",
+  "count": 15,
+  "checks": [
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve?serial=SLES-02723",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve?serial=SLES-03225",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve?serial=SCES-03047",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve?serial=SCES-33047",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve?serial=SLES-02458",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve?serial=SLES-03137-T",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve?serial=SLES-03225-UNKNOWN",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve",
+      "http": 400
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/ps1/resolve?serial=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "http": 400
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/platform/ps1?region=PAL+Francia",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/api/catalog/platform/ps1?q=SLES-02723",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/catalogo/legend-of-dragoon-ps1-pal-es",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/catalogo/007-racing-ps1-pal-us",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/catalogo/f1-2000-sles-02723-ps1-pal-eu",
+      "http": 200
+    },
+    {
+      "url": "http://localhost:3077/catalogo/ms-pac-man-maze-madness-sces-03086-ps1-pal-fr",
+      "http": 200
+    }
+  ],
+  "interpretation": "Documentary data and HTTP/UI routes only; no paid model call or recognition-accuracy measurement."
+}

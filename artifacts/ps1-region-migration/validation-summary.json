@@ -1,0 +1,20 @@
+{
+  "status": "local_passed",
+  "integrityTests": 22,
+  "scannerAdapterTests": 6,
+  "existingScannerTests": 50,
+  "unitTests": 364,
+  "lint": {
+    "errors": 0,
+    "warnings": 35
+  },
+  "typecheck": "passed",
+  "build": "passed",
+  "httpChecks": 15,
+  "reproducibilityFiles": 24,
+  "coverUrls": 3811,
+  "galleryUrls": 8779,
+  "imageHttpFailures": 0,
+  "preview": "pending",
+  "productionChanged": false
+}

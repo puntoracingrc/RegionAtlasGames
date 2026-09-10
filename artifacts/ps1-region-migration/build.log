@@ -1,0 +1,252 @@
+
+> region-atlas-games@0.1.0 build
+> npm run details:by-id && NODE_OPTIONS=--max-old-space-size=6144 next build
+
+
+> region-atlas-games@0.1.0 details:by-id
+> node scripts/generate-catalog-detail-by-id.mjs
+
+{
+  "source": "data/game-details.json",
+  "publicChunks": "public/catalog-details",
+  "output": "public/catalog-details/by-id",
+  "removed": 41696,
+  "publicChunkEntries": 29559,
+  "written": 41714,
+  "skipped": 7
+}
+▲ Next.js 16.3.3 (Turbopack)
+✓ Running next.config.ts took 71ms
+- Experiments (use with caution):
+  ⨯ serverSourceMaps
+  ⨯ turbopackInputSourceMaps
+  ✓ turbopackServerSideNestedAsyncChunking
+  ⨯ turbopackSourceMaps
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 10.2s
+  Running TypeScript ...
+  Finished TypeScript in 54s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/134) ...
+  Generating static pages using 7 workers (33/134) 
+  Generating static pages using 7 workers (66/134) 
+  Generating static pages using 7 workers (100/134) 
+✓ Generating static pages using 7 workers (134/134) in 4.9s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /admin
+├ ƒ /admin/acciones
+├ ƒ /admin/cola
+├ ƒ /admin/cola/[pcId]
+├ ƒ /admin/colaboradores
+├ ƒ /admin/entidades
+├ ƒ /admin/entidades/investigacion
+├ ƒ /admin/entidades/personas
+├ ƒ /admin/facetas
+├ ƒ /admin/gestion
+├ ƒ /admin/higiene
+├ ƒ /admin/ia
+├ ƒ /admin/importacion
+├ ƒ /admin/juegos
+├ ƒ /admin/juegos/[catalogId]
+├ ƒ /admin/juegos/nuevo
+├ ƒ /admin/noticias
+├ ƒ /admin/precios
+├ ƒ /admin/premios
+├ ƒ /admin/sistema
+├ ƒ /admin/taxonomia
+├ ƒ /admin/ventas
+├ ○ /affiliate-disclosure
+├ ƒ /ajustes
+├ ƒ /api/admin/ai-fill-batch
+├ ƒ /api/admin/blob-health
+├ ƒ /api/admin/bulk-game-actions
+├ ƒ /api/admin/catalog-ai-jobs/[jobId]/result
+├ ƒ /api/admin/catalog-hygiene
+├ ƒ /api/admin/catalog-import
+├ ƒ /api/admin/catalog-staging
+├ ƒ /api/admin/catalog/[catalogId]
+├ ƒ /api/admin/catalog/[catalogId]/ai-fill
+├ ƒ /api/admin/catalog/[catalogId]/collect-prices
+├ ƒ /api/admin/catalog/[catalogId]/cover
+├ ƒ /api/admin/catalog/[catalogId]/market-research
+├ ƒ /api/admin/catalog/[catalogId]/market-research/collect
+├ ƒ /api/admin/catalog/[catalogId]/market-research/covers/[candidateId]
+├ ƒ /api/admin/catalog/[catalogId]/market-research/observations/[observationId]
+├ ƒ /api/admin/catalog/[catalogId]/market-research/publish
+├ ƒ /api/admin/catalog/[catalogId]/prices
+├ ƒ /api/admin/catalog/search
+├ ƒ /api/admin/contributors
+├ ƒ /api/admin/contributors/[email]
+├ ƒ /api/admin/entities/companies
+├ ƒ /api/admin/entities/companies/[slug]
+├ ƒ /api/admin/entities/companies/[slug]/ai-fill
+├ ƒ /api/admin/entities/companies/[slug]/duplicates
+├ ƒ /api/admin/entities/companies/[slug]/merge
+├ ƒ /api/admin/entities/companies/[slug]/merge/revert
+├ ƒ /api/admin/entities/franchises
+├ ƒ /api/admin/entities/franchises/[slug]
+├ ƒ /api/admin/entities/genres
+├ ƒ /api/admin/entities/genres/[slug]
+├ ƒ /api/admin/entities/platforms
+├ ƒ /api/admin/entities/platforms/[slug]
+├ ƒ /api/admin/entities/platforms/[slug]/collect-prices
+├ ƒ /api/admin/entities/relationships
+├ ƒ /api/admin/entities/series
+├ ƒ /api/admin/entities/series/[slug]
+├ ƒ /api/admin/entities/series/[slug]/ai-fill
+├ ƒ /api/admin/entities/series/[slug]/background
+├ ƒ /api/admin/facet-review
+├ ƒ /api/admin/games
+├ ƒ /api/admin/games/similar
+├ ƒ /api/admin/market-research/batches
+├ ƒ /api/admin/market-research/batches/[batchId]
+├ ƒ /api/admin/market-research/batches/[batchId]/next
+├ ƒ /api/admin/marketplace/listings/[id]/review
+├ ƒ /api/admin/me
+├ ƒ /api/admin/meta
+├ ƒ /api/admin/news-settings
+├ ƒ /api/admin/price-game-paste/import
+├ ƒ /api/admin/price-game-paste/preview
+├ ƒ /api/admin/price-jobs/[jobId]
+├ ƒ /api/admin/price-jobs/[jobId]/apply
+├ ƒ /api/admin/price-jobs/[jobId]/stop
+├ ƒ /api/admin/price-jobs/batch
+├ ƒ /api/admin/price-jobs/wallapop-batch
+├ ƒ /api/admin/price-local-game-jobs
+├ ƒ /api/admin/price-local-game-jobs/[jobId]/import
+├ ƒ /api/admin/price-local-game-jobs/[jobId]/result
+├ ƒ /api/admin/price-local-game-jobs/[jobId]/review
+├ ƒ /api/admin/price-reviews
+├ ƒ /api/admin/price-reviews/[reviewId]
+├ ƒ /api/admin/price-reviews/[reviewId]/clone-region
+├ ƒ /api/admin/price-reviews/[reviewId]/merge-catalog
+├ ƒ /api/admin/price-reviews/auto-retroplayzone
+├ ƒ /api/admin/price-reviews/close-unresolved
+├ ƒ /api/admin/price-reviews/pc-images
+├ ƒ /api/admin/price-reviews/pc-vision
+├ ƒ /api/admin/price-sources
+├ ƒ /api/admin/price-worker/sync
+├ ƒ /api/admin/price-worker/update
+├ ƒ /api/admin/price-worker/wallapop
+├ ƒ /api/admin/publish-jobs/[jobId]
+├ ƒ /api/admin/staging
+├ ƒ /api/admin/staging/[pcId]
+├ ƒ /api/admin/staging/[pcId]/ai-fill
+├ ƒ /api/admin/staging/[pcId]/cover
+├ ƒ /api/admin/staging/[pcId]/enrich
+├ ƒ /api/admin/staging/[pcId]/publish
+├ ƒ /api/admin/taxonomy
+├ ƒ /api/auth/google
+├ ƒ /api/auth/google/callback
+├ ƒ /api/auth/login
+├ ƒ /api/auth/logout
+├ ƒ /api/auth/magic-link
+├ ƒ /api/auth/me
+├ ƒ /api/auth/register
+├ ƒ /api/auth/verify
+├ ƒ /api/catalog/companies
+├ ƒ /api/catalog/offers/[catalogId]
+├ ƒ /api/catalog/platform/[slug]
+├ ƒ /api/catalog/ps1/resolve
+├ ƒ /api/catalog/search
+├ ƒ /api/contribuir/games
+├ ƒ /api/contribuir/games/similar
+├ ƒ /api/contribuir/staging
+├ ƒ /api/contribuir/staging/[pcId]
+├ ƒ /api/contribuir/staging/[pcId]/cover
+├ ƒ /api/contribuir/staging/[pcId]/submit
+├ ƒ /api/cron/enrich-catalog-staging
+├ ƒ /api/cron/game-release-discovery
+├ ƒ /api/cron/news-refresh
+├ ƒ /api/cron/price-job-apply
+├ ƒ /api/cron/price-rotation
+├ ƒ /api/marketplace/conversations
+├ ƒ /api/marketplace/conversations/[id]
+├ ƒ /api/marketplace/conversations/[id]/block
+├ ƒ /api/marketplace/conversations/[id]/read
+├ ƒ /api/marketplace/listings
+├ ƒ /api/marketplace/listings/[id]
+├ ƒ /api/marketplace/listings/[id]/analyze
+├ ƒ /api/marketplace/listings/[id]/cancel
+├ ƒ /api/marketplace/listings/[id]/photos
+├ ƒ /api/marketplace/listings/[id]/photos/[slot]
+├ ƒ /api/marketplace/listings/[id]/sale
+├ ƒ /api/marketplace/listings/create
+├ ƒ /api/notifications
+├ ƒ /api/price-local-runner/complete
+├ ƒ /api/price-local-runner/next
+├ ƒ /api/scanner
+├ ƒ /api/user/collection
+├ ƒ /api/user/collection/catalog-request
+├ ƒ /api/user/collection/copies
+├ ƒ /api/user/collection/copies/[itemId]/photos
+├ ƒ /api/user/collection/copies/[itemId]/photos/[slot]
+├ ƒ /api/user/collection/copies/bulk-condition
+├ ƒ /api/user/collection/import
+├ ƒ /api/user/collection/items
+├ ƒ /api/user/collection/items/link
+├ ƒ /api/user/plan/upgrade
+├ ƒ /api/user/settings
+├ ƒ /api/worker/release
+├ ○ /aviso-legal
+├ ƒ /catalogo
+├ ƒ /catalogo/[slug]
+├ ƒ /chat/[id]
+├ ƒ /coleccion
+├ ƒ /coleccion/[id]
+├ ƒ /coleccion/fuera/[platform]
+├ ƒ /coleccion/juego/[catalogId]
+├ ƒ /coleccion/pendientes/[platform]
+├ ƒ /compania
+├ ƒ /compania/[slug]
+├ ƒ /contribuir
+├ ƒ /contribuir/[pcId]
+├ ƒ /contribuir/nuevo
+├ ○ /cookies
+├ ○ /escaner
+├ ƒ /etiqueta
+├ ƒ /etiqueta/[slug]
+├ ƒ /franquicia
+├ ƒ /franquicia/[slug]
+├ ƒ /genero
+├ ƒ /genero/[slug]
+├ ƒ /juego/[id]
+├ ○ /login
+├ ƒ /mensajes
+├ ƒ /mis-anuncios
+├ ƒ /notificaciones
+├ ○ /persona
+├   /persona/[slug]
+│ ├ ● /persona/aleksei-pazhitnov
+│ ├ ● /persona/amy-hennig
+│ ├ ● /persona/danielle-bunten-berry
+│ └ ● [+22 more paths]
+├ ƒ /plataforma/[slug]
+├ ƒ /plataformas
+├ ƒ /premios
+├ ƒ /premios/[award]
+├ ƒ /premios/[award]/[year]
+├ ƒ /premios/[award]/categoria/[category]
+├ ○ /premios/ultimos-ganadores
+├ ○ /privacidad
+├ ○ /registro
+├ ○ /robots.txt
+├ ƒ /saga
+├ ƒ /saga/[slug]
+├ ƒ /sitemap.xml
+├ ○ /terminos
+├ ƒ /venta/[id]
+└ ƒ /vitrina
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

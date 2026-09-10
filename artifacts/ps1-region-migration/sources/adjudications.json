@@ -1,0 +1,39 @@
+{
+  "SLES-04123": {
+    "documentedTitleAliases": [
+      "CT Special Forces - Back to Hell"
+    ],
+    "sourceUrl": "https://redump.info/disc/26962/",
+    "note": "Same printed base serial in PSX; Redump titles this sequel without the digit 2. The /GER suffix is preserved."
+  },
+  "SLES-02768": {
+    "documentedTitleAliases": [
+      "Marranos en Guerra"
+    ],
+    "sourceUrl": "https://psxdatacenter.com/games/P/H/SLES-02768.html",
+    "note": "The Spanish title is explicitly present in the PSX source title, not a language-based market inference."
+  },
+  "SLES-02458": {
+    "packagingMarket": "France",
+    "sourceUrl": "https://psxdatacenter.com/games/P/G/SLES-02458.html",
+    "imageSha256": "dba3abad6346974957957ac4eba3dbc865b9e1214bde52537e7b1f9611aab8e1",
+    "observation": "French back inlay visibly prints SLES 02458, French age notice and French distribution text. The page gallery Europe flag is too broad. This does not establish that the disc is SLES-02458 or equivalent to Redump SLES-02453."
+  },
+  "SCES-03086": {
+    "packagingMarket": "France",
+    "sourceUrl": "https://psxdatacenter.com/games/P/M/SCES-03086.html",
+    "imageSha256": "05319437367e5bc5c50cea14d946eabc87f8271bbcf4be4a22e1a8220381673c",
+    "observation": "French gallery classification corroborated by French back inlay visibly printing SCES 03086 and barcode 711719227922. Disc equivalence is not established."
+  },
+  "SCES-03087": {
+    "packagingMarket": "Germany",
+    "sourceUrl": "https://psxdatacenter.com/games/P/M/SCES-03087.html",
+    "imageSha256": "a8d781a8bfd2b0cb5da8c2500e12d3918ebaa0e8d3345c07e002ae7c983da3fb",
+    "observation": "PSX explicitly assigns the gallery to Germany. German back text and barcode 711719228127 corroborate the packaging. The crop does not expose a printed serial; no disc equivalence is asserted."
+  },
+  "SLES-02087": {
+    "additionalReviewReason": "commercial_release_conflicts_with_cancellation_reference",
+    "sourceUrl": "https://gamefaqs.gamespot.com/ps/958722-plane-crazy/data",
+    "note": "PSX supplies a release date but GameFAQs release register marks the PS1 edition canceled. Do not add as confirmed commercial release."
+  }
+}

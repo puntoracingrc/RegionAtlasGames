@@ -30,9 +30,9 @@
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
     "data/company-groups.json": "68463bcaa8b9df3df1ddb2804b122c1b717e656cde6f691f16ce5012fba02d64",
     "data/company-separations.json": "c3293b49d5fec9ef6eab11c5219d50e7312a44c6cf84c9f54bcab0318f060896",
-    "data/index/companies.json": "e7dec236270d670d42b4b0fbf6c74f02425e3e66484adb0f4ed5b2f376391f0a",
+    "data/index/companies.json": "50ba8ef5b02e22a983dde0cdea93407f97b4a644a7c97448e6a6d1ae7b97027d",
     "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
-    "data/game-details.json": "14469e97884f47fb744f929b53ff80bcb412a7fadabc7d042c031e445a65fb66"
+    "data/game-details.json": "a7c8250bbc54e0c88a8ded58075ff6315f219c4dfa9422845343f9deaa0e1fbb"
   },
   "protectedFileHashUpdates": [
     {
@@ -102,6 +102,20 @@
         "data/index/companies.json": {
           "before": "265255c5752789bc72ef7673c30d6335ff454f54918b55be6d3e8a4e94cdf296",
           "after": "e7dec236270d670d42b4b0fbf6c74f02425e3e66484adb0f4ed5b2f376391f0a"
+        }
+      }
+    },
+    {
+      "batchId": "ps1-regional-v2-2026-09-10",
+      "reviewedAt": "2026-09-10",
+      "files": {
+        "data/index/companies.json": {
+          "before": "e7dec236270d670d42b4b0fbf6c74f02425e3e66484adb0f4ed5b2f376391f0a",
+          "after": "50ba8ef5b02e22a983dde0cdea93407f97b4a644a7c97448e6a6d1ae7b97027d"
+        },
+        "data/game-details.json": {
+          "before": "14469e97884f47fb744f929b53ff80bcb412a7fadabc7d042c031e445a65fb66",
+          "after": "a7c8250bbc54e0c88a8ded58075ff6315f219c4dfa9422845343f9deaa0e1fbb"
         }
       }
     }

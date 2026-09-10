@@ -1,0 +1,471 @@
+
+> region-atlas-games@0.1.0 pretest:unit
+> npm run test:catalog-count-semantics && npm run test:collection && npm run test:companies && npm run test:people && npm run test:verified-company-credits && tsx --test src/lib/pc-path-guess.test.ts src/lib/platform-region-policy.test.ts src/lib/vitrina-marketplace.test.ts
+
+
+> region-atlas-games@0.1.0 test:catalog-count-semantics
+> node scripts/test-catalog-count-semantics.mjs && tsx --test src/lib/catalog-count-semantics.test.ts
+
+OK catalog count semantics: 77,399 catalog records, 77,399 unique IDs, 5,520 companies and explicit public ficha counts
+✔ formats catalog records as fichas with Spanish singular and plural (4.946166ms)
+✔ adapts the legacy index count to an explicit public catalog-entry contract (0.497166ms)
+✔ company views expose catalog records explicitly for large representative companies (783.790666ms)
+✔ generated company metadata and copy call catalog records fichas (3.007375ms)
+✔ series and genre profiles count catalog entries across platforms and regions (80.524708ms)
+✔ public company size and count sorts name fichas rather than games or titles (498.269625ms)
+✔ the shared genre and tag index exposes an explicit catalog-entry count (52.659ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3093.712417
+
+> region-atlas-games@0.1.0 test:collection
+> tsx --test src/lib/collection-bulk-condition.test.ts src/lib/collection-display.test.ts src/lib/collection-filters.test.ts src/lib/collection-path.test.ts src/lib/collection-sales.test.ts src/lib/collection-store.test.ts
+
+✔ bulk condition changes are atomic and synchronize draft listings (81.335041ms)
+✔ bulk condition changes reject states unsupported by any selected platform (9.56525ms)
+✔ groups copies of the same catalog game and preserves their conditions (1.043625ms)
+✔ keeps the earliest and latest dates across copies (0.116416ms)
+✔ calculates a centered list value for every owned condition (0.184042ms)
+✔ does not merge pending rows without a catalog identity (0.091375ms)
+✔ uses complete for legacy copies without a condition (0.081792ms)
+✔ only offers collector conditions that make sense for each medium (0.092667ms)
+✔ stores safe per-platform defaults and falls back to complete (0.23375ms)
+✔ filters individual copies by condition and listing state (1.086ms)
+✔ sorts grouped titles by price, quantity and collection dates (0.399417ms)
+✔ builds a stable collection anchor for returning to a game (0.466167ms)
+✔ keeps the strongest open state for each physical copy (0.888041ms)
+✔ sales history contains only buyer-confirmed sales in newest-first order (8.36325ms)
+✔ purchase history contains only the buyer's confirmed purchases (0.175917ms)
+✔ repairs an exact legacy PS5 match and exposes it as owned (44.383541ms)
+✔ repairs a legacy regional override without changing its collection date (15.368959ms)
+✔ keeps duplicate legacy copies while linking both to one catalog record (5.269167ms)
+✔ migrates the former unknown state to complete without changing explicit states (12.760375ms)
+✔ creates catalog copies as complete by default and accepts a platform preference (0.271667ms)
+✔ backfills imported collection dates without changing the legacy row order (0.137042ms)
+✔ adding an exact imported game links it without creating a duplicate (22.338292ms)
+✔ refreshes linked collection values from current catalog prices (20.020917ms)
+✔ manages individual copies and applies completed sales once (42.373083ms)
+✔ stores up to six ordered private photo slots per individual copy (19.328833ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2115.093042
+
+> region-atlas-games@0.1.0 test:companies
+> tsx --test src/lib/company-credits.test.ts src/lib/company-index.test.ts src/lib/company-research.test.ts
+
+✔ keeps developer, publisher, digital publisher and physical distributor separate (0.943417ms)
+✔ deduplicates only an exact company and role pair (0.110542ms)
+✔ a role-specific historical credit suppresses the matching legacy family (0.10625ms)
+✔ uses alphabetical order by default (1.515834ms)
+✔ searches names without making accents significant (0.277167ms)
+✔ role filters include dual-role companies (0.146416ms)
+✔ catalog-size bands have exact non-overlapping boundaries (0.384875ms)
+✔ advanced filters combine status, activity and price coverage (0.098375ms)
+✔ economic and recent sorts use their displayed metrics (0.11ms)
+✔ partitions all companies into the exact approved and blocked groups (59.539125ms)
+✔ publishes only the authorized histories, achievements and QID corrections (0.522041ms)
+✔ every published history and achievement exposes its approved source (0.191792ms)
+✔ applies the three verified identities without exposing other internal fields (0.24275ms)
+✔ shared QIDs retain every catalog slug and never alter canonical mappings (1.546583ms)
+✔ keeps personal and composite credits blocked (0.60175ms)
+✔ does not import corporate relationships and explicitly excludes Shaba and Artoon (0.109208ms)
+✔ preserves every protected canonical file byte for byte (58.198834ms)
+✔ keeps internal research out of public route and sitemap module graphs (0.738ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1331.055209
+
+> region-atlas-games@0.1.0 test:people
+> tsx --test src/lib/person-research.test.ts
+
+✔ partitions all identities into 25 public, 302 Admin-only and 161 blocked records (1.436209ms)
+✔ builds every public biography and fact source only from explicit editorial approvals (0.604875ms)
+✔ keeps every non-editorial identity out of public routes, sitemap and inverse links (608.557709ms)
+✔ exports exactly the sources referenced by visible facts and no internal-only source (0.885292ms)
+✔ publishes only explicitly approved, independently sourced company relations (0.477459ms)
+✔ blocks every known homonym, chronology and parent-company inheritance case (0.297875ms)
+✔ rejects implausible relation chronology and dates founder relations at company origin (0.80375ms)
+✔ uses canonical company aliases without merging or duplicating source records (0.080417ms)
+✔ keeps contextual works internal and exposes only exact approved credits (0.1905ms)
+✔ limits public child records to approved people and allowlists (0.126542ms)
+✔ retains 217 normalized portraits and publishes only the 21 editorial portraits (93.735833ms)
+✔ keeps public JSON free from review fields, internal records and generic SEO text (2.601667ms)
+✔ preserves catalog, company and prior research files byte for byte (57.374458ms)
+✔ public modules never import internal people datasets (0.665666ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2383.388833
+
+> region-atlas-games@0.1.0 test:verified-company-credits
+> python3 scripts/build_verified_company_credit_index.py --check
+
+OK verified company credit index: 1874 entries, 1555 legacy fields, 1889 role-separated company credits, 3 individual credits
+✔ PS Vita PAL uses the live PriceCharting console path (0.927125ms)
+✔ NES Japan uses the live Famicom PriceCharting console path (0.098584ms)
+✔ PS Vita imports accept the corrected and legacy console slugs (0.093334ms)
+✔ Neo Geo AES exposes only Western and Japanese region families (0.839041ms)
+✔ Neo Geo CD exposes only Western and Japanese region families (0.084ms)
+✔ NEOGEO AES+ keeps its international and Japanese reissues separate (0.075667ms)
+✔ Neo Geo Pocket exposes its three commercial regions with concise labels (0.318375ms)
+✔ other platforms keep their catalog-derived region policy (0.061917ms)
+✔ the reviewed Italian entry has its own display, filter and canonical region (0.3315ms)
+✔ Vitrina muestra primero los anuncios más recientes (1.013042ms)
+✔ Vitrina combina plataforma, estado, envío, ciudad y precio (0.1325ms)
+✔ Vitrina ordena por precio y serializa solo filtros activos (0.161292ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 384.109375
+
+> region-atlas-games@0.1.0 test:unit
+> tsx --test src/lib/admin-ai-batch-client.test.ts src/lib/admin-franchise-manager.test.ts src/lib/admin-operations-health.test.ts src/lib/admin-game-release-provenance.test.ts src/lib/admin-price-collect.test.ts src/lib/admin-price-job-apply.test.ts src/lib/admin-price-review.test.ts src/lib/admin-series-manager.test.ts src/lib/affiliate-offer-presentation.test.ts src/lib/affiliate/ebay-offer-priority.test.ts src/lib/ai-usage.test.ts src/lib/catalog-ai-enrichment-campaign.test.ts src/lib/catalog-card-game.test.ts src/lib/catalog-id-aliases.test.ts src/lib/catalog-identity.test.ts src/lib/catalog-offer-sort.test.ts src/lib/catalog-hygiene-decision.test.ts src/lib/catalog-id-param.test.ts src/lib/catalog-overlay-merge.test.ts src/lib/catalog-presentation.test.ts src/lib/catalog-staging-enrich.test.ts src/lib/collection-path.test.ts src/lib/collection-store.test.ts src/lib/communications.test.ts src/lib/company-canonical.test.ts src/lib/franchise-domain.test.ts src/lib/franchise-system.test.ts src/lib/game-release-discovery.test.ts src/lib/google-only-auth.test.ts src/lib/home-dashboard.test.ts src/lib/import-collection.test.ts src/lib/json-document-store.test.ts src/lib/listing-photo-client.test.ts src/lib/listing-photos.test.ts src/lib/magic-link.test.ts src/lib/marketplace-flow.test.ts src/lib/marketplace-listing-values.test.ts src/lib/marketplace-verification.test.ts src/lib/original-game-contents.test.ts src/lib/price-display.test.ts src/lib/price-worker-update.test.ts src/lib/request-security.test.ts src/lib/safe-json-ld.test.ts src/lib/stored-listing-photo-evidence.test.ts src/lib/wallapop-campaign-control.test.ts src/lib/ebay/ebay-enduserctx.test.ts src/lib/ebay/ebay-regional-policy.test.ts
+
+✔ acumula respuestas de una ficha sin perder el total del lote (1.986584ms)
+✔ convierte un fallo de red individual en un resultado relanzable (0.603542ms)
+✔ reemplaza la ficha correcta usando su ID de catálogo (0.17475ms)
+✔ explica los timeouts del servidor sin llamarlos error de red (0.088666ms)
+✔ administra franquicias y relaciones en un overlay reversible sin tocar los datos base (6830.266458ms)
+✔ preserves trusted GAME provenance from draft to published catalog data (3.760042ms)
+✔ keeps verified region evidence and unrelated field provenance on later edits (0.903292ms)
+✔ workflow health distinguishes success, stale and failure (1.79775ms)
+✔ staging with pending work and no cron telemetry is actionable (0.543583ms)
+✔ recent staging cron and an empty queue are healthy (0.395125ms)
+✔ runner queue escalates after 24 hours (1.028708ms)
+✔ paused collectors and an old hygiene report are explicit (0.159334ms)
+✔ worst signal prioritizes action (0.0815ms)
+✔ unknown state is not hidden behind a healthy signal (0.059416ms)
+✔ bounded concurrency preserves order and respects the limit (38.435ms)
+✔ infers a missing-game failure without inventing a finish timestamp (0.62075ms)
+✔ preserves a real finish timestamp when enriching a failed job (0.195041ms)
+✔ normalizes Windows line endings before rendering a worker log (0.069916ms)
+✔ accepts a scoped Wallapop result including an explicitly routed regional variant (0.990125ms)
+✔ rejects a Wallapop artifact that substitutes a searched game (0.279958ms)
+✔ strict validation refuses invalid JSON shapes and duplicate IDs without filtering history (0.911417ms)
+✔ remote read failure or corrupt JSON never invokes mutation or writes an empty replacement (5.726375ms)
+✔ two concurrent writers cannot read-modify-write simultaneously; retry reads committed state (0.475542ms)
+✔ upload, readback and atomic-rename failures preserve the previous complete file (1.0835ms)
+✔ successful save returns only after identical readback and retains more than 5000 events (4.990792ms)
+✔ preexisting PC lock is not overwritten or removed by a web writer (0.278542ms)
+✔ a commit cannot remove any previous ID or historical decision (34.835375ms)
+✔ parallel review reads return every byte and remove private scratch files (72.844334ms)
+✔ interrupted or unsupported parallel download fails closed without streaming fallback (21.9135ms)
+✔ separate reads use separate scratch files with no shared cache (32.184708ms)
+✔ review transaction keeps exclusive writes, atomic rename and both complete readbacks (15.746167ms)
+✔ a PC-owned lock still prevents all queue reads and writes (0.359541ms)
+✔ a corrupt temporary readback never replaces the authoritative queue (17.401417ms)
+✔ a corrupt final readback cannot report a confirmed save (18.787292ms)
+✔ partial or negative PC vision cannot inherit stale pricing certainty (4.783417ms)
+✔ complete PC evidence is usable without changing queue identity or assuming a country (2.005084ms)
+✔ retries cannot reapply a resolved decision or overwrite a changed pending item (0.539791ms)
+✔ search and facets cover the entire queue, including Game Boy after the first 500 items (15.990084ms)
+✔ uses persisted TodoConsolas triage buckets (0.089ms)
+✔ derives useful fallback buckets for old queue items (0.075541ms)
+✔ keeps non-TodoConsolas reviews in the actionable inbox (0.056583ms)
+✔ uses Wallapop description without confusing playable language with physical region (0.489375ms)
+✔ flags unmatched extras but keeps distinct normal listings independent (0.497375ms)
+✔ actionable combines manual matches and missing regions only (0.04325ms)
+✔ normalizes unknown API filters to the actionable inbox (0.048167ms)
+✔ closes only unresolved reviews in the selected scope (0.279209ms)
+✔ adds the catalog cover and main metadata to a review candidate (0.051ms)
+✔ falls back to a catalog match alternative for the visual preview (0.057625ms)
+✔ interprets TodoConsolas KC and SP without changing the original title (0.555833ms)
+✔ does not treat literal KC in another platform title as a Game-Key Card (0.082334ms)
+✔ accepts PS as a defensive TodoConsolas alias for PAL España on PlayStation (0.132708ms)
+✔ accepts ESP as an explicit TodoConsolas code for PAL España (0.050166ms)
+✔ keeps EU, IT and PL as distinct TodoConsolas regional signals (0.094ms)
+✔ publishes only approved, distilled collector learning (1.14875ms)
+✔ keeps bundled saga memberships when runtime data files are unavailable (4192.448708ms)
+✔ presents eBay country codes with a Spanish name and flag (1.320958ms)
+✔ normalizes common localized eBay conditions (0.203333ms)
+✔ keeps exact cents and separates shipping from the item price (2.715416ms)
+✔ keeps standard and collector affiliate offers in separate fiches (1.103292ms)
+✔ filters the first eBay pass to items in Spain that ship to Spain (0.537708ms)
+✔ expands the search only when Spain has too few valid offers (0.083083ms)
+✔ keeps Spanish offers first and deduplicates the expanded response (0.634708ms)
+✔ reserves AI quota atomically under concurrent requests (3210.214459ms)
+✔ detects missing and complete catalog details (0.648959ms)
+✔ rejects copied prose and accepts independently structured text (0.885084ms)
+✔ flags promotional and reception language (0.835083ms)
+✔ rejects a same-title Steam game when companies and year contradict the console record (0.352042ms)
+✔ rejects Steam DLCs that only contain the requested title (0.357833ms)
+✔ accepts a cross-platform Steam reference corroborated by publisher (0.138958ms)
+✔ selects an exact Nintendo product instead of a similarly named edition (2.0245ms)
+✔ parses useful facts from a Nintendo España product page (3.069167ms)
+✔ parses useful facts from a historical PlayStation España page (5.036208ms)
+✔ chooses the exact Wikipedia title even when it is not the first result (0.228667ms)
+✔ marks a sourced complete proposal ready (0.568083ms)
+✔ keeps an otherwise complete proposal in review without traceable URLs (0.153417ms)
+✔ normalizer rejects result drafts that try to carry price fields (0.38425ms)
+✔ normalizer rejects malformed arrays and inconsistent summaries (0.192084ms)
+✔ toCatalogCardGame omite el indice interno y conserva lo visible (0.526209ms)
+✔ keeps identifiers stable and decodes only presentation text (0.593917ms)
+✔ blocks a proposed identifier collision (0.107875ms)
+✔ summarizes unique records instead of inflating field findings (2.46325ms)
+✔ keeps removed duplicate catalog ids compatible with their surviving record (0.606042ms)
+✔ prefers the exact opaque catalog identifier (0.504791ms)
+✔ recovers one transport-encoding layer without changing the canonical id (0.093125ms)
+✔ recovers a legacy percent id after an upstream proxy decodes it (0.119583ms)
+✔ leaves normal, unknown and malformed identifiers untouched (0.093625ms)
+✔ normalizes HTML entities and apostrophe variants into one catalog identity (0.924208ms)
+✔ keeps regional, edition and physical variants as separate catalog identities (0.135625ms)
+✔ finds an equivalent title while allowing the edited record itself (0.149209ms)
+✔ sorts offers by price and leaves missing prices last (0.923125ms)
+✔ sorts offers by newest date (0.276708ms)
+✔ sorts by approximate distance and leaves unknown locations last (0.702333ms)
+✔ an overlay registered for a static id takes precedence (0.6955ms)
+✔ an overlay SEO slug resolves even when there is no static game (0.082875ms)
+✔ platform overlays replace static games with the same id (8.333666ms)
+✔ a newer static TodoConsolas reference survives a stale runtime overlay (0.157291ms)
+✔ a newer runtime TodoConsolas reference still takes precedence (0.090584ms)
+✔ verified physical-edition facts survive a stale runtime overlay (0.482208ms)
+✔ an overlay moved to another platform removes the stale static entry (0.077959ms)
+✔ a newer verified static company credit survives a stale details overlay (0.295916ms)
+✔ a verified individual credit survives a stale details overlay as a person (0.216375ms)
+✔ a newer runtime company credit remains authoritative (0.146667ms)
+✔ an unverified static credit cannot replace an overlay credit (0.077959ms)
+✔ a verified static credit fills an empty overlay field (0.073083ms)
+✔ verified company credits provide details when static assets are unavailable (0.081125ms)
+✔ decodes repeated HTML entities without decoding URL escapes (0.848709ms)
+✔ normalizes presentation fields while preserving stable identifiers (2.401917ms)
+✔ normalizes only user-facing detail text (0.261875ms)
+✔ allows curated local catalog covers without allowing arbitrary URLs (0.115042ms)
+✔ game FAQ replaces generic price filler with verified physical-edition facts (17.157792ms)
+✔ catalog staging scan window wraps around without scanning the full index (2.419625ms)
+✔ enrichment candidates exclude completed games and prioritize imported units (0.200541ms)
+✔ staging index transitions update units and status without a full rebuild (0.18025ms)
+✔ PriceCharting parser accepts only canonical game pages (0.366542ms)
+✔ builds a stable collection anchor for returning to a game (0.551625ms)
+✔ repairs an exact legacy PS5 match and exposes it as owned (126.780917ms)
+✔ repairs a legacy regional override without changing its collection date (104.433708ms)
+✔ keeps duplicate legacy copies while linking both to one catalog record (26.362834ms)
+✔ migrates the former unknown state to complete without changing explicit states (34.137875ms)
+✔ creates catalog copies as complete by default and accepts a platform preference (0.75775ms)
+✔ backfills imported collection dates without changing the legacy row order (0.437916ms)
+✔ adding an exact imported game links it without creating a duplicate (59.28825ms)
+✔ refreshes linked collection values from current catalog prices (52.035333ms)
+✔ manages individual copies and applies completed sales once (148.420416ms)
+✔ stores up to six ordered private photo slots per individual copy (33.656834ms)
+✔ central communications migrate legacy chat and keep unread events idempotent (95.94775ms)
+✔ approved company separations override every legacy merge hint (0.569375ms)
+✔ approved canonical display names override stale manual group names (0.491041ms)
+✔ blocked audit clusters keep their previous canonical mapping (0.072375ms)
+✔ company index merging keeps an approved subsidiary independent (0.201625ms)
+✔ company index merging preserves reviewed display-name aliases (0.115541ms)
+✔ editorial profiles follow the detached regional entities they describe (0.099084ms)
+✔ generated company copy reads current catalog counts at render time (2126.163416ms)
+✔ company profiles expose verified corporate relations without merging entities (1.464375ms)
+✔ encodes destination country and postal code inside contextualLocation (0.468208ms)
+✔ always searches eBay Spain for delivery to Spain (1.043375ms)
+✔ maps the PS4 catalog regions to the intended seller origin (0.159583ms)
+✔ uses continental Europe for a generic Multi-PAL edition (0.097084ms)
+✔ does not collapse a named multi-country edition to Spain (0.097ms)
+✔ crea, edita y publica una franquicia sin cambiar su ID (0.936583ms)
+✔ impide cambiar ID o slug de una franquicia existente (0.115125ms)
+✔ series ↔ franchise admite varias franquicias y una sola principal (9.1ms)
+✔ game ↔ franchise admite varias franquicias y evita duplicados (0.224208ms)
+✔ propaga saga → franquicia y conserva una membresía directa existente (0.208417ms)
+✔ bloquea retirar una franquicia requerida por una saga (0.116958ms)
+✔ role es opcional y no sustituye una relación explícita (0.09175ms)
+✔ normaliza prequel como el inverso de sequel y evita el hecho duplicado (0.180166ms)
+✔ crossover es simétrico y se almacena con orden estable (0.102625ms)
+✔ admite la relación spin_off_of (0.116333ms)
+✔ admite la relación remake_of (0.060334ms)
+✔ admite la relación remaster_of (0.058208ms)
+✔ admite la relación reboot_of (0.040834ms)
+✔ admite la relación derived_from (0.042375ms)
+✔ admite la relación expansion_of (0.054709ms)
+✔ admite la relación standalone_expansion_of (0.03775ms)
+✔ admite la relación compilation_of (0.046542ms)
+✔ rechaza autorrelaciones (0.055875ms)
+✔ preserva identidades, conteos y todas las salidas legacy verificadas (1.036708ms)
+✔ promueve solo franquicias explícitas y conserva las sagas reales (1.4535ms)
+✔ el contrato público de franquicias expone fichas catalogadas sin gameCount ambiguo (0.49225ms)
+✔ LEGO Star Wars conserva pertenencia múltiple con LEGO como principal (0.210375ms)
+✔ aplica solo exclusiones editoriales explícitas y conserva casos sin nombre de franquicia (703.59525ms)
+✔ clasifica los cinco títulos Game Boy como marca histórica o regional, no Final Fantasy directo (0.171125ms)
+✔ Final Fantasy no publica la biografía corporativa de Square Enix (0.21775ms)
+✔ JSON-LD denomina inequívocamente fichas catalogadas en todas las entidades (48.933917ms)
+✔ el sitemap publica franquicias y excluye únicamente las sagas redirigidas (29.2875ms)
+✔ canonical distingue franquicias, sagas reales y aliases legacy (10.997875ms)
+✔ presenta una relación en ambos sentidos sin almacenar el inverso (0.431833ms)
+✔ normalizes trusted GAME release candidates without exposing price fields (1.314083ms)
+✔ accepts PS4 release discovery payloads (0.17275ms)
+✔ maps GAME taxonomy to catalog genre names and rejects non-PEGI numbers (0.309916ms)
+✔ rejects candidates with untrusted product or cover hosts (0.099041ms)
+✔ rejects price-mode payloads even if they contain candidate-shaped rows (0.088334ms)
+✔ legacy email authentication endpoints are closed (3.356792ms)
+✔ old magic links return to the Google-only login (0.782291ms)
+✔ favorite platforms count games and units independently (1.005917ms)
+✔ collection timeline respects added dates, condition prices and quantities (3.532666ms)
+✔ home snapshot exposes coverage and newest collection items (0.611542ms)
+✔ collection timeline keeps only the final value for each day (0.133834ms)
+✔ accepts current spreadsheet formats and rejects legacy XLS (0.573ms)
+✔ imports semicolon-delimited CSV with quantities (2.685917ms)
+✔ preserves the owned copy condition from collection imports (0.6525ms)
+✔ prefers the TODO sheet in a multi-sheet XLSX workbook (103.730833ms)
+✔ rejects unsupported spreadsheet extensions (0.8ms)
+✔ repairs the catalog scope when an existing platform becomes active (1.138833ms)
+✔ matches equal titles to the requested regional variant (0.245709ms)
+✔ links legacy apostrophe variants to the surviving catalog record (0.116125ms)
+✔ repairs collection links using the PriceCharting title and product id (9.938625ms)
+✔ links the known legacy collection gaps to their canonical catalog records (0.287334ms)
+✔ reads UTF-8 Blob streams directly across chunk boundaries (5.46075ms)
+✔ retries a truncated Blob stream before parsing the document (20.74725ms)
+✔ retries a stale Blob read and writes with the authoritative ETag (3.223417ms)
+✔ accepts equivalent quoted and unquoted Blob ETags (0.631958ms)
+✔ serializes concurrent disk mutations without losing updates (549.072833ms)
+✔ does not turn a corrupt document into an empty one (5.329875ms)
+✔ turns upload responses into useful messages (0.835166ms)
+✔ resizes photos by file weight or pixel dimensions (0.150375ms)
+✔ only front cover and back cover are required (35.765ms)
+✔ exact and visually equivalent photos are rejected across slots (0.316042ms)
+✔ normalizes oversized dimensions and reports the stored image size (179.005375ms)
+✔ stores only a token hash and consumes a magic link once (48.528125ms)
+✔ two free users can publish, chat, close and confirm a sale (302.242167ms)
+✔ keeps asking and final sale prices as separate values (0.554833ms)
+✔ supports legacy open listings without presenting sold prices as asking prices (0.102167ms)
+✔ stores only coarse seller coordinates (0.550667ms)
+✔ verification accepts two distinct matching views with sufficient confidence (0.850792ms)
+✔ verification sends duplicates and uncertain regions to manual review (0.13675ms)
+✔ only explicit automatic or manual verification is publishable (1.871041ms)
+✔ expects a manual by generation only before PS3 (4.079125ms)
+✔ catalog-confirmed contents override the generation default (1.049917ms)
+✔ admin price patch stores only supported original contents (2.982084ms)
+✔ regional packaging keeps concrete cover-language evidence (0.415709ms)
+✔ keeps the three catalog condition prices in a fixed order and preserves gaps (0.966ms)
+✔ shows an orientative condition price instead of hiding it as unverified (0.209084ms)
+✔ keeps pending when no Spanish market price exists (0.06125ms)
+✔ shows PriceCharting condition estimates as orientative outside Spain (0.076792ms)
+✔ offers only the three public catalog conditions in their display order (0.089291ms)
+✔ sorts by the selected public condition price (0.149875ms)
+✔ sorts recommended prices even when their Spanish region is not verified (0.096583ms)
+✔ offers the same comparable states on optical and cartridge platforms (0.10825ms)
+✔ keeps source-specific new retail prices available internally (0.107125ms)
+✔ builds a fixed official main update request (3.9205ms)
+✔ keeps the modern automatic sources bounded and review-only (2.146417ms)
+✔ rejects abbreviated commits and unknown actions (0.282209ms)
+✔ prefers explicit worker SFTP over covers and legacy PC SSH credentials (0.278125ms)
+✔ keeps the external queue ahead of legacy PC SSH credentials (0.098125ms)
+✔ does not combine incomplete SFTP credentials with covers credentials (0.075167ms)
+✔ normalizes public worker telemetry without trusting extra fields (0.194417ms)
+✔ accepts same-origin mutations and rejects cross-origin requests (79.939625ms)
+✔ honors forwarded host and protocol behind Vercel (16.966ms)
+✔ rejects oversized or malformed JSON bodies (5.195083ms)
+✔ blocks requests after the configured in-memory limit (0.279542ms)
+✔ blocks local and private destinations for remote imports (27.905875ms)
+✔ escapes script-breaking characters without changing JSON data (0.884791ms)
+✔ manual review re-reads legacy photos and blocks repeated image files (158.336833ms)
+✔ builds a fixed bounded Wallapop control request (3.430084ms)
+✔ accepts only the three campaign controls (0.129875ms)
+✔ normalizes telemetry and never exposes an oversized batch (0.932208ms)
+ℹ tests 238
+ℹ suites 0
+ℹ pass 238
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11804.711834
+
+> region-atlas-games@0.1.0 posttest:unit
+> npm run test:awards && tsx --test src/lib/price-review-reader.test.ts
+
+
+> region-atlas-games@0.1.0 test:awards
+> npm run awards:check && tsx --test src/lib/award-domain.test.ts src/lib/award-backfill.test.ts src/lib/award-calendar.test.ts
+
+
+> region-atlas-games@0.1.0 awards:check
+> tsx scripts/build-award-research.ts --check
+
+{"series":7,"editions":188,"categories":20,"publishedResults":221,"internalResults":0,"gameRecipients":201,"personRecipients":20,"companyRecipients":0,"workLinks":17,"personWorkLinks":2,"sources":119,"unresolved":0}
+✔ reviewed batch is deterministic and refuses historical result loss (910.499916ms)
+✔ all initial organizations have recent and historical verified winners (0.497625ms)
+✔ Elden Ring variants share one work and Sunbreak never becomes Rise (0.256875ms)
+✔ personal context and legacy links preserve exact identities without duplication (0.962041ms)
+✔ every old personal recognition has an explicit disposition (3.361583ms)
+✔ future editions have no invented winners and finalists are not wins (8.624583ms)
+✔ future appears publicly before its calendar date (0.592958ms)
+✔ ceremony day is no longer upcoming (0.071375ms)
+✔ ceremony date is today in admin (0.066042ms)
+✔ following day awaits editorial results without changing JSON (0.056833ms)
+✔ completed and corrected disappear from notices (0.403042ms)
+✔ same data changes on injected clock and public route awaits runtime connection (18.939125ms)
+✔ upcoming and overdue ceremonies have chronological order (0.312416ms)
+✔ confirmed ceremonies remain present and future editions have no invented results (0.477416ms)
+✔ internal person has no public recipient route (0.631375ms)
+✔ company recipient resolves canonical company and existing logo library (1.122125ms)
+✔ linked award covers use existing work identity and catalog cover resolver (0.458042ms)
+✔ permission-required assets are not rendered even with an assigned path (0.11425ms)
+✔ BAFTA fallback has no asset and dated logos cannot label another edition (0.097125ms)
+✔ generic award logos work across editions and exact dated assets take precedence (0.094792ms)
+✔ digital recipient art is exact, sourced and never inferred from missing catalog membership (0.135833ms)
+✔ CatalogAwards is between description and details (0.571042ms)
+✔ awards use Panel and portraits in listing preserve complete images (0.402708ms)
+✔ crosslinks reference actual award entities and instructions retain official context (0.621125ms)
+✔ deterministic build preserves input and has no internal result fields (6.014333ms)
+✔ only referenced sources are exported (0.258ms)
+✔ game award is contextual, never a personal award, and role stays exact (0.342916ms)
+✔ contextual or nonpublic credits cannot create work awards (0.232708ms)
+✔ direct person awards need the formal matching recipient (0.38575ms)
+✔ unknown person may be named without inventing a public profile (1.568042ms)
+✔ developer, publisher, parent and direct company awards remain separate (1.038042ms)
+✔ catalog editions do not multiply awards and titles never match (0.176625ms)
+✔ multiple exact roles preserve labels without multiplying work awards (0.167542ms)
+✔ winner and nominee stats are distinct, shared recipients are supported (1.481208ms)
+✔ future winners fail validation without rewriting earlier years (0.216583ms)
+✔ unapproved, weak and Wikidata-only results stay internal (1.855958ms)
+✔ internal notes cannot accidentally leak through a public row (0.214667ms)
+✔ new editions append history and renamed categories retain earlier data (0.157625ms)
+✔ missing references, identities, recipients and duplicate facts fail closed (0.37825ms)
+✔ legacy recognition is suppressed only when linked to a public direct result (0.197667ms)
+✔ public query layer imports only the generated award artifact (0.225333ms)
+✔ official games without a catalog identity never propagate by title or QID (0.143542ms)
+✔ different unlinked joint winners remain distinct official recipients (0.088791ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 43
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1087.908667
+✔ authoritative HTTP reads are uncached, bounded and preserve the complete document (11.604209ms)
+✔ failed HTTP reads use the live SFTP document and report only the status code (0.33ms)
+✔ network failures and malformed HTTP JSON can recover without stale local data (0.369958ms)
+✔ an incomplete or duplicate HTTP document never replaces the full authoritative queue (0.317125ms)
+✔ both transports failing leaves decisions blocked and never exposes error messages or URLs (0.453333ms)
+✔ invalid SFTP data fails closed even when HTTP is unavailable (0.346ms)
+✔ successive recoveries read the current SFTP contents rather than a cached snapshot (0.247541ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.406833

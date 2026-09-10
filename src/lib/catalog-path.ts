@@ -3,7 +3,7 @@ import { decodeHtmlEntities } from "./decode-html-entities";
 import { getRegionDisplay } from "./region-display";
 import { slugify } from "./slug";
 
-type CatalogPathGame = Pick<CatalogGame, "slug" | "platformSlug" | "region">;
+type CatalogPathGame = Pick<CatalogGame, "slug" | "platformSlug" | "region" | "canonicalSeoSlug">;
 
 function regionSlugForSeo(region: string): string {
   const short = getRegionDisplay(region).shortLabel.toLowerCase();
@@ -12,6 +12,7 @@ function regionSlugForSeo(region: string): string {
 }
 
 export function buildCatalogSeoSlug(game: CatalogPathGame): string {
+  if (game.canonicalSeoSlug) return game.canonicalSeoSlug;
   return `${cleanCatalogSlug(game.slug)}-${game.platformSlug}-${regionSlugForSeo(game.region)}`;
 }
 

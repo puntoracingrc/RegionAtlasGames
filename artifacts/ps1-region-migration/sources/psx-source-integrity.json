@@ -1,0 +1,23 @@
+[
+  {
+    "family": "pal",
+    "previousRows": 2592,
+    "auditedRows": 2592,
+    "recoveredRows": [],
+    "spanishRows": 610
+  },
+  {
+    "family": "ntsc-u",
+    "previousRows": 1411,
+    "auditedRows": 1411,
+    "recoveredRows": [],
+    "spanishRows": 41
+  },
+  {
+    "family": "ntsc-j",
+    "previousRows": 4849,
+    "auditedRows": 4849,
+    "recoveredRows": [],
+    "spanishRows": 2
+  }
+]

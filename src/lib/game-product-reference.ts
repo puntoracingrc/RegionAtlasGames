@@ -1,5 +1,6 @@
 import type { CatalogGame, GameDetails } from "./types";
 import { getPlatform } from "./catalog";
+import { normalizePs1Serial } from "./ps1-regional";
 
 /** Patrones de referencia producto (alineados con scripts/collectors/reference_match.py). */
 const REFERENCE_PATTERNS: RegExp[] = [
@@ -15,11 +16,7 @@ const REFERENCE_PATTERNS: RegExp[] = [
   /\b(T-\d{1,6}[A-Z0-9]*(?:-\d{2})?)\b/gi,
   /\b(HDR-\d{4,6})\b/gi,
   /\b(GS-\d{4,5})\b/gi,
-  /\b(SLPS-\d{3,5})\b/gi,
-  /\b(SLES-\d{3,5})\b/gi,
-  /\b(SLED-\d{3,5})\b/gi,
-  /\b(SLUS-\d{3,5})\b/gi,
-  /\b(SCPS-\d{3,5})\b/gi,
+  /\b((?:SCES|SCUS|SLES|SLED|SLUS|SCPS|SLPS|SLPM|LSP)[-_. ]?\d{5,6}(?:[A-Z0-9#]|[-/][A-Z0-9.#]+)*)(?![A-Z0-9#])/gi,
   /\b(SHVC-[A-Z0-9-]+)\b/gi,
   /\b(SNSP-[A-Z0-9-]+)\b/gi,
   /\b(SNS[A-Z]?-[A-Z0-9-]+)\b/gi,
@@ -85,7 +82,7 @@ export function extractReferencesFromText(text: string): string[] {
   for (const pattern of REFERENCE_PATTERNS) {
     pattern.lastIndex = 0;
     for (const match of text.matchAll(pattern)) {
-      const norm = normalizeReference(String(match[1] ?? match[0]));
+      const norm = normalizeReference(normalizePs1Serial(String(match[1] ?? match[0])));
       if (norm.length >= 3) found.add(norm);
     }
   }
@@ -190,14 +187,19 @@ export function getGameProductReference(
 
   const normalized = normalizeReference(raw);
   const parsed = interpretReference(normalized, game.platformSlug);
+  const resolvedPs1 = game.platformSlug === "ps1" && game.regionalStatus === "resolved";
 
   return {
     raw,
     normalized,
     label: referenceFieldLabel(game.platformSlug),
     family: referenceFamily(normalized),
-    regionHint: parsed?.regionHint ?? null,
-    regionHintNote: parsed?.note ?? "Código impreso en carátula, cartucho, disco o contraportada.",
+    regionHint: resolvedPs1 ? game.region : parsed?.regionHint ?? null,
+    regionHintNote: resolvedPs1
+      ? details?.ps1Edition?.serialScope === "packaging"
+        ? "Código documentado de la caja. La equivalencia con el código del disco está pendiente de verificar."
+        : "Código documentado para esta edición del disco. La caja, el manual y las reediciones se contrastan por separado."
+      : parsed?.note ?? "Código impreso en carátula, cartucho, disco o contraportada.",
     searchTokens: buildSearchTokens(raw, normalized, game),
   };
 }

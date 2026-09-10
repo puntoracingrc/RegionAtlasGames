@@ -1,0 +1,35 @@
+name: PS1 Regional V2
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "data/**"
+      - "src/lib/**"
+      - "scripts/ps1-regional/**"
+      - "scripts/test-ps1-regional-v2.cjs"
+      - "artifacts/ps1-region-migration/**"
+      - ".github/workflows/ps1-regional-v2.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  regional-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/test-ps1-regional-v2.cjs
+      - run: npx tsx --test src/lib/ps1-scanner-knowledge.test.ts
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python3 scripts/ps1-regional/verify_reproducibility.py

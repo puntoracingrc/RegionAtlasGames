@@ -18,7 +18,21 @@ function detailFileName(catalogId) {
 }
 
 function readDetails() {
-  return JSON.parse(readFileSync(detailsFile, "utf8"));
+  const details = JSON.parse(readFileSync(detailsFile, "utf8"));
+  const ps1File = path.join(rootDir, "data", "ps1-edition-evidence.json");
+  if (existsSync(ps1File)) {
+    const evidence = JSON.parse(readFileSync(ps1File, "utf8"));
+    const works = JSON.parse(readFileSync(path.join(rootDir, "data", "ps1-works.json"), "utf8")).works;
+    for (const [id, ps1Edition] of Object.entries(evidence)) {
+      if (details[id]) {
+        details[id].ps1Edition = ps1Edition;
+        const common = works[ps1Edition.workId]?.commonDetails;
+        if (!details[id].genres?.length && common?.genres) details[id].genres = common.genres;
+        if (!details[id].series && common?.series) details[id].series = common.series;
+      }
+    }
+  }
+  return details;
 }
 
 function mergePublicDetailFields(base, publicDetails) {

@@ -1,3 +1,5 @@
+import type { Ps1EditionDetails } from "./ps1-regional";
+
 export type DetailEntitySource =
   | "museum"
   | "pricecharting"
@@ -117,6 +119,7 @@ export type GameVideo = {
 };
 
 export type GameDetails = {
+  ps1Edition?: Ps1EditionDetails;
   year: number | null;
   releaseDate: string | null;
   reference: string | null;
@@ -290,6 +293,19 @@ export type CatalogGame = {
   titlePc: string | null;
   platformSlug: string;
   region: string;
+  /** Independent regional dimensions; populated only for the PS1 V2 migration. */
+  regionFamily?: string;
+  marketRegion?: string | null;
+  regionCode?: string | null;
+  regionalStatus?: "resolved" | "review";
+  languages?: string[];
+  canonicalSerials?: string[];
+  sourceSerials?: string[];
+  /** Codes corroborated for this release; raw conflicting claims stay out. */
+  resolutionSerials?: string[];
+  workId?: string | null;
+  /** Stable public route, retained when a documented market is corrected. */
+  canonicalSeoSlug?: string;
   physicalVariant?: string | null;
   edition: string;
   /** Si la edición física incluía manual de fábrica; null/ausente = por confirmar. */
@@ -424,6 +440,7 @@ export type CatalogListGame = Pick<
   | "title"
   | "platformSlug"
   | "region"
+  | "canonicalSeoSlug"
   | "physicalVariant"
   | "coverUrl"
   | "recommendedPrice"

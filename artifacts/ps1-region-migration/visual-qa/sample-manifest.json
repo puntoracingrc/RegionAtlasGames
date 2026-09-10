@@ -1,0 +1,92 @@
+[
+  {
+    "catalogId": "ps1-dune",
+    "title": "Dune",
+    "market": "Spain",
+    "serials": [
+      "SLES-02250"
+    ],
+    "sourceUrl": "https://psxdatacenter.com/games/P/D/SLES-02250.html",
+    "assetUrl": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/6c/6cca4670e427cdf0cdf82e5dc535c749a28cf9413d6447dce3757a866e578cff.jpg",
+    "imageSha256": "6cca4670e427cdf0cdf82e5dc535c749a28cf9413d6447dce3757a866e578cff",
+    "file": "artifacts/ps1-region-migration/visual-qa/sample-ES.jpg",
+    "visuallyInspected": true,
+    "physicalPairingVerified": false,
+    "observation": "Dune: PAL, texto promocional en español y código editorial visible; coherente con la galería española de SLES-02250."
+  },
+  {
+    "catalogId": "ps1-2xtreme",
+    "title": "2Xtreme",
+    "market": "Europe",
+    "serials": [
+      "SCES-00400"
+    ],
+    "sourceUrl": "https://psxdatacenter.com/games/P/0-9/SCES-00400.html",
+    "assetUrl": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/a7/a74092db25d51568c48a0616edc9f93856001ec3f3d3eb7747e5455f388392d2.jpg",
+    "imageSha256": "a74092db25d51568c48a0616edc9f93856001ec3f3d3eb7747e5455f388392d2",
+    "file": "artifacts/ps1-region-migration/visual-qa/sample-EU.jpg",
+    "visuallyInspected": true,
+    "physicalPairingVerified": false,
+    "observation": "2Xtreme: portada PAL del título y galería europea; el frontal no demuestra por sí solo un país concreto."
+  },
+  {
+    "catalogId": "ps1-usa-007-racing",
+    "title": "007 Racing",
+    "market": "USA",
+    "serials": [
+      "SLUS-01300"
+    ],
+    "sourceUrl": "https://psxdatacenter.com/games/U/0-9/SLUS-01300.html",
+    "assetUrl": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/0d/0d66af71e0d84594354648b8eb497f465a6d53687acce9d084a3778ffde806e3.jpg",
+    "imageSha256": "0d66af71e0d84594354648b8eb497f465a6d53687acce9d084a3778ffde806e3",
+    "file": "artifacts/ps1-region-migration/visual-qa/sample-US.jpg",
+    "visuallyInspected": true,
+    "physicalPairingVerified": false,
+    "observation": "007 Racing: NTSC U/C y SLUS-01300 visibles; ESRB Teen."
+  },
+  {
+    "catalogId": "ps1-japon-%2798-koshien",
+    "title": "'98 Koshien",
+    "market": "Japan",
+    "serials": [
+      "SLPS-01204"
+    ],
+    "sourceUrl": "https://psxdatacenter.com/games/J/0-9/SLPS-01204.html",
+    "assetUrl": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/e5/e514df89ded57ffd93d4736ed8ddb9576b989e039d588b937537f388f5a63a69.jpg",
+    "imageSha256": "e514df89ded57ffd93d4736ed8ddb9576b989e039d588b937537f388f5a63a69",
+    "file": "artifacts/ps1-region-migration/visual-qa/sample-JP.jpg",
+    "visuallyInspected": true,
+    "physicalPairingVerified": false,
+    "observation": "98 Koshien: título y texto japoneses; la asignación del serial procede de la ficha y el archivo, no de un código legible en este frontal."
+  },
+  {
+    "catalogId": "ps1-all-star-tennis-2000",
+    "title": "All-Star Tennis 2000",
+    "market": "France",
+    "serials": [
+      "SLES-02765"
+    ],
+    "sourceUrl": "https://psxdatacenter.com/games/P/A/SLES-02765.html",
+    "assetUrl": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/e6/e66ecf3f323310203a0cde85b6393b42383360287f50d99bc024feb262080a00.jpg",
+    "imageSha256": "e66ecf3f323310203a0cde85b6393b42383360287f50d99bc024feb262080a00",
+    "file": "artifacts/ps1-region-migration/visual-qa/sample-FR.jpg",
+    "visuallyInspected": true,
+    "physicalPairingVerified": false,
+    "observation": "Yannick Noah All-Star Tennis 2000: variante francesa de portada con Eurosport France."
+  },
+  {
+    "catalogId": "ps1-autobahn-raser-2",
+    "title": "Autobahn Raser 2",
+    "market": "Germany",
+    "serials": [
+      "SLES-02341"
+    ],
+    "sourceUrl": "https://psxdatacenter.com/games/P/A/SLES-02341.html",
+    "assetUrl": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/41/4157ba98a4b4bcf663c0a4dad70990129c850746787c1081e59843cb56d0e57a.jpg",
+    "imageSha256": "4157ba98a4b4bcf663c0a4dad70990129c850746787c1081e59843cb56d0e57a",
+    "file": "artifacts/ps1-region-migration/visual-qa/sample-DE.jpg",
+    "visuallyInspected": true,
+    "physicalPairingVerified": false,
+    "observation": "Autobahn Raser II: portada PAL con texto alemán; corresponde a la galería alemana documentada."
+  }
+]

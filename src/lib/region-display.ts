@@ -1,4 +1,6 @@
-export type RegionFlagCode = "ES" | "EU" | "US" | "JP" | "GB" | "DE" | "IT" | "AU" | "UNKNOWN";
+import ps1MarketsData from "../../data/ps1-region-markets.json";
+
+export type RegionFlagCode = string;
 
 export type RegionDisplay = {
   flagCode: RegionFlagCode;
@@ -24,6 +26,19 @@ const REGION_MAP: Record<string, RegionDisplay> = {
   internacional: { flagCode: "UNKNOWN", label: "Internacional", shortLabel: "INT" },
   japonesa: { flagCode: "JP", label: "Japonesa", shortLabel: "JP" },
 };
+
+// Markets are data, not an enum: a new territory needs no schema change.
+for (const entry of Object.values(ps1MarketsData.markets)) {
+  REGION_MAP[entry.label.toLowerCase()] = {
+    flagCode: entry.flagCode, label: entry.label,
+    shortLabel: entry.code === "GB" ? "UK" : entry.code,
+  };
+}
+for (const family of ["PAL", "NTSC-U/C", "NTSC-J"]) {
+  REGION_MAP[`${family} · mercado por determinar`.toLowerCase()] = {
+    flagCode: "UNKNOWN", label: `${family} · Mercado por determinar`, shortLabel: "?",
+  };
+}
 
 const DEFAULT_REGION: RegionDisplay = {
   flagCode: "UNKNOWN",
