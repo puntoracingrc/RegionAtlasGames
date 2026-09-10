@@ -17,10 +17,5 @@
     "src/app/**/**": {
       "maxDuration": 60
     }
-  },
-  "git": {
-    "deploymentEnabled": {
-      "codex/cover-library-20260910": false
-    }
   }
 }

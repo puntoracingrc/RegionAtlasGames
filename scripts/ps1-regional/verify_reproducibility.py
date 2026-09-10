@@ -25,10 +25,22 @@ def hashes():
     return {name: hashlib.sha256(gzip.decompress((ROOT/name).read_bytes()) if name.endswith('.gz') else (ROOT/name).read_bytes()).hexdigest() for name in paths}
 
 before = hashes()
-for name in ['reference', 'audit', 'migrate', 'refresh_indexes', 'describe_review', 'reconcile_reference', 'compare_index']:
-    print('Rebuilding ' + name, flush=True)
-    subprocess.run([sys.executable, str(ROOT/'scripts/ps1-regional'/f'{name}.py')], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
-after = hashes()
+backlog = ROOT/'artifacts/ps1-pending-covers/base-patch.json.gz'
+# The regional identities remain a frozen stage. The separately sourced image
+# recovery is replayed afterwards, and both stages must reproduce the final data.
+protected = {name: (ROOT/name).read_bytes() for name in ['data/catalog.json', 'data/ps1-edition-evidence.json.gz']} if backlog.exists() else {}
+try:
+    if backlog.exists():
+        subprocess.run([sys.executable, str(ROOT/'scripts/restore-ps1-cover-base.py')], cwd=ROOT, check=True)
+    for name in ['reference', 'audit', 'migrate', 'refresh_indexes', 'describe_review', 'reconcile_reference', 'compare_index']:
+        print('Rebuilding ' + name, flush=True)
+        subprocess.run([sys.executable, str(ROOT/'scripts/ps1-regional'/f'{name}.py')], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
+    if backlog.exists():
+        subprocess.run([sys.executable, str(ROOT/'scripts/apply-ps1-cover-backlog.py'), '--write'], cwd=ROOT, check=True)
+    after = hashes()
+finally:
+    for name, payload in protected.items():
+        (ROOT/name).write_bytes(payload)
 changed = [name for name in paths if before[name] != after[name]]
 result = {'status': 'passed' if not changed else 'failed', 'files': len(paths), 'changed': changed, 'hashScope': 'Raw bytes; gzip files compared after decompression to avoid container-header or zlib-version differences.', 'hashes': after}
 (ART/'reproducibility.json').write_text(json.dumps(result, indent=2)+'\n')

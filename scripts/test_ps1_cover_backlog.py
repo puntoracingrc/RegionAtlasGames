@@ -26,6 +26,8 @@ class CoverAssignmentTests(unittest.TestCase):
     def test_wrong_serial_and_back_cannot_be_main_cover(self):
         self.assertEqual(self.candidates(sourceImageReference='https://psxdatacenter.com/images/covers/SLES-03221-F-ALL.jpg'),[])
         self.assertEqual(self.candidates(roles=['back_cover'],label='BACK'),[])
+    def test_thumbnail_fallback_stays_gallery_only(self):
+        self.assertEqual(self.candidates(thumbnailOnly=True),[])
     def test_unresolved_or_unstored_evidence_cannot_select_cover(self):
         self.assertEqual(self.candidates(stored=False),[])
         self.game['regionalStatus']='review'

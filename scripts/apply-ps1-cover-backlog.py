@@ -21,7 +21,7 @@ def matching_fronts(game, profile):
         exact_market=asset.get('marketHints')==[game.get('regionCode')]
         jewel_group=bool(asset.get('group') and 'jewel case' in asset['group'].lower())
         standard_front=(asset.get('label') or '').strip().upper()=='FRONT'
-        if asset.get('stored') and 'front_cover' in asset.get('roles',[]) and exact_serial and exact_market and jewel_group and standard_front:result.append(asset)
+        if asset.get('stored') and not asset.get('thumbnailOnly') and 'front_cover' in asset.get('roles',[]) and exact_serial and exact_market and jewel_group and standard_front:result.append(asset)
     return result
 
 def apply(write=False):
@@ -34,6 +34,14 @@ def apply(write=False):
         if len(data)!=asset['bytes'] or hashlib.sha256(data).hexdigest()!=asset['sha256']:raise ValueError('Static image integrity failed: '+asset['url'])
     catalog=json.loads((ROOT/'data/catalog.json').read_text())
     profiles=read_gz(ROOT/'data/ps1-edition-evidence.json.gz')
+    redirects={r['source']:r['destination'] for r in json.loads((ROOT/'data/cover-asset-redirects.json').read_text())}
+    for game in catalog:
+        if game.get('coverUrl') in redirects:game['coverUrl']=redirects[game['coverUrl']]
+    for profile in profiles.values():
+        for image in profile.get('graphics',[]):
+            if image.get('url') in redirects:image['url']=redirects[image['url']]
+        cover=profile.get('fieldProvenance',{}).get('cover')
+        if cover and cover.get('value') in redirects:cover['value']=redirects[cover['value']]
     gallery_updates=[];cover_updates=[];review=[]
     for game in catalog:
         if game.get('platformSlug')!='ps1':continue
@@ -42,7 +50,7 @@ def apply(write=False):
             result=sources.get(asset['sourceImageReference'])
             if not result or asset.get('stored'):continue
             asset.update(stored=True,url=result['url'],sha256=result['sha256'],bytes=result['bytes'],storageLocation=result['storageLocation'])
-            for field in ('width','height','sourceImageUrl'):
+            for field in ('width','height','sourceImageUrl','thumbnailOnly'):
                 if result.get(field) is not None:asset[field]=result[field]
             asset['verifiedAt']='2026-09-10'
             gallery_updates.append({'catalogId':game['id'],'assetId':asset['assetId'],'url':asset['url'],'sha256':asset['sha256']})

@@ -1,0 +1,21 @@
+{
+  "imagesInspected": 3,
+  "scope": "Visual source-image sample only; physical pairing, commercial first print and all other images remain documentary rather than visually certified.",
+  "observations": [
+    {
+      "catalogId": "ps1-es-sces-00802",
+      "sha256": "74d006d9a81381864d381ba20773b7a1985480dfe7f6d4439945b4c2c844c40b",
+      "observation": "Broken Sword II title and Las Fuerzas del Mal subtitle visible on PAL front."
+    },
+    {
+      "catalogId": "ps1-us-lsp-010380",
+      "sha256": "5335fe1fb5d66d3d235a6b27cf217be098d8e157d3ecda7def083a30c0bdee8c",
+      "observation": "Lightspan World Sports Day educational front; NTSC U/C and English text visible."
+    },
+    {
+      "catalogId": "ps1-japon-langrisser-i-&amp;-ii-limited-edition",
+      "sha256": "23a923d2ca48448dac73a455e31aa299ed186757655b5e5647478dee3fa18e4f",
+      "observation": "Japanese Langrisser I and II front with obi and SLPS-00896 visible; original scan preserved."
+    }
+  ]
+}

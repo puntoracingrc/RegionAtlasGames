@@ -21,6 +21,7 @@ export type Ps1GraphicReference = {
   sha256?: string;
   width?: number;
   height?: number;
+  thumbnailOnly?: boolean;
 };
 
 export type Ps1EditionDetails = {

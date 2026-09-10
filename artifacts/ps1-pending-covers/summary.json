@@ -1,0 +1,26 @@
+{
+  "sourceTargets": 8392,
+  "newImages": 8332,
+  "newBytes": 3150659379,
+  "batches": 10,
+  "batchBytes": [
+    349263954,
+    349923832,
+    349851889,
+    349999292,
+    349539289,
+    348911452,
+    349752078,
+    349804391,
+    349032761,
+    4580441
+  ],
+  "duplicateContentFiles": 0,
+  "sourceStates": {
+    "downloaded": 8347,
+    "already_present": 43,
+    "unavailable_or_needs_review": 2
+  },
+  "sourceAttribution": "PSX Datacenter",
+  "sftpWrites": 0
+}

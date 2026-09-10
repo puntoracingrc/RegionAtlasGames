@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "catalogRows": 77399,
+  "catalogIdsRegionsLanguagesPricesAndPageUrlsPreserved": true,
+  "existingSftpCoverAssignmentsPreserved": 69722,
+  "sourceAttributionsAndImageIdentitiesPreserved": true,
+  "galleryReferencesAdded": 7675,
+  "missingMainCoversFilled": 2207,
+  "newImageFilesVerified": 8332,
+  "duplicateSftpImagesCommitted": 0
+}
