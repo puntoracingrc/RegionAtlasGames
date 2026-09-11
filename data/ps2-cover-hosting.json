@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "storeId": "store_rcu58iNCyX2S3RIb",
+  "access": "public",
+  "region": "dub1",
+  "origin": "https://rcu58incyx2s3rib.public.blob.vercel-storage.com",
+  "publicPathPrefix": "/catalog-covers/ps2/galeria/",
+  "archivePath": "artifacts/ps2-region-migration/original-covers",
+  "count": 8811,
+  "bytes": 4778168697,
+  "assetManifestSha256": "0e605e54a31912362789e50b192b5a4a52c5dc3342a81c039fcfa350dc81f1f7",
+  "verificationMethod": "public_download_sha256",
+  "verifiedAt": "2026-09-11T04:54:03.509Z"
+}

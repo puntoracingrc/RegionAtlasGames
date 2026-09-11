@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import catalogRouteRedirectsData from "./data/catalog-route-redirects.json";
 import coverAssetRedirects from "./data/cover-asset-redirects.json";
+import ps2CoverHosting from "./data/ps2-cover-hosting.json";
 
 type CatalogRouteRedirectsData = {
   redirects: Array<{
@@ -64,6 +65,11 @@ const nextConfig: NextConfig = {
     return [
       ...catalogRouteRedirects,
       ...coverAssetRedirects,
+      {
+        source: "/catalog-covers/ps2/galeria/:path*",
+        destination: `${ps2CoverHosting.origin}/catalog-covers/ps2/galeria/:path*`,
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "regionatlas.games" }],

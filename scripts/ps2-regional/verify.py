@@ -71,11 +71,26 @@ def main():
     assert len(assets) == 8811
     assert len({a["sha256"] for a in assets}) == len(assets)
     for asset in assets:
-        path = ROOT / "public" / asset["url"].lstrip("/")
+        assert asset["url"].startswith("/catalog-covers/ps2/galeria/") and ".." not in asset["url"]
+        path = ART / "original-covers" / asset["url"].removeprefix("/catalog-covers/ps2/galeria/")
         assert path.stat().st_size == asset["bytes"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == asset["sha256"]
         assert "psxdatacenter" not in asset["url"].lower()
     checks.append("8811_ORIGINALS_BYTE_IDENTICAL_AND_NAMED_BY_GAME")
+    hosting = load("data/ps2-cover-hosting.json")
+    publication = load("artifacts/ps2-region-migration/cover-publication.json.gz")
+    assert hosting["origin"] == "https://rcu58incyx2s3rib.public.blob.vercel-storage.com" and hosting["access"] == "public"
+    assert hosting["count"] == len(assets) == len(publication)
+    assert hosting["bytes"] == sum(a["bytes"] for a in assets)
+    manifest_content = gzip.decompress((ART / "assets.json.gz").read_bytes())
+    assert hashlib.sha256(manifest_content).hexdigest() == hosting["assetManifestSha256"]
+    published = {row["pathname"]: row for row in publication}
+    assert len(published) == len(assets)
+    for asset in assets:
+        row = published[asset["url"].lstrip("/")]
+        assert row["status"] == "verified" and row["sha256"] == asset["sha256"] and row["bytes"] == asset["bytes"]
+        assert row["url"] == hosting["origin"] + asset["url"]
+    checks.append("PUBLIC_CDN_PUBLICATION_MATCHES_EVERY_ARCHIVED_ORIGINAL")
     assigned = load("artifacts/ps2-region-migration/assigned-cover-evidence.json")
     for asset in assigned:
         game = by_id[asset["catalogId"]]

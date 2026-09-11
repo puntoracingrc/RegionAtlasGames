@@ -1,4 +1,4 @@
-"""Freeze PS2 documentary inputs and map unchanged originals to named static files."""
+"""Freeze PS2 inputs and retain named originals outside the application bundle."""
 import argparse
 import collections
 import gzip
@@ -47,7 +47,7 @@ def main():
         url = f'/catalog-covers/ps2/galeria/{index["region"]}/{slug(index["title"])[:105]}-{slug(code)}-{slug(label)[:45]}-{sha[:10]}{source.suffix}'
         data = source.read_bytes()
         assert len(data) == item["bytes"] and hashlib.sha256(data).hexdigest() == sha, source
-        destination = ROOT / "public" / url.lstrip("/")
+        destination = ART / "original-covers" / url.removeprefix("/catalog-covers/ps2/galeria/")
         destination.parent.mkdir(parents=True, exist_ok=True)
         if destination.exists():
             assert hashlib.sha256(destination.read_bytes()).hexdigest() == sha
@@ -77,7 +77,7 @@ def main():
     for item in named.values():
         if batch and size + item["bytes"] > 350_000_000:
             batches.append({"files": batch, "bytes": size}); batch = []; size = 0
-        batch.append("public" + item["url"]); size += item["bytes"]
+        batch.append("artifacts/ps2-region-migration/original-covers/" + item["url"].removeprefix("/catalog-covers/ps2/galeria/")); size += item["bytes"]
     if batch:
         batches.append({"files": batch, "bytes": size})
     (ART / "asset-batches.json").write_text(json.dumps(batches, indent=2) + "\n")
