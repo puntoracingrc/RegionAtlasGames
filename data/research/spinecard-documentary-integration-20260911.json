@@ -1,0 +1,168 @@
+{
+  "catalogBase": "93d9262ca1b59663800cf2839d4be839a3650fb7",
+  "sourcePackage": "spinecard-training-batch-2026-09-08",
+  "authorization": "User requested publication of this task pending work on 2026-09-11",
+  "files": [
+    {
+      "path": "data/region-research/3ds.json",
+      "sourceSha256": "2a501f46d18132067a3814d5f4da40f019600c7d19b0ccbe01eef52f1b04b62e",
+      "sha256": "091e9da46b95d49a35f1e592904f0c36ce060a6d5b0d83528ed126cd26c962f2",
+      "inspectionRules": 3,
+      "gameReferences": 0,
+      "sourcePosts": 1
+    },
+    {
+      "path": "data/region-research/dreamcast.json",
+      "sourceSha256": "5388068139095331bc15cfc4c2f73cd30510313b48e26cc3ccee2aafe4990245",
+      "sha256": "16d87798502ea6551bbb36746b86517958a83b06a4a6dd60fdd15db0533a8375",
+      "inspectionRules": 2,
+      "gameReferences": 1,
+      "sourcePosts": 1
+    },
+    {
+      "path": "data/region-research/ds.json",
+      "sourceSha256": "2234eeec19d4bbb3e4b131647dbce0c156840a664d980c115d99966271aed665",
+      "sha256": "a782a118862be752cc4310d9262606fdf46ecb5449e068b414dc01ddc9450f3f",
+      "inspectionRules": 3,
+      "gameReferences": 0,
+      "sourcePosts": 2
+    },
+    {
+      "path": "data/region-research/ps1.json",
+      "sourceSha256": "c8e30c7e91ac9d7d9195b8611eac1901e39d1a3c7129ee6a4ec56c7cf851d124",
+      "sha256": "192ae7417fe09ec81f3e8b4046cfd02550614643aaf1f27d356f1cdb9a9f29a1",
+      "inspectionRules": 4,
+      "gameReferences": 5,
+      "sourcePosts": 19
+    },
+    {
+      "path": "data/region-research/xbox360.json",
+      "sourceSha256": "06ccb73e5eee0299a3d1ad94c3b3a8de9ea21841d23c66a2a10e50e92231efaa",
+      "sha256": "571a49d2ff7285222d44d7ad1f9b156abd59d81d352c4a6adff3c49537d36186",
+      "inspectionRules": 3,
+      "gameReferences": 0,
+      "sourcePosts": 2
+    }
+  ],
+  "bindingChanges": [
+    {
+      "entryId": "ps1-heart-of-darkness-disc-pairs",
+      "from": [
+        "ps1-heart-of-darkness"
+      ],
+      "to": [
+        "ps1-es-sles-00465",
+        "ps1-eu-sles-00461"
+      ]
+    },
+    {
+      "entryId": "ps1-ridge-racer-printed-language",
+      "from": [
+        "ps1-ridge-racer"
+      ],
+      "to": [
+        "ps1-eu-sces-00001"
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "entryId": "dreamcast-aqua-gt-language-combination",
+      "id": "dreamcast-aqua-gt",
+      "title": "Aqua GT",
+      "platformSlug": "dreamcast",
+      "region": "PAL Europa",
+      "marketRegion": null,
+      "regionalStatus": null,
+      "canonicalSerials": null,
+      "slug": "aqua-gt"
+    },
+    {
+      "entryId": "ps1-heart-of-darkness-disc-pairs",
+      "id": "ps1-es-sles-00465",
+      "title": "Heart of Darkness",
+      "platformSlug": "ps1",
+      "region": "PAL España",
+      "marketRegion": "Spain",
+      "regionalStatus": "resolved",
+      "canonicalSerials": [
+        "SLES-00465",
+        "SLES-10465"
+      ],
+      "slug": "heart-of-darkness-sles-00465"
+    },
+    {
+      "entryId": "ps1-heart-of-darkness-disc-pairs",
+      "id": "ps1-eu-sles-00461",
+      "title": "Heart of Darkness",
+      "platformSlug": "ps1",
+      "region": "PAL Europa",
+      "marketRegion": "Europe",
+      "regionalStatus": "resolved",
+      "canonicalSerials": [
+        "SLES-00461",
+        "SLES-10461"
+      ],
+      "slug": "heart-of-darkness-sles-00461"
+    },
+    {
+      "entryId": "ps1-ridge-racer-printed-language",
+      "id": "ps1-eu-sces-00001",
+      "title": "Ridge Racer",
+      "platformSlug": "ps1",
+      "region": "PAL Europa",
+      "marketRegion": "Europe",
+      "regionalStatus": "resolved",
+      "canonicalSerials": [
+        "SCES-00001"
+      ],
+      "slug": "ridge-racer-sces-00001"
+    },
+    {
+      "entryId": "ps1-rayman-moulded-frame",
+      "id": "ps1-rayman",
+      "title": "Rayman",
+      "platformSlug": "ps1",
+      "region": "PAL Europa",
+      "marketRegion": "Europe",
+      "regionalStatus": "resolved",
+      "canonicalSerials": [
+        "SLES-00049"
+      ],
+      "slug": "rayman"
+    },
+    {
+      "entryId": "ps1-colin-mcrae-preserve-hash",
+      "id": "ps1-colin-mcrae-rally",
+      "title": "Colin McRae Rally",
+      "platformSlug": "ps1",
+      "region": "PAL Europa",
+      "marketRegion": "Europe",
+      "regionalStatus": "resolved",
+      "canonicalSerials": [
+        "SLES-00477"
+      ],
+      "slug": "colin-mcrae-rally"
+    },
+    {
+      "entryId": "ps1-doom-demo-disagreement",
+      "id": "ps1-doom",
+      "title": "Doom",
+      "platformSlug": "ps1",
+      "region": "PAL Europa",
+      "marketRegion": "Europe",
+      "regionalStatus": "resolved",
+      "canonicalSerials": [
+        "SLES-00132"
+      ],
+      "slug": "doom"
+    }
+  ],
+  "runtimeActivation": "Web scanner and common Python reader; no remote worker activation",
+  "realModelEvaluation": "not_run",
+  "counts": {
+    "inspectionRules": 15,
+    "gameReferences": 6,
+    "sourcePosts": 25
+  }
+}

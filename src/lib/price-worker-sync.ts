@@ -30,6 +30,10 @@ const BASE_WORKER_SYNC_FILES: SyncFile[] = [
 
 export function workerSyncFiles(): SyncFile[] {
   const files = [...BASE_WORKER_SYNC_FILES];
+  const researchDir = path.join(process.cwd(), "data/region-research");
+  for (const name of readdirSync(researchDir).filter((file) => file.endsWith(".json")).sort()) {
+    files.push({ local: `data/region-research/${name}`, remote: `app/data/region-research/${name}` });
+  }
   const scriptsDir = path.join(process.cwd(), "scripts");
   for (const name of readdirSync(scriptsDir).filter((file) => file.endsWith(".py")).sort()) {
     files.push({ local: `scripts/${name}`, remote: `app/scripts/${name}` });

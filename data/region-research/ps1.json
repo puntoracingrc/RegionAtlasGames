@@ -1,0 +1,679 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "ps1",
+  "batch": "spinecard-ps1-documentary-v1-20260908",
+  "reviewedAt": "2026-09-08",
+  "mode": "inspection_guidance_not_acceptance",
+  "reviewedBy": "Codex; documentary review, not human ground truth approval",
+  "reviewScope": "Bounded derived guidance from the SpineCard audit dated 2026-09-08. Original candidate cases remain unapproved.",
+  "sourceAudit": "spinecard-audit-2026-09-08",
+  "catalogBindingBase": "93d9262ca1b59663800cf2839d4be839a3650fb7",
+  "imagePolicy": "No image files copied, rehosted or passed to perception. URLs and prior visual-review notes only.",
+  "sources": {
+    "hod-19": {
+      "url": "https://foro.spinecard.com/t/gafas-incluidas-con-el-heart-of-darkness-de-ps1/1462/19",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · mensaje 19",
+      "topicId": 1462,
+      "postNumber": 19,
+      "postId": 13348,
+      "author": null,
+      "sourceUpdatedAt": "2023-09-11T08:12:10.374Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-1462",
+      "auditWindowSha256": [
+        "62c7325f6da42b1327277317260462c3aa06c9981cfd2f92442d243fbc0ab68a",
+        "5038e393b405e97d38dbb2a4aca7dd0ba52e7d83dffa74693d01e5bc36308c69"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "hod-31": {
+      "url": "https://foro.spinecard.com/t/gafas-incluidas-con-el-heart-of-darkness-de-ps1/1462/31",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · mensaje 31",
+      "topicId": 1462,
+      "postNumber": 31,
+      "postId": 295449,
+      "author": null,
+      "sourceUpdatedAt": "2023-08-16T09:23:27.926Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-1462",
+      "auditWindowSha256": [
+        "62c7325f6da42b1327277317260462c3aa06c9981cfd2f92442d243fbc0ab68a",
+        "5038e393b405e97d38dbb2a4aca7dd0ba52e7d83dffa74693d01e5bc36308c69"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "hod-32": {
+      "url": "https://foro.spinecard.com/t/gafas-incluidas-con-el-heart-of-darkness-de-ps1/1462/32",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · mensaje 32",
+      "topicId": 1462,
+      "postNumber": 32,
+      "postId": 295461,
+      "author": null,
+      "sourceUpdatedAt": "2023-08-16T10:16:59.974Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-1462",
+      "auditWindowSha256": [
+        "62c7325f6da42b1327277317260462c3aa06c9981cfd2f92442d243fbc0ab68a",
+        "5038e393b405e97d38dbb2a4aca7dd0ba52e7d83dffa74693d01e5bc36308c69"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "hod-33": {
+      "url": "https://foro.spinecard.com/t/gafas-incluidas-con-el-heart-of-darkness-de-ps1/1462/33",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · mensaje 33",
+      "topicId": 1462,
+      "postNumber": 33,
+      "postId": 295488,
+      "author": null,
+      "sourceUpdatedAt": "2023-08-16T13:42:37.174Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-1462",
+      "auditWindowSha256": [
+        "62c7325f6da42b1327277317260462c3aa06c9981cfd2f92442d243fbc0ab68a",
+        "5038e393b405e97d38dbb2a4aca7dd0ba52e7d83dffa74693d01e5bc36308c69"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "hod-34": {
+      "url": "https://foro.spinecard.com/t/gafas-incluidas-con-el-heart-of-darkness-de-ps1/1462/34",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · mensaje 34",
+      "topicId": 1462,
+      "postNumber": 34,
+      "postId": 295492,
+      "author": null,
+      "sourceUpdatedAt": "2023-08-16T13:59:33.218Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-1462",
+      "auditWindowSha256": [
+        "62c7325f6da42b1327277317260462c3aa06c9981cfd2f92442d243fbc0ab68a",
+        "5038e393b405e97d38dbb2a4aca7dd0ba52e7d83dffa74693d01e5bc36308c69"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "ridge-1": {
+      "url": "https://foro.spinecard.com/t/playstation-1-el-comienzo-by-wispa444/30505/1",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Wispa444",
+      "topicId": 30505,
+      "postNumber": 1,
+      "postId": 342098,
+      "author": "Wispa444",
+      "sourceUpdatedAt": "2026-03-20T10:27:43.579Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-30505",
+      "auditWindowSha256": [
+        "67bfb0d2b295d35314b7614bdd4917384e8c34efa8780cf5a7cd44c27d6dc64a",
+        "bba3ebf1a42d12457a3947bf07d06e34cfd4c9db31e3719da9fdc6c1b351e6ef",
+        "a36aea36a9ce83942b7cc13ecb294f6b47c77a72b9e02b5f70d54dad0bbd41e1"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-1": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/1",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Alucard",
+      "topicId": 1959,
+      "postNumber": 1,
+      "postId": 19852,
+      "author": "Alucard",
+      "sourceUpdatedAt": "2019-07-30T17:51:47.921Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "1b31ca7a3ba87f86051136dde092f49b2b564ab8bcd131f8cfbdf34090c3859e"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-2": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/2",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Alucard",
+      "topicId": 1959,
+      "postNumber": 2,
+      "postId": 19853,
+      "author": "Alucard",
+      "sourceUpdatedAt": "2019-07-30T17:51:48.207Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "1b31ca7a3ba87f86051136dde092f49b2b564ab8bcd131f8cfbdf34090c3859e"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-11": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/11",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · josevalo",
+      "topicId": 1959,
+      "postNumber": 11,
+      "postId": 168070,
+      "author": "josevalo",
+      "sourceUpdatedAt": "2021-07-17T12:00:21.400Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "1b31ca7a3ba87f86051136dde092f49b2b564ab8bcd131f8cfbdf34090c3859e"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-12": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/12",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · yuyumaster",
+      "topicId": 1959,
+      "postNumber": 12,
+      "postId": 168073,
+      "author": "yuyumaster",
+      "sourceUpdatedAt": "2021-07-17T12:14:24.414Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "1b31ca7a3ba87f86051136dde092f49b2b564ab8bcd131f8cfbdf34090c3859e"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-120": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/120",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · cuervito_nobel",
+      "topicId": 1959,
+      "postNumber": 120,
+      "postId": 256304,
+      "author": "cuervito_nobel",
+      "sourceUpdatedAt": "2022-11-24T14:12:45.506Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "6b226b50a3a638e4dc03f1c03b929a7671dd87775a585243d66349798ed98842"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-121": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/121",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Joakoperroverde",
+      "topicId": 1959,
+      "postNumber": 121,
+      "postId": 256305,
+      "author": "Joakoperroverde",
+      "sourceUpdatedAt": "2022-11-24T14:13:33.767Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "b28ac953aba87670be8ca287138563e1c57509870a4f7fb2bcd91b69a8487c37"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-141": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/141",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · gachan",
+      "topicId": 1959,
+      "postNumber": 141,
+      "postId": 311878,
+      "author": "gachan",
+      "sourceUpdatedAt": "2024-01-09T22:11:02.771Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "ef2a03e3907e5e0322f26681c79c1ea9943018274767de7a18d5870a76e48ff4"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-143": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/143",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · josevalo",
+      "topicId": 1959,
+      "postNumber": 143,
+      "postId": 311924,
+      "author": "josevalo",
+      "sourceUpdatedAt": "2024-01-10T10:30:54.670Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "ef2a03e3907e5e0322f26681c79c1ea9943018274767de7a18d5870a76e48ff4"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-146": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/146",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Master_Kota",
+      "topicId": 1959,
+      "postNumber": 146,
+      "postId": 312024,
+      "author": "Master_Kota",
+      "sourceUpdatedAt": "2024-01-10T19:06:30.388Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "ef2a03e3907e5e0322f26681c79c1ea9943018274767de7a18d5870a76e48ff4"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-160": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/160",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · josevalo",
+      "topicId": 1959,
+      "postNumber": 160,
+      "postId": 312066,
+      "author": "josevalo",
+      "sourceUpdatedAt": "2024-01-10T22:41:18.296Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "ef2a03e3907e5e0322f26681c79c1ea9943018274767de7a18d5870a76e48ff4"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-173": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/173",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · albertomb",
+      "topicId": 1959,
+      "postNumber": 173,
+      "postId": 364892,
+      "author": "albertomb",
+      "sourceUpdatedAt": "2025-07-21T17:31:16.063Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "d94d46f547871cd305233d3ab75a745b06513c512faa00e270f87b7e38fd3b24"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-174": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/174",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · antoniokratos",
+      "topicId": 1959,
+      "postNumber": 174,
+      "postId": 364922,
+      "author": "antoniokratos",
+      "sourceUpdatedAt": "2025-07-22T12:04:14.525Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "d94d46f547871cd305233d3ab75a745b06513c512faa00e270f87b7e38fd3b24"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "boxes-175": {
+      "url": "https://foro.spinecard.com/t/juegos-y-sus-cajas/1959/175",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Alucard",
+      "topicId": 1959,
+      "postNumber": 175,
+      "postId": 366707,
+      "author": "Alucard",
+      "sourceUpdatedAt": "2025-08-24T08:11:47.036Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "additional-spinecard-1959",
+      "auditWindowSha256": [
+        "d94d46f547871cd305233d3ab75a745b06513c512faa00e270f87b7e38fd3b24"
+      ],
+      "hashScope": "Public topic response windows containing this post; raw bodies not retained.",
+      "reviewBasis": "All 175 public messages read; six images individually inspected in the browser. Source status remains claim-specific.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    }
+  },
+  "inspectionRules": [
+    {
+      "id": "ps1-disc-and-packaging-codes",
+      "status": "reviewed_guidance",
+      "text": "PS1: transcribir por separado serial de cada disco, lomo, carátula y manual. En un juego multidisco los seriales pueden diferir; comparar la pareja documentada. El título por sí solo no identifica edición, idioma ni extras. Pedir un detalle legible antes de completar un dígito dudoso.",
+      "sourceIds": [
+        "hod-19",
+        "ridge-1"
+      ],
+      "derivedFromCaseIds": [
+        "heart-of-darkness",
+        "ridge-racer-printed-vs-software"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "ps1-extras-need-edition-evidence",
+      "status": "reviewed_guidance",
+      "text": "La presencia de un accesorio en otra copia o una respuesta del foro orienta la búsqueda de su edición. Para exigirlo como contenido original, contrastar distribución y tirada concretas; conservar testimonios contradictorios. El color de la banda de la carátula no resuelve por sí solo el contenido completo.",
+      "sourceIds": [
+        "hod-19",
+        "hod-31",
+        "hod-32",
+        "hod-33",
+        "hod-34"
+      ],
+      "derivedFromCaseIds": [
+        "heart-of-darkness"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "ps1-case-parts-and-trays",
+      "status": "reviewed_guidance",
+      "text": "PS1: comparar frontal, bandeja, trasera, marcos y marcas moldeadas por separado. Una carcasa sustituida no prueba sustitución del disco o manual; contar soportes no fija el número de discos originales.",
+      "sourceIds": [
+        "boxes-11",
+        "boxes-141",
+        "boxes-146"
+      ],
+      "derivedFromCaseIds": [
+        "ps1-boxes-1959"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "ps1-hologram-not-serial-cutoff",
+      "status": "reviewed_guidance",
+      "text": "El hilo rectifica reglas sobre hologramas y aporta excepciones al supuesto corte del serial 01500. No fechar ni declarar incorrecta una caja solo por serial, holograma o banda negra.",
+      "sourceIds": [
+        "boxes-1",
+        "boxes-2",
+        "boxes-173",
+        "boxes-174"
+      ],
+      "derivedFromCaseIds": [
+        "ps1-boxes-1959"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    }
+  ],
+  "gameReferences": [
+    {
+      "id": "ps1-heart-of-darkness-disc-pairs",
+      "status": "reviewed_guidance",
+      "text": "Heart of Darkness: el mensaje 19 distingue los pares SLES-00461/10461 y SLES-00465/10465, atribuidos por su autor a discos en inglés y español respectivamente. Son datos declarados por esa fuente: cotejar ambos discos, manual y EAN actuales antes de decidir edición o idioma. Los mensajes 31–34 añaden testimonios y dudas sobre otras presentaciones y gafas; no imponer dos variantes totales, una cronología cerrada ni gafas obligatorias por ser black label. Pedir fotos de discos, lomo/EAN, manual y accesorios.",
+      "sourceIds": [
+        "hod-19",
+        "hod-31",
+        "hod-32",
+        "hod-33",
+        "hod-34"
+      ],
+      "derivedFromCaseIds": [
+        "heart-of-darkness"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false,
+      "evidenceLevel": "community_report_with_unresolved_extras",
+      "catalogIds": [
+        "ps1-es-sles-00465",
+        "ps1-eu-sles-00461"
+      ],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "distributionVariants": []
+    },
+    {
+      "id": "ps1-ridge-racer-printed-language",
+      "status": "reviewed_guidance",
+      "text": "Ridge Racer: la ficha comunitaria separa software en inglés de manual multilingüe y cita SCES-00001. La foto trasera revisada en la auditoría muestra español junto a otros idiomas: eso acredita texto impreso de esa foto, no el idioma del disco actual. Contrastar serial, manual e interiores. No completar el código de barras desde la ficha ni aplicar esta referencia a Platinum, packs o Ridge Racer Revolution.",
+      "sourceIds": [
+        "ridge-1"
+      ],
+      "derivedFromCaseIds": [
+        "ridge-racer-printed-vs-software"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false,
+      "evidenceLevel": "community_report_plus_prior_rear_cover_observation",
+      "catalogIds": [
+        "ps1-eu-sces-00001"
+      ],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "distributionVariants": []
+    },
+    {
+      "id": "ps1-rayman-moulded-frame",
+      "status": "reviewed_guidance",
+      "text": "Rayman: las fotos muestran Ubi Soft centrado y PlayStation moldeado arriba y abajo. Son tres vistas del frontal; comparar esos rasgos sin deducir año, primera tirada, trasera o interior.",
+      "sourceIds": [
+        "boxes-12"
+      ],
+      "derivedFromCaseIds": [
+        "ps1-boxes-1959"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false,
+      "evidenceLevel": "visually_reviewed_front_cover_specimen",
+      "catalogIds": [
+        "ps1-rayman"
+      ],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "distributionVariants": []
+    },
+    {
+      "id": "ps1-colin-mcrae-preserve-hash",
+      "status": "reviewed_guidance",
+      "text": "Colin McRae Rally: las macros muestran SLES-00477 y SLES-00477#. Conservar # en el código observado; pedir etiqueta y matriz actuales. El signo no acredita correcciones de bugs, cronología o valor.",
+      "sourceIds": [
+        "boxes-120",
+        "boxes-121"
+      ],
+      "derivedFromCaseIds": [
+        "ps1-boxes-1959"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false,
+      "evidenceLevel": "visually_reviewed_disc_labels_not_software_revision",
+      "catalogIds": [
+        "ps1-colin-mcrae-rally"
+      ],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "distributionVariants": []
+    },
+    {
+      "id": "ps1-doom-demo-disagreement",
+      "status": "reviewed_guidance",
+      "text": "Doom: el debate sobre Level One y el segundo soporte sigue sin resolver. Pedir discos, seriales y procedencia; no exigir ni descartar la demo solo por la bandeja o por estos testimonios.",
+      "sourceIds": [
+        "boxes-141",
+        "boxes-143",
+        "boxes-146",
+        "boxes-160",
+        "boxes-175"
+      ],
+      "derivedFromCaseIds": [
+        "ps1-boxes-1959"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false,
+      "evidenceLevel": "reviewed_disagreement_not_expected_contents",
+      "catalogIds": [
+        "ps1-doom"
+      ],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "distributionVariants": []
+    }
+  ],
+  "unresolvedClaims": [
+    {
+      "id": "hod-glasses-and-total-variants",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "hod-19",
+        "hod-31",
+        "hod-32",
+        "hod-33",
+        "hod-34"
+      ],
+      "reason": "Los testimonios no fijan contenido universal, cantidad total ni cronología. No corregir cifras dudosas del mensaje 32 por intuición."
+    },
+    {
+      "id": "ridge-small-print-and-software",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "ridge-1"
+      ],
+      "reason": "La foto trasera no verifica todos los dígitos del código de barras, el interior del manual o el software ejecutado."
+    },
+    {
+      "id": "ps1-case-chronology",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "boxes-1",
+        "boxes-2",
+        "boxes-173",
+        "boxes-174"
+      ],
+      "reason": "Cronología y tiradas pendientes."
+    },
+    {
+      "id": "ps1-colin-software-revision",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "boxes-120",
+        "boxes-121"
+      ],
+      "reason": "Efecto sobre el software pendiente."
+    },
+    {
+      "id": "ps1-doom-factory-contents",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "boxes-141",
+        "boxes-143",
+        "boxes-146",
+        "boxes-160",
+        "boxes-175"
+      ],
+      "reason": "Contenido de fábrica pendiente."
+    }
+  ],
+  "capabilityLimits": {
+    "weightsTrained": false,
+    "visualAccuracyEvaluated": false,
+    "automaticRegionAcceptance": false,
+    "automaticCompositionAcceptance": false,
+    "catalogOrPriceWrites": false,
+    "humanLearningWrites": false
+  },
+  "imageReferences": {
+    "ridge-rear-prior-audit": {
+      "sourceId": "ridge-1",
+      "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/4/e/4e3e2b483dff4a1e5efa6f99940fd84d9a6a213d.jpeg",
+      "reviewedOn": "2026-09-08",
+      "reviewedIn": "spinecard-audit-2026-09-08/image-link-audit.json",
+      "finding": "Español y otros idiomas visibles en la trasera; perspectiva y reflejos limitan el texto pequeño.",
+      "scope": "Prior visual observation of one rear cover; no factory-pairing or authenticity claim."
+    },
+    "rayman-front": {
+      "sourceId": "boxes-12",
+      "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/b/7/b7f1b5bc97613d4aa3f3bb1a28f82cd52ac356a5.jpeg",
+      "reviewedOn": "2026-09-08",
+      "finding": "Frontal con Ubi Soft centrado; sin banda inferior PlayStation en el papel.",
+      "scope": "Visible features of the photographed specimen; not proof of factory association or authenticity."
+    },
+    "rayman-upper-frame": {
+      "sourceId": "boxes-12",
+      "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/3/4/34fea23000ffeef468ad9a6e72bbcba9cc24d54d.jpeg",
+      "reviewedOn": "2026-09-08",
+      "finding": "Otro ángulo del mismo frontal; PlayStation moldeado en el borde superior.",
+      "scope": "Visible features of the photographed specimen; not proof of factory association or authenticity."
+    },
+    "rayman-lower-frame": {
+      "sourceId": "boxes-12",
+      "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/f/a/fa72e3482b3a0804a2e7abd0c606dd6d1ce6c700.jpeg",
+      "reviewedOn": "2026-09-08",
+      "finding": "Otro ángulo del mismo frontal; PlayStation moldeado en el borde inferior. No es una contraportada.",
+      "scope": "Visible features of the photographed specimen; not proof of factory association or authenticity."
+    },
+    "forsaken-time-crisis-size": {
+      "sourceId": "boxes-11",
+      "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/1/2/12479a5e35a806c4b73df6d65391954e89dfa497.jpeg",
+      "reviewedOn": "2026-09-08",
+      "finding": "Dos cajas frontales de distinto tamaño; Forsaken a la izquierda y Time Crisis a la derecha. No hay escala ni vistas del interior.",
+      "scope": "Visible features of the photographed specimen; not proof of factory association or authenticity."
+    },
+    "colin-serial-plain": {
+      "sourceId": "boxes-120",
+      "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/5/f/5feeb1430d101d7a10a6c4a20314b1e5f775b94b.jpeg",
+      "reviewedOn": "2026-09-08",
+      "finding": "Macro de etiqueta de disco: SLES-00477, sin almohadilla visible.",
+      "scope": "Visible features of the photographed specimen; not proof of factory association or authenticity."
+    },
+    "colin-serial-hash": {
+      "sourceId": "boxes-120",
+      "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/4/1/4188951b6f67fe20f7ea088edc27239c0a360220.jpeg",
+      "reviewedOn": "2026-09-08",
+      "finding": "Macro de la otra etiqueta de disco: SLES-00477#; almohadilla visible después de las cifras.",
+      "scope": "Visible features of the photographed specimen; not proof of factory association or authenticity."
+    }
+  },
+  "sourceCatalogBindingBase": "80c7d0aea7b19136f55a4efd2b76c21432aa4f96",
+  "catalogBindingReviewedAt": "2026-09-11"
+}

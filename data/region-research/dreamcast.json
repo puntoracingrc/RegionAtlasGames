@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "dreamcast",
+  "batch": "spinecard-dreamcast-documentary-v1-20260908",
+  "reviewedAt": "2026-09-08",
+  "mode": "inspection_guidance_not_acceptance",
+  "reviewedBy": "Codex; documentary review, not human ground truth approval",
+  "reviewScope": "Bounded derived guidance from the SpineCard audit dated 2026-09-08. Original candidate cases remain unapproved.",
+  "sourceAudit": "spinecard-audit-2026-09-08",
+  "catalogBindingBase": "93d9262ca1b59663800cf2839d4be839a3650fb7",
+  "imagePolicy": "No image files copied, rehosted or passed to perception. URLs and prior visual-review notes only.",
+  "sources": {
+    "master-1": {
+      "url": "https://foro.spinecard.com/t/dreamcast-pal-espana-master-list/2274/1",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · giru85",
+      "topicId": 2274,
+      "postNumber": 1,
+      "postId": 23021,
+      "author": "giru85",
+      "sourceUpdatedAt": "2023-01-14T14:17:49.265Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-2274",
+      "auditWindowSha256": [
+        "91cc0ac0c3f5b401754751d4d7c70c33b2da96bf02b7af4729709a34b92897d5",
+        "2ff8325830a8dcb68b6400304b8201b7c7420286fed8c62c9a349b8af703067e",
+        "92d68fcd3b7a2079fc9e3c6d39ef1b6d4693c04fcc8af95b4ec6d01a6171218d"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    }
+  },
+  "inspectionRules": [
+    {
+      "id": "dreamcast-component-languages",
+      "status": "reviewed_guidance",
+      "text": "Dreamcast: registrar idiomas de contraportada, manual y software en campos distintos. La guía presenta combinaciones de idiomas impresos diferentes entre piezas; cotejar cada componente del ejemplar. Una contraportada sin español no basta para descartar una distribución española, y un manual español no confirma por sí solo todo el conjunto.",
+      "sourceIds": [
+        "master-1"
+      ],
+      "derivedFromCaseIds": [
+        "aqua-gt-component-languages"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "dreamcast-list-scope",
+      "status": "reviewed_guidance",
+      "text": "El título PAL España de esta lista no convierte cada elemento en una edición española: contiene excepciones territoriales. Vincular la fila y sus observaciones al juego y distribución concretos. La lista orienta la inspección; no es un recuento definitivo de variantes ni prueba de que una edición ausente no exista.",
+      "sourceIds": [
+        "master-1"
+      ],
+      "derivedFromCaseIds": [
+        "aqua-gt-component-languages"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    }
+  ],
+  "gameReferences": [
+    {
+      "id": "dreamcast-aqua-gt-language-combination",
+      "status": "reviewed_guidance",
+      "text": "Aqua GT: la lista declara contraportada en inglés/francés/alemán y manual en inglés/francés/español. Conservar esa combinación como referencia comunitaria para comparar; las fotos de esas piezas no se revisaron en esta auditoría. Pedir contraportada, cubierta e interiores del manual y serial del disco. Esa diferencia de idiomas no demuestra mezcla, ni esta referencia confirma PAL España o contenido completo de la copia actual.",
+      "sourceIds": [
+        "master-1"
+      ],
+      "derivedFromCaseIds": [
+        "aqua-gt-component-languages"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false,
+      "evidenceLevel": "community_report_not_visually_verified",
+      "catalogIds": [
+        "dreamcast-aqua-gt"
+      ],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "distributionVariants": []
+    }
+  ],
+  "unresolvedClaims": [
+    {
+      "id": "aqua-gt-original-association",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "master-1"
+      ],
+      "reason": "Pendientes fotos legibles de los componentes y evidencia de asociación de esa distribución. No habilitar una variante aceptable automáticamente."
+    }
+  ],
+  "capabilityLimits": {
+    "weightsTrained": false,
+    "visualAccuracyEvaluated": false,
+    "automaticRegionAcceptance": false,
+    "automaticCompositionAcceptance": false,
+    "catalogOrPriceWrites": false,
+    "humanLearningWrites": false
+  },
+  "sourceCatalogBindingBase": "80c7d0aea7b19136f55a4efd2b76c21432aa4f96",
+  "catalogBindingReviewedAt": "2026-09-11"
+}

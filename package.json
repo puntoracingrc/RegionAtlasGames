@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test:scanner": "tsx --test src/lib/game-scanner.test.ts src/lib/scanner-engine.test.ts src/lib/scanner-upload.test.ts src/lib/scanner-camera-client.test.ts",
+    "test:scanner": "tsx --test src/lib/game-scanner.test.ts src/lib/scanner-engine.test.ts src/lib/scanner-knowledge.test.ts src/lib/ps1-scanner-knowledge.test.ts src/lib/scanner-upload.test.ts src/lib/scanner-camera-client.test.ts",
     "test:catalog-offers": "tsx --test src/lib/catalog-offer-sort.test.ts src/lib/marketplace-listing-values.test.ts",
     "test:companies": "tsx --test src/lib/company-credits.test.ts src/lib/company-index.test.ts src/lib/company-research.test.ts",
     "test:people": "tsx --test src/lib/person-research.test.ts",
