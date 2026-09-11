@@ -7,7 +7,8 @@ import { buildWishlistSales, wishlistListingKey } from "./wishlist-sales";
 import { setCatalogGameWished } from "./wishlist-store";
 import { markWishlistSalesSeen, readWishlistSales } from "./wishlist-sales-store";
 import { addCatalogCopy, addCatalogGameToCollection } from "./collection-store";
-import { cancelListing, createListingDraft, publishListing, updateListing } from "./listings";
+import { cancelListing, createListingDraft, getListing, publishListing, reviewMarketplaceListing, updateListing } from "./listings";
+import { MANUAL_LISTING_REVIEW_CRITERIA } from "./marketplace-types";
 import type { MarketplaceListing } from "./marketplace-types";
 
 const game = "ps2-es-sces-50494";
@@ -77,6 +78,16 @@ test("publish, read, later publish and cancellation persist through the real mar
     await cancelListing(secondDraft.id, "seller");
     assert.equal((await readWishlistSales("buyer")).unreadGameCount, 0);
     assert.equal((await readWishlistSales("buyer")).games[0].listingCount, 1);
+
+    const firstPublication = (await getListing(draft.id))!.publishedAt;
+    assert.deepEqual(await publishListing(draft.id, "seller"), { ok: true });
+    assert.equal((await getListing(draft.id))!.publishedAt, firstPublication, "Retries must not generate another notification");
+    assert.equal((await readWishlistSales("buyer")).unreadGameCount, 0);
+    await updateListing(draft.id, { status: "draft" });
+    const republished = await reviewMarketplaceListing({ listingId: draft.id, reviewer: "qa@example.invalid", action: "approve", criteria: [...MANUAL_LISTING_REVIEW_CRITERIA] });
+    assert.ok(!("error" in republished));
+    assert.notEqual(republished.publishedAt, firstPublication, "A new approval after withdrawal is a new publication");
+    assert.equal((await readWishlistSales("buyer")).unreadGameCount, 1);
     await addCatalogGameToCollection("buyer", game);
     assert.deepEqual(await readWishlistSales("buyer"), { games: [], unreadGameCount: 0 });
   } finally {
