@@ -187,6 +187,123 @@
       "reason": "same_product",
       "reviewedAt": "2026-09-11",
       "reviewBatch": "owned-scans-2026-09-11-batch-2"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-iii-remastered",
+        "assassin-s-creed-iii-remastered-ps4-pal-es",
+        "assassin%27s-creed-iii-remastered-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-3-remastered",
+      "targetParam": "assassins-creed-3-remastered-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-iv-black-flag",
+        "assassin-s-creed-iv-black-flag-ps4-pal-es",
+        "assassin%27s-creed-iv-black-flag-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-4-black-flag",
+      "targetParam": "assassins-creed-4-black-flag-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-odyssey",
+        "assassin-s-creed-odyssey-ps4-pal-es",
+        "assassin%27s-creed-odyssey-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-odyssey",
+      "targetParam": "assassins-creed-odyssey-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-origins",
+        "assassin-s-creed-origins-ps4-pal-es",
+        "assassin%27s-creed-origins-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-origins",
+      "targetParam": "assassins-creed-origins-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-rogue-remastered",
+        "assassin-s-creed-rogue-remastered-ps4-pal-es",
+        "assassin%27s-creed-rogue-remastered-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-rogue-remastered",
+      "targetParam": "assassins-creed-rogue-remastered-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-syndicate",
+        "assassin-s-creed-syndicate-ps4-pal-es",
+        "assassin%27s-creed-syndicate-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-syndicate",
+      "targetParam": "assassins-creed-syndicate-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-the-ezio-collection",
+        "assassin-s-creed-the-ezio-collection-ps4-pal-es",
+        "assassin%27s-creed-the-ezio-collection-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-the-ezio-collection",
+      "targetParam": "assassins-creed-the-ezio-collection-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-unity",
+        "assassin-s-creed-unity-ps4-pal-es",
+        "assassin%27s-creed-unity-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-unity",
+      "targetParam": "assassins-creed-unity-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-assassin%27s-creed-valhalla",
+        "assassin-s-creed-valhalla-ps4-pal-es",
+        "assassin%27s-creed-valhalla-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-assassins-creed-valhalla",
+      "targetParam": "assassins-creed-valhalla-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-12",
+      "reviewBatch": "assassins-apostrophe-dedup-20260912"
     }
   ]
 }

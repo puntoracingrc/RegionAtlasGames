@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "guides": [
+    {
+      "id": "resident-evil-requiem-ps5",
+      "title": "Ediciones de Resident Evil Requiem",
+      "reviewedAt": "2026-09-12",
+      "note": "El código del juego y la carátula pueden ser compartidos. La edición se distingue por la caja, sus componentes y el EAN del conjunto; un código de descarga incluido no garantiza que siga sin canjear.",
+      "editions": [
+        {
+          "catalogId": "ps5-resident-evil-requiem",
+          "identity": {
+            "platformSlug": "ps5",
+            "slug": "resident-evil-requiem",
+            "region": "PAL España",
+            "edition": "standard"
+          },
+          "label": "Estándar",
+          "description": "Juego base en caja normal. Comparte la carátula de papel con el ejemplar de la Lenticular aportado por el propietario; esa imagen por sí sola no distingue ambos formatos.",
+          "imageKeys": [
+            "estandar-contenido"
+          ]
+        },
+        {
+          "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+          "identity": {
+            "platformSlug": "ps5",
+            "slug": "resident-evil-requiem-lenticular-cover",
+            "region": "PAL España",
+            "edition": "standard"
+          },
+          "label": "Lenticular Edition · GAME",
+          "description": "Edición exclusiva de GAME en España: caja del juego y lámina lenticular. Para conservar el conjunto lenticular completo debe mantenerse esa lámina.",
+          "imageKeys": [
+            "estandar-contenido"
+          ]
+        },
+        {
+          "catalogId": "ps5-resident-evil-requiem-deluxe-edition",
+          "identity": {
+            "platformSlug": "ps5",
+            "slug": "resident-evil-requiem-deluxe-edition",
+            "region": "PAL España",
+            "edition": "standard"
+          },
+          "label": "Deluxe Edition · Steelbook",
+          "description": "Edición física Deluxe con Steelbook. La caja escaneada lleva el EAN 5055060907979 y anuncia el Deluxe Kit mediante código de descarga.",
+          "imageKeys": [
+            "deluxe-contenido"
+          ]
+        },
+        {
+          "catalogId": "ps5-japon-biohazard-requiem-collector%27s-edition",
+          "identity": {
+            "platformSlug": "ps5",
+            "slug": "biohazard-requiem-collector%27s-edition",
+            "region": "Japón",
+            "edition": "standard"
+          },
+          "label": "Collector’s Edition · Japón",
+          "description": "Edición japonesa Biohazard Requiem, con CERO Z: Deluxe, Steelbook, soporte acrílico de Grace y caja exterior. Documentada por Capcom para Japón.",
+          "imageKeys": [
+            "coleccionista-japon-conjunto",
+            "coleccionista-japon-caja"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "key": "estandar-contenido",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/estandar-contenido.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/estandar-contenido-mini.webp",
+          "width": 1920,
+          "height": 1080,
+          "caption": "Material promocional: juego base y bonificación de reserva. No muestra la lámina lenticular de GAME."
+        },
+        {
+          "key": "deluxe-contenido",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/deluxe-contenido.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/deluxe-contenido-mini.webp",
+          "width": 1920,
+          "height": 1080,
+          "caption": "Material promocional: juego base y Deluxe Kit digital. Los complementos dibujados son contenido del juego."
+        },
+        {
+          "key": "coleccionista-japon-conjunto",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/coleccionista-japon-conjunto.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/coleccionista-japon-conjunto-mini.webp",
+          "width": 750,
+          "height": 750,
+          "caption": "Imagen promocional de Capcom: Deluxe japonesa, Steelbook, soporte acrílico y caja exterior."
+        },
+        {
+          "key": "coleccionista-japon-caja",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/coleccionista-japon-caja.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/coleccionista-japon-caja-mini.webp",
+          "width": 817,
+          "height": 1004,
+          "caption": "Fotografía de referencia de la caja japonesa, con clasificación CERO Z."
+        }
+      ],
+      "sources": [
+        {
+          "label": "GAME · exclusividad de la Lenticular Edition",
+          "url": "https://www.game.es/VIDEOJUEGOS/EXCLUSIVAS-GAME"
+        },
+        {
+          "label": "GAME · catálogo con el contenido lenticular (p. 53)",
+          "url": "https://media.game.es/Catalog/Dynamic/Catalogo_384/catalogo.pdf#page=53"
+        },
+        {
+          "label": "Capcom · Collector’s Edition japonesa de PS5",
+          "url": "https://www.e-capcom.com/shop/g/gC00009266/"
+        }
+      ],
+      "evidenceNote": "Comparación contrastada con los escaneos y las imágenes de referencia aportados por el propietario, GAME y Capcom."
+    }
+  ]
+}

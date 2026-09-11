@@ -1,0 +1,62 @@
+{
+  "capturedAt": "2026-09-12",
+  "provenance": "Four reference images attached by the user, separate from owned physical scans. Deterministic resize and WebP conversion only; originals preserved outside Git.",
+  "images": [
+    {
+      "key": "estandar-contenido",
+      "url": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/estandar-contenido.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/estandar-contenido-mini.webp",
+      "width": 1920,
+      "height": 1080,
+      "caption": "Material promocional: juego base y bonificación de reserva. No muestra la lámina lenticular de GAME.",
+      "sourceFile": "estandar y lenticular.jpeg",
+      "sourceSha256": "7cbe31a40061c909747f74cdf9f9261a3cd7b1742feeac652456e8b8cd97b610",
+      "sha256": "ccfa4d63264fc7f3ac34f78c0f0095d91af68d7e6765084cd6f10eedd6024102",
+      "thumbnailSha256": "bd42ac43ae51186aa8d05a35daf18fa407e7262a74be573ab1432dc656070f96",
+      "bytes": 252734,
+      "thumbnailBytes": 26086
+    },
+    {
+      "key": "deluxe-contenido",
+      "url": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/deluxe-contenido.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/deluxe-contenido-mini.webp",
+      "width": 1920,
+      "height": 1080,
+      "caption": "Material promocional: juego base y Deluxe Kit digital. Los complementos dibujados son contenido del juego.",
+      "sourceFile": "deluxe.jpg",
+      "sourceSha256": "e9bf5774a2f86f1df2ea1be71aea8123815cc755d24b2210b1a80f992d1196ce",
+      "sha256": "cce9788ae0d9b46e27492957aec257974b535d8db6209fddc0086f1614f69f70",
+      "thumbnailSha256": "eed606d89b2a36653a3d7da84bb8f3e65b321f92c3adfb1e65b986966fc04633",
+      "bytes": 313774,
+      "thumbnailBytes": 37706
+    },
+    {
+      "key": "coleccionista-japon-conjunto",
+      "url": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/coleccionista-japon-conjunto.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/coleccionista-japon-conjunto-mini.webp",
+      "width": 750,
+      "height": 750,
+      "caption": "Imagen promocional de Capcom: Deluxe japonesa, Steelbook, soporte acrílico y caja exterior.",
+      "sourceFile": "requiem coleccionista japon 2.webp",
+      "sourceSha256": "99e4777533a80de60083c4ec10f7fc64e4afeef234261109fc28fc93feab20a9",
+      "sha256": "5a7bee964bb2036601edff40f75af52397cc2253ccccef126ef6ad22683b3920",
+      "thumbnailSha256": "30b9cf3de7fdd378b4c22b967846749afa151f653bc93064d38741e73d800904",
+      "bytes": 96556,
+      "thumbnailBytes": 36476
+    },
+    {
+      "key": "coleccionista-japon-caja",
+      "url": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/coleccionista-japon-caja.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/resident-evil-requiem/coleccionista-japon-caja-mini.webp",
+      "width": 817,
+      "height": 1004,
+      "caption": "Fotografía de referencia de la caja japonesa, con clasificación CERO Z.",
+      "sourceFile": "requiem coleccionista japon.webp",
+      "sourceSha256": "0cbe26d1ff5f0fe207407725c04070a7950b7c3b2ffa5af8eee72b352255b41f",
+      "sha256": "44604de91a0177b3736cd4a97d3191b01e04a6d95f7517c6b9bba0b2583cfc80",
+      "thumbnailSha256": "b4ce0fbb62d09bf672f8c431457b625d3295f78e6317f8b12ba349864e486383",
+      "bytes": 115062,
+      "thumbnailBytes": 32772
+    }
+  ]
+}
