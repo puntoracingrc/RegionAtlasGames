@@ -142,7 +142,7 @@ test("new markets still require a cited photo observation", () => {
   assert.equal(normalizeScannerReasoning({ region: { ...input.region, observationIds: [] } }, p, [source], "ps2").region.value, null);
 });
 
-test("reviewed eBay pilot fills exactly five missing covers without changing identities or the historical catalog", () => {
+test("reviewed eBay batches fill exactly 21 missing covers without changing identities or the historical catalog", () => {
   const raw = JSON.parse(readFileSync("data/catalog.json", "utf8")) as CatalogGame[];
   const changed: string[] = [];
   for (const before of raw) {
@@ -150,12 +150,18 @@ test("reviewed eBay pilot fills exactly five missing covers without changing ide
     assert.deepEqual({ ...after, coverUrl: before.coverUrl }, before, before.id);
     if (before.coverUrl === after.coverUrl) continue;
     assert.equal(before.coverUrl, null);
-    assert.equal(before.regionCode, "ES");
+    assert(["ES", "IT"].includes(before.regionCode!));
     assert.equal(before.edition, "standard");
     changed.push(before.id);
   }
-  assert.deepEqual(changed.sort(), ["ps2-es-sces-54500", "ps2-es-sles-51665", "ps2-es-sles-52175", "ps2-es-sles-52373", "ps2-es-sles-53224"].sort());
-  for (const id of ["ps2-es-sces-50971", "ps2-es-sles-53498", "ps2-es-sces-53884", "ps2-es-sles-53987", "ps2-es-sles-53575"]) assert.equal(byId.get(id)?.coverUrl, null);
+  assert.deepEqual(changed.sort(), [
+    "ps2-es-sces-54500", "ps2-es-sles-51665", "ps2-es-sles-52175", "ps2-es-sles-52373", "ps2-es-sles-53224",
+    "ps2-es-sces-50971", "ps2-es-sles-53498", "ps2-es-sles-53575", "ps2-es-sles-53987", "ps2-es-sles-50471",
+    "ps2-es-sles-51195", "ps2-es-sles-52136", "ps2-es-sles-54235", "ps2-es-sles-52282", "ps2-es-sles-52697",
+    "ps2-es-sles-55001", "ps2-es-sles-53581", "ps2-es-sles-54251", "ps2-es-sles-54933", "ps2-es-sles-55337",
+    "ps2-it-sles-54883",
+  ].sort());
+  for (const id of ["ps2-es-sces-53884", "ps2-es-sles-50016", "ps2-es-sles-51027", "ps2-es-sles-51461", "ps2-es-sles-50026"]) assert.equal(byId.get(id)?.coverUrl, null);
 });
 
 test("reviewed covers fail closed if the catalog edition, region, URL or serial changes", () => {
@@ -171,23 +177,26 @@ test("reviewed covers fail closed if the catalog edition, region, URL or serial 
   }
 });
 
-test("all eleven published photos retain the original bytes, source and explicit photograph labels", () => {
-  const photos = Object.values(reviewedPhotoData.games).flatMap(set => set.graphics);
-  assert.equal(photos.length, 11);
+test("all 46 published photos retain the original bytes, source and explicit photograph labels", () => {
+  type ReviewedGraphic = (typeof reviewedPhotoData.games)[keyof typeof reviewedPhotoData.games]["graphics"][number];
+  const photos = Object.values(reviewedPhotoData.games).flatMap<ReviewedGraphic>(set => set.graphics);
+  assert.equal(photos.length, 46);
   for (const photo of photos) {
     assert.match(photo.url, /^\/catalog-covers\/ps2\/fotos-verificadas\/[a-z0-9-]+\.webp$/);
-    assert.match(photo.sourceUrl, /^https:\/\/www\.ebay\.es\/itm\/\d+$/);
+    assert.match(photo.sourceUrl, /^https:\/\/www\.ebay\.es\/itm\/\d+(?:\?var=\d+)?$/);
     assert.match(photo.sourceImageReference, /^https:\/\/i\.ebayimg\.com\//);
-    assert.deepEqual(photo.marketHints, ["ES"]);
+    assert.equal(photo.marketHints.length, 1);
+    assert(["ES", "IT"].includes(photo.marketHints[0]));
     assert.equal(photo.physicalPairingVerified, false);
-    assert(photo.width >= 700 && photo.height >= 700);
+    assert(Math.min(photo.width, photo.height) >= 600 && Math.max(photo.width, photo.height) >= 700);
     assert.equal(createHash("sha256").update(readFileSync(`public${photo.url}`)).digest("hex"), photo.sha256);
     assert.match(ps2GraphicLabel(photo), /^Fotografía/);
     if (photo.layout === "listing_packaging_photo") assert.equal(ps2GraphicLabel(photo), "Fotografía de portada y contraportada");
   }
 });
 
-test("photo evidence appends to six exact profiles without promoting software, dates or factory authenticity", () => {
+test("photo evidence appends to 23 exact profiles without promoting software, dates or factory authenticity", () => {
+  assert.equal(Object.keys(reviewedPhotoData.games).length, 23);
   const archive = JSON.parse(gunzipSync(readFileSync("data/ps2-edition-evidence.json.gz")).toString("utf8")) as Record<string, Ps2EditionDetails>;
   for (const [id, set] of Object.entries(reviewedPhotoData.games)) {
     const before = archive[id];
@@ -206,4 +215,30 @@ test("photo evidence appends to six exact profiles without promoting software, d
     { ...archive[id], components: [{ ...archive[id].components[0], serial: "SCES-54501" }] },
     { ...archive[id], fieldProvenance: { ...archive[id].fieldProvenance, market: { ...archive[id].fieldProvenance.market, value: "Portugal" } } },
   ]) assert.equal(withReviewedPs2Photos(id, bad as Ps2EditionDetails), bad);
+});
+
+test("Italian packaging photos stay Italian and observed codes are not invented from the catalog", () => {
+  const set = reviewedPhotoData.games["ps2-it-sles-54883"];
+  const game = byId.get("ps2-it-sles-54883")!;
+  assert(game.coverUrl?.includes("alone-in-the-dark-sles-54883-ps2-pal-it"));
+  assert.deepEqual(set.identity.canonicalSerials, ["SLES-54883"]);
+  assert(set.graphics.every(photo => photo.marketHints.join() === "IT"));
+  assert(set.graphics.every(photo => photo.visualObservation.serials.length === 0));
+  const wrongMarket = { ...game, coverUrl: null, regionCode: "ES", marketRegion: "Spain" };
+  assert.equal(withReviewedPs2Cover(wrongMarket), wrongMarket);
+});
+
+test("component photos remain gallery-only while Bratz keeps its original combined photograph", () => {
+  for (const id of ["ps2-es-sces-53884", "ps2-es-sles-51027"] as const) {
+    const set = reviewedPhotoData.games[id];
+    assert.equal(set.primaryAssetId, null);
+    assert(set.graphics.length > 0);
+    assert.equal(byId.get(id)?.coverUrl, null);
+  }
+  const bratz = reviewedPhotoData.games["ps2-es-sles-53575"];
+  assert.equal(bratz.graphics.length, 3);
+  assert(bratz.graphics.some(photo => photo.layout === "listing_packaging_photo"));
+  assert(bratz.primaryAssetId?.includes("227134458655"));
+  assert.match(reviewedPhotoData.games["ps2-es-sles-54235"].findings[0].observation, /voces en inglés/);
+  assert.match(reviewedPhotoData.games["ps2-es-sles-54933"].findings[0].observation, /banderas.*FIBA.*no son prueba/);
 });

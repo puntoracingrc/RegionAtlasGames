@@ -1,0 +1,1683 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-11",
+  "baseSha": "1fe407d320d9868a08831ab1614f6ec3daa787f7",
+  "summary": {
+    "selectedGames": 21,
+    "openedListings": 50,
+    "visuallyReviewedListings": 28,
+    "filesForPublication": 35,
+    "gamesWithNewMainCover": 16,
+    "gamesWithNewPhotos": 18,
+    "additionalSpainMainCovers": 15,
+    "additionalItalyMainCovers": 1,
+    "additionalGalleryOnlyGames": 2
+  },
+  "method": "Manual review of regional fichas, relevant eBay galleries and expanded exact-title searches. Listing order is recorded when used; expanded search candidates are not claimed to have been reviewed in widget order. Shipping origin prioritizes discovery; edition and packaging region require coherent specimen photographs. Original bytes and source links retained. No automatic training or worker changes.",
+  "games": [
+    {
+      "catalogId": "ps2-es-sces-50971",
+      "title": "Kingdom Hearts",
+      "canonicalSeoSlug": "kingdom-hearts-sces-50971-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-53498",
+      "title": "Bob Esponja - ¡Luces,Camara ,Esponja!",
+      "canonicalSeoSlug": "bob-esponja-luces-camara-esponja-sles-53498-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-53575",
+      "title": "Bratz - Rock Angelz",
+      "canonicalSeoSlug": "bratz-rock-angelz-sles-53575-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sces-53884",
+      "title": "Buzz! El Gran Reto",
+      "canonicalSeoSlug": "buzz-el-gran-reto-sces-53884-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected_gallery_only"
+    },
+    {
+      "catalogId": "ps2-es-sles-53987",
+      "title": "DreamWorks' Vecinos Invasores",
+      "canonicalSeoSlug": "dreamworks-vecinos-invasores-sles-53987-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-50016",
+      "title": "Fifa 2001",
+      "canonicalSeoSlug": "fifa-2001-sles-50016-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "pending_no_suitable_pair"
+    },
+    {
+      "catalogId": "ps2-es-sles-50471",
+      "title": "Fifa Football 2002",
+      "canonicalSeoSlug": "fifa-football-2002-sles-50471-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-51195",
+      "title": "Harry Potter y la Camara Secreta",
+      "canonicalSeoSlug": "harry-potter-y-la-camara-secreta-sles-51195-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-52136",
+      "title": "Hitman - Contracts",
+      "canonicalSeoSlug": "hitman-contracts-sles-52136-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-54235",
+      "title": "Kingdom Hearts II",
+      "canonicalSeoSlug": "kingdom-hearts-ii-sles-54235-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 2,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-52282",
+      "title": "Mafia",
+      "canonicalSeoSlug": "mafia-sles-52282-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-51027",
+      "title": "Manager de Liga 2003",
+      "canonicalSeoSlug": "manager-de-liga-2003-sles-51027-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "selected_gallery_only"
+    },
+    {
+      "catalogId": "ps2-es-sles-51461",
+      "title": "Manager de Liga 2004",
+      "canonicalSeoSlug": "manager-de-liga-2004-sles-51461-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "pending_no_suitable_pair"
+    },
+    {
+      "catalogId": "ps2-es-sles-52697",
+      "title": "Manager de Liga 2005",
+      "canonicalSeoSlug": "manager-de-liga-2005-sles-52697-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-55001",
+      "title": "Mercenaries 2 - World in Flames",
+      "canonicalSeoSlug": "mercenaries-2-world-in-flames-sles-55001-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-53581",
+      "title": "NBA Live '06",
+      "canonicalSeoSlug": "nba-live-06-sles-53581-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-54251",
+      "title": "NBA Live '07",
+      "canonicalSeoSlug": "nba-live-07-sles-54251-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-54933",
+      "title": "NBA Live '08",
+      "canonicalSeoSlug": "nba-live-08-sles-54933-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-55337",
+      "title": "NBA Live '09",
+      "canonicalSeoSlug": "nba-live-09-sles-55337-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    },
+    {
+      "catalogId": "ps2-es-sles-50026",
+      "title": "NBA Live 2001",
+      "canonicalSeoSlug": "nba-live-2001-sles-50026-ps2-pal-es",
+      "regionCode": "ES",
+      "batch": 3,
+      "originalCoverUrl": null,
+      "outcome": "pending_no_suitable_pair"
+    },
+    {
+      "catalogId": "ps2-it-sles-54883",
+      "title": "Alone in the Dark",
+      "canonicalSeoSlug": "alone-in-the-dark-sles-54883-ps2-pal-it",
+      "regionCode": "IT",
+      "batch": "user-example-italy",
+      "originalCoverUrl": null,
+      "outcome": "selected"
+    }
+  ],
+  "reviews": [
+    {
+      "game": "ps2-it-sles-54883",
+      "item": "127713197928",
+      "decision": "selected",
+      "front": 1,
+      "back": 2,
+      "barcode": "3546430124420",
+      "observedSerials": [],
+      "boxLanguages": [
+        "Italiano"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/127713197928",
+      "note": "Portada y contraportada del mismo ejemplar PAL Italia. El reverso contiene textos y bandera italianos; muestra 3546430124420. El frontal es la edición estándar de Alone in the Dark de PS2, con PEGI 16 y Atari. La identificación regional del frontal procede del reverso del mismo ejemplar. La foto interior confirma el título en disco y manual; no se ha transcrito un serial legible desde estas fotos."
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "166675876731",
+      "decision": "not_selected",
+      "reason": "Caja española estándar y documentación visibles, pero ambas fotos reúnen varios componentes. Se continúa hasta localizar un frontal individual.",
+      "sourceUrl": "https://www.ebay.es/itm/166675876731"
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "128073023707",
+      "decision": "not_selected",
+      "reason": "Anuncio nuevo de la ficha con origen Madrid; no mostró galería de fotografías alojadas en eBay. Se priorizan anuncios con frontal y reverso inspeccionables.",
+      "sourceUrl": "https://www.ebay.es/itm/128073023707"
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "128073023692",
+      "decision": "not_selected",
+      "reason": "Anuncio nuevo con origen Madrid; imagen única referenciada en Cash Converters y sin contraportada en la galería. No se usa para sustituir la portada.",
+      "sourceUrl": "https://www.ebay.es/itm/128073023692"
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "287563637631",
+      "decision": "selected",
+      "front": 1,
+      "back": 3,
+      "barcode": "711719395423",
+      "observedSerials": [
+        "SCES-50971"
+      ],
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/287563637631",
+      "note": "Edición estándar con banda negra PlayStation 2 y clasificación aDeSe TP. El lomo fotografiado muestra SCES-50971; el reverso español lleva 711719395423. Frontal y reverso pertenecen al mismo ejemplar. La pegatina de Sony Computer Entertainment España se conserva como elemento de esta unidad."
+    },
+    {
+      "game": "ps2-es-sles-53498",
+      "item": "395791127360",
+      "decision": "selected",
+      "front": 1,
+      "back": 2,
+      "barcode": "4005209070270",
+      "observedSerials": [
+        "SLES-53498"
+      ],
+      "serialSurface": "disc_photo_4",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/395791127360",
+      "listingStatus": "ended",
+      "note": "Frontal estándar PAL y reverso del mismo ejemplar con texto español, bandera de España y la indicación del envase «Totalmente en castellano». El disco de la foto 4 muestra SLES-53498. El reverso lleva EAN 4005209070270. La frase de idioma se conserva como afirmación del envase, sin inferir por separado voces ni subtítulos. Anuncio finalizado; origen España documentado en texto público original indexado."
+    },
+    {
+      "game": "ps2-es-sles-53575",
+      "item": "327350191397",
+      "decision": "not_selected",
+      "reason": "Origen Cardiff, Reino Unido; se continúa con candidatos de España. Galería no seleccionada.",
+      "sourceUrl": "https://www.ebay.es/itm/327350191397"
+    },
+    {
+      "game": "ps2-es-sles-53575",
+      "item": "227134458655",
+      "decision": "selected",
+      "front": 1,
+      "back": 2,
+      "barcode": "4005209070072",
+      "observedSerials": [
+        "SLES-53575"
+      ],
+      "serialSurface": "disc_photo_4",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/227134458655",
+      "note": "Frontal individual estándar y reverso español del mismo ejemplar. El reverso muestra EAN 4005209070072 y la afirmación del envase «Totalmente en castellano». En la foto 4 se lee SLES-53575 sobre el disco; la foto 3 muestra un manual con portada titulada Manual de instrucciones. No se certifica el ensamblaje de fábrica. Completa el frontal individual que faltaba en el piloto."
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "128070282260",
+      "decision": "not_selected",
+      "reason": "Reverso español pero caja de pack marcada «Prohibida la venta por separado»; frontal parcialmente tapado por los pulsadores. No se usa como portada de edición estándar individual.",
+      "sourceUrl": "https://www.ebay.es/itm/128070282260"
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "305607645714",
+      "decision": "not_selected",
+      "reason": "Portada y reverso españoles con Prohibida la venta por separado. Otra caja de pack; no portada estándar individual.",
+      "sourceUrl": "https://www.ebay.es/itm/305607645714"
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "405317725223",
+      "decision": "selected_gallery_only",
+      "combined": 1,
+      "observedSerials": [
+        "SCES-53884"
+      ],
+      "serialSurface": "spine_photo_1",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/405317725223",
+      "note": "Caja española con código de barras visible y lomo SCES-53884, sin el aviso Prohibida la venta por separado; frontal indica que se necesita un juego de pulsadores. La única fotografía reúne portada, lomo, reverso, manual y disco. Se conserva como galería del ejemplar, todavía sin frontal individual para imagen principal. No se transcribe el código de barras porque sus dígitos no se leen con seguridad.",
+      "barcodeStatus": "not_transcribed_after_readability_and_check_digit_review"
+    },
+    {
+      "game": "ps2-es-sles-53987",
+      "item": "313551263094",
+      "decision": "not_selected",
+      "reason": "Variante 616700591301 elegida explícitamente; fotos 54-59 de Vecinos Invasores verificadas con SLES-53987 y EAN 5030917034893. Composiciones conjuntas o lomo; se continúa hasta hallar frontal individual.",
+      "sourceUrl": "https://www.ebay.es/itm/313551263094?var=616700591301"
+    },
+    {
+      "game": "ps2-es-sles-53987",
+      "item": "336629629491",
+      "decision": "selected",
+      "front": 1,
+      "back": 2,
+      "barcode": "5030917034893",
+      "observedSerials": [
+        "SLES-53987"
+      ],
+      "serialSurface": "disc_photo_4",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/336629629491",
+      "note": "Portada individual estándar con título español e indicación del envase Completamente en castellano. Reverso español del mismo ejemplar, EAN 5030917034893 y referencia 81451.202.SP. Disco fotografiado con SLES-53987. La región del embalaje no se extrapola a otros ejemplares."
+    },
+    {
+      "game": "ps2-es-sles-50016",
+      "item": "198319562128",
+      "decision": "not_selected",
+      "reason": "Candidato PAL localizado al ampliar búsqueda, pero origen Estados Unidos. Las ofertas españolas visibles de la ficha son FIFA 2002, otro juego; búsqueda nativa y web no localizaron un par español verificable de FIFA 2001.",
+      "sourceUrl": "https://www.ebay.es/itm/198319562128"
+    },
+    {
+      "game": "ps2-es-sles-50471",
+      "item": "376076813273",
+      "decision": "not_selected",
+      "reason": "Envío desde España, pero frontal de Thierry Henry y reverso en inglés con bandera UK. No corresponde a la caja española.",
+      "sourceUrl": "https://www.ebay.es/itm/376076813273"
+    },
+    {
+      "game": "ps2-es-sles-50471",
+      "item": "325880510352",
+      "decision": "not_selected",
+      "reason": "Frontal y reverso españoles válidos, pero la etiqueta de tienda tapa el código de barras. Se elige otro ejemplar con reverso más legible.",
+      "sourceUrl": "https://www.ebay.es/itm/325880510352"
+    },
+    {
+      "game": "ps2-es-sles-50471",
+      "item": "286865931297",
+      "decision": "selected",
+      "front": 1,
+      "back": 3,
+      "barcode": "5030934027281",
+      "observedSerials": [
+        "SLES-50471"
+      ],
+      "serialSurface": "spine_photo_2",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/286865931297",
+      "note": "Ejemplar estándar PAL España con Iker Casillas, aDeSe TP y Totalmente en castellano en el frontal. Lomo SLES-50471; reverso EAN 5030934027281. La tabla impresa señala manual, textos y voces en español; el reverso cita comentarios de Manolo Lama y Paco González. Se conservan las pegatinas visibles del ejemplar."
+    },
+    {
+      "game": "ps2-es-sles-51195",
+      "item": "125136359233",
+      "decision": "selected",
+      "front": 1,
+      "back": 2,
+      "barcode": "5030934031196",
+      "observedSerials": [
+        "SLES-51195"
+      ],
+      "serialSurface": "spine_photo_3",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/125136359233",
+      "note": "Caja estándar con título español, aDeSe TP y Totalmente en castellano. Lomo SLES-51195; reverso español EAN 5030934031196. La tabla del envase indica manual, textos y voces en español. Se conserva el envoltorio visible sin certificar su precinto de fábrica."
+    },
+    {
+      "game": "ps2-es-sles-52136",
+      "item": "363674612244",
+      "decision": "not_selected",
+      "reason": "Edición española coherente, pero las dos fotografías reúnen caja y componentes; se busca frontal individual.",
+      "sourceUrl": "https://www.ebay.es/itm/363674612244"
+    },
+    {
+      "game": "ps2-es-sles-52136",
+      "item": "376828035504",
+      "decision": "not_selected",
+      "reason": "Caja española, lomo y disco SLES-52136, pero fotografía conjunta; se encuentra después frontal individual.",
+      "sourceUrl": "https://www.ebay.es/itm/376828035504"
+    },
+    {
+      "game": "ps2-es-sles-52136",
+      "item": "326221700535",
+      "decision": "not_selected",
+      "reason": "Galería de una sola fotografía; no se selecciona para par individual frontal y reverso.",
+      "sourceUrl": "https://www.ebay.es/itm/326221700535"
+    },
+    {
+      "game": "ps2-es-sles-52136",
+      "item": "164141698740",
+      "decision": "not_selected",
+      "reason": "Galería de una sola fotografía; se continúa con otro ejemplar.",
+      "sourceUrl": "https://www.ebay.es/itm/164141698740"
+    },
+    {
+      "game": "ps2-es-sles-52136",
+      "item": "286850274385",
+      "decision": "selected",
+      "front": 1,
+      "back": 3,
+      "barcode": "5032921020343",
+      "observedSerials": [
+        "SLES-52136"
+      ],
+      "serialSurface": "spine_photo_2",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/286850274385",
+      "note": "Frontal estándar con Totalmente en castellano, reverso español y bandera de España. Lomo SLES-52136 y EAN 5032921020343. Las fotos individuales pertenecen al mismo ejemplar; no se certifica el ensamblaje original de fábrica."
+    },
+    {
+      "game": "ps2-es-sles-54235",
+      "item": "127902116332",
+      "decision": "not_selected",
+      "reason": "Oferta inicial con origen Madrid sin galería eBay de frontal y reverso.",
+      "sourceUrl": "https://www.ebay.es/itm/127902116332"
+    },
+    {
+      "game": "ps2-es-sles-54235",
+      "item": "256383984625",
+      "decision": "not_selected",
+      "reason": "Origen Riquer Alto, España; galería única. Se continúa buscando vistas individuales.",
+      "sourceUrl": "https://www.ebay.es/itm/256383984625"
+    },
+    {
+      "game": "ps2-es-sles-54235",
+      "item": "147542023369",
+      "decision": "selected",
+      "front": 1,
+      "back": 3,
+      "barcode": "5060121825055",
+      "observedSerials": [
+        "SLES-54235"
+      ],
+      "serialSurface": "spine_photo_6",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/147542023369",
+      "note": "Frontal estándar PAL y reverso español del mismo ejemplar. El lomo muestra SLES-54235 y el reverso EAN 5060121825055. La caja especifica manual, textos de pantalla y subtítulos en castellano, y voces en inglés. Se conserva el envoltorio visible sin certificar precinto de fábrica."
+    },
+    {
+      "game": "ps2-es-sles-52282",
+      "item": "257667631905",
+      "decision": "not_selected",
+      "reason": "Oferta de la ficha con origen Galicia, España; solo una fotografía en la galería. Se continúa hasta localizar frontal y reverso individuales.",
+      "sourceUrl": "https://www.ebay.es/itm/257667631905"
+    },
+    {
+      "game": "ps2-es-sles-52282",
+      "item": "287099767076",
+      "decision": "selected",
+      "front": 1,
+      "back": 3,
+      "barcode": "5026555301985",
+      "observedSerials": [
+        "SLES-52282"
+      ],
+      "serialSurface": "spine_photo_2",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/287099767076",
+      "note": "Caja estándar de PS2 con lomo SLES-52282 y reverso español. EAN 5026555301985; el envase especifica textos y voces en castellano y distribución por Virgin Play. La región del frontal se verifica mediante el reverso del mismo ejemplar."
+    },
+    {
+      "game": "ps2-es-sles-51027",
+      "item": "323782367831",
+      "decision": "selected_gallery_only",
+      "galleryFront": 1,
+      "galleryBack": 2,
+      "barcode": "5024866321326",
+      "observedSerials": [],
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/323782367831?var=516017596878",
+      "note": "Variante Manager de Liga 2003 seleccionada explícitamente; fotos 235 y 236 de 238 muestran la misma caja española con disco al lado. La caja indica temporada 2002/2003 y manual, textos y voces en castellano; EAN 5024866321326. Se conserva como galería, sin usar la composición conjunta como portada principal. El serial no se transcribe por falta de lectura segura."
+    },
+    {
+      "game": "ps2-es-sles-51461",
+      "item": "257258929978",
+      "decision": "not_selected",
+      "reason": "Candidato español solo disco, sin caja; búsqueda exacta ampliada devuelve Xbox o candidatos extranjeros. La ficha de PS2 permanece sin fotos de caja.",
+      "sourceUrl": "https://www.ebay.es/itm/257258929978"
+    },
+    {
+      "game": "ps2-es-sles-51461",
+      "item": "376349290695",
+      "decision": "not_selected",
+      "reason": "Origen Berlín, Alemania y galería de una imagen, anunciado como libro. No se usa para la ficha española.",
+      "sourceUrl": "https://www.ebay.es/itm/376349290695"
+    },
+    {
+      "game": "ps2-es-sles-52697",
+      "item": "265982593068",
+      "decision": "not_selected",
+      "reason": "Candidato de la ficha con origen La Barquera, España, una sola foto; se localiza otro anuncio con frontal y reverso individuales.",
+      "sourceUrl": "https://www.ebay.es/itm/265982593068"
+    },
+    {
+      "game": "ps2-es-sles-52697",
+      "item": "357569471619",
+      "decision": "selected",
+      "front": 1,
+      "back": 2,
+      "observedSerials": [
+        "SLES-52697"
+      ],
+      "serialSurface": "disc_photo_3",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/357569471619",
+      "note": "Frontal y reverso españoles del mismo ejemplar estándar. Disco fotografiado con SLES-52697. La caja especifica manual, textos y voces en castellano, comentarios de JJ Santos y temporada 2004/05. El EAN está tapado por una etiqueta que se conserva; no se inventa el código."
+    },
+    {
+      "game": "ps2-es-sles-55001",
+      "item": "275296860305",
+      "decision": "not_selected",
+      "reason": "Origen Zaragoza, España; una sola fotografía en la galería.",
+      "sourceUrl": "https://www.ebay.es/itm/275296860305"
+    },
+    {
+      "game": "ps2-es-sles-55001",
+      "item": "224021828989",
+      "decision": "not_selected",
+      "reason": "Origen Esparraguera, España; una sola fotografía en la galería.",
+      "sourceUrl": "https://www.ebay.es/itm/224021828989"
+    },
+    {
+      "game": "ps2-es-sles-55001",
+      "item": "406821225470",
+      "decision": "not_selected",
+      "reason": "Par español y disco SLES-55001 verificados. Se elige otro ejemplar con mayor resolución y menos brillo para publicación.",
+      "sourceUrl": "https://www.ebay.es/itm/406821225470"
+    },
+    {
+      "game": "ps2-es-sles-55001",
+      "item": "287382525542",
+      "decision": "selected",
+      "front": 1,
+      "back": 3,
+      "barcode": "5030934059046",
+      "observedSerials": [
+        "SLES-55001"
+      ],
+      "serialSurface": "spine_photo_2",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/287382525542",
+      "note": "Frontal y reverso de la misma caja estándar PAL España. Lomo SLES-55001 y EAN 5030934059046. El reverso en español incluye tabla de idioma que indica manual, textos y voces en español."
+    },
+    {
+      "game": "ps2-es-sles-53581",
+      "item": "263989129616",
+      "decision": "not_selected",
+      "reason": "Origen La Barquera, España; una sola imagen de galería.",
+      "sourceUrl": "https://www.ebay.es/itm/263989129616"
+    },
+    {
+      "game": "ps2-es-sles-53581",
+      "item": "267320084032",
+      "decision": "not_selected",
+      "reason": "Origen Galicia, España; sin galería eBay para verificar ambas caras.",
+      "sourceUrl": "https://www.ebay.es/itm/267320084032"
+    },
+    {
+      "game": "ps2-es-sles-53581",
+      "item": "224979002319",
+      "decision": "not_selected",
+      "reason": "Origen Alicante, España; una sola imagen de galería.",
+      "sourceUrl": "https://www.ebay.es/itm/224979002319"
+    },
+    {
+      "game": "ps2-es-sles-53581",
+      "item": "324776566503",
+      "decision": "selected",
+      "front": 1,
+      "back": 2,
+      "barcode": "5030934045896",
+      "observedSerials": [
+        "SLES-53581"
+      ],
+      "serialSurface": "disc_photo_3",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/324776566503",
+      "note": "Frontal español estándar con Pau Gasol y Totalmente en castellano. Reverso EAN 5030934045896 y tabla que indica manual, textos y voces en español. Disco SLES-53581 fotografiado junto al manual. Se conserva la pegatina de licencia visible."
+    },
+    {
+      "game": "ps2-es-sles-54251",
+      "item": "254649644119",
+      "decision": "not_selected",
+      "reason": "Par español verificado, pero el plástico del reverso presenta pliegues que dificultan leerlo; se elige otro ejemplar más legible.",
+      "sourceUrl": "https://www.ebay.es/itm/254649644119"
+    },
+    {
+      "game": "ps2-es-sles-54251",
+      "item": "224979000408",
+      "decision": "not_selected",
+      "reason": "Origen Alicante, España; una sola foto de galería.",
+      "sourceUrl": "https://www.ebay.es/itm/224979000408"
+    },
+    {
+      "game": "ps2-es-sles-54251",
+      "item": "226505370467",
+      "decision": "selected",
+      "front": 1,
+      "back": 3,
+      "barcode": "5030934054096",
+      "observedSerials": [
+        "SLES-54251"
+      ],
+      "serialSurface": "disc_photo_2",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/226505370467",
+      "note": "Frontal estándar con Pau Gasol, reverso español EAN 5030934054096 y disco SLES-54251. La tabla del reverso indica manual, textos y voces en español y cita a Sixto Serrano y Antoni Daimiel como comentaristas. La pegatina de licencia de esta unidad se conserva."
+    },
+    {
+      "game": "ps2-es-sles-54933",
+      "item": "267728703247",
+      "decision": "not_selected",
+      "reason": "Origen Galicia, España; sin galería eBay visible para contrastar ambas caras.",
+      "sourceUrl": "https://www.ebay.es/itm/267728703247"
+    },
+    {
+      "game": "ps2-es-sles-54933",
+      "item": "357569518809",
+      "decision": "not_selected",
+      "reason": "Galería alternativa accesible de Beniajan, España; no se descargó ni revisó visualmente porque el primer anuncio ofrece un par nítido suficiente.",
+      "sourceUrl": "https://www.ebay.es/itm/357569518809"
+    },
+    {
+      "game": "ps2-es-sles-54933",
+      "item": "396818192118",
+      "decision": "selected",
+      "front": 1,
+      "back": 3,
+      "barcode": "5030934056243",
+      "observedSerials": [
+        "SLES-54933"
+      ],
+      "serialSurface": "spine_photo_2",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/396818192118",
+      "note": "Portada estándar española de NBA Live 08 con Pau Gasol, lomo SLES-54933 y reverso EAN 5030934056243. La tabla del reverso indica manual, textos y voces en español. Las múltiples banderas del frontal representan equipos del campeonato FIBA y no son prueba de idiomas ni de región comercial."
+    },
+    {
+      "game": "ps2-es-sles-55337",
+      "item": "166795875242",
+      "decision": "not_selected",
+      "reason": "Origen España; una sola foto de galería. Se continúa al siguiente anuncio.",
+      "sourceUrl": "https://www.ebay.es/itm/166795875242"
+    },
+    {
+      "game": "ps2-es-sles-55337",
+      "item": "284713143952",
+      "decision": "selected",
+      "front": 1,
+      "back": 2,
+      "barcode": "5030934067300",
+      "observedSerials": [
+        "SLES-55337"
+      ],
+      "serialSurface": "disc_photo_4",
+      "boxLanguages": [
+        "Español"
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/284713143952",
+      "note": "Frontal estándar de NBA Live 09 con Pau Gasol en uniforme de Lakers. Reverso español EAN 5030934067300 y tabla de manual, textos y voces en español. La foto interior muestra SLES-55337 en el disco junto al manual del mismo título. El uniforme y el año se contrastan para no confundir esta entrega con NBA Live 08."
+    },
+    {
+      "game": "ps2-es-sles-50016",
+      "item": "127675914447",
+      "decision": "not_selected",
+      "reason": "Anuncio finalizado de FIFA 2001 PS2 con origen Madrid documentado en versión pública indexada. Indica caja original NO y no aporta reverso. No se usa para la ficha.",
+      "sourceUrl": "https://www.ebay.es/itm/127675914447"
+    },
+    {
+      "game": "ps2-es-sles-50026",
+      "decision": "pending_no_suitable_listing",
+      "reason": "Ficha regional y búsquedas nativas NBA Live 2001 PS2 España y título exacto revisadas. Ofertas visibles de PS2 desde Estados Unidos, Canadá, Italia y Francia, sin ejemplar español verificable. Búsqueda web ofrece PS1 o años distintos. No se incorpora otra plataforma, año ni región como sustituto.",
+      "discovery": "Regional ficha, native eBay search and web search on 2026-09-11"
+    }
+  ],
+  "observations": [
+    {
+      "game": "ps2-es-sles-51195",
+      "item": "125136359233",
+      "sourceUrl": "https://www.ebay.es/itm/125136359233",
+      "title": "HARRY POTTER Y LA CAMARA SECRETA - PS2 - PAL ESPAÑA - NUEVO PRECINTADO",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: MURCIA, España",
+      "discovery": "Expanded web search beyond ficha offers (Platinum, FR and single images)",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/mQMAAOSwFPFiAGK-/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/XqwAAOSwZPBiAGLH/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/FwYAAOSwq05iAGLN/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/omsAAOSwqudiAGLP/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/MqIAAOSw7TRiAGLR/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/a9wAAOSwI8piAGLV/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/AhEAAOSw8VhiAGLX/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-it-sles-54883",
+      "item": "127713197928",
+      "sourceUrl": "https://www.ebay.es/itm/127713197928",
+      "title": "Alone In The Dark per Sony PlayStation 2 PS2 PAL ITA Completo",
+      "originCountry": "IT",
+      "originEvidence": "Ubicado en: Cassano d'Adda, Italia",
+      "discovery": "User-supplied Italian regional example; catalog ficha opened and source inspected",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/2QwAAeSwWPpppO-q/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/7isAAeSwKpFppO-q/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/zKQAAeSwk0pppO-q/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/0TEAAeSw9LNppO-q/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "128070282260",
+      "sourceUrl": "https://www.ebay.es/itm/128070282260",
+      "title": "Playstation 2 PS2 Buzz El Gran Reto + Buzzers ESP",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Alicante, España",
+      "discovery": "Expanded native search and current ficha offer",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/AL0AAeSwK4pqoSrp/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/O8MAAeSw25hqoSrq/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/cT0AAeSwywhqoSrp/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/ppsAAeSwyPJqoSrq/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-54235",
+      "item": "147542023369",
+      "sourceUrl": "https://www.ebay.es/itm/147542023369",
+      "title": "KINGDOM HEARTS 2 II PS2 PAL ESPAÑA NUEVO PRECINTADO NEW SEALED DISNEY MINT",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: españa, España",
+      "discovery": "Expanded native eBay search after initial offer lacked a back gallery",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/BkoAAOSwuFFkQsl3/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/aVAAAOSwWeZkQsl~/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/v7kAAOSw7uBkQsmE/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/jbYAAOSwy0tkQsmH/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/AxsAAOSwLr1kQsmO/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/wHQAAOSw9VpkQsmW/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/G0cAAOSw51VkQsme/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/KWYAAOSwotFkQsmn/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "166675876731",
+      "sourceUrl": "https://www.ebay.es/itm/166675876731",
+      "title": "KINGDOM HEARTS DE SQUARE DISNEY PARA LA SONY PS2 ORIGINAL VERSION EN BUEN ESTADO",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: L'Hospitalet de Llobregat, Barcelona, España",
+      "discovery": "Additional web search for the exact serial after the prior pilot exhausted the initial six offers",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/BpQAAOSwp95mCQqZ/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/m1sAAOSwJzZmCQqZ/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-54251",
+      "item": "226505370467",
+      "sourceUrl": "https://www.ebay.es/itm/226505370467",
+      "title": "NBA LIVE 07 SONY PS2 PLAY STATION PS2 INV-11318",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Esparraguera, España",
+      "discovery": "Third offer on regional ficha; checking readability against first candidate",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/bQQAAOSwJ0VnZU~I/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/24MAAOSwyb1nZU~R/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/dOEAAOSws1FnZU~Z/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-53575",
+      "item": "227134458655",
+      "sourceUrl": "https://www.ebay.es/itm/227134458655",
+      "title": "BRATZ ROCK ANGELZ . Pal España . Envio Certificado",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: LOGROÑO, España",
+      "discovery": "Expanded native eBay search after the two Spain offers already reviewed in pilot; explicit PAL España candidate",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/rnwAAeSweiBpQZ9R/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/gaoAAeSwIolpQZ9R/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/nYgAAeSwE0dpQZ9S/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/uiIAAeSweRNpQZ9S/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-54251",
+      "item": "254649644119",
+      "sourceUrl": "https://www.ebay.es/itm/254649644119",
+      "title": "PS2 NBA LIVE 07 SONY PLAYSTATION 2 EA SPORTS",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: La Garriga, España",
+      "discovery": "First offer on regional ficha",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/dBAAAOSwAilfCJI0/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/mnsAAOSwzTtfCJJb/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/87oAAOSwHM9fCJJy/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-55337",
+      "item": "284713143952",
+      "sourceUrl": "https://www.ebay.es/itm/284713143952",
+      "title": "NBA Live 09 Pau Gasol EA Sports - Playstation 2 Juego para Ps2 Español - Am",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Arcas, España",
+      "discovery": "Second offer on regional ficha; first has only one photograph",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/7~QAAOSwfbFiNuvB/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/T4QAAOSwHr9iNuvo/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/T2QAAOSwHr9iNuvE/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/7poAAOSwc01iNuvG/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-52136",
+      "item": "286850274385",
+      "sourceUrl": "https://www.ebay.es/itm/286850274385",
+      "title": "Hitman Contracts PS2 PAL España.",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Guardamar, España",
+      "discovery": "Fifth offer on regional ficha; earlier galleries reviewed first",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/svUAAeSwpMNo3Dvf/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/wbEAAeSwtyNo3Dvf/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/nuoAAeSwvZdo3Dvf/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/jwgAAeSwF-xo3Dvg/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/tl4AAeSwdhpo3Dvg/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/lBQAAeSweAVo3Dvg/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/irQAAeSwt9Fo3Dvh/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/necAAeSwhjdo3Dvh/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/uZkAAeSwR3Jo3Dvi/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/ndwAAeSwAupo3Dvi/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-50471",
+      "item": "286865931297",
+      "sourceUrl": "https://www.ebay.es/itm/286865931297",
+      "title": "FIFA Football 2002 PS2 PAL España",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Guardamar, España",
+      "discovery": "Second current ficha offer, comparison to stickered and UK copies",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/MYUAAeSwUBVo5rgL/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/0ZQAAeSwrBRo5rgL/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/IlsAAeSwhjxo5rgM/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/~ogAAeSwVNZo5rgM/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/9OYAAeSwsPdo5rgN/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/tl8AAeSwmBRo5rgN/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/5bYAAeSwrZho5rgO/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-52282",
+      "item": "287099767076",
+      "sourceUrl": "https://www.ebay.es/itm/287099767076",
+      "title": "Mafia PS2 PAL España",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Guardamar, España",
+      "discovery": "Regional ficha sixth offer; earlier Spanish candidate had only one photo",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/qewAAeSwD7JpdosH/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/FukAAeSwiZtpdosI/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/RYoAAeSwdUJpdosI/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/oHsAAeSwXfNpdosI/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/7TUAAeSwt4dpdosJ/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/qFMAAeSwNn9pdosJ/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/d~sAAeSwxbxpdosK/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/pNEAAeSwaZFpdosK/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/FtkAAeSw2BtpdosL/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-55001",
+      "item": "287382525542",
+      "sourceUrl": "https://www.ebay.es/itm/287382525542",
+      "title": "Mercenaries 2: World in Flames ps2 pal España",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Guardamar, España",
+      "discovery": "Expanded native search for higher resolution after ficha candidate 406821225470 verified",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/UTsAAeSwFkhqJyjo/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/p8gAAeSwhGJqJyjp/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/SAEAAeSwkf9qJyjp/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/hPYAAeSwaN9qJyjp/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/Jy8AAeSwIRpqJyjq/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/YJcAAeSwexBqJyjq/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/EqYAAeSwTbVqJyjr/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/uAcAAeSw2M1qJyjr/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "287563637631",
+      "sourceUrl": "https://www.ebay.es/itm/287563637631",
+      "title": "Kingdom Hearts PS2 PAL España Completo",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Guardamar, España",
+      "discovery": "First genuine result of the expanded eBay search Kingdom Hearts PS2 PAL España -Platinum",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/2xkAAeSwMk1qmdX6/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/GjsAAeSwc8FqmdX6/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/~lYAAeSwpfhqmdX7/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/uD8AAeSwrBFqmdX7/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/BRAAAeSwuRRqmdX8/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/FNIAAeSwPgVqmdX8/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/HogAAeSwrd5qmdX9/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/OsAAAeSwmVdqmdX9/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/WdUAAeSweAVqmdX-/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/IIIAAeSwzadqmdX-/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "305607645714",
+      "sourceUrl": "https://www.ebay.es/itm/305607645714",
+      "title": "Sony PlayStation 2 Buzz el Gran Reto completo Pal España",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Alaior, España",
+      "discovery": "Expanded native search",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/dk8AAOSwK2xgLkY2/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/uxQAAOSwuhZgLkW3/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/XHQAAOSwQd5gLkW7/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/H5gAAOSwrLNgLkXB/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/uTQAAOSwyuNgLkXH/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/MPMAAOSwxjZgLkXO/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/R2IAAOSwwnlgLkXW/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/ipwAAOSwdttgLkXb/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-53987",
+      "item": "313551263094",
+      "sourceUrl": "https://www.ebay.es/itm/313551263094?var=616700591301",
+      "title": "JUEGOS DE PS2 A ELEGIR - DREAMWORKS VECINOS INVASORES - ACTIVISION",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Palma de Mallorca, Baleares, España",
+      "discovery": "Expanded search; explicitly selected Vecinos Invasores variation 616700591301; gallery jumps to image 54",
+      "galleryIndices": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/swoAAeSwDeVp2ZNB/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/Ji0AAeSwwatp2ZNC/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/LqEAAeSwph5p2ZNC/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/QngAAeSwhkpp2ZNC/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/plYAAeSwE2Fp2ZNB/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/ipQAAeSwvb1p2ZNC/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-51027",
+      "item": "323782367831",
+      "sourceUrl": "https://www.ebay.es/itm/323782367831?var=516017596878",
+      "title": "PLAYSTATION 2 - PS2 JUEGOS COMPLETOS - VERSION PAL - ELIGE EL TUYO DE LA LISTA",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Candeleda, Castilla y León, España",
+      "discovery": "Native eBay search; selected MANAGER DE LIGA 2003 variation 516017596878; gallery jumped to 235/238",
+      "observedAt": "2026-09-11",
+      "galleryIndices": [
+        235,
+        236
+      ],
+      "images": [
+        "https://i.ebayimg.com/images/g/VPEAAeSwhi5qKZtb/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/XCcAAeSwuk1qKZta/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-53581",
+      "item": "324776566503",
+      "sourceUrl": "https://www.ebay.es/itm/324776566503",
+      "title": "NBA LIVE 06 EA SPORTS TOTALMENTE CASTELLANO PAL PS2 DVD ROM",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Ciudad Real, Castilla-La Mancha, España",
+      "discovery": "Fourth offer on regional ficha after earlier incomplete galleries",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/d78AAOSwdFxhMmST/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/XEcAAOSwIp5hMmSW/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/B-YAAOSw59NhMmSY/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-50471",
+      "item": "325880510352",
+      "sourceUrl": "https://www.ebay.es/itm/325880510352",
+      "title": "FIFA FOOTBALL 2002 - SONY PS2 PLAY STATION INV-9580",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Esparraguera, España",
+      "discovery": "First current ficha offer",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/zXwAAOSw13hlTQQl/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/iF0AAOSwVkdlTQQl/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/8IsAAOSw00BlTQQl/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-53987",
+      "item": "336629629491",
+      "sourceUrl": "https://www.ebay.es/itm/336629629491",
+      "title": "VECINOS INVASORES . Pal España . Envio Certificado",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Logroño, España",
+      "discovery": "Expanded native search after combined photos in multi-variation listing",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/33kAAeSwlzNpgeaV/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/1J4AAeSwUnlpgeaV/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/-j0AAeSwCZZpgeaV/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/kJ0AAeSwea1pgeaV/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-52697",
+      "item": "357569471619",
+      "sourceUrl": "https://www.ebay.es/itm/357569471619",
+      "title": "JUEGO PLAYSTATION 2 MANAGER DE LIGA 2005",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Beniajan, España",
+      "discovery": "Expanded native exact-title search after ficha candidate only one photo",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/JCYAAeSwKntoubSy/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/GfAAAeSwNOFoubSy/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/i6oAAeSwgf5oubSz/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-52136",
+      "item": "363674612244",
+      "sourceUrl": "https://www.ebay.es/itm/363674612244",
+      "title": "PS2 - Hitman Contracts (PAL España) | Completo",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Alcorcón, España",
+      "discovery": "Expanded web search",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/KoMAAOSwMgFhzzrL/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/XQcAAOSwYHNhzzrQ/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-50471",
+      "item": "376076813273",
+      "sourceUrl": "https://www.ebay.es/itm/376076813273",
+      "title": "FIFA football 2002 PS2 PlayStation sealed",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: CHICLANA DE LA FRONTERA, España",
+      "discovery": "FIFA offers in regional ficha",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/iD8AAOSwQqBn2D6m/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/~GIAAOSwbIVn2D6n/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/Pv4AAOSwu9Nn4yKq/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-52136",
+      "item": "376828035504",
+      "sourceUrl": "https://www.ebay.es/itm/376828035504",
+      "title": "Hitman: Contracts | PlayStation2 PS2 | PAL España ES | Completo",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: L'Hospitalet de Llobregat, España",
+      "discovery": "First offer currently displayed on regional ficha",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/xBEAAeSw3mZpV5Dp/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/RG4AAeSwAAVpV5Dr/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/yjwAAeSwzqlpV5Dp/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/eqMAAeSwMMhpV5Dq/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-53498",
+      "item": "395791127360",
+      "sourceUrl": "https://www.ebay.es/itm/395791127360",
+      "title": "Juego PS2 -BOB ESPONJA Luces ,Cámara ,Esponja!Pal Esp PlayStation 2 Buen Estado!",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: Riquer Alto, España (public original listing text returned by web search; current page is ended)",
+      "listingStatus": "ended",
+      "discovery": "Additional search after the pilot's only live Spanish listing showed the disc alone",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/TjMAAOSw9EtnClzj/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/J~wAAOSwYzRnClzl/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/Dw8AAOSw3LVnClzo/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/HMEAAOSwlTdnClzp/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/LgYAAOSwgyxnClzr/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/~pUAAOSwo1lnClzt/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-54933",
+      "item": "396818192118",
+      "sourceUrl": "https://www.ebay.es/itm/396818192118",
+      "title": "NBA Live 08 PS2 (SP) (PO1377)",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Griñon, España",
+      "discovery": "First offer on regional ficha",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/hNUAAeSwso9oZtTj/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/fPAAAeSwfAtoZtTj/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/X8gAAeSwRGJoZtTj/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/oxIAAeSwCdVoZtTj/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/nOoAAeSwrd1oZtTk/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/sKAAAeSwkXtoZtTk/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "405317725223",
+      "sourceUrl": "https://www.ebay.es/itm/405317725223",
+      "title": "BUZZ EL GRAN RETO PARA LA SONY PS2 SIN BUZZERS EN BUEN ESTADO",
+      "originCountry": "ES",
+      "originEvidence": "Ubicado en: L'Hospitalet de Llobregat, Barcelona, España",
+      "discovery": "Expanded native search",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/OAMAAOSwaoBdphl~/s-l1600.webp"
+      ]
+    },
+    {
+      "game": "ps2-es-sles-55001",
+      "item": "406821225470",
+      "sourceUrl": "https://www.ebay.es/itm/406821225470",
+      "title": "Mercenaries 2 Worlds in Flames Playstation 2 PS2 PAL ESP",
+      "originCountry": "Spain",
+      "originEvidence": "Ubicado en: Madrid, España",
+      "discovery": "Regional ficha fifth offer; first two only one photo, third explicitly UK",
+      "observedAt": "2026-09-11",
+      "images": [
+        "https://i.ebayimg.com/images/g/4yEAAeSwf7JpzY9Z/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/F28AAeSw8UdpzY9a/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/3NQAAeSwaO1pzY9a/s-l1600.webp"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "catalogId": "ps2-it-sles-54883",
+      "assetId": "ebay-127713197928-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/alone-in-the-dark-sles-54883-ps2-pal-it-127713197928-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/127713197928",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/2QwAAeSwWPpppO-q/s-l1600.webp",
+      "sha256": "144b6d219dbd7faad4be89d2378c12a64b1a4996368a153638eedd6058b7b250",
+      "bytes": 187386,
+      "width": 1200,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-it-sles-54883",
+      "assetId": "ebay-127713197928-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/alone-in-the-dark-sles-54883-ps2-pal-it-127713197928-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/127713197928",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/7isAAeSwKpFppO-q/s-l1600.webp",
+      "sha256": "603df0ddbd2d18f8d9bd7dc8b8204ea77baf8ef66f53e91e03c4786df379d14e",
+      "bytes": 209022,
+      "width": 1200,
+      "height": 1600,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sces-50971",
+      "assetId": "ebay-287563637631-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/kingdom-hearts-sces-50971-ps2-pal-es-287563637631-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/287563637631",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/2xkAAeSwMk1qmdX6/s-l1600.webp",
+      "sha256": "87d6618b33bed7190cbb9dcf7756f57af9cadbd66e8a0c2a4e62212c859eb404",
+      "bytes": 112128,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sces-50971",
+      "assetId": "ebay-287563637631-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/kingdom-hearts-sces-50971-ps2-pal-es-287563637631-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/287563637631",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/~lYAAeSwpfhqmdX7/s-l1600.webp",
+      "sha256": "9ba0cf67d8331db47bc71ec1b09c32b67472ea5d92add67162c20f2e71310994",
+      "bytes": 128308,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 3,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-53498",
+      "assetId": "ebay-395791127360-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/bob-esponja-luces-camara-esponja-sles-53498-ps2-pal-es-395791127360-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/395791127360",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/TjMAAOSw9EtnClzj/s-l1600.webp",
+      "sha256": "4a114b686632e7a7fd49088b52491cbf9dd926600a0f6844e59ab8691824f954",
+      "bytes": 246950,
+      "width": 1600,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-53498",
+      "assetId": "ebay-395791127360-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/bob-esponja-luces-camara-esponja-sles-53498-ps2-pal-es-395791127360-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/395791127360",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/J~wAAOSwYzRnClzl/s-l1600.webp",
+      "sha256": "5c70e81b7e68aa0358acfbcacc379696911c8f494ea9cbf4ea2bef4baf5de6ce",
+      "bytes": 375458,
+      "width": 1600,
+      "height": 1600,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-53575",
+      "assetId": "ebay-227134458655-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/bratz-rock-angelz-sles-53575-ps2-pal-es-227134458655-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/227134458655",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/rnwAAeSweiBpQZ9R/s-l1600.webp",
+      "sha256": "42434c091a35a0f3c175def1c5b17fea8bed014ce95d03b4da0f90ba32f55c67",
+      "bytes": 291422,
+      "width": 1600,
+      "height": 1200,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-53575",
+      "assetId": "ebay-227134458655-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/bratz-rock-angelz-sles-53575-ps2-pal-es-227134458655-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/227134458655",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/gaoAAeSwIolpQZ9R/s-l1600.webp",
+      "sha256": "5991678b8deb642f0dd7f30f64e46bf96e0b2b5fad72e076c80f4f4bc07afa05",
+      "bytes": 297350,
+      "width": 1600,
+      "height": 1200,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sces-53884",
+      "assetId": "ebay-405317725223-portada-y-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/buzz-el-gran-reto-sces-53884-ps2-pal-es-405317725223-portada-y-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/405317725223",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/OAMAAOSwaoBdphl~/s-l1600.webp",
+      "sha256": "ec3fb17a3da94cc85536434d2f6343f22243ab4fe13f5173499f0f0724da294d",
+      "bytes": 341404,
+      "width": 1600,
+      "height": 1200,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "combined"
+    },
+    {
+      "catalogId": "ps2-es-sles-53987",
+      "assetId": "ebay-336629629491-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/dreamworks-vecinos-invasores-sles-53987-ps2-pal-es-336629629491-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/336629629491",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/33kAAeSwlzNpgeaV/s-l1600.webp",
+      "sha256": "0f81d7ac48ea950f51c0897135214061da92d66753ed47dc94167809d4649a74",
+      "bytes": 261206,
+      "width": 1600,
+      "height": 1200,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-53987",
+      "assetId": "ebay-336629629491-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/dreamworks-vecinos-invasores-sles-53987-ps2-pal-es-336629629491-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/336629629491",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/1J4AAeSwUnlpgeaV/s-l1600.webp",
+      "sha256": "ddaafb1bb4ebb748c89f6337fd85156f823f671fac9d0ad652116a05dc9a7014",
+      "bytes": 285250,
+      "width": 1600,
+      "height": 1200,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-50471",
+      "assetId": "ebay-286865931297-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/fifa-football-2002-sles-50471-ps2-pal-es-286865931297-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/286865931297",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/MYUAAeSwUBVo5rgL/s-l1600.webp",
+      "sha256": "eb48de37351b7b0cb48e25ee90349af9599a6aa45c57e4ec1143e2c251d30497",
+      "bytes": 77984,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-50471",
+      "assetId": "ebay-286865931297-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/fifa-football-2002-sles-50471-ps2-pal-es-286865931297-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/286865931297",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/IlsAAeSwhjxo5rgM/s-l1600.webp",
+      "sha256": "42c8071e76d763454a72f2a7256bf08974100572b9c020d093d3137fdb424661",
+      "bytes": 154850,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 3,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-51195",
+      "assetId": "ebay-125136359233-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/harry-potter-y-la-camara-secreta-sles-51195-ps2-pal-es-125136359233-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/125136359233",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/mQMAAOSwFPFiAGK-/s-l1600.webp",
+      "sha256": "66d3af1b9b4815a74dad9b4662492c1e95d2a04a09dcea68efed21bb11f9bace",
+      "bytes": 325632,
+      "width": 1130,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-51195",
+      "assetId": "ebay-125136359233-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/harry-potter-y-la-camara-secreta-sles-51195-ps2-pal-es-125136359233-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/125136359233",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/XqwAAOSwZPBiAGLH/s-l1600.webp",
+      "sha256": "45cef6129d03d548e021dd6f26321e298bdb26cb7aec11b2604e9c7cc1009340",
+      "bytes": 291210,
+      "width": 1135,
+      "height": 1600,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-52136",
+      "assetId": "ebay-286850274385-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/hitman-contracts-sles-52136-ps2-pal-es-286850274385-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/286850274385",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/svUAAeSwpMNo3Dvf/s-l1600.webp",
+      "sha256": "afc7b36248f2c41f53635b9e773438fc00a643c4164fb01ffeb71185b4ea2171",
+      "bytes": 69390,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-52136",
+      "assetId": "ebay-286850274385-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/hitman-contracts-sles-52136-ps2-pal-es-286850274385-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/286850274385",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/nuoAAeSwvZdo3Dvf/s-l1600.webp",
+      "sha256": "d6b61d03ad372f0719b43a3632a29649db69f414fc1050af69b87f9f430a99d2",
+      "bytes": 117526,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 3,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-54235",
+      "assetId": "ebay-147542023369-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/kingdom-hearts-ii-sles-54235-ps2-pal-es-147542023369-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/147542023369",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/BkoAAOSwuFFkQsl3/s-l1600.webp",
+      "sha256": "fcb2b229b51bfbc771211562fd0ae4a61abd85f8815ba73f5dd74df46188aea0",
+      "bytes": 77908,
+      "width": 753,
+      "height": 737,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-54235",
+      "assetId": "ebay-147542023369-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/kingdom-hearts-ii-sles-54235-ps2-pal-es-147542023369-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/147542023369",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/v7kAAOSw7uBkQsmE/s-l1600.webp",
+      "sha256": "253d229640122a0662a08d927f5da6314cbe290795d1bda234641056bb305ccc",
+      "bytes": 92172,
+      "width": 634,
+      "height": 737,
+      "sourcePhotoIndex": 3,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-52282",
+      "assetId": "ebay-287099767076-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/mafia-sles-52282-ps2-pal-es-287099767076-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/287099767076",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/qewAAeSwD7JpdosH/s-l1600.webp",
+      "sha256": "17ec268187ff44574898adce1b2e0f1986c25d545ab218b5bb9c9b88f7e8f422",
+      "bytes": 81054,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-52282",
+      "assetId": "ebay-287099767076-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/mafia-sles-52282-ps2-pal-es-287099767076-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/287099767076",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/RYoAAeSwdUJpdosI/s-l1600.webp",
+      "sha256": "bdded8d4839b35a868bf6e866816485ffad0cc540c7c35725c9ede2eebaee55a",
+      "bytes": 115872,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 3,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-51027",
+      "assetId": "ebay-323782367831-portada-con-disco",
+      "url": "/catalog-covers/ps2/fotos-verificadas/manager-de-liga-2003-sles-51027-ps2-pal-es-323782367831-portada-con-disco.webp",
+      "sourceUrl": "https://www.ebay.es/itm/323782367831?var=516017596878",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/VPEAAeSwhi5qKZtb/s-l1600.webp",
+      "sha256": "8428a48e1e2e197c100ac6d15bb11afcdaf787b5e91b0b5c1e47cdcc3aae1fdb",
+      "bytes": 353248,
+      "width": 1600,
+      "height": 1204,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "galleryFront"
+    },
+    {
+      "catalogId": "ps2-es-sles-51027",
+      "assetId": "ebay-323782367831-contraportada-con-disco",
+      "url": "/catalog-covers/ps2/fotos-verificadas/manager-de-liga-2003-sles-51027-ps2-pal-es-323782367831-contraportada-con-disco.webp",
+      "sourceUrl": "https://www.ebay.es/itm/323782367831?var=516017596878",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/XCcAAeSwuk1qKZta/s-l1600.webp",
+      "sha256": "63c9e6c7326a886956918cef31e76912edabe6869f31c37d9a2415d2ed8c8123",
+      "bytes": 382482,
+      "width": 1600,
+      "height": 1204,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "galleryBack"
+    },
+    {
+      "catalogId": "ps2-es-sles-52697",
+      "assetId": "ebay-357569471619-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/manager-de-liga-2005-sles-52697-ps2-pal-es-357569471619-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/357569471619",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/JCYAAeSwKntoubSy/s-l1600.webp",
+      "sha256": "fbcdf337487c1f51bb19338e16825e6b816a4c9b7ee2f7d9c0768b270d4efa26",
+      "bytes": 140612,
+      "width": 1204,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-52697",
+      "assetId": "ebay-357569471619-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/manager-de-liga-2005-sles-52697-ps2-pal-es-357569471619-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/357569471619",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/GfAAAeSwNOFoubSy/s-l1600.webp",
+      "sha256": "d5e8e803779283250c7d51f3d78e73c0142a19f46a23c8b8462b115cfc8f2c10",
+      "bytes": 193906,
+      "width": 1204,
+      "height": 1600,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-55001",
+      "assetId": "ebay-287382525542-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/mercenaries-2-world-in-flames-sles-55001-ps2-pal-es-287382525542-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/287382525542",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/UTsAAeSwFkhqJyjo/s-l1600.webp",
+      "sha256": "42ae3e11377811e2df4c2788921ece557ac407920ab65854fb557d4f4ebc4006",
+      "bytes": 157172,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-55001",
+      "assetId": "ebay-287382525542-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/mercenaries-2-world-in-flames-sles-55001-ps2-pal-es-287382525542-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/287382525542",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/SAEAAeSwkf9qJyjp/s-l1600.webp",
+      "sha256": "c5baa9c17588dc0cbd22533e0ace395b8f44133dbc5de6697181f328bf31d6e4",
+      "bytes": 154436,
+      "width": 747,
+      "height": 1600,
+      "sourcePhotoIndex": 3,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-53581",
+      "assetId": "ebay-324776566503-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-06-sles-53581-ps2-pal-es-324776566503-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/324776566503",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/d78AAOSwdFxhMmST/s-l1600.webp",
+      "sha256": "1382e0d7c60ff70f2860944b11cd22ebd75417fd575a728e3280f2a9cfd95089",
+      "bytes": 150024,
+      "width": 1200,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-53581",
+      "assetId": "ebay-324776566503-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-06-sles-53581-ps2-pal-es-324776566503-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/324776566503",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/XEcAAOSwIp5hMmSW/s-l1600.webp",
+      "sha256": "4f019eece83cf64aa1c79fb7dcf485ed131530a2a7a21fe6324cb5ae9088fbba",
+      "bytes": 246858,
+      "width": 1200,
+      "height": 1600,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-54251",
+      "assetId": "ebay-226505370467-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-07-sles-54251-ps2-pal-es-226505370467-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/226505370467",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/bQQAAOSwJ0VnZU~I/s-l1600.webp",
+      "sha256": "622192628cdf3be643bb27b8e12d1fc3700552187fdca2928c18dd51dff66ab9",
+      "bytes": 96266,
+      "width": 1600,
+      "height": 1066,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-54251",
+      "assetId": "ebay-226505370467-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-07-sles-54251-ps2-pal-es-226505370467-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/226505370467",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/dOEAAOSws1FnZU~Z/s-l1600.webp",
+      "sha256": "64314b2601de8fb8552b52faa29635c1dcc036467eb5ecb081fcc39e15681642",
+      "bytes": 131550,
+      "width": 1600,
+      "height": 1066,
+      "sourcePhotoIndex": 3,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-54933",
+      "assetId": "ebay-396818192118-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-08-sles-54933-ps2-pal-es-396818192118-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/396818192118",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/hNUAAeSwso9oZtTj/s-l1600.webp",
+      "sha256": "7554bc86afb03fee8bb5f2c67d9ee377dd3e64effeb12ab88e68dd28d7dc8c6f",
+      "bytes": 434320,
+      "width": 1200,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-54933",
+      "assetId": "ebay-396818192118-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-08-sles-54933-ps2-pal-es-396818192118-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/396818192118",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/X8gAAeSwRGJoZtTj/s-l1600.webp",
+      "sha256": "c642262ebd75d9b02f2f787c118888bd66e930a9527a245e88286b4f7de57978",
+      "bytes": 583220,
+      "width": 1200,
+      "height": 1600,
+      "sourcePhotoIndex": 3,
+      "selectedRole": "back"
+    },
+    {
+      "catalogId": "ps2-es-sles-55337",
+      "assetId": "ebay-284713143952-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-09-sles-55337-ps2-pal-es-284713143952-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/284713143952",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/7~QAAOSwfbFiNuvB/s-l1600.webp",
+      "sha256": "83fc09fc1e1c89cb49260d2b7057d9c630dfb8b5da8d9e693865e0bf2bb67d3b",
+      "bytes": 173782,
+      "width": 1200,
+      "height": 1600,
+      "sourcePhotoIndex": 1,
+      "selectedRole": "front"
+    },
+    {
+      "catalogId": "ps2-es-sles-55337",
+      "assetId": "ebay-284713143952-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-09-sles-55337-ps2-pal-es-284713143952-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/284713143952",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/T4QAAOSwHr9iNuvo/s-l1600.webp",
+      "sha256": "a0cd0108091d929f0460daeca4e8188940720aa2600a3ad30694a713b6129afa",
+      "bytes": 378940,
+      "width": 1200,
+      "height": 1600,
+      "sourcePhotoIndex": 2,
+      "selectedRole": "back"
+    }
+  ]
+}
