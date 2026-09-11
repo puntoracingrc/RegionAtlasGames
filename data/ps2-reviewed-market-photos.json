@@ -14,7 +14,7 @@
           "SLES-53575"
         ]
       },
-      "primaryAssetId": null,
+      "primaryAssetId": "ebay-227134458655-portada",
       "graphics": [
         {
           "assetId": "ebay-166611671500-portada-y-contraportada",
@@ -46,12 +46,84 @@
             "scope": "observed_specimen_packaging",
             "factoryAssemblyVerified": false
           }
+        },
+        {
+          "assetId": "ebay-227134458655-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/227134458655",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/rnwAAeSweiBpQZ9R/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-227134458655",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/bratz-rock-angelz-sles-53575-ps2-pal-es-227134458655-portada.webp",
+          "sha256": "42434c091a35a0f3c175def1c5b17fea8bed014ce95d03b4da0f90ba32f55c67",
+          "width": 1600,
+          "height": 1200,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53575"
+            ],
+            "serialEvidenceSurface": "disc_photo_4",
+            "barcode": "4005209070072",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-227134458655-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/227134458655",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/gaoAAeSwIolpQZ9R/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-227134458655",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/bratz-rock-angelz-sles-53575-ps2-pal-es-227134458655-contraportada.webp",
+          "sha256": "5991678b8deb642f0dd7f30f64e46bf96e0b2b5fad72e076c80f4f4bc07afa05",
+          "width": 1600,
+          "height": 1200,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53575"
+            ],
+            "serialEvidenceSurface": "disc_photo_4",
+            "barcode": "4005209070072",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
         }
       ],
       "sources": [
         {
           "label": "eBay · fotografías del anuncio 166611671500",
           "url": "https://www.ebay.es/itm/166611671500"
+        },
+        {
+          "label": "eBay · fotografías del anuncio 227134458655",
+          "url": "https://www.ebay.es/itm/227134458655"
         }
       ],
       "findings": [
@@ -67,6 +139,19 @@
               "sourceUrl": "https://www.ebay.es/itm/166611671500"
             }
           ]
+        },
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-53575",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal individual estándar y reverso español del mismo ejemplar. El reverso muestra EAN 4005209070072 y la afirmación del envase «Totalmente en castellano». En la foto 4 se lee SLES-53575 sobre el disco; la foto 3 muestra un manual con portada titulada Manual de instrucciones. No se certifica el ensamblaje de fábrica. Completa el frontal individual que faltaba en el piloto.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "227134458655",
+              "sourceUrl": "https://www.ebay.es/itm/227134458655"
+            }
+          ]
         }
       ],
       "packagingEvidence": {
@@ -75,10 +160,13 @@
             "SLES-53575"
           ],
           "barcode": "4005209070072",
-          "market": "Spain"
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
         },
         "source": "ebay-manual-visual-review",
-        "sourceUrl": "https://www.ebay.es/itm/166611671500",
+        "sourceUrl": "https://www.ebay.es/itm/227134458655",
         "verifiedAt": "2026-09-11",
         "confidence": "high",
         "scope": "observed_specimen_packaging_not_factory_assembly"
@@ -654,6 +742,2011 @@
         },
         "source": "ebay-manual-visual-review",
         "sourceUrl": "https://www.ebay.es/itm/168338841550",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-it-sles-54883": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "IT",
+        "marketRegion": "Italy",
+        "edition": "standard",
+        "canonicalSeoSlug": "alone-in-the-dark-sles-54883-ps2-pal-it",
+        "canonicalSerials": [
+          "SLES-54883"
+        ]
+      },
+      "primaryAssetId": "ebay-127713197928-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-127713197928-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/127713197928",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/2QwAAeSwWPpppO-q/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-127713197928",
+          "marketHints": [
+            "IT"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/alone-in-the-dark-sles-54883-ps2-pal-it-127713197928-portada.webp",
+          "sha256": "144b6d219dbd7faad4be89d2378c12a64b1a4996368a153638eedd6058b7b250",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [],
+            "barcode": "3546430124420",
+            "boxLanguages": [
+              "Italiano"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-127713197928-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/127713197928",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/7isAAeSwKpFppO-q/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-127713197928",
+          "marketHints": [
+            "IT"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/alone-in-the-dark-sles-54883-ps2-pal-it-127713197928-contraportada.webp",
+          "sha256": "603df0ddbd2d18f8d9bd7dc8b8204ea77baf8ef66f53e91e03c4786df379d14e",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [],
+            "barcode": "3546430124420",
+            "boxLanguages": [
+              "Italiano"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 127713197928",
+          "url": "https://www.ebay.es/itm/127713197928"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-it-sles-54883",
+          "title": "Caja italiana fotografiada",
+          "observation": "Portada y contraportada del mismo ejemplar PAL Italia. El reverso contiene textos y bandera italianos; muestra 3546430124420. El frontal es la edición estándar de Alone in the Dark de PS2, con PEGI 16 y Atari. La identificación regional del frontal procede del reverso del mismo ejemplar. La foto interior confirma el título en disco y manual; no se ha transcrito un serial legible desde estas fotos.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "127713197928",
+              "sourceUrl": "https://www.ebay.es/itm/127713197928"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [],
+          "barcode": "3546430124420",
+          "market": "Italy",
+          "boxLanguages": [
+            "Italiano"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/127713197928",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sces-50971": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "kingdom-hearts-sces-50971-ps2-pal-es",
+        "canonicalSerials": [
+          "SCES-50971"
+        ]
+      },
+      "primaryAssetId": "ebay-287563637631-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-287563637631-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/287563637631",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/2xkAAeSwMk1qmdX6/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-287563637631",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/kingdom-hearts-sces-50971-ps2-pal-es-287563637631-portada.webp",
+          "sha256": "87d6618b33bed7190cbb9dcf7756f57af9cadbd66e8a0c2a4e62212c859eb404",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SCES-50971"
+            ],
+            "barcode": "711719395423",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-287563637631-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/287563637631",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/~lYAAeSwpfhqmdX7/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-287563637631",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/kingdom-hearts-sces-50971-ps2-pal-es-287563637631-contraportada.webp",
+          "sha256": "9ba0cf67d8331db47bc71ec1b09c32b67472ea5d92add67162c20f2e71310994",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SCES-50971"
+            ],
+            "barcode": "711719395423",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 287563637631",
+          "url": "https://www.ebay.es/itm/287563637631"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sces-50971",
+          "title": "Caja española fotografiada",
+          "observation": "Edición estándar con banda negra PlayStation 2 y clasificación aDeSe TP. El lomo fotografiado muestra SCES-50971; el reverso español lleva 711719395423. Frontal y reverso pertenecen al mismo ejemplar. La pegatina de Sony Computer Entertainment España se conserva como elemento de esta unidad.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "287563637631",
+              "sourceUrl": "https://www.ebay.es/itm/287563637631"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SCES-50971"
+          ],
+          "barcode": "711719395423",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/287563637631",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-53498": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "bob-esponja-luces-camara-esponja-sles-53498-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-53498"
+        ]
+      },
+      "primaryAssetId": "ebay-395791127360-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-395791127360-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/395791127360",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/TjMAAOSw9EtnClzj/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-395791127360",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/bob-esponja-luces-camara-esponja-sles-53498-ps2-pal-es-395791127360-portada.webp",
+          "sha256": "4a114b686632e7a7fd49088b52491cbf9dd926600a0f6844e59ab8691824f954",
+          "width": 1600,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53498"
+            ],
+            "serialEvidenceSurface": "disc_photo_4",
+            "barcode": "4005209070270",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-395791127360-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/395791127360",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/J~wAAOSwYzRnClzl/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-395791127360",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/bob-esponja-luces-camara-esponja-sles-53498-ps2-pal-es-395791127360-contraportada.webp",
+          "sha256": "5c70e81b7e68aa0358acfbcacc379696911c8f494ea9cbf4ea2bef4baf5de6ce",
+          "width": 1600,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53498"
+            ],
+            "serialEvidenceSurface": "disc_photo_4",
+            "barcode": "4005209070270",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 395791127360",
+          "url": "https://www.ebay.es/itm/395791127360"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-53498",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal estándar PAL y reverso del mismo ejemplar con texto español, bandera de España y la indicación del envase «Totalmente en castellano». El disco de la foto 4 muestra SLES-53498. El reverso lleva EAN 4005209070270. La frase de idioma se conserva como afirmación del envase, sin inferir por separado voces ni subtítulos. Anuncio finalizado; origen España documentado en texto público original indexado.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "395791127360",
+              "sourceUrl": "https://www.ebay.es/itm/395791127360"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-53498"
+          ],
+          "barcode": "4005209070270",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/395791127360",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sces-53884": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "buzz-el-gran-reto-sces-53884-ps2-pal-es",
+        "canonicalSerials": [
+          "SCES-53884"
+        ]
+      },
+      "primaryAssetId": null,
+      "graphics": [
+        {
+          "assetId": "ebay-405317725223-portada-y-contraportada",
+          "roles": [
+            "front_cover",
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/405317725223",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/OAMAAOSwaoBdphl~/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-405317725223",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/buzz-el-gran-reto-sces-53884-ps2-pal-es-405317725223-portada-y-contraportada.webp",
+          "sha256": "ec3fb17a3da94cc85536434d2f6343f22243ab4fe13f5173499f0f0724da294d",
+          "width": 1600,
+          "height": 1200,
+          "layout": "listing_packaging_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SCES-53884"
+            ],
+            "serialEvidenceSurface": "spine_photo_1",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 405317725223",
+          "url": "https://www.ebay.es/itm/405317725223"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sces-53884",
+          "title": "Caja española fotografiada",
+          "observation": "Caja española con código de barras visible y lomo SCES-53884, sin el aviso Prohibida la venta por separado; frontal indica que se necesita un juego de pulsadores. La única fotografía reúne portada, lomo, reverso, manual y disco. Se conserva como galería del ejemplar, todavía sin frontal individual para imagen principal. No se transcribe el código de barras porque sus dígitos no se leen con seguridad.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "405317725223",
+              "sourceUrl": "https://www.ebay.es/itm/405317725223"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SCES-53884"
+          ],
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/405317725223",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-53987": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "dreamworks-vecinos-invasores-sles-53987-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-53987"
+        ]
+      },
+      "primaryAssetId": "ebay-336629629491-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-336629629491-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/336629629491",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/33kAAeSwlzNpgeaV/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-336629629491",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/dreamworks-vecinos-invasores-sles-53987-ps2-pal-es-336629629491-portada.webp",
+          "sha256": "0f81d7ac48ea950f51c0897135214061da92d66753ed47dc94167809d4649a74",
+          "width": 1600,
+          "height": 1200,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53987"
+            ],
+            "serialEvidenceSurface": "disc_photo_4",
+            "barcode": "5030917034893",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-336629629491-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/336629629491",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/1J4AAeSwUnlpgeaV/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-336629629491",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/dreamworks-vecinos-invasores-sles-53987-ps2-pal-es-336629629491-contraportada.webp",
+          "sha256": "ddaafb1bb4ebb748c89f6337fd85156f823f671fac9d0ad652116a05dc9a7014",
+          "width": 1600,
+          "height": 1200,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53987"
+            ],
+            "serialEvidenceSurface": "disc_photo_4",
+            "barcode": "5030917034893",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 336629629491",
+          "url": "https://www.ebay.es/itm/336629629491"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-53987",
+          "title": "Caja española fotografiada",
+          "observation": "Portada individual estándar con título español e indicación del envase Completamente en castellano. Reverso español del mismo ejemplar, EAN 5030917034893 y referencia 81451.202.SP. Disco fotografiado con SLES-53987. La región del embalaje no se extrapola a otros ejemplares.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "336629629491",
+              "sourceUrl": "https://www.ebay.es/itm/336629629491"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-53987"
+          ],
+          "barcode": "5030917034893",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/336629629491",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-50471": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "fifa-football-2002-sles-50471-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-50471"
+        ]
+      },
+      "primaryAssetId": "ebay-286865931297-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-286865931297-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/286865931297",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/MYUAAeSwUBVo5rgL/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-286865931297",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/fifa-football-2002-sles-50471-ps2-pal-es-286865931297-portada.webp",
+          "sha256": "eb48de37351b7b0cb48e25ee90349af9599a6aa45c57e4ec1143e2c251d30497",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-50471"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5030934027281",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-286865931297-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/286865931297",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/IlsAAeSwhjxo5rgM/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-286865931297",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/fifa-football-2002-sles-50471-ps2-pal-es-286865931297-contraportada.webp",
+          "sha256": "42c8071e76d763454a72f2a7256bf08974100572b9c020d093d3137fdb424661",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-50471"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5030934027281",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 286865931297",
+          "url": "https://www.ebay.es/itm/286865931297"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-50471",
+          "title": "Caja española fotografiada",
+          "observation": "Ejemplar estándar PAL España con Iker Casillas, aDeSe TP y Totalmente en castellano en el frontal. Lomo SLES-50471; reverso EAN 5030934027281. La tabla impresa señala manual, textos y voces en español; el reverso cita comentarios de Manolo Lama y Paco González. Se conservan las pegatinas visibles del ejemplar.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "286865931297",
+              "sourceUrl": "https://www.ebay.es/itm/286865931297"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-50471"
+          ],
+          "barcode": "5030934027281",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/286865931297",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-51195": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "harry-potter-y-la-camara-secreta-sles-51195-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-51195"
+        ]
+      },
+      "primaryAssetId": "ebay-125136359233-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-125136359233-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/125136359233",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/mQMAAOSwFPFiAGK-/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-125136359233",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/harry-potter-y-la-camara-secreta-sles-51195-ps2-pal-es-125136359233-portada.webp",
+          "sha256": "66d3af1b9b4815a74dad9b4662492c1e95d2a04a09dcea68efed21bb11f9bace",
+          "width": 1130,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-51195"
+            ],
+            "serialEvidenceSurface": "spine_photo_3",
+            "barcode": "5030934031196",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-125136359233-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/125136359233",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/XqwAAOSwZPBiAGLH/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-125136359233",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/harry-potter-y-la-camara-secreta-sles-51195-ps2-pal-es-125136359233-contraportada.webp",
+          "sha256": "45cef6129d03d548e021dd6f26321e298bdb26cb7aec11b2604e9c7cc1009340",
+          "width": 1135,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-51195"
+            ],
+            "serialEvidenceSurface": "spine_photo_3",
+            "barcode": "5030934031196",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 125136359233",
+          "url": "https://www.ebay.es/itm/125136359233"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-51195",
+          "title": "Caja española fotografiada",
+          "observation": "Caja estándar con título español, aDeSe TP y Totalmente en castellano. Lomo SLES-51195; reverso español EAN 5030934031196. La tabla del envase indica manual, textos y voces en español. Se conserva el envoltorio visible sin certificar su precinto de fábrica.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "125136359233",
+              "sourceUrl": "https://www.ebay.es/itm/125136359233"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-51195"
+          ],
+          "barcode": "5030934031196",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/125136359233",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-52136": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "hitman-contracts-sles-52136-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-52136"
+        ]
+      },
+      "primaryAssetId": "ebay-286850274385-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-286850274385-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/286850274385",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/svUAAeSwpMNo3Dvf/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-286850274385",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/hitman-contracts-sles-52136-ps2-pal-es-286850274385-portada.webp",
+          "sha256": "afc7b36248f2c41f53635b9e773438fc00a643c4164fb01ffeb71185b4ea2171",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52136"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5032921020343",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-286850274385-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/286850274385",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/nuoAAeSwvZdo3Dvf/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-286850274385",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/hitman-contracts-sles-52136-ps2-pal-es-286850274385-contraportada.webp",
+          "sha256": "d6b61d03ad372f0719b43a3632a29649db69f414fc1050af69b87f9f430a99d2",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52136"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5032921020343",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 286850274385",
+          "url": "https://www.ebay.es/itm/286850274385"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-52136",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal estándar con Totalmente en castellano, reverso español y bandera de España. Lomo SLES-52136 y EAN 5032921020343. Las fotos individuales pertenecen al mismo ejemplar; no se certifica el ensamblaje original de fábrica.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "286850274385",
+              "sourceUrl": "https://www.ebay.es/itm/286850274385"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-52136"
+          ],
+          "barcode": "5032921020343",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/286850274385",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-54235": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "kingdom-hearts-ii-sles-54235-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-54235"
+        ]
+      },
+      "primaryAssetId": "ebay-147542023369-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-147542023369-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/147542023369",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/BkoAAOSwuFFkQsl3/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-147542023369",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/kingdom-hearts-ii-sles-54235-ps2-pal-es-147542023369-portada.webp",
+          "sha256": "fcb2b229b51bfbc771211562fd0ae4a61abd85f8815ba73f5dd74df46188aea0",
+          "width": 753,
+          "height": 737,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-54235"
+            ],
+            "serialEvidenceSurface": "spine_photo_6",
+            "barcode": "5060121825055",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-147542023369-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/147542023369",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/v7kAAOSw7uBkQsmE/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-147542023369",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/kingdom-hearts-ii-sles-54235-ps2-pal-es-147542023369-contraportada.webp",
+          "sha256": "253d229640122a0662a08d927f5da6314cbe290795d1bda234641056bb305ccc",
+          "width": 634,
+          "height": 737,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-54235"
+            ],
+            "serialEvidenceSurface": "spine_photo_6",
+            "barcode": "5060121825055",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 147542023369",
+          "url": "https://www.ebay.es/itm/147542023369"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-54235",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal estándar PAL y reverso español del mismo ejemplar. El lomo muestra SLES-54235 y el reverso EAN 5060121825055. La caja especifica manual, textos de pantalla y subtítulos en castellano, y voces en inglés. Se conserva el envoltorio visible sin certificar precinto de fábrica.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "147542023369",
+              "sourceUrl": "https://www.ebay.es/itm/147542023369"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-54235"
+          ],
+          "barcode": "5060121825055",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/147542023369",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-52282": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "mafia-sles-52282-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-52282"
+        ]
+      },
+      "primaryAssetId": "ebay-287099767076-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-287099767076-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/287099767076",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/qewAAeSwD7JpdosH/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-287099767076",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/mafia-sles-52282-ps2-pal-es-287099767076-portada.webp",
+          "sha256": "17ec268187ff44574898adce1b2e0f1986c25d545ab218b5bb9c9b88f7e8f422",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52282"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5026555301985",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-287099767076-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/287099767076",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/RYoAAeSwdUJpdosI/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-287099767076",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/mafia-sles-52282-ps2-pal-es-287099767076-contraportada.webp",
+          "sha256": "bdded8d4839b35a868bf6e866816485ffad0cc540c7c35725c9ede2eebaee55a",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52282"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5026555301985",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 287099767076",
+          "url": "https://www.ebay.es/itm/287099767076"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-52282",
+          "title": "Caja española fotografiada",
+          "observation": "Caja estándar de PS2 con lomo SLES-52282 y reverso español. EAN 5026555301985; el envase especifica textos y voces en castellano y distribución por Virgin Play. La región del frontal se verifica mediante el reverso del mismo ejemplar.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "287099767076",
+              "sourceUrl": "https://www.ebay.es/itm/287099767076"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-52282"
+          ],
+          "barcode": "5026555301985",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/287099767076",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-51027": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "manager-de-liga-2003-sles-51027-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-51027"
+        ]
+      },
+      "primaryAssetId": null,
+      "graphics": [
+        {
+          "assetId": "ebay-323782367831-portada-con-disco",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/323782367831?var=516017596878",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/VPEAAeSwhi5qKZtb/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-323782367831",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/manager-de-liga-2003-sles-51027-ps2-pal-es-323782367831-portada-con-disco.webp",
+          "sha256": "8428a48e1e2e197c100ac6d15bb11afcdaf787b5e91b0b5c1e47cdcc3aae1fdb",
+          "width": 1600,
+          "height": 1204,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [],
+            "barcode": "5024866321326",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false,
+            "composition": "box_and_disc",
+            "primaryCoverEligible": false
+          }
+        },
+        {
+          "assetId": "ebay-323782367831-contraportada-con-disco",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/323782367831?var=516017596878",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/XCcAAeSwuk1qKZta/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-323782367831",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/manager-de-liga-2003-sles-51027-ps2-pal-es-323782367831-contraportada-con-disco.webp",
+          "sha256": "63c9e6c7326a886956918cef31e76912edabe6869f31c37d9a2415d2ed8c8123",
+          "width": 1600,
+          "height": 1204,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [],
+            "barcode": "5024866321326",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false,
+            "composition": "box_and_disc",
+            "primaryCoverEligible": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 323782367831",
+          "url": "https://www.ebay.es/itm/323782367831?var=516017596878"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-51027",
+          "title": "Caja española fotografiada",
+          "observation": "Variante Manager de Liga 2003 seleccionada explícitamente; fotos 235 y 236 de 238 muestran la misma caja española con disco al lado. La caja indica temporada 2002/2003 y manual, textos y voces en castellano; EAN 5024866321326. Se conserva como galería, sin usar la composición conjunta como portada principal. El serial no se transcribe por falta de lectura segura.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "323782367831",
+              "sourceUrl": "https://www.ebay.es/itm/323782367831?var=516017596878"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [],
+          "barcode": "5024866321326",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/323782367831?var=516017596878",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-52697": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "manager-de-liga-2005-sles-52697-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-52697"
+        ]
+      },
+      "primaryAssetId": "ebay-357569471619-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-357569471619-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/357569471619",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/JCYAAeSwKntoubSy/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-357569471619",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/manager-de-liga-2005-sles-52697-ps2-pal-es-357569471619-portada.webp",
+          "sha256": "fbcdf337487c1f51bb19338e16825e6b816a4c9b7ee2f7d9c0768b270d4efa26",
+          "width": 1204,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52697"
+            ],
+            "serialEvidenceSurface": "disc_photo_3",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-357569471619-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/357569471619",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/GfAAAeSwNOFoubSy/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-357569471619",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/manager-de-liga-2005-sles-52697-ps2-pal-es-357569471619-contraportada.webp",
+          "sha256": "d5e8e803779283250c7d51f3d78e73c0142a19f46a23c8b8462b115cfc8f2c10",
+          "width": 1204,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52697"
+            ],
+            "serialEvidenceSurface": "disc_photo_3",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 357569471619",
+          "url": "https://www.ebay.es/itm/357569471619"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-52697",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal y reverso españoles del mismo ejemplar estándar. Disco fotografiado con SLES-52697. La caja especifica manual, textos y voces en castellano, comentarios de JJ Santos y temporada 2004/05. El EAN está tapado por una etiqueta que se conserva; no se inventa el código.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "357569471619",
+              "sourceUrl": "https://www.ebay.es/itm/357569471619"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-52697"
+          ],
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/357569471619",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-55001": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "mercenaries-2-world-in-flames-sles-55001-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-55001"
+        ]
+      },
+      "primaryAssetId": "ebay-287382525542-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-287382525542-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/287382525542",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/UTsAAeSwFkhqJyjo/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-287382525542",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/mercenaries-2-world-in-flames-sles-55001-ps2-pal-es-287382525542-portada.webp",
+          "sha256": "42ae3e11377811e2df4c2788921ece557ac407920ab65854fb557d4f4ebc4006",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-55001"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5030934059046",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-287382525542-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/287382525542",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/SAEAAeSwkf9qJyjp/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-287382525542",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/mercenaries-2-world-in-flames-sles-55001-ps2-pal-es-287382525542-contraportada.webp",
+          "sha256": "c5baa9c17588dc0cbd22533e0ace395b8f44133dbc5de6697181f328bf31d6e4",
+          "width": 747,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-55001"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5030934059046",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 287382525542",
+          "url": "https://www.ebay.es/itm/287382525542"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-55001",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal y reverso de la misma caja estándar PAL España. Lomo SLES-55001 y EAN 5030934059046. El reverso en español incluye tabla de idioma que indica manual, textos y voces en español.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "287382525542",
+              "sourceUrl": "https://www.ebay.es/itm/287382525542"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-55001"
+          ],
+          "barcode": "5030934059046",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/287382525542",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-53581": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "nba-live-06-sles-53581-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-53581"
+        ]
+      },
+      "primaryAssetId": "ebay-324776566503-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-324776566503-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/324776566503",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/d78AAOSwdFxhMmST/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-324776566503",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-06-sles-53581-ps2-pal-es-324776566503-portada.webp",
+          "sha256": "1382e0d7c60ff70f2860944b11cd22ebd75417fd575a728e3280f2a9cfd95089",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53581"
+            ],
+            "serialEvidenceSurface": "disc_photo_3",
+            "barcode": "5030934045896",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-324776566503-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/324776566503",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/XEcAAOSwIp5hMmSW/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-324776566503",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-06-sles-53581-ps2-pal-es-324776566503-contraportada.webp",
+          "sha256": "4f019eece83cf64aa1c79fb7dcf485ed131530a2a7a21fe6324cb5ae9088fbba",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53581"
+            ],
+            "serialEvidenceSurface": "disc_photo_3",
+            "barcode": "5030934045896",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 324776566503",
+          "url": "https://www.ebay.es/itm/324776566503"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-53581",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal español estándar con Pau Gasol y Totalmente en castellano. Reverso EAN 5030934045896 y tabla que indica manual, textos y voces en español. Disco SLES-53581 fotografiado junto al manual. Se conserva la pegatina de licencia visible.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "324776566503",
+              "sourceUrl": "https://www.ebay.es/itm/324776566503"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-53581"
+          ],
+          "barcode": "5030934045896",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/324776566503",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-54251": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "nba-live-07-sles-54251-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-54251"
+        ]
+      },
+      "primaryAssetId": "ebay-226505370467-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-226505370467-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/226505370467",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/bQQAAOSwJ0VnZU~I/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-226505370467",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-07-sles-54251-ps2-pal-es-226505370467-portada.webp",
+          "sha256": "622192628cdf3be643bb27b8e12d1fc3700552187fdca2928c18dd51dff66ab9",
+          "width": 1600,
+          "height": 1066,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-54251"
+            ],
+            "serialEvidenceSurface": "disc_photo_2",
+            "barcode": "5030934054096",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-226505370467-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/226505370467",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/dOEAAOSws1FnZU~Z/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-226505370467",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-07-sles-54251-ps2-pal-es-226505370467-contraportada.webp",
+          "sha256": "64314b2601de8fb8552b52faa29635c1dcc036467eb5ecb081fcc39e15681642",
+          "width": 1600,
+          "height": 1066,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-54251"
+            ],
+            "serialEvidenceSurface": "disc_photo_2",
+            "barcode": "5030934054096",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 226505370467",
+          "url": "https://www.ebay.es/itm/226505370467"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-54251",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal estándar con Pau Gasol, reverso español EAN 5030934054096 y disco SLES-54251. La tabla del reverso indica manual, textos y voces en español y cita a Sixto Serrano y Antoni Daimiel como comentaristas. La pegatina de licencia de esta unidad se conserva.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "226505370467",
+              "sourceUrl": "https://www.ebay.es/itm/226505370467"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-54251"
+          ],
+          "barcode": "5030934054096",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/226505370467",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-54933": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "nba-live-08-sles-54933-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-54933"
+        ]
+      },
+      "primaryAssetId": "ebay-396818192118-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-396818192118-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/396818192118",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/hNUAAeSwso9oZtTj/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-396818192118",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-08-sles-54933-ps2-pal-es-396818192118-portada.webp",
+          "sha256": "7554bc86afb03fee8bb5f2c67d9ee377dd3e64effeb12ab88e68dd28d7dc8c6f",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-54933"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5030934056243",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-396818192118-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/396818192118",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/X8gAAeSwRGJoZtTj/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-396818192118",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-08-sles-54933-ps2-pal-es-396818192118-contraportada.webp",
+          "sha256": "c642262ebd75d9b02f2f787c118888bd66e930a9527a245e88286b4f7de57978",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-54933"
+            ],
+            "serialEvidenceSurface": "spine_photo_2",
+            "barcode": "5030934056243",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 396818192118",
+          "url": "https://www.ebay.es/itm/396818192118"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-54933",
+          "title": "Caja española fotografiada",
+          "observation": "Portada estándar española de NBA Live 08 con Pau Gasol, lomo SLES-54933 y reverso EAN 5030934056243. La tabla del reverso indica manual, textos y voces en español. Las múltiples banderas del frontal representan equipos del campeonato FIBA y no son prueba de idiomas ni de región comercial.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "396818192118",
+              "sourceUrl": "https://www.ebay.es/itm/396818192118"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-54933"
+          ],
+          "barcode": "5030934056243",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/396818192118",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-55337": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "nba-live-09-sles-55337-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-55337"
+        ]
+      },
+      "primaryAssetId": "ebay-284713143952-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-284713143952-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/284713143952",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/7~QAAOSwfbFiNuvB/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-284713143952",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-09-sles-55337-ps2-pal-es-284713143952-portada.webp",
+          "sha256": "83fc09fc1e1c89cb49260d2b7057d9c630dfb8b5da8d9e693865e0bf2bb67d3b",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-55337"
+            ],
+            "serialEvidenceSurface": "disc_photo_4",
+            "barcode": "5030934067300",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-284713143952-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/284713143952",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/T4QAAOSwHr9iNuvo/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-284713143952",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/nba-live-09-sles-55337-ps2-pal-es-284713143952-contraportada.webp",
+          "sha256": "a0cd0108091d929f0460daeca4e8188940720aa2600a3ad30694a713b6129afa",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-55337"
+            ],
+            "serialEvidenceSurface": "disc_photo_4",
+            "barcode": "5030934067300",
+            "boxLanguages": [
+              "Español"
+            ],
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 284713143952",
+          "url": "https://www.ebay.es/itm/284713143952"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-batches-2-3-20260911-ps2-es-sles-55337",
+          "title": "Caja española fotografiada",
+          "observation": "Frontal estándar de NBA Live 09 con Pau Gasol en uniforme de Lakers. Reverso español EAN 5030934067300 y tabla de manual, textos y voces en español. La foto interior muestra SLES-55337 en el disco junto al manual del mismo título. El uniforme y el año se contrastan para no confundir esta entrega con NBA Live 08.",
+          "engineRule": "Contrastar título, plataforma, año y edición. La región del embalaje se apoya en el reverso del mismo ejemplar; el país de envío sirve para priorizar búsquedas. No extrapolar la región a otros ejemplares ni certificar su ensamblaje de fábrica.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "284713143952",
+              "sourceUrl": "https://www.ebay.es/itm/284713143952"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-55337"
+          ],
+          "barcode": "5030934067300",
+          "market": "Spain",
+          "boxLanguages": [
+            "Español"
+          ]
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/284713143952",
         "verifiedAt": "2026-09-11",
         "confidence": "high",
         "scope": "observed_specimen_packaging_not_factory_assembly"
