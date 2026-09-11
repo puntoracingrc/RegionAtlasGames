@@ -6,9 +6,11 @@ import snes from "../../data/region-research/snes.json";
 import snesDistributions from "../../data/region-research/snes-distributions.json";
 import megadrive from "../../data/region-research/megadrive.json";
 import nes from "../../data/region-research/nes.json";
+import ps2 from "../../data/region-research/ps2.json";
 import { loadMarketplaceCollectorLearning } from "./marketplace-collector-context";
 import { object, scannerEquivalentTitles, scannerText, type ScannerPerception, type ScannerSource } from "./game-scanner";
 import { ps1ScannerKnowledge, type Ps1ScannerIdentity } from "./ps1-scanner-knowledge";
+import { ps2ScannerKnowledge } from "./ps2-scanner-knowledge";
 
 type ResearchEntry = { id: string; text: string; status?: string; sourceIds: string[]; catalogIds?: string[]; distributionVariants?: unknown[] };
 type ResearchDocument = {
@@ -16,7 +18,7 @@ type ResearchDocument = {
   sources: Record<string, { url: string; attribution?: string; kind?: string }>;
   inspectionRules: ResearchEntry[]; gameReferences: ResearchEntry[];
 };
-const documents = [gameboy, gameboyReviewed, snes, snesDistributions, megadrive, nes] as ResearchDocument[];
+const documents = [gameboy, gameboyReviewed, snes, snesDistributions, megadrive, nes, ps2] as ResearchDocument[];
 type CatalogIdentity = Ps1ScannerIdentity & { titlePc?: string | null; listingStatus?: string; catalogKind?: string };
 let identities: Promise<CatalogIdentity[]> | undefined;
 
@@ -67,12 +69,20 @@ export async function loadScannerKnowledge(platformSlug: string, perception: Sca
   const catalog = await identities;
   const ids = exactScannerCatalogIds(catalog, perception, platformSlug);
   const ps1Documentary = platformSlug === "ps1" ? ps1ScannerKnowledge(catalog, perception, ids) : null;
-  const documentary = ps1Documentary ?? scannerDocumentaryKnowledge(platformSlug, ids);
-  const learning = platformSlug === "ps1" ? null : await loadMarketplaceCollectorLearning();
+  const ps2Documentary = platformSlug === "ps2" ? ps2ScannerKnowledge(perception, ids) : null;
+  // Historic PS2 examples named provisional PAL-ES IDs. Their general inspection
+  // rules remain useful; per-game associations must be rebound to the V2 edition.
+  const base = scannerDocumentaryKnowledge(platformSlug, platformSlug === "ps2" ? [] : ids);
+  const documentary = ps1Documentary ?? (ps2Documentary ? {
+    sources: [...base.sources, ...ps2Documentary.sources],
+    entries: [...base.entries, ...ps2Documentary.entries], knownVariantIds: [],
+  } : base);
+  const regionalV2 = platformSlug === "ps1" || platformSlug === "ps2";
+  const learning = regionalV2 ? null : await loadMarketplaceCollectorLearning();
   const examples = [];
   for (const catalogId of ids) {
     // Legacy examples lack the V2 edition/component contract and remain archived until revalidated.
-    if (platformSlug === "ps1") continue;
+    if (regionalV2) continue;
     const game = learning?.games?.[catalogId];
     if (!game) continue;
     // Each regional example stays separate. No reference photos enter the perception call.
@@ -84,8 +94,8 @@ export async function loadScannerKnowledge(platformSlug: string, perception: Sca
   }
   return { ...documentary, examples: examples.slice(0, 24),
     knowledge: { platformGuidance: documentary.entries.length > 0,
-      exactGameMatches: ps1Documentary ? ps1Documentary.consultedIds.length : ids.length,
-      learningAvailable: platformSlug !== "ps1" && learning !== null } };
+      exactGameMatches: (ps1Documentary ?? ps2Documentary)?.consultedIds.length ?? ids.length,
+      learningAvailable: !regionalV2 && learning !== null } };
 }
 
 export function scannerUsageFromResponse(value: unknown) {

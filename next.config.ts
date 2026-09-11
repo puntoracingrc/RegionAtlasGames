@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import catalogRouteRedirectsData from "./data/catalog-route-redirects.json";
 import coverAssetRedirects from "./data/cover-asset-redirects.json";
+import ps2CoverHosting from "./data/ps2-cover-hosting.json";
 
 type CatalogRouteRedirectsData = {
   redirects: Array<{
@@ -65,6 +66,11 @@ const nextConfig: NextConfig = {
       ...catalogRouteRedirects,
       ...coverAssetRedirects,
       {
+        source: "/catalog-covers/ps2/galeria/:path*",
+        destination: `${ps2CoverHosting.origin}/catalog-covers/ps2/galeria/:path*`,
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "regionatlas.games" }],
         destination: "https://www.regionatlas.games/:path*",
@@ -99,6 +105,7 @@ const nextConfig: NextConfig = {
   outputFileTracingExcludes: {
     "/*": [
       "artifacts/ps1-region-migration/**",
+      "artifacts/ps2-region-migration/**",
       "artifacts/ps1-pending-covers/**",
       "data/_catalog_backup_gg.json",
       "data/descriptions/**",
@@ -137,6 +144,8 @@ const nextConfig: NextConfig = {
       "./data/platform-sources.json",
       "./data/region-evidence-rules.json",
       "./data/price-source-weights.json",
+      "./data/ps2-source-knowledge.json.gz",
+      "./data/ps2-edition-evidence.json.gz",
       "./scripts/*.py",
       "./scripts/collectors/*.py",
       "./scripts/remote_price_rotation.sh",

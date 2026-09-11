@@ -37,5 +37,4 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python3 scripts/ps1-regional/verify_reproducibility.py
-      - run: python3 scripts/ps1-regional/build_pending_review.py --check
+      - run: python3 scripts/ps1-regional/verify_historical_stage.py

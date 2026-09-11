@@ -136,7 +136,7 @@ export function getCollectionByPlatform(slug: string): CollectionView[] {
 export function getPlatformStats(slug: string, ownedItems: CollectionView[] = []) {
   const platform = getPlatform(slug);
   const reviewCounts = catalogReviewCounts(listedCatalog.filter((game) => game.platformSlug === slug));
-  const catalogEntryCount = slug === "ps1" ? reviewCounts.documented : meta.listedByPlatform[slug] ?? 0;
+  const catalogEntryCount = ["ps1", "ps2"].includes(slug) ? reviewCounts.documented : meta.listedByPlatform[slug] ?? 0;
   const owned = ownedItems.filter((c) => c.platformSlug === slug).length;
   const estimated = platform?.estimatedCatalogSize ?? 0;
   const completion = estimated > 0 ? Math.round((owned / estimated) * 100) : 0;

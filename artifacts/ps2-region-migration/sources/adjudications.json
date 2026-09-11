@@ -1,0 +1,13 @@
+{
+  "SCKA-20099": {
+    "documentedTitleAliases": [
+      "Yeosin Jeonsaeng Persona 3"
+    ],
+    "sourceUrl": "https://redump.info/disc/93956/",
+    "corroboratingUrl": "https://psxdatacenter.com/psx2/games2/SCKA-20099.html",
+    "imageSha256": "0d6b1b7b765878b4745db27336965c1a94813521bebe4d0d2e4c00f5ea921840",
+    "basis": "Exact code and barcode in both documentary records; Korean back cover inspected, FOR KOREA ONLY. Alias does not validate language claims or factory pairing.",
+    "reviewedAt": "2026-09-11",
+    "independentVisualGroundTruth": false
+  }
+}

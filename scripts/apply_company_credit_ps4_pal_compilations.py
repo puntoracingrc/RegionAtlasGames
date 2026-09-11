@@ -1378,6 +1378,9 @@ def clean_slug(value: str) -> str:
 
 
 def catalog_seo_param(game: dict[str, Any]) -> str:
+    # Regional migrations retain their established public URL explicitly.
+    if game.get("canonicalSeoSlug"):
+        return game["canonicalSeoSlug"]
     region = str(game.get("region") or "")
     short = {
         "PAL España": "pal-es",

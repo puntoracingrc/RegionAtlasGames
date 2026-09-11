@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { mergeScannerPerceptions, normalizeScannerPerception, normalizeScannerReasoning, scannerInterpretationSkipReason, SCANNER_SKIP_LABELS, type ScannerSource } from "./game-scanner";
 import { exactScannerCatalogIds, scannerDocumentaryKnowledge, scannerUsageFromResponse } from "./scanner-knowledge";
+import ps2Research from "../../data/region-research/ps2.json";
 
 const observation = { photo: 1, component: "game", description: "Cartucho", codes: ["DMG-ESP"], texts: [], languages: ["en"], distributors: [] };
 const perception = normalizeScannerPerception({ title: "Tetris", platformSlug: "gameboy", identityConfidence: 0.95, observations: [observation, { ...observation, component: "manual", languages: ["es"] }] }, 1);
@@ -67,6 +68,48 @@ test("usage records real values, cached input is not added and missing is not ze
     responseId: null, model: null, inputTokens: 100, outputTokens: 5, totalTokens: 105, cachedInputTokens: 20,
   });
   assert.equal(scannerUsageFromResponse({}).totalTokens, null);
+});
+
+test("PS2 shared packaging references are scoped to explicit regional edition IDs", () => {
+  const general = scannerDocumentaryKnowledge("ps2", []);
+  assert.deepEqual(general.entries.map((e) => e.id), ps2Research.inspectionRules.map((e) => `${ps2Research.batch}:${e.id}`));
+  const candidates = new Set([...ps2Research.gameReferences.flatMap((e) => e.catalogIds),
+    "ps2-usa-kingdom-hearts-2", "ps2-japon-kingdom-hearts-2", "ps2-kingdom-hearts-2-platinum",
+    "ps2-kingdom-hearts-2-not-for-resale", "ps2-need-for-speed-most-wanted-black"]);
+  for (const catalogId of candidates) {
+    const data = scannerDocumentaryKnowledge("ps2", [catalogId]);
+    for (const entry of ps2Research.gameReferences) {
+      assert.equal(data.entries.some((e) => e.id === `${ps2Research.batch}:${entry.id}`), entry.catalogIds.includes(catalogId));
+    }
+    assert.deepEqual(data.knownVariantIds, []);
+    assert.ok(!JSON.stringify(data.entries).includes("spinecard-com-s3"));
+    for (const entry of data.entries) for (const sourceId of entry.sourceIds) {
+      assert.ok(data.sources.some((source) => source.id === sourceId && source.url.startsWith("https://foro.spinecard.com/")));
+    }
+    for (const disputed of ps2Research.disputedClaims) assert.ok(!JSON.stringify(data.entries).includes(disputed.summary));
+  }
+  for (const platform of ["ps1", "psp", "ps3"]) {
+    const data = scannerDocumentaryKnowledge(platform, [...candidates]);
+    assert.ok(!data.entries.some((e) => e.id.startsWith("ps2-")));
+  }
+});
+
+test("PS2 comparison findings remain possible without certifying a factory pairing", () => {
+  const data = scannerDocumentaryKnowledge("ps2", ["ps2-kingdom-hearts-2"]);
+  const seen = normalizeScannerPerception({ platformSlug: "ps2", observations: [
+    { ...observation, component: "box", description: "Caratula blanca Disney" },
+    { ...observation, component: "game", description: "Disco BVG" },
+  ] }, 1);
+  const ids = data.sources.map((s) => s.id);
+  for (const status of ["compatible", "possible_mismatch"]) {
+    const result = normalizeScannerReasoning({
+      composition: { status, variantId: "ps2-kh2-logos-and-disc", observationIds: ["o1", "o2"], sourceIds: ids },
+      findings: [{ label: "Logos distintos", detail: "La referencia muestra esta diferencia; no demuestra un cambiazo.", observationIds: ["o1", "o2"], sourceIds: ids }],
+    }, seen, data.sources, "ps2", data.knownVariantIds);
+    assert.equal(result.composition.status, "unknown");
+    assert.equal(result.findings.length, 1);
+    assert.equal(result.region.value, null);
+  }
 });
 
 test("independent photo readings map back to the correct global photo and component", () => {

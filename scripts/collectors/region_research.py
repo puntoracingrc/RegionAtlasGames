@@ -11,13 +11,15 @@ RESEARCH_FILE = Path(__file__).resolve().parents[2] / "data/region-research/game
 SNES_RESEARCH_FILE = RESEARCH_FILE.with_name("snes.json")
 MEGADRIVE_RESEARCH_FILE = RESEARCH_FILE.with_name("megadrive.json")
 NES_RESEARCH_FILE = RESEARCH_FILE.with_name("nes.json")
+PS2_RESEARCH_FILE = RESEARCH_FILE.with_name("ps2.json")
 SNES_DISTRIBUTIONS_FILE = RESEARCH_FILE.with_name("snes-distributions.json")
 GAMEBOY_REVIEWED_FILE = RESEARCH_FILE.with_name("gameboy-reviewed-guidance.json")
 
 
 def _documents(platform_slug):
     files = {"gameboy": [RESEARCH_FILE, GAMEBOY_REVIEWED_FILE], "snes": [SNES_RESEARCH_FILE, SNES_DISTRIBUTIONS_FILE],
-             "megadrive": [MEGADRIVE_RESEARCH_FILE], "nes": [NES_RESEARCH_FILE]}
+             "megadrive": [MEGADRIVE_RESEARCH_FILE], "nes": [NES_RESEARCH_FILE],
+             "ps2": [PS2_RESEARCH_FILE]}
     for path in files.get(platform_slug, []):
         if path.exists():
             document = json.loads(path.read_text(encoding="utf-8"))
@@ -73,6 +75,11 @@ def region_research_prompt(platform_slug: str, catalog_id: str | None) -> str:
                 continue
             urls = [sources[key]["url"] for key in entry["sourceIds"]]
             lines.append(f"- {entry['text']} Fuente: {', '.join(urls)}")
+            if platform_slug == "ps2" and entry in document["gameReferences"]:
+                lines.append("  Contexto histórico de un ejemplar PAL España: el ID era provisional. Esta observación no confirma que pertenezca a la edición V2 actual ni habilita un emparejamiento.")
             for variant in entry.get("distributionVariants", []):
                 lines.append("  Combinacion documental independiente: " + json.dumps(variant, ensure_ascii=False))
+    if platform_slug == "ps2":
+        from .ps2_documentary import catalog_documentary_prompt
+        lines.append(catalog_documentary_prompt(catalog_id))
     return "\n".join(lines)

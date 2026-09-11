@@ -1,4 +1,5 @@
 import type { Ps1EditionDetails } from "./ps1-regional";
+import type { Ps2EditionDetails } from "./ps2-regional";
 
 export type DetailEntitySource =
   | "museum"
@@ -120,6 +121,7 @@ export type GameVideo = {
 
 export type GameDetails = {
   ps1Edition?: Ps1EditionDetails;
+  ps2Edition?: Ps2EditionDetails;
   year: number | null;
   releaseDate: string | null;
   reference: string | null;

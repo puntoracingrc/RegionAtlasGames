@@ -35,9 +35,9 @@
     "portraitHotlinkingAllowed": false
   },
   "protectedFileHashes": {
-    "data/game-details.json": "a7c8250bbc54e0c88a8ded58075ff6315f219c4dfa9422845343f9deaa0e1fbb",
+    "data/game-details.json": "bfd53a2c20bcf4b3defeda688fc7091acaf1f5faf06e79c4b0260e96c8dc3cb1",
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
-    "data/index/companies.json": "50ba8ef5b02e22a983dde0cdea93407f97b4a644a7c97448e6a6d1ae7b97027d",
+    "data/index/companies.json": "6c37e403f6b9a26ad278ae778ae992cbd92340c87201a7d0ed984cd2d872d487",
     "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
     "data/research/company-study/core.json": "89f85d051468bb1de1f3ddc2e5d9e252dc9ea219c91b8927ba148a97116d2f28",
     "data/research/company-study/public.json": "c713018d6617b92508f9342569b74c3dfb79c87a6f64f77c47e93ac2e047c7e8"
@@ -124,6 +124,20 @@
         "data/game-details.json": {
           "before": "14469e97884f47fb744f929b53ff80bcb412a7fadabc7d042c031e445a65fb66",
           "after": "a7c8250bbc54e0c88a8ded58075ff6315f219c4dfa9422845343f9deaa0e1fbb"
+        }
+      }
+    },
+    {
+      "batchId": "ps2-regional-v2-2026-09-11",
+      "reviewedAt": "2026-09-11",
+      "files": {
+        "data/index/companies.json": {
+          "before": "50ba8ef5b02e22a983dde0cdea93407f97b4a644a7c97448e6a6d1ae7b97027d",
+          "after": "6c37e403f6b9a26ad278ae778ae992cbd92340c87201a7d0ed984cd2d872d487"
+        },
+        "data/game-details.json": {
+          "before": "a7c8250bbc54e0c88a8ded58075ff6315f219c4dfa9422845343f9deaa0e1fbb",
+          "after": "bfd53a2c20bcf4b3defeda688fc7091acaf1f5faf06e79c4b0260e96c8dc3cb1"
         }
       }
     }

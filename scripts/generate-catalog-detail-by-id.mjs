@@ -20,14 +20,15 @@ function detailFileName(catalogId) {
 
 function readDetails() {
   const details = JSON.parse(readFileSync(detailsFile, "utf8"));
-  const ps1File = path.join(rootDir, "data", "ps1-edition-evidence.json.gz");
-  if (existsSync(ps1File)) {
-    const evidence = JSON.parse(gunzipSync(readFileSync(ps1File)).toString("utf8"));
-    const works = JSON.parse(gunzipSync(readFileSync(path.join(rootDir, "data", "ps1-works.json.gz"))).toString("utf8")).works;
-    for (const [id, ps1Edition] of Object.entries(evidence)) {
+  for (const platform of ["ps1", "ps2"]) {
+    const editionFile = path.join(rootDir, "data", `${platform}-edition-evidence.json.gz`);
+    if (!existsSync(editionFile)) continue;
+    const evidence = JSON.parse(gunzipSync(readFileSync(editionFile)).toString("utf8"));
+    const works = JSON.parse(gunzipSync(readFileSync(path.join(rootDir, "data", `${platform}-works.json.gz`))).toString("utf8")).works;
+    for (const [id, edition] of Object.entries(evidence)) {
       if (details[id]) {
-        details[id].ps1Edition = ps1Edition;
-        const common = works[ps1Edition.workId]?.commonDetails;
+        details[id][`${platform}Edition`] = edition;
+        const common = works[edition.workId]?.commonDetails;
         if (!details[id].genres?.length && common?.genres) details[id].genres = common.genres;
         if (!details[id].series && common?.series) details[id].series = common.series;
       }

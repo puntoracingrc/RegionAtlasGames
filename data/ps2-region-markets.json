@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "markets": {
+    "EU": {
+      "family": "PAL",
+      "market": "Europe",
+      "code": "EU",
+      "label": "PAL Europa",
+      "flagCode": "EU"
+    },
+    "EU-AU": {
+      "family": "PAL",
+      "market": "Europe, Australia",
+      "code": "EU-AU",
+      "label": "PAL Europa / Australia",
+      "flagCode": "UNKNOWN"
+    },
+    "AU": {
+      "family": "PAL",
+      "market": "Australia",
+      "code": "AU",
+      "label": "PAL Australia",
+      "flagCode": "AU"
+    },
+    "IT": {
+      "family": "PAL",
+      "market": "Italy",
+      "code": "IT",
+      "label": "PAL Italia",
+      "flagCode": "IT"
+    },
+    "DE": {
+      "family": "PAL",
+      "market": "Germany",
+      "code": "DE",
+      "label": "PAL Alemania",
+      "flagCode": "DE"
+    },
+    "GB": {
+      "family": "PAL",
+      "market": "United Kingdom",
+      "code": "GB",
+      "label": "PAL Reino Unido",
+      "flagCode": "GB"
+    },
+    "FR": {
+      "family": "PAL",
+      "market": "France",
+      "code": "FR",
+      "label": "PAL Francia",
+      "flagCode": "FR"
+    },
+    "NL": {
+      "family": "PAL",
+      "market": "Netherlands",
+      "code": "NL",
+      "label": "PAL Países Bajos",
+      "flagCode": "NL"
+    },
+    "SCAND": {
+      "family": "PAL",
+      "market": "Scandinavia",
+      "code": "SCAND",
+      "label": "PAL Escandinavia",
+      "flagCode": "SCAND"
+    },
+    "ES": {
+      "family": "PAL",
+      "market": "Spain",
+      "code": "ES",
+      "label": "PAL España",
+      "flagCode": "ES"
+    },
+    "SE": {
+      "family": "PAL",
+      "market": "Sweden",
+      "code": "SE",
+      "label": "PAL Suecia",
+      "flagCode": "SE"
+    },
+    "PT": {
+      "family": "PAL",
+      "market": "Portugal",
+      "code": "PT",
+      "label": "PAL Portugal",
+      "flagCode": "PT"
+    },
+    "PL": {
+      "family": "PAL",
+      "market": "Poland",
+      "code": "PL",
+      "label": "PAL Polonia",
+      "flagCode": "PL"
+    },
+    "FI": {
+      "family": "PAL",
+      "market": "Finland",
+      "code": "FI",
+      "label": "PAL Finlandia",
+      "flagCode": "FI"
+    },
+    "NO": {
+      "family": "PAL",
+      "market": "Norway",
+      "code": "NO",
+      "label": "PAL Noruega",
+      "flagCode": "NO"
+    },
+    "US": {
+      "family": "NTSC-U/C",
+      "market": "USA",
+      "code": "US",
+      "label": "NTSC USA",
+      "flagCode": "US"
+    },
+    "US-CA": {
+      "family": "NTSC-U/C",
+      "market": "USA, Canada",
+      "code": "US-CA",
+      "label": "NTSC USA / Canadá",
+      "flagCode": "UNKNOWN"
+    },
+    "JP": {
+      "family": "NTSC-J",
+      "market": "Japan",
+      "code": "JP",
+      "label": "NTSC-J Japón",
+      "flagCode": "JP"
+    },
+    "CN": {
+      "family": "NTSC-J",
+      "market": "China",
+      "code": "CN",
+      "label": "NTSC-J China",
+      "flagCode": "CN"
+    },
+    "JP-KR": {
+      "family": "NTSC-J",
+      "market": "Japan, Korea",
+      "code": "JP-KR",
+      "label": "NTSC-J Japón / Corea",
+      "flagCode": "UNKNOWN"
+    },
+    "KR": {
+      "family": "NTSC-J",
+      "market": "Korea",
+      "code": "KR",
+      "label": "NTSC-J Corea",
+      "flagCode": "KR"
+    },
+    "ASIA": {
+      "family": "NTSC-J",
+      "market": "Asia",
+      "code": "ASIA",
+      "label": "NTSC-J Asia",
+      "flagCode": "ASIA"
+    },
+    "JP-ASIA": {
+      "family": "NTSC-J",
+      "market": "Japan, Asia",
+      "code": "JP-ASIA",
+      "label": "NTSC-J Japón / Asia",
+      "flagCode": "UNKNOWN"
+    },
+    "BE-NL": {
+      "family": "PAL",
+      "market": "Belgium, Netherlands",
+      "code": "BE-NL",
+      "label": "PAL Bélgica / Países Bajos",
+      "flagCode": "UNKNOWN"
+    },
+    "RU": {
+      "family": "PAL",
+      "market": "Russia",
+      "code": "RU",
+      "label": "PAL Rusia",
+      "flagCode": "RU"
+    },
+    "DK": {
+      "family": "PAL",
+      "market": "Denmark",
+      "code": "DK",
+      "label": "PAL Dinamarca",
+      "flagCode": "DK"
+    },
+    "BE": {
+      "family": "PAL",
+      "market": "Belgium",
+      "code": "BE",
+      "label": "PAL Bélgica",
+      "flagCode": "BE"
+    },
+    "TW": {
+      "family": "NTSC-J",
+      "market": "Taiwan",
+      "code": "TW",
+      "label": "NTSC-J Taiwán",
+      "flagCode": "TW"
+    },
+    "GB-AU": {
+      "family": "PAL",
+      "market": "UK, Australia",
+      "code": "GB-AU",
+      "label": "PAL Reino Unido / Australia",
+      "flagCode": "UNKNOWN"
+    },
+    "GR": {
+      "family": "PAL",
+      "market": "Greece",
+      "code": "GR",
+      "label": "PAL Grecia",
+      "flagCode": "GR"
+    },
+    "IE": {
+      "family": "PAL",
+      "market": "Ireland",
+      "code": "IE",
+      "label": "PAL Irlanda",
+      "flagCode": "IE"
+    }
+  }
+}

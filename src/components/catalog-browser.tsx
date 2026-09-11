@@ -419,7 +419,7 @@ export function CatalogBrowser({
   const filteredItems = source ? serverItems : localResult.items;
   const total = source ? serverTotal : localResult.total;
   const reviewCounts = localResult.reviewCounts;
-  const showPendingControl = source?.kind === "catalog" || (source?.kind === "platform" && source.slug === "ps1") || reviewCounts.pending > 0 || includePending;
+  const showPendingControl = source?.kind === "catalog" || (source?.kind === "platform" && ["ps1", "ps2"].includes(source.slug)) || reviewCounts.pending > 0 || includePending;
 
   const totalPages = Math.max(1, Math.ceil(total / CATALOG_PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
@@ -665,7 +665,7 @@ export function CatalogBrowser({
                 Incluir fichas pendientes
               </label>
               <p className="text-xs leading-5 text-muted" aria-live="polite">
-                {reviewCounts.documented.toLocaleString("es-ES")} {source?.kind === "platform" && source.slug === "ps1" ? "ediciones documentadas" : "fichas catalogadas"}
+                {reviewCounts.documented.toLocaleString("es-ES")} {source?.kind === "platform" && ["ps1", "ps2"].includes(source.slug) ? "ediciones documentadas" : "fichas catalogadas"}
                 {" · "}{reviewCounts.pending.toLocaleString("es-ES")} pendientes de identificar con estos filtros.
               </p>
               {includePending ? (

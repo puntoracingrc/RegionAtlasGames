@@ -13,7 +13,8 @@ from collectors import region_research as research
 class ResearchTests(unittest.TestCase):
     def test_documentary_records_are_traceable_and_component_scoped(self):
         for path in (research.RESEARCH_FILE, research.SNES_RESEARCH_FILE,
-                     research.MEGADRIVE_RESEARCH_FILE, research.NES_RESEARCH_FILE):
+                     research.MEGADRIVE_RESEARCH_FILE, research.NES_RESEARCH_FILE,
+                     research.PS2_RESEARCH_FILE):
             document = json.loads(path.read_text())
             entries = document["inspectionRules"] + document["gameReferences"]
             ids = [entry["id"] for entry in entries]
@@ -537,6 +538,95 @@ class ResearchTests(unittest.TestCase):
             with patch.object(vision, "region_research_prompt", return_value="v2"):
                 vision.classify_region_from_cover(["https://example.test/cart.jpg"], **args)
                 self.assertEqual(api.call_count, 2)
+
+
+class PS2PackagingTests(unittest.TestCase):
+    def setUp(self):
+        self.document = json.loads(research.PS2_RESEARCH_FILE.read_text())
+
+    def test_sources_images_and_bindings_are_traceable(self):
+        catalog = {r["id"]: r for r in json.loads(
+            (research.PS2_RESEARCH_FILE.parents[2] / "data/catalog.json").read_text())}
+        images = self.document["imageReferences"]
+        self.assertEqual(self.document["coverage"]["imagesVisuallyReviewed"], len(images))
+        self.assertFalse(self.document["coverage"]["exhaustiveVariantInventory"])
+        used = set()
+        for entry in self.document["inspectionRules"] + self.document["gameReferences"]:
+            for image_id in entry.get("imageIds", []):
+                image = images[image_id]
+                used.add(image_id)
+                self.assertIn(image["sourceId"], entry["sourceIds"])
+                self.assertTrue(image["finding"])
+                self.assertTrue(image["url"].startswith("https://"))
+                source = self.document["sources"][image["sourceId"]]
+                self.assertTrue(source["attribution"])
+                self.assertEqual(source["license"], "not_established_no_images_copied")
+        self.assertEqual(used, set(images))
+        for entry in self.document["gameReferences"]:
+            self.assertEqual(entry["binding"], "comparison_only_not_catalog_region_evidence")
+            self.assertTrue(entry["catalogIds"])
+            for catalog_id in entry["catalogIds"]:
+                self.assertEqual(catalog[catalog_id]["platformSlug"], "ps2")
+                # V1 bindings named provisional PAL-ES records. V2 preserves the
+                # ID/history and explicitly warns that this is not edition proof.
+                from collectors.ps2_documentary import editions
+                self.assertEqual(editions()[catalog_id]["legacyRegion"], "PAL España")
+                self.assertIn(catalog[catalog_id]["regionalStatus"], ("resolved", "review"))
+                self.assertIn("Contexto histórico de un ejemplar PAL España", research.region_research_prompt("ps2", catalog_id))
+
+    def test_game_guidance_is_exact_id_not_region_or_edition_propagation(self):
+        references = self.document["gameReferences"]
+        bound = {i for e in references for i in e["catalogIds"]}
+        for catalog_id in bound | {None, "ps2-usa-kingdom-hearts-2", "ps2-japon-kingdom-hearts-2",
+                                   "ps2-kingdom-hearts-2-platinum", "ps2-kingdom-hearts-2-not-for-resale",
+                                   "ps2-need-for-speed-most-wanted-black", "ps2-gran-turismo-4-prologue"}:
+            prompt = research.region_research_prompt("ps2", catalog_id)
+            for entry in references:
+                self.assertEqual(entry["text"] in prompt, catalog_id in entry["catalogIds"])
+            self.assertIsNone(research.observed_distribution_region("ps2", catalog_id, []))
+        for platform in ("ps1", "ps3", "psp", "gameboy"):
+            for catalog_id in bound:
+                prompt = research.region_research_prompt(platform, catalog_id)
+                for entry in references:
+                    self.assertNotIn(entry["text"], prompt)
+
+    def test_unknown_cases_do_not_become_factory_rules(self):
+        for entry in self.document["gameReferences"]:
+            self.assertFalse(entry.get("distributionVariants"))
+            prompt = research.region_research_prompt("ps2", entry["catalogIds"][0])
+            for claim in self.document["disputedClaims"]:
+                self.assertTrue(claim["neededEvidence"])
+                for source in claim["sourceIds"]:
+                    self.assertIn(source, self.document["sources"])
+                self.assertNotIn(claim["summary"], prompt)
+        prompt = research.region_research_prompt("ps2", "ps2-kingdom-hearts-2")
+        self.assertIn("diferencia de logos sola NO prueba cambiazo", prompt)
+        self.assertIn("Desconocido no equivale a incorrecto", prompt)
+        self.assertIn("no exigir tres bandejas", research.region_research_prompt(
+            "ps2", "ps2-lord-of-the-rings-collection"))
+
+    def test_listing_vision_receives_guidance_not_reference_photos_or_decisions(self):
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(vision, "VISION_CACHE_DIR", Path(tmp)), \
+                patch.object(vision, "game_region_profile", return_value=None), \
+                patch.object(vision, "region_cover_vision_available", return_value=True), \
+                patch.object(vision, "_openai_vision", return_value=json.dumps({
+                    "listingRegion": "unknown", "regionMatchesCatalog": False,
+                    "isTargetGame": True, "confidence": 0.5, "observations": []
+                })) as api:
+            result = vision.classify_region_from_cover(
+                ["https://example.test/kh2-listing.jpg"], title="Kingdom Hearts 2",
+                game_title="Kingdom Hearts 2", platform_slug="ps2", catalog_region="PAL España",
+                source="ebay", catalog_id="ps2-kingdom-hearts-2", use_cache=False,
+            )
+            payload = json.dumps(api.call_args.args[0])
+            self.assertIn("BVG", payload)
+            self.assertIn("https://example.test/kh2-listing.jpg", payload)
+            self.assertNotIn("spinecard-com-s3", payload)
+            self.assertEqual(result.observations, [])
+            self.assertEqual(result.evidence, [])
+            self.assertIsNone(result.listing_region)
+            self.assertFalse(result.region_matches_catalog)
 
 
 if __name__ == "__main__":

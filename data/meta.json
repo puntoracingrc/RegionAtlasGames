@@ -3,7 +3,7 @@
   "source": "/Users/macbookpro14/Downloads/CATALOGO_COMPLETO_PAL_ESPAÑA.xlsx",
   "catalogScope": "retro-pal-es-closed",
   "platformCount": 22,
-  "catalogListed": 75225,
+  "catalogListed": 79251,
   "catalogEstimatedTotal": 49133,
   "listedByPlatform": {
     "3ds": 1708,
@@ -21,7 +21,7 @@
     "neogeopocket": 169,
     "nes": 2297,
     "ps1": 10434,
-    "ps2": 7944,
+    "ps2": 11970,
     "ps3": 5343,
     "ps4": 8495,
     "saturn": 1597,
@@ -47,7 +47,7 @@
     "totalBuyValue": 19199.33
   },
   "catalogExcluded": 2174,
-  "catalogTotal": 77399,
+  "catalogTotal": 81425,
   "excludedByPlatform": {
     "3ds": 136,
     "ds": 52,
@@ -81,8 +81,8 @@
   "coversListed": 70726,
   "coversListedPct": 99.7,
   "lastCoversSeedAt": "2026-09-05T07:09:21",
-  "gamesWithDetails": 41718,
-  "indexCompanies": 5520,
+  "gamesWithDetails": 50604,
+  "indexCompanies": 5905,
   "indexGenres": 121,
   "lastDetailsSeedAt": "2026-06-12T19:59:24",
   "coversLocal": 70713,
@@ -102,5 +102,6 @@
   "lastPriceChartingCatalogImportRegion": "Japón",
   "lastNeoGeoAesPlusSeedAt": "2026-09-02T12:00:00+02:00",
   "lastCoversBackfillAt": "2026-09-02T22:25:29Z",
-  "lastPs1RegionalMigrationAt": "2026-09-10"
+  "lastPs1RegionalMigrationAt": "2026-09-10",
+  "lastPs2RegionalMigrationAt": "2026-09-11"
 }

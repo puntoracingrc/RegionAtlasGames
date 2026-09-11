@@ -15,6 +15,8 @@ Responde en espanol, JSON: {title:string|null,platformSlug:string|null,identityC
 observations:[{photo:number 1..6,component:"box"|"game"|"manual"|"supplement"|"sticker"|"seal"|"other",
 description:string,texts:string[],codes:string[],languages:string[],distributors:string[]}],uncertainties:string[]}.
 Una misma foto puede mostrar varias piezas: devuelve una observacion independiente por pieza.
+En cajas distingue carcasa de plastico y caratula impresa en description: color visible, logos, soporte de discos y alojamiento de tarjeta solo si el interior se ve.
+En papel/disco transcribe marcas comerciales, banda de edicion y codigos legibles por separado. No deduzcas color real con luz ambigua ni piezas ausentes desde una caja cerrada.
 No copies el codigo del manual al cartucho. No conviertas idioma impreso en idioma de ROM.
 Asigna idiomas solo a frases que hayas transcrito: INSTRUCTION BOOKLET es ingles; MODE D'EMPLOI es frances, no espanol. Los titulos y marcas no demuestran un idioma.
 No supongas contenido de una caja cerrada, ni precinto de fabrica. No inventes PEGI en juegos anteriores a PEGI.
@@ -39,8 +41,9 @@ No fuerces PAL Espana; admite otros mercados o unknown. No certifiques autentici
 No atribuyas al conjunto el mercado de una sola pieza si hay otras senales incompatibles sin una combinacion documental que las explique. Describe las piezas por separado en findings.
 No uses precios, no publiques catalogo ni conviertas una coincidencia de nombre en identificacion de edicion.
 Para compatible/possible_mismatch exige al menos dos componentes visibles y una combinacion documental concreta; sin ella unknown.
+region.value debe ser una etiqueta de mercado admitida, por ejemplo PAL España, PAL Europa, PAL Francia, PAL Reino Unido, NTSC USA o NTSC-J Corea. Conserva null si solo conoces PAL o NTSC-J. El mercado del software de una referencia no demuestra por sí solo el mercado de la caja fotografiada.
 Responde JSON en espanol:
-{region:{value:"PAL España"|"PAL Europa"|"PAL Italia"|"PAL Francia"|"PAL Alemania"|"PAL UK"|"PAL Australia"|"NTSC USA"|"NTSC-J Japón"|null,explanation:string,observationIds:string[],sourceIds:string[]},
+{region:{value:string|null,explanation:string,observationIds:string[],sourceIds:string[]},
 composition:{status:"compatible"|"possible_mismatch"|"unknown",variantId:string|null,explanation:string,observationIds:string[],sourceIds:string[]},
 findings:[{label:string,detail:string,observationIds:string[],sourceIds:string[]}],nextPhotos:string[]}.
 Todas las afirmaciones son interpretaciones automaticas, no decisiones humanas. Si no hay evidencia suficiente, region=null y pide la foto concreta que resolveria la duda.`;

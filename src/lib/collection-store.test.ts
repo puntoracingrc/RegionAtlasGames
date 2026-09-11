@@ -129,7 +129,7 @@ test("repairs a legacy regional override without changing its collection date", 
     const repaired = await readUserCollection("legacy-regional-owner");
     assert.equal(repaired.items[0]?.catalogId, source.id);
     assert.equal(repaired.items[0]?.catalogMatched, true);
-    assert.equal(repaired.items[0]?.region, "USA");
+    assert.equal(repaired.items[0]?.region, "NTSC USA");
     assert.equal(repaired.items[0]?.addedAt, addedAt);
   } finally {
     restoreEnvironment(env);

@@ -229,10 +229,10 @@
     "shortName": "PS2",
     "manufacturer": "sony",
     "status": "closed",
-    "estimatedCatalogSize": 1200,
+    "estimatedCatalogSize": 11970,
     "sortOrder": 20,
     "spainReleaseYear": 2000,
-    "description": "Catálogo oficial PAL España."
+    "description": "Ediciones documentadas de Europa, América y Asia, con códigos, idiomas y referencias de sus componentes."
   },
   {
     "slug": "ps3",
