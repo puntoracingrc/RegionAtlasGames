@@ -2751,6 +2751,144 @@
         "confidence": "high",
         "scope": "observed_specimen_packaging_not_factory_assembly"
       }
+    },
+    "ps2-au-sles-53058": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "AU",
+        "marketRegion": "Australia",
+        "edition": "standard",
+        "canonicalSeoSlug": "ricky-ponting-international-cricket-2005-sles-53058-ps2-pal-au",
+        "canonicalSerials": [
+          "SLES-53058"
+        ]
+      },
+      "primaryAssetId": "ebay-145754180741-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-145754180741-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/145754180741",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/QhsAAOSwqCpmMtLi/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-145754180741",
+          "marketHints": [
+            "AU"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/ricky-ponting-international-cricket-2005-sles-53058-ps2-pal-au-145754180741-portada.webp",
+          "sha256": "03b6f29ee3df6acd64a4f695fb271dec2a025fbf8d4cf8df48601aa3f5307a46",
+          "width": 1600,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [],
+            "barcode": "5024866329322",
+            "boxLanguages": [
+              "Inglés"
+            ],
+            "packagingMarketCodes": [
+              "AU",
+              "NZ"
+            ],
+            "rating": "Australian G / General",
+            "regionEvidenceComponent": "back_cover",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-145754180741-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/145754180741",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/L88AAOSw1vVmMtLi/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-145754180741",
+          "marketHints": [
+            "AU"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/ricky-ponting-international-cricket-2005-sles-53058-ps2-pal-au-145754180741-contraportada.webp",
+          "sha256": "e9344e235f559537ea10a47e40c45e3ca5c362d993d0677eeaa400e5d1b0de7d",
+          "width": 1600,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [],
+            "barcode": "5024866329322",
+            "boxLanguages": [
+              "Inglés"
+            ],
+            "packagingMarketCodes": [
+              "AU",
+              "NZ"
+            ],
+            "rating": "Australian G / General",
+            "regionEvidenceComponent": "back_cover",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 145754180741",
+          "url": "https://www.ebay.es/itm/145754180741"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-ricky-ponting-au-20260911",
+          "title": "Carátula de Australia y Nueva Zelanda",
+          "observation": "Portada y contraportada del mismo ejemplar de la edición estándar, con banda negra PlayStation 2 y clasificación australiana G / General. El reverso indica venta autorizada exclusivamente en Australia y Nueva Zelanda, contiene textos en inglés y muestra el código de barras 5024866329322. La foto del disco permite leer SLES-53058/ANZ, coherente con SLES-53058 en esta ficha. La bandera británica del bloque de características no convierte esta carátula en una edición del Reino Unido.",
+          "engineRule": "La licencia territorial impresa en el reverso y la coherencia entre las fotos permiten identificar el mercado de la carátula. Asociar ese frontal al reverso del mismo ejemplar y conservar el sufijo /ANZ del disco. PAL, el prefijo SLES, el inglés y el origen del envío no determinan por sí solos un país de la caja. Separar la idoneidad de las fotos de los componentes incluidos y el estado, que afectan al precio.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "145754180741",
+              "sourceUrl": "https://www.ebay.es/itm/145754180741"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [],
+          "barcode": "5024866329322",
+          "market": "Australia and New Zealand",
+          "marketCodes": [
+            "AU",
+            "NZ"
+          ],
+          "boxLanguages": [
+            "Inglés"
+          ],
+          "edition": "standard",
+          "rating": "Australian G / General",
+          "territorialLicence": "THIS PRODUCT IS LICENSED FOR SALE IN AUSTRALIA AND NEW ZEALAND ONLY",
+          "observedDisc": {
+            "serial": "SLES-53058/ANZ",
+            "sourcePhotoIndex": 3,
+            "sourceImageUrl": "https://i.ebayimg.com/images/g/XaIAAOSw8gZmMtLi/s-l1600.webp"
+          },
+          "inGameLanguagesVerified": false
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/145754180741",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
     }
   }
 }

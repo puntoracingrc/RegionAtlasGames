@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-11",
+  "baseSha": "b3d71712de8ea21f619869e4dff6dde277067272",
+  "catalogId": "ps2-au-sles-53058",
+  "canonicalSeoSlug": "ricky-ponting-international-cricket-2005-sles-53058-ps2-pal-au",
+  "sourceUrl": "https://www.ebay.es/itm/145754180741",
+  "sourceListingId": "145754180741",
+  "sourceWidgetOrder": 2,
+  "sourceWidgetPriority": "Australia",
+  "openedListings": 1,
+  "reviewedPhotos": 4,
+  "publishedPhotos": [
+    {
+      "role": "portada",
+      "sourcePhotoIndex": 1,
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/QhsAAOSwqCpmMtLi/s-l1600.webp",
+      "sha256": "03b6f29ee3df6acd64a4f695fb271dec2a025fbf8d4cf8df48601aa3f5307a46",
+      "bytes": 196302,
+      "width": 1600,
+      "height": 1600,
+      "url": "/catalog-covers/ps2/fotos-verificadas/ricky-ponting-international-cricket-2005-sles-53058-ps2-pal-au-145754180741-portada.webp",
+      "assetId": "ebay-145754180741-portada",
+      "catalogId": "ps2-au-sles-53058"
+    },
+    {
+      "role": "contraportada",
+      "sourcePhotoIndex": 2,
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/L88AAOSw1vVmMtLi/s-l1600.webp",
+      "sha256": "e9344e235f559537ea10a47e40c45e3ca5c362d993d0677eeaa400e5d1b0de7d",
+      "bytes": 306474,
+      "width": 1600,
+      "height": 1600,
+      "url": "/catalog-covers/ps2/fotos-verificadas/ricky-ponting-international-cricket-2005-sles-53058-ps2-pal-au-145754180741-contraportada.webp",
+      "assetId": "ebay-145754180741-contraportada",
+      "catalogId": "ps2-au-sles-53058"
+    }
+  ],
+  "supportingPhotos": [
+    {
+      "role": "disco-y-caja",
+      "sourcePhotoIndex": 3,
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/XaIAAOSw8gZmMtLi/s-l1600.webp",
+      "sha256": "a593abd2a7ba47411b187faf2e6fa21d196d7e1c1e202840e3189bb2da31b548",
+      "bytes": 155348,
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "role": "portada-con-disco",
+      "sourcePhotoIndex": 4,
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/9YIAAOSwodpmMtLi/s-l1600.webp",
+      "sha256": "97e66c5e8608652bbff829c794e35f6f6a2ecffa2bd134a731c22826dddd5f09",
+      "bytes": 179172,
+      "width": 1600,
+      "height": 1600
+    }
+  ],
+  "decision": "approved_standard_australia_new_zealand_packaging",
+  "observations": {
+    "packagingMarketCodes": [
+      "AU",
+      "NZ"
+    ],
+    "territorialLicence": "THIS PRODUCT IS LICENSED FOR SALE IN AUSTRALIA AND NEW ZEALAND ONLY",
+    "discSerial": "SLES-53058/ANZ",
+    "barcode": "5024866329322",
+    "boxLanguages": [
+      "Inglés"
+    ],
+    "rating": "Australian G / General",
+    "edition": "standard"
+  },
+  "pricingContext": {
+    "manualIncluded": false,
+    "source": "listing_title_and_open_case_photo",
+    "affectsCoverEligibility": false,
+    "treatAsCompleteCopy": false,
+    "askingPriceIsCompletedSale": false,
+    "catalogPricesChanged": false
+  },
+  "preservation": {
+    "catalogIdentityChanged": false,
+    "catalogUrlsChanged": false,
+    "softwareLanguageClaimsChanged": false,
+    "releaseDateChanged": false,
+    "factoryAssemblyCertified": false,
+    "workerChangedOrActivated": false
+  },
+  "method": "Second eBay offer from the live regional ficha. Gallery and zoom inspection, followed by full-resolution original photos. Packaging evidence and price completeness are separate. Unmodified original bytes, source URLs and hashes retained."
+}

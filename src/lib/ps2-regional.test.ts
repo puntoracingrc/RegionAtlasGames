@@ -142,7 +142,7 @@ test("new markets still require a cited photo observation", () => {
   assert.equal(normalizeScannerReasoning({ region: { ...input.region, observationIds: [] } }, p, [source], "ps2").region.value, null);
 });
 
-test("reviewed eBay batches fill exactly 21 missing covers without changing identities or the historical catalog", () => {
+test("reviewed eBay batches fill exactly 22 missing covers without changing identities or the historical catalog", () => {
   const raw = JSON.parse(readFileSync("data/catalog.json", "utf8")) as CatalogGame[];
   const changed: string[] = [];
   for (const before of raw) {
@@ -150,7 +150,7 @@ test("reviewed eBay batches fill exactly 21 missing covers without changing iden
     assert.deepEqual({ ...after, coverUrl: before.coverUrl }, before, before.id);
     if (before.coverUrl === after.coverUrl) continue;
     assert.equal(before.coverUrl, null);
-    assert(["ES", "IT"].includes(before.regionCode!));
+    assert(["ES", "IT", "AU"].includes(before.regionCode!));
     assert.equal(before.edition, "standard");
     changed.push(before.id);
   }
@@ -159,7 +159,7 @@ test("reviewed eBay batches fill exactly 21 missing covers without changing iden
     "ps2-es-sces-50971", "ps2-es-sles-53498", "ps2-es-sles-53575", "ps2-es-sles-53987", "ps2-es-sles-50471",
     "ps2-es-sles-51195", "ps2-es-sles-52136", "ps2-es-sles-54235", "ps2-es-sles-52282", "ps2-es-sles-52697",
     "ps2-es-sles-55001", "ps2-es-sles-53581", "ps2-es-sles-54251", "ps2-es-sles-54933", "ps2-es-sles-55337",
-    "ps2-it-sles-54883",
+    "ps2-it-sles-54883", "ps2-au-sles-53058",
   ].sort());
   for (const id of ["ps2-es-sces-53884", "ps2-es-sles-50016", "ps2-es-sles-51027", "ps2-es-sles-51461", "ps2-es-sles-50026"]) assert.equal(byId.get(id)?.coverUrl, null);
 });
@@ -177,16 +177,16 @@ test("reviewed covers fail closed if the catalog edition, region, URL or serial 
   }
 });
 
-test("all 46 published photos retain the original bytes, source and explicit photograph labels", () => {
+test("all 48 published photos retain the original bytes, source and explicit photograph labels", () => {
   type ReviewedGraphic = (typeof reviewedPhotoData.games)[keyof typeof reviewedPhotoData.games]["graphics"][number];
   const photos = Object.values(reviewedPhotoData.games).flatMap<ReviewedGraphic>(set => set.graphics);
-  assert.equal(photos.length, 46);
+  assert.equal(photos.length, 48);
   for (const photo of photos) {
     assert.match(photo.url, /^\/catalog-covers\/ps2\/fotos-verificadas\/[a-z0-9-]+\.webp$/);
     assert.match(photo.sourceUrl, /^https:\/\/www\.ebay\.es\/itm\/\d+(?:\?var=\d+)?$/);
     assert.match(photo.sourceImageReference, /^https:\/\/i\.ebayimg\.com\//);
     assert.equal(photo.marketHints.length, 1);
-    assert(["ES", "IT"].includes(photo.marketHints[0]));
+    assert(["ES", "IT", "AU"].includes(photo.marketHints[0]));
     assert.equal(photo.physicalPairingVerified, false);
     assert(Math.min(photo.width, photo.height) >= 600 && Math.max(photo.width, photo.height) >= 700);
     assert.equal(createHash("sha256").update(readFileSync(`public${photo.url}`)).digest("hex"), photo.sha256);
@@ -195,8 +195,8 @@ test("all 46 published photos retain the original bytes, source and explicit pho
   }
 });
 
-test("photo evidence appends to 23 exact profiles without promoting software, dates or factory authenticity", () => {
-  assert.equal(Object.keys(reviewedPhotoData.games).length, 23);
+test("photo evidence appends to 24 exact profiles without promoting software, dates or factory authenticity", () => {
+  assert.equal(Object.keys(reviewedPhotoData.games).length, 24);
   const archive = JSON.parse(gunzipSync(readFileSync("data/ps2-edition-evidence.json.gz")).toString("utf8")) as Record<string, Ps2EditionDetails>;
   for (const [id, set] of Object.entries(reviewedPhotoData.games)) {
     const before = archive[id];
