@@ -12,6 +12,11 @@ SNES_RESEARCH_FILE = RESEARCH_FILE.with_name("snes.json")
 MEGADRIVE_RESEARCH_FILE = RESEARCH_FILE.with_name("megadrive.json")
 NES_RESEARCH_FILE = RESEARCH_FILE.with_name("nes.json")
 PS2_RESEARCH_FILE = RESEARCH_FILE.with_name("ps2.json")
+PS1_RESEARCH_FILE = RESEARCH_FILE.with_name("ps1.json")
+DREAMCAST_RESEARCH_FILE = RESEARCH_FILE.with_name("dreamcast.json")
+DS_RESEARCH_FILE = RESEARCH_FILE.with_name("ds.json")
+NINTENDO3DS_RESEARCH_FILE = RESEARCH_FILE.with_name("3ds.json")
+XBOX360_RESEARCH_FILE = RESEARCH_FILE.with_name("xbox360.json")
 SNES_DISTRIBUTIONS_FILE = RESEARCH_FILE.with_name("snes-distributions.json")
 GAMEBOY_REVIEWED_FILE = RESEARCH_FILE.with_name("gameboy-reviewed-guidance.json")
 
@@ -19,7 +24,9 @@ GAMEBOY_REVIEWED_FILE = RESEARCH_FILE.with_name("gameboy-reviewed-guidance.json"
 def _documents(platform_slug):
     files = {"gameboy": [RESEARCH_FILE, GAMEBOY_REVIEWED_FILE], "snes": [SNES_RESEARCH_FILE, SNES_DISTRIBUTIONS_FILE],
              "megadrive": [MEGADRIVE_RESEARCH_FILE], "nes": [NES_RESEARCH_FILE],
-             "ps2": [PS2_RESEARCH_FILE]}
+             "ps2": [PS2_RESEARCH_FILE], "ps1": [PS1_RESEARCH_FILE],
+             "dreamcast": [DREAMCAST_RESEARCH_FILE], "ds": [DS_RESEARCH_FILE],
+             "3ds": [NINTENDO3DS_RESEARCH_FILE], "xbox360": [XBOX360_RESEARCH_FILE]}
     for path in files.get(platform_slug, []):
         if path.exists():
             document = json.loads(path.read_text(encoding="utf-8"))

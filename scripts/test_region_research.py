@@ -14,7 +14,9 @@ class ResearchTests(unittest.TestCase):
     def test_documentary_records_are_traceable_and_component_scoped(self):
         for path in (research.RESEARCH_FILE, research.SNES_RESEARCH_FILE,
                      research.MEGADRIVE_RESEARCH_FILE, research.NES_RESEARCH_FILE,
-                     research.PS2_RESEARCH_FILE):
+                     research.PS2_RESEARCH_FILE, research.PS1_RESEARCH_FILE,
+                     research.DREAMCAST_RESEARCH_FILE, research.DS_RESEARCH_FILE,
+                     research.NINTENDO3DS_RESEARCH_FILE, research.XBOX360_RESEARCH_FILE):
             document = json.loads(path.read_text())
             entries = document["inspectionRules"] + document["gameReferences"]
             ids = [entry["id"] for entry in entries]
@@ -36,6 +38,54 @@ class ResearchTests(unittest.TestCase):
                         self.assertIn(code, entry["text"])
                 if entry.get("status", "reviewed_guidance") != "reviewed_guidance":
                     self.assertTrue(entry["neededEvidence"])
+
+    def test_pending_spinecard_guidance_reaches_the_common_reader_without_acceptance(self):
+        for platform, count in (("ps1", 4), ("dreamcast", 2), ("ds", 3), ("3ds", 3), ("xbox360", 3)):
+            documents = list(research._documents(platform))
+            self.assertEqual(len(documents), 1)
+            document = documents[0]
+            self.assertEqual(len(document["inspectionRules"]), count)
+            self.assertFalse(any(document["capabilityLimits"].values()))
+            prompt = research.region_research_prompt(platform, None)
+            for entry in document["inspectionRules"]:
+                self.assertIn(entry["text"], prompt)
+            for entry in document["gameReferences"]:
+                self.assertNotIn(entry["text"], prompt)
+                self.assertFalse(entry["approvedForModelTraining"])
+                self.assertFalse(entry["humanReviewedGroundTruth"])
+                for catalog_id in entry["catalogIds"]:
+                    exact_prompt = research.region_research_prompt(platform, catalog_id)
+                    self.assertIn(entry["text"], exact_prompt)
+                    for source in entry["sourceIds"]:
+                        self.assertIn(document["sources"][source]["url"], exact_prompt)
+                    self.assertEqual(research.distribution_variants(platform, catalog_id), [])
+                    self.assertIsNone(research.observed_distribution_region(platform, catalog_id, [
+                        {"role": "manual", "languages": ["es"], "distributors": ["Sony", "Sega", "Nintendo"]}]))
+                    for image in document.get("imageReferences", {}).values():
+                        self.assertNotIn(image["url"], exact_prompt)
+            for entry in document["unresolvedClaims"]:
+                self.assertNotIn(entry["reason"], prompt)
+
+    def test_ps1_comparisons_bind_to_current_codes_not_preserved_legacy_urls(self):
+        catalog = {row["id"]: row for row in json.loads(
+            (research.RESEARCH_FILE.parents[2] / "data/catalog.json").read_text())}
+        cases = (
+            ("ps1-es-sles-00465", ["SLES-00465", "SLES-10465"], "Heart of Darkness:", "Spain"),
+            ("ps1-eu-sles-00461", ["SLES-00461", "SLES-10461"], "Heart of Darkness:", "Europe"),
+            ("ps1-eu-sces-00001", ["SCES-00001"], "Ridge Racer:", "Europe"),
+        )
+        for catalog_id, codes, text, market in cases:
+            game = catalog[catalog_id]
+            self.assertEqual(game["regionalStatus"], "resolved")
+            self.assertEqual(game["marketRegion"], market)
+            self.assertTrue(set(codes).issubset(game["canonicalSerials"]))
+            self.assertIn(text, research.region_research_prompt("ps1", catalog_id))
+        for catalog_id in ("ps1-heart-of-darkness", "ps1-heart-of-darkness-platinum",
+                           "ps1-ridge-racer", "ps1-ridge-racer-platinum", "ps1-ridge-racer-revolution"):
+            prompt = research.region_research_prompt("ps1", catalog_id)
+            self.assertNotIn("Heart of Darkness:", prompt)
+            self.assertNotIn("Ridge Racer:", prompt)
+        self.assertNotIn("SLES-00465", research.region_research_prompt("dreamcast", "ps1-es-sles-00465"))
 
     def test_new_gameboy_codes_reach_only_explicit_standard_bindings(self):
         cases = (
@@ -301,7 +351,7 @@ class ResearchTests(unittest.TestCase):
                 self.assertEqual(entry["binding"], "comparison_only_not_catalog_region_evidence")
 
     def test_other_platforms_unchanged(self):
-        for platform in ("ps4", "gameboycolor", "gba", "ds", "megacd", "32x", "genesis", "famicom"):
+        for platform in ("ps4", "gameboycolor", "gba", "megacd", "32x", "genesis", "famicom"):
             self.assertEqual(research.region_research_prompt(platform, "gameboy-es-asterix"), "")
 
     def test_nes_visual_records_are_traceable_and_not_rehosted(self):

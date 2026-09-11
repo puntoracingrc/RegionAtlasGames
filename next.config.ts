@@ -146,6 +146,7 @@ const nextConfig: NextConfig = {
       "./data/price-source-weights.json",
       "./data/ps2-source-knowledge.json.gz",
       "./data/ps2-edition-evidence.json.gz",
+      "./data/region-research/*.json",
       "./scripts/*.py",
       "./scripts/collectors/*.py",
       "./scripts/remote_price_rotation.sh",

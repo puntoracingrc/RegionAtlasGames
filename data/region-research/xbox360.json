@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "xbox360",
+  "batch": "spinecard-xbox360-documentary-v1-20260908",
+  "reviewedAt": "2026-09-08",
+  "mode": "inspection_guidance_not_acceptance",
+  "reviewedBy": "Codex; documentary review, not human ground truth approval",
+  "reviewScope": "Bounded derived guidance from the SpineCard audit dated 2026-09-08. Original candidate cases remain unapproved.",
+  "sourceAudit": "spinecard-audit-2026-09-08",
+  "catalogBindingBase": "93d9262ca1b59663800cf2839d4be839a3650fb7",
+  "imagePolicy": "No image files copied, rehosted or passed to perception. URLs and prior visual-review notes only.",
+  "sources": {
+    "no-manual-1": {
+      "url": "https://foro.spinecard.com/t/lista-de-juegos-x360-sin-manual-de-fabrica/2370/1",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · OOQQ",
+      "topicId": 2370,
+      "postNumber": 1,
+      "postId": 23943,
+      "author": "OOQQ",
+      "sourceUpdatedAt": "2019-09-17T08:45:49.350Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-2370",
+      "auditWindowSha256": [
+        "fce7eec71695307977228d836b1906217647a215d1e145269fcd8e7c148d4a5e"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "objection-4": {
+      "url": "https://foro.spinecard.com/t/lista-de-juegos-x360-sin-manual-de-fabrica/2370/4",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · mensaje 4",
+      "topicId": 2370,
+      "postNumber": 4,
+      "postId": 23946,
+      "author": null,
+      "sourceUpdatedAt": "2019-07-30T18:01:48.749Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-2370",
+      "auditWindowSha256": [
+        "fce7eec71695307977228d836b1906217647a215d1e145269fcd8e7c148d4a5e"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    }
+  },
+  "inspectionRules": [
+    {
+      "id": "x360-manual-absence-is-not-factory-proof",
+      "status": "reviewed_guidance",
+      "text": "Xbox 360: distinguir manual no visible, manual ausente en una copia usada y edición que salió sin manual. El autor propone una lista basada en unboxings, pero recibe objeciones. La ausencia en anuncios no demuestra ausencia de fábrica ni autoriza cambiar manualExpected a false.",
+      "sourceIds": [
+        "no-manual-1",
+        "objection-4"
+      ],
+      "derivedFromCaseIds": [
+        "x360-no-manual-disputed"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "x360-contents-conflict-by-edition",
+      "status": "reviewed_guidance",
+      "text": "Ante desacuerdo sobre manuales de Xbox 360, conservar las alternativas y contrastar edición, mercado y revisión de embalaje. Pedir código de barras, interior de carátula y contenido del ejemplar; para el contenido de fábrica, una referencia con procedencia. Un testimonio de otra región no resuelve la edición actual.",
+      "sourceIds": [
+        "no-manual-1",
+        "objection-4"
+      ],
+      "derivedFromCaseIds": [
+        "x360-no-manual-disputed"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "x360-price-comparability-contents",
+      "status": "reviewed_guidance",
+      "text": "Al comparar precios de Xbox 360, registrar por separado las piezas realmente ofrecidas y el contenido original acreditado de esa edición. Si la expectativa de manual sigue discutida, conservar esa incertidumbre; no aceptar como completo un anuncio solo porque aparezca en la lista de juegos sin manual.",
+      "sourceIds": [
+        "no-manual-1",
+        "objection-4"
+      ],
+      "derivedFromCaseIds": [
+        "x360-no-manual-disputed"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    }
+  ],
+  "gameReferences": [],
+  "unresolvedClaims": [
+    {
+      "id": "x360-no-manual-list",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "no-manual-1",
+        "objection-4"
+      ],
+      "reason": "Ningún título de la lista se convierte en manualExpected=false. No hay nuevas etiquetas humanas ni decisiones de precios."
+    }
+  ],
+  "capabilityLimits": {
+    "weightsTrained": false,
+    "visualAccuracyEvaluated": false,
+    "automaticRegionAcceptance": false,
+    "automaticCompositionAcceptance": false,
+    "catalogOrPriceWrites": false,
+    "humanLearningWrites": false
+  },
+  "sourceCatalogBindingBase": "80c7d0aea7b19136f55a4efd2b76c21432aa4f96",
+  "catalogBindingReviewedAt": "2026-09-11"
+}

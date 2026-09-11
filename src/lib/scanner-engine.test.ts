@@ -65,6 +65,35 @@ test("PS2 packaging guidance reaches interpretation only; perception does not bo
   } finally { if (key === undefined) delete process.env.OPENAI_API_KEY; else process.env.OPENAI_API_KEY = key; }
 });
 
+test("the real knowledge loader supplies the pending PS1 research only after observation", async () => {
+  const key = process.env.OPENAI_API_KEY; process.env.OPENAI_API_KEY = "test-key";
+  try {
+    const bodies: string[] = [];
+    const result = await scanGamePhotos({ ...input, platformSlug: "ps1", allowedPlatforms: ["ps1"] }, {
+      journal: async () => {},
+      fetch: async (_url, options) => {
+        bodies.push(String(options?.body));
+        return response(bodies.length === 1 ? {
+          ...observation, title: "Heart of Darkness", platformSlug: "ps1",
+          observations: [{ photo: 1, component: "game", codes: ["SLES-00465"] }],
+        } : {});
+      },
+    });
+    assert.equal(bodies.length, 2);
+    assert(!bodies[0].includes("spinecard-ps1-documentary"));
+    assert(!bodies[0].includes("SLES-10465"));
+    assert(bodies[1].includes("ps1-heart-of-darkness-disc-pairs"));
+    assert(bodies[1].includes("ps1-v2:ps1-es-sles-00465"));
+    assert(bodies[1].includes("spinecard-ps1-documentary-v1-20260908:hod-19"));
+    assert(result.sources.some((source) => source.id.endsWith(":hod-19") && source.url.includes("foro.spinecard.com")));
+    assert(!bodies[1].includes("data:image"));
+    assert(!bodies[1].includes("spinecard-com-s3"));
+    assert.deepEqual(result.perception.observations[0].codes, ["SLES-00465"]);
+    assert.equal(result.region.value, null);
+    assert.equal(result.composition.status, "unknown");
+  } finally { if (key === undefined) delete process.env.OPENAI_API_KEY; else process.env.OPENAI_API_KEY = key; }
+});
+
 test("incomplete responses are not presented as successful scans", async () => {
   const key = process.env.OPENAI_API_KEY; process.env.OPENAI_API_KEY = "test-key";
   try {

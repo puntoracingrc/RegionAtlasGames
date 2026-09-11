@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "ds",
+  "batch": "spinecard-ds-documentary-v1-20260908",
+  "reviewedAt": "2026-09-08",
+  "mode": "inspection_guidance_not_acceptance",
+  "reviewedBy": "Codex; documentary review, not human ground truth approval",
+  "reviewScope": "Bounded derived guidance from the SpineCard audit dated 2026-09-08. Original candidate cases remain unapproved.",
+  "sourceAudit": "spinecard-audit-2026-09-08",
+  "catalogBindingBase": "93d9262ca1b59663800cf2839d4be839a3650fb7",
+  "imagePolicy": "No image files copied, rehosted or passed to perception. URLs and prior visual-review notes only.",
+  "sources": {
+    "printing-1": {
+      "url": "https://foro.spinecard.com/t/nintendo-ds-curiosidades-sobre-distribuciones/13807/1",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Ostrava",
+      "topicId": 13807,
+      "postNumber": 1,
+      "postId": 133313,
+      "author": "Ostrava",
+      "sourceUpdatedAt": "2021-07-17T09:26:47.364Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-13807",
+      "auditWindowSha256": [
+        "ac9a994c73c7c78f4a88edd3f747cff47cdc3155d9022dd0c757c19488d1620f"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    },
+    "distribution-1": {
+      "url": "https://foro.spinecard.com/t/colecciona-nintendo-ds-base-de-datos-de-distribuciones-espanolas/20057/1",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Ostrava",
+      "topicId": 20057,
+      "postNumber": 1,
+      "postId": 211537,
+      "author": "Ostrava",
+      "sourceUpdatedAt": "2022-06-06T13:25:54.942Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-20057",
+      "auditWindowSha256": [
+        "9817aa39f44bf442299fe6372a7c1ddee95949a93b2676a991207be6fb3dac71",
+        "d3cf39d352451e4434b9fe57dfe0c803446d08a4e1b8e98b758f38a4bf2e559f",
+        "4338258a94dcb2dd1043ba40fd23620641babf093e83073c9a6c2e5f03adea2c"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    }
+  },
+  "inspectionRules": [
+    {
+      "id": "ds-seal-printing-comparison",
+      "status": "reviewed_guidance",
+      "text": "Nintendo DS: la fuente describe diferencias de acabado y tono en sellos y manuales. Brillo, color o papel aislados no confirman una reproducción. Comparar manual, carátula y cartucho, con códigos legibles y detalle del sello bajo buena luz; una fotografía no autentica por sí sola todo el conjunto.",
+      "sourceIds": [
+        "printing-1"
+      ],
+      "derivedFromCaseIds": [
+        "ds-printed-seal-variation"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "ds-promotional-pack-components",
+      "status": "reviewed_guidance",
+      "text": "Nintendo DS: distinguir juego comercial, demo y pack promocional. La fuente describe un VIP Pak con componentes de territorios distintos; no declarar mezcla por esa diferencia sola. Verificar la caja del pack y sus contenidos concretos. No aplicar lo descrito para ese pack a la ficha estándar de Super Mario 64 DS o Metroid Prime Hunters.",
+      "sourceIds": [
+        "distribution-1"
+      ],
+      "derivedFromCaseIds": [
+        "ds-vip-pak"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "ds-historical-claims-and-counts",
+      "status": "reviewed_guidance",
+      "text": "Conservar fecha y alcance de las afirmaciones de DS: el texto sobre reproducciones recibió una actualización. No usar una afirmación antigua como garantía actual de autenticidad. Las cantidades recordadas de un pack no acreditan tirada ni rareza; distinguir lo documentado de recuerdos o estimaciones.",
+      "sourceIds": [
+        "printing-1",
+        "distribution-1"
+      ],
+      "derivedFromCaseIds": [
+        "ds-printed-seal-variation",
+        "ds-vip-pak"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    }
+  ],
+  "gameReferences": [],
+  "unresolvedClaims": [
+    {
+      "id": "ds-vip-pak-inventory-and-run",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "distribution-1"
+      ],
+      "reason": "No se vincula el pack a IDs de juegos sueltos. Inventario exacto, código y cantidad de fabricación pendientes; vídeos no revisados."
+    },
+    {
+      "id": "ds-reproduction-authentication",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "printing-1"
+      ],
+      "reason": "No se crea una etiqueta de auténtico/falso ni una regla de color a partir de la comparación comunitaria."
+    }
+  ],
+  "capabilityLimits": {
+    "weightsTrained": false,
+    "visualAccuracyEvaluated": false,
+    "automaticRegionAcceptance": false,
+    "automaticCompositionAcceptance": false,
+    "catalogOrPriceWrites": false,
+    "humanLearningWrites": false
+  },
+  "sourceCatalogBindingBase": "80c7d0aea7b19136f55a4efd2b76c21432aa4f96",
+  "catalogBindingReviewedAt": "2026-09-11"
+}

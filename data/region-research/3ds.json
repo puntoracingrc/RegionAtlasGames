@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "3ds",
+  "batch": "spinecard-3ds-documentary-v1-20260908",
+  "reviewedAt": "2026-09-08",
+  "mode": "inspection_guidance_not_acceptance",
+  "reviewedBy": "Codex; documentary review, not human ground truth approval",
+  "reviewScope": "Bounded derived guidance from the SpineCard audit dated 2026-09-08. Original candidate cases remain unapproved.",
+  "sourceAudit": "spinecard-audit-2026-09-08",
+  "catalogBindingBase": "93d9262ca1b59663800cf2839d4be839a3650fb7",
+  "imagePolicy": "No image files copied, rehosted or passed to perception. URLs and prior visual-review notes only.",
+  "sources": {
+    "manuals-1": {
+      "url": "https://foro.spinecard.com/t/guia-de-manuales-en-nintendo-3ds/14816/1",
+      "kind": "community_documentary_source",
+      "attribution": "SpineCard · Skullvic",
+      "topicId": 14816,
+      "postNumber": 1,
+      "postId": 143765,
+      "author": "Skullvic",
+      "sourceUpdatedAt": "2021-05-10T17:44:36.072Z",
+      "retrievedOn": "2026-09-08",
+      "reviewedAt": "2026-09-08",
+      "auditSourceId": "spinecard-14816",
+      "auditWindowSha256": [
+        "00b2d0395f0445c22a27e0c87ffc3328fa86e8af0261b9a3252fa4c38bca0009"
+      ],
+      "hashScope": "Original topic JSON retrieval windows; not a hash of this individual post. Raw windows were removed after the audit.",
+      "reviewBasis": "Focused reading recorded in the same-day audit; this batch reuses that evidence and does not claim a new live retrieval.",
+      "imageReuseAuthorization": "not_established_no_images_copied"
+    }
+  },
+  "inspectionRules": [
+    {
+      "id": "3ds-document-types",
+      "status": "reviewed_guidance",
+      "text": "Nintendo 3DS: la lista distingue libreto, desplegable, guía rápida y material artístico. Identificar tipo y función de cada documento visible; un artbook o folleto de seguridad no prueba que exista el manual de instrucciones. Pedir todas sus caras y códigos cuando sea necesario para resolver qué contiene la copia.",
+      "sourceIds": [
+        "manuals-1"
+      ],
+      "derivedFromCaseIds": [
+        "3ds-manual-kind"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "3ds-contents-by-edition",
+      "status": "reviewed_guidance",
+      "text": "El contenido esperado de 3DS requiere edición y mercado concretos. Esta lista parcial no demuestra que toda reedición, pack o distribución comparta el mismo manual. Mantener separado lo visible de lo esperado; no marcar completo o incompleto solo porque un título aparezca o falte en la lista.",
+      "sourceIds": [
+        "manuals-1"
+      ],
+      "derivedFromCaseIds": [
+        "3ds-manual-kind"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    },
+    {
+      "id": "3ds-release-date-scope",
+      "status": "reviewed_guidance",
+      "text": "Los años adjuntos al listado de manuales no se importan como fechas verificadas de lanzamiento español. Separar fecha de la obra, versión para 3DS, mercado y reedición; si falta una fuente que fije el dato concreto, mantenerlo sin confirmar.",
+      "sourceIds": [
+        "manuals-1"
+      ],
+      "derivedFromCaseIds": [
+        "3ds-manual-kind"
+      ],
+      "reviewScope": "agent_reviewed_documentary_guidance",
+      "humanReviewedGroundTruth": false,
+      "approvedForModelTraining": false
+    }
+  ],
+  "gameReferences": [],
+  "unresolvedClaims": [
+    {
+      "id": "3ds-title-level-contents",
+      "status": "pending_primary_evidence",
+      "sourceIds": [
+        "manuals-1"
+      ],
+      "reason": "No se cambian manualExpected ni originalContentsExpected por título, ni se importan fechas españolas desde esta lista."
+    }
+  ],
+  "capabilityLimits": {
+    "weightsTrained": false,
+    "visualAccuracyEvaluated": false,
+    "automaticRegionAcceptance": false,
+    "automaticCompositionAcceptance": false,
+    "catalogOrPriceWrites": false,
+    "humanLearningWrites": false
+  },
+  "sourceCatalogBindingBase": "80c7d0aea7b19136f55a4efd2b76c21432aa4f96",
+  "catalogBindingReviewedAt": "2026-09-11"
+}
