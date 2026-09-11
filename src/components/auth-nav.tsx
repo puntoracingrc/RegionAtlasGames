@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { MessageCircle } from "lucide-react";
+import { Heart, MessageCircle } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { WishlistAchievementNotice } from "@/components/wishlist-achievement-notice";
+import { WishlistUnreadBadge } from "@/components/wishlist-unread-badge";
 import { NotificationBell } from "@/components/notification-bell";
 import type { PublicUser } from "@/lib/session";
 
@@ -66,10 +68,10 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1 sm:gap-2">
       <Link
         href="/mensajes"
-        className="inline-flex h-9 items-center justify-center gap-1.5 rounded-md border border-border bg-card px-2 text-foreground transition hover:bg-card-hover xl:px-2.5"
+        className="hidden h-9 items-center justify-center gap-1.5 rounded-md border border-border bg-card px-2 text-foreground transition hover:bg-card-hover min-[380px]:inline-flex xl:px-2.5"
         title="Marketplace y mensajes"
         aria-label="Marketplace y mensajes"
       >
@@ -77,11 +79,13 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
         <span className="hidden text-[13px] xl:inline">Mensajes</span>
       </Link>
       <NotificationBell />
+      <Link href="/coleccion/deseados" aria-label="Mis deseados" title="Mis deseados" className="relative inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-foreground transition hover:bg-card-hover"><Heart className="h-4 w-4" aria-hidden /><WishlistUnreadBadge dot /></Link>
+      <WishlistAchievementNotice key={user.id} />
       <div className="relative">
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1.5 text-[13px] transition hover:bg-card-hover"
+          className="flex items-center gap-2 rounded-md border border-border bg-card px-1.5 py-1.5 text-[13px] transition hover:bg-card-hover sm:px-2.5"
         >
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/20 text-xs font-semibold text-accent">
             {user.name.charAt(0).toUpperCase()}
@@ -112,6 +116,7 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
               >
                 Mi colección
               </Link>
+              <Link href="/coleccion/deseados" className="flex items-center justify-between gap-2 px-3 py-2 text-sm text-foreground hover:bg-card-hover" onClick={() => setOpen(false)}>Mis deseados<WishlistUnreadBadge /></Link>
               <Link
                 href="/mis-anuncios"
                 className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"

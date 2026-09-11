@@ -1,5 +1,7 @@
 "use client";
 
+import { notifyCollectionChanged } from "@/lib/collection-client-events";
+
 import Link from "next/link";
 import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
@@ -63,6 +65,7 @@ export function CollectionQuickAdd({
         return;
       }
 
+      notifyCollectionChanged();
       setOwnedOverride({ catalogId, owned: true });
       const ids = Array.isArray(data.ownedCatalogIds)
         ? data.ownedCatalogIds.filter((id): id is string => typeof id === "string")

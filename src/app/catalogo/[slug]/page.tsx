@@ -20,7 +20,7 @@ import { RegionFlag } from "@/components/region-flag";
 import { SiteNav } from "@/components/site-nav";
 import { Badge, DetailRow, Panel, PanelTitle } from "@/components/ui";
 import {
-  countCatalogGameOwned,
+  readUserCollection,
 } from "@/lib/collection-store";
 import { collectionCatalogPath } from "@/lib/collection-path";
 import {
@@ -149,7 +149,10 @@ export default async function CatalogGamePage({ params }: Props) {
   }
 
   const user = await getCurrentUser();
-  const ownedCount = user ? await countCatalogGameOwned(user.id, game.id) : 0;
+  const collection = user ? await readUserCollection(user.id) : null;
+  const ownedItems = collection?.items.filter((item) => item.catalogId === game.id) ?? [];
+  const ownedCount = ownedItems.reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
+  const wished = collection?.wishlist?.some((entry) => entry.catalogId === game.id) ?? false;
   const owned = ownedCount > 0;
 
   const platform = getPlatform(game.platformSlug);
@@ -275,6 +278,19 @@ export default async function CatalogGamePage({ params }: Props) {
               />
             </div>}
 
+            <CollectionToggle
+              key={`${user?.id ?? "guest"}:${game.id}`}
+              catalogId={game.id}
+              gameTitle={game.title}
+              initialOwned={owned}
+              ownedCount={ownedCount}
+              initialWished={wished}
+              initialCollectionItemId={ownedItems[0]?.id}
+              isLoggedIn={Boolean(user)}
+              gamePath={catalogGamePath(game)}
+              platformSlug={game.platformSlug}
+            />
+
             <CatalogMarketplacePanel catalogId={game.id} />
           </div>
 
@@ -362,15 +378,6 @@ export default async function CatalogGamePage({ params }: Props) {
               </Panel>
             )}
 
-            <CollectionToggle
-              catalogId={game.id}
-              gameTitle={game.title}
-              initialOwned={owned}
-              ownedCount={ownedCount}
-              isLoggedIn={Boolean(user)}
-              platformName={platform?.shortName}
-              platformSlug={game.platformSlug}
-            />
 
             {user && owned && (
               <Panel>

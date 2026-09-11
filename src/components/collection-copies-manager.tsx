@@ -1,5 +1,7 @@
 "use client";
 
+import { notifyCollectionChanged } from "@/lib/collection-client-events";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -75,6 +77,7 @@ export function CollectionCopiesManager({
       return;
     }
     setItems((current) => [...current, data.item!]);
+    notifyCollectionChanged();
     router.refresh();
   }
 
@@ -186,6 +189,7 @@ function CollectionCopyRow({
       tone: "success",
       text: data.draftSynced ? "Juego y borrador de venta actualizados." : "Juego actualizado.",
     });
+    notifyCollectionChanged();
     router.refresh();
   }
 
@@ -238,6 +242,7 @@ function CollectionCopyRow({
         ? "Anuncio retirado. El juego sigue en tu colección."
         : "Borrador descartado. El juego sigue en tu colección.",
     });
+    notifyCollectionChanged();
     router.refresh();
   }
 
@@ -255,6 +260,7 @@ function CollectionCopyRow({
       return;
     }
     onRemoved();
+    notifyCollectionChanged();
     router.refresh();
   }
 

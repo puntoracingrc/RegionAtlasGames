@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import {
   addCatalogGameToCollection,
   getUserCollectionViews,
+  readUserCollection,
   removeCatalogGameFromCollection,
   removeOneCatalogGameFromCollection,
 } from "@/lib/collection-store";
@@ -45,7 +46,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: result.error }, { status });
   }
 
-  const views = await getUserCollectionViews(user.id);
+  const file = await readUserCollection(user.id);
+  const views = file.items.map(enrichCollectionItem);
   const ownedCount = views
     .filter((item) => item.catalogId === catalogId)
     .reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
@@ -54,6 +56,7 @@ export async function POST(request: Request) {
     item: enrichCollectionItem(result.item),
     owned: true,
     linkedExisting: result.linkedExisting,
+    wishlistAchieved: file.wishlistAchievements?.some((entry) => entry.games.some((game) => game.catalogId === result.item.catalogId)) ?? false,
     ownedCount,
     ownedCatalogIds: [
       ...new Set(views.map((item) => item.catalogId).filter((id): id is string => Boolean(id))),

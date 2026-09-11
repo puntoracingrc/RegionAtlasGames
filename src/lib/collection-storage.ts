@@ -10,9 +10,10 @@ import {
   type JsonMutation,
 } from "./json-document-store";
 import type { CollectionItem } from "./types";
+import { reconcileCollectionWishlist, type CollectionWishlistState } from "./wishlist-model";
 import { normalizeLegacyCollectionCondition } from "./collection-condition-policy";
 
-export type UserCollectionFile = {
+export type UserCollectionFile = CollectionWishlistState & {
   userId: string;
   importedAt: string | null;
   source: string | null;
@@ -49,7 +50,11 @@ function emptyCollection(userId: string): UserCollectionFile {
 
 function parseCollection(raw: string, userId: string): UserCollectionFile {
   const parsed = JSON.parse(raw) as Partial<UserCollectionFile>;
-  if (!parsed || parsed.userId !== userId || !Array.isArray(parsed.items)) {
+  if (!parsed || parsed.userId !== userId || !Array.isArray(parsed.items) ||
+    (parsed.wishlist !== undefined && (!Array.isArray(parsed.wishlist) || parsed.wishlist.some((entry) => !entry || typeof entry.catalogId !== "string" || typeof entry.addedAt !== "string" || (entry.seenListingKeys !== undefined && (!Array.isArray(entry.seenListingKeys) || entry.seenListingKeys.some((key) => typeof key !== "string")))))) ||
+    (parsed.wishlistAchievements !== undefined && (!Array.isArray(parsed.wishlistAchievements) || parsed.wishlistAchievements.some((entry) =>
+      !entry || typeof entry.id !== "string" || typeof entry.createdAt !== "string" || !Array.isArray(entry.games) || entry.games.some((game) =>
+        !game || typeof game.catalogId !== "string" || typeof game.collectionItemId !== "string" || typeof game.title !== "string"))))) {
     throw new Error("El documento de colección no es válido.");
   }
   return parsed as UserCollectionFile;
@@ -76,7 +81,8 @@ function diskOptions(userId: string) {
 }
 
 function hasCollectionData(data: UserCollectionFile): boolean {
-  return data.items.length > 0 || Boolean(data.importedAt) || Boolean(data.catalogGapReportSentAt);
+  return data.items.length > 0 || Boolean(data.importedAt) || Boolean(data.catalogGapReportSentAt) ||
+    data.wishlist !== undefined || data.wishlistAchievements !== undefined;
 }
 
 export function normalizeIndividualCollectionItems(items: CollectionItem[]): {
@@ -191,19 +197,26 @@ function repairCollection(data: UserCollectionFile): {
   );
   const copies = normalizeIndividualCollectionItems(repairedItems);
   const dated = backfillCollectionAddedAt(copies.items, data.importedAt);
-  const changed = catalogChanged || copies.changed || dated.changed;
-  return { data: changed ? { ...data, items: dated.items } : data, changed };
+  const next = { ...data, items: dated.items };
+  const wishlistChanged = reconcileCollectionWishlist(next);
+  const changed = catalogChanged || copies.changed || dated.changed || wishlistChanged;
+  return { data: changed ? next : data, changed };
 }
 
 export async function mutateUserCollection<R>(
   userId: string,
   mutation: JsonMutation<UserCollectionFile, R>,
 ): Promise<R> {
+  const reconciledMutation: JsonMutation<UserCollectionFile, R> = async (current) => {
+    const outcome = await mutation(current);
+    if (outcome.changed !== false) reconcileCollectionWishlist(outcome.next);
+    return outcome;
+  };
   try {
     if (shouldUseBlobStorage()) {
-      return await mutateBlobJsonDocument(blobOptions(userId), mutation);
+      return await mutateBlobJsonDocument(blobOptions(userId), reconciledMutation);
     }
-    return await mutateDiskJsonDocument(diskOptions(userId), mutation);
+    return await mutateDiskJsonDocument(diskOptions(userId), reconciledMutation);
   } catch (error) {
     console.error("[collection-storage] mutation failed", error);
     throw new Error("No se pudo guardar la colección. Inténtalo de nuevo en unos minutos.");
