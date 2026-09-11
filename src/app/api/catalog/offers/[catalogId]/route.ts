@@ -64,6 +64,7 @@ function withPixel(payload: AffiliateOfferBlock): AffiliateOfferApiPayload {
 function disabledPayload(catalogId: string, error?: string): AffiliateOfferApiPayload {
   return {
     enabled: false,
+    ebayPriorityCountry: null,
     offers: [],
     fallbackCta: null,
     checkedAt: null,

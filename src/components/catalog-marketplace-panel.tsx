@@ -54,6 +54,7 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
 
   return (
     <CatalogOffersList
+      key={catalogId}
       catalogId={catalogId}
       marketplaceOffers={marketplaceOffers}
       canContact={Boolean(user)}

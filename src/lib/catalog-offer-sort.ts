@@ -8,6 +8,7 @@ export type CatalogOfferSortValue = {
   priceEur: number | null;
   listedAt: string | null;
   location: OfferCoordinates | null;
+  countryPriority?: number;
 };
 
 export type CatalogOfferSortMode = "price" | "date" | "distance";
@@ -37,6 +38,8 @@ export function sortCatalogOffers<T extends CatalogOfferSortValue>(
   buyerLocation: OfferCoordinates | null,
 ): T[] {
   return [...offers].sort((left, right) => {
+    const countryOrder = (left.countryPriority ?? 0) - (right.countryPriority ?? 0);
+    if (countryOrder) return countryOrder;
     if (mode === "price") {
       const leftPrice = left.priceEur ?? Number.POSITIVE_INFINITY;
       const rightPrice = right.priceEur ?? Number.POSITIVE_INFINITY;

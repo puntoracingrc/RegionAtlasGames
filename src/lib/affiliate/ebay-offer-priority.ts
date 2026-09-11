@@ -1,50 +1,85 @@
-export type EbayAffiliateSearchScope = "spain" | "expanded";
-export type EbayOfferMarketScope = "spain" | "international";
+import { countries } from "country-flag-icons";
+import { getRegionDisplay } from "../region-display";
+import type { CatalogGame } from "../types";
+
+export type EbayAffiliateSearchScope = "preferred" | "expanded";
+export type EbayOfferMarketScope = "preferred" | "other" | "unrestricted";
 
 type EbayOfferCandidate = {
   id: string;
   location: string | null;
 };
 
-export function ebayAffiliateSearchFilter(scope: EbayAffiliateSearchScope): string {
+const NON_COUNTRY_FLAGS = new Set(["AC", "CP", "DG", "EA", "EU", "IC", "TA", "UN", "XK"]);
+const countryCodes = new Set(countries.filter(code => /^[A-Z]{2}$/.test(code) && !NON_COUNTRY_FLAGS.has(code)));
+const countryAliases = new Map<string, string>();
+
+function normalizedCountryText(value: string): string {
+  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toUpperCase();
+}
+
+for (const language of ["es", "en"]) {
+  const names = new Intl.DisplayNames([language], { type: "region" });
+  for (const code of countryCodes) {
+    countryAliases.set(code, code);
+    const name = names.of(code);
+    if (name) countryAliases.set(normalizedCountryText(name), code);
+  }
+}
+for (const [alias, code] of Object.entries({ UK: "GB", GBR: "GB", ESP: "ES", USA: "US", KOREA: "KR" })) {
+  countryAliases.set(alias, code);
+}
+
+export function normalizeEbayCountry(value: string | null | undefined): string | null {
+  return value ? countryAliases.get(normalizedCountryText(value)) ?? null : null;
+}
+
+/** A regional family, language or multi-country market is not a single country. */
+export function ebayPriorityCountry(
+  game: Pick<CatalogGame, "region" | "regionCode" | "marketRegion">,
+): string | null {
+  if (game.regionCode?.trim()) return normalizeEbayCountry(game.regionCode);
+  if (game.marketRegion?.trim()) return normalizeEbayCountry(game.marketRegion);
+  return normalizeEbayCountry(getRegionDisplay(game.region).flagCode) ?? normalizeEbayCountry(game.region);
+}
+
+export function ebayAffiliateSearchFilter(scope: EbayAffiliateSearchScope, country: string | null): string {
   const filters = ["buyingOptions:{FIXED_PRICE}", "deliveryCountry:ES"];
-  if (scope === "spain") filters.push("itemLocationCountry:ES");
+  const origin = normalizeEbayCountry(country);
+  if (scope === "preferred" && origin) filters.push(`itemLocationCountry:${origin}`);
   return filters.join(",");
 }
 
-export function isSpanishEbayLocation(value: string | null | undefined): boolean {
-  const normalized = value
-    ?.normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim()
-    .toUpperCase();
-  return normalized === "ES" || normalized === "ESP" || normalized === "SPAIN" || normalized === "ESPANA";
+export function ebayOfferCountryPriority(
+  offer: { provider: string; location: string | null },
+  country: string | null,
+): number {
+  const preferred = normalizeEbayCountry(country);
+  if (offer.provider !== "ebay" || !preferred) return 0;
+  return normalizeEbayCountry(offer.location) === preferred ? 0 : 1;
 }
 
-export function mergeSpainFirstEbayOffers<T extends EbayOfferCandidate>(
-  spainOffers: T[],
+export function mergeRegionFirstEbayOffers<T extends EbayOfferCandidate>(
+  preferredOffers: T[],
   expandedOffers: T[],
   limit: number,
+  country: string | null,
 ): Array<T & { marketScope: EbayOfferMarketScope }> {
   const seen = new Set<string>();
-  const domestic: Array<T & { marketScope: "spain" }> = [];
-  const international: Array<T & { marketScope: "international" }> = [];
-
-  const add = (offer: T, marketScope: EbayOfferMarketScope) => {
-    if (seen.has(offer.id)) return;
+  const preferred = normalizeEbayCountry(country);
+  const offers: Array<T & { marketScope: EbayOfferMarketScope }> = [];
+  for (const offer of [...preferredOffers, ...expandedOffers]) {
+    if (seen.has(offer.id)) continue;
     seen.add(offer.id);
-    if (marketScope === "spain") domestic.push({ ...offer, marketScope });
-    else international.push({ ...offer, marketScope });
-  };
-
-  for (const offer of spainOffers) add(offer, "spain");
-  for (const offer of expandedOffers) {
-    add(offer, isSpanishEbayLocation(offer.location) ? "spain" : "international");
+    offers.push({
+      ...offer,
+      marketScope: !preferred ? "unrestricted" : normalizeEbayCountry(offer.location) === preferred ? "preferred" : "other",
+    });
   }
-
-  return [...domestic, ...international].slice(0, Math.max(0, limit));
+  return offers.sort((a, b) => Number(a.marketScope === "other") - Number(b.marketScope === "other"))
+    .slice(0, Math.max(0, limit));
 }
 
-export function shouldExpandEbaySearch(spainOfferCount: number, minimumSpainOffers: number): boolean {
-  return spainOfferCount < minimumSpainOffers;
+export function shouldExpandEbaySearch(preferredOfferCount: number, minimumPreferredOffers: number): boolean {
+  return preferredOfferCount < minimumPreferredOffers;
 }

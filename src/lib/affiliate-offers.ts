@@ -3,7 +3,9 @@ import path from "path";
 import { buildEbayEndUserContext, buildEbayGameCustomId } from "./ebay/ebay-enduserctx";
 import {
   ebayAffiliateSearchFilter,
-  mergeSpainFirstEbayOffers,
+  ebayOfferCountryPriority,
+  ebayPriorityCountry,
+  mergeRegionFirstEbayOffers,
   shouldExpandEbaySearch,
   type EbayAffiliateSearchScope,
   type EbayOfferMarketScope,
@@ -40,6 +42,7 @@ export type AffiliateFallbackCta = {
 
 export type AffiliateOfferBlock = {
   enabled: boolean;
+  ebayPriorityCountry: string | null;
   offers: AffiliateOffer[];
   fallbackCta: AffiliateFallbackCta | null;
   fallbackCtas?: AffiliateFallbackCta[];
@@ -284,9 +287,9 @@ function ebayLimit(): number {
   return Number.isFinite(limit) ? Math.max(1, Math.min(10, limit)) : 6;
 }
 
-function ebaySpainMinimum(): number {
+function ebayPreferredMinimum(): number {
   const limit = ebayLimit();
-  const minimum = Number.parseInt(process.env.EBAY_AFFILIATE_SPAIN_MIN ?? "", 10);
+  const minimum = Number.parseInt(process.env.EBAY_AFFILIATE_PRIORITY_MIN ?? process.env.EBAY_AFFILIATE_SPAIN_MIN ?? "", 10);
   return Number.isFinite(minimum) ? Math.max(1, Math.min(limit, minimum)) : Math.min(3, limit);
 }
 
@@ -661,6 +664,7 @@ async function getEbayOffers(
   if (!token) return { offers: [], fallbackCta };
 
   const query = ebayQuery(game, details);
+  const preferredCountry = ebayPriorityCountry(game);
   const endUserContext = ebayEndUserContext(game);
   const headers: Record<string, string> = {
     Authorization: `Bearer ${token}`,
@@ -711,7 +715,7 @@ async function getEbayOffers(
     const params = new URLSearchParams({
       q: query,
       limit: String(ebayLimit() * 2),
-      filter: ebayAffiliateSearchFilter(scope),
+      filter: ebayAffiliateSearchFilter(scope, preferredCountry),
     });
     const response = await fetch(`${EBAY_BROWSE_SEARCH_URL}?${params}`, {
       headers,
@@ -754,18 +758,23 @@ async function getEbayOffers(
     });
   };
 
-  const spainResult = await search("spain");
-  if (!spainResult.ok) {
-    logFailure("spain", spainResult.status, spainResult.error);
-    if (spainResult.status === 429) {
-      setEbayBackoff(spainResult.status, spainResult.retryAfter);
-      return { offers: [], fallbackCta };
+  let preferredOffers: AffiliateOffer[] = [];
+  if (preferredCountry) {
+    const preferredResult = await search("preferred");
+    if (preferredResult.ok) {
+      preferredOffers = mapOffers(preferredResult.rawItems, "preferred");
+    } else {
+      logFailure("preferred", preferredResult.status, preferredResult.error);
+      if (preferredResult.status === 429) {
+        setEbayBackoff(preferredResult.status, preferredResult.retryAfter);
+        return { offers: [], fallbackCta };
+      }
     }
   }
-  const spainOffers = spainResult.ok ? mapOffers(spainResult.rawItems, "spain") : [];
 
   let expandedOffers: AffiliateOffer[] = [];
-  if (shouldExpandEbaySearch(spainOffers.length, ebaySpainMinimum())) {
+  const preferredCount = preferredOffers.filter(offer => ebayOfferCountryPriority(offer, preferredCountry) === 0).length;
+  if (!preferredCountry || shouldExpandEbaySearch(preferredCount, ebayPreferredMinimum())) {
     const expandedResult = await search("expanded");
     if (expandedResult.ok) {
       expandedOffers = mapOffers(expandedResult.rawItems, "expanded");
@@ -777,7 +786,7 @@ async function getEbayOffers(
     }
   }
 
-  const offers = mergeSpainFirstEbayOffers(spainOffers, expandedOffers, ebayLimit());
+  const offers = mergeRegionFirstEbayOffers(preferredOffers, expandedOffers, ebayLimit(), preferredCountry);
   return {
     offers,
     fallbackCta: offers.length > 0 ? null : fallbackCta,
@@ -855,8 +864,9 @@ export async function getAffiliateOfferBlock(
   details: GameDetails | null,
 ): Promise<AffiliateOfferBlock> {
   const trackingId = ebayGameCustomId(game);
-  if (!affiliateEnabled()) return { enabled: false, offers: [], fallbackCta: null, checkedAt: null, trackingId };
-  if (!(await affiliateGameWhitelisted(game))) return { enabled: true, offers: [], fallbackCta: null, checkedAt: null, trackingId };
+  const preferredCountry = ebayPriorityCountry(game);
+  if (!affiliateEnabled()) return { enabled: false, ebayPriorityCountry: preferredCountry, offers: [], fallbackCta: null, checkedAt: null, trackingId };
+  if (!(await affiliateGameWhitelisted(game))) return { enabled: true, ebayPriorityCountry: preferredCountry, offers: [], fallbackCta: null, checkedAt: null, trackingId };
 
   const [ebayResult, amazonOffers] = await Promise.all([
     getEbayOffers(game, details),
@@ -868,6 +878,7 @@ export async function getAffiliateOfferBlock(
   );
   return {
     enabled: true,
+    ebayPriorityCountry: preferredCountry,
     offers: [...ebayResult.offers, ...amazonOffers],
     fallbackCta: fallbackCtas[0] ?? null,
     fallbackCtas,
