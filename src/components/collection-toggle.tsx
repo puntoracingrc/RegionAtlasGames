@@ -123,11 +123,11 @@ export function CollectionToggle({ catalogId, gameTitle, initialOwned, ownedCoun
   return <section aria-label={`Acciones de ${gameTitle ?? "este juego"}`} className="space-y-3">
     <div className="grid grid-cols-2 gap-2">
       {isLoggedIn ? <>
-        <button type="button" onClick={add} disabled={Boolean(busy)} className={cn(actionClass, owned ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-800 dark:text-emerald-100" : "bg-accent text-accent-fg hover:opacity-90")}>
+        <button type="button" onClick={add} disabled={Boolean(busy)} className={cn(actionClass, owned ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-800 [.dark_&]:text-emerald-100" : "bg-accent text-accent-fg hover:opacity-90")}>
           {owned ? <Check className="h-4 w-4 shrink-0" aria-hidden /> : <Plus className="h-4 w-4 shrink-0" aria-hidden />}
           {busy === "add" ? "Guardando…" : owned ? "Añadir otra copia" : "Añadir a mi colección"}
         </button>
-        <button type="button" onClick={toggleWish} aria-pressed={wished} disabled={Boolean(busy) || owned} title={owned ? "Este juego ya está en tu colección" : undefined} className={cn(actionClass, "border", wished ? "border-rose-400/50 bg-rose-500/10 text-rose-700 dark:text-rose-200" : "border-border bg-card text-foreground hover:bg-card-hover")}>
+        <button type="button" onClick={toggleWish} aria-pressed={wished} disabled={Boolean(busy) || owned} title={owned ? "Este juego ya está en tu colección" : undefined} className={cn(actionClass, "border", wished ? "border-rose-400/50 bg-rose-500/10 text-rose-700 [.dark_&]:text-rose-200" : "border-border bg-card text-foreground hover:bg-card-hover")}>
           <Heart aria-hidden className={cn("h-4 w-4 shrink-0", wished && "fill-current")} />
           {busy === "wish" ? "Guardando…" : wished ? "En mis deseados" : "Añadir a deseados"}
         </button>
@@ -146,7 +146,7 @@ export function CollectionToggle({ catalogId, gameTitle, initialOwned, ownedCoun
       <button type="button" onClick={() => setPreparingSale(false)} disabled={Boolean(busy)} className="mt-3 w-full text-sm text-muted hover:text-foreground">Cancelar</button>
     </div>}
     {owned && <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted"><Link href={collectionCatalogPath(catalogId)} className="font-medium text-accent hover:underline">Gestionar {count === 1 ? "mi copia" : `mis ${count} copias`}</Link><button type="button" onClick={removeOne} disabled={Boolean(busy)} className="py-1 hover:text-foreground disabled:opacity-50">{count === 1 ? "Quitar de mi colección" : "Quitar una copia"}</button></div>}
-    {feedback && <p role={feedback.error ? "alert" : "status"} className={cn("rounded-lg px-3 py-2 text-sm", feedback.error ? "bg-rose-500/10 text-rose-700 dark:text-rose-300" : "bg-emerald-500/10 text-emerald-800 dark:text-emerald-200")}>{feedback.text}</p>}
+    {feedback && <p role={feedback.error ? "alert" : "status"} className={cn("rounded-lg px-3 py-2 text-sm", feedback.error ? "bg-rose-500/10 text-rose-700 [.dark_&]:text-rose-300" : "bg-emerald-500/10 text-emerald-800 [.dark_&]:text-emerald-200")}>{feedback.text}</p>}
     {mascotMessage && <MascotToast platformSlug={platformSlug} message={mascotMessage} detail={gameTitle} onClose={() => setMascotMessage(null)} />}
   </section>;
 }

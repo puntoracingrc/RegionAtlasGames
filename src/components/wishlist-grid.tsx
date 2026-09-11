@@ -52,10 +52,10 @@ export function WishlistGrid({ games }: { games: WishlistCard[] }) {
 
   return <div className="space-y-5">
     <label className="block max-w-lg text-sm font-medium">Buscar en mis deseados<input type="search" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Juego, plataforma o región…" className="mt-2 block w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none focus:ring-2 focus:ring-accent" /></label>
-    {error && <p role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-3 text-sm text-rose-700 dark:text-rose-300">{error}</p>}
+    {error && <p role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-3 text-sm text-rose-700 [.dark_&]:text-rose-300">{error}</p>}
     <div ref={root} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {pageGames.map((game) => <article key={game.catalogId} data-wishlist-catalog-id={game.catalogId} className="flex min-w-0 flex-col rounded-2xl border border-border bg-card p-4">
-        {game.unseenListingKeys.some((key) => !seenListingKeys.has(key)) && <span className="mb-3 inline-flex items-center gap-1.5 self-start rounded-full bg-rose-100 px-2 py-1 text-xs font-semibold text-rose-800 dark:bg-rose-950 dark:text-rose-200"><span aria-hidden className="h-1.5 w-1.5 rounded-full bg-rose-600" />Nuevo en venta</span>}
+        {game.unseenListingKeys.some((key) => !seenListingKeys.has(key)) && <span className="mb-3 inline-flex items-center gap-1.5 self-start rounded-full bg-rose-100 px-2 py-1 text-xs font-semibold text-rose-800 [.dark_&]:bg-rose-950 [.dark_&]:text-rose-200"><span aria-hidden className="h-1.5 w-1.5 rounded-full bg-rose-600" />Nuevo en venta</span>}
         <Link href={game.href} className="block"><CoverArt src={game.coverSrc} alt={game.title} platformSlug={game.platformSlug} className="mx-auto max-w-[180px]" /><h2 className="mt-3 text-base font-bold leading-snug hover:text-accent">{game.title}</h2></Link>
         <p className="mt-2 text-xs text-muted">{game.platformName}</p>
         <div className="mb-4 mt-1 text-xs"><RegionFlag region={game.region} size="sm" showLabel /></div>

@@ -74,15 +74,15 @@ export function WishlistAchievementNotice() {
   }
 
   return createPortal(
-    <aside className="fixed bottom-4 right-4 z-[70] w-[calc(100vw-2rem)] max-w-sm rounded-2xl border border-emerald-500/40 bg-white p-5 text-foreground shadow-2xl dark:bg-slate-900" aria-label="Juego deseado conseguido">
+    <aside className="fixed bottom-4 right-4 z-[70] w-[calc(100vw-2rem)] max-w-sm rounded-2xl border border-emerald-500/40 bg-white p-5 text-foreground shadow-2xl [.dark_&]:bg-slate-900" aria-label="Juego deseado conseguido">
       <button type="button" onClick={close} disabled={closing} aria-label="Cerrar aviso de juego conseguido" className="absolute right-2 top-2 rounded-md p-2 text-muted hover:bg-card-hover disabled:opacity-50"><X className="h-4 w-4" aria-hidden /></button>
       <div role="status" aria-live="polite" className="pr-5">
-        <Trophy className="mb-2 h-6 w-6 text-emerald-600 dark:text-emerald-400" aria-hidden />
+        <Trophy className="mb-2 h-6 w-6 text-emerald-600 [.dark_&]:text-emerald-400" aria-hidden />
         <p className="text-base font-bold leading-snug">¡Enhorabuena! {games.length === 1 ? "Has conseguido uno de tus juegos deseados." : `Has conseguido ${games.length} de tus juegos deseados.`}</p>
         <p className="mt-2 text-sm text-muted">{games.length === 1 ? games[0].title : `${games[0].title} y ${games.length - 1} más`} {games.length === 1 ? "ya está en tu colección." : "ya están en tu colección."}</p>
       </div>
       <div className="mt-4"><SellListingButton collectionItemId={games[0].collectionItemId} label="Vender uno como este" compact onCreated={close} /></div>
-      {error && <p role="alert" className="mt-2 text-xs text-rose-600 dark:text-rose-300">{error}</p>}
+      {error && <p role="alert" className="mt-2 text-xs text-rose-600 [.dark_&]:text-rose-300">{error}</p>}
     </aside>, document.body
   );
 }

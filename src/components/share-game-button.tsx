@@ -45,7 +45,7 @@ export function ShareGameButton({ title, url }: { title: string; url: string }) 
 
   return <>
     <button type="button" onClick={open} className="btn-secondary inline-flex min-h-11 items-center justify-center gap-2" aria-haspopup="dialog"><Share2 aria-hidden className="h-4 w-4 shrink-0" />Compartir</button>
-    <dialog ref={dialog} aria-labelledby={titleId} className="fixed inset-0 m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-3xl border border-border bg-white p-0 text-foreground shadow-2xl backdrop:bg-black/55 dark:bg-slate-900" onClick={(event) => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
+    <dialog ref={dialog} aria-labelledby={titleId} className="fixed inset-0 m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-3xl border border-border bg-white p-0 text-foreground shadow-2xl backdrop:bg-black/55 [.dark_&]:bg-slate-900" onClick={(event) => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
       <div className="p-5 sm:p-7">
         <div className="mb-5 flex items-center justify-between gap-4"><h2 id={titleId} className="text-xl font-bold sm:text-2xl">Compartir juego</h2><button type="button" onClick={() => dialog.current?.close()} aria-label="Cerrar compartir" className="rounded-full p-2 text-muted transition hover:bg-card-hover hover:text-foreground"><X aria-hidden className="h-6 w-6" /></button></div>
         <p className="mb-4 text-sm text-muted">{title}</p>
