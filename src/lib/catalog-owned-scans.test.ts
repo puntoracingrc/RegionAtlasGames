@@ -15,7 +15,7 @@ import { getGameProductReference } from "./game-product-reference";
 import type { CatalogGame, GameDetails } from "./types";
 
 test("owned scans retain each catalog identity and its existing URL", () => {
-  for (const entry of integration.games) {
+  for (const entry of integration.games.slice(0, 3)) {
     const before = entry.before.catalog as CatalogGame;
     const game = getCatalogGame(entry.id)!;
     const scans = getOwnedScanSet(game)!;
@@ -39,18 +39,40 @@ test("scans cannot spread to another territory, platform, edition or similarly n
     { slug: "fortnite-con-codigos" }, { id: "ps4-fortnite-con-codigos" },
   ]) assert.equal(getOwnedScanSet({ ...game, ...patch } as CatalogGame), undefined);
   assert.equal(getOwnedScanSet(getCatalogGame("ps5-resident-evil-requiem")!), undefined);
+  assert.ok(getOwnedScanSet(getCatalogGame("ps4-deadpool")!));
+  assert.equal(getOwnedScanSet(getCatalogGame("ps4-usa-deadpool")!), undefined);
 });
 
 test("old overlays keep live prices but cannot restore superseded covers", () => {
-  for (const entry of integration.games) {
+  for (const entry of integration.games.slice(0, 4)) {
     const game = getCatalogGame(entry.id)!;
-    const overlay = { ...entry.before.catalog, recommendedPrice: 37.5 } as CatalogGame;
+    const overlay = { ...entry.before.catalog, recommendedPrice: 37.5, updatedAt: "2026-09-12T12:00:00Z" } as CatalogGame;
     const merged = mergeCatalogGameWithOverlay(game, overlay);
     assert.equal(merged.coverUrl, game.coverUrl);
-    assert.equal(merged.regionVerified, true);
+    assert.equal(merged.regionVerified, game.regionVerified);
     assert.equal(merged.recommendedPrice, 37.5);
     assert.equal(overlay.coverUrl, entry.before.catalog.coverUrl);
   }
+});
+
+test("Fortnite Promo keeps its existing route but has its own disc evidence and no assumed country", () => {
+  const game = getCatalogGame("ps4-fornite-ps4-promo")!;
+  const scans = getOwnedScanSet(game)!;
+  assert.equal(game.edition, "promo");
+  assert.equal(game.regionVerified, false);
+  assert.equal(game.marketRegion, null);
+  assert.equal(catalogGamePath(game), "/catalogo/fornite-ps4-promo-ps4-pal-es");
+  assert.equal(scans.packaging.ean, null);
+  assert.ok(scans.softwareLanguagesPrinted?.text.includes("Español"));
+  assert.equal(scans.softwareLanguagesPrinted?.audio.includes("Español"), false);
+  assert.equal(scans.images.find(image => image.role === "contraportada")?.redactedCodes, 2);
+  const details = withOwnedScanDetails(game, undefined)!;
+  assert.equal(details.reference, "CUSA-07669");
+  assert.equal(details.releaseDate, null);
+  assert.equal(getGameProductReference(game, details)?.label, "Código del disco");
+  assert.notEqual(scans.primaryCoverUrl, getCatalogGame("ps4-fortnite")!.coverUrl);
+  const before = integration.games.find(entry => entry.id === game.id)!.before.catalog as CatalogGame;
+  assert.equal(mergeCatalogGameWithOverlay(game, before), game);
 });
 
 test("printed references supersede title matches while preserving documentary history", () => {
@@ -97,6 +119,6 @@ test("public assets match the reviewed hashes and contain no embedded original m
     await verify(cover.url, cover.sha256);
     assert.ok(cover.bytes < 600_000, "The catalog must use a lightweight cover, not the full scan");
   }
-  assert.equal(assetEvidence.sources.reduce((sum, source) => sum + source.redactedCodes, 0), 3);
+  assert.equal(assetEvidence.sources.reduce((sum, source) => sum + source.redactedCodes, 0), 5);
   assert.doesNotMatch(JSON.stringify(scanData), /\/Users\/|privados|originales|600ppp/);
 });

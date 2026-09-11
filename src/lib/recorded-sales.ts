@@ -1,5 +1,6 @@
 import type { RecordedPrivateSale } from "./marketplace-types";
 import { readMarketplaceDocument } from "./marketplace-document-store";
+import { canonicalCatalogId } from "./catalog-id-aliases";
 
 const SALES_DOCUMENT = "recorded-sales.json";
 
@@ -7,7 +8,7 @@ export async function getRecordedSalesForCatalog(
   catalogId: string,
 ): Promise<RecordedPrivateSale[]> {
   return (await readMarketplaceDocument<RecordedPrivateSale>(SALES_DOCUMENT))
-    .filter((sale) => sale.catalogId === catalogId)
+    .filter((sale) => canonicalCatalogId(sale.catalogId) === canonicalCatalogId(catalogId))
     .sort((a, b) => b.completedAt.localeCompare(a.completedAt));
 }
 

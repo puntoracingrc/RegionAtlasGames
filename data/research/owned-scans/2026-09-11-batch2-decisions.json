@@ -1,0 +1,48 @@
+{
+  "games": {
+    "ps4-deadpool": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "deadpool",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-11",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCaption": "Ejemplar precintado · Masacre PAL España",
+      "packaging": {
+        "reference": null,
+        "ean": "5030917185991",
+        "productNumber": "77110206SP",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; portada titulada Masacre (Deadpool) y contraportada en español.",
+        "languageStatement": "Manual, textos de pantalla y subtítulos en castellano",
+        "rejectedReferences": [
+          "BLES-01789"
+        ]
+      },
+      "notes": [
+        "La contraportada también indica «Playable in English». Se conservan ambas indicaciones impresas sin atribuir un doblaje en castellano.",
+        "Escaneo del ejemplar precintado: se conservan el plástico, sus reflejos y la banda PS4. El manual se cita según la portada; no se han examinado el lomo ni los componentes interiores."
+      ],
+      "sources": [
+        {
+          "role": "portada",
+          "label": "Portada del ejemplar precintado · Masacre",
+          "sha256": "78852e4ba46f1c465db2241a5e6e61bd43c095f3d6967e7b3c4804d9750894cc"
+        },
+        {
+          "role": "contraportada",
+          "label": "Contraportada del ejemplar precintado",
+          "sha256": "30900988de008b91933bda72cc7443c71067b093699693ac4b3da6b4a0806a15"
+        }
+      ],
+      "excludedSimilarCatalogIds": [
+        "ps4-usa-deadpool"
+      ],
+      "mappingNotes": "Unificación explícita de dos fichas de la misma edición. Se conserva el ID y URL de la copia del usuario, los precios de la ficha localizada y todos los ejemplares individuales."
+    }
+  }
+}

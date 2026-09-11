@@ -59,6 +59,7 @@ ALLOWED_SUCCESSOR_ROLE_CREDITS = {
     ("ps4-world-of-simulators", "physicalPublisherOrDistributor"): ("uig-entertainment",),
 }
 SUCCESSOR_CATALOG_IDS = {
+    "ps4-deadpool-masacre": "ps4-deadpool",
     "ps4-annapurna-ultimate-collection": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
 }
 WORKBOOK_NAME = "RegionAtlas_PS4_PAL_repaso_rapido_creditos_2026-09-05.xlsx"
@@ -114,6 +115,17 @@ PUBLISHER_ROLES = {
 
 def allowed_successor_role_credits(row: dict[str, str], detail: dict[str, Any]) -> list[dict[str, Any]]:
     role_name = ROLE_NAMES[row["role"]]
+    if row["catalog_id"] == "ps4-fornite-ps4-promo" and role_name == "physicalPublisherOrDistributor":
+        credits = [credit for credit in detail.get("companyCredits", []) if credit.get("role") == role_name]
+        if [credit.get("company", {}).get("slug") for credit in credits] == ["gearbox-publishing", "koch-media"] and all(
+            credit.get("provenance", {}).get("reviewBatch") == "owned-scans-2026-09-11-batch-2"
+            and credit["provenance"].get("reviewedAt") == "2026-09-11"
+            and credit["provenance"].get("evidenceUrls")
+            and credit["provenance"].get("evidenceSummary")
+            and credit["provenance"].get("previousValues") == ["Epic Games"]
+            for credit in credits
+        ):
+            return credits
     allowed_slugs = ALLOWED_SUCCESSOR_ROLE_CREDITS.get((row["catalog_id"], role_name))
     if not allowed_slugs:
         return []
@@ -1305,7 +1317,7 @@ def check_committed() -> None:
             raise ValueError(f"Role credit mismatch for {row['catalog_id']}:{row['role']}")
         effective_credits = role_credits or successor_credits
         if any(
-            credit["provenance"].get("reviewedAt") != REVIEWED_AT
+            credit["provenance"].get("reviewedAt") != ("2026-09-11" if row["catalog_id"] == "ps4-fornite-ps4-promo" and role_name == "physicalPublisherOrDistributor" else REVIEWED_AT)
             or not credit["provenance"].get("evidenceSummary")
             or not credit["provenance"].get("evidenceUrls")
             for credit in effective_credits

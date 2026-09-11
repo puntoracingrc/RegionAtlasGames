@@ -1,6 +1,6 @@
 {
   "batch": "owned-scans-2026-09-11",
-  "decision": "Replace covers only for the exact three owned PAL España editions. Printed packaging codes supersede title-only documentary matches. No propagation to other variants.",
+  "decision": "Integrar escaneos revisados por componente; conservar URLs y copias; unificar únicamente el duplicado documentado de Masacre y distinguir Fortnite Promo del comercial.",
   "games": [
     {
       "id": "ps4-fortnite",
@@ -256,6 +256,206 @@
         "reference": null,
         "ean": "3307216257806"
       }
+    },
+    {
+      "id": "ps4-deadpool",
+      "before": {
+        "catalog": {
+          "id": "ps4-deadpool",
+          "slug": "deadpool",
+          "title": "Deadpool",
+          "titlePc": "Deadpool",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/deadpool.jpg",
+          "pcPath": "/game/pal-playstation-4/deadpool",
+          "pcId": 57722,
+          "pcRegion": "PAL EU (referencia)",
+          "pcCondition": null,
+          "matchConfidence": "SEED_PC",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": null,
+          "hasEsPrice": false,
+          "seedSource": "pricecharting-pal"
+        },
+        "details": {
+          "year": 2015,
+          "releaseDate": "November 20, 2015",
+          "reference": "BLES-01789",
+          "players": 1,
+          "support": null,
+          "developer": null,
+          "publisher": null,
+          "genres": [
+            {
+              "name": "Action",
+              "slug": "action",
+              "museumPath": null,
+              "pcPath": null,
+              "source": "pricecharting"
+            },
+            {
+              "name": "amp; Adventure",
+              "slug": "amp-adventure",
+              "museumPath": null,
+              "pcPath": null,
+              "source": "pricecharting"
+            }
+          ],
+          "series": null,
+          "museumPath": null,
+          "pcProductId": 57722,
+          "ean": "5030917185939",
+          "sources": {
+            "pricecharting": {
+              "pcPath": "/game/pal-playstation-4/deadpool",
+              "fetchedAt": "2026-06-13T17:02:28",
+              "productId": 57722
+            },
+            "serialstation": {
+              "serialstationId": "02eced19-8ec9-446a-ba6e-6b9730ec014c",
+              "titleId": "BLES01789",
+              "matchMethod": "title",
+              "matchScore": 1.0,
+              "fetchedAt": "2026-06-19T05:26:42"
+            }
+          },
+          "fieldSources": {
+            "genres": "pricecharting",
+            "reference": "serialstation",
+            "year": "pricecharting",
+            "releaseDate": "pricecharting",
+            "players": "pricecharting"
+          },
+          "fetchedAt": "2026-06-19T05:26:43",
+          "mergedAt": "2026-06-19T05:26:43",
+          "pegi": "PEGI 18"
+        }
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada-catalogo.webp",
+        "reference": null,
+        "ean": "5030917185991"
+      },
+      "mappingNotes": "Unificación explícita de dos fichas de la misma edición. Se conserva el ID y URL de la copia del usuario, los precios de la ficha localizada y todos los ejemplares individuales."
+    },
+    {
+      "id": "ps4-fornite-ps4-promo",
+      "before": {
+        "catalog": {
+          "id": "ps4-fornite-ps4-promo",
+          "slug": "fornite-ps4-promo",
+          "title": "Fornite PS4 PROMO",
+          "titlePc": null,
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/fornite-ps4-promo.jpg",
+          "pcId": null,
+          "pcRegion": null,
+          "pcCondition": null,
+          "matchConfidence": null,
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": null,
+          "hasEsPrice": false
+        },
+        "details": {
+          "year": null,
+          "releaseDate": null,
+          "reference": null,
+          "players": null,
+          "support": null,
+          "developer": {
+            "name": "Epic Games",
+            "slug": "epic-games",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "publisher": null,
+          "genres": [],
+          "series": null,
+          "museumPath": null,
+          "pcProductId": null,
+          "ean": null,
+          "sources": {},
+          "fieldSources": {
+            "developer": "research"
+          },
+          "fetchedAt": "2026-09-05T12:00:00Z",
+          "mergedAt": "2026-09-05T12:00:00Z",
+          "companyCredits": [
+            {
+              "role": "developer",
+              "company": {
+                "name": "Epic Games",
+                "slug": "epic-games",
+                "museumPath": null,
+                "pcPath": null,
+                "source": "research"
+              },
+              "provenance": {
+                "source": "research",
+                "evidenceUrls": [
+                  "https://www.fortnite.com/"
+                ],
+                "evidenceSummary": "Las fuentes consultadas atribuyen el desarrollo a Epic Games.",
+                "reviewedAt": "2026-09-05",
+                "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+              }
+            },
+            {
+              "role": "physicalPublisherOrDistributor",
+              "company": {
+                "name": "Epic Games",
+                "slug": "epic-games",
+                "museumPath": null,
+                "pcPath": null,
+                "source": "research"
+              },
+              "provenance": {
+                "source": "research",
+                "evidenceUrls": [
+                  "https://www.fortnite.com/"
+                ],
+                "evidenceSummary": "La edición PS4 consultada atribuye la publicación o distribución física a Epic Games.",
+                "reviewedAt": "2026-09-05",
+                "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+              }
+            }
+          ],
+          "fieldProvenance": {
+            "developer": {
+              "source": "research",
+              "evidenceUrls": [
+                "https://www.fortnite.com/"
+              ],
+              "evidenceSummary": "Las fuentes consultadas atribuyen el desarrollo a Epic Games.",
+              "reviewedAt": "2026-09-05",
+              "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+            }
+          }
+        }
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-portada-catalogo.webp",
+        "reference": "CUSA-07669",
+        "ean": null
+      },
+      "mappingNotes": "Se completa la ficha promocional existente con errata Fornite. Se conserva su URL, se corrige la variante a promo y no se atribuye un país a PAL."
     }
   ]
 }

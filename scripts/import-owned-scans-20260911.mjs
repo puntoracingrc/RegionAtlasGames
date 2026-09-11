@@ -44,6 +44,12 @@ const specs = [
   ] },
 ];
 const sha = bytes => createHash("sha256").update(bytes).digest("hex");
+let existingRegistry;
+try { existingRegistry = JSON.parse(await readFile(path.join(root, "data/catalog-owned-scans.json"), "utf8")); }
+catch (error) { if (error.code !== "ENOENT") throw error; }
+if (Object.keys(existingRegistry?.games ?? {}).some(id => !specs.some(spec => spec.id === id))) {
+  throw new Error("This fixed initial batch must not overwrite later scan sets. Use import-owned-scan-pair.mjs for additions.");
+}
 const publicRegistry = { schemaVersion: 1, games: {} };
 const evidence = { schemaVersion: 1, capturedAt: "2026-09-11", scanner: "EPSON ET-8500", sourceDpi: 600, processing: "Recorte rectangular, reducción y WebP; sin generación ni reconstrucción de imagen. Los códigos ya estaban ocultos en los PNG finales del escáner.", sources: [], assets: [], covers: [] };
 for (const spec of specs) {

@@ -227,7 +227,7 @@ def main() -> int:
         for relation in company_relations["relationships"]
     )
 
-    assert len(redirects["redirects"]) == 7
+    assert len([record for record in redirects["redirects"] if record["reviewBatch"] == importer.BATCH_ID]) == 7
     for redirect in redirects["redirects"]:
         assert redirect["targetCatalogId"] in catalog_by_id
         assert catalog_by_id[redirect["targetCatalogId"]]["listingStatus"] == "listed"

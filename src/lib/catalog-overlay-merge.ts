@@ -1,4 +1,5 @@
 import { getOwnedScanSet } from "./catalog-owned-scans";
+import { canonicalCatalogId, hasConsolidatedCatalogAliases } from "./catalog-id-aliases";
 import type {
   CatalogGame,
   DetailEntity,
@@ -194,11 +195,24 @@ export function mergeCatalogGameWithOverlay(
   staticGame: CatalogGame,
   overlayGame: CatalogGame,
 ): CatalogGame {
-  if (staticGame.id !== overlayGame.id) return overlayGame;
+  if (staticGame.id !== overlayGame.id) {
+    return canonicalCatalogId(overlayGame.id) === staticGame.id ? staticGame : overlayGame;
+  }
 
   const merged = { ...overlayGame };
+  if (hasConsolidatedCatalogAliases(staticGame.id) && sourceTimestamp(staticGame.updatedAt) > sourceTimestamp(overlayGame.updatedAt)) {
+    for (const field of Object.keys({ ...staticGame, ...overlayGame })) {
+      if (REVIEWED_PRICE_FIELDS.has(field) || ["hasEsPrice", "priceRegionVerified", "updatedAt"].includes(field) || /^(estimatedPrice|estimatedShippingToSpain|estimatedTotalToSpain)/.test(field)) {
+        (merged as Record<string, unknown>)[field] = (staticGame as unknown as Record<string, unknown>)[field] ?? null;
+      }
+    }
+  }
   const ownedScans = getOwnedScanSet(staticGame);
+  if (ownedScans?.supersededIdentity && Object.entries(ownedScans.supersededIdentity).every(([key, value]) => overlayGame[key as keyof CatalogGame] === value)) {
+    return staticGame;
+  }
   if (ownedScans && getOwnedScanSet(overlayGame) && staticGame.coverUrl === ownedScans.primaryCoverUrl) {
+    merged.title = staticGame.title;
     merged.coverUrl = staticGame.coverUrl;
     merged.regionVerified = staticGame.regionVerified;
     merged.regionEvidence = staticGame.regionEvidence;
@@ -270,6 +284,7 @@ export function mergeCatalogPlatformGames(
   const byId = new Map(staticGames.map((game) => [game.id, game]));
 
   for (const overlay of overlayGames) {
+    if (canonicalCatalogId(overlay.id) !== overlay.id) continue;
     if (overlay.platformSlug === platformSlug) {
       const staticGame = byId.get(overlay.id);
       byId.set(

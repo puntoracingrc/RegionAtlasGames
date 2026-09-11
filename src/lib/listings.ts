@@ -1,5 +1,6 @@
 import { randomUUID } from "crypto";
 import { getCatalogGame } from "./catalog";
+import { canonicalCatalogId, canonicalCatalogLink } from "./catalog-id-aliases";
 import { getUserCollectionItem, recordCompletedCollectionSale } from "./collection-store";
 import {
   mutateMarketplaceDocument,
@@ -34,13 +35,13 @@ const LISTINGS_DOCUMENT = "listings.json";
 const SALES_DOCUMENT = "recorded-sales.json";
 
 async function readListings(): Promise<MarketplaceListing[]> {
-  return readMarketplaceDocument<MarketplaceListing>(LISTINGS_DOCUMENT);
+  return (await readMarketplaceDocument<MarketplaceListing>(LISTINGS_DOCUMENT)).map(canonicalCatalogLink);
 }
 
 async function mutateListings<R>(
   mutation: Parameters<typeof mutateMarketplaceDocument<MarketplaceListing, R>>[1],
 ): Promise<R> {
-  return mutateMarketplaceDocument<MarketplaceListing, R>(LISTINGS_DOCUMENT, mutation);
+  return mutateMarketplaceDocument<MarketplaceListing, R>(LISTINGS_DOCUMENT, current => mutation(current.map(canonicalCatalogLink)));
 }
 
 async function mutateSales<R>(
@@ -54,7 +55,7 @@ export async function getListing(id: string): Promise<MarketplaceListing | undef
 }
 
 export async function getActiveListingsForCatalog(catalogId: string): Promise<MarketplaceListing[]> {
-  return (await readListings()).filter((l) => l.catalogId === catalogId && l.status === "active");
+  return (await readListings()).filter((l) => l.catalogId === canonicalCatalogId(catalogId) && l.status === "active");
 }
 
 export async function getActiveMarketplaceListings(): Promise<MarketplaceListing[]> {
@@ -86,7 +87,7 @@ export async function getSellerOpenListing(
   return (await readListings()).find(
     (l) =>
       l.sellerId === sellerId &&
-      l.catalogId === catalogId &&
+      l.catalogId === canonicalCatalogId(catalogId) &&
       (l.status === "active" || l.status === "draft"),
   );
 }

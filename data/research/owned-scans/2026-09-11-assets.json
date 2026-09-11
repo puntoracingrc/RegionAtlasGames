@@ -60,6 +60,55 @@
       "width": 3310,
       "height": 4140,
       "redactedCodes": 0
+    },
+    {
+      "fileName": "01-portada-precintada.png",
+      "sha256": "78852e4ba46f1c465db2241a5e6e61bd43c095f3d6967e7b3c4804d9750894cc",
+      "width": 3310,
+      "height": 4140,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "02-contraportada-precintada.png",
+      "sha256": "30900988de008b91933bda72cc7443c71067b093699693ac4b3da6b4a0806a15",
+      "width": 3310,
+      "height": 4140,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "01-caja-y-disco-promocional.png",
+      "sha256": "c0e66edc78cd053611bddfc386d17010bbd8ef5f175f4712d87cae7cacc7558c",
+      "width": 6320,
+      "height": 3050,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "02-caja-portada.png",
+      "sha256": "6d805e0224a0980f6a2168f3badfb6b38826a1f9f78e2c372a8b81b25244ac3d",
+      "width": 3340,
+      "height": 3000,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "03-disco-promocional.png",
+      "sha256": "52b07bb94fa569139774d83a689fad7b8d1301fa59718687d5be638ce118028d",
+      "width": 2890,
+      "height": 2870,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "04-caja-con-disco-colocado.png",
+      "sha256": "e3dc7731bd4b5656ad6f126936532abc1751617c28f42727328b6c2671cb1497",
+      "width": 3430,
+      "height": 3050,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "05-contraportada-codigos-ocultos.png",
+      "sha256": "0eb59ad52d78a37f8696ae1c4084927e61eff411dd5d943ed34e0c86c581b8b8",
+      "width": 3300,
+      "height": 2851,
+      "redactedCodes": 2
     }
   ],
   "assets": [
@@ -324,6 +373,112 @@
       "bytes": 1855254,
       "thumbnailSha256": "37d40f9a96379b8b9d0ab4413ed7a31e9086ddbdbd8a5a5b36b77e241192b30c",
       "thumbnailBytes": 63874
+    },
+    {
+      "catalogId": "ps4-deadpool",
+      "role": "portada",
+      "label": "Portada del ejemplar precintado · Masacre",
+      "url": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada-mini.webp",
+      "width": 2558,
+      "height": 3200,
+      "sourceSha256": "78852e4ba46f1c465db2241a5e6e61bd43c095f3d6967e7b3c4804d9750894cc",
+      "crop": null,
+      "sha256": "dbb6a858f3661ba7e558b7792af8d5ce0b3941a79b6205318f903b88c4e3bd7a",
+      "bytes": 776856,
+      "thumbnailSha256": "784d53c927a497bf2f92c95e0f5aa6f84b8439707830c5c17d8be880adb9217e",
+      "thumbnailBytes": 46326
+    },
+    {
+      "catalogId": "ps4-deadpool",
+      "role": "contraportada",
+      "label": "Contraportada del ejemplar precintado",
+      "url": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-contraportada-mini.webp",
+      "width": 2558,
+      "height": 3200,
+      "sourceSha256": "30900988de008b91933bda72cc7443c71067b093699693ac4b3da6b4a0806a15",
+      "crop": null,
+      "sha256": "637e0e56ca2ff6c679e551324d27a9f10253a4aa7e72036f523b8874dc2818ff",
+      "bytes": 1620538,
+      "thumbnailSha256": "a4ffe55831915052c2c5848920b57eee884b464bd84d2ac327e3534bb64c93eb",
+      "thumbnailBytes": 65850
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "conjunto",
+      "label": "Caja y disco promocional",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-conjunto.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-conjunto-mini.webp",
+      "width": 3200,
+      "height": 1544,
+      "sourceSha256": "c0e66edc78cd053611bddfc386d17010bbd8ef5f175f4712d87cae7cacc7558c",
+      "crop": null,
+      "sha256": "e0ceab10c0a176498034773afdd868a2649634d7a0828397957279a38e0eb5a2",
+      "bytes": 535884,
+      "thumbnailSha256": "a8f2fea001322dfaa0aba5e87e772ed96091484c7647909117cc38692fa4eb8b",
+      "thumbnailBytes": 30016
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "caja-portada",
+      "label": "Portada de la caja promocional",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-caja-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-caja-portada-mini.webp",
+      "width": 3200,
+      "height": 2874,
+      "sourceSha256": "6d805e0224a0980f6a2168f3badfb6b38826a1f9f78e2c372a8b81b25244ac3d",
+      "crop": null,
+      "sha256": "24b065785b895582bc4d7c9eef8e7ac6f6a56a016f8e74f3c833e8f786671715",
+      "bytes": 1102318,
+      "thumbnailSha256": "a87a1fa9af6faac878d48ee29adb11397ffca951a2008dfdb8c6447249962411",
+      "thumbnailBytes": 38920
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "disco-etiqueta",
+      "label": "Etiqueta del disco promocional",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-disco-etiqueta.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-disco-etiqueta-mini.webp",
+      "width": 2890,
+      "height": 2870,
+      "sourceSha256": "52b07bb94fa569139774d83a689fad7b8d1301fa59718687d5be638ce118028d",
+      "crop": null,
+      "sha256": "59825c637f0e6869f310cd892fd0ccacc8f47ab2d147d83543e96c589336375c",
+      "bytes": 1123370,
+      "thumbnailSha256": "da4204c818cb97e3d33fbcad16247eff97641760f43f556e871e66c2aab32212",
+      "thumbnailBytes": 54134
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "caja-con-disco-colocado",
+      "label": "Disco colocado en su caja · reverso parcialmente oculto",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-caja-con-disco-colocado.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-caja-con-disco-colocado-mini.webp",
+      "width": 3200,
+      "height": 2845,
+      "sourceSha256": "e3dc7731bd4b5656ad6f126936532abc1751617c28f42727328b6c2671cb1497",
+      "crop": null,
+      "sha256": "a3e52df24870b9d5f75910c44ef10ac6e1bb82685102378ed07166c9cd7c5f2f",
+      "bytes": 892294,
+      "thumbnailSha256": "1264e016d2c79490e4c7d4aa1d0b473d544a636f74e5bbf34963f59b904ec6ad",
+      "thumbnailBytes": 43332
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "contraportada",
+      "label": "Contraportada promocional · códigos de canje ocultos",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-contraportada-mini.webp",
+      "width": 3200,
+      "height": 2765,
+      "redactedCodes": 2,
+      "sourceSha256": "0eb59ad52d78a37f8696ae1c4084927e61eff411dd5d943ed34e0c86c581b8b8",
+      "crop": null,
+      "sha256": "94a8c26a37584e7f50743b650f101bdd20798163f4ec65d83a0a7563e1c2677b",
+      "bytes": 1885742,
+      "thumbnailSha256": "13aebc0bae87944125186c5e9de8cdd010953266bc34dfffbf59d4b8ed36e71c",
+      "thumbnailBytes": 65684
     }
   ],
   "covers": [
@@ -360,6 +515,22 @@
       "crop": null,
       "sha256": "5cbeec91ceba84201cbbeda8d203953e08fade64d805494db3f1d21f0cff7997",
       "bytes": 220300
+    },
+    {
+      "catalogId": "ps4-deadpool",
+      "url": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada-catalogo.webp",
+      "sourceSha256": "78852e4ba46f1c465db2241a5e6e61bd43c095f3d6967e7b3c4804d9750894cc",
+      "crop": null,
+      "sha256": "bd673c8fc875bfcc7ace1d0159d8df59c0349dbba7144018852338efefc5d264",
+      "bytes": 213462
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-portada-catalogo.webp",
+      "sourceSha256": "6d805e0224a0980f6a2168f3badfb6b38826a1f9f78e2c372a8b81b25244ac3d",
+      "crop": null,
+      "sha256": "b6d92b7a45bf3f8ccbab3999dbc2a02b00f8b1221a3c1581238dcd048be3ea27",
+      "bytes": 229814
     }
   ]
 }

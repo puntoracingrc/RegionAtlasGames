@@ -96,17 +96,18 @@ def main() -> int:
             importer, row, details[effective_catalog_id(importer, row)]
         )
     ]
-    assert len(effective_credits) == 1660
+    # The photographed promo disc explicitly credits both Gearbox and Koch Media.
+    assert len(effective_credits) == 1661
     assert Counter(credit["role"] for credit in effective_credits) == {
         "developer": 661,
         "publisher": 2,
         "digitalPublisher": 60,
-        "physicalPublisherOrDistributor": 937,
+        "physicalPublisherOrDistributor": 938,
     }
     assert all(
         credit["provenance"]["evidenceUrls"]
         and credit["provenance"]["evidenceSummary"]
-        and credit["provenance"]["reviewedAt"] == "2026-09-05"
+        and credit["provenance"]["reviewedAt"] == ("2026-09-11" if credit["provenance"]["reviewBatch"] == "owned-scans-2026-09-11-batch-2" else "2026-09-05")
         for credit in effective_credits
     )
 
@@ -204,7 +205,7 @@ def main() -> int:
 
     print(
         "OK PS4 PAL rapid-review semantics: 1655 reviewed role rows, "
-        "1660 explicit credits, 95 conflicts blocked and 6 non-games excluded"
+        "1661 explicit credits, 95 conflicts blocked and 6 non-games excluded"
     )
     return 0
 

@@ -21755,7 +21755,7 @@
       "ps4-cabela%27s-african-adventures",
       "ps4-call-of-duty-black-ops-4-especialista",
       "ps4-call-of-duty-black-ops-iii-zombie-chronicles",
-      "ps4-deadpool-masacre",
+      "ps4-deadpool",
       "ps4-destiny-2-forsaken-legendary-collection",
       "ps4-destiny-2-los-renegados",
       "ps4-destiny-the-collection",
@@ -22889,7 +22889,7 @@
       "ps4-cabela%27s-african-adventures",
       "ps4-call-of-duty-black-ops-4-especialista",
       "ps4-call-of-duty-black-ops-iii-zombie-chronicles",
-      "ps4-deadpool-masacre",
+      "ps4-deadpool",
       "ps4-destiny-2-forsaken-legendary-collection",
       "ps4-destiny-2-los-renegados",
       "ps4-destiny-the-collection",
@@ -77814,10 +77814,11 @@
       "ps4-usa-trover-saves-the-universe",
       "ps4-usa-fortnite",
       "ps4-usa-penn-&amp;-teller-vr-frankly-unfair-unkind-unnecessary-&amp;-underhanded",
-      "ps4-tribes-of-midgard-deluxe-edition"
+      "ps4-tribes-of-midgard-deluxe-edition",
+      "ps4-fornite-ps4-promo"
     ],
     "byPlatform": {
-      "ps4": 15
+      "ps4": 16
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -77836,9 +77837,10 @@
       "ps4-usa-fortnite",
       "ps4-usa-penn-&amp;-teller-vr-frankly-unfair-unkind-unnecessary-&amp;-underhanded"
     ],
-    "gameCount": 15,
+    "gameCount": 16,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-tribes-of-midgard-deluxe-edition"
+      "ps4-tribes-of-midgard-deluxe-edition",
+      "ps4-fornite-ps4-promo"
     ]
   },
   "humble-games": {
@@ -81301,7 +81303,6 @@
     ],
     "gameCount": 22,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-fornite-ps4-promo",
       "ps4-fortnite-con-1-codigo",
       "ps4-fortnite-con-codigos",
       "ps4-fortnite-sin-codigos",
@@ -82048,11 +82049,12 @@
       "ps4-usa-after-the-fall-frontrunner-edition",
       "ps4-gungrave-gore",
       "wii-andrew-lloyd-webber-musicals-sing-and-dance",
-      "ps4-after-the-fall-frontrunner-edition"
+      "ps4-after-the-fall-frontrunner-edition",
+      "ps4-fornite-ps4-promo"
     ],
     "byPlatform": {
       "ps3": 1,
-      "ps4": 6,
+      "ps4": 7,
       "wii": 6
     },
     "asDeveloper": [
@@ -82072,9 +82074,10 @@
       "ps4-gungrave-gore",
       "wii-andrew-lloyd-webber-musicals-sing-and-dance"
     ],
-    "gameCount": 13,
+    "gameCount": 14,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-after-the-fall-frontrunner-edition"
+      "ps4-after-the-fall-frontrunner-edition",
+      "ps4-fornite-ps4-promo"
     ]
   },
   "konami-computer-entertainment-japan": {
@@ -147409,7 +147412,7 @@
     "gameIds": [
       "ps3-deadpool",
       "ps3-usa-deadpool",
-      "ps4-deadpool-masacre"
+      "ps4-deadpool"
     ],
     "byPlatform": {
       "ps3": 2,
@@ -147418,7 +147421,7 @@
     "asDeveloper": [
       "ps3-deadpool",
       "ps3-usa-deadpool",
-      "ps4-deadpool-masacre"
+      "ps4-deadpool"
     ],
     "asPublisher": [],
     "gameCount": 3

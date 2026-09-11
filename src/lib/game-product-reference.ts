@@ -189,15 +189,17 @@ export function getGameProductReference(
   const normalized = normalizeReference(raw);
   const parsed = interpretReference(normalized, game.platformSlug);
   const resolvedPs1 = game.platformSlug === "ps1" && game.regionalStatus === "resolved";
-  const scannedSpine = getOwnedScanSet(game)?.packaging.reference === normalized;
+  const scan = getOwnedScanSet(game);
+  const scannedReference = scan?.packaging.reference === normalized;
+  const scannedComponent = scan?.packaging.referenceComponent ?? "lomo";
 
   return {
     raw,
     normalized,
-    label: scannedSpine ? "Código del lomo" : referenceFieldLabel(game.platformSlug),
+    label: scannedReference ? `Código del ${scannedComponent}` : referenceFieldLabel(game.platformSlug),
     family: referenceFamily(normalized),
-    regionHint: scannedSpine ? null : resolvedPs1 ? game.region : parsed?.regionHint ?? null,
-    regionHintNote: scannedSpine ? "Código leído en el lomo del ejemplar escaneado. El mercado se contrasta con la carátula."
+    regionHint: scannedReference ? null : resolvedPs1 ? game.region : parsed?.regionHint ?? null,
+    regionHintNote: scannedReference ? `Código leído en el ${scannedComponent} del ejemplar escaneado. El mercado se contrasta con la carátula.`
       : resolvedPs1
       ? details?.ps1Edition?.serialScope === "packaging"
         ? "Código documentado de la caja. La equivalencia con el código del disco está pendiente de verificar."

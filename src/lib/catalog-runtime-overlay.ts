@@ -268,8 +268,8 @@ export async function resolveCatalogGameWithOverlay(
 }
 
 export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails | undefined> {
-  const details = await getGameDetailsOverlaySource(id);
   const game = getCatalogGame(id);
+  const details = await getGameDetailsOverlaySource(game?.id ?? id);
   return game ? withOwnedScanDetails(game, details) : details;
 }
 

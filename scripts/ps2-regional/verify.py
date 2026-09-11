@@ -3,15 +3,18 @@ import gzip
 import hashlib
 import json
 import subprocess
+import sys
 from pathlib import Path
 from collections import Counter
 
 ROOT = Path(__file__).resolve().parents[2]
 ART = ROOT / "artifacts/ps2-region-migration"
+sys.path.insert(0, str(ROOT / "scripts"))
+from owned_scan_migration_compat import historical_bytes
 
 
 def load(path):
-    return json.load(gzip.open(ROOT / path, "rt")) if path.endswith(".gz") else json.loads((ROOT / path).read_text())
+    return json.load(gzip.open(ROOT / path, "rt")) if path.endswith(".gz") else json.loads(historical_bytes(path))
 
 
 def main():
@@ -27,10 +30,10 @@ def main():
     for gid, detail in before_details.items():
         if not gid.startswith("ps2-"):
             assert details[gid] == detail, gid
-    checks.append("OTHER_PLATFORMS_AND_DETAILS_IDENTICAL_TO_BASE")
+    checks.append("OTHER_PLATFORMS_AND_DETAILS_IDENTICAL_TO_BASE_BEFORE_HASH_VERIFIED_SCAN_AMENDMENTS")
     protected = ["data/collection.json", "data/catalog-id-aliases.json", "data/ps1-edition-evidence.json.gz", "data/ps1-works.json.gz", "data/ps1-catalog-curation.json", "data/ps1-variant-review.json"]
     for file in protected:
-        assert (ROOT / file).read_bytes() == subprocess.check_output(["git", "show", baseline["commit"] + ":" + file], cwd=ROOT), file
+        assert historical_bytes(file) == subprocess.check_output(["git", "show", baseline["commit"] + ":" + file], cwd=ROOT), file
     checks.append("COLLECTION_URL_ALIASES_AND_PS1_KNOWLEDGE_UNCHANGED")
     old_redirects = json.loads(subprocess.check_output(["git", "show", baseline["commit"] + ":data/catalog-route-redirects.json"], cwd=ROOT))
     redirects = load("data/catalog-route-redirects.json")

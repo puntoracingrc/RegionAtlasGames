@@ -1,0 +1,363 @@
+{
+  "batchId": "owned-scans-2026-09-11-batch-2",
+  "canonicalId": "ps4-deadpool",
+  "retiredId": "ps4-deadpool-masacre",
+  "before": {
+    "ps4-deadpool": {
+      "catalog": {
+        "id": "ps4-deadpool",
+        "slug": "deadpool",
+        "title": "Deadpool",
+        "titlePc": "Deadpool",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/deadpool.jpg",
+        "pcPath": "/game/pal-playstation-4/deadpool",
+        "pcId": 57722,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": null,
+        "hasEsPrice": false,
+        "seedSource": "pricecharting-pal"
+      },
+      "details": {
+        "year": 2015,
+        "releaseDate": "November 20, 2015",
+        "reference": "BLES-01789",
+        "players": 1,
+        "support": null,
+        "developer": null,
+        "publisher": null,
+        "genres": [
+          {
+            "name": "Action",
+            "slug": "action",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "pricecharting"
+          },
+          {
+            "name": "amp; Adventure",
+            "slug": "amp-adventure",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "pricecharting"
+          }
+        ],
+        "series": null,
+        "museumPath": null,
+        "pcProductId": 57722,
+        "ean": "5030917185939",
+        "sources": {
+          "pricecharting": {
+            "pcPath": "/game/pal-playstation-4/deadpool",
+            "fetchedAt": "2026-06-13T17:02:28",
+            "productId": 57722
+          },
+          "serialstation": {
+            "serialstationId": "02eced19-8ec9-446a-ba6e-6b9730ec014c",
+            "titleId": "BLES01789",
+            "matchMethod": "title",
+            "matchScore": 1.0,
+            "fetchedAt": "2026-06-19T05:26:42"
+          }
+        },
+        "fieldSources": {
+          "genres": "pricecharting",
+          "reference": "serialstation",
+          "year": "pricecharting",
+          "releaseDate": "pricecharting",
+          "players": "pricecharting"
+        },
+        "fetchedAt": "2026-06-19T05:26:43",
+        "mergedAt": "2026-06-19T05:26:43",
+        "pegi": "PEGI 18"
+      }
+    },
+    "ps4-deadpool-masacre": {
+      "catalog": {
+        "id": "ps4-deadpool-masacre",
+        "slug": "deadpool-masacre",
+        "title": "DeadPool Masacre",
+        "titlePc": "Deadpool",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada-catalogo.webp",
+        "pcId": 57722,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": 206.67,
+        "marketMax": 206.67,
+        "recommendedPrice": 206.67,
+        "pcRefPrice": 118.75,
+        "deltaEsVsPc": 74,
+        "priceSource": "Wallapop ES",
+        "updatedAt": "2026-08-31T23:01:58Z",
+        "hasEsPrice": true,
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 206.67,
+        "priceDataSources": "Wallapop",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260911"
+        ]
+      },
+      "details": {
+        "year": null,
+        "releaseDate": null,
+        "reference": null,
+        "players": null,
+        "support": null,
+        "developer": {
+          "name": "High Moon Studios",
+          "slug": "high-moon-studios",
+          "museumPath": null,
+          "pcPath": null,
+          "source": "research"
+        },
+        "publisher": null,
+        "genres": [],
+        "series": null,
+        "museumPath": null,
+        "pcProductId": null,
+        "ean": "5030917185991",
+        "sources": {
+          "ownedScan": {
+            "url": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-contraportada.webp",
+            "label": "Escaneos aportados por el propietario del ejemplar",
+            "fetchedAt": "2026-09-11"
+          }
+        },
+        "fieldSources": {
+          "developer": "research"
+        },
+        "fetchedAt": "2026-09-05T12:00:00Z",
+        "mergedAt": "2026-09-05T12:00:00Z",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": {
+              "name": "High Moon Studios",
+              "slug": "high-moon-studios",
+              "museumPath": null,
+              "pcPath": null,
+              "source": "research"
+            },
+            "provenance": {
+              "source": "research",
+              "evidenceUrls": [
+                "https://www.activision.com/"
+              ],
+              "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: High Moon Studios.",
+              "reviewedAt": "2026-09-05",
+              "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+            }
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": {
+              "name": "Activision",
+              "slug": "activision",
+              "museumPath": null,
+              "pcPath": null,
+              "source": "research"
+            },
+            "provenance": {
+              "source": "research",
+              "evidenceUrls": [
+                "https://www.activision.com/"
+              ],
+              "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: Activision.",
+              "reviewedAt": "2026-09-05",
+              "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+            }
+          }
+        ],
+        "fieldProvenance": {
+          "developer": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/"
+            ],
+            "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: High Moon Studios.",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        }
+      }
+    }
+  },
+  "after": {
+    "catalog": {
+      "id": "ps4-deadpool",
+      "slug": "deadpool",
+      "title": "Masacre (Deadpool)",
+      "titlePc": "Deadpool",
+      "platformSlug": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "listingStatus": "listed",
+      "coverUrl": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada-catalogo.webp",
+      "pcPath": "/game/pal-playstation-4/deadpool",
+      "pcId": 57722,
+      "pcRegion": null,
+      "pcCondition": "Normal wear",
+      "matchConfidence": "MATCH_ALTO",
+      "marketMin": 206.67,
+      "marketMax": 206.67,
+      "recommendedPrice": 206.67,
+      "pcRefPrice": 118.75,
+      "deltaEsVsPc": 74,
+      "priceSource": "Wallapop ES",
+      "updatedAt": "2026-08-31T23:01:58Z",
+      "hasEsPrice": true,
+      "seedSource": "pricecharting-pal",
+      "priceRegionVerified": true,
+      "estimatedPriceComplete": 206.67,
+      "priceDataSources": "Wallapop",
+      "regionVerified": true,
+      "regionEvidence": [
+        "owner_confirmed_pal_es",
+        "owned_scan_spanish_packaging_20260911"
+      ]
+    },
+    "details": {
+      "year": 2015,
+      "releaseDate": "November 20, 2015",
+      "reference": null,
+      "players": 1,
+      "support": null,
+      "developer": {
+        "name": "High Moon Studios",
+        "slug": "high-moon-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "research"
+      },
+      "publisher": null,
+      "genres": [
+        {
+          "name": "Action",
+          "slug": "action",
+          "museumPath": null,
+          "pcPath": null,
+          "source": "pricecharting"
+        },
+        {
+          "name": "amp; Adventure",
+          "slug": "amp-adventure",
+          "museumPath": null,
+          "pcPath": null,
+          "source": "pricecharting"
+        }
+      ],
+      "series": null,
+      "museumPath": null,
+      "pcProductId": 57722,
+      "ean": "5030917185991",
+      "sources": {
+        "pricecharting": {
+          "pcPath": "/game/pal-playstation-4/deadpool",
+          "fetchedAt": "2026-06-13T17:02:28",
+          "productId": 57722
+        },
+        "serialstation": {
+          "serialstationId": "02eced19-8ec9-446a-ba6e-6b9730ec014c",
+          "titleId": "BLES01789",
+          "matchMethod": "title",
+          "matchScore": 1.0,
+          "fetchedAt": "2026-06-19T05:26:42"
+        },
+        "ownedScan": {
+          "url": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-contraportada.webp",
+          "label": "Escaneos aportados por el propietario del ejemplar",
+          "fetchedAt": "2026-09-11"
+        }
+      },
+      "fieldSources": {
+        "genres": "pricecharting",
+        "year": "pricecharting",
+        "releaseDate": "pricecharting",
+        "players": "pricecharting",
+        "developer": "research"
+      },
+      "fetchedAt": "2026-09-05T12:00:00Z",
+      "mergedAt": "2026-09-05T12:00:00Z",
+      "pegi": "PEGI 18",
+      "companyCredits": [
+        {
+          "role": "developer",
+          "company": {
+            "name": "High Moon Studios",
+            "slug": "high-moon-studios",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/"
+            ],
+            "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: High Moon Studios.",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        },
+        {
+          "role": "physicalPublisherOrDistributor",
+          "company": {
+            "name": "Activision",
+            "slug": "activision",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/"
+            ],
+            "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: Activision.",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        }
+      ],
+      "fieldProvenance": {
+        "developer": {
+          "source": "research",
+          "evidenceUrls": [
+            "https://www.activision.com/"
+          ],
+          "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: High Moon Studios.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+        }
+      }
+    }
+  },
+  "changedCompanyIndexes": [
+    "activision",
+    "high-moon-studios"
+  ],
+  "evidence": [
+    "Dos entradas PS4 PAL España standard, mismo pcId 57722, sin variante diferenciada documentada.",
+    "El propietario confirma PAL España y aporta frontal y reverso: título Masacre (Deadpool), EAN 5030917185991, código de embalaje 77110206SP.",
+    "BLES-01789 pertenece al formato de PS3 y se rechaza para esta ficha PS4; no se inventa un CUSA."
+  ],
+  "preservation": "No se eliminan copias, fotos, fechas, deseos, anuncios ni ventas. Alias explícito al ID original del usuario; ficha antigua excluida de listados y redirigida."
+}

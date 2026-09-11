@@ -163,6 +163,7 @@ test("preserves every protected canonical file byte for byte", () => {
       "ps1-regional-v2-2026-09-10",
       "ps2-regional-v2-2026-09-11",
       "owned-scans-2026-09-11-batch-1",
+      "owned-scans-2026-09-11-batch-2",
     ],
   );
 });

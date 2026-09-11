@@ -1,0 +1,77 @@
+{
+  "beforeCommit": "ba500138cc54b292e237d7977a0d152ca23f3779",
+  "reason": "Escaneos propios posteriores a la migración PS2: cinco fichas y un duplicado excluido, sin cambios en PS1/PS2 ni copias de usuarios.",
+  "files": {
+    "data/catalog.json": {
+      "beforeSha256": "ffafa7d7109bfb80fdbd0fabd9954278a6762b4907d5aed52c521b92b439ffc1",
+      "afterSha256": "5cae6b1ce92e064469a439a501c42b43a79a45d37d3555e21e64d681d9da3743",
+      "changedKeys": [
+        "ps4-assassins-creed-mirage-deluxe-edition",
+        "ps4-deadpool",
+        "ps4-deadpool-masacre",
+        "ps4-fornite-ps4-promo",
+        "ps4-fortnite",
+        "ps5-resident-evil-requiem-lenticular-cover"
+      ]
+    },
+    "data/game-details.json": {
+      "beforeSha256": "bfd53a2c20bcf4b3defeda688fc7091acaf1f5faf06e79c4b0260e96c8dc3cb1",
+      "afterSha256": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785",
+      "changedKeys": [
+        "ps4-assassins-creed-mirage-deluxe-edition",
+        "ps4-deadpool",
+        "ps4-deadpool-masacre",
+        "ps4-fornite-ps4-promo",
+        "ps4-fortnite",
+        "ps5-resident-evil-requiem-lenticular-cover"
+      ]
+    },
+    "data/index/companies.json": {
+      "beforeSha256": "6c37e403f6b9a26ad278ae778ae992cbd92340c87201a7d0ed984cd2d872d487",
+      "afterSha256": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389",
+      "changedKeys": [
+        "activision",
+        "epic-games",
+        "gearbox-publishing",
+        "high-moon-studios",
+        "koch-media"
+      ]
+    },
+    "data/meta.json": {
+      "beforeSha256": "86a01f1bc3610bddb9164a37f1c5e91d71c743b1932bc7a330367d259d262c72",
+      "afterSha256": "5b58596e741f45a89bd569c13b8361e195026d6449e8d9ac1fdced8a36411f1a",
+      "changedKeys": []
+    },
+    "data/catalog-id-aliases.json": {
+      "beforeSha256": "cf65bde708076c7b7a856db6d5d55433e8b090c0724d324429111238c134b39f",
+      "afterSha256": "7bfc6d189d4ce01dd7859f085babd3e696a69646224bc9780af9ac6bb03ed3ca",
+      "changedKeys": []
+    },
+    "data/catalog-route-redirects.json": {
+      "beforeSha256": "979ace530fe60dbe4df5d9cff00063983242e460ca144dfcdf1c049149c721b4",
+      "afterSha256": "b84dc8762102c163140f9ef89faa05d25456d8fab5505840e65c3a930167b09e",
+      "changedKeys": []
+    },
+    "data/research/company-study/manifest.json": {
+      "beforeSha256": "fe125b3c6ac3e6cdc9c894dd552fe1ad4e1646c81053a4f4824ea1ccfb2b994e",
+      "afterSha256": "529558d8dbc75e5ff6c6c6ff1c14b4c3bc85a7e89eed7c54905c88f02dd5aa6b",
+      "changedKeys": []
+    },
+    "data/research/person-study/manifest.json": {
+      "beforeSha256": "cd2009b4240a48d2f41b2baa203dbc22f754ccfd526878e75299f727e7619048",
+      "afterSha256": "0574d6c2614a70280ad018050971a8edb90e3c9c5380e40cf1297f73a2844da4",
+      "changedKeys": []
+    },
+    "data/curation-report.json": {
+      "beforeSha256": "4e095311213bcf4144bb3804f89f72b1cfa870b634b72168a31b2c4a291e385c",
+      "afterSha256": "bf15991d46bb4c381c269aeb96284461d9bb21b4d651f84ad8fb9a6a1666c6f5",
+      "changedKeys": [
+        "listed",
+        "excluded",
+        "listedByPlatform",
+        "excludedByPlatform",
+        "byCategory"
+      ]
+    }
+  }
+}
