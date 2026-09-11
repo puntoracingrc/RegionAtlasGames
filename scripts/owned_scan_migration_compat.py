@@ -1,7 +1,7 @@
 """Replay historical regional migrations against their reviewed pre-scan inputs.
 
 Every current file and its Git predecessor must match the amendment ledger.
-This keeps the historical PS2 boundary strict while allowing subsequent catalog work.
+This keeps the historical PS1/PS2 boundaries strict while allowing subsequent catalog work.
 """
 import hashlib
 import json
