@@ -38,9 +38,12 @@ def references_for_code(value):
 
 
 def catalog_documentary_prompt(catalog_id):
-    if not catalog_id:
+    if not catalog_id or not str(catalog_id).startswith("ps2-"):
         return ""
-    edition = editions().get(catalog_id)
+    try:
+        edition = editions().get(catalog_id)
+    except FileNotFoundError:
+        return "PS2 REGIONAL V2: paquete documental local no disponible. No usar la región o portada heredadas como verificación del anuncio; mantener los detalles regionales pendientes de contraste."
     if not edition:
         return ""
     lines = ["PS2 REGIONAL V2: referencia documental, no observaciones del anuncio ni aceptación automática.",
@@ -48,6 +51,7 @@ def catalog_documentary_prompt(catalog_id):
     if edition["status"] != "resolved":
         lines.append("La ficha de catálogo está pendiente: no usar su antigua región ni su portada como verificación del anuncio.")
         return "\n".join(lines)
+    lines.append("Mercado documental del software: " + json.dumps(edition.get("fieldProvenance", {}).get("market", {}), ensure_ascii=False))
     lines.append("Identidad documental: " + json.dumps({k: edition.get(k) for k in ["components", "languages", "editionLabels", "regionalReleaseDate", "sourceWarnings"]}, ensure_ascii=False))
     for finding in edition.get("findings", []):
         lines.append(f"Observación documental: {finding['observation']} {finding['engineRule']}")

@@ -56,7 +56,7 @@ jobs:
       - name: PS2 regional catalog and documentary contract
         run: |
           node --test scripts/test-prepare-vercel-build.mjs
-          npx tsx --test src/lib/ps2-regional.test.ts
+          npx tsx --test src/lib/ps2-regional.test.ts src/lib/price-worker-sync.test.ts
           python3 scripts/ps2-regional/verify.py
           python3 scripts/ps2-regional/verify_reproducibility.py
           python3 scripts/test_ps2_documentary.py

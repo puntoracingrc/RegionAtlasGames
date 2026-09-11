@@ -20,13 +20,15 @@ const BASE_WORKER_SYNC_FILES: SyncFile[] = [
   { local: "data/ingest-recency.json", remote: "app/data/ingest-recency.json", optional: true },
   { local: "data/region-evidence-rules.json", remote: "app/data/region-evidence-rules.json" },
   { local: "data/price-source-weights.json", remote: "app/data/price-source-weights.json" },
+  { local: "data/ps2-source-knowledge.json.gz", remote: "app/data/ps2-source-knowledge.json.gz" },
+  { local: "data/ps2-edition-evidence.json.gz", remote: "app/data/ps2-edition-evidence.json.gz" },
   { local: "scripts/remote_price_rotation.sh", remote: "cron/price_rotation.sh" },
   { local: "scripts/remote_price_rotation.sh", remote: "../../../.region-atlas-cron/price_rotation.sh" },
   { local: "scripts/remote_price_job_runner.sh", remote: "cron/price_job_runner.sh" },
   { local: "scripts/remote_price_job_runner.sh", remote: "../../../.region-atlas-cron/price_job_runner.sh" },
 ];
 
-function workerSyncFiles(): SyncFile[] {
+export function workerSyncFiles(): SyncFile[] {
   const files = [...BASE_WORKER_SYNC_FILES];
   const scriptsDir = path.join(process.cwd(), "scripts");
   for (const name of readdirSync(scriptsDir).filter((file) => file.endsWith(".py")).sort()) {

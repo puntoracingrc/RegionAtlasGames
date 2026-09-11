@@ -1,8 +1,20 @@
 import unittest
+from unittest.mock import patch
 from collectors.ps2_documentary import catalog_documentary_prompt, references_for_code, editions
 
 
 class Ps2DocumentaryTests(unittest.TestCase):
+    def test_collector_context_names_the_documented_market(self):
+        context = catalog_documentary_prompt("ps2-hack-infection")
+        self.assertIn("Mercado documental del software", context)
+        self.assertIn('"value": "Europe"', context)
+        self.assertIn("disc_release_not_country_of_every_box", context)
+
+    def test_old_worker_without_bundle_stays_pending_instead_of_crashing(self):
+        with patch("collectors.ps2_documentary.editions", side_effect=FileNotFoundError):
+            self.assertIn("paquete documental local no disponible", catalog_documentary_prompt("ps2-hack-infection"))
+            self.assertEqual(catalog_documentary_prompt("ps1-any-game"), "")
+
     def test_text_voice_and_market_are_separate(self):
         item = references_for_code("SCES50494")[0]
         self.assertEqual(item["record"]["market"]["code"], "ES")

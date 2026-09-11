@@ -57,6 +57,8 @@ El escáner consulta `data/ps2-source-knowledge.json.gz` después de la percepci
 
 No son dos bases de conocimiento distintas: ambos leen el mismo artefacto versionado. El worker eBay V2 en desarrollo mantiene su congelación operativa y su adopción se coordina con su task; esta integración no lo activa ni modifica sus decisiones. El otro motor puede consumir el mismo contrato o el endpoint de consulta.
 
+La sincronización de los recolectores existentes entrega los dos archivos comprimidos de PS2 antes del lector Python. Su contexto incluye el mercado documental con fuente y alcance. Si un worker antiguo aún no tiene el paquete, devuelve una indicación de revisión pendiente; no usa la antigua etiqueta regional como confirmación ni interrumpe el lote por la ausencia del archivo. Esta entrega no ejecuta una sincronización ni activa el worker V2.
+
 `GET /api/catalog/ps2/resolve?serial=SCES-50494` devuelve candidatos del catálogo y referencias documentales. También admite códigos de barras y códigos de accesorio, con papeles separados. Los candidatos no implican aceptación automática. El endpoint limita la entrada y los resultados, y no lanza llamadas a modelos.
 
 ## Contrato para consumidores
