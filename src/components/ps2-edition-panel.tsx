@@ -16,11 +16,22 @@ const METADATA_LABELS: Record<string, string> = {
 const displayValue = (value: string) => value.replace(/\bYes\b/g, "Sí").replace(/\bNone\b/g, "Ninguno")
   .replace(/\b1 Player\b/g, "1 jugador").replace(/\bPlayers?\b/g, "jugadores").replace(/\bMinimum\b/g, "mínimo");
 
+const isEbaySource = (url?: string) => {
+  try {
+    return /(^|\.)ebay\.(?:com|es|it|fr|de|co\.uk|com\.au|ca|ie|at|be|nl|ch)$/i.test(new URL(url ?? "").hostname);
+  } catch {
+    return false;
+  }
+};
+
 export function Ps2EditionPanel({ game, details }: { game: CatalogGame; details?: GameDetails }) {
   const profile = details?.ps2Edition;
   if (game.platformSlug !== "ps2" || !profile) return null;
   const graphics = profile.graphics.filter((asset) => asset.stored && asset.url && !asset.identifierDifference);
-  const sources = [...new Map(profile.sources.map((source) => [source.url, source])).values()];
+  const sources = [...new Map(profile.sources.filter((source) => !isEbaySource(source.url)).map((source) => [source.url, source])).values()];
+  const hasEbaySources = profile.sources.some((source) => isEbaySource(source.url)) ||
+    graphics.some((asset) => isEbaySource(asset.sourceUrl)) ||
+    profile.findings?.some((finding) => finding.evidence.some((evidence) => isEbaySource(evidence.sourceUrl)));
   const related = relatedPs2Editions(game);
   const languageConflict = profile.findings?.some((f) => /contradicci[oó]n|texto de la ficha puede ser incompleto|afirmaci[oó]n textual puede ser incompleta/i.test(`${f.observation} ${f.engineRule}`));
   const language = profile.languages;
@@ -43,17 +54,23 @@ export function Ps2EditionPanel({ game, details }: { game: CatalogGame; details?
     </>}
     {language?.discrepancy || languageConflict ? <p className="mt-4 rounded-lg bg-amber-500/10 p-3 text-sm">Las fuentes no coinciden en todos los idiomas. Consulta los detalles y las imágenes antes de atribuirlos a una edición concreta.</p> : null}
     <RelatedEditions game={game} editions={related} />
-    {profile.findings?.length ? <details className="mt-5 border-t border-border pt-4"><summary className="cursor-pointer text-sm font-semibold">Detalles para coleccionistas ({profile.findings.length})</summary><ul className="mt-3 space-y-4 text-sm">{profile.findings.map((finding) => <li key={finding.id}><p className="font-semibold">{finding.title}</p><p className="mt-1 leading-6 text-muted">{finding.observation}</p><p className="mt-1 leading-6 text-muted">{finding.engineRule}</p><a href={finding.evidence[0]?.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-xs underline">Referencia documental</a></li>)}</ul></details> : null}
+    {profile.findings?.length ? <details className="mt-5 border-t border-border pt-4"><summary className="cursor-pointer text-sm font-semibold">Detalles para coleccionistas ({profile.findings.length})</summary><ul className="mt-3 space-y-4 text-sm">{profile.findings.map((finding) => {
+      const referenceUrl = finding.evidence.find((evidence) => !isEbaySource(evidence.sourceUrl))?.sourceUrl;
+      return <li key={finding.id}><p className="font-semibold">{finding.title}</p><p className="mt-1 leading-6 text-muted">{finding.observation}</p><p className="mt-1 leading-6 text-muted">{finding.engineRule}</p>{referenceUrl ? <a href={referenceUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-xs underline">Referencia documental</a> : null}</li>;
+    })}</ul></details> : null}
     {graphics.length ? <details className="mt-5 border-t border-border pt-4"><summary className="cursor-pointer text-sm font-semibold">Portadas, contraportadas y componentes ({graphics.length})</summary>
       <p className="mt-2 text-xs leading-5 text-muted">La galería puede reunir papeles de varios países y reediciones. Cada imagen conserva la etiqueta y el mercado indicado por la fuente; no constituye una combinación de fábrica certificada.</p>
       <div className="mt-4 grid grid-cols-2 gap-3">{graphics.map((asset) => {
         const src = getCoverSrc(asset.url);
         if (!src) return null;
         const side = ps2GraphicLabel(asset);
-        const edition = (asset.label ?? "").replace(/\bFRONT\b|\bBACK\b/gi, "").replace(/^[\s-]+|[\s-]+$/g, "");
-        return <figure key={`${asset.assetId}:${asset.group}:${asset.marketHints.join("-")}`} className="min-w-0 rounded-lg border border-border p-2"><a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar ${side.toLowerCase()} de ${game.title}`}><Image unoptimized src={src} width={asset.width ?? 400} height={asset.height ?? 560} alt={`${side} de ${game.title} · ${asset.marketHints.join(" / ")}`} className="h-44 w-full object-contain" /></a><figcaption className="mt-2 break-words text-xs text-muted">{side}{edition ? ` · ${edition}` : ""} · {asset.marketHints.join(" / ") || "Mercado por confirmar"} · <a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">Fuente</a>{asset.thumbnailOnly ? <span className="block">Miniatura; original completo no disponible.</span> : null}</figcaption></figure>;
+        const ebayPhoto = isEbaySource(asset.sourceUrl);
+        const edition = (asset.label ?? "").replace(/\bFRONT\b|\bBACK\b/gi, "").replace(/^[\s-]+|[\s-]+$/g, "")
+          .split("·").map((part) => part.trim()).filter((part) => !ebayPhoto || !/^(?:eBay|Ejemplar fotografiado)$/i.test(part)).join(" · ");
+        return <figure key={`${asset.assetId}:${asset.group}:${asset.marketHints.join("-")}`} className="min-w-0 rounded-lg border border-border p-2"><a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar ${side.toLowerCase()} de ${game.title}`}><Image unoptimized src={src} width={asset.width ?? 400} height={asset.height ?? 560} alt={`${side} de ${game.title} · ${asset.marketHints.join(" / ")}`} className="h-44 w-full object-contain" /></a><figcaption className="mt-2 break-words text-xs text-muted">{side}{edition ? ` · ${edition}` : ""} · {asset.marketHints.join(" / ") || "Mercado por confirmar"}{!ebayPhoto ? <> · <a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">Fuente</a></> : null}{asset.thumbnailOnly ? <span className="block">Miniatura; original completo no disponible.</span> : null}</figcaption></figure>;
       })}</div>
     </details> : null}
+    {hasEbaySources ? <p className="mt-5 border-t border-border pt-4 text-xs text-muted">Fotografías de ejemplares publicadas en <a href="https://www.ebay.es/" target="_blank" rel="noopener noreferrer" className="underline">eBay</a>.</p> : null}
     {sources.length ? <details className="mt-5 border-t border-border pt-4"><summary className="cursor-pointer text-xs font-semibold text-muted">Consultar fuentes</summary><ul className="mt-3 space-y-2 text-xs">{sources.map((source, index) => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className="underline">{source.label} · {index + 1}</a></li>)}</ul></details> : null}
   </Panel>;
 }
