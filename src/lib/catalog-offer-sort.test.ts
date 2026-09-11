@@ -44,3 +44,17 @@ test("sorts by approximate distance and leaves unknown locations last", () => {
   );
   assert.ok(offerDistanceKm(buyer, offers[1].location!) > 250);
 });
+
+test("keeps the preferred country group before cheaper or newer foreign eBay offers", () => {
+  const regionalOffers = [
+    { id: "es-cheap-new", priceEur: 1, listedAt: "2026-09-11", location: null, countryPriority: 1 },
+    { id: "it-new", priceEur: 30, listedAt: "2026-09-10", location: null, countryPriority: 0 },
+    { id: "it-cheap", priceEur: 20, listedAt: "2026-09-09", location: null, countryPriority: 0 },
+    { id: "unknown", priceEur: null, listedAt: null, location: null, countryPriority: 1 },
+  ];
+  assert.deepEqual(sortCatalogOffers(regionalOffers, "price", null).map(offer => offer.id), ["it-cheap", "it-new", "es-cheap-new", "unknown"]);
+  for (const mode of ["date", "distance"] as const) {
+    assert.deepEqual(sortCatalogOffers(regionalOffers, mode, null).map(offer => offer.id), ["it-new", "it-cheap", "es-cheap-new", "unknown"]);
+  }
+  assert.equal(regionalOffers[0].id, "es-cheap-new", "sorting must not mutate the input");
+});

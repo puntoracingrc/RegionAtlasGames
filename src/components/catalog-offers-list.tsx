@@ -24,6 +24,7 @@ import {
   type OfferCoordinates,
 } from "@/lib/catalog-offer-sort";
 import { AFFILIATE_DISCLOSURE_COMPACT_TEXT } from "@/lib/affiliate/disclosure";
+import { ebayOfferCountryPriority } from "@/lib/affiliate/ebay-offer-priority";
 import type { ApproximateListingLocation, ListingSaleOptions } from "@/lib/marketplace-types";
 import { formatEurCents } from "@/lib/price-format";
 
@@ -48,6 +49,7 @@ type Props = {
 
 type AffiliateOffersResponse = {
   enabled: boolean;
+  ebayPriorityCountry?: string | null;
   offers: AffiliateOffer[];
   fallbackCta: AffiliateFallbackCta | null;
   fallbackCtas?: AffiliateFallbackCta[];
@@ -65,7 +67,7 @@ type UnifiedOffer = {
   priceEur: number | null;
   listedAt: string | null;
   location: OfferCoordinates | null;
-  isInternational: boolean;
+  countryPriority: number;
   marketplace?: MarketplaceCatalogOffer;
   affiliate?: AffiliateOffer;
 };
@@ -134,6 +136,8 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
     () => (affiliateState.status === "ready" ? affiliateState.data.offers : []),
     [affiliateState],
   );
+  const preferredCountry = affiliateState.status === "ready" ? affiliateState.data.ebayPriorityCountry ?? null : null;
+  const preferredLocation = affiliateOfferLocation(preferredCountry);
   const unifiedOffers = useMemo<UnifiedOffer[]>(() => {
     const userRows = marketplaceOffers.map((offer) => ({
       id: `marketplace-${offer.id}`,
@@ -141,31 +145,23 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
       priceEur: offer.askingPriceEur,
       listedAt: offer.publishedAt,
       location: offer.sellerLocation,
-      isInternational: false,
+      countryPriority: 0,
       marketplace: offer,
     }));
     const affiliateRows = affiliateOffers.map((offer) => {
-      const location = affiliateOfferLocation(offer.location);
-      const isInternational =
-        offer.marketScope === "international" ||
-        (offer.provider === "ebay" && offer.marketScope !== "spain" && Boolean(location?.code && location.code !== "ES"));
       return {
         id: `${offer.provider}-${offer.id}`,
         source: "affiliate" as const,
         priceEur: affiliateSortPrice(offer),
         listedAt: offer.listedAt ?? null,
         location: null,
-        isInternational,
+        countryPriority: ebayOfferCountryPriority(offer, preferredCountry),
         affiliate: offer,
       };
     });
-    const sorted = sortCatalogOffers([...userRows, ...affiliateRows], sortMode, buyerLocation);
-    return [
-      ...sorted.filter((offer) => !offer.isInternational),
-      ...sorted.filter((offer) => offer.isInternational),
-    ];
-  }, [affiliateOffers, buyerLocation, marketplaceOffers, sortMode]);
-  const firstInternationalOfferIndex = unifiedOffers.findIndex((offer) => offer.isInternational);
+    return sortCatalogOffers([...userRows, ...affiliateRows], sortMode, buyerLocation);
+  }, [affiliateOffers, buyerLocation, marketplaceOffers, preferredCountry, sortMode]);
+  const firstOtherCountryOfferIndex = unifiedOffers.findIndex((offer) => offer.countryPriority > 0);
 
   const fallbackCtas =
     affiliateState.status === "ready"
@@ -219,6 +215,9 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
             {marketplaceOffers.length} de usuarios
             {affiliateState.status === "ready" ? ` · ${affiliateOffers.length} externas` : ""}
           </p>
+          {preferredLocation && affiliateOffers.some(offer => offer.provider === "ebay") ? (
+            <p className="mt-1 text-[11px] text-muted">eBay · Prioridad: {preferredLocation.label}</p>
+          ) : null}
         </div>
         <div
           className="inline-flex max-w-full overflow-x-auto rounded-lg border border-border bg-background/50 p-0.5"
@@ -268,10 +267,10 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
           const responsiveClass = !showAllOnSmallScreens && index >= 3 ? "hidden lg:list-item" : undefined;
           return (
             <Fragment key={offer.id}>
-              {index === firstInternationalOfferIndex ? (
+              {index === firstOtherCountryOfferIndex ? (
                 <li className={responsiveClass}>
                   <div className="flex items-center justify-between gap-3 bg-background/35 px-3 py-2 text-[11px] font-semibold text-muted">
-                    <span>Fuera de España</span>
+                    <span>Otros orígenes</span>
                     <span className="font-normal">Con envío a España</span>
                   </div>
                 </li>
