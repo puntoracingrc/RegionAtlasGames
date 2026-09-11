@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "games": {
+    "ps4-fortnite": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "fortnite",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-11",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-portada-catalogo.webp",
+      "primaryCaption": "Carátula escaneada · PAL España",
+      "packaging": {
+        "reference": "CUSA-07669",
+        "ean": "4020628781279",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; contraportada con textos en español e italiano."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Inglés"
+        ]
+      },
+      "notes": [
+        "Los dos folletos escaneados corresponden al Pack de armas Maestro de Tormenta y al Paquete de Acceso Anticipado."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "label": "Portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-portada-mini.webp",
+          "width": 2633,
+          "height": 3200
+        },
+        {
+          "role": "contraportada",
+          "label": "Contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-contraportada-mini.webp",
+          "width": 2538,
+          "height": 3200
+        },
+        {
+          "role": "lomo",
+          "label": "Lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-lomo-mini.webp",
+          "width": 278,
+          "height": 3200
+        },
+        {
+          "role": "caratula-completa",
+          "label": "Carátula completa",
+          "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-caratula-completa.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-caratula-completa-mini.webp",
+          "width": 3200,
+          "height": 1879
+        },
+        {
+          "role": "folletos-anversos",
+          "label": "Folletos: Maestro de Tormenta y Acceso Anticipado · Anversos",
+          "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-folletos-anversos.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-folletos-anversos-mini.webp",
+          "width": 3200,
+          "height": 1939
+        },
+        {
+          "role": "folletos-reversos",
+          "label": "Folletos: Maestro de Tormenta y Acceso Anticipado · Reversos",
+          "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-folletos-reversos.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-folletos-reversos-mini.webp",
+          "width": 3200,
+          "height": 1962,
+          "redactedCodes": 2
+        }
+      ]
+    },
+    "ps5-resident-evil-requiem-lenticular-cover": {
+      "identity": {
+        "platformSlug": "ps5",
+        "slug": "resident-evil-requiem-lenticular-cover",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-11",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada-catalogo.webp",
+      "primaryCaption": "Carátula de papel · Edición lenticular PAL España",
+      "packaging": {
+        "reference": "PPSA-31246",
+        "ean": "5055060993637",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; contraportada con textos en español e italiano."
+      },
+      "notes": [
+        "La portada principal muestra la carátula de papel del ejemplar lenticular. La galería incluye la lámina lenticular por separado.",
+        "La lámina lenticular cambia según el ángulo; el escaneo conserva la trama y el aspecto más oscuro de esta captura."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "label": "Portada de papel de la edición lenticular",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada-mini.webp",
+          "width": 2568,
+          "height": 3200
+        },
+        {
+          "role": "contraportada",
+          "label": "Contraportada",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-contraportada-mini.webp",
+          "width": 2553,
+          "height": 3200
+        },
+        {
+          "role": "lomo",
+          "label": "Lomo",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lomo-mini.webp",
+          "width": 283,
+          "height": 3200
+        },
+        {
+          "role": "caratula-completa",
+          "label": "Carátula de papel completa",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caratula-completa.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caratula-completa-mini.webp",
+          "width": 3200,
+          "height": 1900
+        },
+        {
+          "role": "lenticular",
+          "label": "Lámina lenticular · Ángulo capturado por el escáner",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lenticular.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lenticular-mini.webp",
+          "width": 2545,
+          "height": 3200
+        },
+        {
+          "role": "caja-y-lenticular",
+          "label": "Caja y lámina lenticular del mismo ejemplar",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caja-y-lenticular.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caja-y-lenticular-mini.webp",
+          "width": 3200,
+          "height": 2033
+        },
+        {
+          "role": "folleto-grace-apocalipsis",
+          "label": "Folleto del atuendo de Grace: Apocalipsis · Cara capturada",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-folleto-grace-apocalipsis.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-folleto-grace-apocalipsis-mini.webp",
+          "width": 3200,
+          "height": 2000,
+          "redactedCodes": 1
+        }
+      ]
+    },
+    "ps4-assassins-creed-mirage-deluxe-edition": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-mirage-deluxe-edition",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-11",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · Deluxe Edition PAL España",
+      "packaging": {
+        "reference": null,
+        "ean": "3307216257806",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; portada y contraportada en español, con el rótulo «Juego en castellano».",
+        "productNumber": "300128688",
+        "languageStatement": "Juego en castellano"
+      },
+      "notes": [
+        "Escaneo del ejemplar precintado: se conservan la caja, los reflejos y las marcas del plástico.",
+        "La contraportada anuncia el Pack Deluxe inspirado en Prince of Persia y un libro de arte y banda sonora digitales. No se ha abierto la caja ni se han escaneado sus materiales interiores."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "label": "Portada del ejemplar precintado · Deluxe Edition",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada-mini.webp",
+          "width": 2558,
+          "height": 3200
+        },
+        {
+          "role": "contraportada",
+          "label": "Contraportada del ejemplar precintado",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-contraportada-mini.webp",
+          "width": 2558,
+          "height": 3200
+        }
+      ]
+    }
+  }
+}

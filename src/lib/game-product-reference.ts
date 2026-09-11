@@ -1,6 +1,7 @@
 import type { CatalogGame, GameDetails } from "./types";
 import { getPlatform } from "./catalog";
 import { normalizePs1Serial } from "./ps1-regional";
+import { getOwnedScanSet } from "./catalog-owned-scans";
 
 /** Patrones de referencia producto (alineados con scripts/collectors/reference_match.py). */
 const REFERENCE_PATTERNS: RegExp[] = [
@@ -188,14 +189,16 @@ export function getGameProductReference(
   const normalized = normalizeReference(raw);
   const parsed = interpretReference(normalized, game.platformSlug);
   const resolvedPs1 = game.platformSlug === "ps1" && game.regionalStatus === "resolved";
+  const scannedSpine = getOwnedScanSet(game)?.packaging.reference === normalized;
 
   return {
     raw,
     normalized,
-    label: referenceFieldLabel(game.platformSlug),
+    label: scannedSpine ? "Código del lomo" : referenceFieldLabel(game.platformSlug),
     family: referenceFamily(normalized),
-    regionHint: resolvedPs1 ? game.region : parsed?.regionHint ?? null,
-    regionHintNote: resolvedPs1
+    regionHint: scannedSpine ? null : resolvedPs1 ? game.region : parsed?.regionHint ?? null,
+    regionHintNote: scannedSpine ? "Código leído en el lomo del ejemplar escaneado. El mercado se contrasta con la carátula."
+      : resolvedPs1
       ? details?.ps1Edition?.serialScope === "packaging"
         ? "Código documentado de la caja. La equivalencia con el código del disco está pendiente de verificar."
         : "Código documentado para esta edición del disco. La caja, el manual y las reediciones se contrastan por separado."

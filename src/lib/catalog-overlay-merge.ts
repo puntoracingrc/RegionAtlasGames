@@ -1,3 +1,4 @@
+import { getOwnedScanSet } from "./catalog-owned-scans";
 import type {
   CatalogGame,
   DetailEntity,
@@ -196,6 +197,12 @@ export function mergeCatalogGameWithOverlay(
   if (staticGame.id !== overlayGame.id) return overlayGame;
 
   const merged = { ...overlayGame };
+  const ownedScans = getOwnedScanSet(staticGame);
+  if (ownedScans && getOwnedScanSet(overlayGame) && staticGame.coverUrl === ownedScans.primaryCoverUrl) {
+    merged.coverUrl = staticGame.coverUrl;
+    merged.regionVerified = staticGame.regionVerified;
+    merged.regionEvidence = staticGame.regionEvidence;
+  }
   if (["ps1", "ps2"].includes(staticGame.platformSlug) && staticGame.regionalStatus) {
     for (const field of REVIEWED_REGIONAL_FIELDS) {
       (merged as Record<keyof CatalogGame, unknown>)[field] = staticGame[field];

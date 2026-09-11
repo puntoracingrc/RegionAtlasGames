@@ -34,6 +34,7 @@ export type GameDetailsFieldSource =
   | "research";
 
 export type GameDetailsSources = {
+  ownedScan?: { url: string; label: string; fetchedAt: string };
   museum?: { museumPath: string; fetchedAt: string };
   pricecharting?: { pcPath: string; fetchedAt: string; productId?: number | null };
   serialstation?: {
