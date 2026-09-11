@@ -1,5 +1,7 @@
 "use client";
 
+import { notifyCollectionChanged } from "@/lib/collection-client-events";
+
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { FileUp, LoaderCircle } from "lucide-react";
@@ -45,6 +47,7 @@ export function CollectionImport({ hasItems, canViewCollectionValue, compact = f
         return;
       }
       setResult({ stats: data.stats, summary: data.summary });
+      notifyCollectionChanged();
       router.refresh();
     } catch {
       setError("No se pudo subir el archivo.");

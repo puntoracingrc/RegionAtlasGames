@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CollectionTabs } from "@/components/collection-tabs";
 import { CollectionExplorer } from "@/components/collection-explorer";
 import { CollectionImport } from "@/components/collection-import";
 import {
@@ -96,6 +97,8 @@ export default async function CollectionPage() {
             canViewCollectionValue={showCollectionValue}
           />
         </header>
+
+        <CollectionTabs active="collection" desiredCount={file.wishlist?.length ?? 0} />
 
         {hasItems && (
           <CollectionValueHero summary={summary} canViewCollectionValue={showCollectionValue} />

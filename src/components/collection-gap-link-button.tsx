@@ -1,5 +1,7 @@
 "use client";
 
+import { notifyCollectionChanged } from "@/lib/collection-client-events";
+
 import type { MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -55,6 +57,7 @@ export function CollectionGapLinkButton({ collectionItemId, className }: Props) 
         setLoading(false);
         return;
       }
+      notifyCollectionChanged();
       router.refresh();
     } catch {
       setLoading(false);

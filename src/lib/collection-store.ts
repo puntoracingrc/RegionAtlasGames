@@ -15,7 +15,6 @@ import {
   loadUserCollection,
   mutateUserCollection,
   normalizeIndividualCollectionItems,
-  saveUserCollectionFile,
   type UserCollectionFile,
 } from "./collection-storage";
 import { findAvailableCatalogLink } from "./import-collection";
@@ -165,20 +164,22 @@ export async function saveUserCollectionItems(
   items: CollectionItem[],
   meta: { source: string | null },
 ): Promise<UserCollectionFile | { error: string }> {
-  const current = await readUserCollection(userId).catch(() => null);
   const importedAt = new Date().toISOString();
   const individualItems = normalizeIndividualCollectionItems(items).items;
   const datedItems = backfillCollectionAddedAt(individualItems, importedAt).items;
-  const data: UserCollectionFile = {
-    userId,
-    importedAt,
-    source: meta.source,
-    items: datedItems,
-    completedSaleIds: current?.completedSaleIds ?? [],
-  };
-  const saved = await saveUserCollectionFile(data);
-  if ("error" in saved) return saved;
-  return data;
+  try {
+    return await mutateUserCollection(userId, (current) => {
+      const data: UserCollectionFile = {
+        ...current,
+        importedAt,
+        source: meta.source,
+        items: datedItems,
+      };
+      return { next: data, result: data };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo guardar la colección." };
+  }
 }
 
 export async function getOwnedCatalogIds(userId: string): Promise<string[]> {

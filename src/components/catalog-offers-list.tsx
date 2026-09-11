@@ -199,7 +199,7 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
   }
 
   return (
-    <section className="overflow-hidden rounded-lg border border-border/80 bg-card/90 shadow-sm shadow-black/5 dark:shadow-black/20">
+    <section id="ofertas" className="scroll-mt-24 overflow-hidden rounded-lg border border-border/80 bg-card/90 shadow-sm shadow-black/5 dark:shadow-black/20">
       {affiliateState.status === "ready" && affiliateState.data.ebayImpressionPixelUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img

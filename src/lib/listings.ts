@@ -349,6 +349,9 @@ export async function publishListing(id: string, sellerId: string): Promise<{ ok
         changed: false,
       };
     }
+    if (listing.status === "active") {
+      return { next: listings, result: { ok: true } as const, changed: false };
+    }
     if (!photosReadyForPublish(listing.photos)) {
       return {
         next: listings,
@@ -620,7 +623,7 @@ export async function reviewMarketplaceListing(input: {
       ...listing,
       aiAnalysis: analysis,
       status: approved ? "active" : "draft",
-      publishedAt: approved ? listing.publishedAt ?? now : listing.publishedAt,
+      publishedAt: approved ? (listing.status === "active" ? listing.publishedAt ?? now : now) : listing.publishedAt,
       updatedAt: now,
     };
     return { next: listings, result: listings[index] };
