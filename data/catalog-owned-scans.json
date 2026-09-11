@@ -107,7 +107,9 @@
       },
       "notes": [
         "La portada principal muestra la carátula de papel del ejemplar lenticular. La galería incluye la lámina lenticular por separado.",
-        "La lámina lenticular cambia según el ángulo; el escaneo conserva la trama y el aspecto más oscuro de esta captura."
+        "La lámina lenticular cambia según el ángulo; el escaneo conserva la trama y el aspecto más oscuro de esta captura.",
+        "Lenticular Edition comercializada en exclusiva por GAME en España: añade la lámina lenticular a la caja del juego. La carátula de papel, por sí sola, no identifica el conjunto lenticular completo.",
+        "La edición estándar, esta Lenticular Edition y la Deluxe con Steelbook se conservan como fichas distintas. La ausencia de la lámina en una copia usada debe reflejarse al describir su estado y sus componentes."
       ],
       "images": [
         {
@@ -913,6 +915,708 @@
           "Español"
         ]
       }
+    },
+    "ps4-resident-evil-revelations-2": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-revelations-2",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-01133",
+        "referenceComponent": "lomo",
+        "ean": "5055060930472",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70001-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "La portada identifica la edición física como «Box Set». La contraportada anuncia dos episodios adicionales, cuatro trajes, mapas retro para el modo Asalto y los personajes Hunk y Albert Wesker para ese modo.",
+        "La tabla de la caja también indica manual en español e italiano. El escaneo exterior no confirma que el ejemplar conserve un manual físico en su interior."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-portada-mini.webp",
+          "width": 1640,
+          "height": 2023,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-contraportada-mini.webp",
+          "width": 1644,
+          "height": 2019,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-lomo-mini.webp",
+          "width": 184,
+          "height": 2053,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps4-resident-evil-revelations": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-revelations",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-06212",
+        "referenceComponent": "lomo",
+        "ean": "5055060913680",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70017-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "La caja anuncia texturas mejoradas y el escenario «Barco fantasma: Caos» del modo Asalto. Los objetos de los DLC se pueden desbloquear como recompensas del juego.",
+        "La tabla de la caja también indica manual en español e italiano. El escaneo exterior no confirma que el ejemplar conserve un manual físico en su interior."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-portada-mini.webp",
+          "width": 1640,
+          "height": 2023,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-contraportada-mini.webp",
+          "width": 1644,
+          "height": 2023,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-lomo-mini.webp",
+          "width": 178,
+          "height": 2059,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps4-resident-evil-7-biohazard-gold-edition": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-7-biohazard-gold-edition",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-09473",
+        "referenceComponent": "lomo",
+        "ean": "5055060945513",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70008-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "Gold Edition, identificada tanto en portada como en lomo. La contraportada enumera End of Zoe y Grabaciones inéditas Vol. 1 y Vol. 2 entre el contenido adicional. Se conserva como edición Gold en caja normal.",
+        "La tabla de la caja también indica manual en español e italiano. El escaneo exterior no confirma que el ejemplar conserve un manual físico en su interior."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada-mini.webp",
+          "width": 1640,
+          "height": 2025,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-contraportada-mini.webp",
+          "width": 1640,
+          "height": 2027,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-lomo-mini.webp",
+          "width": 184,
+          "height": 2063,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps4-resident-evil-village": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-village",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-18008",
+        "referenceComponent": "lomo",
+        "ean": "5055060902141",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70057-45SE",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "Ejemplar físico de PS4: la portada anuncia la actualización digital a PS5. El distintivo de actualización no convierte esta caja en una edición física de PS5."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada-mini.webp",
+          "width": 1665,
+          "height": 2035,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-contraportada-mini.webp",
+          "width": 1675,
+          "height": 2045,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-lomo-mini.webp",
+          "width": 200,
+          "height": 2025,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps4-resident-evil-5": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-5",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-04284",
+        "referenceComponent": "lomo",
+        "ean": "5055060931554",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70021-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Inglés"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "La caja anuncia los contenidos adicionales, incluidos Perdido en un mar de pesadillas, Evasión a la desesperada y Mercenarios unidos. La tabla de idiomas indica textos en español e italiano y voces en inglés.",
+        "La tabla de la caja también indica manual en español e italiano. El escaneo exterior no confirma que el ejemplar conserve un manual físico en su interior."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-portada-mini.webp",
+          "width": 1644,
+          "height": 2025,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-contraportada-mini.webp",
+          "width": 1656,
+          "height": 2023,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-lomo-mini.webp",
+          "width": 180,
+          "height": 2071,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps4-resident-evil-6": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-6",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-03840",
+        "referenceComponent": "lomo",
+        "ean": "5055060931684",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70022-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Inglés"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "La portada anuncia todos los mapas y contenidos descargables multijugador. La tabla de idiomas indica textos en español e italiano y voces en inglés.",
+        "La tabla de la caja también indica manual en español e italiano. El escaneo exterior no confirma que el ejemplar conserve un manual físico en su interior."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-portada-mini.webp",
+          "width": 1640,
+          "height": 2019,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-contraportada-mini.webp",
+          "width": 1644,
+          "height": 2021,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-lomo-mini.webp",
+          "width": 182,
+          "height": 2061,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps4-resident-evil-3": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-3",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-14278",
+        "referenceComponent": "lomo",
+        "ean": "5055060949658",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70046-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "Incluye Resident Evil Resistance según la contraportada. La portada de este ejemplar de PS4 anuncia la actualización digital a PS5.",
+        "La tabla de la caja también indica manual en español e italiano. El escaneo exterior no confirma que el ejemplar conserve un manual físico en su interior."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-portada-mini.webp",
+          "width": 1640,
+          "height": 2027,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-contraportada-mini.webp",
+          "width": 1634,
+          "height": 2023,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-lomo-mini.webp",
+          "width": 180,
+          "height": 2065,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps4-resident-evil-4-remake-steelbook": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-4-remake-steelbook",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Caja exterior · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-33388",
+        "referenceComponent": "lomo",
+        "ean": "5055060903391",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "OR70072-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "Edición del remake de Resident Evil 4 para PS4 con Steelbook, confirmada por el propietario. Las imágenes muestran su caja exterior; el estuche metálico interior no se ha abierto ni fotografiado.",
+        "El lomo identifica CUSA-33388 y la caja lleva la referencia OR70072-45. Se conserva la etiqueta SIAE visible. La portada anuncia la actualización digital a PS5."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada-mini.webp",
+          "width": 1651,
+          "height": 2023,
+          "label": "Portada de la caja exterior de la edición con Steelbook"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-contraportada-mini.webp",
+          "width": 1670,
+          "height": 2027,
+          "label": "Contraportada de la caja exterior de la edición con Steelbook"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-lomo-mini.webp",
+          "width": 208,
+          "height": 2029,
+          "label": "Lomo de la caja exterior de la edición con Steelbook"
+        }
+      ]
+    },
+    "ps4-resident-evil-2": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-2",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-09171",
+        "referenceComponent": "lomo",
+        "ean": "5055060946169",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70010-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "Ejemplar físico de PS4 con distintivo de actualización digital a PS5. El código CUSA-09171 se ha comprobado en el lomo de esta caja.",
+        "La tabla de la caja también indica manual en español e italiano. El escaneo exterior no confirma que el ejemplar conserve un manual físico en su interior."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-portada-mini.webp",
+          "width": 1650,
+          "height": 2023,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-contraportada-mini.webp",
+          "width": 1644,
+          "height": 2025,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-lomo-mini.webp",
+          "width": 178,
+          "height": 2061,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps4-resident-evil-origins-collection": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "resident-evil-origins-collection",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar escaneado · PS4 · Carátula España / Italia",
+      "packaging": {
+        "reference": "CUSA-02882",
+        "referenceComponent": "lomo",
+        "ean": "5055060931141",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "IS70012-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Inglés"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "Recopilación con Resident Evil y Resident Evil 0. La tabla de idiomas indica textos en español e italiano y voces en inglés; estas imágenes corresponden a la recopilación completa.",
+        "La tabla de la caja también indica manual en español e italiano. El escaneo exterior no confirma que el ejemplar conserve un manual físico en su interior."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-portada-mini.webp",
+          "width": 1642,
+          "height": 2025,
+          "label": "Portada del ejemplar escaneado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-contraportada-mini.webp",
+          "width": 1644,
+          "height": 2023,
+          "label": "Contraportada del ejemplar escaneado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-lomo-mini.webp",
+          "width": 184,
+          "height": 2061,
+          "label": "Lomo del ejemplar escaneado"
+        }
+      ]
+    },
+    "ps5-resident-evil-requiem-deluxe-edition": {
+      "identity": {
+        "platformSlug": "ps5",
+        "slug": "resident-evil-requiem-deluxe-edition",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-portada-catalogo.webp",
+      "primaryCaption": "Caja exterior · PS5 · Carátula España / Italia",
+      "packaging": {
+        "reference": "PPSA-31246",
+        "referenceComponent": "lomo",
+        "ean": "5055060907979",
+        "languages": [
+          "Español",
+          "Italiano"
+        ],
+        "productNumber": "OR62037-45",
+        "marketEvidence": "Carátula compartida para España e Italia, confirmada por el propietario y por los textos bilingües de la caja. El EAN del reverso y el código del lomo corresponden al mismo ejemplar escaneado."
+      },
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      },
+      "notes": [
+        "Se conservan la caja y el aspecto del ejemplar escaneado, incluidos los reflejos y las etiquetas visibles. Los idiomas se transcriben de la tabla impresa; no proceden de una prueba del software.",
+        "Deluxe Edition impreso en portada y lomo; la edición física con Steelbook está confirmada por el propietario. Las imágenes muestran la caja exterior precintada, no el estuche metálico interior.",
+        "La contraportada enumera el Deluxe Kit: cinco trajes, dos filtros, cuatro aspectos de armas, dos amuletos, un paquete de sonido y archivos adicionales.",
+        "La caja indica códigos de descarga para el Deluxe Kit y el atuendo de Grace: Apocalipsis; requieren cuenta e internet. El contenido impreso no acredita que los códigos sigan sin canjear.",
+        "Esta Deluxe tiene EAN 5055060907979. Se distingue de la estándar y de la Lenticular Edition de GAME, aunque comparten el juego y el código PPSA-31246."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-portada-mini.webp",
+          "width": 1648,
+          "height": 2039,
+          "label": "Portada de la caja exterior de la edición con Steelbook"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-contraportada-mini.webp",
+          "width": 1652,
+          "height": 2077,
+          "label": "Contraportada de la caja exterior de la edición con Steelbook"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-lomo-mini.webp",
+          "width": 242,
+          "height": 2035,
+          "label": "Lomo de la caja exterior de la edición con Steelbook"
+        }
+      ]
     }
   }
 }

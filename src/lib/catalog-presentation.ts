@@ -12,8 +12,10 @@ export function decodeCatalogDisplayText(value: string): string {
 }
 
 export function normalizeCatalogGamePresentation(game: CatalogGame): CatalogGame {
-  const title = decodeCatalogDisplayText(game.title);
-  const titlePc = game.titlePc ? decodeCatalogDisplayText(game.titlePc) : game.titlePc;
+  const normalizeTitle = (value: string) => decodeCatalogDisplayText(value)
+    .replace(/\bAssassin(?:s|['’´`]\s*s)\s+Creed\b/gi, "Assassin's Creed");
+  const title = normalizeTitle(game.title);
+  const titlePc = game.titlePc ? normalizeTitle(game.titlePc) : game.titlePc;
   if (title === game.title && titlePc === game.titlePc) return game;
   return { ...game, title, titlePc };
 }

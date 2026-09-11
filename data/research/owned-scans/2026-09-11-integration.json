@@ -801,6 +801,414 @@
         "ean": "3307215977453"
       },
       "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
+    },
+    {
+      "id": "ps4-resident-evil-revelations-2",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-revelations-2",
+          "slug": "resident-evil-revelations-2",
+          "title": "Resident Evil Revelations 2",
+          "titlePc": "Resident Evil Revelations 2",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-revelations-2.jpg",
+          "pcId": 67407,
+          "pcRegion": "PAL EU (genérico)",
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 16,
+          "pcRefPrice": 20.35,
+          "deltaEsVsPc": -21.4,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true,
+          "pcPath": "/game/pal-playstation-4/resident-evil-revelations-2"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-01133",
+        "ean": "5055060930472"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-revelations",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-revelations",
+          "slug": "resident-evil-revelations",
+          "title": "Resident Evil Revelations",
+          "titlePc": "Resident Evil Revelations",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-revelations.jpg",
+          "pcId": 57851,
+          "pcRegion": "PAL EU (genérico)",
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 16,
+          "pcRefPrice": 36,
+          "deltaEsVsPc": -55.6,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true,
+          "pcPath": "/game/pal-playstation-4/resident-evil-revelations"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-06212",
+        "ean": "5055060913680"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-7-biohazard-gold-edition",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-7-biohazard-gold-edition",
+          "slug": "resident-evil-7-biohazard-gold-edition",
+          "title": "Resident Evil 7: Biohazard [Gold Edition]",
+          "titlePc": "Resident Evil 7: Biohazard [Gold Edition]",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-7-biohazard-gold-edition.jpg",
+          "pcPath": "/game/pal-playstation-4/resident-evil-7-biohazard-gold-edition",
+          "pcId": 239556,
+          "pcRegion": "PAL EU (referencia)",
+          "pcCondition": null,
+          "matchConfidence": "SEED_PC",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": null,
+          "hasEsPrice": false,
+          "seedSource": "pricecharting-pal"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-09473",
+        "ean": "5055060945513"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-village",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-village",
+          "slug": "resident-evil-village",
+          "title": "Resident Evil Village",
+          "titlePc": "Resident Evil Village",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-village.jpg",
+          "pcPath": "/game/pal-playstation-4/resident-evil-village",
+          "pcId": 2164917,
+          "pcRegion": "PAL EU (referencia)",
+          "pcCondition": null,
+          "matchConfidence": "SEED_PC",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": null,
+          "hasEsPrice": false,
+          "seedSource": "pricecharting-pal"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-18008",
+        "ean": "5055060902141"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-5",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-5",
+          "slug": "resident-evil-5",
+          "title": "Resident Evil 5",
+          "titlePc": "Resident Evil 5",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-5.jpg",
+          "pcId": 57539,
+          "pcRegion": "PAL EU (genérico)",
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 16,
+          "pcRefPrice": 26.92,
+          "deltaEsVsPc": -40.6,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true,
+          "pcPath": "/game/pal-playstation-4/resident-evil-5"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-04284",
+        "ean": "5055060931554"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-6",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-6",
+          "slug": "resident-evil-6",
+          "title": "Resident Evil 6",
+          "titlePc": "Resident Evil 6",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-6.jpg",
+          "pcId": 57541,
+          "pcRegion": "PAL EU (genérico)",
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 16,
+          "pcRefPrice": 24.69,
+          "deltaEsVsPc": -35.2,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true,
+          "pcPath": "/game/pal-playstation-4/resident-evil-6"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-03840",
+        "ean": "5055060931684"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-3",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-3",
+          "slug": "resident-evil-3",
+          "title": "Resident Evil 3",
+          "titlePc": "Resident Evil 3",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-3.jpg",
+          "pcId": 72377,
+          "pcRegion": "PAL EU (genérico)",
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 16,
+          "pcRefPrice": 27.14,
+          "deltaEsVsPc": -41,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true,
+          "pcPath": "/game/pal-playstation-4/resident-evil-3"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-14278",
+        "ean": "5055060949658"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-4-remake-steelbook",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-4-remake-steelbook",
+          "slug": "resident-evil-4-remake-steelbook",
+          "title": "Resident Evil 4 Remake Steelbook",
+          "titlePc": null,
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-4-remake-steelbook.jpg",
+          "pcId": null,
+          "pcRegion": null,
+          "pcCondition": null,
+          "matchConfidence": null,
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 38,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-33388",
+        "ean": "5055060903391"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-2",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-2",
+          "slug": "resident-evil-2",
+          "title": "Resident Evil 2",
+          "titlePc": "Resident Evil 2",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-2.jpg",
+          "pcId": 57532,
+          "pcRegion": "PAL EU (genérico)",
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 16,
+          "pcRefPrice": 24.49,
+          "deltaEsVsPc": -34.7,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true,
+          "pcPath": "/game/pal-playstation-4/resident-evil-2",
+          "tcnsRetailPrice": 11.95,
+          "tcnsProductUrl": "https://www.todoconsolas.com/juegos-ps4/9821-resident_evil_2_ps4_sp_po79478-5055060946169.html",
+          "tcnsCondition": "preowned",
+          "tcnsMatchedAt": "2026-09-05T21:45:42Z"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-09171",
+        "ean": "5055060946169"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps4-resident-evil-origins-collection",
+      "before": {
+        "catalog": {
+          "id": "ps4-resident-evil-origins-collection",
+          "slug": "resident-evil-origins-collection",
+          "title": "Resident Evil Origins Collection",
+          "titlePc": "Resident Evil Origins Collection",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/resident-evil-origins-collection.jpg",
+          "pcId": 63186,
+          "pcRegion": "PAL EU (genérico)",
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 16,
+          "pcRefPrice": 24.99,
+          "deltaEsVsPc": -36,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true,
+          "pcPath": "/game/pal-playstation-4/resident-evil-origins-collection"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-portada-catalogo.webp",
+        "reference": "CUSA-02882",
+        "ean": "5055060931141"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
+    },
+    {
+      "id": "ps5-resident-evil-requiem-deluxe-edition",
+      "before": {
+        "catalog": {
+          "id": "ps5-resident-evil-requiem-deluxe-edition",
+          "slug": "resident-evil-requiem-deluxe-edition",
+          "title": "Resident Evil: Requiem [Deluxe Edition]",
+          "titlePc": "Resident Evil: Requiem [Deluxe Edition]",
+          "platformSlug": "ps5",
+          "region": "PAL España",
+          "physicalVariant": null,
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps5/resident-evil-requiem-deluxe-edition.jpg",
+          "pcPath": "/game/pal-playstation-5/resident-evil-requiem-deluxe-edition",
+          "pcId": 11920086,
+          "pcRegion": "PAL EU (referencia)",
+          "pcCondition": null,
+          "matchConfidence": "SEED_PC",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": "2026-09-01",
+          "hasEsPrice": false,
+          "priceRegionVerified": false,
+          "seedSource": "pricecharting-pal-user-list",
+          "regionEvidence": [
+            "user_confirmed_pal_europe_as_pal_es"
+          ],
+          "regionVerified": false
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-portada-catalogo.webp",
+        "reference": "PPSA-31246",
+        "ean": "5055060907979"
+      },
+      "mappingNotes": "Ficha existente con su ID y URL conservados. Frente, reverso y lomo del mismo ejemplar ES/IT; sin propagación por título o por código compartido a otra edición."
     }
   ]
 }

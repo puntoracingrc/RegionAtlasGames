@@ -1,0 +1,1056 @@
+{
+  "batchId": "owned-scans-2026-09-12-resident-es-it",
+  "baseCommit": "a9e74ef4eaefea5988820f2e62be0715cac400fc",
+  "games": [
+    {
+      "catalogId": "ps4-resident-evil-revelations-2",
+      "title": "Resident Evil Revelations 2",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-revelations-2-ps4-pal-es",
+      "reference": "CUSA-01133",
+      "ean": "5055060930472",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-revelations-2",
+        "slug": "resident-evil-revelations-2",
+        "title": "Resident Evil Revelations 2",
+        "titlePc": "Resident Evil Revelations 2",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-revelations-2.jpg",
+        "pcId": 67407,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 20.35,
+        "deltaEsVsPc": -21.4,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-revelations-2"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-revelations-2",
+        "slug": "resident-evil-revelations-2",
+        "title": "Resident Evil Revelations 2",
+        "titlePc": "Resident Evil Revelations 2",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-portada-catalogo.webp",
+        "pcId": 67407,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 20.35,
+        "deltaEsVsPc": -21.4,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-revelations-2",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "standard",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations",
+      "title": "Resident Evil Revelations",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-revelations-ps4-pal-es",
+      "reference": "CUSA-06212",
+      "ean": "5055060913680",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-revelations",
+        "slug": "resident-evil-revelations",
+        "title": "Resident Evil Revelations",
+        "titlePc": "Resident Evil Revelations",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-revelations.jpg",
+        "pcId": 57851,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 36,
+        "deltaEsVsPc": -55.6,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-revelations"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-revelations",
+        "slug": "resident-evil-revelations",
+        "title": "Resident Evil Revelations",
+        "titlePc": "Resident Evil Revelations",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-portada-catalogo.webp",
+        "pcId": 57851,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 36,
+        "deltaEsVsPc": -55.6,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-revelations",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "standard",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+      "title": "Resident Evil 7 Biohazard · Gold Edition",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-7-biohazard-gold-edition-ps4-pal-es",
+      "reference": "CUSA-09473",
+      "ean": "5055060945513",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-7-biohazard-gold-edition",
+        "slug": "resident-evil-7-biohazard-gold-edition",
+        "title": "Resident Evil 7: Biohazard [Gold Edition]",
+        "titlePc": "Resident Evil 7: Biohazard [Gold Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-7-biohazard-gold-edition.jpg",
+        "pcPath": "/game/pal-playstation-4/resident-evil-7-biohazard-gold-edition",
+        "pcId": 239556,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": null,
+        "hasEsPrice": false,
+        "seedSource": "pricecharting-pal"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-7-biohazard-gold-edition",
+        "slug": "resident-evil-7-biohazard-gold-edition",
+        "title": "Resident Evil 7: Biohazard [Gold Edition]",
+        "titlePc": "Resident Evil 7: Biohazard [Gold Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada-catalogo.webp",
+        "pcPath": "/game/pal-playstation-4/resident-evil-7-biohazard-gold-edition",
+        "pcId": 239556,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": null,
+        "hasEsPrice": false,
+        "seedSource": "pricecharting-pal",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "gold",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-village",
+      "title": "Resident Evil Village",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-village-ps4-pal-es",
+      "reference": "CUSA-18008",
+      "ean": "5055060902141",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-village",
+        "slug": "resident-evil-village",
+        "title": "Resident Evil Village",
+        "titlePc": "Resident Evil Village",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-village.jpg",
+        "pcPath": "/game/pal-playstation-4/resident-evil-village",
+        "pcId": 2164917,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": null,
+        "hasEsPrice": false,
+        "seedSource": "pricecharting-pal"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-village",
+        "slug": "resident-evil-village",
+        "title": "Resident Evil Village",
+        "titlePc": "Resident Evil Village",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada-catalogo.webp",
+        "pcPath": "/game/pal-playstation-4/resident-evil-village",
+        "pcId": 2164917,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": null,
+        "hasEsPrice": false,
+        "seedSource": "pricecharting-pal",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "standard",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-5",
+      "title": "Resident Evil 5",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-5-ps4-pal-es",
+      "reference": "CUSA-04284",
+      "ean": "5055060931554",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-5",
+        "slug": "resident-evil-5",
+        "title": "Resident Evil 5",
+        "titlePc": "Resident Evil 5",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-5.jpg",
+        "pcId": 57539,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 26.92,
+        "deltaEsVsPc": -40.6,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-5"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-5",
+        "slug": "resident-evil-5",
+        "title": "Resident Evil 5",
+        "titlePc": "Resident Evil 5",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-portada-catalogo.webp",
+        "pcId": 57539,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 26.92,
+        "deltaEsVsPc": -40.6,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-5",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "standard",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Inglés"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-6",
+      "title": "Resident Evil 6",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-6-ps4-pal-es",
+      "reference": "CUSA-03840",
+      "ean": "5055060931684",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-6",
+        "slug": "resident-evil-6",
+        "title": "Resident Evil 6",
+        "titlePc": "Resident Evil 6",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-6.jpg",
+        "pcId": 57541,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 24.69,
+        "deltaEsVsPc": -35.2,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-6"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-6",
+        "slug": "resident-evil-6",
+        "title": "Resident Evil 6",
+        "titlePc": "Resident Evil 6",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-portada-catalogo.webp",
+        "pcId": 57541,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 24.69,
+        "deltaEsVsPc": -35.2,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-6",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "standard",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Inglés"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-3",
+      "title": "Resident Evil 3",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-3-ps4-pal-es",
+      "reference": "CUSA-14278",
+      "ean": "5055060949658",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-3",
+        "slug": "resident-evil-3",
+        "title": "Resident Evil 3",
+        "titlePc": "Resident Evil 3",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-3.jpg",
+        "pcId": 72377,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 27.14,
+        "deltaEsVsPc": -41,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-3"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-3",
+        "slug": "resident-evil-3",
+        "title": "Resident Evil 3",
+        "titlePc": "Resident Evil 3",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-portada-catalogo.webp",
+        "pcId": 72377,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 27.14,
+        "deltaEsVsPc": -41,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-3",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "standard",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-4-remake-steelbook",
+      "title": "Resident Evil 4 Remake · Steelbook",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-4-remake-steelbook-ps4-pal-es",
+      "reference": "CUSA-33388",
+      "ean": "5055060903391",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-4-remake-steelbook",
+        "slug": "resident-evil-4-remake-steelbook",
+        "title": "Resident Evil 4 Remake Steelbook",
+        "titlePc": null,
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-4-remake-steelbook.jpg",
+        "pcId": null,
+        "pcRegion": null,
+        "pcCondition": null,
+        "matchConfidence": null,
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 38,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-4-remake-steelbook",
+        "slug": "resident-evil-4-remake-steelbook",
+        "title": "Resident Evil 4 Remake Steelbook",
+        "titlePc": null,
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada-catalogo.webp",
+        "pcId": null,
+        "pcRegion": null,
+        "pcCondition": null,
+        "matchConfidence": null,
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 38,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "steelbook",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-2",
+      "title": "Resident Evil 2",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-2-ps4-pal-es",
+      "reference": "CUSA-09171",
+      "ean": "5055060946169",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-2",
+        "slug": "resident-evil-2",
+        "title": "Resident Evil 2",
+        "titlePc": "Resident Evil 2",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-2.jpg",
+        "pcId": 57532,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 24.49,
+        "deltaEsVsPc": -34.7,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-2",
+        "tcnsRetailPrice": 11.95,
+        "tcnsProductUrl": "https://www.todoconsolas.com/juegos-ps4/9821-resident_evil_2_ps4_sp_po79478-5055060946169.html",
+        "tcnsCondition": "preowned",
+        "tcnsMatchedAt": "2026-09-05T21:45:42Z"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-2",
+        "slug": "resident-evil-2",
+        "title": "Resident Evil 2",
+        "titlePc": "Resident Evil 2",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-portada-catalogo.webp",
+        "pcId": 57532,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 24.49,
+        "deltaEsVsPc": -34.7,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-2",
+        "tcnsRetailPrice": 11.95,
+        "tcnsProductUrl": "https://www.todoconsolas.com/juegos-ps4/9821-resident_evil_2_ps4_sp_po79478-5055060946169.html",
+        "tcnsCondition": "preowned",
+        "tcnsMatchedAt": "2026-09-05T21:45:42Z",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "standard",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps4-resident-evil-origins-collection",
+      "title": "Resident Evil Origins Collection",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-origins-collection-ps4-pal-es",
+      "reference": "CUSA-02882",
+      "ean": "5055060931141",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps4-resident-evil-origins-collection",
+        "slug": "resident-evil-origins-collection",
+        "title": "Resident Evil Origins Collection",
+        "titlePc": "Resident Evil Origins Collection",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-origins-collection.jpg",
+        "pcId": 63186,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 24.99,
+        "deltaEsVsPc": -36,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-origins-collection"
+      },
+      "afterCatalog": {
+        "id": "ps4-resident-evil-origins-collection",
+        "slug": "resident-evil-origins-collection",
+        "title": "Resident Evil Origins Collection",
+        "titlePc": "Resident Evil Origins Collection",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-portada-catalogo.webp",
+        "pcId": 63186,
+        "pcRegion": "PAL EU (genérico)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 24.99,
+        "deltaEsVsPc": -36,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "pcPath": "/game/pal-playstation-4/resident-evil-origins-collection",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      },
+      "variant": "standard",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Inglés"
+        ]
+      }
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-deluxe-edition",
+      "title": "Resident Evil Requiem · Deluxe Edition con Steelbook",
+      "url": "https://www.regionatlas.games/catalogo/resident-evil-requiem-deluxe-edition-ps5-pal-es",
+      "reference": "PPSA-31246",
+      "ean": "5055060907979",
+      "addedImages": 3,
+      "beforeCatalog": {
+        "id": "ps5-resident-evil-requiem-deluxe-edition",
+        "slug": "resident-evil-requiem-deluxe-edition",
+        "title": "Resident Evil: Requiem [Deluxe Edition]",
+        "titlePc": "Resident Evil: Requiem [Deluxe Edition]",
+        "platformSlug": "ps5",
+        "region": "PAL España",
+        "physicalVariant": null,
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps5/resident-evil-requiem-deluxe-edition.jpg",
+        "pcPath": "/game/pal-playstation-5/resident-evil-requiem-deluxe-edition",
+        "pcId": 11920086,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": "2026-09-01",
+        "hasEsPrice": false,
+        "priceRegionVerified": false,
+        "seedSource": "pricecharting-pal-user-list",
+        "regionEvidence": [
+          "user_confirmed_pal_europe_as_pal_es"
+        ],
+        "regionVerified": false
+      },
+      "afterCatalog": {
+        "id": "ps5-resident-evil-requiem-deluxe-edition",
+        "slug": "resident-evil-requiem-deluxe-edition",
+        "title": "Resident Evil: Requiem [Deluxe Edition]",
+        "titlePc": "Resident Evil: Requiem [Deluxe Edition]",
+        "platformSlug": "ps5",
+        "region": "PAL España",
+        "physicalVariant": null,
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-portada-catalogo.webp",
+        "pcPath": "/game/pal-playstation-5/resident-evil-requiem-deluxe-edition",
+        "pcId": 11920086,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": "2026-09-01",
+        "hasEsPrice": false,
+        "priceRegionVerified": false,
+        "seedSource": "pricecharting-pal-user-list",
+        "regionEvidence": [
+          "user_confirmed_pal_europe_as_pal_es",
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ],
+        "regionVerified": true
+      },
+      "variant": "deluxe-steelbook",
+      "sharedPackagingMarkets": [
+        "ES",
+        "IT"
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español",
+          "Italiano"
+        ],
+        "audio": [
+          "Español",
+          "Italiano"
+        ]
+      }
+    }
+  ],
+  "images": 33,
+  "webFiles": 77,
+  "bytes": 14974876,
+  "catalogBeforeSha256": "6e633f87456a4979c6a55c5324fef5b81c90b71dbdce3e1122021b5517bbfd2d",
+  "catalogAfterSha256": "6239a576a98b54fcc617fea2b48272cae5be2a460961efa1fb22825597a94aff",
+  "previousLenticularScans": {
+    "identity": {
+      "platformSlug": "ps5",
+      "slug": "resident-evil-requiem-lenticular-cover",
+      "region": "PAL España",
+      "edition": "standard"
+    },
+    "capturedAt": "2026-09-11",
+    "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+    "primaryCoverUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada-catalogo.webp",
+    "primaryCaption": "Carátula de papel · Edición lenticular PAL España",
+    "packaging": {
+      "reference": "PPSA-31246",
+      "ean": "5055060993637",
+      "languages": [
+        "Español",
+        "Italiano"
+      ],
+      "marketEvidence": "Edición PAL España confirmada por el propietario; contraportada con textos en español e italiano."
+    },
+    "notes": [
+      "La portada principal muestra la carátula de papel del ejemplar lenticular. La galería incluye la lámina lenticular por separado.",
+      "La lámina lenticular cambia según el ángulo; el escaneo conserva la trama y el aspecto más oscuro de esta captura."
+    ],
+    "images": [
+      {
+        "role": "portada",
+        "label": "Portada de papel de la edición lenticular",
+        "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada.webp",
+        "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada-mini.webp",
+        "width": 2568,
+        "height": 3200
+      },
+      {
+        "role": "contraportada",
+        "label": "Contraportada",
+        "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-contraportada.webp",
+        "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-contraportada-mini.webp",
+        "width": 2553,
+        "height": 3200
+      },
+      {
+        "role": "lomo",
+        "label": "Lomo",
+        "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lomo.webp",
+        "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lomo-mini.webp",
+        "width": 283,
+        "height": 3200
+      },
+      {
+        "role": "caratula-completa",
+        "label": "Carátula de papel completa",
+        "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caratula-completa.webp",
+        "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caratula-completa-mini.webp",
+        "width": 3200,
+        "height": 1900
+      },
+      {
+        "role": "lenticular",
+        "label": "Lámina lenticular · Ángulo capturado por el escáner",
+        "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lenticular.webp",
+        "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lenticular-mini.webp",
+        "width": 2545,
+        "height": 3200
+      },
+      {
+        "role": "caja-y-lenticular",
+        "label": "Caja y lámina lenticular del mismo ejemplar",
+        "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caja-y-lenticular.webp",
+        "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caja-y-lenticular-mini.webp",
+        "width": 3200,
+        "height": 2033
+      },
+      {
+        "role": "folleto-grace-apocalipsis",
+        "label": "Folleto del atuendo de Grace: Apocalipsis · Cara capturada",
+        "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-folleto-grace-apocalipsis.webp",
+        "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-folleto-grace-apocalipsis-mini.webp",
+        "width": 3200,
+        "height": 2000,
+        "redactedCodes": 1
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": 14,
+      "name": "Image 014.png",
+      "sha256": "bde371c337e4ab8bd9102b21de994d87e0f23356af0d36f7c5a66e88c0613400",
+      "bytes": 9593349,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 15,
+      "name": "Image 015.png",
+      "sha256": "9fc5148479acf939cbb75b355b308db4a2355565b9a931c33bcec4c575f19941",
+      "bytes": 10888796,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 16,
+      "name": "Image 016.png",
+      "sha256": "830fe2e00388c2a526eca0bc5ede531fdbdfda8d2be74f7b49fffbdb53926ffa",
+      "bytes": 8983867,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 17,
+      "name": "Image 017.png",
+      "sha256": "cd4b531f4e08b2c694ccf6238a01968f2e74a1e672e1e00352eea1c91c1abb7f",
+      "bytes": 10705767,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 18,
+      "name": "Image 018.png",
+      "sha256": "22ba5d28c7b911216e2c0f6f82f5b083ffe934e7b76686113cc939ba31d17ed9",
+      "bytes": 9176814,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 19,
+      "name": "Image 019.png",
+      "sha256": "1dd902ed1e0812be70286feb33027bcf5791b6d8dfefb61a5f7536ba00a1e021",
+      "bytes": 11427076,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 20,
+      "name": "Image 020.png",
+      "sha256": "90c375efe3b7d067e3733d0df95125822e252f9bea8e02e41a2e2d7d623ef23c",
+      "bytes": 9890827,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 21,
+      "name": "Image 021.png",
+      "sha256": "50ebb9edcbe0af3d13a29c02691613fc2c2b0da04dd33f7876f89593642f194b",
+      "bytes": 11019732,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 22,
+      "name": "Image 022.png",
+      "sha256": "0c260efe30274a946882d5ec8bf3aee7b5301ce8cc5fda41acea6582cc0b283a",
+      "bytes": 9870978,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 23,
+      "name": "Image 023.png",
+      "sha256": "1ea9a1a6df1a43b06a409e357e5635e2bb809b344031f0a25e9b6931c256e68b",
+      "bytes": 10572635,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 25,
+      "name": "Image 025.png",
+      "sha256": "096f7d4cf625afcb86d357bc54a10b712b7d4bc3e6b943d9e11fe868dc554c8f",
+      "bytes": 8291890,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 26,
+      "name": "Image 026.png",
+      "sha256": "f7fd0c77154813f8f52afd9bdedd56079b5b0ce5c507cb8cfe5e4c81365df068",
+      "bytes": 9530022,
+      "width": 3507,
+      "height": 2481
+    },
+    {
+      "number": 27,
+      "name": "Image 027.png",
+      "sha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "bytes": 6045053,
+      "width": 3507,
+      "height": 2481
+    }
+  ],
+  "processing": "Recortes rectangulares de los escaneos aportados; maestros PNG con igualdad exacta de píxeles comprobada. Derivados WebP sin EXIF/XMP. Se conservan precintos, reflejos, etiquetas y los límites de la captura, sin reconstrucciones."
+}

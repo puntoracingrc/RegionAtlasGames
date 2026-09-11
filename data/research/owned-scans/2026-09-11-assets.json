@@ -208,6 +208,123 @@
       "redactedCodes": 0,
       "batchId": "owned-scans-2026-09-12-assassins-ps4",
       "sourceDpi": null
+    },
+    {
+      "fileName": "Image 014.png",
+      "sha256": "bde371c337e4ab8bd9102b21de994d87e0f23356af0d36f7c5a66e88c0613400",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 015.png",
+      "sha256": "9fc5148479acf939cbb75b355b308db4a2355565b9a931c33bcec4c575f19941",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 016.png",
+      "sha256": "830fe2e00388c2a526eca0bc5ede531fdbdfda8d2be74f7b49fffbdb53926ffa",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 017.png",
+      "sha256": "cd4b531f4e08b2c694ccf6238a01968f2e74a1e672e1e00352eea1c91c1abb7f",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 018.png",
+      "sha256": "22ba5d28c7b911216e2c0f6f82f5b083ffe934e7b76686113cc939ba31d17ed9",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 019.png",
+      "sha256": "1dd902ed1e0812be70286feb33027bcf5791b6d8dfefb61a5f7536ba00a1e021",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 020.png",
+      "sha256": "90c375efe3b7d067e3733d0df95125822e252f9bea8e02e41a2e2d7d623ef23c",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 021.png",
+      "sha256": "50ebb9edcbe0af3d13a29c02691613fc2c2b0da04dd33f7876f89593642f194b",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 022.png",
+      "sha256": "0c260efe30274a946882d5ec8bf3aee7b5301ce8cc5fda41acea6582cc0b283a",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 023.png",
+      "sha256": "1ea9a1a6df1a43b06a409e357e5635e2bb809b344031f0a25e9b6931c256e68b",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 025.png",
+      "sha256": "096f7d4cf625afcb86d357bc54a10b712b7d4bc3e6b943d9e11fe868dc554c8f",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 026.png",
+      "sha256": "f7fd0c77154813f8f52afd9bdedd56079b5b0ce5c507cb8cfe5e4c81365df068",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 027.png",
+      "sha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-resident-es-it",
+      "sourceDpi": null
     }
   ],
   "assets": [
@@ -1178,6 +1295,666 @@
       "bytes": 52516,
       "thumbnailSha256": "46d928bc749e4ddccee9399f3601e51999b1516f548b346b8d3e55e5840d6104",
       "thumbnailBytes": 7200
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations-2",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-portada-mini.webp",
+      "width": 1640,
+      "height": 2023,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "bde371c337e4ab8bd9102b21de994d87e0f23356af0d36f7c5a66e88c0613400",
+      "crop": {
+        "left": 84,
+        "top": 458,
+        "width": 1640,
+        "height": 2023
+      },
+      "sha256": "36a1c3975ce583b66ed72fa88b2f5229d8389492f8e71c306940cd4e7492c24c",
+      "bytes": 375650,
+      "thumbnailSha256": "a94b24460fad8d36efad940100cae1878336fe651be743315eb936636abfc310",
+      "thumbnailBytes": 50644
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations-2",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-contraportada-mini.webp",
+      "width": 1644,
+      "height": 2019,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "9fc5148479acf939cbb75b355b308db4a2355565b9a931c33bcec4c575f19941",
+      "crop": {
+        "left": 106,
+        "top": 462,
+        "width": 1644,
+        "height": 2019
+      },
+      "sha256": "71fe189a8744940e52efc362a83f25af247155babbb7f6f9d11dd7fa6a9d13a2",
+      "bytes": 573434,
+      "thumbnailSha256": "41a688dbc91b6421dc845072f712f0bb8b3342e7d6695d75a94eda40214ef7d6",
+      "thumbnailBytes": 73726
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations-2",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-lomo-mini.webp",
+      "width": 184,
+      "height": 2053,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 708,
+        "top": 428,
+        "width": 184,
+        "height": 2053
+      },
+      "sha256": "013a30491a294cada88151c128a36359b4fff870c0c58710b1d26cbea125365b",
+      "bytes": 39532,
+      "thumbnailSha256": "5068f97016ff7695ab1fa88f90b7b248ecc209f509ff321857a662e39a3dc465",
+      "thumbnailBytes": 5838
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-portada-mini.webp",
+      "width": 1640,
+      "height": 2023,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "bde371c337e4ab8bd9102b21de994d87e0f23356af0d36f7c5a66e88c0613400",
+      "crop": {
+        "left": 1810,
+        "top": 458,
+        "width": 1640,
+        "height": 2023
+      },
+      "sha256": "9e86daec2986a3a1a22b3d2d191a4141707d6a89c26d8f179b6b219774090462",
+      "bytes": 398308,
+      "thumbnailSha256": "8d3b57c1378e2b4c24afab9ffffc91cceffb1d2ef009db836c2580612c904be8",
+      "thumbnailBytes": 49742
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-contraportada-mini.webp",
+      "width": 1644,
+      "height": 2023,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "9fc5148479acf939cbb75b355b308db4a2355565b9a931c33bcec4c575f19941",
+      "crop": {
+        "left": 1810,
+        "top": 458,
+        "width": 1644,
+        "height": 2023
+      },
+      "sha256": "ea38a88c6d379c6dcf6b9b03692ceb3a492647630e3e84175e127562e3057c59",
+      "bytes": 585112,
+      "thumbnailSha256": "510e05f14e81cd1d367ae998d3ee0001f745d35f2bb55eb9986b431e505792c3",
+      "thumbnailBytes": 72982
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-lomo-mini.webp",
+      "width": 178,
+      "height": 2059,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 520,
+        "top": 422,
+        "width": 178,
+        "height": 2059
+      },
+      "sha256": "b616c7a45347ae218d13eb76465372f35e1d95754657f3895e386fd2a6ffe30f",
+      "bytes": 33188,
+      "thumbnailSha256": "146e0c5203a9d1b1189089422bde4723bcd497a5d93c83b591cd4a805d3bf794",
+      "thumbnailBytes": 4324
+    },
+    {
+      "catalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada-mini.webp",
+      "width": 1640,
+      "height": 2025,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "830fe2e00388c2a526eca0bc5ede531fdbdfda8d2be74f7b49fffbdb53926ffa",
+      "crop": {
+        "left": 104,
+        "top": 456,
+        "width": 1640,
+        "height": 2025
+      },
+      "sha256": "739c16a5d961f4ba1600bf3ad52672b3b4138359b426aea59bea992eea532f86",
+      "bytes": 356776,
+      "thumbnailSha256": "8a20738d86b328bb4c49bf5d255e648062c7029ec5932cec7125d489444b4f05",
+      "thumbnailBytes": 42042
+    },
+    {
+      "catalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-contraportada-mini.webp",
+      "width": 1640,
+      "height": 2027,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "cd4b531f4e08b2c694ccf6238a01968f2e74a1e672e1e00352eea1c91c1abb7f",
+      "crop": {
+        "left": 110,
+        "top": 454,
+        "width": 1640,
+        "height": 2027
+      },
+      "sha256": "a61aa6105a66517fde675d6d146a173d089902f24cd6f4bf7880d7e2356ea248",
+      "bytes": 650302,
+      "thumbnailSha256": "abff88de070d6a6816bd018444a0715c637b9fc56cfd61a24c936c7f101103a7",
+      "thumbnailBytes": 77504
+    },
+    {
+      "catalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-lomo-mini.webp",
+      "width": 184,
+      "height": 2063,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 1104,
+        "top": 418,
+        "width": 184,
+        "height": 2063
+      },
+      "sha256": "f4c1f6d0b1bb9b31e36d1be4354f90c2f872ae3c24b847398bef25b2786f688b",
+      "bytes": 45688,
+      "thumbnailSha256": "a56dbad866389bef6120b812bba565c96066b3bca87dbd9a8e0a55c9c48473d9",
+      "thumbnailBytes": 6502
+    },
+    {
+      "catalogId": "ps4-resident-evil-village",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada-mini.webp",
+      "width": 1665,
+      "height": 2035,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "830fe2e00388c2a526eca0bc5ede531fdbdfda8d2be74f7b49fffbdb53926ffa",
+      "crop": {
+        "left": 1820,
+        "top": 446,
+        "width": 1665,
+        "height": 2035
+      },
+      "sha256": "bf8e9de9c4515cb4c1ec471629f3c7797cbddc9134e8791e809bebc8100ea768",
+      "bytes": 295808,
+      "thumbnailSha256": "91577aa77954f35935af70b9cbb9683e032d6dea66ebfcb3fecdc4702211ec73",
+      "thumbnailBytes": 24876
+    },
+    {
+      "catalogId": "ps4-resident-evil-village",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-contraportada-mini.webp",
+      "width": 1675,
+      "height": 2045,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "cd4b531f4e08b2c694ccf6238a01968f2e74a1e672e1e00352eea1c91c1abb7f",
+      "crop": {
+        "left": 1810,
+        "top": 436,
+        "width": 1675,
+        "height": 2045
+      },
+      "sha256": "cb38fdb656ef5a50a28f351ddd3fba85f267bfc72435663e0c7c8a0fb1637eb8",
+      "bytes": 498878,
+      "thumbnailSha256": "2beac18c2692257d2910790cd7140f168b380bd8a387c9f757ef3a49932190c2",
+      "thumbnailBytes": 57232
+    },
+    {
+      "catalogId": "ps4-resident-evil-village",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-lomo-mini.webp",
+      "width": 200,
+      "height": 2025,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 896,
+        "top": 456,
+        "width": 200,
+        "height": 2025
+      },
+      "sha256": "01a2f6a19b30710116b1aacd7362c11d7d6e8aa4a248ae521e42241d09915468",
+      "bytes": 42110,
+      "thumbnailSha256": "6ea06d08b07a5363459d9f150f49df33fc96515ee7a786a508284626e5e3da55",
+      "thumbnailBytes": 5714
+    },
+    {
+      "catalogId": "ps4-resident-evil-5",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-portada-mini.webp",
+      "width": 1644,
+      "height": 2025,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "22ba5d28c7b911216e2c0f6f82f5b083ffe934e7b76686113cc939ba31d17ed9",
+      "crop": {
+        "left": 110,
+        "top": 456,
+        "width": 1644,
+        "height": 2025
+      },
+      "sha256": "a663696a87b01c013a4f647507de29c4041aa9a6bcafd4eb4f1a934b996c9be2",
+      "bytes": 350032,
+      "thumbnailSha256": "ed469ef558e15dbd3255ff799e79fc3b66caf98ab6d78aee672651dc62f66a52",
+      "thumbnailBytes": 47672
+    },
+    {
+      "catalogId": "ps4-resident-evil-5",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-contraportada-mini.webp",
+      "width": 1656,
+      "height": 2023,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "1dd902ed1e0812be70286feb33027bcf5791b6d8dfefb61a5f7536ba00a1e021",
+      "crop": {
+        "left": 130,
+        "top": 458,
+        "width": 1656,
+        "height": 2023
+      },
+      "sha256": "0b0a452db8fffe264d5d14be490c4d1c55bd62d7ae0af50bf07e0017e1b5f16b",
+      "bytes": 632298,
+      "thumbnailSha256": "c47d2de1f17e68d4d044908b6fcb4b61df78bec87a0e95386974998453af5262",
+      "thumbnailBytes": 85062
+    },
+    {
+      "catalogId": "ps4-resident-evil-5",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-lomo-mini.webp",
+      "width": 180,
+      "height": 2071,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 1480,
+        "top": 410,
+        "width": 180,
+        "height": 2071
+      },
+      "sha256": "29c6d056705467e741c3fbf886dd30be7dd872c8005d327ab3015c30dac49e0d",
+      "bytes": 40596,
+      "thumbnailSha256": "04556fb1131dabb971c1fb21f0f33973edae6e0e9203374184c09059a7a33b79",
+      "thumbnailBytes": 6070
+    },
+    {
+      "catalogId": "ps4-resident-evil-6",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-portada-mini.webp",
+      "width": 1640,
+      "height": 2019,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "22ba5d28c7b911216e2c0f6f82f5b083ffe934e7b76686113cc939ba31d17ed9",
+      "crop": {
+        "left": 1814,
+        "top": 462,
+        "width": 1640,
+        "height": 2019
+      },
+      "sha256": "1579cf504722cb31443bd96cb8c15c70a09e7a5da6797ee4e6e5088fed1cb569",
+      "bytes": 353512,
+      "thumbnailSha256": "13198a78aa03ded9aefff552265bfb2622fbaf0c92c72db59c7e1c8919b04e05",
+      "thumbnailBytes": 48924
+    },
+    {
+      "catalogId": "ps4-resident-evil-6",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-contraportada-mini.webp",
+      "width": 1644,
+      "height": 2021,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "1dd902ed1e0812be70286feb33027bcf5791b6d8dfefb61a5f7536ba00a1e021",
+      "crop": {
+        "left": 1804,
+        "top": 460,
+        "width": 1644,
+        "height": 2021
+      },
+      "sha256": "1f10fa5c4fa5f0b275c0bab373be03a821d7f40f54ecb9e91a4e918ae6dc06e0",
+      "bytes": 719982,
+      "thumbnailSha256": "6a9e756e5d350addbf7410903b13f6186ef43100fab5600cde494f38c60f0d4f",
+      "thumbnailBytes": 85518
+    },
+    {
+      "catalogId": "ps4-resident-evil-6",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-lomo-mini.webp",
+      "width": 182,
+      "height": 2061,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 1294,
+        "top": 420,
+        "width": 182,
+        "height": 2061
+      },
+      "sha256": "157a4a4cf59fe8058440aed6eac7f2580933a4349ba548340483a2572d4750dc",
+      "bytes": 37018,
+      "thumbnailSha256": "e2b0502acb74126322fae1b0ab00c5282072c076ea28fb677273360c19563caa",
+      "thumbnailBytes": 5258
+    },
+    {
+      "catalogId": "ps4-resident-evil-3",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-portada-mini.webp",
+      "width": 1640,
+      "height": 2027,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "90c375efe3b7d067e3733d0df95125822e252f9bea8e02e41a2e2d7d623ef23c",
+      "crop": {
+        "left": 116,
+        "top": 454,
+        "width": 1640,
+        "height": 2027
+      },
+      "sha256": "65978f228415bfc5a685f1b05e64237beda683157d475e8fdb782578e8104c9f",
+      "bytes": 422692,
+      "thumbnailSha256": "2c79f4d28384e0237e714db27e748b21980cce6d27dd5200f415dd6ac00b4a80",
+      "thumbnailBytes": 53534
+    },
+    {
+      "catalogId": "ps4-resident-evil-3",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-contraportada-mini.webp",
+      "width": 1634,
+      "height": 2023,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "50ebb9edcbe0af3d13a29c02691613fc2c2b0da04dd33f7876f89593642f194b",
+      "crop": {
+        "left": 120,
+        "top": 458,
+        "width": 1634,
+        "height": 2023
+      },
+      "sha256": "c2de2e219cadfa132283f634ce0413a04459b0b7dedf6891e8140ec1f4d85cec",
+      "bytes": 646846,
+      "thumbnailSha256": "f6d606a69855d06117f1d9bf461db7a5b56c361a84fe6d682ac0ae149dc289e5",
+      "thumbnailBytes": 78890
+    },
+    {
+      "catalogId": "ps4-resident-evil-3",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-lomo-mini.webp",
+      "width": 180,
+      "height": 2065,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 1872,
+        "top": 416,
+        "width": 180,
+        "height": 2065
+      },
+      "sha256": "04508f175023f27321bcb51c663d27842ca45135a4f0c50beeb3fd1b2a80187e",
+      "bytes": 36858,
+      "thumbnailSha256": "cb144e1c8b3125ea728cc111f8309b9d7a6e09ca44c49a6ba7ec08245afcf5ef",
+      "thumbnailBytes": 5152
+    },
+    {
+      "catalogId": "ps4-resident-evil-4-remake-steelbook",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada-mini.webp",
+      "width": 1651,
+      "height": 2023,
+      "label": "Portada de la caja exterior de la edición con Steelbook",
+      "sourceSha256": "90c375efe3b7d067e3733d0df95125822e252f9bea8e02e41a2e2d7d623ef23c",
+      "crop": {
+        "left": 1856,
+        "top": 458,
+        "width": 1651,
+        "height": 2023
+      },
+      "sha256": "a0ee560b3aed85df60956d8b789be938298d4535be10ea2b3f4dc85cae59330d",
+      "bytes": 406138,
+      "thumbnailSha256": "a396cc05f1bf89294e9f6d3e8c00f02a00d3a9726a2a075f7984f60ba97dbaef",
+      "thumbnailBytes": 44412
+    },
+    {
+      "catalogId": "ps4-resident-evil-4-remake-steelbook",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-contraportada-mini.webp",
+      "width": 1670,
+      "height": 2027,
+      "label": "Contraportada de la caja exterior de la edición con Steelbook",
+      "sourceSha256": "50ebb9edcbe0af3d13a29c02691613fc2c2b0da04dd33f7876f89593642f194b",
+      "crop": {
+        "left": 1802,
+        "top": 454,
+        "width": 1670,
+        "height": 2027
+      },
+      "sha256": "9461e4a91e2c7b5bf21d9998eddae4f6eb2b57b115c3aec6479491cd84d074ef",
+      "bytes": 591188,
+      "thumbnailSha256": "98bb4dcf68805abefb2b5f86dcffd831a67b95ef2b3c616c1c20ca83c93cbb49",
+      "thumbnailBytes": 70988
+    },
+    {
+      "catalogId": "ps4-resident-evil-4-remake-steelbook",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-lomo-mini.webp",
+      "width": 208,
+      "height": 2029,
+      "label": "Lomo de la caja exterior de la edición con Steelbook",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 1658,
+        "top": 452,
+        "width": 208,
+        "height": 2029
+      },
+      "sha256": "259e0e5b09d6ba4dbf56587c481baac8dcefdeff707f9af5a3c575738a1f912f",
+      "bytes": 42542,
+      "thumbnailSha256": "e25672a6a4d0e9e70f8fa0d1eb06a97b64162a63166d54ec44e16bc0ab8819c1",
+      "thumbnailBytes": 6378
+    },
+    {
+      "catalogId": "ps4-resident-evil-2",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-portada-mini.webp",
+      "width": 1650,
+      "height": 2023,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "0c260efe30274a946882d5ec8bf3aee7b5301ce8cc5fda41acea6582cc0b283a",
+      "crop": {
+        "left": 110,
+        "top": 458,
+        "width": 1650,
+        "height": 2023
+      },
+      "sha256": "240b267f1c9c69558badd4c0b916c43fec0724150c2f5dbd55553ce961bba6a3",
+      "bytes": 447176,
+      "thumbnailSha256": "a193bf34ade7a5c572fe77500c65d1f46567debcf0d6431d41af41fb17cf055a",
+      "thumbnailBytes": 52960
+    },
+    {
+      "catalogId": "ps4-resident-evil-2",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-contraportada-mini.webp",
+      "width": 1644,
+      "height": 2025,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "1ea9a1a6df1a43b06a409e357e5635e2bb809b344031f0a25e9b6931c256e68b",
+      "crop": {
+        "left": 122,
+        "top": 456,
+        "width": 1644,
+        "height": 2025
+      },
+      "sha256": "1791860fcc09ec84e8562a03709c0a28d3a09ba4348505930821a08e3e5fbcaf",
+      "bytes": 564634,
+      "thumbnailSha256": "027db03be6fd8c0427b427fc6e5317f36d81c63761463bb147017fe58ddb2ae3",
+      "thumbnailBytes": 68422
+    },
+    {
+      "catalogId": "ps4-resident-evil-2",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-lomo-mini.webp",
+      "width": 178,
+      "height": 2061,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 2248,
+        "top": 420,
+        "width": 178,
+        "height": 2061
+      },
+      "sha256": "79c4fba182e88bc72c533fdeb5c3afdd34657e11ce8a3e3843cb141beb637b08",
+      "bytes": 38782,
+      "thumbnailSha256": "06c9c6b2d5d580a6c9e5b9cebf05d33ea4fe8c8697116301d8473bde7f36b583",
+      "thumbnailBytes": 5348
+    },
+    {
+      "catalogId": "ps4-resident-evil-origins-collection",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-portada-mini.webp",
+      "width": 1642,
+      "height": 2025,
+      "label": "Portada del ejemplar escaneado",
+      "sourceSha256": "0c260efe30274a946882d5ec8bf3aee7b5301ce8cc5fda41acea6582cc0b283a",
+      "crop": {
+        "left": 1840,
+        "top": 456,
+        "width": 1642,
+        "height": 2025
+      },
+      "sha256": "c2a22936cc5f5f8507daec9ec021d21ccda5ecb597b80c0ab4a4d9faad150ec3",
+      "bytes": 392978,
+      "thumbnailSha256": "48d848881b79654616f6053d5548d6faf7a90ce7d3dccd02d89c88f8bc137d3e",
+      "thumbnailBytes": 47656
+    },
+    {
+      "catalogId": "ps4-resident-evil-origins-collection",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-contraportada-mini.webp",
+      "width": 1644,
+      "height": 2023,
+      "label": "Contraportada del ejemplar escaneado",
+      "sourceSha256": "1ea9a1a6df1a43b06a409e357e5635e2bb809b344031f0a25e9b6931c256e68b",
+      "crop": {
+        "left": 1794,
+        "top": 458,
+        "width": 1644,
+        "height": 2023
+      },
+      "sha256": "15c4176db785d931997daedb7360d9987c70ec7384d24d9d0464814771c78566",
+      "bytes": 596002,
+      "thumbnailSha256": "7809c9464fa186dcd4cfe9e099ea1c542bffd43f6d1586ac71ebd48d64099438",
+      "thumbnailBytes": 75034
+    },
+    {
+      "catalogId": "ps4-resident-evil-origins-collection",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-lomo-mini.webp",
+      "width": 184,
+      "height": 2061,
+      "label": "Lomo del ejemplar escaneado",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 2058,
+        "top": 420,
+        "width": 184,
+        "height": 2061
+      },
+      "sha256": "7a6ddca8366f43e88489875b1ac0c07a67098ccd1a3839467d92a45d084d82cd",
+      "bytes": 39922,
+      "thumbnailSha256": "f5816800ad17ef98d0c2b2f3601b08ed3928baa4d9f470b734f1695bd90ae575",
+      "thumbnailBytes": 5640
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-deluxe-edition",
+      "role": "portada",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-portada-mini.webp",
+      "width": 1648,
+      "height": 2039,
+      "label": "Portada de la caja exterior de la edición con Steelbook",
+      "sourceSha256": "096f7d4cf625afcb86d357bc54a10b712b7d4bc3e6b943d9e11fe868dc554c8f",
+      "crop": {
+        "left": 164,
+        "top": 442,
+        "width": 1648,
+        "height": 2039
+      },
+      "sha256": "c250a6684db69d227e71de3875f95555cb47f96af0f75ef3a799847218279619",
+      "bytes": 355132,
+      "thumbnailSha256": "36264177b24e3028a50abca29b9d13e2e090f87369b00e43e2bfd23fd38151d3",
+      "thumbnailBytes": 32974
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-deluxe-edition",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-contraportada-mini.webp",
+      "width": 1652,
+      "height": 2077,
+      "label": "Contraportada de la caja exterior de la edición con Steelbook",
+      "sourceSha256": "f7fd0c77154813f8f52afd9bdedd56079b5b0ce5c507cb8cfe5e4c81365df068",
+      "crop": {
+        "left": 268,
+        "top": 404,
+        "width": 1652,
+        "height": 2077
+      },
+      "sha256": "f315e18e6749de937590202c9277d2820f862e840b2025245c752e562d5dd8a0",
+      "bytes": 733908,
+      "thumbnailSha256": "566209ddd21e3abfc395a0c4a2dcbabc8967b6f73e5be3f448902f81d80225ad",
+      "thumbnailBytes": 81684
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-deluxe-edition",
+      "role": "lomo",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-lomo-mini.webp",
+      "width": 242,
+      "height": 2035,
+      "label": "Lomo de la caja exterior de la edición con Steelbook",
+      "sourceSha256": "2f76b7c6218e7cdd655495ac7c898efdcdf20ea0cac923e17d3f9ac3deade0a1",
+      "crop": {
+        "left": 2430,
+        "top": 446,
+        "width": 242,
+        "height": 2035
+      },
+      "sha256": "ee38c1c8c8a6ed700fee84e5e2d37c1306e4ffebd8cdda17bf807af201833d38",
+      "bytes": 62084,
+      "thumbnailSha256": "aa0eb3543cd308e1b6f590ad1d915b5b02f850e2ba9c4fc6aa88e6e653871805",
+      "thumbnailBytes": 5422
     }
   ],
   "covers": [
@@ -1347,6 +2124,149 @@
       },
       "sha256": "dd6ae758860f9372474d362126ff0ac500cb8a110312beab0bc4349ada76432e",
       "bytes": 179536
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations-2",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations-2/resident-evil-revelations-2-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "bde371c337e4ab8bd9102b21de994d87e0f23356af0d36f7c5a66e88c0613400",
+      "crop": {
+        "left": 84,
+        "top": 458,
+        "width": 1640,
+        "height": 2023
+      },
+      "sha256": "f0d64251bb7a7582ff56ec00b302a0359cae5e87a5599357848cf82a9dce71b5",
+      "bytes": 200448
+    },
+    {
+      "catalogId": "ps4-resident-evil-revelations",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-revelations/resident-evil-revelations-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "bde371c337e4ab8bd9102b21de994d87e0f23356af0d36f7c5a66e88c0613400",
+      "crop": {
+        "left": 1810,
+        "top": 458,
+        "width": 1640,
+        "height": 2023
+      },
+      "sha256": "9f901303491f4fe59878ff52537512f4fb13b504fe4281d17e0cff6f30d242f3",
+      "bytes": 218378
+    },
+    {
+      "catalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "830fe2e00388c2a526eca0bc5ede531fdbdfda8d2be74f7b49fffbdb53926ffa",
+      "crop": {
+        "left": 104,
+        "top": 456,
+        "width": 1640,
+        "height": 2025
+      },
+      "sha256": "be9cd001644b2c18150e8538128edca699d03141436187f56d4c61601c6fa4e5",
+      "bytes": 198658
+    },
+    {
+      "catalogId": "ps4-resident-evil-village",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "830fe2e00388c2a526eca0bc5ede531fdbdfda8d2be74f7b49fffbdb53926ffa",
+      "crop": {
+        "left": 1820,
+        "top": 446,
+        "width": 1665,
+        "height": 2035
+      },
+      "sha256": "a23fbb732ba043e0696b8603a0c0b7a55b41f43573012f78d5668ea7a607fbea",
+      "bytes": 137548
+    },
+    {
+      "catalogId": "ps4-resident-evil-5",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-5/resident-evil-5-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "22ba5d28c7b911216e2c0f6f82f5b083ffe934e7b76686113cc939ba31d17ed9",
+      "crop": {
+        "left": 110,
+        "top": 456,
+        "width": 1644,
+        "height": 2025
+      },
+      "sha256": "59c58f63e0aca6ba5c1b8c6c3a52d3ab668bf3b81a06cb3a09c01e32f524146d",
+      "bytes": 186806
+    },
+    {
+      "catalogId": "ps4-resident-evil-6",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-6/resident-evil-6-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "22ba5d28c7b911216e2c0f6f82f5b083ffe934e7b76686113cc939ba31d17ed9",
+      "crop": {
+        "left": 1814,
+        "top": 462,
+        "width": 1640,
+        "height": 2019
+      },
+      "sha256": "d820db4fd827502cd7d87f9eafdb9b10416fe441abdc8bba5165624508112e2a",
+      "bytes": 192200
+    },
+    {
+      "catalogId": "ps4-resident-evil-3",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-3/resident-evil-3-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "90c375efe3b7d067e3733d0df95125822e252f9bea8e02e41a2e2d7d623ef23c",
+      "crop": {
+        "left": 116,
+        "top": 454,
+        "width": 1640,
+        "height": 2027
+      },
+      "sha256": "40d0df2119144b8f94b1f842a7f80d7f8133f809c9cb2be46df69c473e6742da",
+      "bytes": 229316
+    },
+    {
+      "catalogId": "ps4-resident-evil-4-remake-steelbook",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "90c375efe3b7d067e3733d0df95125822e252f9bea8e02e41a2e2d7d623ef23c",
+      "crop": {
+        "left": 1856,
+        "top": 458,
+        "width": 1651,
+        "height": 2023
+      },
+      "sha256": "ed20658626d7c51e41699228a52c2fc50b115b9449674c420cbf870ec68c63aa",
+      "bytes": 204000
+    },
+    {
+      "catalogId": "ps4-resident-evil-2",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-2/resident-evil-2-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "0c260efe30274a946882d5ec8bf3aee7b5301ce8cc5fda41acea6582cc0b283a",
+      "crop": {
+        "left": 110,
+        "top": 458,
+        "width": 1650,
+        "height": 2023
+      },
+      "sha256": "d374e04e8d88ef4dfe815372dae3e5b362552a5b8ce65127782999d0152eb1a2",
+      "bytes": 235340
+    },
+    {
+      "catalogId": "ps4-resident-evil-origins-collection",
+      "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-origins-collection/resident-evil-origins-collection-ps4-es-it-portada-catalogo.webp",
+      "sourceSha256": "0c260efe30274a946882d5ec8bf3aee7b5301ce8cc5fda41acea6582cc0b283a",
+      "crop": {
+        "left": 1840,
+        "top": 456,
+        "width": 1642,
+        "height": 2025
+      },
+      "sha256": "4b519a5ea6e4c0b5fe04c405c94e5a4f4534021323d3ba3248d6b35e2b325d99",
+      "bytes": 213922
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-deluxe-edition",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-deluxe-edition/resident-evil-requiem-deluxe-edition-ps5-es-it-portada-catalogo.webp",
+      "sourceSha256": "096f7d4cf625afcb86d357bc54a10b712b7d4bc3e6b943d9e11fe868dc554c8f",
+      "crop": {
+        "left": 164,
+        "top": 442,
+        "width": 1648,
+        "height": 2039
+      },
+      "sha256": "c322a5b512d91fd75574676aae75018f75e01bd432f2622602409dbd09fadc0d",
+      "bytes": 169030
     }
   ]
 }

@@ -1,0 +1,2369 @@
+{
+  "batchId": "assassins-apostrophe-dedup-20260912",
+  "titles": [
+    {
+      "catalogId": "ds-assassin%27s-creed-ii-discovery",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II: Discovery",
+      "after": "Assassin's Creed II: Discovery"
+    },
+    {
+      "catalogId": "ds-assassin%27s-creed-altair%27s-chronicles",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Altair&#39;s Chronicles",
+      "after": "Assassin's Creed: Altair's Chronicles"
+    },
+    {
+      "catalogId": "ds-assassins-creed",
+      "field": "title",
+      "before": "Assassins Creed",
+      "after": "Assassin's Creed"
+    },
+    {
+      "catalogId": "ds-assassins-creed",
+      "field": "titlePc",
+      "before": "Assassins Creed",
+      "after": "Assassin's Creed"
+    },
+    {
+      "catalogId": "ps3-3-great-games-one-great-pack-uncharted-assassin%27s-creed-need-for-speed-hot-pursuit",
+      "field": "title",
+      "before": "3 Great Games, One Great Pack: Uncharted, Assassin&#39;s Creed, Need For Speed Hot Pursuit",
+      "after": "3 Great Games, One Great Pack: Uncharted, Assassin's Creed, Need For Speed Hot Pursuit"
+    },
+    {
+      "catalogId": "ps3-3-great-games-one-great-pack-uncharted-assassin%27s-creed-need-for-speed-hot-pursuit",
+      "field": "titlePc",
+      "before": "3 Great Games, One Great Pack: Uncharted, Assassin&#39;s Creed, Need For Speed Hot Pursuit",
+      "after": "3 Great Games, One Great Pack: Uncharted, Assassin's Creed, Need For Speed Hot Pursuit"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed",
+      "field": "title",
+      "before": "Assassin&#39;s Creed",
+      "after": "Assassin's Creed"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed",
+      "after": "Assassin's Creed"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-2-&amp;-assassin%27s-creed",
+      "field": "title",
+      "before": "Assassin&#39;s Creed 2 &amp; Assassin&#39;s Creed",
+      "after": "Assassin's Creed 2 & Assassin's Creed"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-2-&amp;-assassin%27s-creed",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed 2 &amp; Assassin&#39;s Creed",
+      "after": "Assassin's Creed 2 & Assassin's Creed"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-collector%27s-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed [Collector&#39;s Edition]",
+      "after": "Assassin's Creed [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-collector%27s-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed [Collector&#39;s Edition]",
+      "after": "Assassin's Creed [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-essentials",
+      "field": "title",
+      "before": "Assassin&#39;s Creed [Essentials]",
+      "after": "Assassin's Creed [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-essentials",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed [Essentials]",
+      "after": "Assassin's Creed [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ezio-auditore-pack",
+      "field": "title",
+      "before": "Assassin&#39;s Creed [Ezio Auditore Pack]",
+      "after": "Assassin's Creed [Ezio Auditore Pack]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ezio-auditore-pack",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed [Ezio Auditore Pack]",
+      "after": "Assassin's Creed [Ezio Auditore Pack]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-limited-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed [Limited Edition]",
+      "after": "Assassin's Creed [Limited Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-limited-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed [Limited Edition]",
+      "after": "Assassin's Creed [Limited Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-platinum",
+      "field": "title",
+      "before": "Assassin&#39;s Creed [Platinum]",
+      "after": "Assassin's Creed [Platinum]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-platinum",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed [Platinum]",
+      "after": "Assassin's Creed [Platinum]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-anthology",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Anthology",
+      "after": "Assassin's Creed Anthology"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-anthology",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Anthology",
+      "after": "Assassin's Creed Anthology"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-black-flag-&amp;-rogue",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Black Flag &amp; Rogue",
+      "after": "Assassin's Creed Black Flag & Rogue"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-black-flag-&amp;-rogue",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Black Flag &amp; Rogue",
+      "after": "Assassin's Creed Black Flag & Rogue"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-&#43;-assassin%27s-creed-revelations",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Brotherhood &#43; Assassin&#39;s Creed Revelations",
+      "after": "Assassin's Creed Brotherhood + Assassin's Creed Revelations"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-&#43;-assassin%27s-creed-revelations",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Brotherhood &#43; Assassin&#39;s Creed Revelations",
+      "after": "Assassin's Creed Brotherhood + Assassin's Creed Revelations"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-double-pack",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Double Pack",
+      "after": "Assassin's Creed Double Pack"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-double-pack",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Double Pack",
+      "after": "Assassin's Creed Double Pack"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II",
+      "after": "Assassin's Creed II"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II",
+      "after": "Assassin's Creed II"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-black-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II [Black Edition]",
+      "after": "Assassin's Creed II [Black Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-black-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II [Black Edition]",
+      "after": "Assassin's Creed II [Black Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-complete-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II [Complete Edition]",
+      "after": "Assassin's Creed II [Complete Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-complete-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II [Complete Edition]",
+      "after": "Assassin's Creed II [Complete Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-essentials",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II [Essentials]",
+      "after": "Assassin's Creed II [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-essentials",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II [Essentials]",
+      "after": "Assassin's Creed II [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-game-of-the-year-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II [Game Of The Year Edition]",
+      "after": "Assassin's Creed II [Game Of The Year Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-game-of-the-year-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II [Game Of The Year Edition]",
+      "after": "Assassin's Creed II [Game Of The Year Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-lineage-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II [Lineage Edition]",
+      "after": "Assassin's Creed II [Lineage Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-lineage-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II [Lineage Edition]",
+      "after": "Assassin's Creed II [Lineage Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-platinum-game-of-the-year-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II [Platinum Game of the Year Edition]",
+      "after": "Assassin's Creed II [Platinum Game of the Year Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-platinum-game-of-the-year-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II [Platinum Game of the Year Edition]",
+      "after": "Assassin's Creed II [Platinum Game of the Year Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-special-film-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II [Special Film Edition]",
+      "after": "Assassin's Creed II [Special Film Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-special-film-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II [Special Film Edition]",
+      "after": "Assassin's Creed II [Special Film Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-white-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II [White Edition]",
+      "after": "Assassin's Creed II [White Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-white-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II [White Edition]",
+      "after": "Assassin's Creed II [White Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-game-of-the-year-edition-&#43;-assassin%27s-creed",
+      "field": "title",
+      "before": "Assassin&#39;s Creed II: Game of the Year Edition &#43; Assassin&#39;s Creed",
+      "after": "Assassin's Creed II: Game of the Year Edition + Assassin's Creed"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-ii-game-of-the-year-edition-&#43;-assassin%27s-creed",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed II: Game of the Year Edition &#43; Assassin&#39;s Creed",
+      "after": "Assassin's Creed II: Game of the Year Edition + Assassin's Creed"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III",
+      "after": "Assassin's Creed III"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III",
+      "after": "Assassin's Creed III"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-essentials",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III [Essentials]",
+      "after": "Assassin's Creed III [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-essentials",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III [Essentials]",
+      "after": "Assassin's Creed III [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-freedom-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III [Freedom Edition]",
+      "after": "Assassin's Creed III [Freedom Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-freedom-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III [Freedom Edition]",
+      "after": "Assassin's Creed III [Freedom Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-join-or-die-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III [Join or Die Edition]",
+      "after": "Assassin's Creed III [Join or Die Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-join-or-die-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III [Join or Die Edition]",
+      "after": "Assassin's Creed III [Join or Die Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-press-kit",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III [Press Kit]",
+      "after": "Assassin's Creed III [Press Kit]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-press-kit",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III [Press Kit]",
+      "after": "Assassin's Creed III [Press Kit]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-special-edition-exclusive-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III [Special Edition Exclusive Edition]",
+      "after": "Assassin's Creed III [Special Edition Exclusive Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-special-edition-exclusive-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III [Special Edition Exclusive Edition]",
+      "after": "Assassin's Creed III [Special Edition Exclusive Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-special-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III [Special Edition]",
+      "after": "Assassin's Creed III [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-special-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III [Special Edition]",
+      "after": "Assassin's Creed III [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-washington-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III [Washington Edition]",
+      "after": "Assassin's Creed III [Washington Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iii-washington-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III [Washington Edition]",
+      "after": "Assassin's Creed III [Washington Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag",
+      "after": "Assassin's Creed IV: Black Flag"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag",
+      "after": "Assassin's Creed IV: Black Flag"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-black-chest-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Black Chest Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Black Chest Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-black-chest-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Black Chest Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Black Chest Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-buccaneer-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Buccaneer Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Buccaneer Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-buccaneer-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Buccaneer Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Buccaneer Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-essentials",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Essentials]",
+      "after": "Assassin's Creed IV: Black Flag [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-essentials",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Essentials]",
+      "after": "Assassin's Creed IV: Black Flag [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-not-for-resale",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Not for Resale]",
+      "after": "Assassin's Creed IV: Black Flag [Not for Resale]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-not-for-resale",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Not for Resale]",
+      "after": "Assassin's Creed IV: Black Flag [Not for Resale]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-skull-edition",
+      "field": "title",
+      "before": "Assassin&#39;S Creed IV: Black Flag [Skull Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Skull Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-skull-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;S Creed IV: Black Flag [Skull Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Skull Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-special-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Special Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag-special-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Special Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-animus-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Revelations [Animus Edition]",
+      "after": "Assassin's Creed Revelations [Animus Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-animus-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Revelations [Animus Edition]",
+      "after": "Assassin's Creed Revelations [Animus Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-promo-not-for-resale",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Revelations [Promo Not For Resale]",
+      "after": "Assassin's Creed Revelations [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-promo-not-for-resale",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Revelations [Promo Not For Resale]",
+      "after": "Assassin's Creed Revelations [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-rogue-collector%27s-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Rogue [Collector&#39;s Edition]",
+      "after": "Assassin's Creed Rogue [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-rogue-collector%27s-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Rogue [Collector&#39;s Edition]",
+      "after": "Assassin's Creed Rogue [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-birth-of-a-new-world-the-american-saga",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Birth Of A New World The American Saga",
+      "after": "Assassin's Creed: Birth Of A New World The American Saga"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-birth-of-a-new-world-the-american-saga",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Birth Of A New World The American Saga",
+      "after": "Assassin's Creed: Birth Of A New World The American Saga"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Brotherhood",
+      "after": "Assassin's Creed: Brotherhood"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Brotherhood",
+      "after": "Assassin's Creed: Brotherhood"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-auditore-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Brotherhood [Auditore Edition]",
+      "after": "Assassin's Creed: Brotherhood [Auditore Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-auditore-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Brotherhood [Auditore Edition]",
+      "after": "Assassin's Creed: Brotherhood [Auditore Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-da-vinci-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Brotherhood [Da Vinci Edition]",
+      "after": "Assassin's Creed: Brotherhood [Da Vinci Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-da-vinci-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Brotherhood [Da Vinci Edition]",
+      "after": "Assassin's Creed: Brotherhood [Da Vinci Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-essentials",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Brotherhood [Essentials]",
+      "after": "Assassin's Creed: Brotherhood [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-essentials",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Brotherhood [Essentials]",
+      "after": "Assassin's Creed: Brotherhood [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Brotherhood [Limited Codex Edition]",
+      "after": "Assassin's Creed: Brotherhood [Limited Codex Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Brotherhood [Limited Codex Edition]",
+      "after": "Assassin's Creed: Brotherhood [Limited Codex Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-platinum",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Brotherhood [Platinum]",
+      "after": "Assassin's Creed: Brotherhood [Platinum]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-platinum",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Brotherhood [Platinum]",
+      "after": "Assassin's Creed: Brotherhood [Platinum]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-special-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Brotherhood [Special Edition]",
+      "after": "Assassin's Creed: Brotherhood [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-brotherhood-special-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Brotherhood [Special Edition]",
+      "after": "Assassin's Creed: Brotherhood [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-heritage-collection",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Heritage Collection",
+      "after": "Assassin's Creed: Heritage Collection"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-heritage-collection",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Heritage Collection",
+      "after": "Assassin's Creed: Heritage Collection"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Revelations",
+      "after": "Assassin's Creed: Revelations"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Revelations",
+      "after": "Assassin's Creed: Revelations"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-collector%27s-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Revelations [Collector&#39;s Edition]",
+      "after": "Assassin's Creed: Revelations [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-collector%27s-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Revelations [Collector&#39;s Edition]",
+      "after": "Assassin's Creed: Revelations [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-essentials",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Revelations [Essentials]",
+      "after": "Assassin's Creed: Revelations [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-essentials",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Revelations [Essentials]",
+      "after": "Assassin's Creed: Revelations [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-ottoman-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Revelations [Ottoman Edition]",
+      "after": "Assassin's Creed: Revelations [Ottoman Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-ottoman-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Revelations [Ottoman Edition]",
+      "after": "Assassin's Creed: Revelations [Ottoman Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-platinum",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Revelations [Platinum]",
+      "after": "Assassin's Creed: Revelations [Platinum]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-platinum",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Revelations [Platinum]",
+      "after": "Assassin's Creed: Revelations [Platinum]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-special-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Revelations [Special Edition]",
+      "after": "Assassin's Creed: Revelations [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-revelations-special-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Revelations [Special Edition]",
+      "after": "Assassin's Creed: Revelations [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-rogue",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Rogue",
+      "after": "Assassin's Creed: Rogue"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-rogue",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Rogue",
+      "after": "Assassin's Creed: Rogue"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-rogue-essentials",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Rogue [Essentials]",
+      "after": "Assassin's Creed: Rogue [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-rogue-essentials",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Rogue [Essentials]",
+      "after": "Assassin's Creed: Rogue [Essentials]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-rogue-not-for-resale",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Rogue [Not For Resale]",
+      "after": "Assassin's Creed: Rogue [Not For Resale]"
+    },
+    {
+      "catalogId": "ps3-assassin%27s-creed-rogue-not-for-resale",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Rogue [Not For Resale]",
+      "after": "Assassin's Creed: Rogue [Not For Resale]"
+    },
+    {
+      "catalogId": "ps3-playstation-3-super-slim-500gb-assassin%27s-creed-iv-black-flag-bundle",
+      "field": "title",
+      "before": "PlayStation 3 Super Slim 500GB Assassin&#39;s Creed IV Black Flag Bundle",
+      "after": "PlayStation 3 Super Slim 500GB Assassin's Creed IV Black Flag Bundle"
+    },
+    {
+      "catalogId": "ps3-playstation-3-super-slim-500gb-assassin%27s-creed-iv-black-flag-bundle",
+      "field": "titlePc",
+      "before": "PlayStation 3 Super Slim 500GB Assassin&#39;s Creed IV Black Flag Bundle",
+      "after": "PlayStation 3 Super Slim 500GB Assassin's Creed IV Black Flag Bundle"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-chronicles",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Chronicles",
+      "after": "Assassin's Creed Chronicles"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-chronicles",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Chronicles",
+      "after": "Assassin's Creed Chronicles"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iii-remastered",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III Remastered",
+      "after": "Assassin's Creed III Remastered"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iii-remastered",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III Remastered",
+      "after": "Assassin's Creed III Remastered"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iii-remastered-signature-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed III Remastered [Signature Edition]",
+      "after": "Assassin's Creed III Remastered [Signature Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iii-remastered-signature-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed III Remastered [Signature Edition]",
+      "after": "Assassin's Creed III Remastered [Signature Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-promo-not-for-resale",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV Black Flag [Promo Not For Resale]",
+      "after": "Assassin's Creed IV Black Flag [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-promo-not-for-resale",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV Black Flag [Promo Not For Resale]",
+      "after": "Assassin's Creed IV Black Flag [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag",
+      "after": "Assassin's Creed IV: Black Flag"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag",
+      "after": "Assassin's Creed IV: Black Flag"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-black-chest-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Black Chest Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Black Chest Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-black-chest-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Black Chest Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Black Chest Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-buccaneer-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Buccaneer Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Buccaneer Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-buccaneer-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Buccaneer Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Buccaneer Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-jackdaw-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Jackdaw Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Jackdaw Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-jackdaw-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Jackdaw Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Jackdaw Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-playstation-hits",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [PlayStation Hits]",
+      "after": "Assassin's Creed IV: Black Flag [PlayStation Hits]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-playstation-hits",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [PlayStation Hits]",
+      "after": "Assassin's Creed IV: Black Flag [PlayStation Hits]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-skull-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Skull Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Skull Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-skull-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Skull Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Skull Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-special-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Special Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Special Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag-special-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed IV: Black Flag [Special Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Special Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage-collector%27s-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Mirage [Collector&#39;s Edition]",
+      "after": "Assassin's Creed Mirage [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage-collector%27s-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Mirage [Collector&#39;s Edition]",
+      "after": "Assassin's Creed Mirage [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Odyssey",
+      "after": "Assassin's Creed Odyssey"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Odyssey",
+      "after": "Assassin's Creed Odyssey"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-gold-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Odyssey [Gold Edition]",
+      "after": "Assassin's Creed Odyssey [Gold Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-gold-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Odyssey [Gold Edition]",
+      "after": "Assassin's Creed Odyssey [Gold Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-limited-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Odyssey [Limited Edition]",
+      "after": "Assassin's Creed Odyssey [Limited Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-limited-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Odyssey [Limited Edition]",
+      "after": "Assassin's Creed Odyssey [Limited Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-omega-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Odyssey [Omega Edition]",
+      "after": "Assassin's Creed Odyssey [Omega Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-omega-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Odyssey [Omega Edition]",
+      "after": "Assassin's Creed Odyssey [Omega Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-promo-not-for-resale",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Odyssey [Promo Not For Resale]",
+      "after": "Assassin's Creed Odyssey [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-promo-not-for-resale",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Odyssey [Promo Not For Resale]",
+      "after": "Assassin's Creed Odyssey [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-spartan-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Odyssey [Spartan Edition]",
+      "after": "Assassin's Creed Odyssey [Spartan Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-spartan-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Odyssey [Spartan Edition]",
+      "after": "Assassin's Creed Odyssey [Spartan Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Origins",
+      "after": "Assassin's Creed Origins"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Origins",
+      "after": "Assassin's Creed Origins"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-deluxe-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Origins [Deluxe Edition]",
+      "after": "Assassin's Creed Origins [Deluxe Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-deluxe-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Origins [Deluxe Edition]",
+      "after": "Assassin's Creed Origins [Deluxe Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-promo-not-for-resale",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Origins [Promo Not For Resale]",
+      "after": "Assassin's Creed Origins [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-promo-not-for-resale",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Origins [Promo Not For Resale]",
+      "after": "Assassin's Creed Origins [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-rogue-remastered",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Rogue Remastered",
+      "after": "Assassin's Creed Rogue Remastered"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-rogue-remastered",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Rogue Remastered",
+      "after": "Assassin's Creed Rogue Remastered"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate",
+      "after": "Assassin's Creed Syndicate"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate",
+      "after": "Assassin's Creed Syndicate"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-big-ben-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate [Big Ben Edition]",
+      "after": "Assassin's Creed Syndicate [Big Ben Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-big-ben-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate [Big Ben Edition]",
+      "after": "Assassin's Creed Syndicate [Big Ben Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-charing-cross-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate [Charing Cross Edition]",
+      "after": "Assassin's Creed Syndicate [Charing Cross Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-charing-cross-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate [Charing Cross Edition]",
+      "after": "Assassin's Creed Syndicate [Charing Cross Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-limited-steelbook-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate [Limited Steelbook Edition]",
+      "after": "Assassin's Creed Syndicate [Limited Steelbook Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-limited-steelbook-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate [Limited Steelbook Edition]",
+      "after": "Assassin's Creed Syndicate [Limited Steelbook Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-playstation-hits",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate [Playstation Hits]",
+      "after": "Assassin's Creed Syndicate [Playstation Hits]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-playstation-hits",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate [Playstation Hits]",
+      "after": "Assassin's Creed Syndicate [Playstation Hits]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-promo-not-for-resale",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate [Promo Not For Resale]",
+      "after": "Assassin's Creed Syndicate [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-promo-not-for-resale",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate [Promo Not For Resale]",
+      "after": "Assassin's Creed Syndicate [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-special-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate [Special Edition]",
+      "after": "Assassin's Creed Syndicate [Special Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-special-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate [Special Edition]",
+      "after": "Assassin's Creed Syndicate [Special Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-steelbook-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate [Steelbook Edition]",
+      "after": "Assassin's Creed Syndicate [Steelbook Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-steelbook-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate [Steelbook Edition]",
+      "after": "Assassin's Creed Syndicate [Steelbook Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-the-rooks-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Syndicate [The Rooks Edition]",
+      "after": "Assassin's Creed Syndicate [The Rooks Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate-the-rooks-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Syndicate [The Rooks Edition]",
+      "after": "Assassin's Creed Syndicate [The Rooks Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-the-ezio-collection",
+      "field": "title",
+      "before": "Assassin&#39;s Creed The Ezio Collection",
+      "after": "Assassin's Creed The Ezio Collection"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-the-ezio-collection",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed The Ezio Collection",
+      "after": "Assassin's Creed The Ezio Collection"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Unity",
+      "after": "Assassin's Creed Unity"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Unity",
+      "after": "Assassin's Creed Unity"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-bastille-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Unity [Bastille Edition]",
+      "after": "Assassin's Creed Unity [Bastille Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-bastille-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Unity [Bastille Edition]",
+      "after": "Assassin's Creed Unity [Bastille Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-promo-not-for-resale",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Unity [Promo Not For Resale]",
+      "after": "Assassin's Creed Unity [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-promo-not-for-resale",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Unity [Promo Not For Resale]",
+      "after": "Assassin's Creed Unity [Promo Not For Resale]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Valhalla",
+      "after": "Assassin's Creed Valhalla"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Valhalla",
+      "after": "Assassin's Creed Valhalla"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-collector%27s-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Valhalla [Collector&#39;s Edition]",
+      "after": "Assassin's Creed Valhalla [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-collector%27s-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Valhalla [Collector&#39;s Edition]",
+      "after": "Assassin's Creed Valhalla [Collector's Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-drakkar-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Valhalla [Drakkar Edition]",
+      "after": "Assassin's Creed Valhalla [Drakkar Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-drakkar-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Valhalla [Drakkar Edition]",
+      "after": "Assassin's Creed Valhalla [Drakkar Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-gold-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Valhalla [Gold Edition]",
+      "after": "Assassin's Creed Valhalla [Gold Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-gold-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Valhalla [Gold Edition]",
+      "after": "Assassin's Creed Valhalla [Gold Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-limited-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Valhalla [Limited Edition]",
+      "after": "Assassin's Creed Valhalla [Limited Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-limited-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Valhalla [Limited Edition]",
+      "after": "Assassin's Creed Valhalla [Limited Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-ultimate-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed Valhalla [Ultimate Edition]",
+      "after": "Assassin's Creed Valhalla [Ultimate Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-ultimate-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed Valhalla [Ultimate Edition]",
+      "after": "Assassin's Creed Valhalla [Ultimate Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Mirage",
+      "after": "Assassin's Creed: Mirage"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Mirage",
+      "after": "Assassin's Creed: Mirage"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage-deluxe-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Mirage [Deluxe Edition]",
+      "after": "Assassin's Creed: Mirage [Deluxe Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage-deluxe-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Mirage [Deluxe Edition]",
+      "after": "Assassin's Creed: Mirage [Deluxe Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage-launch-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Mirage [Launch Edition]",
+      "after": "Assassin's Creed: Mirage [Launch Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage-launch-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Mirage [Launch Edition]",
+      "after": "Assassin's Creed: Mirage [Launch Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-athenian-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Odyssey [Athenian Edition]",
+      "after": "Assassin's Creed: Odyssey [Athenian Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-athenian-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Odyssey [Athenian Edition]",
+      "after": "Assassin's Creed: Odyssey [Athenian Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-dawn-of-the-creed-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Origins [Dawn Of The Creed Edition]",
+      "after": "Assassin's Creed: Origins [Dawn Of The Creed Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-dawn-of-the-creed-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Origins [Dawn Of The Creed Edition]",
+      "after": "Assassin's Creed: Origins [Dawn Of The Creed Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-gods-collector%27s-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Origins [Gods Collector&#39;s Edition]",
+      "after": "Assassin's Creed: Origins [Gods Collector's Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-gods-collector%27s-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Origins [Gods Collector&#39;s Edition]",
+      "after": "Assassin's Creed: Origins [Gods Collector's Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-gold-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Origins [Gold Edition]",
+      "after": "Assassin's Creed: Origins [Gold Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-gold-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Origins [Gold Edition]",
+      "after": "Assassin's Creed: Origins [Gold Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-guillotine-collector%27s-case",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Unity [Guillotine Collector&#39;s Case]",
+      "after": "Assassin's Creed: Unity [Guillotine Collector's Case]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-guillotine-collector%27s-case",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Unity [Guillotine Collector&#39;s Case]",
+      "after": "Assassin's Creed: Unity [Guillotine Collector's Case]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-notre-dame-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Unity [Notre Dame Edition]",
+      "after": "Assassin's Creed: Unity [Notre Dame Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-notre-dame-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Unity [Notre Dame Edition]",
+      "after": "Assassin's Creed: Unity [Notre Dame Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-special-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Unity [Special Edition]",
+      "after": "Assassin's Creed: Unity [Special Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-special-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Unity [Special Edition]",
+      "after": "Assassin's Creed: Unity [Special Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-ragnarok-edition",
+      "field": "title",
+      "before": "Assassin&#39;s Creed: Valhalla [Ragnarok Edition]",
+      "after": "Assassin's Creed: Valhalla [Ragnarok Edition]"
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-ragnarok-edition",
+      "field": "titlePc",
+      "before": "Assassin&#39;s Creed: Valhalla [Ragnarok Edition]",
+      "after": "Assassin's Creed: Valhalla [Ragnarok Edition]"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-3-remastered",
+      "field": "title",
+      "before": "Assassins Creed 3 Remastered",
+      "after": "Assassin's Creed 3 Remastered"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-4-black-flag",
+      "field": "title",
+      "before": "Assassins Creed 4 Black Flag",
+      "after": "Assassin's Creed 4 Black Flag"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-mirage-deluxe-edition",
+      "field": "title",
+      "before": "Assassins Creed Mirage Deluxe Edition",
+      "after": "Assassin's Creed Mirage Deluxe Edition"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-odyssey",
+      "field": "title",
+      "before": "Assassins Creed Odyssey",
+      "after": "Assassin's Creed Odyssey"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-odyssey-medusa-edition",
+      "field": "title",
+      "before": "Assassins Creed Odyssey [Medusa Edition]",
+      "after": "Assassin's Creed Odyssey [Medusa Edition]"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-odyssey-medusa-edition",
+      "field": "titlePc",
+      "before": "Assassins Creed Odyssey [Medusa Edition]",
+      "after": "Assassin's Creed Odyssey [Medusa Edition]"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-origins",
+      "field": "title",
+      "before": "Assassins Creed Origins",
+      "after": "Assassin's Creed Origins"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-origins-limited-edition",
+      "field": "title",
+      "before": "Assassins Creed Origins [Limited Edition]",
+      "after": "Assassin's Creed Origins [Limited Edition]"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-origins-limited-edition",
+      "field": "titlePc",
+      "before": "Assassins Creed Origins [Limited Edition]",
+      "after": "Assassin's Creed Origins [Limited Edition]"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-rogue-remastered",
+      "field": "title",
+      "before": "Assassins Creed Rogue Remastered",
+      "after": "Assassin's Creed Rogue Remastered"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-syndicate",
+      "field": "title",
+      "before": "Assassins Creed Syndicate",
+      "after": "Assassin's Creed Syndicate"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-the-ezio-collection",
+      "field": "title",
+      "before": "Assassins Creed The Ezio Collection",
+      "after": "Assassin's Creed The Ezio Collection"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-unity",
+      "field": "title",
+      "before": "Assassins Creed Unity",
+      "after": "Assassin's Creed Unity"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla",
+      "field": "title",
+      "before": "Assassins Creed Valhalla",
+      "after": "Assassin's Creed Valhalla"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla-dawn-of-ragnarok",
+      "field": "title",
+      "before": "Assassins Creed Valhalla: Dawn of Ragnarok",
+      "after": "Assassin's Creed Valhalla: Dawn of Ragnarok"
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla-dawn-of-ragnarok",
+      "field": "titlePc",
+      "before": "Assassins Creed Valhalla: Dawn of Ragnarok",
+      "after": "Assassin's Creed Valhalla: Dawn of Ragnarok"
+    },
+    {
+      "catalogId": "ps4-double-pack-assassin%27s-creed-odyssey-&#43;-assassin%27s-creed-origins",
+      "field": "title",
+      "before": "Double Pack: Assassin&#39;s Creed Odyssey &#43; Assassin&#39;s Creed Origins",
+      "after": "Double Pack: Assassin's Creed Odyssey + Assassin's Creed Origins"
+    },
+    {
+      "catalogId": "ps4-double-pack-assassin%27s-creed-odyssey-&#43;-assassin%27s-creed-origins",
+      "field": "titlePc",
+      "before": "Double Pack: Assassin&#39;s Creed Odyssey &#43; Assassin&#39;s Creed Origins",
+      "after": "Double Pack: Assassin's Creed Odyssey + Assassin's Creed Origins"
+    },
+    {
+      "catalogId": "ps5-assassin-s-creed-black-flag-resynced-standard-edition",
+      "field": "title",
+      "before": "Assassin´s Creed Black Flag Resynced Standard Edition",
+      "after": "Assassin's Creed Black Flag Resynced Standard Edition"
+    },
+    {
+      "catalogId": "ps5-assassin-s-creed-black-flag-resynced-standard-edition",
+      "field": "titlePc",
+      "before": "Assassin´s Creed Black Flag Resynced Standard Edition",
+      "after": "Assassin's Creed Black Flag Resynced Standard Edition"
+    },
+    {
+      "catalogId": "ps5-assassin-s-creed-mirage",
+      "field": "title",
+      "before": "Assassin´s Creed Mirage",
+      "after": "Assassin's Creed Mirage"
+    },
+    {
+      "catalogId": "ps5-assassin-s-creed-mirage",
+      "field": "titlePc",
+      "before": "Assassin´s Creed Mirage",
+      "after": "Assassin's Creed Mirage"
+    },
+    {
+      "catalogId": "ps5-assassin-s-creed-valhalla",
+      "field": "title",
+      "before": "Assassin´s Creed Valhalla",
+      "after": "Assassin's Creed Valhalla"
+    },
+    {
+      "catalogId": "ps5-assassin-s-creed-valhalla",
+      "field": "titlePc",
+      "before": "Assassin´s Creed Valhalla",
+      "after": "Assassin's Creed Valhalla"
+    },
+    {
+      "catalogId": "ps4-usa-assassins-creed-valhalla-dawn-of-ragnarok",
+      "field": "title",
+      "before": "Assassins Creed Valhalla: Dawn Of Ragnarok",
+      "after": "Assassin's Creed Valhalla: Dawn Of Ragnarok"
+    },
+    {
+      "catalogId": "ps4-usa-assassins-creed-valhalla-dawn-of-ragnarok",
+      "field": "titlePc",
+      "before": "Assassins Creed Valhalla: Dawn Of Ragnarok",
+      "after": "Assassin's Creed Valhalla: Dawn Of Ragnarok"
+    },
+    {
+      "catalogId": "ps3-usa-assassins-creed-iii-special-edition",
+      "field": "title",
+      "before": "Assassins Creed III [Special Edition]",
+      "after": "Assassin's Creed III [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-usa-assassins-creed-iii-special-edition",
+      "field": "titlePc",
+      "before": "Assassins Creed III [Special Edition]",
+      "after": "Assassin's Creed III [Special Edition]"
+    },
+    {
+      "catalogId": "ps3-usa-assassins-creed-iv-black-flag-steelbook-edition",
+      "field": "title",
+      "before": "Assassins Creed IV: Black Flag [Steelbook Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Steelbook Edition]"
+    },
+    {
+      "catalogId": "ps3-usa-assassins-creed-iv-black-flag-steelbook-edition",
+      "field": "titlePc",
+      "before": "Assassins Creed IV: Black Flag [Steelbook Edition]",
+      "after": "Assassin's Creed IV: Black Flag [Steelbook Edition]"
+    },
+    {
+      "catalogId": "ps3-usa-assassins-creed-revelations-no-exclusive-label",
+      "field": "title",
+      "before": "Assassins Creed Revelations [No Exclusive Label]",
+      "after": "Assassin's Creed Revelations [No Exclusive Label]"
+    },
+    {
+      "catalogId": "ps3-usa-assassins-creed-revelations-no-exclusive-label",
+      "field": "titlePc",
+      "before": "Assassins Creed Revelations [No Exclusive Label]",
+      "after": "Assassin's Creed Revelations [No Exclusive Label]"
+    },
+    {
+      "catalogId": "ds-usa-assassins-creed-altair%27s-chronicles",
+      "field": "title",
+      "before": "Assassins Creed Altair's Chronicles",
+      "after": "Assassin's Creed Altair's Chronicles"
+    },
+    {
+      "catalogId": "ds-usa-assassins-creed-altair%27s-chronicles",
+      "field": "titlePc",
+      "before": "Assassins Creed Altair's Chronicles",
+      "after": "Assassin's Creed Altair's Chronicles"
+    }
+  ],
+  "pairs": [
+    {
+      "retiredId": "ps4-assassin%27s-creed-iii-remastered",
+      "canonicalId": "ps4-assassins-creed-3-remastered",
+      "oldPath": "/catalogo/assassin-s-creed-iii-remastered-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-3-remastered-ps4-pal-es",
+      "pcId": 3895034,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-iii-remastered",
+        "slug": "assassin%27s-creed-iii-remastered",
+        "title": "Assassin&#39;s Creed III Remastered",
+        "titlePc": "Assassin&#39;s Creed III Remastered",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-iii-remastered.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-iii-remastered",
+        "pcId": 3895034,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": 31.65,
+        "marketMax": 31.65,
+        "recommendedPrice": 31.65,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Estimación provisional",
+        "updatedAt": "2026-08-31T00:00:00Z",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "estimatedPriceSealed": 31.65,
+        "priceRegionVerified": false,
+        "priceDataSources": "Estimación provisional",
+        "provisionalPriceBatchIds": [
+          "ps4-pal-es-page-04-2026-08-31"
+        ],
+        "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-3-remastered",
+        "slug": "assassins-creed-3-remastered",
+        "title": "Assassins Creed 3 Remastered",
+        "titlePc": "Assassin's Creed III Remastered",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada-catalogo.webp",
+        "pcId": 3895034,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 15,
+        "pcRefPrice": 27.83,
+        "deltaEsVsPc": -46.1,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260912"
+        ]
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada-catalogo.webp"
+    },
+    {
+      "retiredId": "ps4-assassin%27s-creed-iv-black-flag",
+      "canonicalId": "ps4-assassins-creed-4-black-flag",
+      "oldPath": "/catalogo/assassin-s-creed-iv-black-flag-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-4-black-flag-ps4-pal-es",
+      "pcId": 57287,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-iv-black-flag",
+        "slug": "assassin%27s-creed-iv-black-flag",
+        "title": "Assassin&#39;s Creed IV: Black Flag",
+        "titlePc": "Assassin&#39;s Creed IV: Black Flag",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-iv-black-flag.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-iv-black-flag",
+        "pcId": 57287,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": 12.8,
+        "marketMax": 15,
+        "recommendedPrice": 12.8,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Wallapop ES · Estimación provisional",
+        "updatedAt": "2026-08-31T00:00:00Z",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 12.8,
+        "priceDataSources": "eBay ES · TodoConsolas · Wallapop · Estimación provisional",
+        "estimatedShippingToSpainComplete": 0,
+        "estimatedTotalToSpainComplete": 12.8,
+        "tcnsRetailPrice": 14.95,
+        "tcnsProductUrl": "https://www.todoconsolas.com/juegos-ps4/2715-assassin_s_creed_iv_black_flag_ps4_sp_po25085-3307215715239.html",
+        "tcnsCondition": "preowned",
+        "tcnsMatchedAt": "2026-09-05T21:34:17Z",
+        "estimatedPriceSealed": 15,
+        "provisionalPriceBatchIds": [
+          "ps4-pal-es-page-04-2026-08-31"
+        ],
+        "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-4-black-flag",
+        "slug": "assassins-creed-4-black-flag",
+        "title": "Assassins Creed 4 Black Flag",
+        "titlePc": "Assassin's Creed IV: Black Flag",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada-catalogo.webp",
+        "pcId": 57287,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": 17.18,
+        "marketMax": 17.18,
+        "recommendedPrice": 17.18,
+        "pcRefPrice": 21.95,
+        "deltaEsVsPc": -21.7,
+        "priceSource": "Wallapop ES",
+        "updatedAt": "2026-08-30T20:20:15Z",
+        "hasEsPrice": true,
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 17.18,
+        "priceDataSources": "Wallapop",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260912"
+        ]
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada-catalogo.webp"
+    },
+    {
+      "retiredId": "ps4-assassin%27s-creed-odyssey",
+      "canonicalId": "ps4-assassins-creed-odyssey",
+      "oldPath": "/catalogo/assassin-s-creed-odyssey-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-odyssey-ps4-pal-es",
+      "pcId": 57289,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-odyssey",
+        "slug": "assassin%27s-creed-odyssey",
+        "title": "Assassin&#39;s Creed Odyssey",
+        "titlePc": "Assassin&#39;s Creed Odyssey",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-odyssey.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-odyssey",
+        "pcId": 57289,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": 12.44,
+        "marketMax": 12.44,
+        "recommendedPrice": 12.44,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Wallapop ES · Estimación provisional",
+        "updatedAt": "2026-08-31T00:00:00Z",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "priceRegionVerified": false,
+        "estimatedPriceComplete": 12.44,
+        "priceDataSources": "Wallapop · Estimación provisional",
+        "provisionalPriceBatchIds": [
+          "ps4-pal-es-page-04-2026-08-31"
+        ],
+        "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-odyssey",
+        "slug": "assassins-creed-odyssey",
+        "title": "Assassins Creed Odyssey",
+        "titlePc": "Assassin's Creed Odyssey",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada-catalogo.webp",
+        "pcId": 57289,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": 15.67,
+        "marketMax": 15.67,
+        "recommendedPrice": 15.67,
+        "pcRefPrice": 23.39,
+        "deltaEsVsPc": -33,
+        "priceSource": "Wallapop ES",
+        "updatedAt": "2026-08-30T20:20:15Z",
+        "hasEsPrice": true,
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 15.67,
+        "priceDataSources": "Wallapop",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260912"
+        ]
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada-catalogo.webp"
+    },
+    {
+      "retiredId": "ps4-assassin%27s-creed-origins",
+      "canonicalId": "ps4-assassins-creed-origins",
+      "oldPath": "/catalogo/assassin-s-creed-origins-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-origins-ps4-pal-es",
+      "pcId": 57291,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-origins",
+        "slug": "assassin%27s-creed-origins",
+        "title": "Assassin&#39;s Creed Origins",
+        "titlePc": "Assassin&#39;s Creed Origins",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-origins.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-origins",
+        "pcId": 57291,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": 12.97,
+        "marketMax": 12.97,
+        "recommendedPrice": 12.97,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Wallapop ES · Estimación provisional",
+        "updatedAt": "2026-08-31T00:00:00Z",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "priceRegionVerified": false,
+        "estimatedPriceComplete": 12.97,
+        "priceDataSources": "eBay ES · TodoConsolas · Wallapop · Estimación provisional",
+        "estimatedShippingToSpainComplete": 4.47,
+        "estimatedTotalToSpainComplete": 17.44,
+        "tcnsRetailPrice": 14.95,
+        "tcnsProductUrl": "https://www.todoconsolas.com/juegos-ps4/8038-assassin_s_creed__origins_ps4_sp_po56807-3307216025832.html",
+        "tcnsCondition": "preowned",
+        "tcnsMatchedAt": "2026-09-05T21:34:17Z",
+        "provisionalPriceBatchIds": [
+          "ps4-pal-es-page-04-2026-08-31"
+        ],
+        "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-origins",
+        "slug": "assassins-creed-origins",
+        "title": "Assassins Creed Origins",
+        "titlePc": "Assassin's Creed Origins",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada-catalogo.webp",
+        "pcId": 57291,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": 12.33,
+        "marketMax": 12.33,
+        "recommendedPrice": 12.33,
+        "pcRefPrice": 16.19,
+        "deltaEsVsPc": -23.8,
+        "priceSource": "Wallapop ES",
+        "updatedAt": "2026-08-30T20:20:15Z",
+        "hasEsPrice": true,
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 12.33,
+        "priceDataSources": "Wallapop",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260912"
+        ]
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada-catalogo.webp"
+    },
+    {
+      "retiredId": "ps4-assassin%27s-creed-rogue-remastered",
+      "canonicalId": "ps4-assassins-creed-rogue-remastered",
+      "oldPath": "/catalogo/assassin-s-creed-rogue-remastered-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-rogue-remastered-ps4-pal-es",
+      "pcId": 67644,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-rogue-remastered",
+        "slug": "assassin%27s-creed-rogue-remastered",
+        "title": "Assassin&#39;s Creed Rogue Remastered",
+        "titlePc": "Assassin&#39;s Creed Rogue Remastered",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-rogue-remastered.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-rogue-remastered",
+        "pcId": 67644,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": null,
+        "hasEsPrice": false,
+        "seedSource": "pricecharting-pal"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-rogue-remastered",
+        "slug": "assassins-creed-rogue-remastered",
+        "title": "Assassins Creed Rogue Remastered",
+        "titlePc": "Assassin's Creed Rogue Remastered",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassins-creed-rogue-remastered.jpg",
+        "pcId": 67644,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 15,
+        "pcRefPrice": 25.08,
+        "deltaEsVsPc": -40.2,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/covers/ps4/assassins-creed-rogue-remastered.jpg"
+    },
+    {
+      "retiredId": "ps4-assassin%27s-creed-syndicate",
+      "canonicalId": "ps4-assassins-creed-syndicate",
+      "oldPath": "/catalogo/assassin-s-creed-syndicate-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-syndicate-ps4-pal-es",
+      "pcId": 57292,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-syndicate",
+        "slug": "assassin%27s-creed-syndicate",
+        "title": "Assassin&#39;s Creed Syndicate",
+        "titlePc": "Assassin&#39;s Creed Syndicate",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-syndicate.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-syndicate",
+        "pcId": 57292,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": 8.94,
+        "marketMax": 8.94,
+        "recommendedPrice": 8.94,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "eBay ES · Estimación provisional",
+        "updatedAt": "2026-08-31T00:00:00Z",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "priceRegionVerified": false,
+        "estimatedPriceComplete": 8.94,
+        "priceDataSources": "eBay ES · Wallapop · Estimación provisional",
+        "estimatedShippingToSpainComplete": 5,
+        "estimatedTotalToSpainComplete": 13.94,
+        "provisionalPriceBatchIds": [
+          "ps4-pal-es-page-04-2026-08-31"
+        ],
+        "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-syndicate",
+        "slug": "assassins-creed-syndicate",
+        "title": "Assassins Creed Syndicate",
+        "titlePc": "Assassin's Creed Syndicate",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada-catalogo.webp",
+        "pcId": 57292,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": 10.33,
+        "marketMax": 10.33,
+        "recommendedPrice": 10.33,
+        "pcRefPrice": 18.1,
+        "deltaEsVsPc": -42.9,
+        "priceSource": "Wallapop ES",
+        "updatedAt": "2026-08-30T21:45:31Z",
+        "hasEsPrice": true,
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 10.33,
+        "priceDataSources": "Wallapop",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260912"
+        ]
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada-catalogo.webp"
+    },
+    {
+      "retiredId": "ps4-assassin%27s-creed-the-ezio-collection",
+      "canonicalId": "ps4-assassins-creed-the-ezio-collection",
+      "oldPath": "/catalogo/assassin-s-creed-the-ezio-collection-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-the-ezio-collection-ps4-pal-es",
+      "pcId": 57294,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-the-ezio-collection",
+        "slug": "assassin%27s-creed-the-ezio-collection",
+        "title": "Assassin&#39;s Creed The Ezio Collection",
+        "titlePc": "Assassin&#39;s Creed The Ezio Collection",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-the-ezio-collection.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-the-ezio-collection",
+        "pcId": 57294,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": 18.2,
+        "marketMax": 44.95,
+        "recommendedPrice": 18.2,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Wallapop ES · Estimación provisional",
+        "updatedAt": "2026-08-31T00:00:00Z",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "tcnsRetailPrice": 22.95,
+        "tcnsProductUrl": "https://www.todoconsolas.com/juegos-ps4/11987-assassin_s_creed_the_ezio_collection_ps4_sp_po51499-3307215977453.html",
+        "tcnsCondition": "preowned",
+        "tcnsMatchedAt": "2026-08-29T18:15:47Z",
+        "priceRegionVerified": false,
+        "estimatedPriceComplete": 18.2,
+        "estimatedPriceSealed": 44.95,
+        "priceDataSources": "TodoConsolas · Wallapop · Estimación provisional",
+        "provisionalPriceBatchIds": [
+          "ps4-pal-es-page-04-2026-08-31"
+        ],
+        "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-the-ezio-collection",
+        "slug": "assassins-creed-the-ezio-collection",
+        "title": "Assassins Creed The Ezio Collection",
+        "titlePc": "Assassin's Creed The Ezio Collection",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada-catalogo.webp",
+        "pcId": 57294,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": 23.43,
+        "marketMax": 44.95,
+        "recommendedPrice": 23.43,
+        "pcRefPrice": 18.48,
+        "deltaEsVsPc": 26.8,
+        "priceSource": "Wallapop ES",
+        "updatedAt": "2026-08-30T21:45:31Z",
+        "hasEsPrice": true,
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 23.43,
+        "estimatedPriceSealed": 44.95,
+        "priceDataSources": "Wallapop",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260912"
+        ]
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada-catalogo.webp"
+    },
+    {
+      "retiredId": "ps4-assassin%27s-creed-unity",
+      "canonicalId": "ps4-assassins-creed-unity",
+      "oldPath": "/catalogo/assassin-s-creed-unity-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-unity-ps4-pal-es",
+      "pcId": 57299,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-unity",
+        "slug": "assassin%27s-creed-unity",
+        "title": "Assassin&#39;s Creed Unity",
+        "titlePc": "Assassin&#39;s Creed Unity",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-unity.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-unity",
+        "pcId": 57299,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": 11.45,
+        "marketMax": 11.45,
+        "recommendedPrice": 11.45,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Wallapop ES · Estimación provisional",
+        "updatedAt": "2026-08-31T00:00:00Z",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "tcnsRetailPrice": 14.95,
+        "tcnsProductUrl": "https://www.todoconsolas.com/juegos-ps4/5139-assassin_s_creed_unity_ps4_sp_po30925-3307215785942.html",
+        "tcnsCondition": "preowned",
+        "tcnsMatchedAt": "2026-09-05T21:49:30Z",
+        "priceRegionVerified": false,
+        "estimatedPriceComplete": 11.45,
+        "priceDataSources": "TodoConsolas · Wallapop · Estimación provisional",
+        "provisionalPriceBatchIds": [
+          "ps4-pal-es-page-04-2026-08-31"
+        ],
+        "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-unity",
+        "slug": "assassins-creed-unity",
+        "title": "Assassins Creed Unity",
+        "titlePc": "Assassin's Creed Unity",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada-catalogo.webp",
+        "pcId": 57299,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": 13.48,
+        "marketMax": 13.48,
+        "recommendedPrice": 13.48,
+        "pcRefPrice": 16.19,
+        "deltaEsVsPc": -16.7,
+        "priceSource": "Wallapop ES",
+        "updatedAt": "2026-08-30T21:45:31Z",
+        "hasEsPrice": true,
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 13.48,
+        "priceDataSources": "Wallapop",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260912"
+        ]
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada-catalogo.webp"
+    },
+    {
+      "retiredId": "ps4-assassin%27s-creed-valhalla",
+      "canonicalId": "ps4-assassins-creed-valhalla",
+      "oldPath": "/catalogo/assassin-s-creed-valhalla-ps4-pal-es",
+      "canonicalPath": "/catalogo/assassins-creed-valhalla-ps4-pal-es",
+      "pcId": 772657,
+      "beforeRetired": {
+        "id": "ps4-assassin%27s-creed-valhalla",
+        "slug": "assassin%27s-creed-valhalla",
+        "title": "Assassin&#39;s Creed Valhalla",
+        "titlePc": "Assassin&#39;s Creed Valhalla",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/assassin-39-s-creed-valhalla.jpg",
+        "pcPath": "/game/pal-playstation-4/assassin%27s-creed-valhalla",
+        "pcId": 772657,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": 14.69,
+        "marketMax": 14.69,
+        "recommendedPrice": 14.69,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": "Wallapop ES · Estimación provisional",
+        "updatedAt": "2026-08-31T00:00:00Z",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "priceRegionVerified": false,
+        "estimatedPriceComplete": 14.69,
+        "priceDataSources": "eBay ES · TodoConsolas · Wallapop · Estimación provisional",
+        "estimatedShippingToSpainComplete": 2.75,
+        "estimatedTotalToSpainComplete": 17.44,
+        "tcnsRetailPrice": 14.95,
+        "tcnsProductUrl": "https://www.todoconsolas.com/juegos-ps4/32704-assassin_s_creed_valhalla_ps4_sp_po105396-3307216168379.html",
+        "tcnsCondition": "preowned",
+        "tcnsMatchedAt": "2026-09-05T21:26:34Z",
+        "provisionalPriceBatchIds": [
+          "ps4-pal-es-page-04-2026-08-31"
+        ],
+        "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+      },
+      "beforeCanonical": {
+        "id": "ps4-assassins-creed-valhalla",
+        "slug": "assassins-creed-valhalla",
+        "title": "Assassins Creed Valhalla",
+        "titlePc": "Assassin's Creed Valhalla",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada-catalogo.webp",
+        "pcId": 772657,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": 14.13,
+        "marketMax": 14.13,
+        "recommendedPrice": 14.13,
+        "pcRefPrice": 9.41,
+        "deltaEsVsPc": 50.2,
+        "priceSource": "Wallapop ES",
+        "updatedAt": "2026-08-30T21:45:31Z",
+        "hasEsPrice": true,
+        "priceRegionVerified": true,
+        "estimatedPriceComplete": 14.13,
+        "priceDataSources": "GAME seminuevo · Wallapop",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es",
+          "owned_scan_spanish_packaging_20260912"
+        ]
+      },
+      "reason": "Same platform, claimed Spain market, standard physical edition and identical PriceCharting product ID. Documentary identifiers obtained by title matching are not used to overwrite the scanned box.",
+      "preservedCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada-catalogo.webp"
+    }
+  ],
+  "catalogBeforeSha256": "6239a576a98b54fcc617fea2b48272cae5be2a460961efa1fb22825597a94aff",
+  "catalogAfterSha256": "a3b25684f46290082b393cc6b279fd66d4432f67858ce360e3fedb79972f0f02",
+  "changes": [
+    "ds-assassin%27s-creed-ii-discovery",
+    "ds-assassin%27s-creed-altair%27s-chronicles",
+    "ds-assassins-creed",
+    "ps3-3-great-games-one-great-pack-uncharted-assassin%27s-creed-need-for-speed-hot-pursuit",
+    "ps3-assassin%27s-creed",
+    "ps3-assassin%27s-creed-2-&amp;-assassin%27s-creed",
+    "ps3-assassin%27s-creed-collector%27s-edition",
+    "ps3-assassin%27s-creed-essentials",
+    "ps3-assassin%27s-creed-ezio-auditore-pack",
+    "ps3-assassin%27s-creed-limited-edition",
+    "ps3-assassin%27s-creed-platinum",
+    "ps3-assassin%27s-creed-anthology",
+    "ps3-assassin%27s-creed-black-flag-&amp;-rogue",
+    "ps3-assassin%27s-creed-brotherhood-&#43;-assassin%27s-creed-revelations",
+    "ps3-assassin%27s-creed-double-pack",
+    "ps3-assassin%27s-creed-ii",
+    "ps3-assassin%27s-creed-ii-black-edition",
+    "ps3-assassin%27s-creed-ii-complete-edition",
+    "ps3-assassin%27s-creed-ii-essentials",
+    "ps3-assassin%27s-creed-ii-game-of-the-year-edition",
+    "ps3-assassin%27s-creed-ii-lineage-edition",
+    "ps3-assassin%27s-creed-ii-platinum-game-of-the-year-edition",
+    "ps3-assassin%27s-creed-ii-special-film-edition",
+    "ps3-assassin%27s-creed-ii-white-edition",
+    "ps3-assassin%27s-creed-ii-game-of-the-year-edition-&#43;-assassin%27s-creed",
+    "ps3-assassin%27s-creed-iii",
+    "ps3-assassin%27s-creed-iii-essentials",
+    "ps3-assassin%27s-creed-iii-freedom-edition",
+    "ps3-assassin%27s-creed-iii-join-or-die-edition",
+    "ps3-assassin%27s-creed-iii-press-kit",
+    "ps3-assassin%27s-creed-iii-special-edition-exclusive-edition",
+    "ps3-assassin%27s-creed-iii-special-edition",
+    "ps3-assassin%27s-creed-iii-washington-edition",
+    "ps3-assassin%27s-creed-iv-black-flag",
+    "ps3-assassin%27s-creed-iv-black-flag-black-chest-edition",
+    "ps3-assassin%27s-creed-iv-black-flag-buccaneer-edition",
+    "ps3-assassin%27s-creed-iv-black-flag-essentials",
+    "ps3-assassin%27s-creed-iv-black-flag-not-for-resale",
+    "ps3-assassin%27s-creed-iv-black-flag-skull-edition",
+    "ps3-assassin%27s-creed-iv-black-flag-special-edition",
+    "ps3-assassin%27s-creed-revelations-animus-edition",
+    "ps3-assassin%27s-creed-revelations-promo-not-for-resale",
+    "ps3-assassin%27s-creed-rogue-collector%27s-edition",
+    "ps3-assassin%27s-creed-birth-of-a-new-world-the-american-saga",
+    "ps3-assassin%27s-creed-brotherhood",
+    "ps3-assassin%27s-creed-brotherhood-auditore-edition",
+    "ps3-assassin%27s-creed-brotherhood-da-vinci-edition",
+    "ps3-assassin%27s-creed-brotherhood-essentials",
+    "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+    "ps3-assassin%27s-creed-brotherhood-platinum",
+    "ps3-assassin%27s-creed-brotherhood-special-edition",
+    "ps3-assassin%27s-creed-heritage-collection",
+    "ps3-assassin%27s-creed-revelations",
+    "ps3-assassin%27s-creed-revelations-collector%27s-edition",
+    "ps3-assassin%27s-creed-revelations-essentials",
+    "ps3-assassin%27s-creed-revelations-ottoman-edition",
+    "ps3-assassin%27s-creed-revelations-platinum",
+    "ps3-assassin%27s-creed-revelations-special-edition",
+    "ps3-assassin%27s-creed-rogue",
+    "ps3-assassin%27s-creed-rogue-essentials",
+    "ps3-assassin%27s-creed-rogue-not-for-resale",
+    "ps3-playstation-3-super-slim-500gb-assassin%27s-creed-iv-black-flag-bundle",
+    "ps4-assassin%27s-creed-chronicles",
+    "ps4-assassin%27s-creed-iii-remastered",
+    "ps4-assassin%27s-creed-iii-remastered-signature-edition",
+    "ps4-assassin%27s-creed-iv-black-flag-promo-not-for-resale",
+    "ps4-assassin%27s-creed-iv-black-flag",
+    "ps4-assassin%27s-creed-iv-black-flag-black-chest-edition",
+    "ps4-assassin%27s-creed-iv-black-flag-buccaneer-edition",
+    "ps4-assassin%27s-creed-iv-black-flag-jackdaw-edition",
+    "ps4-assassin%27s-creed-iv-black-flag-playstation-hits",
+    "ps4-assassin%27s-creed-iv-black-flag-skull-edition",
+    "ps4-assassin%27s-creed-iv-black-flag-special-edition",
+    "ps4-assassin%27s-creed-mirage-collector%27s-edition",
+    "ps4-assassin%27s-creed-odyssey",
+    "ps4-assassin%27s-creed-odyssey-gold-edition",
+    "ps4-assassin%27s-creed-odyssey-limited-edition",
+    "ps4-assassin%27s-creed-odyssey-omega-edition",
+    "ps4-assassin%27s-creed-odyssey-promo-not-for-resale",
+    "ps4-assassin%27s-creed-odyssey-spartan-edition",
+    "ps4-assassin%27s-creed-origins",
+    "ps4-assassin%27s-creed-origins-deluxe-edition",
+    "ps4-assassin%27s-creed-origins-promo-not-for-resale",
+    "ps4-assassin%27s-creed-rogue-remastered",
+    "ps4-assassin%27s-creed-syndicate",
+    "ps4-assassin%27s-creed-syndicate-big-ben-edition",
+    "ps4-assassin%27s-creed-syndicate-charing-cross-edition",
+    "ps4-assassin%27s-creed-syndicate-limited-steelbook-edition",
+    "ps4-assassin%27s-creed-syndicate-playstation-hits",
+    "ps4-assassin%27s-creed-syndicate-promo-not-for-resale",
+    "ps4-assassin%27s-creed-syndicate-special-edition",
+    "ps4-assassin%27s-creed-syndicate-steelbook-edition",
+    "ps4-assassin%27s-creed-syndicate-the-rooks-edition",
+    "ps4-assassin%27s-creed-the-ezio-collection",
+    "ps4-assassin%27s-creed-unity",
+    "ps4-assassin%27s-creed-unity-bastille-edition",
+    "ps4-assassin%27s-creed-unity-promo-not-for-resale",
+    "ps4-assassin%27s-creed-valhalla",
+    "ps4-assassin%27s-creed-valhalla-collector%27s-edition",
+    "ps4-assassin%27s-creed-valhalla-drakkar-edition",
+    "ps4-assassin%27s-creed-valhalla-gold-edition",
+    "ps4-assassin%27s-creed-valhalla-limited-edition",
+    "ps4-assassin%27s-creed-valhalla-ultimate-edition",
+    "ps4-assassin%27s-creed-mirage",
+    "ps4-assassin%27s-creed-mirage-deluxe-edition",
+    "ps4-assassin%27s-creed-mirage-launch-edition",
+    "ps4-assassin%27s-creed-odyssey-athenian-edition",
+    "ps4-assassin%27s-creed-origins-dawn-of-the-creed-edition",
+    "ps4-assassin%27s-creed-origins-gods-collector%27s-edition",
+    "ps4-assassin%27s-creed-origins-gold-edition",
+    "ps4-assassin%27s-creed-unity-guillotine-collector%27s-case",
+    "ps4-assassin%27s-creed-unity-notre-dame-edition",
+    "ps4-assassin%27s-creed-unity-special-edition",
+    "ps4-assassin%27s-creed-valhalla-ragnarok-edition",
+    "ps4-assassins-creed-3-remastered",
+    "ps4-assassins-creed-4-black-flag",
+    "ps4-assassins-creed-mirage-deluxe-edition",
+    "ps4-assassins-creed-odyssey",
+    "ps4-assassins-creed-odyssey-medusa-edition",
+    "ps4-assassins-creed-origins",
+    "ps4-assassins-creed-origins-limited-edition",
+    "ps4-assassins-creed-rogue-remastered",
+    "ps4-assassins-creed-syndicate",
+    "ps4-assassins-creed-the-ezio-collection",
+    "ps4-assassins-creed-unity",
+    "ps4-assassins-creed-valhalla",
+    "ps4-assassins-creed-valhalla-dawn-of-ragnarok",
+    "ps4-double-pack-assassin%27s-creed-odyssey-&#43;-assassin%27s-creed-origins",
+    "ps5-assassin-s-creed-black-flag-resynced-standard-edition",
+    "ps5-assassin-s-creed-mirage",
+    "ps5-assassin-s-creed-valhalla",
+    "ps4-usa-assassins-creed-valhalla-dawn-of-ragnarok",
+    "ps3-usa-assassins-creed-iii-special-edition",
+    "ps3-usa-assassins-creed-iv-black-flag-steelbook-edition",
+    "ps3-usa-assassins-creed-revelations-no-exclusive-label",
+    "ds-usa-assassins-creed-altair%27s-chronicles"
+  ],
+  "preservation": "All IDs and slugs remain stored. Nine duplicate rows are excluded from listings and redirected. No images, price fields, collection items or user files are deleted."
+}

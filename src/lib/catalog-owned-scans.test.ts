@@ -8,11 +8,13 @@ import scanData from "../../data/catalog-owned-scans.json";
 import assetEvidence from "../../data/research/owned-scans/2026-09-11-assets.json";
 import integration from "../../data/research/owned-scans/2026-09-11-integration.json";
 import assassinsBatch from "../../data/research/owned-scans/2026-09-12-assassins-integration.json";
+import residentBatch from "../../data/research/owned-scans/2026-09-12-resident-integration.json";
 import { getCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-url";
 import { getOwnedScanSet, withOwnedScanDetails } from "./catalog-owned-scans";
 import { mergeCatalogGameWithOverlay } from "./catalog-overlay-merge";
 import { getGameProductReference } from "./game-product-reference";
+import { normalizeCatalogGamePresentation } from "./catalog-presentation";
 import type { CatalogGame, GameDetails } from "./types";
 
 test("owned scans retain each catalog identity and its existing URL", () => {
@@ -24,7 +26,7 @@ test("owned scans retain each catalog identity and its existing URL", () => {
     assert.equal(catalogGamePath(game), catalogGamePath(before));
     assert.equal(game.coverUrl, scans.primaryCoverUrl);
     const unchanged = (value: CatalogGame) => {
-      const copy = { ...value };
+      const copy = { ...normalizeCatalogGamePresentation(value) };
       delete copy.regionVerified;
       delete copy.regionEvidence;
       return { ...copy, coverUrl: null };
@@ -130,8 +132,8 @@ test("Assassin's Creed sealed boxes keep the scanned Spanish SKU and each compon
   assert.equal(scans.primaryCoverUrl, mirage.previousScans!.primaryCoverUrl);
   assert.deepEqual(scans.images.slice(0, 2), mirage.previousScans!.images);
   assert.equal(scans.packaging.reference, "CUSA-33151");
-  // A matching title is insufficient: documentary rows and special editions are separate identities.
-  for (const id of ["ps4-assassin%27s-creed-unity", "ps4-assassin%27s-creed-iv-black-flag", "ps4-assassin%27s-creed-mirage"]) {
+  // An explicitly merged duplicate resolves to the survivor; distinct editions do not.
+  for (const id of ["ps4-assassin%27s-creed-mirage", "ps4-assassin%27s-creed-unity-special-edition"]) {
     const game = getCatalogGame(id);
     assert.ok(game);
     assert.equal(getOwnedScanSet(game), undefined);
@@ -150,6 +152,48 @@ test("Assassin's Creed language evidence preserves the printed voice download re
     assert.deepEqual(scans.softwareLanguagesPrinted, { text: ["Español"], audio: ["Español"] });
     assert.equal(scans.packaging.languageStatement, "Voces, textos y manual totalmente en castellano");
   }
+});
+
+test("Resident Evil uses the photographed ES/IT box and keeps audio separate from packaging language", () => {
+  assert.equal(residentBatch.games.length, 11);
+  assert.equal(residentBatch.images, 33);
+  const englishAudio = new Set(["ps4-resident-evil-5", "ps4-resident-evil-6", "ps4-resident-evil-origins-collection"]);
+  for (const entry of residentBatch.games) {
+    const game = getCatalogGame(entry.catalogId)!;
+    const scans = getOwnedScanSet(game)!;
+    const details = withOwnedScanDetails(game, { reference: "BLES-01465", ean: "0000000000000" } as GameDetails)!;
+    assert.equal(details.reference, entry.reference);
+    assert.equal(details.ean, entry.ean);
+    assert.equal(getGameProductReference(game, details)?.label, "Código del lomo");
+    assert.equal(`https://www.regionatlas.games${catalogGamePath(game)}`, entry.url);
+    assert.deepEqual(scans.packaging.languages, ["Español", "Italiano"]);
+    assert.deepEqual(scans.softwareLanguagesPrinted?.text, ["Español", "Italiano"]);
+    assert.deepEqual(scans.softwareLanguagesPrinted?.audio, englishAudio.has(game.id) ? ["Inglés"] : ["Español", "Italiano"]);
+    assert.deepEqual(scans.images.map(image => image.role), ["portada", "contraportada", "lomo"]);
+    for (const patch of [{ region: "USA" }, { region: "PAL Italia" }, { edition: "collector" }, { id: `${game.id}-different-box` }]) {
+      assert.equal(getOwnedScanSet({ ...game, ...patch }), undefined);
+    }
+  }
+});
+
+test("Resident Evil Gold, Steelbook and Requiem Deluxe retain separate physical identities", () => {
+  const gold = getOwnedScanSet(getCatalogGame("ps4-resident-evil-7-biohazard-gold-edition")!)!;
+  assert.ok(gold.notes.some(note => note.includes("Gold Edition")));
+  for (const id of ["ps4-resident-evil-4-remake-steelbook", "ps5-resident-evil-requiem-deluxe-edition"]) {
+    const scans = getOwnedScanSet(getCatalogGame(id)!)!;
+    assert.ok(scans.images.every(image => image.label.includes("caja exterior")));
+    assert.ok(scans.notes.some(note => note.includes("propietario")));
+  }
+  const lenticular = getOwnedScanSet(getCatalogGame("ps5-resident-evil-requiem-lenticular-cover")!)!;
+  assert.deepEqual(lenticular.images, residentBatch.previousLenticularScans.images);
+  assert.equal(lenticular.primaryCoverUrl, residentBatch.previousLenticularScans.primaryCoverUrl);
+  assert.equal(lenticular.packaging.ean, "5055060993637");
+  assert.ok(lenticular.notes.some(note => note.includes("exclusiva por GAME")));
+  const deluxe = getOwnedScanSet(getCatalogGame("ps5-resident-evil-requiem-deluxe-edition")!)!;
+  assert.equal(deluxe.packaging.ean, "5055060907979");
+  assert.notEqual(deluxe.packaging.ean, lenticular.packaging.ean);
+  assert.equal(deluxe.packaging.reference, lenticular.packaging.reference);
+  assert.equal(getOwnedScanSet(getCatalogGame("ps5-resident-evil-requiem")!), undefined);
 });
 
 test("public assets match the reviewed hashes and contain no embedded original metadata", async () => {

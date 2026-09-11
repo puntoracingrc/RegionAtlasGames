@@ -13,6 +13,7 @@ import { GameProductReference } from "@/components/game-product-reference";
 import { Ps1EditionPanel } from "@/components/ps1-edition-panel";
 import { Ps2EditionPanel } from "@/components/ps2-edition-panel";
 import { OwnedScansPanel } from "@/components/owned-scans-panel";
+import { CatalogEditionGuide } from "@/components/catalog-edition-guide";
 import { getOwnedScanSet } from "@/lib/catalog-owned-scans";
 import { GameTaxonomyLinks, type GameTaxonomyLink } from "@/components/game-taxonomy-links";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
@@ -355,6 +356,7 @@ export default async function CatalogGamePage({ params }: Props) {
             {!pendingPs1 ? <Ps1EditionPanel game={game} details={details} /> : null}
             <Ps2EditionPanel game={game} details={details} />
             <OwnedScansPanel scans={ownedScans} title={game.title} />
+            <CatalogEditionGuide game={game} />
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />
 
