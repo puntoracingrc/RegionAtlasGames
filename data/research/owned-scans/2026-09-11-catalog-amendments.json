@@ -186,18 +186,30 @@
     },
     "data/meta.json": {
       "beforeSha256": "86a01f1bc3610bddb9164a37f1c5e91d71c743b1932bc7a330367d259d262c72",
-      "afterSha256": "5b58596e741f45a89bd569c13b8361e195026d6449e8d9ac1fdced8a36411f1a",
+      "afterSha256": "61f1fd8240613b38b959b279e45c3bf68bc7c161e537ad66e5b62279d4828dd0",
       "changedKeys": []
     },
     "data/catalog-id-aliases.json": {
       "beforeSha256": "cf65bde708076c7b7a856db6d5d55433e8b090c0724d324429111238c134b39f",
-      "afterSha256": "7bfc6d189d4ce01dd7859f085babd3e696a69646224bc9780af9ac6bb03ed3ca",
-      "changedKeys": []
+      "afterSha256": "2fd660469b1591db9594af466682fe8d16395779f9c3a1c92bf89c6f90dbb80c",
+      "changedKeys": [
+        "ps4-assassin%27s-creed-iii-remastered",
+        "ps4-assassin%27s-creed-iv-black-flag",
+        "ps4-assassin%27s-creed-odyssey",
+        "ps4-assassin%27s-creed-origins",
+        "ps4-assassin%27s-creed-rogue-remastered",
+        "ps4-assassin%27s-creed-syndicate",
+        "ps4-assassin%27s-creed-the-ezio-collection",
+        "ps4-assassin%27s-creed-unity",
+        "ps4-assassin%27s-creed-valhalla"
+      ]
     },
     "data/catalog-route-redirects.json": {
       "beforeSha256": "979ace530fe60dbe4df5d9cff00063983242e460ca144dfcdf1c049149c721b4",
-      "afterSha256": "b84dc8762102c163140f9ef89faa05d25456d8fab5505840e65c3a930167b09e",
-      "changedKeys": []
+      "afterSha256": "92c540653be130df0514ec6fbc0ab2c05db732775c852c4ead2122ec006612f8",
+      "changedKeys": [
+        "redirects"
+      ]
     },
     "data/research/company-study/manifest.json": {
       "beforeSha256": "fe125b3c6ac3e6cdc9c894dd552fe1ad4e1646c81053a4f4824ea1ccfb2b994e",
@@ -211,13 +223,13 @@
     },
     "data/curation-report.json": {
       "beforeSha256": "4e095311213bcf4144bb3804f89f72b1cfa870b634b72168a31b2c4a291e385c",
-      "afterSha256": "bf15991d46bb4c381c269aeb96284461d9bb21b4d651f84ad8fb9a6a1666c6f5",
+      "afterSha256": "3e2f3462407afa04bdd422c7a3b1426afb46de414a38aa4775b2cd13030bcde6",
       "changedKeys": [
-        "listed",
+        "byCategory",
         "excluded",
-        "listedByPlatform",
         "excludedByPlatform",
-        "byCategory"
+        "listed",
+        "listedByPlatform"
       ]
     }
   }
