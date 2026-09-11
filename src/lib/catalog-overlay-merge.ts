@@ -31,12 +31,12 @@ const REGIONAL_PACKAGING_FIELDS = [
 
 // A runtime enrichment may contain a pre-migration PAL España row. The audited
 // edition identity is authoritative until a new documentary migration reviews it.
-const PS1_REGIONAL_FIELDS = [
+const REVIEWED_REGIONAL_FIELDS = [
   "region", "regionFamily", "marketRegion", "regionCode", "regionalStatus",
   "canonicalSerials", "sourceSerials", "resolutionSerials", "languages", "workId",
   "canonicalSeoSlug", "regionVerified", "coverUrl",
 ] as const satisfies readonly (keyof CatalogGame)[];
-const PS1_PRICE_FIELDS = new Set([
+const REVIEWED_PRICE_FIELDS = new Set([
   "marketMin", "marketMax", "recommendedPrice", "pcRefPrice", "deltaEsVsPc", "priceSource",
   "priceDataSources", "pcId", "pcPath", "pcRegion", "pcCondition", "matchConfidence", "gameCondition", "gameMatchedAt", "gameRetailPrice", "cexSellPrice", "cexCashPrice", "jgoRetailPrice",
   "cholloRetailPrice", "kaotoRetailPrice", "tcListingPrice", "tcnsRetailPrice",
@@ -196,8 +196,8 @@ export function mergeCatalogGameWithOverlay(
   if (staticGame.id !== overlayGame.id) return overlayGame;
 
   const merged = { ...overlayGame };
-  if (staticGame.platformSlug === "ps1" && staticGame.regionalStatus) {
-    for (const field of PS1_REGIONAL_FIELDS) {
+  if (["ps1", "ps2"].includes(staticGame.platformSlug) && staticGame.regionalStatus) {
+    for (const field of REVIEWED_REGIONAL_FIELDS) {
       (merged as Record<keyof CatalogGame, unknown>)[field] = staticGame[field];
     }
     const sameReviewedEdition = staticGame.regionalStatus === "resolved" && overlayGame.regionalStatus === "resolved" &&
@@ -209,7 +209,7 @@ export function mergeCatalogGameWithOverlay(
       merged.cexRegionVerified = staticGame.cexRegionVerified;
       merged.hasEsPrice = staticGame.hasEsPrice;
       for (const field of Object.keys({ ...staticGame, ...overlayGame })) {
-        if (PS1_PRICE_FIELDS.has(field) || /^(estimatedPrice|estimatedShippingToSpain|estimatedTotalToSpain|priceCharting|gameEs|cex|jgo|chollo|kaoto|tcListing|tcProduct|tcMatched|tcns)/.test(field)) {
+        if (REVIEWED_PRICE_FIELDS.has(field) || /^(estimatedPrice|estimatedShippingToSpain|estimatedTotalToSpain|priceCharting|gameEs|cex|jgo|chollo|kaoto|tcListing|tcProduct|tcMatched|tcns)/.test(field)) {
           (merged as Record<string, unknown>)[field] = (staticGame as unknown as Record<string, unknown>)[field] ?? null;
         }
       }

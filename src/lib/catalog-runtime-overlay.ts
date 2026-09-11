@@ -11,6 +11,7 @@ import {
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { getStaticGameDetails } from "./static-game-details";
 import { getPs1EditionDetails } from "./ps1-edition-data";
+import { getPs2EditionDetails } from "./ps2-edition-data";
 import { getVerifiedCompanyCreditDetails } from "./verified-company-credits";
 import {
   normalizeCatalogGamePresentation,
@@ -270,10 +271,11 @@ export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails
   const overlay = await readCatalogOverlayDetails(id);
   if (overlay) {
     const ps1Edition = getPs1EditionDetails(id);
-    const game = ps1Edition ? getCatalogGame(id) : undefined;
-    const current = ps1Edition && game ? {
+    const ps2Edition = getPs2EditionDetails(id);
+    const game = ps1Edition || ps2Edition ? getCatalogGame(id) : undefined;
+    const current = (ps1Edition || ps2Edition) && game ? {
       ...overlay,
-      ps1Edition,
+      ...(ps1Edition ? { ps1Edition } : { ps2Edition }),
       reference: game.regionalStatus === "resolved" ? game.canonicalSerials?.join(" / ") ?? null : null,
     } : overlay;
     return normalizeGameDetailsPresentation(

@@ -567,7 +567,12 @@ class PS2PackagingTests(unittest.TestCase):
             self.assertTrue(entry["catalogIds"])
             for catalog_id in entry["catalogIds"]:
                 self.assertEqual(catalog[catalog_id]["platformSlug"], "ps2")
-                self.assertEqual(catalog[catalog_id]["region"], "PAL España")
+                # V1 bindings named provisional PAL-ES records. V2 preserves the
+                # ID/history and explicitly warns that this is not edition proof.
+                from collectors.ps2_documentary import editions
+                self.assertEqual(editions()[catalog_id]["legacyRegion"], "PAL España")
+                self.assertIn(catalog[catalog_id]["regionalStatus"], ("resolved", "review"))
+                self.assertIn("Contexto histórico de un ejemplar PAL España", research.region_research_prompt("ps2", catalog_id))
 
     def test_game_guidance_is_exact_id_not_region_or_edition_propagation(self):
         references = self.document["gameReferences"]

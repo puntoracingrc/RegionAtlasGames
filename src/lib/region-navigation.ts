@@ -22,7 +22,7 @@ const EUROPE_CODES = new Set([
   "FI", "GR", "IE", "NO", "NL", "PL", "PT", "RU", "SE",
 ]);
 const AMERICA_CODES = new Set(["US", "CA", "US-CA"]);
-const ASIA_CODES = new Set(["JP", "KR", "CN", "IL", "ASIA", "JP-ASIA"]);
+const ASIA_CODES = new Set(["JP", "KR", "CN", "TW", "IL", "ASIA", "JP-ASIA"]);
 
 export function regionNavigationGroup(region: string): RegionNavigationGroupId {
   const display = getRegionDisplay(region);
@@ -30,6 +30,10 @@ export function regionNavigationGroup(region: string): RegionNavigationGroupId {
   if (EUROPE_CODES.has(display.shortLabel) || region === "Europea") return "europe";
   if (AMERICA_CODES.has(display.shortLabel)) return "america";
   if (ASIA_CODES.has(display.shortLabel)) return "asia";
+  const parts = display.shortLabel.split("-");
+  if (parts.every((part) => EUROPE_CODES.has(part))) return "europe";
+  if (parts.every((part) => AMERICA_CODES.has(part))) return "america";
+  if (parts.every((part) => ASIA_CODES.has(part))) return "asia";
   return "other";
 }
 

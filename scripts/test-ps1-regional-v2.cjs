@@ -52,11 +52,13 @@ check('NO-DUPLICATE-IDS-OR-NEW-URLS', () => {
   }
 });
 check('OTHER-PLATFORMS-UNCHANGED', () => {
+  // PS2 has a later audited migration with its own full baseline-preservation
+  // check in scripts/ps2-regional/verify.py. Keep the PS1 historical boundary.
   const before = JSON.parse(cp.execFileSync('git', ['show', `${baseline.commit}:data/catalog.json`], { cwd: root, maxBuffer: 150_000_000 }));
   const beforeDetails = JSON.parse(cp.execFileSync('git', ['show', `${baseline.commit}:data/game-details.json`], { cwd: root, maxBuffer: 150_000_000 }));
   const oldPs1 = new Set(baseline.catalog.map((g) => g.id));
-  assert.deepEqual(catalog.filter((g) => g.platformSlug !== 'ps1'), before.filter((g) => g.platformSlug !== 'ps1'));
-  for (const [id, d] of Object.entries(beforeDetails)) if (!oldPs1.has(id)) assert.deepEqual(details[id], d, id);
+  assert.deepEqual(catalog.filter((g) => !['ps1', 'ps2'].includes(g.platformSlug)), before.filter((g) => !['ps1', 'ps2'].includes(g.platformSlug)));
+  for (const [id, d] of Object.entries(beforeDetails)) if (!oldPs1.has(id) && !id.startsWith("ps2-")) assert.deepEqual(details[id], d, id);
 });
 check('REGION-LANGUAGE-001-AND-UK-001', () => {
   const europe = { value: 'Europe', source: 'redump-org', sourceUrl: 'http://redump.org/', confidence: 'high', verifiedAt: '2026-09-10' };
@@ -73,7 +75,7 @@ check('INDEX-CANONICAL-METADATA-AND-OTHER-PLATFORM-MEMBERSHIPS-PRESERVED', () =>
     for (const [slug, old] of Object.entries(before)) {
       assert(after[slug], slug);
       for (const [key, value] of Object.entries(old)) if (!derived.has(key)) assert.deepEqual(after[slug][key], value, `${kind}/${slug}/${key}`);
-      for (const key of memberships) assert.deepEqual((after[slug][key] ?? []).filter((id) => !id.startsWith('ps1-')), (old[key] ?? []).filter((id) => !id.startsWith('ps1-')), `${kind}/${slug}/${key}`);
+      for (const key of memberships) assert.deepEqual((after[slug][key] ?? []).filter((id) => !id.startsWith('ps1-') && !id.startsWith('ps2-')), (old[key] ?? []).filter((id) => !id.startsWith('ps1-') && !id.startsWith('ps2-')), `${kind}/${slug}/${key}`);
     }
   }
 });

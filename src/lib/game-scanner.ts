@@ -1,3 +1,4 @@
+import { DOCUMENTED_REGION_LABELS } from "./region-display";
 import titleAliases from "../../data/scanner-title-aliases.json";
 
 export const SCANNER_POLICY = "region-atlas-scanner-v1.1";
@@ -131,7 +132,7 @@ export function scannerInterpretationSkipReason(perception: ScannerPerception, p
   return null;
 }
 
-const REGIONS = new Set(["PAL España", "PAL Europa", "PAL Italia", "PAL Francia", "PAL Alemania", "PAL UK", "PAL Australia", "NTSC USA", "NTSC-J Japón"]);
+const REGIONS = new Set([...DOCUMENTED_REGION_LABELS, "PAL Francia", "PAL Australia", "PAL UK"]);
 
 export function normalizeScannerReasoning(value: unknown, perception: ScannerPerception, sources: ScannerSource[], platformSlug: string, knownVariantIds: string[] = []) {
   const raw = object(value);

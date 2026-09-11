@@ -421,6 +421,7 @@ test("preserves catalog, company and prior research files byte for byte", () => 
       "company-credit-ps4-pal-rapid-review-2026-09-05",
       "company-credit-ps4-pal-compilations-2026-09-05",
       "ps1-regional-v2-2026-09-10",
+      "ps2-regional-v2-2026-09-11",
     ],
   );
 });

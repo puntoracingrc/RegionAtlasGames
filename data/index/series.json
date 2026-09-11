@@ -6,28 +6,17 @@
     "gameIds": [
       "ps4-ea-sports-fc-26",
       "ps4-usa-ea-sports-fc-26",
-      "ps2-fifa-2001",
-      "ps2-fifa-football-2003",
-      "ps2-fifa-10",
       "ps3-fifa-13",
-      "ps2-fifa-12",
       "ps4-fifa-22",
       "ps3-fifa-12",
       "ps4-usa-fifa-14",
-      "ps2-fifa-07",
       "ps4-usa-fifa-16",
       "ps4-usa-fifa-23",
       "ps4-fifa-18",
-      "ps2-fifa-football-2004",
       "ps4-fifa-19",
       "ps3-fifa-15",
-      "ps2-fifa-football-2002",
       "ps3-fifa-10",
       "ps4-usa-ea-sports-fc-24",
-      "ps2-fifa-world-cup-germany-2006",
-      "ps2-fifa-13",
-      "ps2-fifa-08",
-      "ps2-fifa-06",
       "ps4-usa-fifa-18",
       "ps4-usa-fifa-20",
       "ps3-2014-fifa-world-cup-brazil",
@@ -38,22 +27,18 @@
       "ps4-usa-fifa-17",
       "ps4-fifa-16",
       "ps4-japon-fifa-18",
-      "ps2-2002-fifa-world-cup",
       "ps4-usa-fifa-19",
       "ps3-fifa-09",
       "ps4-ea-sports-fc-24",
       "ps4-usa-fifa-22",
       "ps4-fifa-20",
       "ps4-fifa-23",
-      "ps2-fifa-09",
       "ps4-usa-ea-sports-fc-25",
       "ps4-usa-fifa-21",
       "ps3-fifa-17",
       "ps4-fifa-14",
-      "ps2-fifa-football-2005",
       "ps3-fifa-08",
       "ps3-fifa-14",
-      "ps2-fifa-11",
       "ps4-fifa-21",
       "ps3-fifa-16",
       "ps3-fifa-11",
@@ -134,15 +119,88 @@
       "ps1-jp-slps-02309",
       "ps1-jp-slps-02675",
       "ps1-us-slus-01449",
-      "ps1-be-sles-03667"
+      "ps1-be-sles-03667",
+      "ps2-2002-fifa-world-cup",
+      "ps2-fifa-football-2005",
+      "ps2-fifa-06",
+      "ps2-fifa-06-platinum",
+      "ps2-fifa-07",
+      "ps2-fifa-07-platinum",
+      "ps2-fifa-08",
+      "ps2-fifa-08-platinum",
+      "ps2-fifa-09",
+      "ps2-fifa-09-platinum",
+      "ps2-fifa-10",
+      "ps2-fifa-10-platinum",
+      "ps2-fifa-11",
+      "ps2-fifa-11-platinum",
+      "ps2-fifa-12",
+      "ps2-fifa-12-platinum",
+      "ps2-fifa-13",
+      "ps2-fifa-13-platinum",
+      "ps2-fifa-2001",
+      "ps2-fifa-2001-platinum",
+      "ps2-fifa-2002-platinum",
+      "ps2-fifa-football-2002",
+      "ps2-fifa-football-2003",
+      "ps2-fifa-football-2003-platinum",
+      "ps2-fifa-football-2004",
+      "ps2-fifa-football-2004-platinum",
+      "ps2-fifa-football-2005-demo",
+      "ps2-fifa-football-2005-platinum",
+      "ps2-fifa-world-cup-germany-2006",
+      "ps2-be-sles-50465",
+      "ps2-de-sles-50013",
+      "ps2-de-sles-50467",
+      "ps2-es-sles-50016",
+      "ps2-es-sles-50471",
+      "ps2-eu-au-sles-55585",
+      "ps2-eu-sles-50011",
+      "ps2-eu-sles-50464",
+      "ps2-eu-sles-51953",
+      "ps2-eu-sles-51963",
+      "ps2-eu-sles-51964",
+      "ps2-eu-sles-52561",
+      "ps2-eu-sles-52563",
+      "ps2-eu-sles-53531",
+      "ps2-eu-sles-53532",
+      "ps2-eu-sles-54062",
+      "ps2-eu-sles-54063",
+      "ps2-eu-sles-54241",
+      "ps2-eu-sles-54243",
+      "ps2-eu-sles-54244",
+      "ps2-eu-sles-54246",
+      "ps2-eu-sles-54871",
+      "ps2-eu-sles-54872",
+      "ps2-eu-sles-54873",
+      "ps2-eu-sles-55244",
+      "ps2-eu-sles-55245",
+      "ps2-eu-sles-55246",
+      "ps2-eu-sles-55247",
+      "ps2-eu-sles-55582",
+      "ps2-eu-sles-55583",
+      "ps2-eu-sles-55584",
+      "ps2-eu-sles-55643",
+      "ps2-eu-sles-55644",
+      "ps2-eu-sles-55653",
+      "ps2-eu-sles-55654",
+      "ps2-eu-sles-55665",
+      "ps2-fr-sles-50012",
+      "ps2-fr-sles-50466",
+      "ps2-gr-sles-50014",
+      "ps2-gr-sles-50469",
+      "ps2-it-sles-50015",
+      "ps2-it-sles-50470",
+      "ps2-it-sles-52562",
+      "ps2-it-sles-53530"
     ],
     "byPlatform": {
       "ps1": 77,
-      "ps2": 15,
+      "ps2": 73,
       "ps3": 12,
       "ps4": 27
     },
-    "gameCount": 131
+    "gameCount": 189
   },
   "call-of-duty": {
     "name": "Call of Duty",
@@ -171,12 +229,10 @@
       "ps3-call-of-duty-black-ops-iii",
       "ps3-call-of-duty-advanced-warfare-day-zero-edition",
       "ps3-call-of-duty-advanced-warfare",
-      "ps2-call-of-duty-3",
       "ps4-usa-call-of-duty-ghosts",
       "ps4-usa-call-of-duty-advanced-warfare",
       "ps3-call-of-duty-modern-warfare-3",
       "ps4-call-of-duty-vanguard",
-      "ps2-call-of-duty-finest-hour",
       "ps3-call-of-duty-modern-warfare-2",
       "ps3-call-of-duty-black-ops-ii",
       "ps3-call-of-duty-ghosts",
@@ -186,12 +242,10 @@
       "ps4-japon-call-of-duty-black-ops-iii",
       "ps4-usa-call-of-duty-wwii",
       "ps4-japon-call-of-duty-modern-warfare",
-      "ps2-call-of-duty-world-at-war-final-fronts",
       "ps3-call-of-duty-4-modern-warfare",
       "ps4-usa-call-of-duty-modern-warfare",
       "ps3-call-of-duty-black-ops",
       "ps4-call-of-duty-wwii",
-      "ps2-call-of-duty-2-big-red-one",
       "ps4-usa-call-of-duty-modern-warfare-ii",
       "ps3-call-of-duty-3",
       "ps4-usa-call-of-duty-black-ops-cold-war",
@@ -199,15 +253,40 @@
       "ps4-usa-call-of-duty-vanguard",
       "ps1-one",
       "ps1-usa-one",
-      "ps1-jp-slps-01812"
+      "ps1-jp-slps-01812",
+      "ps2-call-of-duty-2-big-red-one",
+      "ps2-call-of-duty-2-big-red-one-collector%27s-edition",
+      "ps2-call-of-duty-2-big-red-one-platinum",
+      "ps2-call-of-duty-3",
+      "ps2-call-of-duty-3-platinum",
+      "ps2-call-of-duty-3-special-edition",
+      "ps2-call-of-duty-finest-hour",
+      "ps2-call-of-duty-finest-hour-platinum",
+      "ps2-call-of-duty-world-at-war-final-fronts",
+      "ps2-call-of-duty-world-at-war-final-fronts-platinum",
+      "ps2-usa-call-of-duty-2-big-red-one",
+      "ps2-usa-call-of-duty-2-big-red-one-collector-s-edition",
+      "ps2-usa-call-of-duty-2-big-red-one-special-edition",
+      "ps2-usa-call-of-duty-3",
+      "ps2-usa-call-of-duty-3-special-edition",
+      "ps2-usa-call-of-duty-finest-hour",
+      "ps2-usa-call-of-duty-finest-hour-greatest-hits",
+      "ps2-japon-call-of-duty-2-big-red-one",
+      "ps2-japon-call-of-duty-finest-hour",
+      "ps2-de-sles-52784",
+      "ps2-de-sles-54168",
+      "ps2-de-sles-55369",
+      "ps2-eu-sles-52783",
+      "ps2-eu-sles-53416",
+      "ps2-eu-sles-54167"
     ],
     "byPlatform": {
       "ps1": 3,
-      "ps2": 4,
+      "ps2": 25,
       "ps3": 11,
       "ps4": 33
     },
-    "gameCount": 51
+    "gameCount": 72
   },
   "madden-nfl": {
     "name": "Madden NFL",
@@ -215,7 +294,6 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-madden-nfl-20",
-      "ps2-madden-2001",
       "ps4-usa-madden-nfl-25",
       "ps3-madden-nfl-17",
       "ps4-madden-nfl-16",
@@ -224,22 +302,16 @@
       "ps4-usa-madden-nfl-18",
       "ps4-usa-madden-nfl-16",
       "ps4-usa-madden-nfl-22",
-      "ps2-madden-2002",
       "ps4-usa-madden-nfl-24",
       "ps4-usa-madden-nfl-15",
       "ps3-madden-nfl-09",
-      "ps2-madden-nfl-08",
       "ps3-madden-nfl-13",
       "ps4-madden-nfl-24",
       "ps4-madden-nfl-20",
       "ps4-madden-nfl-21",
-      "ps2-madden-2005",
       "ps4-usa-madden-nfl-17",
       "ps4-madden-nfl-19",
-      "ps2-madden-2003",
-      "ps2-madden-nfl-09",
       "ps3-madden-nfl-11",
-      "ps2-madden-2004",
       "ps4-usa-madden-nfl-23",
       "ps4-madden-nfl-15",
       "ps4-usa-madden-nfl-21",
@@ -263,15 +335,24 @@
       "ps1-usa-madden-2001",
       "ps1-usa-madden-97",
       "ps1-usa-madden-98",
-      "ps1-usa-madden-99"
+      "ps1-usa-madden-99",
+      "ps2-madden-2001",
+      "ps2-madden-2002",
+      "ps2-madden-2003",
+      "ps2-madden-2004",
+      "ps2-madden-2005",
+      "ps2-madden-nfl-08",
+      "ps2-madden-nfl-09",
+      "ps2-jp-slpm-66837",
+      "ps2-us-slus-21638"
     ],
     "byPlatform": {
       "ps1": 10,
-      "ps2": 7,
+      "ps2": 9,
       "ps3": 10,
       "ps4": 23
     },
-    "gameCount": 50
+    "gameCount": 52
   },
   "nba-2k": {
     "name": "nba-2k",
@@ -280,37 +361,28 @@
     "gameIds": [
       "ps4-usa-nba-2k21",
       "ps4-usa-nba-2k16",
-      "ps2-nba-2k10",
-      "ps2-nba-2k7",
-      "ps2-nba-2k3",
       "ps4-usa-nba-2k19",
       "ps4-nba-2k14",
       "ps3-nba-2k9",
       "ps4-nba-2k18",
       "ps3-nba-2k14",
       "ps3-nba-2k15",
-      "ps2-espn-basketball",
       "ps4-usa-nba-2k18",
       "ps4-usa-nba-2k17",
-      "ps2-nba-2k11",
       "ps3-nba-2k11",
       "ps4-nba-2k22",
       "ps4-nba-2k16",
       "ps3-nba-2k8",
-      "ps2-espn-nba-2k5",
       "ps3-nba-2k10",
       "ps3-nba-2k7",
       "ps4-nba-2k17",
       "ps4-nba-2k23",
       "ps4-nba-2k19",
-      "ps2-nba-2k12",
       "ps3-nba-2k16",
-      "ps2-nba-2k8",
       "ps3-nba-2k13",
       "ps4-usa-nba-2k14",
       "ps3-nba-2k12",
       "ps4-nba-2k20",
-      "ps2-nba-2k9",
       "ps4-nba-2k15",
       "ps4-usa-nba-2k23",
       "ps3-nba-2k18",
@@ -320,14 +392,25 @@
       "ps4-usa-nba-2k22",
       "ps4-usa-nba-2k15",
       "ps4-usa-nba-2k20",
-      "ps2-nba-2k6"
+      "ps2-espn-basketball",
+      "ps2-espn-nba-2k5",
+      "ps2-nba-2k10",
+      "ps2-nba-2k11",
+      "ps2-nba-2k12",
+      "ps2-nba-2k3",
+      "ps2-nba-2k6",
+      "ps2-nba-2k6-not-for-resale",
+      "ps2-nba-2k7",
+      "ps2-nba-2k8",
+      "ps2-nba-2k9",
+      "ps2-usa-nba-2k12"
     ],
     "byPlatform": {
-      "ps2": 10,
+      "ps2": 12,
       "ps3": 12,
       "ps4": 21
     },
-    "gameCount": 43
+    "gameCount": 45
   },
   "nhl": {
     "name": "nhl",
@@ -335,13 +418,8 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-nhl-16",
-      "ps2-nhl-08",
       "ps4-usa-nhl-21",
-      "ps2-nhl-2005",
       "ps3-nhl-15",
-      "ps2-nhl-07",
-      "ps2-nhl-2004",
-      "ps2-nhl-2003",
       "ps4-usa-nhl-15",
       "ps4-usa-nhl-20",
       "ps3-nhl-13",
@@ -350,11 +428,9 @@
       "ps3-nhl-09",
       "ps3-nhl-14",
       "ps4-nhl-22",
-      "ps2-nhl-06",
       "ps4-usa-nhl-22",
       "ps3-nhl-11",
       "ps4-nhl-19",
-      "ps2-nhl-2001",
       "ps4-nhl-16",
       "ps3-nhl-10",
       "ps3-nhl-12",
@@ -363,11 +439,9 @@
       "ps3-nhl-08",
       "ps4-nhl-18",
       "ps4-nhl-17",
-      "ps2-nhl-2002",
       "ps4-usa-nhl-17",
       "ps4-usa-nhl-24",
       "ps4-nhl-20",
-      "ps2-nhl-09",
       "ps4-usa-nhl-18",
       "ps4-usa-nhl-23",
       "ps1-nhl-2000",
@@ -387,15 +461,31 @@
       "ps1-de-sles-03154",
       "ps1-eu-sles-00907",
       "ps1-eu-sles-02226",
-      "ps1-eu-sles-03155"
+      "ps1-eu-sles-03155",
+      "ps2-nhl-06",
+      "ps2-nhl-07",
+      "ps2-nhl-08",
+      "ps2-nhl-09",
+      "ps2-nhl-2001",
+      "ps2-nhl-2002",
+      "ps2-nhl-2003",
+      "ps2-nhl-2004",
+      "ps2-nhl-2005",
+      "ps2-de-sles-50028",
+      "ps2-de-sles-50427",
+      "ps2-eu-sles-50027",
+      "ps2-eu-sles-50029",
+      "ps2-eu-sles-50426",
+      "ps2-eu-sles-53463",
+      "ps2-ru-sles-55174"
     ],
     "byPlatform": {
       "ps1": 18,
-      "ps2": 9,
+      "ps2": 16,
       "ps3": 8,
       "ps4": 19
     },
-    "gameCount": 54
+    "gameCount": 61
   },
   "final-fantasy": {
     "name": "Final Fantasy",
@@ -407,7 +497,6 @@
       "ps4-final-fantasy-type-0-hd",
       "ps4-usa-final-fantasy-xiv-a-realm-reborn",
       "ps4-final-fantasy-vii-remake",
-      "ps2-final-fantasy-vii-dirge-of-cerberus",
       "ps4-usa-world-of-final-fantasy",
       "ps4-japon-final-fantasy-type-0-hd",
       "ps4-usa-final-fantasy-x-x-2-hd-remaster",
@@ -418,7 +507,6 @@
       "ps4-usa-final-fantasy-xv-day-one-edition",
       "ps4-world-of-final-fantasy",
       "ps4-final-fantasy-xv",
-      "ps2-final-fantasy-x-2",
       "ps4-japon-final-fantasy-vii-remake",
       "ps4-usa-final-fantasy-xv",
       "ps3-final-fantasy-xiv-a-realm-reborn",
@@ -428,13 +516,11 @@
       "ps4-usa-final-fantasy-type-0-hd",
       "ps3-final-fantasy-x-x-2-hd-remaster",
       "ps3-final-fantasy-xiii",
-      "ps2-final-fantasy-xii",
       "ps4-japon-world-of-final-fantasy",
       "ps4-final-fantasy-xii-the-zodiac-age",
       "ps4-usa-final-fantasy-vii-remake",
       "ps4-japon-final-fantasy-xv",
       "ps4-final-fantasy-xiv-a-realm-reborn",
-      "ps2-final-fantasy-x",
       "ps4-final-fantasy-xv-royal-edition",
       "ps1-final-fantasy-anthology",
       "ps1-final-fantasy-ix",
@@ -465,15 +551,51 @@
       "ps1-jp-asia-slpm-87388",
       "ps1-jp-asia-slps-01880",
       "ps1-jp-asia-slps-02000",
-      "ps1-us-scus-94163"
+      "ps1-us-scus-94163",
+      "ps2-final-fantasy-x",
+      "ps2-final-fantasy-x-bonus-disc-edition",
+      "ps2-final-fantasy-x-dvd-bundle",
+      "ps2-final-fantasy-x-platinum",
+      "ps2-final-fantasy-x-press-kit",
+      "ps2-final-fantasy-x-promo-only-not-for-resale",
+      "ps2-final-fantasy-x-2",
+      "ps2-final-fantasy-x-2-platinum",
+      "ps2-final-fantasy-xii",
+      "ps2-final-fantasy-xii-platinum",
+      "ps2-usa-final-fantasy-x",
+      "ps2-usa-final-fantasy-x-2",
+      "ps2-usa-final-fantasy-x-2-greatest-hits",
+      "ps2-usa-final-fantasy-x-greatest-hits",
+      "ps2-japon-final-fantasy-x",
+      "ps2-japon-final-fantasy-x-international",
+      "ps2-japon-final-fantasy-x-2",
+      "ps2-japon-final-fantasy-x-2-ultimate-hits",
+      "ps2-de-sces-50492",
+      "ps2-de-sles-51817",
+      "ps2-es-sces-50494",
+      "ps2-es-sles-51819",
+      "ps2-fr-sces-50491",
+      "ps2-fr-sles-51816",
+      "ps2-it-sces-50493",
+      "ps2-it-sles-51818",
+      "ps2-jp-asia-scaj-20068",
+      "ps2-jp-asia-slpm-65478",
+      "ps2-jp-asia-slpm-66678-ultimate-hits",
+      "ps2-jp-slpm-66124-ultimate-hits",
+      "ps2-jp-slpm-66677-ultimate-hits",
+      "ps2-jp-slps-25088",
+      "ps2-jp-slps-25250",
+      "ps2-jp-slps-72501-mega-hits",
+      "ps2-kr-slka-25144",
+      "ps2-kr-slpm-67513"
     ],
     "byPlatform": {
       "ps1": 30,
-      "ps2": 4,
+      "ps2": 36,
       "ps3": 5,
       "ps4": 25
     },
-    "gameCount": 64
+    "gameCount": 96
   },
   "pro-evolution-soccer-winning-eleven-efootball": {
     "name": "Pro Evolution Soccer/Winning Eleven/eFootball",
@@ -485,27 +607,18 @@
       "ps3-pro-evolution-soccer-2009",
       "ps4-pro-evolution-soccer-2018",
       "ps4-usa-pro-evolution-soccer-2016",
-      "ps2-pro-evolution-soccer",
       "ps4-efootball-pes-2020",
-      "ps2-pro-evolution-soccer-2014",
-      "ps2-pro-evolution-soccer-2010",
       "ps3-pro-evolution-soccer-2012",
-      "ps2-pro-evolution-soccer-2008",
       "ps3-pro-evolution-soccer-2016",
       "ps3-pro-evolution-soccer-2010",
-      "ps2-pro-evolution-soccer-2009",
       "ps4-pro-evolution-soccer-2017",
       "ps4-pro-evolution-soccer-2016-uefa-euro-2016",
       "ps4-pro-evolution-soccer-2016",
       "ps4-efootball-pes-2021-season-update",
-      "ps2-pro-evolution-soccer-2012",
-      "ps2-pro-evolution-soccer-2013",
       "ps4-usa-pro-evolution-soccer-2018",
-      "ps2-pro-evolution-soccer-management",
       "ps3-pro-evolution-soccer-2014",
       "ps4-usa-pro-evolution-soccer-2019",
       "ps3-pro-evolution-soccer-2018",
-      "ps2-pro-evolution-soccer-2011",
       "ps3-pro-evolution-soccer-2013",
       "ps4-usa-efootball-pes-2021",
       "ps4-usa-pro-evolution-soccer-2017",
@@ -528,15 +641,28 @@
       "ps1-eu-sles-03795",
       "ps1-eu-sles-03796",
       "ps1-jp-slpm-86600",
-      "ps1-jp-slps-00272"
+      "ps1-jp-slps-00272",
+      "ps2-pro-evolution-soccer-2008",
+      "ps2-pro-evolution-soccer-2008-platinum",
+      "ps2-pro-evolution-soccer-2009",
+      "ps2-pro-evolution-soccer-2009-platinum",
+      "ps2-pro-evolution-soccer-2010",
+      "ps2-pro-evolution-soccer-2010-platinum",
+      "ps2-pro-evolution-soccer-2011",
+      "ps2-pro-evolution-soccer-2011-platinum",
+      "ps2-pro-evolution-soccer-2012",
+      "ps2-pro-evolution-soccer-2013",
+      "ps2-pro-evolution-soccer-2014",
+      "ps2-pro-evolution-soccer-management",
+      "ps2-pro-evolution-soccer-management-not-for-resale"
     ],
     "byPlatform": {
       "ps1": 13,
-      "ps2": 9,
+      "ps2": 13,
       "ps3": 12,
       "ps4": 15
     },
-    "gameCount": 49
+    "gameCount": 53
   },
   "need-for-speed": {
     "name": "Need for Speed",
@@ -546,28 +672,21 @@
       "ps3-need-for-speed-most-wanted",
       "ps4-need-for-speed-hot-pursuit-remastered",
       "ps3-need-for-speed-carbon",
-      "ps2-need-for-speed-prostreet",
       "ps3-need-for-speed-the-run",
       "ps3-need-for-speed-hot-pursuit",
       "ps3-need-for-speed-undercover",
-      "ps2-need-for-speed-carbon",
       "ps3-need-for-speed-rivals",
       "ps3-need-for-speed-prostreet",
       "ps4-japon-need-for-speed-payback",
       "ps3-shift-2-unleashed",
       "ps4-need-for-speed-payback",
-      "ps2-need-for-speed-undercover",
-      "ps2-need-for-speed-hot-pursuit-2",
       "ps4-usa-need-for-speed",
       "ps3-need-for-speed-shift",
       "ps4-need-for-speed-rivals",
-      "ps2-need-for-speed-most-wanted",
       "ps4-usa-need-for-speed-heat",
       "ps4-need-for-speed",
-      "ps2-need-for-speed-underground-2",
       "ps4-usa-need-for-speed-payback",
       "ps3-need-for-speed-hot-pursuit-limited-edition",
-      "ps2-need-for-speed-underground",
       "ps4-usa-need-for-speed-hot-pursuit-remastered",
       "ps4-japon-need-for-speed",
       "ps4-need-for-speed-heat",
@@ -585,15 +704,57 @@
       "ps1-japon-over-drivin%27-iv",
       "ps1-au-sles-01876",
       "ps1-eu-sles-01789",
-      "ps1-eu-sles-01790"
+      "ps1-eu-sles-01790",
+      "ps2-need-for-speed-carbon",
+      "ps2-need-for-speed-carbon-collector%27s-edition",
+      "ps2-need-for-speed-carbon-platinum",
+      "ps2-need-for-speed-hot-pursuit-2",
+      "ps2-need-for-speed-most-wanted",
+      "ps2-need-for-speed-most-wanted-black",
+      "ps2-need-for-speed-most-wanted-platinum",
+      "ps2-need-for-speed-pro-street-platinum",
+      "ps2-need-for-speed-undercover",
+      "ps2-need-for-speed-underground",
+      "ps2-need-for-speed-underground-2",
+      "ps2-need-for-speed-underground-2-platinum",
+      "ps2-need-for-speed-underground-platinum",
+      "ps2-need-for-speed-carbon-not-for-resale",
+      "ps2-need-for-speed-prostreet",
+      "ps2-usa-need-for-speed-carbon",
+      "ps2-usa-need-for-speed-carbon-collector-s-edition",
+      "ps2-usa-need-for-speed-carbon-demo-disc",
+      "ps2-usa-need-for-speed-carbon-greatest-hits",
+      "ps2-usa-need-for-speed-hot-pursuit-2",
+      "ps2-usa-need-for-speed-hot-pursuit-2-greatest-hits",
+      "ps2-usa-need-for-speed-underground",
+      "ps2-usa-need-for-speed-underground-greatest-hits",
+      "ps2-japon-need-for-speed-carbon",
+      "ps2-japon-need-for-speed-underground",
+      "ps2-eu-au-sles-55002",
+      "ps2-eu-sles-53558",
+      "ps2-eu-sles-53559",
+      "ps2-eu-sles-54322",
+      "ps2-eu-sles-54323",
+      "ps2-eu-sles-54493",
+      "ps2-eu-sles-55003",
+      "ps2-eu-sles-55004",
+      "ps2-eu-sles-55350",
+      "ps2-eu-sles-55351",
+      "ps2-eu-sles-55353",
+      "ps2-jp-slpm-55061-ea-sy-1980",
+      "ps2-jp-slpm-65471",
+      "ps2-jp-slpm-66869-ea-best-hits",
+      "ps2-kr-slka-25136",
+      "ps2-kr-slka-25192-big-hit-series",
+      "ps2-ru-sles-54324"
     ],
     "byPlatform": {
       "ps1": 14,
-      "ps2": 7,
+      "ps2": 42,
       "ps3": 10,
       "ps4": 12
     },
-    "gameCount": 43
+    "gameCount": 78
   },
   "resident-evil": {
     "name": "Resident Evil",
@@ -604,7 +765,6 @@
       "ps4-usa-resident-evil-village",
       "ps4-resident-evil-village",
       "ps3-resident-evil-6",
-      "ps2-resident-evil-outbreak-file-2",
       "ps4-usa-resident-evil-5",
       "ps4-resident-evil-5",
       "ps4-resident-evil-6",
@@ -612,7 +772,6 @@
       "ps3-resident-evil-5",
       "ps4-japon-biohazard-7-resident-evil",
       "ps4-resident-evil-origins-collection",
-      "ps2-resident-evil-4",
       "ps3-resident-evil-revelations-2",
       "ps4-usa-resident-evil-4",
       "ps4-resident-evil-3",
@@ -623,14 +782,11 @@
       "ps4-usa-resident-evil-revelations-2",
       "ps4-resident-evil-revelations-2",
       "ps4-usa-resident-evil-6",
-      "ps2-resident-evil-dead-aim",
       "ps4-usa-resident-evil-origins-collection",
-      "ps2-resident-evil-outbreak",
       "ps4-resident-evil-7-biohazard",
       "ps3-resident-evil-revelations",
       "ps4-resident-evil-revelations",
       "ps4-usa-resident-evil-3",
-      "ps2-resident-evil-code-veronica-x",
       "ps1-resident-evil",
       "ps1-resident-evil-2",
       "ps1-resident-evil-director%27s-cut",
@@ -658,15 +814,26 @@
       "ps1-it-sles-00975",
       "ps1-us-slus-00421",
       "ps1-us-slus-00551",
-      "ps1-us-slus-00747"
+      "ps1-us-slus-00747",
+      "ps2-resident-evil-code-veronica-x",
+      "ps2-resident-evil-code-veronica-x-not-for-resale",
+      "ps2-resident-evil-code-veronica-x-platinum",
+      "ps2-resident-evil-dead-aim",
+      "ps2-usa-resident-evil-code-veronica-x",
+      "ps2-usa-resident-evil-code-veronica-x-anniversary-edition",
+      "ps2-usa-resident-evil-code-veronica-x-greatest-hits",
+      "ps2-usa-resident-evil-dead-aim",
+      "ps2-jp-slpm-55143-best-prize",
+      "ps2-jp-slpm-65022",
+      "ps2-jp-slpm-65245"
     ],
     "byPlatform": {
       "ps1": 28,
-      "ps2": 5,
+      "ps2": 11,
       "ps3": 5,
       "ps4": 21
     },
-    "gameCount": 59
+    "gameCount": 65
   },
   "assassin-s-creed": {
     "name": "Assassin's Creed",
@@ -765,37 +932,57 @@
       "ps3-sonic-the-hedgehog",
       "ps4-japon-team-sonic-racing",
       "ps4-usa-sonic-frontiers",
-      "ps2-sonic-riders-zero-gravity",
       "ps4-usa-sonic-superstars",
-      "ps2-sonic-riders",
       "ps4-sonic-frontiers",
       "ps4-usa-sonic-forces",
       "ps4-usa-sonic-colors-ultimate",
       "ps4-usa-sonic-racing-crossworlds",
       "ps3-sonic-&amp;-sega-all-stars-racing",
-      "ps2-sonic-unleashed",
       "ps4-team-sonic-racing",
       "ps3-sonic-unleashed",
-      "ps2-sonic-gems-collection",
       "ps3-sonic-&amp;-all-stars-racing-transformed",
       "ps4-sonic-forces",
-      "ps2-sonic-mega-collection-plus",
-      "ps2-shadow-the-hedgehog",
       "ps4-usa-team-sonic-racing",
       "ps4-sonic-x-shadow-generations",
-      "ps2-sonic-heroes",
       "ps4-sonic-superstars",
       "ps4-sonic-racing-crossworlds",
       "ps4-sonic-origins-plus",
       "ps4-sonic-team-racing",
-      "ps4-japon-sonic-frontiers"
+      "ps4-japon-sonic-frontiers",
+      "ps2-shadow-the-hedgehog",
+      "ps2-shadow-the-hedgehog-platinum",
+      "ps2-sonic-gems-collection",
+      "ps2-sonic-heroes",
+      "ps2-sonic-heroes-platinum",
+      "ps2-sonic-mega-collection-plus",
+      "ps2-sonic-mega-collection-plus-platinum",
+      "ps2-sonic-riders",
+      "ps2-sonic-riders-promo-only",
+      "ps2-sonic-riders-zero-gravity",
+      "ps2-sonic-unleashed",
+      "ps2-usa-shadow-the-hedgehog",
+      "ps2-usa-shadow-the-hedgehog-greatest-hits",
+      "ps2-usa-sonic-heroes",
+      "ps2-usa-sonic-heroes-greatest-hits",
+      "ps2-usa-sonic-riders",
+      "ps2-usa-sonic-riders-dvd-bundle",
+      "ps2-usa-sonic-riders-greatest-hits",
+      "ps2-usa-sonic-unleashed",
+      "ps2-japon-sonic-heroes",
+      "ps2-jp-asia-slaj-25027",
+      "ps2-jp-asia-slpm-65431",
+      "ps2-jp-slpm-66166",
+      "ps2-jp-slpm-66281",
+      "ps2-kr-slka-25122",
+      "ps2-kr-slka-25335",
+      "ps2-kr-slka-25428"
     ],
     "byPlatform": {
-      "ps2": 7,
+      "ps2": 27,
       "ps3": 5,
       "ps4": 18
     },
-    "gameCount": 30
+    "gameCount": 50
   },
   "nba-live": {
     "name": "NBA Live",
@@ -803,15 +990,10 @@
     "museumPath": "",
     "gameIds": [
       "ps4-nba-live-14",
-      "ps2-nba-live-2002",
       "ps4-usa-nba-live-16",
       "ps3-nba-live-10",
-      "ps2-nba-live-08",
       "ps4-nba-live-16",
-      "ps2-nba-live-2006",
       "ps3-nba-live-08",
-      "ps2-nba-live-2004",
-      "ps2-nba-live-09",
       "ps4-usa-nba-live-15",
       "ps4-nba-live-18",
       "ps4-nba-live-15",
@@ -819,9 +1001,6 @@
       "ps4-usa-nba-live-19",
       "ps3-nba-live-09",
       "ps4-usa-nba-live-14",
-      "ps2-nba-live-2003",
-      "ps2-nba-live-2001",
-      "ps2-nba-live-2005",
       "ps1-nba-live-2000",
       "ps1-nba-live-2001",
       "ps1-nba-live-2002",
@@ -864,15 +1043,40 @@
       "ps1-jp-slps-00389",
       "ps1-jp-slps-00736",
       "ps1-jp-slps-01296",
-      "ps1-jp-slps-02603"
+      "ps1-jp-slps-02603",
+      "ps2-nba-live-08",
+      "ps2-nba-live-09",
+      "ps2-nba-live-2001",
+      "ps2-nba-live-2002",
+      "ps2-nba-live-2003",
+      "ps2-nba-live-2004",
+      "ps2-nba-live-2005",
+      "ps2-nba-live-2006",
+      "ps2-de-sles-50024",
+      "ps2-de-sles-50536",
+      "ps2-es-sles-50026",
+      "ps2-es-sles-50538",
+      "ps2-es-sles-52727",
+      "ps2-es-sles-54933",
+      "ps2-es-sles-55337",
+      "ps2-eu-sles-50022",
+      "ps2-eu-sles-50534",
+      "ps2-eu-sles-55335",
+      "ps2-fr-sles-50023",
+      "ps2-fr-sles-50535",
+      "ps2-fr-sles-52726",
+      "ps2-fr-sles-54896",
+      "ps2-fr-sles-55336",
+      "ps2-it-sles-50025",
+      "ps2-it-sles-50537"
     ],
     "byPlatform": {
       "ps1": 43,
-      "ps2": 8,
+      "ps2": 25,
       "ps3": 3,
       "ps4": 9
     },
-    "gameCount": 63
+    "gameCount": 80
   },
   "just-dance": {
     "name": "Just Dance",
@@ -930,27 +1134,32 @@
       "ps4-usa-nelke-&amp;-the-legendary-alchemists-ateliers-of-the-new-world",
       "ps3-atelier-meruru-the-apprentice-of-arland",
       "ps4-atelier-sophie-the-alchemist-of-the-mysterious-book",
-      "ps2-atelier-iris-eternal-mana",
       "ps4-usa-atelier-ryza-ever-darkness-and-the-secret-hideout",
       "ps4-usa-atelier-lulua-the-scion-of-arland",
       "ps3-atelier-escha-&amp;-logy-alchemists-of-the-dusk-sky",
-      "ps2-mana-khemia-alchemists-of-al-revis",
       "ps3-atelier-totori-the-adventurer-of-arland",
       "ps4-atelier-firis-the-alchemist-and-the-mysterious-journey",
       "ps4-usa-atelier-ryza-2-lost-legends-&amp;-the-secret-fairy",
-      "ps2-atelier-iris-3-grand-phantasm",
       "ps4-atelier-ryza-2-lost-legends-&amp;-the-secret-fairy",
       "ps4-nelke-&amp;-the-legendary-alchemists-ateliers-of-the-new-world",
-      "ps2-atelier-iris-2-the-azoth-of-destiny",
       "ps4-usa-atelier-firis-the-alchemist-and-the-mysterious-journey",
-      "ps4-usa-atelier-lydie-&amp;-suelle"
+      "ps4-usa-atelier-lydie-&amp;-suelle",
+      "ps2-atelier-iris-2-the-azoth-of-destiny",
+      "ps2-atelier-iris-3-grand-phantasm",
+      "ps2-atelier-iris-eternal-mana",
+      "ps2-mana-khemia-alchemists-of-al-revis",
+      "ps2-mana-khemia-alchemists-of-al-revis-premium-box",
+      "ps2-usa-atelier-iris-eternal-mana",
+      "ps2-japon-atelier-iris-eternal-mana-premium-box",
+      "ps2-japon-atelier-iris-eternal-mana",
+      "ps2-jp-slpm-66081-gust-best-price"
     ],
     "byPlatform": {
-      "ps2": 4,
+      "ps2": 9,
       "ps3": 7,
       "ps4": 15
     },
-    "gameCount": 26
+    "gameCount": 31
   },
   "metal-gear": {
     "name": "Metal Gear",
@@ -963,7 +1172,6 @@
       "ps4-japon-metal-gear-survive",
       "ps4-japon-metal-gear-solid-v-phantom-pain",
       "ps3-metal-gear-solid-hd-collection",
-      "ps2-metal-gear-solid-2",
       "ps4-usa-metal-gear-solid-v-the-definitive-experience",
       "ps4-japon-metal-gear-solid-v-ground-zeroes",
       "ps4-metal-gear-solid-v-the-definitive-experience",
@@ -976,11 +1184,8 @@
       "ps4-usa-metal-gear-survive",
       "ps3-metal-gear-solid-4-guns-of-the-patriots",
       "ps4-metal-gear-solid-v-ground-zeroes",
-      "ps2-metal-gear-solid-3-subsistence",
       "ps4-usa-metal-gear-solid-v-the-phantom-pain",
       "ps3-pain",
-      "ps2-metal-gear-solid-3-snake-eater",
-      "ps2-metal-gear-solid-2-substance",
       "ps1-metal-gear-solid",
       "ps1-metal-gear-solid-double-pack",
       "ps1-usa-metal-gear-solid",
@@ -1001,11 +1206,10 @@
     ],
     "byPlatform": {
       "ps1": 17,
-      "ps2": 4,
       "ps3": 7,
       "ps4": 13
     },
-    "gameCount": 41
+    "gameCount": 37
   },
   "pga-tour": {
     "name": "PGA Tour",
@@ -1017,19 +1221,11 @@
       "ps3-tiger-woods-pga-tour-10",
       "ps3-tiger-woods-pga-tour-12-the-masters",
       "ps3-tiger-woods-pga-tour-07",
-      "ps2-tiger-woods-2005",
       "ps3-tiger-woods-pga-tour-09",
-      "ps2-tiger-woods-2004",
       "ps3-tiger-woods-pga-tour-14",
-      "ps2-tiger-woods-08",
-      "ps2-tiger-woods-09",
       "ps4-usa-pga-tour-2k21",
-      "ps2-tiger-woods-10",
-      "ps2-tiger-woods-2001",
       "ps4-pga-tour-2k21",
-      "ps2-tiger-woods-2003",
       "ps3-tiger-woods-pga-tour-08",
-      "ps2-tiger-woods-2002",
       "ps4-rory-mcilroy-pga-tour",
       "ps3-tiger-woods-pga-tour-11",
       "ps1-pga-tour-96",
@@ -1041,43 +1237,36 @@
       "ps1-usa-pga-tour-98",
       "ps1-jp-slps-00245",
       "ps1-jp-slps-00758",
-      "ps1-us-slus-01054"
+      "ps1-us-slus-01054",
+      "ps2-tiger-woods-2001"
     ],
     "byPlatform": {
       "ps1": 10,
-      "ps2": 8,
+      "ps2": 1,
       "ps3": 8,
       "ps4": 4
     },
-    "gameCount": 30
+    "gameCount": 23
   },
   "dragon-ball": {
     "name": "Dragon Ball",
     "slug": "dragon-ball",
     "museumPath": "",
     "gameIds": [
-      "ps2-dragon-ball-z-budokai-tenkaichi",
-      "ps2-dragon-ball-z-budokai-tenkaichi-2",
       "ps3-dragon-ball-xenoverse",
       "ps3-dragon-ball-z-ultimate-tenkaichi",
       "ps4-japon-dragon-ball-fighterz",
       "ps3-dragon-ball-z-battle-of-z",
-      "ps2-dragon-ball-z-budokai",
       "ps4-usa-dragon-ball-xenoverse-2",
-      "ps2-dragon-ball-z-budokai-tenkaichi-3",
       "ps3-dragon-ball-raging-blast",
       "ps4-dragon-ball-fighterz",
       "ps4-usa-dragon-ball-z-kakarot",
       "ps4-dragon-ball-z-kakarot",
       "ps3-dragon-ball-z-burst-limit",
       "ps4-dragon-ball-xenoverse-2",
-      "ps2-dragon-ball-z-budokai-3",
-      "ps2-dragon-ball-z-budokai-2",
-      "ps2-super-dragon-ball-z",
       "ps4-usa-dragon-ball-xenoverse",
       "ps3-dragon-ball-raging-blast-2",
       "ps4-dragon-ball-xenoverse",
-      "ps2-dragon-ball-z-infinite-world",
       "ps4-usa-dragon-ball-fighterz",
       "ps1-dragon-ball-final-bout",
       "ps1-dragon-ball-z-ultimate-battle-22",
@@ -1094,39 +1283,58 @@
       "ps1-eu-sles-03735",
       "ps1-eu-sles-03736",
       "ps1-it-sles-03684",
-      "ps1-it-sles-03738"
+      "ps1-it-sles-03738",
+      "ps2-dragon-ball-z-budokai",
+      "ps2-dragon-ball-z-budokai-2",
+      "ps2-dragon-ball-z-budokai-2-platinum",
+      "ps2-dragon-ball-z-budokai-3",
+      "ps2-dragon-ball-z-budokai-3-collector%27s-edition",
+      "ps2-dragon-ball-z-budokai-3-limited-edition",
+      "ps2-dragon-ball-z-budokai-3-platinum",
+      "ps2-dragon-ball-z-budokai-platinum",
+      "ps2-dragon-ball-z-budokai-tenkaichi",
+      "ps2-dragon-ball-z-budokai-tenkaichi-2",
+      "ps2-dragon-ball-z-budokai-tenkaichi-2-not-for-resale",
+      "ps2-dragon-ball-z-budokai-tenkaichi-2-platinum",
+      "ps2-dragon-ball-z-budokai-tenkaichi-3",
+      "ps2-dragon-ball-z-budokai-tenkaichi-3-collector%27s-edition",
+      "ps2-dragon-ball-z-budokai-tenkaichi-3-platinum",
+      "ps2-dragon-ball-z-budokai-tenkaichi-3-promo",
+      "ps2-dragon-ball-z-budokai-tenkaichi-platinum",
+      "ps2-dragon-ball-z-infinite-world",
+      "ps2-dragon-ball-z-budokai-3-limited-edition-collectable-tin",
+      "ps2-dragon-ball-z-infinite-world-not-for-resale",
+      "ps2-super-dragon-ball-z",
+      "ps2-super-dragon-ball-z-promo-not-for-resale",
+      "ps2-usa-dragon-ball-z-budokai",
+      "ps2-usa-dragon-ball-z-budokai-2",
+      "ps2-usa-dragon-ball-z-budokai-2-greatest-hits",
+      "ps2-usa-dragon-ball-z-budokai-greatest-hits",
+      "ps2-japon-dragon-ball-z-2",
+      "ps2-cn-sccs-40009",
+      "ps2-jp-slps-25330",
+      "ps2-jp-slps-73208-playstation-2-the-best",
+      "ps2-kr-slka-25062"
     ],
     "byPlatform": {
       "ps1": 16,
-      "ps2": 8,
+      "ps2": 31,
       "ps3": 6,
       "ps4": 9
     },
-    "gameCount": 39
+    "gameCount": 62
   },
   "wwe-wwf": {
     "name": "wwe-wwf",
     "slug": "wwe-wwf",
     "museumPath": "",
     "gameIds": [
-      "ps2-wwe-all-stars",
-      "ps2-wwe-smackdown-shut-your-mouth",
       "ps3-wwe-all-stars",
       "ps3-wwe-smackdown-vs-raw-2008",
       "ps3-wwe-legends-of-wrestlemania",
-      "ps2-wwe-smackdown-vs-raw-2007",
-      "ps2-wwe-smackdown-vs-raw-2008",
-      "ps2-wwe-smackdown-vs-raw-2011",
-      "ps2-wwe-crush-hour",
-      "ps2-wwe-smackdown-vs-raw-2010",
-      "ps2-wwe-smackdown-vs-raw",
       "ps3-wwe-%2712",
       "ps3-wwe-smackdown-vs-raw-2009",
-      "ps2-wwe-smackdown-here-comes-the-pain",
       "ps3-wwe-smackdown-vs-raw-2010",
-      "ps2-wwe-smackdown-vs-raw-2006",
-      "ps2-wwe-smackdown-vs-raw-2009",
-      "ps2-wwf-smackdown-just-bring-it",
       "ps3-wwe-smackdown-vs-raw-2011",
       "ps1-wwf-attitude",
       "ps1-wwf-in-your-house",
@@ -1146,50 +1354,44 @@
       "ps1-jp-slps-00695",
       "ps1-jp-slps-02885",
       "ps1-jp-slps-03122",
-      "ps1-jp-slps-91497-psone-books"
+      "ps1-jp-slps-91497-psone-books",
+      "ps2-wwe-all-stars",
+      "ps2-wwe-crush-hour",
+      "ps2-wwf-smackdown-just-bring-it",
+      "ps2-usa-wwe-all-stars"
     ],
     "byPlatform": {
       "ps1": 19,
-      "ps2": 12,
+      "ps2": 4,
       "ps3": 7
     },
-    "gameCount": 38
+    "gameCount": 30
   },
   "dynasty-warriors": {
     "name": "Dynasty Warriors",
     "slug": "dynasty-warriors",
     "museumPath": "",
     "gameIds": [
-      "ps2-dynasty-warriors-3",
-      "ps2-dynasty-warriors-5-empires",
       "ps3-dynasty-warriors-8",
       "ps4-dynasty-warriors-9",
       "ps3-dynasty-warriors-7-empires",
       "ps3-dynasty-warriors-7-xtreme-legends",
-      "ps2-dynasty-warriors-5-xtreme-legend",
-      "ps2-dynasty-warriors-5",
       "ps3-dynasty-warriors-6",
-      "ps2-dynasty-warriors-4-xtreme-legends",
       "ps4-usa-dynasty-warriors-9",
-      "ps2-dynasty-warriors-4-empires",
       "ps3-dynasty-warriors-gundam-reborn",
-      "ps2-dynasty-warriors-3-xtreme-legends",
-      "ps2-dynasty-warriors-4",
       "ps3-dynasty-warriors-strikeforce",
       "ps3-dynasty-warriors-6-empires",
       "ps3-dynasty-warriors-gundam-3",
       "ps3-dynasty-warriors-7",
       "ps3-dynasty-warriors-gundam-2",
       "ps3-dynasty-warriors-gundam",
-      "ps4-japon-dynasty-warriors-godseekers",
-      "ps2-dynasty-warriors-2"
+      "ps4-japon-dynasty-warriors-godseekers"
     ],
     "byPlatform": {
-      "ps2": 9,
       "ps3": 11,
       "ps4": 3
     },
-    "gameCount": 23
+    "gameCount": 14
   },
   "f1": {
     "name": "f1",
@@ -1234,9 +1436,7 @@
     "gameIds": [
       "ps4-tomb-raider-definitive-edition",
       "ps4-usa-lara-croft-and-the-temple-of-osiris",
-      "ps2-tomb-raider-legend",
       "ps3-tomb-raider-trilogy",
-      "ps2-tomb-raider-underworld",
       "ps4-japon-lara-croft-and-the-temple-of-osiris",
       "ps4-usa-tomb-raider-definitive-edition",
       "ps4-shadow-of-the-tomb-raider",
@@ -1246,10 +1446,8 @@
       "ps4-japon-shadow-of-the-tomb-raider",
       "ps3-tomb-raider-underworld",
       "ps4-lara-croft-and-the-temple-of-osiris",
-      "ps2-tomb-raider-anniversary",
       "wii-tomb-raider-underworld",
       "ps4-japon-tomb-raider-definitive-edition",
-      "ps2-tomb-raider-angel-of-darkness",
       "ps4-japon-rise-of-the-tomb-raider",
       "ps1-tomb-raider",
       "ps1-tomb-raider-chronicles",
@@ -1283,25 +1481,25 @@
       "ps1-jp-slps-02803",
       "ps1-jp-slps-91433-psone-books",
       "ps1-jp-slps-91434-psone-books",
-      "ps1-us-slus-00152"
+      "ps1-us-slus-00152",
+      "ps2-tomb-raider-legend",
+      "ps2-tomb-raider-legend-platinum",
+      "ps2-tomb-raider-underworld"
     ],
     "byPlatform": {
       "ps1": 33,
-      "ps2": 4,
+      "ps2": 3,
       "ps3": 3,
       "ps4": 11,
       "wii": 1
     },
-    "gameCount": 52
+    "gameCount": 51
   },
   "guitar-hero": {
     "name": "Guitar Hero",
     "slug": "guitar-hero",
     "museumPath": "",
     "gameIds": [
-      "ps2-guitar-hero",
-      "ps2-guitar-hero-metallica",
-      "ps2-guitar-hero-iii-legends-of-rock",
       "ps3-guitar-hero-live",
       "ps3-band-hero",
       "ps3-guitar-hero-iii-legends-of-rock",
@@ -1311,37 +1509,48 @@
       "ps3-guitar-hero-van-halen",
       "ps3-guitar-hero-warriors-of-rock",
       "ps3-dj-hero-2",
-      "ps2-guitar-hero-5",
-      "ps2-guitar-hero-ii",
       "ps3-guitar-hero-world-tour",
-      "ps2-dj-hero",
       "ps3-dj-hero",
-      "ps2-guitar-hero-van-halen",
-      "ps2-guitar-hero-rocks-the-80s",
-      "ps2-guitar-hero-aerosmith",
-      "ps2-guitar-hero-world-tour",
+      "ps3-guitar-hero-5",
       "ps2-band-hero",
-      "ps3-guitar-hero-5"
+      "ps2-guitar-hero",
+      "ps2-guitar-hero-rocks-the-80s-promo-not-for-resale",
+      "ps2-guitar-hero-guitar-bundle",
+      "ps2-guitar-hero-aerosmith-bundle",
+      "ps2-guitar-hero-ii",
+      "ps2-guitar-hero-metallica",
+      "ps2-guitar-hero-metallica-not-for-resale",
+      "ps2-guitar-hero-aerosmith",
+      "ps2-guitar-hero-rocks-the-80s",
+      "ps2-guitar-hero-rocks-the-80s-guitar-bundle",
+      "ps2-guitar-hero-van-halen",
+      "ps2-usa-guitar-hero",
+      "ps2-usa-guitar-hero-aerosmith",
+      "ps2-usa-guitar-hero-aerosmith-bundle",
+      "ps2-usa-guitar-hero-aerosmith-limited-edition-bundle",
+      "ps2-usa-guitar-hero-encore-rocks-the-80-s",
+      "ps2-usa-guitar-hero-encore-rocks-the-80-s-greatest-hits",
+      "ps2-usa-guitar-hero-greatest-hits",
+      "ps2-usa-guitar-hero-guitar-bundle",
+      "ps2-guitar-hero-metallica-guitar-bundle",
+      "ps2-eu-au-sles-54132",
+      "ps2-eu-au-sles-54859",
+      "ps2-eu-sles-55200"
     ],
     "byPlatform": {
-      "ps2": 11,
+      "ps2": 24,
       "ps3": 11,
       "ps4": 1
     },
-    "gameCount": 23
+    "gameCount": 36
   },
   "star-wars": {
     "name": "Star Wars",
     "slug": "star-wars",
     "museumPath": "",
     "gameIds": [
-      "ps2-star-wars-clone-wars",
-      "ps2-star-wars-battlefront",
-      "ps2-star-wars-episode-iii-revenge-of-the-sith",
       "ps4-usa-star-wars-battlefront-ii",
       "ps4-japon-star-wars-battlefront",
-      "ps2-star-wars-starfighter",
-      "ps2-star-wars-super-bombad-racing",
       "ps4-star-wars-jedi-fallen-order",
       "ps4-star-wars-battlefront",
       "ps4-japon-star-wars-jedi-fallen-order",
@@ -1371,15 +1580,40 @@
       "ps1-it-sles-00640",
       "ps1-it-sles-02037",
       "ps1-it-sles-02610",
-      "ps1-us-slus-00884"
+      "ps1-us-slus-00884",
+      "ps2-star-wars-clone-wars",
+      "ps2-star-wars-episode-iii-revenge-of-the-sith",
+      "ps2-star-wars-episode-iii-revenge-of-the-sith-platinum",
+      "ps2-star-wars-starfighter",
+      "ps2-star-wars-starfighter-platinum",
+      "ps2-star-wars-super-bombad-racing",
+      "ps2-usa-star-wars-clone-wars",
+      "ps2-usa-star-wars-episode-iii-revenge-of-the-sith",
+      "ps2-usa-star-wars-episode-iii-revenge-of-the-sith-comic-book-bundle",
+      "ps2-usa-star-wars-episode-iii-revenge-of-the-sith-greatest-hits",
+      "ps2-usa-star-wars-super-bombad-racing",
+      "ps2-de-sles-50167",
+      "ps2-de-sles-50206",
+      "ps2-de-sles-50828",
+      "ps2-es-sles-50169",
+      "ps2-es-sles-50208",
+      "ps2-es-sles-50830",
+      "ps2-eu-sles-50204",
+      "ps2-eu-sles-53155",
+      "ps2-fr-sles-50166",
+      "ps2-fr-sles-50205",
+      "ps2-fr-sles-50827",
+      "ps2-fr-sles-53156",
+      "ps2-it-sles-50168",
+      "ps2-it-sles-50207"
     ],
     "byPlatform": {
       "ps1": 19,
-      "ps2": 5,
+      "ps2": 25,
       "ps3": 1,
       "ps4": 12
     },
-    "gameCount": 37
+    "gameCount": 57
   },
   "wwe-2k": {
     "name": "wwe-2k",
@@ -1431,22 +1665,27 @@
       "ps4-like-a-dragon-infinite-wealth",
       "ps3-yakuza-4",
       "ps4-usa-yakuza-6-the-song-of-life",
-      "ps2-yakuza-2",
       "ps4-yakuza-kiwami-2",
-      "ps2-yakuza",
       "ps4-yakuza-0",
       "ps3-yakuza-3",
       "ps4-usa-yakuza-kiwami-2",
       "ps4-usa-like-a-dragon-infinite-wealth",
       "ps4-usa-like-a-dragon-ishin",
-      "ps4-yakuza-6-the-song-of-life"
+      "ps4-yakuza-6-the-song-of-life",
+      "ps2-yakuza",
+      "ps2-yakuza-2",
+      "ps2-usa-yakuza",
+      "ps2-japon-ryuu-ga-gotoku-playstation-2-the-best",
+      "ps2-jp-slpm-66168",
+      "ps2-jp-slpm-74253-playstation-2-the-best-reprint-with-dvd",
+      "ps2-jp-slpm-74269-playstation-2-the-best-reprint"
     ],
     "byPlatform": {
-      "ps2": 2,
+      "ps2": 7,
       "ps3": 3,
       "ps4": 16
     },
-    "gameCount": 21
+    "gameCount": 26
   },
   "battlefield": {
     "name": "Battlefield",
@@ -1468,17 +1707,26 @@
       "ps4-battlefield-1",
       "ps3-battlefield-3",
       "ps4-japon-battlefield-1",
-      "ps2-battlefield-2-modern-combat",
       "ps4-usa-battlefield-4",
       "ps4-battlefield-v",
-      "ps4-japon-battlefield-4"
+      "ps4-japon-battlefield-4",
+      "ps2-battlefield-2-modern-combat",
+      "ps2-battlefield-2-modern-combat-platinum",
+      "ps2-usa-battlefield-2-modern-combat",
+      "ps2-usa-battlefield-2-modern-combat-greatest-hits",
+      "ps2-usa-battlefield-2-modern-combat-online-only-demo-disc",
+      "ps2-eu-sles-53730",
+      "ps2-jp-slpm-55034-ea-sy-1980",
+      "ps2-jp-slpm-66206",
+      "ps2-jp-slpm-66651-ea-best-hits-release",
+      "ps2-kr-slka-25330"
     ],
     "byPlatform": {
-      "ps2": 1,
+      "ps2": 10,
       "ps3": 5,
       "ps4": 13
     },
-    "gameCount": 19
+    "gameCount": 28
   },
   "crash-bandicoot": {
     "name": "Crash Bandicoot",
@@ -1487,17 +1735,11 @@
     "gameIds": [
       "ps4-crash-bandicoot-4-it%27s-about-time",
       "ps4-crash-bandicoot-n-sane-trilogy",
-      "ps2-crash-nitro-kart",
       "ps4-usa-crash-team-racing-nitro-fueled",
-      "ps2-crash-mind-over-mutant",
-      "ps2-crash-tag-team-racing",
       "ps4-usa-crash-bandicoot-n-sane-trilogy",
       "ps4-crash-team-racing-nitro-fueled",
       "ps4-crash-team-racing-nitro-fueled-nitros-oxide-edition",
-      "ps2-crash-twinsanity",
-      "ps2-crash-of-the-titans",
       "ps4-usa-crash-bandicoot-4-it%27s-about-time",
-      "ps2-crash-bandicoot-the-wrath-of-cortex",
       "ps1-crash-bandicoot",
       "ps1-crash-bandicoot-2-cortex-strikes-back",
       "ps1-crash-bandicoot-3-warped",
@@ -1518,14 +1760,41 @@
       "ps1-jp-asia-scps-91230-playstation-the-best-for-family",
       "ps1-jp-asia-scps-91318-psone-books",
       "ps1-jp-asia-scps-91319-psone-books",
-      "ps1-jp-asia-scps-91328-psone-books"
+      "ps1-jp-asia-scps-91328-psone-books",
+      "ps2-crash-bandicoot-the-wrath-of-cortex",
+      "ps2-crash-bandicoot-the-wrath-of-cortex-platinum",
+      "ps2-crash-mind-over-mutant",
+      "ps2-crash-mind-over-mutant-promo",
+      "ps2-crash-nitro-kart",
+      "ps2-crash-nitro-kart-platinum",
+      "ps2-crash-of-the-titans",
+      "ps2-crash-of-the-titans-monster-edition",
+      "ps2-crash-of-the-titans-platinum",
+      "ps2-crash-tag-team-racing",
+      "ps2-crash-tag-team-racing-platinum",
+      "ps2-crash-twinsanity",
+      "ps2-crash-twinsanity-platinum",
+      "ps2-usa-crash-bandicoot-the-wrath-of-cortex",
+      "ps2-usa-crash-bandicoot-the-wrath-of-cortex-demo-disc",
+      "ps2-usa-crash-bandicoot-the-wrath-of-cortex-greatest-hits",
+      "ps2-usa-crash-nitro-kart",
+      "ps2-usa-crash-nitro-kart-greatest-hits",
+      "ps2-usa-crash-nitro-kart-soundtrack-bundle",
+      "ps2-usa-crash-of-the-titans",
+      "ps2-usa-crash-twinsanity",
+      "ps2-japon-crash-bandicoot-4-sakuretsu-majin-power",
+      "ps2-jp-slpm-74003-playstation-2-the-best",
+      "ps2-ru-sles-54843",
+      "ps2-ru-sles-55206",
+      "ps2-scand-sles-54842",
+      "ps2-scand-sles-55205"
     ],
     "byPlatform": {
       "ps1": 21,
-      "ps2": 6,
+      "ps2": 27,
       "ps4": 7
     },
-    "gameCount": 34
+    "gameCount": 55
   },
   "lego": {
     "name": "LEGO",
@@ -1564,30 +1833,33 @@
     "slug": "singstar",
     "museumPath": "",
     "gameIds": [
-      "ps2-singstar-latino",
-      "ps2-singstar-mecano",
       "ps3-singstar-dance",
       "ps3-singstar-vol-3",
       "ps3-singstar-queen",
-      "ps2-singstar-queen",
       "ps3-singstar-pop-edition",
       "ps4-singstar-celebration",
       "ps3-singstar",
       "ps3-singstar-hits",
       "ps3-singstar-abba",
       "ps3-singstar-starter-pack",
-      "ps2-singstar-abba",
       "ps3-singstar-vol-2",
-      "ps2-singstar",
       "ps4-usa-singstar-celebration",
-      "ps2-singstar-pop"
+      "ps2-singstar-abba",
+      "ps2-singstar-latino",
+      "ps2-singstar-mecano",
+      "ps2-singstar-queen",
+      "ps2-de-sces-55437",
+      "ps2-de-sces-55454",
+      "ps2-es-sces-55438",
+      "ps2-fr-sces-55436",
+      "ps2-it-sces-55485"
     ],
     "byPlatform": {
-      "ps2": 6,
+      "ps2": 9,
       "ps3": 9,
       "ps4": 2
     },
-    "gameCount": 17
+    "gameCount": 20
   },
   "street-fighter": {
     "name": "Street Fighter",
@@ -1600,7 +1872,6 @@
       "ps4-usa-street-fighter-30th-anniversary-collection",
       "gameboy-usa-street-fighter-ii",
       "ps3-ultra-street-fighter-iv",
-      "ps2-street-fighter-alpha-anthology",
       "ps4-street-fighter-30th-anniversary-collection",
       "ps3-street-fighter-iv",
       "ps3-street-fighter-x-tekken",
@@ -1625,16 +1896,18 @@
       "ps1-japon-street-fighter-zero-2-playstation-the-best",
       "ps1-japon-street-fighter-zero-3",
       "ps1-japon-super-puzzle-fighter-ii-x",
-      "ps1-jp-slpm-86877-capkore"
+      "ps1-jp-slpm-86877-capkore",
+      "ps2-street-fighter-alpha-anthology",
+      "ps2-street-fighter-alpha-anthology-not-for-resale"
     ],
     "byPlatform": {
       "gameboy": 1,
       "ps1": 22,
-      "ps2": 1,
+      "ps2": 2,
       "ps3": 4,
       "ps4": 4
     },
-    "gameCount": 32
+    "gameCount": 33
   },
   "far-cry": {
     "name": "Far Cry",
@@ -1697,28 +1970,25 @@
     "slug": "tony-hawk",
     "museumPath": "",
     "gameIds": [
-      "ps2-tony-hawk-underground",
-      "ps2-tony-hawk-american-wasteland",
       "ps3-tony-hawk-ride",
-      "ps2-tony-hawk-downhill-jam",
-      "ps2-tony-hawk-project-8",
-      "ps2-tony-hawk%27s-proving-ground",
       "ps4-tony-hawk-5",
       "ps4-usa-tony-hawk%27s-pro-skater-1-and-2",
       "ps3-tony-hawk-shred",
-      "ps2-tony-hawk-underground-2",
       "ps3-tony-hawk-proving-ground",
       "ps3-tony-hawk-5",
       "ps4-usa-tony-hawk-5",
       "ps4-tony-hawk%27s-pro-skater-1-and-2",
-      "ps3-tony-hawk-project-8"
+      "ps3-tony-hawk-project-8",
+      "ps2-tony-hawk-downhill-jam",
+      "ps2-tony-hawk-underground",
+      "ps2-tony-hawk-underground-2"
     ],
     "byPlatform": {
-      "ps2": 6,
+      "ps2": 3,
       "ps3": 5,
       "ps4": 4
     },
-    "gameCount": 15
+    "gameCount": 12
   },
   "lego-marvel": {
     "name": "LEGO Marvel",
@@ -1752,15 +2022,11 @@
     "slug": "mortal-kombat",
     "museumPath": "",
     "gameIds": [
-      "ps2-mortal-kombat-shaolin-monks",
-      "ps2-mortal-kombat-deadly-alliance",
       "gameboy-mortal-kombat-ii",
       "ps4-usa-mortal-kombat-x",
-      "ps2-mortal-kombat-armageddon",
       "ps4-usa-mortal-kombat-11",
       "ps3-mortal-kombat",
       "ps4-mortal-kombat-x",
-      "ps2-mortal-kombat-deception",
       "ps4-mortal-kombat-11",
       "ps1-mortal-kombat-3",
       "ps1-mortal-kombat-4",
@@ -1775,16 +2041,43 @@
       "ps1-japon-mortal-kombat-3",
       "ps1-eu-sles-02509-midway-classic-release",
       "ps1-jp-slps-00791",
-      "ps1-us-scus-94201"
+      "ps1-us-scus-94201",
+      "ps2-mortal-kombat-armageddon",
+      "ps2-mortal-kombat-deadly-alliance",
+      "ps2-mortal-kombat-deadly-alliance-platinum",
+      "ps2-mortal-kombat-deception",
+      "ps2-mortal-kombat-deception-not-for-resale",
+      "ps2-mortal-kombat-shaolin-monks",
+      "ps2-mortal-kombat-shaolin-monks-not-for-resale",
+      "ps2-usa-mortal-kombat-armageddon",
+      "ps2-usa-mortal-kombat-armageddon-greatest-hits",
+      "ps2-usa-mortal-kombat-armageddon-premium-edition",
+      "ps2-usa-mortal-kombat-armageddon-premium-edition-johnny-cage",
+      "ps2-usa-mortal-kombat-armageddon-premium-edition-kano",
+      "ps2-usa-mortal-kombat-armageddon-premium-edition-shao-khan",
+      "ps2-usa-mortal-kombat-deadly-alliance",
+      "ps2-usa-mortal-kombat-deadly-alliance-adema-bonus-cd",
+      "ps2-usa-mortal-kombat-deadly-alliance-greatest-hits",
+      "ps2-usa-mortal-kombat-deadly-alliance-not-for-resale",
+      "ps2-usa-mortal-kombat-deception",
+      "ps2-usa-mortal-kombat-deception-greatest-hits",
+      "ps2-usa-mortal-kombat-deception-premium-pack",
+      "ps2-usa-mortal-kombat-shaolin-monks",
+      "ps2-usa-mortal-kombat-shaolin-monks-greatest-hits",
+      "ps2-de-sles-51439",
+      "ps2-de-sles-52706",
+      "ps2-de-sles-53525",
+      "ps2-eu-au-sles-50717",
+      "ps2-eu-sles-53524"
     ],
     "byPlatform": {
       "gameboy": 1,
       "ps1": 14,
-      "ps2": 4,
+      "ps2": 27,
       "ps3": 1,
       "ps4": 4
     },
-    "gameCount": 24
+    "gameCount": 47
   },
   "motogp": {
     "name": "MotoGP",
@@ -1797,7 +2090,6 @@
       "ps4-motogp-17",
       "ps3-motogp-13",
       "ps3-motogp-08",
-      "ps2-motogp-08",
       "ps4-motogp-14",
       "ps4-usa-motogp-14",
       "ps4-usa-motogp-19",
@@ -1805,7 +2097,8 @@
       "ps3-motogp-1011",
       "ps3-motogp-15",
       "ps3-motogp-14",
-      "ps4-usa-motogp-17"
+      "ps4-usa-motogp-17",
+      "ps2-motogp-08"
     ],
     "byPlatform": {
       "ps2": 1,
@@ -1819,12 +2112,8 @@
     "slug": "samurai-warriors",
     "museumPath": "",
     "gameIds": [
-      "ps2-samurai-warriors-2-xtreme-legends",
-      "ps2-samurai-warriors-2",
       "ps4-usa-samurai-warriors-4",
       "ps4-samurai-warriors-5",
-      "ps2-samurai-warriors-xtreme-legends",
-      "ps2-samurai-warriors-2-empires",
       "ps4-usa-samurai-warriors-4-ii",
       "ps4-samurai-warriors-4-ii",
       "ps4-samurai-warriors-spirit-of-sanada",
@@ -1832,14 +2121,12 @@
       "ps4-samurai-warriors-4",
       "ps4-usa-samurai-warriors-5",
       "ps4-usa-samurai-warriors-spirit-of-sanada",
-      "ps4-samurai-warriors-4-empires",
-      "ps2-samurai-warriors"
+      "ps4-samurai-warriors-4-empires"
     ],
     "byPlatform": {
-      "ps2": 5,
       "ps4": 10
     },
-    "gameCount": 15
+    "gameCount": 10
   },
   "the-king-of-fighters": {
     "name": "The King of Fighters",
@@ -1847,34 +2134,32 @@
     "museumPath": "",
     "gameIds": [
       "ps4-japon-king-of-fighters-xv",
-      "ps2-king-of-fighters-maximum-impact-2",
       "ps4-usa-king-of-fighters-xiv",
       "ps3-king-of-fighters-xiii",
       "ps4-japon-king-of-fighters-xiv",
-      "ps2-king-of-fighters-xi",
       "ps4-king-of-fighters-xiv",
       "ps4-usa-king-of-fighters-xv",
       "ps3-king-of-fighters-xii",
-      "ps2-the-king-of-fighters-2003",
       "ps4-usa-king-of-fighters-97-global-match",
-      "ps2-king-of-fighters-2002",
       "ps4-king-of-fighters-xiv-ultimate-edition",
-      "ps2-king-of-fighters-maximum-impact",
       "neogeo-aes-plus-international-the-king-of-fighters-2002",
       "neogeo-aes-plus-japanese-the-king-of-fighters-2002",
       "ps1-king-of-fighters-95",
       "ps1-usa-king-of-fighters-95",
       "ps1-jp-slps-00351",
-      "ps1-jp-slps-91026-playstation-the-best"
+      "ps1-jp-slps-91026-playstation-the-best",
+      "ps2-king-of-fighters-2002",
+      "ps2-king-of-fighters-maximum-impact-2",
+      "ps2-the-king-of-fighters-2003"
     ],
     "byPlatform": {
       "neogeo-aes-plus": 2,
       "ps1": 4,
-      "ps2": 5,
+      "ps2": 3,
       "ps3": 2,
       "ps4": 7
     },
-    "gameCount": 20
+    "gameCount": 18
   },
   "armored-core": {
     "name": "Armored Core",
@@ -1882,14 +2167,7 @@
     "museumPath": "",
     "gameIds": [
       "ps3-armored-core-verdict-day",
-      "ps2-armored-core-silent-line",
-      "ps2-armored-core-nine-breaker",
-      "ps2-armored-core-2-another-age",
-      "ps2-armored-core-last-raven",
-      "ps2-armored-core-3",
-      "ps2-armored-core-nexus",
       "ps4-armored-core-vi-fires-of-rubicon",
-      "ps2-armored-core-2",
       "ps3-armored-core-v",
       "ps3-armored-core-4",
       "ps3-armored-core-for-answer",
@@ -1899,7 +2177,14 @@
       "ps1-japon-armored-core",
       "ps1-jp-slps-00900",
       "ps1-jp-slps-91064-playstation-the-best",
-      "ps1-us-slus-01323-reprint"
+      "ps1-us-slus-01323-reprint",
+      "ps2-armored-core-2",
+      "ps2-armored-core-2-another-age",
+      "ps2-armored-core-3",
+      "ps2-armored-core-last-raven",
+      "ps2-armored-core-nexus",
+      "ps2-armored-core-nine-breaker",
+      "ps2-armored-core-silent-line"
     ],
     "byPlatform": {
       "ps1": 6,
@@ -1941,12 +2226,8 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-gran-turismo-7",
-      "ps2-gran-turismo-concept-2002-tokyo-geneva",
       "ps3-gran-turismo-6",
       "ps4-gran-turismo-7",
-      "ps2-gran-turismo-4",
-      "ps2-gran-turismo-4-prologue",
-      "ps2-gran-turismo-3",
       "ps4-gran-turismo-spec-ii",
       "ps4-gran-turismo-sport",
       "ps4-usa-gran-turismo-sport",
@@ -1963,15 +2244,26 @@
       "ps1-jp-asia-scps-45149",
       "ps1-jp-asia-scps-45457",
       "ps1-jp-asia-scps-91128-playstation-the-best",
-      "ps1-jp-asia-scps-91301-psone-books"
+      "ps1-jp-asia-scps-91301-psone-books",
+      "ps2-gran-turismo-3",
+      "ps2-gran-turismo-4",
+      "ps2-gran-turismo-4-bmw-1-series-virtual-drive",
+      "ps2-gran-turismo-4-platinum",
+      "ps2-gran-turismo-4-press-kit",
+      "ps2-gran-turismo-4-promo",
+      "ps2-gran-turismo-4-prologue",
+      "ps2-gran-turismo-4-prologue-not-for-resale",
+      "ps2-gran-turismo-concept-2002-tokyo-geneva",
+      "ps2-gran-turismo-concept-2002-tokyo-geneva-platinum",
+      "ps2-gran-turismo-concept-2002-tokyo-geneva-promo-only"
     ],
     "byPlatform": {
       "ps1": 12,
-      "ps2": 4,
+      "ps2": 11,
       "ps3": 3,
       "ps4": 5
     },
-    "gameCount": 24
+    "gameCount": 31
   },
   "grand-theft-auto": {
     "name": "Grand Theft Auto",
@@ -1980,41 +2272,46 @@
     "gameIds": [
       "ps3-grand-theft-auto-episodes-from-liberty-city",
       "ps3-grand-theft-auto-v",
-      "ps2-grand-theft-auto-iii",
       "ps4-grand-theft-auto-v",
-      "ps2-grand-theft-auto-liberty-city-stories",
       "ps3-grand-theft-auto-san-andreas",
       "ps4-usa-grand-theft-auto-v",
-      "ps2-grand-theft-auto-vice-city",
-      "ps2-grand-theft-auto-vice-city-stories",
-      "ps2-grand-theft-auto-san-andreas",
       "ps3-grand-theft-auto-iv",
       "ps1-grand-theft-auto",
-      "ps1-grand-theft-auto-2"
+      "ps1-grand-theft-auto-2",
+      "ps2-grand-theft-auto-iii",
+      "ps2-grand-theft-auto-liberty-city-stories",
+      "ps2-grand-theft-auto-liberty-city-stories-platinum",
+      "ps2-grand-theft-auto-san-andreas-not-for-resale",
+      "ps2-grand-theft-auto-vice-city",
+      "ps2-grand-theft-auto-vice-city-stories",
+      "ps2-grand-theft-auto-vice-city-stories-platinum",
+      "ps2-grand-theft-auto-liberty-city-stories-promo-not-for-resale",
+      "ps2-grand-theft-auto-san-andreas",
+      "ps2-grand-theft-auto-san-andreas-platinum",
+      "ps2-grand-theft-auto-vice-city-stories-promo-not-for-resale",
+      "ps2-usa-grand-theft-auto-vice-city-stories",
+      "ps2-japon-grand-theft-auto-vice-city-stories",
+      "ps2-de-sles-52927",
+      "ps2-de-sles-54623",
+      "ps2-jp-slpm-55135-best-price"
     ],
     "byPlatform": {
       "ps1": 2,
-      "ps2": 5,
+      "ps2": 16,
       "ps3": 4,
       "ps4": 2
     },
-    "gameCount": 13
+    "gameCount": 24
   },
   "james-bond-007": {
     "name": "James Bond 007",
     "slug": "james-bond-007",
     "museumPath": "",
     "gameIds": [
-      "ps2-007-quantum-of-solace",
       "ps3-007-blood-stone",
       "ps3-007-legends",
-      "ps2-007-from-russia-with-love",
       "ps3-goldeneye-007-reloaded",
-      "ps2-007-agent-under-fire",
-      "ps2-goldeneye-rogue-agent",
-      "ps2-007-everything-or-nothing",
       "ps3-007-quantum-of-solace",
-      "ps2-007-nightfire",
       "ps1-007-racing",
       "ps1-007-the-world-is-not-enough",
       "ps1-007-tomorrow-never-dies",
@@ -2028,14 +2325,51 @@
       "ps1-fr-sles-02375",
       "ps1-fr-sles-03135",
       "ps1-fr-sles-03356",
-      "ps1-se-sles-03138"
+      "ps1-se-sles-03138",
+      "ps2-007-agent-under-fire",
+      "ps2-007-agent-under-fire-platinum",
+      "ps2-007-everything-or-nothing",
+      "ps2-007-everything-or-nothing-platinum",
+      "ps2-007-from-russia-with-love",
+      "ps2-007-from-russia-with-love-not-for-resale",
+      "ps2-007-from-russia-with-love-platinum",
+      "ps2-007-nightfire",
+      "ps2-007-nightfire-platinum",
+      "ps2-007-quantum-of-solace",
+      "ps2-007-quantum-of-solace-platinum",
+      "ps2-goldeneye-rogue-agent",
+      "ps2-goldeneye-rogue-agent-platinum",
+      "ps2-usa-007-agent-under-fire",
+      "ps2-usa-007-agent-under-fire-greatest-hits",
+      "ps2-usa-007-everything-or-nothing",
+      "ps2-usa-007-everything-or-nothing-greatest-hits",
+      "ps2-usa-007-from-russia-with-love",
+      "ps2-usa-007-nightfire",
+      "ps2-usa-007-nightfire-greatest-hits",
+      "ps2-usa-007-quantum-of-solace",
+      "ps2-usa-goldeneye-rogue-agent",
+      "ps2-japon-007-everything-or-nothing",
+      "ps2-japon-007-nightfire",
+      "ps2-eu-sles-51260",
+      "ps2-eu-sles-52046",
+      "ps2-jp-slpm-55148",
+      "ps2-jp-slpm-65446",
+      "ps2-jp-slpm-65538-ea-best-hits",
+      "ps2-jp-slpm-65725-ea-best-hits",
+      "ps2-jp-slpm-66322",
+      "ps2-jp-slps-25203",
+      "ps2-kr-slka-25004",
+      "ps2-kr-slka-25129",
+      "ps2-es-sles-52977",
+      "ps2-jp-slpm-65763",
+      "ps2-jp-slpm-66145-ea-best-hits"
     ],
     "byPlatform": {
       "ps1": 14,
-      "ps2": 6,
+      "ps2": 37,
       "ps3": 4
     },
-    "gameCount": 24
+    "gameCount": 55
   },
   "the-lord-of-the-rings": {
     "name": "The Lord of the Rings",
@@ -2045,24 +2379,37 @@
       "ps3-lord-of-the-rings-conquest",
       "ps4-usa-middle-earth-shadow-of-mordor",
       "ps3-middle-earth-shadow-of-mordor",
-      "ps2-lord-of-the-rings-the-third-age",
       "ps4-japon-middle-earth-shadow-of-war",
       "ps3-lord-of-the-rings-war-in-the-north",
       "ps4-usa-middle-earth-shadow-of-war",
-      "ps2-lord-of-the-rings-aragorn%27s-quest",
-      "ps2-lord-of-the-rings-two-towers",
       "ps4-middle-earth-shadow-of-mordor",
-      "ps2-lord-of-the-rings-return-of-the-king",
       "ps3-lord-of-the-rings-aragorn%27s-quest",
       "ps4-middle-earth-shadow-of-war",
-      "ps3-guardians-of-middle-earth"
+      "ps3-guardians-of-middle-earth",
+      "ps2-lord-of-the-rings-return-of-the-king",
+      "ps2-lord-of-the-rings-return-of-the-king-platinum",
+      "ps2-lord-of-the-rings-third-age-platinum",
+      "ps2-lord-of-the-rings-two-towers",
+      "ps2-lord-of-the-rings-two-towers-platinum",
+      "ps2-lord-of-the-rings-the-third-age",
+      "ps2-usa-lord-of-the-rings-return-of-the-king",
+      "ps2-usa-lord-of-the-rings-return-of-the-king-greatest-hits",
+      "ps2-usa-lord-of-the-rings-the-third-age",
+      "ps2-usa-lord-of-the-rings-the-third-age-greatest-hits",
+      "ps2-usa-lord-of-the-rings-two-towers",
+      "ps2-usa-lord-of-the-rings-two-towers-greatest-hits",
+      "ps2-jp-slpm-65503",
+      "ps2-jp-slpm-65846",
+      "ps2-jp-slpm-67005-ea-best-hits",
+      "ps2-jp-slps-29003-collectors-box",
+      "ps2-jp-slps-29004"
     ],
     "byPlatform": {
-      "ps2": 4,
+      "ps2": 17,
       "ps3": 5,
       "ps4": 5
     },
-    "gameCount": 14
+    "gameCount": 27
   },
   "devil-may-cry": {
     "name": "Devil May Cry",
@@ -2072,23 +2419,20 @@
       "ps4-devil-may-cry-hd-collection",
       "ps4-usa-devil-may-cry-4-special-edition",
       "ps4-usa-devil-may-cry-hd-collection",
-      "ps2-devil-may-cry-3",
       "ps3-dmc-devil-may-cry",
       "ps4-japon-devil-may-cry-4-special-edition",
       "ps4-dmc-devil-may-cry-definitive-edition",
       "ps3-devil-may-cry-hd-collection",
       "ps4-usa-devil-may-cry-5",
       "ps4-usa-dmc-devil-may-cry-definitive-edition",
-      "ps2-devil-may-cry",
       "ps3-devil-may-cry-4",
       "ps4-devil-may-cry-5"
     ],
     "byPlatform": {
-      "ps2": 2,
       "ps3": 3,
       "ps4": 8
     },
-    "gameCount": 13
+    "gameCount": 11
   },
   "dragon-quest": {
     "name": "Dragon Quest",
@@ -2096,7 +2440,6 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-dragon-quest-heroes",
-      "ps2-dragon-quest-viii-journey-of-the-cursed-king",
       "ps4-dragon-quest-heroes",
       "ps4-dragon-quest-heroes-ii",
       "ps4-japon-dragon-quest-heroes",
@@ -2110,10 +2453,9 @@
       "ps4-dragon-quest-builders-2"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps4": 12
     },
-    "gameCount": 13
+    "gameCount": 12
   },
   "rock-band": {
     "name": "Rock Band",
@@ -2123,23 +2465,22 @@
       "ps3-acdc-live-rock-band",
       "ps3-lego-rock-band",
       "ps3-rock-band",
-      "ps2-rock-band",
       "ps3-rock-band-3",
       "ps3-the-beatles-rock-band",
       "ps4-usa-rock-band-4",
       "ps3-green-day-rock-band",
       "ps3-rock-band-song-pack-2",
       "ps3-rock-band-2",
+      "ps4-rock-band-4",
       "ps2-acdc-live-rock-band",
-      "ps2-rock-band-2",
-      "ps4-rock-band-4"
+      "ps2-rock-band-2"
     ],
     "byPlatform": {
-      "ps2": 3,
+      "ps2": 2,
       "ps3": 8,
       "ps4": 2
     },
-    "gameCount": 13
+    "gameCount": 12
   },
   "ben-10": {
     "name": "Ben 10",
@@ -2148,23 +2489,27 @@
     "gameIds": [
       "ps4-usa-ben-10-power-trip",
       "ps3-ben-10-galactic-racing",
-      "ps2-ben-10-ultimate-alien-cosmic-destruction",
       "ps4-ben-10",
       "ps3-ben-10-omniverse",
-      "ps2-ben-10-alien-force",
-      "ps2-ben-10-alien-force-vilgax-attacks",
       "ps4-ben-10-power-trip",
       "ps3-ben-10-omniverse-2",
       "ps4-usa-ben-10",
+      "ps3-ben-10-ultimate-alien-cosmic-destruction",
+      "ps2-ben-10-alien-force",
+      "ps2-ben-10-alien-force-vilgax-attacks",
       "ps2-ben-10-protector-of-earth",
-      "ps3-ben-10-ultimate-alien-cosmic-destruction"
+      "ps2-ben-10-protector-of-earth-platinum",
+      "ps2-ben-10-ultimate-alien-cosmic-destruction",
+      "ps2-usa-ben-10-protector-of-earth",
+      "ps2-usa-ben-10-protector-of-earth-greatest-hits",
+      "ps2-eu-sles-54952"
     ],
     "byPlatform": {
-      "ps2": 4,
+      "ps2": 8,
       "ps3": 4,
       "ps4": 4
     },
-    "gameCount": 12
+    "gameCount": 16
   },
   "dark-souls": {
     "name": "Dark Souls",
@@ -2202,8 +2547,6 @@
       "ps4-usa-digimon-world-next-order",
       "ps4-digimon-world-next-order",
       "ps4-usa-digimon-story-cyber-sleuth",
-      "ps2-digimon-world-4",
-      "ps2-digimon-rumble-arena-2",
       "ps1-digimon-digital-card-battle",
       "ps1-digimon-rumble-arena",
       "ps1-digimon-world",
@@ -2221,11 +2564,10 @@
     ],
     "byPlatform": {
       "ps1": 14,
-      "ps2": 2,
       "ps3": 1,
       "ps4": 6
     },
-    "gameCount": 23
+    "gameCount": 21
   },
   "dirt": {
     "name": "Dirt",
@@ -2291,19 +2633,16 @@
       "ps4-usa-god-of-war-iii-remastered",
       "ps3-god-of-war-ascension",
       "ps4-god-of-war",
-      "ps2-god-of-war-collection",
       "ps3-god-of-war-collection",
       "ps4-japon-god-of-war",
-      "ps2-god-of-war",
       "ps4-god-of-war-ragnarok",
       "ps4-usa-god-of-war-ragnarok"
     ],
     "byPlatform": {
-      "ps2": 2,
       "ps3": 3,
       "ps4": 7
     },
-    "gameCount": 12
+    "gameCount": 10
   },
   "harry-potter": {
     "name": "Harry Potter",
@@ -2312,14 +2651,7 @@
     "gameIds": [
       "ps3-harry-potter-and-the-deathly-hallows-part-i",
       "ps3-harry-potter-and-the-half-blood-prince",
-      "ps2-harry-potter-chamber-of-secrets",
-      "ps2-harry-potter-and-the-philosopher%27s-stone",
-      "ps2-harry-potter-quidditch-world-cup",
-      "ps2-harry-potter-and-the-half-blood-prince",
       "ps3-harry-potter-and-the-order-of-the-phoenix",
-      "ps2-harry-potter-and-the-order-of-the-phoenix",
-      "ps2-harry-potter-and-the-goblet-of-fire",
-      "ps2-harry-potter-prisoner-of-azkaban",
       "ps1-harry-potter-and-the-chamber-of-secrets",
       "ps1-harry-potter-and-the-philosopher%27s-stone",
       "ps1-usa-harry-potter-and-the-sorcerer-s-stone",
@@ -2332,14 +2664,34 @@
       "ps1-jp-slps-03492",
       "ps1-scand-sles-03664",
       "ps1-scand-sles-03975",
-      "ps1-us-ca-slus-01503"
+      "ps1-us-ca-slus-01503",
+      "ps2-harry-potter-and-the-goblet-of-fire",
+      "ps2-harry-potter-and-the-goblet-of-fire-platinum",
+      "ps2-harry-potter-and-the-half-blood-prince",
+      "ps2-harry-potter-and-the-order-of-the-phoenix",
+      "ps2-harry-potter-and-the-order-of-the-phoenix-platinum",
+      "ps2-harry-potter-and-the-philosopher%27s-stone",
+      "ps2-harry-potter-chamber-of-secrets",
+      "ps2-harry-potter-quidditch-world-cup",
+      "ps2-harry-potter-quidditch-world-cup-platinum",
+      "ps2-usa-harry-potter-and-the-goblet-of-fire",
+      "ps2-usa-harry-potter-and-the-order-of-the-phoenix",
+      "ps2-eu-sles-52055",
+      "ps2-eu-sles-52056",
+      "ps2-eu-sles-53727",
+      "ps2-eu-sles-53728",
+      "ps2-eu-sles-54778",
+      "ps2-eu-sles-54779",
+      "ps2-eu-sles-54781",
+      "ps2-jp-slpm-66886",
+      "ps2-us-slus-20826"
     ],
     "byPlatform": {
       "ps1": 13,
-      "ps2": 7,
+      "ps2": 20,
       "ps3": 3
     },
-    "gameCount": 23
+    "gameCount": 36
   },
   "one-piece": {
     "name": "One Piece",
@@ -2372,23 +2724,22 @@
     "gameIds": [
       "ps4-usa-persona-5-dancing-in-starlight",
       "ps4-usa-persona-4-golden",
-      "ps2-shin-megami-tensei-persona-3-fes",
       "ps4-japon-persona-5-the-royal",
       "ps3-persona-5",
       "ps4-persona-5",
       "ps4-persona-3-dancing-in-moonlight",
       "ps4-persona-5-dancing-in-starlight",
       "ps4-usa-persona-3-dancing-in-moonlight",
-      "ps2-shin-megami-tensei-persona-4",
       "ps4-usa-persona-5",
-      "ps2-shin-megami-tensei-persona-3"
+      "ps2-shin-megami-tensei-persona-3",
+      "ps2-shin-megami-tensei-persona-3-fes"
     ],
     "byPlatform": {
-      "ps2": 3,
+      "ps2": 2,
       "ps3": 1,
       "ps4": 8
     },
-    "gameCount": 12
+    "gameCount": 11
   },
   "tom-clancy-s-rainbow-six": {
     "name": "Tom Clancy's Rainbow Six",
@@ -2399,24 +2750,28 @@
       "ps3-rainbow-six-vegas-2",
       "ps4-rainbow-six-siege",
       "ps4-rainbow-six-extraction",
-      "ps2-rainbow-six-3",
       "ps4-usa-rainbow-six-siege",
-      "ps2-rainbow-six-lockdown",
       "ps3-rainbow-six-vegas",
       "ps1-rainbow-six",
       "ps1-rainbow-six-lone-wolf",
       "ps1-rainbow-six-rogue-spear",
       "ps1-usa-rainbow-six",
       "ps1-usa-rainbow-six-rogue-spear",
-      "ps1-de-sles-02372"
+      "ps1-de-sles-02372",
+      "ps2-rainbow-six-3",
+      "ps2-rainbow-six-lockdown",
+      "ps2-usa-rainbow-six-3",
+      "ps2-usa-rainbow-six-3-greatest-hits",
+      "ps2-jp-slpm-65731",
+      "ps2-kr-slka-25173"
     ],
     "byPlatform": {
       "ps1": 6,
-      "ps2": 2,
+      "ps2": 6,
       "ps3": 2,
       "ps4": 4
     },
-    "gameCount": 14
+    "gameCount": 18
   },
   "actua-sports": {
     "name": "Actua Sports",
@@ -2461,23 +2816,38 @@
     "museumPath": "",
     "gameIds": [
       "ps3-buzz-quiz-tv",
-      "ps2-buzz-the-music-quiz",
-      "ps2-buzz-junior-jungle-party",
-      "ps2-buzz-the-sports-quiz",
-      "ps2-buzz-brain-of-the-world",
-      "ps2-buzz-junior-monster-rumble",
       "ps3-buzz-brain-of-the-world",
-      "ps2-buzz-the-big-quiz",
-      "ps2-buzz-junior-dino-den",
       "ps3-buzz-quiz-world",
-      "ps1-music"
+      "ps1-music",
+      "ps2-buzz-junior-jungle-party",
+      "ps2-buzz-the-big-quiz",
+      "ps2-buzz-the-big-quiz-bundle",
+      "ps2-buzz-the-music-quiz",
+      "ps2-buzz-the-music-quiz-bundle",
+      "ps2-buzz-the-sports-quiz",
+      "ps2-buzz-the-sports-quiz-bundle",
+      "ps2-buzz-junior-dino-den",
+      "ps2-buzz-junior-dino-den-bundle",
+      "ps2-buzz-junior-monster-rumble",
+      "ps2-buzz-junior-monster-rumble-bundle",
+      "ps2-be-nl-sces-53925",
+      "ps2-be-nl-sces-54265",
+      "ps2-es-sces-54262",
+      "ps2-eu-sces-53308",
+      "ps2-eu-sces-54269",
+      "ps2-fr-sces-54260",
+      "ps2-it-sces-54261",
+      "ps2-ru-sces-54073",
+      "ps2-scand-sces-53307",
+      "ps2-scand-sces-53926",
+      "ps2-scand-sces-54266"
     ],
     "byPlatform": {
       "ps1": 1,
-      "ps2": 7,
+      "ps2": 22,
       "ps3": 3
     },
-    "gameCount": 11
+    "gameCount": 26
   },
   "kingdom-hearts": {
     "name": "Kingdom Hearts",
@@ -2486,7 +2856,6 @@
     "gameIds": [
       "ps4-kingdom-hearts-melody-of-memory",
       "ps4-kingdom-hearts-iii",
-      "ps2-kingdom-hearts",
       "ps4-usa-kingdom-hearts-hd-28-final-chapter-prologue-limited-edition",
       "ps4-kingdom-hearts-hd-28-final-chapter-prologue",
       "ps4-kingdom-hearts-hd-15-&#43;-25-remix",
@@ -2494,13 +2863,35 @@
       "ps4-usa-kingdom-hearts-hd-28-final-chapter-prologue",
       "ps4-japon-kingdom-hearts-melody-of-memory",
       "ps4-usa-kingdom-hearts-melody-of-memory",
-      "ps4-usa-kingdom-hearts-iii"
+      "ps4-usa-kingdom-hearts-iii",
+      "ps2-kingdom-hearts",
+      "ps2-kingdom-hearts-not-for-resale",
+      "ps2-kingdom-hearts-platinum",
+      "ps2-usa-kingdom-hearts",
+      "ps2-usa-kingdom-hearts-first-print",
+      "ps2-usa-kingdom-hearts-greatest-hits",
+      "ps2-usa-kingdom-hearts-square-enix-variant-black-label",
+      "ps2-japon-kingdom-hearts",
+      "ps2-japon-kingdom-hearts-trinity-master-pieces",
+      "ps2-japon-kingdom-hearts-final-mix",
+      "ps2-japon-kingdom-hearts-final-mix-platinum-limited",
+      "ps2-japon-kingdom-hearts-final-mix-ultimate-hits",
+      "ps2-de-sces-50969",
+      "ps2-es-sces-50971",
+      "ps2-fr-sces-50968",
+      "ps2-it-sces-50970",
+      "ps2-jp-asia-scaj-20149-ultimate-hits",
+      "ps2-jp-asia-slpm-66123-ultimate-hits",
+      "ps2-jp-asia-slps-25198",
+      "ps2-jp-slpm-66122-ultimate-hits",
+      "ps2-jp-slps-25105",
+      "ps2-jp-slps-25197-limited-edition"
     ],
     "byPlatform": {
-      "ps2": 1,
+      "ps2": 22,
       "ps4": 10
     },
-    "gameCount": 11
+    "gameCount": 32
   },
   "lego-star-wars": {
     "name": "LEGO Star Wars",
@@ -2512,19 +2903,22 @@
       "ps4-lego-star-wars-the-force-awakens",
       "ps4-lego-star-wars-the-skywalker-saga",
       "ps3-lego-star-wars-complete-saga",
-      "ps2-lego-star-wars",
       "ps4-usa-lego-star-wars-the-skywalker-saga",
       "ps4-lego-star-wars-the-force-awakens-plush-edition",
-      "ps2-lego-star-wars-ii-original-trilogy",
       "ps3-lego-star-wars-iii-the-clone-wars",
-      "ps4-lego-star-wars-the-skywalker-saga-galactic-edition"
+      "ps4-lego-star-wars-the-skywalker-saga-galactic-edition",
+      "ps2-lego-star-wars-ii-original-trilogy",
+      "ps2-lego-star-wars-ii-original-trilogy-platinum",
+      "ps2-usa-lego-star-wars-ii-original-trilogy",
+      "ps2-usa-lego-star-wars-ii-original-trilogy-greatest-hits",
+      "ps2-jp-slpm-66572"
     ],
     "byPlatform": {
-      "ps2": 2,
+      "ps2": 5,
       "ps3": 3,
       "ps4": 6
     },
-    "gameCount": 11
+    "gameCount": 14
   },
   "mlb-the-show": {
     "name": "MLB: The Show",
@@ -2557,10 +2951,8 @@
       "ps4-usa-tokyo-2020-olympic-games",
       "ps3-london-2012",
       "ps3-beijing-2008",
-      "ps2-athens-2004",
       "ps3-vancouver-2010",
       "ps4-olympic-games-tokyo-2020",
-      "ps2-torino-2006",
       "ps1-olympic-soccer",
       "ps1-sydney-2000",
       "ps1-usa-olympic-soccer",
@@ -2570,15 +2962,23 @@
       "ps1-fr-sles-02858",
       "ps1-it-sles-02860",
       "ps1-jp-slpm-86626",
-      "ps1-jp-slps-00523"
+      "ps1-jp-slps-00523",
+      "ps2-athens-2004",
+      "ps2-athens-2004-platinum",
+      "ps2-torino-2006",
+      "ps2-usa-athens-2004",
+      "ps2-usa-athens-2004-demo-disc",
+      "ps2-jp-asia-scaj-20089",
+      "ps2-jp-asia-scps-15074",
+      "ps2-kr-scka-20031"
     ],
     "byPlatform": {
       "ps1": 10,
-      "ps2": 2,
+      "ps2": 8,
       "ps3": 3,
       "ps4": 3
     },
-    "gameCount": 18
+    "gameCount": 24
   },
   "ratchet-clank": {
     "name": "Ratchet & Clank",
@@ -2586,37 +2986,39 @@
     "museumPath": "",
     "gameIds": [
       "ps3-ratchet-&amp;-clank-tools-of-destruction",
-      "ps2-ratchet-&amp;-clank-size-matters",
       "ps4-ratchet-clank",
       "ps4-usa-ratchet-&amp;-clank",
-      "ps2-ratchet-&amp;-clank-collection",
       "ps3-ratchet-&amp;-clank-all-4-one",
       "ps3-ratchet-&amp;-clank-quest-for-booty",
-      "ps2-ratchet-&amp;-clank",
       "ps3-ratchet-&amp;-clank-a-crack-in-time",
-      "ps2-secret-agent-clank",
-      "ps3-ratchet-&amp;-clank-into-the-nexus"
+      "ps3-ratchet-&amp;-clank-into-the-nexus",
+      "ps2-ratchet-&amp;-clank",
+      "ps2-ratchet-&amp;-clank-demo-disc",
+      "ps2-ratchet-&amp;-clank-platinum",
+      "ps2-ratchet-&amp;-clank-promo-not-for-resale",
+      "ps2-ratchet-&amp;-clank-size-matters",
+      "ps2-ratchet-&amp;-clank-size-matters-promo-not-for-resale",
+      "ps2-usa-ratchet-clank",
+      "ps2-usa-ratchet-clank-demo-disc",
+      "ps2-usa-ratchet-clank-greatest-hits",
+      "ps2-japon-ratchet-&amp;-clank",
+      "ps2-japon-ratchet-&amp;-clank-playstation-2-the-best",
+      "ps2-jp-scps-15037",
+      "ps2-jp-scps-19316-playstation-2-the-best-reprint"
     ],
     "byPlatform": {
-      "ps2": 4,
+      "ps2": 13,
       "ps3": 5,
       "ps4": 2
     },
-    "gameCount": 11
+    "gameCount": 20
   },
   "silent-hill": {
     "name": "Silent Hill",
     "slug": "silent-hill",
     "museumPath": "",
     "gameIds": [
-      "ps2-silent-hill-shattered-memories",
-      "ps2-silent-hill-2",
       "ps3-silent-hill-hd-collection",
-      "ps2-silent-hill-4-the-room",
-      "ps2-silent-hill-origins",
-      "ps2-silent-hill-2-promo",
-      "ps2-the-silent-hill-collection",
-      "ps2-silent-hill-3",
       "ps3-silent-hill-downpour",
       "ps3-silent-hill-homecoming",
       "ps1-silent-hill",
@@ -2624,14 +3026,44 @@
       "ps1-japon-silent-hill",
       "ps1-jp-slpm-86192",
       "ps1-jp-slpm-86498-konami-the-best",
-      "ps1-jp-slpm-87029-psone-books"
+      "ps1-jp-slpm-87029-psone-books",
+      "ps2-silent-hill-2",
+      "ps2-silent-hill-2-collector%27s-edition",
+      "ps2-silent-hill-2-first-print",
+      "ps2-silent-hill-2-promo",
+      "ps2-silent-hill-3",
+      "ps2-silent-hill-4-the-room",
+      "ps2-silent-hill-4-the-room-not-for-resale",
+      "ps2-silent-hill-origins",
+      "ps2-silent-hill-origins-promo-not-for-resale",
+      "ps2-silent-hill-shattered-memories",
+      "ps2-silent-hill-shattered-memories-bbfc",
+      "ps2-usa-silent-hill-3",
+      "ps2-usa-silent-hill-3-soundtrack-variant",
+      "ps2-usa-silent-hill-4-the-room",
+      "ps2-usa-silent-hill-origins",
+      "ps2-usa-silent-hill-shattered-memories",
+      "ps2-silent-hill-3-not-for-resale",
+      "ps2-japon-silent-hill-3",
+      "ps2-japon-silent-hill-3-konami-the-best",
+      "ps2-japon-silent-hill-4-the-room",
+      "ps2-japon-silent-hill-shattered-memories",
+      "ps2-eu-sles-50382-special-2-disc-set",
+      "ps2-jp-slpm-55140-konami-dendou-selection",
+      "ps2-jp-slpm-55231",
+      "ps2-jp-slpm-65257",
+      "ps2-jp-slpm-65574",
+      "ps2-jp-slpm-66018-konami-dendou-collection",
+      "ps2-jp-slpm-66032-konami-the-best",
+      "ps2-kr-slka-25065",
+      "ps2-kr-slka-25149"
     ],
     "byPlatform": {
       "ps1": 6,
-      "ps2": 7,
+      "ps2": 30,
       "ps3": 3
     },
-    "gameCount": 16
+    "gameCount": 39
   },
   "skylanders": {
     "name": "Skylanders",
@@ -2661,28 +3093,42 @@
     "slug": "tekken",
     "museumPath": "",
     "gameIds": [
-      "ps2-tekken-5",
       "ps4-usa-tekken-7",
       "ps3-tekken-tag-tournament-2",
-      "ps2-tekken-tag-tournament",
       "ps4-tekken-7",
       "ps3-tekken-6",
-      "ps2-tekken-4",
       "ps3-tekken-hybrid",
-      "ps2-death-by-degrees",
       "ps1-tekken",
       "ps1-tekken-3",
       "ps1-usa-tekken",
       "ps1-japon-tekken",
-      "ps1-japon-tekken-playstation-the-best"
+      "ps1-japon-tekken-playstation-the-best",
+      "ps2-death-by-degrees",
+      "ps2-tekken-4",
+      "ps2-tekken-4-dvd-bundle",
+      "ps2-tekken-4-platinum",
+      "ps2-tekken-4-special-edition",
+      "ps2-tekken-5",
+      "ps2-tekken-5-platinum",
+      "ps2-tekken-5-press-kit",
+      "ps2-tekken-tag-tournament",
+      "ps2-tekken-tag-tournament-platinum",
+      "ps2-usa-death-by-degrees",
+      "ps2-usa-tekken-tag-tournament",
+      "ps2-usa-tekken-tag-tournament-greatest-hits",
+      "ps2-japon-tekken-tag-tournament",
+      "ps2-japon-tekken-tag-tournament-mega-hits",
+      "ps2-jp-slps-20015",
+      "ps2-jp-slps-73104-playstation-2-the-best",
+      "ps2-kr-scps-56002"
     ],
     "byPlatform": {
       "ps1": 5,
-      "ps2": 4,
+      "ps2": 18,
       "ps3": 3,
       "ps4": 2
     },
-    "gameCount": 14
+    "gameCount": 28
   },
   "worms": {
     "name": "Worms",
@@ -2692,24 +3138,29 @@
       "ps4-worms-battlegrounds",
       "ps3-worms-revolution-collection",
       "ps3-worms-collection",
-      "ps2-worms-blast",
-      "ps2-worms-4-mayhem",
-      "ps2-worms-forts-under-siege",
       "ps4-usa-worms-wmd",
-      "ps2-worms-3d",
       "ps1-worms-armageddon",
       "ps1-worms-pinball",
       "ps1-usa-worms-armageddon",
       "ps1-de-sles-02331",
-      "ps1-eu-sles-02332"
+      "ps1-eu-sles-02332",
+      "ps2-worms-3d",
+      "ps2-worms-4-mayhem",
+      "ps2-worms-blast",
+      "ps2-worms-blast-not-for-resale",
+      "ps2-worms-forts-under-siege",
+      "ps2-usa-worms-3d",
+      "ps2-worms-4-mayhem-not-for-resale",
+      "ps2-eu-au-sles-52734",
+      "ps2-eu-sles-52342"
     ],
     "byPlatform": {
       "ps1": 5,
-      "ps2": 4,
+      "ps2": 9,
       "ps3": 2,
       "ps4": 2
     },
-    "gameCount": 13
+    "gameCount": 18
   },
   "disney-pixar-cars": {
     "name": "Disney-Pixar Cars",
@@ -2722,17 +3173,15 @@
       "ps3-cars-race-o-rama",
       "ps4-usa-cars-3-driven-to-win",
       "ps3-cars-2",
-      "ps2-cars-race-o-rama",
       "ps2-cars-mater-national-championship",
-      "ps2-disney-pixar-cars",
-      "ps2-driven"
+      "ps2-disney-pixar-cars"
     ],
     "byPlatform": {
-      "ps2": 4,
+      "ps2": 2,
       "ps3": 4,
       "ps4": 2
     },
-    "gameCount": 10
+    "gameCount": 8
   },
   "guilty-gear": {
     "name": "Guilty Gear",
@@ -2746,15 +3195,13 @@
       "ps4-japon-guilty-gear-xrd-sign",
       "ps4-guilty-gear-xrd-rev-2",
       "ps4-guilty-gear-xrd-revelator",
-      "ps2-guilty-gear-xx-accent-core-plus",
       "ps4-usa-guilty-gear-xrd-sign"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1,
       "ps4": 7
     },
-    "gameCount": 9
+    "gameCount": 8
   },
   "marvel-vs-capcom": {
     "name": "Marvel vs. Capcom",
@@ -2764,7 +3211,6 @@
       "ps4-japon-ultimate-marvel-vs-capcom-3",
       "ps4-usa-ultimate-marvel-vs-capcom-3",
       "ps4-japon-marvel-vs-capcom-infinite",
-      "ps2-marvel-vs-capcom-2",
       "ps3-marvel-vs-capcom-3-fate-of-two-worlds",
       "ps4-marvel-vs-capcom-infinite",
       "ps3-ultimate-marvel-vs-capcom-3",
@@ -2774,7 +3220,8 @@
       "ps1-usa-marvel-super-heroes-vs-street-fighter",
       "ps1-usa-marvel-vs-capcom-clash-of-super-heroes",
       "ps1-jp-slps-01915",
-      "ps1-jp-slps-02368"
+      "ps1-jp-slps-02368",
+      "ps2-marvel-vs-capcom-2"
     ],
     "byPlatform": {
       "ps1": 6,
@@ -2790,11 +3237,7 @@
     "museumPath": "",
     "gameIds": [
       "ps3-medal-of-honor-airborne",
-      "ps2-medal-of-honor-vanguard",
       "ps3-medal-of-honor-warfighter",
-      "ps2-medal-of-honor-rising-sun",
-      "ps2-medal-of-honor-frontline",
-      "ps2-medal-of-honor-european-assault",
       "ps3-medal-of-honor",
       "ps1-medal-of-honor",
       "ps1-medal-of-honor-underground",
@@ -2803,14 +3246,44 @@
       "ps1-de-sles-02472",
       "ps1-de-sles-03126",
       "ps1-fr-sles-02471",
-      "ps1-fr-sles-03125"
+      "ps1-fr-sles-03125",
+      "ps2-medal-of-honor-european-assault",
+      "ps2-medal-of-honor-european-assault-platinum",
+      "ps2-medal-of-honor-frontline",
+      "ps2-medal-of-honor-frontline-platinum",
+      "ps2-medal-of-honor-rising-sun",
+      "ps2-medal-of-honor-rising-sun-platinum",
+      "ps2-medal-of-honor-vanguard",
+      "ps2-medal-of-honor-vanguard-platinum",
+      "ps2-usa-medal-of-honor-european-assault",
+      "ps2-usa-medal-of-honor-european-assault-greatest-hits",
+      "ps2-usa-medal-of-honor-frontline",
+      "ps2-usa-medal-of-honor-frontline-greatest-hits",
+      "ps2-usa-medal-of-honor-rising-sun",
+      "ps2-usa-medal-of-honor-rising-sun-greatest-hits",
+      "ps2-japon-medal-of-honor-rising-sun",
+      "ps2-japon-medal-of-honor-shijou-saidai-no-sakusen",
+      "ps2-asia-slaj-25030",
+      "ps2-de-sles-53334",
+      "ps2-es-sles-51876",
+      "ps2-es-sles-53336",
+      "ps2-fr-sles-50845",
+      "ps2-fr-sles-51874",
+      "ps2-it-sles-53335",
+      "ps2-jp-slpm-55002-ea-sy-1980",
+      "ps2-jp-slpm-65469",
+      "ps2-jp-slpm-65648-ea-best-hits",
+      "ps2-jp-slpm-65757-ea-best-hits",
+      "ps2-jp-slpm-66963-ea-sy-1980",
+      "ps2-kr-slka-25140",
+      "ps2-fr-sles-53333"
     ],
     "byPlatform": {
       "ps1": 8,
-      "ps2": 4,
+      "ps2": 30,
       "ps3": 3
     },
-    "gameCount": 15
+    "gameCount": 41
   },
   "metal-slug": {
     "name": "Metal Slug",
@@ -2818,12 +3291,8 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-metal-slug-xx",
-      "ps2-metal-slug-anthology",
-      "ps2-metal-slug-3",
       "ps4-usa-metal-slug-anthology",
       "ps4-usa-metal-slug-3",
-      "ps2-metal-slug-5",
-      "ps2-metal-slug-4",
       "ps4-metal-slug-xx",
       "ps4-metal-slug-anthology",
       "neogeo-aes-plus-international-metal-slug",
@@ -2833,37 +3302,48 @@
       "ps1-japon-metal-slug-x",
       "ps1-jp-asia-scps-45490",
       "ps1-jp-asia-slpm-86456",
-      "ps1-jp-asia-slps-03449-snk-best-collection"
+      "ps1-jp-asia-slps-03449-snk-best-collection",
+      "ps2-metal-slug-4",
+      "ps2-metal-slug-5",
+      "ps2-metal-slug-anthology",
+      "ps2-usa-metal-slug-anthology",
+      "ps2-japon-metal-slug-complete",
+      "ps2-jp-slps-25376",
+      "ps2-jp-slps-25495",
+      "ps2-jp-slps-25571-snk-best-collection",
+      "ps2-jp-slps-25634-snk-best-collection",
+      "ps2-jp-slps-25762",
+      "ps2-jp-slps-25937-snk-best-collection",
+      "ps2-kr-slka-25333"
     ],
     "byPlatform": {
       "neogeo-aes-plus": 2,
       "ps1": 6,
-      "ps2": 4,
+      "ps2": 12,
       "ps4": 5
     },
-    "gameCount": 17
+    "gameCount": 25
   },
   "nhl-2k": {
     "name": "nhl-2k",
     "slug": "nhl-2k",
     "museumPath": "",
     "gameIds": [
-      "ps2-nhl-2k9",
       "ps3-nhl-2k10",
-      "ps2-nhl-2k3",
-      "ps2-nhl-2k7",
-      "ps2-espn-nhl-hockey",
       "ps3-nhl-2k9",
       "ps3-nhl-2k8",
-      "ps2-nhl-2k8",
+      "ps3-nhl-2k7",
       "ps2-espn-nhl-2k5",
-      "ps3-nhl-2k7"
+      "ps2-espn-nhl-hockey",
+      "ps2-nhl-2k3",
+      "ps2-nhl-2k8",
+      "ps2-nhl-2k9"
     ],
     "byPlatform": {
-      "ps2": 6,
+      "ps2": 5,
       "ps3": 4
     },
-    "gameCount": 10
+    "gameCount": 9
   },
   "ace-combat": {
     "name": "Ace Combat",
@@ -2873,7 +3353,6 @@
       "ps4-ace-combat-7-skies-unknown",
       "ps3-ace-combat-assault-horizon",
       "ps4-usa-ace-combat-7-skies-unknown",
-      "ps2-ace-combat-the-belkan-war",
       "ps3-ace-combat-assault-horizon-limited-edition",
       "ps1-ace-combat-2",
       "ps1-ace-combat-3-electrosphere",
@@ -2886,7 +3365,8 @@
       "ps1-japon-ace-combat-playstation-the-best",
       "ps1-de-sces-00902",
       "ps1-fr-sces-00901",
-      "ps1-jp-slps-91146-playstation-the-best"
+      "ps1-jp-slps-91146-playstation-the-best",
+      "ps2-ace-combat-the-belkan-war"
     ],
     "byPlatform": {
       "ps1": 12,
@@ -2925,9 +3405,7 @@
       "ps3-castlevania-lords-of-shadow",
       "ps4-usa-castlevania-anniversary-collection",
       "ps3-castlevania-lords-of-shadow-2",
-      "ps2-castlevania-curse-of-darkness",
       "ps3-castlevania-lords-of-shadow-collection",
-      "ps2-castlevania-lament-of-innocence",
       "ps4-usa-castlevania-requiem",
       "ps1-castlevania-chronicles",
       "ps1-castlevania-symphony-of-the-night",
@@ -2936,24 +3414,30 @@
       "ps1-jp-slpm-86023",
       "ps1-jp-slpm-86073-playstation-the-best",
       "ps1-jp-slpm-86754",
-      "ps1-jp-slpm-87328-psone-books"
+      "ps1-jp-slpm-87328-psone-books",
+      "ps2-castlevania-promo-version",
+      "ps2-castlevania-promo",
+      "ps2-castlevania-curse-of-darkness",
+      "ps2-castlevania-lament-of-innocence",
+      "ps2-usa-castlevania-lament-of-innocence",
+      "ps2-japon-castlevania",
+      "ps2-japon-castlevania-lament-of-innocence-limited-edition",
+      "ps2-kr-slka-25082",
+      "ps2-jp-slpm-65444"
     ],
     "byPlatform": {
       "ps1": 8,
-      "ps2": 2,
+      "ps2": 9,
       "ps3": 3,
       "ps4": 2
     },
-    "gameCount": 15
+    "gameCount": 22
   },
   "dance-dance-revolution": {
     "name": "Dance Dance Revolution",
     "slug": "dance-dance-revolution",
     "museumPath": "",
     "gameIds": [
-      "ps2-dancing-stage-max",
-      "ps2-dancing-stage-fusion",
-      "ps2-dancing-stage-fever",
       "ps1-dancing-stage-euromix",
       "ps1-dancing-stage-fever",
       "ps1-dancing-stage-fusion",
@@ -2965,7 +3449,10 @@
       "ps1-japon-x2-no-relief",
       "ps1-de-sles-00151",
       "ps1-eu-sles-00129",
-      "ps1-jp-slps-00258"
+      "ps1-jp-slps-00258",
+      "ps2-dancing-stage-fever",
+      "ps2-dancing-stage-fusion",
+      "ps2-dancing-stage-max"
     ],
     "byPlatform": {
       "ps1": 12,
@@ -2979,7 +3466,6 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-dead-or-alive-6",
-      "ps2-dead-or-alive-2",
       "ps4-dead-or-alive-6",
       "ps4-dead-or-alive-5-last-round",
       "ps3-dead-or-alive-5",
@@ -2989,15 +3475,17 @@
       "ps1-dead-or-alive",
       "ps1-usa-dead-or-alive",
       "ps1-jp-asia-scps-45190-923ca427",
-      "ps1-jp-asia-slps-01289"
+      "ps1-jp-asia-slps-01289",
+      "ps2-dead-or-alive-2",
+      "ps2-dead-or-alive-2-platinum"
     ],
     "byPlatform": {
       "ps1": 4,
-      "ps2": 1,
+      "ps2": 2,
       "ps3": 1,
       "ps4": 6
     },
-    "gameCount": 12
+    "gameCount": 13
   },
   "disgaea": {
     "name": "Disgaea",
@@ -3050,18 +3538,15 @@
       "ps4-usa-hitman-2",
       "ps4-hitman-definitive-edition",
       "ps4-hitman",
-      "ps2-hitman-2",
       "ps3-hitman-absolution",
-      "ps2-hitman-blood-money",
       "ps4-usa-hitman-3",
       "ps4-hitman-3"
     ],
     "byPlatform": {
-      "ps2": 2,
       "ps3": 1,
       "ps4": 6
     },
-    "gameCount": 9
+    "gameCount": 7
   },
   "lego-batman": {
     "name": "LEGO Batman",
@@ -3090,9 +3575,6 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-mega-man-x-legacy-collection",
-      "ps2-mega-man-x8",
-      "ps2-mega-man-x7",
-      "ps2-mega-man-x-command-mission",
       "ps4-usa-mega-man-x-legacy-collection-2",
       "ps1-mega-man-x3",
       "ps1-mega-man-x4",
@@ -3110,14 +3592,26 @@
       "ps1-japon-rockman-x6-playstation-the-best",
       "ps1-jp-slpm-87021-playstation-the-best",
       "ps1-jp-slpm-87315-psone-books",
-      "ps1-jp-slps-91192-playstation-the-best"
+      "ps1-jp-slps-91192-playstation-the-best",
+      "ps2-mega-man-x-command-mission",
+      "ps2-mega-man-x7",
+      "ps2-mega-man-x8",
+      "ps2-usa-mega-man-x-command-mission",
+      "ps2-usa-mega-man-x7",
+      "ps2-usa-mega-man-x8",
+      "ps2-japon-rockman-x7",
+      "ps2-japon-rockman-x8",
+      "ps2-japon-rockman-x-command-mission",
+      "ps2-jp-slpm-65331",
+      "ps2-jp-slpm-65730",
+      "ps2-kr-slka-25115"
     ],
     "byPlatform": {
       "ps1": 17,
-      "ps2": 3,
+      "ps2": 12,
       "ps4": 2
     },
-    "gameCount": 22
+    "gameCount": 31
   },
   "minecraft": {
     "name": "Minecraft",
@@ -3147,7 +3641,6 @@
     "gameIds": [
       "ps4-usa-gundam-breaker-3",
       "ps4-japon-new-gundam-breaker",
-      "ps2-mobile-suit-gundam-federation-vs-zeon",
       "ps4-japon-gundam-breaker-3",
       "ps4-gundam-versus",
       "ps4-usa-new-gundam-breaker",
@@ -3159,7 +3652,8 @@
       "ps1-japon-gundam-the-battle-master-2",
       "ps1-jp-asia-scps-45172",
       "ps1-jp-asia-slps-01286",
-      "ps1-jp-slpm-86746"
+      "ps1-jp-slpm-86746",
+      "ps2-mobile-suit-gundam-federation-vs-zeon"
     ],
     "byPlatform": {
       "ps1": 8,
@@ -3173,26 +3667,32 @@
     "slug": "rayman",
     "museumPath": "",
     "gameIds": [
-      "ps2-rayman-revolution",
       "ps4-usa-rayman-legends",
       "ps3-rayman-legends",
       "ps4-rayman-legends",
-      "ps2-rayman-3-hoodlum-havoc",
       "ps3-rayman-origins",
       "ps1-rayman",
       "ps1-rayman-2-the-great-escape",
       "ps1-usa-rayman",
       "ps1-usa-rayman-2-the-great-escape",
       "ps1-japon-rayman",
-      "ps1-eu-sles-02906"
+      "ps1-eu-sles-02906",
+      "ps2-rayman-3-hoodlum-havoc",
+      "ps2-rayman-3-hoodlum-havoc-hologram-cover",
+      "ps2-rayman-3-hoodlum-havoc-platinum",
+      "ps2-rayman-3-hoodlum-havoc-not-for-resale",
+      "ps2-rayman-revolution",
+      "ps2-rayman-revolution-platinum",
+      "ps2-usa-rayman-3-hoodlum-havoc",
+      "ps2-rayman-3-hoodlum-havoc-2002-demo"
     ],
     "byPlatform": {
       "ps1": 6,
-      "ps2": 2,
+      "ps2": 8,
       "ps3": 2,
       "ps4": 2
     },
-    "gameCount": 12
+    "gameCount": 18
   },
   "senran-kagura": {
     "name": "Senran Kagura",
@@ -3225,60 +3725,73 @@
       "ps4-sniper-elite-4",
       "ps4-usa-sniper-elite-4",
       "ps4-sniper-elite-iii",
-      "ps2-sniper-elite",
       "ps4-usa-sniper-elite-iii",
       "ps4-usa-sniper-elite-v2-remastered"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 2,
       "ps4": 6
     },
-    "gameCount": 9
+    "gameCount": 8
   },
   "spongebob-squarepants": {
     "name": "SpongeBob SquarePants",
     "slug": "spongebob-squarepants",
     "museumPath": "",
     "gameIds": [
-      "ps2-spongebob%27s-atlantis-squarepantis",
-      "ps2-spongebob-squarepants-creature-from-krusty-krab",
-      "ps2-spongebob-squarepants-battle-for-bikini-bottom",
       "ps4-usa-spongebob-squarepants-battle-for-bikini-bottom-rehydrated",
-      "ps2-spongebob-squarepants-revenge-of-the-flying-dutchman",
-      "ps2-spongebob-squarepants-lights-camera-pants",
       "ps4-spongebob-squarepants-battle-for-bikini-bottom-rehydrated",
+      "ps3-spongebob-squarepants-plankton%27s-robotic-revenge",
+      "ps2-spongebob-squarepants-battle-for-bikini-bottom",
+      "ps2-spongebob-squarepants-creature-from-krusty-krab",
+      "ps2-spongebob-squarepants-lights-camera-pants",
+      "ps2-spongebob-squarepants-lights-camera-pants-not-for-resale",
+      "ps2-spongebob-squarepants-revenge-of-the-flying-dutchman",
       "ps2-spongebob-squarepants-the-movie",
-      "ps3-spongebob-squarepants-plankton%27s-robotic-revenge"
+      "ps2-spongebob%27s-atlantis-squarepantis",
+      "ps2-usa-spongebob-squarepants-battle-for-bikini-bottom",
+      "ps2-usa-spongebob-squarepants-battle-for-bikini-bottom-greatest-hits",
+      "ps2-usa-spongebob-squarepants-creature-from-krusty-krab",
+      "ps2-usa-spongebob-squarepants-creature-from-krusty-krab-greatest-hits",
+      "ps2-usa-spongebob-squarepants-revenge-of-the-flying-dutchman",
+      "ps2-usa-spongebob-squarepants-the-movie",
+      "ps2-usa-spongebob-squarepants-the-movie-greatest-hits",
+      "ps2-usa-spongebob-squarepants-the-movie-greatest-hits-misprint",
+      "ps2-de-sles-51970",
+      "ps2-es-sles-52986",
+      "ps2-eu-sles-52896",
+      "ps2-fr-sles-53623",
+      "ps2-it-sles-52897"
     ],
     "byPlatform": {
-      "ps2": 6,
+      "ps2": 20,
       "ps3": 1,
       "ps4": 2
     },
-    "gameCount": 9
+    "gameCount": 23
   },
   "teenage-mutant-ninja-turtles": {
     "name": "Teenage Mutant Ninja Turtles",
     "slug": "teenage-mutant-ninja-turtles",
     "museumPath": "",
     "gameIds": [
-      "ps2-teenage-mutant-ninja-turtles-mutant-melee",
-      "ps2-teenage-mutant-ninja-turtles",
-      "ps2-teenage-mutant-ninja-turtles-smash-up",
-      "ps2-teenage-mutant-ninja-turtles-2-battle-nexus",
-      "ps2-teenage-mutant-ninja-turtles-3-mutant-nightmare",
       "ps4-teenage-mutant-ninja-turtles-mutants-in-manhattan",
       "ps4-usa-teenage-mutant-ninja-turtles-mutants-in-manhattan",
       "ps3-teenage-mutant-ninja-turtles-danger-of-the-ooze",
-      "ps3-teenage-mutant-ninja-turtles-mutants-in-manhattan"
+      "ps3-teenage-mutant-ninja-turtles-mutants-in-manhattan",
+      "ps2-teenage-mutant-ninja-turtles",
+      "ps2-teenage-mutant-ninja-turtles-2-battle-nexus",
+      "ps2-teenage-mutant-ninja-turtles-3-mutant-nightmare",
+      "ps2-teenage-mutant-ninja-turtles-smash-up",
+      "ps2-teenage-mutant-ninja-turtles-mutant-melee",
+      "ps2-usa-teenage-mutant-ninja-turtles"
     ],
     "byPlatform": {
-      "ps2": 5,
+      "ps2": 6,
       "ps3": 2,
       "ps4": 2
     },
-    "gameCount": 9
+    "gameCount": 10
   },
   "the-legend-of-heroes": {
     "name": "The Legend of Heroes",
@@ -3307,14 +3820,14 @@
     "museumPath": "",
     "gameIds": [
       "ps4-the-sims-4",
-      "ps2-the-urbz-sims-in-the-city",
-      "ps2-the-sims-2-pets",
       "ps3-the-sims-3-pets",
       "ps4-usa-the-sims-4",
       "ps3-the-sims-3",
-      "ps2-the-sims-2-castaway",
       "ps2-the-sims-2",
-      "ps2-the-sims-bustin-out"
+      "ps2-the-sims-2-platinum",
+      "ps2-the-sims-2-triple-collection-2008",
+      "ps2-usa-the-sims-2-greatest-hits",
+      "ps2-us-slus-21265"
     ],
     "byPlatform": {
       "ps2": 5,
@@ -3332,18 +3845,16 @@
       "ps4-ghost-recon-breakpoint-wolves-collector%27s-edition",
       "ps3-ghost-recon-future-soldier-&amp;-ghost-recon-advanced-warfighter-2-double-pack",
       "ps3-ghost-recon-advanced-warfighter-2",
-      "ps2-ghost-recon-advanced-warfighter",
       "ps3-ghost-recon-future-soldier",
       "ps4-usa-ghost-recon-breakpoint",
       "ps4-ghost-recon-wildlands",
       "ps4-ghost-recon-breakpoint"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 3,
       "ps4": 5
     },
-    "gameCount": 9
+    "gameCount": 8
   },
   "uncharted": {
     "name": "Uncharted",
@@ -3414,11 +3925,6 @@
     "gameIds": [
       "ps3-x-men-destiny",
       "ps3-x-men-origins-wolverine",
-      "ps2-x-men-next-dimension",
-      "ps2-x-men-legends-ii",
-      "ps2-x-men-legends",
-      "ps2-x-men-the-official-game",
-      "ps2-x-men-origins-wolverine",
       "ps1-x-men-mutant-academy",
       "ps1-x-men-mutant-academy-2",
       "ps1-usa-x-men-mutant-academy",
@@ -3427,14 +3933,24 @@
       "ps1-eu-sles-02865",
       "ps1-jp-slpm-86765",
       "ps1-jp-slpm-87077",
-      "ps1-jp-slpm-87081-superlite-1500-series"
+      "ps1-jp-slpm-87081-superlite-1500-series",
+      "ps2-x-men-legends",
+      "ps2-x-men-legends-ii",
+      "ps2-x-men-next-dimension",
+      "ps2-x-men-the-official-game",
+      "ps2-usa-x-men-next-dimension",
+      "ps2-de-sles-50899",
+      "ps2-eu-sles-50898",
+      "ps2-eu-sles-52624",
+      "ps2-eu-sles-52625",
+      "ps2-fr-sles-50900"
     ],
     "byPlatform": {
       "ps1": 9,
-      "ps2": 5,
+      "ps2": 10,
       "ps3": 2
     },
-    "gameCount": 16
+    "gameCount": 21
   },
   "akiba-s-trip": {
     "name": "Akiba's Trip",
@@ -3484,17 +4000,13 @@
       "ps3-cabela%27s-dangerous-hunts-2013",
       "ps3-cabela%27s-survival-shadows-of-katmai",
       "ps3-cabela%27s-adventure-camp",
-      "ps2-cabela%27s-outdoor-adventures",
-      "ps2-cabela%27s-dangerous-hunts",
-      "ps2-cabela%27s-big-game-hunter",
       "ps3-cabela%27s-big-game-hunter-2012",
       "ps3-cabela%27s-dangerous-hunts-2011"
     ],
     "byPlatform": {
-      "ps2": 3,
       "ps3": 5
     },
-    "gameCount": 8
+    "gameCount": 5
   },
   "ea-sports-ufc": {
     "name": "EA Sports UFC",
@@ -3523,15 +4035,13 @@
       "ps4-usa-everybody%27s-golf-vr",
       "ps4-everybody%27s-golf-vr",
       "ps4-usa-everybody%27s-golf",
-      "ps2-everybody%27s-golf",
       "ps4-everybody%27s-golf",
       "ps4-japon-everybody%27s-golf-vr"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps4": 5
     },
-    "gameCount": 6
+    "gameCount": 5
   },
   "fallout": {
     "name": "Fallout",
@@ -3543,16 +4053,14 @@
       "ps4-fallout-76",
       "ps4-usa-fallout-76",
       "ps4-fallout-76-tricentennial-edition",
-      "ps2-fallout-brotherhood-of-steel",
       "ps4-usa-fallout-4",
       "ps4-fallout-4"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 2,
       "ps4": 5
     },
-    "gameCount": 8
+    "gameCount": 7
   },
   "jurassic-park": {
     "name": "Jurassic Park",
@@ -3561,7 +4069,6 @@
     "gameIds": [
       "ps4-jurassic-world-evolution",
       "ps4-usa-jurassic-world-evolution",
-      "ps2-jurassic-park-operation-genesis",
       "ps4-usa-lego-jurassic-world",
       "ps3-lego-jurassic-world",
       "ps4-lego-jurassic-world",
@@ -3573,11 +4080,10 @@
     ],
     "byPlatform": {
       "ps1": 5,
-      "ps2": 1,
       "ps3": 1,
       "ps4": 4
     },
-    "gameCount": 11
+    "gameCount": 10
   },
   "killzone": {
     "name": "Killzone",
@@ -3585,7 +4091,6 @@
     "museumPath": "",
     "gameIds": [
       "ps3-killzone-3",
-      "ps2-killzone",
       "ps3-killzone-2",
       "ps4-japon-killzone-shadow-fall",
       "ps3-killzone",
@@ -3594,11 +4099,10 @@
       "ps4-usa-killzone-shadow-fall"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 3,
       "ps4": 4
     },
-    "gameCount": 8
+    "gameCount": 7
   },
   "let-s-sing": {
     "name": "Let's Sing",
@@ -3644,10 +4148,6 @@
     "slug": "looney-tunes",
     "museumPath": "",
     "gameIds": [
-      "ps2-looney-tunes-acme-arsenal",
-      "ps2-taz-wanted",
-      "ps2-looney-tunes-back-in-action",
-      "ps2-space-race",
       "ps1-bugs-bunny-&amp;-taz-time-busters",
       "ps1-bugs-bunny-lost-in-time",
       "ps1-looney-tunes-racing",
@@ -3656,23 +4156,27 @@
       "ps1-usa-bugs-bunny-lost-in-time",
       "ps1-usa-looney-tunes-racing",
       "ps1-usa-space-jam",
-      "ps1-jp-slps-00697"
+      "ps1-jp-slps-00697",
+      "ps2-looney-tunes-acme-arsenal",
+      "ps2-looney-tunes-back-in-action",
+      "ps2-space-race",
+      "ps2-taz-wanted",
+      "ps2-usa-looney-tunes-acme-arsenal",
+      "ps2-usa-looney-tunes-back-in-action",
+      "ps2-usa-taz-wanted"
     ],
     "byPlatform": {
       "ps1": 9,
-      "ps2": 4
+      "ps2": 7
     },
-    "gameCount": 13
+    "gameCount": 16
   },
   "nascar-electronic-arts": {
     "name": "NASCAR (Electronic Arts)",
     "slug": "nascar-electronic-arts",
     "museumPath": "",
     "gameIds": [
-      "ps2-nascar-06-total-team-control",
       "ps3-nascar-08",
-      "ps2-nascar-07",
-      "ps2-nascar-08",
       "ps3-nascar-09",
       "ps1-nascar-2000",
       "ps1-nascar-98",
@@ -3685,7 +4189,10 @@
       "ps1-de-sles-01453",
       "ps1-eu-sles-00905",
       "ps1-fr-sles-01452",
-      "ps1-us-slus-00647"
+      "ps1-us-slus-00647",
+      "ps2-nascar-06-total-team-control",
+      "ps2-nascar-07",
+      "ps2-nascar-08"
     ],
     "byPlatform": {
       "ps1": 12,
@@ -3699,15 +4206,15 @@
     "slug": "power-rangers",
     "museumPath": "",
     "gameIds": [
-      "ps2-power-rangers-dino-thunder",
       "ps4-power-rangers-battle-for-the-grid",
       "ps4-usa-power-rangers-battle-for-the-grid",
-      "ps2-power-rangers-super-legends",
       "ps1-power-rangers-lightspeed-rescue",
       "ps1-power-rangers-time-force",
       "ps1-power-rangers-zeo-full-tilt-battle-pinball",
       "ps1-usa-power-rangers-lightspeed-rescue",
-      "ps1-usa-power-rangers-time-force"
+      "ps1-usa-power-rangers-time-force",
+      "ps2-power-rangers-dino-thunder",
+      "ps2-power-rangers-super-legends"
     ],
     "byPlatform": {
       "ps1": 5,
@@ -3819,29 +4326,26 @@
     "slug": "burnout",
     "museumPath": "",
     "gameIds": [
-      "ps2-burnout-revenge",
-      "ps2-burnout-3-takedown",
-      "ps2-burnout-dominator",
       "ps3-burnout-paradise",
       "ps3-burnout-paradise-the-ultimate-box",
-      "ps2-burnout-2-point-of-impact",
-      "ps2-burnout"
+      "ps2-burnout",
+      "ps2-burnout-platinum",
+      "ps2-burnout-revenge",
+      "ps2-burnout-revenge-platinum",
+      "ps2-burnout-revenge-not-for-resale",
+      "ps2-eu-sles-53506"
     ],
     "byPlatform": {
-      "ps2": 5,
+      "ps2": 6,
       "ps3": 2
     },
-    "gameCount": 7
+    "gameCount": 8
   },
   "formula-one-ea-sports": {
     "name": "Formula One (EA Sports)",
     "slug": "formula-one-ea-sports",
     "museumPath": "",
     "gameIds": [
-      "ps2-f1-2001",
-      "ps2-f1-career-challenge",
-      "ps2-f1-2002",
-      "ps2-f1-championship-season-2000",
       "ps1-andretti-racing",
       "ps1-f1-2000",
       "ps1-f1-championship-season-2000",
@@ -3855,22 +4359,26 @@
       "ps1-it-sles-02724",
       "ps1-it-sles-03118",
       "ps1-jp-slps-00759",
-      "ps1-jp-slps-02758"
+      "ps1-jp-slps-02758",
+      "ps2-f1-2001",
+      "ps2-f1-2001-press-kit",
+      "ps2-f1-2002",
+      "ps2-f1-career-challenge",
+      "ps2-f1-championship-season-2000",
+      "ps2-eu-sles-50431",
+      "ps2-it-sles-50875"
     ],
     "byPlatform": {
       "ps1": 14,
-      "ps2": 4
+      "ps2": 7
     },
-    "gameCount": 18
+    "gameCount": 21
   },
   "international-superstar-soccer-jikkyou-world-soccer": {
     "name": "International Superstar Soccer/Jikkyou World Soccer",
     "slug": "international-superstar-soccer-jikkyou-world-soccer",
     "museumPath": "",
     "gameIds": [
-      "ps2-international-superstar-soccer",
-      "ps2-international-superstar-soccer-3",
-      "ps2-international-superstar-soccer-2",
       "ps1-international-superstar-soccer",
       "ps1-international-superstar-soccer-deluxe",
       "ps1-international-superstar-soccer-pro",
@@ -3881,32 +4389,43 @@
       "ps1-eu-sles-01218",
       "ps1-eu-sles-02550",
       "ps1-eu-sles-03149",
-      "ps1-it-sles-01264"
+      "ps1-it-sles-01264",
+      "ps2-international-superstar-soccer",
+      "ps2-international-superstar-soccer-3",
+      "ps2-international-superstar-soccer-3-promo-not-for-resale",
+      "ps2-eu-sles-50039",
+      "ps2-eu-sles-50060",
+      "ps2-jp-slpm-62002"
     ],
     "byPlatform": {
       "ps1": 11,
-      "ps2": 3
+      "ps2": 6
     },
-    "gameCount": 14
+    "gameCount": 17
   },
   "jak-and-daxter": {
     "name": "Jak and Daxter",
     "slug": "jak-and-daxter",
     "museumPath": "",
     "gameIds": [
-      "ps2-jak-and-daxter-the-precursor-legacy",
       "ps4-usa-jak-3",
       "ps4-usa-jak-ii",
-      "ps2-jak-and-daxter-collection",
       "ps4-jak-daxter-the-precursor-legacy",
-      "ps2-jak-3",
-      "ps4-usa-jak-and-daxter-the-precursor-legacy"
+      "ps4-usa-jak-and-daxter-the-precursor-legacy",
+      "ps2-jak-and-daxter-the-precursor-legacy",
+      "ps2-jak-and-daxter-the-precursor-legacy-platinum",
+      "ps2-usa-jak-and-daxter-the-precursor-legacy",
+      "ps2-usa-jak-and-daxter-the-precursor-legacy-demo",
+      "ps2-usa-jak-and-daxter-the-precursor-legacy-greatest-hits",
+      "ps2-jp-asia-scps-15021",
+      "ps2-jp-asia-scps-19210-playstation-2-the-best-series",
+      "ps2-jp-asia-scps-55004"
     ],
     "byPlatform": {
-      "ps2": 3,
+      "ps2": 8,
       "ps4": 4
     },
-    "gameCount": 7
+    "gameCount": 12
   },
   "jojo-s-bizarre-adventure": {
     "name": "JoJo's Bizarre Adventure",
@@ -3955,45 +4474,49 @@
     "slug": "monopoly",
     "museumPath": "",
     "gameIds": [
-      "ps2-monopoly-party",
       "ps3-monopoly-streets",
-      "ps2-monopoly",
       "ps3-monopoly",
       "ps4-monopoly-family-fun-pack",
       "ps4-usa-monopoly-family-fun-pack",
       "ps1-monopoly",
       "ps1-usa-monopoly",
       "ps1-jp-slps-00741",
-      "ps1-jp-slps-01682-special-price"
+      "ps1-jp-slps-01682-special-price",
+      "ps2-monopoly",
+      "ps2-monopoly-party",
+      "ps2-eu-au-sles-55209",
+      "ps2-eu-sles-55278"
     ],
     "byPlatform": {
       "ps1": 4,
-      "ps2": 2,
+      "ps2": 4,
       "ps3": 2,
       "ps4": 2
     },
-    "gameCount": 10
+    "gameCount": 12
   },
   "nicktoons": {
     "name": "Nicktoons",
     "slug": "nicktoons",
     "museumPath": "",
     "gameIds": [
-      "ps2-spongebob-squarepants-featuring-nicktoons-globs-of-doom",
       "ps4-usa-nickelodeon-kart-racers-2-grand-prix",
-      "ps2-nicktoons-attack-of-the-toybots",
       "ps4-nickelodeon-kart-racers-2-grand-prix",
       "ps4-nickelodeon-kart-racers",
       "ps4-usa-nickelodeon-kart-racers",
       "ps1-nicktoons-racing",
-      "ps1-usa-nicktoons-racing"
+      "ps1-usa-nicktoons-racing",
+      "ps2-nicktoons-attack-of-the-toybots",
+      "ps2-spongebob-squarepants-featuring-nicktoons-globs-of-doom",
+      "ps2-usa-spongebob-squarepants-featuring-nicktoons-globs-of-doom",
+      "ps2-eu-sles-55272"
     ],
     "byPlatform": {
       "ps1": 2,
-      "ps2": 2,
+      "ps2": 4,
       "ps4": 4
     },
-    "gameCount": 8
+    "gameCount": 10
   },
   "plants-vs-zombies": {
     "name": "Plants vs. Zombies",
@@ -4039,7 +4562,6 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-transformers-rise-of-the-dark-spark",
-      "ps2-transformers",
       "ps3-transformers-rise-of-the-dark-spark",
       "ps4-usa-transformers-battlegrounds",
       "ps4-transformers-battlegrounds",
@@ -4047,15 +4569,18 @@
       "ps1-beast-wars-transformers",
       "ps1-usa-beast-wars-transformers",
       "ps1-japon-beast-wars-transformers",
-      "ps1-jp-slps-02208-best-takaramono"
+      "ps1-jp-slps-02208-best-takaramono",
+      "ps2-transformers",
+      "ps2-transformers-cardboard-sleeve-edition",
+      "ps2-transformers-directors-cut"
     ],
     "byPlatform": {
       "ps1": 4,
-      "ps2": 1,
+      "ps2": 3,
       "ps3": 1,
       "ps4": 4
     },
-    "gameCount": 10
+    "gameCount": 12
   },
   "valkyria-chronicles": {
     "name": "Valkyria Chronicles",
@@ -4083,7 +4608,6 @@
     "gameIds": [
       "ps4-usa-who-wants-to-be-a-millionaire",
       "ps4-who-wants-to-be-a-millionaire",
-      "ps2-who-wants-to-be-a-millionaire-2nd-edition",
       "ps1-who-wants-to-be-a-millionaire-2nd-edition",
       "ps1-who-wants-to-be-a-millionaire-3rd-edition",
       "ps1-who-wants-to-be-a-millionaire-junior",
@@ -4093,7 +4617,8 @@
       "ps1-de-sles-03594",
       "ps1-fr-sles-03590",
       "ps1-fr-sles-03593",
-      "ps1-it-sles-03917"
+      "ps1-it-sles-03917",
+      "ps2-who-wants-to-be-a-millionaire-2nd-edition"
     ],
     "byPlatform": {
       "ps1": 10,
@@ -4109,17 +4634,18 @@
     "gameIds": [
       "ps4-ys-viii-lacrimosa-of-dana",
       "ps4-japon-ys-ix-monstrum-nox",
-      "ps2-ys-the-ark-of-napishtim",
       "ps4-usa-ys-viii-lacrimosa-of-dana",
       "ps4-usa-ys-memories-of-celceta",
       "ps4-ys-memories-of-celceta",
-      "ps4-ys-ix-monstrum-nox"
+      "ps4-ys-ix-monstrum-nox",
+      "ps2-ys-the-ark-of-napishtim",
+      "ps2-usa-ys-the-ark-of-napishtim"
     ],
     "byPlatform": {
-      "ps2": 1,
+      "ps2": 2,
       "ps4": 6
     },
-    "gameCount": 7
+    "gameCount": 8
   },
   "alien": {
     "name": "Alien",
@@ -4167,20 +4693,22 @@
     "slug": "batman",
     "museumPath": "",
     "gameIds": [
-      "ps2-batman-begins",
-      "ps2-batman-vengeance",
-      "ps2-batman-rise-of-sin-tzu",
       "ps1-batman-&amp;-robin",
       "ps1-batman-gotham-city-racer",
       "ps1-usa-batman-and-robin",
       "ps1-usa-batman-gotham-city-racer",
-      "ps1-it-sles-01220"
+      "ps1-it-sles-01220",
+      "ps2-batman-begins",
+      "ps2-batman-rise-of-sin-tzu",
+      "ps2-batman-vengeance",
+      "ps2-usa-batman-begins",
+      "ps2-usa-batman-vengeance"
     ],
     "byPlatform": {
       "ps1": 5,
-      "ps2": 3
+      "ps2": 5
     },
-    "gameCount": 8
+    "gameCount": 10
   },
   "bioshock": {
     "name": "BioShock",
@@ -4280,18 +4808,20 @@
     "slug": "fight-night",
     "museumPath": "",
     "gameIds": [
-      "ps2-fight-night-round-2",
       "ps3-fight-night-round-3",
-      "ps2-fight-night-round-3",
-      "ps2-fight-night-2004",
       "ps3-fight-night-champion",
-      "ps3-fight-night-round-4"
+      "ps3-fight-night-round-4",
+      "ps2-fight-night-2004",
+      "ps2-fight-night-round-2",
+      "ps2-fight-night-round-3",
+      "ps2-usa-fight-night-round-3",
+      "ps2-usa-fight-night-round-3-greatest-hits"
     ],
     "byPlatform": {
-      "ps2": 3,
+      "ps2": 5,
       "ps3": 3
     },
-    "gameCount": 6
+    "gameCount": 8
   },
   "front-mission": {
     "name": "Front Mission",
@@ -4323,7 +4853,6 @@
     "slug": "harvest-moon",
     "museumPath": "",
     "gameIds": [
-      "ps2-harvest-moon-a-wonderful-life-special-edition",
       "ps4-usa-harvest-moon-mad-dash",
       "ps4-harvest-moon-mad-dash",
       "ps4-usa-harvest-moon-light-of-hope",
@@ -4335,10 +4864,9 @@
     ],
     "byPlatform": {
       "ps1": 4,
-      "ps2": 1,
       "ps4": 4
     },
-    "gameCount": 9
+    "gameCount": 8
   },
   "infamous": {
     "name": "inFamous",
@@ -4363,19 +4891,20 @@
     "slug": "just-cause",
     "museumPath": "",
     "gameIds": [
-      "ps2-just-cause",
       "ps3-just-cause-2",
       "ps4-just-cause-3",
       "ps4-usa-just-cause-3",
       "ps4-usa-just-cause-4",
-      "ps4-just-cause-4"
+      "ps4-just-cause-4",
+      "ps2-just-cause",
+      "ps2-just-cause-not-for-resale"
     ],
     "byPlatform": {
-      "ps2": 1,
+      "ps2": 2,
       "ps3": 1,
       "ps4": 4
     },
-    "gameCount": 6
+    "gameCount": 7
   },
   "mass-effect": {
     "name": "Mass Effect",
@@ -4441,26 +4970,29 @@
     "slug": "red-faction",
     "museumPath": "",
     "gameIds": [
-      "ps2-red-faction-ii",
-      "ps2-red-faction",
       "ps3-red-faction-guerrilla",
       "ps4-usa-red-faction",
       "ps4-red-faction-guerrilla-re-mars-tered",
-      "ps4-usa-red-faction-guerrilla-re-mars-tered"
+      "ps4-usa-red-faction-guerrilla-re-mars-tered",
+      "ps2-red-faction",
+      "ps2-red-faction-platinum",
+      "ps2-red-faction-ii",
+      "ps2-usa-red-faction",
+      "ps2-usa-red-faction-greatest-hits",
+      "ps2-fr-sles-50278"
     ],
     "byPlatform": {
-      "ps2": 2,
+      "ps2": 6,
       "ps3": 1,
       "ps4": 3
     },
-    "gameCount": 6
+    "gameCount": 10
   },
   "ridge-racer": {
     "name": "Ridge Racer",
     "slug": "ridge-racer",
     "museumPath": "",
     "gameIds": [
-      "ps2-ridge-racer-v",
       "ps3-ridge-racer-7",
       "ps3-ridge-racer-unbounded",
       "ps1-ridge-racer-revolution",
@@ -4472,7 +5004,8 @@
       "ps1-jp-asia-slps-01798",
       "ps1-jp-asia-slps-01800",
       "ps1-jp-slps-91028-playstation-the-best",
-      "ps1-us-slus-00797"
+      "ps1-us-slus-00797",
+      "ps2-ridge-racer-v"
     ],
     "byPlatform": {
       "ps1": 10,
@@ -4489,44 +5022,52 @@
       "ps4-japon-saint-seiya-soldiers%27-soul",
       "ps3-saint-seiya-brave-soldiers",
       "ps4-saint-seiya-soldiers%27-soul",
-      "ps2-saint-seiya-the-hades",
       "ps3-saint-seiya-sanctuary-battle",
-      "ps2-saint-seiya-the-sanctuary"
+      "ps2-saint-seiya-the-hades",
+      "ps2-saint-seiya-the-sanctuary",
+      "ps2-jp-slps-25476",
+      "ps2-jp-slps-25744"
     ],
     "byPlatform": {
-      "ps2": 2,
+      "ps2": 4,
       "ps3": 2,
       "ps4": 2
     },
-    "gameCount": 6
+    "gameCount": 8
   },
   "scooby-doo": {
     "name": "Scooby-Doo",
     "slug": "scooby-doo",
     "museumPath": "",
     "gameIds": [
-      "ps2-scooby-doo-night-of-100-frights",
-      "ps2-scooby-doo-and-the-spooky-swamp",
-      "ps2-scooby-doo-unmasked",
-      "ps2-scooby-doo-first-frights",
-      "ps2-scooby-doo-mystery-mayhem",
       "ps1-scooby-doo-and-the-cyber-chase",
       "ps1-fr-sles-03733",
-      "ps1-us-slus-01396"
+      "ps1-us-slus-01396",
+      "ps2-scooby-doo-first-frights",
+      "ps2-scooby-doo-mystery-mayhem",
+      "ps2-scooby-doo-night-of-100-frights",
+      "ps2-scooby-doo-unmasked",
+      "ps2-scooby-doo-and-the-spooky-swamp",
+      "ps2-usa-scooby-doo-and-the-spooky-swamp",
+      "ps2-usa-scooby-doo-first-frights",
+      "ps2-usa-scooby-doo-mystery-mayhem",
+      "ps2-usa-scooby-doo-night-of-100-frights",
+      "ps2-usa-scooby-doo-night-of-100-frights-greatest-hits",
+      "ps2-usa-scooby-doo-unmasked",
+      "ps2-de-sles-51019",
+      "ps2-fr-sles-51018"
     ],
     "byPlatform": {
       "ps1": 3,
-      "ps2": 5
+      "ps2": 13
     },
-    "gameCount": 8
+    "gameCount": 16
   },
   "spyro-the-dragon": {
     "name": "Spyro the Dragon",
     "slug": "spyro-the-dragon",
     "museumPath": "",
     "gameIds": [
-      "ps2-spyro-a-hero%27s-tail",
-      "ps2-spyro-enter-the-dragonfly",
       "ps4-spyro-reignited-trilogy",
       "ps4-usa-spyro-reignited-trilogy",
       "ps1-spyro-the-dragon",
@@ -4536,32 +5077,35 @@
       "ps1-japon-spyro-the-dragon",
       "ps1-jp-asia-scps-10083-limited-edition",
       "ps1-jp-asia-scps-45395",
-      "ps1-jp-scps-10085"
+      "ps1-jp-scps-10085",
+      "ps2-spyro-a-hero%27s-tail",
+      "ps2-spyro-a-hero%27s-tail-not-for-resale",
+      "ps2-spyro-a-hero%27s-tail-platinum",
+      "ps2-spyro-enter-the-dragonfly",
+      "ps2-spyro-enter-the-dragonfly-platinum",
+      "ps2-usa-spyro-a-heros-tail"
     ],
     "byPlatform": {
       "ps1": 8,
-      "ps2": 2,
+      "ps2": 6,
       "ps4": 2
     },
-    "gameCount": 12
+    "gameCount": 16
   },
   "super-monkey-ball": {
     "name": "Super Monkey Ball",
     "slug": "super-monkey-ball",
     "museumPath": "",
     "gameIds": [
-      "ps2-super-monkey-ball-adventure",
-      "ps2-super-monkey-ball-deluxe",
       "ps4-usa-super-monkey-ball-banana-blitz-hd",
       "ps4-usa-super-monkey-ball-banana-mania",
       "ps4-super-monkey-ball-banana-mania-launch-edition",
       "ps4-super-monkey-ball-banana-blitz-hd"
     ],
     "byPlatform": {
-      "ps2": 2,
       "ps4": 4
     },
-    "gameCount": 6
+    "gameCount": 4
   },
   "the-simpsons": {
     "name": "The Simpsons",
@@ -4569,27 +5113,39 @@
     "museumPath": "",
     "gameIds": [
       "ps3-the-simpsons-game",
-      "ps2-the-simpsons-skateboarding",
-      "ps2-the-simpsons-hit-and-run",
-      "ps2-the-simpsons-game",
-      "ps2-the-simpsons-road-rage",
       "ps1-the-simpsons-wrestling",
-      "ps1-usa-the-simpsons-wrestling"
+      "ps1-usa-the-simpsons-wrestling",
+      "ps2-the-simpsons-game",
+      "ps2-the-simpsons-game-platinum",
+      "ps2-the-simpsons-hit-and-run",
+      "ps2-the-simpsons-hit-and-run-platinum",
+      "ps2-the-simpsons-road-rage",
+      "ps2-the-simpsons-skateboarding",
+      "ps2-usa-the-simpsons-hit-and-run",
+      "ps2-usa-the-simpsons-hit-and-run-greatest-hits",
+      "ps2-usa-the-simpsons-road-rage",
+      "ps2-usa-the-simpsons-road-rage-greatest-hits",
+      "ps2-de-sles-51362",
+      "ps2-es-sles-51361",
+      "ps2-eu-sles-50540",
+      "ps2-eu-sles-50628",
+      "ps2-eu-sles-50754",
+      "ps2-eu-sles-54906",
+      "ps2-fr-sles-50755",
+      "ps2-it-sles-51360"
     ],
     "byPlatform": {
       "ps1": 2,
-      "ps2": 4,
+      "ps2": 18,
       "ps3": 1
     },
-    "gameCount": 7
+    "gameCount": 21
   },
   "time-crisis": {
     "name": "Time Crisis",
     "slug": "time-crisis",
     "museumPath": "",
     "gameIds": [
-      "ps2-time-crisis-3",
-      "ps2-crisis-zone",
       "ps3-time-crisis-razing-storm",
       "ps3-time-crisis-4",
       "ps1-time-crisis",
@@ -4601,14 +5157,20 @@
       "ps1-jp-asia-scps-45514",
       "ps1-jp-asia-slps-03188",
       "ps1-jp-slps-00635-with-guncon",
-      "ps1-jp-slps-91087-playstation-the-best"
+      "ps1-jp-slps-91087-playstation-the-best",
+      "ps2-crisis-zone",
+      "ps2-crisis-zone-gun-bundle",
+      "ps2-crisis-zone-promo-not-for-resale",
+      "ps2-time-crisis-3",
+      "ps2-time-crisis-3-gun-bundle",
+      "ps2-usa-time-crisis-crisis-zone"
     ],
     "byPlatform": {
       "ps1": 10,
-      "ps2": 2,
+      "ps2": 6,
       "ps3": 2
     },
-    "gameCount": 14
+    "gameCount": 18
   },
   "tom-clancy-s-splinter-cell": {
     "name": "Tom Clancy's Splinter Cell",
@@ -4616,17 +5178,23 @@
     "museumPath": "",
     "gameIds": [
       "ps3-splinter-cell-blacklist",
-      "ps2-splinter-cell-pandora-tomorrow",
-      "ps2-splinter-cell-double-agent",
-      "ps2-splinter-cell",
+      "ps3-splinter-cell-double-agent",
       "ps2-splinter-cell-chaos-theory",
-      "ps3-splinter-cell-double-agent"
+      "ps2-splinter-cell-chaos-theory-platinum",
+      "ps2-splinter-cell-double-agent",
+      "ps2-splinter-cell-double-agent-platinum",
+      "ps2-splinter-cell-pandora-tomorrow",
+      "ps2-splinter-cell-pandora-tomorrow-platinum",
+      "ps2-splinter-cell-pandora-tomorrow-promo-not-for-resale",
+      "ps2-eu-au-sles-53007",
+      "ps2-eu-sles-53287",
+      "ps2-eu-sles-53827"
     ],
     "byPlatform": {
-      "ps2": 4,
+      "ps2": 10,
       "ps3": 2
     },
-    "gameCount": 6
+    "gameCount": 12
   },
   "under-night": {
     "name": "Under Night",
@@ -4651,7 +5219,6 @@
     "slug": "v-rally",
     "museumPath": "",
     "gameIds": [
-      "ps2-v-rally-3",
       "ps4-v-rally-4",
       "ps4-usa-v-rally-4",
       "ps1-v-rally-%2797-championship-edition",
@@ -4659,14 +5226,17 @@
       "ps1-v-rally-championship-edition",
       "ps1-usa-need-for-speed-v-rally",
       "ps1-japon-v-rally-championship-edition",
-      "ps1-japon-v-rally-championship-edition-playstation-the-best"
+      "ps1-japon-v-rally-championship-edition-playstation-the-best",
+      "ps2-v-rally-3",
+      "ps2-v-rally-3-platinum",
+      "ps2-v-rally-3-promo"
     ],
     "byPlatform": {
       "ps1": 6,
-      "ps2": 1,
+      "ps2": 3,
       "ps4": 2
     },
-    "gameCount": 9
+    "gameCount": 11
   },
   "warriors-orochi": {
     "name": "Warriors Orochi",
@@ -4676,42 +5246,36 @@
       "ps4-warriors-orochi-4",
       "ps3-warriors-orochi-3",
       "ps4-usa-warriors-orochi-4",
-      "ps2-warriors-orochi",
       "ps4-warriors-orochi-3-ultimate",
       "ps4-usa-warriors-orochi-3-ultimate"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1,
       "ps4": 4
     },
-    "gameCount": 6
+    "gameCount": 5
   },
   "brian-lara-cricket": {
     "name": "Brian Lara Cricket",
     "slug": "brian-lara-cricket",
     "museumPath": "",
     "gameIds": [
-      "ps2-brian-lara-international-cricket-2007",
-      "ps2-brian-lara-international-cricket-2005",
-      "ps2-brian-lara-cricket-2005",
-      "ps2-cricket-2005",
       "ps1-brian-lara-cricket",
-      "ps1-au-sles-01576"
+      "ps1-au-sles-01576",
+      "ps2-brian-lara-international-cricket-2005",
+      "ps2-brian-lara-international-cricket-2007"
     ],
     "byPlatform": {
       "ps1": 2,
-      "ps2": 4
+      "ps2": 2
     },
-    "gameCount": 6
+    "gameCount": 4
   },
   "bust-a-move": {
     "name": "Bust-A-Move",
     "slug": "bust-a-move",
     "museumPath": "",
     "gameIds": [
-      "ps2-super-bust-a-move",
-      "ps2-super-bust-a-move-2",
       "ps1-bust-a-move-2-arcade-edition",
       "ps1-bust-a-move-3-dx",
       "ps1-bust-a-move-4",
@@ -4724,7 +5288,9 @@
       "ps1-jp-slps-01065",
       "ps1-jp-slps-91018-playstation-the-best",
       "ps1-jp-slps-91075-playstation-the-best",
-      "ps1-us-slus-00233"
+      "ps1-us-slus-00233",
+      "ps2-super-bust-a-move",
+      "ps2-super-bust-a-move-2"
     ],
     "byPlatform": {
       "ps1": 13,
@@ -4791,16 +5357,15 @@
     "slug": "ea-rugby",
     "museumPath": "",
     "gameIds": [
+      "ps2-rugby",
       "ps2-rugby-06",
-      "ps2-rugby-08",
       "ps2-rugby-2004",
-      "ps2-rugby-2005",
-      "ps2-rugby"
+      "ps2-rugby-2005"
     ],
     "byPlatform": {
-      "ps2": 5
+      "ps2": 4
     },
-    "gameCount": 5
+    "gameCount": 4
   },
   "earth-defense-force": {
     "name": "Earth Defense Force",
@@ -4874,25 +5439,33 @@
     "slug": "indiana-jones",
     "museumPath": "",
     "gameIds": [
-      "ps2-lego-indiana-jones-the-original-adventures",
       "ps3-lego-indiana-jones-the-original-adventures",
       "ps3-lego-indiana-jones-2-the-adventure-continues",
       "ps2-indiana-jones-and-the-emperor%27s-tomb",
-      "ps2-indiana-jones-and-the-staff-of-kings"
+      "ps2-indiana-jones-and-the-staff-of-kings",
+      "ps2-indiana-jones-and-the-staff-of-kings-promo",
+      "ps2-lego-indiana-jones-the-original-adventures",
+      "ps2-lego-indiana-jones-the-original-adventures-platinum",
+      "ps2-usa-indiana-jones-and-the-emperor-s-tomb",
+      "ps2-usa-indiana-jones-and-the-staff-of-kings",
+      "ps2-usa-lego-indiana-jones-the-original-adventures",
+      "ps2-usa-lego-indiana-jones-the-original-adventures-greatest-hits",
+      "ps2-de-sles-50838",
+      "ps2-es-sles-50840",
+      "ps2-fr-sles-50837",
+      "ps2-it-sles-50839"
     ],
     "byPlatform": {
-      "ps2": 3,
+      "ps2": 13,
       "ps3": 2
     },
-    "gameCount": 5
+    "gameCount": 15
   },
   "knockout-kings": {
     "name": "Knockout Kings",
     "slug": "knockout-kings",
     "museumPath": "",
     "gameIds": [
-      "ps2-knockout-kings-2002",
-      "ps2-knockout-kings-2001",
       "ps1-box-champions-2001",
       "ps1-box-champions",
       "ps1-knockout-kings-2000",
@@ -4905,13 +5478,20 @@
       "ps1-eu-sles-01448",
       "ps1-fr-sles-01450",
       "ps1-fr-sles-02323",
-      "ps1-fr-sles-03122"
+      "ps1-fr-sles-03122",
+      "ps2-knockout-kings-2001",
+      "ps2-knockout-kings-2002",
+      "ps2-de-sles-50130",
+      "ps2-de-sles-50802",
+      "ps2-eu-sles-50128",
+      "ps2-fr-sles-50129",
+      "ps2-fr-sles-50803"
     ],
     "byPlatform": {
       "ps1": 13,
-      "ps2": 2
+      "ps2": 7
     },
-    "gameCount": 15
+    "gameCount": 20
   },
   "lego-harry-potter": {
     "name": "LEGO Harry Potter",
@@ -4920,16 +5500,14 @@
     "gameIds": [
       "ps3-lego-harry-potter-years-1-4",
       "ps4-usa-lego-harry-potter-collection",
-      "ps2-harry-potter-collection",
       "ps4-lego-harry-potter-collection",
       "ps3-lego-harry-potter-years-5-7"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 2,
       "ps4": 2
     },
-    "gameCount": 5
+    "gameCount": 4
   },
   "lego-lord-of-the-rings": {
     "name": "LEGO Lord of the Rings",
@@ -4939,15 +5517,13 @@
       "ps4-lego-the-hobbit",
       "ps3-lego-the-hobbit",
       "ps3-lego-lord-of-the-rings",
-      "ps2-the-hobbit",
       "ps4-usa-lego-the-hobbit"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 2,
       "ps4": 2
     },
-    "gameCount": 5
+    "gameCount": 4
   },
   "midway-presents-arcade-hits": {
     "name": "Midway Presents Arcade Hits",
@@ -4990,10 +5566,6 @@
     "slug": "pac-man-world",
     "museumPath": "",
     "gameIds": [
-      "ps2-pac-man-world-2",
-      "ps2-pac-man-world-rally",
-      "ps2-pac-man-rally",
-      "ps2-pac-man-world-3",
       "ps1-pac-man-world",
       "ps1-usa-pac-man-world",
       "ps1-japon-pac-man-world",
@@ -5002,13 +5574,22 @@
       "ps1-eu-sces-00934",
       "ps1-fr-sces-02277",
       "ps1-it-sces-02279",
-      "ps1-jp-slps-02345"
+      "ps1-jp-slps-02345",
+      "ps2-pac-man-rally",
+      "ps2-pac-man-world-2",
+      "ps2-pac-man-world-3",
+      "ps2-pac-man-world-rally",
+      "ps2-usa-pac-man-world-2",
+      "ps2-usa-pac-man-world-2-greatest-hits",
+      "ps2-japon-pac-man-world-2",
+      "ps2-jp-asia-scps-55038",
+      "ps2-jp-asia-slps-25141"
     ],
     "byPlatform": {
       "ps1": 9,
-      "ps2": 4
+      "ps2": 9
     },
-    "gameCount": 13
+    "gameCount": 18
   },
   "puyo-puyo": {
     "name": "Puyo Puyo",
@@ -5047,7 +5628,6 @@
     "slug": "rugrats",
     "museumPath": "",
     "gameIds": [
-      "ps2-rugrats-royal-ransom",
       "ps1-rugrats-search-for-reptar",
       "ps1-rugrats-studio-tour",
       "ps1-rugrats-totally-angelica",
@@ -5063,13 +5643,17 @@
       "ps1-fr-sles-03545",
       "ps1-it-sles-01671",
       "ps1-it-sles-02912",
-      "ps1-nl-sles-01672"
+      "ps1-nl-sles-01672",
+      "ps2-rugrats-royal-ransom",
+      "ps2-usa-rugrats-royal-ransom",
+      "ps2-es-sles-51385",
+      "ps2-fr-sles-51312"
     ],
     "byPlatform": {
       "ps1": 16,
-      "ps2": 1
+      "ps2": 4
     },
-    "gameCount": 17
+    "gameCount": 20
   },
   "spider-man": {
     "name": "Spider-Man",
@@ -5098,9 +5682,6 @@
     "slug": "suikoden",
     "museumPath": "",
     "gameIds": [
-      "ps2-suikoden-tactics",
-      "ps2-suikoden-v",
-      "ps2-suikoden-iv",
       "ps1-suikoden",
       "ps1-suikoden-ii",
       "ps1-usa-suikoden",
@@ -5111,10 +5692,9 @@
       "ps1-it-sles-02446"
     ],
     "byPlatform": {
-      "ps1": 8,
-      "ps2": 3
+      "ps1": 8
     },
-    "gameCount": 11
+    "gameCount": 8
   },
   "tetris": {
     "name": "Tetris",
@@ -5122,7 +5702,6 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-tetris-effect",
-      "ps2-tetris-worlds",
       "ps4-tetris-effect",
       "ps1-tetris-plus",
       "ps1-the-next-tetris",
@@ -5131,31 +5710,38 @@
       "ps1-japon-tetris-plus",
       "ps1-japon-tetris-plus-rerelease",
       "ps1-japon-the-next-tetris",
-      "ps1-jp-slps-02701-bps-the-choice"
+      "ps1-jp-slps-02701-bps-the-choice",
+      "ps2-tetris-worlds",
+      "ps2-usa-tetris-worlds",
+      "ps2-usa-tetris-worlds-first-edition"
     ],
     "byPlatform": {
       "ps1": 8,
-      "ps2": 1,
+      "ps2": 3,
       "ps4": 2
     },
-    "gameCount": 11
+    "gameCount": 13
   },
   "the-legend-of-spyro": {
     "name": "The Legend of Spyro",
     "slug": "the-legend-of-spyro",
     "museumPath": "",
     "gameIds": [
-      "ps2-legend-of-spyro-a-new-beginning",
-      "ps2-legend-of-the-dragon",
       "ps3-legend-of-spyro-dawn-of-the-dragon",
+      "ps2-legend-of-spyro-a-new-beginning",
+      "ps2-legend-of-spyro-a-new-beginning-platinum",
       "ps2-legend-of-spyro-the-eternal-night",
-      "ps2-legend-of-spyro-dawn-of-the-dragon"
+      "ps2-legend-of-spyro-dawn-of-the-dragon",
+      "ps2-eu-sles-54815",
+      "ps2-ru-sles-54816",
+      "ps2-ru-sles-55265",
+      "ps2-scand-sles-55227"
     ],
     "byPlatform": {
-      "ps2": 4,
+      "ps2": 8,
       "ps3": 1
     },
-    "gameCount": 5
+    "gameCount": 9
   },
   "wipeout": {
     "name": "WipEout",
@@ -5164,19 +5750,20 @@
     "gameIds": [
       "ps4-usa-wipeout-omega-collection",
       "ps3-wipeout-hd",
-      "ps2-wipeout-fusion",
       "ps4-wipeout-omega-collection",
       "ps1-wipeout",
       "ps1-usa-wipeout",
-      "ps1-japon-wipeout"
+      "ps1-japon-wipeout",
+      "ps2-wipeout-fusion",
+      "ps2-wipeout-fusion-limited-edition"
     ],
     "byPlatform": {
       "ps1": 3,
-      "ps2": 1,
+      "ps2": 2,
       "ps3": 1,
       "ps4": 2
     },
-    "gameCount": 7
+    "gameCount": 8
   },
   "ai-the-somnium-files": {
     "name": "AI: The Somnium Files",
@@ -5198,27 +5785,24 @@
     "slug": "all-star-baseball",
     "museumPath": "",
     "gameIds": [
-      "ps2-all-star-baseball-2004",
-      "ps2-all-star-baseball-2003",
-      "ps2-all-star-baseball-2002",
       "ps1-frank-thomas-big-hurt-baseball",
       "ps1-usa-frank-thomas-big-hurt-baseball",
-      "ps1-jp-slps-00453"
+      "ps1-jp-slps-00453",
+      "ps2-all-star-baseball-2002",
+      "ps2-all-star-baseball-2003"
     ],
     "byPlatform": {
       "ps1": 3,
-      "ps2": 3
+      "ps2": 2
     },
-    "gameCount": 6
+    "gameCount": 5
   },
   "ape-escape": {
     "name": "Ape Escape",
     "slug": "ape-escape",
     "museumPath": "",
     "gameIds": [
-      "ps2-ape-escape-2",
       "ps3-ape-escape",
-      "ps2-ape-escape-3",
       "ps1-ape-escape",
       "ps1-usa-ape-escape",
       "ps1-japon-saru-get-you",
@@ -5228,14 +5812,25 @@
       "ps1-fr-sces-02028",
       "ps1-it-sces-02030",
       "ps1-jp-asia-scps-10091",
-      "ps1-jp-asia-scps-45411"
+      "ps1-jp-asia-scps-45411",
+      "ps2-ape-escape-2",
+      "ps2-usa-ape-escape-2",
+      "ps2-japon-saru-get-you-2",
+      "ps2-de-sces-51104",
+      "ps2-es-sces-51105",
+      "ps2-fr-sces-51102",
+      "ps2-it-sces-51103",
+      "ps2-jp-asia-scps-15025",
+      "ps2-jp-asia-scps-19206-playstation-2-the-best",
+      "ps2-jp-asia-scps-19308-playstation-2-the-best-reprint",
+      "ps2-jp-asia-scps-55035"
     ],
     "byPlatform": {
       "ps1": 10,
-      "ps2": 2,
+      "ps2": 11,
       "ps3": 1
     },
-    "gameCount": 13
+    "gameCount": 22
   },
   "capcom-vs-snk": {
     "name": "Capcom vs. SNK",
@@ -5243,15 +5838,12 @@
     "museumPath": "",
     "gameIds": [
       "ps4-japon-snk-vs-capcom-svc-chaos",
-      "ps4-usa-snk-vs-capcom-svc-chaos",
-      "ps2-svc-chaos",
-      "ps2-capcom-vs-snk-2"
+      "ps4-usa-snk-vs-capcom-svc-chaos"
     ],
     "byPlatform": {
-      "ps2": 2,
       "ps4": 2
     },
-    "gameCount": 4
+    "gameCount": 2
   },
   "civilization": {
     "name": "Civilization",
@@ -5327,10 +5919,10 @@
     "slug": "ea-cricket",
     "museumPath": "",
     "gameIds": [
+      "ps1-cricket-2000",
       "ps2-cricket-07",
       "ps2-cricket-2002",
-      "ps2-cricket-2004",
-      "ps1-cricket-2000"
+      "ps2-cricket-2004"
     ],
     "byPlatform": {
       "ps1": 1,
@@ -5359,15 +5951,12 @@
     "museumPath": "",
     "gameIds": [
       "ps3-fifa-street",
-      "ps2-fifa-street",
-      "ps3-fifa-street-3",
-      "ps2-fifa-street-2"
+      "ps3-fifa-street-3"
     ],
     "byPlatform": {
-      "ps2": 2,
       "ps3": 2
     },
-    "gameCount": 4
+    "gameCount": 2
   },
   "flatout": {
     "name": "FlatOut",
@@ -5375,15 +5964,21 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-flatout-4-total-insanity",
-      "ps2-flatout-2",
       "ps4-flatout-4-total-insanity",
-      "ps2-flatout"
+      "ps2-flatout",
+      "ps2-flatout-2",
+      "ps2-usa-flatout",
+      "ps2-usa-flatout-2",
+      "ps2-de-sles-52754",
+      "ps2-de-sles-54003",
+      "ps2-jp-slpm-66043",
+      "ps2-jp-slpm-66703-konami-the-best"
     ],
     "byPlatform": {
-      "ps2": 2,
+      "ps2": 8,
       "ps4": 2
     },
-    "gameCount": 4
+    "gameCount": 10
   },
   "hot-wheels": {
     "name": "Hot Wheels",
@@ -5408,36 +6003,39 @@
     "slug": "lemmings",
     "museumPath": "",
     "gameIds": [
-      "ps2-lemmings",
       "ps1-3d-lemmings",
       "ps1-lemmings-and-oh-no-more-lemmings",
       "ps1-lomax",
       "ps1-usa-lemmings-3d",
       "ps1-usa-lemmings-and-oh-no-more-lemmings",
       "ps1-japon-lomax",
-      "ps1-jp-sips-60002"
+      "ps1-jp-sips-60002",
+      "ps2-lemmings",
+      "ps2-lemmings-promo-only"
     ],
     "byPlatform": {
       "ps1": 7,
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 8
+    "gameCount": 9
   },
   "midway-arcade-treasures": {
     "name": "Midway Arcade Treasures",
     "slug": "midway-arcade-treasures",
     "museumPath": "",
     "gameIds": [
+      "ps3-midway-arcade-origins",
+      "ps2-midway-arcade-treasures",
       "ps2-midway-arcade-treasures-2",
       "ps2-midway-arcade-treasures-3",
-      "ps2-midway-arcade-treasures",
-      "ps3-midway-arcade-origins"
+      "ps2-de-sles-52343",
+      "ps2-eu-au-sles-51927"
     ],
     "byPlatform": {
-      "ps2": 3,
+      "ps2": 5,
       "ps3": 1
     },
-    "gameCount": 4
+    "gameCount": 6
   },
   "motorstorm": {
     "name": "MotorStorm",
@@ -5461,16 +6059,14 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-mx-vs-atv-all-out",
-      "ps2-mx-vs-atv-untamed",
       "ps4-mx-vs-atv-all-out",
       "ps3-mx-vs-atv-untamed"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1,
       "ps4": 2
     },
-    "gameCount": 4
+    "gameCount": 3
   },
   "naruto-ultimate-ninja": {
     "name": "Naruto: Ultimate Ninja",
@@ -5478,32 +6074,27 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-naruto-shippuden-ultimate-ninja-storm-4",
-      "ps2-naruto-shippuden-ultimate-ninja-4",
       "ps4-naruto-shippuden-ultimate-ninja-storm-4",
       "ps3-naruto-shippuden-ultimate-ninja-storm-3"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1,
       "ps4": 2
     },
-    "gameCount": 4
+    "gameCount": 3
   },
   "pirates-of-the-caribbean": {
     "name": "Pirates of the Caribbean",
     "slug": "pirates-of-the-caribbean",
     "museumPath": "",
     "gameIds": [
-      "ps2-pirates-of-the-caribbean-at-world%27s-end",
       "ps3-pirates-of-the-caribbean-at-world%27s-end",
-      "ps3-lego-pirates-of-the-caribbean-the-video-game",
-      "ps2-pirates-of-the-caribbean"
+      "ps3-lego-pirates-of-the-caribbean-the-video-game"
     ],
     "byPlatform": {
-      "ps2": 2,
       "ps3": 2
     },
-    "gameCount": 4
+    "gameCount": 2
   },
   "prince-of-persia": {
     "name": "Prince of Persia",
@@ -5512,15 +6103,13 @@
     "gameIds": [
       "ps3-prince-of-persia",
       "ps4-usa-prince-of-persia-the-sands-of-time-remake",
-      "ps2-prince-of-persia-sands-of-time",
       "ps3-prince-of-persia-the-forgotten-sands"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 2,
       "ps4": 1
     },
-    "gameCount": 4
+    "gameCount": 3
   },
   "quake": {
     "name": "Quake",
@@ -5529,36 +6118,40 @@
     "gameIds": [
       "ps4-usa-quake-ii",
       "ps3-enemy-territory-quake-wars",
-      "ps2-quake-iii-revolution",
       "ps1-quake-ii",
-      "ps1-usa-quake-ii"
+      "ps1-usa-quake-ii",
+      "ps2-quake-iii-revolution",
+      "ps2-de-sles-50127",
+      "ps2-eu-sles-50126"
     ],
     "byPlatform": {
       "ps1": 2,
-      "ps2": 1,
+      "ps2": 3,
       "ps3": 1,
       "ps4": 1
     },
-    "gameCount": 5
+    "gameCount": 7
   },
   "rampage": {
     "name": "Rampage",
     "slug": "rampage",
     "museumPath": "",
     "gameIds": [
-      "ps2-rampage-total-destruction",
       "ps1-rampage-2-universal-tour",
       "ps1-rampage-through-time",
       "ps1-rampage-world-tour",
       "ps1-usa-rampage-2-universal-tour",
       "ps1-usa-rampage-through-time",
-      "ps1-usa-rampage-world-tour"
+      "ps1-usa-rampage-world-tour",
+      "ps2-rampage-total-destruction",
+      "ps2-rampage-total-destruction-not-for-resale",
+      "ps2-usa-rampage-total-destruction"
     ],
     "byPlatform": {
       "ps1": 6,
-      "ps2": 1
+      "ps2": 3
     },
-    "gameCount": 7
+    "gameCount": 9
   },
   "red-dead": {
     "name": "Red Dead",
@@ -5566,16 +6159,14 @@
     "museumPath": "",
     "gameIds": [
       "ps4-red-dead-redemption-2",
-      "ps2-red-dead-revolver",
       "ps3-red-dead-redemption-undead-nightmare",
       "ps3-red-dead-redemption"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 2,
       "ps4": 1
     },
-    "gameCount": 4
+    "gameCount": 3
   },
   "rocksmith": {
     "name": "Rocksmith",
@@ -5599,9 +6190,9 @@
     "museumPath": "",
     "gameIds": [
       "ps4-japon-sangokushi-13-with-power-up-kit",
-      "ps2-romance-of-the-three-kingdoms-viii",
       "ps4-usa-romance-of-the-three-kingdoms-xiv",
-      "ps4-romance-of-the-three-kingdoms-xiv"
+      "ps4-romance-of-the-three-kingdoms-xiv",
+      "ps2-romance-of-the-three-kingdoms-viii"
     ],
     "byPlatform": {
       "ps2": 1,
@@ -5629,15 +6220,27 @@
     "slug": "tak",
     "museumPath": "",
     "gameIds": [
+      "ps2-tak-2-the-staff-of-dreams",
+      "ps2-tak-2-the-staff-of-dreams-not-for-resale",
+      "ps2-tak-and-the-guardians-of-gross",
       "ps2-tak-and-the-power-of-juju",
       "ps2-tak-great-juju-challenge",
-      "ps2-tak-and-the-guardians-of-gross",
-      "ps2-tak-2-the-staff-of-dreams"
+      "ps2-usa-tak-2-the-staff-of-dreams",
+      "ps2-usa-tak-and-the-power-of-juju",
+      "ps2-usa-tak-and-the-power-of-juju-greatest-hits",
+      "ps2-usa-tak-great-juju-challenge",
+      "ps2-de-sles-52104",
+      "ps2-es-sles-52286",
+      "ps2-eu-sles-53036",
+      "ps2-eu-sles-53129",
+      "ps2-eu-sles-53695",
+      "ps2-fr-sles-52103",
+      "ps2-it-sles-52287"
     ],
     "byPlatform": {
-      "ps2": 4
+      "ps2": 16
     },
-    "gameCount": 4
+    "gameCount": 16
   },
   "the-incredibles": {
     "name": "The Incredibles",
@@ -5645,15 +6248,24 @@
     "museumPath": "",
     "gameIds": [
       "ps4-lego-the-incredibles",
-      "ps2-the-incredibles-rise-of-the-underminer",
+      "ps4-usa-lego-the-incredibles",
       "ps2-the-incredibles",
-      "ps4-usa-lego-the-incredibles"
+      "ps2-the-incredibles-not-for-resale",
+      "ps2-the-incredibles-platinum",
+      "ps2-the-incredibles-rise-of-the-underminer",
+      "ps2-usa-the-incredibles",
+      "ps2-usa-the-incredibles-greatest-hits",
+      "ps2-de-sles-52815",
+      "ps2-es-sles-52816",
+      "ps2-it-sles-52814",
+      "ps2-pt-sles-52821",
+      "ps2-scand-sles-52820"
     ],
     "byPlatform": {
-      "ps2": 2,
+      "ps2": 11,
       "ps4": 2
     },
-    "gameCount": 4
+    "gameCount": 13
   },
   "toy-story": {
     "name": "Toy Story",
@@ -5683,21 +6295,20 @@
     "slug": "track-field-hyper-olympic",
     "museumPath": "",
     "gameIds": [
-      "ps2-winter-sports",
-      "ps2-espn-international-winter-sports",
       "ps1-international-track-and-field",
       "ps1-nagano-winter-olympics-%2798",
       "ps1-usa-international-track-field",
       "ps1-usa-nagano-winter-olympics-98",
       "ps1-japon-hyper-olympic-in-atlanta",
       "ps1-japon-hyper-olympics-in-nagano",
-      "ps1-jp-slpm-86132-playstation-the-best"
+      "ps1-jp-slpm-86132-playstation-the-best",
+      "ps2-espn-international-winter-sports"
     ],
     "byPlatform": {
       "ps1": 7,
-      "ps2": 2
+      "ps2": 1
     },
-    "gameCount": 9
+    "gameCount": 8
   },
   "utawarerumono": {
     "name": "Utawarerumono",
@@ -5719,10 +6330,10 @@
     "slug": "virtua-fighter",
     "museumPath": "",
     "gameIds": [
+      "ps3-virtua-fighter-5",
       "ps2-virtua-fighter-4",
-      "ps2-virtua-fighter-10th-anniversary",
       "ps2-virtua-fighter-4-evolution",
-      "ps3-virtua-fighter-5"
+      "ps2-virtua-fighter-10th-anniversary"
     ],
     "byPlatform": {
       "ps2": 3,
@@ -5751,17 +6362,14 @@
     "slug": "way-of-the-samurai",
     "museumPath": "",
     "gameIds": [
-      "ps2-way-of-the-samurai-2",
       "ps3-way-of-the-samurai-4",
-      "ps2-way-of-the-samurai",
       "ps4-japon-katana-kami"
     ],
     "byPlatform": {
-      "ps2": 2,
       "ps3": 1,
       "ps4": 1
     },
-    "gameCount": 4
+    "gameCount": 2
   },
   "wrc": {
     "name": "wrc",
@@ -5784,8 +6392,8 @@
     "museumPath": "",
     "gameIds": [
       "ps3-bakugan-defenders-of-the-core",
-      "ps2-bakugan-battle-brawlers",
-      "ps3-bakugan-battle-brawlers"
+      "ps3-bakugan-battle-brawlers",
+      "ps2-bakugan-battle-brawlers"
     ],
     "byPlatform": {
       "ps2": 1,
@@ -5798,23 +6406,32 @@
     "slug": "bratz",
     "museumPath": "",
     "gameIds": [
-      "ps2-bratz-rock-angelz",
-      "ps2-bratz-forever-diamondz",
       "ps1-bratz",
-      "ps1-usa-bratz"
+      "ps1-usa-bratz",
+      "ps2-bratz-forever-diamondz",
+      "ps2-bratz-forever-diamondz-platinum",
+      "ps2-bratz-rock-angelz",
+      "ps2-bratz-rock-angelz-platinum",
+      "ps2-de-sles-53576",
+      "ps2-dk-sles-53578",
+      "ps2-es-sles-53575",
+      "ps2-eu-sles-54342",
+      "ps2-eu-sles-54344",
+      "ps2-fr-sles-53583",
+      "ps2-it-sles-53577",
+      "ps2-se-sles-53582"
     ],
     "byPlatform": {
       "ps1": 2,
-      "ps2": 2
+      "ps2": 12
     },
-    "gameCount": 4
+    "gameCount": 14
   },
   "breath-of-fire": {
     "name": "Breath of Fire",
     "slug": "breath-of-fire",
     "museumPath": "",
     "gameIds": [
-      "ps2-breath-of-fire-dragon-quarter",
       "ps1-breath-of-fire-iii",
       "ps1-breath-of-fire-iv",
       "ps1-usa-breath-of-fire-3",
@@ -5824,13 +6441,19 @@
       "ps1-de-sles-01320",
       "ps1-fr-sles-01319",
       "ps1-jp-slpm-86720-playstation-the-best",
-      "ps1-jp-slpm-87159-playstation-the-best"
+      "ps1-jp-slpm-87159-playstation-the-best",
+      "ps2-breath-of-fire-dragon-quarter",
+      "ps2-usa-breath-of-fire-dragon-quarter",
+      "ps2-japon-breath-of-fire-dragon-quarter",
+      "ps2-kr-slka-25100",
+      "ps2-jp-slpm-65196",
+      "ps2-jp-slpm-74410-playstation-2-the-best"
     ],
     "byPlatform": {
       "ps1": 10,
-      "ps2": 1
+      "ps2": 6
     },
-    "gameCount": 11
+    "gameCount": 16
   },
   "command-conquer": {
     "name": "Command & Conquer",
@@ -5903,14 +6526,20 @@
     "museumPath": "",
     "gameIds": [
       "ps4-destroy-all-humans",
+      "ps4-usa-destroy-all-humans",
       "ps2-destroy-all-humans",
-      "ps4-usa-destroy-all-humans"
+      "ps2-usa-destroy-all-humans",
+      "ps2-usa-destroy-all-humans-demo-disc",
+      "ps2-usa-destroy-all-humans-greatest-hits",
+      "ps2-de-sles-53197",
+      "ps2-jp-slpm-66430",
+      "ps2-ru-sles-53641"
     ],
     "byPlatform": {
-      "ps2": 1,
+      "ps2": 7,
       "ps4": 2
     },
-    "gameCount": 3
+    "gameCount": 9
   },
   "deus-ex": {
     "name": "Deus Ex",
@@ -5932,7 +6561,6 @@
     "slug": "dino-crisis",
     "museumPath": "",
     "gameIds": [
-      "ps2-dino-stalker",
       "ps1-dino-crisis",
       "ps1-dino-crisis-2",
       "ps1-usa-dino-crisis",
@@ -5949,13 +6577,22 @@
       "ps1-jp-slpm-86627",
       "ps1-jp-slpm-86903-playstation-the-best",
       "ps1-jp-slpm-87234-playstation-the-best",
-      "ps1-jp-slps-02180"
+      "ps1-jp-slps-02180",
+      "ps2-dino-stalker",
+      "ps2-usa-dino-stalker",
+      "ps2-japon-gun-survivor-3-dino-crisis",
+      "ps2-japon-gun-survivor-3-dino-crisis-gun-bundle",
+      "ps2-de-sles-51096",
+      "ps2-eu-sles-50930",
+      "ps2-fr-sles-51095",
+      "ps2-jp-slpm-65139",
+      "ps2-kr-slpm-67529"
     ],
     "byPlatform": {
       "ps1": 17,
-      "ps2": 1
+      "ps2": 9
     },
-    "gameCount": 18
+    "gameCount": 26
   },
   "discworld": {
     "name": "Discworld",
@@ -5996,19 +6633,22 @@
     "slug": "gauntlet",
     "museumPath": "",
     "gameIds": [
-      "ps2-gauntlet-seven-sorrows",
-      "ps2-gauntlet-dark-legacy",
       "ps1-gauntlet-legends",
       "ps1-usa-gauntlet-legends",
       "ps1-de-sles-02932",
       "ps1-eu-sles-02791",
-      "ps1-fr-sles-02931"
+      "ps1-fr-sles-02931",
+      "ps2-gauntlet-seven-sorrows",
+      "ps2-gauntlet-dark-legacy",
+      "ps2-usa-gauntlet-dark-legacy",
+      "ps2-usa-gauntlet-seven-sorrows",
+      "ps2-jp-slpm-62125"
     ],
     "byPlatform": {
       "ps1": 5,
-      "ps2": 2
+      "ps2": 5
     },
-    "gameCount": 7
+    "gameCount": 10
   },
   "god-eater": {
     "name": "God Eater",
@@ -6044,14 +6684,12 @@
     "slug": "jimmy-neutron",
     "museumPath": "",
     "gameIds": [
-      "ps2-jimmy-neutron-boy-genius",
-      "ps2-jimmy-neutron-attack-of-the-twonkies",
       "ps2-jimmy-neutron-jet-fusion"
     ],
     "byPlatform": {
-      "ps2": 3
+      "ps2": 1
     },
-    "gameCount": 3
+    "gameCount": 1
   },
   "kamen-rider": {
     "name": "Kamen Rider",
@@ -6086,16 +6724,18 @@
     "slug": "lego-racers",
     "museumPath": "",
     "gameIds": [
+      "ps1-lego-racers",
+      "ps1-usa-lego-racers",
       "ps2-drome-racers",
       "ps2-lego-racers-2",
-      "ps1-lego-racers",
-      "ps1-usa-lego-racers"
+      "ps2-usa-lego-racers-2",
+      "ps2-japon-lego-racers-2"
     ],
     "byPlatform": {
       "ps1": 2,
-      "ps2": 2
+      "ps2": 4
     },
-    "gameCount": 4
+    "gameCount": 6
   },
   "marvel": {
     "name": "Marvel",
@@ -6163,11 +6803,11 @@
     "slug": "midway-sports",
     "museumPath": "",
     "gameIds": [
-      "ps2-nba-hoopz",
       "ps1-nba-hoopz",
       "ps1-nba-showtime-nba-on-nbc",
       "ps1-usa-nba-hoopz",
-      "ps1-usa-nba-showtime-nba-on-nbc"
+      "ps1-usa-nba-showtime-nba-on-nbc",
+      "ps2-nba-hoopz"
     ],
     "byPlatform": {
       "ps1": 4,
@@ -6194,9 +6834,9 @@
     "slug": "monsters-inc",
     "museumPath": "",
     "gameIds": [
-      "ps2-monsters-inc-scare-island-limited-edition",
+      "ps1-monsters-inc",
       "ps2-monsters-inc-scare-island",
-      "ps1-monsters-inc"
+      "ps2-monsters-inc-scare-island-limited-edition"
     ],
     "byPlatform": {
       "ps1": 1,
@@ -6248,23 +6888,22 @@
     "slug": "nba-street",
     "museumPath": "",
     "gameIds": [
-      "ps2-nba-street",
-      "ps2-nba-street-vol-2",
-      "ps3-nba-street-homecourt"
+      "ps3-nba-street-homecourt",
+      "ps2-nba-street-vol-2"
     ],
     "byPlatform": {
-      "ps2": 2,
+      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 3
+    "gameCount": 2
   },
   "nfl-2k": {
     "name": "nfl-2k",
     "slug": "nfl-2k",
     "museumPath": "",
     "gameIds": [
-      "ps2-espn-nfl-football",
       "ps2-espn-nfl-2k5",
+      "ps2-espn-nfl-football",
       "ps2-nfl-2k3"
     ],
     "byPlatform": {
@@ -6277,15 +6916,17 @@
     "slug": "rabbids",
     "museumPath": "",
     "gameIds": [
-      "ps2-rayman-raving-rabbids",
       "ps4-usa-rabbids-invasion",
-      "ps4-rabbids-invasion"
+      "ps4-rabbids-invasion",
+      "ps2-rayman-raving-rabbids",
+      "ps2-rayman-raving-rabbids-platinum",
+      "ps2-usa-rayman-raving-rabbids"
     ],
     "byPlatform": {
-      "ps2": 1,
+      "ps2": 3,
       "ps4": 2
     },
-    "gameCount": 3
+    "gameCount": 5
   },
   "resistance": {
     "name": "Resistance",
@@ -6344,15 +6985,19 @@
     "slug": "sly-cooper-sly-raccoon",
     "museumPath": "",
     "gameIds": [
-      "ps2-sly-3",
+      "ps3-sly-cooper-thieves-in-time",
       "ps2-sly-2-band-of-thieves",
-      "ps3-sly-cooper-thieves-in-time"
+      "ps2-sly-3",
+      "ps2-usa-sly-2-band-of-thieves",
+      "ps2-usa-sly-2-band-of-thieves-greatest-hits",
+      "ps2-usa-sly-2-band-of-thieves-not-for-resale",
+      "ps2-jp-scps-15090"
     ],
     "byPlatform": {
-      "ps2": 2,
+      "ps2": 6,
       "ps3": 1
     },
-    "gameCount": 3
+    "gameCount": 7
   },
   "south-park": {
     "name": "South Park",
@@ -6392,7 +7037,6 @@
     "slug": "the-muppets",
     "museumPath": "",
     "gameIds": [
-      "ps2-muppets-party-cruise",
       "ps1-muppet-monster-adventure",
       "ps1-muppet-racemania",
       "ps1-usa-muppet-monster-adventure",
@@ -6404,7 +7048,8 @@
       "ps1-fr-sces-02483",
       "ps1-fr-sces-03090",
       "ps1-it-sces-02485",
-      "ps1-it-sces-03092"
+      "ps1-it-sces-03092",
+      "ps2-muppets-party-cruise"
     ],
     "byPlatform": {
       "ps1": 12,
@@ -6445,28 +7090,29 @@
     "slug": "winnie-the-pooh",
     "museumPath": "",
     "gameIds": [
-      "ps2-piglet%27s-big-game",
-      "ps2-winnie-the-pooh-rumbly-tumbly-adventure",
       "ps1-tigger%27s-honey-hunt",
       "ps1-de-sles-03257",
       "ps1-dk-sles-03261",
       "ps1-es-sles-03259",
       "ps1-fr-sles-03256",
-      "ps1-nl-sles-03260"
+      "ps1-nl-sles-03260",
+      "ps2-piglet%27s-big-game",
+      "ps2-winnie-the-pooh-rumbly-tumbly-adventure",
+      "ps2-de-sles-51658",
+      "ps2-es-sles-51666",
+      "ps2-fr-sles-51659"
     ],
     "byPlatform": {
       "ps1": 6,
-      "ps2": 2
+      "ps2": 5
     },
-    "gameCount": 8
+    "gameCount": 11
   },
   "yu-gi-oh": {
     "name": "Yu-Gi-Oh!",
     "slug": "yu-gi-oh",
     "museumPath": "",
     "gameIds": [
-      "ps2-yu-gi-oh-capsule-monster-coliseum",
-      "ps2-yu-gi-oh-duelists-of-the-roses",
       "ps1-yu-gi-oh-forbidden-memories",
       "ps1-usa-yu-gi-oh-forbidden-memories",
       "ps1-japon-yu-gi-oh-shin-duel-monsters",
@@ -6479,10 +7125,9 @@
       "ps1-jp-slpm-87066-psone-books"
     ],
     "byPlatform": {
-      "ps1": 10,
-      "ps2": 2
+      "ps1": 10
     },
-    "gameCount": 12
+    "gameCount": 10
   },
   "a-bug-s-life": {
     "name": "A Bug's Life",
@@ -6511,8 +7156,8 @@
     "slug": "a-train-a-ressha-de-ikou",
     "museumPath": "",
     "gameIds": [
-      "ps2-a-train-6",
-      "ps4-usa-a-train-express-&#43;"
+      "ps4-usa-a-train-express-&#43;",
+      "ps2-a-train-6"
     ],
     "byPlatform": {
       "ps2": 1,
@@ -6551,8 +7196,8 @@
     "slug": "army-men",
     "museumPath": "",
     "gameIds": [
-      "ps2-army-men-sarge%27s-war",
-      "ps2-army-men-major-malfunction"
+      "ps2-army-men-major-malfunction",
+      "ps2-army-men-sarge%27s-war"
     ],
     "byPlatform": {
       "ps2": 2
@@ -6590,14 +7235,16 @@
     "slug": "brothers-in-arms",
     "museumPath": "",
     "gameIds": [
+      "ps3-brothers-in-arms-hell%27s-highway",
       "ps2-brothers-in-arms-earned-in-blood",
-      "ps3-brothers-in-arms-hell%27s-highway"
+      "ps2-brothers-in-arms-earned-in-blood-not-for-resale",
+      "ps2-usa-brothers-in-arms-earned-in-blood"
     ],
     "byPlatform": {
-      "ps2": 1,
+      "ps2": 3,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 4
   },
   "capcom-compilations": {
     "name": "Capcom Compilations",
@@ -6632,15 +7279,16 @@
     "slug": "casper",
     "museumPath": "",
     "gameIds": [
-      "ps2-casper-and-the-ghostly-trio",
       "ps1-casper",
-      "ps1-usa-casper"
+      "ps1-usa-casper",
+      "ps2-casper-and-the-ghostly-trio",
+      "ps2-eu-sles-54426"
     ],
     "byPlatform": {
       "ps1": 2,
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 3
+    "gameCount": 4
   },
   "championship-manager": {
     "name": "Championship Manager",
@@ -6648,12 +7296,15 @@
     "museumPath": "",
     "gameIds": [
       "ps2-championship-manager-2007",
-      "ps2-championship-manager-5"
+      "ps2-championship-manager-5",
+      "ps2-championship-manager-5-promo-not-for-resale",
+      "ps2-es-sles-53224",
+      "ps2-pt-sles-53223"
     ],
     "byPlatform": {
-      "ps2": 2
+      "ps2": 5
     },
-    "gameCount": 2
+    "gameCount": 5
   },
   "croc": {
     "name": "Croc",
@@ -6807,14 +7458,12 @@
     "slug": "g1-jockey",
     "museumPath": "",
     "gameIds": [
-      "ps3-champion-jockey-g1-jockey-&amp;-gallop-racer",
-      "ps2-g1-jockey"
+      "ps3-champion-jockey-g1-jockey-&amp;-gallop-racer"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "gallop-racer": {
     "name": "Gallop Racer",
@@ -6852,19 +7501,24 @@
     "slug": "grandia",
     "museumPath": "",
     "gameIds": [
-      "ps2-grandia-ii",
       "ps1-grandia",
       "ps1-usa-grandia",
       "ps1-japon-grandia",
       "ps1-de-sles-02399",
       "ps1-fr-sles-02398",
-      "ps1-jp-slps-91205-playstation-the-best"
+      "ps1-jp-slps-91205-playstation-the-best",
+      "ps2-grandia-ii",
+      "ps2-grandia-ii-not-for-resale",
+      "ps2-usa-grandia-ii",
+      "ps2-japon-grandia-ii",
+      "ps2-jp-asia-scps-55012",
+      "ps2-jp-asia-slpm-65081"
     ],
     "byPlatform": {
       "ps1": 6,
-      "ps2": 1
+      "ps2": 6
     },
-    "gameCount": 7
+    "gameCount": 12
   },
   "heavy-fire": {
     "name": "Heavy Fire",
@@ -6884,14 +7538,12 @@
     "slug": "juiced",
     "museumPath": "",
     "gameIds": [
-      "ps3-juiced-2-hot-import-nights",
-      "ps2-juiced-2-hot-import-nights"
+      "ps3-juiced-2-hot-import-nights"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "king-s-field": {
     "name": "King's Field",
@@ -6911,7 +7563,7 @@
     "museumPath": "",
     "gameIds": [
       "ps2-bionicle-heroes",
-      "ps2-bionicle"
+      "ps2-bionicle-heroes-not-for-resale"
     ],
     "byPlatform": {
       "ps2": 2
@@ -6923,7 +7575,6 @@
     "slug": "lego-island",
     "museumPath": "",
     "gameIds": [
-      "ps2-island-extreme-stunts",
       "ps1-lego-island-2-the-brickster%27s-revenge",
       "ps1-de-sles-03304",
       "ps1-dk-sles-03300",
@@ -6933,7 +7584,8 @@
       "ps1-nl-sles-03301",
       "ps1-no-sles-03306",
       "ps1-se-sles-03308",
-      "ps1-us-slus-01246"
+      "ps1-us-slus-01246",
+      "ps2-island-extreme-stunts"
     ],
     "byPlatform": {
       "ps1": 10,
@@ -6946,7 +7598,6 @@
     "slug": "lilo-stitch",
     "museumPath": "",
     "gameIds": [
-      "ps2-disney%27s-stitch-experiment-626",
       "ps1-lilo-&amp;-stitch-trouble-in-paradise",
       "ps1-usa-lilo-and-stitch",
       "ps1-dk-sces-03879",
@@ -6956,13 +7607,17 @@
       "ps1-no-sces-03880",
       "ps1-pt-sces-03877",
       "ps1-se-sces-03878",
-      "ps1-it-sces-03874"
+      "ps1-it-sces-03874",
+      "ps2-disney%27s-stitch-experiment-626",
+      "ps2-disney%27s-stitch-experiment-626-promo-not-for-resale",
+      "ps2-eu-sces-50959",
+      "ps2-eu-sces-50966"
     ],
     "byPlatform": {
       "ps1": 10,
-      "ps2": 1
+      "ps2": 4
     },
-    "gameCount": 11
+    "gameCount": 14
   },
   "locoroco": {
     "name": "LocoRoco",
@@ -6982,7 +7637,6 @@
     "slug": "mat-hoffman",
     "museumPath": "",
     "gameIds": [
-      "ps2-mat-hoffman%27s-pro-bmx-2",
       "ps1-mat-hoffman%27s-pro-bmx",
       "ps1-usa-mat-hoffman-s-pro-bmx",
       "ps1-de-sles-03219",
@@ -6991,24 +7645,21 @@
       "ps1-jp-slpm-87119"
     ],
     "byPlatform": {
-      "ps1": 6,
-      "ps2": 1
+      "ps1": 6
     },
-    "gameCount": 7
+    "gameCount": 6
   },
   "max-payne": {
     "name": "Max Payne",
     "slug": "max-payne",
     "museumPath": "",
     "gameIds": [
-      "ps2-max-payne",
       "ps3-max-payne-3"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "mega-man-battle-network-rockman-exe": {
     "name": "Mega Man Battle Network/Rockman EXE",
@@ -7028,28 +7679,24 @@
     "slug": "mercenaries",
     "museumPath": "",
     "gameIds": [
-      "ps3-mercenaries-2-world-in-flames",
-      "ps2-mercenaries-2-world-in-flames"
+      "ps3-mercenaries-2-world-in-flames"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "midnight-club": {
     "name": "Midnight Club",
     "slug": "midnight-club",
     "museumPath": "",
     "gameIds": [
-      "ps3-midnight-club-los-angeles",
-      "ps2-midnight-club-street-racing"
+      "ps3-midnight-club-los-angeles"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "myst": {
     "name": "Myst",
@@ -7078,14 +7725,12 @@
     "slug": "nba",
     "museumPath": "",
     "gameIds": [
-      "ps2-nba-08",
       "ps3-nba-08"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "nfl-blitz": {
     "name": "NFL Blitz",
@@ -7206,12 +7851,23 @@
     "museumPath": "",
     "gameIds": [
       "ps2-nightshade",
-      "ps2-shinobi"
+      "ps2-shinobi",
+      "ps2-shinobi-special-edition",
+      "ps2-usa-nightshade",
+      "ps2-usa-shinobi",
+      "ps2-japon-kunoichi",
+      "ps2-japon-shinobi",
+      "ps2-asia-slaj-25031",
+      "ps2-jp-slpm-65200",
+      "ps2-jp-slpm-65447",
+      "ps2-jp-slpm-74415-playstation-2-the-best",
+      "ps2-kr-slka-25021",
+      "ps2-kr-slka-25135"
     ],
     "byPlatform": {
-      "ps2": 2
+      "ps2": 13
     },
-    "gameCount": 2
+    "gameCount": 13
   },
   "skate": {
     "name": "Skate",
@@ -7245,8 +7901,8 @@
     "slug": "space-channel-5",
     "museumPath": "",
     "gameIds": [
-      "ps2-space-channel-5",
-      "ps4-usa-space-channel-5-vr"
+      "ps4-usa-space-channel-5-vr",
+      "ps2-space-channel-5"
     ],
     "byPlatform": {
       "ps2": 1,
@@ -7259,14 +7915,12 @@
     "slug": "test-drive-unlimited",
     "museumPath": "",
     "gameIds": [
-      "ps2-test-drive-unlimited",
       "ps3-test-drive-unlimited-2"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "the-idolm-ster": {
     "name": "The Idolm@ster",
@@ -7285,33 +7939,29 @@
     "name": "The Matrix",
     "slug": "the-matrix",
     "museumPath": "",
-    "gameIds": [
-      "ps2-enter-the-matrix",
-      "ps2-the-matrix-path-of-neo"
-    ],
-    "byPlatform": {
-      "ps2": 2
-    },
-    "gameCount": 2
+    "gameIds": [],
+    "byPlatform": {},
+    "gameCount": 0
   },
   "the-x-files": {
     "name": "The X-Files",
     "slug": "the-x-files",
     "museumPath": "",
     "gameIds": [
-      "ps2-x-files-resist-or-serve",
       "ps1-the-x-files",
       "ps1-de-sces-01567",
       "ps1-es-sces-01569",
       "ps1-fr-sces-01566",
       "ps1-it-sces-01568",
-      "ps1-us-slus-00915"
+      "ps1-us-slus-00915",
+      "ps2-x-files-resist-or-serve",
+      "ps2-usa-x-files-resist-or-serve"
     ],
     "byPlatform": {
       "ps1": 6,
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 7
+    "gameCount": 8
   },
   "tokyo-ghoul": {
     "name": "Tokyo Ghoul",
@@ -7331,14 +7981,12 @@
     "slug": "top-spin",
     "museumPath": "",
     "gameIds": [
-      "ps2-top-spin",
       "ps3-top-spin-3"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "trackmania": {
     "name": "Trackmania",
@@ -7387,36 +8035,33 @@
     "slug": "wild-arms",
     "museumPath": "",
     "gameIds": [
-      "ps2-wild-arms-4",
-      "ps2-wild-arms-3"
+      "ps2-wild-arms-4"
     ],
     "byPlatform": {
-      "ps2": 2
+      "ps2": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "world-rally-championship": {
     "name": "World Rally Championship",
     "slug": "world-rally-championship",
     "museumPath": "",
     "gameIds": [
-      "ps3-wrc-3-fia-world-rally-championship",
-      "ps2-wrc-world-rally-championship-3"
+      "ps3-wrc-3-fia-world-rally-championship"
     ],
     "byPlatform": {
-      "ps2": 1,
       "ps3": 1
     },
-    "gameCount": 2
+    "gameCount": 1
   },
   "xi-devil-dice": {
     "name": "XI/Devil Dice",
     "slug": "xi-devil-dice",
     "museumPath": "",
     "gameIds": [
-      "ps2-bombastic",
       "ps1-devil-dice",
-      "ps1-usa-devil-dice"
+      "ps1-usa-devil-dice",
+      "ps2-bombastic"
     ],
     "byPlatform": {
       "ps1": 2,
@@ -7449,25 +8094,17 @@
     "name": "Ar Tonelico",
     "slug": "ar-tonelico",
     "museumPath": "",
-    "gameIds": [
-      "ps2-ar-tonelico-melody-of-elemia"
-    ],
-    "byPlatform": {
-      "ps2": 1
-    },
-    "gameCount": 1
+    "gameIds": [],
+    "byPlatform": {},
+    "gameCount": 0
   },
   "arc-the-lad": {
     "name": "Arc the Lad",
     "slug": "arc-the-lad",
     "museumPath": "",
-    "gameIds": [
-      "ps2-arc-the-lad-twilight-of-the-spirits"
-    ],
-    "byPlatform": {
-      "ps2": 1
-    },
-    "gameCount": 1
+    "gameIds": [],
+    "byPlatform": {},
+    "gameCount": 0
   },
   "art-of-fighting": {
     "name": "Art of Fighting",
@@ -7485,13 +8122,9 @@
     "name": "Battlestar Galactica",
     "slug": "battlestar-galactica",
     "museumPath": "",
-    "gameIds": [
-      "ps2-battlestar-galactica"
-    ],
-    "byPlatform": {
-      "ps2": 1
-    },
-    "gameCount": 1
+    "gameIds": [],
+    "byPlatform": {},
+    "gameCount": 0
   },
   "beatmania": {
     "name": "beatmania",
@@ -7524,12 +8157,13 @@
     "slug": "beyond-good-evil",
     "museumPath": "",
     "gameIds": [
-      "ps2-beyond-good-and-evil"
+      "ps2-beyond-good-and-evil",
+      "ps2-beyond-good-and-evil-not-for-resale"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 1
+    "gameCount": 2
   },
   "big-brain-academy": {
     "name": "Big Brain Academy",
@@ -7581,12 +8215,13 @@
     "slug": "buffy-the-vampire-slayer",
     "museumPath": "",
     "gameIds": [
-      "ps2-buffy-the-vampire-slayer-chaos-bleeds"
+      "ps2-buffy-the-vampire-slayer-chaos-bleeds",
+      "ps2-usa-buffy-the-vampire-slayer-chaos-bleeds"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 1
+    "gameCount": 2
   },
   "bullet-girls": {
     "name": "Bullet Girls",
@@ -7642,12 +8277,14 @@
     "slug": "crazy-taxi",
     "museumPath": "",
     "gameIds": [
-      "ps2-crazy-taxi"
+      "ps2-crazy-taxi",
+      "ps2-crazy-taxi-not-for-resale",
+      "ps2-crazy-taxi-platinum"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 3
     },
-    "gameCount": 1
+    "gameCount": 3
   },
   "davilex-racer": {
     "name": "Davilex Racer",
@@ -7787,12 +8424,15 @@
     "slug": "efootball",
     "museumPath": "",
     "gameIds": [
-      "ps2-pro-evolution-soccer-5"
+      "ps2-pro-evolution-soccer-5",
+      "ps2-pro-evolution-soccer-5-platinum",
+      "ps2-eu-sles-53544",
+      "ps2-it-sles-53545"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 4
     },
-    "gameCount": 1
+    "gameCount": 4
   },
   "family-feud": {
     "name": "Family Feud",
@@ -7918,13 +8558,9 @@
     "name": "Gradius",
     "slug": "gradius",
     "museumPath": "",
-    "gameIds": [
-      "ps2-gradius-v"
-    ],
-    "byPlatform": {
-      "ps2": 1
-    },
-    "gameCount": 1
+    "gameIds": [],
+    "byPlatform": {},
+    "gameCount": 0
   },
   "gremlins": {
     "name": "Gremlins",
@@ -7943,24 +8579,30 @@
     "slug": "gunbird",
     "museumPath": "",
     "gameIds": [
-      "ps2-gunbird-special-edition"
+      "ps2-gunbird-special-edition",
+      "ps2-japon-gunbird-1-&amp;-2"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 1
+    "gameCount": 2
   },
   "half-life": {
     "name": "Half-Life",
     "slug": "half-life",
     "museumPath": "",
     "gameIds": [
-      "ps2-half-life"
+      "ps2-half-life",
+      "ps2-usa-half-life",
+      "ps2-de-sles-50505",
+      "ps2-es-sles-50509",
+      "ps2-fr-sles-50507",
+      "ps2-it-sles-50508"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 6
     },
-    "gameCount": 1
+    "gameCount": 6
   },
   "house-of-the-dead": {
     "name": "House of the Dead",
@@ -8002,13 +8644,9 @@
     "name": "Lumines",
     "slug": "lumines",
     "museumPath": "",
-    "gameIds": [
-      "ps2-lumines-plus"
-    ],
-    "byPlatform": {
-      "ps2": 1
-    },
-    "gameCount": 1
+    "gameIds": [],
+    "byPlatform": {},
+    "gameCount": 0
   },
   "marvel-super-hero-squad": {
     "name": "Marvel Super Hero Squad",
@@ -8086,12 +8724,13 @@
     "slug": "myth-makers",
     "museumPath": "",
     "gameIds": [
-      "ps2-myth-makers-super-kart-gp"
+      "ps2-myth-makers-super-kart-gp",
+      "ps2-it-sles-54113"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 1
+    "gameCount": 2
   },
   "namco-museum": {
     "name": "Namco Museum",
@@ -8207,13 +8846,9 @@
     "name": "Phantasy Star",
     "slug": "phantasy-star",
     "museumPath": "",
-    "gameIds": [
-      "ps2-phantasy-star-universe"
-    ],
-    "byPlatform": {
-      "ps2": 1
-    },
-    "gameCount": 1
+    "gameIds": [],
+    "byPlatform": {},
+    "gameCount": 0
   },
   "portal": {
     "name": "Portal",
@@ -8244,24 +8879,26 @@
     "slug": "sega-ages-2500",
     "museumPath": "",
     "gameIds": [
-      "ps2-sega-classics-collection"
+      "ps2-sega-classics-collection",
+      "ps2-usa-sega-classics-collection"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 1
+    "gameCount": 2
   },
   "sega-bass-fishing": {
     "name": "Sega Bass Fishing",
     "slug": "sega-bass-fishing",
     "museumPath": "",
     "gameIds": [
-      "ps2-sega-bass-fishing-duel"
+      "ps2-sega-bass-fishing-duel",
+      "ps2-sega-bass-fishing-duel-fishing-rod-bundle"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 1
+    "gameCount": 2
   },
   "sengoku-basara": {
     "name": "Sengoku Basara",
@@ -8326,12 +8963,18 @@
     "slug": "sly-cooper",
     "museumPath": "",
     "gameIds": [
-      "ps2-sly-raccoon"
+      "ps2-sly-raccoon",
+      "ps2-sly-raccoon-promo-only-not-for-resale",
+      "ps2-usa-sly-cooper-and-the-thievius-raccoonus",
+      "ps2-usa-sly-cooper-and-the-thievius-raccoonus-greatest-hits",
+      "ps2-usa-sly-cooper-and-the-thievius-raccoonus-not-for-resale",
+      "ps2-jp-asia-scaj-20017",
+      "ps2-jp-asia-scps-15036"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 7
     },
-    "gameCount": 1
+    "gameCount": 7
   },
   "snow-bros": {
     "name": "Snow Bros.",
@@ -8362,12 +9005,21 @@
     "slug": "ssx-series",
     "museumPath": "",
     "gameIds": [
-      "ps2-ssx-3"
+      "ps2-ssx-3",
+      "ps2-ssx-3-platinum",
+      "ps2-usa-ssx-3",
+      "ps2-usa-ssx-3-greatest-hits",
+      "ps2-japon-ssx-3-ea-best-hits",
+      "ps2-eu-sles-51697",
+      "ps2-jp-slpm-55077-ea-sy-1980",
+      "ps2-jp-slpm-65449",
+      "ps2-kr-slka-25118",
+      "ps2-kr-slka-25200-big-hit-version"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 10
     },
-    "gameCount": 1
+    "gameCount": 10
   },
   "super-mario": {
     "name": "Super Mario",
@@ -8442,12 +9094,18 @@
     "slug": "tenchu",
     "museumPath": "",
     "gameIds": [
-      "ps2-tenchu-wrath-of-heaven"
+      "ps2-tenchu-wrath-of-heaven",
+      "ps2-tenchu-wrath-of-heaven-bonus-anime-dvd-bundle",
+      "ps2-de-sles-51402",
+      "ps2-es-sles-51400",
+      "ps2-fr-sles-51403",
+      "ps2-it-sles-51401",
+      "ps2-us-slus-20397"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 7
     },
-    "gameCount": 1
+    "gameCount": 7
   },
   "teslagrad": {
     "name": "Teslagrad",
@@ -8466,12 +9124,13 @@
     "slug": "the-behemoth-games",
     "museumPath": "",
     "gameIds": [
-      "ps2-alien-hominid"
+      "ps2-alien-hominid",
+      "ps2-alien-hominid-eurogamer-signature-edition"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 1
+    "gameCount": 2
   },
   "the-last-of-us": {
     "name": "The Last Of Us",
@@ -8535,36 +9194,38 @@
     "slug": "true-crime",
     "museumPath": "",
     "gameIds": [
-      "ps2-true-crime-streets-of-la"
+      "ps2-true-crime-streets-of-la",
+      "ps2-true-crime-streets-of-la-limited-sound-edition",
+      "ps2-true-crime-streets-of-la-platinum",
+      "ps2-true-crime-streets-of-la-steelbook",
+      "ps2-eu-au-sles-51753",
+      "ps2-eu-sles-51754"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 6
     },
-    "gameCount": 1
+    "gameCount": 6
   },
   "twisted-metal": {
     "name": "Twisted Metal",
     "slug": "twisted-metal",
     "museumPath": "",
-    "gameIds": [
-      "ps2-twisted-metal-black"
-    ],
-    "byPlatform": {
-      "ps2": 1
-    },
-    "gameCount": 1
+    "gameIds": [],
+    "byPlatform": {},
+    "gameCount": 0
   },
   "unreal": {
     "name": "Unreal",
     "slug": "unreal",
     "museumPath": "",
     "gameIds": [
-      "ps2-unreal-tournament"
+      "ps2-unreal-tournament",
+      "ps2-unreal-tournament-not-for-resale"
     ],
     "byPlatform": {
-      "ps2": 1
+      "ps2": 2
     },
-    "gameCount": 1
+    "gameCount": 2
   },
   "wario-land": {
     "name": "Wario Land",

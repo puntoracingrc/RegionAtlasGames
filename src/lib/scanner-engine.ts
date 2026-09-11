@@ -41,8 +41,9 @@ No fuerces PAL Espana; admite otros mercados o unknown. No certifiques autentici
 No atribuyas al conjunto el mercado de una sola pieza si hay otras senales incompatibles sin una combinacion documental que las explique. Describe las piezas por separado en findings.
 No uses precios, no publiques catalogo ni conviertas una coincidencia de nombre en identificacion de edicion.
 Para compatible/possible_mismatch exige al menos dos componentes visibles y una combinacion documental concreta; sin ella unknown.
+region.value debe ser una etiqueta de mercado admitida, por ejemplo PAL España, PAL Europa, PAL Francia, PAL Reino Unido, NTSC USA o NTSC-J Corea. Conserva null si solo conoces PAL o NTSC-J. El mercado del software de una referencia no demuestra por sí solo el mercado de la caja fotografiada.
 Responde JSON en espanol:
-{region:{value:"PAL España"|"PAL Europa"|"PAL Italia"|"PAL Francia"|"PAL Alemania"|"PAL UK"|"PAL Australia"|"NTSC USA"|"NTSC-J Japón"|null,explanation:string,observationIds:string[],sourceIds:string[]},
+{region:{value:string|null,explanation:string,observationIds:string[],sourceIds:string[]},
 composition:{status:"compatible"|"possible_mismatch"|"unknown",variantId:string|null,explanation:string,observationIds:string[],sourceIds:string[]},
 findings:[{label:string,detail:string,observationIds:string[],sourceIds:string[]}],nextPhotos:string[]}.
 Todas las afirmaciones son interpretaciones automaticas, no decisiones humanas. Si no hay evidencia suficiente, region=null y pide la foto concreta que resolveria la duda.`;

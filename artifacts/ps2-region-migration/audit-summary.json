@@ -1,0 +1,56 @@
+{
+  "catalogRowsAudited": 8037,
+  "status": {
+    "RESOLVED": 3412,
+    "REVIEW": 4625
+  },
+  "methods": {
+    "unique_exact_title_family_edition": 3714,
+    "null": 3829,
+    "exact_serial_title_edition": 456,
+    "exact_title_edition_documented_barcode": 38
+  },
+  "regionsResolved": {
+    "PAL Europa": 1071,
+    "PAL Europa / Australia": 235,
+    "PAL Australia": 7,
+    "PAL Italia": 9,
+    "PAL Alemania": 17,
+    "PAL Reino Unido": 16,
+    "PAL Francia": 15,
+    "PAL Países Bajos": 2,
+    "PAL Escandinavia": 3,
+    "PAL España": 5,
+    "PAL Suecia": 3,
+    "PAL Portugal": 1,
+    "PAL Polonia": 1,
+    "PAL Finlandia": 4,
+    "PAL Noruega": 1,
+    "NTSC USA": 1350,
+    "NTSC USA / Canadá": 38,
+    "NTSC-J Japón": 619,
+    "NTSC-J China": 1,
+    "NTSC-J Japón / Corea": 3,
+    "NTSC-J Corea": 7,
+    "NTSC-J Asia": 1,
+    "NTSC-J Japón / Asia": 3
+  },
+  "reviewReasons": {
+    "no_exact_title_family_edition_reference": 2967,
+    "index_only_title_and_serial_not_corroborated": 517,
+    "source_title_and_redump_serial_title_disagree": 577,
+    "legacy_row_does_not_identify_a_single_regional_release": 597,
+    "catalog_serial_conflicts_with_title_or_edition": 262,
+    "no_exact_redump_serial": 201,
+    "market_requires_additional_evidence": 209,
+    "legacy_reference_is_not_a_ps2_serial": 81,
+    "serial_resolves_to_multiple_markets": 8,
+    "multiple_catalog_rows_for_same_documented_release": 12,
+    "non_retail_disc_category": 9,
+    "exact_serial_has_multiple_physical_variants": 3
+  },
+  "sourceReleaseGroups": 10936,
+  "eligibleReleaseGroups": 7444,
+  "missingDocumentedReleaseGroups": 4026,
+  "duplicateCandidates": 6
+}

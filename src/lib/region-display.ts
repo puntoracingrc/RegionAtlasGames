@@ -1,4 +1,5 @@
 import ps1MarketsData from "../../data/ps1-region-markets.json";
+import ps2MarketsData from "../../data/ps2-region-markets.json";
 
 export type RegionFlagCode = string;
 
@@ -28,7 +29,7 @@ const REGION_MAP: Record<string, RegionDisplay> = {
 };
 
 // Markets are data, not an enum: a new territory needs no schema change.
-for (const entry of Object.values(ps1MarketsData.markets)) {
+for (const entry of [...Object.values(ps1MarketsData.markets), ...Object.values(ps2MarketsData.markets)]) {
   REGION_MAP[entry.label.toLowerCase()] = {
     flagCode: entry.flagCode, label: entry.label,
     shortLabel: entry.code === "GB" ? "UK" : entry.code,
@@ -63,3 +64,5 @@ export function getRegionDisplay(region: string | null | undefined): RegionDispl
 export function regionShortLabel(region: string | null | undefined): string {
   return getRegionDisplay(region).shortLabel;
 }
+
+export const DOCUMENTED_REGION_LABELS = [...new Set(Object.values(REGION_MAP).filter((region) => region.shortLabel !== "?").map((region) => region.label))];

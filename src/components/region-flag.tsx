@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { AT, AU, BE, CA, CN, DE, DK, ES, FI, FR, GB, GR, IE, IL, IT, JP, KR, NL, NO, PL, PT, RU, SE, US } from "country-flag-icons/react/3x2";
+import { AT, AU, BE, CA, CN, DE, DK, ES, FI, FR, GB, GR, IE, IL, IT, JP, KR, NL, NO, PL, PT, RU, SE, TW, US } from "country-flag-icons/react/3x2";
 import { FlagEu, FlagUnknown } from "@/components/flag-icons";
 import { getRegionDisplay, type RegionFlagCode } from "@/lib/region-display";
 import { cn } from "@/lib/cn";
@@ -24,7 +24,7 @@ const FLAG_COMPONENTS: Record<RegionFlagCode, FlagComponent> = {
   DE,
   IT,
   AU,
-  AT, BE, CA, CN, DK, FI, FR, GR, IE, IL, KR, NL, NO, PL, PT, RU, SE,
+  AT, BE, CA, CN, DK, FI, FR, GR, IE, IL, KR, NL, NO, PL, PT, RU, SE, TW,
   UNKNOWN: FlagUnknown,
 };
 

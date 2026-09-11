@@ -166,13 +166,13 @@
         "catalogId": "ps2-disney-pixar-cars",
         "title": "Disney Pixar Cars",
         "platform": "ps2",
-        "region": "PAL España",
+        "region": "PAL · Mercado por determinar",
         "edition": "standard",
         "physicalVariant": null,
-        "pcId": 40918,
+        "pcId": null,
         "ean": null,
         "reference": null,
-        "coverUrl": "/covers/ps2/disney-pixar-cars.jpg",
+        "coverUrl": null,
         "listingStatus": "listed"
       }
     }

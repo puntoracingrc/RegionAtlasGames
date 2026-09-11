@@ -75,6 +75,11 @@ def region_research_prompt(platform_slug: str, catalog_id: str | None) -> str:
                 continue
             urls = [sources[key]["url"] for key in entry["sourceIds"]]
             lines.append(f"- {entry['text']} Fuente: {', '.join(urls)}")
+            if platform_slug == "ps2" and entry in document["gameReferences"]:
+                lines.append("  Contexto histórico de un ejemplar PAL España: el ID era provisional. Esta observación no confirma que pertenezca a la edición V2 actual ni habilita un emparejamiento.")
             for variant in entry.get("distributionVariants", []):
                 lines.append("  Combinacion documental independiente: " + json.dumps(variant, ensure_ascii=False))
+    if platform_slug == "ps2":
+        from .ps2_documentary import catalog_documentary_prompt
+        lines.append(catalog_documentary_prompt(catalog_id))
     return "\n".join(lines)

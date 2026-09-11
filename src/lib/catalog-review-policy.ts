@@ -23,7 +23,7 @@ export function catalogBrowseAliases(id: string): string[] {
   return group?.decision === "group_names" && group.primaryId === id ? group.catalogIds : [];
 }
 export function isPendingCatalogGame(game: Pick<ReviewGame, "platformSlug" | "regionalStatus">): boolean {
-  return game.platformSlug === "ps1" && game.regionalStatus === "review";
+  return ["ps1", "ps2"].includes(game.platformSlug) && game.regionalStatus === "review";
 }
 export function isDefaultCatalogGame(game: ReviewGame): boolean {
   return !isGroupedCatalogName(game) && !isPendingCatalogGame(game);

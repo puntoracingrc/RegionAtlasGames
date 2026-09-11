@@ -1,0 +1,16 @@
+[
+  {
+    "file": "redump-org.xml.zip",
+    "url": "http://redump.org/datfile/ps2/serial,version",
+    "bytes": 1383642,
+    "sha256": "1558acff956b8b211bc1b40a5bd1a10e252fb1544a764953aaed4c4b44dafe6e",
+    "retrievedAt": "2026-09-10T23:13:51.262407+00:00"
+  },
+  {
+    "file": "redump-info.xml.zip",
+    "url": "https://redump.info/datfile/ps2/serial,version",
+    "bytes": 1333734,
+    "sha256": "24dba018887a28d9efdce93126aa57076294a02b45b3af6ae9ed6a7a767df5a5",
+    "retrievedAt": "2026-09-10T23:13:49.825277+00:00"
+  }
+]
