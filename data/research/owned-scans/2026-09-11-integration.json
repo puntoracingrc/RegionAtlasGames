@@ -456,6 +456,49 @@
         "ean": null
       },
       "mappingNotes": "Se completa la ficha promocional existente con errata Fornite. Se conserva su URL, se corrige la variante a promo y no se atribuye un país a PAL."
+    },
+    {
+      "id": "ps5-lego-harry-potter-collection",
+      "before": {
+        "catalog": {
+          "id": "ps5-lego-harry-potter-collection",
+          "slug": "lego-harry-potter-collection",
+          "title": "LEGO Harry Potter Collection",
+          "titlePc": "LEGO Harry Potter Collection",
+          "platformSlug": "ps5",
+          "region": "PAL España",
+          "physicalVariant": null,
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps5/lego-harry-potter-collection.jpg",
+          "pcPath": "/game/pal-playstation-5/lego-harry-potter-collection",
+          "pcId": 7532745,
+          "pcRegion": "PAL EU (referencia)",
+          "pcCondition": "Normal wear",
+          "matchConfidence": "LEGACY_COLLECTION_EXACT",
+          "marketMin": 16,
+          "marketMax": 28,
+          "recommendedPrice": 22,
+          "pcRefPrice": 12.57,
+          "deltaEsVsPc": 75,
+          "priceSource": "provisional_collection_history",
+          "updatedAt": "2026-09-01",
+          "hasEsPrice": true,
+          "priceRegionVerified": false,
+          "seedSource": "legacy-collection-ps5",
+          "regionEvidence": [
+            "user_collection_pal_es_import"
+          ],
+          "regionVerified": false
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-portada-catalogo.webp",
+        "reference": "PPSA-22946",
+        "ean": "5051893243628"
+      },
+      "mappingNotes": "Ficha PS5 PAL España existente, conservada sin cambios de ID, slug, edición ni precios. Código coincidente en lomo y disco; carátula española. Sin propagación a PS4 ni USA."
     }
   ]
 }

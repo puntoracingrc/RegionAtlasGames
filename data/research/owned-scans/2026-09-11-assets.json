@@ -109,6 +109,24 @@
       "width": 3300,
       "height": 2851,
       "redactedCodes": 2
+    },
+    {
+      "fileName": "Image 003.png",
+      "sha256": "04bdd5fbf6afdbbd7ff897d320b84c5985ae2dc0f79c321cce3fb2757bc6d674",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-11-harry-potter-ps5",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 004.png",
+      "sha256": "9d65a426d551726a80715e1829ab96efaaa4e290f64a34fba8ce45badbf40b9c",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-11-harry-potter-ps5",
+      "sourceDpi": null
     }
   ],
   "assets": [
@@ -479,6 +497,106 @@
       "bytes": 1885742,
       "thumbnailSha256": "13aebc0bae87944125186c5e9de8cdd010953266bc34dfffbf59d4b8ed36e71c",
       "thumbnailBytes": 65684
+    },
+    {
+      "catalogId": "ps5-lego-harry-potter-collection",
+      "role": "portada",
+      "label": "Portada",
+      "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-portada-mini.webp",
+      "width": 1524,
+      "height": 1893,
+      "sourceSha256": "04bdd5fbf6afdbbd7ff897d320b84c5985ae2dc0f79c321cce3fb2757bc6d674",
+      "crop": {
+        "left": 1682,
+        "top": 588,
+        "width": 1524,
+        "height": 1893
+      },
+      "sha256": "2ea8c6115fee09089f6acd18018358a46efe07c89f39cfd822cab6bbbb8a5da7",
+      "bytes": 457448,
+      "thumbnailSha256": "42353d9b19a5bab675a78de575f67d707103a853420e660bf446161e680bd235",
+      "thumbnailBytes": 66624
+    },
+    {
+      "catalogId": "ps5-lego-harry-potter-collection",
+      "role": "contraportada",
+      "label": "Contraportada",
+      "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-contraportada-mini.webp",
+      "width": 1517,
+      "height": 1893,
+      "sourceSha256": "04bdd5fbf6afdbbd7ff897d320b84c5985ae2dc0f79c321cce3fb2757bc6d674",
+      "crop": {
+        "left": 0,
+        "top": 588,
+        "width": 1517,
+        "height": 1893
+      },
+      "sha256": "016143f5848e680d0f771a970af57424b1eac99a466213db1252cb2c70839be8",
+      "bytes": 582474,
+      "thumbnailSha256": "7eb33ae6f7fe3db199fe13e120d5d770107ce6ca85778b47e6fc5b5af61c8df9",
+      "thumbnailBytes": 81626
+    },
+    {
+      "catalogId": "ps5-lego-harry-potter-collection",
+      "role": "lomo",
+      "label": "Lomo",
+      "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-lomo-mini.webp",
+      "width": 165,
+      "height": 1893,
+      "sourceSha256": "04bdd5fbf6afdbbd7ff897d320b84c5985ae2dc0f79c321cce3fb2757bc6d674",
+      "crop": {
+        "left": 1517,
+        "top": 588,
+        "width": 165,
+        "height": 1893
+      },
+      "sha256": "8b5acaa9e37ebfe07108e29f6d6c12ba6379b2c853d997595bca74dd3051d285",
+      "bytes": 42532,
+      "thumbnailSha256": "dccc12252d85f9dd0616c9ba13b870a11b340b427cdc2801c1c79868313ee5e0",
+      "thumbnailBytes": 6756
+    },
+    {
+      "catalogId": "ps5-lego-harry-potter-collection",
+      "role": "caratula-completa",
+      "label": "Carátula completa",
+      "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-caratula-completa.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-caratula-completa-mini.webp",
+      "width": 3200,
+      "height": 1889,
+      "sourceSha256": "04bdd5fbf6afdbbd7ff897d320b84c5985ae2dc0f79c321cce3fb2757bc6d674",
+      "crop": {
+        "left": 0,
+        "top": 588,
+        "width": 3206,
+        "height": 1893
+      },
+      "sha256": "32febee8cbf0a1b01d2c68da79aa07d056ca75f6245ab2bc91e2bb014325127e",
+      "bytes": 1060602,
+      "thumbnailSha256": "6dcf564ddcab032eeee4890225a9fc0241d8dda346d41b1950c14089fd3e20ba",
+      "thumbnailBytes": 67180
+    },
+    {
+      "catalogId": "ps5-lego-harry-potter-collection",
+      "role": "disco",
+      "label": "Disco · borde izquierdo recortado en el escaneo",
+      "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-disco.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-disco-mini.webp",
+      "width": 1420,
+      "height": 1413,
+      "sourceSha256": "9d65a426d551726a80715e1829ab96efaaa4e290f64a34fba8ce45badbf40b9c",
+      "crop": {
+        "left": 0,
+        "top": 1068,
+        "width": 1420,
+        "height": 1413
+      },
+      "sha256": "89e3b5ce0d3f3b385dd96a56af555a212de62372656a8ee1015d51c04234ece7",
+      "bytes": 291244,
+      "thumbnailSha256": "a54bcb36f7af923a81f5a9f50238cee2530e9f129c8744d342ba1c7a37e152a3",
+      "thumbnailBytes": 58054
     }
   ],
   "covers": [
@@ -531,6 +649,19 @@
       "crop": null,
       "sha256": "b6d92b7a45bf3f8ccbab3999dbc2a02b00f8b1221a3c1581238dcd048be3ea27",
       "bytes": 229814
+    },
+    {
+      "catalogId": "ps5-lego-harry-potter-collection",
+      "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-portada-catalogo.webp",
+      "sourceSha256": "04bdd5fbf6afdbbd7ff897d320b84c5985ae2dc0f79c321cce3fb2757bc6d674",
+      "crop": {
+        "left": 1682,
+        "top": 588,
+        "width": 1524,
+        "height": 1893
+      },
+      "sha256": "851fa59849b2a105cb0d5a2c792a6eb9cb6db3c135d061f1ad84666bb18e9c98",
+      "bytes": 269226
     }
   ]
 }

@@ -1,16 +1,17 @@
 {
   "beforeCommit": "ba500138cc54b292e237d7977a0d152ca23f3779",
-  "reason": "Escaneos propios posteriores a la migración PS2: cinco fichas y un duplicado excluido, sin cambios en PS1/PS2 ni copias de usuarios.",
+  "reason": "Escaneos propios posteriores a la migración PS2: seis fichas y un duplicado excluido, sin cambios en PS1/PS2 ni copias de usuarios. LEGO Harry Potter Collection PS5 conserva su identidad, URL y precios.",
   "files": {
     "data/catalog.json": {
       "beforeSha256": "ffafa7d7109bfb80fdbd0fabd9954278a6762b4907d5aed52c521b92b439ffc1",
-      "afterSha256": "5cae6b1ce92e064469a439a501c42b43a79a45d37d3555e21e64d681d9da3743",
+      "afterSha256": "fbdadfc8601985e2d9066a9bf9204a52d6e6e35b5c674947a03b4803c0a7bd08",
       "changedKeys": [
         "ps4-assassins-creed-mirage-deluxe-edition",
         "ps4-deadpool",
         "ps4-deadpool-masacre",
         "ps4-fornite-ps4-promo",
         "ps4-fortnite",
+        "ps5-lego-harry-potter-collection",
         "ps5-resident-evil-requiem-lenticular-cover"
       ]
     },

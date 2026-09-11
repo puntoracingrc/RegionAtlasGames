@@ -15,7 +15,7 @@ import { getGameProductReference } from "./game-product-reference";
 import type { CatalogGame, GameDetails } from "./types";
 
 test("owned scans retain each catalog identity and its existing URL", () => {
-  for (const entry of integration.games.slice(0, 3)) {
+  for (const entry of integration.games.filter(entry => !["ps4-deadpool", "ps4-fornite-ps4-promo"].includes(entry.id))) {
     const before = entry.before.catalog as CatalogGame;
     const game = getCatalogGame(entry.id)!;
     const scans = getOwnedScanSet(game)!;
@@ -44,7 +44,7 @@ test("scans cannot spread to another territory, platform, edition or similarly n
 });
 
 test("old overlays keep live prices but cannot restore superseded covers", () => {
-  for (const entry of integration.games.slice(0, 4)) {
+  for (const entry of integration.games.filter(entry => entry.id !== "ps4-fornite-ps4-promo")) {
     const game = getCatalogGame(entry.id)!;
     const overlay = { ...entry.before.catalog, recommendedPrice: 37.5, updatedAt: "2026-09-12T12:00:00Z" } as CatalogGame;
     const merged = mergeCatalogGameWithOverlay(game, overlay);
@@ -90,6 +90,22 @@ test("printed references supersede title matches while preserving documentary hi
   const reference = getGameProductReference(getCatalogGame("ps4-fortnite")!, details)!;
   assert.equal(reference.regionHint, null);
   assert.equal(reference.label, "Código del lomo");
+});
+
+test("Harry Potter PS5 scans verify only the Spanish box and its matching disc", () => {
+  const game = getCatalogGame("ps5-lego-harry-potter-collection")!;
+  const scans = getOwnedScanSet(game)!;
+  const details = withOwnedScanDetails(game, undefined)!;
+  assert.equal(catalogGamePath(game), "/catalogo/lego-harry-potter-collection-ps5-pal-es");
+  assert.equal(details.reference, "PPSA-22946");
+  assert.equal(details.ean, "5051893243628");
+  assert.equal(details.releaseDate, null);
+  assert.deepEqual(scans.packaging.languages, ["Español"]);
+  assert.equal(scans.softwareLanguagesPrinted, undefined);
+  assert.deepEqual(scans.images.map(image => image.role), ["portada", "contraportada", "lomo", "caratula-completa", "disco"]);
+  assert.ok(scans.notes.some(note => note.includes("borde izquierdo")));
+  assert.equal(getOwnedScanSet(getCatalogGame("ps4-lego-harry-potter-collection")!), undefined);
+  assert.equal(getOwnedScanSet(getCatalogGame("ps5-usa-lego-harry-potter-collection")!), undefined);
 });
 
 test("public assets match the reviewed hashes and contain no embedded original metadata", async () => {

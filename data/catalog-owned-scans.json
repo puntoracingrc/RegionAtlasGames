@@ -367,6 +367,86 @@
           "redactedCodes": 2
         }
       ]
+    },
+    "ps5-lego-harry-potter-collection": {
+      "identity": {
+        "platformSlug": "ps5",
+        "slug": "lego-harry-potter-collection",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-11",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Carátula escaneada · PS5 PAL España",
+      "packaging": {
+        "reference": "PPSA-22946",
+        "referenceComponent": "lomo",
+        "ean": "5051893243628",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición española confirmada por el propietario; carátula con textos en castellano y código PPSA-22946 coincidente en el lomo y el disco.",
+        "productNumber": "1000839728 / 5000312826",
+        "discIdentifiers": [
+          {
+            "label": "Código del disco",
+            "value": "PPSA-22946"
+          },
+          {
+            "label": "Referencia de impresión del disco",
+            "value": "2000187381"
+          }
+        ]
+      },
+      "notes": [
+        "Recopilación remasterizada para PlayStation 5: LEGO Harry Potter: Años 1–4 y LEGO Harry Potter: Años 5–7, incluidos en un disco.",
+        "La caja indica 1–2 jugadores, un mínimo de 15,5 GB y compatibilidad con la función de vibración.",
+        "El idioma castellano de la carátula está comprobado. Los idiomas de textos y voces del software no se han verificado con estas capturas.",
+        "El disco aparece ligeramente recortado por el borde izquierdo en el escaneo de origen; la imagen conserva ese límite sin reconstruirlo."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "label": "Portada",
+          "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-portada-mini.webp",
+          "width": 1524,
+          "height": 1893
+        },
+        {
+          "role": "contraportada",
+          "label": "Contraportada",
+          "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-contraportada-mini.webp",
+          "width": 1517,
+          "height": 1893
+        },
+        {
+          "role": "lomo",
+          "label": "Lomo",
+          "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-lomo-mini.webp",
+          "width": 165,
+          "height": 1893
+        },
+        {
+          "role": "caratula-completa",
+          "label": "Carátula completa",
+          "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-caratula-completa.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-caratula-completa-mini.webp",
+          "width": 3200,
+          "height": 1889
+        },
+        {
+          "role": "disco",
+          "label": "Disco · borde izquierdo recortado en el escaneo",
+          "url": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-disco.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/lego-harry-potter-collection/lego-harry-potter-collection-ps5-pal-es-disco-mini.webp",
+          "width": 1420,
+          "height": 1413
+        }
+      ]
     }
   }
 }
