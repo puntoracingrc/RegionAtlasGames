@@ -1,0 +1,1479 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-11",
+  "baseSha": "166c2809453a6ab7120c8d406d2f1ceb164cfd4e",
+  "summary": {
+    "selectedGames": 10,
+    "listedOffers": 51,
+    "eligibleSpainOffers": 38,
+    "reviewedListings": 31,
+    "filesForPublication": 11,
+    "gamesWithMainCover": 5,
+    "gamesWithGallery": 6
+  },
+  "games": [
+    {
+      "catalogId": "ps2-es-sces-50971",
+      "title": "Kingdom Hearts",
+      "canonicalSeoSlug": "kingdom-hearts-sces-50971-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:18:35.683Z",
+      "offers": [
+        [
+          "257733145177",
+          "ES"
+        ],
+        [
+          "128071379005",
+          "ES"
+        ],
+        [
+          "128073023707",
+          "ES"
+        ],
+        [
+          "158257340206",
+          "ES"
+        ],
+        [
+          "128073023692",
+          "ES"
+        ],
+        [
+          "127805587538",
+          "ES"
+        ]
+      ]
+    },
+    {
+      "catalogId": "ps2-es-sles-53498",
+      "title": "Bob Esponja - ¡Luces,Camara ,Esponja!",
+      "canonicalSeoSlug": "bob-esponja-luces-camara-esponja-sles-53498-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:18:41.243Z",
+      "offers": [
+        [
+          "204616571629",
+          "ES"
+        ],
+        [
+          "188499670560",
+          "US"
+        ],
+        [
+          "158251314703",
+          "US"
+        ],
+        [
+          "256622799234",
+          "GB"
+        ],
+        [
+          "206548857258",
+          "US"
+        ],
+        [
+          "336631057170",
+          "US"
+        ]
+      ]
+    },
+    {
+      "catalogId": "ps2-es-sles-53575",
+      "title": "Bratz - Rock Angelz",
+      "canonicalSeoSlug": "bratz-rock-angelz-sles-53575-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:19:22.588Z",
+      "offers": [
+        [
+          "128001191248",
+          "ES"
+        ],
+        [
+          "166611671500",
+          "ES"
+        ],
+        [
+          "389305171848",
+          "IT"
+        ],
+        [
+          "236971811207",
+          "IT"
+        ],
+        [
+          "327350191397",
+          "GB"
+        ],
+        [
+          "178475506704",
+          "US"
+        ]
+      ]
+    },
+    {
+      "catalogId": "ps2-es-sces-53884",
+      "title": "Buzz! El Gran Reto",
+      "canonicalSeoSlug": "buzz-el-gran-reto-sces-53884-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:20:20.083Z",
+      "offers": [
+        [
+          "267736999872",
+          "ES"
+        ],
+        [
+          "167327693498",
+          "ES"
+        ],
+        [
+          "295569082498",
+          "ES"
+        ],
+        [
+          "257418182293",
+          "ES"
+        ],
+        [
+          "128070282260",
+          "ES"
+        ],
+        [
+          "306347222137",
+          "ES"
+        ]
+      ]
+    },
+    {
+      "catalogId": "ps2-es-sces-54500",
+      "title": "Buzz! El Mega Concurso",
+      "canonicalSeoSlug": "buzz-el-mega-concurso-sces-54500-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:20:39.788Z",
+      "offers": [
+        [
+          "227372989628",
+          "ES"
+        ],
+        [
+          "267640634643",
+          "ES"
+        ],
+        [
+          "167569958720",
+          "ES"
+        ],
+        [
+          "267615789720",
+          "ES"
+        ],
+        [
+          "326506807232",
+          "ES"
+        ],
+        [
+          "324203839215",
+          "ES"
+        ]
+      ]
+    },
+    {
+      "catalogId": "ps2-es-sles-52373",
+      "title": "Champions of Norrath",
+      "canonicalSeoSlug": "champions-of-norrath-sles-52373-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:21:03.894Z",
+      "offers": [
+        [
+          "283449721480",
+          "ES"
+        ],
+        [
+          "377241663174",
+          "ES"
+        ],
+        [
+          "365622856632",
+          "ES"
+        ],
+        [
+          "256026380134",
+          "ES"
+        ],
+        [
+          "365870254707",
+          "ES"
+        ],
+        [
+          "257162231929",
+          "ES"
+        ]
+      ]
+    },
+    {
+      "catalogId": "ps2-es-sles-53224",
+      "title": "Championship Manager 5",
+      "canonicalSeoSlug": "championship-manager-5-sles-53224-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:21:23.691Z",
+      "offers": [
+        [
+          "325848999479",
+          "ES"
+        ],
+        [
+          "264300227639",
+          "ES"
+        ],
+        [
+          "227497972568",
+          "GB"
+        ],
+        [
+          "386110025299",
+          "GB"
+        ],
+        [
+          "395597719547",
+          "GB"
+        ],
+        [
+          "267578008308",
+          "GB"
+        ]
+      ]
+    },
+    {
+      "catalogId": "ps2-es-sles-53987",
+      "title": "DreamWorks' Vecinos Invasores",
+      "canonicalSeoSlug": "dreamworks-vecinos-invasores-sles-53987-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:21:45.691Z",
+      "offers": [],
+      "fallback": "https://www.ebay.es/sch/i.html?_nkw=DreamWorks%27+Vecinos+Invasores+PS2",
+      "outcome": "no_item_offers_in_ficha"
+    },
+    {
+      "catalogId": "ps2-es-sles-51665",
+      "title": "Dynasty Warriors 4",
+      "canonicalSeoSlug": "dynasty-warriors-4-sles-51665-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:22:41.923Z",
+      "offers": [
+        [
+          "257734973552",
+          "ES"
+        ],
+        [
+          "257402594851",
+          "ES"
+        ],
+        [
+          "257359119001",
+          "ES"
+        ],
+        [
+          "158257340248",
+          "ES"
+        ],
+        [
+          "158257340242",
+          "ES"
+        ],
+        [
+          "158257340249",
+          "ES"
+        ]
+      ],
+      "unopenedTitleMismatch": {
+        "158257340249": "El título de la oferta en la ficha es Dynasty Warriors 5 Empires. No se abre después de seleccionar la oferta 5."
+      }
+    },
+    {
+      "catalogId": "ps2-es-sles-52175",
+      "title": "Dynasty Warriors 4 - Xtreme Legends",
+      "canonicalSeoSlug": "dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es",
+      "originalCoverUrl": null,
+      "checkedAt": "2026-09-11T07:22:51.493Z",
+      "offers": [
+        [
+          "166980519272",
+          "ES"
+        ],
+        [
+          "167001899389",
+          "ES"
+        ],
+        [
+          "168338841550",
+          "ES"
+        ]
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "257733145177",
+      "order": 1,
+      "location": "Galicia, España",
+      "decision": "reject_variant",
+      "observations": [
+        "Platinum rojo y banda plateada visibles. Solo portada.",
+        "Metadatos de producto SCES-50967/P; no sustituir la ficha estándar SCES-50971."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/257733145177",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/kingdom-hearts-sces-50971-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "f709f3462d621b52",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/qU4AAeSwBEFqoUYs/s-l1600.webp",
+          "sha256": "8b47e67200be25b665bdd79c343f9766760a6b2cdd4fad5f44e76245cded0243",
+          "bytes": 156732,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "128071379005",
+      "order": 2,
+      "location": "Madrid, España",
+      "decision": "reject_variant",
+      "observations": [
+        "Caja plateada Platinum. Contraportada española y etiqueta Sony Computer Entertainment España.",
+        "Fotografía trasera cortada; presentación distinta de la ficha estándar."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/128071379005",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/kingdom-hearts-sces-50971-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "2dac02a601e75b29",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/0doAAeSw9Ldqofp5/s-l1600.webp",
+          "sha256": "84952a80a15f0e4cef4d52c5e08aa311d4d5f170487d15cf22cbcec2c9e1bc86",
+          "bytes": 138312,
+          "selectedRole": null
+        },
+        {
+          "assetId": "750245a20b230820",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/uGMAAeSw1Klqofp5/s-l1600.webp",
+          "sha256": "6e68ca9b52484439bacbc916ed518c711067451e8f44fb97f1e738ad232362c0",
+          "bytes": 178464,
+          "selectedRole": null
+        },
+        {
+          "assetId": "2bc7f2ce1bf19f14",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/ixIAAeSwGMxqofp5/s-l1600.webp",
+          "sha256": "52c6ca6974740d69fcbc3dcb9daf4b5d3ad9e519b9bcf74daa6717bd5890c052",
+          "bytes": 296430,
+          "selectedRole": null
+        },
+        {
+          "assetId": "e58dff1612da22f0",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/fbIAAeSw8qdqofp5/s-l1600.webp",
+          "sha256": "e73f70cbac7f8dcacf3934ffbc097f859623ee71d1328586d299e804debd3d3e",
+          "bytes": 159232,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "128073023707",
+      "order": 3,
+      "location": "Madrid, España",
+      "decision": "unusable_photos",
+      "observations": [
+        "La única fotografía remota de Cash Converters no se pudo descargar mediante el anuncio; no hay reverso."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/128073023707",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/kingdom-hearts-sces-50971-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [],
+      "downloadFailureCount": 1
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "158257340206",
+      "order": 4,
+      "location": "Rota, España",
+      "decision": "reject_variant",
+      "observations": [
+        "El título no menciona Platinum pero las fotos sí muestran esa reedición.",
+        "Disco SCES-50971/P legible y contraportada española."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/158257340206",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/kingdom-hearts-sces-50971-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "d22370ad08330128",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/iooAAeSwOT5qgVy6/s-l1600.webp",
+          "sha256": "5e78fb456e47d8e1539b54ddd31d758bec828ce754c6bd0c54377876f4289f61",
+          "bytes": 193018,
+          "selectedRole": null
+        },
+        {
+          "assetId": "a485e3d4540f7d97",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/WpAAAeSwEx9qgVzD/s-l1600.webp",
+          "sha256": "cc7566d3d7320f8460a275c83a4ef777474a850645d7068323336d1d3e90b22d",
+          "bytes": 292026,
+          "selectedRole": null
+        },
+        {
+          "assetId": "19a76d1fa2a09efa",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/Xg4AAeSw1WFqgVzM/s-l1600.webp",
+          "sha256": "94aa5f6f19e7bc2b8f6b0bad1342cf17796b9c8602a44e482faf0bd72b5d90cd",
+          "bytes": 249668,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "128073023692",
+      "order": 5,
+      "location": "Madrid, España",
+      "decision": "unusable_photos",
+      "observations": [
+        "Única fotografía remota no disponible; no hay contraportada."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/128073023692",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/kingdom-hearts-sces-50971-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [],
+      "downloadFailureCount": 1
+    },
+    {
+      "game": "ps2-es-sces-50971",
+      "item": "127805587538",
+      "order": 6,
+      "location": "Sevilla, España",
+      "decision": "reject_variant",
+      "observations": [
+        "Platinum visible en la portada; no corresponde a la presentación estándar."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/127805587538",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/kingdom-hearts-sces-50971-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "75400a4bc1064430",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/BQYAAeSweFVp2z4p/s-l1600.webp",
+          "sha256": "534bdbee66dccd58efa7ec33206dab1e3554be003c62095d20ec11645a1bc6ff",
+          "bytes": 160018,
+          "selectedRole": null
+        },
+        {
+          "assetId": "5997a66124a36378",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/L6sAAeSwVbJp2z4X/s-l140.webp",
+          "sha256": "4f11ca1373b94fdcfbf53aa7a5ad146126a41e1700775c7787d45569058dfd01",
+          "bytes": 5048,
+          "selectedRole": null
+        },
+        {
+          "assetId": "92e0abd978406e6a",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/99oAAeSwVNVp2z4W/s-l1600.webp",
+          "sha256": "fad7c00e5d365d67c64b19ffc124c7218207048d4bddc787278f3ceaa3aaa70c",
+          "bytes": 364728,
+          "selectedRole": null
+        },
+        {
+          "assetId": "7cdca0f4fb0a10fa",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/fo4AAeSwEpNp2z4W/s-l1600.webp",
+          "sha256": "b1639c351f314b7c99fc786dba648d3ead462d642ec16397843537f6634b1975",
+          "bytes": 417680,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-53498",
+      "item": "204616571629",
+      "order": 1,
+      "location": "Badalona, España",
+      "decision": "no_packaging_photos",
+      "observations": [
+        "Galería 1 de 1: únicamente disco, con título español y SLES-53498.",
+        "No hay portada ni contraportada."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/204616571629",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/bob-esponja-luces-camara-esponja-sles-53498-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "d3425871766b0d93",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/7WgAAOSwmuNlpAv~/s-l1600.webp",
+          "sha256": "8f0a80ce72c3bcef219b9767c5bf1c996dbb2b8f536d11c55337b540ca0c67a7",
+          "bytes": 569178,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-53575",
+      "item": "128001191248",
+      "order": 1,
+      "location": "Madrid, España",
+      "decision": "front_only_stock",
+      "observations": [
+        "Frontal de stock PAL sin reverso ni serial: no prueba mercado español.",
+        "Aunque el diseño coincide con la siguiente caja, no se publica como una fotografía del mismo ejemplar."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/128001191248",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/bratz-rock-angelz-sles-53575-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "ccb1012aeb899503",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/DlQAAeSwWEBqapwr/s-l1600.webp",
+          "sha256": "387754b2c52e28ce8538219acc53c8b789578878f2a46d48080395391cac3b69",
+          "bytes": 239912,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-53575",
+      "item": "166611671500",
+      "order": 2,
+      "location": "L'Hospitalet de Llobregat, Barcelona, España",
+      "decision": "accept_packaging_photo",
+      "combined": "39688d869c80f8ad.webp",
+      "observations": [
+        "Una única fotografía de portada, lomo, contraportada, manual y disco.",
+        "SLES-53575, EAN 4005209070072, contraportada española y Totalmente en castellano con bandera española.",
+        "Diseño estándar sin Platinum. Galería verificada; no hay frontal individual para portada principal."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/166611671500",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/bratz-rock-angelz-sles-53575-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "39688d869c80f8ad",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/SOUAAOSw63dl189~/s-l1600.webp",
+          "sha256": "c431c38034383843f9de2c5c31d5a5341b5cbf83d67b5ec7a54612b436b837d1",
+          "bytes": 413118,
+          "selectedRole": "combined"
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "267736999872",
+      "order": 1,
+      "location": "Galicia, España",
+      "decision": "conflicting_listing",
+      "observations": [
+        "Título comercial UK y frontal genérico español de baja resolución. Sin código ni reverso."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/267736999872",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/buzz-el-gran-reto-sces-53884-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "a550d7748e1e0fb9",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/xH0AAeSwWkBqcFON/s-l960.webp",
+          "sha256": "0c918626b6e0b2587879741dc23986e84673920454e248b43fd0eeb10d84e438",
+          "bytes": 43388,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "167327693498",
+      "order": 2,
+      "location": "España",
+      "decision": "pack_variant_only",
+      "observations": [
+        "Foto conjunta de caja, manual y disco. Portada con Prohibida la venta por separado.",
+        "Serial no legible con suficiente seguridad."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/167327693498",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/buzz-el-gran-reto-sces-53884-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "a7937cf8a4fdab24",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/TJAAAOSwnfNntnGc/s-l1600.webp",
+          "sha256": "f2761faeade2a6ae179bf2099f3d83fe87cc3cdd3068f32c6dc2ed7edeedd8e3",
+          "bytes": 280830,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "295569082498",
+      "order": 3,
+      "location": "Badajoz, España",
+      "decision": "pack_variant_only",
+      "observations": [
+        "Portada con Prohibida la venta por separado y disco SCES-53884.",
+        "No trasladar esta presentación de pack a una portada individual."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/295569082498",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/buzz-el-gran-reto-sces-53884-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "8d8d3675167d0746",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/MssAAOSwB2NkEufU/s-l1600.webp",
+          "sha256": "220c9e483a714ab74075ded33d225a44edeb6f773b49ca21556312df56da8c32",
+          "bytes": 587316,
+          "selectedRole": null
+        },
+        {
+          "assetId": "02a506efb0aab7de",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/Q48AAOSwdNhkEufZ/s-l140.webp",
+          "sha256": "9621346192ff13966fba9928a95a85d4a10e70db3a24e39f79be59289c49b2ec",
+          "bytes": 6432,
+          "selectedRole": null
+        },
+        {
+          "assetId": "b3aa76806f90ff07",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/yJ0AAOSwVZxkEufc/s-l140.webp",
+          "sha256": "a7e047387b861a4591971b068afd0b11009be25153225a743909489f38e4ba97",
+          "bytes": 5982,
+          "selectedRole": null
+        },
+        {
+          "assetId": "a242d7874ede4830",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/fZgAAOSwcIVkEufY/s-l1600.webp",
+          "sha256": "b50fe650bd4e147d219826e16c19380a7a252d4344be8f84471952e02fe347d0",
+          "bytes": 493072,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "257418182293",
+      "order": 4,
+      "location": "Galicia, España",
+      "decision": "front_only_stock",
+      "observations": [
+        "Portada genérica española de baja resolución; sin contraportada ni código legible."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/257418182293",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/buzz-el-gran-reto-sces-53884-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "69bfc9c3476637bd",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/odsAAeSw25dqo6bE/s-l960.webp",
+          "sha256": "0c918626b6e0b2587879741dc23986e84673920454e248b43fd0eeb10d84e438",
+          "bytes": 43388,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "128070282260",
+      "order": 5,
+      "location": "Alicante, España",
+      "decision": "pack_variant_only",
+      "observations": [
+        "Contraportada española con Prohibida la venta por separado. Frontal tapado parcialmente por pulsadores.",
+        "Caja roja observada; no se certifica origen de fábrica."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/128070282260",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/buzz-el-gran-reto-sces-53884-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "7069aea39eb0066a",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/AL0AAeSwK4pqoSrp/s-l1600.webp",
+          "sha256": "27216ea164d984cee5f3b848753fce5a4980453b7c5d3711572d95c97943f146",
+          "bytes": 232158,
+          "selectedRole": null
+        },
+        {
+          "assetId": "78e399e5496054ad",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/cT0AAeSwywhqoSrp/s-l1600.webp",
+          "sha256": "e0f15bd489c5d706b919fba84c0555a6c6ffd8a95128a61c59d28d9e233a1788",
+          "bytes": 212234,
+          "selectedRole": null
+        },
+        {
+          "assetId": "1bf4f85f412926ca",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/ppsAAeSwyPJqoSrq/s-l1600.webp",
+          "sha256": "938d9f84327621ca6b60b312eee70f2a23a69b7d9efae5d68267920aa4ec69f5",
+          "bytes": 234606,
+          "selectedRole": null
+        },
+        {
+          "assetId": "b66f898044b70141",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/O8MAAeSw25hqoSrq/s-l1600.webp",
+          "sha256": "459926246bcd7c4c0d6c53871711821aecb566369c160a6d69c6bd33d3f5fd23",
+          "bytes": 284092,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-53884",
+      "item": "306347222137",
+      "order": 6,
+      "location": "Santa Gertrudis de Fruitera, España",
+      "decision": "pack_variant_only",
+      "observations": [
+        "Disco SCES-53884 y contraportada española con Prohibida la venta por separado.",
+        "Se conserva como referencia de pack; no se publica en la ficha estándar."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/306347222137",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/buzz-el-gran-reto-sces-53884-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "20f08c984297edb0",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/BgYAAOSw7OhoSb1L/s-l1600.webp",
+          "sha256": "519e0685de60374f71b53f8275e0e5e97c164f08ba5f5f35556ddbfc1f042bb6",
+          "bytes": 676936,
+          "selectedRole": null
+        },
+        {
+          "assetId": "de793dc8fcf1927b",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/400AAOSwfDFoSb1Z/s-l1600.webp",
+          "sha256": "004674db40124c6041dab04882ba9fdfd6c44f0f55f50cf46e176094adf27397",
+          "bytes": 644408,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sces-54500",
+      "item": "227372989628",
+      "order": 1,
+      "location": "San Fernando, España",
+      "decision": "accept_front_back",
+      "front": "e5b526d47c028c27.webp",
+      "back": "3bd16b7dc78b11f4.webp",
+      "observations": [
+        "Portada y reverso españoles separados; disco SCES-54500 en la imagen interior.",
+        "EAN 711719699583. Sin Platinum ni prohibición de venta separada visible.",
+        "Caja roja observada; no se certifica combinación de fábrica."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/227372989628",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/buzz-el-mega-concurso-sces-54500-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "e5b526d47c028c27",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/v-kAAeSwhcRqIbbo/s-l1600.webp",
+          "sha256": "d88b43dcec35c9009aadf205188c8eaa67d44f628ddd1d7c80d1cba9229d913e",
+          "bytes": 429826,
+          "selectedRole": "front"
+        },
+        {
+          "assetId": "3bd16b7dc78b11f4",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/hiAAAeSwQIFqIbbo/s-l1600.webp",
+          "sha256": "e904c8168d536c7db0781f5b5ea5bced668f09aa80b6f1f46b5769ee3b15f66e",
+          "bytes": 522184,
+          "selectedRole": "back"
+        },
+        {
+          "assetId": "aa2d90bea94ef5da",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/kMMAAeSwgIhqIbbn/s-l1600.webp",
+          "sha256": "ef6584d8f2fb10d52967264b5d70d5063db879d0b677552ffa805735bb877d68",
+          "bytes": 420824,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52373",
+      "item": "283449721480",
+      "order": 1,
+      "location": "Blanes, España",
+      "decision": "verified_region_poor_image",
+      "observations": [
+        "SLES-52373 en disco. Portada Con juego en red, reverso español, Juego subtitulado en castellano y EAN 3307210163769.",
+        "Reflejos fuertes tapan el diseño; se busca una pareja más legible."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/283449721480",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/champions-of-norrath-sles-52373-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "300204cc53001128",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/7c0AAOSwCRRbIHAy/s-l1600.webp",
+          "sha256": "3bd52dd5156d59ed74a1b6b5be6ded5aadb1addebd5d719c42aa3c95a04c6918",
+          "bytes": 220560,
+          "selectedRole": null
+        },
+        {
+          "assetId": "e7758bd8658c8450",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/mMkAAOSwb39bIHBZ/s-l140.webp",
+          "sha256": "430bdd6dc2351cec8f1c6ca1040a57681d61000c60a3bf4c981f87c035be3e4b",
+          "bytes": 4468,
+          "selectedRole": null
+        },
+        {
+          "assetId": "54503cb31d4db53f",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/TQsAAOSw1m5bIHBs/s-l1600.webp",
+          "sha256": "dcb61e2556c193f54e40c11a0025391622a71af5a70bb29d6442005bba49ade4",
+          "bytes": 334944,
+          "selectedRole": null
+        },
+        {
+          "assetId": "f6a7f84b4faee0c8",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/ptgAAOSw3ndbIHBQ/s-l1600.webp",
+          "sha256": "d35bcd2327b8dc32587d10d79d6ea37c91f83ae5af04558d746bd3d1d71359a4",
+          "bytes": 420314,
+          "selectedRole": null
+        },
+        {
+          "assetId": "44e97bafffac5edc",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/CjkAAOSwdkZbIHBi/s-l1600.webp",
+          "sha256": "0d6aa45b3458120add5986b167e47028c97d9b76dcd14dcca4b2815c057ba930",
+          "bytes": 472090,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-53224",
+      "item": "325848999479",
+      "order": 1,
+      "location": "Ciudad Real, España",
+      "decision": "accept_front_back",
+      "front": "c7052593ee41283a.webp",
+      "back": "7559f79d9961c632.webp",
+      "observations": [
+        "Portada y reverso españoles separados. Proein, Totalmente en castellano y LFP en portada.",
+        "SLES-53224 en disco y EAN 5032921022347 en reverso. Diseño estándar."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/325848999479",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/championship-manager-5-sles-53224-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "c7052593ee41283a",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/xAEAAOSwdMJlK5Ps/s-l1600.webp",
+          "sha256": "0c658e7fd6677e7b595b4dc77d7e4377a591c7a663881b197cc0d26f63723eeb",
+          "bytes": 363256,
+          "selectedRole": "front"
+        },
+        {
+          "assetId": "b4dd9979bbed5250",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/5dwAAOSwpUdlK5Pt/s-l1600.webp",
+          "sha256": "c52c08fc51452b8e9d707826db636baf4c38cb83b827a76806763cbf4a831ef9",
+          "bytes": 435474,
+          "selectedRole": null
+        },
+        {
+          "assetId": "7559f79d9961c632",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/V-oAAOSwUz9lK5Pt/s-l1600.webp",
+          "sha256": "dfd675e53c8292d87ff6578252e2a220a3db2a488cab16ab4b48ee14a02de4d7",
+          "bytes": 439534,
+          "selectedRole": "back"
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52373",
+      "item": "377241663174",
+      "order": 2,
+      "location": "Castelló d'Empúries, España",
+      "decision": "verified_region_poor_image",
+      "observations": [
+        "SLES-52373 legible en lomo. Reverso español, Juego subtitulado en castellano y EAN 3307210163769.",
+        "Frontal MODO ONLINE INCLUIDO, diferente al CON JUEGO EN RED de otras ofertas. No se atribuye fecha ni tirada.",
+        "Fotografías poco nítidas y giradas."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/377241663174",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/champions-of-norrath-sles-52373-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "47dcdd89b68fb4b4",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/-0QAAeSw96NqJTw-/s-l1600.webp",
+          "sha256": "282f9ea5106e3c05507d6b0e4b97c37d4f415ab1690e19411de030787a722fee",
+          "bytes": 131496,
+          "selectedRole": null
+        },
+        {
+          "assetId": "165f3c5e71113da6",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/Ep0AAeSwJatqJTw-/s-l1600.webp",
+          "sha256": "48177203c465a29c3fb1de4497a3c5fe142c08a7976e314d6c03a8a2558d90af",
+          "bytes": 229548,
+          "selectedRole": null
+        },
+        {
+          "assetId": "1b722f73e888ba76",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/OmcAAeSwzcxqJTw-/s-l1600.webp",
+          "sha256": "36e1e32cf13b287084888427715cf63ec8a0cccfa51711dbf1554eb33e799aa6",
+          "bytes": 240106,
+          "selectedRole": null
+        },
+        {
+          "assetId": "ac0a67283a6518ee",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/JjYAAeSwspZqJTw-/s-l1600.webp",
+          "sha256": "ae61a9df6acdc831ade09424c41d632d946330a70754fc84da1da6db745b9c00",
+          "bytes": 177976,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52373",
+      "item": "365622856632",
+      "order": 3,
+      "location": "Alcorcón, España",
+      "decision": "verified_region_combined_front",
+      "observations": [
+        "SLES-52373 en disco, contraportada española con EAN 3307210163769 y Juego subtitulado en castellano. Manual con páginas españolas.",
+        "El frontal comparte fotografía con el manual y disco; se busca uno separado."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/365622856632",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/champions-of-norrath-sles-52373-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "c4c8b9b01b21d8b5",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/-NUAAOSwKQloMOp6/s-l1600.webp",
+          "sha256": "186d7881dc41e7b5e269fe4f39ef5822156ab59f724cb332b5b92221e7042f68",
+          "bytes": 332780,
+          "selectedRole": null
+        },
+        {
+          "assetId": "b90759687c47b7af",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/ISQAAOSwJfVoMOpy/s-l1600.webp",
+          "sha256": "13e07ae0e49bb680b218a75cb3ec001809e65b4aaa4340d5e8c52c5858bb738e",
+          "bytes": 427230,
+          "selectedRole": null
+        },
+        {
+          "assetId": "12a59f6de05115f6",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/TIMAAOSwZ4hoMOp6/s-l1600.webp",
+          "sha256": "dd80ecd9e7fcb9073000e36c575ee8b20c37128c3581abfcc6e79759365c4116",
+          "bytes": 345956,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52373",
+      "item": "256026380134",
+      "order": 4,
+      "location": "Fuensalida, España",
+      "decision": "verified_region_combined_front",
+      "observations": [
+        "SLES-52373, EAN 3307210163769, reverso español y etiqueta de Sony Computer Entertainment España.",
+        "Caja desplegada con portada cortada por el encuadre y pegatina."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/256026380134",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/champions-of-norrath-sles-52373-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "fa3b14ea76b228cf",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/imwAAeSw2W9pKgSO/s-l1600.webp",
+          "sha256": "2c07a19319adbb4a0e2d2f35db8b81691e08b8121c18f189b7e49ed5f08cf6d7",
+          "bytes": 200604,
+          "selectedRole": null
+        },
+        {
+          "assetId": "95e59a8c05bd9118",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/lEMAAeSwadlpKgSP/s-l1600.webp",
+          "sha256": "156c2272181b7da154ab637416d6e126785688b3401c6c4b456390d8c8db8ebf",
+          "bytes": 172850,
+          "selectedRole": null
+        },
+        {
+          "assetId": "d72f126872539069",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/W5gAAeSwL6JpKgSO/s-l1600.webp",
+          "sha256": "f45c26686968a851d047307c2bc757f797477e222da21cd03b6756d714dc4b5c",
+          "bytes": 150744,
+          "selectedRole": null
+        },
+        {
+          "assetId": "43a6649b067a920d",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/SncAAOSwrrNk8xK3/s-l1600.webp",
+          "sha256": "32de47703201005d53bcd7e78d4878a4b0508c59d70c4ea64872ac7b9a537e7c",
+          "bytes": 124530,
+          "selectedRole": null
+        },
+        {
+          "assetId": "3868a22b76a59f7a",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/ZpoAAOSwmKxk9Hsp/s-l1600.webp",
+          "sha256": "77c9159853b03b11e90961a57e70fea114a54bbb0230bd9ba1d89d00688cb8ea",
+          "bytes": 124082,
+          "selectedRole": null
+        },
+        {
+          "assetId": "585402fe580d841d",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/IcUAAOSwQbJk9Hsx/s-l1600.webp",
+          "sha256": "9f701e962ea8bb8c6243b9399593057da494291835c592f058ccc5c69c4c7108",
+          "bytes": 101288,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52373",
+      "item": "365870254707",
+      "order": 5,
+      "location": "Alcorcón, España",
+      "decision": "verified_region_combined_front",
+      "observations": [
+        "CON JUEGO EN RED, reverso español, Juego subtitulado en castellano y EAN 3307210163769.",
+        "Foto frontal conjunta con disco y manual."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/365870254707",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/champions-of-norrath-sles-52373-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "abe04883cb0aaaf3",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/OE0AAeSwYdJoy-Xk/s-l1600.webp",
+          "sha256": "594b732a2749bf02fd00b6c5dded246e6bf3be4f1c91fd97b36ed6ea4a7fb032",
+          "bytes": 287760,
+          "selectedRole": null
+        },
+        {
+          "assetId": "6833e1ab49b05c5f",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/P80AAeSwZ9toy-Xm/s-l1600.webp",
+          "sha256": "7f831c54cc4e9a143f5a29d516bb2216afa6b2945e452568338cc0d5f377f54f",
+          "bytes": 300432,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52373",
+      "item": "257162231929",
+      "order": 6,
+      "location": "Jerez de la Frontera, España",
+      "decision": "accept_front_back",
+      "front": "2943b6df1d6e8319.webp",
+      "back": "31cdf6e5f82e6a2f.webp",
+      "observations": [
+        "Portada y reverso separados. Cabecera estándar con MODO ONLINE INCLUIDO.",
+        "SLES-52373 en lomo y disco. EAN 3307210163769 y Juego subtitulado en castellano en reverso español.",
+        "La caja muestra contacto de Ubisoft España. No se afirma primera tirada ni ensamblaje de fábrica."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/257162231929",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/champions-of-norrath-sles-52373-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "2943b6df1d6e8319",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/cSwAAeSwTKNo8zqD/s-l1600.webp",
+          "sha256": "c9be2902f6677ae9fac574bab1f2c95adb478053123f744198dff0e56ea75ebd",
+          "bytes": 178742,
+          "selectedRole": "front"
+        },
+        {
+          "assetId": "31cdf6e5f82e6a2f",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/BfsAAeSwCPFo8zqE/s-l1600.webp",
+          "sha256": "0c117b0a62724a8509e1b0c770d69987bea99b0f0a3e7aa1d9cf4dd18d1d0088",
+          "bytes": 268806,
+          "selectedRole": "back"
+        },
+        {
+          "assetId": "504c02937df34a07",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/SnkAAeSwCB9o8zqD/s-l1600.webp",
+          "sha256": "8e7cd92f175cc5fef0f203251d90e526eec352f2315f534d5b58fa9a488b2158",
+          "bytes": 81940,
+          "selectedRole": null
+        },
+        {
+          "assetId": "22401cf498399c6a",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/xdYAAeSwx7do8zqD/s-l1600.webp",
+          "sha256": "38f2d287eff9b24454d7a7b87bd3b7d8f446714ea65164c57a01a48629f6d7e4",
+          "bytes": 79172,
+          "selectedRole": null
+        },
+        {
+          "assetId": "3fdf8d30f411d3ac",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/7LsAAeSw~9Zo8zqE/s-l1600.webp",
+          "sha256": "d06f635a9da439ca2bdc263201e704b4404586bc57d951772a27ad0335033845",
+          "bytes": 222034,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-51665",
+      "item": "257734973552",
+      "order": 1,
+      "location": "Galicia, España",
+      "decision": "reject_region",
+      "observations": [
+        "El frontal muestra título japonés y CERO. No corresponde a una caja PAL España aunque se envíe desde Galicia."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/257734973552",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/dynasty-warriors-4-sles-51665-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "25e510e4fb123aff",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/6T4AAeSw8EdqopvI/s-l1600.webp",
+          "sha256": "73dde297c7029735ac3698fdd2e151b4072d3bf0a0ba03f868b24152b6b61b94",
+          "bytes": 82736,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-51665",
+      "item": "257402594851",
+      "order": 2,
+      "location": "Galicia, España",
+      "decision": "conflicting_listing",
+      "observations": [
+        "El título dice UK y la portada de stock NTSC U/C junto a PEGI 12+.",
+        "Sin reverso ni código para resolver la inconsistencia. No se acepta PAL España."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/257402594851",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/dynasty-warriors-4-sles-51665-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "193385d5a6759dd1",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/o90AAeSw0e5psqxu/s-l1600.webp",
+          "sha256": "8fe1723ea58e1b5e05c45fb63e52453bb1e40cf14b3f6fc91a92e6b8a218c75c",
+          "bytes": 150384,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-51665",
+      "item": "257359119001",
+      "order": 3,
+      "location": "Galicia, España",
+      "decision": "unusable_photos",
+      "observations": [
+        "Imagen descargada incompleta, sin reverso ni código.",
+        "La etiqueta SP no basta para aprobar el mercado."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/257359119001",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/dynasty-warriors-4-sles-51665-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "2bbce765abff2b3b",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/IyAAAeSw2S9qUPa5/s-l1600.webp",
+          "sha256": "8fe1723ea58e1b5e05c45fb63e52453bb1e40cf14b3f6fc91a92e6b8a218c75c",
+          "bytes": 150384,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-51665",
+      "item": "158257340248",
+      "order": 4,
+      "location": "Rota, España",
+      "decision": "reject_wrong_game",
+      "observations": [
+        "Título y frontal muestran Dynasty Warriors 4 Empires, juego distinto de la ficha SLES-51665."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/158257340248",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/dynasty-warriors-4-sles-51665-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "f962c0757ecc2f88",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/knAAAeSwDRtqgXGZ/s-l1600.webp",
+          "sha256": "adf07d81d844bbc8518e182824e400fd06ea1049ba88117cabdb9f24860f00d1",
+          "bytes": 271150,
+          "selectedRole": null
+        },
+        {
+          "assetId": "6d54d286fb476391",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/n7EAAeSwT0pqgXGt/s-l1600.webp",
+          "sha256": "7547fb52930ff9db4c8020cf53704b686eb31e9a4f690106e979a0aa7ba6b693",
+          "bytes": 351926,
+          "selectedRole": null
+        },
+        {
+          "assetId": "ad6b6a6952dd3c61",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/HOMAAeSwlShqgXGj/s-l1600.webp",
+          "sha256": "d498827b5a72f30bf0fc75ed349faaac142cbf79f8c892b5513657b706152949",
+          "bytes": 303220,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-51665",
+      "item": "158257340242",
+      "order": 5,
+      "location": "Rota, España",
+      "decision": "accept_front_and_combined_back",
+      "front": "0f0cd0b5fc69aa22.webp",
+      "back": "772bbdc6ab9411cc.webp",
+      "backLayout": "front_spine_back_photo",
+      "observations": [
+        "SLES-51665 en disco y lomo. Contraportada española con TEXTOS DE PANTALLA EN CASTELLANO y EAN 4005209046978.",
+        "Diseño estándar PAL. Reverso en fotografía desplegada junto a lomo y portada.",
+        "Se conserva la identificación del vendedor en la fotografía; no se reconstruye la carátula."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/158257340242",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/dynasty-warriors-4-sles-51665-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "0f0cd0b5fc69aa22",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/dmkAAeSwfoNqgXHg/s-l1600.webp",
+          "sha256": "e42c678084ace6e981a7c709fba049a3cbf54607e1878992f9f140004d61f9f7",
+          "bytes": 208652,
+          "selectedRole": "front"
+        },
+        {
+          "assetId": "772bbdc6ab9411cc",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/xUoAAeSwHn1qgXHn/s-l1600.webp",
+          "sha256": "01e1a8355949e0be7a17cba95af36130e07b14ee16a328c94b0d825dcdbe68df",
+          "bytes": 183944,
+          "selectedRole": "back"
+        },
+        {
+          "assetId": "7b335e00cabb46c3",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/h1cAAeSw8TRqgXHw/s-l1600.webp",
+          "sha256": "54d203dde61eeb8a6227c0e8120ad4c741cd62f25b57a04e71a3fc8a9d39497f",
+          "bytes": 317564,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52175",
+      "item": "166980519272",
+      "order": 1,
+      "location": "L'Hospitalet de Llobregat, Barcelona, España",
+      "decision": "accept_packaging_photo",
+      "observations": [
+        "Foto conjunta de componentes, SLES-52175 en disco, contraportada española y EAN 5060073300051.",
+        "Diseño estándar con marca PAL y logotipo del 25 aniversario de Koei. Se busca frontal separado."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/166980519272",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "55b3d3f54c9d7e84",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/4lAAAOSwEoth1eJN/s-l1600.webp",
+          "sha256": "c6c51c07ddbd6f89426ec650aca1a046b2d878107b17e157da369ee901451588",
+          "bytes": 343876,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52175",
+      "item": "167001899389",
+      "order": 2,
+      "location": "Cádiz, España",
+      "decision": "accept_packaging_photo",
+      "observations": [
+        "Foto conjunta con SLES-52175 en lomo y disco, bandera española, reverso español y EAN 5060073300051.",
+        "Diseño estándar con logotipo del 25 aniversario; sin frontal individual."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/167001899389",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "a9a2b5f8f244b623",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/Tl8AAOSw77Rm~Xx-/s-l1600.webp",
+          "sha256": "ff19bb2f4c1bb8f9c6d7a8596c9c8c856bebe44bf6022dfbe7b559ba831c679f",
+          "bytes": 407804,
+          "selectedRole": null
+        }
+      ],
+      "downloadFailureCount": 0
+    },
+    {
+      "game": "ps2-es-sles-52175",
+      "item": "168338841550",
+      "order": 3,
+      "location": "L'Hospitalet de Llobregat, Barcelona, España",
+      "decision": "accept_front_back",
+      "front": "ea8b977bd8543edf.webp",
+      "back": "4c2b488395d6096c.webp",
+      "observations": [
+        "Portada y reverso españoles separados con EAN 5060073300051, coincidente con las ofertas previas que muestran SLES-52175.",
+        "Diseño estándar con logotipo del 25 aniversario y pegatina Virgin Play: TEXTOS DE PANTALLA EN CASTELLANO.",
+        "No se certifica autenticidad del precinto ni presencia de esa pegatina en todas las unidades."
+      ],
+      "sourceUrl": "https://www.ebay.es/itm/168338841550",
+      "catalogUrl": "https://www.regionatlas.games/catalogo/dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es",
+      "observedOn": "2026-09-11",
+      "assets": [
+        {
+          "assetId": "ea8b977bd8543edf",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/xuEAAOSw3WRhy07e/s-l1600.webp",
+          "sha256": "d659740b86b74350fe1d6a9d31464475ad7f03cab3c90e0415eaf2115d5036c3",
+          "bytes": 290728,
+          "selectedRole": "front"
+        },
+        {
+          "assetId": "4c2b488395d6096c",
+          "sourceImageUrl": "https://i.ebayimg.com/images/g/XAMAAOSweVVhy07p/s-l1600.webp",
+          "sha256": "f979c02eb5c5a3017cc8c691e0e80e1a386a5e28ea0a51a5fe837be50a085430",
+          "bytes": 353478,
+          "selectedRole": "back"
+        }
+      ],
+      "downloadFailureCount": 0
+    }
+  ],
+  "publications": [
+    {
+      "catalogId": "ps2-es-sles-53575",
+      "assetId": "ebay-166611671500-portada-y-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/bratz-rock-angelz-sles-53575-ps2-pal-es-166611671500-portada-y-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/166611671500",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/SOUAAOSw63dl189~/s-l1600.webp",
+      "sha256": "c431c38034383843f9de2c5c31d5a5341b5cbf83d67b5ec7a54612b436b837d1",
+      "bytes": 413118,
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "catalogId": "ps2-es-sces-54500",
+      "assetId": "ebay-227372989628-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/buzz-el-mega-concurso-sces-54500-ps2-pal-es-227372989628-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/227372989628",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/v-kAAeSwhcRqIbbo/s-l1600.webp",
+      "sha256": "d88b43dcec35c9009aadf205188c8eaa67d44f628ddd1d7c80d1cba9229d913e",
+      "bytes": 429826,
+      "width": 1540,
+      "height": 1600
+    },
+    {
+      "catalogId": "ps2-es-sces-54500",
+      "assetId": "ebay-227372989628-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/buzz-el-mega-concurso-sces-54500-ps2-pal-es-227372989628-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/227372989628",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/hiAAAeSwQIFqIbbo/s-l1600.webp",
+      "sha256": "e904c8168d536c7db0781f5b5ea5bced668f09aa80b6f1f46b5769ee3b15f66e",
+      "bytes": 522184,
+      "width": 1520,
+      "height": 1600
+    },
+    {
+      "catalogId": "ps2-es-sles-53224",
+      "assetId": "ebay-325848999479-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/championship-manager-5-sles-53224-ps2-pal-es-325848999479-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/325848999479",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/xAEAAOSwdMJlK5Ps/s-l1600.webp",
+      "sha256": "0c658e7fd6677e7b595b4dc77d7e4377a591c7a663881b197cc0d26f63723eeb",
+      "bytes": 363256,
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "catalogId": "ps2-es-sles-53224",
+      "assetId": "ebay-325848999479-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/championship-manager-5-sles-53224-ps2-pal-es-325848999479-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/325848999479",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/V-oAAOSwUz9lK5Pt/s-l1600.webp",
+      "sha256": "dfd675e53c8292d87ff6578252e2a220a3db2a488cab16ab4b48ee14a02de4d7",
+      "bytes": 439534,
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "catalogId": "ps2-es-sles-52373",
+      "assetId": "ebay-257162231929-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/champions-of-norrath-sles-52373-ps2-pal-es-257162231929-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/257162231929",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/cSwAAeSwTKNo8zqD/s-l1600.webp",
+      "sha256": "c9be2902f6677ae9fac574bab1f2c95adb478053123f744198dff0e56ea75ebd",
+      "bytes": 178742,
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "catalogId": "ps2-es-sles-52373",
+      "assetId": "ebay-257162231929-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/champions-of-norrath-sles-52373-ps2-pal-es-257162231929-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/257162231929",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/BfsAAeSwCPFo8zqE/s-l1600.webp",
+      "sha256": "0c117b0a62724a8509e1b0c770d69987bea99b0f0a3e7aa1d9cf4dd18d1d0088",
+      "bytes": 268806,
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "catalogId": "ps2-es-sles-51665",
+      "assetId": "ebay-158257340242-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/dynasty-warriors-4-sles-51665-ps2-pal-es-158257340242-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/158257340242",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/dmkAAeSwfoNqgXHg/s-l1600.webp",
+      "sha256": "e42c678084ace6e981a7c709fba049a3cbf54607e1878992f9f140004d61f9f7",
+      "bytes": 208652,
+      "width": 1599,
+      "height": 1200
+    },
+    {
+      "catalogId": "ps2-es-sles-51665",
+      "assetId": "ebay-158257340242-portada-y-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/dynasty-warriors-4-sles-51665-ps2-pal-es-158257340242-portada-y-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/158257340242",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/xUoAAeSwHn1qgXHn/s-l1600.webp",
+      "sha256": "01e1a8355949e0be7a17cba95af36130e07b14ee16a328c94b0d825dcdbe68df",
+      "bytes": 183944,
+      "width": 1599,
+      "height": 1200
+    },
+    {
+      "catalogId": "ps2-es-sles-52175",
+      "assetId": "ebay-168338841550-portada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es-168338841550-portada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/168338841550",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/xuEAAOSw3WRhy07e/s-l1600.webp",
+      "sha256": "d659740b86b74350fe1d6a9d31464475ad7f03cab3c90e0415eaf2115d5036c3",
+      "bytes": 290728,
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "catalogId": "ps2-es-sles-52175",
+      "assetId": "ebay-168338841550-contraportada",
+      "url": "/catalog-covers/ps2/fotos-verificadas/dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es-168338841550-contraportada.webp",
+      "sourceUrl": "https://www.ebay.es/itm/168338841550",
+      "sourceImageUrl": "https://i.ebayimg.com/images/g/XAMAAOSweVVhy07p/s-l1600.webp",
+      "sha256": "f979c02eb5c5a3017cc8c691e0e80e1a386a5e28ea0a51a5fe837be50a085430",
+      "bytes": 353478,
+      "width": 1600,
+      "height": 1200
+    }
+  ]
+}

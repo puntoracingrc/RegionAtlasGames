@@ -251,6 +251,8 @@ export default async function CatalogGamePage({ params }: Props) {
   const coverAlt =
     details?.seoMeta?.coverAlt?.trim() ||
     `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
+  const photographedCover = details?.ps2Edition?.graphics.find(asset =>
+    asset.url === game.coverUrl && asset.layout === "listing_front_photo");
 
   return (
     <>
@@ -276,6 +278,7 @@ export default async function CatalogGamePage({ params }: Props) {
                 grail={grail}
                 topSegment={topSegment}
               />
+              {photographedCover ? <p className="mt-2 text-center text-xs text-muted">Fotografía de un ejemplar · <a href={photographedCover.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">Fuente</a></p> : null}
             </div>}
 
             <CollectionToggle

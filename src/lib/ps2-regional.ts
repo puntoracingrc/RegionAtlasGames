@@ -25,3 +25,11 @@ export type Ps2EditionDetails = Omit<Ps1EditionDetails, "graphics"> & {
 export function normalizePs2Serial(value: string): string {
   return value.trim().toUpperCase().replace(/^(S[A-Z]{3})[-_. ]?(?=\d)/, "$1-");
 }
+
+export function ps2GraphicLabel(asset: Ps2EditionDetails["graphics"][number]): string {
+  if (asset.layout === "listing_packaging_photo") return "Fotografía de portada y contraportada";
+  if (asset.layout === "listing_front_photo") return "Fotografía de portada";
+  if (asset.layout === "listing_back_photo") return "Fotografía de contraportada";
+  if (asset.layout === "full_cover_candidate") return "Escaneo de carátula";
+  return asset.roles.includes("front_cover") ? "Portada" : asset.roles.includes("back_cover") ? "Contraportada" : "Componente";
+}

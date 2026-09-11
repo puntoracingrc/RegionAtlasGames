@@ -1,0 +1,663 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-11",
+  "reviewMethod": "manual_visual_review_of_original_listing_photos",
+  "games": {
+    "ps2-es-sles-53575": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "bratz-rock-angelz-sles-53575-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-53575"
+        ]
+      },
+      "primaryAssetId": null,
+      "graphics": [
+        {
+          "assetId": "ebay-166611671500-portada-y-contraportada",
+          "roles": [
+            "front_cover",
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/166611671500",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/SOUAAOSw63dl189~/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-166611671500",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/bratz-rock-angelz-sles-53575-ps2-pal-es-166611671500-portada-y-contraportada.webp",
+          "sha256": "c431c38034383843f9de2c5c31d5a5341b5cbf83d67b5ec7a54612b436b837d1",
+          "width": 1600,
+          "height": 1200,
+          "layout": "listing_packaging_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53575"
+            ],
+            "barcode": "4005209070072",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 166611671500",
+          "url": "https://www.ebay.es/itm/166611671500"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-photos-20260911-ps2-es-sles-53575",
+          "title": "Caja española fotografiada",
+          "observation": "La fotografía reúne portada, contraportada, manual y disco. En la caja se leen SLES-53575, el código de barras 4005209070072 y «Totalmente en castellano». No hay fotografía frontal individual en este anuncio.",
+          "engineRule": "Las imágenes documentan los componentes visibles de un ejemplar. No certifican su combinación original de fábrica ni sustituyen la comprobación de otras reediciones.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "166611671500",
+              "sourceUrl": "https://www.ebay.es/itm/166611671500"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-53575"
+          ],
+          "barcode": "4005209070072",
+          "market": "Spain"
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/166611671500",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sces-54500": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "buzz-el-mega-concurso-sces-54500-ps2-pal-es",
+        "canonicalSerials": [
+          "SCES-54500"
+        ]
+      },
+      "primaryAssetId": "ebay-227372989628-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-227372989628-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/227372989628",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/v-kAAeSwhcRqIbbo/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-227372989628",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/buzz-el-mega-concurso-sces-54500-ps2-pal-es-227372989628-portada.webp",
+          "sha256": "d88b43dcec35c9009aadf205188c8eaa67d44f628ddd1d7c80d1cba9229d913e",
+          "width": 1540,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SCES-54500"
+            ],
+            "barcode": "711719699583",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-227372989628-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/227372989628",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/hiAAAeSwQIFqIbbo/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-227372989628",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/buzz-el-mega-concurso-sces-54500-ps2-pal-es-227372989628-contraportada.webp",
+          "sha256": "e904c8168d536c7db0781f5b5ea5bced668f09aa80b6f1f46b5769ee3b15f66e",
+          "width": 1520,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SCES-54500"
+            ],
+            "barcode": "711719699583",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 227372989628",
+          "url": "https://www.ebay.es/itm/227372989628"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-photos-20260911-ps2-es-sces-54500",
+          "title": "Caja española fotografiada",
+          "observation": "Portada y contraportada españolas del mismo anuncio, con código de barras 711719699583. La foto interior permite leer SCES-54500 en el disco. El ejemplar fotografiado tiene caja roja.",
+          "engineRule": "Las imágenes documentan los componentes visibles de un ejemplar. No certifican su combinación original de fábrica ni sustituyen la comprobación de otras reediciones.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "227372989628",
+              "sourceUrl": "https://www.ebay.es/itm/227372989628"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SCES-54500"
+          ],
+          "barcode": "711719699583",
+          "market": "Spain"
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/227372989628",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-53224": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "championship-manager-5-sles-53224-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-53224"
+        ]
+      },
+      "primaryAssetId": "ebay-325848999479-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-325848999479-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/325848999479",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/xAEAAOSwdMJlK5Ps/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-325848999479",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/championship-manager-5-sles-53224-ps2-pal-es-325848999479-portada.webp",
+          "sha256": "0c658e7fd6677e7b595b4dc77d7e4377a591c7a663881b197cc0d26f63723eeb",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53224"
+            ],
+            "barcode": "5032921022347",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-325848999479-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/325848999479",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/V-oAAOSwUz9lK5Pt/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-325848999479",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/championship-manager-5-sles-53224-ps2-pal-es-325848999479-contraportada.webp",
+          "sha256": "dfd675e53c8292d87ff6578252e2a220a3db2a488cab16ab4b48ee14a02de4d7",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-53224"
+            ],
+            "barcode": "5032921022347",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 325848999479",
+          "url": "https://www.ebay.es/itm/325848999479"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-photos-20260911-ps2-es-sles-53224",
+          "title": "Caja española fotografiada",
+          "observation": "La portada incluye Proein, el distintivo LFP y «Totalmente en castellano». La contraportada está en español y muestra el código de barras 5032921022347; el disco del anuncio lleva SLES-53224.",
+          "engineRule": "Las imágenes documentan los componentes visibles de un ejemplar. No certifican su combinación original de fábrica ni sustituyen la comprobación de otras reediciones.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "325848999479",
+              "sourceUrl": "https://www.ebay.es/itm/325848999479"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-53224"
+          ],
+          "barcode": "5032921022347",
+          "market": "Spain"
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/325848999479",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-52373": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "champions-of-norrath-sles-52373-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-52373"
+        ]
+      },
+      "primaryAssetId": "ebay-257162231929-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-257162231929-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/257162231929",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/cSwAAeSwTKNo8zqD/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-257162231929",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/champions-of-norrath-sles-52373-ps2-pal-es-257162231929-portada.webp",
+          "sha256": "c9be2902f6677ae9fac574bab1f2c95adb478053123f744198dff0e56ea75ebd",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52373"
+            ],
+            "barcode": "3307210163769",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-257162231929-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/257162231929",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/BfsAAeSwCPFo8zqE/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-257162231929",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/champions-of-norrath-sles-52373-ps2-pal-es-257162231929-contraportada.webp",
+          "sha256": "0c117b0a62724a8509e1b0c770d69987bea99b0f0a3e7aa1d9cf4dd18d1d0088",
+          "width": 1200,
+          "height": 1600,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52373"
+            ],
+            "barcode": "3307210163769",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 257162231929",
+          "url": "https://www.ebay.es/itm/257162231929"
+        },
+        {
+          "label": "eBay · caja con Con juego en red",
+          "url": "https://www.ebay.es/itm/365622856632"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-photos-20260911-ps2-es-sles-52373",
+          "title": "Caja española fotografiada",
+          "observation": "Este ejemplar lleva «Modo online incluido» en el frontal. En lomo y disco se lee SLES-52373; el reverso español muestra el código de barras 3307210163769 y declara «Juego subtitulado en castellano». Otras cajas revisadas llevan «Con juego en red»; estas fotos no permiten fechar cada diseño.",
+          "engineRule": "Las imágenes documentan los componentes visibles de un ejemplar. No certifican su combinación original de fábrica ni sustituyen la comprobación de otras reediciones.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "257162231929",
+              "sourceUrl": "https://www.ebay.es/itm/257162231929"
+            },
+            {
+              "sourceId": "365622856632",
+              "sourceUrl": "https://www.ebay.es/itm/365622856632"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-52373"
+          ],
+          "barcode": "3307210163769",
+          "market": "Spain"
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/257162231929",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-51665": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "dynasty-warriors-4-sles-51665-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-51665"
+        ]
+      },
+      "primaryAssetId": "ebay-158257340242-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-158257340242-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/158257340242",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/dmkAAeSwfoNqgXHg/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-158257340242",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/dynasty-warriors-4-sles-51665-ps2-pal-es-158257340242-portada.webp",
+          "sha256": "e42c678084ace6e981a7c709fba049a3cbf54607e1878992f9f140004d61f9f7",
+          "width": 1599,
+          "height": 1200,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-51665"
+            ],
+            "barcode": "4005209046978",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-158257340242-portada-y-contraportada",
+          "roles": [
+            "front_cover",
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/158257340242",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/xUoAAeSwHn1qgXHn/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-158257340242",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/dynasty-warriors-4-sles-51665-ps2-pal-es-158257340242-portada-y-contraportada.webp",
+          "sha256": "01e1a8355949e0be7a17cba95af36130e07b14ee16a328c94b0d825dcdbe68df",
+          "width": 1599,
+          "height": 1200,
+          "layout": "listing_packaging_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-51665"
+            ],
+            "barcode": "4005209046978",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 158257340242",
+          "url": "https://www.ebay.es/itm/158257340242"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-photos-20260911-ps2-es-sles-51665",
+          "title": "Caja española fotografiada",
+          "observation": "SLES-51665 aparece en el disco y el lomo. La contraportada española muestra el código de barras 4005209046978 y declara «Textos de pantalla en castellano». El reverso está fotografiado con la caja desplegada, junto al lomo y la portada.",
+          "engineRule": "Las imágenes documentan los componentes visibles de un ejemplar. No certifican su combinación original de fábrica ni sustituyen la comprobación de otras reediciones.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "158257340242",
+              "sourceUrl": "https://www.ebay.es/itm/158257340242"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-51665"
+          ],
+          "barcode": "4005209046978",
+          "market": "Spain"
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/158257340242",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    },
+    "ps2-es-sles-52175": {
+      "identity": {
+        "platformSlug": "ps2",
+        "regionCode": "ES",
+        "marketRegion": "Spain",
+        "edition": "standard",
+        "canonicalSeoSlug": "dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es",
+        "canonicalSerials": [
+          "SLES-52175"
+        ]
+      },
+      "primaryAssetId": "ebay-168338841550-portada",
+      "graphics": [
+        {
+          "assetId": "ebay-168338841550-portada",
+          "roles": [
+            "front_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/168338841550",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/xuEAAOSw3WRhy07e/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-168338841550",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es-168338841550-portada.webp",
+          "sha256": "d659740b86b74350fe1d6a9d31464475ad7f03cab3c90e0415eaf2115d5036c3",
+          "width": 1600,
+          "height": 1200,
+          "layout": "listing_front_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52175"
+            ],
+            "barcode": "5060073300051",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        },
+        {
+          "assetId": "ebay-168338841550-contraportada",
+          "roles": [
+            "back_cover"
+          ],
+          "sourceUrl": "https://www.ebay.es/itm/168338841550",
+          "sourceImageReference": "https://i.ebayimg.com/images/g/XAMAAOSweVVhy07p/s-l1600.webp",
+          "label": "Ejemplar fotografiado · eBay",
+          "group": "ebay-168338841550",
+          "marketHints": [
+            "ES"
+          ],
+          "physicalPairingVerified": false,
+          "stored": true,
+          "url": "/catalog-covers/ps2/fotos-verificadas/dynasty-warriors-4-xtreme-legends-sles-52175-ps2-pal-es-168338841550-contraportada.webp",
+          "sha256": "f979c02eb5c5a3017cc8c691e0e80e1a386a5e28ea0a51a5fe837be50a085430",
+          "width": 1600,
+          "height": 1200,
+          "layout": "listing_back_photo",
+          "visualObservation": {
+            "reviewedAt": "2026-09-11",
+            "method": "manual_visual_review",
+            "serials": [
+              "SLES-52175"
+            ],
+            "barcode": "5060073300051",
+            "scope": "observed_specimen_packaging",
+            "factoryAssemblyVerified": false
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "eBay · fotografías del anuncio 168338841550",
+          "url": "https://www.ebay.es/itm/168338841550"
+        },
+        {
+          "label": "eBay · contraste de código en lomo y disco 166980519272",
+          "url": "https://www.ebay.es/itm/166980519272"
+        },
+        {
+          "label": "eBay · contraste de código en lomo y disco 167001899389",
+          "url": "https://www.ebay.es/itm/167001899389"
+        }
+      ],
+      "findings": [
+        {
+          "id": "ps2-ebay-photos-20260911-ps2-es-sles-52175",
+          "title": "Caja española fotografiada",
+          "observation": "Caja española con código de barras 5060073300051, logotipo del 25 aniversario de Koei y pegatina Virgin Play que declara «Textos de pantalla en castellano». El código SLES-52175 se contrasta en las fotografías de lomo y disco de otros dos anuncios con el mismo código de barras. El precinto y la presencia de la pegatina en todas las unidades no quedan certificados.",
+          "engineRule": "Las imágenes documentan los componentes visibles de un ejemplar. No certifican su combinación original de fábrica ni sustituyen la comprobación de otras reediciones.",
+          "evidenceClass": "observed_specimen_photographs",
+          "evidence": [
+            {
+              "sourceId": "168338841550",
+              "sourceUrl": "https://www.ebay.es/itm/168338841550"
+            },
+            {
+              "sourceId": "166980519272",
+              "sourceUrl": "https://www.ebay.es/itm/166980519272"
+            },
+            {
+              "sourceId": "167001899389",
+              "sourceUrl": "https://www.ebay.es/itm/167001899389"
+            }
+          ]
+        }
+      ],
+      "packagingEvidence": {
+        "value": {
+          "serials": [
+            "SLES-52175"
+          ],
+          "barcode": "5060073300051",
+          "market": "Spain"
+        },
+        "source": "ebay-manual-visual-review",
+        "sourceUrl": "https://www.ebay.es/itm/168338841550",
+        "verifiedAt": "2026-09-11",
+        "confidence": "high",
+        "scope": "observed_specimen_packaging_not_factory_assembly"
+      }
+    }
+  }
+}
