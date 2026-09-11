@@ -127,6 +127,87 @@
       "redactedCodes": 0,
       "batchId": "owned-scans-2026-09-11-harry-potter-ps5",
       "sourceDpi": null
+    },
+    {
+      "fileName": "Image 005.png",
+      "sha256": "a79fbccea0b999fef2b63630c05c7d678fa1dc7a9f0dee6fac4eace1cddf630b",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 006.png",
+      "sha256": "c43efbd2782a87ff8dff6bb3c2c02d57c772580b89d98f11ed680e28e9681968",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 007.png",
+      "sha256": "2134c0a584c440b464ce850caedef3f2d97ade7fba57a7dc426082b090fc7bbc",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 008.png",
+      "sha256": "bda056193445b96450226e500cc305b570baf127ae5725874e2f0cde39973d02",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 009.png",
+      "sha256": "60d8446fbcf4b92f4c5ee5e856909d7cbbcae10f8113faf264d1540d08678769",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 010.png",
+      "sha256": "40427f5259ec2d6c61359bc2af87652bc82eb0e3434c936c4c03c07f2658f246",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 011.png",
+      "sha256": "a19433d411d8886a81f0b31f59aa0bbc82d46ab555c37f1e6f7e9c5c0dbda768",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 012.png",
+      "sha256": "07f0d16684999c5ef4797857b71075acbe7b62267071fd2e22d7de2bf6e92947",
+      "width": 3507,
+      "height": 2481,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
+    },
+    {
+      "fileName": "Image 013.png",
+      "sha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "width": 2481,
+      "height": 3507,
+      "redactedCodes": 0,
+      "batchId": "owned-scans-2026-09-12-assassins-ps4",
+      "sourceDpi": null
     }
   ],
   "assets": [
@@ -597,6 +678,506 @@
       "bytes": 291244,
       "thumbnailSha256": "a54bcb36f7af923a81f5a9f50238cee2530e9f129c8744d342ba1c7a37e152a3",
       "thumbnailBytes": 58054
+    },
+    {
+      "catalogId": "ps4-assassins-creed-unity",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada-mini.webp",
+      "width": 1640,
+      "height": 2023,
+      "label": "Portada del ejemplar precintado",
+      "sourceSha256": "a79fbccea0b999fef2b63630c05c7d678fa1dc7a9f0dee6fac4eace1cddf630b",
+      "crop": {
+        "left": 70,
+        "top": 458,
+        "width": 1640,
+        "height": 2023
+      },
+      "sha256": "10b85c6d22f05ab6978c423e10edc5705c2434e7ba351643a884569115ed5a5f",
+      "bytes": 378570,
+      "thumbnailSha256": "2b27afd462b1e511af04c374e9137e46c173b160cd17a9e791c033bd8d0a17cd",
+      "thumbnailBytes": 54424
+    },
+    {
+      "catalogId": "ps4-assassins-creed-unity",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-contraportada-mini.webp",
+      "width": 1644,
+      "height": 2023,
+      "label": "Contraportada del ejemplar precintado",
+      "sourceSha256": "c43efbd2782a87ff8dff6bb3c2c02d57c772580b89d98f11ed680e28e9681968",
+      "crop": {
+        "left": 48,
+        "top": 458,
+        "width": 1644,
+        "height": 2023
+      },
+      "sha256": "0a76f3ba72f59567f6ecb2faeaed938b707bcc4199ef921a24731a43a41db72a",
+      "bytes": 640530,
+      "thumbnailSha256": "7df06b77bd5aed8dd71534ddf9b360b8899d0b489bb3bfa8fee55fb267417fdf",
+      "thumbnailBytes": 82412
+    },
+    {
+      "catalogId": "ps4-assassins-creed-unity",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-lomo-mini.webp",
+      "width": 2023,
+      "height": 180,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 458,
+        "top": 2342,
+        "width": 2023,
+        "height": 180
+      },
+      "sha256": "14c824ec6ebcf8ee9b94cc9f22a2d0163d71712ee0ec806a07afc0289eef543a",
+      "bytes": 34320,
+      "thumbnailSha256": "fc9f7cf793c4530452f3c808253fd51ceebf36359cebb7416b173d72bea98882",
+      "thumbnailBytes": 5324
+    },
+    {
+      "catalogId": "ps4-assassins-creed-odyssey",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada-mini.webp",
+      "width": 1634,
+      "height": 2017,
+      "label": "Portada del ejemplar precintado",
+      "sourceSha256": "a79fbccea0b999fef2b63630c05c7d678fa1dc7a9f0dee6fac4eace1cddf630b",
+      "crop": {
+        "left": 1778,
+        "top": 464,
+        "width": 1634,
+        "height": 2017
+      },
+      "sha256": "2c4ec5a863aae69db1aa06af1a093528246a3f50bb1be183d5d3a617963024b5",
+      "bytes": 488430,
+      "thumbnailSha256": "0d9f718b39e1f5779b77d3f66c9be2cea36336e2f155ed19d5de833acf0dd14f",
+      "thumbnailBytes": 61464
+    },
+    {
+      "catalogId": "ps4-assassins-creed-odyssey",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-contraportada-mini.webp",
+      "width": 1628,
+      "height": 2019,
+      "label": "Contraportada del ejemplar precintado",
+      "sourceSha256": "c43efbd2782a87ff8dff6bb3c2c02d57c772580b89d98f11ed680e28e9681968",
+      "crop": {
+        "left": 1830,
+        "top": 462,
+        "width": 1628,
+        "height": 2019
+      },
+      "sha256": "7ce84f297e000d2f456baf83f497925ce07ed6841b5432f43354214ba325b865",
+      "bytes": 663364,
+      "thumbnailSha256": "898ab523f95c003738c377d426ae4f9abaaabfaab178c18f6671dee1d0c8d2fa",
+      "thumbnailBytes": 82036
+    },
+    {
+      "catalogId": "ps4-assassins-creed-odyssey",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-lomo-mini.webp",
+      "width": 2011,
+      "height": 168,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 470,
+        "top": 2530,
+        "width": 2011,
+        "height": 168
+      },
+      "sha256": "60297f8599725b74ddbba5a25ce52a10ea594dfe2520064901498c7f5eccdf21",
+      "bytes": 45878,
+      "thumbnailSha256": "7aaf2163e63af248060a79c34f0dfe523df078b0cadbe8f83179412ecb637bfa",
+      "thumbnailBytes": 6432
+    },
+    {
+      "catalogId": "ps4-assassins-creed-3-remastered",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada-mini.webp",
+      "width": 1638,
+      "height": 2023,
+      "label": "Portada del ejemplar precintado",
+      "sourceSha256": "2134c0a584c440b464ce850caedef3f2d97ade7fba57a7dc426082b090fc7bbc",
+      "crop": {
+        "left": 78,
+        "top": 458,
+        "width": 1638,
+        "height": 2023
+      },
+      "sha256": "ad832ab93bd7fa730eb435af442894ca7e55d846a0ba8ca89f37c12b67480f21",
+      "bytes": 388206,
+      "thumbnailSha256": "76ee33205457defa74c71a096a2bffe942392ea9665643ac4e5333f0a9ac1a25",
+      "thumbnailBytes": 54044
+    },
+    {
+      "catalogId": "ps4-assassins-creed-3-remastered",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-contraportada-mini.webp",
+      "width": 1640,
+      "height": 2021,
+      "label": "Contraportada del ejemplar precintado",
+      "sourceSha256": "bda056193445b96450226e500cc305b570baf127ae5725874e2f0cde39973d02",
+      "crop": {
+        "left": 94,
+        "top": 460,
+        "width": 1640,
+        "height": 2021
+      },
+      "sha256": "a63d9054cb1b0b7e12a8b846ca756ad4e3cfce28ef213f1846d9a2dcd4cc8e81",
+      "bytes": 702050,
+      "thumbnailSha256": "b0429b734d6ed92be0e3365777a6b693472454bd5ea9b94cb8e1a498d70c95a1",
+      "thumbnailBytes": 88288
+    },
+    {
+      "catalogId": "ps4-assassins-creed-3-remastered",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-lomo-mini.webp",
+      "width": 2023,
+      "height": 178,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 458,
+        "top": 1978,
+        "width": 2023,
+        "height": 178
+      },
+      "sha256": "80ed198883f148b7ce9606618440af81fb575a794b91e1e34d37e19aa0f13e02",
+      "bytes": 38558,
+      "thumbnailSha256": "bd93e69db1de689486bb740cc6a0cb5b338b7bb759b6f637f46c9a49418692ad",
+      "thumbnailBytes": 6652
+    },
+    {
+      "catalogId": "ps4-assassins-creed-4-black-flag",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada-mini.webp",
+      "width": 1640,
+      "height": 2019,
+      "label": "Portada del ejemplar precintado",
+      "sourceSha256": "2134c0a584c440b464ce850caedef3f2d97ade7fba57a7dc426082b090fc7bbc",
+      "crop": {
+        "left": 1796,
+        "top": 462,
+        "width": 1640,
+        "height": 2019
+      },
+      "sha256": "64eedcee25296916953e1b9d8b63359c40758ed2e9750fa7d97daabac9eab632",
+      "bytes": 401860,
+      "thumbnailSha256": "ad2002f39621f0f8a3003d7556a554415e6821c5fdccd7c8ba3a57f1526976a4",
+      "thumbnailBytes": 54066
+    },
+    {
+      "catalogId": "ps4-assassins-creed-4-black-flag",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-contraportada-mini.webp",
+      "width": 1630,
+      "height": 2019,
+      "label": "Contraportada del ejemplar precintado",
+      "sourceSha256": "bda056193445b96450226e500cc305b570baf127ae5725874e2f0cde39973d02",
+      "crop": {
+        "left": 1804,
+        "top": 462,
+        "width": 1630,
+        "height": 2019
+      },
+      "sha256": "7bdc1ece0f60afe02d635f8962794c49cc3c879f583149cf07176a67e4920b90",
+      "bytes": 632740,
+      "thumbnailSha256": "6998af280690ac40c56b9d107171357c1e87920ea2a90b57cd68d5b48ed0794c",
+      "thumbnailBytes": 80266
+    },
+    {
+      "catalogId": "ps4-assassins-creed-4-black-flag",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-lomo-mini.webp",
+      "width": 2003,
+      "height": 180,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 478,
+        "top": 2158,
+        "width": 2003,
+        "height": 180
+      },
+      "sha256": "c12b4ac15e1f970155fee3e3907e6a9e89dad456e3f23841d3663ff85b55343a",
+      "bytes": 38782,
+      "thumbnailSha256": "b242479ad07a01aab008df478e8d2cf178b511ea56559adb1e5a8e95d62866e2",
+      "thumbnailBytes": 6382
+    },
+    {
+      "catalogId": "ps4-assassins-creed-origins",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada-mini.webp",
+      "width": 1634,
+      "height": 2017,
+      "label": "Portada del ejemplar precintado",
+      "sourceSha256": "60d8446fbcf4b92f4c5ee5e856909d7cbbcae10f8113faf264d1540d08678769",
+      "crop": {
+        "left": 132,
+        "top": 464,
+        "width": 1634,
+        "height": 2017
+      },
+      "sha256": "18a7526cc2825ecd03133f5095ba777ab5ea6a755ec616bbc1fce99334799450",
+      "bytes": 435628,
+      "thumbnailSha256": "766f99952b820c44e2ebce59cf49b89d98303c5d7798963ab6ea2ce3994b8fe2",
+      "thumbnailBytes": 53934
+    },
+    {
+      "catalogId": "ps4-assassins-creed-origins",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-contraportada-mini.webp",
+      "width": 1624,
+      "height": 2023,
+      "label": "Contraportada del ejemplar precintado",
+      "sourceSha256": "40427f5259ec2d6c61359bc2af87652bc82eb0e3434c936c4c03c07f2658f246",
+      "crop": {
+        "left": 104,
+        "top": 458,
+        "width": 1624,
+        "height": 2023
+      },
+      "sha256": "ec8cbe0cf30df4c7170deb673357fb746d9a4c6b63356624ca8ad9ea0e29ec07",
+      "bytes": 627976,
+      "thumbnailSha256": "ad932656f73040dc4dcc7b43491276358bb6a8f0f9d60ea26c1f618634196a0c",
+      "thumbnailBytes": 76228
+    },
+    {
+      "catalogId": "ps4-assassins-creed-origins",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-lomo-mini.webp",
+      "width": 2007,
+      "height": 174,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 474,
+        "top": 1616,
+        "width": 2007,
+        "height": 174
+      },
+      "sha256": "c63e8404ff13dbd732749ac5ac980b9fe6e1bc01472be416605836f6ceb37433",
+      "bytes": 50670,
+      "thumbnailSha256": "09b624bd8c7e594c0471fbb97171d183cca92d031c30a75393b8102b64f7818d",
+      "thumbnailBytes": 6754
+    },
+    {
+      "catalogId": "ps4-assassins-creed-syndicate",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada-mini.webp",
+      "width": 1636,
+      "height": 2023,
+      "label": "Portada del ejemplar precintado",
+      "sourceSha256": "60d8446fbcf4b92f4c5ee5e856909d7cbbcae10f8113faf264d1540d08678769",
+      "crop": {
+        "left": 1830,
+        "top": 458,
+        "width": 1636,
+        "height": 2023
+      },
+      "sha256": "d33be9823074bfe90c1b2364cb3720c9ecaed437ab27f44aef98203d193d8eff",
+      "bytes": 476388,
+      "thumbnailSha256": "98021ec2f433dc7830e2ee53a9ad2c5945adbb06e3ff8c9985cd23c9a9056d7d",
+      "thumbnailBytes": 63508
+    },
+    {
+      "catalogId": "ps4-assassins-creed-syndicate",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-contraportada-mini.webp",
+      "width": 1626,
+      "height": 2027,
+      "label": "Contraportada del ejemplar precintado",
+      "sourceSha256": "40427f5259ec2d6c61359bc2af87652bc82eb0e3434c936c4c03c07f2658f246",
+      "crop": {
+        "left": 1818,
+        "top": 454,
+        "width": 1626,
+        "height": 2027
+      },
+      "sha256": "91a87bf5ccaf2e9a3e7e4370474735f51948448205a0c534a0c2f18055cea942",
+      "bytes": 591554,
+      "thumbnailSha256": "c68b9660bd713d7f5a66941dd8b74e165cc361a4b7028ffd4e08ca95393f400c",
+      "thumbnailBytes": 76276
+    },
+    {
+      "catalogId": "ps4-assassins-creed-syndicate",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-lomo-mini.webp",
+      "width": 2015,
+      "height": 182,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 466,
+        "top": 1792,
+        "width": 2015,
+        "height": 182
+      },
+      "sha256": "074c41887053731873a5167481a4ff43335b5e6c9653c0772a4da930dd07b513",
+      "bytes": 36606,
+      "thumbnailSha256": "a805f72eff00e4cf6d805b8889b06dec66fbbe7ffbc22bbd9859d8b415db0580",
+      "thumbnailBytes": 5844
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada-mini.webp",
+      "width": 1638,
+      "height": 2027,
+      "label": "Portada del ejemplar precintado",
+      "sourceSha256": "a19433d411d8886a81f0b31f59aa0bbc82d46ab555c37f1e6f7e9c5c0dbda768",
+      "crop": {
+        "left": 108,
+        "top": 454,
+        "width": 1638,
+        "height": 2027
+      },
+      "sha256": "899b0c9f0dadfaa46fdf4913bb77d60525846ab28bc5d254b0da2f8dfbb8443c",
+      "bytes": 404168,
+      "thumbnailSha256": "ffa6df64178d9787a9be21e6616acbbb3cf8f2530896b4f8bcb83d01fbce0d25",
+      "thumbnailBytes": 52682
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-contraportada-mini.webp",
+      "width": 1636,
+      "height": 2021,
+      "label": "Contraportada del ejemplar precintado",
+      "sourceSha256": "07f0d16684999c5ef4797857b71075acbe7b62267071fd2e22d7de2bf6e92947",
+      "crop": {
+        "left": 112,
+        "top": 460,
+        "width": 1636,
+        "height": 2021
+      },
+      "sha256": "8785ffed1e30233e7e8f7d1c62197dc191c673babcb05ed114aef9327b6ac3cc",
+      "bytes": 636088,
+      "thumbnailSha256": "b6b92fd784b830431c8d284e6e5fa0419fa163ac18c13fdcba331ed51a4ba0e0",
+      "thumbnailBytes": 81712
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-lomo-mini.webp",
+      "width": 2011,
+      "height": 183,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 470,
+        "top": 1044,
+        "width": 2011,
+        "height": 183
+      },
+      "sha256": "30c476072ba939e456dd371dfac56375dd84d86534c10e56c23a83efd0b1b704",
+      "bytes": 40352,
+      "thumbnailSha256": "b91e5ef99a61a00a17526313823324e4c6d6cba1221961c331f99083f0b1a605",
+      "thumbnailBytes": 6486
+    },
+    {
+      "catalogId": "ps4-assassins-creed-the-ezio-collection",
+      "role": "portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada-mini.webp",
+      "width": 1652,
+      "height": 2027,
+      "label": "Portada del ejemplar precintado",
+      "sourceSha256": "a19433d411d8886a81f0b31f59aa0bbc82d46ab555c37f1e6f7e9c5c0dbda768",
+      "crop": {
+        "left": 1804,
+        "top": 454,
+        "width": 1652,
+        "height": 2027
+      },
+      "sha256": "c2830bbc511c21401308a600ecb1ac816afc4b27433207f0c6b4dba039b71fd0",
+      "bytes": 354178,
+      "thumbnailSha256": "3dc05307aae22cabfd9869c1349006d53a30b550ceb440b7964b9dd51d6aaff1",
+      "thumbnailBytes": 45990
+    },
+    {
+      "catalogId": "ps4-assassins-creed-the-ezio-collection",
+      "role": "contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-contraportada-mini.webp",
+      "width": 1638,
+      "height": 2023,
+      "label": "Contraportada del ejemplar precintado",
+      "sourceSha256": "07f0d16684999c5ef4797857b71075acbe7b62267071fd2e22d7de2bf6e92947",
+      "crop": {
+        "left": 1784,
+        "top": 458,
+        "width": 1638,
+        "height": 2023
+      },
+      "sha256": "257a577f3c673ada90b6902977f6b800cae8a8e06dcda82a99e06ba904fcd640",
+      "bytes": 629610,
+      "thumbnailSha256": "bccafc3f0b106f10eb7a5fc20b1a31190945ff77105fe5dc44211fcf77c0dbc3",
+      "thumbnailBytes": 82014
+    },
+    {
+      "catalogId": "ps4-assassins-creed-the-ezio-collection",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-lomo-mini.webp",
+      "width": 2023,
+      "height": 190,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 458,
+        "top": 1234,
+        "width": 2023,
+        "height": 190
+      },
+      "sha256": "d5e73f25131dd3a6816b300bad6c67716bd4c287f9863f02541aaaf9e7dabe9e",
+      "bytes": 32980,
+      "thumbnailSha256": "8d2634e0762d54656ec7ae431aa5696066c4083a3fa99ee2d24a8ffcf655bd79",
+      "thumbnailBytes": 5384
+    },
+    {
+      "catalogId": "ps4-assassins-creed-mirage-deluxe-edition",
+      "role": "lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-ps4-pal-es-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-ps4-pal-es-lomo-mini.webp",
+      "width": 2015,
+      "height": 186,
+      "label": "Lomo del ejemplar precintado",
+      "sourceSha256": "c1b6082f5254d87b8834d174f8f506356f3b7733d939c3cdb52cc37530cbc4f3",
+      "crop": {
+        "left": 466,
+        "top": 1424,
+        "width": 2015,
+        "height": 186
+      },
+      "sha256": "2a8af0a27cb51fa8ca89cb8e7ba86d8cbebaadf394ad1b61189851c6a4f1f1ae",
+      "bytes": 52516,
+      "thumbnailSha256": "46d928bc749e4ddccee9399f3601e51999b1516f548b346b8d3e55e5840d6104",
+      "thumbnailBytes": 7200
     }
   ],
   "covers": [
@@ -662,6 +1243,110 @@
       },
       "sha256": "851fa59849b2a105cb0d5a2c792a6eb9cb6db3c135d061f1ad84666bb18e9c98",
       "bytes": 269226
+    },
+    {
+      "catalogId": "ps4-assassins-creed-unity",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada-catalogo.webp",
+      "sourceSha256": "a79fbccea0b999fef2b63630c05c7d678fa1dc7a9f0dee6fac4eace1cddf630b",
+      "crop": {
+        "left": 70,
+        "top": 458,
+        "width": 1640,
+        "height": 2023
+      },
+      "sha256": "19ca925c61fe2d05c1db69934bf6ad0a3329c1fbe8118028cf06c1aa88373e6b",
+      "bytes": 209400
+    },
+    {
+      "catalogId": "ps4-assassins-creed-odyssey",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada-catalogo.webp",
+      "sourceSha256": "a79fbccea0b999fef2b63630c05c7d678fa1dc7a9f0dee6fac4eace1cddf630b",
+      "crop": {
+        "left": 1778,
+        "top": 464,
+        "width": 1634,
+        "height": 2017
+      },
+      "sha256": "729ee1466133b7a8310ee8a13b32ff2c5a9579ceeb5918da0def3d4bb4e095af",
+      "bytes": 272422
+    },
+    {
+      "catalogId": "ps4-assassins-creed-3-remastered",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada-catalogo.webp",
+      "sourceSha256": "2134c0a584c440b464ce850caedef3f2d97ade7fba57a7dc426082b090fc7bbc",
+      "crop": {
+        "left": 78,
+        "top": 458,
+        "width": 1638,
+        "height": 2023
+      },
+      "sha256": "a3cc1a5208aa198cebe0244794d4f4ee353f97aa3f67c322453a5aa0320de178",
+      "bytes": 213904
+    },
+    {
+      "catalogId": "ps4-assassins-creed-4-black-flag",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada-catalogo.webp",
+      "sourceSha256": "2134c0a584c440b464ce850caedef3f2d97ade7fba57a7dc426082b090fc7bbc",
+      "crop": {
+        "left": 1796,
+        "top": 462,
+        "width": 1640,
+        "height": 2019
+      },
+      "sha256": "ca05c073741fdb2a84c47c55a2796e9c59eab1c1673c9656fbf82e97b40c3fb0",
+      "bytes": 219662
+    },
+    {
+      "catalogId": "ps4-assassins-creed-origins",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada-catalogo.webp",
+      "sourceSha256": "60d8446fbcf4b92f4c5ee5e856909d7cbbcae10f8113faf264d1540d08678769",
+      "crop": {
+        "left": 132,
+        "top": 464,
+        "width": 1634,
+        "height": 2017
+      },
+      "sha256": "bd1c8f9a1f4eab8f7d0e3ca3edda52c71f0f9a2a9b9db8208efb9cad242165a9",
+      "bytes": 237532
+    },
+    {
+      "catalogId": "ps4-assassins-creed-syndicate",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada-catalogo.webp",
+      "sourceSha256": "60d8446fbcf4b92f4c5ee5e856909d7cbbcae10f8113faf264d1540d08678769",
+      "crop": {
+        "left": 1830,
+        "top": 458,
+        "width": 1636,
+        "height": 2023
+      },
+      "sha256": "4a08bd195de91c4e1b666b6b7b7a3dc009918323fdd107daf282ef967eeb5b43",
+      "bytes": 268072
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada-catalogo.webp",
+      "sourceSha256": "a19433d411d8886a81f0b31f59aa0bbc82d46ab555c37f1e6f7e9c5c0dbda768",
+      "crop": {
+        "left": 108,
+        "top": 454,
+        "width": 1638,
+        "height": 2027
+      },
+      "sha256": "76d5a6ef9f160013db03163b9db65e04cf7c31b1ab4ed20c3930e917e7fbd42c",
+      "bytes": 214808
+    },
+    {
+      "catalogId": "ps4-assassins-creed-the-ezio-collection",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada-catalogo.webp",
+      "sourceSha256": "a19433d411d8886a81f0b31f59aa0bbc82d46ab555c37f1e6f7e9c5c0dbda768",
+      "crop": {
+        "left": 1804,
+        "top": 454,
+        "width": 1652,
+        "height": 2027
+      },
+      "sha256": "dd6ae758860f9372474d362126ff0ac500cb8a110312beab0bc4349ada76432e",
+      "bytes": 179536
     }
   ]
 }

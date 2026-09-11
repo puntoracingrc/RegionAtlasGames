@@ -253,7 +253,7 @@
       },
       "after": {
         "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada-catalogo.webp",
-        "reference": null,
+        "reference": "CUSA-33151",
         "ean": "3307216257806"
       }
     },
@@ -499,6 +499,308 @@
         "ean": "5051893243628"
       },
       "mappingNotes": "Ficha PS5 PAL España existente, conservada sin cambios de ID, slug, edición ni precios. Código coincidente en lomo y disco; carátula española. Sin propagación a PS4 ni USA."
+    },
+    {
+      "id": "ps4-assassins-creed-unity",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-unity",
+          "slug": "assassins-creed-unity",
+          "title": "Assassins Creed Unity",
+          "titlePc": "Assassin's Creed Unity",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-unity.jpg",
+          "pcId": 57299,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": 13.48,
+          "marketMax": 13.48,
+          "recommendedPrice": 13.48,
+          "pcRefPrice": 16.19,
+          "deltaEsVsPc": -16.7,
+          "priceSource": "Wallapop ES",
+          "updatedAt": "2026-08-30T21:45:31Z",
+          "hasEsPrice": true,
+          "priceRegionVerified": true,
+          "estimatedPriceComplete": 13.48,
+          "priceDataSources": "Wallapop"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada-catalogo.webp",
+        "reference": "CUSA-00605",
+        "ean": "3307215785942"
+      },
+      "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
+    },
+    {
+      "id": "ps4-assassins-creed-odyssey",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-odyssey",
+          "slug": "assassins-creed-odyssey",
+          "title": "Assassins Creed Odyssey",
+          "titlePc": "Assassin's Creed Odyssey",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-odyssey.jpg",
+          "pcId": 57289,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": 15.67,
+          "marketMax": 15.67,
+          "recommendedPrice": 15.67,
+          "pcRefPrice": 23.39,
+          "deltaEsVsPc": -33,
+          "priceSource": "Wallapop ES",
+          "updatedAt": "2026-08-30T20:20:15Z",
+          "hasEsPrice": true,
+          "priceRegionVerified": true,
+          "estimatedPriceComplete": 15.67,
+          "priceDataSources": "Wallapop"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada-catalogo.webp",
+        "reference": "CUSA-09303",
+        "ean": "3307216063926"
+      },
+      "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
+    },
+    {
+      "id": "ps4-assassins-creed-3-remastered",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-3-remastered",
+          "slug": "assassins-creed-3-remastered",
+          "title": "Assassins Creed 3 Remastered",
+          "titlePc": "Assassin's Creed III Remastered",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-3-remastered.jpg",
+          "pcId": 3895034,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 15,
+          "pcRefPrice": 27.83,
+          "deltaEsVsPc": -46.1,
+          "priceSource": "Wallapop/eBay ES",
+          "updatedAt": "2026-06-12",
+          "hasEsPrice": true
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada-catalogo.webp",
+        "reference": "CUSA-11560",
+        "ean": "3307216111672"
+      },
+      "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
+    },
+    {
+      "id": "ps4-assassins-creed-4-black-flag",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-4-black-flag",
+          "slug": "assassins-creed-4-black-flag",
+          "title": "Assassins Creed 4 Black Flag",
+          "titlePc": "Assassin's Creed IV: Black Flag",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-4-black-flag.jpg",
+          "pcId": 57287,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": 17.18,
+          "marketMax": 17.18,
+          "recommendedPrice": 17.18,
+          "pcRefPrice": 21.95,
+          "deltaEsVsPc": -21.7,
+          "priceSource": "Wallapop ES",
+          "updatedAt": "2026-08-30T20:20:15Z",
+          "hasEsPrice": true,
+          "priceRegionVerified": true,
+          "estimatedPriceComplete": 17.18,
+          "priceDataSources": "Wallapop"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada-catalogo.webp",
+        "reference": "CUSA-00009",
+        "ean": "3307215717769"
+      },
+      "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
+    },
+    {
+      "id": "ps4-assassins-creed-origins",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-origins",
+          "slug": "assassins-creed-origins",
+          "title": "Assassins Creed Origins",
+          "titlePc": "Assassin's Creed Origins",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-origins.jpg",
+          "pcId": 57291,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": 12.33,
+          "marketMax": 12.33,
+          "recommendedPrice": 12.33,
+          "pcRefPrice": 16.19,
+          "deltaEsVsPc": -23.8,
+          "priceSource": "Wallapop ES",
+          "updatedAt": "2026-08-30T20:20:15Z",
+          "hasEsPrice": true,
+          "priceRegionVerified": true,
+          "estimatedPriceComplete": 12.33,
+          "priceDataSources": "Wallapop"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada-catalogo.webp",
+        "reference": "CUSA-05625",
+        "ean": "3307216025832"
+      },
+      "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
+    },
+    {
+      "id": "ps4-assassins-creed-syndicate",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-syndicate",
+          "slug": "assassins-creed-syndicate",
+          "title": "Assassins Creed Syndicate",
+          "titlePc": "Assassin's Creed Syndicate",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-syndicate.jpg",
+          "pcId": 57292,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": 10.33,
+          "marketMax": 10.33,
+          "recommendedPrice": 10.33,
+          "pcRefPrice": 18.1,
+          "deltaEsVsPc": -42.9,
+          "priceSource": "Wallapop ES",
+          "updatedAt": "2026-08-30T21:45:31Z",
+          "hasEsPrice": true,
+          "priceRegionVerified": true,
+          "estimatedPriceComplete": 10.33,
+          "priceDataSources": "Wallapop"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada-catalogo.webp",
+        "reference": "CUSA-02376",
+        "ean": "3307215893227"
+      },
+      "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
+    },
+    {
+      "id": "ps4-assassins-creed-valhalla",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-valhalla",
+          "slug": "assassins-creed-valhalla",
+          "title": "Assassins Creed Valhalla",
+          "titlePc": "Assassin's Creed Valhalla",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-valhalla.jpg",
+          "pcId": 772657,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": 14.13,
+          "marketMax": 14.13,
+          "recommendedPrice": 14.13,
+          "pcRefPrice": 9.41,
+          "deltaEsVsPc": 50.2,
+          "priceSource": "Wallapop ES",
+          "updatedAt": "2026-08-30T21:45:31Z",
+          "hasEsPrice": true,
+          "priceRegionVerified": true,
+          "estimatedPriceComplete": 14.13,
+          "priceDataSources": "GAME seminuevo · Wallapop"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada-catalogo.webp",
+        "reference": "CUSA-18534",
+        "ean": "3307216168379"
+      },
+      "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
+    },
+    {
+      "id": "ps4-assassins-creed-the-ezio-collection",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-the-ezio-collection",
+          "slug": "assassins-creed-the-ezio-collection",
+          "title": "Assassins Creed The Ezio Collection",
+          "titlePc": "Assassin's Creed The Ezio Collection",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-the-ezio-collection.jpg",
+          "pcId": 57294,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": 23.43,
+          "marketMax": 44.95,
+          "recommendedPrice": 23.43,
+          "pcRefPrice": 18.48,
+          "deltaEsVsPc": 26.8,
+          "priceSource": "Wallapop ES",
+          "updatedAt": "2026-08-30T21:45:31Z",
+          "hasEsPrice": true,
+          "priceRegionVerified": true,
+          "estimatedPriceComplete": 23.43,
+          "estimatedPriceSealed": 44.95,
+          "priceDataSources": "Wallapop"
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada-catalogo.webp",
+        "reference": "CUSA-04893",
+        "ean": "3307215977453"
+      },
+      "mappingNotes": "Ficha PS4 PAL España existente, sin cambios de ID, URL, edición ni precios. Portada, contraportada y lomo del mismo ejemplar. Sin propagación a otras plataformas, regiones, ediciones especiales o filas documentales homónimas."
     }
   ]
 }
