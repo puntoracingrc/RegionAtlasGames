@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node scripts/prepare-vercel-build.mjs && npm run build",
   "build": {
     "env": {
       "NODE_OPTIONS": "--max-old-space-size=6144",
