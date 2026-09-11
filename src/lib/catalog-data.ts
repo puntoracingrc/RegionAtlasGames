@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { withReviewedPs2Cover } from "./ps2-reviewed-market-photos";
 import type { CatalogGame } from "./types";
 
 // Keep the authoritative JSON as a runtime file. A static JSON import embeds
@@ -17,4 +18,4 @@ function readCatalogData(): string {
   }
 }
 
-export const catalogData = JSON.parse(readCatalogData()) as CatalogGame[];
+export const catalogData = (JSON.parse(readCatalogData()) as CatalogGame[]).map(withReviewedPs2Cover);

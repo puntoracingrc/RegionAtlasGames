@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
+import { createHash } from "node:crypto";
+import reviewedPhotoData from "../../data/ps2-reviewed-market-photos.json";
 import { buildCatalogSeoSlug } from "./catalog-path";
 import { catalogData } from "./catalog-data";
 import { isDefaultCatalogGame, isPendingCatalogGame } from "./catalog-review-policy";
@@ -11,6 +13,8 @@ import { exactScannerCatalogIds, loadScannerKnowledge } from "./scanner-knowledg
 import { ps2ScannerKnowledge } from "./ps2-scanner-knowledge";
 import { ps2DocumentaryByCode } from "./ps2-documentary";
 import { getPs2EditionDetails } from "./ps2-edition-data";
+import { withReviewedPs2Cover, withReviewedPs2Photos } from "./ps2-reviewed-market-photos";
+import { ps2GraphicLabel, type Ps2EditionDetails } from "./ps2-regional";
 import { toCatalogListGame } from "./catalog-list-game";
 import { matchesQuery } from "./catalog-filters";
 import type { CatalogGame } from "./types";
@@ -136,4 +140,70 @@ test("new markets still require a cited photo observation", () => {
   const input = { region: { value: "NTSC-J Corea", observationIds: ["o1"], sourceIds: ["source"] } };
   assert.equal(normalizeScannerReasoning(input, p, [source], "ps2").region.value, "NTSC-J Corea");
   assert.equal(normalizeScannerReasoning({ region: { ...input.region, observationIds: [] } }, p, [source], "ps2").region.value, null);
+});
+
+test("reviewed eBay pilot fills exactly five missing covers without changing identities or the historical catalog", () => {
+  const raw = JSON.parse(readFileSync("data/catalog.json", "utf8")) as CatalogGame[];
+  const changed: string[] = [];
+  for (const before of raw) {
+    const after = byId.get(before.id)!;
+    assert.deepEqual({ ...after, coverUrl: before.coverUrl }, before, before.id);
+    if (before.coverUrl === after.coverUrl) continue;
+    assert.equal(before.coverUrl, null);
+    assert.equal(before.regionCode, "ES");
+    assert.equal(before.edition, "standard");
+    changed.push(before.id);
+  }
+  assert.deepEqual(changed.sort(), ["ps2-es-sces-54500", "ps2-es-sles-51665", "ps2-es-sles-52175", "ps2-es-sles-52373", "ps2-es-sles-53224"].sort());
+  for (const id of ["ps2-es-sces-50971", "ps2-es-sles-53498", "ps2-es-sces-53884", "ps2-es-sles-53987", "ps2-es-sles-53575"]) assert.equal(byId.get(id)?.coverUrl, null);
+});
+
+test("reviewed covers fail closed if the catalog edition, region, URL or serial changes", () => {
+  const original = byId.get("ps2-es-sces-54500")!;
+  const blank = { ...original, coverUrl: null };
+  for (const patch of [
+    { platformSlug: "ps1" }, { regionCode: "PT" }, { marketRegion: "Portugal" }, { edition: "platinum" },
+    { canonicalSeoSlug: "different-edition" }, { canonicalSerials: ["SCES-54501"] },
+    { regionalStatus: "review" as const }, { coverUrl: "/covers/ps2/already-reviewed.webp" },
+  ]) {
+    const game = { ...blank, ...patch };
+    assert.equal(withReviewedPs2Cover(game), game);
+  }
+});
+
+test("all eleven published photos retain the original bytes, source and explicit photograph labels", () => {
+  const photos = Object.values(reviewedPhotoData.games).flatMap(set => set.graphics);
+  assert.equal(photos.length, 11);
+  for (const photo of photos) {
+    assert.match(photo.url, /^\/catalog-covers\/ps2\/fotos-verificadas\/[a-z0-9-]+\.webp$/);
+    assert.match(photo.sourceUrl, /^https:\/\/www\.ebay\.es\/itm\/\d+$/);
+    assert.match(photo.sourceImageReference, /^https:\/\/i\.ebayimg\.com\//);
+    assert.deepEqual(photo.marketHints, ["ES"]);
+    assert.equal(photo.physicalPairingVerified, false);
+    assert(photo.width >= 700 && photo.height >= 700);
+    assert.equal(createHash("sha256").update(readFileSync(`public${photo.url}`)).digest("hex"), photo.sha256);
+    assert.match(ps2GraphicLabel(photo), /^Fotografía/);
+    if (photo.layout === "listing_packaging_photo") assert.equal(ps2GraphicLabel(photo), "Fotografía de portada y contraportada");
+  }
+});
+
+test("photo evidence appends to six exact profiles without promoting software, dates or factory authenticity", () => {
+  const archive = JSON.parse(gunzipSync(readFileSync("data/ps2-edition-evidence.json.gz")).toString("utf8")) as Record<string, Ps2EditionDetails>;
+  for (const [id, set] of Object.entries(reviewedPhotoData.games)) {
+    const before = archive[id];
+    const after = getPs2EditionDetails(id)!;
+    assert.equal(after.graphics.length, before.graphics.length + set.graphics.length);
+    for (const key of ["languages", "regionalReleaseDate", "components", "physicalVariantResolved", "status"] as const) {
+      assert.deepEqual(after[key], before[key], `${id}:${key}`);
+    }
+    assert.deepEqual(after.fieldProvenance.market, before.fieldProvenance.market);
+    assert.equal(after.physicalVariantResolved, false);
+    assert.deepEqual(withReviewedPs2Photos(id, after), after, "repeat loads must not duplicate photos");
+  }
+  const id = "ps2-es-sces-54500";
+  for (const bad of [
+    { ...archive[id], status: "review" as const },
+    { ...archive[id], components: [{ ...archive[id].components[0], serial: "SCES-54501" }] },
+    { ...archive[id], fieldProvenance: { ...archive[id].fieldProvenance, market: { ...archive[id].fieldProvenance.market, value: "Portugal" } } },
+  ]) assert.equal(withReviewedPs2Photos(id, bad as Ps2EditionDetails), bad);
 });

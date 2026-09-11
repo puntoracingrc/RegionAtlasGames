@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { gunzipSync } from "node:zlib";
+import { withReviewedPs2Photos } from "./ps2-reviewed-market-photos";
 import type { Ps2EditionDetails } from "./ps2-regional";
 import type { GameDetails } from "./types";
 
@@ -24,7 +25,8 @@ export function getPs2Work(workId: string | null | undefined): Ps2Work | undefin
 export function getPs2EditionDetails(catalogId: string): Ps2EditionDetails | undefined {
   if (!catalogId.startsWith("ps2-")) return undefined;
   if (!evidence) {
-    evidence = JSON.parse(gunzipSync(readFileSync(path.join(process.cwd(), "data", "ps2-edition-evidence.json.gz"))).toString("utf8"));
+    const profiles = JSON.parse(gunzipSync(readFileSync(path.join(process.cwd(), "data", "ps2-edition-evidence.json.gz"))).toString("utf8")) as Record<string, Ps2EditionDetails>;
+    evidence = Object.fromEntries(Object.entries(profiles).map(([id, profile]) => [id, withReviewedPs2Photos(id, profile)]));
   }
   return evidence?.[catalogId];
 }

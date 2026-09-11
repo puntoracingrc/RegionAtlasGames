@@ -4,6 +4,7 @@ import { RegionFlag } from "@/components/region-flag";
 import { Ps1RelatedEditions as RelatedEditions } from "@/components/ps1-related-editions";
 import { relatedPs2Editions } from "@/lib/ps2-catalog";
 import { getCoverSrc } from "@/lib/cover-url";
+import { ps2GraphicLabel } from "@/lib/ps2-regional";
 import { languageNames, languageSummary } from "@/lib/ps1-regional";
 import type { CatalogGame, GameDetails } from "@/lib/types";
 
@@ -48,7 +49,7 @@ export function Ps2EditionPanel({ game, details }: { game: CatalogGame; details?
       <div className="mt-4 grid grid-cols-2 gap-3">{graphics.map((asset) => {
         const src = getCoverSrc(asset.url);
         if (!src) return null;
-        const side = asset.layout === "full_cover_candidate" ? "Escaneo de carátula" : asset.roles.includes("front_cover") ? "Portada" : asset.roles.includes("back_cover") ? "Contraportada" : "Componente";
+        const side = ps2GraphicLabel(asset);
         const edition = (asset.label ?? "").replace(/\bFRONT\b|\bBACK\b/gi, "").replace(/^[\s-]+|[\s-]+$/g, "");
         return <figure key={`${asset.assetId}:${asset.group}:${asset.marketHints.join("-")}`} className="min-w-0 rounded-lg border border-border p-2"><a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar ${side.toLowerCase()} de ${game.title}`}><Image unoptimized src={src} width={asset.width ?? 400} height={asset.height ?? 560} alt={`${side} de ${game.title} · ${asset.marketHints.join(" / ")}`} className="h-44 w-full object-contain" /></a><figcaption className="mt-2 break-words text-xs text-muted">{side}{edition ? ` · ${edition}` : ""} · {asset.marketHints.join(" / ") || "Mercado por confirmar"} · <a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">Fuente</a>{asset.thumbnailOnly ? <span className="block">Miniatura; original completo no disponible.</span> : null}</figcaption></figure>;
       })}</div>
