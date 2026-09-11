@@ -1,5 +1,6 @@
 import { catalogData } from "./catalog-data";
 import catalogIdAliasesData from "../../data/catalog-id-aliases.json";
+import { canonicalCatalogId } from "./catalog-id-aliases";
 import collectionData from "../../data/collection.json";
 import metaData from "../../data/meta.json";
 import platformsData from "../../data/platforms.json";
@@ -52,7 +53,7 @@ export function isPublicCatalogGame(game: CatalogGame): boolean {
 export const publicListedCatalog = listedCatalog.filter(isPublicCatalogGame);
 
 export function getCatalogGame(id: string): CatalogGame | undefined {
-  return catalogById.get(id) ?? catalogById.get(catalogIdAliases.get(id) ?? "");
+  return catalogById.get(canonicalCatalogId(id));
 }
 
 export function resolveCatalogIdParam(value: string): string {
@@ -60,7 +61,7 @@ export function resolveCatalogIdParam(value: string): string {
     value,
     (candidate) => catalogById.has(candidate) || catalogIdAliases.has(candidate),
   );
-  return catalogIdAliases.get(resolved) ?? resolved;
+  return canonicalCatalogId(resolved);
 }
 
 export function getCollectionItem(id: string): CollectionView | undefined {

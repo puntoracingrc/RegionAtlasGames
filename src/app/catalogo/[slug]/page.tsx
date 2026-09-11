@@ -12,6 +12,8 @@ import { GamePriceHistoryChart } from "@/components/game-price-history-chart";
 import { GameProductReference } from "@/components/game-product-reference";
 import { Ps1EditionPanel } from "@/components/ps1-edition-panel";
 import { Ps2EditionPanel } from "@/components/ps2-edition-panel";
+import { OwnedScansPanel } from "@/components/owned-scans-panel";
+import { getOwnedScanSet } from "@/lib/catalog-owned-scans";
 import { GameTaxonomyLinks, type GameTaxonomyLink } from "@/components/game-taxonomy-links";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
 import { SimilarGames } from "@/components/similar-games";
@@ -253,6 +255,7 @@ export default async function CatalogGamePage({ params }: Props) {
     `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
   const photographedCover = details?.ps2Edition?.graphics.find(asset =>
     asset.url === game.coverUrl && asset.layout === "listing_front_photo");
+  const ownedScans = getOwnedScanSet(game);
 
   return (
     <>
@@ -279,6 +282,7 @@ export default async function CatalogGamePage({ params }: Props) {
                 topSegment={topSegment}
               />
               {photographedCover ? <p className="mt-2 text-center text-xs text-muted">Fotografía de un ejemplar</p> : null}
+              {ownedScans && game.coverUrl === ownedScans.primaryCoverUrl ? <p className="mt-2 text-center text-xs text-muted">{ownedScans.primaryCaption}</p> : null}
             </div>}
 
             <CollectionToggle
@@ -350,6 +354,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
             {!pendingPs1 ? <Ps1EditionPanel game={game} details={details} /> : null}
             <Ps2EditionPanel game={game} details={details} />
+            <OwnedScansPanel scans={ownedScans} title={game.title} />
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />
 

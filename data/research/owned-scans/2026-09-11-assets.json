@@ -1,0 +1,536 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-11",
+  "scanner": "EPSON ET-8500",
+  "sourceDpi": 600,
+  "processing": "Recorte rectangular, reducción y WebP; sin generación ni reconstrucción de imagen. Los códigos ya estaban ocultos en los PNG finales del escáner.",
+  "sources": [
+    {
+      "fileName": "Fortnite-PS4-caratula-horizontal-600ppp-2026-09-11.png",
+      "sha256": "078b584a4929ca09ce88eb99d5dcd53ea31ac5f64221edf2dd0730e4415dfe4d",
+      "width": 6376,
+      "height": 3744,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "01-folletos-anversos.png",
+      "sha256": "bfe31e5fa0502a0e36f62dbdb30aab4e32317569c47e9498f0d14a50883899d2",
+      "width": 5584,
+      "height": 3384,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "02-folletos-reversos-codigos-ocultos.png",
+      "sha256": "d6e3e1e5ac2a6ded4b722e0487b1ee6ee2be1cbf0741422439176212ed668ad6",
+      "width": 5621,
+      "height": 3447,
+      "redactedCodes": 2
+    },
+    {
+      "fileName": "02-caratula-completa.png",
+      "sha256": "c7ca6f9dee3042577520693a057189b9284244f942424816d8719521ed5a9fd5",
+      "width": 6418,
+      "height": 3811,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "01-lenticular-y-caja.png",
+      "sha256": "109f03f43e2e14fc0382cb0fd412eebe42b109ffa7feb6e832cbc65f4e62304a",
+      "width": 6550,
+      "height": 4161,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "03-folleto-codigo-oculto.png",
+      "sha256": "8adc75bafaf4ce2fcae472774108bc26e09754e2b5ffe2fc361af0a4d3f41af3",
+      "width": 5655,
+      "height": 3534,
+      "redactedCodes": 1
+    },
+    {
+      "fileName": "01-portada-precintada.png",
+      "sha256": "b6e94b9f66963a02603312cd9bebe81c7cd1906c387f863a76193830b986a6f1",
+      "width": 3310,
+      "height": 4140,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "02-contraportada-precintada.png",
+      "sha256": "2c656ac36ffc068b66e797b0e20a56ecd375aab81deed698c496f77c62a25a49",
+      "width": 3310,
+      "height": 4140,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "01-portada-precintada.png",
+      "sha256": "78852e4ba46f1c465db2241a5e6e61bd43c095f3d6967e7b3c4804d9750894cc",
+      "width": 3310,
+      "height": 4140,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "02-contraportada-precintada.png",
+      "sha256": "30900988de008b91933bda72cc7443c71067b093699693ac4b3da6b4a0806a15",
+      "width": 3310,
+      "height": 4140,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "01-caja-y-disco-promocional.png",
+      "sha256": "c0e66edc78cd053611bddfc386d17010bbd8ef5f175f4712d87cae7cacc7558c",
+      "width": 6320,
+      "height": 3050,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "02-caja-portada.png",
+      "sha256": "6d805e0224a0980f6a2168f3badfb6b38826a1f9f78e2c372a8b81b25244ac3d",
+      "width": 3340,
+      "height": 3000,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "03-disco-promocional.png",
+      "sha256": "52b07bb94fa569139774d83a689fad7b8d1301fa59718687d5be638ce118028d",
+      "width": 2890,
+      "height": 2870,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "04-caja-con-disco-colocado.png",
+      "sha256": "e3dc7731bd4b5656ad6f126936532abc1751617c28f42727328b6c2671cb1497",
+      "width": 3430,
+      "height": 3050,
+      "redactedCodes": 0
+    },
+    {
+      "fileName": "05-contraportada-codigos-ocultos.png",
+      "sha256": "0eb59ad52d78a37f8696ae1c4084927e61eff411dd5d943ed34e0c86c581b8b8",
+      "width": 3300,
+      "height": 2851,
+      "redactedCodes": 2
+    }
+  ],
+  "assets": [
+    {
+      "catalogId": "ps4-fortnite",
+      "role": "portada",
+      "label": "Portada",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-portada-mini.webp",
+      "width": 2633,
+      "height": 3200,
+      "sourceSha256": "078b584a4929ca09ce88eb99d5dcd53ea31ac5f64221edf2dd0730e4415dfe4d",
+      "crop": [
+        3295,
+        0,
+        3081,
+        3744
+      ],
+      "sha256": "d347a36645b18c3b890016a4aa3c3c8157dcacb1ca5e4b8eb16adde7ad62a3d3",
+      "bytes": 2320694,
+      "thumbnailSha256": "10377ab6a841c3c573b335952321c5eccad8f54970b3071bec1c33ed7eb74a99",
+      "thumbnailBytes": 41492
+    },
+    {
+      "catalogId": "ps4-fortnite",
+      "role": "contraportada",
+      "label": "Contraportada",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-contraportada-mini.webp",
+      "width": 2538,
+      "height": 3200,
+      "sourceSha256": "078b584a4929ca09ce88eb99d5dcd53ea31ac5f64221edf2dd0730e4415dfe4d",
+      "crop": [
+        0,
+        0,
+        2970,
+        3744
+      ],
+      "sha256": "06878a86d79df20ce320455829c5841ae63bca06d5de7eb74eb09dfd407a7713",
+      "bytes": 2199430,
+      "thumbnailSha256": "71f9289845f9895670889ec3a51f8ae5eeb8afa84ddf255377f005ac346c25f2",
+      "thumbnailBytes": 83486
+    },
+    {
+      "catalogId": "ps4-fortnite",
+      "role": "lomo",
+      "label": "Lomo",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-lomo-mini.webp",
+      "width": 278,
+      "height": 3200,
+      "sourceSha256": "078b584a4929ca09ce88eb99d5dcd53ea31ac5f64221edf2dd0730e4415dfe4d",
+      "crop": [
+        2970,
+        0,
+        325,
+        3744
+      ],
+      "sha256": "6eef9c212ca1558affc832457e20e7f9fd7ebb9fbd6d855cee8fdf310f83d642",
+      "bytes": 209984,
+      "thumbnailSha256": "3e03d3b9f8d7a57f4904c4bce1a2ae5a64ee2e56ab99cb39d570424105afc9e1",
+      "thumbnailBytes": 5530
+    },
+    {
+      "catalogId": "ps4-fortnite",
+      "role": "caratula-completa",
+      "label": "Carátula completa",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-caratula-completa.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-caratula-completa-mini.webp",
+      "width": 3200,
+      "height": 1879,
+      "sourceSha256": "078b584a4929ca09ce88eb99d5dcd53ea31ac5f64221edf2dd0730e4415dfe4d",
+      "crop": null,
+      "sha256": "4de93bd14f471356a2759adb3be9ea4c0e182df5c740ad0cf531daf3e51923af",
+      "bytes": 1231574,
+      "thumbnailSha256": "b53a8e3296a9faffd8e2830edba46e8b8151501e76c0741cf366ce32a609885f",
+      "thumbnailBytes": 52588
+    },
+    {
+      "catalogId": "ps4-fortnite",
+      "role": "folletos-anversos",
+      "label": "Folletos: Maestro de Tormenta y Acceso Anticipado · Anversos",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-folletos-anversos.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-folletos-anversos-mini.webp",
+      "width": 3200,
+      "height": 1939,
+      "sourceSha256": "bfe31e5fa0502a0e36f62dbdb30aab4e32317569c47e9498f0d14a50883899d2",
+      "crop": null,
+      "sha256": "3f4646397ac1b61769744ab0eb493f4b33d1b7c3437707e1ad262e7be4c7c090",
+      "bytes": 1365400,
+      "thumbnailSha256": "0f2f715348459b6aa4c5a06196b0ae0bb1481a251576562655631fed4392c4f7",
+      "thumbnailBytes": 53492
+    },
+    {
+      "catalogId": "ps4-fortnite",
+      "role": "folletos-reversos",
+      "label": "Folletos: Maestro de Tormenta y Acceso Anticipado · Reversos",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-folletos-reversos.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-folletos-reversos-mini.webp",
+      "width": 3200,
+      "height": 1962,
+      "redactedCodes": 2,
+      "sourceSha256": "d6e3e1e5ac2a6ded4b722e0487b1ee6ee2be1cbf0741422439176212ed668ad6",
+      "crop": null,
+      "sha256": "e914389f9f709073bd48f886f98c3827bde4cab58e2816fda1313fd28835c736",
+      "bytes": 1035414,
+      "thumbnailSha256": "687c2e112838f059ded620dc5939b0941109f6aff8cc125bef71a79baf4ee6a6",
+      "thumbnailBytes": 39064
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+      "role": "portada",
+      "label": "Portada de papel de la edición lenticular",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada-mini.webp",
+      "width": 2568,
+      "height": 3200,
+      "sourceSha256": "c7ca6f9dee3042577520693a057189b9284244f942424816d8719521ed5a9fd5",
+      "crop": [
+        3355,
+        25,
+        3038,
+        3786
+      ],
+      "sha256": "857257d373f75281ad0f2705e2224db37fb3d9381780cbde18ace115bd464aa6",
+      "bytes": 2196246,
+      "thumbnailSha256": "7401fc2c9191cabfbaeb39319b74de68e43caf432273cbf1022f4f67c571af9a",
+      "thumbnailBytes": 46348
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+      "role": "contraportada",
+      "label": "Contraportada",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-contraportada-mini.webp",
+      "width": 2553,
+      "height": 3200,
+      "sourceSha256": "c7ca6f9dee3042577520693a057189b9284244f942424816d8719521ed5a9fd5",
+      "crop": [
+        0,
+        25,
+        3020,
+        3786
+      ],
+      "sha256": "af608c57e592796678f6360f3aae4993cff0a0a70f384b2b52d06837c5354a62",
+      "bytes": 2643326,
+      "thumbnailSha256": "9fdc68fc4c1641a5933a0ffe255a21243b0498fce65d7daedf51869e4a52d4e2",
+      "thumbnailBytes": 77166
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+      "role": "lomo",
+      "label": "Lomo",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lomo.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lomo-mini.webp",
+      "width": 283,
+      "height": 3200,
+      "sourceSha256": "c7ca6f9dee3042577520693a057189b9284244f942424816d8719521ed5a9fd5",
+      "crop": [
+        3020,
+        25,
+        335,
+        3786
+      ],
+      "sha256": "4ac075015ae70ce2f4cecb3ccfab93a498db3fd9329fb1b6da2002f6bee1edc9",
+      "bytes": 186244,
+      "thumbnailSha256": "278f86204b09d682c08480f5774420ad634d0c8ec436375e770373ce4c865525",
+      "thumbnailBytes": 5486
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+      "role": "caratula-completa",
+      "label": "Carátula de papel completa",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caratula-completa.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caratula-completa-mini.webp",
+      "width": 3200,
+      "height": 1900,
+      "sourceSha256": "c7ca6f9dee3042577520693a057189b9284244f942424816d8719521ed5a9fd5",
+      "crop": null,
+      "sha256": "430a469dbfd3e1f82e70d2b7dadde5e93c19f6b59de069ee3db97a28f33c7d2e",
+      "bytes": 1382940,
+      "thumbnailSha256": "63b076b1c99cea480f40e93a7a868345eb833b9ae357d6beaa6511b2e728ea8b",
+      "thumbnailBytes": 49320
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+      "role": "lenticular",
+      "label": "Lámina lenticular · Ángulo capturado por el escáner",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lenticular.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-lenticular-mini.webp",
+      "width": 2545,
+      "height": 3200,
+      "sourceSha256": "109f03f43e2e14fc0382cb0fd412eebe42b109ffa7feb6e832cbc65f4e62304a",
+      "crop": [
+        3208,
+        147,
+        3192,
+        4014
+      ],
+      "sha256": "e1d09cb8fbac328e50351748b74acaac34a91250920b53b95076117f4840288e",
+      "bytes": 1501784,
+      "thumbnailSha256": "ff43e465e8339f8720ef81aacf93c1055275dcfa2e51e8f9adcc430cd962da3b",
+      "thumbnailBytes": 28194
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+      "role": "caja-y-lenticular",
+      "label": "Caja y lámina lenticular del mismo ejemplar",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caja-y-lenticular.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-caja-y-lenticular-mini.webp",
+      "width": 3200,
+      "height": 2033,
+      "sourceSha256": "109f03f43e2e14fc0382cb0fd412eebe42b109ffa7feb6e832cbc65f4e62304a",
+      "crop": null,
+      "sha256": "74f76ba3026805417c9ff32a5fa26ec7c291dbe11228e54ab5ab3a1a11f9fc30",
+      "bytes": 947866,
+      "thumbnailSha256": "087818b8b4df604a39355ff6c337a25427511d51663f475399090e2465a65451",
+      "thumbnailBytes": 29130
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+      "role": "folleto-grace-apocalipsis",
+      "label": "Folleto del atuendo de Grace: Apocalipsis · Cara capturada",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-folleto-grace-apocalipsis.webp",
+      "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-folleto-grace-apocalipsis-mini.webp",
+      "width": 3200,
+      "height": 2000,
+      "redactedCodes": 1,
+      "sourceSha256": "8adc75bafaf4ce2fcae472774108bc26e09754e2b5ffe2fc361af0a4d3f41af3",
+      "crop": null,
+      "sha256": "9705a8eefa66b8a1878655da07e84a3fdd23cd97d14575b134b4ccc62aa6c253",
+      "bytes": 1168334,
+      "thumbnailSha256": "18caf9e7616c9f99d4e3bdbdca6fb272bfa5fd0b0302cee93140c13f25781f4e",
+      "thumbnailBytes": 39536
+    },
+    {
+      "catalogId": "ps4-assassins-creed-mirage-deluxe-edition",
+      "role": "portada",
+      "label": "Portada del ejemplar precintado · Deluxe Edition",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada-mini.webp",
+      "width": 2558,
+      "height": 3200,
+      "sourceSha256": "b6e94b9f66963a02603312cd9bebe81c7cd1906c387f863a76193830b986a6f1",
+      "crop": null,
+      "sha256": "061b94e3fac57dd4a0184a85558372ba39e7382b40f0452dadb4a47221260aac",
+      "bytes": 1209084,
+      "thumbnailSha256": "e5a81f8f904544d6498b381f52fe6913fc1f28a7743057f25016080d5b5ac15c",
+      "thumbnailBytes": 37458
+    },
+    {
+      "catalogId": "ps4-assassins-creed-mirage-deluxe-edition",
+      "role": "contraportada",
+      "label": "Contraportada del ejemplar precintado",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-contraportada-mini.webp",
+      "width": 2558,
+      "height": 3200,
+      "sourceSha256": "2c656ac36ffc068b66e797b0e20a56ecd375aab81deed698c496f77c62a25a49",
+      "crop": null,
+      "sha256": "6c22203a4f37c707fee4ede392c0f2b0164ee3be5563157fcec8f6f2b09ff09c",
+      "bytes": 1855254,
+      "thumbnailSha256": "37d40f9a96379b8b9d0ab4413ed7a31e9086ddbdbd8a5a5b36b77e241192b30c",
+      "thumbnailBytes": 63874
+    },
+    {
+      "catalogId": "ps4-deadpool",
+      "role": "portada",
+      "label": "Portada del ejemplar precintado · Masacre",
+      "url": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada-mini.webp",
+      "width": 2558,
+      "height": 3200,
+      "sourceSha256": "78852e4ba46f1c465db2241a5e6e61bd43c095f3d6967e7b3c4804d9750894cc",
+      "crop": null,
+      "sha256": "dbb6a858f3661ba7e558b7792af8d5ce0b3941a79b6205318f903b88c4e3bd7a",
+      "bytes": 776856,
+      "thumbnailSha256": "784d53c927a497bf2f92c95e0f5aa6f84b8439707830c5c17d8be880adb9217e",
+      "thumbnailBytes": 46326
+    },
+    {
+      "catalogId": "ps4-deadpool",
+      "role": "contraportada",
+      "label": "Contraportada del ejemplar precintado",
+      "url": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-contraportada-mini.webp",
+      "width": 2558,
+      "height": 3200,
+      "sourceSha256": "30900988de008b91933bda72cc7443c71067b093699693ac4b3da6b4a0806a15",
+      "crop": null,
+      "sha256": "637e0e56ca2ff6c679e551324d27a9f10253a4aa7e72036f523b8874dc2818ff",
+      "bytes": 1620538,
+      "thumbnailSha256": "a4ffe55831915052c2c5848920b57eee884b464bd84d2ac327e3534bb64c93eb",
+      "thumbnailBytes": 65850
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "conjunto",
+      "label": "Caja y disco promocional",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-conjunto.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-conjunto-mini.webp",
+      "width": 3200,
+      "height": 1544,
+      "sourceSha256": "c0e66edc78cd053611bddfc386d17010bbd8ef5f175f4712d87cae7cacc7558c",
+      "crop": null,
+      "sha256": "e0ceab10c0a176498034773afdd868a2649634d7a0828397957279a38e0eb5a2",
+      "bytes": 535884,
+      "thumbnailSha256": "a8f2fea001322dfaa0aba5e87e772ed96091484c7647909117cc38692fa4eb8b",
+      "thumbnailBytes": 30016
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "caja-portada",
+      "label": "Portada de la caja promocional",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-caja-portada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-caja-portada-mini.webp",
+      "width": 3200,
+      "height": 2874,
+      "sourceSha256": "6d805e0224a0980f6a2168f3badfb6b38826a1f9f78e2c372a8b81b25244ac3d",
+      "crop": null,
+      "sha256": "24b065785b895582bc4d7c9eef8e7ac6f6a56a016f8e74f3c833e8f786671715",
+      "bytes": 1102318,
+      "thumbnailSha256": "a87a1fa9af6faac878d48ee29adb11397ffca951a2008dfdb8c6447249962411",
+      "thumbnailBytes": 38920
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "disco-etiqueta",
+      "label": "Etiqueta del disco promocional",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-disco-etiqueta.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-disco-etiqueta-mini.webp",
+      "width": 2890,
+      "height": 2870,
+      "sourceSha256": "52b07bb94fa569139774d83a689fad7b8d1301fa59718687d5be638ce118028d",
+      "crop": null,
+      "sha256": "59825c637f0e6869f310cd892fd0ccacc8f47ab2d147d83543e96c589336375c",
+      "bytes": 1123370,
+      "thumbnailSha256": "da4204c818cb97e3d33fbcad16247eff97641760f43f556e871e66c2aab32212",
+      "thumbnailBytes": 54134
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "caja-con-disco-colocado",
+      "label": "Disco colocado en su caja · reverso parcialmente oculto",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-caja-con-disco-colocado.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-caja-con-disco-colocado-mini.webp",
+      "width": 3200,
+      "height": 2845,
+      "sourceSha256": "e3dc7731bd4b5656ad6f126936532abc1751617c28f42727328b6c2671cb1497",
+      "crop": null,
+      "sha256": "a3e52df24870b9d5f75910c44ef10ac6e1bb82685102378ed07166c9cd7c5f2f",
+      "bytes": 892294,
+      "thumbnailSha256": "1264e016d2c79490e4c7d4aa1d0b473d544a636f74e5bbf34963f59b904ec6ad",
+      "thumbnailBytes": 43332
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "role": "contraportada",
+      "label": "Contraportada promocional · códigos de canje ocultos",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-contraportada.webp",
+      "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-contraportada-mini.webp",
+      "width": 3200,
+      "height": 2765,
+      "redactedCodes": 2,
+      "sourceSha256": "0eb59ad52d78a37f8696ae1c4084927e61eff411dd5d943ed34e0c86c581b8b8",
+      "crop": null,
+      "sha256": "94a8c26a37584e7f50743b650f101bdd20798163f4ec65d83a0a7563e1c2677b",
+      "bytes": 1885742,
+      "thumbnailSha256": "13aebc0bae87944125186c5e9de8cdd010953266bc34dfffbf59d4b8ed36e71c",
+      "thumbnailBytes": 65684
+    }
+  ],
+  "covers": [
+    {
+      "catalogId": "ps4-fortnite",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-portada-catalogo.webp",
+      "sourceSha256": "078b584a4929ca09ce88eb99d5dcd53ea31ac5f64221edf2dd0730e4415dfe4d",
+      "crop": [
+        3295,
+        0,
+        3081,
+        3744
+      ],
+      "sha256": "aec10916bd30d6a273841dfccfd2951c2fadffc841eeaf016cb913131e5e8afb",
+      "bytes": 271526
+    },
+    {
+      "catalogId": "ps5-resident-evil-requiem-lenticular-cover",
+      "url": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada-catalogo.webp",
+      "sourceSha256": "c7ca6f9dee3042577520693a057189b9284244f942424816d8719521ed5a9fd5",
+      "crop": [
+        3355,
+        25,
+        3038,
+        3786
+      ],
+      "sha256": "d27f4858af7ea4dc9668e2e440fee5fb869d7b6f80c6746291019a0f909737c7",
+      "bytes": 316478
+    },
+    {
+      "catalogId": "ps4-assassins-creed-mirage-deluxe-edition",
+      "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada-catalogo.webp",
+      "sourceSha256": "b6e94b9f66963a02603312cd9bebe81c7cd1906c387f863a76193830b986a6f1",
+      "crop": null,
+      "sha256": "5cbeec91ceba84201cbbeda8d203953e08fade64d805494db3f1d21f0cff7997",
+      "bytes": 220300
+    },
+    {
+      "catalogId": "ps4-deadpool",
+      "url": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada-catalogo.webp",
+      "sourceSha256": "78852e4ba46f1c465db2241a5e6e61bd43c095f3d6967e7b3c4804d9750894cc",
+      "crop": null,
+      "sha256": "bd673c8fc875bfcc7ace1d0159d8df59c0349dbba7144018852338efefc5d264",
+      "bytes": 213462
+    },
+    {
+      "catalogId": "ps4-fornite-ps4-promo",
+      "url": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-portada-catalogo.webp",
+      "sourceSha256": "6d805e0224a0980f6a2168f3badfb6b38826a1f9f78e2c372a8b81b25244ac3d",
+      "crop": null,
+      "sha256": "b6d92b7a45bf3f8ccbab3999dbc2a02b00f8b1221a3c1581238dcd048be3ea27",
+      "bytes": 229814
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { randomUUID } from "crypto";
+import { canonicalCatalogLink } from "./catalog-id-aliases";
 import type { CollectionItem } from "./types";
 
 export type WishlistEntry = { catalogId: string; addedAt: string; seenListingKeys?: string[] };
@@ -19,9 +20,31 @@ export function reconcileCollectionWishlist(
   data: CollectionWishlistState & { items: CollectionItem[] },
 ): boolean {
   if (!data.wishlist?.length && !data.wishlistAchievements?.length) return false;
+  let changed = false;
+  const wishes = new Map<string, WishlistEntry>();
+  for (const previous of data.wishlist ?? []) {
+    const wish = canonicalCatalogLink(previous);
+    if (wish !== previous) changed = true;
+    const existing = wishes.get(wish.catalogId);
+    if (existing) {
+      changed = true;
+      wishes.set(wish.catalogId, {
+        ...existing,
+        addedAt: existing.addedAt < wish.addedAt ? existing.addedAt : wish.addedAt,
+        seenListingKeys: [...new Set([...(existing.seenListingKeys ?? []), ...(wish.seenListingKeys ?? [])])],
+      });
+    } else wishes.set(wish.catalogId, wish);
+  }
+  if (changed) data.wishlist = [...wishes.values()];
+  for (const achievement of data.wishlistAchievements ?? []) {
+    achievement.games = achievement.games.map(game => {
+      const canonical = canonicalCatalogLink(game);
+      if (canonical !== game) changed = true;
+      return canonical;
+    });
+  }
   const owned = new Map(data.items.filter((item) => item.catalogId).map((item) => [item.catalogId!, item]));
   const copyIds = new Set(data.items.map((item) => item.id));
-  let changed = false;
   if (data.wishlistAchievements?.length) {
     data.wishlistAchievements = data.wishlistAchievements.flatMap((entry) => {
       const games = entry.games.flatMap((game) => {

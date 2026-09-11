@@ -1,0 +1,461 @@
+{
+  "batch": "owned-scans-2026-09-11",
+  "decision": "Integrar escaneos revisados por componente; conservar URLs y copias; unificar únicamente el duplicado documentado de Masacre y distinguir Fortnite Promo del comercial.",
+  "games": [
+    {
+      "id": "ps4-fortnite",
+      "before": {
+        "catalog": {
+          "id": "ps4-fortnite",
+          "slug": "fortnite",
+          "title": "Fortnite",
+          "titlePc": "Fortnite",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/fortnite.jpg",
+          "pcPath": "/game/pal-playstation-4/fortnite",
+          "pcId": 155131,
+          "pcRegion": "PAL EU (referencia)",
+          "pcCondition": null,
+          "matchConfidence": "SEED_PC",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": null,
+          "hasEsPrice": false,
+          "seedSource": "pricecharting-pal"
+        },
+        "details": {
+          "year": 2017,
+          "releaseDate": "July 21, 2017",
+          "reference": "CUSA-07022",
+          "players": 1,
+          "support": null,
+          "developer": {
+            "name": "Epic Games",
+            "slug": "epic-games",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "pricecharting"
+          },
+          "publisher": {
+            "name": "Gearbox",
+            "slug": "gearbox",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "pricecharting"
+          },
+          "genres": [
+            {
+              "name": "Third Person Shooter",
+              "slug": "third-person-shooter",
+              "museumPath": null,
+              "pcPath": null,
+              "source": "pricecharting"
+            }
+          ],
+          "series": null,
+          "museumPath": null,
+          "pcProductId": 155131,
+          "ean": "5051892219037",
+          "sources": {
+            "pricecharting": {
+              "pcPath": "/game/pal-playstation-4/fortnite",
+              "fetchedAt": "2026-06-13T17:10:00",
+              "productId": 155131
+            },
+            "serialstation": {
+              "serialstationId": "ee9dd78f-92f7-49ce-bede-b4d280c3249a",
+              "titleId": "CUSA07022",
+              "matchMethod": "title",
+              "matchScore": 1,
+              "fetchedAt": "2026-06-19T06:04:51"
+            }
+          },
+          "fieldSources": {
+            "developer": "pricecharting",
+            "publisher": "pricecharting",
+            "genres": "pricecharting",
+            "reference": "serialstation",
+            "year": "pricecharting",
+            "releaseDate": "pricecharting",
+            "players": "pricecharting"
+          },
+          "fetchedAt": "2026-06-19T06:04:53",
+          "mergedAt": "2026-06-19T06:04:53",
+          "pegi": "PEGI 12"
+        }
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/fortnite/fortnite-portada-catalogo.webp",
+        "reference": "CUSA-07669",
+        "ean": "4020628781279"
+      }
+    },
+    {
+      "id": "ps5-resident-evil-requiem-lenticular-cover",
+      "before": {
+        "catalog": {
+          "id": "ps5-resident-evil-requiem-lenticular-cover",
+          "slug": "resident-evil-requiem-lenticular-cover",
+          "title": "Resident Evil Requiem [Lenticular Cover]",
+          "titlePc": "Resident Evil Requiem [Lenticular Cover]",
+          "platformSlug": "ps5",
+          "region": "PAL España",
+          "physicalVariant": null,
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps5/resident-evil-requiem-lenticular-cover.jpg",
+          "pcPath": "/game/pal-playstation-5/resident-evil-requiem-lenticular-cover",
+          "pcId": 12169013,
+          "pcRegion": "PAL EU (referencia)",
+          "pcCondition": null,
+          "matchConfidence": "SEED_PC",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": "2026-09-01",
+          "hasEsPrice": false,
+          "priceRegionVerified": false,
+          "seedSource": "pricecharting-pal-user-list",
+          "regionEvidence": [
+            "user_confirmed_pal_europe_as_pal_es"
+          ],
+          "regionVerified": false
+        },
+        "details": null
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps5/escaneos-propios/resident-evil-requiem-lenticular-cover/resident-evil-requiem-lenticular-cover-portada-catalogo.webp",
+        "reference": "PPSA-31246",
+        "ean": "5055060993637"
+      }
+    },
+    {
+      "id": "ps4-assassins-creed-mirage-deluxe-edition",
+      "before": {
+        "catalog": {
+          "id": "ps4-assassins-creed-mirage-deluxe-edition",
+          "slug": "assassins-creed-mirage-deluxe-edition",
+          "title": "Assassins Creed Mirage Deluxe Edition",
+          "titlePc": "Assassin's Creed: Mirage [Deluxe Edition]",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/assassins-creed-mirage-deluxe-edition.jpg",
+          "pcId": 5923804,
+          "pcRegion": null,
+          "pcCondition": "Normal wear",
+          "matchConfidence": "MATCH_ALTO",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": 32,
+          "pcRefPrice": 26.59,
+          "deltaEsVsPc": 20.3,
+          "priceSource": "Wallapop · eBay ES · Estimación provisional",
+          "updatedAt": "2026-08-31T00:00:00Z",
+          "hasEsPrice": true,
+          "estimatedPriceComplete": 32,
+          "estimatedPriceNewRetail": 64.9,
+          "priceRegionVerified": false,
+          "priceDataSources": "Estimación provisional",
+          "provisionalPriceBatchIds": [
+            "ps4-pal-es-page-04-2026-08-31"
+          ],
+          "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+        },
+        "details": {
+          "year": null,
+          "releaseDate": null,
+          "reference": null,
+          "players": null,
+          "support": null,
+          "developer": {
+            "name": "Ubisoft Bordeaux",
+            "slug": "ubisoft-bordeaux",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "publisher": null,
+          "genres": [],
+          "series": null,
+          "museumPath": null,
+          "pcProductId": null,
+          "ean": null,
+          "sources": {},
+          "fieldSources": {
+            "developer": "research"
+          },
+          "fetchedAt": "2026-09-05T12:00:00Z",
+          "mergedAt": "2026-09-05T12:00:00Z",
+          "companyCredits": [
+            {
+              "role": "developer",
+              "company": {
+                "name": "Ubisoft Bordeaux",
+                "slug": "ubisoft-bordeaux",
+                "museumPath": null,
+                "pcPath": null,
+                "source": "research"
+              },
+              "provenance": {
+                "source": "research",
+                "evidenceUrls": [
+                  "https://www.ubisoft.com/en-us/game/assassins-creed"
+                ],
+                "evidenceSummary": "Las fuentes consultadas atribuyen el desarrollo a Ubisoft Bordeaux.",
+                "reviewedAt": "2026-09-05",
+                "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+              }
+            },
+            {
+              "role": "physicalPublisherOrDistributor",
+              "company": {
+                "name": "Ubisoft",
+                "slug": "ubisoft",
+                "museumPath": null,
+                "pcPath": null,
+                "source": "research"
+              },
+              "provenance": {
+                "source": "research",
+                "evidenceUrls": [
+                  "https://www.ubisoft.com/en-us/game/assassins-creed"
+                ],
+                "evidenceSummary": "La edición PS4 consultada atribuye la publicación o distribución física a Ubisoft.",
+                "reviewedAt": "2026-09-05",
+                "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+              }
+            }
+          ],
+          "fieldProvenance": {
+            "developer": {
+              "source": "research",
+              "evidenceUrls": [
+                "https://www.ubisoft.com/en-us/game/assassins-creed"
+              ],
+              "evidenceSummary": "Las fuentes consultadas atribuyen el desarrollo a Ubisoft Bordeaux.",
+              "reviewedAt": "2026-09-05",
+              "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+            }
+          }
+        }
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada-catalogo.webp",
+        "reference": null,
+        "ean": "3307216257806"
+      }
+    },
+    {
+      "id": "ps4-deadpool",
+      "before": {
+        "catalog": {
+          "id": "ps4-deadpool",
+          "slug": "deadpool",
+          "title": "Deadpool",
+          "titlePc": "Deadpool",
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/deadpool.jpg",
+          "pcPath": "/game/pal-playstation-4/deadpool",
+          "pcId": 57722,
+          "pcRegion": "PAL EU (referencia)",
+          "pcCondition": null,
+          "matchConfidence": "SEED_PC",
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": null,
+          "hasEsPrice": false,
+          "seedSource": "pricecharting-pal"
+        },
+        "details": {
+          "year": 2015,
+          "releaseDate": "November 20, 2015",
+          "reference": "BLES-01789",
+          "players": 1,
+          "support": null,
+          "developer": null,
+          "publisher": null,
+          "genres": [
+            {
+              "name": "Action",
+              "slug": "action",
+              "museumPath": null,
+              "pcPath": null,
+              "source": "pricecharting"
+            },
+            {
+              "name": "amp; Adventure",
+              "slug": "amp-adventure",
+              "museumPath": null,
+              "pcPath": null,
+              "source": "pricecharting"
+            }
+          ],
+          "series": null,
+          "museumPath": null,
+          "pcProductId": 57722,
+          "ean": "5030917185939",
+          "sources": {
+            "pricecharting": {
+              "pcPath": "/game/pal-playstation-4/deadpool",
+              "fetchedAt": "2026-06-13T17:02:28",
+              "productId": 57722
+            },
+            "serialstation": {
+              "serialstationId": "02eced19-8ec9-446a-ba6e-6b9730ec014c",
+              "titleId": "BLES01789",
+              "matchMethod": "title",
+              "matchScore": 1.0,
+              "fetchedAt": "2026-06-19T05:26:42"
+            }
+          },
+          "fieldSources": {
+            "genres": "pricecharting",
+            "reference": "serialstation",
+            "year": "pricecharting",
+            "releaseDate": "pricecharting",
+            "players": "pricecharting"
+          },
+          "fetchedAt": "2026-06-19T05:26:43",
+          "mergedAt": "2026-06-19T05:26:43",
+          "pegi": "PEGI 18"
+        }
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/deadpool-masacre/deadpool-masacre-portada-catalogo.webp",
+        "reference": null,
+        "ean": "5030917185991"
+      },
+      "mappingNotes": "Unificación explícita de dos fichas de la misma edición. Se conserva el ID y URL de la copia del usuario, los precios de la ficha localizada y todos los ejemplares individuales."
+    },
+    {
+      "id": "ps4-fornite-ps4-promo",
+      "before": {
+        "catalog": {
+          "id": "ps4-fornite-ps4-promo",
+          "slug": "fornite-ps4-promo",
+          "title": "Fornite PS4 PROMO",
+          "titlePc": null,
+          "platformSlug": "ps4",
+          "region": "PAL España",
+          "edition": "standard",
+          "listingStatus": "listed",
+          "coverUrl": "/covers/ps4/fornite-ps4-promo.jpg",
+          "pcId": null,
+          "pcRegion": null,
+          "pcCondition": null,
+          "matchConfidence": null,
+          "marketMin": null,
+          "marketMax": null,
+          "recommendedPrice": null,
+          "pcRefPrice": null,
+          "deltaEsVsPc": null,
+          "priceSource": null,
+          "updatedAt": null,
+          "hasEsPrice": false
+        },
+        "details": {
+          "year": null,
+          "releaseDate": null,
+          "reference": null,
+          "players": null,
+          "support": null,
+          "developer": {
+            "name": "Epic Games",
+            "slug": "epic-games",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "publisher": null,
+          "genres": [],
+          "series": null,
+          "museumPath": null,
+          "pcProductId": null,
+          "ean": null,
+          "sources": {},
+          "fieldSources": {
+            "developer": "research"
+          },
+          "fetchedAt": "2026-09-05T12:00:00Z",
+          "mergedAt": "2026-09-05T12:00:00Z",
+          "companyCredits": [
+            {
+              "role": "developer",
+              "company": {
+                "name": "Epic Games",
+                "slug": "epic-games",
+                "museumPath": null,
+                "pcPath": null,
+                "source": "research"
+              },
+              "provenance": {
+                "source": "research",
+                "evidenceUrls": [
+                  "https://www.fortnite.com/"
+                ],
+                "evidenceSummary": "Las fuentes consultadas atribuyen el desarrollo a Epic Games.",
+                "reviewedAt": "2026-09-05",
+                "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+              }
+            },
+            {
+              "role": "physicalPublisherOrDistributor",
+              "company": {
+                "name": "Epic Games",
+                "slug": "epic-games",
+                "museumPath": null,
+                "pcPath": null,
+                "source": "research"
+              },
+              "provenance": {
+                "source": "research",
+                "evidenceUrls": [
+                  "https://www.fortnite.com/"
+                ],
+                "evidenceSummary": "La edición PS4 consultada atribuye la publicación o distribución física a Epic Games.",
+                "reviewedAt": "2026-09-05",
+                "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+              }
+            }
+          ],
+          "fieldProvenance": {
+            "developer": {
+              "source": "research",
+              "evidenceUrls": [
+                "https://www.fortnite.com/"
+              ],
+              "evidenceSummary": "Las fuentes consultadas atribuyen el desarrollo a Epic Games.",
+              "reviewedAt": "2026-09-05",
+              "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+            }
+          }
+        }
+      },
+      "after": {
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-portada-catalogo.webp",
+        "reference": "CUSA-07669",
+        "ean": null
+      },
+      "mappingNotes": "Se completa la ficha promocional existente con errata Fornite. Se conserva su URL, se corrige la variante a promo y no se atribuye un país a PAL."
+    }
+  ]
+}

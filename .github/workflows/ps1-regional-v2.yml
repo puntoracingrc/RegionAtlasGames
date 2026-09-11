@@ -21,7 +21,8 @@ permissions:
 jobs:
   regional-integrity:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Historical catalog checks need full Git history; checkout alone can take 15 minutes.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:

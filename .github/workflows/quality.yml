@@ -17,7 +17,8 @@ concurrency:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    # Leave time for the checks after fetching the large historical catalog and image pack.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v4

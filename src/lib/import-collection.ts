@@ -2,7 +2,8 @@ import { parse as parseCsv } from "csv-parse/sync";
 import readExcelFile from "read-excel-file/node";
 import { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
 import { slugify } from "./slug";
-import { catalog, platforms } from "./catalog";
+import { catalog, platforms, getCatalogGame } from "./catalog";
+import { canonicalCatalogId } from "./catalog-id-aliases";
 import { getRegionDisplay } from "./region-display";
 import type { CatalogGame, CollectionItem } from "./types";
 
@@ -518,6 +519,10 @@ function hasCatalogGame(catalogId: string | null | undefined): boolean {
 
 /** Si la plataforma ya está activa en RA y existe ficha, devuelve el juego del catálogo. */
 export function findAvailableCatalogLink(item: CollectionItem): CatalogGame | null {
+  if (item.catalogId && canonicalCatalogId(item.catalogId) !== item.catalogId) {
+    const canonical = getCatalogGame(item.catalogId);
+    if (canonical && canonical.listingStatus !== "excluded") return canonical;
+  }
   if (item.catalogMatched && hasCatalogGame(item.catalogId)) return null;
 
   const platform = normalizeImportedPlatformSlug(item.platformSlug);

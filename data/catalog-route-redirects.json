@@ -175,6 +175,18 @@
         "coverUrl": null,
         "listingStatus": "listed"
       }
+    },
+    {
+      "sourceParams": [
+        "ps4-deadpool-masacre",
+        "deadpool-masacre-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-deadpool",
+      "targetParam": "deadpool-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-11",
+      "reviewBatch": "owned-scans-2026-09-11-batch-2"
     }
   ]
 }

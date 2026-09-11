@@ -13,6 +13,14 @@ require.extensions['.ts'] = (module, filename) => {
 };
 const root = path.resolve(__dirname, '..');
 const read = (name) => JSON.parse(name.endsWith('.gz') ? zlib.gunzipSync(fs.readFileSync(path.join(root, name))) : fs.readFileSync(path.join(root, name), 'utf8'));
+// Later reviewed scans have an exact before/after hash ledger. Only the
+// historical preservation checks use those inputs; every PS1 assertion below
+// continues to exercise the current catalog and runtime.
+const historicalRead = (name) => JSON.parse(cp.execFileSync('python3', [
+  '-c',
+  'import sys; sys.path.insert(0, "scripts"); from owned_scan_migration_compat import historical_bytes; sys.stdout.buffer.write(historical_bytes(sys.argv[1]))',
+  name,
+], { cwd: root, maxBuffer: 150_000_000 }));
 const baseline = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root, 'artifacts/ps1-region-migration/baseline-ps1.json.gz'))));
 const catalog = read('data/catalog.json');
 const details = read('data/game-details.json');
@@ -57,8 +65,10 @@ check('OTHER-PLATFORMS-UNCHANGED', () => {
   const before = JSON.parse(cp.execFileSync('git', ['show', `${baseline.commit}:data/catalog.json`], { cwd: root, maxBuffer: 150_000_000 }));
   const beforeDetails = JSON.parse(cp.execFileSync('git', ['show', `${baseline.commit}:data/game-details.json`], { cwd: root, maxBuffer: 150_000_000 }));
   const oldPs1 = new Set(baseline.catalog.map((g) => g.id));
-  assert.deepEqual(catalog.filter((g) => !['ps1', 'ps2'].includes(g.platformSlug)), before.filter((g) => !['ps1', 'ps2'].includes(g.platformSlug)));
-  for (const [id, d] of Object.entries(beforeDetails)) if (!oldPs1.has(id) && !id.startsWith("ps2-")) assert.deepEqual(details[id], d, id);
+  const historicalCatalog = historicalRead('data/catalog.json');
+  const historicalDetails = historicalRead('data/game-details.json');
+  assert.deepEqual(historicalCatalog.filter((g) => !['ps1', 'ps2'].includes(g.platformSlug)), before.filter((g) => !['ps1', 'ps2'].includes(g.platformSlug)));
+  for (const [id, d] of Object.entries(beforeDetails)) if (!oldPs1.has(id) && !id.startsWith("ps2-")) assert.deepEqual(historicalDetails[id], d, id);
 });
 check('REGION-LANGUAGE-001-AND-UK-001', () => {
   const europe = { value: 'Europe', source: 'redump-org', sourceUrl: 'http://redump.org/', confidence: 'high', verifiedAt: '2026-09-10' };
@@ -71,7 +81,7 @@ check('INDEX-CANONICAL-METADATA-AND-OTHER-PLATFORM-MEMBERSHIPS-PRESERVED', () =>
   const derived = new Set([...memberships, 'gameCount', 'byPlatform']);
   for (const kind of ['companies', 'genres', 'series']) {
     const before = JSON.parse(cp.execFileSync('git', ['show', `${baseline.commit}:data/index/${kind}.json`], { cwd: root, maxBuffer: 80_000_000 }));
-    const after = read(`data/index/${kind}.json`);
+    const after = historicalRead(`data/index/${kind}.json`);
     for (const [slug, old] of Object.entries(before)) {
       assert(after[slug], slug);
       for (const [key, value] of Object.entries(old)) if (!derived.has(key)) assert.deepEqual(after[slug][key], value, `${kind}/${slug}/${key}`);

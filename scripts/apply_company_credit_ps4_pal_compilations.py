@@ -1423,6 +1423,16 @@ def build_route_redirects(catalog_by_id: dict[str, dict[str, Any]]) -> dict[str,
                     "targetLocator": locator(target_game, None),
                 }
             )
+    # Later reviewed consolidations are independent of this historical workbook.
+    managed_params = {param for record in records for param in record["sourceParams"]}
+    if ROUTE_REDIRECTS_FILE.exists():
+        for record in read_json(ROUTE_REDIRECTS_FILE).get("redirects", []):
+            if set(record["sourceParams"]) & managed_params:
+                continue
+            target = catalog_by_id.get(record["targetCatalogId"])
+            if not target or target.get("listingStatus") != "listed" or not record.get("reviewBatch"):
+                raise ValueError("Invalid later catalog redirect")
+            records.append(copy.deepcopy(record))
     return {"schemaVersion": 1, "batchId": BATCH_ID, "redirects": records}
 
 

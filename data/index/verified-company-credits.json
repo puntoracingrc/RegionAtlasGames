@@ -15890,6 +15890,70 @@
       },
       "companyCredits": []
     },
+    "ps4-deadpool": {
+      "developer": {
+        "name": "High Moon Studios",
+        "slug": "high-moon-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "research"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "research"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "research",
+          "evidenceUrls": [
+            "https://www.activision.com/"
+          ],
+          "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: High Moon Studios.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+        }
+      },
+      "companyCredits": [
+        {
+          "role": "developer",
+          "company": {
+            "name": "High Moon Studios",
+            "slug": "high-moon-studios",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/"
+            ],
+            "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: High Moon Studios.",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        },
+        {
+          "role": "physicalPublisherOrDistributor",
+          "company": {
+            "name": "Activision",
+            "slug": "activision",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/"
+            ],
+            "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: Activision.",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        }
+      ]
+    },
     "ps4-deadpool-masacre": {
       "developer": {
         "name": "High Moon Studios",
@@ -27639,8 +27703,8 @@
         {
           "role": "physicalPublisherOrDistributor",
           "company": {
-            "name": "Epic Games",
-            "slug": "epic-games",
+            "name": "Gearbox Publishing",
+            "slug": "gearbox-publishing",
             "museumPath": null,
             "pcPath": null,
             "source": "research"
@@ -27648,11 +27712,36 @@
           "provenance": {
             "source": "research",
             "evidenceUrls": [
-              "https://www.fortnite.com/"
+              "https://www.regionatlas.games/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-disco-etiqueta.webp"
             ],
-            "evidenceSummary": "La edición PS4 consultada atribuye la publicación o distribución física a Epic Games.",
-            "reviewedAt": "2026-09-05",
-            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+            "evidenceSummary": "La etiqueta del disco del ejemplar promocional imprime Published by Gearbox Publishing y Distributed by Koch Media GmbH.",
+            "reviewedAt": "2026-09-11",
+            "reviewBatch": "owned-scans-2026-09-11-batch-2",
+            "previousValues": [
+              "Epic Games"
+            ]
+          }
+        },
+        {
+          "role": "physicalPublisherOrDistributor",
+          "company": {
+            "name": "KOCH Media",
+            "slug": "koch-media",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.regionatlas.games/catalog-covers/ps4/escaneos-propios/fortnite-promo-disc/fortnite-promo-disc-disco-etiqueta.webp"
+            ],
+            "evidenceSummary": "La etiqueta del disco del ejemplar promocional imprime Published by Gearbox Publishing y Distributed by Koch Media GmbH.",
+            "reviewedAt": "2026-09-11",
+            "reviewBatch": "owned-scans-2026-09-11-batch-2",
+            "previousValues": [
+              "Epic Games"
+            ]
           }
         }
       ]

@@ -10,6 +10,7 @@ import {
 } from "./catalog-overlay-merge";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { getStaticGameDetails } from "./static-game-details";
+import { withOwnedScanDetails } from "./catalog-owned-scans";
 import { getPs1EditionDetails } from "./ps1-edition-data";
 import { getPs2EditionDetails } from "./ps2-edition-data";
 import { getVerifiedCompanyCreditDetails } from "./verified-company-credits";
@@ -267,6 +268,12 @@ export async function resolveCatalogGameWithOverlay(
 }
 
 export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails | undefined> {
+  const game = getCatalogGame(id);
+  const details = await getGameDetailsOverlaySource(game?.id ?? id);
+  return game ? withOwnedScanDetails(game, details) : details;
+}
+
+async function getGameDetailsOverlaySource(id: string): Promise<GameDetails | undefined> {
   const verifiedDetails = getVerifiedCompanyCreditDetails(id);
   const overlay = await readCatalogOverlayDetails(id);
   if (overlay) {

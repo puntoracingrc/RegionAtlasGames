@@ -30,9 +30,9 @@
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
     "data/company-groups.json": "68463bcaa8b9df3df1ddb2804b122c1b717e656cde6f691f16ce5012fba02d64",
     "data/company-separations.json": "c3293b49d5fec9ef6eab11c5219d50e7312a44c6cf84c9f54bcab0318f060896",
-    "data/index/companies.json": "6c37e403f6b9a26ad278ae778ae992cbd92340c87201a7d0ed984cd2d872d487",
+    "data/index/companies.json": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389",
     "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
-    "data/game-details.json": "bfd53a2c20bcf4b3defeda688fc7091acaf1f5faf06e79c4b0260e96c8dc3cb1"
+    "data/game-details.json": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785"
   },
   "protectedFileHashUpdates": [
     {
@@ -130,6 +130,30 @@
         "data/game-details.json": {
           "before": "a7c8250bbc54e0c88a8ded58075ff6315f219c4dfa9422845343f9deaa0e1fbb",
           "after": "bfd53a2c20bcf4b3defeda688fc7091acaf1f5faf06e79c4b0260e96c8dc3cb1"
+        }
+      }
+    },
+    {
+      "batchId": "owned-scans-2026-09-11-batch-1",
+      "reviewedAt": "2026-09-11",
+      "files": {
+        "data/game-details.json": {
+          "before": "bfd53a2c20bcf4b3defeda688fc7091acaf1f5faf06e79c4b0260e96c8dc3cb1",
+          "after": "72121e36d1c72548143eb66cfa5adc9db6bbeac14ac733ec1ad5246868e709cf"
+        }
+      }
+    },
+    {
+      "batchId": "owned-scans-2026-09-11-batch-2",
+      "reviewedAt": "2026-09-11",
+      "files": {
+        "data/index/companies.json": {
+          "before": "6c37e403f6b9a26ad278ae778ae992cbd92340c87201a7d0ed984cd2d872d487",
+          "after": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389"
+        },
+        "data/game-details.json": {
+          "before": "72121e36d1c72548143eb66cfa5adc9db6bbeac14ac733ec1ad5246868e709cf",
+          "after": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785"
         }
       }
     }
