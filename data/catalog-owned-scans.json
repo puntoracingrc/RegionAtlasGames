@@ -181,18 +181,20 @@
       "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-portada-catalogo.webp",
       "primaryCaption": "Ejemplar precintado · Deluxe Edition PAL España",
       "packaging": {
-        "reference": null,
+        "reference": "CUSA-33151",
         "ean": "3307216257806",
         "languages": [
           "Español"
         ],
         "marketEvidence": "Edición PAL España confirmada por el propietario; portada y contraportada en español, con el rótulo «Juego en castellano».",
         "productNumber": "300128688",
-        "languageStatement": "Juego en castellano"
+        "languageStatement": "Juego en castellano",
+        "referenceComponent": "lomo"
       },
       "notes": [
         "Escaneo del ejemplar precintado: se conservan la caja, los reflejos y las marcas del plástico.",
-        "La contraportada anuncia el Pack Deluxe inspirado en Prince of Persia y un libro de arte y banda sonora digitales. No se ha abierto la caja ni se han escaneado sus materiales interiores."
+        "La contraportada anuncia el Pack Deluxe inspirado en Prince of Persia y un libro de arte y banda sonora digitales. No se ha abierto la caja ni se han escaneado sus materiales interiores.",
+        "Lomo añadido en el lote del 12 de septiembre de 2026: Deluxe Edition, CUSA-33151 y referencia de impresión 6257806. Se conservan la portada y contraportada publicadas anteriormente."
       ],
       "images": [
         {
@@ -210,6 +212,14 @@
           "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-contraportada-mini.webp",
           "width": 2558,
           "height": 3200
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-mirage-deluxe-edition/assassins-creed-mirage-deluxe-edition-ps4-pal-es-lomo-mini.webp",
+          "width": 2015,
+          "height": 186,
+          "label": "Lomo del ejemplar precintado"
         }
       ]
     },
@@ -447,6 +457,462 @@
           "height": 1413
         }
       ]
+    },
+    "ps4-assassins-creed-unity": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-unity",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · PS4 PAL España",
+      "packaging": {
+        "reference": "CUSA-00605",
+        "referenceComponent": "lomo",
+        "ean": "3307215785942",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; carátula en castellano, EAN de la contraportada y código CUSA del lomo comprobados en los escaneos del mismo ejemplar.",
+        "languageStatement": "Voces, textos y manual totalmente en castellano"
+      },
+      "notes": [
+        "Escaneos del ejemplar aportado precintado: se conservan la caja, las tiras del precinto y los reflejos del plástico. Los discos y materiales interiores no se han abierto ni inspeccionado.",
+        "Portada estándar de Unity con PEGI 18; el código CUSA-00605 se lee en el lomo de este ejemplar."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-portada-mini.webp",
+          "width": 1640,
+          "height": 2023,
+          "label": "Portada del ejemplar precintado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-contraportada-mini.webp",
+          "width": 1644,
+          "height": 2023,
+          "label": "Contraportada del ejemplar precintado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-unity/assassins-creed-unity-ps4-pal-es-lomo-mini.webp",
+          "width": 2023,
+          "height": 180,
+          "label": "Lomo del ejemplar precintado"
+        }
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español"
+        ],
+        "audio": [
+          "Español"
+        ]
+      }
+    },
+    "ps4-assassins-creed-odyssey": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-odyssey",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · PS4 PAL España",
+      "packaging": {
+        "reference": "CUSA-09303",
+        "referenceComponent": "lomo",
+        "ean": "3307216063926",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; carátula en castellano, EAN de la contraportada y código CUSA del lomo comprobados en los escaneos del mismo ejemplar.",
+        "productNumber": "300103604",
+        "languageStatement": "Juego en español - Requiere conexión a internet de alta velocidad para descargar voces en castellano."
+      },
+      "notes": [
+        "Escaneos del ejemplar aportado precintado: se conservan la caja, las tiras del precinto y los reflejos del plástico. Los discos y materiales interiores no se han abierto ni inspeccionado.",
+        "La portada incorpora el distintivo «El mejor de la saga · MeriStation».",
+        "La contraportada exige descargar las voces en castellano mediante una conexión a internet de alta velocidad; no acredita que esas voces estén incluidas en el disco."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-portada-mini.webp",
+          "width": 1634,
+          "height": 2017,
+          "label": "Portada del ejemplar precintado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-contraportada-mini.webp",
+          "width": 1628,
+          "height": 2019,
+          "label": "Contraportada del ejemplar precintado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-odyssey/assassins-creed-odyssey-ps4-pal-es-lomo-mini.webp",
+          "width": 2011,
+          "height": 168,
+          "label": "Lomo del ejemplar precintado"
+        }
+      ]
+    },
+    "ps4-assassins-creed-3-remastered": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-3-remastered",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · PS4 PAL España",
+      "packaging": {
+        "reference": "CUSA-11560",
+        "referenceComponent": "lomo",
+        "ean": "3307216111672",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; carátula en castellano, EAN de la contraportada y código CUSA del lomo comprobados en los escaneos del mismo ejemplar.",
+        "productNumber": "300108412",
+        "languageStatement": "Voces, textos y manual totalmente en castellano"
+      },
+      "notes": [
+        "Escaneos del ejemplar aportado precintado: se conservan la caja, las tiras del precinto y los reflejos del plástico. Los discos y materiales interiores no se han abierto ni inspeccionado.",
+        "La caja incluye Assassin’s Creed Liberation Remastered y todos los DLC del modo historia de Assassin’s Creed III: La Tiranía del Rey Washington, las misiones de Benedict Arnold y el Pack de los Secretos Escondidos."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-portada-mini.webp",
+          "width": 1638,
+          "height": 2023,
+          "label": "Portada del ejemplar precintado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-contraportada-mini.webp",
+          "width": 1640,
+          "height": 2021,
+          "label": "Contraportada del ejemplar precintado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-3-remastered/assassins-creed-3-remastered-ps4-pal-es-lomo-mini.webp",
+          "width": 2023,
+          "height": 178,
+          "label": "Lomo del ejemplar precintado"
+        }
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español"
+        ],
+        "audio": [
+          "Español"
+        ]
+      }
+    },
+    "ps4-assassins-creed-4-black-flag": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-4-black-flag",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · PS4 PAL España",
+      "packaging": {
+        "reference": "CUSA-00009",
+        "referenceComponent": "lomo",
+        "ean": "3307215717769",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; carátula en castellano, EAN de la contraportada y código CUSA del lomo comprobados en los escaneos del mismo ejemplar.",
+        "languageStatement": "Juego y manual totalmente en castellano"
+      },
+      "notes": [
+        "Escaneos del ejemplar aportado precintado: se conservan la caja, las tiras del precinto y los reflejos del plástico. Los discos y materiales interiores no se han abierto ni inspeccionado.",
+        "La portada lleva el distintivo «Totalmente en castellano»; la contraportada indica «Juego y manual totalmente en castellano». El lomo identifica la versión PS4 como CUSA-00009."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-portada-mini.webp",
+          "width": 1640,
+          "height": 2019,
+          "label": "Portada del ejemplar precintado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-contraportada-mini.webp",
+          "width": 1630,
+          "height": 2019,
+          "label": "Contraportada del ejemplar precintado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-4-black-flag/assassins-creed-4-black-flag-ps4-pal-es-lomo-mini.webp",
+          "width": 2003,
+          "height": 180,
+          "label": "Lomo del ejemplar precintado"
+        }
+      ]
+    },
+    "ps4-assassins-creed-origins": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-origins",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · PS4 PAL España",
+      "packaging": {
+        "reference": "CUSA-05625",
+        "referenceComponent": "lomo",
+        "ean": "3307216025832",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; carátula en castellano, EAN de la contraportada y código CUSA del lomo comprobados en los escaneos del mismo ejemplar.",
+        "productNumber": "300096489",
+        "languageStatement": "Juego en español - Requiere conexión a internet de alta velocidad para descargar voces en castellano."
+      },
+      "notes": [
+        "Escaneos del ejemplar aportado precintado: se conservan la caja, las tiras del precinto y los reflejos del plástico. Los discos y materiales interiores no se han abierto ni inspeccionado.",
+        "La contraportada exige descargar las voces en castellano mediante una conexión a internet de alta velocidad; no acredita que esas voces estén incluidas en el disco."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-portada-mini.webp",
+          "width": 1634,
+          "height": 2017,
+          "label": "Portada del ejemplar precintado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-contraportada-mini.webp",
+          "width": 1624,
+          "height": 2023,
+          "label": "Contraportada del ejemplar precintado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-origins/assassins-creed-origins-ps4-pal-es-lomo-mini.webp",
+          "width": 2007,
+          "height": 174,
+          "label": "Lomo del ejemplar precintado"
+        }
+      ]
+    },
+    "ps4-assassins-creed-syndicate": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-syndicate",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · PS4 PAL España",
+      "packaging": {
+        "reference": "CUSA-02376",
+        "referenceComponent": "lomo",
+        "ean": "3307215893227",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; carátula en castellano, EAN de la contraportada y código CUSA del lomo comprobados en los escaneos del mismo ejemplar.",
+        "productNumber": "300078930",
+        "languageStatement": "Voces, textos y manual totalmente en castellano"
+      },
+      "notes": [
+        "Escaneos del ejemplar aportado precintado: se conservan la caja, las tiras del precinto y los reflejos del plástico. Los discos y materiales interiores no se han abierto ni inspeccionado.",
+        "La portada anuncia «Los crímenes terroríficos»: 10 misiones exclusivas de PlayStation 4."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-portada-mini.webp",
+          "width": 1636,
+          "height": 2023,
+          "label": "Portada del ejemplar precintado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-contraportada-mini.webp",
+          "width": 1626,
+          "height": 2027,
+          "label": "Contraportada del ejemplar precintado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-syndicate/assassins-creed-syndicate-ps4-pal-es-lomo-mini.webp",
+          "width": 2015,
+          "height": 182,
+          "label": "Lomo del ejemplar precintado"
+        }
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español"
+        ],
+        "audio": [
+          "Español"
+        ]
+      }
+    },
+    "ps4-assassins-creed-valhalla": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-valhalla",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · PS4 PAL España",
+      "packaging": {
+        "reference": "CUSA-18534",
+        "referenceComponent": "lomo",
+        "ean": "3307216168379",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; carátula en castellano, EAN de la contraportada y código CUSA del lomo comprobados en los escaneos del mismo ejemplar.",
+        "productNumber": "300117584",
+        "languageStatement": "Juego en español - Requiere conexión a internet de alta velocidad para descargar voces en castellano."
+      },
+      "notes": [
+        "Escaneos del ejemplar aportado precintado: se conservan la caja, las tiras del precinto y los reflejos del plástico. Los discos y materiales interiores no se han abierto ni inspeccionado.",
+        "Ejemplar físico para PS4. La portada anuncia la actualización digital a PS5 y especifica que, para actualizar desde esta copia física, se necesita una PS5 con unidad de discos.",
+        "La contraportada exige descargar las voces en castellano mediante una conexión a internet de alta velocidad; no acredita que esas voces estén incluidas en el disco."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-portada-mini.webp",
+          "width": 1638,
+          "height": 2027,
+          "label": "Portada del ejemplar precintado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-contraportada-mini.webp",
+          "width": 1636,
+          "height": 2021,
+          "label": "Contraportada del ejemplar precintado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-valhalla/assassins-creed-valhalla-ps4-pal-es-lomo-mini.webp",
+          "width": 2011,
+          "height": 183,
+          "label": "Lomo del ejemplar precintado"
+        }
+      ]
+    },
+    "ps4-assassins-creed-the-ezio-collection": {
+      "identity": {
+        "platformSlug": "ps4",
+        "slug": "assassins-creed-the-ezio-collection",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada-catalogo.webp",
+      "primaryCaption": "Ejemplar precintado · PS4 PAL España",
+      "packaging": {
+        "reference": "CUSA-04893",
+        "referenceComponent": "lomo",
+        "ean": "3307215977453",
+        "languages": [
+          "Español"
+        ],
+        "marketEvidence": "Edición PAL España confirmada por el propietario; carátula en castellano, EAN de la contraportada y código CUSA del lomo comprobados en los escaneos del mismo ejemplar.",
+        "productNumber": "300088765",
+        "languageStatement": "Voces, textos y manual totalmente en castellano"
+      },
+      "notes": [
+        "Escaneos del ejemplar aportado precintado: se conservan la caja, las tiras del precinto y los reflejos del plástico. Los discos y materiales interiores no se han abierto ni inspeccionado.",
+        "Incluye Assassin’s Creed II, La Hermandad y Revelations, contenidos adicionales de un jugador y los cortometrajes Lineage y Embers. La contraportada excluye expresamente el contenido multijugador."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-portada-mini.webp",
+          "width": 1652,
+          "height": 2027,
+          "label": "Portada del ejemplar precintado"
+        },
+        {
+          "role": "contraportada",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-contraportada-mini.webp",
+          "width": 1638,
+          "height": 2023,
+          "label": "Contraportada del ejemplar precintado"
+        },
+        {
+          "role": "lomo",
+          "url": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps4/escaneos-propios/assassins-creed-the-ezio-collection/assassins-creed-the-ezio-collection-ps4-pal-es-lomo-mini.webp",
+          "width": 2023,
+          "height": 190,
+          "label": "Lomo del ejemplar precintado"
+        }
+      ],
+      "softwareLanguagesPrinted": {
+        "text": [
+          "Español"
+        ],
+        "audio": [
+          "Español"
+        ]
+      }
     }
   }
 }
