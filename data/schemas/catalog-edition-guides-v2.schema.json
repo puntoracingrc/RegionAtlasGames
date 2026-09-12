@@ -156,6 +156,7 @@
         "label": { "type": "string", "minLength": 1 },
         "broadRegion": { "$ref": "#/$defs/broadRegion" },
         "editionType": { "$ref": "#/$defs/editionType" },
+        "marketRegions": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
         "packagingLanguages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "ratingSystems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "barcode": { "type": "string" },

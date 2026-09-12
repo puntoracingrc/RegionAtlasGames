@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PhysicalVariantCollectionToggle } from "@/components/physical-variant-collection-toggle";
+import { RegionFlag } from "@/components/region-flag";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { getCatalogGame } from "@/lib/catalog";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
@@ -262,6 +263,15 @@ function PhysicalEditionRow({
         {edition.id === guide.currentEditionId ? <Badge tone="green">Esta ficha</Badge> : null}
         {ownedCount ? <Badge tone="green">Tengo {ownedCount}</Badge> : null}
       </div>
+
+      {edition.marketRegions.length ? (
+        <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
+          <span className="font-semibold text-foreground/80">Mercados documentados</span>
+          {edition.marketRegions.map((marketRegion) => (
+            <RegionFlag key={marketRegion} region={marketRegion} size="xs" showLabel labelMode="short" />
+          ))}
+        </div>
+      ) : null}
 
       <div className="mt-3 grid gap-4 sm:grid-cols-[132px_minmax(0,1fr)]">
         <div className="flex aspect-[3/4] w-full max-w-[132px] items-center justify-center overflow-hidden border border-border bg-background">

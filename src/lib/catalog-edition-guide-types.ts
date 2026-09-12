@@ -116,6 +116,8 @@ export type CatalogPhysicalEdition = {
   label: string;
   broadRegion: CatalogBroadRegion;
   editionType: CatalogPhysicalEditionType;
+  /** Mercados físicos documentados; nunca se deducen de los idiomas del packaging. */
+  marketRegions: string[];
   packagingLanguages: string[];
   ratingSystems: string[];
   barcode?: string;
@@ -171,6 +173,10 @@ export type CatalogPhysicalEditionGroupSummary = {
   editionFamilyLabel?: string;
   catalogIds: string[];
   legacyRegions: string[];
+  /** Mercados nacionales documentados que mantienen la pertenencia a los filtros. */
+  marketRegions: string[];
+  /** Banderas resumidas para la tarjeta cuando se muestran todas las regiones. */
+  overviewRegions: string[];
   physicalEditionCount: number;
   collectibleVariantCount: number;
   broadRegions: Array<{
@@ -251,7 +257,7 @@ export function catalogBroadRegionFromLegacyRegion(region: string): CatalogBroad
     normalized.includes("korea") ||
     normalized.includes("corea") ||
     normalized.includes("hong kong") ||
-    normalized.includes("taiwan")
+    normalized.includes("taiw")
   ) {
     return "ASIA";
   }

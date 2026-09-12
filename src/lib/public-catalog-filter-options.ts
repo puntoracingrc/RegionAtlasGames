@@ -2,6 +2,7 @@ import { platforms, publicListedCatalog } from "@/lib/catalog";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCompanies } from "@/lib/indexes";
+import { getGroupableCatalogEditionGuides } from "@/lib/catalog-edition-guides";
 import {
   publicRegionLabelForPlatform,
   publicRegionLabelsForPlatform,
@@ -60,6 +61,16 @@ function buildRegionOptionsIndex(): RegionOptionsIndex {
     const platformLabels = labelsByPlatform.get(game.platformSlug) ?? new Map<string, string>();
     platformLabels.set(publicRegionLabelForPlatform(game.platformSlug, game.region), label);
     labelsByPlatform.set(game.platformSlug, platformLabels);
+  }
+
+  for (const guide of getGroupableCatalogEditionGuides()) {
+    const platformLabels = labelsByPlatform.get(guide.game.platformSlug) ?? new Map<string, string>();
+    for (const marketRegion of guide.physicalEditions.flatMap((edition) => edition.marketRegions)) {
+      const label = getRegionDisplay(marketRegion).label;
+      labels.add(label);
+      platformLabels.set(publicRegionLabelForPlatform(guide.game.platformSlug, marketRegion), label);
+    }
+    labelsByPlatform.set(guide.game.platformSlug, platformLabels);
   }
 
   return {

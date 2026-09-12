@@ -279,7 +279,9 @@ function matchesSlugFilter(slugs: string[] | undefined, selected: string | undef
 }
 
 function matchesLegacyRegion(game: CatalogListGame, region: string): boolean {
-  const candidateRegions = game.physicalEditionGroup?.legacyRegions ?? [game.region];
+  const candidateRegions = game.physicalEditionGroup
+    ? [...new Set([...game.physicalEditionGroup.marketRegions, ...game.physicalEditionGroup.legacyRegions])]
+    : [game.region];
   const group = selectedRegionGroup(region);
   return candidateRegions.some((candidateRegion) => {
     const standardLabel = getRegionDisplay(candidateRegion).label;

@@ -22,6 +22,7 @@ const REGION_MAP: Record<string, RegionDisplay> = {
   japón: { flagCode: "JP", label: "NTSC-J Japón", shortLabel: "JP" },
   japan: { flagCode: "JP", label: "NTSC-J Japón", shortLabel: "JP" },
   "ntsc-j japón": { flagCode: "JP", label: "NTSC-J Japón", shortLabel: "JP" },
+  "ntsc-j hong kong": { flagCode: "HK", label: "NTSC-J Hong Kong", shortLabel: "HK" },
   australia: { flagCode: "AU", label: "Australia", shortLabel: "AU" },
   occidental: { flagCode: "UNKNOWN", label: "Occidental", shortLabel: "OCC" },
   internacional: { flagCode: "UNKNOWN", label: "Internacional", shortLabel: "INT" },

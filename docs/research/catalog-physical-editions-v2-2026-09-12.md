@@ -39,7 +39,7 @@ También se revisaron los importadores de owned scans. Siguen escribiendo el reg
 `data/schemas/catalog-edition-guides-v2.schema.json` admite conjuntamente:
 
 - guides v1 sin cambios;
-- guides v2 con `game`, `physicalEditions`, `variants`, `sharedDiscs`, `evidence`, referencias a scans y relaciones de contenido.
+- guides v2 con `game`, `physicalEditions`, `marketRegions`, `variants`, `sharedDiscs`, `evidence`, referencias a scans y relaciones de contenido.
 
 El adaptador `catalog-edition-guides.ts` normaliza ambos formatos y valida en runtime:
 
@@ -47,7 +47,10 @@ El adaptador `catalog-edition-guides.ts` normaliza ambos formatos y valida en ru
 - `catalogId` público y perteneciente a la plataforma declarada;
 - identidad exacta antes de enlazar una ficha;
 - referencias existentes a edición, variante, disco, imagen, evidencia y scan set;
+- mercados físicos únicos y compatibles con la gran región declarada;
 - procedencia explícita en imágenes v2.
+
+`marketRegions` es evidencia de distribución física y se mantiene separado de `packagingLanguages`: los idiomas impresos nunca crean por sí solos una bandera o un mercado nacional.
 
 Las evidencias fuertes para definir una variante física son `REAL_SCAN`, `REAL_PHOTO`, `UNBOXING_FRAME` y `RETAILER_PHOTO_CONFIRMED`. Assets, mockups, imágenes previas, documentación textual y confirmaciones se conservan con su tipo, pero no se convierten automáticamente en prueba visual.
 
@@ -74,7 +77,7 @@ El guide `absolum-ps5` contiene siete ediciones:
 | Asia | Standard Corea, GRAC | pendiente de código físico |
 | Asia | Standard Hong Kong/Taiwán | conjunta hasta evidencia de separación |
 
-Las tres ediciones europeas apuntan al mismo `sharedDiscId`. La identidad común del disco fue confirmada físicamente por el propietario: incluye la Standard EN/FR/ES distribuida en Francia, Reino Unido y España, la Standard alemana y la Standard contenida en la Special.
+Las tres ediciones europeas apuntan al mismo `sharedDiscId`. La identidad común del disco fue confirmada físicamente por el propietario: incluye la Standard EN/FR/ES distribuida en Francia, Reino Unido y España, la Standard alemana y la Standard contenida en la Special. El guide registra `FR / ES / UK` para la primera caja y `DE` para la alemana. La Special se mantiene en `PAL Europa`: sus idiomas no se usan para inventar países de distribución no documentados.
 
 La Special referencia la Standard EN/FR/ES mediante `includesEditionIds` y su ficha oficial documenta caja, juego Standard, mini artbook, cuatro pins, póster, cuatro tarjetas y banda sonora digital. Los scans propios acreditan por separado caja, EAN, PEGI, PPSA y lomo; no se usan para afirmar el contenido interior.
 
@@ -92,10 +95,13 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 
 ## Navegación, filtros y precios
 
-- El catálogo y PS5 muestran una sola tarjeta `Absolum` para las tres fichas legacy enlazadas.
-- La tarjeta resume siete ediciones y sus tres grandes regiones.
+- El catálogo y PS5 muestran dos familias: `Standard Edition` agrupa seis ediciones físicas y dos fichas legacy; `Special Edition` conserva su ficha y su única edición física.
+- Una familia con cero o una edición usa terminología de edición y no presenta selector de variantes. Solo dos o más alternativas físicas activan la terminología y navegación de variantes.
+- Con `Todas las regiones`, la tarjeta Standard resume `EU / US / JP / KR / HK / TW`; no hereda la bandera ES de su ficha legacy representativa.
+- Con un filtro nacional, la misma raíz sigue siendo elegible por sus mercados documentados y muestra la bandera elegida. `PAL España`, `PAL Francia`, `PAL Reino Unido` y `PAL Alemania` no se deducen de los idiomas del packaging.
+- Dentro de la ficha, cada edición muestra sus mercados exactos: `FR / ES / UK` juntos, `DE` por separado y los mercados americanos y asiáticos en sus bloques.
 - Los filtros `Gran región`, `Rating` y `Edición física` evalúan los hijos y devuelven una sola raíz.
-- La búsqueda incluye EAN, referencias, idiomas, ratings y marcas de variantes.
+- La búsqueda incluye EAN, referencias, mercados, idiomas, ratings y marcas de variantes.
 - Para el grupo óptico se muestran únicamente `Completo` y `Precintado`; si hay varios valores, se muestra rango. No se inventan precios.
 - Un fixture conceptual de Resident Evil 4 demuestra que SIAE/no-SIAE comparte edición, caja, EAN y disco, pero conserva dos `priceIdentity`.
 
@@ -116,7 +122,7 @@ La misma ficha a 390 px, sin overflow horizontal:
 
 ![Absolum Special Edition en móvil](images/catalog-physical-editions-v2-absolum-mobile.webp)
 
-Se comprobaron `/catalogo?q=Absolum`, `/plataforma/ps5?q=Absolum`, la ficha Standard PAL España, la ficha Special PAL España y la ficha USA. Todas respondieron `200`. Catálogo y PS5 mostraron una sola tarjeta raíz; las dos fichas directas conservaron sus URLs. En 1440 px y 390 px no hubo overflow horizontal, imágenes rotas, errores de consola, respuestas HTTP fallidas ni recursos con estado 4xx/5xx.
+Se comprobaron `/catalogo?q=Absolum`, `/catalogo?q=Absolum&region=PAL%20Espa%C3%B1a`, `/plataforma/ps5?q=Absolum`, la ficha Standard PAL España, la ficha Special PAL España y la ficha USA. Todas respondieron `200`. El filtro España conservó la raíz Standard y mostró `ES`; el estado sin filtro mostró `EU / US / JP / KR / HK / TW`. La ficha Standard mostró `FR / ES / UK`, `DE`, `US`, `JP`, `KR`, `HK` y `TW` en sus ediciones correspondientes. La Special mostró `1 edición física`, `Precio de esta edición` y `Añadir a mi colección`, sin selector de variantes. En 1280 px y 390 px no hubo overflow horizontal, imágenes rotas ni errores de consola.
 
 ## Riesgos y deuda explícita
 
@@ -130,8 +136,8 @@ Se comprobaron `/catalogo?q=Absolum`, `/plataforma/ps5?q=Absolum`, la ficha Stan
 ## Controles de aceptación
 
 - JSON y schema parseables: PASS.
-- Pruebas específicas v1/v2, scans, evidencia, disco compartido, filtros, URLs, precios ópticos y SIAE: 8/8 PASS.
-- Suite unitaria completa: PASS, incluidas 263/263 pruebas principales y todas las suites previas/posteriores.
+- Pruebas específicas v1/v2, scans, evidencia, disco compartido, mercados, filtros nacionales, URLs, precios ópticos y SIAE: 12/12 PASS.
+- Suite unitaria completa: PASS, incluidas 264/264 pruebas principales y todas las suites previas/posteriores.
 - `typecheck`: PASS.
 - Lint: PASS, 0 errores y 34 avisos preexistentes.
 - Build Next.js: PASS, 139 rutas estáticas generadas.

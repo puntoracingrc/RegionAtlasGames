@@ -26,6 +26,8 @@ import { filterCatalogGames, type CatalogFilterState } from "./catalog-filters";
 import { toCatalogListGame } from "./catalog-list-game";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
 import { groupCatalogListGames } from "./catalog-physical-edition-browse";
+import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
+import { getRegionDisplay } from "./region-display";
 import {
   collectionItemMatchesPhysicalVariant,
   collectionPhysicalIdentityKey,
@@ -120,6 +122,18 @@ test("Absolum models seven editions, three broad regions and one shared European
     [special.dimensions?.comparison?.widthCm, special.dimensions?.comparison?.heightCm, special.dimensions?.comparison?.depthCm],
     [13.5, 17, 1.5],
   );
+
+  const standardEurope = european.find((edition) => edition.id === "absolum-ps5-europe-standard-en-fr-es");
+  assert.deepEqual(standardEurope?.marketRegions, ["PAL Francia", "PAL España", "PAL Reino Unido"]);
+  assert.deepEqual(
+    guide.physicalEditions.find((edition) => edition.id === "absolum-ps5-europe-standard-de")?.marketRegions,
+    ["PAL Alemania"],
+  );
+  assert.deepEqual(
+    guide.physicalEditions.find((edition) => edition.id === "absolum-ps5-asia-hk-tw")?.marketRegions,
+    ["NTSC-J Hong Kong", "NTSC-J Taiwán"],
+  );
+  assert.equal(getRegionDisplay("NTSC-J Hong Kong").flagCode, "HK");
 });
 
 test("real owned scans are referenced once and weak assets cannot define a physical variant", async () => {
@@ -186,6 +200,15 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
   assert.equal(standard.physicalEditionGroup.editionFamilyLabel, "Standard Edition");
   assert.equal(standard.physicalEditionGroup.physicalEditionCount, 6);
   assert.deepEqual(standard.physicalEditionGroup.catalogIds.sort(), ["ps5-absolum", "ps5-usa-absolum"]);
+  assert.deepEqual(standard.physicalEditionGroup.overviewRegions, [
+    "PAL Europa",
+    "NTSC USA",
+    "NTSC-J Japón",
+    "NTSC-J Corea",
+    "NTSC-J Hong Kong",
+    "NTSC-J Taiwán",
+  ]);
+  assert.ok(standard.physicalEditionGroup.marketRegions.includes("PAL España"));
   assert.equal(special.physicalEditionGroup.editionFamilyLabel, "Special Edition");
   assert.equal(special.physicalEditionGroup.physicalEditionCount, 1);
   assert.deepEqual(special.physicalEditionGroup.catalogIds, ["ps5-absolum-special-edition"]);
@@ -198,6 +221,17 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
   assert.deepEqual(standardOnly.items.map((game) => game.id), ["ps5-absolum"]);
   const europe = filterCatalogGames(grouped, { ...defaultFilters, broadRegion: "EUROPE" }, { platforms: true, regions: true });
   assert.deepEqual(europe.items.map((game) => game.id).sort(), ["ps5-absolum", "ps5-absolum-special-edition"]);
+  const spanish = filterCatalogGames(grouped, { ...defaultFilters, region: "PAL España" }, { platforms: true, regions: true });
+  assert.ok(spanish.items.some((game) => game.id === "ps5-absolum"));
+  const french = filterCatalogGames(grouped, { ...defaultFilters, region: "PAL Francia" }, { platforms: true, regions: true });
+  assert.deepEqual(french.items.map((game) => game.id), ["ps5-absolum"]);
+  const german = filterCatalogGames(grouped, { ...defaultFilters, region: "PAL Alemania" }, { platforms: true, regions: true });
+  assert.deepEqual(german.items.map((game) => game.id), ["ps5-absolum"]);
+
+  const ps5RegionOptions = publicCatalogRegionFilterOptionsForPlatform("ps5").map((option) => option.value);
+  for (const market of ["PAL España", "PAL Francia", "PAL Reino Unido", "PAL Alemania", "NTSC-J Corea", "NTSC-J Hong Kong", "NTSC-J Taiwán"]) {
+    assert.ok(ps5RegionOptions.includes(market), `missing PS5 region filter: ${market}`);
+  }
 });
 
 test("legacy IDs and direct URLs remain unique while optical group prices omit loose disc", () => {
@@ -285,6 +319,7 @@ test("a SIAE marking is a collectible variant with its own price identity, not a
       label: "Edición física ES / IT",
       broadRegion: "EUROPE",
       editionType: "STANDARD",
+      packagingLanguages: ["ES", "IT"],
       barcode: "concept-shared-ean",
       sharedDiscId: "resident-evil-4-ps5-europe-disc",
       catalogIds: ["ps5-resident-evil-4-remake"],
@@ -301,6 +336,7 @@ test("a SIAE marking is a collectible variant with its own price identity, not a
   const normalized = normalizeCatalogEditionGuide(fixture);
   assert.equal(normalized.physicalEditions.length, 1);
   assert.equal(normalized.physicalEditions[0].variants.length, 2);
+  assert.deepEqual(normalized.physicalEditions[0].marketRegions, []);
   assert.equal(new Set(normalized.physicalEditions[0].variants.map((variant) => variant.priceIdentity)).size, 2);
   assert.deepEqual(normalized.physicalEditions[0].variants[1].stickers, ["SIAE"]);
   assert.equal(normalized.physicalEditions[0].sharedDiscId, "resident-evil-4-ps5-europe-disc");

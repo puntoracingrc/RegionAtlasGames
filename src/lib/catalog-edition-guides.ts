@@ -47,6 +47,7 @@ type PhysicalGuide = {
     label: string;
     broadRegion: CatalogPhysicalEdition["broadRegion"];
     editionType: CatalogPhysicalEditionType;
+    marketRegions?: string[];
     packagingLanguages?: string[];
     ratingSystems?: string[];
     barcode?: string;
@@ -152,6 +153,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       label: entry.label,
       broadRegion: catalogBroadRegionFromLegacyRegion(entry.identity.region),
       editionType: legacyEditionType(entry.label),
+      marketRegions: [target.region],
       packagingLanguages: [],
       ratingSystems: [],
       physicalContents: [],
@@ -242,6 +244,13 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     for (const id of entry.includesVariantIds ?? []) {
       if (!variantIds.includes(id)) throw new Error(`[catalog-edition-guides] ${entry.id} unknown includesVariantId: ${id}`);
     }
+    const marketRegions = entry.marketRegions ?? [];
+    ensureUnique(marketRegions, `${entry.id} market region`);
+    for (const marketRegion of marketRegions) {
+      if (catalogBroadRegionFromLegacyRegion(marketRegion) !== entry.broadRegion) {
+        throw new Error(`[catalog-edition-guides] ${entry.id} market outside ${entry.broadRegion}: ${marketRegion}`);
+      }
+    }
     const links = (entry.catalogIds ?? []).map((catalogId) => {
       const target = requiredCatalogGame(catalogId, raw.game.platformSlug);
       return { catalogId, href: catalogGamePath(target), current: false, region: target.region };
@@ -257,6 +266,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     }));
     return {
       ...entry,
+      marketRegions,
       packagingLanguages: entry.packagingLanguages ?? [],
       ratingSystems: entry.ratingSystems ?? [],
       physicalContents: entry.physicalContents ?? [],

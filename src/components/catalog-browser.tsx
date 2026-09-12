@@ -2,14 +2,13 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { LayoutGrid, LoaderCircle, Rows3, ShoppingCart } from "lucide-react";
-import { CatalogGameCard } from "@/components/game-card";
+import { CatalogCardRegionFlags, CatalogGameCard, catalogCardRegionLabels } from "@/components/game-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
 import { CollectionQuickAdd } from "@/components/collection-quick-add";
 import { HighlightLegend } from "@/components/highlight-legend";
 import { IntentLink } from "@/components/intent-link";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 import { PriceLegend } from "@/components/price-legend";
-import { RegionFlag } from "@/components/region-flag";
 import { RegionFilterChips } from "@/components/region-filter-chips";
 import {
   CATALOG_PAGE_SIZE,
@@ -74,15 +73,18 @@ function CatalogCompactRow({
   isLoggedIn,
   onOwnedChange,
   listingsForSale,
+  activeRegion,
 }: {
   game: CatalogListGame;
   owned: boolean;
   isLoggedIn: boolean;
   onOwnedChange: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   listingsForSale: number;
+  activeRegion?: string;
 }) {
   const cover = getCoverSrc(game.coverUrl, game.id);
   const conditionPrices = catalogConditionPriceRows(game);
+  const displayRegions = catalogCardRegionLabels(game.region, game.physicalEditionGroup, activeRegion);
 
   return (
     <div
@@ -127,12 +129,13 @@ function CatalogCompactRow({
                 <span aria-hidden>·</span>
                 <span>{game.physicalEditionGroup.broadRegions.map((entry) => entry.label).join(" / ")}</span>
               </>
-            ) : (
+            ) : null}
+            {displayRegions.length ? (
               <>
                 <span aria-hidden>·</span>
-                <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
+                <CatalogCardRegionFlags regions={displayRegions} />
               </>
-            )}
+            ) : null}
             {game.displayYear != null ? (
               <>
                 <span aria-hidden>·</span>
@@ -662,11 +665,12 @@ export function CatalogBrowser({
             isLoggedIn={isLoggedIn}
             onOwnedChange={handleOwnedChange}
             listingsForSale={listingCounts[game.id] ?? 0}
+            activeRegion={region}
           />
         ))}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems],
+    [handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems, region],
   );
 
   const catalogList = useMemo(
@@ -680,11 +684,12 @@ export function CatalogBrowser({
             isLoggedIn={isLoggedIn}
             onOwnedChange={handleOwnedChange}
             listingsForSale={listingCounts[game.id] ?? 0}
+            activeRegion={region}
           />
         ))}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems],
+    [handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems, region],
   );
 
   return (

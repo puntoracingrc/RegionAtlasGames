@@ -19,6 +19,7 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { IntentLink } from "@/components/intent-link";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 import { isPendingCatalogGame } from "@/lib/catalog-review-policy";
+import { regionNavigationGroup, selectedRegionGroup } from "@/lib/region-navigation";
 import {
   formatCollectionConditionSummary,
   type CollectionConditionValue,
@@ -77,18 +78,48 @@ function gameHighlights(game: CatalogListGame | CollectionView) {
   return { grail, topSegment };
 }
 
+export function catalogCardRegionLabels(
+  region: string | undefined,
+  physicalEditionGroup: CatalogListGame["physicalEditionGroup"],
+  activeRegion: string | undefined,
+): string[] {
+  if (!physicalEditionGroup) return region ? [region] : [];
+  if (activeRegion && activeRegion !== "all") {
+    const selectedGroup = selectedRegionGroup(activeRegion);
+    if (selectedGroup) {
+      return physicalEditionGroup.overviewRegions.filter(
+        (candidate) => regionNavigationGroup(candidate) === selectedGroup.id,
+      );
+    }
+    return [activeRegion];
+  }
+  return physicalEditionGroup.overviewRegions;
+}
+
+export function CatalogCardRegionFlags({ regions }: { regions: string[] }) {
+  return (
+    <span className="inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+      {regions.map((region) => (
+        <RegionFlag key={region} region={region} size="xs" showLabel labelMode="short" />
+      ))}
+    </span>
+  );
+}
+
 export function CatalogGameCard({
   game,
   owned = false,
   isLoggedIn = false,
   onOwnedChange,
   listingsForSale = 0,
+  activeRegion = "all",
 }: {
   game: CatalogListGame;
   owned?: boolean;
   isLoggedIn?: boolean;
   onOwnedChange?: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   listingsForSale?: number;
+  activeRegion?: string;
 }) {
   const { grail, topSegment } = gameHighlights(game);
 
@@ -114,6 +145,7 @@ export function CatalogGameCard({
           topSegment={topSegment}
           listingsForSale={listingsForSale}
           physicalEditionGroup={game.physicalEditionGroup}
+          activeRegion={activeRegion}
         />
         {isPendingCatalogGame(game) ? <p className="px-3 pb-3 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
@@ -313,6 +345,7 @@ function CardBody({
   catalogPrices,
   physicalEditionGroup,
   physicalVariantLabel,
+  activeRegion,
 }: {
   title: string;
   physicalVariantLabel?: string;
@@ -331,7 +364,9 @@ function CardBody({
   conditionValues?: CollectionConditionValue[];
   catalogPrices?: CatalogConditionPriceRow[];
   physicalEditionGroup?: CatalogListGame["physicalEditionGroup"];
+  activeRegion?: string;
 }) {
+  const displayRegions = catalogCardRegionLabels(region, physicalEditionGroup, activeRegion);
   const tags = [
     topSegment ? "Top región" : null,
     grail ? "Rareza" : null,
@@ -386,18 +421,12 @@ function CardBody({
                 <span className="shrink-0 tabular-nums normal-case tracking-normal">{year}</span>
               </>
             )}
-            {region && (
+            {displayRegions.length > 0 && (
               <>
                 <span aria-hidden className="text-muted/50">
                   ·
                 </span>
-                <RegionFlag
-                  region={region}
-                  size="xs"
-                  showLabel
-                  labelMode="short"
-                  className="shrink-0 normal-case tracking-normal"
-                />
+                <CatalogCardRegionFlags regions={displayRegions} />
               </>
             )}
             {tags.length > 0 && (
