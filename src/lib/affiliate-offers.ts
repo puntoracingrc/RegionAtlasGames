@@ -789,7 +789,7 @@ async function getEbayOffers(
   const offers = mergeRegionFirstEbayOffers(preferredOffers, expandedOffers, ebayLimit(), preferredCountry);
   return {
     offers,
-    fallbackCta: offers.length > 0 ? null : fallbackCta,
+    fallbackCta,
   };
 }
 

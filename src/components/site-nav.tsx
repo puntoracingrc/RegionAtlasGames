@@ -1,9 +1,10 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { ChevronDown, Search, X } from "lucide-react";
 import { AuthNav } from "@/components/auth-nav";
+import { RegionFlag } from "@/components/region-flag";
 import { SiteLogo } from "@/components/site-logo";
 import { cn } from "@/lib/cn";
 import type { PublicUser } from "@/lib/session";
@@ -92,6 +93,21 @@ const ADMIN_LINK = { href: "/admin", label: "Admin" };
 const CONTRIBUTOR_LINK = { href: "/contribuir", label: "Contribuir" };
 type StaffRole = "admin" | "contributor" | null;
 
+type SearchResult = {
+  id: string;
+  title: string;
+  href: string;
+  platform: string;
+  region: string;
+  year: number | null;
+  coverUrl: string | null;
+};
+
+type SearchPayload = {
+  items: SearchResult[];
+  total: number;
+};
+
 function MenuIcon({ open }: { open: boolean }) {
   return (
     <svg
@@ -126,7 +142,13 @@ export function SiteNav({
   sticky?: boolean;
 } = {}) {
   const pathname = usePathname();
+  const router = useRouter();
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchPayload, setSearchPayload] = useState<SearchPayload>({ items: [], total: 0 });
+  const [searchLoading, setSearchLoading] = useState(false);
   const [staffRole, setStaffRole] = useState<StaffRole>(initialStaffRole ?? null);
 
   useEffect(() => {
@@ -153,11 +175,63 @@ export function SiteNav({
         : LINKS;
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = open || searchOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [open, searchOpen]);
+
+  useEffect(() => {
+    if (!searchOpen) return;
+    const timeout = window.setTimeout(() => searchInputRef.current?.focus(), 40);
+    return () => window.clearTimeout(timeout);
+  }, [searchOpen]);
+
+  useEffect(() => {
+    if (!searchOpen || searchQuery.trim().length < 2) return;
+
+    const controller = new AbortController();
+    const timeout = window.setTimeout(async () => {
+      setSearchLoading(true);
+      try {
+        const params = new URLSearchParams({
+          q: searchQuery.trim(),
+          platform: "all",
+          region: "all",
+        });
+        const response = await fetch(`/api/catalog/search?${params}`, { signal: controller.signal });
+        if (!response.ok) return;
+        setSearchPayload((await response.json()) as SearchPayload);
+      } catch (error) {
+        if (!controller.signal.aborted) console.warn("[site-search] search failed", error);
+      } finally {
+        if (!controller.signal.aborted) setSearchLoading(false);
+      }
+    }, 160);
+
+    return () => {
+      controller.abort();
+      window.clearTimeout(timeout);
+    };
+  }, [searchOpen, searchQuery]);
+
+  function openSearch() {
+    setOpen(false);
+    setSearchOpen(true);
+  }
+
+  function closeSearch() {
+    setSearchOpen(false);
+    setSearchPayload({ items: [], total: 0 });
+  }
+
+  function submitSearch(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const query = searchQuery.trim();
+    if (!query) return;
+    closeSearch();
+    router.push(`/catalogo?q=${encodeURIComponent(query)}`);
+  }
 
   return (
     <nav
@@ -189,6 +263,17 @@ export function SiteNav({
             ))}
             <IndustryNavigation pathname={pathname} />
           </div>
+
+          <button
+            type="button"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-foreground transition hover:bg-card-hover"
+            aria-label="Buscar juego"
+            aria-expanded={searchOpen}
+            aria-controls="site-global-search"
+            onClick={openSearch}
+          >
+            <Search aria-hidden className="h-5 w-5" />
+          </button>
 
           <AuthNav initialUser={initialUser} />
 
@@ -290,6 +375,98 @@ export function SiteNav({
             </ul>
           </div>
         </>
+      )}
+
+      {searchOpen && (
+        <div id="site-global-search" className="fixed inset-0 z-[70] bg-slate-950/45 px-4 py-4 backdrop-blur-sm">
+          <button type="button" className="absolute inset-0 cursor-default" aria-label="Cerrar búsqueda" onClick={closeSearch} />
+          <div className="relative mx-auto mt-16 w-full max-w-2xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl shadow-slate-950/25">
+            <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-accent">Buscar juego</p>
+                <p className="text-sm text-muted">Busca en todo el catálogo desde cualquier página.</p>
+              </div>
+              <button
+                type="button"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition hover:bg-card-hover"
+                aria-label="Cerrar búsqueda"
+                onClick={closeSearch}
+              >
+                <X aria-hidden className="h-5 w-5" />
+              </button>
+            </div>
+
+            <form onSubmit={submitSearch} className="border-b border-border p-4">
+              <label className="block">
+                <span className="sr-only">Buscar juego en Region Atlas</span>
+                <input
+                  ref={searchInputRef}
+                  type="search"
+                  value={searchQuery}
+                  onChange={(event) => setSearchQuery(event.target.value)}
+                  placeholder="Ej. Resident Evil, Zelda, CUSA, Capcom..."
+                  autoComplete="off"
+                  autoCorrect="off"
+                  spellCheck={false}
+                  className="min-h-12 w-full rounded-xl border border-border bg-input px-4 text-base font-semibold text-foreground outline-none ring-accent/25 placeholder:text-muted focus:border-accent/45 focus:ring-2"
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") closeSearch();
+                  }}
+                />
+              </label>
+              <div className="mt-3 flex items-center justify-between gap-3 text-xs text-muted">
+                <span>
+                  {searchQuery.trim().length === 1
+                    ? "Escribe al menos 2 letras."
+                    : searchLoading
+                      ? "Buscando..."
+                      : searchQuery.trim().length >= 2
+                        ? `${searchPayload.total.toLocaleString("es-ES")} resultados`
+                        : "Pulsa Enter para ir al catálogo."}
+                </span>
+                <button type="submit" className="btn-secondary min-h-9 px-3 py-1.5 text-xs" disabled={!searchQuery.trim()}>
+                  Ver catálogo
+                </button>
+              </div>
+            </form>
+
+            <div className="max-h-[55vh] overflow-y-auto p-3">
+              {searchQuery.trim().length >= 2 && searchPayload.items.length === 0 && !searchLoading ? (
+                <div className="rounded-xl border border-dashed border-border bg-background/45 p-4 text-sm text-muted">
+                  No he encontrado fichas con ese texto. Prueba con menos palabras.
+                </div>
+              ) : (
+                <div className="grid gap-2">
+                  {searchPayload.items.slice(0, 8).map((game) => (
+                    <IntentLink
+                      key={game.id}
+                      href={game.href}
+                      className="group flex min-h-[74px] items-center gap-3 rounded-xl border border-border bg-background/45 p-2 transition hover:border-accent/40 hover:bg-card-hover"
+                      onClick={closeSearch}
+                    >
+                      <div className="flex h-[62px] w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-card">
+                        {game.coverUrl ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={game.coverUrl} alt="" className="h-full w-full object-cover" loading="lazy" />
+                        ) : (
+                          <span className="text-[10px] font-semibold text-muted">SIN</span>
+                        )}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-sm font-bold text-foreground group-hover:text-accent">{game.title}</p>
+                        <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px] text-muted">
+                          <span className="rounded-md bg-accent/10 px-1.5 py-0.5 font-bold text-accent">{game.platform}</span>
+                          <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
+                          {game.year ? <span>{game.year}</span> : null}
+                        </div>
+                      </div>
+                    </IntentLink>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       )}
     </nav>
   );
