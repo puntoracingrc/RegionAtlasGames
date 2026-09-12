@@ -101,6 +101,7 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 - Con un filtro nacional, la misma raíz sigue siendo elegible por sus mercados documentados y muestra la bandera elegida. Los filtros `ES / FR / GB / DE / US / JP / KR / HK / TW` se resuelven mediante una traducción de compatibilidad, sin almacenar nombres PAL/NTSC en el guide V2.
 - Dentro de la ficha, cada edición muestra sus mercados exactos: `FR / ES / UK` juntos, `DE` por separado y los mercados americanos y asiáticos en sus bloques.
 - Cada bloque de gran región incorpora una guía vertical continua: azul para Europa, azul/blanco/rojo para Norteamérica y rojo/dorado para Asia. Las banderas nacionales continúan identificando los mercados exactos dentro de cada edición.
+- Una edición que ya pertenece a la colección resalta toda su fila en verde. El estado visual usa el contador vivo del control de colección: aparece al añadir la primera copia y desaparece al retirar la última, sin mantener una marca independiente de los datos guardados.
 - La cabecera de la Special muestra `EU`, no `ES`, porque solo está demostrada su gran región europea. El filtro legacy España sigue encontrando la ficha sin convertir ese dato de compatibilidad en un mercado V2 demostrado.
 - El escaneo propio de la caja exterior es la portada principal de la ficha Special; la portada, contraportada y lomo continúan disponibles en su galería.
 - La identidad pública, descripción, precio pendiente, FAQ, textos alternativos, metadata social y JSON-LD de una familia V2 se construyen desde su guide. La Special ya no hereda `PAL España` ni «mercado español» de su representante legacy; la Standard se describe como familia de Europa, Norteamérica y Asia.
@@ -123,7 +124,7 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 
 Se comprobaron `/catalogo?q=Absolum`, `/catalogo?q=Absolum&region=PAL%20Espa%C3%B1a`, `/plataforma/ps5?q=Absolum`, la ficha Standard PAL España, la ficha Special PAL España y la ficha USA. Todas respondieron `200`. Los filtros de los nueve mercados (`ES / FR / GB / DE / US / JP / KR / HK / TW`) seleccionaron las familias esperadas; el filtro España conservó también la Special por compatibilidad con su ficha legacy. El estado sin filtro mostró `EU / US / JP / KR / HK / TW`. La ficha Standard mostró `FR / ES / UK`, `DE`, `US`, `JP`, `KR`, `HK` y `TW` en sus ediciones correspondientes.
 
-La QA final sobre el build de producción local verificó la ficha Special a 1440 x 900 y 390 x 844. La cabecera mostró `EU`, la portada principal resolvió al WebP del escaneo propio, y la ficha mostró `1 edición física`, `Precio de esta edición` y `Añadir a mi colección`, sin selector de variantes. `documentElement.scrollWidth` coincidió con el viewport en ambos tamaños; no hubo imágenes rotas, enlaces a artículos concretos de eBay, errores ni avisos de consola. Los dos bloques técnicos retirados tampoco estaban presentes en el DOM. El saneamiento posterior comprobó además que `<title>`, descripción, Open Graph, Twitter, JSON-LD, FAQ, bloque de precio y alt de portada ya no presentan la Special como española, y que la metadata de Standard representa la familia multirregional completa.
+La QA final sobre el build de producción local verificó la ficha Special a 1440 x 900 y 390 x 844. La cabecera mostró `EU`, la portada principal resolvió al WebP del escaneo propio, y la ficha mostró `1 edición física`, `Precio de esta edición` y `Añadir a mi colección`, sin selector de variantes. `documentElement.scrollWidth` coincidió con el viewport en ambos tamaños; no hubo imágenes rotas, enlaces a artículos concretos de eBay, errores ni avisos de consola. Los dos bloques técnicos retirados tampoco estaban presentes en el DOM. El saneamiento posterior comprobó además que `<title>`, descripción, Open Graph, Twitter, JSON-LD, FAQ, bloque de precio y alt de portada ya no presentan la Special como española, y que la metadata de Standard representa la familia multirregional completa. La ficha Standard verificó también el resaltado verde reactivo de una edición poseída en escritorio y móvil: fondo y contorno cambian con el contador vivo, sin solapamientos, imágenes rotas ni overflow.
 
 ## Riesgos y deuda explícita
 
@@ -137,7 +138,7 @@ La QA final sobre el build de producción local verificó la ficha Special a 144
 ## Controles de aceptación
 
 - JSON y schema parseables: PASS.
-- Pruebas específicas v1/v2, scans, evidencia, disco compartido, códigos de mercado, los nueve filtros nacionales, URLs, precios ópticos y SIAE: 12/12 PASS.
+- Pruebas específicas v1/v2, scans, evidencia, disco compartido, códigos de mercado, los nueve filtros nacionales, URLs, precios ópticos y SIAE: 13/13 PASS.
 - Suite unitaria completa: PASS, incluidas 264/264 pruebas principales y todas las suites previas/posteriores.
 - `typecheck`: PASS.
 - Lint: PASS, 0 errores y 34 avisos preexistentes.

@@ -263,7 +263,10 @@ function PhysicalEditionRow({
     return target ? [target.label] : [];
   });
   return (
-    <article id={edition.id} className="scroll-mt-28 py-4 outline-none target:bg-accent/5 target:outline target:outline-2 target:outline-accent/50 first:pt-2">
+    <article
+      id={edition.id}
+      className="scroll-mt-28 rounded-md px-3 py-4 outline-none transition-colors target:bg-accent/5 target:outline target:outline-2 target:outline-accent/50 first:pt-2 has-[[data-physical-variant-owned=true]]:bg-emerald-500/10 has-[[data-physical-variant-owned=true]]:ring-1 has-[[data-physical-variant-owned=true]]:ring-inset has-[[data-physical-variant-owned=true]]:ring-emerald-500/40"
+    >
       <div className="flex flex-wrap items-center gap-2">
         <h4 className="font-semibold text-foreground">{edition.label}</h4>
         <Badge tone={edition.editionType === "STANDARD" ? undefined : "amber"}>

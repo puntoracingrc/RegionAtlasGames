@@ -83,7 +83,10 @@ export function PhysicalVariantCollectionToggle({
   }
 
   return (
-    <div className="space-y-2">
+    <div
+      className="space-y-2"
+      data-physical-variant-owned={ownedCount > 0 ? "true" : "false"}
+    >
       <div className="flex flex-wrap items-center gap-2">
         <button
           type="button"
