@@ -151,8 +151,6 @@ function PhysicalEditionGuide({
             {currentFamily && isLoggedIn ? <Badge tone="green">{ownedVariantCount} de {visibleEditions.length} en tu colección</Badge> : null}
           </div>
         </div>
-        <p className="mt-2 text-sm leading-6 text-muted">{guide.note}</p>
-
         {guide.editionFamilies.length ? (
           <nav aria-label="Familias de edición" className="mt-5 flex flex-wrap gap-2 border-y border-border py-3">
             {guide.editionFamilies.map((family) => {
@@ -378,24 +376,37 @@ function DimensionsComparison({ dimensions }: { dimensions: NonNullable<CatalogP
   const formatCm = (value: number) => `${value.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} cm`;
   return (
     <div className="mt-4 border-y border-border/70 py-3">
-      {dimensions.comparisonImageUrl ? (
-        <div className="mx-auto max-w-md bg-white p-3">
-          <Image
-            unoptimized
-            src={dimensions.comparisonImageUrl}
-            width={900}
-            height={942}
-            alt="Comparación de la caja de esta edición con una caja estándar de PS5"
-            className="h-auto w-full object-contain"
-          />
+      <div className="grid w-full grid-cols-[minmax(0,8rem)_minmax(0,1fr)] items-center gap-4 sm:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] sm:gap-6">
+        {dimensions.comparisonImageUrl ? (
+          <div className="w-full">
+            <Image
+              unoptimized
+              src={dimensions.comparisonImageUrl}
+              width={900}
+              height={942}
+              alt="Comparación de la caja de esta edición con una caja estándar de PS5"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        ) : null}
+        <div className="min-w-0">
+          <p className="text-xs font-semibold uppercase text-muted">Medidas exteriores {dimensions.approximate ? "aproximadas" : ""}</p>
+          <dl className="mt-2 divide-y divide-border/60 text-sm">
+            <Dimension label="Ancho" value={formatCm(dimensions.widthCm)} />
+            <Dimension label="Alto" value={formatCm(dimensions.heightCm)} />
+            <Dimension label="Profundidad" value={formatCm(dimensions.depthCm)} />
+          </dl>
         </div>
-      ) : null}
-      <p className="mt-3 text-xs font-semibold uppercase text-muted">Medidas exteriores {dimensions.approximate ? "aproximadas" : ""}</p>
-      <dl className="mt-2 grid grid-cols-3 gap-3 text-sm">
-        <Fact label="ANCHO" value={formatCm(dimensions.widthCm)} />
-        <Fact label="ALTO" value={formatCm(dimensions.heightCm)} />
-        <Fact label="PROFUNDO" value={formatCm(dimensions.depthCm)} />
-      </dl>
+      </div>
+    </div>
+  );
+}
+
+function Dimension({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-baseline justify-between gap-3 py-2 first:pt-0 last:pb-0">
+      <dt className="font-semibold text-foreground">{label}</dt>
+      <dd className="shrink-0 text-muted">{value}</dd>
     </div>
   );
 }

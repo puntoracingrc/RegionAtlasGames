@@ -416,7 +416,7 @@ export default async function CatalogGamePage({ params }: Props) {
               <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />
             )}
 
-            <GameProductReference game={game} details={details} />
+            {editionGuide?.schemaVersion !== 2 ? <GameProductReference game={game} details={details} /> : null}
 
             {!pendingPs1 ? <Ps1EditionPanel game={game} details={details} /> : null}
             <Ps2EditionPanel game={game} details={details} />
