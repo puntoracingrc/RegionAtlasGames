@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  PhysicalEditionImageGallery,
+  type PhysicalEditionGalleryImage,
+} from "@/components/physical-edition-image-gallery";
 import { PhysicalVariantCollectionToggle } from "@/components/physical-variant-collection-toggle";
 import { RegionFlag } from "@/components/region-flag";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
@@ -78,18 +82,68 @@ function LegacyEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
 }
 
 function physicalEditionCover(edition: CatalogPhysicalEdition): string | null {
-  const scanSet = edition.scanSetIds.flatMap((id) => {
-    const scans = getOwnedScanSetById(id);
-    return scans ? [scans] : [];
-  })[0];
-  if (scanSet) return scanSet.primaryCoverUrl;
-  const evidenceImage = edition.images.find((image) => isStrongPhysicalEvidence(image.evidenceType));
-  if (evidenceImage) return evidenceImage.thumbnailUrl;
+  return physicalEditionGalleryImages(edition)[0]?.thumbnailSrc ?? null;
+}
+
+function physicalEditionGalleryImages(edition: CatalogPhysicalEdition): PhysicalEditionGalleryImage[] {
+  const images: PhysicalEditionGalleryImage[] = [];
+  const seen = new Set<string>();
+  const add = (image: PhysicalEditionGalleryImage) => {
+    if (seen.has(image.src)) return;
+    seen.add(image.src);
+    images.push(image);
+  };
+
+  for (const scanSetId of edition.scanSetIds) {
+    const scanSet = getOwnedScanSetById(scanSetId);
+    if (!scanSet) continue;
+    const orderedImages = [...scanSet.images].sort(
+      (left, right) =>
+        Number(right.url === scanSet.primaryCoverUrl) -
+        Number(left.url === scanSet.primaryCoverUrl),
+    );
+    for (const image of orderedImages) {
+      add({
+        id: `${scanSetId}:${image.role}:${image.url}`,
+        src: image.url,
+        thumbnailSrc: image.thumbnailUrl,
+        width: image.width,
+        height: image.height,
+        label: image.label,
+      });
+    }
+  }
+
+  for (const image of edition.images) {
+    if (!isStrongPhysicalEvidence(image.evidenceType)) continue;
+    add({
+      id: image.key,
+      src: image.url,
+      thumbnailSrc: image.thumbnailUrl,
+      width: image.width,
+      height: image.height,
+      label: image.caption,
+    });
+  }
+
   const linkedGame = edition.catalogIds.flatMap((id) => {
     const game = getCatalogGame(id);
     return game ? [game] : [];
   })[0];
-  return linkedGame ? getCoverSrc(linkedGame.coverUrl, linkedGame.id) : null;
+  if (!images.length && linkedGame) {
+    const cover = getCoverSrc(linkedGame.coverUrl, linkedGame.id);
+    if (cover) {
+      add({
+        id: `catalog:${linkedGame.id}`,
+        src: cover,
+        thumbnailSrc: cover,
+        width: 600,
+        height: 800,
+        label: `Portada de ${edition.label}`,
+      });
+    }
+  }
+  return images;
 }
 
 function familyHref(family: CatalogEditionFamily): string | null {
@@ -226,7 +280,7 @@ function PhysicalEditionRow({
   ownedCount: number;
   loginPath: string;
 }) {
-  const cover = physicalEditionCover(edition);
+  const galleryImages = physicalEditionGalleryImages(edition);
   const linkedCatalogGame = edition.catalogIds.flatMap((id) => {
     const game = getCatalogGame(id);
     return game ? [game] : [];
@@ -269,13 +323,7 @@ function PhysicalEditionRow({
       ) : null}
 
       <div className="mt-3 grid gap-4 sm:grid-cols-[132px_minmax(0,1fr)]">
-        <div className="flex aspect-[3/4] w-full max-w-[132px] items-center justify-center overflow-hidden border border-border bg-background">
-          {cover ? (
-            <Image unoptimized src={cover} width={132} height={176} alt={`Portada de ${edition.label}`} className="h-full w-full object-contain" />
-          ) : (
-            <span className="px-3 text-center text-[10px] font-semibold uppercase leading-4 text-muted">Portada pendiente de evidencia</span>
-          )}
-        </div>
+        <PhysicalEditionImageGallery images={galleryImages} title={edition.label} />
         <div className="min-w-0">
           <dl className="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2">
             {edition.packagingLanguages.length ? <Fact label="Idiomas del packaging" value={edition.packagingLanguages.join(" / ")} /> : null}
@@ -347,7 +395,6 @@ function PhysicalEditionRow({
       ) : null}
 
       {edition.notes.map((note) => <p key={note} className="mt-2 text-xs leading-5 text-muted">{note}</p>)}
-      {edition.scanSetIds.map((scanSetId) => <ScanSetGallery key={scanSetId} scanSetId={scanSetId} />)}
     </article>
   );
 }
@@ -393,25 +440,4 @@ function Dimension({ label, value }: { label: string; value: string }) {
 
 function Fact({ label, value, mono = false }: { label: string; value: string; mono?: boolean }) {
   return <div><dt className="font-semibold text-foreground">{label}</dt><dd className={mono ? "font-mono text-muted" : "text-muted"}>{value}</dd></div>;
-}
-
-function ScanSetGallery({ scanSetId }: { scanSetId: string }) {
-  const scans = getOwnedScanSetById(scanSetId);
-  if (!scans) return null;
-  return (
-    <details className="mt-4 border-t border-border/70 pt-3" open>
-      <summary className="cursor-pointer text-sm font-semibold">Escaneos físicos del ejemplar ({scans.images.length})</summary>
-      <p className="mt-2 text-xs leading-5 text-muted">{scans.packaging.marketEvidence}</p>
-      <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
-        {scans.images.map((asset) => (
-          <figure key={asset.url} className="min-w-0 border border-border p-2">
-            <a href={asset.url} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar ${asset.label.toLowerCase()}`}>
-              <Image unoptimized src={asset.thumbnailUrl} width={asset.width} height={asset.height} alt={asset.label} className="h-40 w-full object-contain" />
-            </a>
-            <figcaption className="mt-2 text-xs leading-5 text-muted">{asset.label}</figcaption>
-          </figure>
-        ))}
-      </div>
-    </details>
-  );
 }
