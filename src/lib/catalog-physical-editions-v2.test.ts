@@ -32,6 +32,8 @@ import {
   withOwnedScanDetails,
 } from "./catalog-owned-scans";
 import {
+  catalogPhysicalEditionBroadRegionAnchorId,
+  catalogPhysicalEditionOverviewRegionLinks,
   catalogPhysicalEditionOverviewRegions,
   getCatalogPhysicalEditionPublicIdentity,
   groupCatalogListGames,
@@ -310,6 +312,28 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
     const market = catalogMarketRegionToLegacyRegion(marketCode);
     assert.ok(ps5RegionOptions.includes(market), `missing PS5 region filter: ${market}`);
   }
+});
+
+test("V2 overview regions link to the matching regional block or exact physical edition", () => {
+  const guide = absolumGuide();
+  const standardFamily = guide.editionFamilies.find((family) => family.id === "standard");
+  assert.ok(standardFamily);
+  const standardEditions = guide.physicalEditions.filter((edition) =>
+    standardFamily.physicalEditionIds.includes(edition.id));
+
+  assert.deepEqual(catalogPhysicalEditionOverviewRegionLinks(standardEditions), [
+    { region: "PAL Europa", targetId: catalogPhysicalEditionBroadRegionAnchorId("EUROPE") },
+    { region: "NTSC USA", targetId: "absolum-ps5-north-america-standard" },
+    { region: "NTSC-J Japón", targetId: "absolum-ps5-asia-japan" },
+    { region: "NTSC-J Corea", targetId: "absolum-ps5-asia-korea" },
+    { region: "NTSC-J Hong Kong", targetId: "absolum-ps5-asia-hk-tw" },
+    { region: "NTSC-J Taiwán", targetId: "absolum-ps5-asia-hk-tw" },
+  ]);
+
+  const special = guide.physicalEditions.filter((edition) => edition.id === "absolum-ps5-europe-special");
+  assert.deepEqual(catalogPhysicalEditionOverviewRegionLinks(special), [
+    { region: "PAL Europa", targetId: catalogPhysicalEditionBroadRegionAnchorId("EUROPE") },
+  ]);
 });
 
 test("Absolum V2 public identity never inherits an unsupported legacy market", () => {

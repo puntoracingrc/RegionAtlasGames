@@ -25,6 +25,9 @@ import { getCoverSrc } from "@/lib/cover-url";
 import { formatEur } from "@/lib/price-format";
 import { catalogConditionPriceRows } from "@/lib/price-display";
 import {
+  catalogPhysicalEditionBroadRegionAnchorId,
+} from "@/lib/catalog-physical-edition-browse";
+import {
   catalogRegionRailSegments,
   type CatalogRegionRailIdentity,
 } from "@/lib/catalog-region-rail";
@@ -235,8 +238,9 @@ function PhysicalEditionGuide({
             return (
               <section
                 key={region}
+                id={catalogPhysicalEditionBroadRegionAnchorId(region)}
                 data-broad-region={region}
-                className="relative py-5 pl-5 first:pt-4"
+                className="relative scroll-mt-28 py-5 pl-5 outline-none transition-colors target:bg-accent/5 target:outline target:outline-2 target:outline-accent/50 first:pt-4"
               >
                 <RegionRail identity={region} />
                 <h3 className="mb-2 text-lg font-bold text-foreground">{catalogBroadRegionLabel(region)}</h3>

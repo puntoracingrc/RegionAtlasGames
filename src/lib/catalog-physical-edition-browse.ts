@@ -31,24 +31,41 @@ function mergeSearchText(games: CatalogListGame[], additions: string[]): string 
 }
 
 export function catalogPhysicalEditionOverviewRegions(editions: CatalogPhysicalEdition[]): string[] {
+  return catalogPhysicalEditionOverviewRegionLinks(editions).map((entry) => entry.region);
+}
+
+export function catalogPhysicalEditionBroadRegionAnchorId(
+  broadRegion: CatalogPhysicalEdition["broadRegion"],
+): string {
+  return `physical-editions-${broadRegion.toLowerCase().replaceAll("_", "-")}`;
+}
+
+export function catalogPhysicalEditionOverviewRegionLinks(
+  editions: CatalogPhysicalEdition[],
+): Array<{ region: string; targetId: string }> {
   const editionsByBroadRegion = new Map<CatalogPhysicalEdition["broadRegion"], CatalogPhysicalEdition[]>();
   for (const edition of editions) {
     editionsByBroadRegion.set(edition.broadRegion, [...(editionsByBroadRegion.get(edition.broadRegion) ?? []), edition]);
   }
 
-  return unique([...editionsByBroadRegion.entries()].flatMap(([broadRegion, regionalEditions]) => {
-    const exactMarkets = unique(regionalEditions
-      .flatMap((edition) => edition.marketRegions)
-      .map(catalogMarketRegionToLegacyRegion));
+  return [...editionsByBroadRegion.entries()].flatMap(([broadRegion, regionalEditions]) => {
+    const broadRegionTargetId = catalogPhysicalEditionBroadRegionAnchorId(broadRegion);
+    const exactMarkets = unique(regionalEditions.flatMap((edition) => edition.marketRegions));
     if (broadRegion === "EUROPE" && (regionalEditions.length > 1 || exactMarkets.length > 1)) {
-      return ["PAL Europa"];
+      return [{ region: "PAL Europa", targetId: broadRegionTargetId }];
     }
-    if (exactMarkets.length) return exactMarkets;
-    if (broadRegion === "EUROPE") return ["PAL Europa"];
-    if (broadRegion === "NORTH_AMERICA") return ["Norteamérica"];
-    if (broadRegion === "ASIA") return ["Asia"];
-    return ["Internacional"];
-  }));
+    if (exactMarkets.length) {
+      return exactMarkets.map((marketRegion) => ({
+        region: catalogMarketRegionToLegacyRegion(marketRegion),
+        targetId: regionalEditions.find((edition) => edition.marketRegions.includes(marketRegion))?.id
+          ?? broadRegionTargetId,
+      }));
+    }
+    if (broadRegion === "EUROPE") return [{ region: "PAL Europa", targetId: broadRegionTargetId }];
+    if (broadRegion === "NORTH_AMERICA") return [{ region: "Norteamérica", targetId: broadRegionTargetId }];
+    if (broadRegion === "ASIA") return [{ region: "Asia", targetId: broadRegionTargetId }];
+    return [{ region: "Internacional", targetId: broadRegionTargetId }];
+  });
 }
 
 function spanishList(values: string[]): string {

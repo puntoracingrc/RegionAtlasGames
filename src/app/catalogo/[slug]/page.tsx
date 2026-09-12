@@ -16,7 +16,7 @@ import { OwnedScansPanel } from "@/components/owned-scans-panel";
 import { CatalogEditionGuide } from "@/components/catalog-edition-guide";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import {
-  catalogPhysicalEditionOverviewRegions,
+  catalogPhysicalEditionOverviewRegionLinks,
   getCatalogPhysicalEditionPublicIdentity,
 } from "@/lib/catalog-physical-edition-browse";
 import {
@@ -184,8 +184,11 @@ export default async function CatalogGamePage({ params }: Props) {
     : currentPhysicalEdition
       ? [currentPhysicalEdition]
       : [];
-  const headerRegions = editionGuide?.schemaVersion === 2 && headerPhysicalEditions.length
-    ? catalogPhysicalEditionOverviewRegions(headerPhysicalEditions)
+  const headerRegionLinks = editionGuide?.schemaVersion === 2 && headerPhysicalEditions.length
+    ? catalogPhysicalEditionOverviewRegionLinks(headerPhysicalEditions)
+    : [];
+  const headerRegions = headerRegionLinks.length
+    ? headerRegionLinks.map((entry) => entry.region)
     : [game.region];
   const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
     game,
@@ -364,11 +367,24 @@ export default async function CatalogGamePage({ params }: Props) {
             <header className="space-y-2.5">
               <div className="flex flex-wrap gap-1.5">
                 <Badge>{platform?.shortName}</Badge>
-                {headerRegions.map((region) => (
-                  <Badge key={region}>
-                    <RegionFlag region={region} size="sm" showLabel labelMode="short" />
-                  </Badge>
-                ))}
+                {headerRegionLinks.length
+                  ? headerRegionLinks.map(({ region, targetId }) => (
+                    <a
+                      key={region}
+                      href={`#${targetId}`}
+                      aria-label={`Ir a ${getRegionDisplay(region).label}`}
+                      className="rounded-md outline-none transition hover:brightness-110 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    >
+                      <Badge>
+                        <RegionFlag region={region} size="sm" showLabel labelMode="short" />
+                      </Badge>
+                    </a>
+                  ))
+                  : headerRegions.map((region) => (
+                    <Badge key={region}>
+                      <RegionFlag region={region} size="sm" showLabel labelMode="short" />
+                    </Badge>
+                  ))}
                 <Badge
                   tone={
                     priceStatus === "verified"
