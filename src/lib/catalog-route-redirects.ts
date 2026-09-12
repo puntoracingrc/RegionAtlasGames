@@ -1,6 +1,9 @@
 import routeRedirectsData from "../../data/catalog-route-redirects.json";
 
-export type CatalogRouteRedirectReason = "same_product" | "wrong_platform";
+export type CatalogRouteRedirectReason =
+  | "same_product"
+  | "wrong_platform"
+  | "canonical_url_change";
 
 export type CatalogRouteRedirect = {
   sourceParams: string[];

@@ -45,3 +45,18 @@ test("every consolidated slug has a stable canonical destination", () => {
   assert.equal(redirect?.targetParam, "rpg-maker-with-ps4-pal-es");
   assert.equal(redirect?.permanent, true);
 });
+
+test("redirects previous Absolum URLs to the content-based V2 routes", () => {
+  assert.deepEqual(
+    [
+      getCatalogRouteRedirect("absolum-ps5-pal-es")?.targetParam,
+      getCatalogRouteRedirect("absolum-special-edition-ps5-pal-es")?.targetParam,
+      getCatalogRouteRedirect("absolum-ps5-pal-us")?.targetParam,
+    ],
+    [
+      "absolum-standard-edition-ps5",
+      "absolum-special-edition-ps5-europa",
+      "absolum-standard-edition-ps5-estados-unidos",
+    ],
+  );
+});

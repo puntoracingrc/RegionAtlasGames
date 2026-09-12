@@ -14,6 +14,7 @@ import { withOwnedScanDetails } from "./catalog-owned-scans";
 import { getPs1EditionDetails } from "./ps1-edition-data";
 import { getPs2EditionDetails } from "./ps2-edition-data";
 import { getVerifiedCompanyCreditDetails } from "./verified-company-credits";
+import { getCatalogEditionGuide } from "./catalog-edition-guides";
 import {
   normalizeCatalogGamePresentation,
   normalizeGameDetailsPresentation,
@@ -271,6 +272,23 @@ export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails
   const game = getCatalogGame(id);
   const details = await getGameDetailsOverlaySource(game?.id ?? id);
   return game ? withOwnedScanDetails(game, details) : details;
+}
+
+export function resolveCatalogGameDetailsCatalogId(game: CatalogGame): string {
+  const guide = getCatalogEditionGuide(game);
+  return guide?.schemaVersion === 2 ? guide.game.canonicalCatalogId : game.id;
+}
+
+/**
+ * Las fichas V2 comparten los datos del videojuego, pero conservan la evidencia
+ * física (referencia, EAN y scans) de la edición que se está viendo.
+ */
+export async function getCatalogGameDetailsWithOverlay(
+  game: CatalogGame,
+): Promise<GameDetails | undefined> {
+  const detailsCatalogId = resolveCatalogGameDetailsCatalogId(game);
+  const details = await getGameDetailsWithOverlay(detailsCatalogId);
+  return detailsCatalogId === game.id ? details : withOwnedScanDetails(game, details);
 }
 
 async function getGameDetailsOverlaySource(id: string): Promise<GameDetails | undefined> {

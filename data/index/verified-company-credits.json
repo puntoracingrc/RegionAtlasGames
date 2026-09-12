@@ -81459,6 +81459,144 @@
           }
         }
       ]
+    },
+    "ps5-absolum": {
+      "developer": {
+        "name": "Dotemu",
+        "slug": "dotemu",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Dotemu",
+        "slug": "dotemu",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.dotemu.com/PressKit/project/Games/Absolum"
+          ],
+          "evidenceSummary": "El press kit oficial acredita a Dotemu, Guard Crush Games y Supamonks como desarrolladoras.",
+          "reviewedAt": "2026-09-13",
+          "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.dotemu.com/PressKit/project/Games/Absolum"
+          ],
+          "evidenceSummary": "El press kit oficial acredita a Dotemu como publicadora de Absolum.",
+          "reviewedAt": "2026-09-13",
+          "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+        }
+      },
+      "companyCredits": [
+        {
+          "role": "developer",
+          "company": {
+            "name": "Dotemu",
+            "slug": "dotemu",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "official"
+          },
+          "provenance": {
+            "source": "official",
+            "evidenceUrls": [
+              "https://www.dotemu.com/PressKit/project/Games/Absolum"
+            ],
+            "evidenceSummary": "Dotemu figura como desarrolladora en el press kit oficial.",
+            "reviewedAt": "2026-09-13",
+            "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+          }
+        },
+        {
+          "role": "developer",
+          "company": {
+            "name": "Guard Crush Games",
+            "slug": "guard-crush-games",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "official"
+          },
+          "provenance": {
+            "source": "official",
+            "evidenceUrls": [
+              "https://www.dotemu.com/PressKit/project/Games/Absolum"
+            ],
+            "evidenceSummary": "Guard Crush Games figura como desarrolladora en el press kit oficial.",
+            "reviewedAt": "2026-09-13",
+            "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+          }
+        },
+        {
+          "role": "developer",
+          "company": {
+            "name": "Supamonks",
+            "slug": "supamonks",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "official"
+          },
+          "provenance": {
+            "source": "official",
+            "evidenceUrls": [
+              "https://www.dotemu.com/PressKit/project/Games/Absolum"
+            ],
+            "evidenceSummary": "Supamonks figura como desarrolladora en el press kit oficial.",
+            "reviewedAt": "2026-09-13",
+            "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+          }
+        },
+        {
+          "role": "publisher",
+          "company": {
+            "name": "Dotemu",
+            "slug": "dotemu",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "official"
+          },
+          "provenance": {
+            "source": "official",
+            "evidenceUrls": [
+              "https://www.dotemu.com/PressKit/project/Games/Absolum"
+            ],
+            "evidenceSummary": "Dotemu figura como publicadora en el press kit oficial.",
+            "reviewedAt": "2026-09-13",
+            "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+          }
+        },
+        {
+          "role": "physicalPublisherOrDistributor",
+          "company": {
+            "name": "Silver Lining Interactive",
+            "slug": "silver-lining",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "official"
+          },
+          "provenance": {
+            "source": "official",
+            "evidenceUrls": [
+              "https://silverliningint.com/",
+              "https://direct.silverliningint.com/collections/absolum"
+            ],
+            "evidenceSummary": "Silver Lining Interactive publica las ediciones físicas de Absolum y las ofrece en su tienda oficial.",
+            "reviewedAt": "2026-09-13",
+            "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+          }
+        }
+      ]
     }
   }
 }

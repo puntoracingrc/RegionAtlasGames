@@ -45,7 +45,10 @@ import {
   catalogGamePath,
   getSimilarGames,
 } from "@/lib/catalog-seo";
-import { resolveCatalogGameWithOverlay, getGameDetailsWithOverlay } from "@/lib/catalog-runtime-overlay";
+import {
+  getCatalogGameDetailsWithOverlay,
+  resolveCatalogGameWithOverlay,
+} from "@/lib/catalog-runtime-overlay";
 import { getCoverSrc } from "@/lib/cover-url";
 import { CatalogAwards } from "@/components/award-results";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
@@ -142,7 +145,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const game = await resolveCatalogGameWithOverlay(routeRedirect?.targetCatalogId ?? slug);
   if (!game || !isPublicCatalogGame(game)) return { title: "Juego no encontrado" };
   const platform = getPlatform(game.platformSlug);
-  const details = await getGameDetailsWithOverlay(game.id);
+  const details = await getCatalogGameDetailsWithOverlay(game);
   const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
     game,
     platform?.shortName ?? game.platformSlug,
@@ -200,7 +203,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const wished = collection?.wishlist?.some((entry) => entry.catalogId === game.id) ?? false;
   const owned = ownedCount > 0;
 
-  const details = await getGameDetailsWithOverlay(game.id);
+  const details = await getCatalogGameDetailsWithOverlay(game);
   const entityLinks = details ? resolveGameEntityLinks(details) : null;
   const companyCreditGroups = details
     ? (
@@ -528,7 +531,11 @@ export default async function CatalogGamePage({ params }: Props) {
             <Panel>
               <PanelTitle>Descripción</PanelTitle>
               <div className="space-y-3 text-sm leading-relaxed text-muted">
-                {physicalEditionIdentity ? (
+                {editionGuide?.schemaVersion === 2 && details?.description ? (
+                  details.description.split(/\n{2,}/).map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{paragraph.trim()}</p>
+                  ))
+                ) : physicalEditionIdentity ? (
                   <p>{physicalEditionIdentity.description}</p>
                 ) : details?.description ? (
                   details.description.split(/\n{2,}/).map((paragraph) => (

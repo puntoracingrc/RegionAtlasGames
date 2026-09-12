@@ -26,13 +26,19 @@ import {
 } from "./catalog-edition-guide-types";
 import { filterCatalogGames, type CatalogFilterState } from "./catalog-filters";
 import { toCatalogListGame } from "./catalog-list-game";
-import { getOwnedScanSet, getOwnedScanSetById } from "./catalog-owned-scans";
+import {
+  getOwnedScanSet,
+  getOwnedScanSetById,
+  withOwnedScanDetails,
+} from "./catalog-owned-scans";
 import {
   catalogPhysicalEditionOverviewRegions,
   getCatalogPhysicalEditionPublicIdentity,
   groupCatalogListGames,
 } from "./catalog-physical-edition-browse";
 import { buildGameFaq, buildGameJsonLd, buildGameMetadata } from "./catalog-seo";
+import { resolveCatalogGameDetailsCatalogId } from "./catalog-runtime-overlay";
+import { getCompany, getGameDetails } from "./indexes";
 import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
 import { getRegionDisplay } from "./region-display";
 import {
@@ -335,7 +341,7 @@ test("Absolum V2 public identity never inherits an unsupported legacy market", (
   assert.equal(metadata.title, specialIdentity.metadataTitle);
   assert.doesNotMatch(metadataText, /PAL España|mercado español|Precio PS5 PAL España/i);
   assert.match(metadataText, /Absolum \[Special Edition\].*Europa/);
-  assert.match(metadataText, /absolum-special-edition-ps5-pal-es/);
+  assert.match(metadataText, /absolum-special-edition-ps5-europa/);
   assert.match(metadataText, /absolum-special-edition-ps5-portada\.webp/);
 
   const faqs = buildGameFaq(specialGame, platform, undefined, {
@@ -371,6 +377,11 @@ test("legacy IDs and direct URLs remain unique while optical group prices omit l
   assert.equal(new Set(catalog.map((game) => game.id)).size, catalog.length);
   const urls = ABSOLUM_CATALOG_IDS.map((id) => catalogGamePath(getCatalogGame(id)!));
   assert.equal(new Set(urls).size, ABSOLUM_CATALOG_IDS.length);
+  assert.deepEqual(urls, [
+    "/catalogo/absolum-standard-edition-ps5",
+    "/catalogo/absolum-special-edition-ps5-europa",
+    "/catalogo/absolum-standard-edition-ps5-estados-unidos",
+  ]);
   for (const id of ABSOLUM_CATALOG_IDS) assert.equal(getCatalogGame(id)?.id, id);
 
   const standard = groupedAbsolum().find((game) => game.id === "ps5-absolum");
@@ -380,9 +391,49 @@ test("legacy IDs and direct URLs remain unique while optical group prices omit l
   assert.ok(prices.every((row) => row.condition !== "loose"));
 });
 
+test("every Absolum V2 edition shares verified game details and keeps its physical evidence", () => {
+  for (const id of ABSOLUM_CATALOG_IDS) {
+    const game = getCatalogGame(id);
+    assert.ok(game);
+    const detailsCatalogId = resolveCatalogGameDetailsCatalogId(game);
+    assert.equal(detailsCatalogId, "ps5-absolum");
+    const details = getGameDetails(detailsCatalogId);
+    assert.equal(details?.year, 2025);
+    assert.equal(details?.releaseDate, "2025-10-09");
+    assert.equal(details?.players, 2);
+    assert.equal(details?.support, "Disco Blu-ray");
+    assert.deepEqual(details?.genres.map((genre) => genre.slug), [
+      "beat-em-up",
+      "action",
+      "adventure",
+    ]);
+  }
+
+  const specialGame = getCatalogGame("ps5-absolum-special-edition")!;
+  const special = withOwnedScanDetails(specialGame, getGameDetails("ps5-absolum"));
+  assert.equal(special?.reference, "PPSA-28311");
+
+  for (const slug of ["dotemu", "guard-crush-games", "supamonks", "silver-lining"]) {
+    const company = getCompany(slug);
+    assert.ok(company, `missing company ${slug}`);
+    assert.ok(company.gameIds.includes("ps5-absolum"), `Absolum is not linked to ${slug}`);
+  }
+});
+
 test("only Absolum opts into edition families and legacy catalog IDs retain exact variant meaning", () => {
   const guidesWithFamilies = getCatalogEditionGuides().filter((guide) => guide.editionFamilies.length > 0);
   assert.deepEqual(guidesWithFamilies.map((guide) => guide.id), ["absolum-ps5"]);
+
+  for (const id of [
+    "gameboy-es-solomon-s-club",
+    "ps1-2xtreme",
+    "ps4-sekiro-shadows-die-twice",
+    "ps5-clair-obscur-expedition-33-lumiere-edition",
+  ]) {
+    const game = getCatalogGame(id);
+    assert.ok(game, `missing legacy fixture ${id}`);
+    assert.equal(resolveCatalogGameDetailsCatalogId(game), id);
+  }
 
   const legacyGuide = getCatalogEditionGuides().find((guide) => guide.id === "resident-evil-requiem-ps5");
   assert.ok(legacyGuide);

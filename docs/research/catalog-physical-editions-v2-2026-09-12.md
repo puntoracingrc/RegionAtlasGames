@@ -9,7 +9,7 @@ Esta fase añade una capa reversible para representar:
 
 `Juego + plataforma -> gran región -> edición física -> variante coleccionable -> identidad de precio`
 
-No migra masivamente el catálogo, no cambia IDs o URLs, no reescribe `PAL España`, no modifica collectors y no duplica compañías ni plataformas. Solo el guide v2 de Absolum activa la agrupación nueva; el resto del catálogo continúa en el lector legacy.
+No migra masivamente el catálogo, no cambia IDs, no reescribe `PAL España`, no modifica collectors y no duplica plataformas. Solo el guide v2 de Absolum activa la agrupación nueva; el resto del catálogo continúa en el lector legacy. Tras autorización expresa, las tres URLs públicas de Absolum se renombran según su contenido y las anteriores quedan cubiertas por redirecciones permanentes.
 
 ## Snapshot previo
 
@@ -20,7 +20,7 @@ No migra masivamente el catálogo, no cambia IDs o URLs, no reescribe `PAL Espa�
 - Blob de catálogo, base y worktree: `52a2399c4960ac95c8e06f17aaadac93aed61b8b`.
 - Blob de compañías, base y worktree: `662c9df4c433b0e1a66323f00179aa299b438e41`.
 
-El piloto añade un guide v2 y un set de escaneos de la caja de Absolum Special Edition. `data/catalog.json` y `data/index/companies.json` conservan exactamente sus blobs de la base.
+El piloto añade un guide v2, un set de escaneos de la caja de Absolum Special Edition y la ficha lógica compartida del videojuego. `data/catalog.json` cambia únicamente los tres `canonicalSeoSlug` de Absolum; los índices de compañías y géneros incorporan sus relaciones verificadas.
 
 ## Arquitectura encontrada
 
@@ -58,8 +58,9 @@ Las evidencias fuertes para definir una variante física son `REAL_SCAN`, `REAL_
 
 - Los guides v1 se adaptan en memoria al modelo común y conservan sus enlaces e imágenes.
 - Solo `schemaVersion: 2` participa en la agrupación de listados.
+- Solo una ficha V2 hereda los datos de su `canonicalCatalogId`; fichas legacy de Game Boy, PS1, PS4 y PS5 conservan su propio registro de detalles.
 - Agrupar elimina duplicados únicamente del DTO de exploración; no elimina filas del catálogo.
-- Toda ficha enlazada mantiene su `catalogId`, slug y ruta directa.
+- Toda ficha enlazada mantiene su `catalogId`. Las rutas canónicas nuevas sustituyen a las tres rutas SEO anteriores, que redirigen permanentemente sin romper enlaces internos o guardados.
 - Retirar el guide v2 devuelve inmediatamente el listado legacy, sin migración inversa.
 - Los scans se referencian por ID y no se duplican dentro del guide.
 
@@ -80,6 +81,12 @@ El guide `absolum-ps5` contiene siete ediciones:
 Las tres ediciones europeas apuntan al mismo `sharedDiscId`. La identidad común del disco fue confirmada físicamente por el propietario: incluye la Standard EN/FR/ES distribuida en Francia, Reino Unido y España, la Standard alemana y la Standard contenida en la Special. El guide registra `FR / ES / GB` para la primera caja y `DE` para la alemana. La Special conserva `broadRegion: EUROPE` y `marketRegions: []`: sus idiomas no se usan para inventar países de distribución no documentados. La capa pública la resume con `EU`, mientras su ficha legacy sigue siendo compatible con el filtro España.
 
 La Special referencia la Standard EN/FR/ES mediante `includesEditionIds` y su ficha oficial documenta caja, juego Standard, mini artbook, cuatro pins, póster, cuatro tarjetas y banda sonora digital. Los scans propios acreditan por separado caja, EAN, PEGI, PPSA y lomo; no se usan para afirmar el contenido interior.
+
+### Datos comunes y relaciones
+
+La ficha lógica común vive en `ps5-absolum` y se hereda en todas las fichas públicas de la familia V2. Incluye lanzamiento del 9 de octubre de 2025, hasta dos jugadores, soporte Blu-ray, descripción, géneros `Beat 'em up`, `Acción` y `Aventura`, y las facetas de estructura roguelite y cooperativo local/online.
+
+Los créditos oficiales enlazan con las fichas de compañía de Dotemu, Guard Crush Games y Supamonks como desarrolladoras, Dotemu como publicadora y Silver Lining Interactive como responsable de la edición física. No se crea una saga artificial para un único título. La arquitectura pública ya enlaza compañías, franquicias y sagas; el modelo de personas conserva créditos exactos, pero la ficha de juego solo presenta actualmente desarrollo individual. Ampliar compositores u otros oficios exige un cambio tipado y auditado separado, no una inferencia dentro de este piloto.
 
 ### Medidas de la caja Special
 
@@ -111,7 +118,7 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 - La cabecera de la Special muestra `EU`, no `ES`, porque solo está demostrada su gran región europea. El filtro legacy España sigue encontrando la ficha sin convertir ese dato de compatibilidad en un mercado V2 demostrado.
 - El escaneo propio de la caja exterior es la portada principal de la ficha Special; la portada, contraportada y lomo continúan disponibles en su galería.
 - La identidad pública, descripción, precio pendiente, FAQ, textos alternativos, metadata social y JSON-LD de una familia V2 se construyen desde su guide. La Special ya no hereda `PAL España` ni «mercado español» de su representante legacy; la Standard se describe como familia de Europa, Norteamérica y Asia.
-- El slug y canonical legacy de ambas fichas permanecen sin cambios por compatibilidad.
+- Las rutas canónicas quedan como `/catalogo/absolum-standard-edition-ps5`, `/catalogo/absolum-special-edition-ps5-europa` y `/catalogo/absolum-standard-edition-ps5-estados-unidos`. Las tres rutas SEO anteriores redirigen permanentemente a su destino nuevo.
 - Los filtros `Gran región`, `Rating` y `Edición física` evalúan los hijos y devuelven una sola raíz.
 - La búsqueda incluye EAN, referencias, mercados, idiomas, ratings y marcas de variantes.
 - Para el grupo óptico se muestran únicamente `Completo` y `Precintado`; si hay varios valores, se muestra rango. No se inventan precios.
@@ -128,9 +135,11 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 
 ## QA visual
 
-Se comprobaron `/catalogo?q=Absolum`, `/catalogo?q=Absolum&region=PAL%20Espa%C3%B1a`, `/plataforma/ps5?q=Absolum`, la ficha Standard PAL España, la ficha Special PAL España y la ficha USA. Todas respondieron `200`. Los filtros de los nueve mercados (`ES / FR / GB / DE / US / JP / KR / HK / TW`) seleccionaron las familias esperadas; el filtro España conservó también la Special por compatibilidad con su ficha legacy. El estado sin filtro mostró `EU / US / JP / KR / HK / TW`. La ficha Standard mostró `FR / ES / UK`, `DE`, `US`, `JP`, `KR`, `HK` y `TW` en sus ediciones correspondientes.
+Se comprobaron `/catalogo?q=Absolum`, `/catalogo?q=Absolum&region=PAL%20Espa%C3%B1a`, `/plataforma/ps5?q=Absolum`, las rutas canónicas Standard, Special Europa y Standard USA, y las tres redirecciones desde sus URLs SEO anteriores. Los filtros de los nueve mercados (`ES / FR / GB / DE / US / JP / KR / HK / TW`) seleccionaron las familias esperadas; el filtro España conservó también la Special por compatibilidad con su ficha legacy. El estado sin filtro mostró `EU / US / JP / KR / HK / TW`. La ficha Standard mostró `FR / ES / UK`, `DE`, `US`, `JP`, `KR`, `HK` y `TW` en sus ediciones correspondientes.
 
-La QA final sobre el build de producción local verificó la ficha Special a 1440 x 900 y 390 x 844. La cabecera mostró `EU`, la portada principal resolvió al WebP del escaneo propio, y la ficha mostró `1 edición física`, `Precio de esta edición` y `Añadir a mi colección`, sin selector de variantes. `documentElement.scrollWidth` coincidió con el viewport en ambos tamaños; no hubo imágenes rotas, enlaces a artículos concretos de eBay, errores ni avisos de consola. Los dos bloques técnicos retirados tampoco estaban presentes en el DOM. El saneamiento posterior comprobó además que `<title>`, descripción, Open Graph, Twitter, JSON-LD, FAQ, bloque de precio y alt de portada ya no presentan la Special como española, y que la metadata de Standard representa la familia multirregional completa. La ficha Standard verificó también el resaltado verde reactivo de una edición poseída en escritorio y móvil: fondo y contorno cambian con el contador vivo, sin solapamientos, imágenes rotas ni overflow.
+La QA final sobre el build de producción local verificó la ficha Special a 1440 x 900 y 390 x 844. La cabecera mostró `EU`, la portada principal resolvió al WebP del escaneo propio, y la ficha mostró `Precio de esta edición` y `Añadir a mi colección`, sin contador ni selector de variantes. `documentElement.scrollWidth` coincidió con el viewport en ambos tamaños; no hubo imágenes rotas, enlaces a artículos concretos de eBay, errores ni avisos de consola. Los dos bloques técnicos retirados tampoco estaban presentes en el DOM. El saneamiento posterior comprobó además que `<title>`, descripción, Open Graph, Twitter, JSON-LD, FAQ, bloque de precio y alt de portada ya no presentan la Special como española, y que la metadata de Standard representa la familia multirregional completa. La ficha Standard verificó también el resaltado verde reactivo de una edición poseída en escritorio y móvil: fondo y contorno cambian con el contador vivo, sin solapamientos, imágenes rotas ni overflow.
+
+La ampliación de detalle se comprobó en las tres fichas de Absolum: todas muestran año, lanzamiento, soporte, dos jugadores, descripción, géneros y facetas comunes. Standard y Special enlazan las cuatro compañías acreditadas; la Special conserva su referencia `PPSA-28311` y sus tres escaneos. Las rutas antiguas responden con redirección permanente `308` a las nuevas rutas canónicas.
 
 ## Riesgos y deuda explícita
 
@@ -144,7 +153,7 @@ La QA final sobre el build de producción local verificó la ficha Special a 144
 ## Controles de aceptación
 
 - JSON y schema parseables: PASS.
-- Pruebas específicas v1/v2, scans, evidencia, disco compartido, guías regionales, códigos de mercado, los nueve filtros nacionales, URLs, precios ópticos y SIAE: 14/14 PASS.
+- Pruebas específicas v1/v2, scans, evidencia, disco compartido, guías regionales, herencia lógica, aislamiento legacy, códigos de mercado, los nueve filtros nacionales, URLs, precios ópticos y SIAE: 15/15 PASS.
 - Suite unitaria completa: PASS, incluidas 264/264 pruebas principales y todas las suites previas/posteriores.
 - `typecheck`: PASS.
 - Lint: PASS, 0 errores y 34 avisos preexistentes.

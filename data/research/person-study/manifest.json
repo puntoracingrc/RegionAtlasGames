@@ -35,10 +35,10 @@
     "portraitHotlinkingAllowed": false
   },
   "protectedFileHashes": {
-    "data/game-details.json": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785",
+    "data/game-details.json": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972",
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
-    "data/index/companies.json": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389",
-    "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
+    "data/index/companies.json": "3bff5d0feeaf0ded52cce367d76629b8f64c2e5d38b1f4a5b871765ff04a0dab",
+    "data/index/company-entities.json": "c63335eebaa27acf5fa7ce6e68d18717b472f02f7bd9698326c4635588fad7e1",
     "data/research/company-study/core.json": "89f85d051468bb1de1f3ddc2e5d9e252dc9ea219c91b8927ba148a97116d2f28",
     "data/research/company-study/public.json": "c713018d6617b92508f9342569b74c3dfb79c87a6f64f77c47e93ac2e047c7e8"
   },
@@ -162,6 +162,24 @@
         "data/index/companies.json": {
           "before": "6c37e403f6b9a26ad278ae778ae992cbd92340c87201a7d0ed984cd2d872d487",
           "after": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389"
+        }
+      }
+    },
+    {
+      "batchId": "absolum-v2-public-url-and-details-2026-09-13",
+      "reviewedAt": "2026-09-13",
+      "files": {
+        "data/game-details.json": {
+          "before": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785",
+          "after": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972"
+        },
+        "data/index/companies.json": {
+          "before": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389",
+          "after": "3bff5d0feeaf0ded52cce367d76629b8f64c2e5d38b1f4a5b871765ff04a0dab"
+        },
+        "data/index/company-entities.json": {
+          "before": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
+          "after": "c63335eebaa27acf5fa7ce6e68d18717b472f02f7bd9698326c4635588fad7e1"
         }
       }
     }

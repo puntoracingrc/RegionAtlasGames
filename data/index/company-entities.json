@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-03T06:03:22Z",
+  "generatedAt": "2026-09-13T00:00:00Z",
   "stats": {
-    "entities": 4321,
+    "entities": 4323,
     "aliases": 168,
     "autoNormalized": 140,
     "autoWikidata": 0,
@@ -15032,6 +15032,15 @@
       "museumPaths": [
         "/desarrolladoras-de-software/gte-imagitrek-studios"
       ]
+    },
+    "guard-crush-games": {
+      "slug": "guard-crush-games",
+      "name": "Guard Crush Games",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "guard-crush-games-lizardcube": {
       "slug": "guard-crush-games-lizardcube",
@@ -33022,7 +33031,7 @@
     },
     "silver-lining": {
       "slug": "silver-lining",
-      "name": "Silver Lining",
+      "name": "Silver Lining Interactive",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -35651,6 +35660,15 @@
       "wikidataIds": [
         "Q10902322"
       ],
+      "museumPaths": []
+    },
+    "supamonks": {
+      "slug": "supamonks",
+      "name": "Supamonks",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
       "museumPaths": []
     },
     "super-deluxe": {

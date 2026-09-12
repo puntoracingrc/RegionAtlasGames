@@ -101546,25 +101546,28 @@
       "ps5-marvel-cosmic-invasion",
       "switch2-marvel-cosmic-invasion",
       "ps4-pang-adventures-buster-edition",
-      "ps4-teenage-mutant-ninja-turtles-shredders-revenge-anniversary-edition"
+      "ps4-teenage-mutant-ninja-turtles-shredders-revenge-anniversary-edition",
+      "ps5-absolum"
     ],
     "byPlatform": {
       "ps4": 7,
-      "ps5": 1,
+      "ps5": 2,
       "switch2": 1
     },
     "asDeveloper": [
       "ps4-usa-windjammers-collector%27s-edition",
       "ps4-usa-windjammers-2-collector%27s-edition",
-      "ps4-usa-metal-slug-tactics-commanding-officer-edition"
+      "ps4-usa-metal-slug-tactics-commanding-officer-edition",
+      "ps5-absolum"
     ],
     "asPublisher": [
       "ps4-usa-metal-slug-tactics",
       "ps4-usa-teenage-mutant-ninja-turtles-shredder%27s-revenge",
       "ps5-marvel-cosmic-invasion",
-      "switch2-marvel-cosmic-invasion"
+      "switch2-marvel-cosmic-invasion",
+      "ps5-absolum"
     ],
-    "gameCount": 9,
+    "gameCount": 10,
     "asPhysicalPublisherOrDistributor": [
       "ps4-pang-adventures-buster-edition",
       "ps4-teenage-mutant-ninja-turtles-shredders-revenge-anniversary-edition"
@@ -169816,7 +169819,7 @@
     "gameCount": 1
   },
   "silver-lining": {
-    "name": "Silver Lining",
+    "name": "Silver Lining Interactive",
     "slug": "silver-lining",
     "museumPath": "",
     "gameIds": [
@@ -169829,10 +169832,11 @@
       "ps5-nice-day-for-fishing",
       "ps5-sugardew-island",
       "ps5-tiny-bookshop",
-      "switch2-momento"
+      "switch2-momento",
+      "ps5-absolum"
     ],
     "byPlatform": {
-      "ps5": 9,
+      "ps5": 10,
       "switch2": 1
     },
     "asDeveloper": [],
@@ -169848,7 +169852,10 @@
       "ps5-tiny-bookshop",
       "switch2-momento"
     ],
-    "gameCount": 10
+    "gameCount": 11,
+    "asPhysicalPublisherOrDistributor": [
+      "ps5-absolum"
+    ]
   },
   "creative": {
     "name": "Creative",
@@ -209811,5 +209818,37 @@
     "byPlatform": {
       "ps2": 1
     }
+  },
+  "guard-crush-games": {
+    "name": "Guard Crush Games",
+    "slug": "guard-crush-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-absolum"
+    ],
+    "byPlatform": {
+      "ps5": 1
+    },
+    "asDeveloper": [
+      "ps5-absolum"
+    ],
+    "asPublisher": [],
+    "gameCount": 1
+  },
+  "supamonks": {
+    "name": "Supamonks",
+    "slug": "supamonks",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-absolum"
+    ],
+    "byPlatform": {
+      "ps5": 1
+    },
+    "asDeveloper": [
+      "ps5-absolum"
+    ],
+    "asPublisher": [],
+    "gameCount": 1
   }
 }

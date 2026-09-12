@@ -424,6 +424,7 @@ test("preserves catalog, company and prior research files byte for byte", () => 
       "ps2-regional-v2-2026-09-11",
       "owned-scans-2026-09-11-batch-1",
       "owned-scans-2026-09-11-batch-2",
+      "absolum-v2-public-url-and-details-2026-09-13",
     ],
   );
 });

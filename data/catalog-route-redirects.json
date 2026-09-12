@@ -4,6 +4,39 @@
   "redirects": [
     {
       "sourceParams": [
+        "absolum-ps5-pal-es"
+      ],
+      "targetCatalogId": "ps5-absolum",
+      "targetParam": "absolum-standard-edition-ps5",
+      "permanent": true,
+      "reason": "canonical_url_change",
+      "reviewedAt": "2026-09-13",
+      "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+    },
+    {
+      "sourceParams": [
+        "absolum-special-edition-ps5-pal-es"
+      ],
+      "targetCatalogId": "ps5-absolum-special-edition",
+      "targetParam": "absolum-special-edition-ps5-europa",
+      "permanent": true,
+      "reason": "canonical_url_change",
+      "reviewedAt": "2026-09-13",
+      "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+    },
+    {
+      "sourceParams": [
+        "absolum-ps5-pal-us"
+      ],
+      "targetCatalogId": "ps5-usa-absolum",
+      "targetParam": "absolum-standard-edition-ps5-estados-unidos",
+      "permanent": true,
+      "reason": "canonical_url_change",
+      "reviewedAt": "2026-09-13",
+      "reviewBatch": "absolum-v2-public-url-and-details-2026-09-13"
+    },
+    {
+      "sourceParams": [
         "ps4-annapurna-ultimate-collection",
         "annapurna-ultimate-collection-ps4-pal-es"
       ],
