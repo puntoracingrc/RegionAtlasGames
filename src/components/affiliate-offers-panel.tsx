@@ -48,7 +48,6 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
 
   useEffect(() => {
     const controller = new AbortController();
-    setState({ status: "loading" });
 
     fetch(`/api/catalog/offers/${encodeURIComponent(catalogId)}`, {
       signal: controller.signal,
@@ -100,6 +99,9 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
 
   const { offers, fallbackCta, fallbackCtas, ebayImpressionPixelUrl, error } = state.data;
   const searchFallbacks = fallbackCtas?.length ? fallbackCtas : fallbackCta ? [fallbackCta] : [];
+  const ebaySearchFallback = searchFallbacks.find((fallback) => fallback.provider === "ebay");
+  const amazonSearchFallback = searchFallbacks.find((fallback) => fallback.provider === "amazon");
+  const hasFallbackActions = Boolean(ebaySearchFallback || amazonSearchFallback);
   const primaryFallbackLabel = fallbackCta ? fallbackCta.label : null;
   if (offers.length === 0 && searchFallbacks.length === 0 && error) {
     return (
@@ -202,14 +204,42 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
               );
             })}
           </div>
+          {hasFallbackActions ? (
+            <div className="mt-4 flex flex-col items-center gap-3 border-t border-border pt-4">
+              {ebaySearchFallback ? (
+                <a
+                  href={ebaySearchFallback.url}
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
+                  className="inline-flex min-h-9 items-center justify-center rounded-full border border-border bg-background px-3 text-xs font-semibold text-muted transition hover:border-accent/40 hover:bg-card-hover hover:text-accent"
+                >
+                  Buscar más en eBay
+                  <span aria-hidden className="ml-1.5 text-sm leading-none">
+                    ↗
+                  </span>
+                </a>
+              ) : null}
+              {amazonSearchFallback ? (
+                <a
+                  href={amazonSearchFallback.url}
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
+                  className="inline-flex min-h-12 items-center justify-center rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-black text-slate-950 shadow-lg shadow-amber-950/10 transition hover:-translate-y-0.5 hover:bg-amber-300"
+                >
+                  {amazonSearchFallback.label || `Buscar en ${fallbackProviderLabel(amazonSearchFallback.provider)}`}
+                  <span aria-hidden className="ml-2 text-lg leading-none">
+                    ↗
+                  </span>
+                </a>
+              ) : null}
+            </div>
+          ) : null}
         </>
       ) : null}
-      {searchFallbacks.length > 0 ? (
-        <div className={`${offers.length > 0 ? "mt-4 " : ""}rounded-2xl border border-border bg-background/45 p-4`}>
+      {offers.length === 0 && searchFallbacks.length > 0 ? (
+        <div className="rounded-2xl border border-border bg-background/45 p-4">
           <p className="text-sm leading-6 text-muted">
-            {offers.length > 0
-              ? "También puedes abrir una búsqueda afiliada específica para este juego."
-              : "No hay listings válidos para mostrar ahora mismo. Puedes abrir una búsqueda afiliada en una tienda externa."}
+            No hay listings válidos para mostrar ahora mismo. Puedes abrir una búsqueda afiliada en una tienda externa.
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {searchFallbacks.map((fallback) => (
