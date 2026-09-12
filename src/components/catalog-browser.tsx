@@ -120,7 +120,10 @@ function CatalogCompactRow({
             {game.physicalEditionGroup ? (
               <>
                 <span aria-hidden>·</span>
-                <span>{game.physicalEditionGroup.physicalEditionCount} ediciones físicas</span>
+                <span>
+                  {game.physicalEditionGroup.physicalEditionCount}{" "}
+                  {game.physicalEditionGroup.physicalEditionCount === 1 ? "edición física" : "ediciones físicas"}
+                </span>
                 <span aria-hidden>·</span>
                 <span>{game.physicalEditionGroup.broadRegions.map((entry) => entry.label).join(" / ")}</span>
               </>

@@ -10,6 +10,7 @@ type Props = {
   catalogId: string;
   physicalVariantId: string;
   label: string;
+  terminology?: "edition" | "variant";
   initialOwnedCount: number;
   isLoggedIn: boolean;
   loginPath: string;
@@ -19,6 +20,7 @@ export function PhysicalVariantCollectionToggle({
   catalogId,
   physicalVariantId,
   label,
+  terminology = "variant",
   initialOwnedCount,
   isLoggedIn,
   loginPath,
@@ -27,6 +29,8 @@ export function PhysicalVariantCollectionToggle({
   const [ownedCount, setOwnedCount] = useState(initialOwnedCount);
   const [busy, setBusy] = useState<"add" | "remove" | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const itemLabel = terminology === "edition" ? "edición" : "variante";
+  const actionClass = "inline-flex min-h-12 min-w-0 items-center justify-center gap-2 rounded-xl px-3 py-3 text-center text-xs font-semibold leading-5 transition disabled:opacity-50 sm:text-sm";
 
   async function add() {
     setBusy("add");
@@ -38,12 +42,12 @@ export function PhysicalVariantCollectionToggle({
         body: JSON.stringify({ catalogId, physicalVariantId }),
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error ?? "No se pudo guardar la variante.");
+      if (!response.ok) throw new Error(data.error ?? `No se pudo guardar la ${itemLabel}.`);
       setOwnedCount(data.ownedCount);
       notifyCollectionChanged();
       router.refresh();
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "No se pudo guardar la variante.");
+      setError(cause instanceof Error ? cause.message : `No se pudo guardar la ${itemLabel}.`);
     } finally {
       setBusy(null);
     }
@@ -58,12 +62,12 @@ export function PhysicalVariantCollectionToggle({
         method: "DELETE",
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error ?? "No se pudo quitar la variante.");
+      if (!response.ok) throw new Error(data.error ?? `No se pudo quitar la ${itemLabel}.`);
       setOwnedCount(data.ownedCount);
       notifyCollectionChanged();
       router.refresh();
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "No se pudo quitar la variante.");
+      setError(cause instanceof Error ? cause.message : `No se pudo quitar la ${itemLabel}.`);
     } finally {
       setBusy(null);
     }
@@ -71,9 +75,9 @@ export function PhysicalVariantCollectionToggle({
 
   if (!isLoggedIn) {
     return (
-      <Link href={loginPath} className="btn-secondary inline-flex min-h-10 items-center justify-center gap-2 px-3 text-xs">
+      <Link href={loginPath} className={`${actionClass} bg-accent text-accent-fg hover:opacity-90`}>
         <Plus className="h-4 w-4" aria-hidden />
-        Añadir esta variante
+        Añadir a mi colección
       </Link>
     );
   }
@@ -85,11 +89,11 @@ export function PhysicalVariantCollectionToggle({
           type="button"
           onClick={add}
           disabled={Boolean(busy)}
-          className="btn-secondary inline-flex min-h-10 items-center justify-center gap-2 px-3 text-xs disabled:opacity-50"
-          aria-label={`Añadir ${label} a mi colección`}
+          className={`${actionClass} ${ownedCount ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-800 [.dark_&]:text-emerald-100" : "bg-accent text-accent-fg hover:opacity-90"}`}
+          aria-label={ownedCount ? `Añadir otra copia de ${label}` : `Añadir ${label} a mi colección`}
         >
           {ownedCount ? <Check className="h-4 w-4 text-emerald-600" aria-hidden /> : <Plus className="h-4 w-4" aria-hidden />}
-          {busy === "add" ? "Guardando..." : ownedCount ? `Tengo ${ownedCount}` : "Añadir esta variante"}
+          {busy === "add" ? "Guardando…" : ownedCount ? "Añadir otra copia" : "Añadir a mi colección"}
         </button>
         {ownedCount ? (
           <button

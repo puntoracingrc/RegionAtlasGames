@@ -6,6 +6,8 @@ import { getCatalogGame } from "@/lib/catalog";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import {
   catalogBroadRegionLabel,
+  catalogEditionFamilyCountLabel,
+  catalogEditionFamilyHasVariants,
   catalogPhysicalEditionTypeLabel,
   isStrongPhysicalEvidence,
   type CatalogEditionFamily,
@@ -119,6 +121,7 @@ function PhysicalEditionGuide({
   const visibleEditions = currentFamily
     ? guide.physicalEditions.filter((edition) => currentFamily.physicalEditionIds.includes(edition.id))
     : guide.physicalEditions;
+  const hasFamilyVariants = Boolean(currentFamily && catalogEditionFamilyHasVariants(visibleEditions.length));
   const regions = [...new Set(visibleEditions.map((edition) => edition.broadRegion))];
   const ownedVariantCount = visibleEditions.filter((edition) => (physicalVariantOwnedCounts[edition.id] ?? 0) > 0).length;
   const currentGame = guide.currentCatalogId ? getCatalogGame(guide.currentCatalogId) : undefined;
@@ -134,9 +137,9 @@ function PhysicalEditionGuide({
           </div>
           <div className="flex flex-wrap gap-2">
             <Badge>
-              {visibleEditions.length} {currentFamily
-                ? visibleEditions.length === 1 ? "variante física" : "variantes físicas"
-                : visibleEditions.length === 1 ? "edición física" : "ediciones físicas"}
+              {currentFamily
+                ? catalogEditionFamilyCountLabel(visibleEditions.length)
+                : `${visibleEditions.length} ${visibleEditions.length === 1 ? "edición física" : "ediciones físicas"}`}
             </Badge>
             {currentFamily && isLoggedIn ? <Badge tone="green">{ownedVariantCount} de {visibleEditions.length} en tu colección</Badge> : null}
           </div>
@@ -163,7 +166,7 @@ function PhysicalEditionGuide({
           </nav>
         ) : null}
 
-        {currentFamily ? (
+        {currentFamily && hasFamilyVariants ? (
           <nav aria-label={`Variantes de ${currentFamily.label}`} className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {visibleEditions.map((edition) => {
               const cover = physicalEditionCover(edition);
@@ -200,6 +203,7 @@ function PhysicalEditionGuide({
                       edition={edition}
                       guide={guide}
                       family={currentFamily}
+                      terminology={hasFamilyVariants ? "variant" : "edition"}
                       isLoggedIn={isLoggedIn}
                       ownedCount={physicalVariantOwnedCounts[edition.id] ?? 0}
                       loginPath={loginPath}
@@ -221,6 +225,7 @@ function PhysicalEditionRow({
   edition,
   guide,
   family,
+  terminology,
   isLoggedIn,
   ownedCount,
   loginPath,
@@ -228,6 +233,7 @@ function PhysicalEditionRow({
   edition: CatalogPhysicalEdition;
   guide: CatalogEditionGuideModel;
   family?: CatalogEditionFamily;
+  terminology: "edition" | "variant";
   isLoggedIn: boolean;
   ownedCount: number;
   loginPath: string;
@@ -274,7 +280,7 @@ function PhysicalEditionRow({
             {edition.boxCode ? <Fact label="Código de caja" value={edition.boxCode} mono /> : null}
             {sharedDisc ? <Fact label="Soporte compartido" value={`${sharedDisc.label}${sharedDisc.ratingSystems.length ? ` · ${sharedDisc.ratingSystems.join(" + ")}` : ""}`} /> : null}
             <Fact
-              label="Precio de esta variante"
+              label={terminology === "edition" ? "Precio de esta edición" : "Precio de esta variante"}
               value={priceRows.length
                 ? priceRows.map((row) => `${row.label}: ${formatEur(row.price)}`).join(" · ")
                 : "Pendiente"}
@@ -307,6 +313,7 @@ function PhysicalEditionRow({
                 catalogId={collectionCatalogId}
                 physicalVariantId={edition.id}
                 label={edition.label}
+                terminology={terminology}
                 initialOwnedCount={ownedCount}
                 isLoggedIn={isLoggedIn}
                 loginPath={loginPath}

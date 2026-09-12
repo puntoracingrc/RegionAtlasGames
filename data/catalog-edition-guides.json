@@ -120,7 +120,7 @@
       "id": "absolum-ps5",
       "title": "Ediciones físicas de Absolum en PlayStation 5",
       "reviewedAt": "2026-09-12",
-      "note": "Piloto aditivo para separar juego, plataforma, gran región, edición física y variante coleccionable. Los mercados nacionales no se infieren de los idiomas de la caja.",
+      "note": "Piloto aditivo para separar juego, plataforma, gran región, edición física y, cuando existan, sus variantes coleccionables. Los mercados nacionales no se infieren de los idiomas de la caja.",
       "game": {
         "title": "Absolum",
         "platformSlug": "ps5",

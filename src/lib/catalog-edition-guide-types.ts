@@ -215,6 +215,17 @@ export function catalogPhysicalEditionTypeLabel(type: CatalogPhysicalEditionType
   return EDITION_TYPE_LABELS[type];
 }
 
+export function catalogEditionFamilyHasVariants(physicalEditionCount: number): boolean {
+  return physicalEditionCount > 1;
+}
+
+export function catalogEditionFamilyCountLabel(physicalEditionCount: number): string {
+  if (catalogEditionFamilyHasVariants(physicalEditionCount)) {
+    return `${physicalEditionCount} variantes físicas`;
+  }
+  return `${physicalEditionCount} ${physicalEditionCount === 1 ? "edición física" : "ediciones físicas"}`;
+}
+
 export function parseCatalogBroadRegion(value: string | null | undefined): CatalogBroadRegion | "all" {
   return value && (BROAD_REGION_VALUES as readonly string[]).includes(value)
     ? value as CatalogBroadRegion

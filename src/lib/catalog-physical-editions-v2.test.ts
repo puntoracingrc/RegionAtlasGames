@@ -18,6 +18,8 @@ import {
   PHYSICAL_EDITION_TYPE_VALUES,
   PHYSICAL_EVIDENCE_TYPE_VALUES,
   canEvidenceDefinePhysicalVariant,
+  catalogEditionFamilyCountLabel,
+  catalogEditionFamilyHasVariants,
   isStrongPhysicalEvidence,
 } from "./catalog-edition-guide-types";
 import { filterCatalogGames, type CatalogFilterState } from "./catalog-filters";
@@ -61,6 +63,14 @@ const defaultFilters: CatalogFilterState = {
   sort: "title-asc",
   priceFilter: "all",
 };
+
+test("edition families expose variant terminology only when alternatives exist", () => {
+  assert.equal(catalogEditionFamilyHasVariants(0), false);
+  assert.equal(catalogEditionFamilyHasVariants(1), false);
+  assert.equal(catalogEditionFamilyHasVariants(2), true);
+  assert.equal(catalogEditionFamilyCountLabel(1), "1 edición física");
+  assert.equal(catalogEditionFamilyCountLabel(2), "2 variantes físicas");
+});
 
 test("schema v2 keeps legacy guides readable and enumerations synchronized", () => {
   assert.equal(guideDocument.schemaVersion, 2);

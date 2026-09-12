@@ -358,7 +358,11 @@ function CardBody({
             <p className="font-semibold text-accent">{physicalEditionGroup.editionFamilyLabel}</p>
           ) : null}
           <p className="font-semibold text-foreground/80">
-            {physicalEditionGroup.physicalEditionCount} ediciones físicas · {physicalEditionGroup.broadRegions.length} regiones
+            {physicalEditionGroup.physicalEditionCount}{" "}
+            {physicalEditionGroup.physicalEditionCount === 1 ? "edición física" : "ediciones físicas"}
+            {" · "}
+            {physicalEditionGroup.broadRegions.length}{" "}
+            {physicalEditionGroup.broadRegions.length === 1 ? "región" : "regiones"}
           </p>
           <p className="line-clamp-2">
             {physicalEditionGroup.broadRegions.map((entry) => `${entry.label}: ${entry.editionCount}`).join(" · ")}
