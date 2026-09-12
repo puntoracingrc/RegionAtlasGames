@@ -15,17 +15,22 @@ import {
 } from "./catalog-edition-guides";
 import {
   BROAD_REGION_VALUES,
+  CATALOG_MARKET_REGION_VALUES,
   PHYSICAL_EDITION_TYPE_VALUES,
   PHYSICAL_EVIDENCE_TYPE_VALUES,
   canEvidenceDefinePhysicalVariant,
   catalogEditionFamilyCountLabel,
   catalogEditionFamilyHasVariants,
+  catalogMarketRegionToLegacyRegion,
   isStrongPhysicalEvidence,
 } from "./catalog-edition-guide-types";
 import { filterCatalogGames, type CatalogFilterState } from "./catalog-filters";
 import { toCatalogListGame } from "./catalog-list-game";
-import { getOwnedScanSetById } from "./catalog-owned-scans";
-import { groupCatalogListGames } from "./catalog-physical-edition-browse";
+import { getOwnedScanSet, getOwnedScanSetById } from "./catalog-owned-scans";
+import {
+  catalogPhysicalEditionOverviewRegions,
+  groupCatalogListGames,
+} from "./catalog-physical-edition-browse";
 import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
 import { getRegionDisplay } from "./region-display";
 import {
@@ -80,6 +85,7 @@ test("schema v2 keeps legacy guides readable and enumerations synchronized", () 
   assert.ok(guideDocument.guides.some((guide) => "schemaVersion" in guide && guide.schemaVersion === 2));
   assert.equal(schemaDocument.properties.schemaVersion.const, 2);
   assert.deepEqual(schemaDocument.$defs.broadRegion.enum, [...BROAD_REGION_VALUES]);
+  assert.deepEqual(schemaDocument.$defs.marketRegion.enum, [...CATALOG_MARKET_REGION_VALUES]);
   assert.deepEqual(schemaDocument.$defs.editionType.enum, [...PHYSICAL_EDITION_TYPE_VALUES]);
   assert.deepEqual(schemaDocument.$defs.evidenceType.enum, [...PHYSICAL_EVIDENCE_TYPE_VALUES]);
 });
@@ -124,14 +130,27 @@ test("Absolum models seven editions, three broad regions and one shared European
   );
 
   const standardEurope = european.find((edition) => edition.id === "absolum-ps5-europe-standard-en-fr-es");
-  assert.deepEqual(standardEurope?.marketRegions, ["PAL Francia", "PAL España", "PAL Reino Unido"]);
+  assert.deepEqual(standardEurope?.marketRegions, ["FR", "ES", "GB"]);
   assert.deepEqual(
     guide.physicalEditions.find((edition) => edition.id === "absolum-ps5-europe-standard-de")?.marketRegions,
-    ["PAL Alemania"],
+    ["DE"],
+  );
+  assert.deepEqual(special.marketRegions, []);
+  assert.deepEqual(
+    guide.physicalEditions.find((edition) => edition.id === "absolum-ps5-north-america-standard")?.marketRegions,
+    ["US"],
+  );
+  assert.deepEqual(
+    guide.physicalEditions.find((edition) => edition.id === "absolum-ps5-asia-japan")?.marketRegions,
+    ["JP"],
+  );
+  assert.deepEqual(
+    guide.physicalEditions.find((edition) => edition.id === "absolum-ps5-asia-korea")?.marketRegions,
+    ["KR"],
   );
   assert.deepEqual(
     guide.physicalEditions.find((edition) => edition.id === "absolum-ps5-asia-hk-tw")?.marketRegions,
-    ["NTSC-J Hong Kong", "NTSC-J Taiwán"],
+    ["HK", "TW"],
   );
   assert.equal(getRegionDisplay("NTSC-J Hong Kong").flagCode, "HK");
 });
@@ -143,6 +162,9 @@ test("real owned scans are referenced once and weak assets cannot define a physi
   const scans = getOwnedScanSetById(special.scanSetIds[0]);
   assert.ok(scans);
   assert.equal(scans.packaging.ean, "5061078710685");
+  const specialGame = getCatalogGame("ps5-absolum-special-edition");
+  assert.ok(specialGame);
+  assert.equal(getOwnedScanSet(specialGame)?.primaryCoverUrl, scans.primaryCoverUrl);
   assert.match(scans.packaging.marketEvidence, /no determinan un país de distribución exclusivo/i);
   assert.deepEqual(scans.images.map((image) => image.role), ["portada", "contraportada", "lomo"]);
   assert.equal(canEvidenceDefinePhysicalVariant("REAL_SCAN"), true);
@@ -208,10 +230,17 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
     "NTSC-J Hong Kong",
     "NTSC-J Taiwán",
   ]);
-  assert.ok(standard.physicalEditionGroup.marketRegions.includes("PAL España"));
+  assert.ok(standard.physicalEditionGroup.marketRegions.includes("ES"));
   assert.equal(special.physicalEditionGroup.editionFamilyLabel, "Special Edition");
   assert.equal(special.physicalEditionGroup.physicalEditionCount, 1);
   assert.deepEqual(special.physicalEditionGroup.catalogIds, ["ps5-absolum-special-edition"]);
+  assert.deepEqual(special.physicalEditionGroup.overviewRegions, ["PAL Europa"]);
+  assert.deepEqual(
+    catalogPhysicalEditionOverviewRegions(
+      absolumGuide().physicalEditions.filter((edition) => edition.id === "absolum-ps5-europe-special"),
+    ),
+    ["PAL Europa"],
+  );
 
   const usk = filterCatalogGames(grouped, { ...defaultFilters, ratingSystem: "USK" }, { platforms: true, regions: true });
   assert.deepEqual(usk.items.map((game) => game.id), ["ps5-absolum"]);
@@ -221,15 +250,30 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
   assert.deepEqual(standardOnly.items.map((game) => game.id), ["ps5-absolum"]);
   const europe = filterCatalogGames(grouped, { ...defaultFilters, broadRegion: "EUROPE" }, { platforms: true, regions: true });
   assert.deepEqual(europe.items.map((game) => game.id).sort(), ["ps5-absolum", "ps5-absolum-special-edition"]);
-  const spanish = filterCatalogGames(grouped, { ...defaultFilters, region: "PAL España" }, { platforms: true, regions: true });
-  assert.ok(spanish.items.some((game) => game.id === "ps5-absolum"));
-  const french = filterCatalogGames(grouped, { ...defaultFilters, region: "PAL Francia" }, { platforms: true, regions: true });
-  assert.deepEqual(french.items.map((game) => game.id), ["ps5-absolum"]);
-  const german = filterCatalogGames(grouped, { ...defaultFilters, region: "PAL Alemania" }, { platforms: true, regions: true });
-  assert.deepEqual(german.items.map((game) => game.id), ["ps5-absolum"]);
+  const marketFilterExpectations = new Map<string, string[]>([
+    ["ES", ["ps5-absolum", "ps5-absolum-special-edition"]],
+    ["FR", ["ps5-absolum"]],
+    ["GB", ["ps5-absolum"]],
+    ["DE", ["ps5-absolum"]],
+    ["US", ["ps5-absolum"]],
+    ["JP", ["ps5-absolum"]],
+    ["KR", ["ps5-absolum"]],
+    ["HK", ["ps5-absolum"]],
+    ["TW", ["ps5-absolum"]],
+  ]);
+  for (const [marketCode, expectedIds] of marketFilterExpectations) {
+    const legacyRegion = catalogMarketRegionToLegacyRegion(marketCode);
+    const filtered = filterCatalogGames(
+      grouped,
+      { ...defaultFilters, region: legacyRegion },
+      { platforms: true, regions: true },
+    );
+    assert.deepEqual(filtered.items.map((game) => game.id).sort(), expectedIds, `filter ${marketCode}`);
+  }
 
   const ps5RegionOptions = publicCatalogRegionFilterOptionsForPlatform("ps5").map((option) => option.value);
-  for (const market of ["PAL España", "PAL Francia", "PAL Reino Unido", "PAL Alemania", "NTSC-J Corea", "NTSC-J Hong Kong", "NTSC-J Taiwán"]) {
+  for (const marketCode of CATALOG_MARKET_REGION_VALUES) {
+    const market = catalogMarketRegionToLegacyRegion(marketCode);
     assert.ok(ps5RegionOptions.includes(market), `missing PS5 region filter: ${market}`);
   }
 });

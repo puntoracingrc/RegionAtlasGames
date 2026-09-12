@@ -15,6 +15,7 @@ import { Ps2EditionPanel } from "@/components/ps2-edition-panel";
 import { OwnedScansPanel } from "@/components/owned-scans-panel";
 import { CatalogEditionGuide } from "@/components/catalog-edition-guide";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
+import { catalogPhysicalEditionOverviewRegions } from "@/lib/catalog-physical-edition-browse";
 import {
   collectionItemMatchesPhysicalVariant,
   countOwnedPhysicalVariant,
@@ -160,6 +161,17 @@ export default async function CatalogGamePage({ params }: Props) {
   const currentPhysicalEdition = editionGuide?.physicalEditions.find(
     (edition) => edition.id === editionGuide.currentEditionId,
   );
+  const currentEditionFamily = editionGuide?.editionFamilies.find(
+    (family) => family.id === editionGuide.currentEditionFamilyId,
+  );
+  const headerPhysicalEditions = currentEditionFamily
+    ? editionGuide?.physicalEditions.filter((edition) => currentEditionFamily.physicalEditionIds.includes(edition.id)) ?? []
+    : currentPhysicalEdition
+      ? [currentPhysicalEdition]
+      : [];
+  const headerRegions = editionGuide?.schemaVersion === 2 && headerPhysicalEditions.length
+    ? catalogPhysicalEditionOverviewRegions(headerPhysicalEditions)
+    : [game.region];
   const currentPhysicalVariantId = editionGuide?.editionFamilies.length
     ? currentPhysicalEdition?.id
     : undefined;
@@ -271,6 +283,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const photographedCover = details?.ps2Edition?.graphics.find(asset =>
     asset.url === game.coverUrl && asset.layout === "listing_front_photo");
   const ownedScans = getOwnedScanSet(game);
+  const primaryCoverUrl = ownedScans?.primaryCoverUrl ?? game.coverUrl;
   const guideRendersCurrentScans = editionGuide?.schemaVersion === 2 && Boolean(currentPhysicalEdition?.scanSetIds.includes(game.id));
   const physicalVariantOwnedCounts = editionGuide?.editionFamilies.length
     ? Object.fromEntries(editionGuide.physicalEditions.map((edition) => [
@@ -288,7 +301,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
         <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-10">
           <div className="space-y-4 lg:self-start">
-            {pendingPs1 && !game.coverUrl ? (
+            {pendingPs1 && !primaryCoverUrl ? (
               <Panel>
                 <PanelTitle>Edición pendiente de identificar</PanelTitle>
                 <p className="text-sm leading-6 text-muted">La portada de esta ficha aún no está confirmada. Consulta las ediciones documentadas y las referencias disponibles para contrastar tu ejemplar.</p>
@@ -296,7 +309,7 @@ export default async function CatalogGamePage({ params }: Props) {
               </Panel>
             ) : <div>
               <DetailCoverArt
-                src={getCoverSrc(game.coverUrl, game.id)}
+                src={getCoverSrc(primaryCoverUrl, game.id)}
                 alt={coverAlt}
                 platformSlug={game.platformSlug}
                 owned={owned}
@@ -304,7 +317,7 @@ export default async function CatalogGamePage({ params }: Props) {
                 topSegment={topSegment}
               />
               {photographedCover ? <p className="mt-2 text-center text-xs text-muted">Fotografía de un ejemplar</p> : null}
-              {ownedScans && game.coverUrl === ownedScans.primaryCoverUrl ? <p className="mt-2 text-center text-xs text-muted">{ownedScans.primaryCaption}</p> : null}
+              {ownedScans ? <p className="mt-2 text-center text-xs text-muted">{ownedScans.primaryCaption}</p> : null}
             </div>}
 
             <CollectionToggle
@@ -328,9 +341,11 @@ export default async function CatalogGamePage({ params }: Props) {
             <header className="space-y-2.5">
               <div className="flex flex-wrap gap-1.5">
                 <Badge>{platform?.shortName}</Badge>
-                <Badge>
-                  <RegionFlag region={game.region} size="sm" showLabel labelMode="short" />
-                </Badge>
+                {headerRegions.map((region) => (
+                  <Badge key={region}>
+                    <RegionFlag region={region} size="sm" showLabel labelMode="short" />
+                  </Badge>
+                ))}
                 <Badge
                   tone={
                     priceStatus === "verified"

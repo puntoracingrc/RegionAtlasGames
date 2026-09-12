@@ -7,6 +7,20 @@ export const BROAD_REGION_VALUES = [
 
 export type CatalogBroadRegion = (typeof BROAD_REGION_VALUES)[number];
 
+export const CATALOG_MARKET_REGION_VALUES = [
+  "FR",
+  "ES",
+  "GB",
+  "DE",
+  "US",
+  "JP",
+  "KR",
+  "HK",
+  "TW",
+] as const;
+
+export type CatalogMarketRegion = (typeof CATALOG_MARKET_REGION_VALUES)[number];
+
 export const PHYSICAL_EDITION_TYPE_VALUES = [
   "STANDARD",
   "SPECIAL",
@@ -116,7 +130,7 @@ export type CatalogPhysicalEdition = {
   label: string;
   broadRegion: CatalogBroadRegion;
   editionType: CatalogPhysicalEditionType;
-  /** Mercados físicos documentados; nunca se deducen de los idiomas del packaging. */
+  /** Mercados geográficos documentados; V2 usa códigos de país y nunca los deduce del packaging. */
   marketRegions: string[];
   packagingLanguages: string[];
   ratingSystems: string[];
@@ -173,7 +187,7 @@ export type CatalogPhysicalEditionGroupSummary = {
   editionFamilyLabel?: string;
   catalogIds: string[];
   legacyRegions: string[];
-  /** Mercados nacionales documentados que mantienen la pertenencia a los filtros. */
+  /** Mercados nacionales V2 documentados que mantienen la pertenencia a los filtros. */
   marketRegions: string[];
   /** Banderas resumidas para la tarjeta cuando se muestran todas las regiones. */
   overviewRegions: string[];
@@ -201,6 +215,21 @@ const BROAD_REGION_LABELS: Record<CatalogBroadRegion, string> = {
   NORTH_AMERICA: "Norteamérica",
   ASIA: "Asia",
   OTHER: "Otra región",
+};
+
+const CATALOG_MARKET_REGION_META: Record<CatalogMarketRegion, {
+  broadRegion: CatalogBroadRegion;
+  legacyRegion: string;
+}> = {
+  FR: { broadRegion: "EUROPE", legacyRegion: "PAL Francia" },
+  ES: { broadRegion: "EUROPE", legacyRegion: "PAL España" },
+  GB: { broadRegion: "EUROPE", legacyRegion: "PAL Reino Unido" },
+  DE: { broadRegion: "EUROPE", legacyRegion: "PAL Alemania" },
+  US: { broadRegion: "NORTH_AMERICA", legacyRegion: "NTSC USA" },
+  JP: { broadRegion: "ASIA", legacyRegion: "NTSC-J Japón" },
+  KR: { broadRegion: "ASIA", legacyRegion: "NTSC-J Corea" },
+  HK: { broadRegion: "ASIA", legacyRegion: "NTSC-J Hong Kong" },
+  TW: { broadRegion: "ASIA", legacyRegion: "NTSC-J Taiwán" },
 };
 
 const EDITION_TYPE_LABELS: Record<CatalogPhysicalEditionType, string> = {
@@ -275,6 +304,22 @@ export function catalogBroadRegionFromLegacyRegion(region: string): CatalogBroad
     return "EUROPE";
   }
   return "OTHER";
+}
+
+export function isCatalogMarketRegion(region: string): region is CatalogMarketRegion {
+  return (CATALOG_MARKET_REGION_VALUES as readonly string[]).includes(region);
+}
+
+export function catalogBroadRegionFromMarketRegion(region: string): CatalogBroadRegion {
+  return isCatalogMarketRegion(region)
+    ? CATALOG_MARKET_REGION_META[region].broadRegion
+    : catalogBroadRegionFromLegacyRegion(region);
+}
+
+export function catalogMarketRegionToLegacyRegion(region: string): string {
+  return isCatalogMarketRegion(region)
+    ? CATALOG_MARKET_REGION_META[region].legacyRegion
+    : region;
 }
 
 export function isStrongPhysicalEvidence(type: CatalogPhysicalEvidenceType): boolean {

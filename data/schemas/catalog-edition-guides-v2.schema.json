@@ -85,6 +85,9 @@
     "broadRegion": {
       "enum": ["EUROPE", "NORTH_AMERICA", "ASIA", "OTHER"]
     },
+    "marketRegion": {
+      "enum": ["FR", "ES", "GB", "DE", "US", "JP", "KR", "HK", "TW"]
+    },
     "editionType": {
       "enum": ["STANDARD", "SPECIAL", "COLLECTOR", "DELUXE", "LIMITED", "STEELBOOK", "OTHER"]
     },
@@ -156,7 +159,7 @@
         "label": { "type": "string", "minLength": 1 },
         "broadRegion": { "$ref": "#/$defs/broadRegion" },
         "editionType": { "$ref": "#/$defs/editionType" },
-        "marketRegions": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "marketRegions": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
         "packagingLanguages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "ratingSystems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "barcode": { "type": "string" },

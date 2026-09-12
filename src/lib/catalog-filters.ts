@@ -1,5 +1,5 @@
 import { catalogSearchTokens } from "@/lib/catalog-search-normalize";
-import { catalogBroadRegionFromLegacyRegion, type CatalogBroadRegion, type CatalogPhysicalEditionType } from "@/lib/catalog-edition-guide-types";
+import { catalogBroadRegionFromLegacyRegion, catalogMarketRegionToLegacyRegion, type CatalogBroadRegion, type CatalogPhysicalEditionType } from "@/lib/catalog-edition-guide-types";
 import { findGameFacetEntityBySlug, getGameFacetsTaxonomy } from "@/lib/game-facets/taxonomy";
 import { esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
@@ -284,11 +284,12 @@ function matchesLegacyRegion(game: CatalogListGame, region: string): boolean {
     : [game.region];
   const group = selectedRegionGroup(region);
   return candidateRegions.some((candidateRegion) => {
-    const standardLabel = getRegionDisplay(candidateRegion).label;
+    const legacyRegion = catalogMarketRegionToLegacyRegion(candidateRegion);
+    const standardLabel = getRegionDisplay(legacyRegion).label;
     if (group) {
-      return regionNavigationGroup(publicRegionLabelForPlatform(game.platformSlug, candidateRegion)) === group.id;
+      return regionNavigationGroup(publicRegionLabelForPlatform(game.platformSlug, legacyRegion)) === group.id;
     }
-    return standardLabel === region || publicRegionLabelForPlatform(game.platformSlug, candidateRegion) === region;
+    return standardLabel === region || publicRegionLabelForPlatform(game.platformSlug, legacyRegion) === region;
   });
 }
 

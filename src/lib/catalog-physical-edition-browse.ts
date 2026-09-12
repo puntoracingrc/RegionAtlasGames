@@ -1,5 +1,6 @@
 import {
   catalogBroadRegionLabel,
+  catalogMarketRegionToLegacyRegion,
   catalogPhysicalEditionTypeLabel,
   type CatalogPhysicalEditionGroupSummary,
   type CatalogEditionFamily,
@@ -27,20 +28,24 @@ function mergeSearchText(games: CatalogListGame[], additions: string[]): string 
   ]).join(" ").toLowerCase();
 }
 
-function overviewRegions(editions: CatalogPhysicalEdition[]): string[] {
+export function catalogPhysicalEditionOverviewRegions(editions: CatalogPhysicalEdition[]): string[] {
   const editionsByBroadRegion = new Map<CatalogPhysicalEdition["broadRegion"], CatalogPhysicalEdition[]>();
   for (const edition of editions) {
     editionsByBroadRegion.set(edition.broadRegion, [...(editionsByBroadRegion.get(edition.broadRegion) ?? []), edition]);
   }
 
   return unique([...editionsByBroadRegion.entries()].flatMap(([broadRegion, regionalEditions]) => {
-    const exactMarkets = unique(regionalEditions.flatMap((edition) => edition.marketRegions));
-    const fallbackMarkets = unique(regionalEditions.flatMap((edition) => edition.catalogLinks.map((link) => link.region)));
-    const markets = exactMarkets.length ? exactMarkets : fallbackMarkets;
-    if (broadRegion === "EUROPE" && (regionalEditions.length > 1 || markets.length > 1)) {
+    const exactMarkets = unique(regionalEditions
+      .flatMap((edition) => edition.marketRegions)
+      .map(catalogMarketRegionToLegacyRegion));
+    if (broadRegion === "EUROPE" && (regionalEditions.length > 1 || exactMarkets.length > 1)) {
       return ["PAL Europa"];
     }
-    return markets;
+    if (exactMarkets.length) return exactMarkets;
+    if (broadRegion === "EUROPE") return ["PAL Europa"];
+    if (broadRegion === "NORTH_AMERICA") return ["Norteamérica"];
+    if (broadRegion === "ASIA") return ["Asia"];
+    return ["Internacional"];
   }));
 }
 
@@ -57,14 +62,15 @@ function buildSummary(
   const complete = priceRange(games.map((game) => game.estimatedPriceComplete));
   const sealed = priceRange(games.map((game) => game.estimatedPriceSealed ?? game.estimatedPriceNewRetail));
   const marketRegions = unique(editions.flatMap((edition) => edition.marketRegions));
+  const legacyMarketRegions = marketRegions.map(catalogMarketRegionToLegacyRegion);
   return {
     guideId: guide.id,
     canonicalCatalogId: family?.representativeCatalogId ?? guide.game.canonicalCatalogId,
     ...(family ? { editionFamilyId: family.id, editionFamilyLabel: family.label } : {}),
     catalogIds: unique(games.map((game) => game.id)),
-    legacyRegions: unique([...games.map((game) => game.region), ...marketRegions]),
+    legacyRegions: unique([...games.map((game) => game.region), ...legacyMarketRegions]),
     marketRegions,
-    overviewRegions: overviewRegions(editions),
+    overviewRegions: catalogPhysicalEditionOverviewRegions(editions),
     physicalEditionCount: editions.length,
     collectibleVariantCount: editions.reduce((total, edition) => total + edition.variants.length, 0),
     broadRegions: [...regionCounts.entries()].map(([value, editionCount]) => ({
@@ -116,6 +122,7 @@ export function groupCatalogListGames(games: CatalogListGame[]): CatalogListGame
         edition.serial,
         edition.boxCode,
         ...edition.marketRegions,
+        ...edition.marketRegions.map(catalogMarketRegionToLegacyRegion),
         ...edition.packagingLanguages,
         ...edition.ratingSystems,
         ...edition.variants.flatMap((variant) => [variant.label, variant.barcode, variant.boxCode, ...variant.stickers, ...variant.markings]),

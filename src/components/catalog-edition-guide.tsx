@@ -9,12 +9,12 @@ import {
   catalogBroadRegionLabel,
   catalogEditionFamilyCountLabel,
   catalogEditionFamilyHasVariants,
+  catalogMarketRegionToLegacyRegion,
   catalogPhysicalEditionTypeLabel,
   isStrongPhysicalEvidence,
   type CatalogEditionFamily,
   type CatalogEditionGuideModel,
   type CatalogPhysicalEdition,
-  type CatalogPhysicalEvidenceType,
 } from "@/lib/catalog-edition-guide-types";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { getOwnedScanSetById } from "@/lib/catalog-owned-scans";
@@ -22,19 +22,6 @@ import { getCoverSrc } from "@/lib/cover-url";
 import { formatEur } from "@/lib/price-format";
 import { catalogConditionPriceRows } from "@/lib/price-display";
 import type { CatalogGame } from "@/lib/types";
-
-const EVIDENCE_LABELS: Record<CatalogPhysicalEvidenceType, string> = {
-  REAL_SCAN: "Escaneo real",
-  REAL_PHOTO: "Fotografía real",
-  UNBOXING_FRAME: "Fotograma de unboxing",
-  RETAILER_PHOTO_CONFIRMED: "Fotografía física confirmada",
-  RETAILER_ASSET: "Imagen de retailer",
-  PUBLISHER_MOCKUP: "Mockup del editor",
-  PRE_RELEASE_ASSET: "Imagen previa al lanzamiento",
-  PUBLISHER_DOCUMENTATION: "Documentación del editor",
-  OWNER_CONFIRMATION: "Confirmación del propietario",
-  UNKNOWN: "Procedencia pendiente",
-};
 
 type CatalogEditionGuideProps = {
   game: CatalogGame;
@@ -61,7 +48,6 @@ export function CatalogEditionGuide({
 }
 
 function LegacyEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
-  const currentImages = guide.physicalEditions.find((edition) => edition.id === guide.currentEditionId)?.images ?? [];
   return (
     <Panel>
       <section aria-label={guide.title}>
@@ -83,7 +69,6 @@ function LegacyEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
           })}
         </ul>
         <p className="mt-2 text-xs leading-5 text-muted">{guide.note}</p>
-        <ReferenceSection guide={guide} images={currentImages} />
       </section>
     </Panel>
   );
@@ -215,8 +200,6 @@ function PhysicalEditionGuide({
             );
           })}
         </div>
-
-        <ReferenceSection guide={guide} images={[]} />
       </section>
     </Panel>
   );
@@ -268,7 +251,13 @@ function PhysicalEditionRow({
         <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
           <span className="font-semibold text-foreground/80">Mercados documentados</span>
           {edition.marketRegions.map((marketRegion) => (
-            <RegionFlag key={marketRegion} region={marketRegion} size="xs" showLabel labelMode="short" />
+            <RegionFlag
+              key={marketRegion}
+              region={catalogMarketRegionToLegacyRegion(marketRegion)}
+              size="xs"
+              showLabel
+              labelMode="short"
+            />
           ))}
         </div>
       ) : null}
@@ -353,7 +342,6 @@ function PhysicalEditionRow({
       ) : null}
 
       {edition.notes.map((note) => <p key={note} className="mt-2 text-xs leading-5 text-muted">{note}</p>)}
-      <EvidenceList evidence={edition.evidence} />
       {edition.scanSetIds.map((scanSetId) => <ScanSetGallery key={scanSetId} scanSetId={scanSetId} />)}
     </article>
   );
@@ -381,7 +369,7 @@ function DimensionsComparison({ dimensions }: { dimensions: NonNullable<CatalogP
           <p>
             Frente a {comparison.label.toLowerCase()} ({formatCm(comparison.widthCm)} × {formatCm(comparison.heightCm)} × {formatCm(comparison.depthCm)}): {formatDifference(difference.widthCm)} de ancho, {formatDifference(difference.heightCm)} de alto y {formatDifference(difference.depthCm)} de profundidad.
           </p>
-          <a href={comparison.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+          <a href={publicWebsiteHome(comparison.sourceUrl)} target="_blank" rel="noopener noreferrer" className="text-primary underline">
             {comparison.sourceLabel}
           </a>
         </div>
@@ -396,27 +384,13 @@ function Fact({ label, value, mono = false }: { label: string; value: string; mo
   return <div><dt className="font-semibold text-foreground">{label}</dt><dd className={mono ? "font-mono text-muted" : "text-muted"}>{value}</dd></div>;
 }
 
-function EvidenceList({ evidence }: { evidence: CatalogPhysicalEdition["evidence"] }) {
-  if (!evidence.length) return null;
-  return (
-    <details className="mt-4 border-t border-border/70 pt-3">
-      <summary className="cursor-pointer text-sm font-semibold">Evidencia y procedencia</summary>
-      <ul className="mt-3 divide-y divide-border/60">
-        {evidence.map((entry) => (
-          <li key={entry.id} className="py-2 text-xs leading-5 first:pt-0">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="font-semibold text-foreground">{entry.label}</span>
-              <span className={isStrongPhysicalEvidence(entry.type) ? "text-emerald-700 dark:text-emerald-300" : "text-muted"}>
-                {EVIDENCE_LABELS[entry.type]}
-              </span>
-            </div>
-            {entry.summary ? <p className="text-muted">{entry.summary}</p> : null}
-            {entry.url ? <a href={entry.url} target="_blank" rel="noopener noreferrer" className="text-primary underline">Consultar fuente</a> : null}
-          </li>
-        ))}
-      </ul>
-    </details>
-  );
+function publicWebsiteHome(sourceUrl: string): string {
+  try {
+    const url = new URL(sourceUrl);
+    return `${url.protocol}//${url.host}/`;
+  } catch {
+    return sourceUrl;
+  }
 }
 
 function ScanSetGallery({ scanSetId }: { scanSetId: string }) {
@@ -436,30 +410,6 @@ function ScanSetGallery({ scanSetId }: { scanSetId: string }) {
           </figure>
         ))}
       </div>
-    </details>
-  );
-}
-
-function ReferenceSection({ guide, images }: { guide: CatalogEditionGuideModel; images: CatalogEditionGuideModel["physicalEditions"][number]["images"] }) {
-  if (!images.length && !guide.sources.length && !guide.evidenceNote) return null;
-  return (
-    <details className="mt-4 border-t border-border pt-3">
-      <summary className="cursor-pointer text-sm font-semibold">Imágenes de referencia y fuentes</summary>
-      {images.length ? <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        {images.map((image) => (
-          <figure key={image.key} className="min-w-0 border border-border p-2">
-            <a href={image.url} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar: ${image.caption}`}>
-              <Image unoptimized src={image.thumbnailUrl} width={image.width} height={image.height} alt={image.caption} className="h-44 w-full object-contain" />
-            </a>
-            <figcaption className="mt-2 text-xs leading-5 text-muted">{image.caption}</figcaption>
-            {!isStrongPhysicalEvidence(image.evidenceType) ? <p className="mt-1 text-[11px] text-muted">Referencia visual; no determina por sí sola una variante física.</p> : null}
-          </figure>
-        ))}
-      </div> : null}
-      <p className="mt-3 text-xs leading-5 text-muted">{guide.evidenceNote}</p>
-      {guide.sources.length ? <ul className="mt-2 space-y-2 text-xs">
-        {guide.sources.map((source) => <li key={`${source.label}:${source.url ?? "internal"}`}>{source.url ? <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-primary underline">{source.label}</a> : source.label}</li>)}
-      </ul> : null}
     </details>
   );
 }

@@ -4,6 +4,8 @@ import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
 import {
   catalogBroadRegionFromLegacyRegion,
+  catalogBroadRegionFromMarketRegion,
+  isCatalogMarketRegion,
   type CatalogEditionGuideModel,
   type CatalogEditionFamily,
   type CatalogEditionImage,
@@ -247,7 +249,10 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     const marketRegions = entry.marketRegions ?? [];
     ensureUnique(marketRegions, `${entry.id} market region`);
     for (const marketRegion of marketRegions) {
-      if (catalogBroadRegionFromLegacyRegion(marketRegion) !== entry.broadRegion) {
+      if (!isCatalogMarketRegion(marketRegion)) {
+        throw new Error(`[catalog-edition-guides] ${entry.id} invalid V2 market code: ${marketRegion}`);
+      }
+      if (catalogBroadRegionFromMarketRegion(marketRegion) !== entry.broadRegion) {
         throw new Error(`[catalog-edition-guides] ${entry.id} market outside ${entry.broadRegion}: ${marketRegion}`);
       }
     }
