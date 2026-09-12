@@ -101,6 +101,8 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 - Con un filtro nacional, la misma raíz sigue siendo elegible por sus mercados documentados y muestra la bandera elegida. Los filtros `ES / FR / GB / DE / US / JP / KR / HK / TW` se resuelven mediante una traducción de compatibilidad, sin almacenar nombres PAL/NTSC en el guide V2.
 - Dentro de la ficha, cada edición muestra sus mercados exactos: `FR / ES / UK` juntos, `DE` por separado y los mercados americanos y asiáticos en sus bloques.
 - Cada bloque de gran región incorpora una guía vertical continua: azul para Europa, azul/blanco/rojo para Norteamérica y rojo/dorado para Asia. Las banderas nacionales continúan identificando los mercados exactos dentro de cada edición.
+- El componente de guías visuales dispone además de paletas nacionales para todos los códigos de bandera soportados por la interfaz. Italia queda preparada como verde/blanco/rojo para una futura edición documentada, sin añadir `IT` a Absolum ni inferir un mercado inexistente.
+- La relación de disco compartido continúa en el modelo y en la nota de cada edición, pero se retira del resumen de datos para no duplicarla. La comparación de medidas muestra la ilustración visual aportada y únicamente las medidas aproximadas de la caja debajo.
 - Una edición que ya pertenece a la colección resalta toda su fila en verde. El estado visual usa el contador vivo del control de colección: aparece al añadir la primera copia y desaparece al retirar la última, sin mantener una marca independiente de los datos guardados.
 - La cabecera de la Special muestra `EU`, no `ES`, porque solo está demostrada su gran región europea. El filtro legacy España sigue encontrando la ficha sin convertir ese dato de compatibilidad en un mercado V2 demostrado.
 - El escaneo propio de la caja exterior es la portada principal de la ficha Special; la portada, contraportada y lomo continúan disponibles en su galería.
@@ -138,7 +140,7 @@ La QA final sobre el build de producción local verificó la ficha Special a 144
 ## Controles de aceptación
 
 - JSON y schema parseables: PASS.
-- Pruebas específicas v1/v2, scans, evidencia, disco compartido, códigos de mercado, los nueve filtros nacionales, URLs, precios ópticos y SIAE: 13/13 PASS.
+- Pruebas específicas v1/v2, scans, evidencia, disco compartido, guías regionales, códigos de mercado, los nueve filtros nacionales, URLs, precios ópticos y SIAE: 14/14 PASS.
 - Suite unitaria completa: PASS, incluidas 264/264 pruebas principales y todas las suites previas/posteriores.
 - `typecheck`: PASS.
 - Lint: PASS, 0 errores y 34 avisos preexistentes.

@@ -14,7 +14,6 @@ import {
   isStrongPhysicalEvidence,
   type CatalogEditionFamily,
   type CatalogEditionGuideModel,
-  type CatalogBroadRegion,
   type CatalogPhysicalEdition,
 } from "@/lib/catalog-edition-guide-types";
 import { catalogGamePath } from "@/lib/catalog-path";
@@ -22,6 +21,10 @@ import { getOwnedScanSetById } from "@/lib/catalog-owned-scans";
 import { getCoverSrc } from "@/lib/cover-url";
 import { formatEur } from "@/lib/price-format";
 import { catalogConditionPriceRows } from "@/lib/price-display";
+import {
+  catalogRegionRailSegments,
+  type CatalogRegionRailIdentity,
+} from "@/lib/catalog-region-rail";
 import type { CatalogGame } from "@/lib/types";
 
 type CatalogEditionGuideProps = {
@@ -95,21 +98,18 @@ function familyHref(family: CatalogEditionFamily): string | null {
   return game ? catalogGamePath(game) : null;
 }
 
-const BROAD_REGION_RAIL_SEGMENTS: Record<CatalogBroadRegion, string[]> = {
-  EUROPE: ["bg-[#003399]"],
-  NORTH_AMERICA: ["bg-[#3c3b6e]", "bg-white", "bg-[#b22234]"],
-  ASIA: ["bg-[#bc002d]", "bg-[#f2c94c]"],
-  OTHER: ["bg-muted"],
-};
-
-function BroadRegionRail({ region }: { region: CatalogBroadRegion }) {
+function RegionRail({ identity }: { identity: CatalogRegionRailIdentity }) {
   return (
     <span
       aria-hidden="true"
       className="absolute bottom-4 left-0 top-4 flex w-1.5 flex-col overflow-hidden rounded-full border border-border/70 shadow-sm"
     >
-      {BROAD_REGION_RAIL_SEGMENTS[region].map((className, index) => (
-        <span key={`${region}-${index}`} className={`min-h-3 flex-1 ${className}`} />
+      {catalogRegionRailSegments(identity).map((color, index) => (
+        <span
+          key={`${identity}-${index}`}
+          className="min-h-3 flex-1"
+          style={{ backgroundColor: color }}
+        />
       ))}
     </span>
   );
@@ -203,7 +203,7 @@ function PhysicalEditionGuide({
                 data-broad-region={region}
                 className="relative py-5 pl-5 first:pt-4"
               >
-                <BroadRegionRail region={region} />
+                <RegionRail identity={region} />
                 <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="text-lg font-bold text-foreground">{catalogBroadRegionLabel(region)}</h3>
                   <span className="text-xs text-muted">{editions.length} {editions.length === 1 ? "edición" : "ediciones"}</span>
@@ -248,7 +248,6 @@ function PhysicalEditionRow({
   ownedCount: number;
   loginPath: string;
 }) {
-  const sharedDisc = guide.sharedDiscs.find((disc) => disc.id === edition.sharedDiscId);
   const cover = physicalEditionCover(edition);
   const linkedCatalogGame = edition.catalogIds.flatMap((id) => {
     const game = getCatalogGame(id);
@@ -306,7 +305,6 @@ function PhysicalEditionRow({
             {edition.barcode ? <Fact label="EAN / UPC / JAN" value={edition.barcode} mono /> : null}
             {edition.catalogNumber ? <Fact label="Referencia del soporte" value={edition.catalogNumber} mono /> : null}
             {edition.boxCode ? <Fact label="Código de caja" value={edition.boxCode} mono /> : null}
-            {sharedDisc ? <Fact label="Soporte compartido" value={`${sharedDisc.label}${sharedDisc.ratingSystems.length ? ` · ${sharedDisc.ratingSystems.join(" + ")}` : ""}`} /> : null}
             <Fact
               label={terminology === "edition" ? "Precio de esta edición" : "Precio de esta variante"}
               value={priceRows.length
@@ -377,49 +375,33 @@ function PhysicalEditionRow({
 }
 
 function DimensionsComparison({ dimensions }: { dimensions: NonNullable<CatalogPhysicalEdition["dimensions"]> }) {
-  const comparison = dimensions.comparison;
-  const difference = comparison ? {
-    widthCm: dimensions.widthCm - comparison.widthCm,
-    heightCm: dimensions.heightCm - comparison.heightCm,
-    depthCm: dimensions.depthCm - comparison.depthCm,
-  } : null;
   const formatCm = (value: number) => `${value.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} cm`;
-  const formatDifference = (value: number) => `${value >= 0 ? "+" : ""}${formatCm(value)}`;
   return (
     <div className="mt-4 border-y border-border/70 py-3">
-      <p className="text-xs font-semibold uppercase text-muted">Medidas exteriores {dimensions.approximate ? "aproximadas" : ""}</p>
+      {dimensions.comparisonImageUrl ? (
+        <div className="mx-auto max-w-md bg-white p-3">
+          <Image
+            unoptimized
+            src={dimensions.comparisonImageUrl}
+            width={900}
+            height={942}
+            alt="Comparación de la caja de esta edición con una caja estándar de PS5"
+            className="h-auto w-full object-contain"
+          />
+        </div>
+      ) : null}
+      <p className="mt-3 text-xs font-semibold uppercase text-muted">Medidas exteriores {dimensions.approximate ? "aproximadas" : ""}</p>
       <dl className="mt-2 grid grid-cols-3 gap-3 text-sm">
         <Fact label="ANCHO" value={formatCm(dimensions.widthCm)} />
         <Fact label="ALTO" value={formatCm(dimensions.heightCm)} />
         <Fact label="PROFUNDO" value={formatCm(dimensions.depthCm)} />
       </dl>
-      {comparison && difference ? (
-        <div className="mt-3 text-xs leading-5 text-muted">
-          <p>
-            Frente a {comparison.label.toLowerCase()} ({formatCm(comparison.widthCm)} × {formatCm(comparison.heightCm)} × {formatCm(comparison.depthCm)}): {formatDifference(difference.widthCm)} de ancho, {formatDifference(difference.heightCm)} de alto y {formatDifference(difference.depthCm)} de profundidad.
-          </p>
-          <a href={publicWebsiteHome(comparison.sourceUrl)} target="_blank" rel="noopener noreferrer" className="text-primary underline">
-            {comparison.sourceLabel}
-          </a>
-        </div>
-      ) : null}
-      <p className="mt-2 text-xs leading-5 text-muted">{dimensions.sourceLabel}</p>
-      {dimensions.notes.map((note) => <p key={note} className="text-xs leading-5 text-muted">{note}</p>)}
     </div>
   );
 }
 
 function Fact({ label, value, mono = false }: { label: string; value: string; mono?: boolean }) {
   return <div><dt className="font-semibold text-foreground">{label}</dt><dd className={mono ? "font-mono text-muted" : "text-muted"}>{value}</dd></div>;
-}
-
-function publicWebsiteHome(sourceUrl: string): string {
-  try {
-    const url = new URL(sourceUrl);
-    return `${url.protocol}//${url.host}/`;
-  } catch {
-    return sourceUrl;
-  }
 }
 
 function ScanSetGallery({ scanSetId }: { scanSetId: string }) {

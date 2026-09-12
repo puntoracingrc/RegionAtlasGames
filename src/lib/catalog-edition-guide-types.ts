@@ -97,6 +97,7 @@ export type CatalogPhysicalDimensions = {
   heightCm: number;
   depthCm: number;
   approximate: boolean;
+  comparisonImageUrl?: string;
   sourceLabel: string;
   notes: string[];
   comparison?: {

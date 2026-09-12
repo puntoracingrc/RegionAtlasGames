@@ -133,6 +133,7 @@
         "heightCm": { "type": "number", "exclusiveMinimum": 0 },
         "depthCm": { "type": "number", "exclusiveMinimum": 0 },
         "approximate": { "type": "boolean" },
+        "comparisonImageUrl": { "type": "string", "pattern": "^/" },
         "sourceLabel": { "type": "string", "minLength": 1 },
         "notes": { "type": "array", "items": { "type": "string" } },
         "comparison": {

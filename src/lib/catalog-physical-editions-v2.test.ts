@@ -44,6 +44,10 @@ import {
 import { catalogGameToCollectionItem } from "./collection-store";
 import { catalogGamePath } from "./catalog-url";
 import { catalogConditionPriceRows } from "./price-display";
+import {
+  CATALOG_REGION_RAIL_CODES,
+  catalogRegionRailSegments,
+} from "./catalog-region-rail";
 
 const ABSOLUM_CATALOG_IDS = [
   "ps5-absolum",
@@ -79,6 +83,24 @@ test("edition families expose variant terminology only when alternatives exist",
   assert.equal(catalogEditionFamilyHasVariants(2), true);
   assert.equal(catalogEditionFamilyCountLabel(1), "1 edición física");
   assert.equal(catalogEditionFamilyCountLabel(2), "2 variantes físicas");
+});
+
+test("regional rails cover every supported flag and keep Italy ready without adding market data", () => {
+  for (const regionCode of CATALOG_REGION_RAIL_CODES) {
+    assert.ok(catalogRegionRailSegments(regionCode).length > 0, `missing rail for ${regionCode}`);
+  }
+  for (const marketCode of CATALOG_MARKET_REGION_VALUES) {
+    assert.ok(catalogRegionRailSegments(marketCode).length > 0, `missing rail for ${marketCode}`);
+  }
+  assert.ok(CATALOG_REGION_RAIL_CODES.includes("IT"));
+  assert.deepEqual(catalogRegionRailSegments("IT"), ["#009246", "#ffffff", "#ce2b37"]);
+  assert.deepEqual(catalogRegionRailSegments("EUROPE"), ["#003399"]);
+  assert.deepEqual(catalogRegionRailSegments("NORTH_AMERICA"), ["#3c3b6e", "#ffffff", "#b22234"]);
+  assert.deepEqual(catalogRegionRailSegments("ASIA"), ["#bc002d", "#f2c94c"]);
+  assert.equal(
+    absolumGuide().physicalEditions.some((edition) => edition.marketRegions.includes("IT")),
+    false,
+  );
 });
 
 test("schema v2 keeps legacy guides readable and enumerations synchronized", () => {
@@ -126,6 +148,10 @@ test("Absolum models seven editions, three broad regions and one shared European
     [14.8, 22.3, 3.2],
   );
   assert.equal(special.dimensions?.approximate, true);
+  assert.equal(
+    special.dimensions?.comparisonImageUrl,
+    "/catalog-covers/ps5/ediciones-documentadas/absolum-special-box-size-comparison.webp",
+  );
   assert.deepEqual(
     [special.dimensions?.comparison?.widthCm, special.dimensions?.comparison?.heightCm, special.dimensions?.comparison?.depthCm],
     [13.5, 17, 1.5],
