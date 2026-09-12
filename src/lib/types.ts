@@ -1,5 +1,6 @@
 import type { Ps1EditionDetails } from "./ps1-regional";
 import type { Ps2EditionDetails } from "./ps2-regional";
+import type { CatalogPhysicalEditionGroupSummary } from "./catalog-edition-guide-types";
 
 export type DetailEntitySource =
   | "museum"
@@ -459,6 +460,8 @@ export type CatalogListGame = Pick<
 > & {
   displayPlatform: string;
   displayYear: number | null;
+  /** Agrupación aditiva Game + Platform declarada por una guía de ediciones v2. */
+  physicalEditionGroup?: CatalogPhysicalEditionGroupSummary;
   /** Campos internos del indice. Se omiten en las respuestas de tarjetas. */
   searchText?: string;
   gameSearchText?: string;

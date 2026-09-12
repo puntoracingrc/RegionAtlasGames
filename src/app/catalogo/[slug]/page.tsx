@@ -14,6 +14,7 @@ import { Ps1EditionPanel } from "@/components/ps1-edition-panel";
 import { Ps2EditionPanel } from "@/components/ps2-edition-panel";
 import { OwnedScansPanel } from "@/components/owned-scans-panel";
 import { CatalogEditionGuide } from "@/components/catalog-edition-guide";
+import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import { getOwnedScanSet } from "@/lib/catalog-owned-scans";
 import { GameTaxonomyLinks, type GameTaxonomyLink } from "@/components/game-taxonomy-links";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
@@ -257,6 +258,9 @@ export default async function CatalogGamePage({ params }: Props) {
   const photographedCover = details?.ps2Edition?.graphics.find(asset =>
     asset.url === game.coverUrl && asset.layout === "listing_front_photo");
   const ownedScans = getOwnedScanSet(game);
+  const editionGuide = getCatalogEditionGuide(game);
+  const currentPhysicalEdition = editionGuide?.physicalEditions.find((edition) => edition.id === editionGuide.currentEditionId);
+  const guideRendersCurrentScans = editionGuide?.schemaVersion === 2 && Boolean(currentPhysicalEdition?.scanSetIds.includes(game.id));
 
   return (
     <>
@@ -335,7 +339,9 @@ export default async function CatalogGamePage({ params }: Props) {
               <h1 className="text-2xl font-bold leading-tight text-foreground sm:text-3xl">
                 {game.title}
                 <span className="mt-1 block text-lg font-normal text-muted sm:text-xl">
-                  Precio {platform?.shortName} · {regionLabel}
+                  {currentPhysicalEdition && editionGuide?.schemaVersion === 2
+                    ? `${platform?.shortName} · ${currentPhysicalEdition.label}`
+                    : `Precio ${platform?.shortName} · ${regionLabel}`}
                 </span>
               </h1>
               {game.titlePc && game.titlePc !== game.title && (
@@ -355,7 +361,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
             {!pendingPs1 ? <Ps1EditionPanel game={game} details={details} /> : null}
             <Ps2EditionPanel game={game} details={details} />
-            <OwnedScansPanel scans={ownedScans} title={game.title} />
+            {!guideRendersCurrentScans ? <OwnedScansPanel scans={ownedScans} title={game.title} /> : null}
             <CatalogEditionGuide game={game} />
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />

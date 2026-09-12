@@ -34,6 +34,13 @@ import {
   type CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
 import type { CatalogListGame } from "@/lib/types";
+import {
+  parseCatalogBroadRegion,
+  parseCatalogPhysicalEditionType,
+  type CatalogBroadRegion,
+  type CatalogPhysicalEditionType,
+  type CatalogPhysicalFilterOptions,
+} from "@/lib/catalog-edition-guide-types";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
@@ -105,8 +112,19 @@ function CatalogCompactRow({
           {isPendingCatalogGame(game) ? <p className="mt-1 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
           <p className="mt-0.5 flex flex-wrap items-center gap-1 text-[11px] text-muted">
             <span>{game.displayPlatform}</span>
-            <span aria-hidden>·</span>
-            <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
+            {game.physicalEditionGroup ? (
+              <>
+                <span aria-hidden>·</span>
+                <span>{game.physicalEditionGroup.physicalEditionCount} ediciones físicas</span>
+                <span aria-hidden>·</span>
+                <span>{game.physicalEditionGroup.broadRegions.map((entry) => entry.label).join(" / ")}</span>
+              </>
+            ) : (
+              <>
+                <span aria-hidden>·</span>
+                <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
+              </>
+            )}
             {game.displayYear != null ? (
               <>
                 <span aria-hidden>·</span>
@@ -155,7 +173,11 @@ function CatalogCompactRow({
                   value.price == null ? "text-muted" : "text-accent",
                 )}
               >
-                {value.price == null ? "--" : formatEur(value.price)}
+                {value.price == null
+                  ? "--"
+                  : value.maxPrice != null && value.maxPrice !== value.price
+                    ? `${formatEur(value.price)}–${formatEur(value.maxPrice)}`
+                    : formatEur(value.price)}
               </dd>
             </div>
           ))}
@@ -195,6 +217,7 @@ type Props = {
   subgenres?: CatalogTaxonomyFilterOption[];
   facets?: CatalogTaxonomyFilterOption[];
   companies?: CatalogCompanyFilterOption[];
+  physicalEditionFilters?: CatalogPhysicalFilterOptions;
   showRegionFilter?: boolean;
   showPlatformFilter?: boolean;
   showTaxonomyFilters?: boolean;
@@ -233,6 +256,7 @@ export function CatalogBrowser({
   subgenres: initialSubgenres,
   facets: initialFacets,
   companies: initialCompanies,
+  physicalEditionFilters,
   showRegionFilter = true,
   showPlatformFilter = false,
   showTaxonomyFilters = false,
@@ -275,6 +299,9 @@ export function CatalogBrowser({
   const [subgenre, setSubgenre] = useState(initialSubgenre);
   const [facet, setFacet] = useState(initialFacet);
   const [company, setCompany] = useState("");
+  const [broadRegion, setBroadRegion] = useState<CatalogBroadRegion | "all">("all");
+  const [ratingSystem, setRatingSystem] = useState("all");
+  const [physicalEditionType, setPhysicalEditionType] = useState<CatalogPhysicalEditionType | "all">("all");
   const [companyFocused, setCompanyFocused] = useState(false);
   const [selectedPriceType, setSelectedPriceType] = useState<CatalogPriceType>(initialPriceType);
   const [sort, setSort] = useState<CatalogSort>(
@@ -344,7 +371,7 @@ export function CatalogBrowser({
   useEffect(() => {
     if (!persistKey) return;
     try {
-      const hasUrlFilters = ["q", "region", "genre", "subgenre", "facet", "includePending", "pendingEdition"].some((key) => new URLSearchParams(window.location.search).has(key));
+      const hasUrlFilters = ["q", "region", "genre", "subgenre", "facet", "includePending", "pendingEdition", "broadRegion", "ratingSystem", "physicalEditionType"].some((key) => new URLSearchParams(window.location.search).has(key));
       const raw = hasUrlFilters ? null : window.localStorage.getItem(persistKey);
       if (raw) {
         const saved = JSON.parse(raw) as {
@@ -360,6 +387,9 @@ export function CatalogBrowser({
           page?: number;
           includePending?: boolean;
           pendingEdition?: string;
+          broadRegion?: CatalogBroadRegion | "all";
+          ratingSystem?: string;
+          physicalEditionType?: CatalogPhysicalEditionType | "all";
         };
         skipNextResetRef.current = true;
         if (typeof saved.q === "string") {
@@ -375,6 +405,11 @@ export function CatalogBrowser({
         if (typeof saved.subgenre === "string") setSubgenre(saved.subgenre);
         if (typeof saved.facet === "string") setFacet(saved.facet);
         if (typeof saved.company === "string") setCompany(saved.company);
+        const savedBroadRegion = parseCatalogBroadRegion(saved.broadRegion);
+        if (savedBroadRegion === "all" || physicalEditionFilters?.broadRegions.some((option) => option.value === savedBroadRegion)) setBroadRegion(savedBroadRegion);
+        if (typeof saved.ratingSystem === "string") setRatingSystem(saved.ratingSystem);
+        const savedPhysicalEditionType = parseCatalogPhysicalEditionType(saved.physicalEditionType);
+        if (savedPhysicalEditionType === "all" || physicalEditionFilters?.editionTypes.some((option) => option.value === savedPhysicalEditionType)) setPhysicalEditionType(savedPhysicalEditionType);
         if (saved.priceType && PRICE_TYPE_OPTIONS.some((option) => option.value === saved.priceType)) setSelectedPriceType(saved.priceType);
         if (saved.sort && SORT_OPTIONS.some((option) => option.value === saved.sort)) setSort(saved.sort);
         if (typeof saved.page === "number" && Number.isFinite(saved.page)) setPage(Math.max(1, saved.page));
@@ -384,15 +419,15 @@ export function CatalogBrowser({
     } finally {
       setSavedStateLoaded(true);
     }
-  }, [persistKey, setIncludePending, setRegion]);
+  }, [persistKey, physicalEditionFilters, setIncludePending, setRegion]);
 
   useEffect(() => {
     if (!persistKey || !savedStateLoaded) return;
     window.localStorage.setItem(
       persistKey,
-      JSON.stringify({ q: draftQ, region, platform, genre, subgenre, facet, company, priceType, sort, page, includePending, pendingEdition }),
+      JSON.stringify({ q: draftQ, region, platform, genre, subgenre, facet, company, priceType, sort, page, includePending, pendingEdition, broadRegion, ratingSystem, physicalEditionType }),
     );
-  }, [company, draftQ, facet, genre, includePending, pendingEdition, page, persistKey, platform, priceType, region, savedStateLoaded, sort, subgenre]);
+  }, [broadRegion, company, draftQ, facet, genre, includePending, pendingEdition, page, persistKey, physicalEditionType, platform, priceType, ratingSystem, region, savedStateLoaded, sort, subgenre]);
 
   useEffect(() => {
     const timeout = window.setTimeout(
@@ -409,13 +444,13 @@ export function CatalogBrowser({
     if (source) return { items: serverItems, total: serverTotal, reviewCounts: serverReviewCounts };
     return filterCatalogGames(
       games,
-      { q, region, platform, sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "full", includePending, pendingEdition },
+      { q, region, platform, sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "full", includePending, pendingEdition, broadRegion, ratingSystem, physicalEditionType },
       {
         regions: showRegionFilter,
         platforms: showPlatformFilter,
       },
     );
-  }, [company, facet, games, genre, includePending, pendingEdition, platform, priceType, q, region, serverItems, serverReviewCounts, serverTotal, showPlatformFilter, showRegionFilter, sort, source, subgenre]);
+  }, [broadRegion, company, facet, games, genre, includePending, pendingEdition, physicalEditionType, platform, priceType, q, ratingSystem, region, serverItems, serverReviewCounts, serverTotal, showPlatformFilter, showRegionFilter, sort, source, subgenre]);
   const filteredItems = source ? serverItems : localResult.items;
   const total = source ? serverTotal : localResult.total;
   const reviewCounts = localResult.reviewCounts;
@@ -431,7 +466,7 @@ export function CatalogBrowser({
       return;
     }
     setPage(1);
-  }, [company, q, region, platform, priceType, sort, genre, subgenre, facet, includePending, pendingEdition, savedStateLoaded]);
+  }, [broadRegion, company, q, region, platform, priceType, sort, genre, subgenre, facet, includePending, pendingEdition, physicalEditionType, ratingSystem, savedStateLoaded]);
 
   useEffect(() => {
     if (page > totalPages) {
@@ -449,6 +484,9 @@ export function CatalogBrowser({
       subgenre === initialSubgenre &&
       facet === initialFacet &&
       company.trim() === "" &&
+      broadRegion === "all" &&
+      ratingSystem === "all" &&
+      physicalEditionType === "all" &&
       priceType === initialPriceType &&
       sort === (initialPriceType === DEFAULT_CATALOG_PRICE_TYPE ? DEFAULT_SORT : "price-desc") &&
       includePending === initialIncludePending &&
@@ -497,6 +535,9 @@ export function CatalogBrowser({
         if (genre !== "all") params.set("genre", genre);
         if (subgenre !== "all") params.set("subgenre", subgenre);
         if (facet !== "all") params.set("facet", facet);
+        if (broadRegion !== "all") params.set("broadRegion", broadRegion);
+        if (ratingSystem !== "all") params.set("ratingSystem", ratingSystem);
+        if (physicalEditionType !== "all") params.set("physicalEditionType", physicalEditionType);
         const endpoint =
           source.kind === "platform"
             ? `/api/catalog/platform/${encodeURIComponent(source.slug)}?${params}`
@@ -523,7 +564,7 @@ export function CatalogBrowser({
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [companies, company, facet, facets, games, genre, genres, includePending, pendingEdition, initialFacet, initialGenre, initialIncludePending, initialPendingEdition, initialPlatform, initialPriceType, initialQuery, initialRegion, initialReviewCounts, initialSubgenre, page, platform, priceType, q, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
+  }, [broadRegion, companies, company, facet, facets, games, genre, genres, includePending, pendingEdition, initialFacet, initialGenre, initialIncludePending, initialPendingEdition, initialPlatform, initialPriceType, initialQuery, initialRegion, initialReviewCounts, initialSubgenre, page, physicalEditionType, platform, priceType, q, ratingSystem, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
@@ -539,6 +580,9 @@ export function CatalogBrowser({
     genre !== "all" ||
     subgenre !== "all" ||
     facet !== "all" ||
+    broadRegion !== "all" ||
+    ratingSystem !== "all" ||
+    physicalEditionType !== "all" ||
     includePending ||
     priceType !== DEFAULT_CATALOG_PRICE_TYPE ||
     sort !== DEFAULT_SORT;
@@ -789,6 +833,33 @@ export function CatalogBrowser({
                 </div>
               </FilterField>
             )}
+
+            {physicalEditionFilters && physicalEditionFilters.broadRegions.length > 0 ? (
+              <FilterField label="Gran región física">
+                <select value={broadRegion} onChange={(event) => setBroadRegion(event.target.value as CatalogBroadRegion | "all")} className={selectClass}>
+                  <option value="all">Todas las grandes regiones</option>
+                  {physicalEditionFilters.broadRegions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+                </select>
+              </FilterField>
+            ) : null}
+
+            {physicalEditionFilters && physicalEditionFilters.ratingSystems.length > 0 ? (
+              <FilterField label="Clasificación impresa">
+                <select value={ratingSystem} onChange={(event) => setRatingSystem(event.target.value)} className={selectClass}>
+                  <option value="all">Todas las clasificaciones</option>
+                  {physicalEditionFilters.ratingSystems.map((rating) => <option key={rating} value={rating}>{rating}</option>)}
+                </select>
+              </FilterField>
+            ) : null}
+
+            {physicalEditionFilters && physicalEditionFilters.editionTypes.length > 0 ? (
+              <FilterField label="Edición física">
+                <select value={physicalEditionType} onChange={(event) => setPhysicalEditionType(event.target.value as CatalogPhysicalEditionType | "all")} className={selectClass}>
+                  <option value="all">Todas las ediciones</option>
+                  {physicalEditionFilters.editionTypes.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+                </select>
+              </FilterField>
+            ) : null}
 
             <FilterField label="Estado">
               <select

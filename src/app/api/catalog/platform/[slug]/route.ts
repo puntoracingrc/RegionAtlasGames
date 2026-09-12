@@ -16,6 +16,8 @@ import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { isPublicPlatformSlug } from "@/lib/catalog";
 import type { CatalogListGame } from "@/lib/types";
 import { parsePendingEdition } from "@/lib/catalog-review-policy";
+import { groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
+import { parseCatalogBroadRegion, parseCatalogPhysicalEditionType } from "@/lib/catalog-edition-guide-types";
 
 type PlatformSearchCacheEntry = {
   games: CatalogListGame[];
@@ -35,7 +37,7 @@ async function getPlatformSearchData(slug: string): Promise<PlatformSearchCacheE
     return cached;
   }
 
-  const games = (await getCatalogByPlatformWithOverlay(slug)).map(toCatalogListGame);
+  const games = groupCatalogListGames((await getCatalogByPlatformWithOverlay(slug)).map(toCatalogListGame));
   const entry = {
     games,
     createdAt: now,
@@ -62,6 +64,9 @@ export async function GET(
   const subgenre = url.searchParams.get("subgenre") ?? "all";
   const facet = url.searchParams.get("facet") ?? "all";
   const company = url.searchParams.get("company") ?? "";
+  const broadRegion = parseCatalogBroadRegion(url.searchParams.get("broadRegion"));
+  const ratingSystem = url.searchParams.get("ratingSystem") ?? "all";
+  const physicalEditionType = parseCatalogPhysicalEditionType(url.searchParams.get("physicalEditionType"));
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
   const priceType = normalizeCatalogPriceTypeForPlatform(
     (url.searchParams.get("priceType") ?? DEFAULT_CATALOG_PRICE_TYPE) as CatalogPriceType,
@@ -76,7 +81,7 @@ export async function GET(
   const { games } = await getPlatformSearchData(slug);
   const filtered = filterCatalogGames(
     games,
-    { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game", includePending, pendingEdition },
+    { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game", includePending, pendingEdition, broadRegion, ratingSystem, physicalEditionType },
     { regions: true, platforms: false },
   );
   const start = (page - 1) * CATALOG_PAGE_SIZE;

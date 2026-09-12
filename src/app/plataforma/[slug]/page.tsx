@@ -26,6 +26,7 @@ import { platformNewsTopicForSlug } from "@/lib/news-platform-topics";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 import { catalogReviewCounts, isDefaultCatalogGame, isGroupedCatalogName, parsePendingEdition } from "@/lib/catalog-review-policy";
+import { catalogPhysicalFilterOptions, groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -71,11 +72,11 @@ export default async function PlatformPage({ params, searchParams }: Props) {
   const browseGames = catalogGames.filter((game) => !isGroupedCatalogName(game));
   const initialFilters = { q: query?.q ?? "", region: query?.region ?? "all", genre: query?.genre ?? "all", subgenre: query?.subgenre ?? "all", facet: query?.facet ?? "all", platform: "all", sort: DEFAULT_SORT, priceFilter: "all" as const, queryScope: "game" as const, includePending, pendingEdition };
   const hasInitialFilters = includePending || Boolean(query?.q || query?.region || query?.genre || query?.subgenre || query?.facet);
-  const initialResult = hasInitialFilters ? filterCatalogGames(catalogGames.map(toCatalogListGame), initialFilters) : null;
-  const defaultGames = browseGames.filter(isDefaultCatalogGame);
+  const groupedListGames = groupCatalogListGames(catalogGames.map(toCatalogListGame));
+  const initialResult = hasInitialFilters ? filterCatalogGames(groupedListGames, initialFilters) : null;
+  const defaultGames = groupedListGames.filter(isDefaultCatalogGame);
   const initialGames = initialResult ? initialResult.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame) : sortCatalogByTitle(defaultGames)
     .slice(0, CATALOG_PAGE_SIZE)
-    .map(toCatalogListGame)
     .map(toCatalogCardGame);
   const platformNewsLabel = platformNewsTopic?.label ?? platform.shortName;
 
@@ -108,6 +109,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               subgenres={publicSubgenreFilterOptions()}
               facets={publicFacetFilterOptions()}
               companies={publicCompanyFilterOptions()}
+              physicalEditionFilters={catalogPhysicalFilterOptions(platform.slug)}
               ownedItems={owned}
               ownedCatalogIds={ownedCatalogIds}
               listingCounts={listingCounts}

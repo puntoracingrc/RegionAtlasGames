@@ -1,4 +1,5 @@
 import { catalogSearchTokens } from "@/lib/catalog-search-normalize";
+import { catalogBroadRegionFromLegacyRegion, type CatalogBroadRegion, type CatalogPhysicalEditionType } from "@/lib/catalog-edition-guide-types";
 import { findGameFacetEntityBySlug, getGameFacetsTaxonomy } from "@/lib/game-facets/taxonomy";
 import { esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
@@ -160,6 +161,12 @@ function yearKey(game: CatalogListGame): number | null {
 }
 
 function priceKey(game: CatalogListGame, priceType: CatalogPriceType): number | null {
+  const groupedRange = priceType === "sealed"
+    ? game.physicalEditionGroup?.priceRanges.sealed
+    : priceType === "complete"
+      ? game.physicalEditionGroup?.priceRanges.complete
+      : undefined;
+  if (groupedRange) return groupedRange.min;
   if (priceType === "sealed") return game.estimatedPriceSealed ?? null;
   if (priceType === "newRetail") return game.estimatedPriceNewRetail ?? null;
   if (priceType === "complete") return game.estimatedPriceComplete ?? null;
@@ -236,6 +243,9 @@ export type CatalogFilterState = {
   queryScope?: "full" | "game";
   includePending?: boolean;
   pendingEdition?: PendingEdition;
+  broadRegion?: CatalogBroadRegion | "all";
+  ratingSystem?: string;
+  physicalEditionType?: CatalogPhysicalEditionType | "all";
 };
 
 export type CatalogTaxonomyFilterOption = {
@@ -268,6 +278,18 @@ function matchesSlugFilter(slugs: string[] | undefined, selected: string | undef
   return slugs?.includes(selected) ?? false;
 }
 
+function matchesLegacyRegion(game: CatalogListGame, region: string): boolean {
+  const candidateRegions = game.physicalEditionGroup?.legacyRegions ?? [game.region];
+  const group = selectedRegionGroup(region);
+  return candidateRegions.some((candidateRegion) => {
+    const standardLabel = getRegionDisplay(candidateRegion).label;
+    if (group) {
+      return regionNavigationGroup(publicRegionLabelForPlatform(game.platformSlug, candidateRegion)) === group.id;
+    }
+    return standardLabel === region || publicRegionLabelForPlatform(game.platformSlug, candidateRegion) === region;
+  });
+}
+
 export function filterCatalogGames(
   games: CatalogListGame[],
   {
@@ -284,19 +306,16 @@ export function filterCatalogGames(
     queryScope = "full",
     includePending = false,
     pendingEdition = "all",
+    broadRegion = "all",
+    ratingSystem = "all",
+    physicalEditionType = "all",
   }: CatalogFilterState,
   options?: { regions?: boolean; platforms?: boolean },
 ): { items: CatalogListGame[]; total: number; reviewCounts: CatalogReviewCounts } {
   let list = games;
 
   if (options?.regions !== false && region !== "all") {
-    const group = selectedRegionGroup(region);
-    list = list.filter((g) => {
-      const standardLabel = getRegionDisplay(g.region).label;
-      if (group) return regionNavigationGroup(publicRegionLabelForPlatform(g.platformSlug, g.region)) === group.id;
-      return standardLabel === region
-        || publicRegionLabelForPlatform(g.platformSlug, g.region) === region;
-    });
+    list = list.filter((game) => matchesLegacyRegion(game, region));
   }
   if (options?.platforms && platform !== "all") {
     list = list.filter((g) => g.platformSlug === platform);
@@ -315,6 +334,17 @@ export function filterCatalogGames(
   }
   if (company.trim()) {
     list = list.filter((g) => matchesCompany(g, company));
+  }
+  if (broadRegion !== "all") {
+    list = list.filter((game) => game.physicalEditionGroup
+      ? game.physicalEditionGroup.broadRegions.some((entry) => entry.value === broadRegion)
+      : catalogBroadRegionFromLegacyRegion(game.region) === broadRegion);
+  }
+  if (ratingSystem !== "all") {
+    list = list.filter((game) => game.physicalEditionGroup?.ratingSystems.includes(ratingSystem) ?? false);
+  }
+  if (physicalEditionType !== "all") {
+    list = list.filter((game) => game.physicalEditionGroup?.editionTypes.includes(physicalEditionType) ?? false);
   }
   if (q.trim()) {
     list = list.filter((g) => matchesScopedQuery(g, q, queryScope));

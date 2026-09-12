@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "guides": [
     {
       "id": "resident-evil-requiem-ps5",
@@ -114,6 +114,192 @@
         }
       ],
       "evidenceNote": "Comparación contrastada con los escaneos y las imágenes de referencia aportados por el propietario, GAME y Capcom."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "absolum-ps5",
+      "title": "Ediciones físicas de Absolum en PlayStation 5",
+      "reviewedAt": "2026-09-12",
+      "note": "Piloto aditivo para separar juego, plataforma, gran región, edición física y variante coleccionable. Los mercados nacionales no se infieren de los idiomas de la caja.",
+      "game": {
+        "title": "Absolum",
+        "platformSlug": "ps5",
+        "canonicalCatalogId": "ps5-absolum"
+      },
+      "physicalEditions": [
+        {
+          "id": "absolum-ps5-europe-standard-en-fr-es",
+          "label": "Standard · EN / FR / ES · PEGI",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "packagingLanguages": ["EN", "FR", "ES"],
+          "ratingSystems": ["PEGI"],
+          "barcode": "5061078710678",
+          "sharedDiscId": "absolum-ps5-europe-disc",
+          "catalogIds": ["ps5-absolum"],
+          "evidenceIds": ["absolum-shared-disc-owner-confirmation", "absolum-pilot-specification"],
+          "notes": ["El disco de esta caja muestra las marcas PEGI y USK."]
+        },
+        {
+          "id": "absolum-ps5-europe-standard-de",
+          "label": "Standard · DE · USK",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "packagingLanguages": ["DE"],
+          "ratingSystems": ["USK"],
+          "barcode": "5061078710661",
+          "sharedDiscId": "absolum-ps5-europe-disc",
+          "evidenceIds": ["absolum-shared-disc-owner-confirmation", "absolum-pilot-specification"],
+          "notes": ["Comparte exactamente el mismo disco europeo que la Standard EN/FR/ES."]
+        },
+        {
+          "id": "absolum-ps5-europe-special",
+          "label": "Special Edition · PEGI",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "packagingLanguages": ["EN", "FR", "ES"],
+          "ratingSystems": ["PEGI"],
+          "barcode": "5061078710685",
+          "catalogNumber": "PPSA-28311",
+          "boxCode": "8710685",
+          "dimensions": {
+            "widthCm": 14.8,
+            "heightCm": 22.3,
+            "depthCm": 3.2,
+            "approximate": true,
+            "sourceLabel": "Estimación sobre escaneos propios A4 a 300 ppp, escala confirmada por el propietario",
+            "notes": [
+              "Medición de los bordes del objeto descontando los márgenes blancos.",
+              "Algunos bordes tocan el límite del escaneo y la caja presenta pequeñas deformaciones; no es una medida certificada por el fabricante."
+            ],
+            "comparison": {
+              "label": "Caja estándar compatible con PS5",
+              "widthCm": 13.5,
+              "heightCm": 17,
+              "depthCm": 1.5,
+              "sourceLabel": "Walvis Products · caja de recambio PS5, referencia 900737",
+              "sourceUrl": "https://www.walvisproducts.nl/a-69846920/blu-ray-boxen-game-doosjes/playstation-5-game-doosje-kleur-transparant-blauw/"
+            }
+          },
+          "sharedDiscId": "absolum-ps5-europe-disc",
+          "catalogIds": ["ps5-absolum-special-edition"],
+          "scanSetIds": ["ps5-absolum-special-edition"],
+          "evidenceIds": ["absolum-special-box-scan", "absolum-shared-disc-owner-confirmation", "absolum-publisher-contents"],
+          "includesEditionIds": ["absolum-ps5-europe-standard-en-fr-es"],
+          "containsCatalogIds": ["ps5-absolum"],
+          "physicalContents": [
+            "Caja de coleccionista",
+            "Juego físico Standard EN/FR/ES",
+            "Mini artbook",
+            "4 pins metálicos",
+            "Póster",
+            "4 tarjetas de personajes"
+          ],
+          "digitalContents": ["Banda sonora digital"]
+        },
+        {
+          "id": "absolum-ps5-north-america-standard",
+          "label": "Standard · USA · ESRB",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "ratingSystems": ["ESRB"],
+          "catalogIds": ["ps5-usa-absolum"],
+          "evidenceIds": ["absolum-shared-disc-owner-confirmation", "absolum-pilot-specification"]
+        },
+        {
+          "id": "absolum-ps5-asia-japan",
+          "label": "Standard · Japón · CERO",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "packagingLanguages": ["JA"],
+          "ratingSystems": ["CERO"],
+          "evidenceIds": ["absolum-pilot-specification"],
+          "notes": ["EAN/JAN pendiente de evidencia física."]
+        },
+        {
+          "id": "absolum-ps5-asia-korea",
+          "label": "Standard · Corea · GRAC",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "packagingLanguages": ["KO"],
+          "ratingSystems": ["GRAC"],
+          "evidenceIds": ["absolum-pilot-specification"],
+          "notes": ["Código de caja pendiente de evidencia física."]
+        },
+        {
+          "id": "absolum-ps5-asia-hk-tw",
+          "label": "Standard · Hong Kong / Taiwán",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "packagingLanguages": ["ZH"],
+          "evidenceIds": ["absolum-pilot-specification"],
+          "notes": ["Se conserva como una edición conjunta mientras no exista prueba física que justifique separarla."]
+        }
+      ],
+      "sharedDiscs": [
+        {
+          "id": "absolum-ps5-europe-disc",
+          "label": "Disco europeo compartido",
+          "technicalRegion": "EUROPE",
+          "ratingSystems": ["PEGI", "USK"],
+          "evidenceIds": ["absolum-shared-disc-owner-confirmation"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "absolum-shared-disc-owner-confirmation",
+          "type": "OWNER_CONFIRMATION",
+          "label": "Comparación física confirmada por el propietario",
+          "summary": "El mismo disco se incluye en la Standard EN/FR/ES distribuida en Francia, Reino Unido y España, la Standard alemana y la Special Edition europeas.",
+          "supports": ["disco europeo compartido"]
+        },
+        {
+          "id": "absolum-publisher-contents",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Ficha oficial de Silver Lining Direct",
+          "url": "https://direct.silverliningint.com/products/absolum-special-edition-ps5",
+          "summary": "El editor físico enumera la Standard Edition con banda sonora digital, 4 pins, art booklet, póster y 4 tarjetas dentro de la edición especial.",
+          "supports": ["contenido físico de Special Edition", "banda sonora digital", "Standard Edition incluida"]
+        },
+        {
+          "id": "absolum-special-box-scan",
+          "type": "REAL_SCAN",
+          "label": "Escaneo propio de portada, contraportada y lomo",
+          "summary": "Acredita la caja europea Special Edition, EAN 5061078710685, PEGI 12, PPSA-28311, número 8710685 y los idiomas impresos. No acredita el contenido interior.",
+          "supports": [
+            "caja exterior Special Edition",
+            "EAN",
+            "rating PEGI",
+            "referencia PPSA",
+            "número de lomo",
+            "idiomas de packaging"
+          ]
+        },
+        {
+          "id": "absolum-pilot-specification",
+          "type": "UNKNOWN",
+          "label": "Datos confirmados para el piloto de arquitectura",
+          "summary": "Fixture de diseño aportado para probar el modelo. No se presenta como fotografía ni escaneo físico.",
+          "supports": [
+            "barcodes europeos",
+            "idiomas de packaging",
+            "ratings impresos",
+            "segmentación regional inicial"
+          ]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {
+          "label": "Silver Lining Direct · Absolum Special Edition para PS5",
+          "url": "https://direct.silverliningint.com/products/absolum-special-edition-ps5"
+        },
+        {
+          "label": "Tesura Games · ficha de Absolum y contenido de la edición",
+          "url": "https://en.tesuragames.com/games/absolum/"
+        }
+      ],
+      "evidenceNote": "La estructura del piloto está confirmada para validar la arquitectura. Los identificadores asiáticos que no constan se mantienen vacíos y no se inventan."
     }
   ]
 }

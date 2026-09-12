@@ -1617,6 +1617,59 @@
           "label": "Lomo de la caja exterior de la edición con Steelbook"
         }
       ]
+    },
+    "ps5-absolum-special-edition": {
+      "identity": {
+        "platformSlug": "ps5",
+        "slug": "absolum-special-edition",
+        "region": "PAL España",
+        "edition": "standard"
+      },
+      "capturedAt": "2026-09-12",
+      "sourceLabel": "Escaneos aportados por el propietario del ejemplar",
+      "primaryCoverUrl": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-portada.webp",
+      "primaryCaption": "Caja exterior escaneada · Absolum Special Edition para PS5",
+      "packaging": {
+        "reference": "PPSA-28311",
+        "referenceComponent": "lomo",
+        "ean": "5061078710685",
+        "languages": ["Inglés", "Francés", "Español"],
+        "marketEvidence": "Caja europea confirmada por portada, contraportada y lomo del mismo ejemplar. Los escaneos no determinan un país de distribución exclusivo.",
+        "productNumber": "8710685",
+        "languageStatement": "Playable in English"
+      },
+      "notes": [
+        "La caja muestra PEGI 12, EAN 5061078710685 y referencia PPSA-28311.",
+        "La licencia impresa acredita una edición europea; los idiomas del packaging no se convierten automáticamente en una lista de mercados nacionales.",
+        "Las tres caras documentan la caja exterior. No acreditan por sí solas qué componentes interiores conserva este ejemplar.",
+        "No se observaron códigos de canje en estas imágenes."
+      ],
+      "images": [
+        {
+          "role": "portada",
+          "label": "Portada de la caja exterior Special Edition",
+          "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-portada.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-portada-mini.webp",
+          "width": 1758,
+          "height": 2635
+        },
+        {
+          "role": "contraportada",
+          "label": "Contraportada con EAN y licencia europea",
+          "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-contraportada.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-contraportada-mini.webp",
+          "width": 1769,
+          "height": 2642
+        },
+        {
+          "role": "lomo",
+          "label": "Lomo con PPSA-28311 y número 8710685",
+          "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-lomo.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-lomo-mini.webp",
+          "width": 397,
+          "height": 2635
+        }
+      ]
     }
   }
 }

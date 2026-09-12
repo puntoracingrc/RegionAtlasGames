@@ -26,6 +26,7 @@ import {
 } from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
 import { isDefaultCatalogGame, parsePendingEdition } from "@/lib/catalog-review-policy";
+import { catalogPhysicalFilterOptions, groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
 
 type Props = {
   searchParams?: Promise<{
@@ -75,7 +76,7 @@ export default async function CatalogPage({ searchParams }: Props) {
     initialPriceType !== DEFAULT_CATALOG_PRICE_TYPE;
   const initialCatalog = hasInitialFilters
     ? filterCatalogGames(
-        publicListedCatalog.map(toCatalogListGame),
+        groupCatalogListGames(publicListedCatalog.map(toCatalogListGame)),
         {
           q: initialQuery,
           platform: initialPlatform,
@@ -126,6 +127,7 @@ export default async function CatalogPage({ searchParams }: Props) {
           subgenres={publicSubgenreFilterOptions()}
           facets={publicFacetFilterOptions()}
           companies={publicCompanyFilterOptions()}
+          physicalEditionFilters={catalogPhysicalFilterOptions()}
           showRegionFilter
           showPlatformFilter
           showTaxonomyFilters
