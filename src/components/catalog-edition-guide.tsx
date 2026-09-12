@@ -26,6 +26,7 @@ import { formatEur } from "@/lib/price-format";
 import { catalogConditionPriceRows } from "@/lib/price-display";
 import {
   catalogPhysicalEditionBroadRegionAnchorId,
+  catalogPhysicalEditionOverviewRegions,
 } from "@/lib/catalog-physical-edition-browse";
 import {
   catalogRegionRailSegments,
@@ -268,6 +269,9 @@ function PhysicalEditionRow({
     ? catalogConditionPriceRows(linkedCatalogGame).filter((row) => row.price != null)
     : [];
   const collectionCatalogId = linkedCatalogGame?.id ?? family?.representativeCatalogId;
+  const documentedRegions = edition.marketRegions.length
+    ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
+    : catalogPhysicalEditionOverviewRegions([edition]);
   const includedEditions = edition.includesEditionIds.flatMap((id) => {
     const target = guide.physicalEditions.find((candidate) => candidate.id === id);
     return target ? [target.label] : [];
@@ -286,20 +290,20 @@ function PhysicalEditionRow({
         {ownedCount ? <Badge tone="green">Tengo {ownedCount}</Badge> : null}
       </div>
 
-      {edition.marketRegions.length ? (
-        <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
-          <span className="font-semibold text-foreground/80">Mercados documentados</span>
-          {edition.marketRegions.map((marketRegion) => (
-            <RegionFlag
-              key={marketRegion}
-              region={catalogMarketRegionToLegacyRegion(marketRegion)}
-              size="xs"
-              showLabel
-              labelMode="short"
-            />
-          ))}
-        </div>
-      ) : null}
+      <div className="mt-2 flex min-h-5 flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
+        <span className="font-semibold text-foreground/80">
+          {edition.marketRegions.length ? "Mercados documentados" : "Región documentada"}
+        </span>
+        {documentedRegions.map((region) => (
+          <RegionFlag
+            key={region}
+            region={region}
+            size="xs"
+            showLabel
+            labelMode="short"
+          />
+        ))}
+      </div>
 
       <div className="mt-3 grid gap-4 sm:grid-cols-[132px_minmax(0,1fr)]">
         <PhysicalEditionImageGallery images={galleryImages} title={edition.label} />
