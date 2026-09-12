@@ -297,7 +297,11 @@ function PhysicalEditionRow({
                 </Link>
               ))}
             </div>
-          ) : <p className="mt-3 text-xs text-muted">Variante física documentada sin ficha de catálogo independiente.</p>}
+          ) : (
+            <p className="mt-3 text-xs text-muted">
+              {terminology === "edition" ? "Edición" : "Variante"} física documentada sin ficha de catálogo independiente.
+            </p>
+          )}
 
           {includedEditions.length || edition.physicalContents.length || edition.digitalContents.length ? (
             <div className="mt-4 border-l-2 border-accent/40 pl-3 text-sm leading-6">
