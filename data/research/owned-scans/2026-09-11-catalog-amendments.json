@@ -223,7 +223,7 @@
     },
     "data/catalog-route-redirects.json": {
       "beforeSha256": "979ace530fe60dbe4df5d9cff00063983242e460ca144dfcdf1c049149c721b4",
-      "afterSha256": "df790e98c3f2404030d7d05ede2980654cf134279dc7bbe957a774dcacc7df25",
+      "afterSha256": "2bea2b9ce3932f60e65d5c8b941d3230008666d41a1464665b504ca7014ffdc5",
       "changedKeys": [
         "redirects"
       ]
