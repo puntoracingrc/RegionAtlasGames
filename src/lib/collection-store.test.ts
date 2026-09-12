@@ -13,12 +13,14 @@ import {
   getOwnedCatalogIds,
   readUserCollection,
   recordCompletedCollectionSale,
+  removeOneCatalogGameFromCollection,
   removeUserCollectionPhoto,
   saveUserCollectionItems,
   summarizeCollection,
   updateUserCollectionItemDetails,
   upsertUserCollectionPhoto,
 } from "./collection-store";
+import { countOwnedPhysicalVariant } from "./catalog-physical-variant";
 import { COLLECTION_PHOTO_SLOTS } from "./collection-photos";
 import { backfillCollectionAddedAt } from "./collection-storage";
 import {
@@ -530,6 +532,72 @@ test("stores up to six ordered private photo slots per individual copy", async (
     assert.ok(!("error" in await removeUserCollectionPhoto(userId, result.item.id, "detail-2")));
     stored = await getUserCollectionItem(userId, result.item.id);
     assert.deepEqual(stored?.photos?.map((photo) => photo.slot), ["cover-front"]);
+  } finally {
+    restoreEnvironment(env);
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("stores Absolum physical variants independently without rewriting legacy ownership", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-collection-"));
+  const env: EnvironmentSnapshot = {
+    APP_DATA_DIR: process.env.APP_DATA_DIR,
+    VERCEL: process.env.VERCEL,
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
+    BLOB_STORE_ID: process.env.BLOB_STORE_ID,
+  };
+  process.env.APP_DATA_DIR = directory;
+  delete process.env.VERCEL;
+  delete process.env.BLOB_READ_WRITE_TOKEN;
+  delete process.env.BLOB_STORE_ID;
+
+  try {
+    const userId = "absolum-physical-variants";
+    const legacy = await addCatalogGameToCollection(userId, "ps5-absolum");
+    const german = await addCatalogGameToCollection(
+      userId,
+      "ps5-absolum",
+      "complete",
+      "absolum-ps5-europe-standard-de",
+    );
+    const korean = await addCatalogGameToCollection(
+      userId,
+      "ps5-absolum",
+      "complete",
+      "absolum-ps5-asia-korea",
+    );
+    const special = await addCatalogGameToCollection(
+      userId,
+      "ps5-absolum-special-edition",
+      "complete",
+      "absolum-ps5-europe-special",
+    );
+    assert.ok(!("error" in legacy));
+    assert.ok(!("error" in german));
+    assert.ok(!("error" in korean));
+    assert.ok(!("error" in special));
+
+    const collection = await readUserCollection(userId);
+    assert.equal(collection.items.length, 4);
+    assert.equal(legacy.item.physicalVariantId, undefined);
+    assert.equal(countOwnedPhysicalVariant(collection.items, "absolum-ps5-europe-standard-en-fr-es"), 1);
+    assert.equal(countOwnedPhysicalVariant(collection.items, "absolum-ps5-europe-standard-de"), 1);
+    assert.equal(countOwnedPhysicalVariant(collection.items, "absolum-ps5-asia-korea"), 1);
+    assert.equal(countOwnedPhysicalVariant(collection.items, "absolum-ps5-europe-special"), 1);
+    assert.equal(summarizeCollection(collection.items).totalItems, 4);
+
+    const removed = await removeOneCatalogGameFromCollection(
+      userId,
+      "ps5-absolum",
+      [],
+      "absolum-ps5-europe-standard-de",
+    );
+    assert.ok(!("error" in removed));
+    const after = await readUserCollection(userId);
+    assert.equal(countOwnedPhysicalVariant(after.items, "absolum-ps5-europe-standard-de"), 0);
+    assert.equal(countOwnedPhysicalVariant(after.items, "absolum-ps5-europe-standard-en-fr-es"), 1);
+    assert.equal(countOwnedPhysicalVariant(after.items, "absolum-ps5-asia-korea"), 1);
+    assert.equal(countOwnedPhysicalVariant(after.items, "absolum-ps5-europe-special"), 1);
   } finally {
     restoreEnvironment(env);
     await rm(directory, { recursive: true, force: true });

@@ -14,6 +14,11 @@ import { Ps1EditionPanel } from "@/components/ps1-edition-panel";
 import { Ps2EditionPanel } from "@/components/ps2-edition-panel";
 import { OwnedScansPanel } from "@/components/owned-scans-panel";
 import { CatalogEditionGuide } from "@/components/catalog-edition-guide";
+import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
+import {
+  collectionItemMatchesPhysicalVariant,
+  countOwnedPhysicalVariant,
+} from "@/lib/catalog-physical-variant";
 import { getOwnedScanSet } from "@/lib/catalog-owned-scans";
 import { GameTaxonomyLinks, type GameTaxonomyLink } from "@/components/game-taxonomy-links";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
@@ -151,9 +156,18 @@ export default async function CatalogGamePage({ params }: Props) {
     permanentRedirect(catalogGamePath(game));
   }
 
+  const editionGuide = getCatalogEditionGuide(game);
+  const currentPhysicalEdition = editionGuide?.physicalEditions.find(
+    (edition) => edition.id === editionGuide.currentEditionId,
+  );
+  const currentPhysicalVariantId = editionGuide?.editionFamilies.length
+    ? currentPhysicalEdition?.id
+    : undefined;
   const user = await getCurrentUser();
   const collection = user ? await readUserCollection(user.id) : null;
-  const ownedItems = collection?.items.filter((item) => item.catalogId === game.id) ?? [];
+  const ownedItems = collection?.items.filter((item) => currentPhysicalVariantId
+    ? collectionItemMatchesPhysicalVariant(item, currentPhysicalVariantId)
+    : item.catalogId === game.id) ?? [];
   const ownedCount = ownedItems.reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
   const wished = collection?.wishlist?.some((entry) => entry.catalogId === game.id) ?? false;
   const owned = ownedCount > 0;
@@ -257,6 +271,13 @@ export default async function CatalogGamePage({ params }: Props) {
   const photographedCover = details?.ps2Edition?.graphics.find(asset =>
     asset.url === game.coverUrl && asset.layout === "listing_front_photo");
   const ownedScans = getOwnedScanSet(game);
+  const guideRendersCurrentScans = editionGuide?.schemaVersion === 2 && Boolean(currentPhysicalEdition?.scanSetIds.includes(game.id));
+  const physicalVariantOwnedCounts = editionGuide?.editionFamilies.length
+    ? Object.fromEntries(editionGuide.physicalEditions.map((edition) => [
+        edition.id,
+        countOwnedPhysicalVariant(collection?.items ?? [], edition.id),
+      ]))
+    : {};
 
   return (
     <>
@@ -287,8 +308,9 @@ export default async function CatalogGamePage({ params }: Props) {
             </div>}
 
             <CollectionToggle
-              key={`${user?.id ?? "guest"}:${game.id}`}
+              key={`${user?.id ?? "guest"}:${game.id}:${currentPhysicalVariantId ?? "legacy"}`}
               catalogId={game.id}
+              physicalVariantId={currentPhysicalVariantId}
               gameTitle={game.title}
               initialOwned={owned}
               ownedCount={ownedCount}
@@ -335,7 +357,9 @@ export default async function CatalogGamePage({ params }: Props) {
               <h1 className="text-2xl font-bold leading-tight text-foreground sm:text-3xl">
                 {game.title}
                 <span className="mt-1 block text-lg font-normal text-muted sm:text-xl">
-                  Precio {platform?.shortName} · {regionLabel}
+                  {currentPhysicalEdition && editionGuide?.schemaVersion === 2
+                    ? `${platform?.shortName} · ${currentPhysicalEdition.label}`
+                    : `Precio ${platform?.shortName} · ${regionLabel}`}
                 </span>
               </h1>
               {game.titlePc && game.titlePc !== game.title && (
@@ -355,8 +379,12 @@ export default async function CatalogGamePage({ params }: Props) {
 
             {!pendingPs1 ? <Ps1EditionPanel game={game} details={details} /> : null}
             <Ps2EditionPanel game={game} details={details} />
-            <OwnedScansPanel scans={ownedScans} title={game.title} />
-            <CatalogEditionGuide game={game} />
+            {!guideRendersCurrentScans ? <OwnedScansPanel scans={ownedScans} title={game.title} /> : null}
+            <CatalogEditionGuide
+              game={game}
+              isLoggedIn={Boolean(user)}
+              physicalVariantOwnedCounts={physicalVariantOwnedCounts}
+            />
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />
 

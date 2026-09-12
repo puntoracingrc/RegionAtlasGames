@@ -17,6 +17,7 @@ import type {
   CatalogRegionFilterOption,
   CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
+import type { CatalogPhysicalFilterOptions } from "@/lib/catalog-edition-guide-types";
 
 const MANUFACTURER_STYLE = {
   nintendo: "from-red-500/15 via-red-500/5 to-transparent border-red-400/25",
@@ -39,6 +40,7 @@ type Props = {
   subgenres: CatalogTaxonomyFilterOption[];
   facets: CatalogTaxonomyFilterOption[];
   companies: CatalogCompanyFilterOption[];
+  physicalEditionFilters?: CatalogPhysicalFilterOptions;
   ownedItems: CollectionView[];
   ownedCatalogIds: string[];
   listingCounts: Record<string, number>;
@@ -64,6 +66,7 @@ export function PlatformCatalogSection({
   subgenres,
   facets,
   companies,
+  physicalEditionFilters,
   ownedItems,
   ownedCatalogIds,
   listingCounts,
@@ -147,6 +150,7 @@ export function PlatformCatalogSection({
         subgenres={subgenres}
         facets={facets}
         companies={companies}
+        physicalEditionFilters={physicalEditionFilters}
         showRegionFilter={false}
         showTaxonomyFilters
         ownedCatalogIds={ownedCatalogIds}

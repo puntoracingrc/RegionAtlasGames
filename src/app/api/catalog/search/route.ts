@@ -24,6 +24,8 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import type { CatalogGame, CatalogListGame } from "@/lib/types";
 import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import { catalogBrowseAliases, parsePendingEdition } from "@/lib/catalog-review-policy";
+import { groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
+import { parseCatalogBroadRegion, parseCatalogPhysicalEditionType } from "@/lib/catalog-edition-guide-types";
 
 const MAX_RESULTS = 12;
 const MAX_TAXONOMY_OPTIONS = 16;
@@ -105,7 +107,7 @@ function toQuickSearchGame(game: CatalogGame): CatalogListGame {
 
 function quickSearchGames(): CatalogListGame[] {
   if (!quickSearchGamesCache) {
-    quickSearchGamesCache = publicListedCatalog.map(toQuickSearchGame);
+    quickSearchGamesCache = groupCatalogListGames(publicListedCatalog.map(toQuickSearchGame));
   }
   return quickSearchGamesCache;
 }
@@ -113,7 +115,7 @@ function quickSearchGames(): CatalogListGame[] {
 async function fullSearchGames(): Promise<CatalogListGame[]> {
   if (!fullSearchGamesCache) {
     fullSearchGamesCache = import("@/lib/catalog-list-game").then(({ toCatalogListGame }) =>
-      publicListedCatalog.map(toCatalogListGame),
+      groupCatalogListGames(publicListedCatalog.map(toCatalogListGame)),
     );
   }
   return fullSearchGamesCache;
@@ -156,6 +158,9 @@ export async function GET(request: Request) {
   const genreSlug = url.searchParams.get("genre") ?? "";
   const subgenreSlug = url.searchParams.get("subgenre") ?? "";
   const facetSlug = url.searchParams.get("facet") ?? "";
+  const broadRegion = parseCatalogBroadRegion(url.searchParams.get("broadRegion"));
+  const ratingSystem = url.searchParams.get("ratingSystem") ?? "all";
+  const physicalEditionType = parseCatalogPhysicalEditionType(url.searchParams.get("physicalEditionType"));
   const hasTaxonomyFilter = Boolean(genreSlug || subgenreSlug || facetSlug);
 
   if (mode === "taxonomy-options") {
@@ -188,6 +193,9 @@ export async function GET(request: Request) {
     genre: genreSlug || "all",
     subgenre: subgenreSlug || "all",
     facet: facetSlug || "all",
+    broadRegion,
+    ratingSystem,
+    physicalEditionType,
   };
   let filtered = filterCatalogGames(
     games,

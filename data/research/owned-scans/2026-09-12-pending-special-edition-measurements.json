@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-12",
+  "status": "PREPARED_NOT_PUBLISHED",
+  "scope": "Medidas aproximadas de tres cajas escaneadas. No crea guides v2, fichas, regiones ni relaciones públicas.",
+  "method": {
+    "unit": "cm",
+    "order": ["width", "height", "depth"],
+    "scale": "A4 a 300 ppp, usando la escala confirmada por el propietario para el lote de Absolum",
+    "limitations": [
+      "Los PNG no conservan metadatos de ppp.",
+      "Algunos bordes alcanzan el límite del área capturada.",
+      "Las medidas incluyen pequeñas inclinaciones, deformaciones y precintos.",
+      "No son especificaciones certificadas por los fabricantes."
+    ]
+  },
+  "boxes": [
+    {
+      "slug": "metal-gear-solid-delta-snake-eater-deluxe-ps5",
+      "title": "Metal Gear Solid Delta: Snake Eater",
+      "edition": "Deluxe",
+      "platform": "PS5",
+      "identifiers": {
+        "ean": "4012927151037",
+        "printedPlayStationCode": "PPSA-15204"
+      },
+      "dimensionsCm": {
+        "width": 14.3,
+        "height": 17.9,
+        "depth": 4.2
+      },
+      "approximate": true
+    },
+    {
+      "slug": "the-coma-recut-limited-edition-ps4",
+      "title": "The Coma: Recut",
+      "edition": "Limited Edition",
+      "platform": "PS4",
+      "identifiers": {
+        "ean": "0797776798155",
+        "printedPlayStationCode": "PLAS-10107",
+        "publisherProductCode": "EAS-P4011",
+        "hologramNumber": "1091"
+      },
+      "dimensionsCm": {
+        "width": 13.8,
+        "height": 17.5,
+        "depth": 2.7
+      },
+      "approximate": true
+    },
+    {
+      "slug": "touhou-luna-nights-5-year-anniversary-limited-edition-ps5",
+      "title": "Touhou Luna Nights",
+      "edition": "5-Year Anniversary Limited Edition",
+      "platform": "PS5",
+      "identifiers": {
+        "ean": "8424365727181",
+        "printedPlayStationCode": "PPSA-26869"
+      },
+      "dimensionsCm": {
+        "width": 18.9,
+        "height": 29.2,
+        "depth": 3.2
+      },
+      "approximate": true
+    },
+    {
+      "slug": "ninja-gaiden-ragebound-special-edition-ps5",
+      "title": "Ninja Gaiden: Ragebound",
+      "edition": "Special Edition",
+      "platform": "PS5",
+      "identifiers": {
+        "ean": "5061078710807",
+        "printedPlayStationCode": "PPSA-28002",
+        "spineCode": "8710807"
+      },
+      "dimensionsCm": {
+        "width": 14.9,
+        "height": 22.1,
+        "depth": 4.7
+      },
+      "approximate": true
+    },
+    {
+      "slug": "blasphemous-ii-collectors-edition-ps5",
+      "title": "Blasphemous II",
+      "edition": "Collector's Edition",
+      "platform": "PS5",
+      "identifiers": {
+        "ean": "8424365726191",
+        "printedPlayStationCode": "PPSA-13579",
+        "spineCode": "5726191"
+      },
+      "dimensionsCm": {
+        "width": 18.9,
+        "height": 29.1,
+        "depth": 5.8
+      },
+      "approximate": true,
+      "assetStatus": "FRONT_SCAN_NEEDS_RECAPTURE",
+      "notes": [
+        "El recorte automático de la portada corta parcialmente el logotipo de PS5 y no debe publicarse como asset final.",
+        "Contraportada y lomo están revisados, pero no acreditan por sí solos el contenido interior."
+      ]
+    }
+  ]
+}

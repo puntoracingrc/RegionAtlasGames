@@ -113,17 +113,20 @@ export function CatalogGameCard({
           grail={grail}
           topSegment={topSegment}
           listingsForSale={listingsForSale}
+          physicalEditionGroup={game.physicalEditionGroup}
         />
         {isPendingCatalogGame(game) ? <p className="px-3 pb-3 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
       </IntentLink>
-      <CollectionQuickAdd
-        catalogId={game.id}
-        owned={owned}
-        isLoggedIn={isLoggedIn}
-        onChange={onOwnedChange}
-        className="!absolute right-1.5 top-1.5 z-10"
-      />
+      {!game.physicalEditionGroup?.editionFamilyId ? (
+        <CollectionQuickAdd
+          catalogId={game.id}
+          owned={owned}
+          isLoggedIn={isLoggedIn}
+          onChange={onOwnedChange}
+          className="!absolute right-1.5 top-1.5 z-10"
+        />
+      ) : null}
     </div>
   );
 }
@@ -166,6 +169,7 @@ export function CollectionGameCard({
       />
       <CardBody
         title={decodeHtmlEntities(game.title)}
+        physicalVariantLabel={game.physicalVariantLabel}
         platform={collectionPlatformLabel}
         region={game.region}
         year={null}
@@ -307,8 +311,11 @@ function CardBody({
   conditionCounts,
   conditionValues,
   catalogPrices,
+  physicalEditionGroup,
+  physicalVariantLabel,
 }: {
   title: string;
+  physicalVariantLabel?: string;
   platform: string;
   region?: string;
   year?: number | null;
@@ -323,6 +330,7 @@ function CardBody({
   conditionCounts?: CollectionConditionCounts;
   conditionValues?: CollectionConditionValue[];
   catalogPrices?: CatalogConditionPriceRow[];
+  physicalEditionGroup?: CatalogListGame["physicalEditionGroup"];
 }) {
   const tags = [
     topSegment ? "Top región" : null,
@@ -339,6 +347,28 @@ function CardBody({
       >
         {title}
       </h3>
+      {physicalVariantLabel ? (
+        <p className="mt-1 line-clamp-2 text-[10px] font-semibold leading-4 text-accent">
+          {physicalVariantLabel}
+        </p>
+      ) : null}
+      {physicalEditionGroup ? (
+        <div className="mt-1.5 min-h-10 text-[10px] leading-4 text-muted">
+          {physicalEditionGroup.editionFamilyLabel ? (
+            <p className="font-semibold text-accent">{physicalEditionGroup.editionFamilyLabel}</p>
+          ) : null}
+          <p className="font-semibold text-foreground/80">
+            {physicalEditionGroup.physicalEditionCount}{" "}
+            {physicalEditionGroup.physicalEditionCount === 1 ? "edición física" : "ediciones físicas"}
+            {" · "}
+            {physicalEditionGroup.broadRegions.length}{" "}
+            {physicalEditionGroup.broadRegions.length === 1 ? "región" : "regiones"}
+          </p>
+          <p className="line-clamp-2">
+            {physicalEditionGroup.broadRegions.map((entry) => `${entry.label}: ${entry.editionCount}`).join(" · ")}
+          </p>
+        </div>
+      ) : null}
       <div className={cn("flex items-end justify-between gap-2 pt-1", !conditionValues && "mt-auto")}>
         <div className="min-w-0">
           <p
@@ -448,7 +478,11 @@ function CardBody({
                     value.price == null ? "text-muted" : "text-accent",
                   )}
                 >
-                  {value.price == null ? "--" : formatEur(value.price)}
+                  {value.price == null
+                    ? "--"
+                    : value.maxPrice != null && value.maxPrice !== value.price
+                      ? `${formatEur(value.price)}–${formatEur(value.maxPrice)}`
+                      : formatEur(value.price)}
                 </dd>
               </div>
             ))}

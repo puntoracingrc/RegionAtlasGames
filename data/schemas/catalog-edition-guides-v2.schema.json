@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.regionatlas.games/schemas/catalog-edition-guides-v2.schema.json",
+  "title": "RegionAtlas catalog physical edition guides",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "guides"],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "guides": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/legacyGuide" },
+          { "$ref": "#/$defs/physicalGuide" }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "url", "thumbnailUrl", "width", "height", "caption"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "minLength": 1 },
+        "thumbnailUrl": { "type": "string", "minLength": 1 },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "caption": { "type": "string", "minLength": 1 },
+        "evidenceType": { "$ref": "#/$defs/evidenceType" }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platformSlug", "slug", "region", "edition"],
+      "properties": {
+        "platformSlug": { "type": "string", "minLength": 1 },
+        "slug": { "type": "string", "minLength": 1 },
+        "region": { "type": "string", "minLength": 1 },
+        "edition": { "type": "string", "minLength": 1 }
+      }
+    },
+    "legacyGuide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "reviewedAt", "note", "editions", "images", "sources", "evidenceNote"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "note": { "type": "string" },
+        "editions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["catalogId", "identity", "label", "description", "imageKeys"],
+            "properties": {
+              "catalogId": { "type": "string", "minLength": 1 },
+              "identity": { "$ref": "#/$defs/identity" },
+              "label": { "type": "string", "minLength": 1 },
+              "description": { "type": "string" },
+              "imageKeys": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+            }
+          }
+        },
+        "images": { "type": "array", "items": { "$ref": "#/$defs/image" } },
+        "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
+        "evidenceNote": { "type": "string" }
+      }
+    },
+    "broadRegion": {
+      "enum": ["EUROPE", "NORTH_AMERICA", "ASIA", "OTHER"]
+    },
+    "editionType": {
+      "enum": ["STANDARD", "SPECIAL", "COLLECTOR", "DELUXE", "LIMITED", "STEELBOOK", "OTHER"]
+    },
+    "evidenceType": {
+      "enum": ["REAL_SCAN", "REAL_PHOTO", "UNBOXING_FRAME", "RETAILER_PHOTO_CONFIRMED", "RETAILER_ASSET", "PUBLISHER_MOCKUP", "PRE_RELEASE_ASSET", "PUBLISHER_DOCUMENTATION", "OWNER_CONFIRMATION", "UNKNOWN"]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "label", "supports"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "$ref": "#/$defs/evidenceType" },
+        "label": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "summary": { "type": "string" },
+        "supports": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "priceIdentity"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "stickers": { "type": "array", "items": { "type": "string" } },
+        "markings": { "type": "array", "items": { "type": "string" } },
+        "barcode": { "type": "string" },
+        "boxCode": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } },
+        "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "scanSetIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "priceIdentity": { "type": "string", "minLength": 1 }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["widthCm", "heightCm", "depthCm", "approximate", "sourceLabel", "notes"],
+      "properties": {
+        "widthCm": { "type": "number", "exclusiveMinimum": 0 },
+        "heightCm": { "type": "number", "exclusiveMinimum": 0 },
+        "depthCm": { "type": "number", "exclusiveMinimum": 0 },
+        "approximate": { "type": "boolean" },
+        "sourceLabel": { "type": "string", "minLength": 1 },
+        "notes": { "type": "array", "items": { "type": "string" } },
+        "comparison": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["label", "widthCm", "heightCm", "depthCm", "sourceLabel", "sourceUrl"],
+          "properties": {
+            "label": { "type": "string", "minLength": 1 },
+            "widthCm": { "type": "number", "exclusiveMinimum": 0 },
+            "heightCm": { "type": "number", "exclusiveMinimum": 0 },
+            "depthCm": { "type": "number", "exclusiveMinimum": 0 },
+            "sourceLabel": { "type": "string", "minLength": 1 },
+            "sourceUrl": { "type": "string", "format": "uri" }
+          }
+        }
+      }
+    },
+    "physicalEdition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "broadRegion", "editionType"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "broadRegion": { "$ref": "#/$defs/broadRegion" },
+        "editionType": { "$ref": "#/$defs/editionType" },
+        "packagingLanguages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "ratingSystems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "barcode": { "type": "string" },
+        "catalogNumber": { "type": "string" },
+        "serial": { "type": "string" },
+        "boxCode": { "type": "string" },
+        "dimensions": { "$ref": "#/$defs/dimensions" },
+        "physicalContents": { "type": "array", "items": { "type": "string" } },
+        "digitalContents": { "type": "array", "items": { "type": "string" } },
+        "sharedDiscId": { "type": "string" },
+        "catalogIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "scanSetIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "imageKeys": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "includesEditionIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "includesVariantIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "containsCatalogIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "variants": { "type": "array", "items": { "$ref": "#/$defs/variant" } },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "editionFamily": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "representativeCatalogId", "physicalEditionIds"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "representativeCatalogId": { "type": "string", "minLength": 1 },
+        "physicalEditionIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    },
+    "sharedDisc": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "technicalRegion": { "$ref": "#/$defs/broadRegion" },
+        "serial": { "type": "string" },
+        "ratingSystems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "physicalGuide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "id", "title", "reviewedAt", "note", "game", "physicalEditions", "evidence", "sources", "evidenceNote"],
+      "properties": {
+        "schemaVersion": { "const": 2 },
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "note": { "type": "string" },
+        "game": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title", "platformSlug", "canonicalCatalogId"],
+          "properties": {
+            "title": { "type": "string", "minLength": 1 },
+            "platformSlug": { "type": "string", "minLength": 1 },
+            "canonicalCatalogId": { "type": "string", "minLength": 1 }
+          }
+        },
+        "editionFamilies": { "type": "array", "items": { "$ref": "#/$defs/editionFamily" } },
+        "physicalEditions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/physicalEdition" } },
+        "sharedDiscs": { "type": "array", "items": { "$ref": "#/$defs/sharedDisc" } },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+        "images": { "type": "array", "items": { "$ref": "#/$defs/image" } },
+        "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
+        "evidenceNote": { "type": "string" }
+      }
+    }
+  }
+}

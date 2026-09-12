@@ -14,6 +14,7 @@ import { getConsoleMascotPhrase } from "@/lib/console-mascots";
 
 type Props = {
   catalogId: string;
+  physicalVariantId?: string;
   gameTitle?: string;
   initialOwned: boolean;
   ownedCount?: number;
@@ -26,7 +27,7 @@ type Props = {
 
 type AddResult = { item: { id: string }; ownedCount: number; wishlistAchieved?: boolean };
 
-export function CollectionToggle({ catalogId, gameTitle, initialOwned, ownedCount = initialOwned ? 1 : 0, initialWished = false, initialCollectionItemId, isLoggedIn, gamePath, platformSlug }: Props) {
+export function CollectionToggle({ catalogId, physicalVariantId, gameTitle, initialOwned, ownedCount = initialOwned ? 1 : 0, initialWished = false, initialCollectionItemId, isLoggedIn, gamePath, platformSlug }: Props) {
   const router = useRouter();
   const [count, setCount] = useState(ownedCount);
   const [wished, setWished] = useState(initialWished);
@@ -47,7 +48,7 @@ export function CollectionToggle({ catalogId, gameTitle, initialOwned, ownedCoun
 
   async function requestAdd(): Promise<AddResult> {
     const response = await fetch("/api/user/collection/items", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ catalogId }),
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ catalogId, physicalVariantId }),
     });
     const data = await response.json();
     if (!response.ok || !data.item?.id) throw new Error(data.error ?? "No se pudo guardar en tu colección.");
@@ -90,7 +91,9 @@ export function CollectionToggle({ catalogId, gameTitle, initialOwned, ownedCoun
   async function removeOne() {
     setBusy("remove"); setFeedback(null);
     try {
-      const response = await fetch(`/api/user/collection/items?catalogId=${encodeURIComponent(catalogId)}&mode=one`, { method: "DELETE" });
+      const params = new URLSearchParams({ catalogId, mode: "one" });
+      if (physicalVariantId) params.set("physicalVariantId", physicalVariantId);
+      const response = await fetch(`/api/user/collection/items?${params.toString()}`, { method: "DELETE" });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error ?? "No se pudo quitar la copia.");
       setCount(data.ownedCount);
