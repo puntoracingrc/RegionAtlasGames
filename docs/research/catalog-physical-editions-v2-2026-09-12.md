@@ -105,6 +105,7 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 - La relación de disco compartido continúa en el modelo y en la nota de cada edición, pero se retira del resumen de datos para no duplicarla. La comparación de medidas aprovecha el ancho del panel con la ilustración transparente y compacta a la izquierda y las medidas aproximadas a la derecha.
 - La nota técnica general del piloto se conserva en el guide como documentación interna, pero ya no se presenta como texto público en la ficha.
 - Las fichas V2 no muestran el panel genérico de código de producto, porque esa referencia ya figura dentro de la edición física; las fichas legacy mantienen el panel existente.
+- La ficha V2 tampoco repite una cabecera descriptiva ni contadores de ediciones: conserva la navegación entre familias y muestra directamente las ediciones documentadas.
 - Una edición que ya pertenece a la colección resalta toda su fila en verde. El estado visual usa el contador vivo del control de colección: aparece al añadir la primera copia y desaparece al retirar la última, sin mantener una marca independiente de los datos guardados.
 - La cabecera de la Special muestra `EU`, no `ES`, porque solo está demostrada su gran región europea. El filtro legacy España sigue encontrando la ficha sin convertir ese dato de compatibilidad en un mercado V2 demostrado.
 - El escaneo propio de la caja exterior es la portada principal de la ficha Special; la portada, contraportada y lomo continúan disponibles en su galería.

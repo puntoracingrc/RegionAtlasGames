@@ -7,7 +7,6 @@ import { getCatalogGame } from "@/lib/catalog";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import {
   catalogBroadRegionLabel,
-  catalogEditionFamilyCountLabel,
   catalogEditionFamilyHasVariants,
   catalogMarketRegionToLegacyRegion,
   catalogPhysicalEditionTypeLabel,
@@ -130,29 +129,13 @@ function PhysicalEditionGuide({
     : guide.physicalEditions;
   const hasFamilyVariants = Boolean(currentFamily && catalogEditionFamilyHasVariants(visibleEditions.length));
   const regions = [...new Set(visibleEditions.map((edition) => edition.broadRegion))];
-  const ownedVariantCount = visibleEditions.filter((edition) => (physicalVariantOwnedCounts[edition.id] ?? 0) > 0).length;
   const currentGame = guide.currentCatalogId ? getCatalogGame(guide.currentCatalogId) : undefined;
   const loginPath = `/login?next=${encodeURIComponent(currentGame ? catalogGamePath(currentGame) : "/catalogo")}`;
   return (
     <Panel>
       <section aria-label={guide.title}>
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <p className="text-xs font-semibold uppercase text-accent">Juego + plataforma</p>
-            <PanelTitle>{guide.title}</PanelTitle>
-            {currentFamily ? <p className="mt-1 text-sm font-semibold text-foreground">{currentFamily.label}</p> : null}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Badge>
-              {currentFamily
-                ? catalogEditionFamilyCountLabel(visibleEditions.length)
-                : `${visibleEditions.length} ${visibleEditions.length === 1 ? "edición física" : "ediciones físicas"}`}
-            </Badge>
-            {currentFamily && isLoggedIn ? <Badge tone="green">{ownedVariantCount} de {visibleEditions.length} en tu colección</Badge> : null}
-          </div>
-        </div>
         {guide.editionFamilies.length ? (
-          <nav aria-label="Familias de edición" className="mt-5 flex flex-wrap gap-2 border-y border-border py-3">
+          <nav aria-label="Familias de edición" className="flex flex-wrap gap-2 border-b border-border pb-4">
             {guide.editionFamilies.map((family) => {
               const href = familyHref(family);
               const current = family.id === currentFamily?.id;
@@ -202,10 +185,7 @@ function PhysicalEditionGuide({
                 className="relative py-5 pl-5 first:pt-4"
               >
                 <RegionRail identity={region} />
-                <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-lg font-bold text-foreground">{catalogBroadRegionLabel(region)}</h3>
-                  <span className="text-xs text-muted">{editions.length} {editions.length === 1 ? "edición" : "ediciones"}</span>
-                </div>
+                <h3 className="mb-2 text-lg font-bold text-foreground">{catalogBroadRegionLabel(region)}</h3>
                 <div className="divide-y divide-border/70">
                   {editions.map((edition) => (
                     <PhysicalEditionRow
