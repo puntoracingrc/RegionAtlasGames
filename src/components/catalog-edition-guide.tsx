@@ -84,10 +84,6 @@ function LegacyEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
   );
 }
 
-function physicalEditionCover(edition: CatalogPhysicalEdition): string | null {
-  return physicalEditionGalleryImages(edition)[0]?.thumbnailSrc ?? null;
-}
-
 function physicalEditionGalleryImages(edition: CatalogPhysicalEdition): PhysicalEditionGalleryImage[] {
   const images: PhysicalEditionGalleryImage[] = [];
   const seen = new Set<string>();
@@ -207,27 +203,6 @@ function PhysicalEditionGuide({
                   {family.label}
                 </Link>
               ) : null;
-            })}
-          </nav>
-        ) : null}
-
-        {currentFamily && hasFamilyVariants ? (
-          <nav aria-label={`Variantes de ${currentFamily.label}`} className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {visibleEditions.map((edition) => {
-              const cover = physicalEditionCover(edition);
-              const ownedCount = physicalVariantOwnedCounts[edition.id] ?? 0;
-              return (
-                <a key={edition.id} href={`#${edition.id}`} className="grid min-h-24 grid-cols-[56px_minmax(0,1fr)] gap-3 border border-border bg-card p-2 transition hover:border-accent hover:bg-card-hover">
-                  <div className="flex h-20 w-14 items-center justify-center overflow-hidden bg-background">
-                    {cover ? <Image unoptimized src={cover} width={56} height={80} alt="" className="h-full w-full object-contain" /> : <span className="px-1 text-center text-[8px] uppercase text-muted">Sin portada verificada</span>}
-                  </div>
-                  <span className="min-w-0 self-center">
-                    <span className="block text-xs font-semibold leading-5 text-foreground">{edition.label}</span>
-                    <span className="block text-[11px] text-muted">{catalogBroadRegionLabel(edition.broadRegion)}</span>
-                    {ownedCount ? <span className="block text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">Tengo {ownedCount}</span> : null}
-                  </span>
-                </a>
-              );
             })}
           </nav>
         ) : null}
