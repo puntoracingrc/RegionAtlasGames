@@ -1,5 +1,6 @@
 import { getPlatform, platforms } from "./catalog";
 import { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
+import { collectionStorageIdentityKey } from "./collection-identity";
 import type { CollectionView, Platform } from "./types";
 
 export type CollectionPlatformGroup = {
@@ -96,6 +97,7 @@ export function countCollectionByPlatform(
     quantity: number;
     id?: string;
     catalogId?: string | null;
+    physicalVariantId?: string | null;
     title?: string;
   }>,
 ): Record<string, { items: number; units: number }> {
@@ -104,7 +106,9 @@ export function countCollectionByPlatform(
   for (const item of items) {
     const slug = normalizeImportedPlatformSlug(item.platformSlug);
     if (!counts[slug]) counts[slug] = { items: 0, units: 0 };
-    const titleKey = item.catalogId ?? item.title?.trim().toLocaleLowerCase("es") ?? item.id ?? "";
+    const titleKey = item.catalogId
+      ? collectionStorageIdentityKey(item)
+      : item.title?.trim().toLocaleLowerCase("es") ?? item.id ?? "";
     const titles = titlesByPlatform.get(slug) ?? new Set<string>();
     titles.add(titleKey);
     titlesByPlatform.set(slug, titles);

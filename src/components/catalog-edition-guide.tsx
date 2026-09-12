@@ -1,16 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PhysicalVariantCollectionToggle } from "@/components/physical-variant-collection-toggle";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
+import { getCatalogGame } from "@/lib/catalog";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import {
   catalogBroadRegionLabel,
   catalogPhysicalEditionTypeLabel,
   isStrongPhysicalEvidence,
+  type CatalogEditionFamily,
   type CatalogEditionGuideModel,
   type CatalogPhysicalEdition,
   type CatalogPhysicalEvidenceType,
 } from "@/lib/catalog-edition-guide-types";
+import { catalogGamePath } from "@/lib/catalog-path";
 import { getOwnedScanSetById } from "@/lib/catalog-owned-scans";
+import { getCoverSrc } from "@/lib/cover-url";
+import { formatEur } from "@/lib/price-format";
+import { catalogConditionPriceRows } from "@/lib/price-display";
 import type { CatalogGame } from "@/lib/types";
 
 const EVIDENCE_LABELS: Record<CatalogPhysicalEvidenceType, string> = {
@@ -26,12 +33,28 @@ const EVIDENCE_LABELS: Record<CatalogPhysicalEvidenceType, string> = {
   UNKNOWN: "Procedencia pendiente",
 };
 
-export function CatalogEditionGuide({ game }: { game: CatalogGame }) {
+type CatalogEditionGuideProps = {
+  game: CatalogGame;
+  isLoggedIn?: boolean;
+  physicalVariantOwnedCounts?: Record<string, number>;
+};
+
+export function CatalogEditionGuide({
+  game,
+  isLoggedIn = false,
+  physicalVariantOwnedCounts = {},
+}: CatalogEditionGuideProps) {
   const guide = getCatalogEditionGuide(game);
   if (!guide) return null;
   return guide.schemaVersion === 1
     ? <LegacyEditionGuide guide={guide} />
-    : <PhysicalEditionGuide guide={guide} />;
+    : (
+      <PhysicalEditionGuide
+        guide={guide}
+        isLoggedIn={isLoggedIn}
+        physicalVariantOwnedCounts={physicalVariantOwnedCounts}
+      />
+    );
 }
 
 function LegacyEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
@@ -63,8 +86,43 @@ function LegacyEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
   );
 }
 
-function PhysicalEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
-  const regions = [...new Set(guide.physicalEditions.map((edition) => edition.broadRegion))];
+function physicalEditionCover(edition: CatalogPhysicalEdition): string | null {
+  const scanSet = edition.scanSetIds.flatMap((id) => {
+    const scans = getOwnedScanSetById(id);
+    return scans ? [scans] : [];
+  })[0];
+  if (scanSet) return scanSet.primaryCoverUrl;
+  const evidenceImage = edition.images.find((image) => isStrongPhysicalEvidence(image.evidenceType));
+  if (evidenceImage) return evidenceImage.thumbnailUrl;
+  const linkedGame = edition.catalogIds.flatMap((id) => {
+    const game = getCatalogGame(id);
+    return game ? [game] : [];
+  })[0];
+  return linkedGame ? getCoverSrc(linkedGame.coverUrl, linkedGame.id) : null;
+}
+
+function familyHref(family: CatalogEditionFamily): string | null {
+  const game = getCatalogGame(family.representativeCatalogId);
+  return game ? catalogGamePath(game) : null;
+}
+
+function PhysicalEditionGuide({
+  guide,
+  isLoggedIn,
+  physicalVariantOwnedCounts,
+}: {
+  guide: CatalogEditionGuideModel;
+  isLoggedIn: boolean;
+  physicalVariantOwnedCounts: Record<string, number>;
+}) {
+  const currentFamily = guide.editionFamilies.find((family) => family.id === guide.currentEditionFamilyId);
+  const visibleEditions = currentFamily
+    ? guide.physicalEditions.filter((edition) => currentFamily.physicalEditionIds.includes(edition.id))
+    : guide.physicalEditions;
+  const regions = [...new Set(visibleEditions.map((edition) => edition.broadRegion))];
+  const ownedVariantCount = visibleEditions.filter((edition) => (physicalVariantOwnedCounts[edition.id] ?? 0) > 0).length;
+  const currentGame = guide.currentCatalogId ? getCatalogGame(guide.currentCatalogId) : undefined;
+  const loginPath = `/login?next=${encodeURIComponent(currentGame ? catalogGamePath(currentGame) : "/catalogo")}`;
   return (
     <Panel>
       <section aria-label={guide.title}>
@@ -72,14 +130,63 @@ function PhysicalEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
           <div>
             <p className="text-xs font-semibold uppercase text-accent">Juego + plataforma</p>
             <PanelTitle>{guide.title}</PanelTitle>
+            {currentFamily ? <p className="mt-1 text-sm font-semibold text-foreground">{currentFamily.label}</p> : null}
           </div>
-          <Badge>{guide.physicalEditions.length} ediciones físicas</Badge>
+          <div className="flex flex-wrap gap-2">
+            <Badge>
+              {visibleEditions.length} {currentFamily
+                ? visibleEditions.length === 1 ? "variante física" : "variantes físicas"
+                : visibleEditions.length === 1 ? "edición física" : "ediciones físicas"}
+            </Badge>
+            {currentFamily && isLoggedIn ? <Badge tone="green">{ownedVariantCount} de {visibleEditions.length} en tu colección</Badge> : null}
+          </div>
         </div>
         <p className="mt-2 text-sm leading-6 text-muted">{guide.note}</p>
 
+        {guide.editionFamilies.length ? (
+          <nav aria-label="Familias de edición" className="mt-5 flex flex-wrap gap-2 border-y border-border py-3">
+            {guide.editionFamilies.map((family) => {
+              const href = familyHref(family);
+              const current = family.id === currentFamily?.id;
+              return href ? (
+                <Link
+                  key={family.id}
+                  href={href}
+                  prefetch={false}
+                  aria-current={current ? "page" : undefined}
+                  className={current ? "btn-primary inline-flex min-h-10 items-center px-4 text-sm" : "btn-secondary inline-flex min-h-10 items-center px-4 text-sm"}
+                >
+                  {family.label}
+                </Link>
+              ) : null;
+            })}
+          </nav>
+        ) : null}
+
+        {currentFamily ? (
+          <nav aria-label={`Variantes de ${currentFamily.label}`} className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {visibleEditions.map((edition) => {
+              const cover = physicalEditionCover(edition);
+              const ownedCount = physicalVariantOwnedCounts[edition.id] ?? 0;
+              return (
+                <a key={edition.id} href={`#${edition.id}`} className="grid min-h-24 grid-cols-[56px_minmax(0,1fr)] gap-3 border border-border bg-card p-2 transition hover:border-accent hover:bg-card-hover">
+                  <div className="flex h-20 w-14 items-center justify-center overflow-hidden bg-background">
+                    {cover ? <Image unoptimized src={cover} width={56} height={80} alt="" className="h-full w-full object-contain" /> : <span className="px-1 text-center text-[8px] uppercase text-muted">Sin portada verificada</span>}
+                  </div>
+                  <span className="min-w-0 self-center">
+                    <span className="block text-xs font-semibold leading-5 text-foreground">{edition.label}</span>
+                    <span className="block text-[11px] text-muted">{catalogBroadRegionLabel(edition.broadRegion)}</span>
+                    {ownedCount ? <span className="block text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">Tengo {ownedCount}</span> : null}
+                  </span>
+                </a>
+              );
+            })}
+          </nav>
+        ) : null}
+
         <div className="mt-5 divide-y divide-border border-y border-border">
           {regions.map((region) => {
-            const editions = guide.physicalEditions.filter((edition) => edition.broadRegion === region);
+            const editions = visibleEditions.filter((edition) => edition.broadRegion === region);
             return (
               <section key={region} className="py-5 first:pt-4">
                 <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
@@ -87,7 +194,17 @@ function PhysicalEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
                   <span className="text-xs text-muted">{editions.length} {editions.length === 1 ? "edición" : "ediciones"}</span>
                 </div>
                 <div className="divide-y divide-border/70">
-                  {editions.map((edition) => <PhysicalEditionRow key={edition.id} edition={edition} guide={guide} />)}
+                  {editions.map((edition) => (
+                    <PhysicalEditionRow
+                      key={edition.id}
+                      edition={edition}
+                      guide={guide}
+                      family={currentFamily}
+                      isLoggedIn={isLoggedIn}
+                      ownedCount={physicalVariantOwnedCounts[edition.id] ?? 0}
+                      loginPath={loginPath}
+                    />
+                  ))}
                 </div>
               </section>
             );
@@ -100,50 +217,104 @@ function PhysicalEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
   );
 }
 
-function PhysicalEditionRow({ edition, guide }: { edition: CatalogPhysicalEdition; guide: CatalogEditionGuideModel }) {
+function PhysicalEditionRow({
+  edition,
+  guide,
+  family,
+  isLoggedIn,
+  ownedCount,
+  loginPath,
+}: {
+  edition: CatalogPhysicalEdition;
+  guide: CatalogEditionGuideModel;
+  family?: CatalogEditionFamily;
+  isLoggedIn: boolean;
+  ownedCount: number;
+  loginPath: string;
+}) {
   const sharedDisc = guide.sharedDiscs.find((disc) => disc.id === edition.sharedDiscId);
+  const cover = physicalEditionCover(edition);
+  const linkedCatalogGame = edition.catalogIds.flatMap((id) => {
+    const game = getCatalogGame(id);
+    return game ? [game] : [];
+  })[0];
+  const priceRows = linkedCatalogGame
+    ? catalogConditionPriceRows(linkedCatalogGame).filter((row) => row.price != null)
+    : [];
+  const collectionCatalogId = linkedCatalogGame?.id ?? family?.representativeCatalogId;
   const includedEditions = edition.includesEditionIds.flatMap((id) => {
     const target = guide.physicalEditions.find((candidate) => candidate.id === id);
     return target ? [target.label] : [];
   });
   return (
-    <article id={edition.id} className="scroll-mt-28 py-4 first:pt-2">
+    <article id={edition.id} className="scroll-mt-28 py-4 outline-none target:bg-accent/5 target:outline target:outline-2 target:outline-accent/50 first:pt-2">
       <div className="flex flex-wrap items-center gap-2">
         <h4 className="font-semibold text-foreground">{edition.label}</h4>
         <Badge tone={edition.editionType === "STANDARD" ? undefined : "amber"}>
           {catalogPhysicalEditionTypeLabel(edition.editionType)}
         </Badge>
         {edition.id === guide.currentEditionId ? <Badge tone="green">Esta ficha</Badge> : null}
+        {ownedCount ? <Badge tone="green">Tengo {ownedCount}</Badge> : null}
       </div>
 
-      <dl className="mt-3 grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2">
-        {edition.packagingLanguages.length ? <Fact label="Idiomas del packaging" value={edition.packagingLanguages.join(" / ")} /> : null}
-        {edition.ratingSystems.length ? <Fact label="Clasificación impresa" value={edition.ratingSystems.join(" + ")} /> : null}
-        {edition.barcode ? <Fact label="EAN / UPC / JAN" value={edition.barcode} mono /> : null}
-        {edition.catalogNumber ? <Fact label="Referencia del soporte" value={edition.catalogNumber} mono /> : null}
-        {edition.boxCode ? <Fact label="Código de caja" value={edition.boxCode} mono /> : null}
-        {sharedDisc ? <Fact label="Soporte compartido" value={`${sharedDisc.label}${sharedDisc.ratingSystems.length ? ` · ${sharedDisc.ratingSystems.join(" + ")}` : ""}`} /> : null}
-      </dl>
-
-      {edition.dimensions ? <DimensionsComparison dimensions={edition.dimensions} /> : null}
-
-      {edition.catalogLinks.length ? (
-        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-          {edition.catalogLinks.map((link) => (
-            <Link key={link.catalogId} href={link.href} prefetch={false} className="font-semibold text-primary underline-offset-4 hover:underline">
-              {link.current ? "Ficha actual" : `Abrir ficha legacy · ${link.region}`}
-            </Link>
-          ))}
+      <div className="mt-3 grid gap-4 sm:grid-cols-[132px_minmax(0,1fr)]">
+        <div className="flex aspect-[3/4] w-full max-w-[132px] items-center justify-center overflow-hidden border border-border bg-background">
+          {cover ? (
+            <Image unoptimized src={cover} width={132} height={176} alt={`Portada de ${edition.label}`} className="h-full w-full object-contain" />
+          ) : (
+            <span className="px-3 text-center text-[10px] font-semibold uppercase leading-4 text-muted">Portada pendiente de evidencia</span>
+          )}
         </div>
-      ) : <p className="mt-3 text-xs text-muted">Edición documentada sin ficha legacy independiente.</p>}
+        <div className="min-w-0">
+          <dl className="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2">
+            {edition.packagingLanguages.length ? <Fact label="Idiomas del packaging" value={edition.packagingLanguages.join(" / ")} /> : null}
+            {edition.ratingSystems.length ? <Fact label="Clasificación impresa" value={edition.ratingSystems.join(" + ")} /> : null}
+            {edition.barcode ? <Fact label="EAN / UPC / JAN" value={edition.barcode} mono /> : null}
+            {edition.catalogNumber ? <Fact label="Referencia del soporte" value={edition.catalogNumber} mono /> : null}
+            {edition.boxCode ? <Fact label="Código de caja" value={edition.boxCode} mono /> : null}
+            {sharedDisc ? <Fact label="Soporte compartido" value={`${sharedDisc.label}${sharedDisc.ratingSystems.length ? ` · ${sharedDisc.ratingSystems.join(" + ")}` : ""}`} /> : null}
+            <Fact
+              label="Precio de esta variante"
+              value={priceRows.length
+                ? priceRows.map((row) => `${row.label}: ${formatEur(row.price)}`).join(" · ")
+                : "Pendiente"}
+            />
+          </dl>
 
-      {includedEditions.length || edition.physicalContents.length || edition.digitalContents.length ? (
-        <div className="mt-4 border-l-2 border-accent/40 pl-3 text-sm leading-6">
-          {includedEditions.length ? <p><strong>Incluye:</strong> {includedEditions.join(" · ")}</p> : null}
-          {edition.physicalContents.length ? <p><strong>Contenido físico:</strong> {edition.physicalContents.join(" · ")}</p> : null}
-          {edition.digitalContents.length ? <p><strong>Contenido digital:</strong> {edition.digitalContents.join(" · ")}</p> : null}
+          {edition.dimensions ? <DimensionsComparison dimensions={edition.dimensions} /> : null}
+
+          {edition.catalogLinks.length ? (
+            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+              {edition.catalogLinks.map((link) => (
+                <Link key={link.catalogId} href={link.href} prefetch={false} className="font-semibold text-primary underline-offset-4 hover:underline">
+                  {link.current ? "Ficha actual" : `Abrir ficha de catálogo · ${link.region}`}
+                </Link>
+              ))}
+            </div>
+          ) : <p className="mt-3 text-xs text-muted">Variante física documentada sin ficha de catálogo independiente.</p>}
+
+          {includedEditions.length || edition.physicalContents.length || edition.digitalContents.length ? (
+            <div className="mt-4 border-l-2 border-accent/40 pl-3 text-sm leading-6">
+              {includedEditions.length ? <p><strong>Incluye:</strong> {includedEditions.join(" · ")}</p> : null}
+              {edition.physicalContents.length ? <p><strong>Contenido físico:</strong> {edition.physicalContents.join(" · ")}</p> : null}
+              {edition.digitalContents.length ? <p><strong>Contenido digital:</strong> {edition.digitalContents.join(" · ")}</p> : null}
+            </div>
+          ) : null}
+
+          {family && collectionCatalogId ? (
+            <div className="mt-4">
+              <PhysicalVariantCollectionToggle
+                catalogId={collectionCatalogId}
+                physicalVariantId={edition.id}
+                label={edition.label}
+                initialOwnedCount={ownedCount}
+                isLoggedIn={isLoggedIn}
+                loginPath={loginPath}
+              />
+            </div>
+          ) : null}
         </div>
-      ) : null}
+      </div>
 
       {edition.variants.length ? (
         <div className="mt-4 border-t border-border/70 pt-3">

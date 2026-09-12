@@ -19,6 +19,7 @@ import {
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
 import { enrichCollectionItem } from "@/lib/catalog";
+import { withResolvedCollectionPhysicalVariant } from "@/lib/catalog-physical-variant";
 import { outOfScopeCollectionItems, pendingCatalogItems } from "@/lib/import-collection";
 import { enrichCollectionGapItem } from "@/lib/collection-gap";
 import { canViewCollectionValue } from "@/lib/plans";
@@ -59,7 +60,7 @@ export default async function CollectionPage() {
     getUserMarketplaceActivityListings(user.id),
   ]);
   const { sellerListings, buyerListings } = marketplaceActivity;
-  const items = file.items.map(enrichCollectionItem);
+  const items = file.items.map((item) => withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)));
   const listingStateByItemId = collectionListingStates(sellerListings);
   const completedSales = completedCollectionSales(sellerListings);
   const completedPurchases = completedCollectionPurchases(buyerListings, user.id);

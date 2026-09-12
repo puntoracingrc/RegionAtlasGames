@@ -22,6 +22,12 @@ import { priceForCollectionCondition } from "./condition-prices";
 import { removeCollectionPhoto, upsertCollectionPhoto } from "./collection-photos";
 import { deleteCollectionPhotoFile } from "./collection-photo-storage";
 import {
+  collectionItemMatchesPhysicalVariant,
+  collectionPhysicalIdentityKey,
+  resolveCatalogPhysicalVariant,
+  withResolvedCollectionPhysicalVariant,
+} from "./catalog-physical-variant";
+import {
   availableCollectionConditions,
   DEFAULT_COLLECTION_CONDITION,
   isPricedCollectionCondition,
@@ -71,7 +77,7 @@ export async function updateUserCollection<R>(
 
 export async function getUserCollectionViews(userId: string): Promise<CollectionView[]> {
   const file = await readUserCollection(userId);
-  return file.items.map(enrichCollectionItem);
+  return file.items.map((item) => withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)));
 }
 
 export async function getUserCollectionItem(
@@ -80,7 +86,7 @@ export async function getUserCollectionItem(
 ): Promise<CollectionView | undefined> {
   const file = await readUserCollection(userId);
   const item = file.items.find((i) => i.id === itemId);
-  return item ? enrichCollectionItem(item) : undefined;
+  return item ? withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)) : undefined;
 }
 
 export async function getUserCollectionItemsForCatalog(
@@ -90,11 +96,11 @@ export async function getUserCollectionItemsForCatalog(
   const file = await readUserCollection(userId);
   return file.items
     .filter((item) => item.catalogId === catalogId)
-    .map(enrichCollectionItem);
+    .map((item) => withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)));
 }
 
 function collectionTitleKey(item: CollectionItem): string {
-  if (item.catalogMatched && item.catalogId) return `catalog:${item.catalogId}`;
+  if (item.catalogMatched && item.catalogId) return collectionPhysicalIdentityKey(item);
   return `title:${item.platformSlug}:${item.region}:${slugify(item.title)}`;
 }
 
@@ -207,7 +213,7 @@ export async function getFirstCollectionItemForCatalog(
 ): Promise<CollectionView | undefined> {
   const file = await readUserCollection(userId);
   const item = file.items.find((i) => i.catalogId === catalogId);
-  return item ? enrichCollectionItem(item) : undefined;
+  return item ? withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)) : undefined;
 }
 
 function uniqueItemId(items: CollectionItem[], title: string): string {
@@ -222,11 +228,13 @@ export function catalogGameToCollectionItem(
   game: CatalogGame,
   items: CollectionItem[],
   initialCondition: PricedCollectionCondition = DEFAULT_COLLECTION_CONDITION,
+  physicalVariantId?: string,
 ): CollectionItem {
   const conditionPrice = priceForCollectionCondition(game, initialCondition);
   return {
     id: uniqueItemId(items, game.title),
     catalogId: game.id,
+    ...(physicalVariantId ? { physicalVariantId } : {}),
     catalogMatched: true,
     inRetroCatalog: true,
     title: game.title,
@@ -325,6 +333,7 @@ function linkCollectionItemWithCatalog(
     hasEsPrice: fromCatalog.hasEsPrice || current.hasEsPrice,
     priceSource: current.priceSource ?? fromCatalog.priceSource,
     pcRefPrice: current.pcRefPrice ?? fromCatalog.pcRefPrice,
+    ...(current.physicalVariantId ? { physicalVariantId: current.physicalVariantId } : {}),
     addedAt: current.addedAt ?? new Date().toISOString(),
     purchasedAt: current.purchasedAt ?? null,
   };
@@ -379,15 +388,19 @@ export async function addCatalogCopy(
   userId: string,
   catalogId: string,
   initialCondition: PricedCollectionCondition = DEFAULT_COLLECTION_CONDITION,
+  physicalVariantId?: string,
 ): Promise<{ item: CollectionItem } | { error: string }> {
   const game = getCatalogGame(catalogId);
   if (!game || game.listingStatus === "excluded") {
     return { error: "Juego no encontrado en el catálogo." };
   }
+  if (physicalVariantId && !resolveCatalogPhysicalVariant(catalogId, physicalVariantId)) {
+    return { error: "La variante física no corresponde a esta ficha." };
+  }
 
   try {
     return await mutateUserCollection<{ item: CollectionItem }>(userId, (file) => {
-      const item = catalogGameToCollectionItem(game, file.items, initialCondition);
+      const item = catalogGameToCollectionItem(game, file.items, initialCondition, physicalVariantId);
       file.items.push(item);
       return { next: file, result: { item } };
     });
@@ -685,15 +698,19 @@ export async function addCatalogGameToCollection(
   userId: string,
   catalogId: string,
   initialCondition: PricedCollectionCondition = DEFAULT_COLLECTION_CONDITION,
+  physicalVariantId?: string,
 ): Promise<{ item: CollectionItem; linkedExisting: boolean } | { error: string }> {
   const game = getCatalogGame(catalogId);
   if (!game || game.listingStatus === "excluded") {
     return { error: "Juego no encontrado en el catálogo." };
   }
+  if (physicalVariantId && !resolveCatalogPhysicalVariant(catalogId, physicalVariantId)) {
+    return { error: "La variante física no corresponde a esta ficha." };
+  }
 
   try {
     return await mutateUserCollection<{ item: CollectionItem; linkedExisting: boolean }>(userId, (file) => {
-      const existingIndex = file.items.findIndex((item) => {
+      const existingIndex = physicalVariantId ? -1 : file.items.findIndex((item) => {
         if (item.catalogMatched && item.catalogId) return false;
         return findAvailableCatalogLink(item)?.id === catalogId;
       });
@@ -706,7 +723,7 @@ export async function addCatalogGameToCollection(
         return { next: file, result: { item: linked, linkedExisting: true } };
       }
 
-      const item = catalogGameToCollectionItem(game, file.items, initialCondition);
+      const item = catalogGameToCollectionItem(game, file.items, initialCondition, physicalVariantId);
       file.items.push(item);
       return { next: file, result: { item, linkedExisting: false } };
     });
@@ -720,14 +737,20 @@ export async function addCatalogGameToCollection(
 export async function removeCatalogGameFromCollection(
   userId: string,
   catalogId: string,
+  physicalVariantId?: string,
 ): Promise<{ removed: number } | { error: string }> {
   try {
     const result = await mutateUserCollection<
       { removed: number; removedItems: RemovedCollectionItem[] } | { error: string }
     >(userId, (file) => {
       const before = file.items.length;
-      const removedItems = file.items.filter((item) => item.catalogId === catalogId);
-      file.items = file.items.filter((item) => item.catalogId !== catalogId);
+      const matches = (item: CollectionItem) => item.catalogId === catalogId && (
+        physicalVariantId
+          ? collectionItemMatchesPhysicalVariant(item, physicalVariantId)
+          : true
+      );
+      const removedItems = file.items.filter(matches);
+      file.items = file.items.filter((item) => !matches(item));
       if (file.items.length === before) {
         return {
           next: file,
@@ -752,6 +775,7 @@ export async function removeOneCatalogGameFromCollection(
   userId: string,
   catalogId: string,
   protectedItemIds: string[] = [],
+  physicalVariantId?: string,
 ): Promise<{ removed: number; remaining: number } | { error: string }> {
   const protectedIds = new Set(protectedItemIds);
   try {
@@ -761,7 +785,11 @@ export async function removeOneCatalogGameFromCollection(
     >(userId, (file) => {
       const matchingIndexes = file.items
         .map((item, index) => ({ item, index }))
-        .filter(({ item }) => item.catalogId === catalogId);
+        .filter(({ item }) => item.catalogId === catalogId && (
+          physicalVariantId
+            ? collectionItemMatchesPhysicalVariant(item, physicalVariantId)
+            : true
+        ));
 
       if (matchingIndexes.length === 0) {
         return {
@@ -805,7 +833,11 @@ export async function removeOneCatalogGameFromCollection(
       }
 
       const remaining = file.items
-        .filter((item) => item.catalogId === catalogId)
+        .filter((item) => item.catalogId === catalogId && (
+          physicalVariantId
+            ? collectionItemMatchesPhysicalVariant(item, physicalVariantId)
+            : true
+        ))
         .reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
       return {
         next: file,

@@ -13,6 +13,7 @@ import {
   isPricedCollectionCondition,
 } from "@/lib/collection-condition-policy";
 import { getCatalogGame } from "@/lib/catalog";
+import { withResolvedCollectionPhysicalVariant } from "@/lib/catalog-physical-variant";
 
 function isoDate(value: unknown, required = false): string | null {
   const raw = String(value ?? "").trim();
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
 
   const body = await request.json();
   const catalogId = String(body.catalogId ?? "").trim();
+  const physicalVariantId = String(body.physicalVariantId ?? "").trim() || undefined;
   if (!catalogId) return NextResponse.json({ error: "Falta catalogId." }, { status: 400 });
 
   const game = getCatalogGame(catalogId);
@@ -39,11 +41,14 @@ export async function POST(request: Request) {
       user.collectionDefaultConditions,
       game?.platformSlug ?? "",
     ),
+    physicalVariantId,
   );
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }
-  return NextResponse.json({ item: enrichCollectionItem(result.item) });
+  return NextResponse.json({
+    item: withResolvedCollectionPhysicalVariant(enrichCollectionItem(result.item)),
+  });
 }
 
 export async function PATCH(request: Request) {
@@ -74,7 +79,7 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: result.error }, { status: result.status });
   }
   return NextResponse.json({
-    item: enrichCollectionItem(result.item),
+    item: withResolvedCollectionPhysicalVariant(enrichCollectionItem(result.item)),
     draftSynced: result.draftSynced,
   });
 }

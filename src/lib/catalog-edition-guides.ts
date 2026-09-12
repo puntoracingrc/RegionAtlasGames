@@ -5,6 +5,7 @@ import { getOwnedScanSetById } from "./catalog-owned-scans";
 import {
   catalogBroadRegionFromLegacyRegion,
   type CatalogEditionGuideModel,
+  type CatalogEditionFamily,
   type CatalogEditionImage,
   type CatalogPhysicalEdition,
   type CatalogPhysicalEditionType,
@@ -35,6 +36,12 @@ type PhysicalGuide = {
   reviewedAt: string;
   note: string;
   game: { title: string; platformSlug: string; canonicalCatalogId: string };
+  editionFamilies?: Array<{
+    id: string;
+    label: string;
+    representativeCatalogId: string;
+    physicalEditionIds: string[];
+  }>;
   physicalEditions: Array<{
     id: string;
     label: string;
@@ -176,6 +183,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
     note: raw.note,
     game: { title: canonical.title, platformSlug: canonical.platformSlug, canonicalCatalogId: canonical.id },
     physicalEditions,
+    editionFamilies: [],
     sharedDiscs: [],
     sources: raw.sources,
     evidenceNote: raw.evidenceNote,
@@ -270,6 +278,37 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     ratingSystems: disc.ratingSystems ?? [],
     evidence: requireEvidence(disc.evidenceIds),
   }));
+  const rawFamilies = raw.editionFamilies ?? [];
+  ensureUnique(rawFamilies.map((family) => family.id), `${raw.id} edition family id`);
+  ensureUnique(
+    rawFamilies.map((family) => family.representativeCatalogId),
+    `${raw.id} edition family representative`,
+  );
+  const familyEditionIds = rawFamilies.flatMap((family) => family.physicalEditionIds);
+  ensureUnique(familyEditionIds, `${raw.id} edition family membership`);
+  if (rawFamilies.length && familyEditionIds.length !== editionIds.length) {
+    throw new Error(`[catalog-edition-guides] ${raw.id} edition families must classify every physical edition`);
+  }
+  const editionFamilies = rawFamilies.map((family): CatalogEditionFamily => {
+    if (!family.physicalEditionIds.length) {
+      throw new Error(`[catalog-edition-guides] ${raw.id} empty edition family: ${family.id}`);
+    }
+    for (const editionId of family.physicalEditionIds) {
+      if (!editionIds.includes(editionId)) {
+        throw new Error(`[catalog-edition-guides] ${family.id} unknown physical edition: ${editionId}`);
+      }
+    }
+    requiredCatalogGame(family.representativeCatalogId, raw.game.platformSlug);
+    const familyCatalogIds = physicalEditions
+      .filter((edition) => family.physicalEditionIds.includes(edition.id))
+      .flatMap((edition) => edition.catalogIds);
+    if (!familyCatalogIds.includes(family.representativeCatalogId)) {
+      throw new Error(
+        `[catalog-edition-guides] ${family.id} representative is not linked to one of its physical editions`,
+      );
+    }
+    return { ...family };
+  });
 
   return {
     schemaVersion: 2,
@@ -279,6 +318,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     note: raw.note,
     game: raw.game,
     physicalEditions,
+    editionFamilies,
     sharedDiscs,
     sources: raw.sources,
     evidenceNote: raw.evidenceNote,
@@ -318,10 +358,14 @@ export function getCatalogEditionGuide(game: CatalogGame): CatalogEditionGuideMo
   ));
   if (!guide) return undefined;
   const currentEdition = guide.physicalEditions.find((edition) => edition.catalogIds.includes(game.id));
+  const currentEditionFamily = guide.editionFamilies.find((family) =>
+    currentEdition ? family.physicalEditionIds.includes(currentEdition.id) : false,
+  );
   return {
     ...guide,
     currentCatalogId: game.id,
     currentEditionId: currentEdition?.id,
+    currentEditionFamilyId: currentEditionFamily?.id,
     physicalEditions: guide.physicalEditions.map((edition) => ({
       ...edition,
       catalogLinks: edition.catalogLinks.map((link) => ({ ...link, current: link.catalogId === game.id })),

@@ -71,6 +71,19 @@ test("groups copies of the same catalog game and preserves their conditions", ()
   );
 });
 
+test("keeps physical variants with the same technical catalog ID in separate groups", () => {
+  const grouped = groupCollectionDisplayItems([
+    item({ id: "german", catalogId: "ps5-absolum", physicalVariantId: "absolum-ps5-europe-standard-de" }),
+    item({ id: "korean", catalogId: "ps5-absolum", physicalVariantId: "absolum-ps5-asia-korea" }),
+  ]);
+
+  assert.equal(grouped.length, 2);
+  assert.deepEqual(grouped.map((entry) => entry.game.physicalVariantId), [
+    "absolum-ps5-europe-standard-de",
+    "absolum-ps5-asia-korea",
+  ]);
+});
+
 test("keeps the earliest and latest dates across copies", () => {
   const grouped = groupCollectionDisplayItems([
     item({ id: "older", addedAt: "2025-01-01", purchasedAt: "2024-02-01" }),

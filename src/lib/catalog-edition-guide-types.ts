@@ -104,6 +104,13 @@ export type CatalogSharedDisc = {
   evidence: CatalogPhysicalEvidence[];
 };
 
+export type CatalogEditionFamily = {
+  id: string;
+  label: string;
+  representativeCatalogId: string;
+  physicalEditionIds: string[];
+};
+
 export type CatalogPhysicalEdition = {
   id: string;
   label: string;
@@ -143,11 +150,13 @@ export type CatalogEditionGuideModel = {
     canonicalCatalogId: string;
   };
   physicalEditions: CatalogPhysicalEdition[];
+  editionFamilies: CatalogEditionFamily[];
   sharedDiscs: CatalogSharedDisc[];
   sources: CatalogEditionSource[];
   evidenceNote: string;
   currentCatalogId?: string;
   currentEditionId?: string;
+  currentEditionFamilyId?: string;
 };
 
 export type CatalogPriceRange = {
@@ -158,6 +167,8 @@ export type CatalogPriceRange = {
 export type CatalogPhysicalEditionGroupSummary = {
   guideId: string;
   canonicalCatalogId: string;
+  editionFamilyId?: string;
+  editionFamilyLabel?: string;
   catalogIds: string[];
   legacyRegions: string[];
   physicalEditionCount: number;

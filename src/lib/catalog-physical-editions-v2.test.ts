@@ -18,11 +18,19 @@ import {
   PHYSICAL_EDITION_TYPE_VALUES,
   PHYSICAL_EVIDENCE_TYPE_VALUES,
   canEvidenceDefinePhysicalVariant,
+  isStrongPhysicalEvidence,
 } from "./catalog-edition-guide-types";
 import { filterCatalogGames, type CatalogFilterState } from "./catalog-filters";
 import { toCatalogListGame } from "./catalog-list-game";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
 import { groupCatalogListGames } from "./catalog-physical-edition-browse";
+import {
+  collectionItemMatchesPhysicalVariant,
+  collectionPhysicalIdentityKey,
+  countOwnedPhysicalVariant,
+  resolveCatalogPhysicalVariant,
+} from "./catalog-physical-variant";
+import { catalogGameToCollectionItem } from "./collection-store";
 import { catalogGamePath } from "./catalog-url";
 import { catalogConditionPriceRows } from "./price-display";
 
@@ -42,7 +50,7 @@ function absolumGuide() {
 function groupedAbsolum() {
   const source = ABSOLUM_CATALOG_IDS.map((id) => toCatalogListGame(getCatalogGame(id)!));
   const grouped = groupCatalogListGames(source);
-  assert.equal(grouped.length, 1);
+  assert.equal(grouped.length, 2);
   return grouped;
 }
 
@@ -67,6 +75,10 @@ test("schema v2 keeps legacy guides readable and enumerations synchronized", () 
 test("Absolum models seven editions, three broad regions and one shared European disc", () => {
   const guide = absolumGuide();
   assert.equal(guide.physicalEditions.length, 7);
+  assert.deepEqual(guide.editionFamilies.map((family) => [family.id, family.physicalEditionIds.length]), [
+    ["standard", 6],
+    ["special", 1],
+  ]);
   assert.deepEqual([...new Set(guide.physicalEditions.map((edition) => edition.broadRegion))], [
     "EUROPE",
     "NORTH_AMERICA",
@@ -124,24 +136,58 @@ test("real owned scans are referenced once and weak assets cannot define a physi
   }
 });
 
-test("Absolum appears once and child filters never duplicate its Game + Platform root", () => {
-  const grouped = groupedAbsolum();
-  const summary = grouped[0].physicalEditionGroup;
-  assert.ok(summary);
-  assert.equal(grouped[0].id, "ps5-absolum");
-  assert.equal(summary.physicalEditionCount, 7);
-  assert.deepEqual(summary.catalogIds.sort(), [...ABSOLUM_CATALOG_IDS].sort());
+test("verified regional covers remain bound to their exact Absolum variant", async () => {
+  const guide = absolumGuide();
+  const expected = new Map([
+    ["absolum-ps5-europe-standard-de", "197840889144"],
+    ["absolum-ps5-asia-japan", "287136123203"],
+    ["absolum-ps5-asia-korea", "157360068354"],
+    ["absolum-ps5-asia-hk-tw", null],
+  ]);
 
-  const filters: CatalogFilterState[] = [
-    { ...defaultFilters, broadRegion: "EUROPE" },
-    { ...defaultFilters, ratingSystem: "USK" },
-    { ...defaultFilters, physicalEditionType: "SPECIAL" },
-  ];
-  for (const state of filters) {
-    const result = filterCatalogGames(grouped, state, { platforms: true, regions: true });
-    assert.equal(result.total, 1);
-    assert.equal(result.items[0].id, "ps5-absolum");
+  for (const [editionId, ebayItemId] of expected) {
+    const edition = guide.physicalEditions.find((entry) => entry.id === editionId);
+    assert.ok(edition);
+    assert.equal(edition.images.length, 1);
+    assert.equal(isStrongPhysicalEvidence(edition.images[0].evidenceType), true);
+    assert.ok(edition.evidence.some((entry) => isStrongPhysicalEvidence(entry.type)));
+    if (ebayItemId) {
+      assert.ok(edition.evidence.some((entry) => entry.url?.endsWith(`/itm/${ebayItemId}`)));
+    } else {
+      assert.match(edition.evidence[0]?.summary ?? "", /no demuestra.*Hong Kong.*Taiwán/i);
+    }
+
+    for (const url of [edition.images[0].url, edition.images[0].thumbnailUrl]) {
+      const bytes = readFileSync(path.join(process.cwd(), "public", url));
+      const metadata = await sharp(bytes).metadata();
+      assert.equal(metadata.format, "webp");
+      assert.equal(metadata.exif, undefined);
+      assert.equal(metadata.xmp, undefined);
+    }
   }
+});
+
+test("Absolum exposes separate Standard and Special roots and filters each family independently", () => {
+  const grouped = groupedAbsolum();
+  const standard = grouped.find((game) => game.id === "ps5-absolum");
+  const special = grouped.find((game) => game.id === "ps5-absolum-special-edition");
+  assert.ok(standard?.physicalEditionGroup);
+  assert.ok(special?.physicalEditionGroup);
+  assert.equal(standard.physicalEditionGroup.editionFamilyLabel, "Standard Edition");
+  assert.equal(standard.physicalEditionGroup.physicalEditionCount, 6);
+  assert.deepEqual(standard.physicalEditionGroup.catalogIds.sort(), ["ps5-absolum", "ps5-usa-absolum"]);
+  assert.equal(special.physicalEditionGroup.editionFamilyLabel, "Special Edition");
+  assert.equal(special.physicalEditionGroup.physicalEditionCount, 1);
+  assert.deepEqual(special.physicalEditionGroup.catalogIds, ["ps5-absolum-special-edition"]);
+
+  const usk = filterCatalogGames(grouped, { ...defaultFilters, ratingSystem: "USK" }, { platforms: true, regions: true });
+  assert.deepEqual(usk.items.map((game) => game.id), ["ps5-absolum"]);
+  const specialOnly = filterCatalogGames(grouped, { ...defaultFilters, physicalEditionType: "SPECIAL" }, { platforms: true, regions: true });
+  assert.deepEqual(specialOnly.items.map((game) => game.id), ["ps5-absolum-special-edition"]);
+  const standardOnly = filterCatalogGames(grouped, { ...defaultFilters, physicalEditionType: "STANDARD" }, { platforms: true, regions: true });
+  assert.deepEqual(standardOnly.items.map((game) => game.id), ["ps5-absolum"]);
+  const europe = filterCatalogGames(grouped, { ...defaultFilters, broadRegion: "EUROPE" }, { platforms: true, regions: true });
+  assert.deepEqual(europe.items.map((game) => game.id).sort(), ["ps5-absolum", "ps5-absolum-special-edition"]);
 });
 
 test("legacy IDs and direct URLs remain unique while optical group prices omit loose disc", () => {
@@ -150,9 +196,66 @@ test("legacy IDs and direct URLs remain unique while optical group prices omit l
   assert.equal(new Set(urls).size, ABSOLUM_CATALOG_IDS.length);
   for (const id of ABSOLUM_CATALOG_IDS) assert.equal(getCatalogGame(id)?.id, id);
 
-  const prices = catalogConditionPriceRows(groupedAbsolum()[0]);
+  const standard = groupedAbsolum().find((game) => game.id === "ps5-absolum");
+  assert.ok(standard);
+  const prices = catalogConditionPriceRows(standard);
   assert.deepEqual(prices.map((row) => row.condition), ["sealed", "complete"]);
   assert.ok(prices.every((row) => row.condition !== "loose"));
+});
+
+test("only Absolum opts into edition families and legacy catalog IDs retain exact variant meaning", () => {
+  const guidesWithFamilies = getCatalogEditionGuides().filter((guide) => guide.editionFamilies.length > 0);
+  assert.deepEqual(guidesWithFamilies.map((guide) => guide.id), ["absolum-ps5"]);
+
+  const legacyGuide = getCatalogEditionGuides().find((guide) => guide.id === "resident-evil-requiem-ps5");
+  assert.ok(legacyGuide);
+  const legacyIds = legacyGuide.physicalEditions.flatMap((edition) => edition.catalogIds);
+  const legacyGames = legacyIds.map((id) => toCatalogListGame(getCatalogGame(id)!));
+  assert.deepEqual(groupCatalogListGames(legacyGames).map((game) => game.id), legacyIds);
+
+  assert.equal(
+    resolveCatalogPhysicalVariant("ps5-absolum")?.physicalVariantId,
+    "absolum-ps5-europe-standard-en-fr-es",
+  );
+  assert.equal(
+    resolveCatalogPhysicalVariant("ps5-absolum-special-edition")?.physicalVariantId,
+    "absolum-ps5-europe-special",
+  );
+  assert.equal(
+    resolveCatalogPhysicalVariant("ps5-usa-absolum")?.physicalVariantId,
+    "absolum-ps5-north-america-standard",
+  );
+});
+
+test("explicit physical variants sharing a technical catalog ID remain independent", () => {
+  const game = getCatalogGame("ps5-absolum");
+  assert.ok(game);
+  const legacy = catalogGameToCollectionItem(game, []);
+  const german = catalogGameToCollectionItem(
+    game,
+    [legacy],
+    "complete",
+    "absolum-ps5-europe-standard-de",
+  );
+  const korean = catalogGameToCollectionItem(
+    game,
+    [legacy, german],
+    "complete",
+    "absolum-ps5-asia-korea",
+  );
+  const items = [legacy, german, korean];
+
+  assert.equal(new Set(items.map(collectionPhysicalIdentityKey)).size, 3);
+  assert.equal(countOwnedPhysicalVariant(items, "absolum-ps5-europe-standard-en-fr-es"), 1);
+  assert.equal(countOwnedPhysicalVariant(items, "absolum-ps5-europe-standard-de"), 1);
+  assert.equal(countOwnedPhysicalVariant(items, "absolum-ps5-asia-korea"), 1);
+  assert.equal(countOwnedPhysicalVariant(items, "absolum-ps5-asia-japan"), 0);
+  assert.equal(collectionItemMatchesPhysicalVariant(german, "absolum-ps5-europe-standard-en-fr-es"), false);
+  assert.equal(collectionItemMatchesPhysicalVariant(korean, "absolum-ps5-asia-japan"), false);
+  assert.equal(
+    resolveCatalogPhysicalVariant("ps5-absolum-special-edition", "absolum-ps5-europe-standard-de"),
+    undefined,
+  );
 });
 
 test("a SIAE marking is a collectible variant with its own price identity, not another game", () => {

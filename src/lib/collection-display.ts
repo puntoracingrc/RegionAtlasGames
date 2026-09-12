@@ -4,6 +4,7 @@ import {
   priceForCollectionCondition,
 } from "./condition-prices";
 import { normalizeLegacyCollectionCondition } from "./collection-condition-policy";
+import { collectionStorageIdentityKey } from "./collection-identity";
 
 export type CollectionConditionCounts = Record<CollectionCondition, number>;
 
@@ -67,7 +68,9 @@ export function groupCollectionDisplayItems(items: CollectionView[]): Collection
 
   for (const item of items) {
     const units = Math.max(1, item.quantity || 1);
-    const key = item.catalogMatched && item.catalogId ? `catalog:${item.catalogId}` : `item:${item.id}`;
+    const key = item.catalogMatched && item.catalogId
+      ? collectionStorageIdentityKey(item)
+      : `item:${item.id}`;
     const condition = collectionCondition(item);
     const current = groups.get(key);
     const addedAt = validDate(item.addedAt);

@@ -118,13 +118,15 @@ export function CatalogGameCard({
         {isPendingCatalogGame(game) ? <p className="px-3 pb-3 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
       </IntentLink>
-      <CollectionQuickAdd
-        catalogId={game.id}
-        owned={owned}
-        isLoggedIn={isLoggedIn}
-        onChange={onOwnedChange}
-        className="!absolute right-1.5 top-1.5 z-10"
-      />
+      {!game.physicalEditionGroup?.editionFamilyId ? (
+        <CollectionQuickAdd
+          catalogId={game.id}
+          owned={owned}
+          isLoggedIn={isLoggedIn}
+          onChange={onOwnedChange}
+          className="!absolute right-1.5 top-1.5 z-10"
+        />
+      ) : null}
     </div>
   );
 }
@@ -167,6 +169,7 @@ export function CollectionGameCard({
       />
       <CardBody
         title={decodeHtmlEntities(game.title)}
+        physicalVariantLabel={game.physicalVariantLabel}
         platform={collectionPlatformLabel}
         region={game.region}
         year={null}
@@ -309,8 +312,10 @@ function CardBody({
   conditionValues,
   catalogPrices,
   physicalEditionGroup,
+  physicalVariantLabel,
 }: {
   title: string;
+  physicalVariantLabel?: string;
   platform: string;
   region?: string;
   year?: number | null;
@@ -342,8 +347,16 @@ function CardBody({
       >
         {title}
       </h3>
+      {physicalVariantLabel ? (
+        <p className="mt-1 line-clamp-2 text-[10px] font-semibold leading-4 text-accent">
+          {physicalVariantLabel}
+        </p>
+      ) : null}
       {physicalEditionGroup ? (
         <div className="mt-1.5 min-h-10 text-[10px] leading-4 text-muted">
+          {physicalEditionGroup.editionFamilyLabel ? (
+            <p className="font-semibold text-accent">{physicalEditionGroup.editionFamilyLabel}</p>
+          ) : null}
           <p className="font-semibold text-foreground/80">
             {physicalEditionGroup.physicalEditionCount} ediciones físicas · {physicalEditionGroup.broadRegions.length} regiones
           </p>

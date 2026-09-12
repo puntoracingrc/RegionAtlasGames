@@ -109,6 +109,11 @@ function CatalogCompactRow({
           <h3 className="truncate text-sm font-semibold text-foreground group-hover:text-accent">
             {decodeHtmlEntities(game.title)}
           </h3>
+          {game.physicalEditionGroup?.editionFamilyLabel ? (
+            <p className="mt-0.5 text-[11px] font-semibold text-accent">
+              {game.physicalEditionGroup.editionFamilyLabel}
+            </p>
+          ) : null}
           {isPendingCatalogGame(game) ? <p className="mt-1 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
           <p className="mt-0.5 flex flex-wrap items-center gap-1 text-[11px] text-muted">
             <span>{game.displayPlatform}</span>
@@ -185,13 +190,15 @@ function CatalogCompactRow({
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
       </IntentLink>
 
-      <CollectionQuickAdd
-        catalogId={game.id}
-        owned={owned}
-        isLoggedIn={isLoggedIn}
-        onChange={onOwnedChange}
-        className="relative mr-2 shrink-0"
-      />
+      {!game.physicalEditionGroup?.editionFamilyId ? (
+        <CollectionQuickAdd
+          catalogId={game.id}
+          owned={owned}
+          isLoggedIn={isLoggedIn}
+          onChange={onOwnedChange}
+          className="relative mr-2 shrink-0"
+        />
+      ) : null}
     </div>
   );
 }
@@ -636,6 +643,11 @@ export function CatalogBrowser({
     );
   }, []);
 
+  const isOwned = useCallback((game: CatalogListGame) => (
+    ownedSet.has(game.id) ||
+    Boolean(game.physicalEditionGroup?.catalogIds.some((catalogId) => ownedSet.has(catalogId)))
+  ), [ownedSet]);
+
   const catalogGrid = useMemo(
     () => (
       <section ref={gridRef} className={CATALOG_GRID_CLASS}>
@@ -643,7 +655,7 @@ export function CatalogBrowser({
           <CatalogGameCard
             key={game.id}
             game={game}
-            owned={ownedSet.has(game.id)}
+            owned={isOwned(game)}
             isLoggedIn={isLoggedIn}
             onOwnedChange={handleOwnedChange}
             listingsForSale={listingCounts[game.id] ?? 0}
@@ -651,7 +663,7 @@ export function CatalogBrowser({
         ))}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems],
+    [handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems],
   );
 
   const catalogList = useMemo(
@@ -661,7 +673,7 @@ export function CatalogBrowser({
           <CatalogCompactRow
             key={game.id}
             game={game}
-            owned={ownedSet.has(game.id)}
+            owned={isOwned(game)}
             isLoggedIn={isLoggedIn}
             onOwnedChange={handleOwnedChange}
             listingsForSale={listingCounts[game.id] ?? 0}
@@ -669,7 +681,7 @@ export function CatalogBrowser({
         ))}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems],
+    [handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems],
   );
 
   return (

@@ -126,6 +126,27 @@
         "platformSlug": "ps5",
         "canonicalCatalogId": "ps5-absolum"
       },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps5-absolum",
+          "physicalEditionIds": [
+            "absolum-ps5-europe-standard-en-fr-es",
+            "absolum-ps5-europe-standard-de",
+            "absolum-ps5-north-america-standard",
+            "absolum-ps5-asia-japan",
+            "absolum-ps5-asia-korea",
+            "absolum-ps5-asia-hk-tw"
+          ]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "ps5-absolum-special-edition",
+          "physicalEditionIds": ["absolum-ps5-europe-special"]
+        }
+      ],
       "physicalEditions": [
         {
           "id": "absolum-ps5-europe-standard-en-fr-es",
@@ -149,7 +170,12 @@
           "ratingSystems": ["USK"],
           "barcode": "5061078710661",
           "sharedDiscId": "absolum-ps5-europe-disc",
-          "evidenceIds": ["absolum-shared-disc-owner-confirmation", "absolum-pilot-specification"],
+          "imageKeys": ["absolum-standard-de-usk-cover"],
+          "evidenceIds": [
+            "absolum-standard-de-ebay-photo",
+            "absolum-shared-disc-owner-confirmation",
+            "absolum-pilot-specification"
+          ],
           "notes": ["Comparte exactamente el mismo disco europeo que la Standard EN/FR/ES."]
         },
         {
@@ -213,7 +239,8 @@
           "editionType": "STANDARD",
           "packagingLanguages": ["JA"],
           "ratingSystems": ["CERO"],
-          "evidenceIds": ["absolum-pilot-specification"],
+          "imageKeys": ["absolum-standard-japan-cero-cover"],
+          "evidenceIds": ["absolum-standard-japan-ebay-photo", "absolum-pilot-specification"],
           "notes": ["EAN/JAN pendiente de evidencia física."]
         },
         {
@@ -223,7 +250,8 @@
           "editionType": "STANDARD",
           "packagingLanguages": ["KO"],
           "ratingSystems": ["GRAC"],
-          "evidenceIds": ["absolum-pilot-specification"],
+          "imageKeys": ["absolum-standard-korea-grac-cover"],
+          "evidenceIds": ["absolum-standard-korea-ebay-photo", "absolum-pilot-specification"],
           "notes": ["Código de caja pendiente de evidencia física."]
         },
         {
@@ -232,7 +260,8 @@
           "broadRegion": "ASIA",
           "editionType": "STANDARD",
           "packagingLanguages": ["ZH"],
-          "evidenceIds": ["absolum-pilot-specification"],
+          "imageKeys": ["absolum-standard-hk-tw-cover"],
+          "evidenceIds": ["absolum-standard-hk-tw-user-image", "absolum-pilot-specification"],
           "notes": ["Se conserva como una edición conjunta mientras no exista prueba física que justifique separarla."]
         }
       ],
@@ -276,6 +305,37 @@
           ]
         },
         {
+          "id": "absolum-standard-de-ebay-photo",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Fotografía de la cubierta Standard alemana",
+          "url": "https://www.ebay.es/itm/197840889144",
+          "summary": "El frontal del ejemplar muestra USK 12, PEGI 12 y el texto alemán «Enthält Soundtrack».",
+          "supports": ["cubierta Standard DE", "rating USK", "packaging alemán"]
+        },
+        {
+          "id": "absolum-standard-japan-ebay-photo",
+          "type": "REAL_PHOTO",
+          "label": "Fotografía del ejemplar Standard japonés",
+          "url": "https://www.ebay.es/itm/287136123203",
+          "summary": "El frontal del ejemplar precintado muestra título japonés y clasificación CERO B.",
+          "supports": ["cubierta Standard japonesa", "rating CERO", "packaging japonés"]
+        },
+        {
+          "id": "absolum-standard-korea-ebay-photo",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Fotografía de la cubierta Standard coreana",
+          "url": "https://www.ebay.es/itm/157360068354",
+          "summary": "La cubierta muestra texto coreano, la marca de versión coreana y la clasificación impresa local.",
+          "supports": ["cubierta Standard coreana", "rating GRAC", "packaging coreano"]
+        },
+        {
+          "id": "absolum-standard-hk-tw-user-image",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Imagen de la cubierta asiática en chino e inglés aportada para el piloto",
+          "summary": "El frontal muestra la marca «Chinese + English Version», título chino y clasificación 12+. No demuestra por sí solo una separación entre Hong Kong y Taiwán.",
+          "supports": ["cubierta Standard en chino e inglés", "packaging chino", "variante asiática"]
+        },
+        {
           "id": "absolum-pilot-specification",
           "type": "UNKNOWN",
           "label": "Datos confirmados para el piloto de arquitectura",
@@ -288,7 +348,44 @@
           ]
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "key": "absolum-standard-de-usk-cover",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-de-usk.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-de-usk-mini.webp",
+          "width": 1200,
+          "height": 1495,
+          "caption": "Cubierta Standard alemana con USK 12 y PEGI 12",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED"
+        },
+        {
+          "key": "absolum-standard-japan-cero-cover",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-japan-cero.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-japan-cero-mini.webp",
+          "width": 600,
+          "height": 800,
+          "caption": "Ejemplar Standard japonés con clasificación CERO B",
+          "evidenceType": "REAL_PHOTO"
+        },
+        {
+          "key": "absolum-standard-korea-grac-cover",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-korea-grac.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-korea-grac-mini.webp",
+          "width": 938,
+          "height": 1200,
+          "caption": "Cubierta Standard coreana con textos y clasificación locales",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED"
+        },
+        {
+          "key": "absolum-standard-hk-tw-cover",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-hk-tw.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-hk-tw-mini.webp",
+          "width": 499,
+          "height": 500,
+          "caption": "Cubierta asiática Standard marcada como Chinese + English Version",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED"
+        }
+      ],
       "sources": [
         {
           "label": "Silver Lining Direct · Absolum Special Edition para PS5",
@@ -297,6 +394,21 @@
         {
           "label": "Tesura Games · ficha de Absolum y contenido de la edición",
           "url": "https://en.tesuragames.com/games/absolum/"
+        },
+        {
+          "label": "eBay · fotografía de la cubierta Standard alemana",
+          "url": "https://www.ebay.es/itm/197840889144"
+        },
+        {
+          "label": "eBay · fotografía del ejemplar Standard japonés",
+          "url": "https://www.ebay.es/itm/287136123203"
+        },
+        {
+          "label": "eBay · fotografía de la cubierta Standard coreana",
+          "url": "https://www.ebay.es/itm/157360068354"
+        },
+        {
+          "label": "Imagen de cubierta HK/TW aportada por el usuario para el piloto"
         }
       ],
       "evidenceNote": "La estructura del piloto está confirmada para validar la arquitectura. Los identificadores asiáticos que no constan se mantienen vacíos y no se inventan."

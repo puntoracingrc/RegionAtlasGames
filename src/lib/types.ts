@@ -498,6 +498,8 @@ export type CollectionPhoto = {
 export type CollectionItem = {
   id: string;
   catalogId: string | null;
+  /** Variante física efectiva; si existe, tiene prioridad sobre el catalogId contenedor. */
+  physicalVariantId?: string | null;
   catalogMatched?: boolean;
   inRetroCatalog: boolean;
   title: string;
@@ -616,6 +618,8 @@ export type CollectionView = CollectionItem & {
   pcId: number | null;
   /** Ficha de catálogo detectada pero aún no enlazada por el usuario */
   availableCatalogId?: string | null;
+  physicalVariantLabel?: string;
+  editionFamilyLabel?: string;
 };
 
 export type CollectionSort =

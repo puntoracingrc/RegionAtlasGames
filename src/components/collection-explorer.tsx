@@ -8,6 +8,7 @@ import { HighlightLegend } from "@/components/highlight-legend";
 import { CollectionValueUpsell } from "@/components/collection-value-upsell";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { formatEur } from "@/lib/price-format";
+import { collectionStorageIdentityKey } from "@/lib/collection-identity";
 import {
   COLLECTION_SORT_OPTIONS,
   DEFAULT_COLLECTION_FILTERS,
@@ -53,7 +54,9 @@ const searchClass =
 type BulkFeedback = { kind: "success" | "error"; message: string } | null;
 
 function displayItemKey(item: CollectionDisplayItem): string {
-  return item.game.catalogId ?? item.game.id;
+  return item.game.catalogMatched && item.game.catalogId
+    ? collectionStorageIdentityKey(item.game)
+    : item.game.id;
 }
 
 function blocksBulkConditionChange(state: CollectionListingState | undefined): boolean {
@@ -148,7 +151,7 @@ export function CollectionExplorer({
       new Set(
         items.flatMap((item) =>
           listingStateByItemId[item.id] === "active"
-            ? [item.catalogMatched && item.catalogId ? item.catalogId : item.id]
+            ? [item.catalogMatched && item.catalogId ? collectionStorageIdentityKey(item) : item.id]
             : [],
         ),
       ),
@@ -501,9 +504,7 @@ export function CollectionExplorer({
                   game={game}
                   conditionCounts={conditionCounts}
                   conditionValues={collectionConditionValues(item)}
-                  hasActiveListing={activeSaleKeys.has(
-                    game.catalogMatched && game.catalogId ? game.catalogId : game.id,
-                  )}
+                  hasActiveListing={activeSaleKeys.has(key)}
                   overlayAction={
                     selectionMode ? (
                       <BulkSelectionOverlay
@@ -760,6 +761,11 @@ function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
         <h3 className="truncate text-sm font-semibold text-foreground group-hover:text-accent">
           {decodeHtmlEntities(game.title)}
         </h3>
+        {game.physicalVariantLabel ? (
+          <p className="mt-0.5 truncate text-[11px] font-semibold text-accent">
+            {game.physicalVariantLabel}
+          </p>
+        ) : null}
         <p className="mt-0.5 flex flex-wrap items-center gap-1 text-[11px] text-muted">
           <span className="uppercase">{game.platformSlug}</span>
           <span aria-hidden>·</span>

@@ -2,6 +2,8 @@ import {
   catalogBroadRegionLabel,
   catalogPhysicalEditionTypeLabel,
   type CatalogPhysicalEditionGroupSummary,
+  type CatalogEditionFamily,
+  type CatalogPhysicalEdition,
   type CatalogPhysicalFilterOptions,
   type CatalogPriceRange,
 } from "./catalog-edition-guide-types";
@@ -27,29 +29,32 @@ function mergeSearchText(games: CatalogListGame[], additions: string[]): string 
 
 function buildSummary(
   guide: ReturnType<typeof getGroupableCatalogEditionGuides>[number],
+  editions: CatalogPhysicalEdition[],
   games: CatalogListGame[],
+  family?: CatalogEditionFamily,
 ): CatalogPhysicalEditionGroupSummary {
   const regionCounts = new Map<CatalogPhysicalEditionGroupSummary["broadRegions"][number]["value"], number>();
-  for (const edition of guide.physicalEditions) {
+  for (const edition of editions) {
     regionCounts.set(edition.broadRegion, (regionCounts.get(edition.broadRegion) ?? 0) + 1);
   }
   const complete = priceRange(games.map((game) => game.estimatedPriceComplete));
   const sealed = priceRange(games.map((game) => game.estimatedPriceSealed ?? game.estimatedPriceNewRetail));
   return {
     guideId: guide.id,
-    canonicalCatalogId: guide.game.canonicalCatalogId,
+    canonicalCatalogId: family?.representativeCatalogId ?? guide.game.canonicalCatalogId,
+    ...(family ? { editionFamilyId: family.id, editionFamilyLabel: family.label } : {}),
     catalogIds: unique(games.map((game) => game.id)),
     legacyRegions: unique(games.map((game) => game.region)),
-    physicalEditionCount: guide.physicalEditions.length,
-    collectibleVariantCount: guide.physicalEditions.reduce((total, edition) => total + edition.variants.length, 0),
+    physicalEditionCount: editions.length,
+    collectibleVariantCount: editions.reduce((total, edition) => total + edition.variants.length, 0),
     broadRegions: [...regionCounts.entries()].map(([value, editionCount]) => ({
       value,
       label: catalogBroadRegionLabel(value),
       editionCount,
     })),
-    editionTypes: unique(guide.physicalEditions.map((edition) => edition.editionType)),
-    ratingSystems: unique(guide.physicalEditions.flatMap((edition) => edition.ratingSystems)),
-    packagingLanguages: unique(guide.physicalEditions.flatMap((edition) => edition.packagingLanguages)),
+    editionTypes: unique(editions.map((edition) => edition.editionType)),
+    ratingSystems: unique(editions.flatMap((edition) => edition.ratingSystems)),
+    packagingLanguages: unique(editions.flatMap((edition) => edition.packagingLanguages)),
     priceRanges: {
       ...(complete ? { complete } : {}),
       ...(sealed ? { sealed } : {}),
@@ -64,44 +69,55 @@ export function groupCatalogListGames(games: CatalogListGame[]): CatalogListGame
   const replacementById = new Map<string, CatalogListGame>();
 
   for (const guide of getGroupableCatalogEditionGuides()) {
-    const catalogIds = unique(guide.physicalEditions.flatMap((edition) => edition.catalogIds));
-    const members = catalogIds.flatMap((id) => {
-      const game = byId.get(id);
-      return game ? [game] : [];
-    });
-    if (!members.length) continue;
+    const groupings = guide.editionFamilies.length
+      ? guide.editionFamilies.map((family) => ({
+          family,
+          representativeCatalogId: family.representativeCatalogId,
+          editions: guide.physicalEditions.filter((edition) => family.physicalEditionIds.includes(edition.id)),
+        }))
+      : [{ family: undefined, representativeCatalogId: guide.game.canonicalCatalogId, editions: guide.physicalEditions }];
 
-    const representative = byId.get(guide.game.canonicalCatalogId) ?? members[0];
-    const summary = buildSummary(guide, members);
-    const searchAdditions = guide.physicalEditions.flatMap((edition) => [
-      edition.label,
-      edition.broadRegion,
-      edition.editionType,
-      edition.barcode,
-      edition.catalogNumber,
-      edition.serial,
-      edition.boxCode,
-      ...edition.packagingLanguages,
-      ...edition.ratingSystems,
-      ...edition.variants.flatMap((variant) => [variant.label, variant.barcode, variant.boxCode, ...variant.stickers, ...variant.markings]),
-    ]).filter((value): value is string => Boolean(value));
-    const grouped: CatalogListGame = {
-      ...representative,
-      title: guide.game.title,
-      physicalEditionGroup: summary,
-      searchText: mergeSearchText(members, searchAdditions),
-      gameSearchText: mergeSearchText(members, [guide.game.title, ...searchAdditions]),
-      companySearchText: unique(members.map((game) => game.companySearchText).filter((value): value is string => Boolean(value))).join(" "),
-      companies: unique(members.flatMap((game) => game.companies ?? [])),
-      genreSlugs: unique(members.flatMap((game) => game.genreSlugs ?? [])),
-      subgenreSlugs: unique(members.flatMap((game) => game.subgenreSlugs ?? [])),
-      facetSlugs: unique(members.flatMap((game) => game.facetSlugs ?? [])),
-      isGrail: members.some((game) => game.isGrail),
-      isTopSegment: members.some((game) => game.isTopSegment),
-    };
-    replacementById.set(representative.id, grouped);
-    for (const member of members) {
-      if (member.id !== representative.id) suppressed.add(member.id);
+    for (const grouping of groupings) {
+      const catalogIds = unique(grouping.editions.flatMap((edition) => edition.catalogIds));
+      const members = catalogIds.flatMap((id) => {
+        const game = byId.get(id);
+        return game ? [game] : [];
+      });
+      if (!members.length) continue;
+
+      const representative = byId.get(grouping.representativeCatalogId) ?? members[0];
+      const summary = buildSummary(guide, grouping.editions, members, grouping.family);
+      const searchAdditions = grouping.editions.flatMap((edition) => [
+        edition.label,
+        edition.broadRegion,
+        edition.editionType,
+        edition.barcode,
+        edition.catalogNumber,
+        edition.serial,
+        edition.boxCode,
+        ...edition.packagingLanguages,
+        ...edition.ratingSystems,
+        ...edition.variants.flatMap((variant) => [variant.label, variant.barcode, variant.boxCode, ...variant.stickers, ...variant.markings]),
+      ]).filter((value): value is string => Boolean(value));
+      if (grouping.family) searchAdditions.push(grouping.family.label);
+      const grouped: CatalogListGame = {
+        ...representative,
+        title: grouping.family ? representative.title : guide.game.title,
+        physicalEditionGroup: summary,
+        searchText: mergeSearchText(members, searchAdditions),
+        gameSearchText: mergeSearchText(members, [guide.game.title, ...searchAdditions]),
+        companySearchText: unique(members.map((game) => game.companySearchText).filter((value): value is string => Boolean(value))).join(" "),
+        companies: unique(members.flatMap((game) => game.companies ?? [])),
+        genreSlugs: unique(members.flatMap((game) => game.genreSlugs ?? [])),
+        subgenreSlugs: unique(members.flatMap((game) => game.subgenreSlugs ?? [])),
+        facetSlugs: unique(members.flatMap((game) => game.facetSlugs ?? [])),
+        isGrail: members.some((game) => game.isGrail),
+        isTopSegment: members.some((game) => game.isTopSegment),
+      };
+      replacementById.set(representative.id, grouped);
+      for (const member of members) {
+        if (member.id !== representative.id) suppressed.add(member.id);
+      }
     }
   }
 

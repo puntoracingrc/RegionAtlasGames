@@ -18,6 +18,7 @@ import type { CollectionView } from "@/lib/types";
 import type { ListingStatus } from "@/lib/marketplace-types";
 import { formatEur } from "@/lib/price-format";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
+import { getCoverSrc } from "@/lib/cover-url";
 import {
   COLLECTION_CONDITION_LABELS,
   priceForCollectionCondition,
@@ -61,6 +62,9 @@ export function CollectionCopiesManager({
   const [listings, setListings] = useState(initialListings);
   const [adding, setAdding] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const physicalVariantIds = [...new Set(items.map((item) => item.physicalVariantId).filter((id): id is string => Boolean(id)))];
+  const physicalVariantId = physicalVariantIds.length === 1 ? physicalVariantIds[0] : undefined;
+  const canAddCopy = physicalVariantIds.length <= 1;
 
   async function addCopy() {
     setAdding(true);
@@ -68,7 +72,7 @@ export function CollectionCopiesManager({
     const response = await fetch("/api/user/collection/copies", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ catalogId }),
+      body: JSON.stringify({ catalogId, physicalVariantId }),
     });
     const data = await response.json().catch(() => null) as { item?: CollectionView; error?: string } | null;
     setAdding(false);
@@ -91,15 +95,21 @@ export function CollectionCopiesManager({
             estado, compra, fotos, notas y anuncio.
           </p>
         </div>
-        <button
-          type="button"
-          className="btn-secondary inline-flex items-center gap-2"
-          disabled={adding}
-          onClick={addCopy}
-        >
-          {adding ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden /> : <CirclePlus className="h-4 w-4" aria-hidden />}
-          Añadir otra copia
-        </button>
+        {canAddCopy ? (
+          <button
+            type="button"
+            className="btn-secondary inline-flex items-center gap-2"
+            disabled={adding}
+            onClick={addCopy}
+          >
+            {adding ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden /> : <CirclePlus className="h-4 w-4" aria-hidden />}
+            {physicalVariantId ? "Añadir otra de esta variante" : "Añadir otra copia"}
+          </button>
+        ) : (
+          <p className="max-w-sm text-right text-xs leading-5 text-muted">
+            Añade otra copia desde la variante correspondiente en la ficha pública.
+          </p>
+        )}
       </div>
 
       {error ? (
@@ -268,7 +278,8 @@ function CollectionCopyRow({
   const activeListing = listing?.status === "active";
   const draftListing = listing?.status === "draft";
   const ownFrontPhoto = item.photos?.find((photo) => photo.slot === "cover-front");
-  const cover = ownFrontPhoto?.url ?? catalogCover;
+  const variantCover = getCoverSrc(item.coverUrl, item.catalogId ?? item.id);
+  const cover = ownFrontPhoto?.url ?? variantCover ?? (item.physicalVariantId ? null : catalogCover);
   const title = decodeHtmlEntities(item.title);
   const catalogEstimate = priceForCollectionCondition(item, condition);
   const conditionOptions = availableCollectionConditions(item.platformSlug);
@@ -294,6 +305,9 @@ function CollectionCopyRow({
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <div className="flex min-w-0 flex-wrap items-center gap-2">
             <h3 className="font-semibold text-foreground">Juego {position}</h3>
+            {item.physicalVariantLabel ? (
+              <span className="text-xs font-semibold text-accent">{item.physicalVariantLabel}</span>
+            ) : null}
             {listing ? (
               <span className={`rounded-md px-2 py-0.5 text-xs font-medium ${
                 activeListing

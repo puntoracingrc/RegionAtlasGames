@@ -177,6 +177,22 @@
         "notes": { "type": "array", "items": { "type": "string" } }
       }
     },
+    "editionFamily": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "representativeCatalogId", "physicalEditionIds"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "representativeCatalogId": { "type": "string", "minLength": 1 },
+        "physicalEditionIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    },
     "sharedDisc": {
       "type": "object",
       "additionalProperties": false,
@@ -210,6 +226,7 @@
             "canonicalCatalogId": { "type": "string", "minLength": 1 }
           }
         },
+        "editionFamilies": { "type": "array", "items": { "$ref": "#/$defs/editionFamily" } },
         "physicalEditions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/physicalEdition" } },
         "sharedDiscs": { "type": "array", "items": { "$ref": "#/$defs/sharedDisc" } },
         "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
