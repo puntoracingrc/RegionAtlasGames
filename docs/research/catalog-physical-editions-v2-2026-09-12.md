@@ -102,6 +102,8 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 - Dentro de la ficha, cada edición muestra sus mercados exactos: `FR / ES / UK` juntos, `DE` por separado y los mercados americanos y asiáticos en sus bloques.
 - La cabecera de la Special muestra `EU`, no `ES`, porque solo está demostrada su gran región europea. El filtro legacy España sigue encontrando la ficha sin convertir ese dato de compatibilidad en un mercado V2 demostrado.
 - El escaneo propio de la caja exterior es la portada principal de la ficha Special; la portada, contraportada y lomo continúan disponibles en su galería.
+- La identidad pública, descripción, precio pendiente, FAQ, textos alternativos, metadata social y JSON-LD de una familia V2 se construyen desde su guide. La Special ya no hereda `PAL España` ni «mercado español» de su representante legacy; la Standard se describe como familia de Europa, Norteamérica y Asia.
+- El slug y canonical legacy de ambas fichas permanecen sin cambios por compatibilidad.
 - Los filtros `Gran región`, `Rating` y `Edición física` evalúan los hijos y devuelven una sola raíz.
 - La búsqueda incluye EAN, referencias, mercados, idiomas, ratings y marcas de variantes.
 - Para el grupo óptico se muestran únicamente `Completo` y `Precintado`; si hay varios valores, se muestra rango. No se inventan precios.
@@ -120,7 +122,7 @@ Las medidas ya obtenidas de Metal Gear Solid Delta Deluxe, The Coma: Recut Limit
 
 Se comprobaron `/catalogo?q=Absolum`, `/catalogo?q=Absolum&region=PAL%20Espa%C3%B1a`, `/plataforma/ps5?q=Absolum`, la ficha Standard PAL España, la ficha Special PAL España y la ficha USA. Todas respondieron `200`. Los filtros de los nueve mercados (`ES / FR / GB / DE / US / JP / KR / HK / TW`) seleccionaron las familias esperadas; el filtro España conservó también la Special por compatibilidad con su ficha legacy. El estado sin filtro mostró `EU / US / JP / KR / HK / TW`. La ficha Standard mostró `FR / ES / UK`, `DE`, `US`, `JP`, `KR`, `HK` y `TW` en sus ediciones correspondientes.
 
-La QA final sobre el build de producción local verificó la ficha Special a 1440 x 900 y 390 x 844. La cabecera mostró `EU`, la portada principal resolvió al WebP del escaneo propio, y la ficha mostró `1 edición física`, `Precio de esta edición` y `Añadir a mi colección`, sin selector de variantes. `documentElement.scrollWidth` coincidió con el viewport en ambos tamaños; no hubo imágenes rotas, enlaces a artículos concretos de eBay, errores ni avisos de consola. Los dos bloques técnicos retirados tampoco estaban presentes en el DOM.
+La QA final sobre el build de producción local verificó la ficha Special a 1440 x 900 y 390 x 844. La cabecera mostró `EU`, la portada principal resolvió al WebP del escaneo propio, y la ficha mostró `1 edición física`, `Precio de esta edición` y `Añadir a mi colección`, sin selector de variantes. `documentElement.scrollWidth` coincidió con el viewport en ambos tamaños; no hubo imágenes rotas, enlaces a artículos concretos de eBay, errores ni avisos de consola. Los dos bloques técnicos retirados tampoco estaban presentes en el DOM. El saneamiento posterior comprobó además que `<title>`, descripción, Open Graph, Twitter, JSON-LD, FAQ, bloque de precio y alt de portada ya no presentan la Special como española, y que la metadata de Standard representa la familia multirregional completa.
 
 ## Riesgos y deuda explícita
 

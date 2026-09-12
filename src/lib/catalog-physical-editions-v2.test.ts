@@ -7,7 +7,7 @@ import sharp from "sharp";
 import guideDocument from "../../data/catalog-edition-guides.json";
 import scanAssets from "../../data/research/owned-scans/2026-09-12-absolum-special-edition-assets.json";
 import schemaDocument from "../../data/schemas/catalog-edition-guides-v2.schema.json";
-import { catalog, getCatalogGame } from "./catalog";
+import { catalog, getCatalogGame, getPlatform } from "./catalog";
 import {
   getCatalogEditionGuides,
   normalizeCatalogEditionGuide,
@@ -29,8 +29,10 @@ import { toCatalogListGame } from "./catalog-list-game";
 import { getOwnedScanSet, getOwnedScanSetById } from "./catalog-owned-scans";
 import {
   catalogPhysicalEditionOverviewRegions,
+  getCatalogPhysicalEditionPublicIdentity,
   groupCatalogListGames,
 } from "./catalog-physical-edition-browse";
+import { buildGameFaq, buildGameJsonLd, buildGameMetadata } from "./catalog-seo";
 import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
 import { getRegionDisplay } from "./region-display";
 import {
@@ -276,6 +278,67 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
     const market = catalogMarketRegionToLegacyRegion(marketCode);
     assert.ok(ps5RegionOptions.includes(market), `missing PS5 region filter: ${market}`);
   }
+});
+
+test("Absolum V2 public identity never inherits an unsupported legacy market", () => {
+  const platform = getPlatform("ps5");
+  assert.ok(platform);
+
+  const specialGame = getCatalogGame("ps5-absolum-special-edition");
+  assert.ok(specialGame);
+  const specialIdentity = getCatalogPhysicalEditionPublicIdentity(specialGame, platform.shortName);
+  assert.ok(specialIdentity);
+  assert.equal(specialIdentity.metadataTitle, "Absolum [Special Edition] — PS5 · Europa");
+  assert.equal(
+    specialIdentity.description,
+    "Absolum [Special Edition] para PS5. Edición física documentada en Europa.",
+  );
+  assert.equal(
+    specialIdentity.coverAlt,
+    "Portada de Absolum [Special Edition] para PS5 (Europa)",
+  );
+  assert.deepEqual(specialIdentity.currentMarketRegions, []);
+
+  const specialCover = getOwnedScanSet(specialGame)?.primaryCoverUrl;
+  assert.ok(specialCover);
+  const metadata = buildGameMetadata(specialGame, undefined, {
+    physicalEditionIdentity: specialIdentity,
+    coverUrl: specialCover,
+  });
+  const metadataText = JSON.stringify(metadata);
+  assert.equal(metadata.title, specialIdentity.metadataTitle);
+  assert.doesNotMatch(metadataText, /PAL España|mercado español|Precio PS5 PAL España/i);
+  assert.match(metadataText, /Absolum \[Special Edition\].*Europa/);
+  assert.match(metadataText, /absolum-special-edition-ps5-pal-es/);
+  assert.match(metadataText, /absolum-special-edition-ps5-portada\.webp/);
+
+  const faqs = buildGameFaq(specialGame, platform, undefined, {
+    physicalEditionIdentity: specialIdentity,
+  });
+  assert.equal(faqs[0]?.answer, "Aún no hay suficientes ventas verificadas para esta edición.");
+  assert.doesNotMatch(JSON.stringify(faqs), /PAL España|mercado español|edición española/i);
+
+  const jsonLd = buildGameJsonLd(specialGame, platform, undefined, {
+    physicalEditionIdentity: specialIdentity,
+    coverUrl: specialCover,
+  });
+  assert.doesNotMatch(JSON.stringify(jsonLd), /PAL España|mercado español|"name":"España"/i);
+  assert.match(JSON.stringify(jsonLd), /Edición física documentada en Europa/);
+
+  const standardGame = getCatalogGame("ps5-absolum");
+  assert.ok(standardGame);
+  const standardIdentity = getCatalogPhysicalEditionPublicIdentity(standardGame, platform.shortName);
+  assert.ok(standardIdentity);
+  assert.equal(standardIdentity.metadataTitle, "Absolum — Standard Edition · PS5");
+  assert.deepEqual(standardIdentity.currentMarketRegions, ["FR", "ES", "GB"]);
+  assert.deepEqual(standardIdentity.marketRegions, ["FR", "ES", "GB", "DE", "US", "JP", "KR", "HK", "TW"]);
+  assert.match(standardIdentity.description, /Europa, Norteamérica y Asia/);
+  assert.match(standardIdentity.description, /FR, ES, GB, DE, US, JP, KR, HK y TW/);
+  const standardMetadata = buildGameMetadata(standardGame, undefined, {
+    physicalEditionIdentity: standardIdentity,
+  });
+  assert.equal(standardMetadata.title, standardIdentity.metadataTitle);
+  assert.doesNotMatch(JSON.stringify(standardMetadata), /Precio PS5 PAL España|\(PAL España\)/i);
 });
 
 test("legacy IDs and direct URLs remain unique while optical group prices omit loose disc", () => {

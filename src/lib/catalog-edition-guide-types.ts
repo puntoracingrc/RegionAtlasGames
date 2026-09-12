@@ -204,6 +204,17 @@ export type CatalogPhysicalEditionGroupSummary = {
   priceRanges: Partial<Record<"complete" | "sealed", CatalogPriceRange>>;
 };
 
+export type CatalogPhysicalEditionPublicIdentity = {
+  familyLabel: string;
+  metadataTitle: string;
+  description: string;
+  coverAlt: string;
+  broadRegions: CatalogBroadRegion[];
+  broadRegionLabel: string;
+  marketRegions: CatalogMarketRegion[];
+  currentMarketRegions: CatalogMarketRegion[];
+};
+
 export type CatalogPhysicalFilterOptions = {
   broadRegions: Array<{ value: CatalogBroadRegion; label: string }>;
   editionTypes: Array<{ value: CatalogPhysicalEditionType; label: string }>;

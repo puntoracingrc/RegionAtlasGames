@@ -15,7 +15,10 @@ import { Ps2EditionPanel } from "@/components/ps2-edition-panel";
 import { OwnedScansPanel } from "@/components/owned-scans-panel";
 import { CatalogEditionGuide } from "@/components/catalog-edition-guide";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
-import { catalogPhysicalEditionOverviewRegions } from "@/lib/catalog-physical-edition-browse";
+import {
+  catalogPhysicalEditionOverviewRegions,
+  getCatalogPhysicalEditionPublicIdentity,
+} from "@/lib/catalog-physical-edition-browse";
 import {
   collectionItemMatchesPhysicalVariant,
   countOwnedPhysicalVariant,
@@ -138,8 +141,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const routeRedirect = getCatalogRouteRedirect(slug);
   const game = await resolveCatalogGameWithOverlay(routeRedirect?.targetCatalogId ?? slug);
   if (!game || !isPublicCatalogGame(game)) return { title: "Juego no encontrado" };
+  const platform = getPlatform(game.platformSlug);
   const details = await getGameDetailsWithOverlay(game.id);
-  return buildGameMetadata(game, details);
+  const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
+    game,
+    platform?.shortName ?? game.platformSlug,
+  );
+  return buildGameMetadata(game, details, {
+    physicalEditionIdentity,
+    coverUrl: getOwnedScanSet(game)?.primaryCoverUrl,
+  });
 }
 
 export default async function CatalogGamePage({ params }: Props) {
@@ -157,6 +168,7 @@ export default async function CatalogGamePage({ params }: Props) {
     permanentRedirect(catalogGamePath(game));
   }
 
+  const platform = getPlatform(game.platformSlug);
   const editionGuide = getCatalogEditionGuide(game);
   const currentPhysicalEdition = editionGuide?.physicalEditions.find(
     (edition) => edition.id === editionGuide.currentEditionId,
@@ -172,6 +184,10 @@ export default async function CatalogGamePage({ params }: Props) {
   const headerRegions = editionGuide?.schemaVersion === 2 && headerPhysicalEditions.length
     ? catalogPhysicalEditionOverviewRegions(headerPhysicalEditions)
     : [game.region];
+  const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
+    game,
+    platform?.shortName ?? game.platformSlug,
+  );
   const currentPhysicalVariantId = editionGuide?.editionFamilies.length
     ? currentPhysicalEdition?.id
     : undefined;
@@ -184,7 +200,6 @@ export default async function CatalogGamePage({ params }: Props) {
   const wished = collection?.wishlist?.some((entry) => entry.catalogId === game.id) ?? false;
   const owned = ownedCount > 0;
 
-  const platform = getPlatform(game.platformSlug);
   const details = await getGameDetailsWithOverlay(game.id);
   const entityLinks = details ? resolveGameEntityLinks(details) : null;
   const companyCreditGroups = details
@@ -210,13 +225,15 @@ export default async function CatalogGamePage({ params }: Props) {
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
   const priceStatus = catalogPriceDisplayLabel(game);
+  const ownedScans = getOwnedScanSet(game);
+  const primaryCoverUrl = ownedScans?.primaryCoverUrl ?? game.coverUrl;
   const originalContentProfile = resolveOriginalGameContents(game);
   const regionalPackaging = normalizeRegionalPackaging(game.regionalPackaging);
   const showPhysicalEdition = originalContentProfile.explicit || regionalPackaging.length > 0;
   const regionLabel = getRegionDisplay(game.region).label;
   const pendingPs1 = game.platformSlug === "ps1" && game.regionalStatus === "review";
   const similar = getSimilarGames(game);
-  const faqs = buildGameFaq(game, platform, details);
+  const faqs = buildGameFaq(game, platform, details, { physicalEditionIdentity });
   const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
   const publicSeries = (await listPublicSeriesForGame(game.id)).filter(
     (series) => !getLegacySeriesRedirect(series.slug),
@@ -259,7 +276,10 @@ export default async function CatalogGamePage({ params }: Props) {
   ];
 
   const jsonLd = [
-    buildGameJsonLd(game, platform, details),
+    buildGameJsonLd(game, platform, details, {
+      physicalEditionIdentity,
+      coverUrl: primaryCoverUrl,
+    }),
     buildBreadcrumbJsonLd([
       { name: "Inicio", href: "/" },
       { name: "Plataformas", href: "/plataformas" },
@@ -272,18 +292,18 @@ export default async function CatalogGamePage({ params }: Props) {
   ];
 
   const seoDescription =
+    physicalEditionIdentity?.description ||
     details?.description?.trim() ||
     (details?.year && platform
       ? `${game.title} (${platform.shortName}, ${regionLabel}, ${details.year}) en el catálogo de Region Atlas.`
       : `${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel}) en Region Atlas.`);
 
   const coverAlt =
+    physicalEditionIdentity?.coverAlt ||
     details?.seoMeta?.coverAlt?.trim() ||
     `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
   const photographedCover = details?.ps2Edition?.graphics.find(asset =>
     asset.url === game.coverUrl && asset.layout === "listing_front_photo");
-  const ownedScans = getOwnedScanSet(game);
-  const primaryCoverUrl = ownedScans?.primaryCoverUrl ?? game.coverUrl;
   const guideRendersCurrentScans = editionGuide?.schemaVersion === 2 && Boolean(currentPhysicalEdition?.scanSetIds.includes(game.id));
   const physicalVariantOwnedCounts = editionGuide?.editionFamilies.length
     ? Object.fromEntries(editionGuide.physicalEditions.map((edition) => [
@@ -384,7 +404,13 @@ export default async function CatalogGamePage({ params }: Props) {
 
             {pendingPs1 ? <div id="ps1-edition-details" className="scroll-mt-24"><Ps1EditionPanel game={game} details={details} /></div> : null}
 
-            <GamePriceHero game={game} />
+            <GamePriceHero
+              game={game}
+              regionLabelOverride={physicalEditionIdentity?.broadRegionLabel}
+              pendingMessage={physicalEditionIdentity
+                ? "Aún no hay suficientes ventas verificadas para esta edición."
+                : undefined}
+            />
 
             {priceHistory.length > 0 && (
               <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />
@@ -502,7 +528,9 @@ export default async function CatalogGamePage({ params }: Props) {
             <Panel>
               <PanelTitle>Descripción</PanelTitle>
               <div className="space-y-3 text-sm leading-relaxed text-muted">
-                {details?.description ? (
+                {physicalEditionIdentity ? (
+                  <p>{physicalEditionIdentity.description}</p>
+                ) : details?.description ? (
                   details.description.split(/\n{2,}/).map((paragraph) => (
                     <p key={paragraph.slice(0, 40)}>{paragraph.trim()}</p>
                   ))

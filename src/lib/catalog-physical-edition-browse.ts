@@ -2,14 +2,16 @@ import {
   catalogBroadRegionLabel,
   catalogMarketRegionToLegacyRegion,
   catalogPhysicalEditionTypeLabel,
+  isCatalogMarketRegion,
   type CatalogPhysicalEditionGroupSummary,
   type CatalogEditionFamily,
   type CatalogPhysicalEdition,
   type CatalogPhysicalFilterOptions,
+  type CatalogPhysicalEditionPublicIdentity,
   type CatalogPriceRange,
 } from "./catalog-edition-guide-types";
-import { getGroupableCatalogEditionGuides } from "./catalog-edition-guides";
-import type { CatalogListGame } from "./types";
+import { getCatalogEditionGuide, getGroupableCatalogEditionGuides } from "./catalog-edition-guides";
+import type { CatalogGame, CatalogListGame } from "./types";
 
 function unique<T>(values: T[]): T[] {
   return [...new Set(values)];
@@ -47,6 +49,57 @@ export function catalogPhysicalEditionOverviewRegions(editions: CatalogPhysicalE
     if (broadRegion === "ASIA") return ["Asia"];
     return ["Internacional"];
   }));
+}
+
+function spanishList(values: string[]): string {
+  if (values.length < 2) return values[0] ?? "";
+  return `${values.slice(0, -1).join(", ")} y ${values.at(-1)}`;
+}
+
+function normalizedIdentityText(value: string): string {
+  return value.toLocaleLowerCase("es").replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+/** Public identity for V2 edition families; never inherits the representative legacy region. */
+export function getCatalogPhysicalEditionPublicIdentity(
+  game: CatalogGame,
+  platformName: string,
+): CatalogPhysicalEditionPublicIdentity | undefined {
+  const guide = getCatalogEditionGuide(game);
+  if (guide?.schemaVersion !== 2 || !guide.currentEditionFamilyId) return undefined;
+
+  const family = guide.editionFamilies.find((entry) => entry.id === guide.currentEditionFamilyId);
+  const currentEdition = guide.physicalEditions.find((entry) => entry.id === guide.currentEditionId);
+  if (!family || !currentEdition) return undefined;
+
+  const editions = guide.physicalEditions.filter((entry) => family.physicalEditionIds.includes(entry.id));
+  const broadRegions = unique(editions.map((entry) => entry.broadRegion));
+  const broadRegionLabel = spanishList(broadRegions.map(catalogBroadRegionLabel));
+  const marketRegions = unique(editions.flatMap((entry) => entry.marketRegions).filter(isCatalogMarketRegion));
+  const currentMarketRegions = unique(currentEdition.marketRegions.filter(isCatalogMarketRegion));
+  const titleContainsFamily = normalizedIdentityText(game.title).includes(normalizedIdentityText(family.label));
+  const publicName = titleContainsFamily ? game.title : `${game.title} — ${family.label}`;
+  const metadataTitle = titleContainsFamily
+    ? `${game.title} — ${platformName} · ${broadRegionLabel}`
+    : `${game.title} — ${family.label} · ${platformName}`;
+  const description = editions.length === 1
+    ? `${publicName} para ${platformName}. Edición física documentada en ${broadRegionLabel}.`
+    : `${publicName} para ${platformName}. Familia de ${editions.length} ediciones físicas documentadas en ${broadRegionLabel} (${spanishList(marketRegions)}).`;
+  const coverScope = currentMarketRegions.length
+    ? currentMarketRegions.join(" / ")
+    : catalogBroadRegionLabel(currentEdition.broadRegion);
+  const coverName = titleContainsFamily ? game.title : `${game.title} ${family.label}`;
+
+  return {
+    familyLabel: family.label,
+    metadataTitle,
+    description,
+    coverAlt: `Portada de ${coverName} para ${platformName} (${coverScope})`,
+    broadRegions,
+    broadRegionLabel,
+    marketRegions,
+    currentMarketRegions,
+  };
 }
 
 function buildSummary(

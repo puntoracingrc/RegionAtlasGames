@@ -15,11 +15,15 @@ import {
 } from "@/lib/import-retail-prices";
 import { Badge } from "@/components/ui";
 
-type Props = { game: CatalogGame };
+type Props = {
+  game: CatalogGame;
+  regionLabelOverride?: string;
+  pendingMessage?: string;
+};
 
-export function GamePriceHero({ game }: Props) {
+export function GamePriceHero({ game, regionLabelOverride, pendingMessage }: Props) {
   const status = catalogPriceDisplayLabel(game);
-  const regionLabel = getRegionDisplay(game.region).label;
+  const regionLabel = regionLabelOverride ?? getRegionDisplay(game.region).label;
   const conditionPrices = conditionPriceEntries(game);
   const hasEstimate = hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
   const regionalPolicy = ebayRegionalSearchPolicy(game.region);
@@ -63,7 +67,7 @@ export function GamePriceHero({ game }: Props) {
       <section className="rounded-2xl border border-dashed border-border bg-card/60 p-6 text-center">
         <p className="text-lg font-semibold text-foreground">Precio pendiente</p>
         <p className="mt-2 text-sm text-muted">
-          Aún no hay datos de reventa verificados para esta edición ({regionLabel}).
+          {pendingMessage ?? `Aún no hay datos de reventa verificados para esta edición (${regionLabel}).`}
         </p>
       </section>
     );

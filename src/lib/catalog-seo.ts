@@ -18,6 +18,7 @@ import { getCoverSrc } from "./cover-url";
 import { getSiteUrl } from "./site-url";
 import { hasVerifiedEsPrice, hasVerifiedEsPriceRange } from "./price-display";
 import { describeRegionalPackagingComparison } from "./regional-packaging";
+import type { CatalogPhysicalEditionPublicIdentity } from "./catalog-edition-guide-types";
 
 export {
   buildCatalogSeoSlug,
@@ -71,6 +72,11 @@ export function getSimilarGames(game: CatalogGame, limit = 4): CatalogGame[] {
 
 export type GameFaqItem = { question: string; answer: string };
 
+export type GamePublicPresentationOptions = {
+  physicalEditionIdentity?: CatalogPhysicalEditionPublicIdentity;
+  coverUrl?: string | null;
+};
+
 function clipMeta(text: string, max: number): string {
   const clean = text.trim();
   if (clean.length <= max) return clean;
@@ -81,9 +87,12 @@ export function buildGameFaq(
   game: CatalogGame,
   platform: Platform | undefined,
   details: GameDetails | undefined,
+  options?: GamePublicPresentationOptions,
 ): GameFaqItem[] {
   const platformName = platform?.shortName ?? game.platformSlug;
-  const regionLabel = getRegionDisplay(game.region).label;
+  const physicalIdentity = options?.physicalEditionIdentity;
+  const regionLabel = physicalIdentity?.broadRegionLabel ?? getRegionDisplay(game.region).label;
+  const supportsSpanishMarket = physicalIdentity?.currentMarketRegions.includes("ES") ?? true;
   const hasPrice = game.hasEsPrice && game.recommendedPrice != null;
   const hasRange = hasVerifiedEsPriceRange(game);
   const min = hasRange ? game.marketMin : null;
@@ -91,13 +100,21 @@ export function buildGameFaq(
   const est = game.recommendedPrice;
   const regionalPackaging = describeRegionalPackagingComparison(game.regionalPackaging);
 
-  const priceAnswer = hasPrice
-    ? hasRange && min != null && max != null
-      ? `En ${SITE_LOGO} el mercado verificado en ${regionLabel} oscila entre ${formatEur(min)} y ${formatEur(max)}, con una referencia media de ${formatEur(est)}. El precio final depende del estado de conservación (suelto, completo, precintado o gradado).`
-      : hasVerifiedEsPrice(game)
-        ? `La referencia verificada en España ronda ${formatEur(est)} para la edición ${regionLabel}.`
-        : `Tenemos una estimación orientativa de ${formatEur(est)} para ${regionLabel}, basada en una muestra todavía pequeña. El rango min–máx aparecerá cuando haya suficientes ventas confirmadas.`
-    : `Aún no tenemos suficientes ventas verificadas en el mercado español para este título. Consulta de nuevo pronto o revisa los anuncios entre usuarios.`;
+  const priceAnswer = physicalIdentity
+    ? hasPrice
+      ? hasRange && min != null && max != null
+        ? `La referencia verificada para esta edición oscila entre ${formatEur(min)} y ${formatEur(max)}, con una media de ${formatEur(est)}. El precio final depende del estado de conservación.`
+        : hasVerifiedEsPrice(game) && supportsSpanishMarket
+          ? `La referencia verificada para el mercado español documentado ronda ${formatEur(est)}.`
+          : `La estimación orientativa para esta edición ronda ${formatEur(est)} y se basa todavía en una muestra pequeña.`
+      : "Aún no hay suficientes ventas verificadas para esta edición."
+    : hasPrice
+      ? hasRange && min != null && max != null
+        ? `En ${SITE_LOGO} el mercado verificado en ${regionLabel} oscila entre ${formatEur(min)} y ${formatEur(max)}, con una referencia media de ${formatEur(est)}. El precio final depende del estado de conservación (suelto, completo, precintado o gradado).`
+        : hasVerifiedEsPrice(game)
+          ? `La referencia verificada en España ronda ${formatEur(est)} para la edición ${regionLabel}.`
+          : `Tenemos una estimación orientativa de ${formatEur(est)} para ${regionLabel}, basada en una muestra todavía pequeña. El rango min–máx aparecerá cuando haya suficientes ventas confirmadas.`
+      : `Aún no tenemos suficientes ventas verificadas en el mercado español para este título. Consulta de nuevo pronto o revisa los anuncios entre usuarios.`;
 
   const faqs: GameFaqItem[] = [
     {
@@ -106,7 +123,13 @@ export function buildGameFaq(
     },
   ];
 
-  if (regionalPackaging) {
+  const regionalPackagingMakesUnsupportedSpanishClaim = Boolean(
+    physicalIdentity &&
+    !supportsSpanishMarket &&
+    regionalPackaging &&
+    /PAL España|mercado español|edición española/i.test(regionalPackaging),
+  );
+  if (regionalPackaging && !regionalPackagingMakesUnsupportedSpanishClaim) {
     faqs.push({
       question: `¿Cómo se distingue la edición física de ${game.title}?`,
       answer: regionalPackaging,
@@ -126,7 +149,9 @@ export function buildGameFaq(
     const pub = details.publisher ? companyEntityLink(details.publisher) : null;
     faqs.push({
       question: `¿Qué edición es ${game.title}?`,
-      answer: `${game.title} salió en ${details.year} para ${platformName} (${regionLabel})${pub ? `, publicado por ${pub.name}` : ""}${dev ? ` y desarrollado por ${dev.name}` : ""}.`,
+      answer: physicalIdentity
+        ? `${game.title} salió en ${details.year} para ${platformName} como ${physicalIdentity.familyLabel}, con alcance documentado en ${physicalIdentity.broadRegionLabel}${pub ? `, publicado por ${pub.name}` : ""}${dev ? ` y desarrollado por ${dev.name}` : ""}.`
+        : `${game.title} salió en ${details.year} para ${platformName} (${regionLabel})${pub ? `, publicado por ${pub.name}` : ""}${dev ? ` y desarrollado por ${dev.name}` : ""}.`,
     });
   }
 
@@ -136,6 +161,11 @@ export function buildGameFaq(
     const question = faq.question?.trim();
     const answer = faq.answer?.trim();
     if (!question || !answer) continue;
+    if (
+      physicalIdentity &&
+      !supportsSpanishMarket &&
+      /PAL España|mercado español|edición española/i.test(`${question} ${answer}`)
+    ) continue;
     if (seen.has(question.toLowerCase())) continue;
     faqs.push({ question, answer });
     seen.add(question.toLowerCase());
@@ -144,7 +174,11 @@ export function buildGameFaq(
   return faqs;
 }
 
-export function buildGameMetadata(game: CatalogGame, loadedDetails?: GameDetails): Metadata {
+export function buildGameMetadata(
+  game: CatalogGame,
+  loadedDetails?: GameDetails,
+  options?: GamePublicPresentationOptions,
+): Metadata {
   const platform = getPlatform(game.platformSlug);
   const regionLabel = getRegionDisplay(game.region).label;
   const platformName = platform?.shortName ?? game.platformSlug;
@@ -153,9 +187,12 @@ export function buildGameMetadata(game: CatalogGame, loadedDetails?: GameDetails
   const details = loadedDetails ?? getGameDetails(game.id);
   const seo = details?.seoMeta;
   const catalogDescription = details?.description?.trim();
+  const physicalIdentity = options?.physicalEditionIdentity;
 
   let description: string;
-  if (seo?.seoDescription) {
+  if (physicalIdentity) {
+    description = clipMeta(physicalIdentity.description, 155);
+  } else if (seo?.seoDescription) {
     description = clipMeta(seo.seoDescription, 155);
   } else if (catalogDescription) {
     description = clipMeta(catalogDescription, 155);
@@ -170,14 +207,16 @@ export function buildGameMetadata(game: CatalogGame, loadedDetails?: GameDetails
   }
 
   const title =
+    physicalIdentity?.metadataTitle ||
     seo?.seoTitle?.trim() ||
     `${game.title} — Precio ${platformName} ${regionLabel}`;
 
   const coverAlt =
+    physicalIdentity?.coverAlt ||
     seo?.coverAlt?.trim() ||
     `Portada de ${game.title} para ${platformName} (${regionLabel})`;
 
-  const resolvedCover = getCoverSrc(game.coverUrl, game.id);
+  const resolvedCover = getCoverSrc(options?.coverUrl ?? game.coverUrl, game.id);
   const ogImage = resolvedCover
     ? {
         url: resolvedCover.startsWith("/") ? `${getSiteUrl()}${resolvedCover}` : resolvedCover,
@@ -224,23 +263,27 @@ export function buildGameJsonLd(
   game: CatalogGame,
   platform: Platform | undefined,
   details?: GameDetails | undefined,
+  options?: GamePublicPresentationOptions,
 ): Record<string, unknown> {
   const url = `${getSiteUrl()}${catalogGamePath(game)}`;
   const regionLabel = getRegionDisplay(game.region).label;
   const resolvedDetails = details ?? getGameDetails(game.id);
   const seo = resolvedDetails?.seoMeta;
   const entityLinks = resolvedDetails ? resolveGameEntityLinks(resolvedDetails) : null;
+  const physicalIdentity = options?.physicalEditionIdentity;
 
   const description =
+    physicalIdentity?.description ||
     seo?.jsonLdDescription?.trim() ||
     resolvedDetails?.description?.trim() ||
     `${game.title} para ${platform?.name ?? game.platformSlug} (${regionLabel}). Videojuego en catálogo ${SITE_LOGO}.`;
 
   const coverAlt =
+    physicalIdentity?.coverAlt ||
     seo?.coverAlt?.trim() ||
     `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
 
-  const resolvedCover = getCoverSrc(game.coverUrl, game.id);
+  const resolvedCover = getCoverSrc(options?.coverUrl ?? game.coverUrl, game.id);
   const coverImageUrl = resolvedCover
     ? resolvedCover.startsWith("/")
       ? `${getSiteUrl()}${resolvedCover}`
@@ -264,7 +307,9 @@ export function buildGameJsonLd(
               }
             : {}),
           availability: "https://schema.org/InStock",
-          areaServed: { "@type": "Country", name: "España" },
+          ...(!physicalIdentity || physicalIdentity.currentMarketRegions.includes("ES")
+            ? { areaServed: { "@type": "Country", name: "España" } }
+            : {}),
           itemCondition: "https://schema.org/UsedCondition",
           url,
         }
