@@ -14,6 +14,7 @@ import {
   isStrongPhysicalEvidence,
   type CatalogEditionFamily,
   type CatalogEditionGuideModel,
+  type CatalogBroadRegion,
   type CatalogPhysicalEdition,
 } from "@/lib/catalog-edition-guide-types";
 import { catalogGamePath } from "@/lib/catalog-path";
@@ -92,6 +93,26 @@ function physicalEditionCover(edition: CatalogPhysicalEdition): string | null {
 function familyHref(family: CatalogEditionFamily): string | null {
   const game = getCatalogGame(family.representativeCatalogId);
   return game ? catalogGamePath(game) : null;
+}
+
+const BROAD_REGION_RAIL_SEGMENTS: Record<CatalogBroadRegion, string[]> = {
+  EUROPE: ["bg-[#003399]"],
+  NORTH_AMERICA: ["bg-[#3c3b6e]", "bg-white", "bg-[#b22234]"],
+  ASIA: ["bg-[#bc002d]", "bg-[#f2c94c]"],
+  OTHER: ["bg-muted"],
+};
+
+function BroadRegionRail({ region }: { region: CatalogBroadRegion }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="absolute bottom-4 left-0 top-4 flex w-1.5 flex-col overflow-hidden rounded-full border border-border/70 shadow-sm"
+    >
+      {BROAD_REGION_RAIL_SEGMENTS[region].map((className, index) => (
+        <span key={`${region}-${index}`} className={`min-h-3 flex-1 ${className}`} />
+      ))}
+    </span>
+  );
 }
 
 function PhysicalEditionGuide({
@@ -177,7 +198,12 @@ function PhysicalEditionGuide({
           {regions.map((region) => {
             const editions = visibleEditions.filter((edition) => edition.broadRegion === region);
             return (
-              <section key={region} className="py-5 first:pt-4">
+              <section
+                key={region}
+                data-broad-region={region}
+                className="relative py-5 pl-5 first:pt-4"
+              >
+                <BroadRegionRail region={region} />
                 <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="text-lg font-bold text-foreground">{catalogBroadRegionLabel(region)}</h3>
                   <span className="text-xs text-muted">{editions.length} {editions.length === 1 ? "edición" : "ediciones"}</span>
