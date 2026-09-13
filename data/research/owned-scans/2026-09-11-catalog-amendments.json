@@ -244,13 +244,14 @@
     },
     "data/curation-report.json": {
       "beforeSha256": "4e095311213bcf4144bb3804f89f72b1cfa870b634b72168a31b2c4a291e385c",
-      "afterSha256": "3e2f3462407afa04bdd422c7a3b1426afb46de414a38aa4775b2cd13030bcde6",
+      "afterSha256": "b43a4fe4bed93367ed51e3da17fa137bb04fe267f33f2edb0dbae942223aa46c",
       "changedKeys": [
         "byCategory",
         "excluded",
         "excludedByPlatform",
         "listed",
-        "listedByPlatform"
+        "listedByPlatform",
+        "total"
       ]
     }
   }
