@@ -5,11 +5,13 @@ import { getOwnedScanSetById } from "./catalog-owned-scans";
 import {
   catalogBroadRegionFromLegacyRegion,
   catalogBroadRegionFromMarketRegion,
+  isCatalogPhysicalPriceCondition,
   isCatalogMarketRegion,
   type CatalogEditionGuideModel,
   type CatalogEditionFamily,
   type CatalogEditionImage,
   type CatalogPhysicalEdition,
+  type CatalogPhysicalPriceCondition,
   type CatalogPhysicalEditionType,
 } from "./catalog-edition-guide-types";
 import type { CatalogGame } from "./types";
@@ -43,6 +45,7 @@ type PhysicalGuide = {
     label: string;
     representativeCatalogId: string;
     physicalEditionIds: string[];
+    priceConditions: CatalogPhysicalPriceCondition[];
   }>;
   physicalEditions: Array<{
     id: string;
@@ -307,6 +310,15 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
   const editionFamilies = rawFamilies.map((family): CatalogEditionFamily => {
     if (!family.physicalEditionIds.length) {
       throw new Error(`[catalog-edition-guides] ${raw.id} empty edition family: ${family.id}`);
+    }
+    if (!family.priceConditions.length) {
+      throw new Error(`[catalog-edition-guides] ${raw.id} empty price conditions: ${family.id}`);
+    }
+    ensureUnique(family.priceConditions, `${family.id} price condition`);
+    for (const condition of family.priceConditions) {
+      if (!isCatalogPhysicalPriceCondition(condition)) {
+        throw new Error(`[catalog-edition-guides] ${family.id} invalid price condition: ${condition}`);
+      }
     }
     for (const editionId of family.physicalEditionIds) {
       if (!editionIds.includes(editionId)) {

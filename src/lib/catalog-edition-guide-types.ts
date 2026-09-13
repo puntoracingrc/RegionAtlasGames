@@ -33,6 +33,17 @@ export const PHYSICAL_EDITION_TYPE_VALUES = [
 
 export type CatalogPhysicalEditionType = (typeof PHYSICAL_EDITION_TYPE_VALUES)[number];
 
+export const CATALOG_PHYSICAL_PRICE_CONDITION_VALUES = [
+  "sealed",
+  "newRetail",
+  "complete",
+  "gameManual",
+  "loose",
+] as const;
+
+export type CatalogPhysicalPriceCondition =
+  (typeof CATALOG_PHYSICAL_PRICE_CONDITION_VALUES)[number];
+
 export const PHYSICAL_EVIDENCE_TYPE_VALUES = [
   "REAL_SCAN",
   "REAL_PHOTO",
@@ -124,6 +135,7 @@ export type CatalogEditionFamily = {
   label: string;
   representativeCatalogId: string;
   physicalEditionIds: string[];
+  priceConditions: CatalogPhysicalPriceCondition[];
 };
 
 export type CatalogPhysicalEdition = {
@@ -320,6 +332,12 @@ export function catalogBroadRegionFromLegacyRegion(region: string): CatalogBroad
 
 export function isCatalogMarketRegion(region: string): region is CatalogMarketRegion {
   return (CATALOG_MARKET_REGION_VALUES as readonly string[]).includes(region);
+}
+
+export function isCatalogPhysicalPriceCondition(
+  condition: string,
+): condition is CatalogPhysicalPriceCondition {
+  return (CATALOG_PHYSICAL_PRICE_CONDITION_VALUES as readonly string[]).includes(condition);
 }
 
 export function catalogBroadRegionFromMarketRegion(region: string): CatalogBroadRegion {

@@ -91,6 +91,9 @@
     "editionType": {
       "enum": ["STANDARD", "SPECIAL", "COLLECTOR", "DELUXE", "LIMITED", "STEELBOOK", "OTHER"]
     },
+    "priceCondition": {
+      "enum": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+    },
     "evidenceType": {
       "enum": ["REAL_SCAN", "REAL_PHOTO", "UNBOXING_FRAME", "RETAILER_PHOTO_CONFIRMED", "RETAILER_ASSET", "PUBLISHER_MOCKUP", "PRE_RELEASE_ASSET", "PUBLISHER_DOCUMENTATION", "OWNER_CONFIRMATION", "UNKNOWN"]
     },
@@ -185,11 +188,17 @@
     "editionFamily": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "label", "representativeCatalogId", "physicalEditionIds"],
+      "required": ["id", "label", "representativeCatalogId", "physicalEditionIds", "priceConditions"],
       "properties": {
         "id": { "type": "string", "minLength": 1 },
         "label": { "type": "string", "minLength": 1 },
         "representativeCatalogId": { "type": "string", "minLength": 1 },
+        "priceConditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/priceCondition" },
+          "uniqueItems": true
+        },
         "physicalEditionIds": {
           "type": "array",
           "minItems": 1,

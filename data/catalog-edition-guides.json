@@ -131,6 +131,7 @@
           "id": "standard",
           "label": "Standard Edition",
           "representativeCatalogId": "ps5-absolum",
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"],
           "physicalEditionIds": [
             "absolum-ps5-europe-standard-en-fr-es",
             "absolum-ps5-europe-standard-de",
@@ -144,6 +145,7 @@
           "id": "special",
           "label": "Special Edition",
           "representativeCatalogId": "ps5-absolum-special-edition",
+          "priceConditions": ["sealed", "newRetail", "complete"],
           "physicalEditionIds": ["absolum-ps5-europe-special"]
         }
       ],

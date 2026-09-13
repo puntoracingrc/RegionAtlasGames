@@ -16,6 +16,7 @@ import {
 import {
   BROAD_REGION_VALUES,
   CATALOG_MARKET_REGION_VALUES,
+  CATALOG_PHYSICAL_PRICE_CONDITION_VALUES,
   PHYSICAL_EDITION_TYPE_VALUES,
   PHYSICAL_EVIDENCE_TYPE_VALUES,
   canEvidenceDefinePhysicalVariant,
@@ -50,6 +51,7 @@ import {
   resolveCatalogPhysicalVariant,
 } from "./catalog-physical-variant";
 import { catalogGameToCollectionItem } from "./collection-store";
+import { conditionPriceEntries } from "./condition-prices";
 import { catalogGamePath } from "./catalog-url";
 import { catalogConditionPriceRows } from "./price-display";
 import {
@@ -119,7 +121,39 @@ test("schema v2 keeps legacy guides readable and enumerations synchronized", () 
   assert.deepEqual(schemaDocument.$defs.broadRegion.enum, [...BROAD_REGION_VALUES]);
   assert.deepEqual(schemaDocument.$defs.marketRegion.enum, [...CATALOG_MARKET_REGION_VALUES]);
   assert.deepEqual(schemaDocument.$defs.editionType.enum, [...PHYSICAL_EDITION_TYPE_VALUES]);
+  assert.deepEqual(schemaDocument.$defs.priceCondition.enum, [
+    ...CATALOG_PHYSICAL_PRICE_CONDITION_VALUES,
+  ]);
   assert.deepEqual(schemaDocument.$defs.evidenceType.enum, [...PHYSICAL_EVIDENCE_TYPE_VALUES]);
+});
+
+test("V2 edition families declare their valid price states and Special excludes standard-only parts", () => {
+  const guide = absolumGuide();
+  const standard = guide.editionFamilies.find((family) => family.id === "standard");
+  const special = guide.editionFamilies.find((family) => family.id === "special");
+  assert.ok(standard);
+  assert.ok(special);
+  assert.deepEqual(standard.priceConditions, [
+    "sealed",
+    "newRetail",
+    "complete",
+    "gameManual",
+    "loose",
+  ]);
+  assert.deepEqual(special.priceConditions, ["sealed", "newRetail", "complete"]);
+
+  const pollutedSpecial = {
+    ...getCatalogGame("ps5-absolum-special-edition")!,
+    estimatedPriceSealed: 90,
+    estimatedPriceNewRetail: 85,
+    estimatedPriceComplete: 70,
+    estimatedPriceGameManual: 25,
+    estimatedPriceLoose: 20,
+  };
+  assert.deepEqual(
+    conditionPriceEntries(pollutedSpecial, special.priceConditions).map((entry) => entry.bucket),
+    ["sealed", "newRetail", "complete"],
+  );
 });
 
 test("Absolum models seven editions, three broad regions and one shared European disc", () => {

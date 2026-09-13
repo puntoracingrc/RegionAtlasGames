@@ -3,6 +3,7 @@ import { formatEur } from "@/lib/price-format";
 import { getRegionDisplay } from "@/lib/region-display";
 import {
   CONDITION_PRICE_DESCRIPTIONS,
+  type ConditionBucket,
   conditionPriceEntries,
   hasAnyConditionEstimate,
 } from "@/lib/condition-prices";
@@ -19,13 +20,27 @@ type Props = {
   game: CatalogGame;
   regionLabelOverride?: string;
   pendingMessage?: string;
+  allowedBuckets?: readonly ConditionBucket[];
+  forcePending?: boolean;
 };
 
-export function GamePriceHero({ game, regionLabelOverride, pendingMessage }: Props) {
+export function GamePriceHero({
+  game,
+  regionLabelOverride,
+  pendingMessage,
+  allowedBuckets,
+  forcePending = false,
+}: Props) {
   const status = catalogPriceDisplayLabel(game);
   const regionLabel = regionLabelOverride ?? getRegionDisplay(game.region).label;
-  const conditionPrices = conditionPriceEntries(game);
-  const hasEstimate = hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
+  const conditionPrices = forcePending
+    ? []
+    : conditionPriceEntries(game, allowedBuckets);
+  const hasEstimate = forcePending
+    ? false
+    : allowedBuckets
+      ? conditionPrices.length > 0
+      : hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
   const regionalPolicy = ebayRegionalSearchPolicy(game.region);
   const hasDeliveryEstimate = conditionPrices.some((entry) => entry.totalToSpain != null);
 
@@ -34,7 +49,11 @@ export function GamePriceHero({ game, regionLabelOverride, pendingMessage }: Pro
     : null;
 
   if (!hasEstimate) {
-    if (hasJapanRetailReference(game)) {
+    if (
+      !forcePending &&
+      (!allowedBuckets || allowedBuckets.includes("newRetail")) &&
+      hasJapanRetailReference(game)
+    ) {
       const retailPrice = bestJapanRetailPrice(game);
       const updatedAt = latestJapanRetailMatchedAt(game);
       const retailUpdatedLabel = updatedAt
