@@ -36,9 +36,15 @@ export function PhysicalEditionPriceSwitcher({
     const rail = optionsRailRef.current;
     const option = optionRefs.current.get(selectedId);
     if (!rail || !option) return;
+    const railRect = rail.getBoundingClientRect();
+    const optionRect = option.getBoundingClientRect();
     rail.scrollTo({
       behavior: "smooth",
-      left: option.offsetLeft - (rail.clientWidth - option.offsetWidth) / 2,
+      left:
+        rail.scrollLeft +
+        optionRect.left -
+        railRect.left -
+        (rail.clientWidth - optionRect.width) / 2,
     });
   }, [selectedId]);
 
