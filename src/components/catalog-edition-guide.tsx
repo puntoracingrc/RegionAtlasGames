@@ -277,8 +277,11 @@ function PhysicalEditionRow({
     return game ? [game] : [];
   })[0];
   const priceRows = linkedCatalogGame
-    ? catalogConditionPriceRows(linkedCatalogGame).filter((row) => row.price != null)
-    : [];
+    ? catalogConditionPriceRows(linkedCatalogGame).filter((row) => row.condition !== "loose")
+    : [
+        { condition: "sealed" as const, label: "Precintado" as const, price: null },
+        { condition: "complete" as const, label: "Completo" as const, price: null },
+      ];
   const collectionCatalogId = linkedCatalogGame?.id ?? family?.representativeCatalogId;
   const ownedCount = actionState?.ownedCount ?? 0;
   const documentedRegions = edition.marketRegions.length
@@ -318,7 +321,22 @@ function PhysicalEditionRow({
       </div>
 
       <div className="mt-3 grid gap-4 sm:grid-cols-[132px_minmax(0,1fr)]">
-        <PhysicalEditionImageGallery images={galleryImages} title={edition.label} />
+        <div className="min-w-0">
+          <PhysicalEditionImageGallery images={galleryImages} title={edition.label} />
+          <dl className="mt-3 divide-y divide-border/60 border-y border-border/70 text-xs">
+            {priceRows.map((row) => (
+              <div
+                key={row.condition}
+                className="flex items-baseline justify-between gap-2 py-2 first:pt-0 last:pb-0"
+              >
+                <dt className="font-semibold text-foreground">{row.label}</dt>
+                <dd className="shrink-0 font-semibold text-muted">
+                  {row.price == null ? "Pendiente" : formatEur(row.price)}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
         <div className="min-w-0">
           <dl className="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2">
             {edition.packagingLanguages.length ? <Fact label="Idiomas del packaging" value={edition.packagingLanguages.join(" / ")} /> : null}
@@ -326,12 +344,6 @@ function PhysicalEditionRow({
             {edition.barcode ? <Fact label="EAN / UPC / JAN" value={edition.barcode} mono /> : null}
             {edition.catalogNumber ? <Fact label="Referencia del soporte" value={edition.catalogNumber} mono /> : null}
             {edition.boxCode ? <Fact label="Código de caja" value={edition.boxCode} mono /> : null}
-            <Fact
-              label={terminology === "edition" ? "Precio de esta edición" : "Precio de esta variante"}
-              value={priceRows.length
-                ? priceRows.map((row) => `${row.label}: ${formatEur(row.price)}`).join(" · ")
-                : "Pendiente"}
-            />
           </dl>
 
           {edition.dimensions ? <DimensionsComparison dimensions={edition.dimensions} /> : null}
