@@ -1,10 +1,10 @@
 {
   "beforeCommit": "ba500138cc54b292e237d7977a0d152ca23f3779",
-  "reason": "Escaneos propios Resident Evil y enmiendas previas; corrección de apóstrofo en Assassin’s Creed, retirada de nueve duplicados PS4 PAL España mediante alias y piloto V2 de Absolum con URLs canónicas y ficha lógica compartida. IDs, imágenes escaneadas, precios y copias de usuarios conservados.",
+  "reason": "Escaneos propios Resident Evil y enmiendas previas; corrección de apóstrofo en Assassin’s Creed, retirada de nueve duplicados PS4 PAL España mediante alias, piloto V2 de Absolum con URLs canónicas y ficha lógica compartida, y cuatro reediciones japonesas de Assassin’s Creed PS3 respaldadas documentalmente. IDs existentes, imágenes escaneadas, precios y copias de usuarios conservados.",
   "files": {
     "data/catalog.json": {
       "beforeSha256": "ffafa7d7109bfb80fdbd0fabd9954278a6762b4907d5aed52c521b92b439ffc1",
-      "afterSha256": "bc1f8775bb45e3311b924c99632644834b8cfa559d5b13a4d7a25a18569a18fb",
+      "afterSha256": "88e93523992e05405a1b3227feeca26642564bd0954d2c55fc2230339e0168ce",
       "changedKeys": [
         "ds-assassin%27s-creed-altair%27s-chronicles",
         "ds-assassin%27s-creed-ii-discovery",
@@ -68,6 +68,10 @@
         "ps3-assassin%27s-creed-rogue-collector%27s-edition",
         "ps3-assassin%27s-creed-rogue-essentials",
         "ps3-assassin%27s-creed-rogue-not-for-resale",
+        "ps3-japon-assassin%27s-creed-connor-saga-ubi-the-best",
+        "ps3-japon-assassin%27s-creed-iii-ubi-the-best",
+        "ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best",
+        "ps3-japon-assassin%27s-creed-rogue-ubi-the-best",
         "ps3-playstation-3-super-slim-500gb-assassin%27s-creed-iv-black-flag-bundle",
         "ps3-usa-assassins-creed-iii-special-edition",
         "ps3-usa-assassins-creed-iv-black-flag-steelbook-edition",
@@ -203,7 +207,7 @@
     },
     "data/meta.json": {
       "beforeSha256": "86a01f1bc3610bddb9164a37f1c5e91d71c743b1932bc7a330367d259d262c72",
-      "afterSha256": "a3c586e3574ad3247d510f66853ab028cd5b62a2819401175028a72a53a1d53a",
+      "afterSha256": "622224349e0fbfcc7e78c1c7083d0bf360daf909577fd0cd6b8f2c64bf492822",
       "changedKeys": []
     },
     "data/catalog-id-aliases.json": {
