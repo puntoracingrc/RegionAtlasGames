@@ -212,7 +212,7 @@ function PhysicalEditionGuide({
           </nav>
         ) : null}
 
-        <div className="mt-5 divide-y divide-border border-y border-border">
+        <div className="mt-5 overflow-hidden rounded-md border border-border/80">
           {regions.map((region) => {
             const editions = visibleEditions.filter((edition) => edition.broadRegion === region);
             return (
@@ -220,10 +220,12 @@ function PhysicalEditionGuide({
                 key={region}
                 id={catalogPhysicalEditionBroadRegionAnchorId(region)}
                 data-broad-region={region}
-                className="relative scroll-mt-28 py-5 pl-5 outline-none transition-colors target:bg-accent/5 target:outline target:outline-2 target:outline-accent/50 first:pt-4"
+                className="catalog-region-surface relative scroll-mt-28 border-b border-border/80 px-5 py-6 outline-none transition-colors last:border-b-0 target:outline target:outline-2 target:outline-accent/50"
               >
                 <RegionRail identity={region} />
-                <h3 className="mb-2 text-lg font-bold text-foreground">{catalogBroadRegionLabel(region)}</h3>
+                <h3 className="mb-3 border-b border-border/60 pb-3 text-lg font-bold text-foreground">
+                  {catalogBroadRegionLabel(region)}
+                </h3>
                 <div className="divide-y divide-border/70">
                   {editions.map((edition) => (
                     <PhysicalEditionRow

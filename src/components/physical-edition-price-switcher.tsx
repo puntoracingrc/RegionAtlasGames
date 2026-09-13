@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { RegionFlag } from "@/components/region-flag";
 import { cn } from "@/lib/cn";
@@ -26,17 +26,24 @@ export function PhysicalEditionPriceSwitcher({
     ? initialEditionId!
     : options[0]?.id;
   const [selectedId, setSelectedId] = useState(initial);
+  const optionsRailRef = useRef<HTMLDivElement>(null);
+  const optionRefs = useRef(new Map<string, HTMLButtonElement>());
   const selectedIndex = Math.max(0, options.findIndex((option) => option.id === selectedId));
   const selected = options[selectedIndex];
+
+  useEffect(() => {
+    if (!selectedId) return;
+    const rail = optionsRailRef.current;
+    const option = optionRefs.current.get(selectedId);
+    if (!rail || !option) return;
+    rail.scrollTo({
+      behavior: "smooth",
+      left: option.offsetLeft - (rail.clientWidth - option.offsetWidth) / 2,
+    });
+  }, [selectedId]);
+
   if (!selected) return null;
   if (options.length === 1) return selected.content;
-
-  const broadRegions = [...new Map(
-    options.map((option) => [option.broadRegion, option.broadRegionLabel]),
-  )];
-  const regionalOptions = options.filter(
-    (option) => option.broadRegion === selected.broadRegion,
-  );
 
   function move(offset: number) {
     const nextIndex = (selectedIndex + offset + options.length) % options.length;
@@ -46,15 +53,7 @@ export function PhysicalEditionPriceSwitcher({
   return (
     <section aria-label="Precios por edición física" className="space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase text-muted">Precios por edición</p>
-          <div className="mt-1 flex flex-wrap items-center gap-2">
-            <p className="text-sm font-semibold text-foreground">{selected.label}</p>
-            {selected.regions.map((region) => (
-              <RegionFlag key={region} region={region} size="xs" showLabel labelMode="short" />
-            ))}
-          </div>
-        </div>
+        <p className="text-xs font-semibold uppercase text-muted">Precios por edición</p>
         <div className="flex shrink-0 items-center gap-2">
           <span className="text-xs tabular-nums text-muted">
             {selectedIndex + 1} / {options.length}
@@ -80,70 +79,74 @@ export function PhysicalEditionPriceSwitcher({
         </div>
       </div>
 
-      {broadRegions.length > 1 ? (
-        <div role="tablist" aria-label="Región del precio" className="flex flex-wrap gap-2">
-          {broadRegions.map(([region, label]) => {
-            const active = region === selected.broadRegion;
-            const firstEdition = options.find((option) => option.broadRegion === region)!;
-            return (
-              <button
-                key={region}
-                type="button"
-                role="tab"
-                aria-selected={active}
-                aria-controls={`price-panel-${firstEdition.id}`}
-                onClick={() => setSelectedId(firstEdition.id)}
-                className={cn(
-                  "min-h-9 rounded-md border px-3 py-2 text-xs font-semibold transition",
-                  active
-                    ? "border-accent bg-accent text-accent-fg"
-                    : "border-border bg-card text-foreground hover:bg-card-hover",
-                )}
-              >
-                {label}
-              </button>
-            );
-          })}
-        </div>
-      ) : null}
-
-      {regionalOptions.length > 1 ? (
-        <div role="tablist" aria-label="Edición física del precio" className="flex flex-wrap gap-2">
-          {regionalOptions.map((option) => {
-            const active = option.id === selected.id;
-            return (
-              <button
-                key={option.id}
-                type="button"
-                role="tab"
-                aria-selected={active}
-                aria-controls={`price-panel-${option.id}`}
-                onClick={() => setSelectedId(option.id)}
-                className={cn(
-                  "flex min-h-10 min-w-0 items-center gap-2 rounded-md border px-3 py-2 text-left text-xs font-semibold transition",
-                  active
-                    ? "border-accent bg-accent/15 text-foreground"
-                    : "border-border bg-card text-foreground hover:bg-card-hover",
-                )}
-              >
-                <span className="min-w-0">{option.label}</span>
+      <div
+        ref={optionsRailRef}
+        role="tablist"
+        aria-label="Edición física del precio"
+        className="flex snap-x gap-2 overflow-x-auto pb-2 [scrollbar-color:var(--border)_transparent] [scrollbar-width:thin]"
+      >
+        {options.map((option) => {
+          const active = option.id === selected.id;
+          return (
+            <button
+              key={option.id}
+              ref={(node) => {
+                if (node) optionRefs.current.set(option.id, node);
+                else optionRefs.current.delete(option.id);
+              }}
+              id={`price-tab-${option.id}`}
+              data-broad-region={option.broadRegion}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              aria-controls={`price-panel-${option.id}`}
+              onClick={() => setSelectedId(option.id)}
+              className={cn(
+                "catalog-price-option flex min-h-16 w-[17rem] shrink-0 snap-start flex-col justify-center rounded-md border px-3 py-2 text-left transition sm:w-[19rem]",
+                active
+                  ? "border-accent ring-1 ring-inset ring-accent/60"
+                  : "border-border/80 hover:border-foreground/25 hover:brightness-110",
+              )}
+            >
+              <span className="text-[10px] font-semibold uppercase text-muted">
+                {option.broadRegionLabel}
+              </span>
+              <span className="mt-1 flex min-w-0 items-center gap-2">
+                <span className="min-w-0 text-xs font-semibold leading-tight text-foreground">
+                  {option.label}
+                </span>
                 <span className="flex shrink-0 items-center gap-1">
                   {option.regions.map((region) => (
                     <RegionFlag key={region} region={region} size="xs" />
                   ))}
                 </span>
-              </button>
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="overflow-hidden">
+        <div
+          className="flex items-stretch transition-transform duration-300 ease-out motion-reduce:transition-none"
+          style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
+        >
+          {options.map((option) => {
+            const active = option.id === selected.id;
+            return (
+              <div
+                key={option.id}
+                id={`price-panel-${option.id}`}
+                role="tabpanel"
+                aria-labelledby={`price-tab-${option.id}`}
+                aria-hidden={!active}
+                className="w-full shrink-0 [&>section]:h-full"
+              >
+                {option.content}
+              </div>
             );
           })}
         </div>
-      ) : null}
-
-      <div
-        id={`price-panel-${selected.id}`}
-        role="tabpanel"
-        aria-label={`Precio de ${selected.label}`}
-      >
-        {selected.content}
       </div>
     </section>
   );

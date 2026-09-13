@@ -172,6 +172,70 @@ button:disabled,
   background: var(--card-hover);
 }
 
+.catalog-region-surface {
+  background-color: rgb(100 116 139 / 0.035);
+}
+
+.catalog-region-surface[data-broad-region="EUROPE"] {
+  background-color: rgb(37 99 235 / 0.045);
+}
+
+.catalog-region-surface[data-broad-region="NORTH_AMERICA"] {
+  background-color: rgb(190 24 93 / 0.04);
+}
+
+.catalog-region-surface[data-broad-region="ASIA"] {
+  background-color: rgb(217 119 6 / 0.045);
+}
+
+.dark .catalog-region-surface {
+  background-color: rgb(148 163 184 / 0.035);
+}
+
+.dark .catalog-region-surface[data-broad-region="EUROPE"] {
+  background-color: rgb(37 99 235 / 0.075);
+}
+
+.dark .catalog-region-surface[data-broad-region="NORTH_AMERICA"] {
+  background-color: rgb(225 29 72 / 0.065);
+}
+
+.dark .catalog-region-surface[data-broad-region="ASIA"] {
+  background-color: rgb(245 158 11 / 0.06);
+}
+
+.catalog-price-option {
+  background-color: rgb(100 116 139 / 0.04);
+}
+
+.catalog-price-option[data-broad-region="EUROPE"] {
+  background-color: rgb(37 99 235 / 0.06);
+}
+
+.catalog-price-option[data-broad-region="NORTH_AMERICA"] {
+  background-color: rgb(190 24 93 / 0.055);
+}
+
+.catalog-price-option[data-broad-region="ASIA"] {
+  background-color: rgb(217 119 6 / 0.06);
+}
+
+.dark .catalog-price-option {
+  background-color: rgb(148 163 184 / 0.045);
+}
+
+.dark .catalog-price-option[data-broad-region="EUROPE"] {
+  background-color: rgb(37 99 235 / 0.09);
+}
+
+.dark .catalog-price-option[data-broad-region="NORTH_AMERICA"] {
+  background-color: rgb(225 29 72 / 0.08);
+}
+
+.dark .catalog-price-option[data-broad-region="ASIA"] {
+  background-color: rgb(245 158 11 / 0.075);
+}
+
 /* Contornos épicos para rareza / top / combo */
 .card-glow {
   border-color: transparent !important;

@@ -83,7 +83,7 @@ export function GamePriceHero({
     }
 
     return (
-      <section className="rounded-2xl border border-dashed border-border bg-card/60 p-6 text-center">
+      <section className="flex min-h-64 flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card/60 p-6 text-center">
         <p className="text-lg font-semibold text-foreground">Precio pendiente</p>
         <p className="mt-2 text-sm text-muted">
           {pendingMessage ?? `Aún no hay datos de reventa verificados para esta edición (${regionLabel}).`}
