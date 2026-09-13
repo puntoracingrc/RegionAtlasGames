@@ -39,6 +39,7 @@ import {
   getCatalogPhysicalEditionPublicIdentity,
   groupCatalogListGames,
 } from "./catalog-physical-edition-browse";
+import { catalogPhysicalEditionHeadingLabel } from "./catalog-physical-edition-display";
 import { buildGameFaq, buildGameJsonLd, buildGameMetadata } from "./catalog-seo";
 import { resolveCatalogGameDetailsCatalogId } from "./catalog-runtime-overlay";
 import { getCompany, getGameDetails } from "./indexes";
@@ -99,6 +100,27 @@ test("edition families expose variant terminology only when alternatives exist",
   assert.equal(catalogEditionFamilyHasVariants(2), true);
   assert.equal(catalogEditionFamilyCountLabel(1), "1 edición física");
   assert.equal(catalogEditionFamilyCountLabel(2), "2 variantes físicas");
+});
+
+test("V2 headings move markets, packaging languages and ratings out of legacy labels", () => {
+  const heading = (
+    label: string,
+    marketRegions: string[],
+    packagingLanguages: string[],
+    ratingSystems: string[],
+  ) => catalogPhysicalEditionHeadingLabel({
+    editionType: "STANDARD",
+    label,
+    marketRegions,
+    packagingLanguages,
+    ratingSystems,
+  });
+
+  assert.equal(heading("Standard · EN / FR / ES · PEGI", ["FR", "ES", "GB"], ["EN", "FR", "ES"], ["PEGI"]), "Standard");
+  assert.equal(heading("Standard · DE · USK", ["DE"], ["DE"], ["USK"]), "Standard");
+  assert.equal(heading("Standard · Hong Kong / Taiwán", ["HK", "TW"], ["ZH"], []), "Standard");
+  assert.equal(heading("Ezio Saga · Ubi the Best · Japón", ["JP"], ["JA"], ["CERO"]), "Ezio Saga · Ubi the Best");
+  assert.equal(heading("Limited Codex Edition", ["ES"], ["ES"], ["PEGI"]), "Limited Codex Edition");
 });
 
 test("regional rails cover every supported flag and keep Italy ready without adding market data", () => {
