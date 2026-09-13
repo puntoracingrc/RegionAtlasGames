@@ -59,7 +59,13 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   serverExternalPackages: ["sharp", "ssh2", "ssh2-sftp-client"],
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      {
+        source: "/herramientas/lleida-2026.html",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }],
+      },
+      { source: "/:path*", headers: securityHeaders },
+    ];
   },
   async redirects() {
     return [
