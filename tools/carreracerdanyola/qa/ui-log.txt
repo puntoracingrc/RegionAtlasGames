@@ -1,0 +1,54 @@
+PASS Initial Nitro category
+PASS 26 base Nitro drivers
+PASS No page errors on load
+PASS No hidden network calls
+PASS Noindex present
+PASS Roster explicitly hypothetical
+PASS Initial winner candidates 11
+PASS Single first place determines Nitro champion
+PASS Occupied position disabled for another driver
+PASS Partial top4 certain from four selectors
+PASS Still 22 missing, no forced filler positions
+PASS Narration names correct runners-up
+PASS Overtake swaps two positions
+PASS Undo restores positions
+PASS Switch to ECO
+PASS ECO has 14 separate drivers
+PASS ECO never inherits Nitro positions
+PASS ECO specific warning about aggregated finals
+PASS Four ECO selectors determine top4
+PASS ECO projected winner Carles
+PASS ECO projected fourth Franco
+PASS Breakdown has C1 C2 C3 only
+PASS Scoring modal displays no bonus and 3 rounds
+PASS Cristian title path single row
+PASS Cristian title path Joao third or worse
+PASS Storage rehydration restores current category
+PASS Storage rehydration restores positions
+PASS Nitro still holds its four places
+PASS Roster can remove a historical driver
+PASS Inactive driver retains original point
+PASS Initial guide disabled after roster change
+PASS New driver added
+PASS New driver has exactly two empty historical rounds
+PASS New driver has own physical position
+PASS Incomplete full closure disabled
+PASS Rejects Lleida backup without data changes
+PASS Both categories remain after bad import
+PASS Different storage key never overwrites Lleida
+PASS Custom driver survives Storage rehydration
+PASS Complete all results makes final eligible
+PASS Final closure records final mode
+PASS Final closure restored from Storage adapter
+PASS Closing ECO does not close Nitro
+PASS NITRO 390px no horizontal overflow
+PASS NITRO 390px tabs visible
+PASS ECO 390px no horizontal overflow
+PASS ECO 390px tabs visible
+PASS NITRO 360px no horizontal overflow
+PASS NITRO 360px tabs visible
+PASS ECO 360px no horizontal overflow
+PASS ECO 360px tabs visible
+PASS No runtime errors in entire workflow
+PASS No external network requests in entire workflow
+TOTAL UI CHECKS: 53
