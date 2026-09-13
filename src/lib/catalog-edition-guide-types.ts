@@ -128,6 +128,7 @@ export type CatalogEditionSource = {
 
 export type CatalogEditionImage = {
   key: string;
+  placement?: "GALLERY" | "CONTENTS";
   url: string;
   thumbnailUrl: string;
   width: number;

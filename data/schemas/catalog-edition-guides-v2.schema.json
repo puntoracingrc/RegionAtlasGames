@@ -33,6 +33,7 @@
       "required": ["key", "url", "thumbnailUrl", "width", "height", "caption"],
       "properties": {
         "key": { "type": "string", "minLength": 1 },
+        "placement": { "enum": ["GALLERY", "CONTENTS"] },
         "url": { "type": "string", "minLength": 1 },
         "thumbnailUrl": { "type": "string", "minLength": 1 },
         "width": { "type": "integer", "minimum": 1 },

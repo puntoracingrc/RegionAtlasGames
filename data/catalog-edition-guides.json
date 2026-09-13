@@ -216,6 +216,7 @@
           "sharedDiscId": "absolum-ps5-europe-disc",
           "catalogIds": ["ps5-absolum-special-edition"],
           "scanSetIds": ["ps5-absolum-special-edition"],
+          "imageKeys": ["absolum-special-official-contents"],
           "evidenceIds": ["absolum-special-box-scan", "absolum-shared-disc-owner-confirmation", "absolum-publisher-contents"],
           "includesEditionIds": ["absolum-ps5-europe-standard-en-fr-es"],
           "containsCatalogIds": ["ps5-absolum"],
@@ -359,6 +360,25 @@
         }
       ],
       "images": [
+        {
+          "key": "absolum-special-official-contents",
+          "placement": "CONTENTS",
+          "url": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-special-contents.webp",
+          "thumbnailUrl": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-special-contents-mini.webp",
+          "width": 1600,
+          "height": 900,
+          "caption": "Vista oficial del contenido de Absolum Special Edition",
+          "evidenceType": "PUBLISHER_MOCKUP",
+          "sha256": "cd3ef7c75c4c5ba5ea71ffc537efa7e7d81650f04457fde8f42c0cf0e63bf916",
+          "thumbnailSha256": "546bc82c70101025ca9bbc55afbe032ed393e0c89bf4eb4264017261f7aa55c3",
+          "originalUrl": "https://direct.silverliningint.com/cdn/shop/files/PS5_e9e0cc6e-63fc-446c-ac4d-b65fe9e88b24.png?v=1760524296&width=1946",
+          "originalWidth": 1920,
+          "originalHeight": 1080,
+          "originalSha256": "547d3e83c6cbb436073a81e72ce13b9283649d6b2e9be36e7de4233741650c6e",
+          "sourceUrl": "https://direct.silverliningint.com/cdn/shop/files/PS5_e9e0cc6e-63fc-446c-ac4d-b65fe9e88b24.png?v=1760524296&width=1946",
+          "sourcePageUrl": "https://direct.silverliningint.com/products/absolum-special-edition-ps5",
+          "inspectedAt": "2026-09-14"
+        },
         {
           "key": "absolum-standard-de-usk-cover",
           "url": "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-standard-de-usk.webp",

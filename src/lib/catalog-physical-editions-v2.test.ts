@@ -273,6 +273,12 @@ test("Absolum models seven editions, three broad regions and one shared European
   assert.ok(special.physicalContents.includes("4 pins metálicos"));
   assert.deepEqual(special.digitalContents, ["Banda sonora digital"]);
   assert.ok(special.evidence.some((entry) => entry.type === "PUBLISHER_DOCUMENTATION"));
+  const contentsImage = special.images.find((image) => image.placement === "CONTENTS");
+  assert.equal(contentsImage?.evidenceType, "PUBLISHER_MOCKUP");
+  assert.equal(
+    contentsImage?.url,
+    "/catalog-covers/ps5/ediciones-documentadas/absolum/absolum-special-contents.webp",
+  );
   assert.deepEqual(
     [special.dimensions?.widthCm, special.dimensions?.heightCm, special.dimensions?.depthCm],
     [14.8, 22.3, 3.2],

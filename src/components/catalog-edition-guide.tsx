@@ -136,7 +136,7 @@ function physicalEditionGalleryImages(edition: CatalogPhysicalEdition): Physical
   }
 
   for (const image of edition.images) {
-    if (!isStrongPhysicalEvidence(image.evidenceType)) continue;
+    if (!isStrongPhysicalEvidence(image.evidenceType) && image.placement !== "CONTENTS") continue;
     add({
       id: image.key,
       src: image.url,
@@ -314,6 +314,7 @@ function PhysicalEditionRow({
     const target = getCatalogGame(id);
     return target ? [target] : [];
   });
+  const contentsImage = edition.images.find((image) => image.placement === "CONTENTS");
   return (
     <article
       id={edition.id}
@@ -430,42 +431,58 @@ function PhysicalEditionRow({
 
       {edition.dimensions ? <DimensionsComparison dimensions={edition.dimensions} /> : null}
 
-      {includedEditions.length || containedGames.length || edition.physicalContents.length || edition.digitalContents.length ? (
-        <dl className="mt-4 grid grid-cols-1 gap-y-1 border-l-2 border-accent/40 pl-3 text-sm leading-6 sm:grid-cols-[max-content_minmax(0,1fr)] sm:gap-x-2">
-          {includedEditions.length ? (
-            <>
-              <dt className="font-semibold text-foreground">Incluye:</dt>
-              <dd>{includedEditions.join(" · ")}</dd>
-            </>
+      {includedEditions.length || containedGames.length || edition.physicalContents.length || edition.digitalContents.length || contentsImage ? (
+        <div className="mt-4 grid gap-4 border-l-2 border-accent/40 pl-3 md:grid-cols-[minmax(0,0.85fr)_minmax(18rem,1.15fr)] md:items-start">
+          <dl className="grid grid-cols-1 gap-y-1 text-sm leading-6 sm:grid-cols-[max-content_minmax(0,1fr)] sm:gap-x-2 md:grid-cols-1 md:gap-x-0 lg:grid-cols-[max-content_minmax(0,1fr)] lg:gap-x-2">
+            {includedEditions.length ? (
+              <>
+                <dt className="font-semibold text-foreground">Incluye:</dt>
+                <dd>{includedEditions.join(" · ")}</dd>
+              </>
+            ) : null}
+            {containedGames.length ? (
+              <>
+                <dt className="font-semibold text-foreground">Juegos incluidos:</dt>
+                <dd>
+                  {containedGames.map((game, index) => (
+                    <span key={game.id}>
+                      {index ? " · " : ""}
+                      <Link href={catalogGamePath(game)} prefetch={false} className="text-primary underline-offset-4 hover:underline">
+                        {game.title}
+                      </Link>
+                    </span>
+                  ))}
+                </dd>
+              </>
+            ) : null}
+            {edition.physicalContents.length ? (
+              <>
+                <dt className="font-semibold text-foreground">Contenido físico:</dt>
+                <dd>{edition.physicalContents.join(" · ")}</dd>
+              </>
+            ) : null}
+            {edition.digitalContents.length ? (
+              <>
+                <dt className="font-semibold text-foreground">Contenido digital:</dt>
+                <dd>{edition.digitalContents.join(" · ")}</dd>
+              </>
+            ) : null}
+          </dl>
+          {contentsImage ? (
+            <figure className="min-w-0">
+              <Image
+                unoptimized
+                src={contentsImage.url}
+                width={contentsImage.width}
+                height={contentsImage.height}
+                alt={contentsImage.caption}
+                sizes="(min-width: 768px) 420px, 100vw"
+                className="h-auto w-full rounded-sm border border-border/70 bg-background object-contain"
+              />
+              <figcaption className="mt-1 text-xs text-muted">{contentsImage.caption}</figcaption>
+            </figure>
           ) : null}
-          {containedGames.length ? (
-            <>
-              <dt className="font-semibold text-foreground">Juegos incluidos:</dt>
-              <dd>
-                {containedGames.map((game, index) => (
-                  <span key={game.id}>
-                    {index ? " · " : ""}
-                    <Link href={catalogGamePath(game)} prefetch={false} className="text-primary underline-offset-4 hover:underline">
-                      {game.title}
-                    </Link>
-                  </span>
-                ))}
-              </dd>
-            </>
-          ) : null}
-          {edition.physicalContents.length ? (
-            <>
-              <dt className="font-semibold text-foreground">Contenido físico:</dt>
-              <dd>{edition.physicalContents.join(" · ")}</dd>
-            </>
-          ) : null}
-          {edition.digitalContents.length ? (
-            <>
-              <dt className="font-semibold text-foreground">Contenido digital:</dt>
-              <dd>{edition.digitalContents.join(" · ")}</dd>
-            </>
-          ) : null}
-        </dl>
+        </div>
       ) : null}
 
       {edition.variants.length ? (
@@ -492,7 +509,7 @@ function DimensionsComparison({ dimensions }: { dimensions: NonNullable<CatalogP
   const formatCm = (value: number) => `${value.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} cm`;
   return (
     <div className="mt-4 border-y border-border/70 py-3">
-      <div className="grid w-full grid-cols-1 items-center gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(14rem,1fr)] sm:gap-6">
+      <div className="grid w-full grid-cols-1 items-center gap-4 sm:grid-cols-[minmax(7.5rem,0.55fr)_minmax(17rem,1.45fr)]">
         {dimensions.comparisonImageUrl ? (
           <div className="w-full max-w-56 justify-self-center">
             <Image
@@ -507,23 +524,34 @@ function DimensionsComparison({ dimensions }: { dimensions: NonNullable<CatalogP
         ) : null}
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase text-muted">Medidas exteriores {dimensions.approximate ? "aproximadas" : ""}</p>
-          <dl className="mt-2 divide-y divide-border/60 text-sm">
-            <Dimension label="Ancho" value={formatCm(dimensions.widthCm)} />
-            <Dimension label="Alto" value={formatCm(dimensions.heightCm)} />
-            <Dimension label="Profundidad" value={formatCm(dimensions.depthCm)} />
-          </dl>
+          <table className="mt-2 w-full table-fixed text-sm">
+            <caption className="sr-only">Comparación de las medidas exteriores de la caja Special y una caja estándar</caption>
+            <thead>
+              <tr className="text-left text-xs font-semibold text-muted">
+                <th scope="col" className="w-[42%] pb-2 pr-3"><span className="sr-only">Medida</span></th>
+                <th scope="col" className="pb-2 pr-3 text-right">Caja Special</th>
+                {dimensions.comparison ? <th scope="col" className="pb-2 text-right">Caja estándar</th> : null}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border/60">
+              <Dimension label="Ancho" value={formatCm(dimensions.widthCm)} comparisonValue={dimensions.comparison ? formatCm(dimensions.comparison.widthCm) : undefined} />
+              <Dimension label="Alto" value={formatCm(dimensions.heightCm)} comparisonValue={dimensions.comparison ? formatCm(dimensions.comparison.heightCm) : undefined} />
+              <Dimension label="Profundidad" value={formatCm(dimensions.depthCm)} comparisonValue={dimensions.comparison ? formatCm(dimensions.comparison.depthCm) : undefined} />
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   );
 }
 
-function Dimension({ label, value }: { label: string; value: string }) {
+function Dimension({ label, value, comparisonValue }: { label: string; value: string; comparisonValue?: string }) {
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-3 py-2 first:pt-0 last:pb-0">
-      <dt className="font-semibold text-foreground">{label}</dt>
-      <dd className="whitespace-nowrap text-muted">{value}</dd>
-    </div>
+    <tr>
+      <th scope="row" className="py-2 pr-3 text-left font-semibold text-foreground">{label}</th>
+      <td className="whitespace-nowrap py-2 pr-3 text-right text-muted">{value}</td>
+      {comparisonValue ? <td className="whitespace-nowrap py-2 text-right text-muted">{comparisonValue}</td> : null}
+    </tr>
   );
 }
 
