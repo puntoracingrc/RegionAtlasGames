@@ -359,7 +359,7 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
   const europe = filterCatalogGames(grouped, { ...defaultFilters, broadRegion: "EUROPE" }, { platforms: true, regions: true });
   assert.deepEqual(europe.items.map((game) => game.id).sort(), ["ps5-absolum", "ps5-absolum-special-edition"]);
   const marketFilterExpectations = new Map<string, string[]>([
-    ["ES", ["ps5-absolum", "ps5-absolum-special-edition"]],
+    ["ES", ["ps5-absolum"]],
     ["FR", ["ps5-absolum"]],
     ["GB", ["ps5-absolum"]],
     ["DE", ["ps5-absolum"]],
@@ -378,6 +378,26 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
     );
     assert.deepEqual(filtered.items.map((game) => game.id).sort(), expectedIds, `filter ${marketCode}`);
   }
+
+  const palEurope = filterCatalogGames(
+    grouped,
+    { ...defaultFilters, region: "PAL Europa" },
+    { platforms: true, regions: true },
+  );
+  assert.deepEqual(
+    palEurope.items.map((game) => game.id).sort(),
+    ["ps5-absolum", "ps5-absolum-special-edition"],
+  );
+
+  const europeanGroup = filterCatalogGames(
+    grouped,
+    { ...defaultFilters, region: "region-group:europe" },
+    { platforms: true, regions: true },
+  );
+  assert.deepEqual(
+    europeanGroup.items.map((game) => game.id).sort(),
+    ["ps5-absolum", "ps5-absolum-special-edition"],
+  );
 
   const ps5RegionOptions = publicCatalogRegionFilterOptionsForPlatform("ps5").map((option) => option.value);
   for (const marketCode of CATALOG_MARKET_REGION_VALUES) {

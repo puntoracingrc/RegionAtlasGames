@@ -279,10 +279,38 @@ function matchesSlugFilter(slugs: string[] | undefined, selected: string | undef
 }
 
 function matchesLegacyRegion(game: CatalogListGame, region: string): boolean {
-  const candidateRegions = game.physicalEditionGroup
-    ? [...new Set([...game.physicalEditionGroup.marketRegions, ...game.physicalEditionGroup.legacyRegions])]
-    : [game.region];
   const group = selectedRegionGroup(region);
+  if (game.physicalEditionGroup) {
+    if (group) {
+      const broadRegionGroup: Record<CatalogBroadRegion, ReturnType<typeof regionNavigationGroup>> = {
+        EUROPE: "europe",
+        NORTH_AMERICA: "america",
+        ASIA: "asia",
+        OTHER: "other",
+      };
+      return game.physicalEditionGroup.broadRegions.some(
+        (candidateRegion) => broadRegionGroup[candidateRegion.value] === group.id,
+      );
+    }
+
+    const selectedDisplay = getRegionDisplay(region);
+    const broadRegion = selectedDisplay.shortLabel === "EU"
+      ? "EUROPE"
+      : selectedDisplay.shortLabel === "ASIA"
+        ? "ASIA"
+        : undefined;
+    if (broadRegion) {
+      return game.physicalEditionGroup.broadRegions.some((entry) => entry.value === broadRegion);
+    }
+
+    return game.physicalEditionGroup.marketRegions.some((marketRegion) => {
+      const legacyRegion = catalogMarketRegionToLegacyRegion(marketRegion);
+      return getRegionDisplay(legacyRegion).label === region ||
+        publicRegionLabelForPlatform(game.platformSlug, legacyRegion) === region;
+    });
+  }
+
+  const candidateRegions = [game.region];
   return candidateRegions.some((candidateRegion) => {
     const legacyRegion = catalogMarketRegionToLegacyRegion(candidateRegion);
     const standardLabel = getRegionDisplay(legacyRegion).label;
