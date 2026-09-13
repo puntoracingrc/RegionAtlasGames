@@ -3,7 +3,7 @@ import { ShoppingCart } from "lucide-react";
 import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogListGame, CollectionView } from "@/lib/types";
-import { catalogGamePath } from "@/lib/catalog-path";
+import { catalogGamePathWithEbayRegion } from "@/lib/catalog-ebay-region";
 import { collectionCatalogPath } from "@/lib/collection-path";
 import {
   catalogConditionPriceRows,
@@ -125,7 +125,10 @@ export function CatalogGameCard({
 
   return (
     <div className={cn(cardBase, gameCardHighlightClass(owned, grail, topSegment))}>
-      <IntentLink href={catalogGamePath(game)} className="flex flex-1 flex-col">
+      <IntentLink
+        href={catalogGamePathWithEbayRegion(game, activeRegion)}
+        className="flex flex-1 flex-col"
+      >
         <CoverSlot
           image={getCoverSrc(game.coverUrl, game.id)}
           title={decodeHtmlEntities(game.title)}

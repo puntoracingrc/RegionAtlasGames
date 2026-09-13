@@ -40,7 +40,7 @@ import {
   type CatalogPhysicalEditionType,
   type CatalogPhysicalFilterOptions,
 } from "@/lib/catalog-edition-guide-types";
-import { catalogGamePath } from "@/lib/catalog-path";
+import { catalogGamePathWithEbayRegion } from "@/lib/catalog-ebay-region";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { getCoverSrc } from "@/lib/cover-url";
@@ -95,7 +95,7 @@ function CatalogCompactRow({
       data-catalog-list-row={game.id}
     >
       <IntentLink
-        href={catalogGamePath(game)}
+        href={catalogGamePathWithEbayRegion(game, activeRegion)}
         className="group grid min-w-0 flex-1 grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 px-1 py-2 sm:grid-cols-[48px_minmax(0,1fr)_minmax(110px,auto)_minmax(120px,auto)] sm:px-2"
       >
         <div className="flex h-14 w-11 items-center justify-center overflow-hidden border border-border bg-card">

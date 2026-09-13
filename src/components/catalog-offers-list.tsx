@@ -25,6 +25,11 @@ import {
 } from "@/lib/catalog-offer-sort";
 import { AFFILIATE_DISCLOSURE_COMPACT_TEXT } from "@/lib/affiliate/disclosure";
 import { ebayOfferCountryPriority } from "@/lib/affiliate/ebay-offer-priority";
+import {
+  CATALOG_EBAY_REGION_PARAM,
+  type CatalogEbayRegionOption,
+} from "@/lib/catalog-ebay-region";
+import { RegionFlag } from "@/components/region-flag";
 import type { ApproximateListingLocation, ListingSaleOptions } from "@/lib/marketplace-types";
 import { formatEurCents } from "@/lib/price-format";
 
@@ -45,6 +50,8 @@ type Props = {
   catalogId: string;
   marketplaceOffers: MarketplaceCatalogOffer[];
   canContact: boolean;
+  ebayRegionOptions?: CatalogEbayRegionOption[];
+  initialEbayRegion?: string;
 };
 
 type AffiliateOffersResponse = {
@@ -108,16 +115,36 @@ function distanceLabel(distance: number): string {
   return `~${Math.round(distance)} km`;
 }
 
-export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: Props) {
+export function CatalogOffersList({
+  catalogId,
+  marketplaceOffers,
+  canContact,
+  ebayRegionOptions = [],
+  initialEbayRegion,
+}: Props) {
+  const defaultEbayRegion = ebayRegionOptions.some(
+    (option) => option.value === initialEbayRegion,
+  )
+    ? initialEbayRegion!
+    : ebayRegionOptions.find((option) => option.value === "ES")?.value
+      ?? ebayRegionOptions[0]?.value
+      ?? "";
   const [affiliateState, setAffiliateState] = useState<AffiliateState>({ status: "loading" });
   const [sortMode, setSortMode] = useState<CatalogOfferSortMode>("price");
   const [buyerLocation, setBuyerLocation] = useState<OfferCoordinates | null>(null);
   const [locationStatus, setLocationStatus] = useState<"idle" | "loading" | "denied">("idle");
   const [showAllOnSmallScreens, setShowAllOnSmallScreens] = useState(false);
+  const [selectedEbayRegion, setSelectedEbayRegion] = useState(defaultEbayRegion);
+  const selectedEbayRegionOption = ebayRegionOptions.find(
+    (option) => option.value === selectedEbayRegion,
+  );
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch(`/api/catalog/offers/${encodeURIComponent(catalogId)}`, {
+    const query = new URLSearchParams();
+    if (selectedEbayRegion) query.set(CATALOG_EBAY_REGION_PARAM, selectedEbayRegion);
+    const suffix = query.size ? `?${query.toString()}` : "";
+    fetch(`/api/catalog/offers/${encodeURIComponent(catalogId)}${suffix}`, {
       signal: controller.signal,
       headers: { Accept: "application/json" },
     })
@@ -130,7 +157,7 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
         if (!controller.signal.aborted) setAffiliateState({ status: "error" });
       });
     return () => controller.abort();
-  }, [catalogId]);
+  }, [catalogId, selectedEbayRegion]);
 
   const affiliateOffers = useMemo(
     () => (affiliateState.status === "ready" ? affiliateState.data.offers : []),
@@ -194,6 +221,18 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
     );
   }
 
+  function selectEbayRegion(region: string) {
+    setAffiliateState({ status: "loading" });
+    setSelectedEbayRegion(region);
+    const url = new URL(window.location.href);
+    url.searchParams.set(CATALOG_EBAY_REGION_PARAM, region);
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${url.pathname}${url.search}${url.hash}`,
+    );
+  }
+
   return (
     <section id="ofertas" className="scroll-mt-24 overflow-hidden rounded-lg border border-border/80 bg-card/90 shadow-sm shadow-black/5 dark:shadow-black/20">
       {affiliateState.status === "ready" && affiliateState.data.ebayImpressionPixelUrl ? (
@@ -215,7 +254,7 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
             {marketplaceOffers.length} de usuarios
             {affiliateState.status === "ready" ? ` · ${affiliateOffers.length} externas` : ""}
           </p>
-          {preferredLocation && affiliateOffers.some(offer => offer.provider === "ebay") ? (
+          {ebayRegionOptions.length <= 1 && preferredLocation && affiliateOffers.some(offer => offer.provider === "ebay") ? (
             <p className="mt-1 text-[11px] text-muted">eBay · Prioridad: {preferredLocation.label}</p>
           ) : null}
         </div>
@@ -250,6 +289,32 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
           />
         </div>
       </div>
+
+      {ebayRegionOptions.length > 1 && selectedEbayRegionOption ? (
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border bg-background/30 px-3 py-2.5">
+          <label
+            htmlFor="catalog-ebay-region"
+            className="text-xs font-semibold text-foreground"
+          >
+            Región de los anuncios de eBay
+          </label>
+          <div className="flex min-w-0 items-center gap-2">
+            <RegionFlag region={selectedEbayRegionOption.region} size="xs" />
+            <select
+              id="catalog-ebay-region"
+              value={selectedEbayRegion}
+              onChange={(event) => selectEbayRegion(event.target.value)}
+              className="h-9 min-w-0 rounded-md border border-border bg-input px-2.5 text-xs font-semibold text-foreground outline-none ring-accent/25 focus:border-accent/50 focus:ring-2"
+            >
+              {ebayRegionOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      ) : null}
 
       {sortMode === "distance" && locationStatus === "denied" ? (
         <p className="border-b border-border bg-amber-500/10 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">

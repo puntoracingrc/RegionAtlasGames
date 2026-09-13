@@ -21,6 +21,11 @@ import { OwnedScansPanel } from "@/components/owned-scans-panel";
 import { CatalogEditionGuide } from "@/components/catalog-edition-guide";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import {
+  catalogEbayRegionOptions,
+  catalogPathWithRequestedEbayRegion,
+  resolveCatalogEbayRegion,
+} from "@/lib/catalog-ebay-region";
+import {
   catalogPhysicalEditionOverviewRegions,
   catalogPhysicalEditionOverviewRegionLinks,
   getCatalogPhysicalEditionPublicIdentity,
@@ -102,7 +107,10 @@ import {
 } from "@/lib/game-detail-display";
 import type { DetailEntity, GameCompanyCreditRole, GameVideo } from "@/lib/types";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
 
 function uniqueDetailEntities(entities: DetailEntity[]): DetailEntity[] {
   const seen = new Set<string>();
@@ -168,19 +176,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function CatalogGamePage({ params }: Props) {
+export default async function CatalogGamePage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const query = await searchParams;
+  const rawEbayRegion = query.ebayRegion;
+  const requestedEbayRegion = Array.isArray(rawEbayRegion) ? rawEbayRegion[0] : rawEbayRegion;
   const routeRedirect = getCatalogRouteRedirect(slug);
   if (routeRedirect) {
     const target = await resolveCatalogGameWithOverlay(routeRedirect.targetCatalogId);
-    if (target && isPublicCatalogGame(target)) permanentRedirect(catalogGamePath(target));
+    if (target && isPublicCatalogGame(target)) {
+      permanentRedirect(catalogPathWithRequestedEbayRegion(
+        catalogGamePath(target),
+        requestedEbayRegion,
+      ));
+    }
   }
   const game = await resolveCatalogGameWithOverlay(slug);
   if (!game || !isPublicCatalogGame(game)) notFound();
 
   const canonicalSlug = buildCatalogSeoSlug(game);
   if (slug !== canonicalSlug) {
-    permanentRedirect(catalogGamePath(game));
+    permanentRedirect(catalogPathWithRequestedEbayRegion(
+      catalogGamePath(game),
+      requestedEbayRegion,
+    ));
   }
 
   const platform = getPlatform(game.platformSlug);
@@ -202,6 +221,17 @@ export default async function CatalogGamePage({ params }: Props) {
   const headerRegions = headerRegionLinks.length
     ? headerRegionLinks.map((entry) => entry.region)
     : [game.region];
+  const ebayRegionOptions = editionGuide?.schemaVersion === 2 && currentEditionFamily
+    ? catalogEbayRegionOptions(headerPhysicalEditions)
+    : [];
+  const currentEbayMarket = currentPhysicalEdition?.marketRegions.length === 1
+    ? currentPhysicalEdition.marketRegions[0]
+    : null;
+  const initialEbayRegion = resolveCatalogEbayRegion(
+    ebayRegionOptions,
+    requestedEbayRegion,
+    currentEbayMarket,
+  );
   const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
     game,
     platform?.shortName ?? game.platformSlug,
@@ -440,7 +470,11 @@ export default async function CatalogGamePage({ params }: Props) {
               />
             )}
 
-            <CatalogMarketplacePanel catalogId={game.id} />
+            <CatalogMarketplacePanel
+              catalogId={game.id}
+              ebayRegionOptions={ebayRegionOptions}
+              initialEbayRegion={initialEbayRegion?.value}
+            />
           </div>
 
           <div className="min-w-0 space-y-5">

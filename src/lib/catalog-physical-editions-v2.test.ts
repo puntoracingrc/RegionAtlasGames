@@ -53,6 +53,12 @@ import {
 import { catalogGameToCollectionItem } from "./collection-store";
 import { conditionPriceEntries } from "./condition-prices";
 import { catalogGamePath } from "./catalog-url";
+import {
+  catalogEbayOfferCacheKey,
+  catalogEbayRegionOptions,
+  catalogGamePathWithEbayRegion,
+  resolveCatalogEbayRegion,
+} from "./catalog-ebay-region";
 import { catalogConditionPriceRows } from "./price-display";
 import {
   CATALOG_REGION_RAIL_CODES,
@@ -153,6 +159,38 @@ test("V2 edition families declare their valid price states and Special excludes 
   assert.deepEqual(
     conditionPriceEntries(pollutedSpecial, special.priceConditions).map((entry) => entry.bucket),
     ["sealed", "newRetail", "complete"],
+  );
+});
+
+test("V2 eBay regions are explicit, default to Spain and preserve the catalog filter", () => {
+  const guide = absolumGuide();
+  const standardFamily = guide.editionFamilies.find((family) => family.id === "standard");
+  assert.ok(standardFamily);
+  const standardEditions = guide.physicalEditions.filter((edition) => (
+    standardFamily.physicalEditionIds.includes(edition.id)
+  ));
+  const options = catalogEbayRegionOptions(standardEditions);
+
+  assert.deepEqual(options.map((option) => option.value), [
+    "FR", "ES", "GB", "DE", "US", "JP", "KR", "HK", "TW",
+  ]);
+  assert.equal(options.find((option) => option.value === "ES")?.catalogId, "ps5-absolum");
+  assert.equal(options.find((option) => option.value === "US")?.catalogId, "ps5-usa-absolum");
+  assert.equal(options.find((option) => option.value === "DE")?.catalogId, undefined);
+  assert.equal(resolveCatalogEbayRegion(options)?.value, "ES");
+  assert.equal(resolveCatalogEbayRegion(options, "US")?.value, "US");
+  assert.equal(resolveCatalogEbayRegion(options, "invalid")?.value, "ES");
+  assert.equal(resolveCatalogEbayRegion(options, null, "US")?.value, "US");
+
+  const standard = groupedAbsolum().find((game) => game.physicalEditionGroup?.editionFamilyId === "standard");
+  assert.ok(standard);
+  assert.match(catalogGamePathWithEbayRegion(standard, "NTSC USA"), /\?ebayRegion=US$/);
+  assert.match(catalogGamePathWithEbayRegion(standard, "PAL España"), /\?ebayRegion=ES$/);
+  assert.doesNotMatch(catalogGamePathWithEbayRegion(standard, "all"), /ebayRegion=/);
+  assert.equal(catalogEbayOfferCacheKey(standard.id, "US"), `${standard.id}:ebay:US`);
+  assert.notEqual(
+    catalogEbayOfferCacheKey(standard.id, "US"),
+    catalogEbayOfferCacheKey(standard.id, "ES"),
   );
 });
 

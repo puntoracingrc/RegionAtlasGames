@@ -155,3 +155,64 @@ test("the real offer service requests and exposes the ficha country with fallbac
     }
   }
 });
+
+test("an empty selected eBay region falls back to valid offers from other origins", async () => {
+  const { getAffiliateOfferBlock } = await import("../affiliate-offers");
+  const { getCatalogGame } = await import("../catalog");
+  const env = {
+    AFFILIATE_OFFERS_ENABLED: "1", EBAY_AFFILIATE_ENABLED: "1", AMAZON_AFFILIATE_ENABLED: "0",
+    AFFILIATE_OFFERS_PRODUCTION_WHITELIST: "false", EBAY_CLIENT_ID: "local-test-id",
+    EBAY_CLIENT_SECRET: "local-test-secret", EBAY_CAMPAIGN_ID: "local-test-campaign",
+    EBAY_AFFILIATE_LIMIT: "6", EBAY_AFFILIATE_PRIORITY_MIN: "3",
+  };
+  const previousEnv = new Map(Object.keys(env).map(key => [key, process.env[key]]));
+  const previousFetch = globalThis.fetch;
+  const previousToken = globalThis.__regionAtlasEbayTokenCache;
+  const previousBackoff = globalThis.__regionAtlasEbayBackoffCache;
+  try {
+    Object.assign(process.env, env);
+    globalThis.__regionAtlasEbayTokenCache = undefined;
+    globalThis.__regionAtlasEbayBackoffCache = undefined;
+    const game = getCatalogGame("ps5-absolum");
+    assert.ok(game);
+    const filters: string[] = [];
+    globalThis.fetch = async input => {
+      const url = new URL(String(input));
+      if (url.pathname.endsWith("/oauth2/token")) {
+        return Response.json({ access_token: "local-test-token", expires_in: 3600 });
+      }
+      const filter = url.searchParams.get("filter") ?? "";
+      filters.push(filter);
+      if (filter.includes("itemLocationCountry:US")) {
+        return Response.json({ itemSummaries: [] });
+      }
+      return Response.json({ itemSummaries: [{
+        itemId: "offer-ES",
+        title: `${game.title} PS5`,
+        itemLocation: { country: "ES" },
+        itemWebUrl: "https://www.ebay.es/itm/offer-ES",
+        itemAffiliateWebUrl: "https://www.ebay.es/itm/offer-ES?campid=local-test",
+        price: { value: "30", currency: "EUR" },
+      }] });
+    };
+
+    const block = await getAffiliateOfferBlock(game, null, { ebayCountry: "US" });
+
+    assert.equal(block.ebayPriorityCountry, "US");
+    assert.deepEqual(filters, [
+      ebayAffiliateSearchFilter("preferred", "US"),
+      ebayAffiliateSearchFilter("expanded", "US"),
+    ]);
+    assert.deepEqual(block.offers.map(offer => [offer.location, offer.marketScope]), [
+      ["ES", "other"],
+    ]);
+  } finally {
+    globalThis.fetch = previousFetch;
+    globalThis.__regionAtlasEbayTokenCache = previousToken;
+    globalThis.__regionAtlasEbayBackoffCache = previousBackoff;
+    for (const [key, value] of previousEnv) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  }
+});
