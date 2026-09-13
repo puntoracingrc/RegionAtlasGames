@@ -5,10 +5,16 @@ import { SiteNav } from "@/components/site-nav";
 import { WishlistGrid, type WishlistCard } from "@/components/wishlist-grid";
 import { readUserCollection } from "@/lib/collection-store";
 import { getCatalogGame, getPlatform, isPublicCatalogGame } from "@/lib/catalog";
+import { getCatalogEditionGuides } from "@/lib/catalog-edition-guides";
+import { isStrongPhysicalEvidence } from "@/lib/catalog-edition-guide-types";
+import { catalogPhysicalEditionOverviewRegions } from "@/lib/catalog-physical-edition-browse";
+import { resolveCatalogPhysicalVariant } from "@/lib/catalog-physical-variant";
+import { getOwnedScanSetById } from "@/lib/catalog-owned-scans";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
 import { getCurrentUser } from "@/lib/users";
 import { readWishlistSales } from "@/lib/wishlist-sales-store";
+import { wishlistIdentityKey } from "@/lib/wishlist-model";
 
 export const metadata: Metadata = { title: "Mis deseados", robots: { index: false, follow: false } };
 
@@ -17,11 +23,38 @@ export default async function WishlistPage() {
   if (!user) redirect("/login?next=%2Fcoleccion%2Fdeseados");
   const file = await readUserCollection(user.id);
   const sales = await readWishlistSales(user.id, file.wishlist ?? []);
-  const saleByGame = new Map(sales.games.map((game) => [game.catalogId, game]));
+  const saleByGame = new Map(sales.games.map((game) => [wishlistIdentityKey(game), game]));
+  const guidesById = new Map(getCatalogEditionGuides().map((guide) => [guide.id, guide]));
   const games: WishlistCard[] = [...(file.wishlist ?? [])].reverse().flatMap((entry) => {
     const game = getCatalogGame(entry.catalogId);
     if (!game || !isPublicCatalogGame(game)) return [];
-    return [{ catalogId: game.id, title: game.title, href: catalogGamePath(game), coverSrc: getCoverSrc(game.coverUrl, game.id), platformSlug: game.platformSlug, platformName: getPlatform(game.platformSlug)?.shortName ?? game.platformSlug, region: game.region, addedAt: entry.addedAt, listingCount: saleByGame.get(game.id)?.listingCount ?? 0, unseenListingKeys: saleByGame.get(game.id)?.unseenListingKeys ?? [] }];
+    const resolved = resolveCatalogPhysicalVariant(game.id, entry.physicalVariantId);
+    const guide = resolved ? guidesById.get(resolved.guideId) : undefined;
+    const edition = guide?.physicalEditions.find((candidate) => candidate.id === resolved?.physicalVariantId);
+    const familyGame = resolved ? getCatalogGame(resolved.representativeCatalogId) : undefined;
+    const scanCover = edition?.scanSetIds.flatMap((id) => {
+      const scans = getOwnedScanSetById(id);
+      return scans ? [scans.primaryCoverUrl] : [];
+    })[0];
+    const evidenceCover = edition?.images.find((image) =>
+      isStrongPhysicalEvidence(image.evidenceType),
+    )?.thumbnailUrl;
+    const sale = saleByGame.get(wishlistIdentityKey(entry));
+    const baseHref = catalogGamePath(familyGame ?? game);
+    return [{
+      catalogId: game.id,
+      ...(entry.physicalVariantId ? { physicalVariantId: entry.physicalVariantId } : {}),
+      ...(resolved?.physicalVariantLabel ? { physicalVariantLabel: resolved.physicalVariantLabel } : {}),
+      title: game.title,
+      href: edition ? `${baseHref}#${edition.id}` : baseHref,
+      coverSrc: getCoverSrc(scanCover ?? evidenceCover ?? game.coverUrl, game.id),
+      platformSlug: game.platformSlug,
+      platformName: getPlatform(game.platformSlug)?.shortName ?? game.platformSlug,
+      regions: edition ? catalogPhysicalEditionOverviewRegions([edition]) : [game.region],
+      addedAt: entry.addedAt,
+      listingCount: sale?.listingCount ?? 0,
+      unseenListingKeys: sale?.unseenListingKeys ?? [],
+    }];
   });
   return <>
     <SiteNav initialUser={user} />

@@ -8,12 +8,14 @@ import type { WishlistSaleUpdate } from "@/lib/wishlist-sales";
 /** A notice is read only after its card is actually visible, never during SSR or prefetch. */
 export function useWishlistSaleViews(root: RefObject<HTMLDivElement | null>, updates: WishlistSaleUpdate[]) {
   const [seen, setSeen] = useState<Set<string>>(() => new Set());
-  const signature = JSON.stringify(updates.filter((game) => game.unseenListingKeys.length).map((game) => ({ catalogId: game.catalogId, listingKeys: game.unseenListingKeys.slice(0, 500) })));
+  const signature = JSON.stringify(updates.filter((game) => game.unseenListingKeys.length).map((game) => ({ catalogId: game.catalogId, physicalVariantId: game.physicalVariantId, listingKeys: game.unseenListingKeys.slice(0, 500) })));
 
   useEffect(() => {
-    const views = JSON.parse(signature) as { catalogId: string; listingKeys: string[] }[];
+    const views = JSON.parse(signature) as { catalogId: string; physicalVariantId?: string; listingKeys: string[] }[];
     if (!root.current || !views.length) return;
-    const byGame = new Map(views.map((view) => [view.catalogId, view]));
+    const viewKey = (view: { catalogId: string; physicalVariantId?: string }) =>
+      view.physicalVariantId ? `physical:${view.physicalVariantId}` : `catalog:${view.catalogId}`;
+    const byGame = new Map(views.map((view) => [viewKey(view), view]));
     const pending = new Map<string, typeof views[number]>();
     const timers = new Map<Element, number>();
     const controller = new AbortController();
@@ -44,7 +46,7 @@ export function useWishlistSaleViews(root: RefObject<HTMLDivElement | null>, upd
         timers.set(target, window.setTimeout(() => {
           timers.delete(target);
           if (document.visibilityState !== "visible" || !target.isConnected) return;
-          pending.set(view.catalogId, view);
+          pending.set(viewKey(view), view);
           if (flushTimer) window.clearTimeout(flushTimer);
           flushTimer = window.setTimeout(flush, 100);
           observer.unobserve(target);

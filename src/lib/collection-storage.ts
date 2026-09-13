@@ -51,10 +51,10 @@ function emptyCollection(userId: string): UserCollectionFile {
 function parseCollection(raw: string, userId: string): UserCollectionFile {
   const parsed = JSON.parse(raw) as Partial<UserCollectionFile>;
   if (!parsed || parsed.userId !== userId || !Array.isArray(parsed.items) ||
-    (parsed.wishlist !== undefined && (!Array.isArray(parsed.wishlist) || parsed.wishlist.some((entry) => !entry || typeof entry.catalogId !== "string" || typeof entry.addedAt !== "string" || (entry.seenListingKeys !== undefined && (!Array.isArray(entry.seenListingKeys) || entry.seenListingKeys.some((key) => typeof key !== "string")))))) ||
+    (parsed.wishlist !== undefined && (!Array.isArray(parsed.wishlist) || parsed.wishlist.some((entry) => !entry || typeof entry.catalogId !== "string" || (entry.physicalVariantId !== undefined && typeof entry.physicalVariantId !== "string") || typeof entry.addedAt !== "string" || (entry.seenListingKeys !== undefined && (!Array.isArray(entry.seenListingKeys) || entry.seenListingKeys.some((key) => typeof key !== "string")))))) ||
     (parsed.wishlistAchievements !== undefined && (!Array.isArray(parsed.wishlistAchievements) || parsed.wishlistAchievements.some((entry) =>
       !entry || typeof entry.id !== "string" || typeof entry.createdAt !== "string" || !Array.isArray(entry.games) || entry.games.some((game) =>
-        !game || typeof game.catalogId !== "string" || typeof game.collectionItemId !== "string" || typeof game.title !== "string"))))) {
+        !game || typeof game.catalogId !== "string" || (game.physicalVariantId !== undefined && typeof game.physicalVariantId !== "string") || typeof game.collectionItemId !== "string" || typeof game.title !== "string"))))) {
     throw new Error("El documento de colección no es válido.");
   }
   return parsed as UserCollectionFile;

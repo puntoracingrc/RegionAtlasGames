@@ -112,6 +112,31 @@ test("regional editions of the same title remain separate desires", () => isolat
   assert.deepEqual((await readUserWishlist("regional")).wishlist.map((entry) => entry.catalogId), [japanese]);
 }));
 
+test("physical editions sharing one catalog entry remain separate desires", () => isolated(async () => {
+  const catalogId = "ps5-absolum";
+  const european = "absolum-ps5-europe-standard-en-fr-es";
+  const german = "absolum-ps5-europe-standard-de";
+  await setCatalogGameWished("physical-wishes", catalogId, true, european);
+  await setCatalogGameWished("physical-wishes", catalogId, true, german);
+
+  const before = await readUserWishlist("physical-wishes");
+  assert.deepEqual(before.wishlist.map((entry) => entry.physicalVariantId), [european, german]);
+
+  const acquired = await addCatalogGameToCollection(
+    "physical-wishes",
+    catalogId,
+    "complete",
+    german,
+  );
+  assert.ok(!("error" in acquired));
+
+  const after = await readUserWishlist("physical-wishes");
+  assert.deepEqual(after.wishlist.map((entry) => entry.physicalVariantId), [european]);
+  assert.equal(after.achievements[0].games[0].physicalVariantId, german);
+  const alreadyOwned = await setCatalogGameWished("physical-wishes", catalogId, true, german);
+  assert.ok("error" in alreadyOwned && alreadyOwned.status === 409);
+}));
+
 test("an unacknowledged achievement follows a remaining copy and clears when none remain", () => isolated(async () => {
   await setCatalogGameWished("copies", first, true);
   const original = await addCatalogGameToCollection("copies", first);

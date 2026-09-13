@@ -4,7 +4,7 @@ import {
   PhysicalEditionImageGallery,
   type PhysicalEditionGalleryImage,
 } from "@/components/physical-edition-image-gallery";
-import { PhysicalVariantCollectionToggle } from "@/components/physical-variant-collection-toggle";
+import { CollectionToggle } from "@/components/collection-toggle";
 import { RegionFlag } from "@/components/region-flag";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { getCatalogGame } from "@/lib/catalog";
@@ -37,13 +37,17 @@ import type { CatalogGame } from "@/lib/types";
 type CatalogEditionGuideProps = {
   game: CatalogGame;
   isLoggedIn?: boolean;
-  physicalVariantOwnedCounts?: Record<string, number>;
+  physicalVariantActionStates?: Record<string, {
+    ownedCount: number;
+    wished: boolean;
+    collectionItemId?: string;
+  }>;
 };
 
 export function CatalogEditionGuide({
   game,
   isLoggedIn = false,
-  physicalVariantOwnedCounts = {},
+  physicalVariantActionStates = {},
 }: CatalogEditionGuideProps) {
   const guide = getCatalogEditionGuide(game);
   if (!guide) return null;
@@ -53,7 +57,7 @@ export function CatalogEditionGuide({
       <PhysicalEditionGuide
         guide={guide}
         isLoggedIn={isLoggedIn}
-        physicalVariantOwnedCounts={physicalVariantOwnedCounts}
+        physicalVariantActionStates={physicalVariantActionStates}
       />
     );
 }
@@ -171,11 +175,11 @@ function RegionRail({ identity }: { identity: CatalogRegionRailIdentity }) {
 function PhysicalEditionGuide({
   guide,
   isLoggedIn,
-  physicalVariantOwnedCounts,
+  physicalVariantActionStates,
 }: {
   guide: CatalogEditionGuideModel;
   isLoggedIn: boolean;
-  physicalVariantOwnedCounts: Record<string, number>;
+  physicalVariantActionStates: NonNullable<CatalogEditionGuideProps["physicalVariantActionStates"]>;
 }) {
   const currentFamily = guide.editionFamilies.find((family) => family.id === guide.currentEditionFamilyId);
   const visibleEditions = currentFamily
@@ -184,7 +188,7 @@ function PhysicalEditionGuide({
   const hasFamilyVariants = Boolean(currentFamily && catalogEditionFamilyHasVariants(visibleEditions.length));
   const regions = [...new Set(visibleEditions.map((edition) => edition.broadRegion))];
   const currentGame = guide.currentCatalogId ? getCatalogGame(guide.currentCatalogId) : undefined;
-  const loginPath = `/login?next=${encodeURIComponent(currentGame ? catalogGamePath(currentGame) : "/catalogo")}`;
+  const currentGamePath = currentGame ? catalogGamePath(currentGame) : "/catalogo";
   return (
     <Panel>
       <section aria-label={guide.title}>
@@ -229,8 +233,9 @@ function PhysicalEditionGuide({
                       family={currentFamily}
                       terminology={hasFamilyVariants ? "variant" : "edition"}
                       isLoggedIn={isLoggedIn}
-                      ownedCount={physicalVariantOwnedCounts[edition.id] ?? 0}
-                      loginPath={loginPath}
+                      actionState={physicalVariantActionStates[edition.id]}
+                      currentGame={currentGame}
+                      currentGamePath={currentGamePath}
                     />
                   ))}
                 </div>
@@ -249,16 +254,22 @@ function PhysicalEditionRow({
   family,
   terminology,
   isLoggedIn,
-  ownedCount,
-  loginPath,
+  actionState,
+  currentGame,
+  currentGamePath,
 }: {
   edition: CatalogPhysicalEdition;
   guide: CatalogEditionGuideModel;
   family?: CatalogEditionFamily;
   terminology: "edition" | "variant";
   isLoggedIn: boolean;
-  ownedCount: number;
-  loginPath: string;
+  actionState?: {
+    ownedCount: number;
+    wished: boolean;
+    collectionItemId?: string;
+  };
+  currentGame?: CatalogGame;
+  currentGamePath: string;
 }) {
   const galleryImages = physicalEditionGalleryImages(edition);
   const linkedCatalogGame = edition.catalogIds.flatMap((id) => {
@@ -269,6 +280,7 @@ function PhysicalEditionRow({
     ? catalogConditionPriceRows(linkedCatalogGame).filter((row) => row.price != null)
     : [];
   const collectionCatalogId = linkedCatalogGame?.id ?? family?.representativeCatalogId;
+  const ownedCount = actionState?.ownedCount ?? 0;
   const documentedRegions = edition.marketRegions.length
     ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
     : catalogPhysicalEditionOverviewRegions([edition]);
@@ -348,14 +360,18 @@ function PhysicalEditionRow({
 
           {family && collectionCatalogId ? (
             <div className="mt-4">
-              <PhysicalVariantCollectionToggle
+              <CollectionToggle
                 catalogId={collectionCatalogId}
                 physicalVariantId={edition.id}
-                label={edition.label}
-                terminology={terminology}
-                initialOwnedCount={ownedCount}
+                gameTitle={`${linkedCatalogGame?.title ?? currentGame?.title ?? "Juego"} · ${edition.label}`}
+                initialOwned={ownedCount > 0}
+                ownedCount={ownedCount}
+                initialWished={actionState?.wished ?? false}
+                initialCollectionItemId={actionState?.collectionItemId}
                 isLoggedIn={isLoggedIn}
-                loginPath={loginPath}
+                gamePath={`${currentGamePath}#${edition.id}`}
+                platformSlug={linkedCatalogGame?.platformSlug ?? currentGame?.platformSlug ?? ""}
+                showShare={false}
               />
             </div>
           ) : null}

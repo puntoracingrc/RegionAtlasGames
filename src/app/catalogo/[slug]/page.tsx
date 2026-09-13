@@ -3,6 +3,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CollectionToggle } from "@/components/collection-toggle";
+import { ShareGameButton } from "@/components/share-game-button";
 import { CatalogMarketplacePanel } from "@/components/catalog-marketplace-panel";
 import { CatalogCommercialRelationsPanel } from "@/components/catalog-commercial-relations-panel";
 import { GameFaq } from "@/components/game-faq";
@@ -34,6 +35,7 @@ import { Badge, DetailRow, Panel, PanelTitle } from "@/components/ui";
 import {
   readUserCollection,
 } from "@/lib/collection-store";
+import { wishlistIdentityKey } from "@/lib/wishlist-model";
 import { collectionCatalogPath } from "@/lib/collection-path";
 import {
   buildBreadcrumbJsonLd,
@@ -71,6 +73,7 @@ import {
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getCatalogRouteRedirect } from "@/lib/catalog-route-redirects";
 import { getRegionDisplay } from "@/lib/region-display";
+import { SITE_DEFAULT_URL } from "@/lib/site-brand";
 import { getCurrentUser } from "@/lib/users";
 import { listPublicSeriesForGame } from "@/lib/admin-series-manager";
 import {
@@ -203,7 +206,13 @@ export default async function CatalogGamePage({ params }: Props) {
     ? collectionItemMatchesPhysicalVariant(item, currentPhysicalVariantId)
     : item.catalogId === game.id) ?? [];
   const ownedCount = ownedItems.reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
-  const wished = collection?.wishlist?.some((entry) => entry.catalogId === game.id) ?? false;
+  const currentWishlistIdentity = wishlistIdentityKey({
+    catalogId: game.id,
+    ...(currentPhysicalVariantId ? { physicalVariantId: currentPhysicalVariantId } : {}),
+  });
+  const wished = collection?.wishlist?.some(
+    (entry) => wishlistIdentityKey(entry) === currentWishlistIdentity,
+  ) ?? false;
   const owned = ownedCount > 0;
 
   const details = await getCatalogGameDetailsWithOverlay(game);
@@ -311,11 +320,27 @@ export default async function CatalogGamePage({ params }: Props) {
   const photographedCover = details?.ps2Edition?.graphics.find(asset =>
     asset.url === game.coverUrl && asset.layout === "listing_front_photo");
   const guideRendersCurrentScans = editionGuide?.schemaVersion === 2 && Boolean(currentPhysicalEdition?.scanSetIds.includes(game.id));
-  const physicalVariantOwnedCounts = editionGuide?.editionFamilies.length
-    ? Object.fromEntries(editionGuide.physicalEditions.map((edition) => [
-        edition.id,
-        countOwnedPhysicalVariant(collection?.items ?? [], edition.id),
-      ]))
+  const physicalVariantActionStates = editionGuide?.editionFamilies.length
+    ? Object.fromEntries(editionGuide.physicalEditions.map((edition) => {
+        const family = editionGuide.editionFamilies.find((candidate) =>
+          candidate.physicalEditionIds.includes(edition.id),
+        );
+        const collectionCatalogId = edition.catalogIds[0] ?? family?.representativeCatalogId ?? game.id;
+        const editionItems = collection?.items.filter((item) =>
+          collectionItemMatchesPhysicalVariant(item, edition.id),
+        ) ?? [];
+        const editionWishlistIdentity = wishlistIdentityKey({
+          catalogId: collectionCatalogId,
+          physicalVariantId: edition.id,
+        });
+        return [edition.id, {
+          ownedCount: countOwnedPhysicalVariant(editionItems, edition.id),
+          wished: collection?.wishlist?.some(
+            (entry) => wishlistIdentityKey(entry) === editionWishlistIdentity,
+          ) ?? false,
+          ...(editionItems[0]?.id ? { collectionItemId: editionItems[0].id } : {}),
+        }];
+      }))
     : {};
 
   return (
@@ -346,19 +371,28 @@ export default async function CatalogGamePage({ params }: Props) {
               {ownedScans ? <p className="mt-2 text-center text-xs text-muted">{ownedScans.primaryCaption}</p> : null}
             </div>}
 
-            <CollectionToggle
-              key={`${user?.id ?? "guest"}:${game.id}:${currentPhysicalVariantId ?? "legacy"}`}
-              catalogId={game.id}
-              physicalVariantId={currentPhysicalVariantId}
-              gameTitle={game.title}
-              initialOwned={owned}
-              ownedCount={ownedCount}
-              initialWished={wished}
-              initialCollectionItemId={ownedItems[0]?.id}
-              isLoggedIn={Boolean(user)}
-              gamePath={catalogGamePath(game)}
-              platformSlug={game.platformSlug}
-            />
+            {editionGuide?.schemaVersion === 2 ? (
+              <div className="flex justify-end">
+                <ShareGameButton
+                  title={game.title}
+                  url={new URL(catalogGamePath(game), SITE_DEFAULT_URL).toString()}
+                />
+              </div>
+            ) : (
+              <CollectionToggle
+                key={`${user?.id ?? "guest"}:${game.id}:${currentPhysicalVariantId ?? "legacy"}`}
+                catalogId={game.id}
+                physicalVariantId={currentPhysicalVariantId}
+                gameTitle={game.title}
+                initialOwned={owned}
+                ownedCount={ownedCount}
+                initialWished={wished}
+                initialCollectionItemId={ownedItems[0]?.id}
+                isLoggedIn={Boolean(user)}
+                gamePath={catalogGamePath(game)}
+                platformSlug={game.platformSlug}
+              />
+            )}
 
             <CatalogMarketplacePanel catalogId={game.id} />
           </div>
@@ -443,7 +477,7 @@ export default async function CatalogGamePage({ params }: Props) {
             <CatalogEditionGuide
               game={game}
               isLoggedIn={Boolean(user)}
-              physicalVariantOwnedCounts={physicalVariantOwnedCounts}
+              physicalVariantActionStates={physicalVariantActionStates}
             />
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />

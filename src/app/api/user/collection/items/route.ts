@@ -12,6 +12,7 @@ import { getCurrentUser } from "@/lib/users";
 import { defaultCollectionConditionForPlatform } from "@/lib/collection-condition-policy";
 import { getCatalogGame } from "@/lib/catalog";
 import { countOwnedPhysicalVariant } from "@/lib/catalog-physical-variant";
+import { wishlistIdentityKey } from "@/lib/wishlist-model";
 
 export async function POST(request: Request) {
   const user = await getCurrentUser();
@@ -55,6 +56,10 @@ export async function POST(request: Request) {
 
   const file = await readUserCollection(user.id);
   const views = file.items.map(enrichCollectionItem);
+  const addedIdentity = wishlistIdentityKey({
+    catalogId: result.item.catalogId ?? catalogId,
+    ...(result.item.physicalVariantId ? { physicalVariantId: result.item.physicalVariantId } : {}),
+  });
   const ownedCount = physicalVariantId
     ? countOwnedPhysicalVariant(views, physicalVariantId)
     : views
@@ -65,7 +70,9 @@ export async function POST(request: Request) {
     item: enrichCollectionItem(result.item),
     owned: true,
     linkedExisting: result.linkedExisting,
-    wishlistAchieved: file.wishlistAchievements?.some((entry) => entry.games.some((game) => game.catalogId === result.item.catalogId)) ?? false,
+    wishlistAchieved: file.wishlistAchievements?.some((entry) => entry.games.some(
+      (game) => wishlistIdentityKey(game) === addedIdentity,
+    )) ?? false,
     ownedCount,
     ownedCatalogIds: [
       ...new Set(views.map((item) => item.catalogId).filter((id): id is string => Boolean(id))),

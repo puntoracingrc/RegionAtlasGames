@@ -23,11 +23,12 @@ type Props = {
   isLoggedIn: boolean;
   gamePath: string;
   platformSlug: string;
+  showShare?: boolean;
 };
 
 type AddResult = { item: { id: string }; ownedCount: number; wishlistAchieved?: boolean };
 
-export function CollectionToggle({ catalogId, physicalVariantId, gameTitle, initialOwned, ownedCount = initialOwned ? 1 : 0, initialWished = false, initialCollectionItemId, isLoggedIn, gamePath, platformSlug }: Props) {
+export function CollectionToggle({ catalogId, physicalVariantId, gameTitle, initialOwned, ownedCount = initialOwned ? 1 : 0, initialWished = false, initialCollectionItemId, isLoggedIn, gamePath, platformSlug, showShare = true }: Props) {
   const router = useRouter();
   const [count, setCount] = useState(ownedCount);
   const [wished, setWished] = useState(initialWished);
@@ -76,7 +77,7 @@ export function CollectionToggle({ catalogId, physicalVariantId, gameTitle, init
     setBusy("wish"); setFeedback(null);
     try {
       const response = await fetch("/api/user/wishlist", {
-        method: wished ? "DELETE" : "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ catalogId }),
+        method: wished ? "DELETE" : "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ catalogId, physicalVariantId }),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error ?? "No se pudo guardar en tus deseados.");
@@ -123,7 +124,11 @@ export function CollectionToggle({ catalogId, physicalVariantId, gameTitle, init
     finally { setBusy(null); }
   }
 
-  return <section aria-label={`Acciones de ${gameTitle ?? "este juego"}`} className="space-y-3">
+  return <section
+    aria-label={`Acciones de ${gameTitle ?? "este juego"}`}
+    className="space-y-3"
+    data-physical-variant-owned={physicalVariantId && owned ? "true" : undefined}
+  >
     <div className="grid grid-cols-2 gap-2">
       {isLoggedIn ? <>
         <button type="button" onClick={add} disabled={Boolean(busy)} className={cn(actionClass, owned ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-800 [.dark_&]:text-emerald-100" : "bg-accent text-accent-fg hover:opacity-90")}>
@@ -139,9 +144,9 @@ export function CollectionToggle({ catalogId, physicalVariantId, gameTitle, init
         <Link href={loginPath} className={cn(actionClass, "border border-border bg-card text-foreground hover:bg-card-hover")}><Heart aria-hidden className="h-4 w-4 shrink-0" />Añadir a deseados</Link>
       </>}
     </div>
-    <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+    <div className={showShare ? "grid grid-cols-[minmax(0,1fr)_auto] gap-2" : "grid grid-cols-1 gap-2"}>
     {isLoggedIn ? <button type="button" onClick={sell} disabled={Boolean(busy)} className="btn-secondary inline-flex min-h-11 min-w-0 w-full items-center justify-center gap-2 px-3 text-xs sm:text-sm disabled:opacity-50"><Tag aria-hidden className="h-4 w-4" />{busy === "sell" ? "Preparando anuncio…" : "Vender uno como este"}</button> : <Link href={loginPath} className="btn-secondary inline-flex min-h-11 min-w-0 w-full items-center justify-center gap-2 px-3 text-xs sm:text-sm"><Tag aria-hidden className="h-4 w-4" />Vender uno como este</Link>}
-      <ShareGameButton title={gameTitle ?? "Juego en Region Atlas"} url={new URL(gamePath, SITE_DEFAULT_URL).toString()} />
+      {showShare ? <ShareGameButton title={gameTitle ?? "Juego en Region Atlas"} url={new URL(gamePath, SITE_DEFAULT_URL).toString()} /> : null}
     </div>
     {preparingSale && !owned && <div className="rounded-xl border border-border bg-card p-4 text-sm">
       <p className="leading-6 text-muted">Para venderlo guardaremos una copia en tu colección. Después podrás indicar su estado, fotos y precio antes de publicar el anuncio.</p>
