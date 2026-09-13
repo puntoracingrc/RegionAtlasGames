@@ -1,10 +1,18 @@
 import { getRegionDisplay } from "@/lib/region-display";
+import {
+  CATALOG_MARKET_REGION_META,
+  CATALOG_MARKET_REGION_VALUES,
+  type CatalogMarketNavigationGroup,
+} from "@/lib/catalog-edition-guide-types";
 
 // Navigation groups never replace the market stored on a catalog entry.
 export const REGION_NAVIGATION_GROUPS = [
   { id: "europe", label: "Europa" },
   { id: "america", label: "América" },
   { id: "asia", label: "Asia" },
+  { id: "oceania", label: "Oceanía" },
+  { id: "middle-east", label: "Oriente Medio" },
+  { id: "africa", label: "África" },
   { id: "other", label: "Otros mercados y combinaciones" },
   { id: "pending", label: "Mercado pendiente de identificar" },
 ] as const;
@@ -17,23 +25,38 @@ export type RegionNavigationOption = {
   flagRegion?: string;
 };
 
-const EUROPE_CODES = new Set([
-  "ES", "EU", "GB", "UK", "DE", "FR", "IT", "AT", "BE", "DK", "SCAND",
-  "FI", "GR", "IE", "NO", "NL", "PL", "PT", "RU", "SE",
-]);
-const AMERICA_CODES = new Set(["US", "CA", "US-CA"]);
-const ASIA_CODES = new Set(["JP", "KR", "CN", "HK", "TW", "IL", "ASIA", "JP-ASIA"]);
+const MARKET_NAVIGATION_GROUP_BY_SHORT_LABEL = new Map<string, CatalogMarketNavigationGroup>(
+  CATALOG_MARKET_REGION_VALUES.flatMap((code) => {
+    const market = CATALOG_MARKET_REGION_META[code];
+    return [[market.shortLabel, market.navigationGroup], [code, market.navigationGroup]];
+  }),
+);
+
+const LEGACY_GROUP_CODES: Record<CatalogMarketNavigationGroup, Set<string>> = {
+  europe: new Set(["EU", "UK", "SCAND"]),
+  america: new Set(["US-CA"]),
+  asia: new Set(["ASIA", "JP-ASIA", "IL"]),
+  oceania: new Set(),
+  "middle-east": new Set(),
+  africa: new Set(),
+};
 
 export function regionNavigationGroup(region: string): RegionNavigationGroupId {
   const display = getRegionDisplay(region);
   if (display.shortLabel === "?" || /mercado por determinar/i.test(region)) return "pending";
-  if (EUROPE_CODES.has(display.shortLabel) || region === "Europea") return "europe";
-  if (AMERICA_CODES.has(display.shortLabel)) return "america";
-  if (ASIA_CODES.has(display.shortLabel)) return "asia";
+  const registeredGroup = MARKET_NAVIGATION_GROUP_BY_SHORT_LABEL.get(display.shortLabel);
+  if (registeredGroup) return registeredGroup;
+  if (LEGACY_GROUP_CODES.europe.has(display.shortLabel) || region === "Europea") return "europe";
+  for (const [group, codes] of Object.entries(LEGACY_GROUP_CODES)) {
+    if (codes.has(display.shortLabel)) return group as CatalogMarketNavigationGroup;
+  }
   const parts = display.shortLabel.split("-");
-  if (parts.every((part) => EUROPE_CODES.has(part))) return "europe";
-  if (parts.every((part) => AMERICA_CODES.has(part))) return "america";
-  if (parts.every((part) => ASIA_CODES.has(part))) return "asia";
+  for (const group of Object.keys(LEGACY_GROUP_CODES) as CatalogMarketNavigationGroup[]) {
+    if (parts.every((part) => (
+      MARKET_NAVIGATION_GROUP_BY_SHORT_LABEL.get(part) === group ||
+      LEGACY_GROUP_CODES[group].has(part)
+    ))) return group;
+  }
   return "other";
 }
 

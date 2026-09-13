@@ -99,9 +99,10 @@ export function getCatalogPhysicalEditionPublicIdentity(
   const metadataTitle = titleContainsFamily
     ? `${game.title} — ${platformName} · ${broadRegionLabel}`
     : `${game.title} — ${family.label} · ${platformName}`;
+  const documentedMarkets = spanishList(marketRegions);
   const description = editions.length === 1
     ? `${publicName} para ${platformName}. Edición física documentada en ${broadRegionLabel}.`
-    : `${publicName} para ${platformName}. Familia de ${editions.length} ediciones físicas documentadas en ${broadRegionLabel} (${spanishList(marketRegions)}).`;
+    : `${publicName} para ${platformName}. Familia de ${editions.length} ediciones físicas documentadas en ${broadRegionLabel}${documentedMarkets ? ` (${documentedMarkets})` : ""}.`;
   const coverScope = currentMarketRegions.length
     ? currentMarketRegions.join(" / ")
     : catalogBroadRegionLabel(currentEdition.broadRegion);
@@ -205,6 +206,7 @@ export function groupCatalogListGames(games: CatalogListGame[]): CatalogListGame
         ...edition.marketRegions,
         ...edition.marketRegions.map(catalogMarketRegionToLegacyRegion),
         ...edition.packagingLanguages,
+        ...edition.componentLanguageEvidence.flatMap((languageEvidence) => languageEvidence.languages),
         ...edition.ratingSystems,
         ...edition.variants.flatMap((variant) => [variant.label, variant.barcode, variant.boxCode, ...variant.stickers, ...variant.markings]),
       ]).filter((value): value is string => Boolean(value));

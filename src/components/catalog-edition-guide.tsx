@@ -18,6 +18,7 @@ import {
   type CatalogEditionFamily,
   type CatalogEditionGuideModel,
   type CatalogPhysicalEdition,
+  type CatalogPhysicalComponent,
 } from "@/lib/catalog-edition-guide-types";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { getOwnedScanSetById } from "@/lib/catalog-owned-scans";
@@ -26,7 +27,6 @@ import { formatEur } from "@/lib/price-format";
 import { catalogConditionPriceRows } from "@/lib/price-display";
 import {
   catalogPhysicalEditionBroadRegionAnchorId,
-  catalogPhysicalEditionOverviewRegions,
 } from "@/lib/catalog-physical-edition-browse";
 import { catalogPhysicalEditionHeadingLabel } from "@/lib/catalog-physical-edition-display";
 import {
@@ -45,6 +45,21 @@ type CatalogEditionGuideProps = {
     collectionItemId?: string;
   }>;
 };
+
+const PHYSICAL_COMPONENT_LABELS: Record<CatalogPhysicalComponent, string> = {
+  BOX: "Caja",
+  OUTER_BOX: "Caja exterior",
+  INNER_GAME: "Juego interior",
+  FRONT: "Portada",
+  BACK: "Contraportada",
+  SPINE: "Lomo",
+  MANUAL: "Manual",
+  OTHER: "Otro componente",
+};
+
+function physicalComponentLabel(component: CatalogPhysicalComponent): string {
+  return PHYSICAL_COMPONENT_LABELS[component];
+}
 
 export function CatalogEditionGuide({
   game,
@@ -289,9 +304,7 @@ function PhysicalEditionRow({
   const collectionCatalogId = linkedCatalogGame?.id ?? family?.representativeCatalogId;
   const ownedCount = actionState?.ownedCount ?? 0;
   const isCurrentEdition = edition.id === guide.currentEditionId;
-  const documentedRegions = edition.marketRegions.length
-    ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
-    : catalogPhysicalEditionOverviewRegions([edition]);
+  const documentedRegions = edition.marketRegions.map(catalogMarketRegionToLegacyRegion);
   const alternateCatalogLinks = edition.catalogLinks.filter((link) => !link.current);
   const includedEditions = edition.includesEditionIds.flatMap((id) => {
     const target = guide.physicalEditions.find((candidate) => candidate.id === id);
@@ -325,6 +338,9 @@ function PhysicalEditionRow({
               labelMode="short"
             />
           ))}
+          {!documentedRegions.length ? (
+            <span className="text-sm font-medium text-muted">· Mercado nacional pendiente</span>
+          ) : null}
           {edition.ratingSystems.length ? (
             <span>· {edition.ratingSystems.join(" + ")}</span>
           ) : null}
@@ -360,6 +376,22 @@ function PhysicalEditionRow({
             {edition.releaseDate ? <Fact label="Fecha de esta edición" value={formatEditionReleaseDate(edition.releaseDate)} /> : null}
             {edition.releaseDateContext ? <Fact label="Contexto de la fecha" value={edition.releaseDateContext} /> : null}
           </dl>
+
+          {edition.componentLanguageEvidence.length ? (
+            <div className="mt-3 border-l-2 border-border pl-3 text-xs text-muted">
+              <p className="font-semibold uppercase text-foreground">Idiomas documentados por componente</p>
+              {edition.componentLanguageEvidence.map((languageEvidence, index) => (
+                <p key={`${languageEvidence.component}-${index}`} className="mt-1">
+                  <strong>{physicalComponentLabel(languageEvidence.component)}:</strong>{" "}
+                  {languageEvidence.languages.join(" / ")}{" "}
+                  <span>
+                    ({languageEvidence.basis === "OBSERVED" ? "observado" : "declarado por la fuente"}
+                    {languageEvidence.exhaustive ? ", listado completo" : ", alcance parcial"})
+                  </span>
+                </p>
+              ))}
+            </div>
+          ) : null}
 
           {alternateCatalogLinks.length ? (
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">

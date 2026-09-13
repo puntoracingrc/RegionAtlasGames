@@ -1,4 +1,9 @@
-import type { CatalogBroadRegion } from "@/lib/catalog-edition-guide-types";
+import {
+  CATALOG_MARKET_REGION_META,
+  isCatalogMarketRegion,
+  type CatalogBroadRegion,
+  type CatalogMarketRegion,
+} from "@/lib/catalog-edition-guide-types";
 
 export const CATALOG_REGION_RAIL_CODES = [
   "AT",
@@ -36,7 +41,11 @@ export type CatalogRegionRailIdentity = CatalogBroadRegion | CatalogRegionRailCo
 const CATALOG_REGION_RAIL_SEGMENTS: Record<CatalogRegionRailIdentity, readonly string[]> = {
   EUROPE: ["#003399"],
   NORTH_AMERICA: ["#3c3b6e", "#ffffff", "#b22234"],
+  LATIN_AMERICA: ["#009b3a", "#ffdf00", "#002776"],
   ASIA: ["#bc002d", "#f2c94c"],
+  OCEANIA: ["#012169", "#ffffff", "#e4002b"],
+  MIDDLE_EAST: ["#007a3d", "#ffffff", "#ce1126"],
+  AFRICA: ["#00853f", "#fcd116", "#d21034"],
   OTHER: ["#64748b"],
   UNKNOWN: ["#64748b"],
   AT: ["#ed2939", "#ffffff", "#ed2939"],
@@ -69,7 +78,13 @@ const CATALOG_REGION_RAIL_SEGMENTS: Record<CatalogRegionRailIdentity, readonly s
 };
 
 export function catalogRegionRailSegments(
-  identity: CatalogRegionRailIdentity,
+  identity: CatalogRegionRailIdentity | CatalogMarketRegion,
 ): readonly string[] {
-  return CATALOG_REGION_RAIL_SEGMENTS[identity];
+  if (identity in CATALOG_REGION_RAIL_SEGMENTS) {
+    return CATALOG_REGION_RAIL_SEGMENTS[identity as CatalogRegionRailIdentity];
+  }
+  if (isCatalogMarketRegion(identity)) {
+    return CATALOG_REGION_RAIL_SEGMENTS[CATALOG_MARKET_REGION_META[identity].broadRegion];
+  }
+  return CATALOG_REGION_RAIL_SEGMENTS.UNKNOWN;
 }

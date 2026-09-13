@@ -19,16 +19,58 @@
           "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood",
           "physicalEditionIds": [
             "assassins-creed-brotherhood-ps3-europe-standard",
-            "assassins-creed-brotherhood-ps3-north-america-standard"
+            "assassins-creed-brotherhood-ps3-north-america-standard",
+            "assassins-creed-brotherhood-ps3-europe-standard-o107",
+            "assassins-creed-brotherhood-ps3-europe-standard-o108"
           ],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
         },
         {
           "id": "limited-codex",
           "label": "Limited Codex Edition",
           "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
-          "physicalEditionIds": ["assassins-creed-brotherhood-ps3-limited-codex"],
-          "priceConditions": ["sealed", "newRetail", "complete"]
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-limited-codex"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-special-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-europe-special",
+            "assassins-creed-brotherhood-ps3-europe-special-o109"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "platinum-special",
+          "label": "Platinum / Special Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-platinum",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-europe-platinum",
+            "assassins-creed-brotherhood-ps3-europe-platinum-special-o110"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
         }
       ],
       "physicalEditions": [
@@ -37,16 +79,24 @@
           "label": "Standard · España",
           "broadRegion": "EUROPE",
           "editionType": "STANDARD",
-          "marketRegions": ["ES"],
-          "catalogIds": ["ps3-assassin%27s-creed-brotherhood"]
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood"
+          ]
         },
         {
           "id": "assassins-creed-brotherhood-ps3-north-america-standard",
           "label": "Standard · USA",
           "broadRegion": "NORTH_AMERICA",
           "editionType": "STANDARD",
-          "marketRegions": ["US"],
-          "catalogIds": ["ps3-usa-assassin-s-creed-brotherhood"]
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-brotherhood"
+          ]
         },
         {
           "id": "assassins-creed-brotherhood-ps3-limited-codex",
@@ -70,9 +120,179 @@
             "Dos mapas para un jugador",
             "Dos personajes multijugador"
           ],
-          "containsCatalogIds": ["ps3-assassin%27s-creed-brotherhood"],
-          "catalogIds": ["ps3-assassin%27s-creed-brotherhood-limited-codex-edition"],
-          "evidenceIds": ["brotherhood-codex-fnac"]
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-brotherhood"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-limited-codex-edition"
+          ],
+          "evidenceIds": [
+            "brotherhood-codex-fnac"
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-special",
+          "label": "Special Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-special-edition"
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-platinum",
+          "label": "Platinum · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-platinum"
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-standard-o107",
+          "label": "Standard · caja inglesa declarada · 3307217927036",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "EN"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o107"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307217927036",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o107"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o107-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-standard-o108",
+          "label": "Standard · segunda referencia con caja inglesa declarada · 3307215659311",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "EN"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o108"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307215659311",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o108"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o108-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "El frontal coincide con O107, pero el EAN es distinto; se conserva como identidad separada hasta cotejar reverso y tirada."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-special-o109",
+          "label": "Special Edition · caja alemana declarada · 3307219903939",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o109"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307219903939",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o109"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o109-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-platinum-special-o110",
+          "label": "Platinum · Special Edition · caja alemana declarada · 3307219951312",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o110"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307219951312",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o110"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o110-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente."
+          ]
         }
       ],
       "evidence": [
@@ -82,16 +302,154 @@
           "label": "Ficha comercial de Brotherhood Codex para PS3",
           "url": "https://www.fnac.com/a2899599/Assassin-s-Creed-Brotherhood-Codex-Edition-Jeu-video-Retrogaming",
           "summary": "Respalda el EAN, la fecha contextual y la composición declarada; no acredita un mercado nacional ni los idiomas del packaging.",
-          "supports": ["EAN 3307217934133", "fecha contextual 2010-11-18", "contenido de la edición"]
+          "supports": [
+            "EAN 3307217934133",
+            "fecha contextual 2010-11-18",
+            "contenido de la edición"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o107",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O107: Standard · caja inglesa declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p320843/",
+          "summary": "La foto y el campo de idioma de caja identifican esta referencia; el mercado nacional sigue pendiente.",
+          "supports": [
+            "EAN 3307217927036",
+            "idioma de caja declarado: EN",
+            "familia visual: Standard"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o108",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O108: Standard · segunda referencia con caja inglesa declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p176479/",
+          "summary": "La foto y el campo de idioma de caja identifican esta referencia; el mercado nacional sigue pendiente.",
+          "supports": [
+            "EAN 3307215659311",
+            "idioma de caja declarado: EN",
+            "familia visual: Standard"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o109",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O109: Special Edition · caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p86554/",
+          "summary": "La foto y el campo de idioma de caja identifican esta referencia; el mercado nacional sigue pendiente.",
+          "supports": [
+            "EAN 3307219903939",
+            "idioma de caja declarado: DE",
+            "familia visual: Special Edition"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o110",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O110: Platinum · Special Edition · caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-special-edition-ps3-pouzite-p209894/",
+          "summary": "La foto y el campo de idioma de caja identifican esta referencia; el mercado nacional sigue pendiente.",
+          "supports": [
+            "EAN 3307219951312",
+            "idioma de caja declarado: DE",
+            "familia visual: Platinum"
+          ]
         }
       ],
       "sources": [
         {
           "label": "Fnac · Assassin's Creed Brotherhood Codex Edition",
           "url": "https://www.fnac.com/a2899599/Assassin-s-Creed-Brotherhood-Codex-Edition-Jeu-video-Retrogaming"
+        },
+        {
+          "label": "O107 · O107: Standard · caja inglesa declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p320843/"
+        },
+        {
+          "label": "O108 · O108: Standard · segunda referencia con caja inglesa declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p176479/"
+        },
+        {
+          "label": "O109 · O109: Special Edition · caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p86554/"
+        },
+        {
+          "label": "O110 · O110: Platinum · Special Edition · caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-special-edition-ps3-pouzite-p209894/"
         }
       ],
-      "evidenceNote": "No se trasladan Francia, España, idiomas de packaging ni Logithéque como identidad pública de esta edición."
+      "evidenceNote": "No se trasladan Francia, España, idiomas de packaging ni Logithéque como identidad pública de esta edición.",
+      "images": [
+        {
+          "key": "ac-ps3-regional-o107-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o107.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o107.webp",
+          "width": 371,
+          "height": 434,
+          "caption": "Imagen de producto inspeccionada para O107",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "2526c1f1d75706131e17b814b0cc3b1889acf063ccb32f380166723b910d64f4",
+          "thumbnailSha256": "bb6bc97c493b42ff6b8dd3e18fa2500019b4315ff9d066594e3b0853dfc8f428",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o107.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "40b35d6bbea6b0d21c8e9f8c4392c18ea46b55002103071e8bd6973024953f26",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p320843/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o108-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o107.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o107.webp",
+          "width": 371,
+          "height": 434,
+          "caption": "Imagen de producto inspeccionada para O108",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "2526c1f1d75706131e17b814b0cc3b1889acf063ccb32f380166723b910d64f4",
+          "thumbnailSha256": "bb6bc97c493b42ff6b8dd3e18fa2500019b4315ff9d066594e3b0853dfc8f428",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o107.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "40b35d6bbea6b0d21c8e9f8c4392c18ea46b55002103071e8bd6973024953f26",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p176479/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o109-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o109.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o109.webp",
+          "width": 351,
+          "height": 413,
+          "caption": "Imagen de producto inspeccionada para O109",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "4e5c5161898b72daaea16b52f6c141565af73bbb7de2d348971e16482744a4f8",
+          "thumbnailSha256": "c852a98c201ea5334dabfd0437f3549369a221ee4a77705e8b166ae5409e28a7",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o109.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "124b25d35360ab8a030e28b1d3d8647d6b0393011ce8546caa0567331a778566",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p86554/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o110-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o110.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o110.webp",
+          "width": 357,
+          "height": 442,
+          "caption": "Imagen de producto inspeccionada para O110",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "7f4814dcd0e9725185f2f961766263a2f49703ca823edd228ec7b843f94ec52f",
+          "thumbnailSha256": "3ca87a44e69f3bcba291ef306e75efc0f4199dacdd7bc0772e72a535db572238",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o110.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "3a23bee5b41f574e3cd4399608623e8b07e7c7dc306430c5845b069cca4fca5c",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-brotherhood-special-edition-ps3-pouzite-p209894/",
+          "inspectedAt": "2026-09-13"
+        }
+      ]
     },
     {
       "schemaVersion": 2,
@@ -109,8 +467,15 @@
           "id": "ezio-trilogy",
           "label": "Ezio Trilogy",
           "representativeCatalogId": "ps3-usa-assassin-s-creed-ezio-trilogy",
-          "physicalEditionIds": ["assassins-creed-ezio-trilogy-ps3-north-america"],
-          "priceConditions": ["sealed", "newRetail", "complete", "loose"]
+          "physicalEditionIds": [
+            "assassins-creed-ezio-trilogy-ps3-north-america"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "loose"
+          ]
         }
       ],
       "physicalEditions": [
@@ -119,18 +484,28 @@
           "label": "Ezio Trilogy · USA",
           "broadRegion": "NORTH_AMERICA",
           "editionType": "COMPILATION",
-          "marketRegions": ["US"],
+          "marketRegions": [
+            "US"
+          ],
           "releaseDate": "2012-11-13",
           "releaseDateContext": "Lanzamiento norteamericano anunciado por Ubisoft",
-          "physicalContents": ["Recopilatorio para PS3"],
-          "digitalContents": ["Contenido descargable de Assassin's Creed II"],
+          "physicalContents": [
+            "Recopilatorio para PS3"
+          ],
+          "digitalContents": [
+            "Contenido descargable de Assassin's Creed II"
+          ],
           "containsCatalogIds": [
             "ps3-usa-assassin-s-creed-ii",
             "ps3-usa-assassin-s-creed-brotherhood",
             "ps3-usa-assassin-s-creed-revelations"
           ],
-          "catalogIds": ["ps3-usa-assassin-s-creed-ezio-trilogy"],
-          "evidenceIds": ["ezio-trilogy-playstation-announcement"]
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-ezio-trilogy"
+          ],
+          "evidenceIds": [
+            "ezio-trilogy-playstation-announcement"
+          ]
         }
       ],
       "evidence": [
@@ -140,7 +515,12 @@
           "label": "Anuncio oficial norteamericano de Ezio Trilogy",
           "url": "https://blog.playstation.com/2012/09/26/exclusive-assassins-creed-ezio-trilogy-to-launch-on-ps3/",
           "summary": "Respalda el producto PS3, su fecha norteamericana, los tres juegos incluidos y que el DLC indicado corresponde a Assassin's Creed II.",
-          "supports": ["mercado US", "fecha 2012-11-13", "juegos incluidos", "DLC de Assassin's Creed II"]
+          "supports": [
+            "mercado US",
+            "fecha 2012-11-13",
+            "juegos incluidos",
+            "DLC de Assassin's Creed II"
+          ]
         }
       ],
       "sources": [
@@ -167,15 +547,29 @@
           "id": "ubi-the-best",
           "label": "Ubi the Best",
           "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga",
-          "physicalEditionIds": ["assassins-creed-ezio-saga-ps3-japan-ubi-the-best"],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "physicalEditionIds": [
+            "assassins-creed-ezio-saga-ps3-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
         },
         {
           "id": "limited-complete",
           "label": "Limited Complete Edition",
           "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga-limited-complete-edition",
-          "physicalEditionIds": ["assassins-creed-ezio-saga-ps3-japan-limited-complete"],
-          "priceConditions": ["sealed", "newRetail", "complete"]
+          "physicalEditionIds": [
+            "assassins-creed-ezio-saga-ps3-japan-limited-complete"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
         }
       ],
       "physicalEditions": [
@@ -184,19 +578,30 @@
           "label": "Ezio Saga · Ubi the Best · Japón",
           "broadRegion": "ASIA",
           "editionType": "BUDGET_REISSUE",
-          "marketRegions": ["JP"],
+          "marketRegions": [
+            "JP"
+          ],
           "releaseDate": "2015-05-28",
           "releaseDateContext": "Reedición japonesa Ubi the Best",
-          "catalogIds": ["ps3-japon-assassin%27s-creed-ezio-saga"],
-          "evidenceIds": ["ezio-saga-ubi-the-best-release", "ezio-saga-ubi-the-best-commerce"]
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-ezio-saga"
+          ],
+          "evidenceIds": [
+            "ezio-saga-ubi-the-best-release",
+            "ezio-saga-ubi-the-best-commerce"
+          ]
         },
         {
           "id": "assassins-creed-ezio-saga-ps3-japan-limited-complete",
           "label": "Ezio Saga · Limited Complete Edition · Japón",
           "broadRegion": "ASIA",
           "editionType": "LIMITED",
-          "marketRegions": ["JP"],
-          "catalogIds": ["ps3-japon-assassin%27s-creed-ezio-saga-limited-complete-edition"]
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-ezio-saga-limited-complete-edition"
+          ]
         }
       ],
       "evidence": [
@@ -206,7 +611,9 @@
           "label": "Comunicado de lanzamiento japonés de Ezio Saga",
           "url": "https://www.4gamer.net/games/169/G016989/20150507019/",
           "summary": "Respalda la fecha japonesa de Ezio Saga; la identidad Ubi the Best se coteja con la ficha comercial y la portada ya guardada.",
-          "supports": ["fecha 2015-05-28"]
+          "supports": [
+            "fecha 2015-05-28"
+          ]
         },
         {
           "id": "ezio-saga-ubi-the-best-commerce",
@@ -214,12 +621,21 @@
           "label": "Ficha comercial de Ezio Saga Ubi the Best",
           "url": "https://kakaku.com/item/K0000753939/",
           "summary": "Respalda la denominación Ubi the Best y la fecha; la portada existente muestra la misma línea de reedición.",
-          "supports": ["identidad Ubi the Best", "fecha 2015-05-28"]
+          "supports": [
+            "identidad Ubi the Best",
+            "fecha 2015-05-28"
+          ]
         }
       ],
       "sources": [
-        {"label": "4Gamer · lanzamiento de Ezio Saga", "url": "https://www.4gamer.net/games/169/G016989/20150507019/"},
-        {"label": "Kakaku · Ezio Saga Ubi the Best", "url": "https://kakaku.com/item/K0000753939/"}
+        {
+          "label": "4Gamer · lanzamiento de Ezio Saga",
+          "url": "https://www.4gamer.net/games/169/G016989/20150507019/"
+        },
+        {
+          "label": "Kakaku · Ezio Saga Ubi the Best",
+          "url": "https://kakaku.com/item/K0000753939/"
+        }
       ],
       "evidenceNote": "No se crea una tercera ficha ni se trasladan contenidos del modelo previo cuyas columnas estaban desplazadas."
     },
@@ -239,15 +655,29 @@
           "id": "limited-complete",
           "label": "Limited Complete Edition",
           "representativeCatalogId": "ps3-japon-assassin%27s-creed-connor-saga-limited-complete-edition",
-          "physicalEditionIds": ["assassins-creed-connor-saga-ps3-japan-limited-complete"],
-          "priceConditions": ["sealed", "newRetail", "complete"]
+          "physicalEditionIds": [
+            "assassins-creed-connor-saga-ps3-japan-limited-complete"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
         },
         {
           "id": "ubi-the-best",
           "label": "Ubi the Best",
           "representativeCatalogId": "ps3-japon-assassin%27s-creed-connor-saga-ubi-the-best",
-          "physicalEditionIds": ["assassins-creed-connor-saga-ps3-japan-ubi-the-best"],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "physicalEditionIds": [
+            "assassins-creed-connor-saga-ps3-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
         }
       ],
       "physicalEditions": [
@@ -256,21 +686,32 @@
           "label": "Connor Saga · Limited Complete Edition · Japón",
           "broadRegion": "ASIA",
           "editionType": "LIMITED",
-          "marketRegions": ["JP"],
-          "catalogIds": ["ps3-japon-assassin%27s-creed-connor-saga-limited-complete-edition"]
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-connor-saga-limited-complete-edition"
+          ]
         },
         {
           "id": "assassins-creed-connor-saga-ps3-japan-ubi-the-best",
           "label": "Connor Saga · Ubi the Best · Japón",
           "broadRegion": "ASIA",
           "editionType": "BUDGET_REISSUE",
-          "marketRegions": ["JP"],
+          "marketRegions": [
+            "JP"
+          ],
           "barcode": "4949244003612",
           "catalogNumber": "BLJM-61287",
           "releaseDate": "2015-05-28",
           "releaseDateContext": "Reedición japonesa Ubi the Best",
-          "catalogIds": ["ps3-japon-assassin%27s-creed-connor-saga-ubi-the-best"],
-          "evidenceIds": ["connor-saga-ubi-the-best-yamada", "connor-saga-ubi-the-best-surugaya"]
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-connor-saga-ubi-the-best"
+          ],
+          "evidenceIds": [
+            "connor-saga-ubi-the-best-yamada",
+            "connor-saga-ubi-the-best-surugaya"
+          ]
         }
       ],
       "evidence": [
@@ -280,7 +721,11 @@
           "label": "Ficha comercial de Connor Saga Ubi the Best",
           "url": "https://www.yamada-denkiweb.com/2813092012/",
           "summary": "Respalda el JAN, la fecha y que esta reedición no incluye los accesorios de la Limited Complete.",
-          "supports": ["JAN 4949244003612", "fecha 2015-05-28", "configuración sin accesorios Limited Complete"]
+          "supports": [
+            "JAN 4949244003612",
+            "fecha 2015-05-28",
+            "configuración sin accesorios Limited Complete"
+          ]
         },
         {
           "id": "connor-saga-ubi-the-best-surugaya",
@@ -288,12 +733,21 @@
           "label": "Ficha comercial de la reedición japonesa Connor Saga",
           "url": "https://www.suruga-ya.jp/product/detail/103004050",
           "summary": "Respalda el código BLJM-61287 y la fecha japonesa.",
-          "supports": ["BLJM-61287", "fecha 2015-05-28"]
+          "supports": [
+            "BLJM-61287",
+            "fecha 2015-05-28"
+          ]
         }
       ],
       "sources": [
-        {"label": "Yamada · Connor Saga Ubi the Best", "url": "https://www.yamada-denkiweb.com/2813092012/"},
-        {"label": "Suruga-ya · Connor Saga Ubi the Best", "url": "https://www.suruga-ya.jp/product/detail/103004050"}
+        {
+          "label": "Yamada · Connor Saga Ubi the Best",
+          "url": "https://www.yamada-denkiweb.com/2813092012/"
+        },
+        {
+          "label": "Suruga-ya · Connor Saga Ubi the Best",
+          "url": "https://www.suruga-ya.jp/product/detail/103004050"
+        }
       ],
       "evidenceNote": "No se reutiliza la ficha Limited Complete para la reedición económica y no se completan campos no documentados."
     },
@@ -316,31 +770,223 @@
           "physicalEditionIds": [
             "assassins-creed-iii-ps3-europe-standard",
             "assassins-creed-iii-ps3-north-america-standard",
-            "assassins-creed-iii-ps3-japan-standard"
+            "assassins-creed-iii-ps3-japan-standard",
+            "assassins-creed-iii-ps3-europe-standard-de-o082"
           ],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
         },
         {
           "id": "ubi-the-best",
           "label": "Ubi the Best",
           "representativeCatalogId": "ps3-japon-assassin%27s-creed-iii-ubi-the-best",
-          "physicalEditionIds": ["assassins-creed-iii-ps3-japan-ubi-the-best"],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "physicalEditionIds": [
+            "assassins-creed-iii-ps3-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "special",
+          "label": "Special / PS3 Exclusive Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iii-special-edition",
+          "physicalEditionIds": [
+            "assassins-creed-iii-ps3-europe-special",
+            "assassins-creed-iii-ps3-europe-exclusive-o112"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "not-for-resale",
+          "label": "Not for Resale",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-iii-not-for-resale",
+          "physicalEditionIds": [
+            "assassins-creed-iii-ps3-north-america-nfr",
+            "assassins-creed-iii-ps3-north-america-nfr-ca-o083"
+          ],
+          "priceConditions": [
+            "sealed",
+            "complete"
+          ]
         }
       ],
       "physicalEditions": [
-        {"id": "assassins-creed-iii-ps3-europe-standard", "label": "Standard · España", "broadRegion": "EUROPE", "editionType": "STANDARD", "marketRegions": ["ES"], "catalogIds": ["ps3-assassin%27s-creed-iii"]},
-        {"id": "assassins-creed-iii-ps3-north-america-standard", "label": "Standard · USA", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD", "marketRegions": ["US"], "catalogIds": ["ps3-usa-assassin-s-creed-iii"]},
-        {"id": "assassins-creed-iii-ps3-japan-standard", "label": "Standard · Japón", "broadRegion": "ASIA", "editionType": "STANDARD", "marketRegions": ["JP"], "catalogIds": ["ps3-japon-assassin%27s-creed-iii"]},
+        {
+          "id": "assassins-creed-iii-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-iii"
+          ]
+        },
+        {
+          "id": "assassins-creed-iii-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-iii"
+          ]
+        },
+        {
+          "id": "assassins-creed-iii-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-iii"
+          ]
+        },
         {
           "id": "assassins-creed-iii-ps3-japan-ubi-the-best",
           "label": "Ubi the Best · Japón",
           "broadRegion": "ASIA",
           "editionType": "BUDGET_REISSUE",
-          "marketRegions": ["JP"],
+          "marketRegions": [
+            "JP"
+          ],
           "catalogNumber": "BLJM-61171",
-          "catalogIds": ["ps3-japon-assassin%27s-creed-iii-ubi-the-best"],
-          "evidenceIds": ["assassins-creed-iii-ubi-the-best-commerce"]
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-iii-ubi-the-best"
+          ],
+          "evidenceIds": [
+            "assassins-creed-iii-ubi-the-best-commerce"
+          ]
+        },
+        {
+          "id": "assassins-creed-iii-ps3-europe-special",
+          "label": "Special Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-iii-special-edition"
+          ]
+        },
+        {
+          "id": "assassins-creed-iii-ps3-north-america-nfr",
+          "label": "Not for Resale · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-iii-not-for-resale"
+          ]
+        },
+        {
+          "id": "assassins-creed-iii-ps3-europe-exclusive-o112",
+          "label": "PS3 Exclusive Edition · caja y manual alemanes declarados",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o112"
+              ]
+            },
+            {
+              "component": "MANUAL",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o112"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307215644836",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o112"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o112-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente. No se fusiona con la ficha australiana Special / Exclusive existente, cuya portada es distinta."
+          ]
+        },
+        {
+          "id": "assassins-creed-iii-ps3-europe-standard-de-o082",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "DE"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o082"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "Imagen externa no incorporada: se mantiene placeholder y enlace de evidencia."
+          ]
+        },
+        {
+          "id": "assassins-creed-iii-ps3-north-america-nfr-ca-o083",
+          "label": "Not for Resale · Canadá",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "CA"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o083"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "No se absorbe en Standard retail; se conserva la marca de bundle como diferencia física."
+          ]
         }
       ],
       "evidence": [
@@ -350,13 +996,85 @@
           "label": "Ficha comercial japonesa de Assassin's Creed III Ubi the Best",
           "url": "https://www.kaitori-world.jp/products/detail/1200",
           "summary": "Respalda PS3, Japón y BLJM-61171; no se completa un JAN ni una fecha.",
-          "supports": ["mercado JP", "BLJM-61171"]
+          "supports": [
+            "mercado JP",
+            "BLJM-61171"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o112",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O112: PS3 Exclusive Edition con caja y manual alemanes",
+          "url": "https://www.originalky.cz/assassin-s-creed-iii-ps3-pouzite-p72877/",
+          "summary": "La foto inspeccionada muestra PS3 Exclusive Edition y USK 16; la ficha declara caja y manual alemanes.",
+          "supports": [
+            "EAN 3307215644836",
+            "caja declarada: DE",
+            "manual declarado: DE",
+            "familia visual: PS3 Exclusive Edition"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o082",
+          "type": "REAL_SCAN",
+          "label": "O082: caja Standard alemana",
+          "url": "https://www.mobygames.com/game/59414/assassins-creed-iii/covers/",
+          "summary": "El grupo de carátulas PS3 identifica una caja Standard para Alemania, distinta de O112 Special.",
+          "supports": [
+            "mercado documentado: DE",
+            "familia Standard"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o083",
+          "type": "REAL_SCAN",
+          "label": "O083: caja canadiense Not for Resale",
+          "url": "https://www.mobygames.com/game/59414/assassins-creed-iii/covers/group-401916/",
+          "summary": "El grupo físico identifica una caja canadiense marcada Not for Resale.",
+          "supports": [
+            "mercado documentado: CA",
+            "marca física: Not for Resale"
+          ]
         }
       ],
       "sources": [
-        {"label": "Kaitori World · Assassin's Creed III Ubi the Best", "url": "https://www.kaitori-world.jp/products/detail/1200"}
+        {
+          "label": "Kaitori World · Assassin's Creed III Ubi the Best",
+          "url": "https://www.kaitori-world.jp/products/detail/1200"
+        },
+        {
+          "label": "O112 · O112: PS3 Exclusive Edition con caja y manual alemanes",
+          "url": "https://www.originalky.cz/assassin-s-creed-iii-ps3-pouzite-p72877/"
+        },
+        {
+          "label": "O082 · O082: caja Standard alemana",
+          "url": "https://www.mobygames.com/game/59414/assassins-creed-iii/covers/"
+        },
+        {
+          "label": "O083 · O083: caja canadiense Not for Resale",
+          "url": "https://www.mobygames.com/game/59414/assassins-creed-iii/covers/group-401916/"
+        }
       ],
-      "evidenceNote": "La carátula japonesa Standard ya guardada no pertenece a la línea Ubi the Best."
+      "evidenceNote": "La carátula japonesa Standard ya guardada no pertenece a la línea Ubi the Best.",
+      "images": [
+        {
+          "key": "ac-ps3-regional-o112-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o112.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o112.webp",
+          "width": 373,
+          "height": 440,
+          "caption": "Imagen de producto inspeccionada para O112",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "c15619249d14780220e7f6536ef56a7bd42b842f4870ac2687df43006f412720",
+          "thumbnailSha256": "12a2493d108f36ab76b9e09e5e47db44f0ec3497df0697071c593850afd49f55",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o112.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "3f7de494f4384c065e911c58e619d82d2a6ac3c8b523c0fd5c2b59d098d85f23",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-iii-ps3-pouzite-p72877/",
+          "inspectedAt": "2026-09-13"
+        }
+      ]
     },
     {
       "schemaVersion": 2,
@@ -379,32 +1097,89 @@
             "assassins-creed-iv-black-flag-ps3-north-america-standard",
             "assassins-creed-iv-black-flag-ps3-japan-standard"
           ],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
         },
         {
           "id": "ubi-the-best",
           "label": "Ubi the Best",
           "representativeCatalogId": "ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best",
-          "physicalEditionIds": ["assassins-creed-iv-black-flag-ps3-japan-ubi-the-best"],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
         }
       ],
       "physicalEditions": [
-        {"id": "assassins-creed-iv-black-flag-ps3-europe-standard", "label": "Standard · España", "broadRegion": "EUROPE", "editionType": "STANDARD", "marketRegions": ["ES"], "catalogIds": ["ps3-assassin%27s-creed-iv-black-flag"]},
-        {"id": "assassins-creed-iv-black-flag-ps3-north-america-standard", "label": "Standard · USA", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD", "marketRegions": ["US"], "catalogIds": ["ps3-usa-assassin-s-creed-iv-black-flag"]},
-        {"id": "assassins-creed-iv-black-flag-ps3-japan-standard", "label": "Standard · Japón", "broadRegion": "ASIA", "editionType": "STANDARD", "marketRegions": ["JP"], "catalogIds": ["ps3-japon-assassin%27s-creed-iv-black-flag"]},
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-iv-black-flag"
+          ],
+          "barcode": "3307215704974",
+          "evidenceIds": [
+            "ac-ps3-regional-o094"
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-iv-black-flag"
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-iv-black-flag"
+          ]
+        },
         {
           "id": "assassins-creed-iv-black-flag-ps3-japan-ubi-the-best",
           "label": "Ubi the Best · Japón",
           "broadRegion": "ASIA",
           "editionType": "BUDGET_REISSUE",
-          "marketRegions": ["JP"],
+          "marketRegions": [
+            "JP"
+          ],
           "barcode": "4949244003575",
           "catalogNumber": "BLJM-61273",
           "releaseDate": "2015-06-25",
           "releaseDateContext": "Reedición japonesa Ubi the Best",
-          "catalogIds": ["ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best"],
-          "evidenceIds": ["assassins-creed-iv-black-flag-ubi-the-best-commerce"]
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best"
+          ],
+          "evidenceIds": [
+            "assassins-creed-iv-black-flag-ubi-the-best-commerce"
+          ]
         }
       ],
       "evidence": [
@@ -414,13 +1189,37 @@
           "label": "Ficha comercial japonesa de Black Flag Ubi the Best",
           "url": "https://www.yamada-denkiweb.com/2813165013/",
           "summary": "Respalda PS3, Japón, BLJM-61273, JAN 4949244003575 y la fecha de la reedición.",
-          "supports": ["mercado JP", "BLJM-61273", "JAN 4949244003575", "fecha 2015-06-25"]
+          "supports": [
+            "mercado JP",
+            "BLJM-61273",
+            "JAN 4949244003575",
+            "fecha 2015-06-25"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o094",
+          "type": "RETAILER_ASSET",
+          "label": "O094: referencia PAL España de Assassin's Creed IV Black Flag",
+          "url": "https://www.todoconsolas.com/juegos-ps3/2651-assassin_s_creed_iv_black_flag_ps3_sp_po24602-3307215704974.html",
+          "summary": "La ficha comercial identifica el producto PS3 español y su EAN; no se traslada el dato a PS4.",
+          "supports": [
+            "EAN 3307215704974",
+            "mercado documentado: ES"
+          ]
         }
       ],
       "sources": [
-        {"label": "Yamada · Black Flag Ubi the Best", "url": "https://www.yamada-denkiweb.com/2813165013/"}
+        {
+          "label": "Yamada · Black Flag Ubi the Best",
+          "url": "https://www.yamada-denkiweb.com/2813165013/"
+        },
+        {
+          "label": "O094 · O094: referencia PAL España de Assassin's Creed IV Black Flag",
+          "url": "https://www.todoconsolas.com/juegos-ps3/2651-assassin_s_creed_iv_black_flag_ps3_sp_po24602-3307215704974.html"
+        }
       ],
-      "evidenceNote": "El JAN documentado es el de PS3 y no se traslada ningún identificador de PS4."
+      "evidenceNote": "El JAN documentado es el de PS3 y no se traslada ningún identificador de PS4.",
+      "images": []
     },
     {
       "schemaVersion": 2,
@@ -441,33 +1240,160 @@
           "physicalEditionIds": [
             "assassins-creed-rogue-ps3-europe-standard",
             "assassins-creed-rogue-ps3-north-america-standard",
-            "assassins-creed-rogue-ps3-japan-standard"
+            "assassins-creed-rogue-ps3-japan-standard",
+            "assassins-creed-rogue-ps3-europe-standard-o113",
+            "assassins-creed-rogue-ps3-europe-standard-o114"
           ],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
         },
         {
           "id": "ubi-the-best",
           "label": "Ubi the Best",
           "representativeCatalogId": "ps3-japon-assassin%27s-creed-rogue-ubi-the-best",
-          "physicalEditionIds": ["assassins-creed-rogue-ps3-japan-ubi-the-best"],
-          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+          "physicalEditionIds": [
+            "assassins-creed-rogue-ps3-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
         }
       ],
       "physicalEditions": [
-        {"id": "assassins-creed-rogue-ps3-europe-standard", "label": "Standard · España", "broadRegion": "EUROPE", "editionType": "STANDARD", "marketRegions": ["ES"], "catalogIds": ["ps3-assassin%27s-creed-rogue"]},
-        {"id": "assassins-creed-rogue-ps3-north-america-standard", "label": "Standard · USA", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD", "marketRegions": ["US"], "catalogIds": ["ps3-usa-assassin-s-creed-rogue"]},
-        {"id": "assassins-creed-rogue-ps3-japan-standard", "label": "Standard · Japón", "broadRegion": "ASIA", "editionType": "STANDARD", "marketRegions": ["JP"], "catalogIds": ["ps3-japon-assassin%27s-creed-rogue"]},
+        {
+          "id": "assassins-creed-rogue-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-rogue"
+          ],
+          "barcode": "3307215812327",
+          "evidenceIds": [
+            "ac-ps3-regional-o091"
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-rogue"
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-rogue"
+          ]
+        },
         {
           "id": "assassins-creed-rogue-ps3-japan-ubi-the-best",
           "label": "Ubi the Best · Japón",
           "broadRegion": "ASIA",
           "editionType": "BUDGET_REISSUE",
-          "marketRegions": ["JP"],
+          "marketRegions": [
+            "JP"
+          ],
           "barcode": "4949244003926",
           "releaseDate": "2016-03-03",
           "releaseDateContext": "Reedición japonesa Ubi the Best",
-          "catalogIds": ["ps3-japon-assassin%27s-creed-rogue-ubi-the-best"],
-          "evidenceIds": ["assassins-creed-rogue-ubi-the-best-commerce"]
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-rogue-ubi-the-best"
+          ],
+          "evidenceIds": [
+            "assassins-creed-rogue-ubi-the-best-commerce"
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-europe-standard-o113",
+          "label": "Standard · caja DE declarada · 3307215812303",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o113"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307215812303",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o113"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o113-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente."
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-europe-standard-o114",
+          "label": "Standard · caja FR declarada · 3307215812273",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "FR"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o114"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307215812273",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o114"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; la fuente no ofreció una imagen utilizable y se muestra placeholder."
+          ]
         }
       ],
       "evidence": [
@@ -477,13 +1403,1112 @@
           "label": "Ficha comercial japonesa de Rogue Ubi the Best",
           "url": "https://books.rakuten.co.jp/rb/13607096/",
           "summary": "Respalda PS3, Japón, JAN 4949244003926 y la fecha de la reedición; no se añaden idiomas ni código de catálogo.",
-          "supports": ["mercado JP", "JAN 4949244003926", "fecha 2016-03-03"]
+          "supports": [
+            "mercado JP",
+            "JAN 4949244003926",
+            "fecha 2016-03-03"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o113",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O113: Rogue Standard con caja DE declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-rogue-ps3-pouzite-p70457/",
+          "summary": "La tienda vincula el producto PS3 y el EAN con el idioma declarado de la caja; no certifica el mercado.",
+          "supports": [
+            "EAN 3307215812303",
+            "idioma de caja declarado: DE"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o114",
+          "type": "RETAILER_ASSET",
+          "label": "O114: Rogue Standard con caja FR declarada",
+          "url": "https://www.tradergames.fr/fr/playstation-3/349787-assassin-s-creed-rogue-sony-playstation-3-ps3-fr-occasion-3307215812273.html",
+          "summary": "La tienda vincula el producto PS3 y el EAN con el idioma declarado de la caja; no certifica el mercado.",
+          "supports": [
+            "EAN 3307215812273",
+            "idioma de caja declarado: FR"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o091",
+          "type": "RETAILER_ASSET",
+          "label": "O091: referencia PAL España de Assassin's Creed Rogue",
+          "url": "https://www.todoconsolas.com/juegos-ps3/5033-assassin_s_creed_rogue_ps3_sp_po30044-3307215812327.html",
+          "summary": "La ficha comercial identifica el producto PS3 español y su EAN; no se extiende a los idiomas de todas las caras.",
+          "supports": [
+            "EAN 3307215812327",
+            "mercado documentado: ES"
+          ]
         }
       ],
       "sources": [
-        {"label": "Rakuten Books · Rogue Ubi the Best", "url": "https://books.rakuten.co.jp/rb/13607096/"}
+        {
+          "label": "Rakuten Books · Rogue Ubi the Best",
+          "url": "https://books.rakuten.co.jp/rb/13607096/"
+        },
+        {
+          "label": "O113 · O113: Rogue Standard con caja DE declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-rogue-ps3-pouzite-p70457/"
+        },
+        {
+          "label": "O114 · O114: Rogue Standard con caja FR declarada",
+          "url": "https://www.tradergames.fr/fr/playstation-3/349787-assassin-s-creed-rogue-sony-playstation-3-ps3-fr-occasion-3307215812273.html"
+        },
+        {
+          "label": "O091 · O091: referencia PAL España de Assassin's Creed Rogue",
+          "url": "https://www.todoconsolas.com/juegos-ps3/5033-assassin_s_creed_rogue_ps3_sp_po30044-3307215812327.html"
+        }
       ],
-      "evidenceNote": "La carátula japonesa Standard ya guardada no pertenece a la línea Ubi the Best."
+      "evidenceNote": "La carátula japonesa Standard ya guardada no pertenece a la línea Ubi the Best.",
+      "images": [
+        {
+          "key": "ac-ps3-regional-o113-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o113.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o113.webp",
+          "width": 508,
+          "height": 600,
+          "caption": "Imagen de producto inspeccionada para O113",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "b7366c8fe9115ea54d84b55721dd1d9dbba9498e4b531580c966a992a706cb4f",
+          "thumbnailSha256": "18e80165899f4c80152cc6ef33311a6e4932af5b2a62c659aa031944b1e9572d",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o113.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "7ccdec893abbf5ee637b7413574e3ae1758fbdb0a7e83d5875fcbb4588fc07bd",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-rogue-ps3-pouzite-p70457/",
+          "inspectedAt": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ps3",
+      "title": "Ediciones físicas de Assassin's Creed en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "Inventario físico V2: las cajas se separan por evidencia propia; los mercados pendientes no se deducen del idioma.",
+      "game": {
+        "title": "Assassin's Creed",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed",
+          "physicalEditionIds": [
+            "assassins-creed-ps3-europe-standard",
+            "assassins-creed-ps3-north-america-standard",
+            "assassins-creed-ps3-japan-standard",
+            "assassins-creed-ps3-europe-standard-o100",
+            "assassins-creed-ps3-europe-standard-o101"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "platinum",
+          "label": "Platinum",
+          "representativeCatalogId": "ps3-assassin%27s-creed-platinum",
+          "physicalEditionIds": [
+            "assassins-creed-ps3-europe-platinum",
+            "assassins-creed-ps3-europe-platinum-o102"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed"
+          ],
+          "barcode": "3307210263483",
+          "catalogNumber": "BLES-00158",
+          "evidenceIds": [
+            "ac-ps3-regional-o001"
+          ]
+        },
+        {
+          "id": "assassins-creed-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed"
+          ]
+        },
+        {
+          "id": "assassins-creed-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed"
+          ]
+        },
+        {
+          "id": "assassins-creed-ps3-europe-platinum",
+          "label": "Platinum · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-platinum"
+          ]
+        },
+        {
+          "id": "assassins-creed-ps3-europe-standard-o100",
+          "label": "Standard · caja alemana declarada · 3307210238382",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o100"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307210238382",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o100"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o100-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; el idioma y la ubicación del vendedor no se usan como prueba de distribución."
+          ]
+        },
+        {
+          "id": "assassins-creed-ps3-europe-standard-o101",
+          "label": "Standard · caja alemana declarada · 3307210450968",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o101"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307210450968",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o101"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o101-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; el idioma y la ubicación del vendedor no se usan como prueba de distribución."
+          ]
+        },
+        {
+          "id": "assassins-creed-ps3-europe-platinum-o102",
+          "label": "Platinum · caja francesa declarada · 3307210449061",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "FR"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o102"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307210449061",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o102"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; sin imagen local porque la referencia no ofreció un asset reutilizable."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-ps3-regional-o100",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O100: caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-ps3-pouzite-p76738/",
+          "summary": "La tienda vincula el EAN con una caja declarada en alemán; no acredita todas las caras ni un mercado nacional.",
+          "supports": [
+            "EAN 3307210238382",
+            "idioma de caja declarado: DE"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o101",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O101: caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-ps3-pouzite-p52101/",
+          "summary": "La tienda vincula el EAN con una caja declarada en alemán; no acredita todas las caras ni un mercado nacional.",
+          "supports": [
+            "EAN 3307210450968",
+            "idioma de caja declarado: DE"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o102",
+          "type": "RETAILER_ASSET",
+          "label": "O102: Assassin's Creed Platinum con caja francesa declarada",
+          "url": "https://www.tradergames.fr/fr/playstation-3/338070-assassin-s-creed-sony-playstation-3-ps3-platinum-fr-occasion-3307210449061.html",
+          "summary": "La ficha identifica el producto Platinum y declara francés como idioma de caja; la imagen utilizable no estaba accesible.",
+          "supports": [
+            "EAN 3307210449061",
+            "idioma de caja declarado: FR",
+            "familia Platinum"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o001",
+          "type": "RETAILER_ASSET",
+          "label": "O001: referencia PAL España de Assassin's Creed",
+          "url": "https://www.retroloco.es/producto/assassins-creed-esp/",
+          "summary": "La ficha comercial identifica el producto PS3 español, el EAN y BLES; no acredita todos los idiomas impresos.",
+          "supports": [
+            "EAN 3307210263483",
+            "BLES-00158",
+            "mercado documentado: ES"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "key": "ac-ps3-regional-o100-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o100.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o100.webp",
+          "width": 428,
+          "height": 502,
+          "caption": "Imagen de producto inspeccionada para O100",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "dd57ce4821533dc1e1516eefff863ffb42504e5786270e82dd602850f0dbfda2",
+          "thumbnailSha256": "31d510c1b115c54f544930abfa55ec320a3dd31fa6a741ca21cf42423081a1e0",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o100.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "1f36a1124ee5d7f2ddf30772dd4b1ed526088f684b28a6c072935da7829d0b3a",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-ps3-pouzite-p76738/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o101-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o101.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o101.webp",
+          "width": 193,
+          "height": 242,
+          "caption": "Imagen de producto inspeccionada para O101",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "331fc709bd32d5c7ea3ea544a8bde1cfead666f75dce22599986a0488b6f3828",
+          "thumbnailSha256": "0d1513573ffdfb7ef14711571ef71793a229c75b081eb159b5c476d400f315cd",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o101.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "f258a87c336252bd6bd7cf2434e97ee4261c8061208421a95d21727b63ecf33d",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-ps3-pouzite-p52101/",
+          "inspectedAt": "2026-09-13"
+        }
+      ],
+      "sources": [
+        {
+          "label": "O100 · O100: caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-ps3-pouzite-p76738/"
+        },
+        {
+          "label": "O101 · O101: caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-ps3-pouzite-p52101/"
+        },
+        {
+          "label": "O102 · O102: Assassin's Creed Platinum con caja francesa declarada",
+          "url": "https://www.tradergames.fr/fr/playstation-3/338070-assassin-s-creed-sony-playstation-3-ps3-platinum-fr-occasion-3307210449061.html"
+        },
+        {
+          "label": "O001 · O001: referencia PAL España de Assassin's Creed",
+          "url": "https://www.retroloco.es/producto/assassins-creed-esp/"
+        }
+      ],
+      "evidenceNote": "Cobertura parcial y trazable; no representa todas las cajas publicadas en el mundo."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ii-ps3",
+      "title": "Ediciones físicas de Assassin's Creed II en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "Inventario físico V2: las cajas se separan por evidencia propia; los mercados pendientes no se deducen del idioma.",
+      "game": {
+        "title": "Assassin's Creed II",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-ii"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-standard",
+            "assassins-creed-ii-ps3-north-america-standard",
+            "assassins-creed-ii-ps3-japan-standard",
+            "assassins-creed-ii-ps3-europe-standard-o103",
+            "assassins-creed-ii-ps3-north-america-shared-o026"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "goty",
+          "label": "Game of the Year Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-game-of-the-year-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-goty",
+            "assassins-creed-ii-ps3-europe-goty-o104"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-ii-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii"
+          ],
+          "barcode": "3307211666535",
+          "evidenceIds": [
+            "ac-ps3-regional-o024"
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-ii"
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-ii"
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-goty",
+          "label": "Game of the Year Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-game-of-the-year-edition"
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-standard-o103",
+          "label": "Standard · caja inglesa declarada · 3307211666504",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "EN"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o103"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "BBFC"
+          ],
+          "barcode": "3307211666504",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o103"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o103-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; la clasificación visible no demuestra por sí sola todos los mercados de la caja."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-goty-o104",
+          "label": "Game of the Year · Essentials · caja alemana declarada",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o104"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307215659069",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o104"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o104-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; se conserva la línea de reedición visible."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-north-america-shared-o026",
+          "label": "Standard · caja compartida CA / MX / US",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "CA",
+            "MX",
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o026"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "Una caja compartida entre tres mercados; se cuenta y colecciona una sola vez."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-ps3-regional-o103",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O103: Assassin's Creed II con caja inglesa declarada",
+          "url": "https://www.gamershouse.cz/akcni-adventury-na-ps3/ps3-assassin-s-creed-ii/",
+          "summary": "La ficha separa el idioma de caja del idioma del juego y lo vincula al EAN.",
+          "supports": [
+            "EAN 3307211666504",
+            "idioma de caja declarado: EN"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o104",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O104: Game of the Year / Essentials con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-ii-game-of-the-year-edition-ps3-pouzite-p268344/",
+          "summary": "La imagen muestra la línea Essentials y Game of the Year; la tienda declara caja alemana.",
+          "supports": [
+            "EAN 3307215659069",
+            "idioma de caja declarado: DE",
+            "línea Essentials / Game of the Year"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o026",
+          "type": "REAL_SCAN",
+          "label": "O026: caja compartida de Assassin's Creed II",
+          "url": "https://www.mobygames.com/game/43958/assassins-creed-ii/covers/group-63645/",
+          "summary": "El grupo de escaneos identifica una sola caja física para Canadá, México y Estados Unidos.",
+          "supports": [
+            "mercados documentados: CA, MX y US",
+            "una sola identidad de packaging"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o024",
+          "type": "RETAILER_ASSET",
+          "label": "O024: referencia PAL España de Assassin's Creed II",
+          "url": "https://www.todoconsolas.com/juegos-ps3/474-assassin_s_creed_ii_ps3_sp_po0274-3307211666535.html",
+          "summary": "La ficha comercial identifica el producto PS3 español y su EAN; sus imágenes se mantienen como ilustrativas.",
+          "supports": [
+            "EAN 3307211666535",
+            "mercado documentado: ES"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "key": "ac-ps3-regional-o103-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o103.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o103.webp",
+          "width": 252,
+          "height": 291,
+          "caption": "Imagen de producto inspeccionada para O103",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "e375fc7970207b3f804dc4e994335ce2a5c7ddee6769ccbb1330a1ce08c77049",
+          "thumbnailSha256": "c38260e38b2aef352fcec708d01d8b5b79429a0813b6a62c3ac18fc171dbc7a6",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o103.png",
+          "originalWidth": 1024,
+          "originalHeight": 768,
+          "originalSha256": "e87f57323b12b76e5e65f14ea33d6124ada4134d1d066d7900562a8c7c26e870",
+          "sourcePageUrl": "https://www.gamershouse.cz/akcni-adventury-na-ps3/ps3-assassin-s-creed-ii/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o104-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o104.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o104.webp",
+          "width": 481,
+          "height": 618,
+          "caption": "Imagen de producto inspeccionada para O104",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "48d1e48dddd6fe22d87fff6817d87b19799ec04118650c6e678972ec25c4c12f",
+          "thumbnailSha256": "bdff2785027e9d5eef57688f4191ea1c256c52661ea99dd84caabad15d17b682",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o104.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "50ae6bd40090926b93ac93d764f69b9af5f9f2cab007b15cfca6f20015496e8e",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-ii-game-of-the-year-edition-ps3-pouzite-p268344/",
+          "inspectedAt": "2026-09-13"
+        }
+      ],
+      "sources": [
+        {
+          "label": "O103 · O103: Assassin's Creed II con caja inglesa declarada",
+          "url": "https://www.gamershouse.cz/akcni-adventury-na-ps3/ps3-assassin-s-creed-ii/"
+        },
+        {
+          "label": "O104 · O104: Game of the Year / Essentials con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-ii-game-of-the-year-edition-ps3-pouzite-p268344/"
+        },
+        {
+          "label": "O026 · O026: caja compartida de Assassin's Creed II",
+          "url": "https://www.mobygames.com/game/43958/assassins-creed-ii/covers/group-63645/"
+        },
+        {
+          "label": "O024 · O024: referencia PAL España de Assassin's Creed II",
+          "url": "https://www.todoconsolas.com/juegos-ps3/474-assassin_s_creed_ii_ps3_sp_po0274-3307211666535.html"
+        }
+      ],
+      "evidenceNote": "Cobertura parcial y trazable; no representa todas las cajas publicadas en el mundo."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-revelations-ps3",
+      "title": "Ediciones físicas de Assassin's Creed: Revelations en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "Inventario físico V2: las cajas se separan por evidencia propia; los mercados pendientes no se deducen del idioma.",
+      "game": {
+        "title": "Assassin's Creed: Revelations",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-revelations"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-europe-standard",
+            "assassins-creed-revelations-ps3-north-america-standard",
+            "assassins-creed-revelations-ps3-japan-standard",
+            "assassins-creed-revelations-ps3-standard-o097"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations-special-edition",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-europe-special",
+            "assassins-creed-revelations-ps3-europe-ac1-o096",
+            "assassins-creed-revelations-ps3-europe-special-o111"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-revelations-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations"
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-revelations"
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-revelations"
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-special",
+          "label": "Special Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations-special-edition"
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-ac1-o096",
+          "label": "Revelations con Assassin's Creed · contraportada NL / FR",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BACK",
+              "languages": [
+                "NL",
+                "FR"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": false,
+              "note": "Sólo se examinó la contraportada.",
+              "evidenceIds": [
+                "ac-ps3-regional-o096"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307215586631",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o096"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed"
+          ],
+          "notes": [
+            "Mercado nacional pendiente; no se duplica por aparecer en comercios de dos países."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-standard-o097",
+          "label": "Standard · contraportada EN / FR · 346845-CVRF",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BACK",
+              "languages": [
+                "EN",
+                "FR"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": false,
+              "note": "No se han examinado portada y lomo.",
+              "evidenceIds": [
+                "ac-ps3-regional-o097"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "boxCode": "346845-CVRF",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o097"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; el código conservado es de impresión, no un EAN."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-special-o111",
+          "label": "Special Edition · caja alemana declarada",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o111"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307215589786",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o111"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o111-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; la inspección de la portada corrige la familia de investigación provisional."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-ps3-regional-o096",
+          "type": "REAL_PHOTO",
+          "label": "O096: Revelations con Assassin's Creed incluido",
+          "url": "https://www.smartoys.be/catalog/retro-gaming-playstation-assassins-creed-revelations-p-3307215586631.html",
+          "summary": "El reverso observado contiene bloques NL y FR; los comercios NL y BE apuntan al mismo EAN.",
+          "supports": [
+            "EAN 3307215586631",
+            "contraportada observada: NL / FR",
+            "incluye Assassin's Creed"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o097",
+          "type": "REAL_PHOTO",
+          "label": "O097: reverso EN / FR con código de impresión",
+          "url": "https://psgames.ca/ps3-assassins-creed-revelations.html",
+          "summary": "La imagen del reverso permite leer inglés, francés y el código de impresión 346845-CVRF; no aporta EAN.",
+          "supports": [
+            "código de impresión 346845-CVRF",
+            "contraportada observada: EN / FR"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o111",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O111: Special Edition con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-revelations-ps3-pouzite-p221262/",
+          "summary": "La foto inspeccionada muestra Special Edition y USK; la tienda declara caja alemana.",
+          "supports": [
+            "EAN 3307215589786",
+            "idioma de caja declarado: DE",
+            "familia Special Edition"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "key": "ac-ps3-regional-o111-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o111.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o111.webp",
+          "width": 500,
+          "height": 585,
+          "caption": "Imagen de producto inspeccionada para O111",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "fdbfcfd025a4943778dc2525ad986d6e8f1d887d0c392c63807ce798ac4c038c",
+          "thumbnailSha256": "c3ceb64fe562e8db77b4d2bed10faa28612481f5482e840fe54cad6aa314c1b9",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o111.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "d9ef6da3c6f4525f99eb02c88cd5345c767096cce7ee7fad0dc738f0ee982445",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-revelations-ps3-pouzite-p221262/",
+          "inspectedAt": "2026-09-13"
+        }
+      ],
+      "sources": [
+        {
+          "label": "O096 · O096: Revelations con Assassin's Creed incluido",
+          "url": "https://www.smartoys.be/catalog/retro-gaming-playstation-assassins-creed-revelations-p-3307215586631.html"
+        },
+        {
+          "label": "O097 · O097: reverso EN / FR con código de impresión",
+          "url": "https://psgames.ca/ps3-assassins-creed-revelations.html"
+        },
+        {
+          "label": "O111 · O111: Special Edition con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-revelations-ps3-pouzite-p221262/"
+        }
+      ],
+      "evidenceNote": "Cobertura parcial y trazable; no representa todas las cajas publicadas en el mundo."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-american-saga-ps3",
+      "title": "Ediciones físicas de Assassin's Creed: The American Saga en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "Inventario físico V2: las cajas se separan por evidencia propia; los mercados pendientes no se deducen del idioma.",
+      "game": {
+        "title": "Assassin's Creed: Birth Of A New World The American Saga",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-birth-of-a-new-world-the-american-saga"
+      },
+      "editionFamilies": [
+        {
+          "id": "birth-of-a-new-world",
+          "label": "Birth of a New World / The American Saga",
+          "representativeCatalogId": "ps3-assassin%27s-creed-birth-of-a-new-world-the-american-saga",
+          "physicalEditionIds": [
+            "assassins-creed-american-saga-ps3-europe",
+            "assassins-creed-american-saga-ps3-europe-o115"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "americas-collection",
+          "label": "The Americas Collection",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-the-americas-collection",
+          "physicalEditionIds": [
+            "assassins-creed-americas-collection-ps3-north-america"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-american-saga-ps3-europe",
+          "label": "Birth of a New World · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-birth-of-a-new-world-the-american-saga"
+          ]
+        },
+        {
+          "id": "assassins-creed-americas-collection-ps3-north-america",
+          "label": "The Americas Collection · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COMPILATION",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-the-americas-collection"
+          ]
+        },
+        {
+          "id": "assassins-creed-american-saga-ps3-europe-o115",
+          "label": "Birth of a New World · caja alemana declarada",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o115"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307215802434",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o115"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o115-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente. The Americas Collection conserva su denominación norteamericana en una familia separada."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-ps3-regional-o115",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O115: Birth of a New World con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-birth-of-a-new-world-the-american-saga-ps3-pouzite-p428200/",
+          "summary": "La ficha y la imagen identifican el recopilatorio, no Assassin's Creed III independiente.",
+          "supports": [
+            "EAN 3307215802434",
+            "idioma de caja declarado: DE",
+            "producto: Birth of a New World / American Saga"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "key": "ac-ps3-regional-o115-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o115-ebay.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o115-ebay.webp",
+          "width": 1390,
+          "height": 1600,
+          "caption": "Imagen de producto inspeccionada para O115",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "cc349552f67782e240e1beabaa364e357a7c112324e250d1740ebe4990740763",
+          "thumbnailSha256": "2f088df6dfcd202ccc177e379951fece19e8bca3e2f5a6a09a8f65d0aa3953de",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o115-ebay.jpg",
+          "originalWidth": 1390,
+          "originalHeight": 1600,
+          "originalSha256": "8e78dfdb5e04e39a52b0d17d0aae566208260753efd18ceaf53ba38bb0b7dabf",
+          "sourcePageUrl": "https://www.ebay.de/p/25050694857",
+          "inspectedAt": "2026-09-13"
+        }
+      ],
+      "sources": [
+        {
+          "label": "O115 · O115: Birth of a New World con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-birth-of-a-new-world-the-american-saga-ps3-pouzite-p428200/"
+        },
+        {
+          "label": "O115 · imagen de producto eBay",
+          "url": "https://www.ebay.de/p/25050694857"
+        }
+      ],
+      "evidenceNote": "Cobertura parcial y trazable; no representa todas las cajas publicadas en el mundo."
     }
   ]
 }

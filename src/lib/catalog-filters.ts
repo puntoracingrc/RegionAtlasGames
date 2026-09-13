@@ -285,7 +285,11 @@ function matchesLegacyRegion(game: CatalogListGame, region: string): boolean {
       const broadRegionGroup: Record<CatalogBroadRegion, ReturnType<typeof regionNavigationGroup>> = {
         EUROPE: "europe",
         NORTH_AMERICA: "america",
+        LATIN_AMERICA: "america",
         ASIA: "asia",
+        OCEANIA: "oceania",
+        MIDDLE_EAST: "middle-east",
+        AFRICA: "africa",
         OTHER: "other",
       };
       return game.physicalEditionGroup.broadRegions.some(

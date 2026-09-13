@@ -6,6 +6,7 @@ import test from "node:test";
 import sharp from "sharp";
 import acPs3GuideDocument from "../../data/catalog-edition-guides-ac-ps3.json";
 import acPs3Implementation from "../../data/research/ac-ps3-backed-v2-2026-09-13.json";
+import acPs3RegionalDecisions from "../../data/research/ac-ps3-regional-packaging-decisions-2026-09-13.json";
 import guideDocument from "../../data/catalog-edition-guides.json";
 import scanAssets from "../../data/research/owned-scans/2026-09-12-absolum-special-edition-assets.json";
 import schemaDocument from "../../data/schemas/catalog-edition-guides-v2.schema.json";
@@ -17,6 +18,7 @@ import {
 } from "./catalog-edition-guides";
 import {
   BROAD_REGION_VALUES,
+  CATALOG_MARKET_REGION_META,
   CATALOG_MARKET_REGION_VALUES,
   CATALOG_PHYSICAL_PRICE_CONDITION_VALUES,
   PHYSICAL_EDITION_TYPE_VALUES,
@@ -25,6 +27,7 @@ import {
   catalogEditionFamilyCountLabel,
   catalogEditionFamilyHasVariants,
   catalogMarketRegionToLegacyRegion,
+  isCatalogMarketRegion,
   isStrongPhysicalEvidence,
 } from "./catalog-edition-guide-types";
 import { filterCatalogGames, type CatalogFilterState } from "./catalog-filters";
@@ -89,6 +92,10 @@ const AC_PS3_GUIDE_IDS = [
   "assassins-creed-iii-ps3",
   "assassins-creed-iv-black-flag-ps3",
   "assassins-creed-rogue-ps3",
+  "assassins-creed-ps3",
+  "assassins-creed-ii-ps3",
+  "assassins-creed-revelations-ps3",
+  "assassins-creed-american-saga-ps3",
 ] as const;
 
 function absolumGuide() {
@@ -443,10 +450,12 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
   );
 
   const ps5RegionOptions = publicCatalogRegionFilterOptionsForPlatform("ps5").map((option) => option.value);
-  for (const marketCode of CATALOG_MARKET_REGION_VALUES) {
+  const documentedPs5Markets = [...new Set(absolumGuide().physicalEditions.flatMap((edition) => edition.marketRegions))];
+  for (const marketCode of documentedPs5Markets) {
     const market = catalogMarketRegionToLegacyRegion(marketCode);
     assert.ok(ps5RegionOptions.includes(market), `missing PS5 region filter: ${market}`);
   }
+  assert.equal(ps5RegionOptions.includes(catalogMarketRegionToLegacyRegion("PT")), false);
 });
 
 test("V2 overview regions link to the matching regional block or exact physical edition", () => {
@@ -617,7 +626,7 @@ test("only explicitly migrated guides opt into edition families and legacy catal
   );
 });
 
-test("Assassin's Creed PS3 publishes only the four backed additions and preserves all prior catalog rows", () => {
+test("the previous four catalog additions remain exact and all prior catalog rows are preserved", () => {
   const rawCatalog = JSON.parse(readFileSync(path.join(process.cwd(), "data", "catalog.json"), "utf8")) as Array<{
     id: string;
     platformSlug: string;
@@ -650,6 +659,105 @@ test("Assassin's Creed PS3 publishes only the four backed additions and preserve
     createHash("sha256").update(JSON.stringify(ps5)).digest("hex"),
     "711f1f988b43cb58eda10f83eed7349a524ea75d5e706ed61a697a1b583a5d30",
   );
+});
+
+test("the shared market registry supports all 56 targets without fabricating a fallback", () => {
+  assert.equal(CATALOG_MARKET_REGION_VALUES.length, 56);
+  assert.deepEqual(Object.keys(CATALOG_MARKET_REGION_META), [...CATALOG_MARKET_REGION_VALUES]);
+  for (const marketCode of CATALOG_MARKET_REGION_VALUES) {
+    const meta = CATALOG_MARKET_REGION_META[marketCode];
+    assert.ok(BROAD_REGION_VALUES.includes(meta.broadRegion), marketCode);
+    assert.equal(getRegionDisplay(marketCode).flagCode, meta.flagCode);
+    assert.equal(catalogMarketRegionToLegacyRegion(marketCode), meta.legacyRegion);
+  }
+  assert.equal(isCatalogMarketRegion("XX"), false);
+  assert.notEqual(getRegionDisplay("XX").shortLabel, "ES");
+  assert.notEqual(getRegionDisplay("XX").shortLabel, "US");
+});
+
+test("the regional queue records all 133 decisions and publishes every priority candidate", () => {
+  assert.equal(acPs3RegionalDecisions.observations.length, 133);
+  assert.equal(acPs3RegionalDecisions.counts.CREADA, 19);
+  assert.equal(acPs3RegionalDecisions.counts.REUTILIZADA_ENRIQUECIDA, 4);
+  assert.equal(acPs3RegionalDecisions.counts.PENDIENTE_EVIDENCIA, 93);
+  assert.equal(acPs3RegionalDecisions.counts.PENDIENTE_SUPERVISION, 6);
+
+  const priorityIds = [
+    "O096", "O097", "O100", "O101", "O102", "O103", "O104", "O107",
+    "O108", "O109", "O110", "O111", "O112", "O113", "O114", "O115",
+  ];
+  const decisions = new Map(acPs3RegionalDecisions.observations.map((entry) => [entry.observationId, entry]));
+  const publicEditionIds = new Set(getCatalogEditionGuides().flatMap((guide) =>
+    guide.physicalEditions.map((edition) => edition.id),
+  ));
+  for (const observationId of priorityIds) {
+    const decision = decisions.get(observationId);
+    assert.equal(decision?.decision, "CREADA", observationId);
+    assert.ok(decision?.targetPhysicalEditionId, observationId);
+    assert.ok(publicEditionIds.has(decision.targetPhysicalEditionId), observationId);
+    assert.ok(decision.targetPublicUrl?.includes(`#${decision.targetPhysicalEditionId}`), observationId);
+  }
+});
+
+test("regional display assets, thumbnails, and untouched originals retain their recorded checksums", () => {
+  const images = [...new Map(getCatalogEditionGuides()
+    .flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.images))
+    .filter((image) => image.key.startsWith("ac-ps3-regional-"))
+    .map((image) => [image.key, image])).values()];
+  assert.equal(images.length, 12);
+  for (const image of images) {
+    assert.ok(image.sha256);
+    assert.ok(image.thumbnailSha256);
+    assert.ok(image.originalUrl);
+    assert.ok(image.originalSha256);
+    const display = readFileSync(path.join(process.cwd(), "public", image.url.replace(/^\//, "")));
+    const thumbnail = readFileSync(path.join(process.cwd(), "public", image.thumbnailUrl.replace(/^\//, "")));
+    const original = readFileSync(path.join(process.cwd(), "public", image.originalUrl.replace(/^\//, "")));
+    assert.equal(createHash("sha256").update(display).digest("hex"), image.sha256, image.key);
+    assert.equal(createHash("sha256").update(thumbnail).digest("hex"), image.thumbnailSha256, image.key);
+    assert.equal(createHash("sha256").update(original).digest("hex"), image.originalSha256, image.key);
+  }
+});
+
+test("regional boxes are independent collection identities and language never becomes a market", () => {
+  const game = getCatalogGame("ps3-assassin%27s-creed");
+  assert.ok(game);
+  const o100 = catalogGameToCollectionItem(game, [], "complete", "assassins-creed-ps3-europe-standard-o100");
+  const o101 = catalogGameToCollectionItem(game, [o100], "complete", "assassins-creed-ps3-europe-standard-o101");
+  assert.notEqual(collectionPhysicalIdentityKey(o100), collectionPhysicalIdentityKey(o101));
+  assert.equal(countOwnedPhysicalVariant([o100, o101], "assassins-creed-ps3-europe-standard-o100"), 1);
+  assert.equal(countOwnedPhysicalVariant([o101], "assassins-creed-ps3-europe-standard-o100"), 0);
+  assert.equal(countOwnedPhysicalVariant([o101], "assassins-creed-ps3-europe-standard-o101"), 1);
+
+  const ac1Games = [
+    "ps3-assassin%27s-creed", "ps3-usa-assassin-s-creed", "ps3-japon-assassin%27s-creed",
+    "ps3-assassin%27s-creed-platinum",
+  ].map((id) => toCatalogListGame(getCatalogGame(id)!));
+  const german = filterCatalogGames(
+    groupCatalogListGames(ac1Games),
+    { ...defaultFilters, region: catalogMarketRegionToLegacyRegion("DE") },
+    { platforms: true, regions: true },
+  );
+  assert.deepEqual(german.items, []);
+});
+
+test("partial component evidence stays non-exhaustive and shared markets do not duplicate a box", () => {
+  const guides = new Map(getCatalogEditionGuides().map((entry) => [entry.id, entry]));
+  const o096 = guides.get("assassins-creed-revelations-ps3")?.physicalEditions.find(
+    (edition) => edition.id === "assassins-creed-revelations-ps3-europe-ac1-o096",
+  );
+  assert.ok(o096);
+  assert.deepEqual(o096.marketRegions, []);
+  assert.deepEqual(o096.packagingLanguages, []);
+  assert.deepEqual(o096.componentLanguageEvidence[0].languages, ["NL", "FR"]);
+  assert.equal(o096.componentLanguageEvidence[0].basis, "OBSERVED");
+  assert.equal(o096.componentLanguageEvidence[0].exhaustive, false);
+
+  const shared = guides.get("assassins-creed-ii-ps3")?.physicalEditions.filter(
+    (edition) => edition.id === "assassins-creed-ii-ps3-north-america-shared-o026",
+  );
+  assert.equal(shared?.length, 1);
+  assert.deepEqual(shared[0].marketRegions, ["CA", "MX", "US"]);
 });
 
 test("backed Assassin's Creed PS3 facts remain attached to their exact physical editions", () => {
@@ -765,8 +873,8 @@ test("unresolved Assassin's Creed candidates are not promoted into public V2 edi
     "charity",
     "harlequin",
     "doctor",
-    "revelations-nl-fr",
-    "revelations-en-fr",
+    "trilingual-unresolved",
+    "special-film-unresolved",
   ]) {
     assert.equal(publicEditionIds.some((id) => id.includes(unresolved)), false, unresolved);
   }
