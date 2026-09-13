@@ -175,6 +175,17 @@ export function groupCatalogListGames(games: CatalogListGame[]): CatalogListGame
 
     for (const grouping of groupings) {
       const catalogIds = unique(grouping.editions.flatMap((edition) => edition.catalogIds));
+      const existingRepresentative = byId.get(grouping.representativeCatalogId);
+      if (
+        existingRepresentative?.physicalEditionGroup?.guideId === guide.id &&
+        existingRepresentative.physicalEditionGroup.editionFamilyId === grouping.family?.id
+      ) {
+        replacementById.set(grouping.representativeCatalogId, existingRepresentative);
+        for (const catalogId of catalogIds) {
+          if (catalogId !== grouping.representativeCatalogId && byId.has(catalogId)) suppressed.add(catalogId);
+        }
+        continue;
+      }
       const members = catalogIds.flatMap((id) => {
         const game = byId.get(id);
         return game ? [game] : [];

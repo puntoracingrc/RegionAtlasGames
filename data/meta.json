@@ -3,7 +3,7 @@
   "source": "/Users/macbookpro14/Downloads/CATALOGO_COMPLETO_PAL_ESPAÑA.xlsx",
   "catalogScope": "retro-pal-es-closed",
   "platformCount": 22,
-  "catalogListed": 79241,
+  "catalogListed": 79245,
   "catalogEstimatedTotal": 49133,
   "listedByPlatform": {
     "3ds": 1708,
@@ -23,7 +23,7 @@
     "nes": 2297,
     "ps1": 10434,
     "ps2": 11970,
-    "ps3": 5343,
+    "ps3": 5347,
     "ps4": 8485,
     "ps5": 4805,
     "psp": 2349,
@@ -47,7 +47,7 @@
     "totalBuyValue": 19199.33
   },
   "catalogExcluded": 2184,
-  "catalogTotal": 81425,
+  "catalogTotal": 81429,
   "excludedByPlatform": {
     "3ds": 136,
     "ds": 52,
