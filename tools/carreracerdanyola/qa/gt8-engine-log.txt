@@ -1,0 +1,166 @@
+TAP version 13
+# Subtest: 40 source rows, two histories each, exact historical points and preserved records
+ok 1 - 40 source rows, two histories each, exact historical points and preserved records
+  ---
+  duration_ms: 3.727628
+  type: 'test'
+  ...
+# Subtest: GT8 never adds attendance points; same scorer retains original GT/F1 defaults
+ok 2 - GT8 never adds attendance points; same scorer retains original GT/F1 defaults
+  ---
+  duration_ms: 0.191192
+  type: 'test'
+  ...
+# Subtest: Nitro title has exactly eleven candidates; podium thirteen
+ok 3 - Nitro title has exactly eleven candidates; podium thirteen
+  ---
+  duration_ms: 58.344639
+  type: 'test'
+  ...
+# Subtest: ECO title exactly Joao, Cristian and Carles, not current third Daniel
+ok 4 - ECO title exactly Joao, Cristian and Carles, not current third Daniel
+  ---
+  duration_ms: 5.522195
+  type: 'test'
+  ...
+# Subtest: Nitro cristian wins the title with just his first place
+ok 5 - Nitro cristian wins the title with just his first place
+  ---
+  duration_ms: 38.12218
+  type: 'test'
+  ...
+# Subtest: Nitro raul-daras wins the title with just his first place
+ok 6 - Nitro raul-daras wins the title with just his first place
+  ---
+  duration_ms: 38.952655
+  type: 'test'
+  ...
+# Subtest: Four Nitro positions suffice for all top four, 22 positions still missing
+ok 7 - Four Nitro positions suffice for all top four, 22 positions still missing
+  ---
+  duration_ms: 21.47171
+  type: 'test'
+  ...
+# Subtest: ECO needs no full field; Franco fifth secures Franco fourth; seventh secures Daniel fourth in the example
+ok 8 - ECO needs no full field; Franco fifth secures Franco fourth; seventh secures Daniel fourth in the example
+  ---
+  duration_ms: 4.310067
+  type: 'test'
+  ...
+# Subtest: ECO: Carles winning guarantees the championship
+ok 9 - ECO: Carles winning guarantees the championship
+  ---
+  duration_ms: 4.751718
+  type: 'test'
+  ...
+# Subtest: ECO: Cristian winner, Joao second => Joao wins by discard
+ok 10 - ECO: Cristian winner, Joao second => Joao wins by discard
+  ---
+  duration_ms: 4.12208
+  type: 'test'
+  ...
+# Subtest: ECO: Cristian winner, Joao third => Cristian by latest common C3
+ok 11 - ECO: Cristian winner, Joao third => Cristian by latest common C3
+  ---
+  duration_ms: 4.09473
+  type: 'test'
+  ...
+# Subtest: ECO Joao absent can be THIRD behind Cristian first and Carles second
+ok 12 - ECO Joao absent can be THIRD behind Cristian first and Carles second
+  ---
+  duration_ms: 2.374112
+  type: 'test'
+  ...
+# Subtest: Nitro: Marc winning beats Cristian third and Daras fourth by discard
+ok 13 - Nitro: Marc winning beats Cristian third and Daras fourth by discard
+  ---
+  duration_ms: 28.96286
+  type: 'test'
+  ...
+# Subtest: Nitro: Fabio or Henrique win but Cristian second takes the title
+ok 14 - Nitro: Fabio or Henrique win but Cristian second takes the title
+  ---
+  duration_ms: 55.124668
+  type: 'test'
+  ...
+# Subtest: Unique places: rejection atomic, numeric fractions invalid, swap atomic
+ok 15 - Unique places: rejection atomic, numeric fractions invalid, swap atomic
+  ---
+  duration_ms: 1.180992
+  type: 'test'
+  ...
+# Subtest: Ambiguous names rejected; accents and quick entry work
+ok 16 - Ambiguous names rejected; accents and quick entry work
+  ---
+  duration_ms: 0.970982
+  type: 'test'
+  ...
+# Subtest: Cerdanyola backups do not mix categories, rules or history with Lleida
+ok 17 - Cerdanyola backups do not mix categories, rules or history with Lleida
+  ---
+  duration_ms: 1.126943
+  type: 'test'
+  ...
+# Subtest: New drivers retain zero history; can fill a real position without borrowing GT/F1 points
+ok 18 - New drivers retain zero history; can fill a real position without borrowing GT/F1 points
+  ---
+  duration_ms: 49.249312
+  type: 'test'
+  ...
+# Subtest: Ineligible drivers keep their physical slot and do not renumber others
+ok 19 - Ineligible drivers keep their physical slot and do not renumber others
+  ---
+  duration_ms: 2.546857
+  type: 'test'
+  ...
+# Subtest: Official current correction and no-classification are explicit zero/override, not last place
+ok 20 - Official current correction and no-classification are explicit zero/override, not last place
+  ---
+  duration_ms: 70.99717
+  type: 'test'
+  ...
+# Subtest: Maximum matching respects one physical slot per missing driver
+ok 21 - Maximum matching respects one physical slot per missing driver
+  ---
+  duration_ms: 0.209509
+  type: 'test'
+  ...
+# Subtest: Exact partial bounds agree with enumeration for two six-driver subsets (720 each)
+ok 22 - Exact partial bounds agree with enumeration for two six-driver subsets (720 each)
+  ---
+  duration_ms: 17.54582
+  type: 'test'
+  ...
+# Subtest: 600 independent full-grid oracle comparisons (300/category) plus title paths constraints
+ok 23 - 600 independent full-grid oracle comparisons (300/category) plus title paths constraints
+  ---
+  duration_ms: 135.401687
+  type: 'test'
+  ...
+# Subtest: Partial min/max are safe for 200 random full-grid completions after four known results
+ok 24 - Partial min/max are safe for 200 random full-grid completions after four known results
+  ---
+  duration_ms: 142.165824
+  type: 'test'
+  ...
+# Subtest: Title paths ignore current positions, honor roster changes, and reject unknown scoring
+ok 25 - Title paths ignore current positions, honor roster changes, and reject unknown scoring
+  ---
+  duration_ms: 1.197947
+  type: 'test'
+  ...
+# Subtest: No result generation or finalization from only partial data
+ok 26 - No result generation or finalization from only partial data
+  ---
+  duration_ms: 30.627425
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 781.059163

@@ -59,10 +59,30 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   serverExternalPackages: ["sharp", "ssh2", "ssh2-sftp-client"],
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    const noindexHeaders = [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }];
+
+    return [
+      { source: "/carreralleida", headers: noindexHeaders },
+      { source: "/carreracerdanyola", headers: noindexHeaders },
+      { source: "/herramientas/carreralleida.html", headers: noindexHeaders },
+      { source: "/herramientas/carreracerdanyola.html", headers: noindexHeaders },
+      { source: "/herramientas/lleida-2026.html", headers: noindexHeaders },
+      { source: "/:path*", headers: securityHeaders },
+    ];
+  },
+  async rewrites() {
+    return [
+      { source: "/carreralleida", destination: "/herramientas/carreralleida.html" },
+      { source: "/carreracerdanyola", destination: "/herramientas/carreracerdanyola.html" },
+    ];
   },
   async redirects() {
     return [
+      {
+        source: "/herramientas/lleida-2026.html",
+        destination: "/carreralleida",
+        permanent: false,
+      },
       ...catalogRouteRedirects,
       ...coverAssetRedirects,
       {
