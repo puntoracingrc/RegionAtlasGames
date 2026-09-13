@@ -265,7 +265,7 @@ $('applyQuick').addEventListener('click',()=>{
   remember();state=proposed;changed();renderInputs();$('quickError').textContent='';toast(`Actualizados ${parsed.changes.length} pilotos.`);
 });
 $('undoButton').addEventListener('click',()=>{if(!undo.length)return;state=undo.pop();update();renderInputs();scheduleSave();toast('Cambio deshecho.');});
-$('resetButton').addEventListener('click',()=>{if(!confirm('¿Volver a la lista inicial y borrar los puestos de esta simulación? Guarda una copia antes si necesitas conservarla.'))return;remember();state=E.createState(seed);filter='favorites';$('search').value='';update();renderInputs();scheduleSave();toast('Lista original restaurada.');});
+$('resetButton').addEventListener('click',()=>{const categoryName=category==='ECO'?'Eléctrico/ECO':'Nitro';if(!confirm(`¿Reiniciar solo ${categoryName}? Se borrarán los puestos, favoritos y ajustes guardados de esta categoría, pero la otra categoría no se tocará.`))return;state=E.createState(seed);sessions[category]=state;undo=[];undoBy[category]=undo;filter='favorites';$('search').value='';$('showAll').checked=false;$('finishSection').open=false;update();renderInputs();scheduleSave();toast(`${categoryName} reiniciado. La otra categoría conserva sus datos.`);});
 $('exportButton').addEventListener('click',()=>{save();download(JSON.stringify(envelope(),null,2),'cerdanyola-gt8-2026-NITRO-ECO-copia.json','application/json;charset=utf-8');toast('Copia de resultados y ajustes creada.');});
 $('csvButton').addEventListener('click',()=>{if(result.valid)download(csvText(),`cerdanyola-gt8-2026-${category}-${state.mode==='final'?'final-calculada':'simulacion'}.csv`,'text/csv;charset=utf-8');});
 $('importButton').addEventListener('click',()=>$('importFile').click());
