@@ -63,7 +63,9 @@ const nextConfig: NextConfig = {
 
     return [
       { source: "/carreralleida", headers: noindexHeaders },
+      { source: "/carreracerdanyola", headers: noindexHeaders },
       { source: "/herramientas/carreralleida.html", headers: noindexHeaders },
+      { source: "/herramientas/carreracerdanyola.html", headers: noindexHeaders },
       { source: "/herramientas/lleida-2026.html", headers: noindexHeaders },
       { source: "/:path*", headers: securityHeaders },
     ];
@@ -71,6 +73,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       { source: "/carreralleida", destination: "/herramientas/carreralleida.html" },
+      { source: "/carreracerdanyola", destination: "/herramientas/carreracerdanyola.html" },
     ];
   },
   async redirects() {

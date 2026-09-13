@@ -1,0 +1,304 @@
+TAP version 13
+# Subtest: Base: 27 históricos + 12 altas; 32 en Lleida; Pol no se duplica
+ok 1 - Base: 27 históricos + 12 altas; 32 en Lleida; Pol no se duplica
+  ---
+  duration_ms: 0.913548
+  type: 'test'
+  ...
+# Subtest: Escala literal 1–90 y regla para el 91 y posteriores
+ok 2 - Escala literal 1–90 y regla para el 91 y posteriores
+  ---
+  duration_ms: 0.937273
+  type: 'test'
+  ...
+# Subtest: Las 27 filas reproducen EXACTAMENTE la captura antes de Lleida
+ok 3 - Las 27 filas reproducen EXACTAMENTE la captura antes de Lleida
+  ---
+  duration_ms: 2.760311
+  type: 'test'
+  ...
+# Subtest: Bonificación independiente: 0/1/2/3/4 participaciones
+ok 4 - Bonificación independiente: 0/1/2/3/4 participaciones
+  ---
+  duration_ms: 0.159154
+  type: 'test'
+  ...
+# Subtest: Oriol ausente conserva 2020; participante conserva 3 victorias y termina 2070
+ok 5 - Oriol ausente conserva 2020; participante conserva 3 victorias y termina 2070
+  ---
+  duration_ms: 27.332676
+  type: 'test'
+  ...
+# Subtest: Máximos calculados, no doble bonificación
+ok 6 - Máximos calculados, no doble bonificación
+  ---
+  duration_ms: 10.909932
+  type: 'test'
+  ...
+# Subtest: Ejemplo parcial Alonso 4, Joseba 5: no inventa el puesto de Héctor
+ok 7 - Ejemplo parcial Alonso 4, Joseba 5: no inventa el puesto de Héctor
+  ---
+  duration_ms: 7.724223
+  type: 'test'
+  ...
+# Subtest: Héctor 2 y Joseba 4: 1938 empatados, gana Héctor por descarte
+ok 8 - Héctor 2 y Joseba 4: 1938 empatados, gana Héctor por descarte
+  ---
+  duration_ms: 1.279427
+  type: 'test'
+  ...
+# Subtest: Jordi gana, Joseba segundo: Joseba subcampeón
+ok 9 - Jordi gana, Joseba segundo: Joseba subcampeón
+  ---
+  duration_ms: 1.201373
+  type: 'test'
+  ...
+# Subtest: Jordi puede acabar 4º de España aunque sea 2º hoy
+ok 10 - Jordi puede acabar 4º de España aunque sea 2º hoy
+  ---
+  duration_ms: 0.892036
+  type: 'test'
+  ...
+# Subtest: Alfonso gana, Héctor 4 y Joseba 7: bronce para Alfonso
+ok 11 - Alfonso gana, Héctor 4 y Joseba 7: bronce para Alfonso
+  ---
+  duration_ms: 0.681264
+  type: 'test'
+  ...
+# Subtest: Alfonso 2, Héctor 17 y Joseba 8: decide Lleida a favor de Alfonso
+ok 12 - Alfonso 2, Héctor 17 y Joseba 8: decide Lleida a favor de Alfonso
+  ---
+  duration_ms: 0.586325
+  type: 'test'
+  ...
+# Subtest: Con Héctor 16 no gana Alfonso el desempate; con Héctor 18 sí
+ok 13 - Con Héctor 16 no gana Alfonso el desempate; con Héctor 18 sí
+  ---
+  duration_ms: 0.920558
+  type: 'test'
+  ...
+# Subtest: Joseba 6 salva el bronce por UN punto aunque Alfonso gane
+ok 14 - Joseba 6 salva el bronce por UN punto aunque Alfonso gane
+  ---
+  duration_ms: 0.455853
+  type: 'test'
+  ...
+# Subtest: Duplicados bloquean el cálculo, sin mostrar clasificación vieja
+ok 15 - Duplicados bloquean el cálculo, sin mostrar clasificación vieja
+  ---
+  duration_ms: 0.393671
+  type: 'test'
+  ...
+# Subtest: Cero, negativos, decimales, exponentes y puestos fuera de lista son inválidos
+ok 16 - Cero, negativos, decimales, exponentes y puestos fuera de lista son inválidos
+  ---
+  duration_ms: 0.810245
+  type: 'test'
+  ...
+# Subtest: Casilla vacía no es ausencia y no permite cerrar
+ok 17 - Casilla vacía no es ausencia y no permite cerrar
+  ---
+  duration_ms: 17.671275
+  type: 'test'
+  ...
+# Subtest: No clasificación con participación indicada: cero puntos pero bonus revisable
+ok 18 - No clasificación con participación indicada: cero puntos pero bonus revisable
+  ---
+  duration_ms: 12.51511
+  type: 'test'
+  ...
+# Subtest: Un abandono se calcula por su puesto; sin clasificatoria no otorga puntos hoy
+ok 19 - Un abandono se calcula por su puesto; sin clasificatoria no otorga puntos hoy
+  ---
+  duration_ms: 13.056749
+  type: 'test'
+  ...
+# Subtest: Alta de la lista gana: 640 puntos, ninguna bonificación previa
+ok 20 - Alta de la lista gana: 640 puntos, ninguna bonificación previa
+  ---
+  duration_ms: 0.691379
+  type: 'test'
+  ...
+# Subtest: Fuera de puntuación ocupa puesto y NO promociona automáticamente a otros
+ok 21 - Fuera de puntuación ocupa puesto y NO promociona automáticamente a otros
+  ---
+  duration_ms: 0.521038
+  type: 'test'
+  ...
+# Subtest: Las tres licencias Día quedan pendientes por separado
+ok 22 - Las tres licencias Día quedan pendientes por separado
+  ---
+  duration_ms: 6.844756
+  type: 'test'
+  ...
+# Subtest: Pegado rápido, acentos, apellidos ambiguos, intercambio y nombres repetidos
+ok 23 - Pegado rápido, acentos, apellidos ambiguos, intercambio y nombres repetidos
+  ---
+  duration_ms: 1.629754
+  type: 'test'
+  ...
+# Subtest: Importación conserva historia, no confía en bandera final y rechaza manipulaciones
+ok 24 - Importación conserva historia, no confía en bandera final y rechaza manipulaciones
+  ---
+  duration_ms: 1.537007
+  type: 'test'
+  ...
+# Subtest: Empate múltiple circular: no usa sort inestable ni nombre como desempate
+ok 25 - Empate múltiple circular: no usa sort inestable ni nombre como desempate
+  ---
+  duration_ms: 0.315685
+  type: 'test'
+  ...
+# Subtest: Desglose: suma C1-C4 − descarte + bonus = total para todos
+ok 26 - Desglose: suma C1-C4 − descarte + bonus = total para todos
+  ---
+  duration_ms: 0.619283
+  type: 'test'
+  ...
+# Subtest: Cotas conservadoras incluyen 400 clasificaciones completas aleatorias compatibles
+ok 27 - Cotas conservadoras incluyen 400 clasificaciones completas aleatorias compatibles
+  ---
+  duration_ms: 99.528074
+  type: 'test'
+  ...
+# Subtest: F1 seed: 14 identities, 7 entries, twelve exact historical totals
+ok 28 - F1 seed: 14 identities, 7 entries, twelve exact historical totals
+  ---
+  duration_ms: 2.003706
+  type: 'test'
+  ...
+# Subtest: Identity preservation: 9999, Joan/Carles and Juan/Raul remain distinct
+ok 29 - Identity preservation: 9999, Joan/Carles and Juan/Raul remain distinct
+  ---
+  duration_ms: 0.215507
+  type: 'test'
+  ...
+# Subtest: F1: only Dani and Joan can win; Ricardo is absent at 1864
+ok 30 - F1: only Dani and Joan can win; Ricardo is absent at 1864
+  ---
+  duration_ms: 2.178353
+  type: 'test'
+  ...
+# Subtest: Three F1 positions determine all top four with four others still blank
+ok 31 - Three F1 positions determine all top four with four others still blank
+  ---
+  duration_ms: 0.61718
+  type: 'test'
+  ...
+# Subtest: Joan second is enough for the championship, even when Dani wins
+ok 32 - Joan second is enough for the championship, even when Dani wins
+  ---
+  duration_ms: 0.387992
+  type: 'test'
+  ...
+# Subtest: Joan third beats Dani second, but not Dani first
+ok 33 - Joan third beats Dani second, but not Dani first
+  ---
+  duration_ms: 1.09793
+  type: 'test'
+  ...
+# Subtest: Joan fourth: Dani must finish in first two
+ok 34 - Joan fourth: Dani must finish in first two
+  ---
+  duration_ms: 0.590921
+  type: 'test'
+  ...
+# Subtest: Lorenzo win and Joan sixth: Dani / Lorenzo / Joan / Ricardo
+ok 35 - Lorenzo win and Joan sixth: Dani / Lorenzo / Joan / Ricardo
+  ---
+  duration_ms: 0.445266
+  type: 'test'
+  ...
+# Subtest: Lorenzo second and Joan seventh: Lorenzo runner-up
+ok 36 - Lorenzo second and Joan seventh: Lorenzo runner-up
+  ---
+  duration_ms: 0.592064
+  type: 'test'
+  ...
+# Subtest: Lorenzo third misses Ricardo by three points
+ok 37 - Lorenzo third misses Ricardo by three points
+  ---
+  duration_ms: 0.878786
+  type: 'test'
+  ...
+# Subtest: Pere wins with Lorenzo fifth: Pere fourth in championship
+ok 38 - Pere wins with Lorenzo fifth: Pere fourth in championship
+  ---
+  duration_ms: 0.450304
+  type: 'test'
+  ...
+# Subtest: Pere second with Lorenzo sixth: Pere fourth; with Lorenzo fifth: Lorenzo fourth
+ok 39 - Pere second with Lorenzo sixth: Pere fourth; with Lorenzo fifth: Lorenzo fourth
+  ---
+  duration_ms: 0.705561
+  type: 'test'
+  ...
+# Subtest: No invented fourth when Pere can still change it
+ok 40 - No invented fourth when Pere can still change it
+  ---
+  duration_ms: 0.530833
+  type: 'test'
+  ...
+# Subtest: Category imports cannot mix GT and F1; old GT v1 remains compatible
+ok 41 - Category imports cannot mix GT and F1; old GT v1 remains compatible
+  ---
+  duration_ms: 1.142225
+  type: 'test'
+  ...
+# Subtest: Assign rejects duplicated position atomically and keeps state intact
+ok 42 - Assign rejects duplicated position atomically and keeps state intact
+  ---
+  duration_ms: 0.606494
+  type: 'test'
+  ...
+# Subtest: Up/down swaps adjacent occupants atomically
+ok 43 - Up/down swaps adjacent occupants atomically
+  ---
+  duration_ms: 0.56276
+  type: 'test'
+  ...
+# Subtest: Empty position remains pending and category-specific initial guide is invalidated by extra F1 entry
+ok 44 - Empty position remains pending and category-specific initial guide is invalidated by extra F1 entry
+  ---
+  duration_ms: 0.327022
+  type: 'test'
+  ...
+# Subtest: Narration top four is immediate and never requires every place
+ok 45 - Narration top four is immediate and never requires every place
+  ---
+  duration_ms: 0.626114
+  type: 'test'
+  ...
+# Subtest: Narration requests only relevant missing drivers, not whole field
+ok 46 - Narration requests only relevant missing drivers, not whole field
+  ---
+  duration_ms: 0.507258
+  type: 'test'
+  ...
+# Subtest: Static F1 guide suppressed when Ricardo is activated, live engine recalculates
+ok 47 - Static F1 guide suppressed when Ricardo is activated, live engine recalculates
+  ---
+  duration_ms: 0.654536
+  type: 'test'
+  ...
+# Subtest: GT four entered aspirants resolve four national places without rest or day licenses
+ok 48 - GT four entered aspirants resolve four national places without rest or day licenses
+  ---
+  duration_ms: 15.579049
+  type: 'test'
+  ...
+# Subtest: Exhaust all 5040 seven-pilot F1 finishes: independent scoring, title/podium/Pere conditions, five podiums
+ok 49 - Exhaust all 5040 seven-pilot F1 finishes: independent scoring, title/podium/Pere conditions, five podiums
+  ---
+  duration_ms: 474.353018
+  type: 'test'
+  ...
+1..49
+# tests 49
+# suites 0
+# pass 49
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 568.004919
