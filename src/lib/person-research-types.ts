@@ -79,6 +79,7 @@ export type PersonWork = {
   personSlug: string;
   workQid: string | null;
   title: string;
+  catalogId?: string | null;
   year: string | number | null;
   role: string;
   relationshipPrecision: "EXACT_EDITORIAL_CREDIT" | "ASSOCIATION_NOT_EXACT_CREDIT";
@@ -152,6 +153,25 @@ export type PersonPublicData = {
   curiosities: PersonCuriosity[];
   historicalRelations?: PersonHistoricalRelation[];
   sources: PersonPublicSource[];
+};
+
+export type PersonPublicProfilePatch = {
+  slug: string;
+} & Partial<Omit<PersonPublicProfile, "slug">>;
+
+export type PersonPublicOverlayData = {
+  version: number;
+  generatedAt: string;
+  profiles?: PersonPublicProfile[];
+  profilePatches?: PersonPublicProfilePatch[];
+  companyRelations?: PersonCompanyRelation[];
+  positions?: PersonPosition[];
+  exactCredits?: PersonWork[];
+  relatedWorks?: PersonWork[];
+  awards?: PersonAward[];
+  curiosities?: PersonCuriosity[];
+  historicalRelations?: PersonHistoricalRelation[];
+  sources?: PersonPublicSource[];
 };
 
 export type PersonExpertise =

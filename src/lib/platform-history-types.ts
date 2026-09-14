@@ -59,10 +59,13 @@ export type CompanyGenealogyRelation = {
 };
 
 export type PlatformHardwareKind =
+  | "EARLY_REVISION"
   | "REVISION"
   | "REDESIGN"
   | "DEVELOPMENT_HARDWARE"
   | "HOBBYIST_HARDWARE"
+  | "MULTIMEDIA_HYBRID"
+  | "INTEGRATED_HARDWARE"
   | "COMPLEMENTARY_HARDWARE"
   | "COMMEMORATIVE_HARDWARE"
   | "CONTROLLER"
@@ -78,10 +81,13 @@ export const PLATFORM_HARDWARE_GROUPS: {
     id: "models",
     label: "Modelos y revisiones",
     kinds: [
+      "EARLY_REVISION",
       "REVISION",
       "REDESIGN",
       "DEVELOPMENT_HARDWARE",
       "HOBBYIST_HARDWARE",
+      "MULTIMEDIA_HYBRID",
+      "INTEGRATED_HARDWARE",
       "COMMEMORATIVE_HARDWARE",
     ],
   },
@@ -104,8 +110,8 @@ export type PlatformHardwareItem = {
   name: string;
   kind: PlatformHardwareKind;
   yearLabel: string | null;
-  manufacturerCompanySlug: string;
-  manufacturerCompanyName: string;
+  manufacturerCompanySlug: string | null;
+  manufacturerCompanyName: string | null;
   modelNumbers: string[];
   summaryEs: string;
   features: string[];

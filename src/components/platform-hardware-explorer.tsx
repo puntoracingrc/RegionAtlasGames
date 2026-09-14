@@ -11,10 +11,13 @@ import {
 } from "@/lib/platform-history-types";
 
 const hardwareLabels: Record<PlatformHardwareKind, string> = {
+  EARLY_REVISION: "Revisión temprana",
   REVISION: "Revisión técnica",
   REDESIGN: "Rediseño",
   DEVELOPMENT_HARDWARE: "Hardware de desarrollo",
   HOBBYIST_HARDWARE: "Desarrollo aficionado",
+  MULTIMEDIA_HYBRID: "Híbrido multimedia",
+  INTEGRATED_HARDWARE: "Hardware integrado",
   COMPLEMENTARY_HARDWARE: "Hardware complementario",
   COMMEMORATIVE_HARDWARE: "Producto conmemorativo",
   CONTROLLER: "Mando",
@@ -80,6 +83,13 @@ export function PlatformHardwareExplorer({
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted">{hardwareLabels[item.kind]}</p>
                 <h4 className="mt-1 font-bold text-foreground">{item.name}</h4>
+                {item.manufacturerCompanySlug && item.manufacturerCompanyName ? (
+                  <Link href={`/compania/${item.manufacturerCompanySlug}`} className="mt-1 inline-block text-xs font-medium text-accent hover:underline">
+                    {item.manufacturerCompanyName}
+                  </Link>
+                ) : item.manufacturerCompanyName ? (
+                  <p className="mt-1 text-xs text-muted">{item.manufacturerCompanyName}</p>
+                ) : null}
               </div>
               {item.yearLabel ? <span className="shrink-0 text-xs font-bold text-accent">{item.yearLabel}</span> : null}
             </div>

@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-14T21:00:00.000Z",
+  "records": [
+    {
+      "slug": "allan-becker",
+      "name": "Allan Becker",
+      "qid": null,
+      "platformSlugs": ["ps2"],
+      "status": "NEW_INTERNAL_CANDIDATE",
+      "reason": "La fuente lo identifica como fundador de Santa Monica Studio, pero este lote no abre un perfil público sin una revisión editorial independiente.",
+      "sourceIds": ["PH-PS2-COMPANIES"]
+    },
+    {
+      "slug": "maria-jesus-lopez-playstation",
+      "name": "María Jesús López",
+      "qid": null,
+      "platformSlugs": ["ps1", "ps2"],
+      "status": "REUSED_INTERNAL_CANDIDATE",
+      "reason": "La identidad interna del lote PS1 se reutiliza; la relación regional con James Armstrong y SingStar no basta para publicar un perfil ni crear un crédito creativo.",
+      "sourceIds": ["PH-PS1-PEOPLE", "PH-PS2-PEOPLE"]
+    }
+  ],
+  "mediaReferences": [
+    {
+      "personSlug": "james-armstrong",
+      "status": "REFERENCE_ONLY_LICENSE_REQUIRED",
+      "urls": [
+        "https://blog.es.playstation.com/2014/06/12/entrevista-james-armstrong/",
+        "https://blog.es.playstation.com/2015/11/18/james-armstrong-hasta-siempre-jugadores/"
+      ],
+      "reason": "Fuentes oficiales útiles para identificar a la persona, sin licencia abierta confirmada para reutilizar sus fotografías."
+    },
+    {
+      "personSlug": "chris-deering",
+      "status": "REFERENCE_ONLY_LICENSE_REQUIRED",
+      "urls": [
+        "https://www.theregister.com/on-prem/2006/02/02/chris-deering-looks-back-at-sony/572889"
+      ],
+      "reason": "Retrato editorial identificativo, sin licencia abierta confirmada."
+    },
+    {
+      "personSlug": "allan-becker",
+      "status": "REFERENCE_ONLY_LICENSE_REQUIRED",
+      "urls": [
+        "https://blog.playstation.com/archive/2014/04/14/behind-scenes-japan-studio-allan-becker-speaks-playstation-blog",
+        "https://blog.es.playstation.com/?p=96335"
+      ],
+      "reason": "Fuentes oficiales de identificación, sin licencia abierta confirmada."
+    },
+    {
+      "personSlug": "maria-jesus-lopez-playstation",
+      "status": "REFERENCE_ONLY_LICENSE_REQUIRED",
+      "urls": [
+        "https://blog.es.playstation.com/2018/09/28/playstation-era-una-mquina-que-lograba-transmitir-algo-diferente/"
+      ],
+      "reason": "Referencia oficial que identifica a la persona, sin licencia abierta confirmada."
+    },
+    {
+      "personSlug": "tetsuya-iida-sce",
+      "status": "NO_LICENSED_PORTRAIT_FOUND",
+      "urls": [
+        "https://retrorgb.com/interview-with-ps2-backward-compatibility-dev.html",
+        "https://jeux.ca/exclusif-lhistoire-de-la-retrocompatibilite-de-la-playstation-2-par-lingenieur-qui-la-batie/"
+      ],
+      "reason": "No se ha localizado un retrato reutilizable del ingeniero. Las imágenes de Wikimedia Commons con este nombre pertenecen al deportista homónimo y no deben usarse."
+    }
+  ]
+}

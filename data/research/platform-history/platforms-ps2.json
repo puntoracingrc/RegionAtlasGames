@@ -1,0 +1,767 @@
+{
+  "version": 2,
+  "generatedAt": "2026-09-14T21:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "ps2",
+      "title": "PlayStation 2",
+      "dekEs": "PlayStation 2 amplió la idea de consola mediante el DVD, una vida comercial prolongada y un catálogo en el que convivieron grandes producciones japonesas, estudios occidentales, juego online y nuevas formas de entretenimiento social.",
+      "summaryParagraphsEs": [
+        "PlayStation 2 llegó con el cambio de milenio y convirtió la reproducción de DVD en una parte central de su propuesta. Esa combinación ayudó a situar la consola en más hogares y a consolidar el videojuego como entretenimiento de masas.",
+        "Su identidad reunió carreras, sandbox, acción, sigilo, rol y obras de autor. Gran Turismo 3 y 4, Grand Theft Auto III y sus sucesores, Devil May Cry, Metal Gear Solid 2, God of War y Shadow of the Colossus muestran la amplitud del catálogo destacado por la revista.",
+        "EyeToy, SingStar y Buzz! ampliaron el público y las formas de juego, mientras el adaptador de red y el disco duro anticiparon servicios que ganarían peso en generaciones posteriores. Estudios first party y compañías externas sostuvieron esa diversidad durante más de una década.",
+        "La publicación sitúa la producción entre 2000 y 2013 y atribuye a la plataforma aproximadamente 158 millones de consolas distribuidas, cerca de 4.000 juegos y más de 1.500 millones de unidades de software. Estas cifras se conservan como estimaciones de la fuente, no como un recuento universal del catálogo."
+      ],
+      "figures": [
+        {
+          "personSlug": "ken-kutaragi",
+          "personName": "Ken Kutaragi",
+          "roleLabelEs": "Creación, estrategia y liderazgo",
+          "contributionEs": "Comenzó a trabajar en PS2 poco después de la primera PlayStation y dirigió la división durante la expansión de la plataforma.",
+          "period": "Desarrollo inicial-2007",
+          "sourceIds": ["PH-PS2-PEOPLE"]
+        },
+        {
+          "personSlug": "kazuo-hirai",
+          "personName": "Kaz Hirai",
+          "roleLabelEs": "Dirección internacional",
+          "contributionEs": "Desde SCEA impulsó el éxito de PS2 y supervisó la etapa de varias sagas first party sin recibir por ello un crédito creativo en sus juegos.",
+          "period": "Desde 1995",
+          "sourceIds": ["PH-PS2-PEOPLE"]
+        },
+        {
+          "personSlug": "shuhei-yoshida",
+          "personName": "Shuhei Yoshida",
+          "roleLabelEs": "Crecimiento first party",
+          "contributionEs": "Fue vicepresidente de SCEA desde 2000 y participó en operaciones de estudios que reforzaron la producción first party de PS2.",
+          "period": "Desde 2000",
+          "sourceIds": ["PH-PS2-PEOPLE"]
+        },
+        {
+          "personSlug": "chris-deering",
+          "personName": "Chris Deering",
+          "roleLabelEs": "Dirección europea",
+          "contributionEs": "Presidió Sony Computer Entertainment Europe entre 1995 y 2005 y dirigió el crecimiento europeo de la plataforma.",
+          "period": "1995-2005",
+          "sourceIds": ["PH-PS2-PEOPLE"]
+        },
+        {
+          "personSlug": "james-armstrong",
+          "personName": "James Armstrong",
+          "roleLabelEs": "Dirección regional en España",
+          "contributionEs": "Consolidó PS2 en España e impulsó adaptaciones locales de propuestas para el público casual, incluida SingStar.",
+          "period": "Generación PlayStation 2",
+          "sourceIds": ["PH-PS2-PEOPLE"]
+        },
+        {
+          "personSlug": "phil-harrison",
+          "personName": "Phil Harrison",
+          "roleLabelEs": "Lanzamiento europeo y estudios",
+          "contributionEs": "Planificó el lanzamiento europeo de PS2 y después presidió SCE Worldwide Studios durante la expansión global de la estructura first party.",
+          "period": "2000-2008",
+          "sourceIds": ["PH-PS2-PEOPLE"]
+        },
+        {
+          "personSlug": "tetsuya-iida-sce",
+          "personName": "Tetsuya Iida",
+          "roleLabelEs": "Ingeniería de retrocompatibilidad",
+          "contributionEs": "Trabajó en la emulación del subsistema gráfico de PlayStation para que PS2 pudiera ejecutar juegos de la consola anterior.",
+          "period": "Desarrollo de PS2",
+          "sourceIds": ["PH-PS2-PEOPLE", "PH-PS2-IIDA-RETRORGB", "PH-PS2-IIDA-JEUXCA"]
+        }
+      ],
+      "companies": [
+        {
+          "companySlug": "sony-interactive-entertainment",
+          "companyName": "Sony Computer Entertainment",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Estructura first party",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Dirigió la plataforma, coordinó su red internacional y sostuvo una oferta propia que creció durante la generación.",
+          "relatedWorks": ["PlayStation 2"],
+          "sourceIds": ["PH-PS2-HISTORY", "PH-PS2-PEOPLE"]
+        },
+        {
+          "companySlug": "sony-computer-entertainment-espana",
+          "companyName": "Sony Computer Entertainment España",
+          "relationshipType": "REGIONAL_PARTNER",
+          "relationshipLabelEs": "Implantación regional",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Consolidó la presencia de PS2 en España y apoyó ediciones locales de propuestas dirigidas al público casual.",
+          "relatedWorks": ["SingStar"],
+          "relatedCatalogEntries": [{"id": "ps2-singstar", "title": "SingStar"}],
+          "sourceIds": ["PH-PS2-PEOPLE"]
+        },
+        {
+          "companySlug": "japan-studio",
+          "companyName": "Japan Studio",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Estudio first party",
+          "period": "1993-2021",
+          "contributionEs": "Supervisó y produjo una parte esencial del catálogo japonés de PS2, desde ICO y Shadow of the Colossus hasta la serie Siren y varios títulos de Level-5.",
+          "relatedWorks": ["ICO", "Shadow of the Colossus", "Forbidden Siren", "Dark Cloud", "Dark Chronicle", "Rogue Galaxy"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-ico", "title": "ICO"},
+            {"id": "ps2-shadow-of-the-colossus", "title": "Shadow of the Colossus"},
+            {"id": "ps2-forbidden-siren", "title": "Forbidden Siren"},
+            {"id": "ps2-dark-cloud", "title": "Dark Cloud"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "london-studio",
+          "companyName": "London Studio",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Estudio first party europeo",
+          "period": "Desde 2002",
+          "contributionEs": "La unión de Team Soho y SCE Studio Camden reunió la trayectoria de The Getaway con EyeToy y SingStar, dos ejes del crecimiento casual de PS2.",
+          "relatedWorks": ["The Getaway", "EyeToy", "SingStar", "Hardware: Online Arena"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-eyetoy-play-with-camera", "title": "EyeToy: Play"},
+            {"id": "ps2-singstar", "title": "SingStar"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "santa-monica-studio",
+          "companyName": "Santa Monica Studio",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Estudio first party",
+          "period": "Desde 1999",
+          "contributionEs": "Debutó con Kinetica y utilizó su experiencia técnica para desarrollar God of War, además de apoyar otros proyectos de PS2.",
+          "relatedWorks": ["Kinetica", "God of War", "Twisted Metal: Black", "War of the Monsters", "Downhill Domination"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-usa-kinetica", "title": "Kinetica"},
+            {"id": "ps2-god-of-war", "title": "God of War"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "rockstar-games",
+          "companyName": "Rockstar Games",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Third party estratégica",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Grand Theft Auto III y sus sucesores consolidaron el sandbox en consola durante una etapa especialmente productiva para Rockstar.",
+          "relatedWorks": ["Grand Theft Auto III", "Grand Theft Auto: Vice City", "Grand Theft Auto: San Andreas", "Red Dead Revolver", "The Warriors", "Bully"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-grand-theft-auto-iii", "title": "Grand Theft Auto III"},
+            {"id": "ps2-grand-theft-auto-vice-city", "title": "Grand Theft Auto: Vice City"},
+            {"id": "ps2-grand-theft-auto-san-andreas", "title": "Grand Theft Auto: San Andreas"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "konami",
+          "companyName": "Konami",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Third party clave",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Amplió su relación con PlayStation mediante Metal Gear Solid, Silent Hill y Pro Evolution Soccer.",
+          "relatedWorks": ["Metal Gear Solid 2", "Metal Gear Solid 3", "Silent Hill 3", "Silent Hill 4", "Pro Evolution Soccer"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-metal-gear-solid-2", "title": "Metal Gear Solid 2"},
+            {"id": "ps2-metal-gear-solid-3-snake-eater", "title": "Metal Gear Solid 3: Snake Eater"},
+            {"id": "ps2-silent-hill-3", "title": "Silent Hill 3"},
+            {"id": "ps2-pro-evolution-soccer", "title": "Pro Evolution Soccer"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "capcom",
+          "companyName": "Capcom",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Third party clave",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Diversificó su catálogo con nuevas series como Onimusha, Devil May Cry y Monster Hunter, además de proyectos como Okami y God Hand.",
+          "relatedWorks": ["Onimusha", "Devil May Cry", "Resident Evil Outbreak", "Monster Hunter", "Okami", "God Hand"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-onimusha-warlords", "title": "Onimusha Warlords"},
+            {"id": "ps2-devil-may-cry", "title": "Devil May Cry"},
+            {"id": "ps2-monster-hunter", "title": "Monster Hunter"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "insomniac-games",
+          "companyName": "Insomniac Games",
+          "relationshipType": "KEY_DEVELOPER",
+          "relationshipLabelEs": "Socio recurrente",
+          "period": "Etapa independiente",
+          "contributionEs": "Tras explorar el concepto Monster Knight, combinó plataformas, combate, disparos y vehículos en Ratchet & Clank.",
+          "relatedWorks": ["Monster Knight", "Ratchet & Clank"],
+          "relatedCatalogEntries": [{"id": "ps2-ratchet-&amp;-clank", "title": "Ratchet & Clank"}],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "naughty-dog",
+          "companyName": "Naughty Dog",
+          "relationshipType": "FIRST_PARTY_ACQUISITION",
+          "relationshipLabelEs": "Estudio adquirido por Sony",
+          "period": "Desde 2001",
+          "contributionEs": "Abrió su etapa first party con Jak and Daxter y desarrolló después secuelas que ampliaron la fórmula con acción, sandbox y conducción.",
+          "relatedWorks": ["Jak and Daxter", "Jak II", "Jak 3", "Jak X: Combat Racing"],
+          "relatedCatalogEntries": [{"id": "ps2-jak-and-daxter-the-precursor-legacy", "title": "Jak and Daxter: The Precursor Legacy"}],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "square-enix",
+          "companyName": "Square Enix",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Editora clave de RPG",
+          "period": "Desde 2003",
+          "contributionEs": "La trayectoria de Square y su fusión con Enix sostuvieron una parte esencial del rol de PS2, con Final Fantasy, Kingdom Hearts y Dragon Quest.",
+          "relatedWorks": ["Final Fantasy X", "Final Fantasy XI", "Kingdom Hearts", "Dragon Quest VIII", "Kingdom Hearts II", "Final Fantasy XII"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-final-fantasy-x", "title": "Final Fantasy X"},
+            {"id": "ps2-kingdom-hearts", "title": "Kingdom Hearts"},
+            {"id": "ps2-dragon-quest-viii-journey-of-the-cursed-king", "title": "Dragon Quest VIII"},
+            {"id": "ps2-final-fantasy-xii", "title": "Final Fantasy XII"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "electronic-arts",
+          "companyName": "Electronic Arts",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Editora multiplataforma clave",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Aportó deportes, conducción y licencias de gran alcance mediante EA Sports, EA Sports Big y numerosas series adaptadas a PS2.",
+          "relatedWorks": ["FIFA", "Madden NFL", "SSX", "NBA Street", "Need for Speed", "Medal of Honor", "The Sims"],
+          "relatedCatalogEntries": [{"id": "ps2-ssx", "title": "SSX"}],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "namco",
+          "companyName": "Namco",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Third party y hardware",
+          "period": "Hasta la fusión de 2005",
+          "contributionEs": "Concentró su producción en series como Tekken, Soulcalibur y Ace Combat y fabricó la pistola G-Con 2.",
+          "relatedWorks": ["Soul Calibur II", "Tekken 5", "Ace Combat", "G-Con 2"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-soul-calibur-ii", "title": "Soul Calibur II"},
+            {"id": "ps2-tekken-5", "title": "Tekken 5"},
+            {"id": "ps2-g-con-2", "title": "G-Con 2"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES", "PH-PS2-CONTROLLERS"]
+        },
+        {
+          "companySlug": "ubisoft",
+          "companyName": "Ubisoft",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Editora y desarrolladora clave",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Consolidó nuevas franquicias mediante Splinter Cell, Prince of Persia, Beyond Good & Evil y otras producciones de sus estudios.",
+          "relatedWorks": ["Splinter Cell", "Prince of Persia", "Rayman Raving Rabbids", "Beyond Good & Evil", "King Kong"],
+          "relatedCatalogEntries": [
+            {"id": "ps2-splinter-cell", "title": "Splinter Cell"},
+            {"id": "ps2-prince-of-persia-sands-of-time", "title": "Prince of Persia: The Sands of Time"},
+            {"id": "ps2-beyond-good-and-evil", "title": "Beyond Good & Evil"}
+          ],
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "companySlug": "logitech",
+          "companyName": "Logitech",
+          "relationshipType": "HARDWARE_PARTNER",
+          "relationshipLabelEs": "Fabricante de periféricos",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Fabricó EyeToy y controles de terceros como Cordless Action Controller y GT Force.",
+          "relatedWorks": ["EyeToy", "Cordless Action Controller", "GT Force"],
+          "sourceIds": ["PH-PS2-PERIPHERALS", "PH-PS2-CONTROLLERS"]
+        },
+        {
+          "companySlug": "hori",
+          "companyName": "Hori",
+          "relationshipType": "HARDWARE_PARTNER",
+          "relationshipLabelEs": "Fabricante de periféricos",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "Aportó el Real Arcade Pro 2, un control de estilo arcade orientado al uso sobre mesa o regazo.",
+          "relatedWorks": ["Real Arcade Pro 2"],
+          "sourceIds": ["PH-PS2-CONTROLLERS"]
+        },
+        {
+          "companySlug": "thrustmaster",
+          "companyName": "Guillemot / Thrustmaster",
+          "relationshipType": "HARDWARE_PARTNER",
+          "relationshipLabelEs": "Fabricante de periféricos",
+          "period": "Generación PlayStation 2",
+          "contributionEs": "La revista documenta el volante Guillemot Shock 2 con licencia Ferrari, cambio secuencial y pedales.",
+          "relatedWorks": ["Guillemot Shock 2"],
+          "sourceIds": ["PH-PS2-CONTROLLERS"]
+        }
+      ],
+      "genealogies": [
+        {
+          "id": "PHG-PS2-JAPAN-STUDIO-ASOBI",
+          "sourceCompanySlug": "japan-studio",
+          "sourceCompanyName": "Japan Studio",
+          "relationshipType": "REORGANIZED_AS",
+          "targetCompanySlug": null,
+          "targetCompanyName": "Team Asobi",
+          "year": 2021,
+          "summaryEs": "Sony reorganizó Japan Studio en torno a Team Asobi; la entidad sucesora aún no dispone de ficha canónica en el catálogo.",
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "id": "PHG-PS2-PSYGNOSIS-CAMDEN-LONDON",
+          "sourceCompanySlug": "psygnosis-camden-studio",
+          "sourceCompanyName": "Psygnosis Camden Studio",
+          "relationshipType": "REORGANIZED_AS",
+          "targetCompanySlug": "london-studio",
+          "targetCompanyName": "London Studio",
+          "year": 2002,
+          "summaryEs": "La estructura, conocida después como SCE Studio Camden, se integró con Team Soho en London Studio.",
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "id": "PHG-PS2-TEAM-SOHO-LONDON",
+          "sourceCompanySlug": "team-soho",
+          "sourceCompanyName": "Team Soho",
+          "relationshipType": "MERGED_INTO",
+          "targetCompanySlug": "london-studio",
+          "targetCompanyName": "London Studio",
+          "year": 2002,
+          "summaryEs": "Team Soho se unió a SCE Studio Camden para formar London Studio.",
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "id": "PHG-PS2-NAUGHTY-DOG-SONY",
+          "sourceCompanySlug": "naughty-dog",
+          "sourceCompanyName": "Naughty Dog",
+          "relationshipType": "ACQUIRED_BY",
+          "targetCompanySlug": "sony",
+          "targetCompanyName": "Sony",
+          "year": 2001,
+          "summaryEs": "Sony adquirió Naughty Dog al comienzo de la generación PlayStation 2.",
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "id": "PHG-PS2-INSOMNIAC-SONY",
+          "sourceCompanySlug": "insomniac-games",
+          "sourceCompanyName": "Insomniac Games",
+          "relationshipType": "ACQUIRED_BY",
+          "targetCompanySlug": "sony",
+          "targetCompanyName": "Sony",
+          "year": 2019,
+          "summaryEs": "Sony adquirió Insomniac Games después de varias generaciones de colaboración.",
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "id": "PHG-PS2-SQUARE-SQUARE-ENIX",
+          "sourceCompanySlug": "square",
+          "sourceCompanyName": "Square",
+          "relationshipType": "MERGED_INTO",
+          "targetCompanySlug": "square-enix",
+          "targetCompanyName": "Square Enix",
+          "year": 2003,
+          "summaryEs": "Square y Enix culminaron su fusión durante la generación PS2.",
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "id": "PHG-PS2-ENIX-SQUARE-ENIX",
+          "sourceCompanySlug": "enix-corporation",
+          "sourceCompanyName": "Enix",
+          "relationshipType": "MERGED_INTO",
+          "targetCompanySlug": "square-enix",
+          "targetCompanyName": "Square Enix",
+          "year": 2003,
+          "summaryEs": "Enix y Square culminaron su fusión durante la generación PS2.",
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        },
+        {
+          "id": "PHG-PS2-NAMCO-BANDAI-NAMCO",
+          "sourceCompanySlug": "namco",
+          "sourceCompanyName": "Namco",
+          "relationshipType": "MERGED_INTO",
+          "targetCompanySlug": "bandai-namco-entertainment",
+          "targetCompanyName": "Bandai Namco Entertainment",
+          "year": 2005,
+          "summaryEs": "La fusión corporativa de Namco y Bandai dio paso a la estructura que después operó como Bandai Namco.",
+          "sourceIds": ["PH-PS2-COMPANIES"]
+        }
+      ],
+      "hardware": [
+        {
+          "id": "hardware-ps2-scph-early",
+          "name": "Series SCPH-10000 / 15000 / 18000",
+          "kind": "EARLY_REVISION",
+          "yearLabel": "2000",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["SCPH-10000", "SCPH-15000", "SCPH-18000"],
+          "summaryEs": "Primeras versiones japonesas anteriores al lanzamiento occidental.",
+          "features": ["Ranura PCMCIA para expansión", "Software de reproducción DVD cargado inicialmente desde Memory Card", "Primeras revisiones comerciales japonesas"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": ["ken-kutaragi", "tetsuya-iida-sce"],
+          "sourceIds": ["PH-PS2-MODELS", "PH-PS2-PEOPLE"]
+        },
+        {
+          "id": "hardware-ps2-v3-v11",
+          "name": "Series globales V3 a V11",
+          "kind": "REVISION",
+          "yearLabel": "2000-2004",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11"],
+          "summaryEs": "Familia de revisiones distribuida globalmente antes del rediseño Slim.",
+          "features": ["V3 y V4 integraron circuitos en placa", "V5 incorporó un láser más preciso", "V9 a V11 eliminaron FireWire e incorporaron infrarrojos", "Ventilación progresivamente menos ruidosa"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-MODELS"]
+        },
+        {
+          "id": "hardware-ps2-slim",
+          "name": "PlayStation 2 Slim",
+          "kind": "REDESIGN",
+          "yearLabel": "2004",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["SCPH-70000", "SCPH-70050", "SCPH-90000"],
+          "summaryEs": "Rediseño compacto de aproximadamente un kilogramo que eliminó la bahía de disco duro.",
+          "features": ["230 × 28 × 152 mm según la revista", "La serie 70050 revisó la alimentación", "SCPH-90000 volvió a integrar la fuente y redujo el ruido del ventilador"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-MODELS"]
+        },
+        {
+          "id": "hardware-ps2-dtl-h1000",
+          "name": "DTL-H1000 Debug / Test",
+          "kind": "DEVELOPMENT_HARDWARE",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["DTL-H1000"],
+          "summaryEs": "Equipo destinado a estudios y prensa especializada para probar copias de desarrollo y discos grabables.",
+          "features": ["Lectura de soportes de desarrollo", "Muchos modelos carecían de bloqueo regional según la revista"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-MODELS"]
+        },
+        {
+          "id": "hardware-ps2-psx",
+          "name": "PSX",
+          "kind": "MULTIMEDIA_HYBRID",
+          "yearLabel": "2003",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": [],
+          "summaryEs": "Dispositivo multimedia japonés con grabador de vídeo digital y una PlayStation 2 integrada; no debe confundirse con la primera PlayStation.",
+          "features": ["Compatibilidad con juegos de PS2 y PS one", "Distribución exclusiva en Japón", "Precio inicial aproximado de 80.000 yenes según la revista"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-MODELS"]
+        },
+        {
+          "id": "hardware-ps2-bravia-kdl22px300",
+          "name": "Sony Bravia KDL22PX300",
+          "kind": "INTEGRATED_HARDWARE",
+          "yearLabel": "2010",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["KDL22PX300"],
+          "summaryEs": "Televisor PAL de 22 pulgadas con una PlayStation 2 integrada en la base y orientación al mercado europeo.",
+          "features": ["Resolución 720p", "Conectividad a Internet", "Cuatro entradas HDMI", "Precio citado de 200 libras, aproximadamente 240 euros"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-MODELS"]
+        },
+        {
+          "id": "hardware-ps2-dualshock-2",
+          "name": "DualShock 2",
+          "kind": "CONTROLLER",
+          "yearLabel": "2000",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": [],
+          "summaryEs": "Mando principal de PS2, visualmente próximo a DualShock pero más ligero y con controles analógicos sensibles a la presión.",
+          "features": ["Sticks más rígidos", "Botones analógicos", "Cable más largo", "Vibración más intensa"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-CONTROLLERS"]
+        },
+        {
+          "id": "hardware-ps2-logitech-cordless",
+          "name": "Logitech Cordless Action Controller",
+          "kind": "CONTROLLER",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "logitech",
+          "manufacturerCompanyName": "Logitech",
+          "modelNumbers": [],
+          "summaryEs": "Mando de terceros inalámbrico mediante radiofrecuencia y receptor.",
+          "features": ["Agarre curvo", "Botones adicionales", "Control de intensidad de vibración"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-CONTROLLERS"]
+        },
+        {
+          "id": "hardware-ps2-hori-real-arcade-pro-2",
+          "name": "Hori Real Arcade Pro 2",
+          "kind": "CONTROLLER",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "hori",
+          "manufacturerCompanyName": "Hori",
+          "modelNumbers": [],
+          "summaryEs": "Arcade stick japonés construido para un uso estable sobre mesa o regazo.",
+          "features": ["Botones y palanca Sanwa", "Peso orientado a estabilidad", "Construcción duradera"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-CONTROLLERS"]
+        },
+        {
+          "id": "hardware-ps2-g-con-2",
+          "name": "G-Con 2",
+          "kind": "CONTROLLER",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "namco",
+          "manufacturerCompanyName": "Namco",
+          "modelNumbers": [],
+          "summaryEs": "Evolución de GunCon con una carcasa más redondeada y controles adicionales.",
+          "features": ["Botón C en la culata", "Cruceta bajo la mira", "Navegación de menús"],
+          "relatedWorks": [],
+          "relatedCatalogEntries": [{"id": "ps2-g-con-2", "title": "G-Con 2"}],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-CONTROLLERS"]
+        },
+        {
+          "id": "hardware-ps2-logitech-gt-force",
+          "name": "Logitech GT Force",
+          "kind": "CONTROLLER",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "logitech",
+          "manufacturerCompanyName": "Logitech",
+          "modelNumbers": [],
+          "summaryEs": "Volante USB con Force Feedback y pedales para juegos de conducción.",
+          "features": ["Force Feedback", "Pedales", "Precio citado de 120 euros"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-CONTROLLERS"]
+        },
+        {
+          "id": "hardware-ps2-guillemot-shock-2",
+          "name": "Guillemot Shock 2",
+          "kind": "CONTROLLER",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "thrustmaster",
+          "manufacturerCompanyName": "Guillemot / Thrustmaster",
+          "modelNumbers": [],
+          "summaryEs": "Volante con licencia Ferrari, cambio secuencial, gatillos y pedales.",
+          "features": ["Cambio secuencial", "Resistencia del volante", "Pedales incluidos"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-CONTROLLERS"]
+        },
+        {
+          "id": "hardware-ps2-multitap",
+          "name": "Multitap",
+          "kind": "PERIPHERAL",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": [],
+          "summaryEs": "Adaptador multijugador para cuatro mandos por unidad y hasta ocho jugadores con dos dispositivos.",
+          "features": ["Compatible con juegos deportivos y de lucha libre", "Hasta ocho jugadores mediante dos unidades"],
+          "relatedWorks": ["FIFA", "Pro Evolution Soccer", "NBA Live", "WWE SmackDown"],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-eyetoy",
+          "name": "EyeToy",
+          "kind": "PERIPHERAL",
+          "yearLabel": "2003",
+          "manufacturerCompanySlug": "logitech",
+          "manufacturerCompanyName": "Logitech",
+          "modelNumbers": [],
+          "summaryEs": "Cámara USB diseñada para una línea de juegos basada en el movimiento frente a la pantalla.",
+          "features": ["Resolución 320 × 240", "Lente ajustable", "Micrófono integrado", "Dos indicadores LED"],
+          "relatedWorks": ["EyeToy: Play"],
+          "relatedCatalogEntries": [{"id": "ps2-eyetoy-usb-camera", "title": "EyeToy USB Camera"}],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-hdd",
+          "name": "PS2 HDD",
+          "kind": "PERIPHERAL",
+          "yearLabel": "2001",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": [],
+          "summaryEs": "Disco duro de 40 GB asociado al adaptador de red y distribuido inicialmente en mercados como Japón y Estados Unidos.",
+          "features": ["Almacenamiento de partidas y contenido adicional", "Reducción de tiempos de carga en títulos compatibles", "Uso citado con Final Fantasy XI"],
+          "relatedWorks": ["Final Fantasy XI"],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-memory-card",
+          "name": "Memory Card para PlayStation 2",
+          "kind": "PERIPHERAL",
+          "yearLabel": "2000",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": [],
+          "summaryEs": "Tarjeta de memoria estándar de 8 MB con tecnología MagicGate.",
+          "features": ["Capacidad estándar de 8 MB", "MagicGate", "Precio inicial citado de 7.000 pesetas o 42 euros"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-network-adapter",
+          "name": "Network Adapter",
+          "kind": "PERIPHERAL",
+          "yearLabel": "2001",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": [],
+          "summaryEs": "Adaptador que acompañó el inicio del servicio online oficial y permitió conectar el disco duro en los modelos compatibles.",
+          "features": ["Módem y Ethernet en la versión japonesa inicial", "Ethernet en Estados Unidos", "Disco de arranque incluido en algunos paquetes", "Conectores ATA y alimentación para HDD"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-keyboard-mouse",
+          "name": "Teclado y ratón USB",
+          "kind": "PERIPHERAL",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": [],
+          "summaryEs": "Periféricos oficiales útiles para texto, navegación y determinados juegos subjetivos u online.",
+          "features": ["Conexión USB", "Entrada de texto", "Uso en títulos compatibles"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-singstar-microphones",
+          "name": "Micrófonos SingStar",
+          "kind": "PERIPHERAL",
+          "yearLabel": null,
+          "manufacturerCompanySlug": null,
+          "manufacturerCompanyName": null,
+          "modelNumbers": [],
+          "summaryEs": "Pareja de micrófonos conectada mediante un adaptador USB para comparar tono y canción en tiempo real.",
+          "features": ["Dos micrófonos", "Adaptador USB", "Uso simultáneo con EyeToy"],
+          "relatedWorks": ["SingStar"],
+          "relatedCatalogEntries": [{"id": "ps2-singstar-mics", "title": "SingStar Mics"}],
+          "relatedPersonSlugs": ["james-armstrong"],
+          "sourceIds": ["PH-PS2-PERIPHERALS", "PH-PS2-PEOPLE"]
+        },
+        {
+          "id": "hardware-ps2-dvd-control",
+          "name": "PS2 DVD Control",
+          "kind": "PERIPHERAL",
+          "yearLabel": null,
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": [],
+          "summaryEs": "Mando a distancia para las funciones de reproducción de DVD de la consola.",
+          "features": ["Incluía un CD con controladores", "Funciones adicionales para vídeo"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-dj-hero-turntable",
+          "name": "Mesa de mezclas DJ Hero",
+          "kind": "PERIPHERAL",
+          "yearLabel": null,
+          "manufacturerCompanySlug": null,
+          "manufacturerCompanyName": null,
+          "modelNumbers": [],
+          "summaryEs": "Control tardío compatible con PS2 basado en un plato central y una sección de mezcla desmontable.",
+          "features": ["Tres botones sobre el plato", "Crossfader y dial", "Botón Euphoria", "Configuración para zurdos o diestros"],
+          "relatedWorks": ["DJ Hero"],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-guitar-hero-guitar",
+          "name": "Guitarra Guitar Hero",
+          "kind": "PERIPHERAL",
+          "yearLabel": null,
+          "manufacturerCompanySlug": null,
+          "manufacturerCompanyName": null,
+          "modelNumbers": [],
+          "summaryEs": "Control con forma inspirada en una Gibson SG para la serie Guitar Hero.",
+          "features": ["Cinco botones de colores", "Barra de rasgueo", "Trémolo", "Versiones inalámbricas posteriores"],
+          "relatedWorks": ["Guitar Hero"],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-rock-band-instruments",
+          "name": "Instrumentos Rock Band",
+          "kind": "PERIPHERAL",
+          "yearLabel": null,
+          "manufacturerCompanySlug": null,
+          "manufacturerCompanyName": null,
+          "modelNumbers": [],
+          "summaryEs": "Conjunto de controles diseñado para interpretar música en grupo.",
+          "features": ["Guitarra", "Micrófono USB", "Batería", "Teclado en entregas posteriores"],
+          "relatedWorks": ["Rock Band"],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        },
+        {
+          "id": "hardware-ps2-buzz-buzzers",
+          "name": "Buzz! Buzzer",
+          "kind": "PERIPHERAL",
+          "yearLabel": null,
+          "manufacturerCompanySlug": null,
+          "manufacturerCompanyName": null,
+          "modelNumbers": [],
+          "summaryEs": "Conjunto de cuatro pulsadores para concursos y juego social.",
+          "features": ["Botón rojo principal", "Cuatro botones de respuesta", "Versiones inalámbricas posteriores para ocho jugadores"],
+          "relatedWorks": ["Buzz!"],
+          "relatedCatalogEntries": [{"id": "ps2-buzz-buzzers", "title": "Buzz! Buzzers"}],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS2-PERIPHERALS"]
+        }
+      ],
+      "milestones": [
+        {"id": "PHM-PS2-2000-LAUNCH", "yearLabel": "2000", "sortYear": 2000, "title": "Lanzamiento de PlayStation 2", "summaryEs": "Sony presenta una consola que combina videojuegos y reproducción de DVD.", "sourceIds": ["PH-PS2-HISTORY"]},
+        {"id": "PHM-PS2-2001-GTA3", "yearLabel": "2001", "sortYear": 2001, "title": "Grand Theft Auto III redefine el sandbox", "summaryEs": "La producción de Rockstar se convierte en uno de los hitos comerciales y de diseño de la plataforma.", "sourceIds": ["PH-PS2-HISTORY", "PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2001-ONLINE", "yearLabel": "2001", "sortYear": 2001, "title": "Comienza el servicio online oficial", "summaryEs": "La revista sitúa en Japón el arranque del servicio oficial asociado al adaptador de red.", "sourceIds": ["PH-PS2-PERIPHERALS"]},
+        {"id": "PHM-PS2-2001-NAUGHTY-DOG", "yearLabel": "2001", "sortYear": 2001, "title": "Sony adquiere Naughty Dog", "summaryEs": "El estudio inicia su etapa first party durante la generación PS2.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2001-FFX", "yearLabel": "2001", "sortYear": 2001, "title": "Final Fantasy X", "summaryEs": "El RPG de Square se convierte en una obra esencial del catálogo y precede a la fusión con Enix.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2002-RATCHET", "yearLabel": "2002", "sortYear": 2002, "title": "Ratchet & Clank", "summaryEs": "Insomniac combina plataformas, combate, disparos y vehículos en una nueva saga.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2002-SPLINTER-CELL", "yearLabel": "2002", "sortYear": 2002, "title": "Splinter Cell", "summaryEs": "Ubisoft consolida la licencia Tom Clancy y una de sus franquicias clave de la generación.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2003-EYETOY", "yearLabel": "2003", "sortYear": 2003, "title": "EyeToy amplía las formas de juego", "summaryEs": "La cámara lleva el movimiento frente a la pantalla a un público más amplio.", "sourceIds": ["PH-PS2-HISTORY", "PH-PS2-PERIPHERALS"]},
+        {"id": "PHM-PS2-2003-SQUARE-ENIX", "yearLabel": "2003", "sortYear": 2003, "title": "Square y Enix culminan su fusión", "summaryEs": "La nueva estructura editorial continúa varias de las grandes series de rol de PS2.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2004-SLIM", "yearLabel": "2004", "sortYear": 2004, "title": "PlayStation 2 Slim", "summaryEs": "Sony rediseña la consola con un cuerpo más compacto y una arquitectura revisada.", "sourceIds": ["PH-PS2-MODELS"]},
+        {"id": "PHM-PS2-2004-MGS3", "yearLabel": "2004", "sortYear": 2004, "title": "Metal Gear Solid 3", "summaryEs": "Konami amplía una de las series más vinculadas a PlayStation.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2004-MONSTER-HUNTER", "yearLabel": "2004", "sortYear": 2004, "title": "Monster Hunter", "summaryEs": "Capcom estrena otra de las nuevas franquicias nacidas durante su etapa de diversificación.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2005-GOD-OF-WAR", "yearLabel": "2005", "sortYear": 2005, "title": "God of War", "summaryEs": "Santa Monica Studio convierte la experiencia de Kinetica en la base técnica de un nuevo éxito first party.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2005-SHADOW", "yearLabel": "2005", "sortYear": 2005, "title": "Shadow of the Colossus", "summaryEs": "Japan Studio participa en una obra destacada por su autoría y escala.", "sourceIds": ["PH-PS2-HISTORY", "PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2005-NAMCO-BANDAI", "yearLabel": "2005", "sortYear": 2005, "title": "Namco y Bandai se fusionan", "summaryEs": "La nueva estructura reúne las franquicias de Namco con las licencias de Bandai.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2006-FFXII", "yearLabel": "2006", "sortYear": 2006, "title": "Final Fantasy XII", "summaryEs": "Square Enix mantiene el peso del rol japonés en la etapa avanzada de PS2.", "sourceIds": ["PH-PS2-COMPANIES"]},
+        {"id": "PHM-PS2-2007-SCPH90000", "yearLabel": "2007", "sortYear": 2007, "title": "Revisión SCPH-90000", "summaryEs": "La familia Slim vuelve a integrar la fuente de alimentación y reduce el ruido del ventilador.", "sourceIds": ["PH-PS2-MODELS"]},
+        {"id": "PHM-PS2-2010-BRAVIA", "yearLabel": "2010", "sortYear": 2010, "title": "Una PS2 integrada en un televisor Bravia", "summaryEs": "Sony comercializa en Europa el KDL22PX300 con la consola incorporada en su base.", "sourceIds": ["PH-PS2-MODELS"]},
+        {"id": "PHM-PS2-2013-END", "yearLabel": "2013", "sortYear": 2013, "title": "Final de producción", "summaryEs": "La publicación sitúa en 2013 el cierre de una vida comercial iniciada en 2000.", "sourceIds": ["PH-PS2-HISTORY"]}
+      ],
+      "legacyEs": [
+        "PlayStation 2 convirtió la compatibilidad multimedia, la amplitud de catálogo y una larga continuidad comercial en una plataforma capaz de reunir públicos y formas de juego muy distintos.",
+        "Su red de estudios internos y socios externos dejó nuevas series de largo recorrido, mientras las fusiones, adquisiciones y reorganizaciones documentadas transformaron el mapa empresarial que acompañó a la consola.",
+        "El adaptador de red, el disco duro y la retrocompatibilidad enlazaron generaciones; EyeToy, SingStar, Buzz! y los instrumentos musicales demostraron que el control podía extenderse mucho más allá del mando convencional.",
+        "La combinación de grandes producciones, experimentación técnica y propuestas sociales explica por qué PS2 siguió activa hasta 2013 y por qué su historia no puede reducirse a una sola compañía, región o clase de juego."
+      ],
+      "sources": [
+        {"id": "PH-PS2-HISTORY", "title": "Historia general de PlayStation 2", "publication": "Especial PlayStation 2", "publisher": "Playmanía", "kind": "magazine", "language": "es", "citation": "pp. 150-151 aprox.", "url": null},
+        {"id": "PH-PS2-PEOPLE", "title": "Los talentos responsables", "publication": "Especial PlayStation 2", "publisher": "Playmanía", "kind": "magazine", "language": "es", "citation": "Página no confirmada", "url": null},
+        {"id": "PH-PS2-COMPANIES", "title": "Estudios y compañías de PlayStation 2", "publication": "Especial PlayStation 2", "publisher": "Playmanía", "kind": "magazine", "language": "es", "citation": "pp. 152-153", "url": null},
+        {"id": "PH-PS2-MODELS", "title": "Modelos y revisiones de PlayStation 2", "publication": "Especial PlayStation 2", "publisher": "Playmanía", "kind": "magazine", "language": "es", "citation": "p. 154", "url": null},
+        {"id": "PH-PS2-PERIPHERALS", "title": "Periféricos de PlayStation 2", "publication": "Especial PlayStation 2", "publisher": "Playmanía", "kind": "magazine", "language": "es", "citation": "p. 155", "url": null},
+        {"id": "PH-PS2-CONTROLLERS", "title": "Mandos y nuevas formas de jugar", "publication": "Especial PlayStation 2", "publisher": "Playmanía", "kind": "magazine", "language": "es", "citation": "pp. 156-157", "url": null},
+        {"id": "PH-PS2-IIDA-RETRORGB", "title": "Interview with a PS2 Backward-Compatibility Dev", "publication": "RetroRGB", "publisher": "RetroRGB", "kind": "interview", "language": "en", "citation": "12 de marzo de 2020", "url": "https://retrorgb.com/interview-with-ps2-backward-compatibility-dev.html"},
+        {"id": "PH-PS2-IIDA-JEUXCA", "title": "L’histoire de la rétrocompatibilité de la PlayStation 2", "publication": "Jeux.ca", "publisher": "Jeux.ca", "kind": "reference", "language": "fr", "citation": null, "url": "https://jeux.ca/exclusif-lhistoire-de-la-retrocompatibilite-de-la-playstation-2-par-lingenieur-qui-la-batie/"}
+      ],
+      "lastReviewed": "2026-09-14"
+    }
+  ]
+}

@@ -174,18 +174,30 @@ export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds
             {view.platformHistoryLinks.length > 0 && (
               <ul className="mt-4 grid gap-3 md:grid-cols-2">
                 {view.platformHistoryLinks.map((relation) => (
-                  <li key={`${relation.platformSlug}:${relation.companySlug}`}>
-                    <Link href={`/plataforma/${relation.platformSlug}#historia-companias`} className="block h-full rounded-lg border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover">
-                      <div className="flex flex-wrap items-start justify-between gap-2">
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-accent">{relation.relationshipLabelEs}</p>
-                          <h3 className="mt-1 font-bold text-foreground">{relation.platformName}</h3>
-                        </div>
-                        {relation.period && <span className="text-xs font-medium text-muted">{relation.period}</span>}
+                  <li key={`${relation.platformSlug}:${relation.companySlug}`} className="h-full rounded-lg border border-border bg-card p-4">
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-accent">{relation.relationshipLabelEs}</p>
+                        <h3 className="mt-1 font-bold">
+                          <Link href={`/plataforma/${relation.platformSlug}#historia-companias`} className="text-foreground hover:text-accent">
+                            {relation.platformName}
+                          </Link>
+                        </h3>
                       </div>
-                      <p className="mt-2 text-sm leading-6 text-foreground/75">{relation.contributionEs}</p>
-                      {relation.relatedWorks.length > 0 && <p className="mt-2 text-xs leading-5 text-muted">{relation.relatedWorks.join(" · ")}</p>}
-                    </Link>
+                      {relation.period && <span className="text-xs font-medium text-muted">{relation.period}</span>}
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/75">{relation.contributionEs}</p>
+                    {relation.relatedCatalogEntries && relation.relatedCatalogEntries.length > 0 ? (
+                      <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                        {relation.relatedCatalogEntries.map((game) => (
+                          <Link key={game.id} href={`/catalogo/${game.id}`} className="text-xs font-medium text-accent hover:underline">
+                            {game.title}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : relation.relatedWorks.length > 0 ? (
+                      <p className="mt-2 text-xs leading-5 text-muted">{relation.relatedWorks.join(" · ")}</p>
+                    ) : null}
                   </li>
                 ))}
               </ul>

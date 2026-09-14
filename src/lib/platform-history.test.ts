@@ -34,7 +34,10 @@ test("publishes reusable structured history for PS1 and keeps an empty fallback"
   const history = getPlatformHistory("ps1");
   assert.ok(history);
   assert.equal(getPlatformHistory("snes"), undefined);
-  assert.equal(getPlatformHistoryData().platforms.length, 1);
+  assert.deepEqual(
+    getPlatformHistoryData().platforms.map((platform) => platform.platformSlug),
+    ["ps1", "ps2"],
+  );
   assert.equal(history.figures.length, 7);
   assert.equal(history.companies.length, 16);
   assert.equal(history.genealogies.length, 7);
@@ -71,7 +74,9 @@ test("keeps every platform-history identity and source reference resolvable", ()
     );
   }
   for (const item of history.hardware) {
-    assert.ok(companies[item.manufacturerCompanySlug], item.manufacturerCompanySlug);
+    if (item.manufacturerCompanySlug) {
+      assert.ok(companies[item.manufacturerCompanySlug], item.manufacturerCompanySlug);
+    }
     item.sourceIds.forEach((sourceId) => assert.ok(sourceIds.has(sourceId), sourceId));
     item.relatedPersonSlugs.forEach((slug) => assert.ok(publicPeople.has(slug), slug));
     for (const game of item.relatedCatalogEntries ?? []) {

@@ -1,11 +1,13 @@
 import publicResearchData from "../../data/research/person-study/public.json";
 import playstationPeopleData from "../../data/research/platform-history/people-public.json";
+import playstation2PeopleData from "../../data/research/platform-history/people-ps2-public.json";
 import type {
   CompanyPersonLink,
   PersonCardData,
   PersonCompanyRelation,
   PersonExpertise,
   PersonPublicData,
+  PersonPublicOverlayData,
   PersonPublicProfile,
   PersonPublicSource,
   PersonPublicView,
@@ -20,28 +22,60 @@ function mergeByKey<T>(base: T[], overlay: T[], key: (item: T) => string): T[] {
 }
 
 const baseData = publicResearchData as unknown as PersonPublicData;
-const playstationData = playstationPeopleData as unknown as PersonPublicData;
-const data: PersonPublicData = {
-  version: Math.max(baseData.version, playstationData.version),
-  generatedAt: playstationData.generatedAt,
-  profiles: mergeByKey(baseData.profiles, playstationData.profiles, (item) => item.slug),
-  companyRelations: mergeByKey(
-    baseData.companyRelations,
-    playstationData.companyRelations,
-    (item) => item.id,
-  ),
-  positions: mergeByKey(baseData.positions, playstationData.positions, (item) => item.id),
-  exactCredits: mergeByKey(baseData.exactCredits, playstationData.exactCredits, (item) => item.id),
-  relatedWorks: mergeByKey(baseData.relatedWorks, playstationData.relatedWorks, (item) => item.id),
-  awards: mergeByKey(baseData.awards, playstationData.awards, (item) => item.id),
-  curiosities: mergeByKey(baseData.curiosities, playstationData.curiosities, (item) => item.id),
-  historicalRelations: mergeByKey(
-    baseData.historicalRelations ?? [],
-    playstationData.historicalRelations ?? [],
-    (item) => item.id,
-  ),
-  sources: mergeByKey(baseData.sources, playstationData.sources, (item) => item.id),
-};
+const playstationData = playstationPeopleData as unknown as PersonPublicOverlayData;
+const playstation2Data = playstation2PeopleData as unknown as PersonPublicOverlayData;
+
+function applyOverlay(
+  current: PersonPublicData,
+  overlay: PersonPublicOverlayData,
+): PersonPublicData {
+  const profiles = new Map(
+    mergeByKey(current.profiles, overlay.profiles ?? [], (item) => item.slug)
+      .map((profile) => [profile.slug, profile]),
+  );
+  for (const patch of overlay.profilePatches ?? []) {
+    const profile = profiles.get(patch.slug);
+    if (profile) profiles.set(patch.slug, { ...profile, ...patch });
+  }
+  return {
+    version: Math.max(current.version, overlay.version),
+    generatedAt: overlay.generatedAt,
+    profiles: [...profiles.values()],
+    companyRelations: mergeByKey(
+      current.companyRelations,
+      overlay.companyRelations ?? [],
+      (item) => item.id,
+    ),
+    positions: mergeByKey(current.positions, overlay.positions ?? [], (item) => item.id),
+    exactCredits: mergeByKey(
+      current.exactCredits,
+      overlay.exactCredits ?? [],
+      (item) => item.id,
+    ),
+    relatedWorks: mergeByKey(
+      current.relatedWorks,
+      overlay.relatedWorks ?? [],
+      (item) => item.id,
+    ),
+    awards: mergeByKey(current.awards, overlay.awards ?? [], (item) => item.id),
+    curiosities: mergeByKey(
+      current.curiosities,
+      overlay.curiosities ?? [],
+      (item) => item.id,
+    ),
+    historicalRelations: mergeByKey(
+      current.historicalRelations ?? [],
+      overlay.historicalRelations ?? [],
+      (item) => item.id,
+    ),
+    sources: mergeByKey(current.sources, overlay.sources ?? [], (item) => item.id),
+  };
+}
+
+const data = applyOverlay(
+  applyOverlay(baseData, playstationData),
+  playstation2Data,
+);
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));
 
