@@ -1,7 +1,13 @@
 import { del, get, put } from "@vercel/blob";
 import { revalidateTag, unstable_cache } from "next/cache";
 import { buildCatalogSeoSlug } from "./catalog-url";
-import { getCatalogGame, listedCatalog } from "./catalog";
+import {
+  getCatalogGame,
+  isPublicCatalogGame,
+  listedCatalog,
+  publicListedCatalog,
+} from "./catalog";
+import { canonicalCatalogId } from "./catalog-id-aliases";
 import {
   mergeCatalogGameWithOverlay,
   mergeCatalogPlatformGames,
@@ -346,6 +352,37 @@ export async function getCatalogByPlatformWithOverlay(platformSlug: string): Pro
   ).filter((g): g is CatalogGame => g != null);
 
   return mergeCatalogPlatformGames(platformSlug, staticGames, overlayGames);
+}
+
+/** Catálogo público completo, incluida la publicación caliente del worker. */
+export async function getPublicCatalogWithOverlay(): Promise<CatalogGame[]> {
+  const index = await loadCatalogOverlayIndex();
+  if (index.ids.length === 0) return publicListedCatalog;
+
+  const overlayGames = (
+    await Promise.all(index.ids.map((id) => readCatalogOverlayGame(id)))
+  ).filter((game): game is CatalogGame => game != null && canonicalCatalogId(game.id) === game.id);
+  if (overlayGames.length === 0) return publicListedCatalog;
+
+  return mergePublicCatalogWithOverlayGames(publicListedCatalog, overlayGames);
+}
+
+export function mergePublicCatalogWithOverlayGames(
+  staticGames: readonly CatalogGame[],
+  overlayGames: readonly CatalogGame[],
+): CatalogGame[] {
+  const overlaysById = new Map(overlayGames.map((game) => [game.id, game]));
+  const seen = new Set<string>();
+  const merged = staticGames.flatMap((staticGame) => {
+    const overlay = overlaysById.get(staticGame.id);
+    const game = overlay ? mergeCatalogGameWithOverlay(staticGame, overlay) : staticGame;
+    seen.add(game.id);
+    return isPublicCatalogGame(game) ? [game] : [];
+  });
+  for (const overlay of overlayGames) {
+    if (!seen.has(overlay.id) && isPublicCatalogGame(overlay)) merged.push(overlay);
+  }
+  return merged;
 }
 
 export async function triggerCatalogDeployHook(): Promise<{ triggered: boolean; detail?: string }> {

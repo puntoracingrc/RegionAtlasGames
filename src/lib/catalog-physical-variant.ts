@@ -25,7 +25,7 @@ function resolveExplicitVariant(
 ): ResolvedCatalogPhysicalVariant | undefined {
   for (const guide of getCatalogEditionGuides()) {
     const edition = guide.physicalEditions.find((candidate) => candidate.id === physicalVariantId);
-    if (!edition) continue;
+    if (!edition || edition.collectionIdentity !== "physical-variant") continue;
     const family = guide.editionFamilies.find((candidate) =>
       candidate.physicalEditionIds.includes(edition.id),
     );
@@ -61,7 +61,8 @@ export function resolveCatalogPhysicalVariant(
   if (physicalVariantId) return resolveExplicitVariant(catalogId, physicalVariantId);
 
   for (const guide of getCatalogEditionGuides()) {
-    const edition = guide.physicalEditions.find((candidate) => candidate.catalogIds.includes(catalogId));
+    const edition = guide.physicalEditions.find((candidate) =>
+      candidate.collectionIdentity === "physical-variant" && candidate.catalogIds.includes(catalogId));
     if (!edition) continue;
     const family = guide.editionFamilies.find((candidate) =>
       candidate.physicalEditionIds.includes(edition.id),

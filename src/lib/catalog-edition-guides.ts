@@ -4,6 +4,11 @@ import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
 import {
+  buildCatalogDerivedGuideIndex,
+  buildRuntimeCatalogEditionGuide,
+  extendDocumentedGuidesWithCatalog,
+} from "./catalog-derived-edition-guides";
+import {
   catalogBroadRegionFromLegacyRegion,
   catalogBroadRegionFromMarketRegion,
   isCatalogPhysicalPriceCondition,
@@ -121,6 +126,7 @@ type RawGuideDocument = { schemaVersion: 1 | 2; guides: RawCatalogEditionGuide[]
 
 const rawGuideDocuments = [guideData, acPs3GuideData] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
+let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
 
 function requiredCatalogGame(catalogId: string, platformSlug?: string): CatalogGame {
   const game = getCatalogGame(catalogId);
@@ -169,6 +175,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       label: entry.label,
       broadRegion: catalogBroadRegionFromLegacyRegion(entry.identity.region),
       editionType: legacyEditionType(entry.label),
+      collectionIdentity: "catalog-entry",
       marketRegions: [target.region],
       packagingLanguages: [],
       componentLanguageEvidence: [],
@@ -194,15 +201,28 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
     };
   });
 
+  const editionsByType = new Map<CatalogPhysicalEditionType, CatalogPhysicalEdition[]>();
+  for (const edition of physicalEditions) {
+    editionsByType.set(edition.editionType, [...(editionsByType.get(edition.editionType) ?? []), edition]);
+  }
+  const editionFamilies: CatalogEditionFamily[] = [...editionsByType.entries()].map(([type, editions]) => ({
+    id: `legacy-${type.toLowerCase().replaceAll("_", "-")}`,
+    label: editions[0].label.split("·")[0].trim(),
+    representativeCatalogId: editions[0].catalogIds[0],
+    physicalEditionIds: editions.map((edition) => edition.id),
+    priceConditions: ["sealed", "newRetail", "complete"],
+  }));
+
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    origin: "documented-guide",
     id: raw.id,
     title: raw.title,
     reviewedAt: raw.reviewedAt,
     note: raw.note,
     game: { title: canonical.title, platformSlug: canonical.platformSlug, canonicalCatalogId: canonical.id },
     physicalEditions,
-    editionFamilies: [],
+    editionFamilies,
     sharedDiscs: [],
     sources: raw.sources,
     evidenceNote: raw.evidenceNote,
@@ -286,6 +306,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     }));
     return {
       ...entry,
+      collectionIdentity: "physical-variant",
       marketRegions,
       packagingLanguages: entry.packagingLanguages ?? [],
       componentLanguageEvidence: (entry.componentLanguageEvidence ?? []).map((languageEvidence) => ({
@@ -355,6 +376,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
 
   return {
     schemaVersion: 2,
+    origin: "documented-guide",
     id: raw.id,
     title: raw.title,
     reviewedAt: raw.reviewedAt,
@@ -376,19 +398,35 @@ export function normalizeCatalogEditionGuide(raw: RawCatalogEditionGuide): Catal
 
 export function getCatalogEditionGuides(): CatalogEditionGuideModel[] {
   if (!normalizedGuidesCache) {
-    normalizedGuidesCache = rawGuideDocuments.flatMap((document) => document.guides).map(normalizeCatalogEditionGuide);
+    normalizedGuidesCache = extendDocumentedGuidesWithCatalog(
+      rawGuideDocuments.flatMap((document) => document.guides).map(normalizeCatalogEditionGuide),
+    );
   }
   return normalizedGuidesCache;
 }
 
 export function getGroupableCatalogEditionGuides(): CatalogEditionGuideModel[] {
-  return getCatalogEditionGuides().filter((guide) => guide.schemaVersion === 2);
+  return [...getCatalogEditionGuides(), ...catalogDerivedGuides().guides];
+}
+
+function catalogDerivedGuides() {
+  if (!derivedGuidesCache) {
+    const claimedCatalogIds = new Set(
+      getCatalogEditionGuides().flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.catalogIds)),
+    );
+    derivedGuidesCache = buildCatalogDerivedGuideIndex(claimedCatalogIds);
+  }
+  return derivedGuidesCache;
 }
 
 export function getCatalogEditionGuide(game: CatalogGame): CatalogEditionGuideModel | undefined {
   const catalogGame = getCatalogGame(game.id);
+  if (!catalogGame) {
+    if (!isPublicCatalogGame(game)) return undefined;
+    const runtimeGuide = buildRuntimeCatalogEditionGuide(game, getCatalogEditionGuides());
+    return withCurrentCatalogEdition(runtimeGuide, game.id);
+  }
   if (
-    !catalogGame ||
     catalogGame.platformSlug !== game.platformSlug ||
     catalogGame.slug !== game.slug ||
     catalogGame.region !== game.region ||
@@ -398,20 +436,27 @@ export function getCatalogEditionGuide(game: CatalogGame): CatalogEditionGuideMo
   }
   const guide = getCatalogEditionGuides().find((candidate) => candidate.physicalEditions.some(
     (edition) => edition.catalogIds.includes(game.id),
-  ));
+  )) ?? catalogDerivedGuides().byCatalogId.get(game.id);
   if (!guide) return undefined;
-  const currentEdition = guide.physicalEditions.find((edition) => edition.catalogIds.includes(game.id));
+  return withCurrentCatalogEdition(guide, game.id);
+}
+
+function withCurrentCatalogEdition(
+  guide: CatalogEditionGuideModel,
+  catalogId: string,
+): CatalogEditionGuideModel {
+  const currentEdition = guide.physicalEditions.find((edition) => edition.catalogIds.includes(catalogId));
   const currentEditionFamily = guide.editionFamilies.find((family) =>
     currentEdition ? family.physicalEditionIds.includes(currentEdition.id) : false,
   );
   return {
     ...guide,
-    currentCatalogId: game.id,
+    currentCatalogId: catalogId,
     currentEditionId: currentEdition?.id,
     currentEditionFamilyId: currentEditionFamily?.id,
     physicalEditions: guide.physicalEditions.map((edition) => ({
       ...edition,
-      catalogLinks: edition.catalogLinks.map((link) => ({ ...link, current: link.catalogId === game.id })),
+      catalogLinks: edition.catalogLinks.map((link) => ({ ...link, current: link.catalogId === catalogId })),
     })),
   };
 }

@@ -10,15 +10,15 @@ import { getCatalogGame } from "./catalog";
 import { getCatalogEditionGuide, getCatalogEditionGuides } from "./catalog-edition-guides";
 import { catalogGamePath } from "./catalog-url";
 
-test("Requiem comparisons link four existing editions and only highlight the current identity", () => {
+test("Requiem uses V2, retains its reviewed editions and absorbs published regional siblings", () => {
   const expected = getCatalogEditionGuides().find((guide) => guide.id === "resident-evil-requiem-ps5");
   assert.ok(expected);
-  assert.equal(expected.schemaVersion, 1);
-  assert.equal(expected.physicalEditions.length, 4);
+  assert.equal(expected.schemaVersion, 2);
+  assert.equal(expected.physicalEditions.length, 6);
   for (const entry of expected.physicalEditions) {
     const game = getCatalogGame(entry.catalogIds[0])!;
     const guide = getCatalogEditionGuide(game)!;
-    assert.equal(guide.physicalEditions.length, 4);
+    assert.equal(guide.physicalEditions.length, expected.physicalEditions.length);
     assert.deepEqual(
       guide.physicalEditions.flatMap((edition) => edition.catalogLinks.filter((link) => link.current).map((link) => link.catalogId)),
       [game.id],
@@ -30,12 +30,18 @@ test("Requiem comparisons link four existing editions and only highlight the cur
       guide.physicalEditions.find((edition) => edition.id === entry.id)?.images.map((image) => image.key),
       entry.images.map((image) => image.key),
     );
-    for (const patch of [{ region: "USA" }, { platformSlug: "switch2" }, { edition: "platinum" }, { slug: "resident-evil-requiem-other-box" }]) {
+    for (const patch of [{ region: game.region === "USA" ? "PAL España" : "USA" }, { platformSlug: "switch2" }, { edition: "platinum" }, { slug: "resident-evil-requiem-other-box" }]) {
       assert.equal(getCatalogEditionGuide({ ...game, ...patch }), undefined);
     }
   }
-  assert.equal(getCatalogEditionGuide(getCatalogGame("ps5-usa-resident-evil-requiem")!), undefined);
-  assert.equal(getCatalogEditionGuide(getCatalogGame("ps4-resident-evil-2")!), undefined);
+  assert.equal(
+    getCatalogEditionGuide(getCatalogGame("ps5-usa-resident-evil-requiem")!)?.id,
+    expected.id,
+  );
+  assert.equal(
+    getCatalogEditionGuide(getCatalogGame("ps4-resident-evil-2")!)?.origin,
+    "catalog-derived",
+  );
   assert.equal(expected.physicalEditions[3].catalogLinks[0].region, "Japón");
   assert.equal(guides.schemaVersion, 2);
 });

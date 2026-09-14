@@ -209,7 +209,7 @@ function PhysicalEditionGuide({
   return (
     <Panel>
       <section aria-label={guide.title}>
-        {guide.editionFamilies.length ? (
+        {guide.editionFamilies.length > 1 ? (
           <nav aria-label="Familias de edición" className="flex flex-wrap gap-2 border-b border-border pb-4">
             {guide.editionFamilies.map((family) => {
               const href = familyHref(family);
@@ -304,7 +304,9 @@ function PhysicalEditionRow({
   const collectionCatalogId = linkedCatalogGame?.id ?? family?.representativeCatalogId;
   const ownedCount = actionState?.ownedCount ?? 0;
   const isCurrentEdition = edition.id === guide.currentEditionId;
-  const documentedRegions = edition.marketRegions.map(catalogMarketRegionToLegacyRegion);
+  const documentedRegions = edition.marketRegions.length
+    ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
+    : [...new Set(edition.catalogLinks.map((link) => link.region))];
   const alternateCatalogLinks = edition.catalogLinks.filter((link) => !link.current);
   const includedEditions = edition.includesEditionIds.flatMap((id) => {
     const target = guide.physicalEditions.find((candidate) => candidate.id === id);
@@ -412,7 +414,7 @@ function PhysicalEditionRow({
             <div className="mt-4">
               <CollectionToggle
                 catalogId={collectionCatalogId}
-                physicalVariantId={edition.id}
+                physicalVariantId={edition.collectionIdentity === "physical-variant" ? edition.id : undefined}
                 gameTitle={`${linkedCatalogGame?.title ?? currentGame?.title ?? "Juego"} · ${edition.label}`}
                 initialOwned={ownedCount > 0}
                 ownedCount={ownedCount}

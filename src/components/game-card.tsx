@@ -153,7 +153,10 @@ export function CatalogGameCard({
         {isPendingCatalogGame(game) ? <p className="px-3 pb-3 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
       </IntentLink>
-      {!game.physicalEditionGroup?.editionFamilyId ? (
+      {!game.physicalEditionGroup || (
+        game.physicalEditionGroup.physicalEditionCount === 1 &&
+        game.physicalEditionGroup.collectibleVariantCount === 0
+      ) ? (
         <CollectionQuickAdd
           catalogId={game.id}
           owned={owned}

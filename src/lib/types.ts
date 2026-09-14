@@ -458,6 +458,8 @@ export type CatalogListGame = Pick<
   | "hasEsPrice"
   | "priceRegionVerified"
 > & {
+  /** Fuente interna para agrupar overlays del worker; nunca se serializa en una tarjeta pública. */
+  sourceCatalogGame?: CatalogGame;
   displayPlatform: string;
   displayYear: number | null;
   /** Agrupación aditiva Game + Platform declarada por una guía de ediciones v2. */

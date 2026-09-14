@@ -13,6 +13,7 @@ import {
   type CatalogPriceType,
 } from "@/lib/catalog-filters";
 import { publicListedCatalog } from "@/lib/catalog";
+import { getPublicCatalogWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
@@ -60,9 +61,10 @@ export default async function CatalogPage({ searchParams }: Props) {
   );
   const initialSort = initialPriceType === DEFAULT_CATALOG_PRICE_TYPE ? DEFAULT_SORT : "price-desc";
 
-  const [user, listingCounts] = await Promise.all([
+  const [user, listingCounts, runtimeCatalog] = await Promise.all([
     getCurrentUser(),
     getActiveListingCountsByCatalog(),
+    getPublicCatalogWithOverlay(),
   ]);
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const hasInitialFilters =
@@ -74,9 +76,10 @@ export default async function CatalogPage({ searchParams }: Props) {
     initialSubgenre !== "all" ||
     initialFacet !== "all" ||
     initialPriceType !== DEFAULT_CATALOG_PRICE_TYPE;
-  const initialCatalog = hasInitialFilters
+  const useRuntimeInitialPage = hasInitialFilters || runtimeCatalog !== publicListedCatalog;
+  const initialCatalog = useRuntimeInitialPage
     ? filterCatalogGames(
-        groupCatalogListGames(publicListedCatalog.map(toCatalogListGame)),
+        groupCatalogListGames(runtimeCatalog.map(toCatalogListGame)),
         {
           q: initialQuery,
           platform: initialPlatform,
@@ -93,7 +96,7 @@ export default async function CatalogPage({ searchParams }: Props) {
         { regions: true, platforms: true },
       )
     : getDefaultCatalogInitialPage();
-  const initialGames = hasInitialFilters
+  const initialGames = useRuntimeInitialPage
     ? initialCatalog.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame)
     : initialCatalog.items;
 
@@ -107,7 +110,7 @@ export default async function CatalogPage({ searchParams }: Props) {
           </p>
           <h1 className="text-3xl font-bold text-foreground">Buscar en todo Region Atlas</h1>
           <p className="max-w-3xl text-muted">
-            Explora {formatCatalogEntryCount(publicListedCatalog.filter(isDefaultCatalogGame).length)} por título, compañía,
+            Explora {formatCatalogEntryCount(runtimeCatalog.filter(isDefaultCatalogGame).length)} por título, compañía,
             género, saga, referencia, plataforma o región.
           </p>
         </header>
