@@ -1,7 +1,7 @@
 # Region Atlas: mapa funcional y de datos del catálogo físico V2
 
-Fecha de corte: 2026-09-13  
-Estado: arquitectura general implementada como capa aditiva; activada públicamente solo para el piloto Absolum PS5.
+Fecha de corte: 2026-09-14
+Estado: arquitectura general implementada como capa aditiva y activada en todo el catálogo público.
 
 ## 1. Qué resuelve la V2
 
@@ -52,6 +52,7 @@ Una familia no es una región y una región no es una variante. Cada capa respon
 | Fila de catálogo legacy | `CatalogGame.id` o `catalogId` | `data/catalog.json` | Una referencia pública histórica con plataforma, región legacy, URL, portada y precios. |
 | Detalles comunes | clave `catalogId` canónico | `data/game-details.json` | La información editorial del videojuego que comparten las familias V2. |
 | Guide V2 | `guide.id` | `data/catalog-edition-guides.json` | La raíz que une juego, plataforma, familias, ediciones físicas, discos, imágenes y evidencia. |
+| Guide V2 derivado | `catalog-derived-{catalogId}` | Construido en ejecución desde fichas públicas | Agrupa filas regionales existentes sin fabricar datos físicos que esas filas no contengan. |
 | Familia de edición | `editionFamily.id` dentro del guide | `data/catalog-edition-guides.json` | Agrupa ediciones físicas que pertenecen a la misma oferta comercial, como Standard o Special. |
 | Edición física | `physicalEdition.id` dentro del guide | `data/catalog-edition-guides.json` | Una caja física concreta con identidad regional, contenido y códigos propios. |
 | Variante coleccionable | `variant.id` dentro de una edición física | `data/catalog-edition-guides.json` | Una diferencia menor dentro de la misma edición: pegatina, marca, precinto o señal física equivalente. |
@@ -86,7 +87,7 @@ Esto no elimina las filas legacy. Las mantiene como puentes para URLs, portadas,
 - precios por estado, transporte, total a España, divisa, fecha y procedencia.
 - identificadores y referencias de fuentes comerciales.
 
-La agrupación V2 ocurre al construir el DTO público del catálogo. No borra registros: oculta las filas miembro en el listado y presenta una sola tarjeta por familia.
+La agrupación V2 ocurre al construir el DTO público del catálogo. No borra registros: oculta las filas miembro en el listado y presenta una sola tarjeta por familia. Los guides documentales conservan datos físicos ricos; para el resto del catálogo se construye un guide derivado a partir de `workId` resuelto o, cuando no existe, del mismo título normalizado y plataforma. Una identidad de obra resuelta siempre tiene prioridad sobre el título. Cuando un título y plataforma tienen un único `workId` resuelto, las fichas hermanas que todavía no lo tienen pueden incorporarse a esa obra. Si existen varios `workId` posibles, permanecen separadas hasta resolver la ambigüedad.
 
 ## 4. Detalles comunes del videojuego
 
@@ -160,7 +161,7 @@ La V2 separa tres dimensiones:
 
 Un idioma no demuestra un mercado. Una tienda que envía internacionalmente tampoco demuestra distribución nacional.
 
-Los mercados V2 soportados actualmente son `FR`, `ES`, `GB`, `DE`, `US`, `JP`, `KR`, `HK` y `TW`. Los nombres `PAL España`, `NTSC USA` y equivalentes solo se conservan como traducción de compatibilidad con filtros y registros legacy.
+El registro V2 admite 56 mercados. Cada edición solo publica los códigos que estén guardados explícitamente o se correspondan de forma inequívoca con su región legacy; no completa países a partir de idiomas, tiendas o proximidad geográfica. Los nombres `PAL España`, `NTSC USA` y equivalentes se conservan como traducción de compatibilidad con filtros y registros legacy.
 
 En la interfaz:
 
@@ -253,17 +254,22 @@ Las acciones están situadas dentro de cada edición física:
 
 Compartir sigue siendo una acción de la ficha completa.
 
-La identidad guardada combina `catalogId` y `physicalVariantId`. En la implementación actual, `physicalVariantId` apunta al ID de `CatalogPhysicalEdition`, aunque su nombre sea heredado de la transición. Los registros antiguos sin ese campo se resuelven por `catalogId` como fallback.
+La identidad depende del origen de la edición:
 
-Esta compatibilidad permite distinguir, por ejemplo, la Standard alemana de la EN/FR/ES en colección y deseados. Antes de una migración masiva conviene renombrar o versionar esta identidad para que no se confunda con `CatalogCollectibleVariant`.
+- Una edición física documental que distingue varias cajas bajo un mismo registro combina `catalogId` y `physicalVariantId`.
+- Una edición derivada de una ficha regional existente conserva únicamente su `catalogId`; no crea una segunda identidad coleccionable.
+
+Los registros antiguos sin `physicalVariantId` continúan resolviéndose por `catalogId`.
+
+Esta compatibilidad permite distinguir, por ejemplo, la Standard alemana de la EN/FR/ES en colección y deseados, sin duplicar las identidades regionales que ya existían antes de V2.
 
 ## 13. eBay y Amazon
 
-Para familias V2, eBay puede ofrecer un selector con los mercados documentados de la familia. La selección se resuelve en este orden:
+Para familias V2, eBay ofrece España como mercado comercial predeterminado y añade los mercados documentados de la familia. España en este selector solo dirige la búsqueda de anuncios y no demuestra que una caja se distribuyese en España. La selección se resuelve en este orden:
 
 1. Región solicitada desde el filtro del catálogo mediante `?ebayRegion=`.
 2. Mercado exacto de la edición actual, si solo tiene uno.
-3. España, si existe entre las opciones.
+3. España.
 4. Primera opción disponible.
 
 La búsqueda usa la fila legacy vinculada cuando existe y conserva la identidad física seleccionada. Si no hay anuncios de esa región, la capa de ofertas puede degradar a resultados disponibles en lugar de dejar el panel vacío.
@@ -399,27 +405,27 @@ Variantes coleccionables internas: 0
 
 La Standard tiene seis ediciones físicas. La Special tiene una. Entre ambas suman siete ediciones y un disco europeo compartido documentado.
 
-## 21. Qué es general y qué sigue siendo piloto
+## 21. Qué es general y qué sigue necesitando documentación rica
 
 | Área | Estado |
 | --- | --- |
 | Schema, tipos, validación y adaptación V1/V2 | General y reutilizable. |
 | Familias, ediciones, mercados, idiomas, ratings, discos, evidencia e inclusiones | General y reutilizable. |
-| Agrupación de catálogo, filtros y búsqueda V2 | General, pero solo actúa sobre guides V2. |
+| Agrupación de catálogo, filtros y búsqueda V2 | General para todas las fichas públicas, incluidas las publicadas en el overlay del worker. |
 | Galería, regiones, precios y acciones por edición | Componentes generales. |
 | Compañías, personas, sagas, franquicias y premios | Sistemas generales ya existentes y compartidos por fichas V2 y legacy. |
-| Datos físicos completos | Solo Absolum está migrado al nuevo guide en esta PR. |
+| Datos físicos completos | Solo aparecen cuando existe evidencia documental; Absolum y Assassin's Creed PS3 tienen guides enriquecidos. El resto parte de sus filas de catálogo. |
 | Editor Admin de guides V2 | No implementado. |
-| URLs individuales de ediciones asiáticas sin fila legacy | No implementadas; se muestran dentro de la familia. |
+| URLs individuales de ediciones sin fila legacy | No se inventan. Cada ficha regional real mantiene su URL; una edición puramente documental se muestra dentro de su familia. |
 | Precio por `priceIdentity` de variante menor | Modelado, pero no alimentado por collectors. |
-| Identidad de colección con nombre definitivo | Pendiente; funciona con `physicalVariantId` como compatibilidad. |
+| Identidad de colección | `catalogId` para fichas regionales existentes; `catalogId + physicalVariantId` para cajas documentales que comparten ficha técnica. |
 | Disco con idiomas, build, hash o matriz técnica | No modelado todavía. |
 | Roles individuales distintos de desarrollador en la ficha | Pendiente de ampliación tipada y auditada. |
 
 ## 22. Reglas que deben mantenerse al ampliar el catálogo
 
 1. No deducir mercados de los idiomas de la caja.
-2. No crear variantes si solo existe una edición física.
+2. No presentar como variante una familia que solo tiene una edición física.
 3. No duplicar como caja distinta un disco compartido.
 4. No atribuir premios a una región o edición comercial.
 5. No copiar detalles comunes a cada variante regional.
@@ -427,7 +433,7 @@ La Standard tiene seis ediciones físicas. La Special tiene una. Entre ambas sum
 7. Mantener la procedencia por campo y por evidencia.
 8. Usar la edición física como unidad de colección, deseados, venta e imágenes.
 9. Restringir estados de precio según el tipo de familia.
-10. Validar cada nuevo guide antes de activar su agrupación pública.
+10. Validar cada nuevo guide documental; en relaciones derivadas, usar solo fichas públicas e identidades inequívocas.
 
 ## 23. Resumen corto
 
@@ -442,3 +448,25 @@ obra -> plataforma -> familia -> edición física -> variante coleccionable
 ```
 
 Descripción, fecha, géneros, compañías, personas, sagas, franquicias y premios pertenecen al videojuego o a su grafo editorial. Caja, mercado, idiomas impresos, rating, códigos, contenido, escaneos y medidas pertenecen a la edición física. Una pegatina o marca menor pertenece a una variante coleccionable. Esta separación es la base para extender la V2 sin tratar todos los juegos como si tuvieran la misma estructura que Absolum.
+
+## 24. Flujo del worker de eBay desde esta versión
+
+```text
+hallazgo del worker
+-> candidato o revisión pendiente
+-> comprobación editorial y de identidad
+-> ficha regional publicada
+-> evidencia utilizable por V2
+-> agrupación con su obra, plataforma y familia
+```
+
+- Un candidato pendiente no confirma una región y permanece aislado.
+- Una ficha con `listingStatus: listed` puede documentar una nueva región.
+- Si tiene un `workId` resuelto, V2 exige esa identidad; no la sustituye por una coincidencia de título.
+- Si una ficha hermana todavía no tiene `workId` y solo existe una obra resuelta con el mismo título normalizado y plataforma, se incorpora a esa obra y a su familia de edición correspondiente.
+- Si el mismo título y plataforma tienen varios `workId` resueltos, las fichas no resueltas permanecen aisladas.
+- Si todavía no existe ningún `workId`, solo se agrupan título normalizado, plataforma y familia de edición coincidentes.
+- La publicación caliente en Blob aparece en su ficha, en la página de plataforma y en el catálogo y buscador globales.
+- Varias regiones nuevas publicadas en el mismo overlay se agrupan entre sí sin esperar al siguiente archivo estático.
+- Cada región conserva URL, portada, precios, colección, deseados y venta propios.
+- El worker no inventa idiomas, ratings, códigos, contenido, personas, compañías, sagas ni premios. Esos datos necesitan su evidencia y almacenamiento correspondientes.

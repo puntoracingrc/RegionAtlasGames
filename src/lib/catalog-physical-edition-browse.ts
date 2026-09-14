@@ -10,8 +10,29 @@ import {
   type CatalogPhysicalEditionPublicIdentity,
   type CatalogPriceRange,
 } from "./catalog-edition-guide-types";
-import { getCatalogEditionGuide, getGroupableCatalogEditionGuides } from "./catalog-edition-guides";
+import {
+  getCatalogEditionGuide,
+  getCatalogEditionGuides,
+  getGroupableCatalogEditionGuides,
+} from "./catalog-edition-guides";
+import { buildRuntimeCatalogEditionGuide } from "./catalog-derived-edition-guides";
 import type { CatalogGame, CatalogListGame } from "./types";
+
+let groupableGuidesCache: ReturnType<typeof getGroupableCatalogEditionGuides> | null = null;
+let groupableCatalogIdsCache: Set<string> | null = null;
+
+function groupableGuides() {
+  if (!groupableGuidesCache) groupableGuidesCache = getGroupableCatalogEditionGuides();
+  return groupableGuidesCache;
+}
+
+function groupableCatalogIds() {
+  if (!groupableCatalogIdsCache) {
+    groupableCatalogIdsCache = new Set(groupableGuides().flatMap((guide) =>
+      guide.physicalEditions.flatMap((edition) => edition.catalogIds)));
+  }
+  return groupableCatalogIdsCache;
+}
 
 function unique<T>(values: T[]): T[] {
   return [...new Set(values)];
@@ -164,8 +185,22 @@ export function groupCatalogListGames(games: CatalogListGame[]): CatalogListGame
   const byId = new Map(games.map((game) => [game.id, game]));
   const suppressed = new Set<string>();
   const replacementById = new Map<string, CatalogListGame>();
+  const staticGuides = groupableGuides();
+  const knownCatalogIds = groupableCatalogIds();
+  const runtimeGames = games.flatMap((game) =>
+    game.sourceCatalogGame && !knownCatalogIds.has(game.id) ? [game.sourceCatalogGame] : []);
+  const runtimeGuides: typeof staticGuides = [];
+  const groupedRuntimeCatalogIds = new Set<string>();
+  for (const runtimeGame of runtimeGames) {
+    if (groupedRuntimeCatalogIds.has(runtimeGame.id)) continue;
+    const guide = buildRuntimeCatalogEditionGuide(runtimeGame, getCatalogEditionGuides(), runtimeGames);
+    runtimeGuides.push(guide);
+    for (const catalogId of guide.physicalEditions.flatMap((edition) => edition.catalogIds)) {
+      if (byId.has(catalogId)) groupedRuntimeCatalogIds.add(catalogId);
+    }
+  }
 
-  for (const guide of getGroupableCatalogEditionGuides()) {
+  for (const guide of [...staticGuides, ...runtimeGuides]) {
     const groupings = guide.editionFamilies.length
       ? guide.editionFamilies.map((family) => ({
           family,
@@ -239,7 +274,7 @@ export function groupCatalogListGames(games: CatalogListGame[]): CatalogListGame
 }
 
 export function catalogPhysicalFilterOptions(platformSlug?: string): CatalogPhysicalFilterOptions {
-  const guides = getGroupableCatalogEditionGuides().filter((guide) => !platformSlug || guide.game.platformSlug === platformSlug);
+  const guides = groupableGuides().filter((guide) => !platformSlug || guide.game.platformSlug === platformSlug);
   const regions = unique(guides.flatMap((guide) => guide.physicalEditions.map((edition) => edition.broadRegion)));
   const editionTypes = unique(guides.flatMap((guide) => guide.physicalEditions.map((edition) => edition.editionType)));
   return {

@@ -230,6 +230,12 @@ export type CatalogPhysicalEdition = {
   label: string;
   broadRegion: CatalogBroadRegion;
   editionType: CatalogPhysicalEditionType;
+  /**
+   * Las guías documentales pueden distinguir varias cajas bajo un mismo
+   * catalogId. Las relaciones derivadas conservan el catalogId regional como
+   * identidad y no crean una identidad coleccionable paralela.
+   */
+  collectionIdentity: "physical-variant" | "catalog-entry";
   /** Mercados geográficos documentados; V2 usa códigos de país y nunca los deduce del packaging. */
   marketRegions: string[];
   packagingLanguages: string[];
@@ -259,6 +265,7 @@ export type CatalogPhysicalEdition = {
 
 export type CatalogEditionGuideModel = {
   schemaVersion: 1 | 2;
+  origin: "documented-guide" | "catalog-derived";
   id: string;
   title: string;
   reviewedAt: string;

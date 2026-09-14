@@ -24,7 +24,7 @@ export function catalogEbayRegionOptions(
   editions: CatalogPhysicalEdition[],
 ): CatalogEbayRegionOption[] {
   const seen = new Set<CatalogMarketRegion>();
-  return editions.flatMap((edition) => edition.marketRegions.flatMap((marketRegion) => {
+  const options = editions.flatMap((edition) => edition.marketRegions.flatMap((marketRegion) => {
     if (!isCatalogMarketRegion(marketRegion) || seen.has(marketRegion)) return [];
     seen.add(marketRegion);
     return [{
@@ -35,6 +35,20 @@ export function catalogEbayRegionOptions(
       physicalEditionId: edition.id,
     }];
   }));
+
+  if (seen.has("ES") || editions.length === 0) return options;
+
+  // España es el mercado de anuncios predeterminado, no evidencia de que la
+  // edición se distribuyese allí. Conservamos como referencia la edición actual
+  // europea o, si no existe, la primera de la familia.
+  const fallbackEdition = editions.find((edition) => edition.broadRegion === "EUROPE") ?? editions[0];
+  return [{
+    value: "ES",
+    label: marketNames.of("ES") ?? "España",
+    region: catalogMarketRegionToLegacyRegion("ES"),
+    ...(fallbackEdition.catalogIds[0] ? { catalogId: fallbackEdition.catalogIds[0] } : {}),
+    physicalEditionId: fallbackEdition.id,
+  }, ...options];
 }
 
 export function resolveCatalogEbayRegion(

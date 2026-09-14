@@ -67,6 +67,7 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
   ]);
 
   const listGame: CatalogListGame = {
+    sourceCatalogGame: game,
     id: game.id,
     slug: game.slug,
     title: game.title,

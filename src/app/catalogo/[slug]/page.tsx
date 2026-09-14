@@ -236,8 +236,8 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
     game,
     platform?.shortName ?? game.platformSlug,
   );
-  const currentPhysicalVariantId = editionGuide?.editionFamilies.length
-    ? currentPhysicalEdition?.id
+  const currentPhysicalVariantId = currentPhysicalEdition?.collectionIdentity === "physical-variant"
+    ? currentPhysicalEdition.id
     : undefined;
   const user = await getCurrentUser();
   const collection = user ? await readUserCollection(user.id) : null;
@@ -365,15 +365,17 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
           candidate.physicalEditionIds.includes(edition.id),
         );
         const collectionCatalogId = edition.catalogIds[0] ?? family?.representativeCatalogId ?? game.id;
-        const editionItems = collection?.items.filter((item) =>
-          collectionItemMatchesPhysicalVariant(item, edition.id),
-        ) ?? [];
+        const editionItems = collection?.items.filter((item) => edition.collectionIdentity === "physical-variant"
+          ? collectionItemMatchesPhysicalVariant(item, edition.id)
+          : item.catalogId === collectionCatalogId) ?? [];
         const editionWishlistIdentity = wishlistIdentityKey({
           catalogId: collectionCatalogId,
-          physicalVariantId: edition.id,
+          ...(edition.collectionIdentity === "physical-variant" ? { physicalVariantId: edition.id } : {}),
         });
         return [edition.id, {
-          ownedCount: countOwnedPhysicalVariant(editionItems, edition.id),
+          ownedCount: edition.collectionIdentity === "physical-variant"
+            ? countOwnedPhysicalVariant(editionItems, edition.id)
+            : editionItems.reduce((total, item) => total + Math.max(1, item.quantity || 1), 0),
           wished: collection?.wishlist?.some(
             (entry) => wishlistIdentityKey(entry) === editionWishlistIdentity,
           ) ?? false,
@@ -557,7 +559,9 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
               <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />
             )}
 
-            {editionGuide?.schemaVersion !== 2 ? <GameProductReference game={game} details={details} /> : null}
+            {currentPhysicalEdition?.collectionIdentity !== "physical-variant"
+              ? <GameProductReference game={game} details={details} />
+              : null}
 
             {!pendingPs1 ? <Ps1EditionPanel game={game} details={details} /> : null}
             <Ps2EditionPanel game={game} details={details} />

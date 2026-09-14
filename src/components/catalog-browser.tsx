@@ -196,7 +196,10 @@ function CatalogCompactRow({
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
       </IntentLink>
 
-      {!game.physicalEditionGroup?.editionFamilyId ? (
+      {!game.physicalEditionGroup || (
+        game.physicalEditionGroup.physicalEditionCount === 1 &&
+        game.physicalEditionGroup.collectibleVariantCount === 0
+      ) ? (
         <CollectionQuickAdd
           catalogId={game.id}
           owned={owned}
@@ -612,7 +615,7 @@ export function CatalogBrowser({
   const resultEnd = Math.min(safePage * CATALOG_PAGE_SIZE, total);
 
   function goToPage(nextPage: number) {
-    setIsLoading(true);
+    if (source) setIsLoading(true);
     setPage(nextPage);
     gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }

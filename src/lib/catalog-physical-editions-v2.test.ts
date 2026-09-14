@@ -10,8 +10,9 @@ import acPs3RegionalDecisions from "../../data/research/ac-ps3-regional-packagin
 import guideDocument from "../../data/catalog-edition-guides.json";
 import scanAssets from "../../data/research/owned-scans/2026-09-12-absolum-special-edition-assets.json";
 import schemaDocument from "../../data/schemas/catalog-edition-guides-v2.schema.json";
-import { catalog, getCatalogGame, getPlatform } from "./catalog";
+import { catalog, getCatalogGame, getPlatform, publicListedCatalog } from "./catalog";
 import {
+  getCatalogEditionGuide,
   getCatalogEditionGuides,
   normalizeCatalogEditionGuide,
   type RawCatalogEditionGuide,
@@ -46,7 +47,10 @@ import {
 } from "./catalog-physical-edition-browse";
 import { catalogPhysicalEditionHeadingLabel } from "./catalog-physical-edition-display";
 import { buildGameFaq, buildGameJsonLd, buildGameMetadata } from "./catalog-seo";
-import { resolveCatalogGameDetailsCatalogId } from "./catalog-runtime-overlay";
+import {
+  mergePublicCatalogWithOverlayGames,
+  resolveCatalogGameDetailsCatalogId,
+} from "./catalog-runtime-overlay";
 import { getCompany, getGameDetails } from "./indexes";
 import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
 import { getRegionDisplay } from "./region-display";
@@ -242,6 +246,17 @@ test("V2 eBay regions are explicit, default to Spain and preserve the catalog fi
     catalogEbayOfferCacheKey(standard.id, "US"),
     catalogEbayOfferCacheKey(standard.id, "ES"),
   );
+
+  const mrNutz = getCatalogEditionGuide(getCatalogGame("snes-pal-mr-nutz")!);
+  assert.ok(mrNutz?.currentEditionFamilyId);
+  const mrNutzFamily = mrNutz.editionFamilies.find((family) => family.id === mrNutz.currentEditionFamilyId);
+  assert.ok(mrNutzFamily);
+  const mrNutzOptions = catalogEbayRegionOptions(
+    mrNutz.physicalEditions.filter((edition) => mrNutzFamily.physicalEditionIds.includes(edition.id)),
+  );
+  assert.deepEqual(mrNutzOptions.map((option) => option.value), ["ES", "US", "JP"]);
+  assert.equal(resolveCatalogEbayRegion(mrNutzOptions)?.value, "ES");
+  assert.equal(mrNutzOptions[0].catalogId, "snes-pal-mr-nutz");
 });
 
 test("Absolum models seven editions, three broad regions and one shared European disc", () => {
@@ -594,11 +609,11 @@ test("every Absolum V2 edition shares verified game details and keeps its physic
   }
 });
 
-test("only explicitly migrated guides opt into edition families and legacy catalog IDs retain exact meaning", () => {
+test("documented guides use edition families while existing catalog IDs retain exact meaning", () => {
   const guidesWithFamilies = getCatalogEditionGuides().filter((guide) => guide.editionFamilies.length > 0);
   assert.deepEqual(
     guidesWithFamilies.map((guide) => guide.id),
-    ["absolum-ps5", ...AC_PS3_GUIDE_IDS],
+    ["resident-evil-requiem-ps5", "absolum-ps5", ...AC_PS3_GUIDE_IDS],
   );
 
   for (const id of [
@@ -609,6 +624,7 @@ test("only explicitly migrated guides opt into edition families and legacy catal
   ]) {
     const game = getCatalogGame(id);
     assert.ok(game, `missing legacy fixture ${id}`);
+    assert.equal(getCatalogEditionGuide(game)?.schemaVersion, 2);
     assert.equal(resolveCatalogGameDetailsCatalogId(game), id);
   }
 
@@ -616,7 +632,12 @@ test("only explicitly migrated guides opt into edition families and legacy catal
   assert.ok(legacyGuide);
   const legacyIds = legacyGuide.physicalEditions.flatMap((edition) => edition.catalogIds);
   const legacyGames = legacyIds.map((id) => toCatalogListGame(getCatalogGame(id)!));
-  assert.deepEqual(groupCatalogListGames(legacyGames).map((game) => game.id), legacyIds);
+  assert.deepEqual(groupCatalogListGames(legacyGames).map((game) => game.id), [
+    "ps5-resident-evil-requiem",
+    "ps5-resident-evil-requiem-lenticular-cover",
+    "ps5-resident-evil-requiem-deluxe-edition",
+    "ps5-japon-biohazard-requiem-collector%27s-edition",
+  ]);
 
   assert.equal(
     resolveCatalogPhysicalVariant("ps5-absolum")?.physicalVariantId,
@@ -629,6 +650,143 @@ test("only explicitly migrated guides opt into edition families and legacy catal
   assert.equal(
     resolveCatalogPhysicalVariant("ps5-usa-absolum")?.physicalVariantId,
     "absolum-ps5-north-america-standard",
+  );
+});
+
+test("sitewide V2 groups published regional pages and keeps their catalog collection identities", () => {
+  for (const game of publicListedCatalog) {
+    const guide = getCatalogEditionGuide(game);
+    assert.ok(guide, `missing V2 presentation for ${game.id}`);
+    assert.equal(guide.schemaVersion, 2);
+    assert.ok(guide.currentEditionId);
+    assert.ok(guide.currentEditionFamilyId);
+  }
+
+  const sekiroIds = [
+    "ps4-sekiro-shadows-die-twice",
+    "ps4-usa-sekiro-shadows-die-twice",
+    "ps4-japon-sekiro-shadows-die-twice",
+  ];
+  const sekiro = getCatalogEditionGuide(getCatalogGame(sekiroIds[0])!);
+  assert.ok(sekiro);
+  assert.equal(sekiro.origin, "catalog-derived");
+  const family = sekiro.editionFamilies.find((entry) => entry.id === sekiro.currentEditionFamilyId);
+  assert.ok(family);
+  assert.deepEqual(
+    sekiro.physicalEditions.flatMap((edition) => edition.catalogIds).filter((id) => sekiroIds.includes(id)),
+    sekiroIds,
+  );
+  assert.ok(sekiro.physicalEditions.every((edition) => edition.collectionIdentity === "catalog-entry"));
+  assert.deepEqual(
+    catalogEbayRegionOptions(sekiro.physicalEditions).map((option) => option.value),
+    ["ES", "US", "JP"],
+  );
+  assert.deepEqual(
+    groupCatalogListGames(sekiroIds.map((id) => toCatalogListGame(getCatalogGame(id)!))).map((game) => game.id),
+    ["ps4-sekiro-shadows-die-twice"],
+  );
+  assert.equal(resolveCatalogPhysicalVariant(sekiroIds[0]), undefined);
+
+  const singleton = getCatalogEditionGuide(getCatalogGame("3ds-3d-game-collection")!);
+  assert.equal(singleton?.origin, "catalog-derived");
+  assert.equal(singleton?.physicalEditions.length, 1);
+
+  const sekiroEs = getCatalogGame(sekiroIds[0])!;
+  const hotPublishedRegion = {
+    ...sekiroEs,
+    id: "overlay-ps4-au-sekiro-shadows-die-twice",
+    slug: "sekiro-shadows-die-twice-au",
+    region: "Australia",
+    marketRegion: "AU",
+    coverUrl: null,
+  };
+  const hotGuide = getCatalogEditionGuide(hotPublishedRegion);
+  assert.ok(hotGuide);
+  assert.ok(hotGuide.physicalEditions.some((edition) => edition.catalogIds.includes(hotPublishedRegion.id)));
+  assert.ok(hotGuide.physicalEditions.some((edition) => edition.catalogIds.includes(sekiroIds[0])));
+  const secondHotRegion = {
+    ...hotPublishedRegion,
+    id: "overlay-ps4-ca-sekiro-shadows-die-twice",
+    slug: "sekiro-shadows-die-twice-ca",
+    region: "Canadá",
+    marketRegion: "CA",
+  };
+  const runtimeGrouped = groupCatalogListGames([
+    ...sekiroIds.map((id) => toCatalogListGame(getCatalogGame(id)!)),
+    toCatalogListGame(hotPublishedRegion),
+    toCatalogListGame(secondHotRegion),
+  ]);
+  assert.equal(runtimeGrouped.length, 1);
+  assert.equal(runtimeGrouped[0].physicalEditionGroup?.physicalEditionCount, 5);
+  assert.deepEqual(runtimeGrouped[0].physicalEditionGroup?.marketRegions, ["ES", "US", "JP", "AU", "CA"]);
+
+  const pendingRegion = {
+    ...hotPublishedRegion,
+    id: "overlay-pending-ps4-au-sekiro-shadows-die-twice",
+    slug: "sekiro-shadows-die-twice-au-pending",
+    listingStatus: "pending" as const,
+  };
+  const pendingGuide = getCatalogEditionGuide(pendingRegion);
+  assert.equal(pendingGuide?.physicalEditions.length, 1);
+  assert.deepEqual(pendingGuide?.physicalEditions[0].catalogIds, [pendingRegion.id]);
+  assert.equal(groupCatalogListGames([
+    ...sekiroIds.map((id) => toCatalogListGame(getCatalogGame(id)!)),
+    toCatalogListGame(pendingRegion),
+  ]).length, 2);
+
+  const hiddenStatic = { ...sekiroEs, listingStatus: "excluded" as const };
+  const mergedPublicCatalog = mergePublicCatalogWithOverlayGames(
+    [sekiroEs, getCatalogGame(sekiroIds[1])!],
+    [hiddenStatic, hotPublishedRegion],
+  );
+  assert.deepEqual(mergedPublicCatalog.map((game) => game.id), [sekiroIds[1], hotPublishedRegion.id]);
+
+  const mixedResolutionIds = [
+    "ps1-a-bug%27s-life",
+    "ps1-usa-a-bug-s-life",
+  ];
+  const mixedResolutionGuide = getCatalogEditionGuide(getCatalogGame(mixedResolutionIds[0])!);
+  assert.ok(mixedResolutionGuide);
+  assert.deepEqual(
+    mixedResolutionGuide.physicalEditions.flatMap((edition) => edition.catalogIds)
+      .filter((id) => mixedResolutionIds.includes(id))
+      .sort(),
+    [...mixedResolutionIds].sort(),
+  );
+  assert.equal(
+    mixedResolutionGuide.physicalEditions.find((edition) => edition.catalogIds.includes("ps1-us-scus-94288"))
+      ?.broadRegion,
+    "NORTH_AMERICA",
+  );
+  assert.equal(
+    mixedResolutionGuide.physicalEditions.find((edition) => edition.catalogIds.includes("ps1-jp-slpm-86330"))
+      ?.broadRegion,
+    "ASIA",
+  );
+
+  const ambiguousTitleRows = publicListedCatalog.filter((candidate) => (
+    candidate.platformSlug === "ps1" && candidate.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim() === "ace combat 3 electrosphere"
+  ));
+  const ambiguousWorkIds = new Set(ambiguousTitleRows.flatMap((candidate) => (
+    candidate.workId && candidate.regionalStatus === "resolved" ? [candidate.workId] : []
+  )));
+  assert.ok(ambiguousWorkIds.size > 1);
+  const unresolvedAceCombat = ambiguousTitleRows.find((candidate) => (
+    !candidate.workId || candidate.regionalStatus !== "resolved"
+  ));
+  assert.ok(unresolvedAceCombat);
+  const ambiguousGuide = getCatalogEditionGuide(unresolvedAceCombat);
+  assert.ok(ambiguousGuide);
+  assert.equal(
+    ambiguousGuide.physicalEditions.flatMap((edition) => edition.catalogIds).some((catalogId) => (
+      ambiguousTitleRows.some((candidate) => (
+        candidate.id === catalogId && Boolean(candidate.workId) && candidate.regionalStatus === "resolved"
+      ))
+    )),
+    false,
   );
 });
 
