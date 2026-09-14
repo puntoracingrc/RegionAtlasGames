@@ -273,7 +273,7 @@
     {"id": "PHPOS-PS1-HARRISON-SCEE-VP", "personSlug": "phil-harrison", "name": "Vicepresidente de Sony Computer Entertainment Europe", "start": "1996", "end": "2000", "pointInTime": null, "confidence": "HIGH", "sourceId": "PH-PS1-PEOPLE"}
   ],
   "exactCredits": [
-    {"id": "PHWORK-PS1-YAMAUCHI-GRAN-TURISMO", "personSlug": "kazunori-yamauchi", "workQid": null, "title": "Gran Turismo", "year": 1997, "role": "CREADOR", "relationshipPrecision": "EXACT_EDITORIAL_CREDIT", "confidence": "VERY_HIGH", "sourceId": "PH-PS1-PEOPLE"}
+    {"id": "PHWORK-PS1-YAMAUCHI-GRAN-TURISMO", "personSlug": "kazunori-yamauchi", "workQid": null, "title": "Gran Turismo", "catalogId": "ps1-gran-turismo", "year": 1997, "role": "CREADOR", "relationshipPrecision": "EXACT_EDITORIAL_CREDIT", "confidence": "VERY_HIGH", "sourceId": "PH-PS1-PEOPLE"}
   ],
   "relatedWorks": [],
   "awards": [],
