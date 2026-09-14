@@ -56,6 +56,7 @@ import {
 } from "./catalog-runtime-overlay";
 import { getCompany, getGameDetails } from "./indexes";
 import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
+import { getDefaultCatalogInitialPage, getDefaultPlatformInitialPage } from "./public-catalog-initial-page";
 import { getRegionDisplay } from "./region-display";
 import {
   collectionItemMatchesPhysicalVariant,
@@ -161,6 +162,18 @@ test("catalog search caches follow the worker overlay revision", () => {
     catalogOverlayRevision({ updatedAt: "one", ids: ["game"], byPlatform: {}, seoSlugs: {} }),
     catalogOverlayRevision({ updatedAt: "two", ids: ["game"], byPlatform: {}, seoSlugs: {} }),
   );
+});
+
+test("optimized initial pages keep V2 totals and review counts aligned", async () => {
+  const catalogPage = await getDefaultCatalogInitialPage();
+  assert.equal(catalogPage.items.length, 48);
+  assert.equal(catalogPage.reviewCounts.documented, catalogPage.total);
+  assert(catalogPage.reviewCounts.pending > 0);
+
+  const ps1Page = await getDefaultPlatformInitialPage("ps1");
+  assert.equal(ps1Page.items.length, 48);
+  assert.equal(ps1Page.reviewCounts.documented, ps1Page.total);
+  assert(ps1Page.reviewCounts.pending > 0);
 });
 
 test("V2 headings move markets, packaging languages and ratings out of legacy labels", () => {
