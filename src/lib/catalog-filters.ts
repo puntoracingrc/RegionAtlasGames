@@ -190,6 +190,8 @@ function compareNullsLast(a: number | null, b: number | null, asc: boolean): num
   return asc ? a - b : b - a;
 }
 
+const catalogTextCollator = new Intl.Collator("es", { sensitivity: "base" });
+
 export function sortCatalogListGames(
   games: CatalogListGame[],
   sort: CatalogSort,
@@ -199,9 +201,9 @@ export function sortCatalogListGames(
   sorted.sort((a, b) => {
     switch (sort) {
       case "title-asc":
-        return a.title.localeCompare(b.title, "es", { sensitivity: "base" });
+        return catalogTextCollator.compare(a.title, b.title);
       case "title-desc":
-        return b.title.localeCompare(a.title, "es", { sensitivity: "base" });
+        return catalogTextCollator.compare(b.title, a.title);
       case "year-asc":
         return compareNullsLast(yearKey(a), yearKey(b), true);
       case "year-desc":
@@ -211,17 +213,17 @@ export function sortCatalogListGames(
       case "price-desc":
         return compareNullsLast(priceKey(a, priceType), priceKey(b, priceType), false);
       case "reference-asc":
-        return referenceKey(a).localeCompare(referenceKey(b), "es", { sensitivity: "base" });
+        return catalogTextCollator.compare(referenceKey(a), referenceKey(b));
       case "reference-desc":
-        return referenceKey(b).localeCompare(referenceKey(a), "es", { sensitivity: "base" });
+        return catalogTextCollator.compare(referenceKey(b), referenceKey(a));
       case "genre-asc":
-        return genreKey(a).localeCompare(genreKey(b), "es", { sensitivity: "base" });
+        return catalogTextCollator.compare(genreKey(a), genreKey(b));
       case "genre-desc":
-        return genreKey(b).localeCompare(genreKey(a), "es", { sensitivity: "base" });
+        return catalogTextCollator.compare(genreKey(b), genreKey(a));
       case "region-asc":
-        return a.region.localeCompare(b.region, "es", { sensitivity: "base" });
+        return catalogTextCollator.compare(a.region, b.region);
       case "region-desc":
-        return b.region.localeCompare(a.region, "es", { sensitivity: "base" });
+        return catalogTextCollator.compare(b.region, a.region);
       default:
         return 0;
     }

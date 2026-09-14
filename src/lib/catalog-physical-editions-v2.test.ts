@@ -14,6 +14,7 @@ import { catalog, getCatalogGame, getPlatform, publicListedCatalog } from "./cat
 import {
   getCatalogEditionGuide,
   getCatalogEditionGuides,
+  getGroupableCatalogEditionGuides,
   normalizeCatalogEditionGuide,
   type RawCatalogEditionGuide,
 } from "./catalog-edition-guides";
@@ -42,17 +43,22 @@ import {
   catalogPhysicalEditionBroadRegionAnchorId,
   catalogPhysicalEditionOverviewRegionLinks,
   catalogPhysicalEditionOverviewRegions,
+  catalogPhysicalFilterOptions,
   getCatalogPhysicalEditionPublicIdentity,
   groupCatalogListGames,
 } from "./catalog-physical-edition-browse";
 import { catalogPhysicalEditionHeadingLabel } from "./catalog-physical-edition-display";
 import { buildGameFaq, buildGameJsonLd, buildGameMetadata } from "./catalog-seo";
 import {
+  catalogOverlayRevision,
   mergePublicCatalogWithOverlayGames,
   resolveCatalogGameDetailsCatalogId,
 } from "./catalog-runtime-overlay";
 import { getCompany, getGameDetails } from "./indexes";
 import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
+import { enrichCatalogCards } from "./catalog-card-enrichment";
+import { toCatalogQuickSearchGame } from "./catalog-quick-search-game";
+import { getDefaultCatalogInitialPage, getDefaultPlatformInitialPage } from "./public-catalog-initial-page";
 import { getRegionDisplay } from "./region-display";
 import {
   collectionItemMatchesPhysicalVariant,
@@ -130,6 +136,63 @@ test("edition families expose variant terminology only when alternatives exist",
   assert.equal(catalogEditionFamilyHasVariants(2), true);
   assert.equal(catalogEditionFamilyCountLabel(1), "1 edición física");
   assert.equal(catalogEditionFamilyCountLabel(2), "2 variantes físicas");
+});
+
+test("optimized physical filters match the complete guide model", () => {
+  for (const platformSlug of [undefined, "ps1"] as const) {
+    const guides = getGroupableCatalogEditionGuides().filter((guide) =>
+      !platformSlug || guide.game.platformSlug === platformSlug);
+    const actual = catalogPhysicalFilterOptions(platformSlug);
+    assert.deepEqual(
+      actual.broadRegions.map((entry) => entry.value).sort(),
+      [...new Set(guides.flatMap((guide) => guide.physicalEditions.map((edition) => edition.broadRegion)))].sort(),
+    );
+    assert.deepEqual(
+      actual.editionTypes.map((entry) => entry.value).sort(),
+      [...new Set(guides.flatMap((guide) => guide.physicalEditions.map((edition) => edition.editionType)))].sort(),
+    );
+    assert.deepEqual(
+      actual.ratingSystems,
+      [...new Set(guides.flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.ratingSystems)))].sort(),
+    );
+  }
+});
+
+test("catalog search caches follow the worker overlay revision", () => {
+  assert.equal(catalogOverlayRevision({ updatedAt: "one", ids: [], byPlatform: {}, seoSlugs: {} }), "static");
+  assert.notEqual(
+    catalogOverlayRevision({ updatedAt: "one", ids: ["game"], byPlatform: {}, seoSlugs: {} }),
+    catalogOverlayRevision({ updatedAt: "two", ids: ["game"], byPlatform: {}, seoSlugs: {} }),
+  );
+});
+
+test("optimized initial pages keep V2 totals and review counts aligned", async () => {
+  const catalogPage = await getDefaultCatalogInitialPage();
+  assert.equal(catalogPage.items.length, 48);
+  assert.equal(catalogPage.reviewCounts.documented, catalogPage.total);
+  assert(catalogPage.reviewCounts.pending > 0);
+
+  const ps1Page = await getDefaultPlatformInitialPage("ps1");
+  assert.equal(ps1Page.items.length, 48);
+  assert.equal(ps1Page.reviewCounts.documented, ps1Page.total);
+  assert(ps1Page.reviewCounts.pending > 0);
+});
+
+test("quick catalog search finds and enriches direct game identities without the full index", async () => {
+  const quickGames = groupCatalogListGames(publicListedCatalog.map(toCatalogQuickSearchGame));
+  const result = filterCatalogGames(quickGames, {
+    q: "absolum",
+    region: "all",
+    platform: "all",
+    sort: "title-asc",
+    priceFilter: "all",
+  }, { platforms: true, regions: true });
+  assert.equal(result.total, 5);
+
+  const cards = await enrichCatalogCards(result.items);
+  const ps5 = cards.find((game) => game.id === "ps5-absolum");
+  assert.equal(ps5?.displayYear, 2025);
+  assert(cards.some((game) => game.id === "ps5-absolum-special-edition"));
 });
 
 test("V2 headings move markets, packaging languages and ratings out of legacy labels", () => {

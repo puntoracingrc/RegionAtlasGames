@@ -76,6 +76,28 @@ function derivedRelationshipIdentity(game: CatalogGame): string {
     : titleKey;
 }
 
+function derivedGroupIdentity(game: CatalogGame): string {
+  return game.listingStatus === "listed"
+    ? derivedRelationshipIdentity(game)
+    : `${game.platformSlug}:pending:${game.id}`;
+}
+
+let catalogGamesByDerivedGroupCache: Map<string, CatalogGame[]> | null = null;
+
+function catalogGamesByDerivedGroup(): Map<string, CatalogGame[]> {
+  if (catalogGamesByDerivedGroupCache) return catalogGamesByDerivedGroupCache;
+
+  const groups = new Map<string, CatalogGame[]>();
+  for (const game of publicListedCatalog) {
+    const key = derivedGroupIdentity(game);
+    const games = groups.get(key);
+    if (games) games.push(game);
+    else groups.set(key, [game]);
+  }
+  catalogGamesByDerivedGroupCache = groups;
+  return groups;
+}
+
 function relationshipKeys(game: CatalogGame): string[] {
   const resolvedWork = workIdentity(game);
   return [resolvedWork ?? titleIdentity(game)];
@@ -136,6 +158,13 @@ function exactMarketRegions(game: CatalogGame): string[] {
   return isCatalogMarketRegion(flagCode) ? [flagCode] : [];
 }
 
+export function catalogDerivedBroadRegion(game: CatalogGame): CatalogPhysicalEdition["broadRegion"] {
+  const marketRegions = exactMarketRegions(game);
+  return marketRegions.length === 1
+    ? catalogBroadRegionFromMarketRegion(marketRegions[0])
+    : catalogBroadRegionFromLegacyRegion(game.regionFamily ?? game.region);
+}
+
 function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
   const scan = getOwnedScanSetById(game.id);
   const originalContents = resolveOriginalGameContents(game);
@@ -154,9 +183,7 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
   return {
     id: `catalog-edition-${game.id}`,
     label: familyLabel(game),
-    broadRegion: marketRegions.length === 1
-      ? catalogBroadRegionFromMarketRegion(marketRegions[0])
-      : catalogBroadRegionFromLegacyRegion(game.regionFamily ?? game.region),
+    broadRegion: catalogDerivedBroadRegion(game),
     editionType: catalogDerivedEditionType(game),
     collectionIdentity: "catalog-entry",
     marketRegions,
@@ -386,16 +413,10 @@ type DerivedGuideIndex = {
 };
 
 export function buildCatalogDerivedGuideIndex(excludedCatalogIds: Set<string>): DerivedGuideIndex {
-  const groups = new Map<string, CatalogGame[]>();
-  for (const game of publicListedCatalog) {
-    if (excludedCatalogIds.has(game.id)) continue;
-    const key = game.listingStatus === "listed"
-      ? derivedRelationshipIdentity(game)
-      : `${game.platformSlug}:pending:${game.id}`;
-    groups.set(key, [...(groups.get(key) ?? []), game]);
-  }
-
-  const guides = [...groups.values()].map(buildGuide);
+  const guides = [...catalogGamesByDerivedGroup().values()].flatMap((games) => {
+    const availableGames = games.filter((game) => !excludedCatalogIds.has(game.id));
+    return availableGames.length ? [buildGuide(availableGames)] : [];
+  });
   const byCatalogId = new Map<string, CatalogEditionGuideModel>();
   for (const guide of guides) {
     for (const catalogId of guide.physicalEditions.flatMap((edition) => edition.catalogIds)) {
@@ -403,6 +424,16 @@ export function buildCatalogDerivedGuideIndex(excludedCatalogIds: Set<string>): 
     }
   }
   return { byCatalogId, guides };
+}
+
+export function buildCatalogDerivedGuideForGame(
+  game: CatalogGame,
+  excludedCatalogIds: ReadonlySet<string>,
+): CatalogEditionGuideModel | undefined {
+  const games = catalogGamesByDerivedGroup().get(derivedGroupIdentity(game))
+    ?.filter((candidate) => !excludedCatalogIds.has(candidate.id)) ?? [];
+  if (!games.some((candidate) => candidate.id === game.id)) return undefined;
+  return buildGuide(games);
 }
 
 /**
@@ -414,14 +445,10 @@ export function buildRuntimeCatalogEditionGuide(
   documentedGuides: CatalogEditionGuideModel[],
   runtimeGames: CatalogGame[] = [game],
 ): CatalogEditionGuideModel {
-  const key = game.listingStatus === "listed"
-    ? derivedRelationshipIdentity(game)
-    : `${game.platformSlug}:pending:${game.id}`;
+  const key = derivedGroupIdentity(game);
   const relatedRuntimeGames = runtimeGames.filter((candidate) => {
     if (candidate.listingStatus !== game.listingStatus) return false;
-    const candidateKey = candidate.listingStatus === "listed"
-      ? derivedRelationshipIdentity(candidate)
-      : `${candidate.platformSlug}:pending:${candidate.id}`;
+    const candidateKey = derivedGroupIdentity(candidate);
     return candidateKey === key;
   });
   if (!relatedRuntimeGames.some((candidate) => candidate.id === game.id)) relatedRuntimeGames.push(game);
@@ -444,10 +471,7 @@ export function buildRuntimeCatalogEditionGuide(
     documentedGuides.flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.catalogIds)),
   );
   const siblings = game.listingStatus === "listed"
-    ? publicListedCatalog.filter((candidate) => {
-        if (claimed.has(candidate.id) || candidate.listingStatus !== "listed") return false;
-        return derivedRelationshipIdentity(candidate) === key;
-      })
+    ? (catalogGamesByDerivedGroup().get(key) ?? []).filter((candidate) => !claimed.has(candidate.id))
     : [];
   return buildGuide([...new Map(
     [...siblings, ...relatedRuntimeGames].map((candidate) => [candidate.id, candidate]),

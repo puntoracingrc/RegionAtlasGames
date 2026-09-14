@@ -5,6 +5,7 @@ import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
 import {
   buildCatalogDerivedGuideIndex,
+  buildCatalogDerivedGuideForGame,
   buildRuntimeCatalogEditionGuide,
   extendDocumentedGuidesWithCatalog,
 } from "./catalog-derived-edition-guides";
@@ -127,6 +128,9 @@ type RawGuideDocument = { schemaVersion: 1 | 2; guides: RawCatalogEditionGuide[]
 const rawGuideDocuments = [guideData, acPs3GuideData] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
+let documentedGuideByCatalogIdCache: Map<string, CatalogEditionGuideModel> | null = null;
+let documentedCatalogIdsCache: Set<string> | null = null;
+const lazyDerivedGuideByCatalogId = new Map<string, CatalogEditionGuideModel>();
 
 function requiredCatalogGame(catalogId: string, platformSlug?: string): CatalogGame {
   const game = getCatalogGame(catalogId);
@@ -405,6 +409,33 @@ export function getCatalogEditionGuides(): CatalogEditionGuideModel[] {
   return normalizedGuidesCache;
 }
 
+function documentedGuideByCatalogId(): Map<string, CatalogEditionGuideModel> {
+  if (!documentedGuideByCatalogIdCache) {
+    documentedGuideByCatalogIdCache = new Map(
+      getCatalogEditionGuides().flatMap((guide) => guide.physicalEditions.flatMap((edition) =>
+        edition.catalogIds.map((catalogId) => [catalogId, guide] as const))),
+    );
+  }
+  return documentedGuideByCatalogIdCache;
+}
+
+function documentedCatalogIds(): Set<string> {
+  documentedCatalogIdsCache ??= new Set(documentedGuideByCatalogId().keys());
+  return documentedCatalogIdsCache;
+}
+
+function lazyDerivedGuide(game: CatalogGame): CatalogEditionGuideModel | undefined {
+  const cached = lazyDerivedGuideByCatalogId.get(game.id);
+  if (cached) return cached;
+
+  const guide = buildCatalogDerivedGuideForGame(game, documentedCatalogIds());
+  if (!guide) return undefined;
+  for (const catalogId of guide.physicalEditions.flatMap((edition) => edition.catalogIds)) {
+    lazyDerivedGuideByCatalogId.set(catalogId, guide);
+  }
+  return guide;
+}
+
 export function getGroupableCatalogEditionGuides(): CatalogEditionGuideModel[] {
   return [...getCatalogEditionGuides(), ...catalogDerivedGuides().guides];
 }
@@ -419,12 +450,11 @@ function catalogDerivedGuides() {
   return derivedGuidesCache;
 }
 
-export function getCatalogEditionGuide(game: CatalogGame): CatalogEditionGuideModel | undefined {
+export function getCatalogEditionGuideModel(game: CatalogGame): CatalogEditionGuideModel | undefined {
   const catalogGame = getCatalogGame(game.id);
   if (!catalogGame) {
     if (!isPublicCatalogGame(game)) return undefined;
-    const runtimeGuide = buildRuntimeCatalogEditionGuide(game, getCatalogEditionGuides());
-    return withCurrentCatalogEdition(runtimeGuide, game.id);
+    return buildRuntimeCatalogEditionGuide(game, getCatalogEditionGuides());
   }
   if (
     catalogGame.platformSlug !== game.platformSlug ||
@@ -434,9 +464,11 @@ export function getCatalogEditionGuide(game: CatalogGame): CatalogEditionGuideMo
   ) {
     return undefined;
   }
-  const guide = getCatalogEditionGuides().find((candidate) => candidate.physicalEditions.some(
-    (edition) => edition.catalogIds.includes(game.id),
-  )) ?? catalogDerivedGuides().byCatalogId.get(game.id);
+  return documentedGuideByCatalogId().get(game.id) ?? lazyDerivedGuide(catalogGame);
+}
+
+export function getCatalogEditionGuide(game: CatalogGame): CatalogEditionGuideModel | undefined {
+  const guide = getCatalogEditionGuideModel(game);
   if (!guide) return undefined;
   return withCurrentCatalogEdition(guide, game.id);
 }
