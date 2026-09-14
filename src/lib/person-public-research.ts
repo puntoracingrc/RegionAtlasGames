@@ -1,6 +1,7 @@
 import publicResearchData from "../../data/research/person-study/public.json";
 import playstationPeopleData from "../../data/research/platform-history/people-public.json";
 import playstation2PeopleData from "../../data/research/platform-history/people-ps2-public.json";
+import playstation3PeopleData from "../../data/research/platform-history/people-ps3-public.json";
 import type {
   CompanyPersonLink,
   PersonCardData,
@@ -24,6 +25,7 @@ function mergeByKey<T>(base: T[], overlay: T[], key: (item: T) => string): T[] {
 const baseData = publicResearchData as unknown as PersonPublicData;
 const playstationData = playstationPeopleData as unknown as PersonPublicOverlayData;
 const playstation2Data = playstation2PeopleData as unknown as PersonPublicOverlayData;
+const playstation3Data = playstation3PeopleData as unknown as PersonPublicOverlayData;
 
 function applyOverlay(
   current: PersonPublicData,
@@ -73,8 +75,11 @@ function applyOverlay(
 }
 
 const data = applyOverlay(
-  applyOverlay(baseData, playstationData),
-  playstation2Data,
+  applyOverlay(
+    applyOverlay(baseData, playstationData),
+    playstation2Data,
+  ),
+  playstation3Data,
 );
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));

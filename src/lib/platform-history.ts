@@ -1,5 +1,6 @@
 import platformHistoryData from "../../data/research/platform-history/platforms.json";
 import playstation2HistoryData from "../../data/research/platform-history/platforms-ps2.json";
+import playstation3HistoryData from "../../data/research/platform-history/platforms-ps3.json";
 import type {
   CompanyPlatformHistoryLink,
   CompanyGenealogyLink,
@@ -11,15 +12,17 @@ import { PLATFORM_HARDWARE_GROUPS } from "./platform-history-types";
 
 const baseData = platformHistoryData as PlatformHistoryData;
 const playstation2Data = playstation2HistoryData as PlatformHistoryData;
+const playstation3Data = playstation3HistoryData as PlatformHistoryData;
 const data: PlatformHistoryData = {
-  version: Math.max(baseData.version, playstation2Data.version),
-  generatedAt: playstation2Data.generatedAt,
+  version: Math.max(baseData.version, playstation2Data.version, playstation3Data.version),
+  generatedAt: playstation3Data.generatedAt,
   platforms: [
     ...new Map(
-      [...baseData.platforms, ...playstation2Data.platforms].map((history) => [
-        history.platformSlug,
-        history,
-      ]),
+      [
+        ...baseData.platforms,
+        ...playstation2Data.platforms,
+        ...playstation3Data.platforms,
+      ].map((history) => [history.platformSlug, history]),
     ).values(),
   ],
 };
