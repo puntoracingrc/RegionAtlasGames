@@ -30,6 +30,14 @@ import {
   verifiedCompanyRelationLabel,
 } from "./verified-company-relations";
 import type { CompanyPersonLink } from "./person-research-types";
+import {
+  getCompanyGenealogyRelations,
+  getCompanyPlatformHistoryLinks,
+} from "./platform-history";
+import type {
+  CompanyGenealogyLink,
+  CompanyPlatformHistoryLink,
+} from "./platform-history-types";
 import type { CatalogGame, CompanyProfile, IndexEntry } from "./types";
 
 export type CompanyCollaborator = {
@@ -82,6 +90,8 @@ export type CompanyProfileView = {
   researchSources: CompanyResearchPublicSource[];
   achievements: CompanyResearchAchievement[];
   people: CompanyPersonLink[];
+  platformHistoryLinks: CompanyPlatformHistoryLink[];
+  historicalGenealogy: CompanyGenealogyLink[];
   platforms: CompanyPlatformGames[];
   collaborators: CompanyCollaborator[];
   games: CatalogGame[];
@@ -235,6 +245,8 @@ function buildCompanyProfileViewFromProfile(
     researchSources: getPublicCompanyResearchSources(entry.slug),
     achievements: getPublicCompanyAchievements(entry.slug),
     people: getPublicPeopleForCompany(entry.slug),
+    platformHistoryLinks: getCompanyPlatformHistoryLinks(entry.slug),
+    historicalGenealogy: getCompanyGenealogyRelations(entry.slug),
     platforms: groupGamesByPlatform(games),
     collaborators: collectCollaborators(entry, entry.slug).slice(0, 24),
     games,

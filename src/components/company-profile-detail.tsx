@@ -163,6 +163,55 @@ export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds
           </section>
         )}
 
+        {(view.platformHistoryLinks.length > 0 || view.historicalGenealogy.length > 0) && (
+          <section className="mb-10 border-y border-border py-5 md:py-6">
+            <div>
+              <h2 className="text-lg font-semibold text-foreground">Historia en plataformas</h2>
+              <p className="mt-1 text-sm text-foreground/75">
+                Relaciones editoriales documentadas dentro de la historia de cada generación.
+              </p>
+            </div>
+            {view.platformHistoryLinks.length > 0 && (
+              <ul className="mt-4 grid gap-3 md:grid-cols-2">
+                {view.platformHistoryLinks.map((relation) => (
+                  <li key={`${relation.platformSlug}:${relation.companySlug}`}>
+                    <Link href={`/plataforma/${relation.platformSlug}#historia-companias`} className="block h-full rounded-lg border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover">
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-accent">{relation.relationshipLabelEs}</p>
+                          <h3 className="mt-1 font-bold text-foreground">{relation.platformName}</h3>
+                        </div>
+                        {relation.period && <span className="text-xs font-medium text-muted">{relation.period}</span>}
+                      </div>
+                      <p className="mt-2 text-sm leading-6 text-foreground/75">{relation.contributionEs}</p>
+                      {relation.relatedWorks.length > 0 && <p className="mt-2 text-xs leading-5 text-muted">{relation.relatedWorks.join(" · ")}</p>}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {view.historicalGenealogy.length > 0 && (
+              <ol className="mt-5 divide-y divide-border border-y border-border">
+                {view.historicalGenealogy.map((relation) => {
+                  const companyIsSource = relation.sourceCompanySlug === view.slug;
+                  const relatedSlug = companyIsSource ? relation.targetCompanySlug : relation.sourceCompanySlug;
+                  const relatedName = companyIsSource ? relation.targetCompanyName : relation.sourceCompanyName;
+                  return (
+                    <li key={`${relation.platformSlug}:${relation.id}`} className="grid gap-2 py-3 text-sm md:grid-cols-[7rem_minmax(0,1fr)_auto] md:items-start">
+                      <span className="font-bold text-accent">{relation.year ?? "Sin fecha"}</span>
+                      <p className="leading-6 text-foreground/80">
+                        {relation.summaryEs}
+                        {relatedSlug && relatedName ? <>{" · "}<Link href={`/compania/${relatedSlug}`} className="font-semibold text-foreground hover:text-accent">{relatedName}</Link></> : null}
+                      </p>
+                      <Link href={`/plataforma/${relation.platformSlug}#historia-companias`} className="text-xs font-semibold text-accent hover:underline">Ver contexto</Link>
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
+          </section>
+        )}
+
         <div className="mb-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <CompanyPlatformGames platforms={view.platforms} />
           <CompanyCollaborators collaborators={view.collaborators} selfName={view.name} />

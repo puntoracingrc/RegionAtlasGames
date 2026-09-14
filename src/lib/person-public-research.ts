@@ -1,4 +1,5 @@
 import publicResearchData from "../../data/research/person-study/public.json";
+import playstationPeopleData from "../../data/research/platform-history/people-public.json";
 import type {
   CompanyPersonLink,
   PersonCardData,
@@ -12,7 +13,35 @@ import type {
   PersonWork,
 } from "./person-research-types";
 
-const data = publicResearchData as unknown as PersonPublicData;
+function mergeByKey<T>(base: T[], overlay: T[], key: (item: T) => string): T[] {
+  const merged = new Map(base.map((item) => [key(item), item]));
+  for (const item of overlay) merged.set(key(item), item);
+  return [...merged.values()];
+}
+
+const baseData = publicResearchData as unknown as PersonPublicData;
+const playstationData = playstationPeopleData as unknown as PersonPublicData;
+const data: PersonPublicData = {
+  version: Math.max(baseData.version, playstationData.version),
+  generatedAt: playstationData.generatedAt,
+  profiles: mergeByKey(baseData.profiles, playstationData.profiles, (item) => item.slug),
+  companyRelations: mergeByKey(
+    baseData.companyRelations,
+    playstationData.companyRelations,
+    (item) => item.id,
+  ),
+  positions: mergeByKey(baseData.positions, playstationData.positions, (item) => item.id),
+  exactCredits: mergeByKey(baseData.exactCredits, playstationData.exactCredits, (item) => item.id),
+  relatedWorks: mergeByKey(baseData.relatedWorks, playstationData.relatedWorks, (item) => item.id),
+  awards: mergeByKey(baseData.awards, playstationData.awards, (item) => item.id),
+  curiosities: mergeByKey(baseData.curiosities, playstationData.curiosities, (item) => item.id),
+  historicalRelations: mergeByKey(
+    baseData.historicalRelations ?? [],
+    playstationData.historicalRelations ?? [],
+    (item) => item.id,
+  ),
+  sources: mergeByKey(baseData.sources, playstationData.sources, (item) => item.id),
+};
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));
 
@@ -76,6 +105,7 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
   const relations = rowsFor(data.companyRelations, profile.slug);
   const credits = rowsFor(data.exactCredits, profile.slug);
   const relatedWorks = rowsFor(data.relatedWorks, profile.slug);
+  const historicalRelations = rowsFor(data.historicalRelations ?? [], profile.slug);
   const companies = uniqueBy(
     relations.map((relation) => ({ slug: relation.companySlug, name: relation.companyName })),
     (company) => company.slug,
@@ -98,6 +128,11 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
       ...profile.fieldsOfWork.map((item) => item.name),
       ...companies.map((company) => company.name),
       ...works,
+      ...historicalRelations.flatMap((relation) => [
+        relation.targetName,
+        relation.relationshipLabelEs,
+        relation.summaryEs,
+      ]),
     ].join(" "),
   );
   return {
@@ -188,6 +223,17 @@ function timelineFor(view: Omit<PersonPublicView, "timeline">): PersonTimelineIt
       sourceId: award.sourceId,
     });
   }
+  for (const relation of view.historicalRelations) {
+    timeline.push({
+      id: relation.id,
+      dateLabel: relation.period ?? "Periodo no documentado",
+      sortYear: firstYear(relation.period),
+      title: relation.relationshipLabelEs,
+      detail: relation.targetName,
+      kind: "historical",
+      sourceId: relation.sourceId,
+    });
+  }
   if (profile.deathDate || profile.deathYear) {
     timeline.push({
       id: `${profile.slug}-death`,
@@ -236,6 +282,7 @@ export function getPublicPersonView(slug: string): PersonPublicView | undefined 
     relatedWorks: rowsFor(data.relatedWorks, slug),
     awards: rowsFor(data.awards, slug),
     curiosities: rowsFor(data.curiosities, slug),
+    historicalRelations: rowsFor(data.historicalRelations ?? [], slug),
     sources: [] as PersonPublicSource[],
   };
   const sourceIds = new Set([
@@ -247,6 +294,7 @@ export function getPublicPersonView(slug: string): PersonPublicView | undefined 
     ...partial.relatedWorks.map((row) => row.sourceId),
     ...partial.awards.map((row) => row.sourceId),
     ...partial.curiosities.map((row) => row.sourceId),
+    ...partial.historicalRelations.map((row) => row.sourceId),
   ].filter((sourceId): sourceId is string => Boolean(sourceId)));
   partial.sources = [...sourceIds]
     .map((sourceId) => sources.get(sourceId))

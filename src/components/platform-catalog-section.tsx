@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import type { CatalogListGame, CollectionView, Platform } from "@/lib/types";
 import { BackLink } from "@/components/breadcrumbs";
@@ -51,6 +52,7 @@ type Props = {
   initialGenre?: string;
   initialSubgenre?: string;
   initialFacet?: string;
+  children?: ReactNode;
 };
 
 export function PlatformCatalogSection({
@@ -77,6 +79,7 @@ export function PlatformCatalogSection({
   initialGenre = "all",
   initialSubgenre = "all",
   initialFacet = "all",
+  children,
 }: Props) {
   const [region, setRegion] = useState(initialRegion);
   const [includePending, setIncludePending] = useState(initialIncludePending);
@@ -134,6 +137,8 @@ export function PlatformCatalogSection({
           </div>
         </div>
       </header>
+
+      {children}
 
       <CatalogBrowser
         games={games}
