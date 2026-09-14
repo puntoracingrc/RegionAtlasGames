@@ -174,6 +174,7 @@ function buildSummary(
 
 type GroupCatalogListGamesOptions = {
   mergeSearchMetadata?: boolean;
+  mergeSearchText?: boolean;
 };
 
 /** Agrupa solo familias declaradas como v2; nunca borra ni modifica el catálogo legacy. */
@@ -269,8 +270,10 @@ export function groupCatalogListGames(
       if (grouping.family) searchAdditions.push(grouping.family.label);
       const grouped: CatalogListGame = {
         ...sharedFields,
-        searchText: mergeSearchText(members, searchAdditions),
-        gameSearchText: mergeSearchText(members, [guide.game.title, ...searchAdditions]),
+        ...(options.mergeSearchText === false ? {} : {
+          searchText: mergeSearchText(members, searchAdditions),
+          gameSearchText: mergeSearchText(members, [guide.game.title, ...searchAdditions]),
+        }),
         companySearchText: unique(members.map((game) => game.companySearchText).filter((value): value is string => Boolean(value))).join(" "),
         companies: unique(members.flatMap((game) => game.companies ?? [])),
         genreSlugs: unique(members.flatMap((game) => game.genreSlugs ?? [])),

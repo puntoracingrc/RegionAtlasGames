@@ -41,7 +41,10 @@ type BrowseGamesData = {
   reviewGames: CatalogListGame[];
 };
 const browseGamesCache = new Map<"all" | "default", { revision: string; data: Promise<BrowseGamesData> }>();
-let fullSearchGamesCache: { revision: string; games: Promise<CatalogListGame[]> } | null = null;
+const editorialSearchGamesCache = new Map<"filter" | "search", {
+  revision: string;
+  games: Promise<CatalogListGame[]>;
+}>();
 let taxonomyQueryCache: Set<string> | null = null;
 
 type SearchResult = {
@@ -106,20 +109,27 @@ async function quickSearchGames(): Promise<CatalogListGame[]> {
   }
 }
 
-async function fullSearchGames(): Promise<CatalogListGame[]> {
+async function editorialSearchGames(includeSearchText: boolean): Promise<CatalogListGame[]> {
+  const scope = includeSearchText ? "search" : "filter";
   const revision = await getCatalogOverlayRevision();
-  if (!fullSearchGamesCache || fullSearchGamesCache.revision !== revision) {
-    fullSearchGamesCache = {
+  const cached = editorialSearchGamesCache.get(scope);
+  const current = cached?.revision === revision
+    ? cached
+    : {
       revision,
-      games: Promise.all([getPublicCatalogWithOverlay(), import("@/lib/catalog-list-game")])
-        .then(([catalog, { toCatalogListGame }]) => groupCatalogListGames(catalog.map(toCatalogListGame))),
+      games: Promise.all([getPublicCatalogWithOverlay(), import("@/lib/catalog-editorial-filter-index")])
+        .then(([catalog, editorialIndex]) => groupCatalogListGames(
+          catalog.map(includeSearchText
+            ? editorialIndex.toCatalogEditorialListGame
+            : editorialIndex.toCatalogEditorialFilterGame),
+          { mergeSearchText: includeSearchText },
+        )),
     };
-  }
-  const current = fullSearchGamesCache;
+  if (current !== cached) editorialSearchGamesCache.set(scope, current);
   try {
     return await current.games;
   } catch (error) {
-    if (fullSearchGamesCache === current) fullSearchGamesCache = null;
+    if (editorialSearchGamesCache.get(scope) === current) editorialSearchGamesCache.delete(scope);
     throw error;
   }
 }
@@ -177,7 +187,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ items: [], total: 0 }, { headers: PUBLIC_CACHE_HEADERS });
   }
 
-  const needsFullIndex = mode === "browser"
+  const needsEditorialIndex = mode === "browser"
     ? Boolean(company.trim() || hasTaxonomyFilter) ||
       sort.startsWith("year-") ||
       sort.startsWith("reference-") ||
@@ -187,10 +197,10 @@ export async function GET(request: Request) {
       sort.startsWith("year-") ||
       sort.startsWith("reference-") ||
       sort.startsWith("genre-");
-  const usesBrowseIndex = mode === "browser" && !needsFullIndex && !q.trim();
-  let usesFullIndex = needsFullIndex;
+  const usesBrowseIndex = mode === "browser" && !needsEditorialIndex && !q.trim();
+  let usesEditorialIndex = needsEditorialIndex;
   const browseData = usesBrowseIndex ? await browseGames(includePending) : null;
-  let games = browseData?.games ?? (needsFullIndex ? await fullSearchGames() : await quickSearchGames());
+  let games = browseData?.games ?? (needsEditorialIndex ? await editorialSearchGames(Boolean(q.trim())) : await quickSearchGames());
   const filters = {
     q,
     platform,
@@ -214,9 +224,9 @@ export async function GET(request: Request) {
     { platforms: true, regions: true },
   );
 
-  if (!needsFullIndex && q.trim() && filtered.total === 0) {
-    games = await fullSearchGames();
-    usesFullIndex = true;
+  if (!needsEditorialIndex && q.trim() && filtered.total === 0) {
+    games = await editorialSearchGames(true);
+    usesEditorialIndex = true;
     filtered = filterCatalogGames(games, filters, { platforms: true, regions: true });
   }
 
@@ -235,7 +245,7 @@ export async function GET(request: Request) {
       : filtered.reviewCounts;
     return NextResponse.json(
       {
-        items: usesFullIndex ? pageItems.map(toCatalogCardGame) : await enrichCatalogCards(pageItems),
+        items: usesEditorialIndex ? pageItems.map(toCatalogCardGame) : await enrichCatalogCards(pageItems),
         total: filtered.total,
         reviewCounts,
       },
@@ -247,7 +257,7 @@ export async function GET(request: Request) {
     ? [...filtered.items].sort((a, b) => relevanceScore(b, q) - relevanceScore(a, q) || a.title.localeCompare(b.title, "es"))
     : filtered.items;
   const resultGames = rankedItems.slice(0, MAX_RESULTS);
-  const displayGames = usesFullIndex ? resultGames : await enrichCatalogCards(resultGames);
+  const displayGames = usesEditorialIndex ? resultGames : await enrichCatalogCards(resultGames);
 
   const items: SearchResult[] = displayGames.map((game) => {
     const platformData = getPlatform(game.platformSlug);
