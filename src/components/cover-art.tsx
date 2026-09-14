@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { coverCardAspectClass, coverDetailSizeClass } from "@/lib/cover-aspect";
 
@@ -15,13 +15,10 @@ type Props = {
 
 export function CoverArt({ src, alt, platformSlug, variant = "card", className }: Props) {
   const isDetail = variant === "detail";
-  const [failed, setFailed] = useState(false);
-
-  useEffect(() => {
-    setFailed(false);
-  }, [src]);
-
-  const showImage = Boolean(src) && !failed;
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+  const loaded = Boolean(src) && loadedSrc === src;
+  const showImage = Boolean(src) && failedSrc !== src;
 
   return (
     <div
@@ -46,19 +43,21 @@ export function CoverArt({ src, alt, platformSlug, variant = "card", className }
               className="h-auto max-h-[min(72vh,520px)] w-full object-contain object-center"
               loading="eager"
               fetchPriority="high"
-              onError={() => setFailed(true)}
+              onError={() => setFailedSrc(src)}
             />
           </div>
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-b from-black/15 to-black/35 p-1.5 sm:p-2">
+          <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-b from-black/15 to-black/35 p-1.5 sm:p-2">
+            {!loaded ? <span className="absolute inset-0 animate-pulse bg-card-hover" aria-hidden /> : null}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               key={src}
               src={src!}
               alt={alt}
-              className="max-h-full max-w-full object-contain object-center"
+              className={cn("relative max-h-full max-w-full object-contain object-center transition-opacity duration-300", loaded ? "opacity-100" : "opacity-0")}
               loading="lazy"
-              onError={() => setFailed(true)}
+              onLoad={() => setLoadedSrc(src)}
+              onError={() => setFailedSrc(src)}
             />
           </div>
         )

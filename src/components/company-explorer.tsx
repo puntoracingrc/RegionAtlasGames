@@ -2,7 +2,7 @@
 
 import { ChevronDown, ChevronUp, RotateCcw, Search, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { CompanyLogo } from "@/components/company-logo";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { cn } from "@/lib/cn";
@@ -28,6 +28,7 @@ type Props = CompanyExplorerData & {
     publishers: CompanyCardData[];
     developers: CompanyCardData[];
   } | null;
+  deferInitialLoad?: boolean;
 };
 
 const ROLE_TABS: { value: CompanyRoleFilter; label: string; hint: string }[] = [
@@ -36,6 +37,8 @@ const ROLE_TABS: { value: CompanyRoleFilter; label: string; hint: string }[] = [
   { value: "developers", label: "Desarrolladoras", hint: "Compañías con créditos de desarrollo" },
   { value: "both", label: "Ambos roles", hint: "Desarrollan y publican en el catálogo" },
 ];
+
+const COMPANY_RESULT_PAGE_SIZE = 48;
 
 const selectClass =
   "w-full rounded-lg border border-border bg-input px-3 py-2.5 text-sm text-foreground outline-none ring-accent/30 focus:ring-2";
@@ -70,9 +73,10 @@ function companyPageParams(filters: CompanyIndexFilters, page: number): URLSearc
 async function fetchCompanyPage(
   filters: CompanyIndexFilters,
   page: number,
-  signal?: AbortSignal,
 ): Promise<CompanyPagePayload> {
-  const response = await fetch(`/api/catalog/companies?${companyPageParams(filters, page)}`, { signal });
+  const response = await fetch(`/api/catalog/companies?${companyPageParams(filters, page)}`, {
+    headers: { Accept: "application/json" },
+  });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return (await response.json()) as CompanyPagePayload;
 }
@@ -85,15 +89,18 @@ export function CompanyExplorer({
   totalCount,
   initials,
   grouped,
+  deferInitialLoad = false,
 }: Props) {
   const [filters, setFilters] = useState<CompanyIndexFilters>(DEFAULT_COMPANY_FILTERS);
   const filtersActive = hasActiveCompanyFilters(filters);
   const [items, setItems] = useState(initialCompanies);
   const [total, setTotal] = useState(totalCount);
   const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(deferInitialLoad);
   const [loadError, setLoadError] = useState(false);
   const [showMoreFilters, setShowMoreFilters] = useState(false);
+  const initialHydrationRef = useRef(deferInitialLoad);
+  const pageCacheRef = useRef(new Map<string, Promise<CompanyPagePayload>>());
 
   const showGrouped = !filtersActive;
   const moreFilterCount = [filters.status, filters.activity, filters.market].filter(
@@ -101,52 +108,63 @@ export function CompanyExplorer({
   ).length;
   const hasMore = items.length < total;
 
-  useEffect(() => {
-    const controller = new AbortController();
-    const timer = window.setTimeout(() => {
-      if (!filtersActive) {
-        setItems(initialCompanies);
-        setTotal(totalCount);
-        setPage(1);
-        setIsLoading(false);
-        setLoadError(false);
-        return;
-      }
+  const loadPage = useCallback((requestFilters: CompanyIndexFilters, requestPage: number) => {
+    const key = companyPageParams(requestFilters, requestPage).toString();
+    const cached = pageCacheRef.current.get(key);
+    if (cached) return cached;
+    const request = fetchCompanyPage(requestFilters, requestPage).catch((error) => {
+      pageCacheRef.current.delete(key);
+      throw error;
+    });
+    pageCacheRef.current.set(key, request);
+    return request;
+  }, []);
 
+  useEffect(() => {
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      const keepInitialResults = initialHydrationRef.current && !filtersActive;
+      initialHydrationRef.current = false;
+      if (!keepInitialResults) setItems([]);
       setIsLoading(true);
       setLoadError(false);
-      fetchCompanyPage(filters, 1, controller.signal)
+      loadPage(filters, 1)
         .then((payload) => {
+          if (cancelled) return;
           setItems(payload.items);
           setTotal(payload.total);
           setPage(1);
+          if (payload.items.length < payload.total) void loadPage(filters, 2).catch(() => undefined);
         })
         .catch((error) => {
-          if (!controller.signal.aborted) {
+          if (!cancelled) {
             console.warn("[company-explorer] fetch failed", error);
             setLoadError(true);
           }
         })
         .finally(() => {
-          if (!controller.signal.aborted) setIsLoading(false);
+          if (!cancelled) setIsLoading(false);
         });
     }, filters.q.trim() ? 180 : 0);
 
     return () => {
+      cancelled = true;
       window.clearTimeout(timer);
-      controller.abort();
     };
-  }, [filters, filtersActive, initialCompanies, totalCount]);
+  }, [filters, filtersActive, initialCompanies, loadPage, totalCount]);
 
   async function loadMore() {
     const nextPage = page + 1;
     setIsLoading(true);
     setLoadError(false);
     try {
-      const payload = await fetchCompanyPage(filters, nextPage);
+      const payload = await loadPage(filters, nextPage);
       setItems((current) => [...current, ...payload.items]);
       setTotal(payload.total);
       setPage(nextPage);
+      if (nextPage * COMPANY_RESULT_PAGE_SIZE < payload.total) {
+        void loadPage(filters, nextPage + 1).catch(() => undefined);
+      }
     } catch (error) {
       console.warn("[company-explorer] load more failed", error);
       setLoadError(true);
@@ -415,6 +433,7 @@ export function CompanyExplorer({
       )}
 
       <CompanyGrid companies={items} sort={filters.sort} />
+      {isLoading ? <CompanyGridSkeleton count={Math.max(8, 48 - items.length)} /> : null}
 
       {hasMore && (
         <div className="flex justify-center">
@@ -441,6 +460,23 @@ export function CompanyExplorer({
         </p>
       )}
     </div>
+  );
+}
+
+function CompanyGridSkeleton({ count }: { count: number }) {
+  return (
+    <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" role="status" aria-label="Cargando compañías">
+      {Array.from({ length: count }, (_, index) => (
+        <div key={index} className="min-h-[178px] animate-pulse rounded-lg border border-border bg-card p-4" aria-hidden>
+          <div className="flex gap-3">
+            <div className="h-14 w-14 shrink-0 rounded-lg bg-card-hover" />
+            <div className="flex-1 space-y-3 pt-1"><div className="h-4 w-3/4 rounded bg-card-hover" /><div className="h-3 w-1/2 rounded bg-card-hover" /></div>
+          </div>
+          <div className="mt-5 h-3 w-full rounded bg-card-hover" />
+          <div className="mt-3 h-3 w-2/3 rounded bg-card-hover" />
+        </div>
+      ))}
+    </section>
   );
 }
 

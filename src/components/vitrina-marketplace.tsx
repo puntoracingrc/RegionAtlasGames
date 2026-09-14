@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ExternalLink,
   Handshake,
@@ -25,17 +25,21 @@ import { cn } from "@/lib/cn";
 import { formatEurCents } from "@/lib/price-format";
 import {
   DEFAULT_VITRINA_FILTERS,
+  VITRINA_PAGE_SIZE,
   VITRINA_CONDITION_LABELS,
-  filterAndSortVitrinaListings,
   hasActiveVitrinaFilters,
   vitrinaFiltersToSearchParams,
   type VitrinaFilters,
   type VitrinaListing,
 } from "@/lib/vitrina-marketplace";
+import type { VitrinaFilterOptions } from "@/lib/vitrina-browse";
 
 type Props = {
   listings: VitrinaListing[];
+  total: number;
+  filterOptions: VitrinaFilterOptions;
   initialFilters: VitrinaFilters;
+  deferInitialLoad?: boolean;
 };
 
 type AffiliateOffersResponse = {
@@ -44,11 +48,6 @@ type AffiliateOffersResponse = {
 };
 
 type SponsoredOffer = AffiliateOffer & { catalogId: string };
-
-function uniqueOptions(values: Array<{ value: string; label: string }>) {
-  return [...new Map(values.map((option) => [option.value, option])).values()]
-    .sort((left, right) => left.label.localeCompare(right.label, "es"));
-}
 
 function dateLabel(value: string | null): string {
   if (!value) return "Fecha no indicada";
@@ -67,36 +66,136 @@ function parsedPrice(value: string): number | null {
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
 }
 
-export function VitrinaMarketplace({ listings, initialFilters }: Props) {
+type VitrinaPagePayload = {
+  items: VitrinaListing[];
+  total: number;
+  filterOptions: VitrinaFilterOptions;
+};
+
+export function VitrinaMarketplace({
+  listings,
+  total: initialTotal,
+  filterOptions,
+  initialFilters,
+  deferInitialLoad = false,
+}: Props) {
   const [filters, setFilters] = useState(initialFilters);
   const [minPriceDraft, setMinPriceDraft] = useState(priceInput(initialFilters.minPrice));
   const [maxPriceDraft, setMaxPriceDraft] = useState(priceInput(initialFilters.maxPrice));
   const [filterOpen, setFilterOpen] = useState(false);
   const [sponsoredOffers, setSponsoredOffers] = useState<SponsoredOffer[]>([]);
   const [impressionPixels, setImpressionPixels] = useState<string[]>([]);
+  const [visibleListings, setVisibleListings] = useState(listings);
+  const [total, setTotal] = useState(initialTotal);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(deferInitialLoad);
+  const [loadError, setLoadError] = useState(false);
+  const initialHydrationRef = useRef(deferInitialLoad);
+  const pageCacheRef = useRef(new Map<string, Promise<VitrinaPagePayload>>());
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
-  const visibleListings = useMemo(
-    () => filterAndSortVitrinaListings(listings, filters),
-    [filters, listings],
-  );
-  const platformOptions = useMemo(
-    () => uniqueOptions(listings.map((listing) => ({
-      value: listing.platformSlug,
-      label: listing.platformName,
-    }))),
-    [listings],
-  );
+  const platformOptions = filterOptions.platforms;
   const regionOptions = useMemo(
-    () => uniqueOptions(listings
-      .filter((listing) => filters.platform === "all" || listing.platformSlug === filters.platform)
-      .map((listing) => ({ value: listing.region, label: listing.regionLabel }))),
-    [filters.platform, listings],
+    () => filterOptions.regions
+      .filter((region) => filters.platform === "all" || region.platformSlugs.includes(filters.platform))
+      .map(({ value, label }) => ({ value, label })),
+    [filterOptions.regions, filters.platform],
   );
   const relatedCatalogIds = useMemo(
     () => [...new Set(visibleListings.map((listing) => listing.catalogId))].slice(0, 4),
     [visibleListings],
   );
   const relatedCatalogKey = relatedCatalogIds.join("|");
+  const hasMore = visibleListings.length < total;
+
+  const requestUrl = useCallback((requestFilters: VitrinaFilters, requestPage: number) => {
+    const params = vitrinaFiltersToSearchParams(requestFilters);
+    params.set("page", String(requestPage));
+    return `/api/marketplace/vitrina?${params}`;
+  }, []);
+
+  const loadPage = useCallback((requestFilters: VitrinaFilters, requestPage: number) => {
+    const endpoint = requestUrl(requestFilters, requestPage);
+    const cached = pageCacheRef.current.get(endpoint);
+    if (cached) return cached;
+    const request = fetch(endpoint, { headers: { Accept: "application/json" } })
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json() as Promise<VitrinaPagePayload>;
+      })
+      .catch((error) => {
+        pageCacheRef.current.delete(endpoint);
+        throw error;
+      });
+    pageCacheRef.current.set(endpoint, request);
+    return request;
+  }, [requestUrl]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      const keepInitialResults = initialHydrationRef.current;
+      initialHydrationRef.current = false;
+      if (!keepInitialResults) setVisibleListings([]);
+      setIsLoading(true);
+      setLoadError(false);
+      loadPage(filters, 1)
+        .then((payload) => {
+          if (cancelled) return;
+          setVisibleListings(payload.items);
+          setTotal(payload.total);
+          setPage(1);
+          if (payload.items.length < payload.total) void loadPage(filters, 2).catch(() => undefined);
+        })
+        .catch((error) => {
+          if (!cancelled) {
+            console.warn("[vitrina] fetch failed", error);
+            setLoadError(true);
+          }
+        })
+        .finally(() => {
+          if (!cancelled) setIsLoading(false);
+        });
+    }, filters.query.trim() || filters.city.trim() ? 220 : 0);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [filters, loadPage]);
+
+  const loadMore = useCallback(async () => {
+    if (isLoading || !hasMore) return;
+    const nextPage = page + 1;
+    setIsLoading(true);
+    setLoadError(false);
+    try {
+      const payload = await loadPage(filters, nextPage);
+      setVisibleListings((current) => [
+        ...current,
+        ...payload.items.filter((listing) => !current.some((item) => item.id === listing.id)),
+      ]);
+      setTotal(payload.total);
+      setPage(nextPage);
+      if (nextPage * VITRINA_PAGE_SIZE < payload.total) {
+        void loadPage(filters, nextPage + 1).catch(() => undefined);
+      }
+    } catch (error) {
+      console.warn("[vitrina] load more failed", error);
+      setLoadError(true);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [filters, hasMore, isLoading, loadPage, page]);
+
+  useEffect(() => {
+    const target = sentinelRef.current;
+    if (!target || !hasMore || isLoading) return;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) void loadMore();
+    }, { rootMargin: "400px 0px" });
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [hasMore, isLoading, loadMore]);
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -171,10 +270,15 @@ export function VitrinaMarketplace({ listings, initialFilters }: Props) {
   }, [relatedCatalogKey, visibleListings.length]);
 
   function setFilter<K extends keyof VitrinaFilters>(key: K, value: VitrinaFilters[K]) {
+    initialHydrationRef.current = false;
+    setVisibleListings([]);
+    setIsLoading(true);
     setFilters((current) => ({ ...current, [key]: value }));
   }
 
   function resetFilters() {
+    setVisibleListings([]);
+    setIsLoading(true);
     setFilters({ ...DEFAULT_VITRINA_FILTERS });
     setMinPriceDraft("");
     setMaxPriceDraft("");
@@ -212,8 +316,8 @@ export function VitrinaMarketplace({ listings, initialFilters }: Props) {
             <p className="mt-1 text-sm text-muted">Juegos físicos publicados por usuarios de Region Atlas.</p>
           </div>
           <p className="text-sm text-muted">
-            <strong className="text-foreground">{visibleListings.length}</strong>
-            {visibleListings.length === 1 ? " anuncio" : " anuncios"}
+            <strong className="text-foreground">{total}</strong>
+            {total === 1 ? " anuncio" : " anuncios"}
           </p>
         </div>
       </header>
@@ -302,7 +406,7 @@ export function VitrinaMarketplace({ listings, initialFilters }: Props) {
                 <input
                   value={filters.city}
                   onChange={(event) => setFilter("city", event.target.value)}
-                  className="input h-10 pl-9 text-sm"
+                  className="input h-10 !pl-9 text-sm"
                   placeholder="Cualquier ciudad"
                 />
               </div>
@@ -360,7 +464,7 @@ export function VitrinaMarketplace({ listings, initialFilters }: Props) {
                 type="search"
                 value={filters.query}
                 onChange={(event) => setFilter("query", event.target.value)}
-                className="input h-11 pl-10 text-sm"
+                className="input h-11 !pl-10 text-sm"
                 placeholder="Buscar juego, plataforma o región"
               />
             </label>
@@ -384,6 +488,13 @@ export function VitrinaMarketplace({ listings, initialFilters }: Props) {
               ) : (
                 <SponsoredCard key={`sponsored-${item.offer.id}`} offer={item.offer} />
               ))}
+              {isLoading ? Array.from({ length: Math.max(4, VITRINA_PAGE_SIZE - visibleListings.length) }, (_, index) => (
+                <VitrinaListingSkeleton key={`vitrina-skeleton-${index}`} />
+              )) : null}
+            </div>
+          ) : isLoading ? (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5" role="status" aria-label="Cargando anuncios">
+              {Array.from({ length: 10 }, (_, index) => <VitrinaListingSkeleton key={index} />)}
             </div>
           ) : (
             <div className="rounded-lg border border-border bg-card px-5 py-12 text-center">
@@ -395,9 +506,32 @@ export function VitrinaMarketplace({ listings, initialFilters }: Props) {
               ) : null}
             </div>
           )}
+          <div ref={sentinelRef} className="h-px" aria-hidden />
+          {hasMore ? (
+            <div className="mt-5 flex justify-center">
+              <button type="button" onClick={() => void loadMore()} disabled={isLoading} className="rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground disabled:cursor-wait disabled:opacity-60">
+                {isLoading ? "Cargando anuncios…" : "Cargar más anuncios"}
+              </button>
+            </div>
+          ) : null}
+          {loadError ? <p className="mt-4 text-center text-sm text-muted">No se pudo cargar la siguiente tanda. Puedes intentarlo de nuevo.</p> : null}
         </section>
       </div>
     </main>
+  );
+}
+
+function VitrinaListingSkeleton() {
+  return (
+    <div className="overflow-hidden rounded-lg border border-border bg-card animate-pulse" aria-hidden>
+      <div className="aspect-[3/4] bg-card-hover" />
+      <div className="space-y-3 p-3">
+        <div className="h-5 w-1/3 rounded bg-card-hover" />
+        <div className="h-4 w-4/5 rounded bg-card-hover" />
+        <div className="h-3 w-1/2 rounded bg-card-hover" />
+        <div className="h-9 w-full rounded bg-card-hover" />
+      </div>
+    </div>
   );
 }
 
@@ -427,17 +561,23 @@ function FilterSelect({
 }
 
 function VitrinaListingCard({ listing }: { listing: VitrinaListing }) {
+  const [loadedImage, setLoadedImage] = useState<string | null>(null);
+  const imageLoaded = Boolean(listing.coverUrl) && loadedImage === listing.coverUrl;
   return (
     <article className="flex min-w-0 flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition hover:border-accent/40 hover:shadow-md">
       <Link href={listing.catalogHref} className="group relative block aspect-[3/4] overflow-hidden bg-background/70">
         {listing.coverUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={listing.coverUrl}
-            alt={listing.title}
-            className={cn("h-full w-full", listing.usesSellerPhoto ? "object-cover" : "object-contain p-2")}
-            loading="lazy"
-          />
+          <>
+            {!imageLoaded ? <span className="absolute inset-0 animate-pulse bg-card-hover" aria-hidden /> : null}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={listing.coverUrl}
+              alt={listing.title}
+              className={cn("relative h-full w-full transition-opacity duration-300", listing.usesSellerPhoto ? "object-cover" : "object-contain p-2", imageLoaded ? "opacity-100" : "opacity-0")}
+              loading="lazy"
+              onLoad={() => setLoadedImage(listing.coverUrl)}
+            />
+          </>
         ) : (
           <span className="flex h-full items-center justify-center px-3 text-center text-xs text-muted">Sin imagen</span>
         )}

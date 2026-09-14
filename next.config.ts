@@ -160,7 +160,13 @@ const nextConfig: NextConfig = {
     ],
   },
   outputFileTracingIncludes: {
-    "/api/catalog/**": ["./data/index/catalog-editorial-filter-index.json.gz"],
+    "/catalogo": ["./data/index/catalog-browse-index.json.gz"],
+    "/vitrina": ["./data/index/catalog-card-lookup.json.gz"],
+    "/compania": ["./data/index/company-browse-index.json.gz"],
+    "/api/catalog/platform/**": ["./data/index/catalog-editorial-filter-index.json.gz"],
+    "/api/catalog/search": ["./data/index/catalog-browse-index.json.gz"],
+    "/api/catalog/companies": ["./data/index/company-browse-index.json.gz"],
+    "/api/marketplace/vitrina": ["./data/index/catalog-card-lookup.json.gz"],
     "/plataforma/**": ["./data/index/catalog-editorial-filter-index.json.gz"],
     "/api/admin/price-worker/sync": [
       "./data/platform-sources.json",

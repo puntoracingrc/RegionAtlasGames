@@ -1,11 +1,10 @@
 import { randomUUID } from "crypto";
-import { getCatalogGame } from "./catalog";
 import { canonicalCatalogId, canonicalCatalogLink } from "./catalog-id-aliases";
-import { getUserCollectionItem, recordCompletedCollectionSale } from "./collection-store";
 import {
-  mutateMarketplaceDocument,
-  readMarketplaceDocument,
-} from "./marketplace-document-store";
+  getActiveMarketplaceListings,
+  readMarketplaceListings as readListings,
+} from "./marketplace-listings-reader";
+import { mutateMarketplaceDocument } from "./marketplace-document-store";
 import type {
   AiListingAnalysis,
   ListingPhoto,
@@ -34,9 +33,7 @@ import {
 const LISTINGS_DOCUMENT = "listings.json";
 const SALES_DOCUMENT = "recorded-sales.json";
 
-async function readListings(): Promise<MarketplaceListing[]> {
-  return (await readMarketplaceDocument<MarketplaceListing>(LISTINGS_DOCUMENT)).map(canonicalCatalogLink);
-}
+export { getActiveMarketplaceListings };
 
 async function mutateListings<R>(
   mutation: Parameters<typeof mutateMarketplaceDocument<MarketplaceListing, R>>[1],
@@ -56,14 +53,6 @@ export async function getListing(id: string): Promise<MarketplaceListing | undef
 
 export async function getActiveListingsForCatalog(catalogId: string): Promise<MarketplaceListing[]> {
   return (await readListings()).filter((l) => l.catalogId === canonicalCatalogId(catalogId) && l.status === "active");
-}
-
-export async function getActiveMarketplaceListings(): Promise<MarketplaceListing[]> {
-  return (await readListings())
-    .filter((listing) => listing.status === "active")
-    .sort((left, right) =>
-      (right.publishedAt ?? right.updatedAt).localeCompare(left.publishedAt ?? left.updatedAt),
-    );
 }
 
 export async function countActiveListingsForCatalog(catalogId: string): Promise<number> {
@@ -141,6 +130,10 @@ export async function createListingDraft(input: {
   sellerCity?: string | null;
   collectionItemId: string;
 }): Promise<MarketplaceListing | { error: string; existingListingId?: string }> {
+  const [{ getUserCollectionItem }, { getCatalogGame }] = await Promise.all([
+    import("./collection-store"),
+    import("./catalog"),
+  ]);
   const item = await getUserCollectionItem(input.sellerId, input.collectionItemId);
   if (!item?.catalogId) {
     return { error: "Solo puedes vender juegos enlazados al catálogo." };
@@ -514,6 +507,7 @@ export async function confirmBuyerReceipt(input: {
     return { next: sales, result: true };
   });
 
+  const { recordCompletedCollectionSale } = await import("./collection-store");
   await recordCompletedCollectionSale(
     listing.sellerId,
     listing.collectionItemId,

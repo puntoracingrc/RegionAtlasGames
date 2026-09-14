@@ -2,6 +2,8 @@ import type { CollectionCondition } from "./types";
 
 export type VitrinaSort = "recent" | "price-asc" | "price-desc";
 export type VitrinaDelivery = "all" | "shipping" | "pickup";
+export const VITRINA_PAGE_SIZE = 24;
+export const VITRINA_INITIAL_RESULT_COUNT = 10;
 
 export type VitrinaListing = {
   id: string;
