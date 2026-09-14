@@ -20,6 +20,8 @@ import { getUserCollectionViews } from "@/lib/collection-store";
 import { getCatalogByPlatformWithOverlay, loadCatalogOverlayIndex } from "@/lib/catalog-runtime-overlay";
 import { getAdminPlatform } from "@/lib/admin-entity-catalog";
 import { toCatalogCardGame } from "@/lib/catalog-card-game";
+import { enrichCatalogCards } from "@/lib/catalog-card-enrichment";
+import { toCatalogListGameShell } from "@/lib/catalog-list-game-shell";
 import { getDefaultPlatformInitialPage } from "@/lib/public-catalog-initial-page";
 import { publicCatalogRegionFilterOptionsForPlatform, publicCompanyFilterOptions } from "@/lib/public-catalog-filter-options";
 import { listNewsForSection } from "@/lib/news-cache";
@@ -72,18 +74,27 @@ export default async function PlatformPage({ params, searchParams }: Props) {
   const hasInitialFilters = includePending || Boolean(query?.q || query?.region || query?.genre || query?.subgenre || query?.facet);
   const useRuntimeInitialPage = hasInitialFilters || Boolean(overlayIndex.byPlatform[slug]?.length);
   const initialPage = useRuntimeInitialPage
-    ? await import("@/lib/catalog-list-game").then(({ toCatalogListGame }) => {
-      const groupedListGames = groupCatalogListGames(catalogGames.map(toCatalogListGame));
+    ? await (async () => {
+      const needsEditorialIndex = Boolean(query?.q || query?.genre || query?.subgenre || query?.facet);
+      const toListGame = needsEditorialIndex
+        ? await import("@/lib/catalog-editorial-filter-index").then((editorialIndex) =>
+          query?.q ? editorialIndex.toCatalogEditorialListGame : editorialIndex.toCatalogEditorialFilterGame)
+        : toCatalogListGameShell;
+      const groupedListGames = groupCatalogListGames(catalogGames.map(toListGame), {
+        mergeSearchMetadata: needsEditorialIndex,
+        mergeSearchText: Boolean(query?.q),
+      });
       const initialResult = hasInitialFilters ? filterCatalogGames(groupedListGames, initialFilters) : null;
       const defaultGames = groupedListGames.filter(isDefaultCatalogGame);
+      const pageItems = initialResult
+        ? initialResult.items.slice(0, CATALOG_PAGE_SIZE)
+        : sortCatalogListGames(defaultGames, "title-asc").slice(0, CATALOG_PAGE_SIZE);
       return {
-        games: initialResult
-          ? initialResult.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame)
-          : sortCatalogListGames(defaultGames, "title-asc").slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame),
+        games: needsEditorialIndex ? pageItems.map(toCatalogCardGame) : await enrichCatalogCards(pageItems),
         total: initialResult?.total ?? defaultGames.length,
         reviewCounts: initialResult?.reviewCounts ?? catalogReviewCounts(catalogGames),
       };
-    })
+    })()
     : await getDefaultPlatformInitialPage(slug).then((page) => ({
       games: page.items,
       total: page.total,

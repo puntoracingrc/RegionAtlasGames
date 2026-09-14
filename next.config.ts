@@ -160,6 +160,8 @@ const nextConfig: NextConfig = {
     ],
   },
   outputFileTracingIncludes: {
+    "/api/catalog/**": ["./data/index/catalog-editorial-filter-index.json.gz"],
+    "/plataforma/**": ["./data/index/catalog-editorial-filter-index.json.gz"],
     "/api/admin/price-worker/sync": [
       "./data/platform-sources.json",
       "./data/region-evidence-rules.json",
