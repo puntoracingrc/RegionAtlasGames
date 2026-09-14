@@ -151,6 +151,7 @@ export async function createListingDraft(input: {
   const listing: MarketplaceListing = {
     id: randomUUID(),
     catalogId: item.catalogId,
+    physicalVariantId: item.physicalVariantId ?? null,
     sellerId: input.sellerId,
     sellerName: input.sellerName,
     sellerCity: input.sellerCity?.trim() || null,
@@ -690,6 +691,7 @@ export function getMarketplaceListingClientView(
   return {
     id: listing.id,
     catalogId: listing.catalogId,
+    physicalVariantId: listing.physicalVariantId ?? null,
     sellerName: listing.sellerName,
     sellerCity: listing.sellerCity,
     title: listing.title,

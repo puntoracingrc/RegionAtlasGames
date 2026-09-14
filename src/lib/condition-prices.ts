@@ -84,6 +84,7 @@ export function hasAnyConditionEstimate(game: GameWithConditionPrices): boolean 
 
 export function conditionPriceEntries(
   game: GameWithConditionPrices,
+  allowedBuckets?: readonly ConditionBucket[],
 ): ConditionPriceEntry[] {
   const entries: ConditionPriceEntry[] = [];
   if (game.estimatedPriceLoose != null) {
@@ -131,9 +132,9 @@ export function conditionPriceEntries(
       totalToSpain: null,
     });
   }
-  return entries.sort(
-    (a, b) => DISPLAY_ORDER.indexOf(a.bucket) - DISPLAY_ORDER.indexOf(b.bucket),
-  );
+  return entries
+    .filter((entry) => !allowedBuckets || allowedBuckets.includes(entry.bucket))
+    .sort((a, b) => DISPLAY_ORDER.indexOf(a.bucket) - DISPLAY_ORDER.indexOf(b.bucket));
 }
 
 /** Precio principal para tarjetas: abierto/completo antes que producto sin abrir. */

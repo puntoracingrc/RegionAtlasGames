@@ -5,6 +5,13 @@ import {
   getEbayAffiliateImpressionPixelUrl,
   type AffiliateOfferBlock,
 } from "@/lib/affiliate-offers";
+import {
+  CATALOG_EBAY_REGION_PARAM,
+  catalogEbayOfferCacheKey,
+  catalogEbayRegionOptions,
+  resolveCatalogEbayRegion,
+} from "@/lib/catalog-ebay-region";
+import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import { getGameDetailsWithOverlay, readCatalogOverlayGame } from "@/lib/catalog-runtime-overlay";
 
 export const dynamic = "force-dynamic";
@@ -74,16 +81,10 @@ function disabledPayload(catalogId: string, error?: string): AffiliateOfferApiPa
   };
 }
 
-export async function GET(_request: Request, { params }: RouteParams) {
+export async function GET(request: Request, { params }: RouteParams) {
   const catalogId = resolveCatalogIdParam((await params).catalogId);
   if (!catalogId) {
     return withHeaders(disabledPayload("", "missing_catalog_id"), 400);
-  }
-
-  const cache = affiliateOfferCache();
-  const cached = cache.get(catalogId);
-  if (cached && cached.expiresAt > Date.now()) {
-    return withHeaders(cached.payload);
   }
 
   const game = getCatalogGame(catalogId) ?? (await readCatalogOverlayGame(catalogId));
@@ -91,10 +92,42 @@ export async function GET(_request: Request, { params }: RouteParams) {
     return withHeaders(disabledPayload(catalogId, "game_not_found"), 404);
   }
 
+  const guide = getCatalogEditionGuide(game);
+  const family = guide?.editionFamilies.find((entry) => entry.id === guide.currentEditionFamilyId);
+  const familyEditions = guide?.schemaVersion === 2 && family
+    ? guide.physicalEditions.filter((edition) => family.physicalEditionIds.includes(edition.id))
+    : [];
+  const regionOptions = catalogEbayRegionOptions(familyEditions);
+  const currentEdition = guide?.physicalEditions.find((edition) => edition.id === guide.currentEditionId);
+  const currentMarket = currentEdition?.marketRegions.length === 1
+    ? currentEdition.marketRegions[0]
+    : null;
+  const requestedRegion = new URL(request.url).searchParams.get(CATALOG_EBAY_REGION_PARAM);
+  const selectedRegion = resolveCatalogEbayRegion(regionOptions, requestedRegion, currentMarket);
+  const cacheKey = catalogEbayOfferCacheKey(catalogId, selectedRegion?.value);
+  const cache = affiliateOfferCache();
+  const cached = cache.get(cacheKey);
+  if (cached && cached.expiresAt > Date.now()) {
+    return withHeaders(cached.payload);
+  }
+
   try {
     const details = await getGameDetailsWithOverlay(game.id);
-    const payload = withPixel(await getAffiliateOfferBlock(game, details ?? null));
-    cache.set(catalogId, {
+    const linkedEbayGame = selectedRegion?.catalogId && selectedRegion.catalogId !== game.id
+      ? getCatalogGame(selectedRegion.catalogId) ?? await readCatalogOverlayGame(selectedRegion.catalogId)
+      : game;
+    const ebayGame = linkedEbayGame && isPublicCatalogGame(linkedEbayGame)
+      ? linkedEbayGame
+      : game;
+    const ebayDetails = ebayGame.id === game.id
+      ? details
+      : await getGameDetailsWithOverlay(ebayGame.id);
+    const payload = withPixel(await getAffiliateOfferBlock(game, details ?? null, {
+      ...(selectedRegion ? { ebayCountry: selectedRegion.value } : {}),
+      ebayGame,
+      ebayDetails: ebayDetails ?? null,
+    }));
+    cache.set(cacheKey, {
       payload,
       expiresAt: Date.now() + cacheSeconds() * 1000,
     });
@@ -104,7 +137,7 @@ export async function GET(_request: Request, { params }: RouteParams) {
       catalogId,
       error instanceof Error ? error.message : "affiliate_offers_unavailable",
     );
-    cache.set(catalogId, {
+    cache.set(cacheKey, {
       payload,
       expiresAt: Date.now() + Math.min(cacheSeconds(), 60) * 1000,
     });

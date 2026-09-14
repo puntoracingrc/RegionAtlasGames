@@ -23,9 +23,13 @@ async function change(request: Request, wished: boolean) {
   const body = await readJsonBody(request, 1024);
   if (!body.ok) return NextResponse.json({ error: body.error }, { status: body.status, headers });
   const catalogId = typeof body.data.catalogId === "string" ? body.data.catalogId.trim() : "";
+  const physicalVariantId = typeof body.data.physicalVariantId === "string"
+    ? body.data.physicalVariantId.trim() || undefined
+    : undefined;
   if (!catalogId || catalogId.length > 300) return NextResponse.json({ error: "Indica un juego válido." }, { status: 400, headers });
+  if (physicalVariantId && physicalVariantId.length > 300) return NextResponse.json({ error: "Indica una edición física válida." }, { status: 400, headers });
   try {
-    const result = await setCatalogGameWished(user.id, catalogId, wished);
+    const result = await setCatalogGameWished(user.id, catalogId, wished, physicalVariantId);
     return "error" in result
       ? NextResponse.json({ error: result.error }, { status: result.status, headers })
       : NextResponse.json(result, { headers });

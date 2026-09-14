@@ -4,6 +4,7 @@
     "slug": "action",
     "museumPath": "/generos/accion",
     "gameIds": [
+      "ps5-absolum",
       "ps4-sekiro-shadows-die-twice",
       "snes-japon-kidou-soukou-dion",
       "gamegear-usa-ariel-little-mermaid",
@@ -15123,20 +15124,21 @@
       "ps2": 2500,
       "ps3": 588,
       "ps4": 3193,
-      "ps5": 93,
+      "ps5": 94,
       "saturn": 290,
       "sega32x": 4,
       "snes": 692,
       "switch2": 15,
       "wii": 1002
     },
-    "gameCount": 15098
+    "gameCount": 15099
   },
   "adventure": {
     "name": "Aventura",
     "slug": "adventure",
     "museumPath": "/generos/aventura",
     "gameIds": [
+      "ps5-absolum",
       "ps4-sekiro-shadows-die-twice",
       "snes-japon-kidou-soukou-dion",
       "ps4-usa-hitman-3-deluxe-edition",
@@ -28105,14 +28107,14 @@
       "ps2": 2496,
       "ps3": 586,
       "ps4": 3184,
-      "ps5": 76,
+      "ps5": 77,
       "saturn": 289,
       "sega32x": 4,
       "snes": 689,
       "switch2": 26,
       "wii": 1002
     },
-    "gameCount": 12948
+    "gameCount": 12949
   },
   "sports": {
     "name": "Deportes",
@@ -44867,6 +44869,7 @@
     "slug": "beat-em-up",
     "museumPath": "/generos/beat-em",
     "gameIds": [
+      "ps5-absolum",
       "ps4-darius-cozmic-collection-console",
       "neogeocd-usa-aero-fighters-2",
       "mastersystem-thunder-blade",
@@ -45760,12 +45763,13 @@
       "ps2": 63,
       "ps3": 6,
       "ps4": 356,
+      "ps5": 1,
       "saturn": 24,
       "sega32x": 16,
       "snes": 19,
       "wii": 5
     },
-    "gameCount": 874
+    "gameCount": 875
   },
   "soccer": {
     "name": "Fútbol",

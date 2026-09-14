@@ -6,6 +6,7 @@ import {
   ebayOfferCountryPriority,
   ebayPriorityCountry,
   mergeRegionFirstEbayOffers,
+  normalizeEbayCountry,
   shouldExpandEbaySearch,
   type EbayAffiliateSearchScope,
   type EbayOfferMarketScope,
@@ -48,6 +49,12 @@ export type AffiliateOfferBlock = {
   fallbackCtas?: AffiliateFallbackCta[];
   checkedAt: string | null;
   trackingId: string | null;
+};
+
+export type AffiliateOfferSelection = {
+  ebayCountry?: string | null;
+  ebayGame?: CatalogGame;
+  ebayDetails?: GameDetails | null;
 };
 
 type EbaySearchItem = {
@@ -655,6 +662,7 @@ function amazonFallbackSearchCta(game: CatalogGame, details: GameDetails | null)
 async function getEbayOffers(
   game: CatalogGame,
   details: GameDetails | null,
+  preferredCountry = ebayPriorityCountry(game),
 ): Promise<{ offers: AffiliateOffer[]; fallbackCta: AffiliateFallbackCta | null }> {
   if (!affiliateEnabled() || !ebayAffiliateEnabled()) return { offers: [], fallbackCta: null };
   const fallbackCta = ebayFallbackSearchCta(game, details);
@@ -664,7 +672,6 @@ async function getEbayOffers(
   if (!token) return { offers: [], fallbackCta };
 
   const query = ebayQuery(game, details);
-  const preferredCountry = ebayPriorityCountry(game);
   const endUserContext = ebayEndUserContext(game);
   const headers: Record<string, string> = {
     Authorization: `Bearer ${token}`,
@@ -862,14 +869,19 @@ async function getAmazonOffers(game: CatalogGame, details: GameDetails | null): 
 export async function getAffiliateOfferBlock(
   game: CatalogGame,
   details: GameDetails | null,
+  selection: AffiliateOfferSelection = {},
 ): Promise<AffiliateOfferBlock> {
-  const trackingId = ebayGameCustomId(game);
-  const preferredCountry = ebayPriorityCountry(game);
+  const ebayGame = selection.ebayGame ?? game;
+  const ebayDetails = selection.ebayDetails === undefined ? details : selection.ebayDetails;
+  const preferredCountry = selection.ebayCountry === undefined
+    ? ebayPriorityCountry(ebayGame)
+    : normalizeEbayCountry(selection.ebayCountry);
+  const trackingId = ebayGameCustomId(ebayGame);
   if (!affiliateEnabled()) return { enabled: false, ebayPriorityCountry: preferredCountry, offers: [], fallbackCta: null, checkedAt: null, trackingId };
   if (!(await affiliateGameWhitelisted(game))) return { enabled: true, ebayPriorityCountry: preferredCountry, offers: [], fallbackCta: null, checkedAt: null, trackingId };
 
   const [ebayResult, amazonOffers] = await Promise.all([
-    getEbayOffers(game, details),
+    getEbayOffers(ebayGame, ebayDetails, preferredCountry),
     getAmazonOffers(game, details),
   ]);
   const amazonFallback = amazonFallbackSearchCta(game, details);

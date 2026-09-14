@@ -3,7 +3,7 @@ import { ShoppingCart } from "lucide-react";
 import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogListGame, CollectionView } from "@/lib/types";
-import { catalogGamePath } from "@/lib/catalog-path";
+import { catalogGamePathWithEbayRegion } from "@/lib/catalog-ebay-region";
 import { collectionCatalogPath } from "@/lib/collection-path";
 import {
   catalogConditionPriceRows,
@@ -19,6 +19,7 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { IntentLink } from "@/components/intent-link";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 import { isPendingCatalogGame } from "@/lib/catalog-review-policy";
+import { regionNavigationGroup, selectedRegionGroup } from "@/lib/region-navigation";
 import {
   formatCollectionConditionSummary,
   type CollectionConditionValue,
@@ -77,24 +78,57 @@ function gameHighlights(game: CatalogListGame | CollectionView) {
   return { grail, topSegment };
 }
 
+export function catalogCardRegionLabels(
+  region: string | undefined,
+  physicalEditionGroup: CatalogListGame["physicalEditionGroup"],
+  activeRegion: string | undefined,
+): string[] {
+  if (!physicalEditionGroup) return region ? [region] : [];
+  if (activeRegion && activeRegion !== "all") {
+    const selectedGroup = selectedRegionGroup(activeRegion);
+    if (selectedGroup) {
+      return physicalEditionGroup.overviewRegions.filter(
+        (candidate) => regionNavigationGroup(candidate) === selectedGroup.id,
+      );
+    }
+    return [activeRegion];
+  }
+  return physicalEditionGroup.overviewRegions;
+}
+
+export function CatalogCardRegionFlags({ regions }: { regions: string[] }) {
+  return (
+    <span className="inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+      {regions.map((region) => (
+        <RegionFlag key={region} region={region} size="xs" showLabel labelMode="short" />
+      ))}
+    </span>
+  );
+}
+
 export function CatalogGameCard({
   game,
   owned = false,
   isLoggedIn = false,
   onOwnedChange,
   listingsForSale = 0,
+  activeRegion = "all",
 }: {
   game: CatalogListGame;
   owned?: boolean;
   isLoggedIn?: boolean;
   onOwnedChange?: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   listingsForSale?: number;
+  activeRegion?: string;
 }) {
   const { grail, topSegment } = gameHighlights(game);
 
   return (
     <div className={cn(cardBase, gameCardHighlightClass(owned, grail, topSegment))}>
-      <IntentLink href={catalogGamePath(game)} className="flex flex-1 flex-col">
+      <IntentLink
+        href={catalogGamePathWithEbayRegion(game, activeRegion)}
+        className="flex flex-1 flex-col"
+      >
         <CoverSlot
           image={getCoverSrc(game.coverUrl, game.id)}
           title={decodeHtmlEntities(game.title)}
@@ -113,17 +147,21 @@ export function CatalogGameCard({
           grail={grail}
           topSegment={topSegment}
           listingsForSale={listingsForSale}
+          physicalEditionGroup={game.physicalEditionGroup}
+          activeRegion={activeRegion}
         />
         {isPendingCatalogGame(game) ? <p className="px-3 pb-3 text-[11px] font-medium text-amber-700 dark:text-amber-400">Ficha pendiente de identificar</p> : null}
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
       </IntentLink>
-      <CollectionQuickAdd
-        catalogId={game.id}
-        owned={owned}
-        isLoggedIn={isLoggedIn}
-        onChange={onOwnedChange}
-        className="!absolute right-1.5 top-1.5 z-10"
-      />
+      {!game.physicalEditionGroup?.editionFamilyId ? (
+        <CollectionQuickAdd
+          catalogId={game.id}
+          owned={owned}
+          isLoggedIn={isLoggedIn}
+          onChange={onOwnedChange}
+          className="!absolute right-1.5 top-1.5 z-10"
+        />
+      ) : null}
     </div>
   );
 }
@@ -166,6 +204,7 @@ export function CollectionGameCard({
       />
       <CardBody
         title={decodeHtmlEntities(game.title)}
+        physicalVariantLabel={game.physicalVariantLabel}
         platform={collectionPlatformLabel}
         region={game.region}
         year={null}
@@ -307,8 +346,12 @@ function CardBody({
   conditionCounts,
   conditionValues,
   catalogPrices,
+  physicalEditionGroup,
+  physicalVariantLabel,
+  activeRegion,
 }: {
   title: string;
+  physicalVariantLabel?: string;
   platform: string;
   region?: string;
   year?: number | null;
@@ -323,7 +366,10 @@ function CardBody({
   conditionCounts?: CollectionConditionCounts;
   conditionValues?: CollectionConditionValue[];
   catalogPrices?: CatalogConditionPriceRow[];
+  physicalEditionGroup?: CatalogListGame["physicalEditionGroup"];
+  activeRegion?: string;
 }) {
+  const displayRegions = catalogCardRegionLabels(region, physicalEditionGroup, activeRegion);
   const tags = [
     topSegment ? "Top región" : null,
     grail ? "Rareza" : null,
@@ -339,6 +385,28 @@ function CardBody({
       >
         {title}
       </h3>
+      {physicalVariantLabel ? (
+        <p className="mt-1 line-clamp-2 text-[10px] font-semibold leading-4 text-accent">
+          {physicalVariantLabel}
+        </p>
+      ) : null}
+      {physicalEditionGroup ? (
+        <div className="mt-1.5 min-h-10 text-[10px] leading-4 text-muted">
+          {physicalEditionGroup.editionFamilyLabel ? (
+            <p className="font-semibold text-accent">{physicalEditionGroup.editionFamilyLabel}</p>
+          ) : null}
+          <p className="font-semibold text-foreground/80">
+            {physicalEditionGroup.physicalEditionCount}{" "}
+            {physicalEditionGroup.physicalEditionCount === 1 ? "edición física" : "ediciones físicas"}
+            {" · "}
+            {physicalEditionGroup.broadRegions.length}{" "}
+            {physicalEditionGroup.broadRegions.length === 1 ? "región" : "regiones"}
+          </p>
+          <p className="line-clamp-2">
+            {physicalEditionGroup.broadRegions.map((entry) => `${entry.label}: ${entry.editionCount}`).join(" · ")}
+          </p>
+        </div>
+      ) : null}
       <div className={cn("flex items-end justify-between gap-2 pt-1", !conditionValues && "mt-auto")}>
         <div className="min-w-0">
           <p
@@ -356,18 +424,12 @@ function CardBody({
                 <span className="shrink-0 tabular-nums normal-case tracking-normal">{year}</span>
               </>
             )}
-            {region && (
+            {displayRegions.length > 0 && (
               <>
                 <span aria-hidden className="text-muted/50">
                   ·
                 </span>
-                <RegionFlag
-                  region={region}
-                  size="xs"
-                  showLabel
-                  labelMode="short"
-                  className="shrink-0 normal-case tracking-normal"
-                />
+                <CatalogCardRegionFlags regions={displayRegions} />
               </>
             )}
             {tags.length > 0 && (
@@ -448,7 +510,11 @@ function CardBody({
                     value.price == null ? "text-muted" : "text-accent",
                   )}
                 >
-                  {value.price == null ? "--" : formatEur(value.price)}
+                  {value.price == null
+                    ? "--"
+                    : value.maxPrice != null && value.maxPrice !== value.price
+                      ? `${formatEur(value.price)}–${formatEur(value.maxPrice)}`
+                      : formatEur(value.price)}
                 </dd>
               </div>
             ))}

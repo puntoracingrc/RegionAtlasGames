@@ -3,17 +3,41 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CollectionToggle } from "@/components/collection-toggle";
+import { ShareGameButton } from "@/components/share-game-button";
 import { CatalogMarketplacePanel } from "@/components/catalog-marketplace-panel";
 import { CatalogCommercialRelationsPanel } from "@/components/catalog-commercial-relations-panel";
 import { GameFaq } from "@/components/game-faq";
 import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
+import {
+  PhysicalEditionPriceSwitcher,
+  type PhysicalEditionPriceOption,
+} from "@/components/physical-edition-price-switcher";
 import { GamePriceHistoryChart } from "@/components/game-price-history-chart";
 import { GameProductReference } from "@/components/game-product-reference";
 import { Ps1EditionPanel } from "@/components/ps1-edition-panel";
 import { Ps2EditionPanel } from "@/components/ps2-edition-panel";
 import { OwnedScansPanel } from "@/components/owned-scans-panel";
 import { CatalogEditionGuide } from "@/components/catalog-edition-guide";
+import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
+import {
+  catalogEbayRegionOptions,
+  catalogPathWithRequestedEbayRegion,
+  resolveCatalogEbayRegion,
+} from "@/lib/catalog-ebay-region";
+import {
+  catalogPhysicalEditionOverviewRegions,
+  catalogPhysicalEditionOverviewRegionLinks,
+  getCatalogPhysicalEditionPublicIdentity,
+} from "@/lib/catalog-physical-edition-browse";
+import {
+  catalogBroadRegionLabel,
+  catalogMarketRegionToLegacyRegion,
+} from "@/lib/catalog-edition-guide-types";
+import {
+  collectionItemMatchesPhysicalVariant,
+  countOwnedPhysicalVariant,
+} from "@/lib/catalog-physical-variant";
 import { getOwnedScanSet } from "@/lib/catalog-owned-scans";
 import { GameTaxonomyLinks, type GameTaxonomyLink } from "@/components/game-taxonomy-links";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
@@ -25,6 +49,7 @@ import { Badge, DetailRow, Panel, PanelTitle } from "@/components/ui";
 import {
   readUserCollection,
 } from "@/lib/collection-store";
+import { wishlistIdentityKey } from "@/lib/wishlist-model";
 import { collectionCatalogPath } from "@/lib/collection-path";
 import {
   buildBreadcrumbJsonLd,
@@ -36,7 +61,10 @@ import {
   catalogGamePath,
   getSimilarGames,
 } from "@/lib/catalog-seo";
-import { resolveCatalogGameWithOverlay, getGameDetailsWithOverlay } from "@/lib/catalog-runtime-overlay";
+import {
+  getCatalogGameDetailsWithOverlay,
+  resolveCatalogGameWithOverlay,
+} from "@/lib/catalog-runtime-overlay";
 import { getCoverSrc } from "@/lib/cover-url";
 import { CatalogAwards } from "@/components/award-results";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
@@ -59,6 +87,7 @@ import {
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getCatalogRouteRedirect } from "@/lib/catalog-route-redirects";
 import { getRegionDisplay } from "@/lib/region-display";
+import { SITE_DEFAULT_URL } from "@/lib/site-brand";
 import { getCurrentUser } from "@/lib/users";
 import { listPublicSeriesForGame } from "@/lib/admin-series-manager";
 import {
@@ -78,7 +107,10 @@ import {
 } from "@/lib/game-detail-display";
 import type { DetailEntity, GameCompanyCreditRole, GameVideo } from "@/lib/types";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
 
 function uniqueDetailEntities(entities: DetailEntity[]): DetailEntity[] {
   const seen = new Set<string>();
@@ -132,34 +164,97 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const routeRedirect = getCatalogRouteRedirect(slug);
   const game = await resolveCatalogGameWithOverlay(routeRedirect?.targetCatalogId ?? slug);
   if (!game || !isPublicCatalogGame(game)) return { title: "Juego no encontrado" };
-  const details = await getGameDetailsWithOverlay(game.id);
-  return buildGameMetadata(game, details);
+  const platform = getPlatform(game.platformSlug);
+  const details = await getCatalogGameDetailsWithOverlay(game);
+  const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
+    game,
+    platform?.shortName ?? game.platformSlug,
+  );
+  return buildGameMetadata(game, details, {
+    physicalEditionIdentity,
+    coverUrl: getOwnedScanSet(game)?.primaryCoverUrl,
+  });
 }
 
-export default async function CatalogGamePage({ params }: Props) {
+export default async function CatalogGamePage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const query = await searchParams;
+  const rawEbayRegion = query.ebayRegion;
+  const requestedEbayRegion = Array.isArray(rawEbayRegion) ? rawEbayRegion[0] : rawEbayRegion;
   const routeRedirect = getCatalogRouteRedirect(slug);
   if (routeRedirect) {
     const target = await resolveCatalogGameWithOverlay(routeRedirect.targetCatalogId);
-    if (target && isPublicCatalogGame(target)) permanentRedirect(catalogGamePath(target));
+    if (target && isPublicCatalogGame(target)) {
+      permanentRedirect(catalogPathWithRequestedEbayRegion(
+        catalogGamePath(target),
+        requestedEbayRegion,
+      ));
+    }
   }
   const game = await resolveCatalogGameWithOverlay(slug);
   if (!game || !isPublicCatalogGame(game)) notFound();
 
   const canonicalSlug = buildCatalogSeoSlug(game);
   if (slug !== canonicalSlug) {
-    permanentRedirect(catalogGamePath(game));
+    permanentRedirect(catalogPathWithRequestedEbayRegion(
+      catalogGamePath(game),
+      requestedEbayRegion,
+    ));
   }
 
+  const platform = getPlatform(game.platformSlug);
+  const editionGuide = getCatalogEditionGuide(game);
+  const currentPhysicalEdition = editionGuide?.physicalEditions.find(
+    (edition) => edition.id === editionGuide.currentEditionId,
+  );
+  const currentEditionFamily = editionGuide?.editionFamilies.find(
+    (family) => family.id === editionGuide.currentEditionFamilyId,
+  );
+  const headerPhysicalEditions = currentEditionFamily
+    ? editionGuide?.physicalEditions.filter((edition) => currentEditionFamily.physicalEditionIds.includes(edition.id)) ?? []
+    : currentPhysicalEdition
+      ? [currentPhysicalEdition]
+      : [];
+  const headerRegionLinks = editionGuide?.schemaVersion === 2 && headerPhysicalEditions.length
+    ? catalogPhysicalEditionOverviewRegionLinks(headerPhysicalEditions)
+    : [];
+  const headerRegions = headerRegionLinks.length
+    ? headerRegionLinks.map((entry) => entry.region)
+    : [game.region];
+  const ebayRegionOptions = editionGuide?.schemaVersion === 2 && currentEditionFamily
+    ? catalogEbayRegionOptions(headerPhysicalEditions)
+    : [];
+  const currentEbayMarket = currentPhysicalEdition?.marketRegions.length === 1
+    ? currentPhysicalEdition.marketRegions[0]
+    : null;
+  const initialEbayRegion = resolveCatalogEbayRegion(
+    ebayRegionOptions,
+    requestedEbayRegion,
+    currentEbayMarket,
+  );
+  const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
+    game,
+    platform?.shortName ?? game.platformSlug,
+  );
+  const currentPhysicalVariantId = editionGuide?.editionFamilies.length
+    ? currentPhysicalEdition?.id
+    : undefined;
   const user = await getCurrentUser();
   const collection = user ? await readUserCollection(user.id) : null;
-  const ownedItems = collection?.items.filter((item) => item.catalogId === game.id) ?? [];
+  const ownedItems = collection?.items.filter((item) => currentPhysicalVariantId
+    ? collectionItemMatchesPhysicalVariant(item, currentPhysicalVariantId)
+    : item.catalogId === game.id) ?? [];
   const ownedCount = ownedItems.reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
-  const wished = collection?.wishlist?.some((entry) => entry.catalogId === game.id) ?? false;
+  const currentWishlistIdentity = wishlistIdentityKey({
+    catalogId: game.id,
+    ...(currentPhysicalVariantId ? { physicalVariantId: currentPhysicalVariantId } : {}),
+  });
+  const wished = collection?.wishlist?.some(
+    (entry) => wishlistIdentityKey(entry) === currentWishlistIdentity,
+  ) ?? false;
   const owned = ownedCount > 0;
 
-  const platform = getPlatform(game.platformSlug);
-  const details = await getGameDetailsWithOverlay(game.id);
+  const details = await getCatalogGameDetailsWithOverlay(game);
   const entityLinks = details ? resolveGameEntityLinks(details) : null;
   const companyCreditGroups = details
     ? (
@@ -184,13 +279,15 @@ export default async function CatalogGamePage({ params }: Props) {
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
   const priceStatus = catalogPriceDisplayLabel(game);
+  const ownedScans = getOwnedScanSet(game);
+  const primaryCoverUrl = ownedScans?.primaryCoverUrl ?? game.coverUrl;
   const originalContentProfile = resolveOriginalGameContents(game);
   const regionalPackaging = normalizeRegionalPackaging(game.regionalPackaging);
   const showPhysicalEdition = originalContentProfile.explicit || regionalPackaging.length > 0;
   const regionLabel = getRegionDisplay(game.region).label;
   const pendingPs1 = game.platformSlug === "ps1" && game.regionalStatus === "review";
   const similar = getSimilarGames(game);
-  const faqs = buildGameFaq(game, platform, details);
+  const faqs = buildGameFaq(game, platform, details, { physicalEditionIdentity });
   const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
   const publicSeries = (await listPublicSeriesForGame(game.id)).filter(
     (series) => !getLegacySeriesRedirect(series.slug),
@@ -233,7 +330,10 @@ export default async function CatalogGamePage({ params }: Props) {
   ];
 
   const jsonLd = [
-    buildGameJsonLd(game, platform, details),
+    buildGameJsonLd(game, platform, details, {
+      physicalEditionIdentity,
+      coverUrl: primaryCoverUrl,
+    }),
     buildBreadcrumbJsonLd([
       { name: "Inicio", href: "/" },
       { name: "Plataformas", href: "/plataformas" },
@@ -246,17 +346,78 @@ export default async function CatalogGamePage({ params }: Props) {
   ];
 
   const seoDescription =
+    physicalEditionIdentity?.description ||
     details?.description?.trim() ||
     (details?.year && platform
       ? `${game.title} (${platform.shortName}, ${regionLabel}, ${details.year}) en el catálogo de Region Atlas.`
       : `${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel}) en Region Atlas.`);
 
   const coverAlt =
+    physicalEditionIdentity?.coverAlt ||
     details?.seoMeta?.coverAlt?.trim() ||
     `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
   const photographedCover = details?.ps2Edition?.graphics.find(asset =>
     asset.url === game.coverUrl && asset.layout === "listing_front_photo");
-  const ownedScans = getOwnedScanSet(game);
+  const guideRendersCurrentScans = editionGuide?.schemaVersion === 2 && Boolean(currentPhysicalEdition?.scanSetIds.includes(game.id));
+  const physicalVariantActionStates = editionGuide?.editionFamilies.length
+    ? Object.fromEntries(editionGuide.physicalEditions.map((edition) => {
+        const family = editionGuide.editionFamilies.find((candidate) =>
+          candidate.physicalEditionIds.includes(edition.id),
+        );
+        const collectionCatalogId = edition.catalogIds[0] ?? family?.representativeCatalogId ?? game.id;
+        const editionItems = collection?.items.filter((item) =>
+          collectionItemMatchesPhysicalVariant(item, edition.id),
+        ) ?? [];
+        const editionWishlistIdentity = wishlistIdentityKey({
+          catalogId: collectionCatalogId,
+          physicalVariantId: edition.id,
+        });
+        return [edition.id, {
+          ownedCount: countOwnedPhysicalVariant(editionItems, edition.id),
+          wished: collection?.wishlist?.some(
+            (entry) => wishlistIdentityKey(entry) === editionWishlistIdentity,
+          ) ?? false,
+          ...(editionItems[0]?.id ? { collectionItemId: editionItems[0].id } : {}),
+        }];
+      }))
+    : {};
+  const physicalEditionPriceOptions: PhysicalEditionPriceOption[] =
+    editionGuide?.schemaVersion === 2 && currentEditionFamily
+      ? await Promise.all(currentEditionFamily.physicalEditionIds.flatMap((editionId) => {
+          const edition = editionGuide.physicalEditions.find((candidate) => candidate.id === editionId);
+          return edition ? [edition] : [];
+        }).map(async (edition) => {
+          const linkedCatalogId = edition.catalogIds[0];
+          const linkedGame = linkedCatalogId
+            ? linkedCatalogId === game.id
+              ? game
+              : await resolveCatalogGameWithOverlay(linkedCatalogId)
+            : undefined;
+          const linkedPriceGame = linkedGame && isPublicCatalogGame(linkedGame)
+            ? linkedGame
+            : undefined;
+          const priceGame = linkedPriceGame ?? game;
+          const documentedRegions = edition.marketRegions.length
+            ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
+            : catalogPhysicalEditionOverviewRegions([edition]);
+          return {
+            id: edition.id,
+            label: edition.label,
+            broadRegion: edition.broadRegion,
+            broadRegionLabel: catalogBroadRegionLabel(edition.broadRegion),
+            regions: documentedRegions,
+            content: (
+              <GamePriceHero
+                game={priceGame}
+                regionLabelOverride={catalogBroadRegionLabel(edition.broadRegion)}
+                pendingMessage="Aún no hay suficientes ventas verificadas para esta edición."
+                allowedBuckets={currentEditionFamily.priceConditions}
+                forcePending={!linkedPriceGame}
+              />
+            ),
+          };
+        }))
+      : [];
 
   return (
     <>
@@ -267,7 +428,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
         <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-10">
           <div className="space-y-4 lg:self-start">
-            {pendingPs1 && !game.coverUrl ? (
+            {pendingPs1 && !primaryCoverUrl ? (
               <Panel>
                 <PanelTitle>Edición pendiente de identificar</PanelTitle>
                 <p className="text-sm leading-6 text-muted">La portada de esta ficha aún no está confirmada. Consulta las ediciones documentadas y las referencias disponibles para contrastar tu ejemplar.</p>
@@ -275,7 +436,7 @@ export default async function CatalogGamePage({ params }: Props) {
               </Panel>
             ) : <div>
               <DetailCoverArt
-                src={getCoverSrc(game.coverUrl, game.id)}
+                src={getCoverSrc(primaryCoverUrl, game.id)}
                 alt={coverAlt}
                 platformSlug={game.platformSlug}
                 owned={owned}
@@ -283,32 +444,61 @@ export default async function CatalogGamePage({ params }: Props) {
                 topSegment={topSegment}
               />
               {photographedCover ? <p className="mt-2 text-center text-xs text-muted">Fotografía de un ejemplar</p> : null}
-              {ownedScans && game.coverUrl === ownedScans.primaryCoverUrl ? <p className="mt-2 text-center text-xs text-muted">{ownedScans.primaryCaption}</p> : null}
+              {ownedScans ? <p className="mt-2 text-center text-xs text-muted">{ownedScans.primaryCaption}</p> : null}
             </div>}
 
-            <CollectionToggle
-              key={`${user?.id ?? "guest"}:${game.id}`}
-              catalogId={game.id}
-              gameTitle={game.title}
-              initialOwned={owned}
-              ownedCount={ownedCount}
-              initialWished={wished}
-              initialCollectionItemId={ownedItems[0]?.id}
-              isLoggedIn={Boolean(user)}
-              gamePath={catalogGamePath(game)}
-              platformSlug={game.platformSlug}
-            />
+            {editionGuide?.schemaVersion === 2 ? (
+              <div className="flex justify-end">
+                <ShareGameButton
+                  title={game.title}
+                  url={new URL(catalogGamePath(game), SITE_DEFAULT_URL).toString()}
+                />
+              </div>
+            ) : (
+              <CollectionToggle
+                key={`${user?.id ?? "guest"}:${game.id}:${currentPhysicalVariantId ?? "legacy"}`}
+                catalogId={game.id}
+                physicalVariantId={currentPhysicalVariantId}
+                gameTitle={game.title}
+                initialOwned={owned}
+                ownedCount={ownedCount}
+                initialWished={wished}
+                initialCollectionItemId={ownedItems[0]?.id}
+                isLoggedIn={Boolean(user)}
+                gamePath={catalogGamePath(game)}
+                platformSlug={game.platformSlug}
+              />
+            )}
 
-            <CatalogMarketplacePanel catalogId={game.id} />
+            <CatalogMarketplacePanel
+              catalogId={game.id}
+              ebayRegionOptions={ebayRegionOptions}
+              initialEbayRegion={initialEbayRegion?.value}
+            />
           </div>
 
           <div className="min-w-0 space-y-5">
             <header className="space-y-2.5">
               <div className="flex flex-wrap gap-1.5">
                 <Badge>{platform?.shortName}</Badge>
-                <Badge>
-                  <RegionFlag region={game.region} size="sm" showLabel labelMode="short" />
-                </Badge>
+                {headerRegionLinks.length
+                  ? headerRegionLinks.map(({ region, targetId }) => (
+                    <a
+                      key={region}
+                      href={`#${targetId}`}
+                      aria-label={`Ir a ${getRegionDisplay(region).label}`}
+                      className="rounded-md outline-none transition hover:brightness-110 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    >
+                      <Badge>
+                        <RegionFlag region={region} size="sm" showLabel labelMode="short" />
+                      </Badge>
+                    </a>
+                  ))
+                  : headerRegions.map((region) => (
+                    <Badge key={region}>
+                      <RegionFlag region={region} size="sm" showLabel labelMode="short" />
+                    </Badge>
+                  ))}
                 <Badge
                   tone={
                     priceStatus === "verified"
@@ -335,7 +525,9 @@ export default async function CatalogGamePage({ params }: Props) {
               <h1 className="text-2xl font-bold leading-tight text-foreground sm:text-3xl">
                 {game.title}
                 <span className="mt-1 block text-lg font-normal text-muted sm:text-xl">
-                  Precio {platform?.shortName} · {regionLabel}
+                  {currentPhysicalEdition && editionGuide?.schemaVersion === 2
+                    ? `${platform?.shortName} · ${currentPhysicalEdition.label}`
+                    : `Precio ${platform?.shortName} · ${regionLabel}`}
                 </span>
               </h1>
               {game.titlePc && game.titlePc !== game.title && (
@@ -345,18 +537,36 @@ export default async function CatalogGamePage({ params }: Props) {
 
             {pendingPs1 ? <div id="ps1-edition-details" className="scroll-mt-24"><Ps1EditionPanel game={game} details={details} /></div> : null}
 
-            <GamePriceHero game={game} />
+            {physicalEditionPriceOptions.length ? (
+              <PhysicalEditionPriceSwitcher
+                key={`${editionGuide?.id}:${currentEditionFamily?.id}:${currentPhysicalEdition?.id}`}
+                options={physicalEditionPriceOptions}
+                initialEditionId={currentPhysicalEdition?.id}
+              />
+            ) : (
+              <GamePriceHero
+                game={game}
+                regionLabelOverride={physicalEditionIdentity?.broadRegionLabel}
+                pendingMessage={physicalEditionIdentity
+                  ? "Aún no hay suficientes ventas verificadas para esta edición."
+                  : undefined}
+              />
+            )}
 
             {priceHistory.length > 0 && (
               <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />
             )}
 
-            <GameProductReference game={game} details={details} />
+            {editionGuide?.schemaVersion !== 2 ? <GameProductReference game={game} details={details} /> : null}
 
             {!pendingPs1 ? <Ps1EditionPanel game={game} details={details} /> : null}
             <Ps2EditionPanel game={game} details={details} />
-            <OwnedScansPanel scans={ownedScans} title={game.title} />
-            <CatalogEditionGuide game={game} />
+            {!guideRendersCurrentScans ? <OwnedScansPanel scans={ownedScans} title={game.title} /> : null}
+            <CatalogEditionGuide
+              game={game}
+              isLoggedIn={Boolean(user)}
+              physicalVariantActionStates={physicalVariantActionStates}
+            />
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />
 
@@ -459,7 +669,13 @@ export default async function CatalogGamePage({ params }: Props) {
             <Panel>
               <PanelTitle>Descripción</PanelTitle>
               <div className="space-y-3 text-sm leading-relaxed text-muted">
-                {details?.description ? (
+                {editionGuide?.schemaVersion === 2 && details?.description ? (
+                  details.description.split(/\n{2,}/).map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{paragraph.trim()}</p>
+                  ))
+                ) : physicalEditionIdentity ? (
+                  <p>{physicalEditionIdentity.description}</p>
+                ) : details?.description ? (
                   details.description.split(/\n{2,}/).map((paragraph) => (
                     <p key={paragraph.slice(0, 40)}>{paragraph.trim()}</p>
                   ))

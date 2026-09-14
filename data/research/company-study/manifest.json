@@ -30,9 +30,9 @@
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
     "data/company-groups.json": "68463bcaa8b9df3df1ddb2804b122c1b717e656cde6f691f16ce5012fba02d64",
     "data/company-separations.json": "c3293b49d5fec9ef6eab11c5219d50e7312a44c6cf84c9f54bcab0318f060896",
-    "data/index/companies.json": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389",
-    "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
-    "data/game-details.json": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785"
+    "data/index/companies.json": "3bff5d0feeaf0ded52cce367d76629b8f64c2e5d38b1f4a5b871765ff04a0dab",
+    "data/index/company-entities.json": "c63335eebaa27acf5fa7ce6e68d18717b472f02f7bd9698326c4635588fad7e1",
+    "data/game-details.json": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972"
   },
   "protectedFileHashUpdates": [
     {
@@ -154,6 +154,24 @@
         "data/game-details.json": {
           "before": "72121e36d1c72548143eb66cfa5adc9db6bbeac14ac733ec1ad5246868e709cf",
           "after": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785"
+        }
+      }
+    },
+    {
+      "batchId": "absolum-v2-public-url-and-details-2026-09-13",
+      "reviewedAt": "2026-09-13",
+      "files": {
+        "data/index/companies.json": {
+          "before": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389",
+          "after": "3bff5d0feeaf0ded52cce367d76629b8f64c2e5d38b1f4a5b871765ff04a0dab"
+        },
+        "data/index/company-entities.json": {
+          "before": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
+          "after": "c63335eebaa27acf5fa7ce6e68d18717b472f02f7bd9698326c4635588fad7e1"
+        },
+        "data/game-details.json": {
+          "before": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785",
+          "after": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972"
         }
       }
     }

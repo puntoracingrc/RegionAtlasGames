@@ -34,6 +34,10 @@ export type OwnedScanSet = {
 
 const scans = scanData as { games: Record<string, OwnedScanSet> };
 
+export function getOwnedScanSetById(catalogId: string): OwnedScanSet | undefined {
+  return scans.games[catalogId];
+}
+
 // Match a reviewed catalog edition, never a title or a shared product code.
 export function getOwnedScanSet(game: CatalogGame): OwnedScanSet | undefined {
   const set = scans.games[game.id];

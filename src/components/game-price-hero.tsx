@@ -3,6 +3,7 @@ import { formatEur } from "@/lib/price-format";
 import { getRegionDisplay } from "@/lib/region-display";
 import {
   CONDITION_PRICE_DESCRIPTIONS,
+  type ConditionBucket,
   conditionPriceEntries,
   hasAnyConditionEstimate,
 } from "@/lib/condition-prices";
@@ -15,13 +16,31 @@ import {
 } from "@/lib/import-retail-prices";
 import { Badge } from "@/components/ui";
 
-type Props = { game: CatalogGame };
+type Props = {
+  game: CatalogGame;
+  regionLabelOverride?: string;
+  pendingMessage?: string;
+  allowedBuckets?: readonly ConditionBucket[];
+  forcePending?: boolean;
+};
 
-export function GamePriceHero({ game }: Props) {
+export function GamePriceHero({
+  game,
+  regionLabelOverride,
+  pendingMessage,
+  allowedBuckets,
+  forcePending = false,
+}: Props) {
   const status = catalogPriceDisplayLabel(game);
-  const regionLabel = getRegionDisplay(game.region).label;
-  const conditionPrices = conditionPriceEntries(game);
-  const hasEstimate = hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
+  const regionLabel = regionLabelOverride ?? getRegionDisplay(game.region).label;
+  const conditionPrices = forcePending
+    ? []
+    : conditionPriceEntries(game, allowedBuckets);
+  const hasEstimate = forcePending
+    ? false
+    : allowedBuckets
+      ? conditionPrices.length > 0
+      : hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
   const regionalPolicy = ebayRegionalSearchPolicy(game.region);
   const hasDeliveryEstimate = conditionPrices.some((entry) => entry.totalToSpain != null);
 
@@ -30,7 +49,11 @@ export function GamePriceHero({ game }: Props) {
     : null;
 
   if (!hasEstimate) {
-    if (hasJapanRetailReference(game)) {
+    if (
+      !forcePending &&
+      (!allowedBuckets || allowedBuckets.includes("newRetail")) &&
+      hasJapanRetailReference(game)
+    ) {
       const retailPrice = bestJapanRetailPrice(game);
       const updatedAt = latestJapanRetailMatchedAt(game);
       const retailUpdatedLabel = updatedAt
@@ -60,10 +83,10 @@ export function GamePriceHero({ game }: Props) {
     }
 
     return (
-      <section className="rounded-2xl border border-dashed border-border bg-card/60 p-6 text-center">
+      <section className="flex min-h-64 flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card/60 p-6 text-center">
         <p className="text-lg font-semibold text-foreground">Precio pendiente</p>
         <p className="mt-2 text-sm text-muted">
-          Aún no hay datos de reventa verificados para esta edición ({regionLabel}).
+          {pendingMessage ?? `Aún no hay datos de reventa verificados para esta edición (${regionLabel}).`}
         </p>
       </section>
     );

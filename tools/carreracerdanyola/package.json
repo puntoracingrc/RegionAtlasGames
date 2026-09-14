@@ -1,0 +1,10 @@
+{
+  "name": "carreracerdanyola-gt8",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Calculadora local GT8 Nitro y ECO Cerdanyola 2026",
+  "scripts": {
+    "build": "python3 build.py",
+    "test": "node --test tests/gt8.test.cjs tests/regression/*.cjs"
+  }
+}

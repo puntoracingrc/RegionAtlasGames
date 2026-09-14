@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "batchId": "owned-scans-2026-09-12-absolum-special-edition",
+  "capturedAt": "2026-09-12",
+  "sourceApplication": "Easy Photo Scan",
+  "processing": "Recortes y giros exactos; exportación WebP optimizada sin generación ni reconstrucción de imagen.",
+  "scope": "Portada, contraportada y lomo de la caja exterior. No acredita por sí solo el contenido interior.",
+  "measurements": {
+    "scale": "A4 a 300 ppp, confirmado expresamente por el propietario",
+    "widthCm": 14.8,
+    "heightCm": 22.3,
+    "depthCm": 3.2,
+    "status": "Estimación sobre bordes observados; no es una medida certificada por el fabricante",
+    "observedWidthRangeMm": [148.1, 148.9],
+    "observedSpineMm": 31.6
+  },
+  "sources": [
+    { "role": "portada", "fileName": "01-absolum-special-edition-ps5-portada.png", "sha256": "fae527810c0a410965405f8620e0ba406f98948cbd65f943fbc74259619ba0db", "sourceSha256": "bc7fb8b369e5add57c814b8460b08a764740298c3452bab6050c95791738ad7f", "width": 1758, "height": 2635 },
+    { "role": "contraportada", "fileName": "02-absolum-special-edition-ps5-contraportada.png", "sha256": "3e24ef04c722fef2fa2b0974110dfc73435a772a63a662bb78153433255ef69e", "sourceSha256": "54f98f2ef08145a097f5c74fc01b115dca6f12ef25ee4a96b139ce55eeea9823", "width": 1769, "height": 2642 },
+    { "role": "lomo", "fileName": "03-absolum-special-edition-ps5-lomo.png", "sha256": "c0e9aeb6416a467b08cf01cf70c0289e27ba7f804774eb00b3a3ed5e11c9895f", "sourceSha256": "fd35a11191415e5563c625de2bae3743e43ed927274f84226c2ca2d01110dd4f", "width": 397, "height": 2635 }
+  ],
+  "outputs": [
+    { "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-portada.webp", "sha256": "c2e961a0a7c3e56bbf4b5bbe1b7ecd9688a81b4a6edaffe77b1e3450825881de" },
+    { "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-portada-mini.webp", "sha256": "82ca6fead26433df6e6eefe3210ae03b281b0411ed0e09a998af8c58ea8d7c53" },
+    { "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-contraportada.webp", "sha256": "619c708c933cf7c140e0c564a12859bae3eff11758cc1b5aef5da64d27507db2" },
+    { "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-contraportada-mini.webp", "sha256": "dcec7d9ada77752db38de93e4748742127b6439dda571e08e139b439b85ea9d0" },
+    { "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-lomo.webp", "sha256": "b798fc9ca212c9e6b93025fed9be2c924d7bd2cf49b9a61fdbf598ee478658fb" },
+    { "url": "/catalog-covers/ps5/escaneos-propios/absolum-special-edition/absolum-special-edition-ps5-lomo-mini.webp", "sha256": "a298ee2bce7a79d3d65ee0f8632ed0a57154e2d155574263be8d688ec26b625c" }
+  ]
+}

@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   const body = await readJsonBody(request, 128 * 1024);
   if (!body.ok) return NextResponse.json({ error: body.error }, { status: body.status, headers });
   const views = body.data.views;
-  if (!Array.isArray(views) || views.length > 24 || views.some((view) => !view || typeof view.catalogId !== "string" || view.catalogId.length > 300 || !Array.isArray(view.listingKeys) || view.listingKeys.length > 500 || view.listingKeys.some((key: unknown) => typeof key !== "string" || key.length > 150))) {
+  if (!Array.isArray(views) || views.length > 24 || views.some((view) => !view || typeof view.catalogId !== "string" || view.catalogId.length > 300 || (view.physicalVariantId !== undefined && (typeof view.physicalVariantId !== "string" || view.physicalVariantId.length > 300)) || !Array.isArray(view.listingKeys) || view.listingKeys.length > 500 || view.listingKeys.some((key: unknown) => typeof key !== "string" || key.length > 150))) {
     return NextResponse.json({ error: "Avisos no válidos." }, { status: 400, headers });
   }
   try {

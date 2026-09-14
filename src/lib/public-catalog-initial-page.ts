@@ -4,6 +4,7 @@ import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import type { CatalogListGame } from "@/lib/types";
 import { catalogReviewCounts, isDefaultCatalogGame, type CatalogReviewCounts } from "@/lib/catalog-review-policy";
+import { groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
 
 type InitialCatalogPage = {
   items: CatalogListGame[];
@@ -20,11 +21,12 @@ function sortCatalogByTitle<T extends { title: string }>(games: T[]): T[] {
 export function getDefaultCatalogInitialPage(): InitialCatalogPage {
   if (defaultCatalogPageCache) return defaultCatalogPageCache;
 
-  const visible = publicListedCatalog.filter(isDefaultCatalogGame);
+  const visible = groupCatalogListGames(
+    publicListedCatalog.filter(isDefaultCatalogGame).map(toCatalogListGame),
+  );
   defaultCatalogPageCache = {
     items: sortCatalogByTitle(visible)
       .slice(0, CATALOG_PAGE_SIZE)
-      .map(toCatalogListGame)
       .map(toCatalogCardGame),
     total: visible.length,
     reviewCounts: catalogReviewCounts(publicListedCatalog),

@@ -22,7 +22,7 @@ const EUROPE_CODES = new Set([
   "FI", "GR", "IE", "NO", "NL", "PL", "PT", "RU", "SE",
 ]);
 const AMERICA_CODES = new Set(["US", "CA", "US-CA"]);
-const ASIA_CODES = new Set(["JP", "KR", "CN", "TW", "IL", "ASIA", "JP-ASIA"]);
+const ASIA_CODES = new Set(["JP", "KR", "CN", "HK", "TW", "IL", "ASIA", "JP-ASIA"]);
 
 export function regionNavigationGroup(region: string): RegionNavigationGroupId {
   const display = getRegionDisplay(region);

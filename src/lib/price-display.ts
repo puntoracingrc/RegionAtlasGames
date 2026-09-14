@@ -1,4 +1,4 @@
-import type { CatalogGame, CollectionItem } from "./types";
+import type { CatalogGame, CatalogListGame, CollectionItem } from "./types";
 import { hasAnyConditionEstimate, primaryConditionPriceEntry } from "./condition-prices";
 
 type PriceFields = Pick<
@@ -9,18 +9,26 @@ type PriceFields = Pick<
 type CatalogConditionPriceFields = Pick<
   CatalogGame | CollectionItem,
   "estimatedPriceSealed" | "estimatedPriceComplete" | "estimatedPriceLoose"
->;
+> & Pick<Partial<CatalogListGame>, "physicalEditionGroup">;
 
 export type CatalogConditionPriceRow = {
   condition: "sealed" | "complete" | "loose";
   label: "Precintado" | "Completo" | "Solo juego";
   price: number | null;
+  maxPrice?: number | null;
 };
 
 /** Los tres precios comparables que siempre aparecen en las vistas del catalogo. */
 export function catalogConditionPriceRows(
   game: CatalogConditionPriceFields,
 ): CatalogConditionPriceRow[] {
+  const grouped = game.physicalEditionGroup?.priceRanges;
+  if (game.physicalEditionGroup) {
+    return [
+      { condition: "sealed", label: "Precintado", price: grouped?.sealed?.min ?? null, maxPrice: grouped?.sealed?.max ?? null },
+      { condition: "complete", label: "Completo", price: grouped?.complete?.min ?? null, maxPrice: grouped?.complete?.max ?? null },
+    ];
+  }
   return [
     { condition: "sealed", label: "Precintado", price: game.estimatedPriceSealed ?? null },
     { condition: "complete", label: "Completo", price: game.estimatedPriceComplete ?? null },

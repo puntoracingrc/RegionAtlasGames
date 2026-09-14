@@ -26,6 +26,7 @@ export function toCatalogCardGame(game: CatalogListGame): CatalogListGame {
     priceRegionVerified: game.priceRegionVerified,
     displayPlatform: game.displayPlatform,
     displayYear: game.displayYear,
+    ...(game.physicalEditionGroup ? { physicalEditionGroup: game.physicalEditionGroup } : {}),
     isGrail: game.isGrail,
     isTopSegment: game.isTopSegment,
   };

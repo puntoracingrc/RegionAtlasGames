@@ -12,8 +12,13 @@ import {
   listingVerificationLabel,
 } from "@/lib/marketplace-verification";
 import { getCurrentUser } from "@/lib/users";
+import type { CatalogEbayRegionOption } from "@/lib/catalog-ebay-region";
 
-type Props = { catalogId: string };
+type Props = {
+  catalogId: string;
+  ebayRegionOptions?: CatalogEbayRegionOption[];
+  initialEbayRegion?: string;
+};
 
 const COLLECTION_CONDITION_LABELS = {
   sealed: "Precintado",
@@ -22,7 +27,11 @@ const COLLECTION_CONDITION_LABELS = {
   loose: "Suelto",
 } as const;
 
-export async function CatalogMarketplacePanel({ catalogId }: Props) {
+export async function CatalogMarketplacePanel({
+  catalogId,
+  ebayRegionOptions = [],
+  initialEbayRegion,
+}: Props) {
   const [listings, user] = await Promise.all([
     getActiveListingsForCatalog(catalogId),
     getCurrentUser(),
@@ -58,6 +67,8 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
       catalogId={catalogId}
       marketplaceOffers={marketplaceOffers}
       canContact={Boolean(user)}
+      ebayRegionOptions={ebayRegionOptions}
+      initialEbayRegion={initialEbayRegion}
     />
   );
 }

@@ -76,6 +76,7 @@ export type ApproximateListingLocation = {
 export type MarketplaceListing = {
   id: string;
   catalogId: string;
+  physicalVariantId?: string | null;
   sellerId: string;
   sellerName: string;
   sellerCity: string | null;
@@ -112,6 +113,7 @@ export type MarketplaceListingClientView = Pick<
   MarketplaceListing,
   | "id"
   | "catalogId"
+  | "physicalVariantId"
   | "sellerName"
   | "sellerCity"
   | "title"

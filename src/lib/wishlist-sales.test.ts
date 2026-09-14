@@ -36,6 +36,56 @@ test("viewing one publication leaves later and other sellers' publications unrea
   assert.equal(buildWishlistSales("buyer", [wish], [offer("viewed", { publishedAt: "2026-09-03T10:00:00Z" })]).unreadGameCount, 1);
 });
 
+test("sale notices match the exact physical edition when catalog IDs are shared", () => {
+  const catalogId = "ps5-absolum";
+  const european = "absolum-ps5-europe-standard-en-fr-es";
+  const german = "absolum-ps5-europe-standard-de";
+  const sales = buildWishlistSales("buyer", [{
+    catalogId,
+    physicalVariantId: german,
+    addedAt: before,
+  }], [
+    offer("german", { catalogId, physicalVariantId: german }),
+    offer("european", { catalogId, physicalVariantId: european }),
+  ]);
+
+  assert.equal(sales.unreadGameCount, 1);
+  assert.equal(sales.games[0].physicalVariantId, german);
+  assert.equal(sales.games[0].listingCount, 1);
+  assert.deepEqual(sales.games[0].unseenListingKeys, [wishlistListingKey(offer("german"))]);
+});
+
+test("listing drafts retain the physical edition selected by the seller", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "regionatlas-listing-variant-"));
+  const keys = ["APP_DATA_DIR", "VERCEL", "BLOB_READ_WRITE_TOKEN", "BLOB_STORE_ID"];
+  const previous = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
+  process.env.APP_DATA_DIR = directory;
+  for (const key of keys.slice(1)) delete process.env[key];
+  try {
+    const physicalVariantId = "absolum-ps5-europe-standard-de";
+    const copy = await addCatalogGameToCollection(
+      "variant-seller",
+      "ps5-absolum",
+      "complete",
+      physicalVariantId,
+    );
+    assert.ok(!("error" in copy));
+    const draft = await createListingDraft({
+      sellerId: "variant-seller",
+      sellerName: "QA seller",
+      collectionItemId: copy.item.id,
+    });
+    assert.ok(!("error" in draft));
+    assert.equal(draft.physicalVariantId, physicalVariantId);
+  } finally {
+    for (const key of keys) {
+      if (previous[key] === undefined) delete process.env[key];
+      else process.env[key] = previous[key];
+    }
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("publish, read, later publish and cancellation persist through the real marketplace and wishlist stores", async () => {
   const directory = await mkdtemp(path.join(os.tmpdir(), "regionatlas-wishlist-sales-"));
   const keys = ["APP_DATA_DIR", "VERCEL", "BLOB_READ_WRITE_TOKEN", "BLOB_STORE_ID"];

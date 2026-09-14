@@ -1,10 +1,10 @@
 {
   "beforeCommit": "ba500138cc54b292e237d7977a0d152ca23f3779",
-  "reason": "Escaneos propios Resident Evil y enmiendas previas; corrección de apóstrofo en Assassin’s Creed y retirada de nueve duplicados PS4 PAL España mediante alias. IDs, slugs, imágenes escaneadas, precios y copias de usuarios conservados.",
+  "reason": "Escaneos propios Resident Evil y enmiendas previas; corrección de apóstrofo en Assassin’s Creed, retirada de nueve duplicados PS4 PAL España mediante alias y piloto V2 de Absolum con URLs canónicas y ficha lógica compartida. IDs, imágenes escaneadas, precios y copias de usuarios conservados.",
   "files": {
     "data/catalog.json": {
       "beforeSha256": "ffafa7d7109bfb80fdbd0fabd9954278a6762b4907d5aed52c521b92b439ffc1",
-      "afterSha256": "a3b25684f46290082b393cc6b279fd66d4432f67858ce360e3fedb79972f0f02",
+      "afterSha256": "bc1f8775bb45e3311b924c99632644834b8cfa559d5b13a4d7a25a18569a18fb",
       "changedKeys": [
         "ds-assassin%27s-creed-altair%27s-chronicles",
         "ds-assassin%27s-creed-ii-discovery",
@@ -158,35 +158,52 @@
         "ps5-assassin-s-creed-valhalla",
         "ps5-lego-harry-potter-collection",
         "ps5-resident-evil-requiem-deluxe-edition",
-        "ps5-resident-evil-requiem-lenticular-cover"
+        "ps5-resident-evil-requiem-lenticular-cover",
+        "ps5-absolum",
+        "ps5-absolum-special-edition",
+        "ps5-absolum-usa"
       ]
     },
     "data/game-details.json": {
       "beforeSha256": "bfd53a2c20bcf4b3defeda688fc7091acaf1f5faf06e79c4b0260e96c8dc3cb1",
-      "afterSha256": "8a40d80b5916541a4272898c061521b6415ec6a5b45db54c1f7643c523891785",
+      "afterSha256": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972",
       "changedKeys": [
         "ps4-assassins-creed-mirage-deluxe-edition",
         "ps4-deadpool",
         "ps4-deadpool-masacre",
         "ps4-fornite-ps4-promo",
         "ps4-fortnite",
-        "ps5-resident-evil-requiem-lenticular-cover"
+        "ps5-resident-evil-requiem-lenticular-cover",
+        "ps5-absolum"
       ]
     },
     "data/index/companies.json": {
       "beforeSha256": "6c37e403f6b9a26ad278ae778ae992cbd92340c87201a7d0ed984cd2d872d487",
-      "afterSha256": "3261d2f2b3c74e0180aba34d438f2a58a4669bbbe9c882ee598233b7710d8389",
+      "afterSha256": "3bff5d0feeaf0ded52cce367d76629b8f64c2e5d38b1f4a5b871765ff04a0dab",
       "changedKeys": [
         "activision",
         "epic-games",
         "gearbox-publishing",
         "high-moon-studios",
-        "koch-media"
+        "koch-media",
+        "dotemu",
+        "guard-crush-games",
+        "silver-lining",
+        "supamonks"
+      ]
+    },
+    "data/index/genres.json": {
+      "beforeSha256": "e02513769fb17fda7d780666094306a7300698a9d0593029653f26c21d55aa1e",
+      "afterSha256": "1dc43f9e2ee2737b93b17c20f23b2156c8a75e3f6838a493566af20ab487fb56",
+      "changedKeys": [
+        "action",
+        "adventure",
+        "beat-em-up"
       ]
     },
     "data/meta.json": {
       "beforeSha256": "86a01f1bc3610bddb9164a37f1c5e91d71c743b1932bc7a330367d259d262c72",
-      "afterSha256": "61f1fd8240613b38b959b279e45c3bf68bc7c161e537ad66e5b62279d4828dd0",
+      "afterSha256": "a3c586e3574ad3247d510f66853ab028cd5b62a2819401175028a72a53a1d53a",
       "changedKeys": []
     },
     "data/catalog-id-aliases.json": {
@@ -206,19 +223,19 @@
     },
     "data/catalog-route-redirects.json": {
       "beforeSha256": "979ace530fe60dbe4df5d9cff00063983242e460ca144dfcdf1c049149c721b4",
-      "afterSha256": "92c540653be130df0514ec6fbc0ab2c05db732775c852c4ead2122ec006612f8",
+      "afterSha256": "2bea2b9ce3932f60e65d5c8b941d3230008666d41a1464665b504ca7014ffdc5",
       "changedKeys": [
         "redirects"
       ]
     },
     "data/research/company-study/manifest.json": {
       "beforeSha256": "fe125b3c6ac3e6cdc9c894dd552fe1ad4e1646c81053a4f4824ea1ccfb2b994e",
-      "afterSha256": "529558d8dbc75e5ff6c6c6ff1c14b4c3bc85a7e89eed7c54905c88f02dd5aa6b",
+      "afterSha256": "b48436828f761655dfd82b4609b269934202cccd28c863b6da618bba648ac79d",
       "changedKeys": []
     },
     "data/research/person-study/manifest.json": {
       "beforeSha256": "cd2009b4240a48d2f41b2baa203dbc22f754ccfd526878e75299f727e7619048",
-      "afterSha256": "0574d6c2614a70280ad018050971a8edb90e3c9c5380e40cf1297f73a2844da4",
+      "afterSha256": "80bf6a287bd44d592128addbf1e59021aac1b5cae3c7e9302e8f426a112056a8",
       "changedKeys": []
     },
     "data/curation-report.json": {
