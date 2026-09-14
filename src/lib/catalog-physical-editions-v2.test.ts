@@ -56,6 +56,8 @@ import {
 } from "./catalog-runtime-overlay";
 import { getCompany, getGameDetails } from "./indexes";
 import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
+import { enrichCatalogCards } from "./catalog-card-enrichment";
+import { toCatalogQuickSearchGame } from "./catalog-quick-search-game";
 import { getDefaultCatalogInitialPage, getDefaultPlatformInitialPage } from "./public-catalog-initial-page";
 import { getRegionDisplay } from "./region-display";
 import {
@@ -174,6 +176,23 @@ test("optimized initial pages keep V2 totals and review counts aligned", async (
   assert.equal(ps1Page.items.length, 48);
   assert.equal(ps1Page.reviewCounts.documented, ps1Page.total);
   assert(ps1Page.reviewCounts.pending > 0);
+});
+
+test("quick catalog search finds and enriches direct game identities without the full index", async () => {
+  const quickGames = groupCatalogListGames(publicListedCatalog.map(toCatalogQuickSearchGame));
+  const result = filterCatalogGames(quickGames, {
+    q: "absolum",
+    region: "all",
+    platform: "all",
+    sort: "title-asc",
+    priceFilter: "all",
+  }, { platforms: true, regions: true });
+  assert.equal(result.total, 5);
+
+  const cards = await enrichCatalogCards(result.items);
+  const ps5 = cards.find((game) => game.id === "ps5-absolum");
+  assert.equal(ps5?.displayYear, 2025);
+  assert(cards.some((game) => game.id === "ps5-absolum-special-edition"));
 });
 
 test("V2 headings move markets, packaging languages and ratings out of legacy labels", () => {

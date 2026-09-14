@@ -14,19 +14,19 @@ import {
   type CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
 import {
-  normalizeCatalogSearchParts,
   normalizeCatalogSearchText,
 } from "@/lib/catalog-search-normalize";
 import { getPlatform } from "@/lib/catalog";
 import { enrichCatalogCards } from "@/lib/catalog-card-enrichment";
 import { toCatalogListGameShell } from "@/lib/catalog-list-game-shell";
+import { toCatalogQuickSearchGame } from "@/lib/catalog-quick-search-game";
 import { getCatalogOverlayRevision, getPublicCatalogWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import type { CatalogGame, CatalogListGame } from "@/lib/types";
+import type { CatalogListGame } from "@/lib/types";
 import { toCatalogCardGame } from "@/lib/catalog-card-game";
-import { catalogBrowseAliases, isDefaultCatalogGame, parsePendingEdition } from "@/lib/catalog-review-policy";
+import { isDefaultCatalogGame, parsePendingEdition } from "@/lib/catalog-review-policy";
 import { groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
 import { parseCatalogBroadRegion, parseCatalogPhysicalEditionType } from "@/lib/catalog-edition-guide-types";
 
@@ -55,43 +55,6 @@ type SearchResult = {
   price: number | null;
   coverUrl: string | null;
 };
-
-function toQuickSearchGame(game: CatalogGame): CatalogListGame {
-  const platform = getPlatform(game.platformSlug);
-  const searchText = normalizeCatalogSearchParts([
-    game.title,
-    game.titlePc,
-    game.slug,
-    game.id,
-    ...catalogBrowseAliases(game.id),
-    game.region,
-    game.edition,
-    game.museumSlug,
-    game.museumRegion,
-    game.pcPath,
-    game.pcRegion,
-    game.pcCondition,
-    game.pcId,
-    ...(game.canonicalSerials ?? []),
-    ...(game.resolutionSerials ?? []),
-    platform?.name,
-    platform?.shortName,
-    game.platformSlug,
-  ]);
-  return {
-    ...toCatalogListGameShell(game),
-    sourceCatalogGame: game,
-    searchText,
-    gameSearchText: searchText,
-    companySearchText: "",
-    companies: [],
-    sortGenre: "\uffff",
-    sortReference: game.slug || game.id,
-    genreSlugs: [],
-    subgenreSlugs: [],
-    facetSlugs: [],
-  };
-}
 
 async function browseGames(includePending: boolean): Promise<BrowseGamesData> {
   const scope = includePending ? "all" : "default";
@@ -131,7 +94,7 @@ async function quickSearchGames(): Promise<CatalogListGame[]> {
     quickSearchGamesCache = {
       revision,
       games: getPublicCatalogWithOverlay()
-        .then((catalog) => groupCatalogListGames(catalog.map(toQuickSearchGame))),
+        .then((catalog) => groupCatalogListGames(catalog.map(toCatalogQuickSearchGame))),
     };
   }
   const current = quickSearchGamesCache;
@@ -215,7 +178,7 @@ export async function GET(request: Request) {
   }
 
   const needsFullIndex = mode === "browser"
-    ? Boolean(q.trim() || company.trim() || hasTaxonomyFilter) ||
+    ? Boolean(company.trim() || hasTaxonomyFilter) ||
       sort.startsWith("year-") ||
       sort.startsWith("reference-") ||
       sort.startsWith("genre-")
@@ -224,7 +187,7 @@ export async function GET(request: Request) {
       sort.startsWith("year-") ||
       sort.startsWith("reference-") ||
       sort.startsWith("genre-");
-  const usesBrowseIndex = mode === "browser" && !needsFullIndex;
+  const usesBrowseIndex = mode === "browser" && !needsFullIndex && !q.trim();
   let usesFullIndex = needsFullIndex;
   const browseData = usesBrowseIndex ? await browseGames(includePending) : null;
   let games = browseData?.games ?? (needsFullIndex ? await fullSearchGames() : await quickSearchGames());
@@ -272,7 +235,7 @@ export async function GET(request: Request) {
       : filtered.reviewCounts;
     return NextResponse.json(
       {
-        items: usesBrowseIndex ? await enrichCatalogCards(pageItems) : pageItems.map(toCatalogCardGame),
+        items: usesFullIndex ? pageItems.map(toCatalogCardGame) : await enrichCatalogCards(pageItems),
         total: filtered.total,
         reviewCounts,
       },
