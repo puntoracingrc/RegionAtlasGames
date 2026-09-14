@@ -622,6 +622,9 @@ export type CollectionView = CollectionItem & {
   availableCatalogId?: string | null;
   physicalVariantLabel?: string;
   editionFamilyLabel?: string;
+  /** Identidad V2 usada solo para agrupar la presentación; no se persiste en la colección. */
+  physicalEditionId?: string;
+  physicalEditionGroup?: CatalogPhysicalEditionGroupSummary;
 };
 
 export type CollectionSort =

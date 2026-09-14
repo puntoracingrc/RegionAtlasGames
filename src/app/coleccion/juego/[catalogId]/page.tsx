@@ -6,7 +6,7 @@ import {
   type CollectionCopyListing,
 } from "@/components/collection-copies-manager";
 import { DetailCoverArt } from "@/components/detail-cover-art";
-import { RegionFlag } from "@/components/region-flag";
+import { CatalogCardRegionFlags } from "@/components/game-card";
 import { SiteNav } from "@/components/site-nav";
 import {
   getCatalogGame,
@@ -16,7 +16,12 @@ import {
 } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { collectionCatalogReturnPath } from "@/lib/collection-path";
-import { getUserCollectionItemsForCatalog } from "@/lib/collection-store";
+import { groupCollectionDisplayItems } from "@/lib/collection-display";
+import { resolveCatalogEditionMembership } from "@/lib/catalog-physical-variant";
+import {
+  getUserCollectionItemsForCatalog,
+  getUserCollectionItemsForEditionFamily,
+} from "@/lib/collection-store";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { getSellerListings } from "@/lib/listings";
@@ -33,11 +38,22 @@ export default async function CollectionCatalogGamePage({ params }: Props) {
   const game = getCatalogGame(catalogId);
   if (!game) notFound();
 
-  const items = await getUserCollectionItemsForCatalog(user.id, catalogId);
+  const membership = resolveCatalogEditionMembership(catalogId);
+  const itemsPromise = membership
+    ? getUserCollectionItemsForEditionFamily(
+        user.id,
+        membership.guide.id,
+        membership.family.id,
+      )
+    : getUserCollectionItemsForCatalog(user.id, catalogId);
+  const [items, sellerListings] = await Promise.all([
+    itemsPromise,
+    getSellerListings(user.id),
+  ]);
   if (items.length === 0) notFound();
 
   const itemIds = new Set(items.map((item) => item.id));
-  const listings: CollectionCopyListing[] = (await getSellerListings(user.id))
+  const listings: CollectionCopyListing[] = sellerListings
     .filter(
       (listing) =>
         itemIds.has(listing.collectionItemId) &&
@@ -48,39 +64,50 @@ export default async function CollectionCatalogGamePage({ params }: Props) {
       collectionItemId: listing.collectionItemId,
       status: listing.status,
     }));
-  const platform = getPlatform(game.platformSlug);
-  const catalogCover = getCoverSrc(game.coverUrl, game.id);
+  const grouped = groupCollectionDisplayItems(items)[0];
+  const publicGame = membership
+    ? getCatalogGame(membership.family.representativeCatalogId) ?? game
+    : game;
+  const platform = getPlatform(publicGame.platformSlug);
+  const title = membership?.guide.game.title ?? publicGame.title;
+  const catalogCover = getCoverSrc(grouped?.game.coverUrl ?? publicGame.coverUrl, publicGame.id);
+  const displayRegions = grouped?.game.physicalEditionGroup?.overviewRegions ?? [publicGame.region];
+  const returnCatalogId = membership?.family.representativeCatalogId ?? catalogId;
+  const ownedEditionCount = grouped?.physicalEditionIds.length ?? 0;
 
   return (
     <>
       <SiteNav />
       <main className="mx-auto w-full max-w-6xl px-4 py-6 md:px-6 md:py-8">
-        <BackLink href={collectionCatalogReturnPath(catalogId)}>Mi colección</BackLink>
+        <BackLink href={collectionCatalogReturnPath(returnCatalogId)}>Mi colección</BackLink>
 
         <div className="mt-5 grid gap-6 border-b border-border pb-7 sm:grid-cols-[150px_minmax(0,1fr)] sm:items-center">
           <div className="max-w-[150px]">
             <DetailCoverArt
               src={catalogCover}
-              alt={decodeHtmlEntities(game.title)}
-              platformSlug={game.platformSlug}
+              alt={decodeHtmlEntities(title)}
+              platformSlug={publicGame.platformSlug}
               owned
             />
           </div>
           <header className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-wider text-accent">Mi colección</p>
             <h1 className="mt-1 text-2xl font-bold leading-tight text-foreground sm:text-3xl">
-              {decodeHtmlEntities(game.title)}
+              {decodeHtmlEntities(title)}
             </h1>
+            {membership?.family.label ? (
+              <p className="mt-1 text-sm font-semibold text-accent">{membership.family.label}</p>
+            ) : null}
             <p className="mt-2 flex flex-wrap items-center gap-1.5 text-sm text-muted">
-              <span>{platform?.shortName ?? game.platformSlug.toUpperCase()}</span>
+              <span>{platform?.shortName ?? publicGame.platformSlug.toUpperCase()}</span>
               <span aria-hidden>·</span>
-              <RegionFlag region={game.region} size="sm" showLabel />
+              <CatalogCardRegionFlags regions={displayRegions} />
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
               Aquí gestionas tus unidades físicas. La ficha general del juego y sus precios públicos no se modifican.
             </p>
-            {isPublicCatalogGame(game) ? (
-              <Link href={catalogGamePath(game)} className="mt-3 inline-flex text-sm font-medium text-accent hover:underline">
+            {isPublicCatalogGame(publicGame) ? (
+              <Link href={catalogGamePath(publicGame)} className="mt-3 inline-flex text-sm font-medium text-accent hover:underline">
                 Ver ficha pública del juego →
               </Link>
             ) : null}
@@ -88,10 +115,11 @@ export default async function CollectionCatalogGamePage({ params }: Props) {
         </div>
 
         <CollectionCopiesManager
-          catalogId={catalogId}
+          catalogId={items[0]?.catalogId ?? catalogId}
           catalogCover={catalogCover}
           initialItems={items}
           initialListings={listings}
+          allowAddCopy={ownedEditionCount <= 1}
         />
       </main>
     </>

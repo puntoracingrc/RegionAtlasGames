@@ -9,6 +9,7 @@ import {
   addCatalogCopy,
   catalogGameToCollectionItem,
   getUserCollectionItem,
+  getUserCollectionItemsForEditionFamily,
   getUserCollectionViews,
   getOwnedCatalogIds,
   readUserCollection,
@@ -585,6 +586,21 @@ test("stores Absolum physical variants independently without rewriting legacy ow
     assert.equal(countOwnedPhysicalVariant(collection.items, "absolum-ps5-asia-korea"), 1);
     assert.equal(countOwnedPhysicalVariant(collection.items, "absolum-ps5-europe-special"), 1);
     assert.equal(summarizeCollection(collection.items).totalItems, 4);
+
+    const standardFamily = await getUserCollectionItemsForEditionFamily(
+      userId,
+      "absolum-ps5",
+      "standard",
+    );
+    assert.equal(standardFamily.length, 3);
+    assert.deepEqual(
+      standardFamily.map((item) => item.physicalVariantId),
+      [
+        "absolum-ps5-europe-standard-en-fr-es",
+        "absolum-ps5-europe-standard-de",
+        "absolum-ps5-asia-korea",
+      ],
+    );
 
     const removed = await removeOneCatalogGameFromCollection(
       userId,

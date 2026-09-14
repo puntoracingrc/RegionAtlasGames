@@ -90,6 +90,10 @@ export type CompanyProfileView = {
 
 const profiles = companyProfilesData as Record<string, CompanyProfile>;
 
+function uniqueCatalogGames(games: CatalogGame[]): CatalogGame[] {
+  return [...new Map(games.map((game) => [game.id, game])).values()];
+}
+
 export function getStoredCompanyProfile(slug: string): CompanyProfile | undefined {
   const canonical = resolveCanonicalCompanySlug(slug);
   return applyPublicCompanyResearch(profiles[canonical], canonical);
@@ -112,7 +116,7 @@ function inferStatus(
 
 function collectCollaborators(entry: IndexEntry, selfSlug: string): CompanyCollaborator[] {
   const counts = new Map<string, CompanyCollaborator>();
-  const games = gamesForIndex(entry).filter(isPublicCatalogGame);
+  const games = uniqueCatalogGames(gamesForIndex(entry).filter(isPublicCatalogGame));
 
   for (const game of games) {
     const details = getGameDetails(game.id);
@@ -175,7 +179,7 @@ function buildCompanyProfileViewFromProfile(
   if (!entry) return undefined;
 
   const entity = getCompanyEntity(entry.slug);
-  const games = gamesForIndex(entry).filter(isPublicCatalogGame);
+  const games = uniqueCatalogGames(gamesForIndex(entry).filter(isPublicCatalogGame));
   const gameIds = new Set(games.map((game) => game.id));
   const foundedYear = stored?.foundedYear ?? null;
   const closedYear = stored?.closedYear ?? null;
