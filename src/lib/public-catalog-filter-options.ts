@@ -1,9 +1,12 @@
 import { platforms, publicListedCatalog } from "@/lib/catalog";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
-import { getRegionDisplay } from "@/lib/region-display";
+import { getRegionDisplay, regionDisplayIdentity } from "@/lib/region-display";
 import { getCompanies } from "@/lib/indexes";
 import { getCatalogEditionGuides } from "@/lib/catalog-edition-guides";
-import { catalogMarketRegionToLegacyRegion } from "@/lib/catalog-edition-guide-types";
+import {
+  CATALOG_MARKET_REGION_META,
+  catalogMarketRegionToLegacyRegion,
+} from "@/lib/catalog-edition-guide-types";
 import {
   publicRegionLabelForPlatform,
   publicRegionLabelsForPlatform,
@@ -20,6 +23,10 @@ type RegionOptionsIndex = {
 };
 
 let regionOptionsIndexCache: RegionOptionsIndex | null = null;
+
+const REGISTERED_MARKET_LABELS = new Set(
+  Object.values(CATALOG_MARKET_REGION_META).map((market) => market.legacyRegion),
+);
 
 export function publicPlatformFilterOptions(): CatalogPlatformFilterOption[] {
   return platforms
@@ -52,12 +59,20 @@ function sortedRegionOptions(
 }
 
 function buildRegionOptionsIndex(): RegionOptionsIndex {
-  const labels = new Set<string>();
+  const labels = new Map<string, string>();
   const labelsByPlatform = new Map<string, Map<string, string>>();
+
+  const addGlobalLabel = (label: string) => {
+    const identity = regionDisplayIdentity(label);
+    const current = labels.get(identity);
+    if (!current || (!REGISTERED_MARKET_LABELS.has(current) && REGISTERED_MARKET_LABELS.has(label))) {
+      labels.set(identity, label);
+    }
+  };
 
   for (const game of publicListedCatalog) {
     const label = getRegionDisplay(game.region).label;
-    labels.add(label);
+    addGlobalLabel(label);
 
     const platformLabels = labelsByPlatform.get(game.platformSlug) ?? new Map<string, string>();
     platformLabels.set(publicRegionLabelForPlatform(game.platformSlug, game.region), label);
@@ -71,14 +86,14 @@ function buildRegionOptionsIndex(): RegionOptionsIndex {
     for (const marketRegion of guide.physicalEditions.flatMap((edition) => edition.marketRegions)) {
       const legacyRegion = catalogMarketRegionToLegacyRegion(marketRegion);
       const label = getRegionDisplay(legacyRegion).label;
-      labels.add(label);
+      addGlobalLabel(label);
       platformLabels.set(publicRegionLabelForPlatform(guide.game.platformSlug, legacyRegion), label);
     }
     labelsByPlatform.set(guide.game.platformSlug, platformLabels);
   }
 
   return {
-    all: sortedRegionOptions(labels),
+    all: sortedRegionOptions(labels.values()),
     byPlatform: Object.fromEntries(
       [...labelsByPlatform.entries()].map(([platformSlug, platformLabels]) => {
         const policyLabels = publicRegionLabelsForPlatform(platformSlug);

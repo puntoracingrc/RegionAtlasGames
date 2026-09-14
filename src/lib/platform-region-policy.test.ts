@@ -8,6 +8,7 @@ import { getRegionDisplay } from "@/lib/region-display";
 import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { publicRegionFilterOptions } from "@/lib/catalog-filters";
+import { publicCatalogRegionFilterOptions } from "@/lib/public-catalog-filter-options";
 
 test("Neo Geo AES exposes only Western and Japanese region families", () => {
   assert.deepEqual(publicRegionLabelsForPlatform("neogeo"), ["Occidental", "Japonesa"]);
@@ -52,6 +53,13 @@ test("Neo Geo Pocket exposes its three commercial regions with concise labels", 
 
 test("other platforms keep their catalog-derived region policy", () => {
   assert.equal(publicRegionLabelsForPlatform("ps2"), null);
+});
+
+test("the global catalog exposes Japan once while retaining platform aliases", () => {
+  const japaneseOptions = publicCatalogRegionFilterOptions().filter(
+    (option) => getRegionDisplay(option.flagRegion ?? option.label).flagCode === "JP",
+  );
+  assert.deepEqual(japaneseOptions, [{ value: "NTSC-J Japón", label: "NTSC-J Japón" }]);
 });
 
 test("the reviewed Italian entry has its own display, filter and canonical region", () => {

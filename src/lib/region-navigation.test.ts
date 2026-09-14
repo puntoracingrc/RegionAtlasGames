@@ -72,6 +72,7 @@ test("Neo Geo public aliases remain usable and do not turn Western into Europe",
   assert.equal(filter("Europea", neo).length, 1);
   assert.equal(filter("region-group:europe", neo).length, 1);
   assert.equal(filter("Japonesa", neo).length, 1);
+  assert.equal(filter("NTSC-J Japón", neo).length, 1);
   assert.equal(regionNavigationGroup("Occidental"), "other");
   assert.equal(regionNavigationGroup("Internacional"), "other");
 });
