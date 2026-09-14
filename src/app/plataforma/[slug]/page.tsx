@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { buildPlatformMetadata } from "@/lib/catalog-seo";
 import { NewsStrip } from "@/components/news-strip";
 import { PlatformCatalogSection } from "@/components/platform-catalog-section";
+import { PlatformHistorySection } from "@/components/platform-history-section";
 import { SiteNav } from "@/components/site-nav";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import {
@@ -30,10 +31,12 @@ import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 import { catalogReviewCounts, isDefaultCatalogGame, isGroupedCatalogName, parsePendingEdition } from "@/lib/catalog-review-policy";
 import { catalogPhysicalFilterOptions, groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
+import { getPlatformHistory, parsePlatformHardwareGroup } from "@/lib/platform-history";
+import { getPublicPersonView } from "@/lib/person-public-research";
 
 type Props = {
   params: Promise<{ slug: string }>;
-  searchParams?: Promise<{ q?: string; region?: string; genre?: string; subgenre?: string; facet?: string; includePending?: string; pendingEdition?: string }>;
+  searchParams?: Promise<{ q?: string; region?: string; genre?: string; subgenre?: string; facet?: string; includePending?: string; pendingEdition?: string; hardware?: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -101,6 +104,13 @@ export default async function PlatformPage({ params, searchParams }: Props) {
       reviewCounts: page.reviewCounts,
     }));
   const platformNewsLabel = platformNewsTopic?.label ?? platform.shortName;
+  const platformHistory = getPlatformHistory(platform.slug);
+  const figurePortraits = Object.fromEntries(
+    (platformHistory?.figures ?? []).map((figure) => [
+      figure.personSlug,
+      getPublicPersonView(figure.personSlug)?.profile.portrait?.path ?? null,
+    ]),
+  );
 
   return (
     <>
@@ -144,7 +154,15 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               initialFacet={typeof query?.facet === "string" ? query.facet : "all"}
               initialIncludePending={includePending}
               initialPendingEdition={pendingEdition}
-            />
+            >
+              {platformHistory ? (
+                <PlatformHistorySection
+                  history={platformHistory}
+                  figurePortraits={figurePortraits}
+                  initialHardwareGroup={parsePlatformHardwareGroup(query?.hardware)}
+                />
+              ) : null}
+            </PlatformCatalogSection>
           </>
         )}
 

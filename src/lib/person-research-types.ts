@@ -8,7 +8,7 @@ export type PersonBiographyClaim = {
 };
 
 export type PersonResearchTerm = {
-  qid: string;
+  qid: string | null;
   name: string;
   source_urls?: string[];
 };
@@ -27,7 +27,7 @@ export type PersonPortrait = {
 export type PersonPublicProfile = {
   slug: string;
   name: string;
-  qid: string;
+  qid: string | null;
   publicationLevel: PersonPublicationLevel;
   aliases: string[];
   nativeNames: string[];
@@ -116,13 +116,28 @@ export type PersonCuriosity = {
 
 export type PersonPublicSource = {
   id: string;
-  url: string;
+  url: string | null;
   title: string;
   kind: string;
   reliability: string;
   language: string | null;
   retrievedAt: string | null;
   verifiedPrimary: boolean;
+};
+
+export type PersonHistoricalRelation = {
+  id: string;
+  personSlug: string;
+  targetType: "platform" | "hardware" | "person";
+  targetSlug: string;
+  targetName: string;
+  platformSlug: string | null;
+  relationshipType: string;
+  relationshipLabelEs: string;
+  period: string | null;
+  summaryEs: string;
+  confidence: ResearchConfidence;
+  sourceId: string;
 };
 
 export type PersonPublicData = {
@@ -135,6 +150,7 @@ export type PersonPublicData = {
   relatedWorks: PersonWork[];
   awards: PersonAward[];
   curiosities: PersonCuriosity[];
+  historicalRelations?: PersonHistoricalRelation[];
   sources: PersonPublicSource[];
 };
 
@@ -168,7 +184,7 @@ export type PersonTimelineItem = {
   sortYear: number | null;
   title: string;
   detail: string | null;
-  kind: "life" | "company" | "position" | "work" | "award";
+  kind: "life" | "company" | "position" | "work" | "award" | "historical";
   sourceId: string | null;
 };
 
@@ -180,6 +196,7 @@ export type PersonPublicView = {
   relatedWorks: PersonWork[];
   awards: PersonAward[];
   curiosities: PersonCuriosity[];
+  historicalRelations: PersonHistoricalRelation[];
   sources: PersonPublicSource[];
   timeline: PersonTimelineItem[];
 };

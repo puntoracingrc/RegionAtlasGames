@@ -8,6 +8,7 @@ import {
   humanizePersonRole,
   personLifeLabel,
 } from "@/lib/person-public-research";
+import { getPlatformHardwareGroup } from "@/lib/platform-history";
 import type {
   PersonCompanyRelation,
   PersonPublicSource,
@@ -22,6 +23,13 @@ function relationPeriod(relation: PersonCompanyRelation): string | null {
 }
 
 function SourceLink({ source, compact = false }: { source: PersonPublicSource; compact?: boolean }) {
+  if (!source.url) {
+    return (
+      <span className="inline-flex min-w-0 font-medium text-foreground/75">
+        <span className={compact ? "truncate" : ""}>{source.title}</span>
+      </span>
+    );
+  }
   return (
     <a
       href={source.url}
@@ -110,9 +118,11 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
               </div>
             )}
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              <a href={`https://www.wikidata.org/wiki/${profile.qid}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline">
-                {profile.qid}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
+              {profile.qid && (
+                <a href={`https://www.wikidata.org/wiki/${profile.qid}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline">
+                  {profile.qid}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              )}
               {profile.officialWebsites.map((url) => (
                 <a key={url} href={url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline">
                   Sitio oficial<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
@@ -158,6 +168,49 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
                 Empresas fundadas: {founded.map((relation) => relation.companyName).join(" · ")}
               </p>
             )}
+          </section>
+        )}
+
+        {view.historicalRelations.length > 0 && (
+          <section className="border-b border-border py-8">
+            <SectionTitle detail={`${view.historicalRelations.length} conexiones`}>Plataformas y hardware</SectionTitle>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {view.historicalRelations.map((relation) => {
+                const hardwareGroup = relation.targetType === "hardware" && relation.platformSlug
+                  ? getPlatformHardwareGroup(relation.platformSlug, relation.targetSlug)
+                  : undefined;
+                const href = relation.targetType === "platform"
+                  ? `/plataforma/${relation.targetSlug}#historia`
+                  : relation.targetType === "person"
+                    ? `/persona/${relation.targetSlug}`
+                    : relation.platformSlug
+                      ? `/plataforma/${relation.platformSlug}${hardwareGroup ? `?hardware=${hardwareGroup}` : ""}#${relation.targetSlug}`
+                      : null;
+                const content = (
+                  <>
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted">{relation.relationshipLabelEs}</p>
+                        <h3 className="mt-1 font-semibold text-foreground">{relation.targetName}</h3>
+                      </div>
+                      {relation.period && <span className="text-xs font-medium text-accent">{relation.period}</span>}
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/75">{relation.summaryEs}</p>
+                  </>
+                );
+                return (
+                  <li key={relation.id}>
+                    {href ? (
+                      <Link href={href} className="block h-full rounded-lg border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover">
+                        {content}
+                      </Link>
+                    ) : (
+                      <div className="h-full rounded-lg border border-border bg-card p-4">{content}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
           </section>
         )}
 

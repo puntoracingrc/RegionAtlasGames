@@ -10,6 +10,7 @@ import coreData from "../../data/research/person-study/core.json";
 import manifestData from "../../data/research/person-study/manifest.json";
 import mediaData from "../../data/research/person-study/media.json";
 import publicData from "../../data/research/person-study/public.json";
+import playstationPublicData from "../../data/research/platform-history/people-public.json";
 import relationsData from "../../data/research/person-study/relations.json";
 import reviewData from "../../data/research/person-study/review.json";
 import sourcesData from "../../data/research/person-study/sources.json";
@@ -110,6 +111,7 @@ const review = reviewData as {
 const companyResearch = (companyResearchData as { records: CompanyResearchRecord[] }).records;
 const manifest = manifestData as unknown as PersonResearchManifest;
 const publicResearch = publicData as unknown as PersonPublicData;
+const playstationPublic = playstationPublicData as unknown as PersonPublicData;
 const companies = companiesData as Record<string, unknown>;
 
 function sha256File(relativePath: string): string {
@@ -177,9 +179,16 @@ test("builds every public biography and fact source only from explicit editorial
 
 test("keeps every non-editorial identity out of public routes, sitemap and inverse links", async () => {
   const publicSlugs = new Set(getPublicPersonSlugs());
-  const nonPublic = core.filter((person) => person.visibility !== "published");
+  const auditedPlayStationSlugs = new Set(
+    playstationPublic.profiles.map((profile) => profile.slug),
+  );
+  const nonPublic = core.filter(
+    (person) =>
+      person.visibility !== "published" &&
+      !auditedPlayStationSlugs.has(person.slug),
+  );
 
-  assert.equal(publicSlugs.size, 25);
+  assert.equal(publicSlugs.size, 31);
   for (const person of nonPublic) {
     assert.equal(publicSlugs.has(person.slug), false, person.slug);
     assert.equal(getPublicPersonView(person.slug), undefined, person.slug);
