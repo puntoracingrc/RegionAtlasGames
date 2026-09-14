@@ -5,6 +5,7 @@ import {
   augmentCatalogBrowseFilterOptions,
   getCatalogBrowseData,
   getCatalogBrowseIndexStats,
+  mergeCatalogBrowseOverlay,
 } from "./catalog-browse-index";
 import { toCatalogCardGame } from "./catalog-card-game";
 import { getCatalogCardLookup } from "./catalog-card-lookup";
@@ -65,6 +66,45 @@ test("una incorporación caliente del worker amplía sus filtros seleccionables"
     .some((option) => option.label === regionLabel));
   assert.ok(augmented.platforms.some((option) => option.slug === workerGame.platformSlug));
   assert.ok(augmented.companies.some((option) => option.name === "Worker Studio"));
+});
+
+test("el overlay caliente actualiza y añade tarjetas sin reconstruir el catálogo", async () => {
+  const indexed = await getCatalogBrowseData();
+  const base = indexed.games.find((game) => (
+    game.physicalEditionGroup?.catalogIds.length === 1 &&
+    game.physicalEditionGroup.catalogIds[0] === game.id
+  ));
+  assert.ok(base);
+  const staticGame = publicListedCatalog.find((game) => game.id === base.id);
+  assert.ok(staticGame);
+  const updated = {
+    ...staticGame,
+    region: "PAL Francia",
+    coverUrl: "https://example.com/worker-cover.jpg",
+    recommendedPrice: 777,
+    estimatedPriceComplete: 777,
+  };
+  const added = {
+    ...staticGame,
+    id: "worker-new-catalog-game",
+    slug: "worker-new-catalog-game",
+    title: "Worker New Catalog Game",
+    region: "PAL Francia",
+    canonicalSeoSlug: "worker-new-catalog-game-pal-fr",
+  };
+  const merged = mergeCatalogBrowseOverlay(
+    indexed.games,
+    [updated, added],
+    [{ slug: base.platformSlug, name: base.displayPlatform }],
+  );
+  const patched = merged.find((game) => game.id === base.id);
+  const inserted = merged.find((game) => game.id === added.id);
+  assert.equal(merged.length, indexed.games.length + 1);
+  assert.equal(patched?.region, "PAL Francia");
+  assert.equal(patched?.recommendedPrice, 777);
+  assert.equal(patched?.coverUrl, updated.coverUrl);
+  assert.equal(inserted?.title, added.title);
+  assert.match(inserted?.searchText ?? "", /worker new catalog game/);
 });
 
 test("el índice de compañías y sus filtros coinciden con la fuente enriquecida", () => {

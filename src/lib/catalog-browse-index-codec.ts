@@ -247,7 +247,7 @@ function stableJson(value: unknown): string {
     .join(",")}}`;
 }
 
-/** Conservative hash: any hot catalog change keeps using the exact live path. */
+/** Conservative hash: any hot catalog change is applied over the compact index. */
 export function catalogBrowseFingerprint(game: CatalogGame): string {
   return createHash("sha256").update(stableJson(game)).digest("base64url").slice(0, 16);
 }
