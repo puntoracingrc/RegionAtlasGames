@@ -21,7 +21,6 @@ import {
   platformOptions,
   publicFacetFilterOptions,
   publicGenreFilterOptions,
-  publicRegionFilterOptions,
   publicSubgenreFilterOptions,
   regionOptions,
   SORT_OPTIONS,
@@ -54,7 +53,8 @@ import { catalogReviewCounts, isPendingCatalogGame, parsePendingEdition, PENDING
 const selectClass =
   "h-10 w-full rounded-lg border border-border bg-input px-3 text-sm outline-none ring-accent/25 transition focus:border-accent/50 focus:ring-2";
 
-function filterOptionLabel(label: string, _count?: number): string {
+function filterOptionLabel(label: string, count?: number): string {
+  void count;
   return label;
 }
 
@@ -66,6 +66,54 @@ function FilterField({ label, children }: { label: string; children: ReactNode }
     </label>
   );
 }
+
+function CatalogCardSkeleton({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <div className="grid min-h-[68px] animate-pulse grid-cols-[44px_minmax(0,1fr)_80px] items-center gap-3 px-1 py-2 sm:grid-cols-[48px_minmax(0,1fr)_110px_120px] sm:px-2" aria-hidden>
+        <div className="h-14 w-11 rounded bg-card-hover" />
+        <div className="space-y-2"><div className="h-3 w-3/5 rounded bg-card-hover" /><div className="h-2.5 w-2/5 rounded bg-card-hover" /></div>
+        <div className="h-3 rounded bg-card-hover" />
+        <div className="hidden h-3 rounded bg-card-hover sm:block" />
+      </div>
+    );
+  }
+  return (
+    <div className="overflow-hidden rounded-lg border border-border bg-card animate-pulse" aria-hidden>
+      <div className="aspect-[3/4] bg-card-hover" />
+      <div className="space-y-3 p-3">
+        <div className="h-4 w-4/5 rounded bg-card-hover" />
+        <div className="h-3 w-1/2 rounded bg-card-hover" />
+        <div className="h-3 w-full rounded bg-card-hover" />
+        <div className="h-3 w-2/3 rounded bg-card-hover" />
+      </div>
+    </div>
+  );
+}
+
+function CatalogThumbnail({ src }: { src: string }) {
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+  const loaded = loadedSrc === src;
+  return (
+    <>
+      {!loaded ? <span className="absolute inset-0 animate-pulse bg-card-hover" aria-hidden /> : null}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt=""
+        className={cn("relative max-h-full max-w-full object-contain transition-opacity duration-300", loaded ? "opacity-100" : "opacity-0")}
+        loading="lazy"
+        onLoad={() => setLoadedSrc(src)}
+      />
+    </>
+  );
+}
+
+type CatalogPagePayload = {
+  items: CatalogListGame[];
+  total: number;
+  reviewCounts?: CatalogReviewCounts;
+};
 
 function CatalogCompactRow({
   game,
@@ -98,10 +146,9 @@ function CatalogCompactRow({
         href={catalogGamePathWithEbayRegion(game, activeRegion)}
         className="group grid min-w-0 flex-1 grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 px-1 py-2 sm:grid-cols-[48px_minmax(0,1fr)_minmax(110px,auto)_minmax(120px,auto)] sm:px-2"
       >
-        <div className="flex h-14 w-11 items-center justify-center overflow-hidden border border-border bg-card">
+        <div className="relative flex h-14 w-11 items-center justify-center overflow-hidden border border-border bg-card">
           {cover ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={cover} alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
+            <CatalogThumbnail src={cover} />
           ) : (
             <span className="px-1 text-center text-[8px] uppercase text-muted">Sin portada</span>
           )}
@@ -331,6 +378,9 @@ export function CatalogBrowser({
   const [serverItems, setServerItems] = useState(games);
   const [serverTotal, setServerTotal] = useState(totalCatalogEntryCount ?? games.length);
   const [isLoading, setIsLoading] = useState(deferInitialLoad);
+  const initialHydrationRef = useRef(deferInitialLoad);
+  const pageCacheRef = useRef(new Map<string, Promise<CatalogPagePayload>>());
+  const [remoteCompanyOptions, setRemoteCompanyOptions] = useState<CatalogCompanyFilterOption[]>([]);
   const canShowPriceLegend = showPriceLegend && source?.kind !== "platform";
   const [savedStateLoaded, setSavedStateLoaded] = useState(!persistKey);
   const normalizedDraftLength = draftQ.trim().length;
@@ -380,6 +430,26 @@ export function CatalogBrowser({
     setActiveFacets(facets);
     setActiveCompanies(companies);
   }, [companies, facets, genres, regions, subgenres]);
+
+  useEffect(() => {
+    if (!companyFocused || companies.length > 0) return;
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      const params = new URLSearchParams({ mode: "company-options", q: company.trim() });
+      fetch(`/api/catalog/search?${params}`, { headers: { Accept: "application/json" } })
+        .then((response) => response.ok ? response.json() as Promise<{ items: CatalogCompanyFilterOption[] }> : { items: [] })
+        .then((payload) => {
+          if (!cancelled) setRemoteCompanyOptions(payload.items ?? []);
+        })
+        .catch(() => {
+          if (!cancelled) setRemoteCompanyOptions([]);
+        });
+    }, company.trim() ? 120 : 0);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [companies.length, company, companyFocused]);
 
   useEffect(() => {
     if (isRegionSelectionAvailable(region, visibleRegions)) return;
@@ -492,6 +562,52 @@ export function CatalogBrowser({
     }
   }, [page, totalPages]);
 
+  const buildRequestUrl = useCallback((requestPage: number) => {
+    if (!source) return null;
+    const params = new URLSearchParams({
+      q,
+      region,
+      sort,
+      priceType,
+      priceFilter: "all",
+      page: String(requestPage),
+      includePending: includePending ? "1" : "0",
+      pendingEdition,
+    });
+    if (company.trim()) params.set("company", company.trim());
+    if (source.kind === "catalog" || source.kind === "genre" || source.kind === "taxonomy") {
+      params.set("platform", platform);
+      params.set("mode", "browser");
+    }
+    if (source.kind === "genre") params.set("genre", source.slug);
+    if (source.kind === "taxonomy") params.set(source.filter, source.slug);
+    if (genre !== "all") params.set("genre", genre);
+    if (subgenre !== "all") params.set("subgenre", subgenre);
+    if (facet !== "all") params.set("facet", facet);
+    if (broadRegion !== "all") params.set("broadRegion", broadRegion);
+    if (ratingSystem !== "all") params.set("ratingSystem", ratingSystem);
+    if (physicalEditionType !== "all") params.set("physicalEditionType", physicalEditionType);
+    return source.kind === "platform"
+      ? `/api/catalog/platform/${encodeURIComponent(source.slug)}?${params}`
+      : `/api/catalog/search?${params}`;
+  }, [broadRegion, company, facet, genre, includePending, pendingEdition, physicalEditionType, platform, priceType, q, ratingSystem, region, sort, source, subgenre]);
+
+  const fetchCatalogPage = useCallback((endpoint: string) => {
+    const cached = pageCacheRef.current.get(endpoint);
+    if (cached) return cached;
+    const request = fetch(endpoint, { headers: { Accept: "application/json" } })
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json() as Promise<CatalogPagePayload>;
+      })
+      .catch((error) => {
+        pageCacheRef.current.delete(endpoint);
+        throw error;
+      });
+    pageCacheRef.current.set(endpoint, request);
+    return request;
+  }, []);
+
   useEffect(() => {
     if (!source) return;
 
@@ -525,64 +641,38 @@ export function CatalogBrowser({
       return;
     }
 
-    const controller = new AbortController();
+    const keepInitialResults = initialHydrationRef.current && defaultServerView;
+    initialHydrationRef.current = false;
+    if (!keepInitialResults) setServerItems([]);
     setIsLoading(true);
+    let cancelled = false;
     const timeout = window.setTimeout(async () => {
       try {
-        const params = new URLSearchParams({
-          q,
-          region,
-          sort,
-          priceType,
-          priceFilter: "all",
-          page: String(page),
-          includePending: includePending ? "1" : "0",
-          pendingEdition,
-        });
-        if (company.trim()) params.set("company", company.trim());
-        if (source.kind === "catalog" || source.kind === "genre" || source.kind === "taxonomy") {
-          params.set("platform", platform);
-          params.set("mode", "browser");
-        }
-        if (source.kind === "genre") {
-          params.set("genre", source.slug);
-        }
-        if (source.kind === "taxonomy") {
-          params.set(source.filter, source.slug);
-        }
-        if (genre !== "all") params.set("genre", genre);
-        if (subgenre !== "all") params.set("subgenre", subgenre);
-        if (facet !== "all") params.set("facet", facet);
-        if (broadRegion !== "all") params.set("broadRegion", broadRegion);
-        if (ratingSystem !== "all") params.set("ratingSystem", ratingSystem);
-        if (physicalEditionType !== "all") params.set("physicalEditionType", physicalEditionType);
-        const endpoint =
-          source.kind === "platform"
-            ? `/api/catalog/platform/${encodeURIComponent(source.slug)}?${params}`
-            : `/api/catalog/search?${params}`;
-        const response = await fetch(endpoint, { signal: controller.signal });
-        if (!response.ok) return;
-        const payload = (await response.json()) as {
-          items: CatalogListGame[];
-          total: number;
-          reviewCounts?: CatalogReviewCounts;
-        };
+        const endpoint = buildRequestUrl(page);
+        if (!endpoint) return;
+        const payload = await fetchCatalogPage(endpoint);
+        if (cancelled) return;
         setServerItems(payload.items);
         setServerTotal(payload.total);
         setServerReviewCounts(payload.reviewCounts ?? catalogReviewCounts(payload.items));
+        const nextPage = page + 1;
+        if (nextPage <= Math.ceil(payload.total / CATALOG_PAGE_SIZE)) {
+          const nextEndpoint = buildRequestUrl(nextPage);
+          if (nextEndpoint) void fetchCatalogPage(nextEndpoint).catch(() => undefined);
+        }
       } catch (error) {
-        if (!controller.signal.aborted) {
+        if (!cancelled) {
           console.warn("[catalog-browser] fetch failed", error);
         }
       } finally {
-        if (!controller.signal.aborted) setIsLoading(false);
+        if (!cancelled) setIsLoading(false);
       }
     }, q.trim() ? 220 : 0);
     return () => {
-      controller.abort();
+      cancelled = true;
       window.clearTimeout(timeout);
     };
-  }, [broadRegion, companies, company, deferInitialLoad, facet, facets, games, genre, genres, includePending, pendingEdition, initialFacet, initialGenre, initialIncludePending, initialPendingEdition, initialPlatform, initialPriceType, initialQuery, initialRegion, initialReviewCounts, initialSubgenre, page, physicalEditionType, platform, priceType, q, ratingSystem, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
+  }, [broadRegion, buildRequestUrl, companies, company, deferInitialLoad, facet, facets, fetchCatalogPage, games, genre, genres, includePending, initialFacet, initialGenre, initialIncludePending, initialPendingEdition, initialPlatform, initialPriceType, initialQuery, initialRegion, initialReviewCounts, initialSubgenre, page, pendingEdition, physicalEditionType, platform, priceType, q, ratingSystem, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
@@ -606,12 +696,13 @@ export function CatalogBrowser({
     sort !== DEFAULT_SORT;
 
   const companySuggestions = useMemo(() => {
+    if (companies.length === 0) return remoteCompanyOptions;
     const needle = company.trim().toLowerCase();
     if (!needle) return activeCompanies.slice(0, 8);
     return activeCompanies
       .filter((option) => option.name.toLowerCase().includes(needle))
       .slice(0, 8);
-  }, [activeCompanies, company]);
+  }, [activeCompanies, companies.length, company, remoteCompanyOptions]);
 
   const resultStart = total === 0 ? 0 : (safePage - 1) * CATALOG_PAGE_SIZE + 1;
   const resultEnd = Math.min(safePage * CATALOG_PAGE_SIZE, total);
@@ -673,9 +764,12 @@ export function CatalogBrowser({
             activeRegion={region}
           />
         ))}
+        {catalogBusy ? Array.from({ length: Math.max(0, CATALOG_PAGE_SIZE - pageItems.length) }, (_, index) => (
+          <CatalogCardSkeleton key={`catalog-grid-skeleton-${index}`} />
+        )) : null}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems, region],
+    [catalogBusy, handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems, region],
   );
 
   const catalogList = useMemo(
@@ -692,9 +786,12 @@ export function CatalogBrowser({
             activeRegion={region}
           />
         ))}
+        {catalogBusy ? Array.from({ length: Math.max(0, CATALOG_PAGE_SIZE - pageItems.length) }, (_, index) => (
+          <CatalogCardSkeleton key={`catalog-list-skeleton-${index}`} compact />
+        )) : null}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems, region],
+    [catalogBusy, handleOwnedChange, isLoggedIn, isOwned, listingCounts, pageItems, region],
   );
 
   return (
@@ -976,10 +1073,9 @@ export function CatalogBrowser({
       </div>
 
       {deferInitialLoad && catalogBusy && pageItems.length === 0 ? (
-        <div className="flex min-h-48 items-center justify-center rounded-xl border border-dashed border-border text-sm font-semibold text-muted" role="status">
-          <LoaderCircle aria-hidden="true" className="mr-3 h-5 w-5 animate-spin text-accent" />
-          Cargando fichas del catálogo…
-        </div>
+        <section ref={gridRef} className={CATALOG_GRID_CLASS} role="status" aria-label="Cargando fichas del catálogo">
+          {Array.from({ length: 12 }, (_, index) => <CatalogCardSkeleton key={`catalog-empty-skeleton-${index}`} />)}
+        </section>
       ) : pageItems.length === 0 ? (
         <div className="rounded-xl border border-dashed border-border py-12 text-center text-sm text-muted">
           Ninguna ficha coincide. Prueba otro término, compañía o referencia.
@@ -997,17 +1093,9 @@ export function CatalogBrowser({
           )}
 
           <div className="relative" aria-busy={catalogBusy}>
-            <div className={cn("transition duration-200", catalogBusy && "pointer-events-none opacity-35")}>
+            <div className={cn("transition duration-200", catalogBusy && "pointer-events-none")}>
               {viewMode === "grid" ? catalogGrid : catalogList}
             </div>
-            {catalogBusy ? (
-              <div className="pointer-events-none absolute inset-x-0 top-6 z-30 flex justify-center px-4">
-                <div className="flex items-center gap-3 rounded-lg border border-accent/35 bg-card px-4 py-3 text-sm font-semibold text-foreground shadow-xl">
-                  <LoaderCircle aria-hidden="true" className="h-5 w-5 animate-spin text-accent" />
-                  Actualizando resultados…
-                </div>
-              </div>
-            ) : null}
           </div>
 
           {totalPages > 1 && (

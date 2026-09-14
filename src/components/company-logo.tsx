@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { cn } from "@/lib/cn";
 
 type CompanyLogoSize = "sm" | "md" | "lg";
@@ -26,6 +29,8 @@ export function CompanyLogo({
 }) {
   const initial = name.trim().charAt(0).toUpperCase() || "?";
   const alt = provisional ? `Imagen provisional de ${name}` : `Logo de ${name}`;
+  const [loadedLogo, setLoadedLogo] = useState<string | null>(null);
+  const logoLoaded = Boolean(logoUrl) && loadedLogo === logoUrl;
 
   return (
     <div className={cn("shrink-0", showProvisionalLabel && "w-24", className)}>
@@ -37,14 +42,18 @@ export function CompanyLogo({
         title={provisional ? "Imagen provisional: logo aún no documentado" : undefined}
       >
         {logoUrl ? (
-          <Image
-            src={logoUrl}
-            alt={alt}
-            fill
-            className="object-contain p-1.5"
-            sizes={size === "lg" ? "96px" : size === "md" ? "56px" : "40px"}
-            unoptimized
-          />
+          <>
+            {!logoLoaded ? <span className="absolute inset-0 animate-pulse bg-card-hover" aria-hidden /> : null}
+            <Image
+              src={logoUrl}
+              alt={alt}
+              fill
+              className={cn("object-contain p-1.5 transition-opacity duration-300", logoLoaded ? "opacity-100" : "opacity-0")}
+              sizes={size === "lg" ? "96px" : size === "md" ? "56px" : "40px"}
+              unoptimized
+              onLoad={() => setLoadedLogo(logoUrl)}
+            />
+          </>
         ) : (
           <span
             className="flex h-full w-full items-center justify-center bg-card text-lg font-bold text-accent"

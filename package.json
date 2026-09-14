@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run details:by-id && npm run catalog:filter-index && NODE_OPTIONS=--max-old-space-size=6144 next build",
+    "build": "npm run details:by-id && npm run catalog:filter-index && npm run browse:indexes && NODE_OPTIONS=--max-old-space-size=6144 next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -85,6 +85,9 @@
     "details:by-id": "node scripts/generate-catalog-detail-by-id.mjs",
     "catalog:filter-index": "tsx scripts/generate-catalog-editorial-filter-index.ts --write",
     "catalog:filter-index:check": "tsx scripts/generate-catalog-editorial-filter-index.ts --check",
+    "browse:indexes": "tsx scripts/generate-public-browse-indexes.ts --write",
+    "browse:indexes:check": "tsx scripts/generate-public-browse-indexes.ts --check",
+    "test:browse-indexes": "npm run browse:indexes:check && tsx --test src/lib/public-browse-indexes.test.ts",
     "videos:youtube": "node scripts/enrich-youtube-videos.mjs",
     "news:enrich": "node scripts/enrich-news-cache.mjs",
     "news:upload": "node scripts/upload-news-cache-ftp.mjs",

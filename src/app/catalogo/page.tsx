@@ -2,25 +2,18 @@ import { CatalogBrowser } from "@/components/catalog-browser";
 import { SiteNav } from "@/components/site-nav";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import {
+  filterCatalogGames,
   DEFAULT_CATALOG_PRICE_TYPE,
   normalizeCatalogPriceTypeForPlatform,
-  publicFacetFilterOptions,
-  publicGenreFilterOptions,
-  publicSubgenreFilterOptions,
   type CatalogPriceType,
 } from "@/lib/catalog-filters";
-import { getPublicCatalogWithOverlay } from "@/lib/catalog-runtime-overlay";
+import { getCatalogBrowseData } from "@/lib/catalog-browse-index";
+import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
-import { getOwnedCatalogIds } from "@/lib/collection-store";
-import {
-  publicCatalogRegionFilterOptions,
-  publicCatalogRegionFilterOptionsByPlatform,
-  publicCompanyFilterOptions,
-  publicPlatformFilterOptions,
-} from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
-import { isDefaultCatalogGame, parsePendingEdition } from "@/lib/catalog-review-policy";
-import { catalogPhysicalFilterOptions } from "@/lib/catalog-physical-edition-browse";
+import { parsePendingEdition } from "@/lib/catalog-review-policy";
+
+const INITIAL_RESULT_COUNT = 12;
 
 type Props = {
   searchParams?: Promise<{
@@ -52,12 +45,29 @@ export default async function CatalogPage({ searchParams }: Props) {
     parsePriceType(params?.priceType),
     initialPlatform,
   );
-  const [user, listingCounts, runtimeCatalog] = await Promise.all([
+  const initialSort = initialPriceType === DEFAULT_CATALOG_PRICE_TYPE ? "title-asc" : "price-desc";
+  const [user, listingCounts, browse] = await Promise.all([
     getCurrentUser(),
     getActiveListingCountsByCatalog(),
-    getPublicCatalogWithOverlay(),
+    getCatalogBrowseData(),
   ]);
-  const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
+  const ownedCatalogIds = user
+    ? await import("@/lib/collection-store").then((store) => store.getOwnedCatalogIds(user.id))
+    : [];
+  const initialResult = filterCatalogGames(browse.games, {
+    q: initialQuery,
+    platform: initialPlatform,
+    region: initialRegion,
+    sort: initialSort,
+    priceType: initialPriceType,
+    priceFilter: "all",
+    includePending: initialIncludePending,
+    pendingEdition: initialPendingEdition,
+    genre: initialGenre,
+    subgenre: initialSubgenre,
+    facet: initialFacet,
+  }, { platforms: true, regions: true });
+  const options = browse.filterOptions;
   return (
     <>
       <SiteNav />
@@ -68,26 +78,28 @@ export default async function CatalogPage({ searchParams }: Props) {
           </p>
           <h1 className="text-3xl font-bold text-foreground">Buscar en todo Region Atlas</h1>
           <p className="max-w-3xl text-muted">
-            Explora {formatCatalogEntryCount(runtimeCatalog.filter(isDefaultCatalogGame).length)} por título, compañía,
+            Explora {formatCatalogEntryCount(browse.catalogCount)} por título, compañía,
             género, saga, referencia, plataforma o región.
           </p>
         </header>
 
         <CatalogBrowser
-          games={[]}
+          games={initialResult.items.slice(0, INITIAL_RESULT_COUNT).map(toCatalogCardGame)}
           contextName="todo el catálogo"
           source={{ kind: "catalog" }}
+          totalCatalogEntryCount={initialResult.total}
+          reviewCounts={initialResult.reviewCounts}
           deferInitialLoad
           initialIncludePending={initialIncludePending}
           initialPendingEdition={initialPendingEdition}
-          regions={publicCatalogRegionFilterOptions()}
-          regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
-          platforms={publicPlatformFilterOptions()}
-          genres={publicGenreFilterOptions()}
-          subgenres={publicSubgenreFilterOptions()}
-          facets={publicFacetFilterOptions()}
-          companies={publicCompanyFilterOptions()}
-          physicalEditionFilters={catalogPhysicalFilterOptions()}
+          regions={options.regions}
+          regionsByPlatform={options.regionsByPlatform}
+          platforms={options.platforms}
+          genres={options.genres}
+          subgenres={options.subgenres}
+          facets={options.facets}
+          companies={[]}
+          physicalEditionFilters={options.physicalEditions}
           showRegionFilter
           showPlatformFilter
           showTaxonomyFilters

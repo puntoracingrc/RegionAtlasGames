@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
 import { SiteNav } from "@/components/site-nav";
 import { VitrinaMarketplace } from "@/components/vitrina-marketplace";
-import { getCatalogGame, getPlatform, isPublicCatalogGame } from "@/lib/catalog";
-import { catalogGamePath } from "@/lib/catalog-url";
-import { normalizeLegacyCollectionCondition } from "@/lib/collection-condition-policy";
-import { getCoverSrc } from "@/lib/cover-url";
-import { getActiveMarketplaceListings } from "@/lib/listings";
-import { listingAskingPriceEur } from "@/lib/marketplace-listing-values";
-import { getRegionDisplay } from "@/lib/region-display";
+import { getVitrinaBrowseResult } from "@/lib/vitrina-browse";
 import { getCurrentUser } from "@/lib/users";
 import {
   DEFAULT_VITRINA_FILTERS,
-  VITRINA_CONDITION_LABELS,
+  VITRINA_INITIAL_RESULT_COUNT,
   type VitrinaDelivery,
   type VitrinaFilters,
-  type VitrinaListing,
   type VitrinaSort,
 } from "@/lib/vitrina-marketplace";
 import type { CollectionCondition } from "@/lib/types";
@@ -66,51 +59,26 @@ function initialFilters(params: Record<string, string | string[] | undefined>): 
 }
 
 export default async function VitrinaPage({ searchParams }: Props) {
-  const [storedListings, user, params] = await Promise.all([
-    getActiveMarketplaceListings(),
+  const [user, params] = await Promise.all([
     getCurrentUser(),
     searchParams,
   ]);
-
-  const listings = storedListings.flatMap<VitrinaListing>((listing) => {
-    const game = getCatalogGame(listing.catalogId);
-    if (!game || !isPublicCatalogGame(game)) return [];
-    const platform = getPlatform(game.platformSlug);
-    const condition = normalizeLegacyCollectionCondition(listing.collectionCondition, listing.sealed);
-    const region = getRegionDisplay(game.region);
-    const sellerCover = listing.photos.find((photo) => photo.slot === "cover-front")?.url ?? null;
-    const salePath = `/venta/${encodeURIComponent(listing.id)}`;
-    return [{
-      id: listing.id,
-      catalogId: game.id,
-      title: listing.customTitle?.trim() || game.title,
-      catalogHref: catalogGamePath(game),
-      contactHref: user ? salePath : `/login?next=${encodeURIComponent(salePath)}`,
-      coverUrl: sellerCover ?? getCoverSrc(game.coverUrl, game.id),
-      usesSellerPhoto: Boolean(sellerCover),
-      photoCount: listing.photos.length,
-      askingPriceEur: listingAskingPriceEur(listing),
-      condition,
-      conditionLabel: VITRINA_CONDITION_LABELS[condition],
-      platformSlug: game.platformSlug,
-      platformName: platform?.shortName || platform?.name || game.platformSlug.toUpperCase(),
-      region: game.region,
-      regionLabel: region.label,
-      regionShortLabel: region.shortLabel,
-      sellerName: listing.sellerName,
-      sellerCity: listing.sellerCity,
-      pickup: listing.saleOptions?.pickup ?? true,
-      shipping: listing.saleOptions?.shipping ?? true,
-      publishedAt: listing.publishedAt,
-    }];
+  const filters = initialFilters(params);
+  const result = await getVitrinaBrowseResult({
+    filters,
+    pageSize: VITRINA_INITIAL_RESULT_COUNT,
+    loggedIn: Boolean(user),
   });
 
   return (
     <>
       <SiteNav initialUser={user} />
       <VitrinaMarketplace
-        listings={listings}
-        initialFilters={initialFilters(params)}
+        listings={result.items}
+        total={result.total}
+        filterOptions={result.filterOptions}
+        initialFilters={filters}
+        deferInitialLoad
       />
     </>
   );
