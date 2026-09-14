@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import {
   DEFAULT_COMPANY_FILTERS,
@@ -41,6 +42,11 @@ function company(overrides: Partial<CompanyCardData> = {}): CompanyCardData {
 function filters(overrides: Partial<CompanyIndexFilters> = {}): CompanyIndexFilters {
   return { ...DEFAULT_COMPANY_FILTERS, ...overrides };
 }
+
+test("company catalog pagination does not enter an orphaned server-loading state", () => {
+  const browserSource = readFileSync("src/components/catalog-browser.tsx", "utf8");
+  assert.match(browserSource, /function goToPage[\s\S]*if \(source\) setIsLoading\(true\);/);
+});
 
 test("uses alphabetical order by default", () => {
   const result = filterCompanies(

@@ -87,7 +87,7 @@ Esto no elimina las filas legacy. Las mantiene como puentes para URLs, portadas,
 - precios por estado, transporte, total a España, divisa, fecha y procedencia.
 - identificadores y referencias de fuentes comerciales.
 
-La agrupación V2 ocurre al construir el DTO público del catálogo. No borra registros: oculta las filas miembro en el listado y presenta una sola tarjeta por familia. Los guides documentales conservan datos físicos ricos; para el resto del catálogo se construye un guide derivado a partir de `workId` resuelto o, cuando no existe, del mismo título normalizado y plataforma. Una identidad de obra resuelta siempre tiene prioridad sobre el título.
+La agrupación V2 ocurre al construir el DTO público del catálogo. No borra registros: oculta las filas miembro en el listado y presenta una sola tarjeta por familia. Los guides documentales conservan datos físicos ricos; para el resto del catálogo se construye un guide derivado a partir de `workId` resuelto o, cuando no existe, del mismo título normalizado y plataforma. Una identidad de obra resuelta siempre tiene prioridad sobre el título. Cuando un título y plataforma tienen un único `workId` resuelto, las fichas hermanas que todavía no lo tienen pueden incorporarse a esa obra. Si existen varios `workId` posibles, permanecen separadas hasta resolver la ambigüedad.
 
 ## 4. Detalles comunes del videojuego
 
@@ -265,11 +265,11 @@ Esta compatibilidad permite distinguir, por ejemplo, la Standard alemana de la E
 
 ## 13. eBay y Amazon
 
-Para familias V2, eBay puede ofrecer un selector con los mercados documentados de la familia. La selección se resuelve en este orden:
+Para familias V2, eBay ofrece España como mercado comercial predeterminado y añade los mercados documentados de la familia. España en este selector solo dirige la búsqueda de anuncios y no demuestra que una caja se distribuyese en España. La selección se resuelve en este orden:
 
 1. Región solicitada desde el filtro del catálogo mediante `?ebayRegion=`.
 2. Mercado exacto de la edición actual, si solo tiene uno.
-3. España, si existe entre las opciones.
+3. España.
 4. Primera opción disponible.
 
 La búsqueda usa la fila legacy vinculada cuando existe y conserva la identidad física seleccionada. Si no hay anuncios de esa región, la capa de ofertas puede degradar a resultados disponibles en lugar de dejar el panel vacío.
@@ -463,7 +463,9 @@ hallazgo del worker
 - Un candidato pendiente no confirma una región y permanece aislado.
 - Una ficha con `listingStatus: listed` puede documentar una nueva región.
 - Si tiene un `workId` resuelto, V2 exige esa identidad; no la sustituye por una coincidencia de título.
-- Si todavía no existe `workId`, solo se agrupan título normalizado, plataforma y familia de edición coincidentes.
+- Si una ficha hermana todavía no tiene `workId` y solo existe una obra resuelta con el mismo título normalizado y plataforma, se incorpora a esa obra y a su familia de edición correspondiente.
+- Si el mismo título y plataforma tienen varios `workId` resueltos, las fichas no resueltas permanecen aisladas.
+- Si todavía no existe ningún `workId`, solo se agrupan título normalizado, plataforma y familia de edición coincidentes.
 - La publicación caliente en Blob aparece en su ficha, en la página de plataforma y en el catálogo y buscador globales.
 - Varias regiones nuevas publicadas en el mismo overlay se agrupan entre sí sin esperar al siguiente archivo estático.
 - Cada región conserva URL, portada, precios, colección, deseados y venta propios.

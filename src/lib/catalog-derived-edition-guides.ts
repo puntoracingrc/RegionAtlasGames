@@ -1,6 +1,7 @@
 import { publicListedCatalog } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import {
+  catalogBroadRegionFromMarketRegion,
   catalogBroadRegionFromLegacyRegion,
   catalogPhysicalEditionTypeLabel,
   isCatalogMarketRegion,
@@ -52,6 +53,27 @@ function workIdentity(game: CatalogGame): string | null {
   return game.workId && game.regionalStatus === "resolved"
     ? `${game.platformSlug}:work:${game.workId}`
     : null;
+}
+
+const resolvedWorkIdentitiesByTitle = new Map<string, Set<string>>();
+for (const game of publicListedCatalog) {
+  const resolvedWork = workIdentity(game);
+  if (!resolvedWork) continue;
+  const titleKey = titleIdentity(game);
+  const identities = resolvedWorkIdentitiesByTitle.get(titleKey) ?? new Set<string>();
+  identities.add(resolvedWork);
+  resolvedWorkIdentitiesByTitle.set(titleKey, identities);
+}
+
+function derivedRelationshipIdentity(game: CatalogGame): string {
+  const resolvedWork = workIdentity(game);
+  if (resolvedWork) return resolvedWork;
+
+  const titleKey = titleIdentity(game);
+  const resolvedCandidates = resolvedWorkIdentitiesByTitle.get(titleKey);
+  return resolvedCandidates?.size === 1
+    ? resolvedCandidates.values().next().value!
+    : titleKey;
 }
 
 function relationshipKeys(game: CatalogGame): string[] {
@@ -117,6 +139,7 @@ function exactMarketRegions(game: CatalogGame): string[] {
 function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
   const scan = getOwnedScanSetById(game.id);
   const originalContents = resolveOriginalGameContents(game);
+  const marketRegions = exactMarketRegions(game);
   const catalogNumber = scan?.packaging.reference
     ?? (game.regionalStatus === "resolved" ? game.canonicalSerials?.join(" / ") : undefined)
     ?? (game.regionalStatus === "resolved" ? game.resolutionSerials?.join(" / ") : undefined);
@@ -131,10 +154,12 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
   return {
     id: `catalog-edition-${game.id}`,
     label: familyLabel(game),
-    broadRegion: catalogBroadRegionFromLegacyRegion(game.regionFamily ?? game.region),
+    broadRegion: marketRegions.length === 1
+      ? catalogBroadRegionFromMarketRegion(marketRegions[0])
+      : catalogBroadRegionFromLegacyRegion(game.regionFamily ?? game.region),
     editionType: catalogDerivedEditionType(game),
     collectionIdentity: "catalog-entry",
-    marketRegions: exactMarketRegions(game),
+    marketRegions,
     packagingLanguages: scan?.packaging.languages ?? [],
     componentLanguageEvidence: [],
     ratingSystems: [],
@@ -365,7 +390,7 @@ export function buildCatalogDerivedGuideIndex(excludedCatalogIds: Set<string>): 
   for (const game of publicListedCatalog) {
     if (excludedCatalogIds.has(game.id)) continue;
     const key = game.listingStatus === "listed"
-      ? workIdentity(game) ?? titleIdentity(game)
+      ? derivedRelationshipIdentity(game)
       : `${game.platformSlug}:pending:${game.id}`;
     groups.set(key, [...(groups.get(key) ?? []), game]);
   }
@@ -390,12 +415,12 @@ export function buildRuntimeCatalogEditionGuide(
   runtimeGames: CatalogGame[] = [game],
 ): CatalogEditionGuideModel {
   const key = game.listingStatus === "listed"
-    ? workIdentity(game) ?? titleIdentity(game)
+    ? derivedRelationshipIdentity(game)
     : `${game.platformSlug}:pending:${game.id}`;
   const relatedRuntimeGames = runtimeGames.filter((candidate) => {
     if (candidate.listingStatus !== game.listingStatus) return false;
     const candidateKey = candidate.listingStatus === "listed"
-      ? workIdentity(candidate) ?? titleIdentity(candidate)
+      ? derivedRelationshipIdentity(candidate)
       : `${candidate.platformSlug}:pending:${candidate.id}`;
     return candidateKey === key;
   });
@@ -421,7 +446,7 @@ export function buildRuntimeCatalogEditionGuide(
   const siblings = game.listingStatus === "listed"
     ? publicListedCatalog.filter((candidate) => {
         if (claimed.has(candidate.id) || candidate.listingStatus !== "listed") return false;
-        return (workIdentity(candidate) ?? titleIdentity(candidate)) === key;
+        return derivedRelationshipIdentity(candidate) === key;
       })
     : [];
   return buildGuide([...new Map(

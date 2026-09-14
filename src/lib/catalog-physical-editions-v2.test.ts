@@ -246,6 +246,17 @@ test("V2 eBay regions are explicit, default to Spain and preserve the catalog fi
     catalogEbayOfferCacheKey(standard.id, "US"),
     catalogEbayOfferCacheKey(standard.id, "ES"),
   );
+
+  const mrNutz = getCatalogEditionGuide(getCatalogGame("snes-pal-mr-nutz")!);
+  assert.ok(mrNutz?.currentEditionFamilyId);
+  const mrNutzFamily = mrNutz.editionFamilies.find((family) => family.id === mrNutz.currentEditionFamilyId);
+  assert.ok(mrNutzFamily);
+  const mrNutzOptions = catalogEbayRegionOptions(
+    mrNutz.physicalEditions.filter((edition) => mrNutzFamily.physicalEditionIds.includes(edition.id)),
+  );
+  assert.deepEqual(mrNutzOptions.map((option) => option.value), ["ES", "US", "JP"]);
+  assert.equal(resolveCatalogEbayRegion(mrNutzOptions)?.value, "ES");
+  assert.equal(mrNutzOptions[0].catalogId, "snes-pal-mr-nutz");
 });
 
 test("Absolum models seven editions, three broad regions and one shared European disc", () => {
@@ -729,6 +740,54 @@ test("sitewide V2 groups published regional pages and keeps their catalog collec
     [hiddenStatic, hotPublishedRegion],
   );
   assert.deepEqual(mergedPublicCatalog.map((game) => game.id), [sekiroIds[1], hotPublishedRegion.id]);
+
+  const mixedResolutionIds = [
+    "ps1-a-bug%27s-life",
+    "ps1-usa-a-bug-s-life",
+  ];
+  const mixedResolutionGuide = getCatalogEditionGuide(getCatalogGame(mixedResolutionIds[0])!);
+  assert.ok(mixedResolutionGuide);
+  assert.deepEqual(
+    mixedResolutionGuide.physicalEditions.flatMap((edition) => edition.catalogIds)
+      .filter((id) => mixedResolutionIds.includes(id))
+      .sort(),
+    [...mixedResolutionIds].sort(),
+  );
+  assert.equal(
+    mixedResolutionGuide.physicalEditions.find((edition) => edition.catalogIds.includes("ps1-us-scus-94288"))
+      ?.broadRegion,
+    "NORTH_AMERICA",
+  );
+  assert.equal(
+    mixedResolutionGuide.physicalEditions.find((edition) => edition.catalogIds.includes("ps1-jp-slpm-86330"))
+      ?.broadRegion,
+    "ASIA",
+  );
+
+  const ambiguousTitleRows = publicListedCatalog.filter((candidate) => (
+    candidate.platformSlug === "ps1" && candidate.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim() === "ace combat 3 electrosphere"
+  ));
+  const ambiguousWorkIds = new Set(ambiguousTitleRows.flatMap((candidate) => (
+    candidate.workId && candidate.regionalStatus === "resolved" ? [candidate.workId] : []
+  )));
+  assert.ok(ambiguousWorkIds.size > 1);
+  const unresolvedAceCombat = ambiguousTitleRows.find((candidate) => (
+    !candidate.workId || candidate.regionalStatus !== "resolved"
+  ));
+  assert.ok(unresolvedAceCombat);
+  const ambiguousGuide = getCatalogEditionGuide(unresolvedAceCombat);
+  assert.ok(ambiguousGuide);
+  assert.equal(
+    ambiguousGuide.physicalEditions.flatMap((edition) => edition.catalogIds).some((catalogId) => (
+      ambiguousTitleRows.some((candidate) => (
+        candidate.id === catalogId && Boolean(candidate.workId) && candidate.regionalStatus === "resolved"
+      ))
+    )),
+    false,
+  );
 });
 
 test("the previous four catalog additions remain exact and all prior catalog rows are preserved", () => {

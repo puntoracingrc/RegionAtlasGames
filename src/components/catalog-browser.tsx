@@ -615,7 +615,7 @@ export function CatalogBrowser({
   const resultEnd = Math.min(safePage * CATALOG_PAGE_SIZE, total);
 
   function goToPage(nextPage: number) {
-    setIsLoading(true);
+    if (source) setIsLoading(true);
     setPage(nextPage);
     gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
