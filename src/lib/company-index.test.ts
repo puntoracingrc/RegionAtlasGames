@@ -7,6 +7,7 @@ import {
   type CompanyCardData,
   type CompanyIndexFilters,
 } from "./company-index";
+import { buildCompanyProfileView } from "./company-profile";
 
 function company(overrides: Partial<CompanyCardData> = {}): CompanyCardData {
   const name = overrides.name ?? "Compañía";
@@ -46,6 +47,17 @@ function filters(overrides: Partial<CompanyIndexFilters> = {}): CompanyIndexFilt
 test("company catalog pagination does not enter an orphaned server-loading state", () => {
   const browserSource = readFileSync("src/components/catalog-browser.tsx", "utf8");
   assert.match(browserSource, /function goToPage[\s\S]*if \(source\) setIsLoading\(true\);/);
+});
+
+test("company profiles expose each catalog identity once across roles", () => {
+  const view = buildCompanyProfileView("ubisoft");
+  assert.ok(view);
+
+  assert.equal(view.games.length, new Set(view.games.map((game) => game.id)).size);
+  assert.equal(view.catalogEntryCount, view.games.length);
+  for (const platform of view.platforms) {
+    assert.equal(platform.games.length, new Set(platform.games.map((game) => game.id)).size);
+  }
 });
 
 test("uses alphabetical order by default", () => {

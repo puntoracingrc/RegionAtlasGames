@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import type { CollectionView } from "./types";
+import { enrichCollectionItem, getCatalogGame } from "./catalog";
+import { withResolvedCollectionPhysicalVariant } from "./catalog-physical-variant";
+import { catalogGameToCollectionItem } from "./collection-store";
 import {
   collectionConditionValues,
   formatCollectionConditionSummary,
@@ -47,6 +50,30 @@ function item(overrides: Partial<CollectionView>): CollectionView {
   };
 }
 
+function ownedCatalogItem({
+  catalogId,
+  id,
+  physicalVariantId,
+  completePrice,
+}: {
+  catalogId: string;
+  id: string;
+  physicalVariantId: string;
+  completePrice: number;
+}): CollectionView {
+  const game = getCatalogGame(catalogId);
+  assert.ok(game);
+  const resolved = withResolvedCollectionPhysicalVariant(enrichCollectionItem({
+    ...catalogGameToCollectionItem(game, [], "complete", physicalVariantId),
+    id,
+  }));
+  return {
+    ...resolved,
+    estimatedPriceComplete: completePrice,
+    totalValue: completePrice,
+  };
+}
+
 test("groups copies of the same catalog game and preserves their conditions", () => {
   const grouped = groupCollectionDisplayItems([
     item({ id: "sealed", sealed: true, collectionCondition: "sealed", quantity: 2, totalValue: 40 }),
@@ -71,7 +98,7 @@ test("groups copies of the same catalog game and preserves their conditions", ()
   );
 });
 
-test("keeps physical variants with the same technical catalog ID in separate groups", () => {
+test("keeps legacy physical variants separate when no V2 family is available", () => {
   const grouped = groupCollectionDisplayItems([
     item({ id: "german", catalogId: "ps5-absolum", physicalVariantId: "absolum-ps5-europe-standard-de" }),
     item({ id: "korean", catalogId: "ps5-absolum", physicalVariantId: "absolum-ps5-asia-korea" }),
@@ -81,6 +108,91 @@ test("keeps physical variants with the same technical catalog ID in separate gro
   assert.deepEqual(grouped.map((entry) => entry.game.physicalVariantId), [
     "absolum-ps5-europe-standard-de",
     "absolum-ps5-asia-korea",
+  ]);
+});
+
+test("groups owned V2 editions visually and exposes only their own regions", () => {
+  const grouped = groupCollectionDisplayItems([
+    ownedCatalogItem({
+      catalogId: "ps5-absolum",
+      id: "german",
+      physicalVariantId: "absolum-ps5-europe-standard-de",
+      completePrice: 20,
+    }),
+    ownedCatalogItem({
+      catalogId: "ps5-absolum",
+      id: "korean",
+      physicalVariantId: "absolum-ps5-asia-korea",
+      completePrice: 30,
+    }),
+  ]);
+
+  assert.equal(grouped.length, 1);
+  assert.equal(grouped[0]?.groupKey, "family:absolum-ps5:standard");
+  assert.equal(grouped[0]?.units, 2);
+  assert.deepEqual(grouped[0]?.itemIds, ["german", "korean"]);
+  assert.deepEqual(grouped[0]?.game.physicalEditionGroup?.overviewRegions, [
+    "PAL Alemania",
+    "NTSC-J Corea",
+  ]);
+  assert.equal(grouped[0]?.game.physicalEditionGroup?.physicalEditionCount, 2);
+  assert.deepEqual(collectionConditionValues(grouped[0]!), [{
+    condition: "complete",
+    label: "Completo",
+    units: 2,
+    unitPrice: null,
+    totalPrice: 50,
+  }]);
+});
+
+test("groups a V2 family whose owned regions use different catalog IDs", () => {
+  const grouped = groupCollectionDisplayItems([
+    ownedCatalogItem({
+      catalogId: "ps3-assassin%27s-creed",
+      id: "assassins-es",
+      physicalVariantId: "assassins-creed-ps3-europe-standard",
+      completePrice: 18,
+    }),
+    ownedCatalogItem({
+      catalogId: "ps3-usa-assassin-s-creed",
+      id: "assassins-us",
+      physicalVariantId: "assassins-creed-ps3-north-america-standard",
+      completePrice: 24,
+    }),
+  ]);
+
+  assert.equal(grouped.length, 1);
+  assert.equal(grouped[0]?.game.catalogId, "ps3-assassin%27s-creed");
+  assert.deepEqual(grouped[0]?.game.physicalEditionGroup?.catalogIds, [
+    "ps3-assassin%27s-creed",
+    "ps3-usa-assassin-s-creed",
+  ]);
+  assert.deepEqual(grouped[0]?.game.physicalEditionGroup?.overviewRegions, [
+    "PAL España",
+    "NTSC USA",
+  ]);
+});
+
+test("keeps distinct V2 edition families as separate collection cards", () => {
+  const grouped = groupCollectionDisplayItems([
+    ownedCatalogItem({
+      catalogId: "ps5-absolum",
+      id: "standard",
+      physicalVariantId: "absolum-ps5-europe-standard-en-fr-es",
+      completePrice: 28,
+    }),
+    ownedCatalogItem({
+      catalogId: "ps5-absolum-special-edition",
+      id: "special",
+      physicalVariantId: "absolum-ps5-europe-special",
+      completePrice: 40,
+    }),
+  ]);
+
+  assert.equal(grouped.length, 2);
+  assert.deepEqual(grouped.map((entry) => entry.game.editionFamilyLabel), [
+    "Standard Edition",
+    "Special Edition",
   ]);
 });
 

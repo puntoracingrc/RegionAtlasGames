@@ -51,11 +51,13 @@ export function CollectionCopiesManager({
   catalogCover,
   initialItems,
   initialListings,
+  allowAddCopy = true,
 }: {
   catalogId: string;
   catalogCover: string | null;
   initialItems: CollectionView[];
   initialListings: CollectionCopyListing[];
+  allowAddCopy?: boolean;
 }) {
   const router = useRouter();
   const [items, setItems] = useState(initialItems);
@@ -64,7 +66,7 @@ export function CollectionCopiesManager({
   const [error, setError] = useState<string | null>(null);
   const physicalVariantIds = [...new Set(items.map((item) => item.physicalVariantId).filter((id): id is string => Boolean(id)))];
   const physicalVariantId = physicalVariantIds.length === 1 ? physicalVariantIds[0] : undefined;
-  const canAddCopy = physicalVariantIds.length <= 1;
+  const canAddCopy = allowAddCopy && physicalVariantIds.length <= 1;
 
   async function addCopy() {
     setAdding(true);

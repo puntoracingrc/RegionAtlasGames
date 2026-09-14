@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { CheckSquare2, LayoutGrid, LoaderCircle, Lock, Rows3, Square, X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { CollectionGameCard } from "@/components/game-card";
+import { CatalogCardRegionFlags, CollectionGameCard } from "@/components/game-card";
 import { HighlightLegend } from "@/components/highlight-legend";
 import { CollectionValueUpsell } from "@/components/collection-value-upsell";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
@@ -27,7 +27,6 @@ import {
 } from "@/lib/collection-display";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import { RegionFlag } from "@/components/region-flag";
 import { IntentLink } from "@/components/intent-link";
 import { collectionCatalogAnchorId, collectionCatalogPath } from "@/lib/collection-path";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
@@ -54,6 +53,7 @@ const searchClass =
 type BulkFeedback = { kind: "success" | "error"; message: string } | null;
 
 function displayItemKey(item: CollectionDisplayItem): string {
+  if (item.groupKey) return item.groupKey;
   return item.game.catalogMatched && item.game.catalogId
     ? collectionStorageIdentityKey(item.game)
     : item.game.id;
@@ -146,12 +146,12 @@ export function CollectionExplorer({
       item.itemIds.filter((itemId) => blocksBulkConditionChange(listingStateByItemId[itemId])).length,
     0,
   );
-  const activeSaleKeys = useMemo(
+  const activeSaleItemIds = useMemo(
     () =>
       new Set(
         items.flatMap((item) =>
           listingStateByItemId[item.id] === "active"
-            ? [item.catalogMatched && item.catalogId ? collectionStorageIdentityKey(item) : item.id]
+            ? [item.id]
             : [],
         ),
       ),
@@ -504,7 +504,7 @@ export function CollectionExplorer({
                   game={game}
                   conditionCounts={conditionCounts}
                   conditionValues={collectionConditionValues(item)}
-                  hasActiveListing={activeSaleKeys.has(key)}
+                  hasActiveListing={item.itemIds.some((itemId) => activeSaleItemIds.has(itemId))}
                   overlayAction={
                     selectionMode ? (
                       <BulkSelectionOverlay
@@ -742,6 +742,7 @@ function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
     : `/coleccion/${game.id}`;
   const cover = getCoverSrc(game.coverUrl, game.catalogId ?? game.id);
   const conditionValues = collectionConditionValues(item);
+  const displayRegions = game.physicalEditionGroup?.overviewRegions ?? [game.region];
 
   return (
     <IntentLink
@@ -766,10 +767,15 @@ function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
             {game.physicalVariantLabel}
           </p>
         ) : null}
+        {game.physicalEditionGroup?.editionFamilyLabel ? (
+          <p className="mt-0.5 truncate text-[11px] font-semibold text-accent">
+            {game.physicalEditionGroup.editionFamilyLabel}
+          </p>
+        ) : null}
         <p className="mt-0.5 flex flex-wrap items-center gap-1 text-[11px] text-muted">
           <span className="uppercase">{game.platformSlug}</span>
           <span aria-hidden>·</span>
-          <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
+          <CatalogCardRegionFlags regions={displayRegions} />
         </p>
       </div>
       <div className="col-span-2 grid min-w-0 grid-cols-[repeat(auto-fit,minmax(96px,1fr))] divide-x divide-border/70 md:col-span-1">

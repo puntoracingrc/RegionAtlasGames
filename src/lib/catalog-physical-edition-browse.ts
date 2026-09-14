@@ -175,6 +175,8 @@ function buildSummary(
 type GroupCatalogListGamesOptions = {
   mergeSearchMetadata?: boolean;
   mergeSearchText?: boolean;
+  /** Resume solo las ediciones representadas en `games`, por ejemplo en una ficha de compañía. */
+  scopePhysicalEditionsToInput?: boolean;
 };
 
 /** Agrupa solo familias declaradas como v2; nunca borra ni modifica el catálogo legacy. */
@@ -182,13 +184,14 @@ export function groupCatalogListGames(
   games: CatalogListGame[],
   options: GroupCatalogListGamesOptions = {},
 ): CatalogListGame[] {
-  const byId = new Map(games.map((game) => [game.id, game]));
+  const uniqueGames = [...new Map(games.map((game) => [game.id, game])).values()];
+  const byId = new Map(uniqueGames.map((game) => [game.id, game]));
   const suppressed = new Set<string>();
   const replacementById = new Map<string, CatalogListGame>();
   const guidesById = new Map<string, CatalogEditionGuideModel>();
   const runtimeGames: CatalogGame[] = [];
 
-  for (const game of games) {
+  for (const game of uniqueGames) {
     const staticGame = getCatalogGame(game.id);
     if (staticGame) {
       const guide = getCatalogEditionGuideModel(staticGame);
@@ -236,8 +239,12 @@ export function groupCatalogListGames(
       });
       if (!members.length) continue;
 
+      const summaryEditions = options.scopePhysicalEditionsToInput
+        ? grouping.editions.filter((edition) => edition.catalogIds.some((catalogId) => byId.has(catalogId)))
+        : grouping.editions;
+
       const representative = byId.get(grouping.representativeCatalogId) ?? members[0];
-      const summary = buildSummary(guide, grouping.editions, members, grouping.family);
+      const summary = buildSummary(guide, summaryEditions, members, grouping.family);
       const sharedFields = {
         ...representative,
         title: grouping.family ? representative.title : guide.game.title,
@@ -252,7 +259,7 @@ export function groupCatalogListGames(
         }
         continue;
       }
-      const searchAdditions = grouping.editions.flatMap((edition) => [
+      const searchAdditions = summaryEditions.flatMap((edition) => [
         edition.label,
         edition.broadRegion,
         edition.editionType,
@@ -287,7 +294,7 @@ export function groupCatalogListGames(
     }
   }
 
-  return games.flatMap((game) => {
+  return uniqueGames.flatMap((game) => {
     if (suppressed.has(game.id)) return [];
     return [replacementById.get(game.id) ?? game];
   });

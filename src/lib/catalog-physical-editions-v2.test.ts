@@ -853,6 +853,41 @@ test("sitewide V2 groups published regional pages and keeps their catalog collec
   );
 });
 
+test("scoped V2 grouping exposes only editions present in the input", () => {
+  const source = ["ps5-absolum", "ps5-usa-absolum"].map((id) =>
+    toCatalogListGame(getCatalogGame(id)!),
+  );
+  const grouped = groupCatalogListGames(source, { scopePhysicalEditionsToInput: true });
+
+  assert.equal(grouped.length, 1);
+  assert.deepEqual(grouped[0]?.physicalEditionGroup?.catalogIds, [
+    "ps5-absolum",
+    "ps5-usa-absolum",
+  ]);
+  assert.equal(grouped[0]?.physicalEditionGroup?.physicalEditionCount, 2);
+  assert.deepEqual(grouped[0]?.physicalEditionGroup?.overviewRegions, [
+    "PAL Europa",
+    "NTSC USA",
+  ]);
+  assert.equal(grouped[0]?.searchText?.includes("korea"), false);
+});
+
+test("V2 grouping emits one card when a company index repeats a catalog identity", () => {
+  const source = ["ps5-absolum", "ps5-usa-absolum"].map((id) =>
+    toCatalogListGame(getCatalogGame(id)!),
+  );
+  const grouped = groupCatalogListGames(
+    [source[0]!, source[0]!, source[1]!, source[1]!],
+    { scopePhysicalEditionsToInput: true },
+  );
+
+  assert.equal(grouped.length, 1);
+  assert.deepEqual(grouped[0]?.physicalEditionGroup?.catalogIds, [
+    "ps5-absolum",
+    "ps5-usa-absolum",
+  ]);
+});
+
 test("the previous four catalog additions remain exact and all prior catalog rows are preserved", () => {
   const rawCatalog = JSON.parse(readFileSync(path.join(process.cwd(), "data", "catalog.json"), "utf8")) as Array<{
     id: string;

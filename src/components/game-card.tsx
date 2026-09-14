@@ -218,6 +218,7 @@ export function CollectionGameCard({
         quantity={game.quantity}
         conditionCounts={conditionCounts}
         conditionValues={conditionValues}
+        physicalEditionGroup={game.physicalEditionGroup}
         grail={grail}
         topSegment={topSegment}
       />

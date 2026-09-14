@@ -1,6 +1,14 @@
 import { getCatalogGame } from "./catalog";
-import { getCatalogEditionGuides } from "./catalog-edition-guides";
-import { isStrongPhysicalEvidence } from "./catalog-edition-guide-types";
+import { getCatalogEditionGuideModel, getCatalogEditionGuides } from "./catalog-edition-guides";
+import {
+  catalogBroadRegionLabel,
+  catalogMarketRegionToLegacyRegion,
+  isStrongPhysicalEvidence,
+  type CatalogEditionFamily,
+  type CatalogEditionGuideModel,
+  type CatalogPhysicalEdition,
+  type CatalogPhysicalEditionGroupSummary,
+} from "./catalog-edition-guide-types";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
 import { collectionStorageIdentityKey } from "./collection-identity";
 import type { CollectionItem, CollectionView } from "./types";
@@ -17,6 +25,12 @@ export type ResolvedCatalogPhysicalVariant = {
   editionFamilyId?: string;
   editionFamilyLabel?: string;
   representativeCatalogId: string;
+};
+
+export type CatalogEditionMembership = {
+  guide: CatalogEditionGuideModel;
+  family: CatalogEditionFamily;
+  edition: CatalogPhysicalEdition;
 };
 
 function resolveExplicitVariant(
@@ -78,6 +92,107 @@ export function resolveCatalogPhysicalVariant(
   return undefined;
 }
 
+/**
+ * Resolves the V2 presentation family without changing the copy's persisted
+ * catalog or physical-variant identity.
+ */
+export function resolveCatalogEditionMembership(
+  catalogId: string | null | undefined,
+  physicalVariantId?: string | null,
+): CatalogEditionMembership | undefined {
+  if (!catalogId) return undefined;
+  const game = getCatalogGame(catalogId);
+  if (!game) return undefined;
+  const guide = getCatalogEditionGuideModel(game);
+  if (!guide?.editionFamilies.length) return undefined;
+
+  const edition = physicalVariantId
+    ? guide.physicalEditions.find((candidate) => candidate.id === physicalVariantId)
+    : guide.physicalEditions.find((candidate) => candidate.catalogIds.includes(catalogId));
+  if (!edition) return undefined;
+
+  const family = guide.editionFamilies.find((candidate) =>
+    candidate.physicalEditionIds.includes(edition.id),
+  );
+  if (!family) return undefined;
+
+  if (physicalVariantId) {
+    const allowedCatalogIds = new Set([
+      family.representativeCatalogId,
+      ...guide.physicalEditions
+        .filter((candidate) => family.physicalEditionIds.includes(candidate.id))
+        .flatMap((candidate) => candidate.catalogIds),
+    ]);
+    if (!allowedCatalogIds.has(catalogId)) return undefined;
+  }
+
+  return { guide, family, edition };
+}
+
+function broadRegionFallback(edition: CatalogPhysicalEdition): string {
+  switch (edition.broadRegion) {
+    case "EUROPE":
+      return "PAL Europa";
+    case "NORTH_AMERICA":
+      return "Norteamérica";
+    case "ASIA":
+      return "Asia";
+    default:
+      return "Internacional";
+  }
+}
+
+function ownedEditionRegions(
+  item: CollectionView,
+  edition: CatalogPhysicalEdition,
+): string[] {
+  if (item.physicalVariantId && edition.marketRegions.length) {
+    return edition.marketRegions.map(catalogMarketRegionToLegacyRegion);
+  }
+  if (item.region?.trim()) return [item.region];
+  if (edition.marketRegions.length) {
+    return edition.marketRegions.map(catalogMarketRegionToLegacyRegion);
+  }
+  return [broadRegionFallback(edition)];
+}
+
+function singlePriceRange(value: number | null | undefined) {
+  return typeof value === "number" && value > 0 ? { min: value, max: value } : undefined;
+}
+
+function collectionEditionGroup(
+  item: CollectionView,
+  membership: CatalogEditionMembership,
+): CatalogPhysicalEditionGroupSummary {
+  const { guide, family, edition } = membership;
+  const complete = singlePriceRange(item.estimatedPriceComplete);
+  const sealed = singlePriceRange(item.estimatedPriceSealed ?? item.estimatedPriceNewRetail);
+  return {
+    guideId: guide.id,
+    canonicalCatalogId: family.representativeCatalogId,
+    editionFamilyId: family.id,
+    editionFamilyLabel: family.label,
+    catalogIds: item.catalogId ? [item.catalogId] : [],
+    legacyRegions: ownedEditionRegions(item, edition),
+    marketRegions: [...edition.marketRegions],
+    overviewRegions: ownedEditionRegions(item, edition),
+    physicalEditionCount: 1,
+    collectibleVariantCount: edition.variants.length,
+    broadRegions: [{
+      value: edition.broadRegion,
+      label: catalogBroadRegionLabel(edition.broadRegion),
+      editionCount: 1,
+    }],
+    editionTypes: [edition.editionType],
+    ratingSystems: [...edition.ratingSystems],
+    packagingLanguages: [...edition.packagingLanguages],
+    priceRanges: {
+      ...(complete ? { complete } : {}),
+      ...(sealed ? { sealed } : {}),
+    },
+  };
+}
+
 export function collectionPhysicalIdentityKey(item: CollectionPhysicalIdentity): string {
   const resolved = resolveCatalogPhysicalVariant(item.catalogId, item.physicalVariantId);
   if (resolved) return `physical:${resolved.guideId}:${resolved.physicalVariantId}`;
@@ -86,10 +201,10 @@ export function collectionPhysicalIdentityKey(item: CollectionPhysicalIdentity):
 }
 
 export function withResolvedCollectionPhysicalVariant(item: CollectionView): CollectionView {
+  const membership = resolveCatalogEditionMembership(item.catalogId, item.physicalVariantId);
   const resolved = resolveCatalogPhysicalVariant(item.catalogId, item.physicalVariantId);
-  if (!resolved?.editionFamilyId) return item;
-  const guide = getCatalogEditionGuides().find((candidate) => candidate.id === resolved.guideId);
-  const edition = guide?.physicalEditions.find((candidate) => candidate.id === resolved.physicalVariantId);
+  if (!membership) return item;
+  const { family, edition } = membership;
   const scanCover = edition?.scanSetIds.flatMap((id) => {
     const scans = getOwnedScanSetById(id);
     return scans ? [scans.primaryCoverUrl] : [];
@@ -101,10 +216,14 @@ export function withResolvedCollectionPhysicalVariant(item: CollectionView): Col
   })[0];
   return {
     ...item,
-    physicalVariantId: resolved.physicalVariantId,
-    physicalVariantLabel: resolved.physicalVariantLabel,
-    editionFamilyLabel: resolved.editionFamilyLabel,
-    coverUrl: scanCover ?? evidenceCover ?? catalogCover ?? null,
+    ...(resolved ? {
+      physicalVariantId: resolved.physicalVariantId,
+      physicalVariantLabel: resolved.physicalVariantLabel,
+    } : {}),
+    editionFamilyLabel: family.label,
+    physicalEditionId: edition.id,
+    physicalEditionGroup: collectionEditionGroup(item, membership),
+    coverUrl: scanCover ?? evidenceCover ?? catalogCover ?? item.coverUrl,
   };
 }
 

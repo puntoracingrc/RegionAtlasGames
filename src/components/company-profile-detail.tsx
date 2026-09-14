@@ -9,6 +9,7 @@ import { CompanyProfileHeader } from "@/components/company-profile-header";
 import { PersonPortrait } from "@/components/person-portrait";
 import { SiteNav } from "@/components/site-nav";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
+import { groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
 import { buildCompanyIntro } from "@/lib/company-seo";
 import type { CompanyProfileView } from "@/lib/company-profile";
 
@@ -30,7 +31,9 @@ type Props = {
 export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds, isLoggedIn }: Props) {
   const intro = buildCompanyIntro(view);
   const introParagraphs = intro.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
-  const games = view.games.map(toCatalogListGame);
+  const games = groupCatalogListGames(view.games.map(toCatalogListGame), {
+    scopePhysicalEditionsToInput: true,
+  });
 
   return (
     <>
