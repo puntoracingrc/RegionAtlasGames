@@ -55,6 +55,14 @@ type PhysicalGuide = {
     editionType: CatalogPhysicalEditionType;
     marketRegions?: string[];
     packagingLanguages?: string[];
+    componentLanguageEvidence?: Array<{
+      component: CatalogPhysicalEdition["componentLanguageEvidence"][number]["component"];
+      languages: string[];
+      basis: CatalogPhysicalEdition["componentLanguageEvidence"][number]["basis"];
+      exhaustive: boolean;
+      note?: string;
+      evidenceIds?: string[];
+    }>;
     ratingSystems?: string[];
     barcode?: string;
     catalogNumber?: string;
@@ -163,6 +171,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       editionType: legacyEditionType(entry.label),
       marketRegions: [target.region],
       packagingLanguages: [],
+      componentLanguageEvidence: [],
       ratingSystems: [],
       physicalContents: [],
       digitalContents: [],
@@ -279,6 +288,10 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
       ...entry,
       marketRegions,
       packagingLanguages: entry.packagingLanguages ?? [],
+      componentLanguageEvidence: (entry.componentLanguageEvidence ?? []).map((languageEvidence) => ({
+        ...languageEvidence,
+        evidence: requireEvidence(languageEvidence.evidenceIds),
+      })),
       ratingSystems: entry.ratingSystems ?? [],
       physicalContents: entry.physicalContents ?? [],
       digitalContents: entry.digitalContents ?? [],

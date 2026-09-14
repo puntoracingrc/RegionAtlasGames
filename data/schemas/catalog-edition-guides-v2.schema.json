@@ -33,12 +33,22 @@
       "required": ["key", "url", "thumbnailUrl", "width", "height", "caption"],
       "properties": {
         "key": { "type": "string", "minLength": 1 },
+        "placement": { "enum": ["GALLERY", "CONTENTS"] },
         "url": { "type": "string", "minLength": 1 },
         "thumbnailUrl": { "type": "string", "minLength": 1 },
         "width": { "type": "integer", "minimum": 1 },
         "height": { "type": "integer", "minimum": 1 },
         "caption": { "type": "string", "minLength": 1 },
-        "evidenceType": { "$ref": "#/$defs/evidenceType" }
+        "evidenceType": { "$ref": "#/$defs/evidenceType" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "thumbnailSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "originalUrl": { "type": "string", "minLength": 1 },
+        "originalWidth": { "type": "integer", "minimum": 1 },
+        "originalHeight": { "type": "integer", "minimum": 1 },
+        "originalSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "sourcePageUrl": { "type": "string", "format": "uri" },
+        "inspectedAt": { "type": "string", "format": "date" }
       }
     },
     "identity": {
@@ -83,10 +93,16 @@
       }
     },
     "broadRegion": {
-      "enum": ["EUROPE", "NORTH_AMERICA", "ASIA", "OTHER"]
+      "enum": ["EUROPE", "NORTH_AMERICA", "LATIN_AMERICA", "ASIA", "OCEANIA", "MIDDLE_EAST", "AFRICA", "OTHER"]
     },
     "marketRegion": {
-      "enum": ["FR", "ES", "GB", "DE", "US", "JP", "KR", "HK", "TW"]
+      "enum": [
+        "ES", "PT", "FR", "IT", "DE", "AT", "CH", "GB", "IE", "BE", "NL", "LU",
+        "DK", "SE", "NO", "FI", "PL", "CZ", "SK", "HU", "RO", "BG", "GR", "TR", "RU", "UA",
+        "US", "CA", "MX", "BR", "AR", "CL", "CO", "PE",
+        "JP", "KR", "HK", "TW", "CN", "SG", "MY", "TH", "ID", "PH", "IN",
+        "AU", "NZ", "AE", "SA", "QA", "KW", "BH", "OM", "ZA", "MZ", "AO"
+      ]
     },
     "editionType": {
       "enum": ["STANDARD", "COMPILATION", "BUDGET_REISSUE", "SPECIAL", "COLLECTOR", "DELUXE", "LIMITED", "STEELBOOK", "OTHER"]
@@ -108,6 +124,19 @@
         "url": { "type": "string", "format": "uri" },
         "summary": { "type": "string" },
         "supports": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "componentLanguageEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["component", "languages", "basis", "exhaustive"],
+      "properties": {
+        "component": { "enum": ["BOX", "OUTER_BOX", "INNER_GAME", "FRONT", "BACK", "SPINE", "MANUAL", "OTHER"] },
+        "languages": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 }, "uniqueItems": true },
+        "basis": { "enum": ["OBSERVED", "DECLARED"] },
+        "exhaustive": { "type": "boolean" },
+        "note": { "type": "string" },
+        "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
       }
     },
     "variant": {
@@ -165,6 +194,7 @@
         "editionType": { "$ref": "#/$defs/editionType" },
         "marketRegions": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
         "packagingLanguages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "componentLanguageEvidence": { "type": "array", "items": { "$ref": "#/$defs/componentLanguageEvidence" } },
         "ratingSystems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "barcode": { "type": "string" },
         "catalogNumber": { "type": "string" },

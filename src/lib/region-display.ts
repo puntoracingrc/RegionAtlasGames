@@ -1,5 +1,9 @@
 import ps1MarketsData from "../../data/ps1-region-markets.json";
 import ps2MarketsData from "../../data/ps2-region-markets.json";
+import {
+  CATALOG_MARKET_REGION_META,
+  CATALOG_MARKET_REGION_VALUES,
+} from "./catalog-edition-guide-types";
 
 export type RegionFlagCode = string;
 
@@ -29,7 +33,19 @@ const REGION_MAP: Record<string, RegionDisplay> = {
   japonesa: { flagCode: "JP", label: "Japonesa", shortLabel: "JP" },
 };
 
-// Markets are data, not an enum: a new territory needs no schema change.
+for (const code of CATALOG_MARKET_REGION_VALUES) {
+  const entry = CATALOG_MARKET_REGION_META[code];
+  const display = {
+    flagCode: entry.flagCode,
+    label: entry.legacyRegion,
+    shortLabel: entry.shortLabel,
+  };
+  REGION_MAP[code.toLowerCase()] = display;
+  REGION_MAP[entry.country.toLowerCase()] = display;
+  REGION_MAP[entry.legacyRegion.toLowerCase()] = display;
+}
+
+// Legacy PS1/PS2 market labels remain available alongside the stricter V2 registry.
 for (const entry of [...Object.values(ps1MarketsData.markets), ...Object.values(ps2MarketsData.markets)]) {
   REGION_MAP[entry.label.toLowerCase()] = {
     flagCode: entry.flagCode, label: entry.label,

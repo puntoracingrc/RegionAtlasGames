@@ -18,6 +18,7 @@ import {
   type CatalogEditionFamily,
   type CatalogEditionGuideModel,
   type CatalogPhysicalEdition,
+  type CatalogPhysicalComponent,
 } from "@/lib/catalog-edition-guide-types";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { getOwnedScanSetById } from "@/lib/catalog-owned-scans";
@@ -26,7 +27,6 @@ import { formatEur } from "@/lib/price-format";
 import { catalogConditionPriceRows } from "@/lib/price-display";
 import {
   catalogPhysicalEditionBroadRegionAnchorId,
-  catalogPhysicalEditionOverviewRegions,
 } from "@/lib/catalog-physical-edition-browse";
 import { catalogPhysicalEditionHeadingLabel } from "@/lib/catalog-physical-edition-display";
 import {
@@ -45,6 +45,21 @@ type CatalogEditionGuideProps = {
     collectionItemId?: string;
   }>;
 };
+
+const PHYSICAL_COMPONENT_LABELS: Record<CatalogPhysicalComponent, string> = {
+  BOX: "Caja",
+  OUTER_BOX: "Caja exterior",
+  INNER_GAME: "Juego interior",
+  FRONT: "Portada",
+  BACK: "Contraportada",
+  SPINE: "Lomo",
+  MANUAL: "Manual",
+  OTHER: "Otro componente",
+};
+
+function physicalComponentLabel(component: CatalogPhysicalComponent): string {
+  return PHYSICAL_COMPONENT_LABELS[component];
+}
 
 export function CatalogEditionGuide({
   game,
@@ -121,7 +136,7 @@ function physicalEditionGalleryImages(edition: CatalogPhysicalEdition): Physical
   }
 
   for (const image of edition.images) {
-    if (!isStrongPhysicalEvidence(image.evidenceType)) continue;
+    if (!isStrongPhysicalEvidence(image.evidenceType) && image.placement !== "CONTENTS") continue;
     add({
       id: image.key,
       src: image.url,
@@ -289,9 +304,7 @@ function PhysicalEditionRow({
   const collectionCatalogId = linkedCatalogGame?.id ?? family?.representativeCatalogId;
   const ownedCount = actionState?.ownedCount ?? 0;
   const isCurrentEdition = edition.id === guide.currentEditionId;
-  const documentedRegions = edition.marketRegions.length
-    ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
-    : catalogPhysicalEditionOverviewRegions([edition]);
+  const documentedRegions = edition.marketRegions.map(catalogMarketRegionToLegacyRegion);
   const alternateCatalogLinks = edition.catalogLinks.filter((link) => !link.current);
   const includedEditions = edition.includesEditionIds.flatMap((id) => {
     const target = guide.physicalEditions.find((candidate) => candidate.id === id);
@@ -301,6 +314,7 @@ function PhysicalEditionRow({
     const target = getCatalogGame(id);
     return target ? [target] : [];
   });
+  const contentsImage = edition.images.find((image) => image.placement === "CONTENTS");
   return (
     <article
       id={edition.id}
@@ -325,6 +339,9 @@ function PhysicalEditionRow({
               labelMode="short"
             />
           ))}
+          {!documentedRegions.length ? (
+            <span className="text-sm font-medium text-muted">· Mercado nacional pendiente</span>
+          ) : null}
           {edition.ratingSystems.length ? (
             <span>· {edition.ratingSystems.join(" + ")}</span>
           ) : null}
@@ -361,6 +378,22 @@ function PhysicalEditionRow({
             {edition.releaseDateContext ? <Fact label="Contexto de la fecha" value={edition.releaseDateContext} /> : null}
           </dl>
 
+          {edition.componentLanguageEvidence.length ? (
+            <div className="mt-3 border-l-2 border-border pl-3 text-xs text-muted">
+              <p className="font-semibold uppercase text-foreground">Idiomas documentados por componente</p>
+              {edition.componentLanguageEvidence.map((languageEvidence, index) => (
+                <p key={`${languageEvidence.component}-${index}`} className="mt-1">
+                  <strong>{physicalComponentLabel(languageEvidence.component)}:</strong>{" "}
+                  {languageEvidence.languages.join(" / ")}{" "}
+                  <span>
+                    ({languageEvidence.basis === "OBSERVED" ? "observado" : "declarado por la fuente"}
+                    {languageEvidence.exhaustive ? ", listado completo" : ", alcance parcial"})
+                  </span>
+                </p>
+              ))}
+            </div>
+          ) : null}
+
           {alternateCatalogLinks.length ? (
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
               {alternateCatalogLinks.map((link) => (
@@ -393,14 +426,24 @@ function PhysicalEditionRow({
             </div>
           ) : null}
 
-          {edition.dimensions ? <DimensionsComparison dimensions={edition.dimensions} /> : null}
+        </div>
+      </div>
 
-          {includedEditions.length || containedGames.length || edition.physicalContents.length || edition.digitalContents.length ? (
-            <div className="mt-4 border-l-2 border-accent/40 pl-3 text-sm leading-6">
-              {includedEditions.length ? <p><strong>Incluye:</strong> {includedEditions.join(" · ")}</p> : null}
-              {containedGames.length ? (
-                <p>
-                  <strong>Juegos incluidos:</strong>{" "}
+      {edition.dimensions ? <DimensionsComparison dimensions={edition.dimensions} /> : null}
+
+      {includedEditions.length || containedGames.length || edition.physicalContents.length || edition.digitalContents.length || contentsImage ? (
+        <div className="mt-4 grid gap-4 border-l-2 border-accent/40 pl-3 md:grid-cols-[minmax(0,0.85fr)_minmax(18rem,1.15fr)] md:items-start">
+          <dl className="grid grid-cols-1 gap-y-1 text-sm leading-6 sm:grid-cols-[max-content_minmax(0,1fr)] sm:gap-x-2 md:grid-cols-1 md:gap-x-0 lg:grid-cols-[max-content_minmax(0,1fr)] lg:gap-x-2">
+            {includedEditions.length ? (
+              <>
+                <dt className="font-semibold text-foreground">Incluye:</dt>
+                <dd>{includedEditions.join(" · ")}</dd>
+              </>
+            ) : null}
+            {containedGames.length ? (
+              <>
+                <dt className="font-semibold text-foreground">Juegos incluidos:</dt>
+                <dd>
                   {containedGames.map((game, index) => (
                     <span key={game.id}>
                       {index ? " · " : ""}
@@ -409,14 +452,38 @@ function PhysicalEditionRow({
                       </Link>
                     </span>
                   ))}
-                </p>
-              ) : null}
-              {edition.physicalContents.length ? <p><strong>Contenido físico:</strong> {edition.physicalContents.join(" · ")}</p> : null}
-              {edition.digitalContents.length ? <p><strong>Contenido digital:</strong> {edition.digitalContents.join(" · ")}</p> : null}
-            </div>
+                </dd>
+              </>
+            ) : null}
+            {edition.physicalContents.length ? (
+              <>
+                <dt className="font-semibold text-foreground">Contenido físico:</dt>
+                <dd>{edition.physicalContents.join(" · ")}</dd>
+              </>
+            ) : null}
+            {edition.digitalContents.length ? (
+              <>
+                <dt className="font-semibold text-foreground">Contenido digital:</dt>
+                <dd>{edition.digitalContents.join(" · ")}</dd>
+              </>
+            ) : null}
+          </dl>
+          {contentsImage ? (
+            <figure className="min-w-0">
+              <Image
+                unoptimized
+                src={contentsImage.url}
+                width={contentsImage.width}
+                height={contentsImage.height}
+                alt={contentsImage.caption}
+                sizes="(min-width: 768px) 420px, 100vw"
+                className="h-auto w-full rounded-sm border border-border/70 bg-background object-contain"
+              />
+              <figcaption className="mt-1 text-xs text-muted">{contentsImage.caption}</figcaption>
+            </figure>
           ) : null}
         </div>
-      </div>
+      ) : null}
 
       {edition.variants.length ? (
         <div className="mt-4 border-t border-border/70 pt-3">
@@ -442,9 +509,9 @@ function DimensionsComparison({ dimensions }: { dimensions: NonNullable<CatalogP
   const formatCm = (value: number) => `${value.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} cm`;
   return (
     <div className="mt-4 border-y border-border/70 py-3">
-      <div className="grid w-full grid-cols-[minmax(0,8rem)_minmax(0,1fr)] items-center gap-4 sm:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] sm:gap-6">
+      <div className="grid w-full grid-cols-1 items-center gap-4 sm:grid-cols-[minmax(7.5rem,0.55fr)_minmax(17rem,1.45fr)]">
         {dimensions.comparisonImageUrl ? (
-          <div className="w-full">
+          <div className="w-full max-w-56 justify-self-center">
             <Image
               unoptimized
               src={dimensions.comparisonImageUrl}
@@ -457,23 +524,34 @@ function DimensionsComparison({ dimensions }: { dimensions: NonNullable<CatalogP
         ) : null}
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase text-muted">Medidas exteriores {dimensions.approximate ? "aproximadas" : ""}</p>
-          <dl className="mt-2 divide-y divide-border/60 text-sm">
-            <Dimension label="Ancho" value={formatCm(dimensions.widthCm)} />
-            <Dimension label="Alto" value={formatCm(dimensions.heightCm)} />
-            <Dimension label="Profundidad" value={formatCm(dimensions.depthCm)} />
-          </dl>
+          <table className="mt-2 w-full table-fixed text-sm">
+            <caption className="sr-only">Comparación de las medidas exteriores de la caja Special y una caja estándar</caption>
+            <thead>
+              <tr className="text-left text-xs font-semibold text-muted">
+                <th scope="col" className="w-[42%] pb-2 pr-3"><span className="sr-only">Medida</span></th>
+                <th scope="col" className="pb-2 pr-3 text-right">Caja Special</th>
+                {dimensions.comparison ? <th scope="col" className="pb-2 text-right">Caja estándar</th> : null}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border/60">
+              <Dimension label="Ancho" value={formatCm(dimensions.widthCm)} comparisonValue={dimensions.comparison ? formatCm(dimensions.comparison.widthCm) : undefined} />
+              <Dimension label="Alto" value={formatCm(dimensions.heightCm)} comparisonValue={dimensions.comparison ? formatCm(dimensions.comparison.heightCm) : undefined} />
+              <Dimension label="Profundidad" value={formatCm(dimensions.depthCm)} comparisonValue={dimensions.comparison ? formatCm(dimensions.comparison.depthCm) : undefined} />
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   );
 }
 
-function Dimension({ label, value }: { label: string; value: string }) {
+function Dimension({ label, value, comparisonValue }: { label: string; value: string; comparisonValue?: string }) {
   return (
-    <div className="flex items-baseline justify-between gap-3 py-2 first:pt-0 last:pb-0">
-      <dt className="font-semibold text-foreground">{label}</dt>
-      <dd className="shrink-0 text-muted">{value}</dd>
-    </div>
+    <tr>
+      <th scope="row" className="py-2 pr-3 text-left font-semibold text-foreground">{label}</th>
+      <td className="whitespace-nowrap py-2 pr-3 text-right text-muted">{value}</td>
+      {comparisonValue ? <td className="whitespace-nowrap py-2 text-right text-muted">{comparisonValue}</td> : null}
+    </tr>
   );
 }
 

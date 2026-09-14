@@ -1,5 +1,10 @@
 import type { ComponentType } from "react";
-import { AT, AU, BE, CA, CN, DE, DK, ES, FI, FR, GB, GR, HK, IE, IL, IT, JP, KR, NL, NO, PL, PT, RU, SE, TW, US } from "country-flag-icons/react/3x2";
+import {
+  AE, AO, AR, AT, AU, BE, BG, BH, BR, CA, CH, CL, CN, CO, CZ, DE, DK,
+  ES, FI, FR, GB, GR, HK, HU, ID, IE, IL, IN, IT, JP, KR, KW, LU, MX,
+  MY, MZ, NL, NO, NZ, OM, PE, PH, PL, PT, QA, RO, RU, SA, SE, SG, SK,
+  TH, TR, TW, UA, US, ZA,
+} from "country-flag-icons/react/3x2";
 import { FlagEu, FlagUnknown } from "@/components/flag-icons";
 import { getRegionDisplay, type RegionFlagCode } from "@/lib/region-display";
 import { cn } from "@/lib/cn";
@@ -25,6 +30,8 @@ const FLAG_COMPONENTS: Record<RegionFlagCode, FlagComponent> = {
   IT,
   AU,
   AT, BE, CA, CN, DK, FI, FR, GR, HK, IE, IL, KR, NL, NO, PL, PT, RU, SE, TW,
+  AE, AO, AR, BG, BH, BR, CH, CL, CO, CZ, HU, ID, IN, KW, LU, MX, MY, MZ,
+  NZ, OM, PE, PH, QA, RO, SA, SG, SK, TH, TR, UA, ZA,
   UNKNOWN: FlagUnknown,
 };
 
