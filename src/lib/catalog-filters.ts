@@ -4,7 +4,7 @@ import { findGameFacetEntityBySlug, getGameFacetsTaxonomy } from "@/lib/game-fac
 import { esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { publicRegionLabelForPlatform } from "@/lib/platform-region-policy";
-import { getRegionDisplay } from "@/lib/region-display";
+import { getRegionDisplay, sameRegionDisplayIdentity } from "@/lib/region-display";
 import { regionNavigationGroup, selectedRegionGroup } from "@/lib/region-navigation";
 import type { CatalogListGame } from "@/lib/types";
 import { catalogReviewCounts, isGroupedCatalogName, isPendingCatalogGame, pendingEditionForGame, type CatalogReviewCounts, type PendingEdition } from "@/lib/catalog-review-policy";
@@ -311,8 +311,8 @@ function matchesLegacyRegion(game: CatalogListGame, region: string): boolean {
 
     return game.physicalEditionGroup.marketRegions.some((marketRegion) => {
       const legacyRegion = catalogMarketRegionToLegacyRegion(marketRegion);
-      return getRegionDisplay(legacyRegion).label === region ||
-        publicRegionLabelForPlatform(game.platformSlug, legacyRegion) === region;
+      return sameRegionDisplayIdentity(legacyRegion, region) ||
+        sameRegionDisplayIdentity(publicRegionLabelForPlatform(game.platformSlug, legacyRegion), region);
     });
   }
 
@@ -323,7 +323,8 @@ function matchesLegacyRegion(game: CatalogListGame, region: string): boolean {
     if (group) {
       return regionNavigationGroup(publicRegionLabelForPlatform(game.platformSlug, legacyRegion)) === group.id;
     }
-    return standardLabel === region || publicRegionLabelForPlatform(game.platformSlug, legacyRegion) === region;
+    return sameRegionDisplayIdentity(standardLabel, region) ||
+      sameRegionDisplayIdentity(publicRegionLabelForPlatform(game.platformSlug, legacyRegion), region);
   });
 }
 

@@ -77,6 +77,20 @@ export function getRegionDisplay(region: string | null | undefined): RegionDispl
   };
 }
 
+export function regionDisplayIdentity(region: string | null | undefined): string {
+  const display = getRegionDisplay(region);
+  return display.flagCode === "UNKNOWN"
+    ? `label:${normalizeRegionKey(display.label)}`
+    : `flag:${display.flagCode.toUpperCase()}`;
+}
+
+export function sameRegionDisplayIdentity(
+  left: string | null | undefined,
+  right: string | null | undefined,
+): boolean {
+  return regionDisplayIdentity(left) === regionDisplayIdentity(right);
+}
+
 /** @deprecated Usar RegionFlag; solo para `<select>` nativos sin SVG. */
 export function regionShortLabel(region: string | null | undefined): string {
   return getRegionDisplay(region).shortLabel;
