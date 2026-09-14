@@ -4,6 +4,8 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import sharp from "sharp";
+import acPs3GuideDocument from "../../data/catalog-edition-guides-ac-ps3.json";
+import acPs3Implementation from "../../data/research/ac-ps3-backed-v2-2026-09-13.json";
 import guideDocument from "../../data/catalog-edition-guides.json";
 import scanAssets from "../../data/research/owned-scans/2026-09-12-absolum-special-edition-assets.json";
 import schemaDocument from "../../data/schemas/catalog-edition-guides-v2.schema.json";
@@ -70,6 +72,23 @@ const ABSOLUM_CATALOG_IDS = [
   "ps5-absolum",
   "ps5-absolum-special-edition",
   "ps5-usa-absolum",
+] as const;
+
+const AC_PS3_NEW_CATALOG_IDS = [
+  "ps3-japon-assassin%27s-creed-connor-saga-ubi-the-best",
+  "ps3-japon-assassin%27s-creed-iii-ubi-the-best",
+  "ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best",
+  "ps3-japon-assassin%27s-creed-rogue-ubi-the-best",
+] as const;
+
+const AC_PS3_GUIDE_IDS = [
+  "assassins-creed-brotherhood-ps3",
+  "assassins-creed-ezio-trilogy-ps3",
+  "assassins-creed-ezio-saga-ps3",
+  "assassins-creed-connor-saga-ps3",
+  "assassins-creed-iii-ps3",
+  "assassins-creed-iv-black-flag-ps3",
+  "assassins-creed-rogue-ps3",
 ] as const;
 
 function absolumGuide() {
@@ -143,6 +162,8 @@ test("regional rails cover every supported flag and keep Italy ready without add
 
 test("schema v2 keeps legacy guides readable and enumerations synchronized", () => {
   assert.equal(guideDocument.schemaVersion, 2);
+  assert.equal(acPs3GuideDocument.schemaVersion, 2);
+  assert.equal(acPs3GuideDocument.guides.length, AC_PS3_GUIDE_IDS.length);
   assert.ok(guideDocument.guides.some((guide) => !("schemaVersion" in guide)));
   assert.ok(guideDocument.guides.some((guide) => "schemaVersion" in guide && guide.schemaVersion === 2));
   assert.equal(schemaDocument.properties.schemaVersion.const, 2);
@@ -558,9 +579,12 @@ test("every Absolum V2 edition shares verified game details and keeps its physic
   }
 });
 
-test("only Absolum opts into edition families and legacy catalog IDs retain exact variant meaning", () => {
+test("only explicitly migrated guides opt into edition families and legacy catalog IDs retain exact meaning", () => {
   const guidesWithFamilies = getCatalogEditionGuides().filter((guide) => guide.editionFamilies.length > 0);
-  assert.deepEqual(guidesWithFamilies.map((guide) => guide.id), ["absolum-ps5"]);
+  assert.deepEqual(
+    guidesWithFamilies.map((guide) => guide.id),
+    ["absolum-ps5", ...AC_PS3_GUIDE_IDS],
+  );
 
   for (const id of [
     "gameboy-es-solomon-s-club",
@@ -591,6 +615,161 @@ test("only Absolum opts into edition families and legacy catalog IDs retain exac
     resolveCatalogPhysicalVariant("ps5-usa-absolum")?.physicalVariantId,
     "absolum-ps5-north-america-standard",
   );
+});
+
+test("Assassin's Creed PS3 publishes only the four backed additions and preserves all prior catalog rows", () => {
+  const rawCatalog = JSON.parse(readFileSync(path.join(process.cwd(), "data", "catalog.json"), "utf8")) as Array<{
+    id: string;
+    platformSlug: string;
+    seedSource?: string;
+  }>;
+  const additions = rawCatalog.filter((entry) => entry.seedSource === "ac-ps3-backed-v2");
+  assert.deepEqual(additions.map((entry) => entry.id), [...AC_PS3_NEW_CATALOG_IDS]);
+  assert.deepEqual(acPs3Implementation.createdCatalogIds, [...AC_PS3_NEW_CATALOG_IDS]);
+  assert.equal(acPs3Implementation.preservation.destructiveChanges, 0);
+  assert.equal(acPs3Implementation.preservation.userDataChanges, 0);
+
+  const previousCatalog = rawCatalog.filter((entry) => !AC_PS3_NEW_CATALOG_IDS.includes(
+    entry.id as (typeof AC_PS3_NEW_CATALOG_IDS)[number],
+  ));
+  assert.equal(previousCatalog.length, 81_425);
+  assert.equal(
+    createHash("sha256").update(JSON.stringify(previousCatalog)).digest("hex"),
+    "7117deaedb862fa81c14a1b141063441f808a284a0e80b2224b8da66692f0bea",
+  );
+
+  const ps4 = rawCatalog.filter((entry) => entry.platformSlug === "ps4");
+  const ps5 = rawCatalog.filter((entry) => entry.platformSlug === "ps5");
+  assert.equal(ps4.length, 9_716);
+  assert.equal(ps5.length, 4_807);
+  assert.equal(
+    createHash("sha256").update(JSON.stringify(ps4)).digest("hex"),
+    "e3ebbd3af1561e5bb03e43ddd6c4e287f5f1bdd364bc9bc4559aa02ae63d6238",
+  );
+  assert.equal(
+    createHash("sha256").update(JSON.stringify(ps5)).digest("hex"),
+    "711f1f988b43cb58eda10f83eed7349a524ea75d5e706ed61a697a1b583a5d30",
+  );
+});
+
+test("backed Assassin's Creed PS3 facts remain attached to their exact physical editions", () => {
+  const guides = new Map(getCatalogEditionGuides().map((guide) => [guide.id, guide]));
+  for (const guideId of AC_PS3_GUIDE_IDS) {
+    assert.equal(guides.get(guideId)?.schemaVersion, 2, `missing ${guideId}`);
+  }
+
+  const codex = guides.get("assassins-creed-brotherhood-ps3")?.physicalEditions.find(
+    (edition) => edition.id === "assassins-creed-brotherhood-ps3-limited-codex",
+  );
+  assert.ok(codex);
+  assert.equal(codex.barcode, "3307217934133");
+  assert.equal(codex.releaseDate, "2010-11-18");
+  assert.deepEqual(codex.marketRegions, []);
+  assert.ok(codex.physicalContents.includes("Cofre coleccionista Renaissance"));
+
+  const trilogy = guides.get("assassins-creed-ezio-trilogy-ps3")?.physicalEditions[0];
+  assert.ok(trilogy);
+  assert.equal(trilogy.releaseDate, "2012-11-13");
+  assert.deepEqual(trilogy.marketRegions, ["US"]);
+  assert.deepEqual(trilogy.containsCatalogIds, [
+    "ps3-usa-assassin-s-creed-ii",
+    "ps3-usa-assassin-s-creed-brotherhood",
+    "ps3-usa-assassin-s-creed-revelations",
+  ]);
+  assert.deepEqual(trilogy.digitalContents, ["Contenido descargable de Assassin's Creed II"]);
+
+  const expectedUbiTheBest = new Map([
+    ["assassins-creed-connor-saga-ps3", ["BLJM-61287", "4949244003612", "2015-05-28"]],
+    ["assassins-creed-iii-ps3", ["BLJM-61171", undefined, undefined]],
+    ["assassins-creed-iv-black-flag-ps3", ["BLJM-61273", "4949244003575", "2015-06-25"]],
+    ["assassins-creed-rogue-ps3", [undefined, "4949244003926", "2016-03-03"]],
+  ]);
+  for (const [guideId, [catalogNumber, barcode, releaseDate]] of expectedUbiTheBest) {
+    const edition = guides.get(guideId)?.physicalEditions.find(
+      (candidate) => candidate.editionType === "BUDGET_REISSUE",
+    );
+    assert.ok(edition, `missing Ubi the Best in ${guideId}`);
+    assert.deepEqual(edition.marketRegions, ["JP"]);
+    assert.equal(edition.catalogNumber, catalogNumber);
+    assert.equal(edition.barcode, barcode);
+    assert.equal(edition.releaseDate, releaseDate);
+    assert.deepEqual(edition.packagingLanguages, []);
+    assert.deepEqual(edition.ratingSystems, []);
+  }
+
+  const ezioSaga = guides.get("assassins-creed-ezio-saga-ps3");
+  assert.equal(
+    ezioSaga?.editionFamilies.find((family) => family.id === "ubi-the-best")?.representativeCatalogId,
+    "ps3-japon-assassin%27s-creed-ezio-saga",
+  );
+});
+
+test("Assassin's Creed V2 families filter by documented markets and group idempotently", () => {
+  const ids = [
+    "ps3-assassin%27s-creed-iii",
+    "ps3-usa-assassin-s-creed-iii",
+    "ps3-japon-assassin%27s-creed-iii",
+    "ps3-japon-assassin%27s-creed-iii-ubi-the-best",
+  ];
+  const source = ids.map((id) => toCatalogListGame(getCatalogGame(id)!));
+  const grouped = groupCatalogListGames(source);
+  assert.deepEqual(grouped.map((game) => game.id), [
+    "ps3-assassin%27s-creed-iii",
+    "ps3-japon-assassin%27s-creed-iii-ubi-the-best",
+  ]);
+  assert.deepEqual(groupCatalogListGames(grouped), grouped);
+
+  const expected = new Map<string, string[]>([
+    ["PAL España", ["ps3-assassin%27s-creed-iii"]],
+    ["NTSC USA", ["ps3-assassin%27s-creed-iii"]],
+    ["NTSC-J Japón", ["ps3-assassin%27s-creed-iii", "ps3-japon-assassin%27s-creed-iii-ubi-the-best"]],
+  ]);
+  for (const [region, expectedIds] of expected) {
+    const filtered = filterCatalogGames(
+      grouped,
+      { ...defaultFilters, region },
+      { platforms: true, regions: true },
+    );
+    assert.deepEqual(filtered.items.map((game) => game.id).sort(), expectedIds.sort(), region);
+  }
+
+  const codexSource = [
+    "ps3-assassin%27s-creed-brotherhood",
+    "ps3-usa-assassin-s-creed-brotherhood",
+    "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+  ].map((id) => toCatalogListGame(getCatalogGame(id)!));
+  const groupedBrotherhood = groupCatalogListGames(codexSource);
+  const spanish = filterCatalogGames(
+    groupedBrotherhood,
+    { ...defaultFilters, region: "PAL España" },
+    { platforms: true, regions: true },
+  );
+  assert.deepEqual(spanish.items.map((game) => game.id), ["ps3-assassin%27s-creed-brotherhood"]);
+  const europe = filterCatalogGames(
+    groupedBrotherhood,
+    { ...defaultFilters, broadRegion: "EUROPE" },
+    { platforms: true, regions: true },
+  );
+  assert.deepEqual(europe.items.map((game) => game.id).sort(), [
+    "ps3-assassin%27s-creed-brotherhood",
+    "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+  ]);
+});
+
+test("unresolved Assassin's Creed candidates are not promoted into public V2 editions", () => {
+  const publicEditionIds = getCatalogEditionGuides().flatMap((guide) =>
+    guide.physicalEditions.map((edition) => edition.id.toLowerCase()),
+  );
+  for (const unresolved of [
+    "ubiworkshop",
+    "charity",
+    "harlequin",
+    "doctor",
+    "revelations-nl-fr",
+    "revelations-en-fr",
+  ]) {
+    assert.equal(publicEditionIds.some((id) => id.includes(unresolved)), false, unresolved);
+  }
 });
 
 test("explicit physical variants sharing a technical catalog ID remain independent", () => {

@@ -23,6 +23,8 @@ export type CatalogMarketRegion = (typeof CATALOG_MARKET_REGION_VALUES)[number];
 
 export const PHYSICAL_EDITION_TYPE_VALUES = [
   "STANDARD",
+  "COMPILATION",
+  "BUDGET_REISSUE",
   "SPECIAL",
   "COLLECTOR",
   "DELUXE",
@@ -151,6 +153,8 @@ export type CatalogPhysicalEdition = {
   catalogNumber?: string;
   serial?: string;
   boxCode?: string;
+  releaseDate?: string;
+  releaseDateContext?: string;
   dimensions?: CatalogPhysicalDimensions;
   physicalContents: string[];
   digitalContents: string[];
@@ -258,6 +262,8 @@ const CATALOG_MARKET_REGION_META: Record<CatalogMarketRegion, {
 
 const EDITION_TYPE_LABELS: Record<CatalogPhysicalEditionType, string> = {
   STANDARD: "Estándar",
+  COMPILATION: "Recopilatorio",
+  BUDGET_REISSUE: "Reedición económica",
   SPECIAL: "Special Edition",
   COLLECTOR: "Collector's Edition",
   DELUXE: "Deluxe Edition",

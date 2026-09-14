@@ -297,6 +297,10 @@ function PhysicalEditionRow({
     const target = guide.physicalEditions.find((candidate) => candidate.id === id);
     return target ? [catalogPhysicalEditionHeadingLabel(target)] : [];
   });
+  const containedGames = edition.containsCatalogIds.flatMap((id) => {
+    const target = getCatalogGame(id);
+    return target ? [target] : [];
+  });
   return (
     <article
       id={edition.id}
@@ -353,6 +357,8 @@ function PhysicalEditionRow({
             {edition.barcode ? <Fact label="EAN / UPC / JAN" value={edition.barcode} mono /> : null}
             {edition.catalogNumber ? <Fact label="Referencia del soporte" value={edition.catalogNumber} mono /> : null}
             {edition.boxCode ? <Fact label="Código de caja" value={edition.boxCode} mono /> : null}
+            {edition.releaseDate ? <Fact label="Fecha de esta edición" value={formatEditionReleaseDate(edition.releaseDate)} /> : null}
+            {edition.releaseDateContext ? <Fact label="Contexto de la fecha" value={edition.releaseDateContext} /> : null}
           </dl>
 
           {alternateCatalogLinks.length ? (
@@ -389,9 +395,22 @@ function PhysicalEditionRow({
 
           {edition.dimensions ? <DimensionsComparison dimensions={edition.dimensions} /> : null}
 
-          {includedEditions.length || edition.physicalContents.length || edition.digitalContents.length ? (
+          {includedEditions.length || containedGames.length || edition.physicalContents.length || edition.digitalContents.length ? (
             <div className="mt-4 border-l-2 border-accent/40 pl-3 text-sm leading-6">
               {includedEditions.length ? <p><strong>Incluye:</strong> {includedEditions.join(" · ")}</p> : null}
+              {containedGames.length ? (
+                <p>
+                  <strong>Juegos incluidos:</strong>{" "}
+                  {containedGames.map((game, index) => (
+                    <span key={game.id}>
+                      {index ? " · " : ""}
+                      <Link href={catalogGamePath(game)} prefetch={false} className="text-primary underline-offset-4 hover:underline">
+                        {game.title}
+                      </Link>
+                    </span>
+                  ))}
+                </p>
+              ) : null}
               {edition.physicalContents.length ? <p><strong>Contenido físico:</strong> {edition.physicalContents.join(" · ")}</p> : null}
               {edition.digitalContents.length ? <p><strong>Contenido digital:</strong> {edition.digitalContents.join(" · ")}</p> : null}
             </div>
@@ -456,6 +475,16 @@ function Dimension({ label, value }: { label: string; value: string }) {
       <dd className="shrink-0 text-muted">{value}</dd>
     </div>
   );
+}
+
+function formatEditionReleaseDate(value: string): string {
+  const [year, month, day] = value.split("-").map(Number);
+  return new Intl.DateTimeFormat("es-ES", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, month - 1, day)));
 }
 
 function Fact({ label, value, mono = false }: { label: string; value: string; mono?: boolean }) {

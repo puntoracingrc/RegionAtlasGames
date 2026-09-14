@@ -1,4 +1,5 @@
 import guideData from "../../data/catalog-edition-guides.json";
+import acPs3GuideData from "../../data/catalog-edition-guides-ac-ps3.json";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
@@ -59,6 +60,8 @@ type PhysicalGuide = {
     catalogNumber?: string;
     serial?: string;
     boxCode?: string;
+    releaseDate?: string;
+    releaseDateContext?: string;
     dimensions?: CatalogPhysicalEdition["dimensions"];
     physicalContents?: string[];
     digitalContents?: string[];
@@ -108,7 +111,7 @@ type PhysicalGuide = {
 export type RawCatalogEditionGuide = LegacyGuide | PhysicalGuide;
 type RawGuideDocument = { schemaVersion: 1 | 2; guides: RawCatalogEditionGuide[] };
 
-const rawGuideDocument = guideData as unknown as RawGuideDocument;
+const rawGuideDocuments = [guideData, acPs3GuideData] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 
 function requiredCatalogGame(catalogId: string, platformSlug?: string): CatalogGame {
@@ -360,7 +363,7 @@ export function normalizeCatalogEditionGuide(raw: RawCatalogEditionGuide): Catal
 
 export function getCatalogEditionGuides(): CatalogEditionGuideModel[] {
   if (!normalizedGuidesCache) {
-    normalizedGuidesCache = rawGuideDocument.guides.map(normalizeCatalogEditionGuide);
+    normalizedGuidesCache = rawGuideDocuments.flatMap((document) => document.guides).map(normalizeCatalogEditionGuide);
   }
   return normalizedGuidesCache;
 }

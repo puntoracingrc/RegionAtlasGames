@@ -1,0 +1,489 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-brotherhood-ps3",
+      "title": "Ediciones físicas de Assassin's Creed: Brotherhood en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "Integración limitada a las identidades existentes y a la Limited Codex Edition respaldada por el dossier.",
+      "game": {
+        "title": "Assassin's Creed: Brotherhood",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-brotherhood"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-europe-standard",
+            "assassins-creed-brotherhood-ps3-north-america-standard"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "limited-codex",
+          "label": "Limited Codex Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+          "physicalEditionIds": ["assassins-creed-brotherhood-ps3-limited-codex"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "catalogIds": ["ps3-assassin%27s-creed-brotherhood"]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "catalogIds": ["ps3-usa-assassin-s-creed-brotherhood"]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-limited-codex",
+          "label": "Limited Codex Edition",
+          "broadRegion": "EUROPE",
+          "editionType": "LIMITED",
+          "marketRegions": [],
+          "barcode": "3307217934133",
+          "releaseDate": "2010-11-18",
+          "releaseDateContext": "Fecha de producto publicada por Fnac para Francia",
+          "physicalContents": [
+            "Juego",
+            "Cofre coleccionista Renaissance",
+            "Mapa de Roma",
+            "DVD Lineage",
+            "Tarjetas de personajes multijugador",
+            "Codex",
+            "DVD adicional y banda sonora"
+          ],
+          "digitalContents": [
+            "Dos mapas para un jugador",
+            "Dos personajes multijugador"
+          ],
+          "containsCatalogIds": ["ps3-assassin%27s-creed-brotherhood"],
+          "catalogIds": ["ps3-assassin%27s-creed-brotherhood-limited-codex-edition"],
+          "evidenceIds": ["brotherhood-codex-fnac"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "brotherhood-codex-fnac",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial de Brotherhood Codex para PS3",
+          "url": "https://www.fnac.com/a2899599/Assassin-s-Creed-Brotherhood-Codex-Edition-Jeu-video-Retrogaming",
+          "summary": "Respalda el EAN, la fecha contextual y la composición declarada; no acredita un mercado nacional ni los idiomas del packaging.",
+          "supports": ["EAN 3307217934133", "fecha contextual 2010-11-18", "contenido de la edición"]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Fnac · Assassin's Creed Brotherhood Codex Edition",
+          "url": "https://www.fnac.com/a2899599/Assassin-s-Creed-Brotherhood-Codex-Edition-Jeu-video-Retrogaming"
+        }
+      ],
+      "evidenceNote": "No se trasladan Francia, España, idiomas de packaging ni Logithéque como identidad pública de esta edición."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ezio-trilogy-ps3",
+      "title": "Ediciones físicas de Assassin's Creed: Ezio Trilogy en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "Producto norteamericano documentado; se mantiene separado de Ezio Saga Japón.",
+      "game": {
+        "title": "Assassin's Creed: Ezio Trilogy",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-usa-assassin-s-creed-ezio-trilogy"
+      },
+      "editionFamilies": [
+        {
+          "id": "ezio-trilogy",
+          "label": "Ezio Trilogy",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-ezio-trilogy",
+          "physicalEditionIds": ["assassins-creed-ezio-trilogy-ps3-north-america"],
+          "priceConditions": ["sealed", "newRetail", "complete", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-ezio-trilogy-ps3-north-america",
+          "label": "Ezio Trilogy · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COMPILATION",
+          "marketRegions": ["US"],
+          "releaseDate": "2012-11-13",
+          "releaseDateContext": "Lanzamiento norteamericano anunciado por Ubisoft",
+          "physicalContents": ["Recopilatorio para PS3"],
+          "digitalContents": ["Contenido descargable de Assassin's Creed II"],
+          "containsCatalogIds": [
+            "ps3-usa-assassin-s-creed-ii",
+            "ps3-usa-assassin-s-creed-brotherhood",
+            "ps3-usa-assassin-s-creed-revelations"
+          ],
+          "catalogIds": ["ps3-usa-assassin-s-creed-ezio-trilogy"],
+          "evidenceIds": ["ezio-trilogy-playstation-announcement"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ezio-trilogy-playstation-announcement",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Anuncio oficial norteamericano de Ezio Trilogy",
+          "url": "https://blog.playstation.com/2012/09/26/exclusive-assassins-creed-ezio-trilogy-to-launch-on-ps3/",
+          "summary": "Respalda el producto PS3, su fecha norteamericana, los tres juegos incluidos y que el DLC indicado corresponde a Assassin's Creed II.",
+          "supports": ["mercado US", "fecha 2012-11-13", "juegos incluidos", "DLC de Assassin's Creed II"]
+        }
+      ],
+      "sources": [
+        {
+          "label": "PlayStation Blog · anuncio de Ezio Trilogy",
+          "url": "https://blog.playstation.com/2012/09/26/exclusive-assassins-creed-ezio-trilogy-to-launch-on-ps3/"
+        }
+      ],
+      "evidenceNote": "Ezio Trilogy no se fusiona ni se equipara con Ezio Saga Japón."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ezio-saga-ps3",
+      "title": "Ediciones físicas de Assassin's Creed Ezio Saga en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "La portada ya guardada resuelve la ficha genérica como Ubi the Best; la Limited Complete conserva su identidad separada.",
+      "game": {
+        "title": "Assassin's Creed Ezio Saga",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga"
+      },
+      "editionFamilies": [
+        {
+          "id": "ubi-the-best",
+          "label": "Ubi the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga",
+          "physicalEditionIds": ["assassins-creed-ezio-saga-ps3-japan-ubi-the-best"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "limited-complete",
+          "label": "Limited Complete Edition",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga-limited-complete-edition",
+          "physicalEditionIds": ["assassins-creed-ezio-saga-ps3-japan-limited-complete"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-ezio-saga-ps3-japan-ubi-the-best",
+          "label": "Ezio Saga · Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "releaseDate": "2015-05-28",
+          "releaseDateContext": "Reedición japonesa Ubi the Best",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-ezio-saga"],
+          "evidenceIds": ["ezio-saga-ubi-the-best-release", "ezio-saga-ubi-the-best-commerce"]
+        },
+        {
+          "id": "assassins-creed-ezio-saga-ps3-japan-limited-complete",
+          "label": "Ezio Saga · Limited Complete Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "LIMITED",
+          "marketRegions": ["JP"],
+          "catalogIds": ["ps3-japon-assassin%27s-creed-ezio-saga-limited-complete-edition"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ezio-saga-ubi-the-best-release",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Comunicado de lanzamiento japonés de Ezio Saga",
+          "url": "https://www.4gamer.net/games/169/G016989/20150507019/",
+          "summary": "Respalda la fecha japonesa de Ezio Saga; la identidad Ubi the Best se coteja con la ficha comercial y la portada ya guardada.",
+          "supports": ["fecha 2015-05-28"]
+        },
+        {
+          "id": "ezio-saga-ubi-the-best-commerce",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial de Ezio Saga Ubi the Best",
+          "url": "https://kakaku.com/item/K0000753939/",
+          "summary": "Respalda la denominación Ubi the Best y la fecha; la portada existente muestra la misma línea de reedición.",
+          "supports": ["identidad Ubi the Best", "fecha 2015-05-28"]
+        }
+      ],
+      "sources": [
+        {"label": "4Gamer · lanzamiento de Ezio Saga", "url": "https://www.4gamer.net/games/169/G016989/20150507019/"},
+        {"label": "Kakaku · Ezio Saga Ubi the Best", "url": "https://kakaku.com/item/K0000753939/"}
+      ],
+      "evidenceNote": "No se crea una tercera ficha ni se trasladan contenidos del modelo previo cuyas columnas estaban desplazadas."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-connor-saga-ps3",
+      "title": "Ediciones físicas de Assassin's Creed Connor Saga en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "La reedición Ubi the Best y la Limited Complete son productos físicos distintos.",
+      "game": {
+        "title": "Assassin's Creed Connor Saga",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-japon-assassin%27s-creed-connor-saga-limited-complete-edition"
+      },
+      "editionFamilies": [
+        {
+          "id": "limited-complete",
+          "label": "Limited Complete Edition",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-connor-saga-limited-complete-edition",
+          "physicalEditionIds": ["assassins-creed-connor-saga-ps3-japan-limited-complete"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "ubi-the-best",
+          "label": "Ubi the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-connor-saga-ubi-the-best",
+          "physicalEditionIds": ["assassins-creed-connor-saga-ps3-japan-ubi-the-best"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-connor-saga-ps3-japan-limited-complete",
+          "label": "Connor Saga · Limited Complete Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "LIMITED",
+          "marketRegions": ["JP"],
+          "catalogIds": ["ps3-japon-assassin%27s-creed-connor-saga-limited-complete-edition"]
+        },
+        {
+          "id": "assassins-creed-connor-saga-ps3-japan-ubi-the-best",
+          "label": "Connor Saga · Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "barcode": "4949244003612",
+          "catalogNumber": "BLJM-61287",
+          "releaseDate": "2015-05-28",
+          "releaseDateContext": "Reedición japonesa Ubi the Best",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-connor-saga-ubi-the-best"],
+          "evidenceIds": ["connor-saga-ubi-the-best-yamada", "connor-saga-ubi-the-best-surugaya"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "connor-saga-ubi-the-best-yamada",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial de Connor Saga Ubi the Best",
+          "url": "https://www.yamada-denkiweb.com/2813092012/",
+          "summary": "Respalda el JAN, la fecha y que esta reedición no incluye los accesorios de la Limited Complete.",
+          "supports": ["JAN 4949244003612", "fecha 2015-05-28", "configuración sin accesorios Limited Complete"]
+        },
+        {
+          "id": "connor-saga-ubi-the-best-surugaya",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial de la reedición japonesa Connor Saga",
+          "url": "https://www.suruga-ya.jp/product/detail/103004050",
+          "summary": "Respalda el código BLJM-61287 y la fecha japonesa.",
+          "supports": ["BLJM-61287", "fecha 2015-05-28"]
+        }
+      ],
+      "sources": [
+        {"label": "Yamada · Connor Saga Ubi the Best", "url": "https://www.yamada-denkiweb.com/2813092012/"},
+        {"label": "Suruga-ya · Connor Saga Ubi the Best", "url": "https://www.suruga-ya.jp/product/detail/103004050"}
+      ],
+      "evidenceNote": "No se reutiliza la ficha Limited Complete para la reedición económica y no se completan campos no documentados."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iii-ps3",
+      "title": "Ediciones físicas de Assassin's Creed III en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "La reedición japonesa Ubi the Best se añade sin modificar las fichas Standard existentes.",
+      "game": {
+        "title": "Assassin's Creed III",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-iii"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iii",
+          "physicalEditionIds": [
+            "assassins-creed-iii-ps3-europe-standard",
+            "assassins-creed-iii-ps3-north-america-standard",
+            "assassins-creed-iii-ps3-japan-standard"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "ubi-the-best",
+          "label": "Ubi the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-iii-ubi-the-best",
+          "physicalEditionIds": ["assassins-creed-iii-ps3-japan-ubi-the-best"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {"id": "assassins-creed-iii-ps3-europe-standard", "label": "Standard · España", "broadRegion": "EUROPE", "editionType": "STANDARD", "marketRegions": ["ES"], "catalogIds": ["ps3-assassin%27s-creed-iii"]},
+        {"id": "assassins-creed-iii-ps3-north-america-standard", "label": "Standard · USA", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD", "marketRegions": ["US"], "catalogIds": ["ps3-usa-assassin-s-creed-iii"]},
+        {"id": "assassins-creed-iii-ps3-japan-standard", "label": "Standard · Japón", "broadRegion": "ASIA", "editionType": "STANDARD", "marketRegions": ["JP"], "catalogIds": ["ps3-japon-assassin%27s-creed-iii"]},
+        {
+          "id": "assassins-creed-iii-ps3-japan-ubi-the-best",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "catalogNumber": "BLJM-61171",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-iii-ubi-the-best"],
+          "evidenceIds": ["assassins-creed-iii-ubi-the-best-commerce"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "assassins-creed-iii-ubi-the-best-commerce",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial japonesa de Assassin's Creed III Ubi the Best",
+          "url": "https://www.kaitori-world.jp/products/detail/1200",
+          "summary": "Respalda PS3, Japón y BLJM-61171; no se completa un JAN ni una fecha.",
+          "supports": ["mercado JP", "BLJM-61171"]
+        }
+      ],
+      "sources": [
+        {"label": "Kaitori World · Assassin's Creed III Ubi the Best", "url": "https://www.kaitori-world.jp/products/detail/1200"}
+      ],
+      "evidenceNote": "La carátula japonesa Standard ya guardada no pertenece a la línea Ubi the Best."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iv-black-flag-ps3",
+      "title": "Ediciones físicas de Assassin's Creed IV: Black Flag en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "La reedición japonesa Ubi the Best se añade sin modificar las fichas Standard existentes.",
+      "game": {
+        "title": "Assassin's Creed IV: Black Flag",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-iv-black-flag"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iv-black-flag",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-europe-standard",
+            "assassins-creed-iv-black-flag-ps3-north-america-standard",
+            "assassins-creed-iv-black-flag-ps3-japan-standard"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "ubi-the-best",
+          "label": "Ubi the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best",
+          "physicalEditionIds": ["assassins-creed-iv-black-flag-ps3-japan-ubi-the-best"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {"id": "assassins-creed-iv-black-flag-ps3-europe-standard", "label": "Standard · España", "broadRegion": "EUROPE", "editionType": "STANDARD", "marketRegions": ["ES"], "catalogIds": ["ps3-assassin%27s-creed-iv-black-flag"]},
+        {"id": "assassins-creed-iv-black-flag-ps3-north-america-standard", "label": "Standard · USA", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD", "marketRegions": ["US"], "catalogIds": ["ps3-usa-assassin-s-creed-iv-black-flag"]},
+        {"id": "assassins-creed-iv-black-flag-ps3-japan-standard", "label": "Standard · Japón", "broadRegion": "ASIA", "editionType": "STANDARD", "marketRegions": ["JP"], "catalogIds": ["ps3-japon-assassin%27s-creed-iv-black-flag"]},
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-japan-ubi-the-best",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "barcode": "4949244003575",
+          "catalogNumber": "BLJM-61273",
+          "releaseDate": "2015-06-25",
+          "releaseDateContext": "Reedición japonesa Ubi the Best",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best"],
+          "evidenceIds": ["assassins-creed-iv-black-flag-ubi-the-best-commerce"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "assassins-creed-iv-black-flag-ubi-the-best-commerce",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial japonesa de Black Flag Ubi the Best",
+          "url": "https://www.yamada-denkiweb.com/2813165013/",
+          "summary": "Respalda PS3, Japón, BLJM-61273, JAN 4949244003575 y la fecha de la reedición.",
+          "supports": ["mercado JP", "BLJM-61273", "JAN 4949244003575", "fecha 2015-06-25"]
+        }
+      ],
+      "sources": [
+        {"label": "Yamada · Black Flag Ubi the Best", "url": "https://www.yamada-denkiweb.com/2813165013/"}
+      ],
+      "evidenceNote": "El JAN documentado es el de PS3 y no se traslada ningún identificador de PS4."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-rogue-ps3",
+      "title": "Ediciones físicas de Assassin's Creed Rogue en PlayStation 3",
+      "reviewedAt": "2026-09-13",
+      "note": "La reedición japonesa Ubi the Best se añade sin modificar las fichas Standard existentes.",
+      "game": {
+        "title": "Assassin's Creed Rogue",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-rogue"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-rogue",
+          "physicalEditionIds": [
+            "assassins-creed-rogue-ps3-europe-standard",
+            "assassins-creed-rogue-ps3-north-america-standard",
+            "assassins-creed-rogue-ps3-japan-standard"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "ubi-the-best",
+          "label": "Ubi the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-rogue-ubi-the-best",
+          "physicalEditionIds": ["assassins-creed-rogue-ps3-japan-ubi-the-best"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {"id": "assassins-creed-rogue-ps3-europe-standard", "label": "Standard · España", "broadRegion": "EUROPE", "editionType": "STANDARD", "marketRegions": ["ES"], "catalogIds": ["ps3-assassin%27s-creed-rogue"]},
+        {"id": "assassins-creed-rogue-ps3-north-america-standard", "label": "Standard · USA", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD", "marketRegions": ["US"], "catalogIds": ["ps3-usa-assassin-s-creed-rogue"]},
+        {"id": "assassins-creed-rogue-ps3-japan-standard", "label": "Standard · Japón", "broadRegion": "ASIA", "editionType": "STANDARD", "marketRegions": ["JP"], "catalogIds": ["ps3-japon-assassin%27s-creed-rogue"]},
+        {
+          "id": "assassins-creed-rogue-ps3-japan-ubi-the-best",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "barcode": "4949244003926",
+          "releaseDate": "2016-03-03",
+          "releaseDateContext": "Reedición japonesa Ubi the Best",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-rogue-ubi-the-best"],
+          "evidenceIds": ["assassins-creed-rogue-ubi-the-best-commerce"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "assassins-creed-rogue-ubi-the-best-commerce",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial japonesa de Rogue Ubi the Best",
+          "url": "https://books.rakuten.co.jp/rb/13607096/",
+          "summary": "Respalda PS3, Japón, JAN 4949244003926 y la fecha de la reedición; no se añaden idiomas ni código de catálogo.",
+          "supports": ["mercado JP", "JAN 4949244003926", "fecha 2016-03-03"]
+        }
+      ],
+      "sources": [
+        {"label": "Rakuten Books · Rogue Ubi the Best", "url": "https://books.rakuten.co.jp/rb/13607096/"}
+      ],
+      "evidenceNote": "La carátula japonesa Standard ya guardada no pertenece a la línea Ubi the Best."
+    }
+  ]
+}

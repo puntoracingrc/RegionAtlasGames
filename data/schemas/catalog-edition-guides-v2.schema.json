@@ -89,7 +89,7 @@
       "enum": ["FR", "ES", "GB", "DE", "US", "JP", "KR", "HK", "TW"]
     },
     "editionType": {
-      "enum": ["STANDARD", "SPECIAL", "COLLECTOR", "DELUXE", "LIMITED", "STEELBOOK", "OTHER"]
+      "enum": ["STANDARD", "COMPILATION", "BUDGET_REISSUE", "SPECIAL", "COLLECTOR", "DELUXE", "LIMITED", "STEELBOOK", "OTHER"]
     },
     "priceCondition": {
       "enum": ["sealed", "newRetail", "complete", "gameManual", "loose"]
@@ -170,6 +170,8 @@
         "catalogNumber": { "type": "string" },
         "serial": { "type": "string" },
         "boxCode": { "type": "string" },
+        "releaseDate": { "type": "string", "format": "date" },
+        "releaseDateContext": { "type": "string", "minLength": 1 },
         "dimensions": { "$ref": "#/$defs/dimensions" },
         "physicalContents": { "type": "array", "items": { "type": "string" } },
         "digitalContents": { "type": "array", "items": { "type": "string" } },

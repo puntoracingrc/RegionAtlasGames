@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-13",
+  "scope": "Assassin's Creed PS3 · solo datos respaldados",
+  "sourceIntegrity": [
+    {
+      "file": "Comparativa_Assassins_Creed_PS3_Revision.zip",
+      "sha256": "527b1108bb23e90b651779db4e258d0f328a7d8616f1d7a9d82ea1c07388e729"
+    },
+    {
+      "file": "Assassins_Creed_Agrupado_Modelo_Actual_V2.zip",
+      "sha256": "67256e0d8a933cf80c16b3558f7fcb3afcf346a4fbe7e3b8dec16cf0aaff3a3a"
+    },
+    {
+      "file": "Comparativa_Assassins_Creed_PS3.md",
+      "sha256": "8bee4f27e19e7ec7c75ac5060987a48c5f311acea1cb3818a4f84abb93d50e62"
+    },
+    {
+      "file": "estudio_packaging_entrega2.md",
+      "sha256": "ab1e1d312dcaa082dac07c00e3352b54c81903e72868cd61dd9e0ceb53048a2f"
+    },
+    {
+      "file": "catalogo_recibido.txt",
+      "sha256": "c26efa93d0e84d5a1a9091eb962fb2e8e5d929b7792f96499e01ff0a1b17813c"
+    }
+  ],
+  "createdCatalogIds": [
+    "ps3-japon-assassin%27s-creed-connor-saga-ubi-the-best",
+    "ps3-japon-assassin%27s-creed-iii-ubi-the-best",
+    "ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best",
+    "ps3-japon-assassin%27s-creed-rogue-ubi-the-best"
+  ],
+  "reusedCatalogIds": [
+    "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+    "ps3-usa-assassin-s-creed-ezio-trilogy",
+    "ps3-japon-assassin%27s-creed-ezio-saga",
+    "ps3-japon-assassin%27s-creed-ezio-saga-limited-complete-edition",
+    "ps3-japon-assassin%27s-creed-connor-saga-limited-complete-edition",
+    "ps3-assassin%27s-creed-brotherhood",
+    "ps3-usa-assassin-s-creed-brotherhood",
+    "ps3-assassin%27s-creed-iii",
+    "ps3-usa-assassin-s-creed-iii",
+    "ps3-japon-assassin%27s-creed-iii",
+    "ps3-assassin%27s-creed-iv-black-flag",
+    "ps3-usa-assassin-s-creed-iv-black-flag",
+    "ps3-japon-assassin%27s-creed-iv-black-flag",
+    "ps3-assassin%27s-creed-rogue",
+    "ps3-usa-assassin-s-creed-rogue",
+    "ps3-japon-assassin%27s-creed-rogue"
+  ],
+  "resolvedDecisions": [
+    {
+      "id": "A02",
+      "result": "created",
+      "note": "Connor Saga Ubi the Best es distinta de la Limited Complete existente."
+    },
+    {
+      "id": "A03",
+      "result": "reused",
+      "note": "La portada ya guardada de la ficha genérica Ezio Saga muestra inequívocamente UBI the BEST."
+    },
+    {
+      "id": "A04",
+      "result": "created",
+      "note": "La portada japonesa existente de Black Flag es Standard y no la reedición Ubi the Best documentada."
+    },
+    {
+      "id": "A05",
+      "result": "created",
+      "note": "La portada japonesa existente de Rogue es Standard y no la reedición Ubi the Best documentada."
+    },
+    {
+      "id": "A06",
+      "result": "created",
+      "note": "La portada japonesa existente de Assassin's Creed III es Standard y no la reedición Ubi the Best documentada."
+    },
+    {
+      "id": "S48",
+      "result": "reused",
+      "note": "Ezio Trilogy USA conserva su ficha y recibe relaciones de contenido y fecha de edición."
+    },
+    {
+      "id": "S84",
+      "result": "reused",
+      "note": "Limited Codex Edition conserva su ficha y recibe EAN, contenido y fecha contextual."
+    }
+  ],
+  "parkedDecisionIds": [
+    "A01",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18"
+  ],
+  "unattachedEvidenceIds": [
+    "S59",
+    "S62",
+    "S63",
+    "S65",
+    "S66",
+    "S67",
+    "S68",
+    "S69",
+    "S70",
+    "S71",
+    "S72",
+    "S73",
+    "S74",
+    "S75",
+    "S76",
+    "S77",
+    "S78",
+    "S79",
+    "S80"
+  ],
+  "preservation": {
+    "priorCatalogRecordCount": 81425,
+    "priorCatalogSha256": "7117deaedb862fa81c14a1b141063441f808a284a0e80b2224b8da66692f0bea",
+    "ps4CatalogRecordCount": 9716,
+    "ps4CatalogSha256": "e3ebbd3af1561e5bb03e43ddd6c4e287f5f1bdd364bc9bc4559aa02ae63d6238",
+    "ps5CatalogRecordCount": 4807,
+    "ps5CatalogSha256": "711f1f988b43cb58eda10f83eed7349a524ea75d5e706ed61a697a1b583a5d30",
+    "destructiveChanges": 0,
+    "userDataChanges": 0
+  }
+}
