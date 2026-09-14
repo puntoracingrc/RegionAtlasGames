@@ -2,22 +2,16 @@ import { CatalogBrowser } from "@/components/catalog-browser";
 import { SiteNav } from "@/components/site-nav";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import {
-  CATALOG_PAGE_SIZE,
   DEFAULT_CATALOG_PRICE_TYPE,
-  DEFAULT_SORT,
-  filterCatalogGames,
   normalizeCatalogPriceTypeForPlatform,
   publicFacetFilterOptions,
   publicGenreFilterOptions,
   publicSubgenreFilterOptions,
   type CatalogPriceType,
 } from "@/lib/catalog-filters";
-import { publicListedCatalog } from "@/lib/catalog";
 import { getPublicCatalogWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
-import { toCatalogCardGame } from "@/lib/catalog-card-game";
-import { getDefaultCatalogInitialPage } from "@/lib/public-catalog-initial-page";
 import {
   publicCatalogRegionFilterOptions,
   publicCatalogRegionFilterOptionsByPlatform,
@@ -26,7 +20,7 @@ import {
 } from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
 import { isDefaultCatalogGame, parsePendingEdition } from "@/lib/catalog-review-policy";
-import { catalogPhysicalFilterOptions, groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
+import { catalogPhysicalFilterOptions } from "@/lib/catalog-physical-edition-browse";
 
 type Props = {
   searchParams?: Promise<{
@@ -58,47 +52,12 @@ export default async function CatalogPage({ searchParams }: Props) {
     parsePriceType(params?.priceType),
     initialPlatform,
   );
-  const initialSort = initialPriceType === DEFAULT_CATALOG_PRICE_TYPE ? DEFAULT_SORT : "price-desc";
-
   const [user, listingCounts, runtimeCatalog] = await Promise.all([
     getCurrentUser(),
     getActiveListingCountsByCatalog(),
     getPublicCatalogWithOverlay(),
   ]);
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
-  const hasInitialFilters =
-    initialIncludePending ||
-    initialQuery.trim() !== "" ||
-    initialPlatform !== "all" ||
-    initialRegion !== "all" ||
-    initialGenre !== "all" ||
-    initialSubgenre !== "all" ||
-    initialFacet !== "all" ||
-    initialPriceType !== DEFAULT_CATALOG_PRICE_TYPE;
-  const useRuntimeInitialPage = hasInitialFilters || runtimeCatalog !== publicListedCatalog;
-  const initialCatalog = useRuntimeInitialPage
-    ? await import("@/lib/catalog-list-game").then(({ toCatalogListGame }) => filterCatalogGames(
-      groupCatalogListGames(runtimeCatalog.map(toCatalogListGame)),
-      {
-        q: initialQuery,
-        platform: initialPlatform,
-        region: initialRegion,
-        sort: initialSort,
-        priceType: initialPriceType,
-        priceFilter: "all",
-        genre: initialGenre,
-        subgenre: initialSubgenre,
-        facet: initialFacet,
-        includePending: initialIncludePending,
-        pendingEdition: initialPendingEdition,
-      },
-      { regions: true, platforms: true },
-    ))
-    : await getDefaultCatalogInitialPage();
-  const initialGames = useRuntimeInitialPage
-    ? initialCatalog.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame)
-    : initialCatalog.items;
-
   return (
     <>
       <SiteNav />
@@ -115,11 +74,10 @@ export default async function CatalogPage({ searchParams }: Props) {
         </header>
 
         <CatalogBrowser
-          games={initialGames}
+          games={[]}
           contextName="todo el catálogo"
           source={{ kind: "catalog" }}
-          totalCatalogEntryCount={initialCatalog.total}
-          reviewCounts={initialCatalog.reviewCounts}
+          deferInitialLoad
           initialIncludePending={initialIncludePending}
           initialPendingEdition={initialPendingEdition}
           regions={publicCatalogRegionFilterOptions()}

@@ -250,6 +250,7 @@ type Props = {
   initialSubgenre?: string;
   initialFacet?: string;
   initialPriceType?: CatalogPriceType;
+  deferInitialLoad?: boolean;
   /** Filtro de región controlado (p. ej. desde la barra del hero) */
   region?: string;
   onRegionChange?: (region: string) => void;
@@ -289,6 +290,7 @@ export function CatalogBrowser({
   initialSubgenre = "all",
   initialFacet = "all",
   initialPriceType = DEFAULT_CATALOG_PRICE_TYPE,
+  deferInitialLoad = false,
   region: controlledRegion,
   onRegionChange,
 }: Props) {
@@ -328,7 +330,7 @@ export function CatalogBrowser({
   const [page, setPage] = useState(1);
   const [serverItems, setServerItems] = useState(games);
   const [serverTotal, setServerTotal] = useState(totalCatalogEntryCount ?? games.length);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(deferInitialLoad);
   const canShowPriceLegend = showPriceLegend && source?.kind !== "platform";
   const [savedStateLoaded, setSavedStateLoaded] = useState(!persistKey);
   const normalizedDraftLength = draftQ.trim().length;
@@ -510,7 +512,7 @@ export function CatalogBrowser({
       page === 1 &&
       (source.kind === "platform" || platform === initialPlatform);
 
-    if (defaultServerView) {
+    if (defaultServerView && !deferInitialLoad) {
       setServerItems(games);
       setServerTotal(totalCatalogEntryCount ?? games.length);
       setServerReviewCounts(initialReviewCounts ?? catalogReviewCounts(games));
@@ -580,7 +582,7 @@ export function CatalogBrowser({
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [broadRegion, companies, company, facet, facets, games, genre, genres, includePending, pendingEdition, initialFacet, initialGenre, initialIncludePending, initialPendingEdition, initialPlatform, initialPriceType, initialQuery, initialRegion, initialReviewCounts, initialSubgenre, page, physicalEditionType, platform, priceType, q, ratingSystem, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
+  }, [broadRegion, companies, company, deferInitialLoad, facet, facets, games, genre, genres, includePending, pendingEdition, initialFacet, initialGenre, initialIncludePending, initialPendingEdition, initialPlatform, initialPriceType, initialQuery, initialRegion, initialReviewCounts, initialSubgenre, page, physicalEditionType, platform, priceType, q, ratingSystem, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
@@ -732,8 +734,14 @@ export function CatalogBrowser({
                 Incluir fichas pendientes
               </label>
               <p className="text-xs leading-5 text-muted" aria-live="polite">
-                {reviewCounts.documented.toLocaleString("es-ES")} {source?.kind === "platform" && ["ps1", "ps2"].includes(source.slug) ? "ediciones documentadas" : "fichas catalogadas"}
-                {" · "}{reviewCounts.pending.toLocaleString("es-ES")} pendientes de identificar con estos filtros.
+                {deferInitialLoad && catalogBusy && serverItems.length === 0 ? (
+                  <>Cargando cifras del catálogo…</>
+                ) : (
+                  <>
+                    {reviewCounts.documented.toLocaleString("es-ES")} {source?.kind === "platform" && ["ps1", "ps2"].includes(source.slug) ? "ediciones documentadas" : "fichas catalogadas"}
+                    {" · "}{reviewCounts.pending.toLocaleString("es-ES")} pendientes de identificar con estos filtros.
+                  </>
+                )}
               </p>
               {includePending ? (
                 <label className="block max-w-md space-y-1 text-xs text-muted">
@@ -912,7 +920,9 @@ export function CatalogBrowser({
 
           <div className="flex flex-col gap-2 rounded-2xl border border-border/70 bg-background/55 p-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <p className="text-sm font-medium text-muted">
-              {total === 0 ? (
+              {deferInitialLoad && catalogBusy && serverItems.length === 0 ? (
+                <>Preparando resultados…</>
+              ) : total === 0 ? (
                 <>0 fichas en {contextName}</>
               ) : totalPages > 1 ? (
                 <>
@@ -965,7 +975,12 @@ export function CatalogBrowser({
         </div>
       </div>
 
-      {pageItems.length === 0 ? (
+      {deferInitialLoad && catalogBusy && pageItems.length === 0 ? (
+        <div className="flex min-h-48 items-center justify-center rounded-xl border border-dashed border-border text-sm font-semibold text-muted" role="status">
+          <LoaderCircle aria-hidden="true" className="mr-3 h-5 w-5 animate-spin text-accent" />
+          Cargando fichas del catálogo…
+        </div>
+      ) : pageItems.length === 0 ? (
         <div className="rounded-xl border border-dashed border-border py-12 text-center text-sm text-muted">
           Ninguna ficha coincide. Prueba otro término, compañía o referencia.
         </div>
