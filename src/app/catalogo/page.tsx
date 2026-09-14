@@ -16,7 +16,6 @@ import { publicListedCatalog } from "@/lib/catalog";
 import { getPublicCatalogWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
-import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import { getDefaultCatalogInitialPage } from "@/lib/public-catalog-initial-page";
 import {
@@ -78,24 +77,24 @@ export default async function CatalogPage({ searchParams }: Props) {
     initialPriceType !== DEFAULT_CATALOG_PRICE_TYPE;
   const useRuntimeInitialPage = hasInitialFilters || runtimeCatalog !== publicListedCatalog;
   const initialCatalog = useRuntimeInitialPage
-    ? filterCatalogGames(
-        groupCatalogListGames(runtimeCatalog.map(toCatalogListGame)),
-        {
-          q: initialQuery,
-          platform: initialPlatform,
-          region: initialRegion,
-          sort: initialSort,
-          priceType: initialPriceType,
-          priceFilter: "all",
-          genre: initialGenre,
-          subgenre: initialSubgenre,
-          facet: initialFacet,
-          includePending: initialIncludePending,
-          pendingEdition: initialPendingEdition,
-        },
-        { regions: true, platforms: true },
-      )
-    : getDefaultCatalogInitialPage();
+    ? await import("@/lib/catalog-list-game").then(({ toCatalogListGame }) => filterCatalogGames(
+      groupCatalogListGames(runtimeCatalog.map(toCatalogListGame)),
+      {
+        q: initialQuery,
+        platform: initialPlatform,
+        region: initialRegion,
+        sort: initialSort,
+        priceType: initialPriceType,
+        priceFilter: "all",
+        genre: initialGenre,
+        subgenre: initialSubgenre,
+        facet: initialFacet,
+        includePending: initialIncludePending,
+        pendingEdition: initialPendingEdition,
+      },
+      { regions: true, platforms: true },
+    ))
+    : await getDefaultCatalogInitialPage();
   const initialGames = useRuntimeInitialPage
     ? initialCatalog.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame)
     : initialCatalog.items;

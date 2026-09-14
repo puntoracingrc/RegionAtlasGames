@@ -12,7 +12,7 @@ import {
 } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { toCatalogCardGame } from "@/lib/catalog-card-game";
-import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
+import { getCatalogByPlatformWithOverlay, getCatalogOverlayRevision } from "@/lib/catalog-runtime-overlay";
 import { isPublicPlatformSlug } from "@/lib/catalog";
 import type { CatalogListGame } from "@/lib/types";
 import { parsePendingEdition } from "@/lib/catalog-review-policy";
@@ -21,26 +21,25 @@ import { parseCatalogBroadRegion, parseCatalogPhysicalEditionType } from "@/lib/
 
 type PlatformSearchCacheEntry = {
   games: CatalogListGame[];
-  createdAt: number;
+  revision: string;
 };
 
-const PLATFORM_SEARCH_CACHE_TTL_MS = 5 * 60 * 1000;
 const PUBLIC_CACHE_HEADERS = {
   "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600",
 };
 const platformSearchCache = new Map<string, PlatformSearchCacheEntry>();
 
 async function getPlatformSearchData(slug: string): Promise<PlatformSearchCacheEntry> {
-  const now = Date.now();
+  const revision = await getCatalogOverlayRevision();
   const cached = platformSearchCache.get(slug);
-  if (cached && now - cached.createdAt < PLATFORM_SEARCH_CACHE_TTL_MS) {
+  if (cached?.revision === revision) {
     return cached;
   }
 
   const games = groupCatalogListGames((await getCatalogByPlatformWithOverlay(slug)).map(toCatalogListGame));
   const entry = {
     games,
-    createdAt: now,
+    revision,
   };
   platformSearchCache.set(slug, entry);
   return entry;

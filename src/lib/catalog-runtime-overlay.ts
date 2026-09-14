@@ -111,6 +111,14 @@ export async function loadCatalogOverlayIndex(): Promise<CatalogOverlayIndex> {
   return readIndexFromBlob();
 }
 
+export function catalogOverlayRevision(index: CatalogOverlayIndex): string {
+  return index.ids.length ? `${index.updatedAt}:${index.ids.join("\u001f")}` : "static";
+}
+
+export async function getCatalogOverlayRevision(): Promise<string> {
+  return catalogOverlayRevision(await loadCatalogOverlayIndex());
+}
+
 async function readCatalogOverlayGameFresh(catalogId: string): Promise<CatalogGame | null> {
   if (!shouldUseBlobStorage()) return null;
   try {

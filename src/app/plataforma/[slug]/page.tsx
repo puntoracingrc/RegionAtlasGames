@@ -13,13 +13,14 @@ import {
   publicFacetFilterOptions,
   publicGenreFilterOptions,
   publicSubgenreFilterOptions,
+  sortCatalogListGames,
 } from "@/lib/catalog-filters";
 import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
 import { getUserCollectionViews } from "@/lib/collection-store";
-import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
+import { getCatalogByPlatformWithOverlay, loadCatalogOverlayIndex } from "@/lib/catalog-runtime-overlay";
 import { getAdminPlatform } from "@/lib/admin-entity-catalog";
-import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { toCatalogCardGame } from "@/lib/catalog-card-game";
+import { getDefaultPlatformInitialPage } from "@/lib/public-catalog-initial-page";
 import { publicCatalogRegionFilterOptionsForPlatform, publicCompanyFilterOptions } from "@/lib/public-catalog-filter-options";
 import { listNewsForSection } from "@/lib/news-cache";
 import { platformNewsTopicForSlug } from "@/lib/news-platform-topics";
@@ -41,10 +42,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPlatformMetadata(platform);
 }
 
-function sortCatalogByTitle<T extends { title: string }>(games: T[]): T[] {
-  return [...games].sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
-}
-
 export default async function PlatformPage({ params, searchParams }: Props) {
   const { slug } = await params;
   const query = await searchParams;
@@ -52,7 +49,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
   if (!platform || platform.active === false) notFound();
   const platformNewsTopic = platformNewsTopicForSlug(platform.slug);
 
-  const [user, catalogGames, listingCounts, platformNews] = await Promise.all([
+  const [user, catalogGames, listingCounts, platformNews, overlayIndex] = await Promise.all([
     getCurrentUser(),
     getCatalogByPlatformWithOverlay(slug),
     getActiveListingCountsByCatalog(),
@@ -61,6 +58,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
       : platform.newsEnabled === true
         ? listNewsForSection({ section: "platform", topic: platform.slug, limit: 9 })
         : Promise.resolve([]),
+    loadCatalogOverlayIndex(),
   ]);
   const owned = user ? await getUserCollectionViews(user.id) : [];
   const ownedCatalogIds = user
@@ -72,12 +70,25 @@ export default async function PlatformPage({ params, searchParams }: Props) {
   const browseGames = catalogGames.filter((game) => !isGroupedCatalogName(game));
   const initialFilters = { q: query?.q ?? "", region: query?.region ?? "all", genre: query?.genre ?? "all", subgenre: query?.subgenre ?? "all", facet: query?.facet ?? "all", platform: "all", sort: DEFAULT_SORT, priceFilter: "all" as const, queryScope: "game" as const, includePending, pendingEdition };
   const hasInitialFilters = includePending || Boolean(query?.q || query?.region || query?.genre || query?.subgenre || query?.facet);
-  const groupedListGames = groupCatalogListGames(catalogGames.map(toCatalogListGame));
-  const initialResult = hasInitialFilters ? filterCatalogGames(groupedListGames, initialFilters) : null;
-  const defaultGames = groupedListGames.filter(isDefaultCatalogGame);
-  const initialGames = initialResult ? initialResult.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame) : sortCatalogByTitle(defaultGames)
-    .slice(0, CATALOG_PAGE_SIZE)
-    .map(toCatalogCardGame);
+  const useRuntimeInitialPage = hasInitialFilters || Boolean(overlayIndex.byPlatform[slug]?.length);
+  const initialPage = useRuntimeInitialPage
+    ? await import("@/lib/catalog-list-game").then(({ toCatalogListGame }) => {
+      const groupedListGames = groupCatalogListGames(catalogGames.map(toCatalogListGame));
+      const initialResult = hasInitialFilters ? filterCatalogGames(groupedListGames, initialFilters) : null;
+      const defaultGames = groupedListGames.filter(isDefaultCatalogGame);
+      return {
+        games: initialResult
+          ? initialResult.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame)
+          : sortCatalogListGames(defaultGames, "title-asc").slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame),
+        total: initialResult?.total ?? defaultGames.length,
+        reviewCounts: initialResult?.reviewCounts ?? catalogReviewCounts(catalogGames),
+      };
+    })
+    : await getDefaultPlatformInitialPage(slug).then((page) => ({
+      games: page.items,
+      total: page.total,
+      reviewCounts: page.reviewCounts,
+    }));
   const platformNewsLabel = platformNewsTopic?.label ?? platform.shortName;
 
   return (
@@ -100,9 +111,9 @@ export default async function PlatformPage({ params, searchParams }: Props) {
             />
             <PlatformCatalogSection
               platform={platform}
-              games={initialGames}
-              totalCatalogEntryCount={initialResult?.total ?? defaultGames.length}
-              reviewCounts={initialResult?.reviewCounts ?? catalogReviewCounts(catalogGames)}
+              games={initialPage.games}
+              totalCatalogEntryCount={initialPage.total}
+              reviewCounts={initialPage.reviewCounts}
               insights={buildPlatformCatalogInsights(browseGames, platform.slug)}
               regions={publicCatalogRegionFilterOptionsForPlatform(platform.slug)}
               genres={publicGenreFilterOptions()}

@@ -18,7 +18,7 @@ import {
   normalizeCatalogSearchText,
 } from "@/lib/catalog-search-normalize";
 import { getPlatform } from "@/lib/catalog";
-import { getPublicCatalogWithOverlay } from "@/lib/catalog-runtime-overlay";
+import { getCatalogOverlayRevision, getPublicCatalogWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
@@ -33,9 +33,8 @@ const MAX_TAXONOMY_OPTIONS = 16;
 const PUBLIC_CACHE_HEADERS = {
   "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600",
 };
-const RUNTIME_CATALOG_CACHE_TTL_MS = 60 * 1000;
-let quickSearchGamesCache: { createdAt: number; games: CatalogListGame[] } | null = null;
-let fullSearchGamesCache: { createdAt: number; games: Promise<CatalogListGame[]> } | null = null;
+let quickSearchGamesCache: { revision: string; games: Promise<CatalogListGame[]> } | null = null;
+let fullSearchGamesCache: { revision: string; games: Promise<CatalogListGame[]> } | null = null;
 let taxonomyQueryCache: Set<string> | null = null;
 
 type SearchResult = {
@@ -109,27 +108,39 @@ function toQuickSearchGame(game: CatalogGame): CatalogListGame {
 }
 
 async function quickSearchGames(): Promise<CatalogListGame[]> {
-  const now = Date.now();
-  if (!quickSearchGamesCache || now - quickSearchGamesCache.createdAt >= RUNTIME_CATALOG_CACHE_TTL_MS) {
-    const catalog = await getPublicCatalogWithOverlay();
+  const revision = await getCatalogOverlayRevision();
+  if (!quickSearchGamesCache || quickSearchGamesCache.revision !== revision) {
     quickSearchGamesCache = {
-      createdAt: now,
-      games: groupCatalogListGames(catalog.map(toQuickSearchGame)),
+      revision,
+      games: getPublicCatalogWithOverlay()
+        .then((catalog) => groupCatalogListGames(catalog.map(toQuickSearchGame))),
     };
   }
-  return quickSearchGamesCache.games;
+  const current = quickSearchGamesCache;
+  try {
+    return await current.games;
+  } catch (error) {
+    if (quickSearchGamesCache === current) quickSearchGamesCache = null;
+    throw error;
+  }
 }
 
 async function fullSearchGames(): Promise<CatalogListGame[]> {
-  const now = Date.now();
-  if (!fullSearchGamesCache || now - fullSearchGamesCache.createdAt >= RUNTIME_CATALOG_CACHE_TTL_MS) {
+  const revision = await getCatalogOverlayRevision();
+  if (!fullSearchGamesCache || fullSearchGamesCache.revision !== revision) {
     fullSearchGamesCache = {
-      createdAt: now,
+      revision,
       games: Promise.all([getPublicCatalogWithOverlay(), import("@/lib/catalog-list-game")])
         .then(([catalog, { toCatalogListGame }]) => groupCatalogListGames(catalog.map(toCatalogListGame))),
     };
   }
-  return fullSearchGamesCache.games;
+  const current = fullSearchGamesCache;
+  try {
+    return await current.games;
+  } catch (error) {
+    if (fullSearchGamesCache === current) fullSearchGamesCache = null;
+    throw error;
+  }
 }
 
 function isKnownTaxonomyQuery(rawQuery: string): boolean {

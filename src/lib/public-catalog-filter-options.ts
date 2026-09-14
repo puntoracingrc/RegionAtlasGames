@@ -2,7 +2,7 @@ import { platforms, publicListedCatalog } from "@/lib/catalog";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCompanies } from "@/lib/indexes";
-import { getGroupableCatalogEditionGuides } from "@/lib/catalog-edition-guides";
+import { getCatalogEditionGuides } from "@/lib/catalog-edition-guides";
 import { catalogMarketRegionToLegacyRegion } from "@/lib/catalog-edition-guide-types";
 import {
   publicRegionLabelForPlatform,
@@ -64,7 +64,9 @@ function buildRegionOptionsIndex(): RegionOptionsIndex {
     labelsByPlatform.set(game.platformSlug, platformLabels);
   }
 
-  for (const guide of getGroupableCatalogEditionGuides()) {
+  // Derived guides only restate regions already present in catalog rows. Rich
+  // documented guides are the only source of additional exact market codes.
+  for (const guide of getCatalogEditionGuides()) {
     const platformLabels = labelsByPlatform.get(guide.game.platformSlug) ?? new Map<string, string>();
     for (const marketRegion of guide.physicalEditions.flatMap((edition) => edition.marketRegions)) {
       const legacyRegion = catalogMarketRegionToLegacyRegion(marketRegion);
