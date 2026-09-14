@@ -8,14 +8,17 @@ import type {
   CatalogTaxonomyFilterOption,
 } from "./catalog-filters";
 import {
+  catalogBroadRegionFromLegacyRegion,
   catalogBroadRegionLabel,
   catalogPhysicalEditionTypeLabel,
+  isCatalogMarketRegion,
   type CatalogPhysicalFilterOptions,
 } from "./catalog-edition-guide-types";
 import { isDefaultCatalogGame } from "./catalog-review-policy";
+import { normalizeCatalogSearchParts } from "./catalog-search-normalize";
 import { regionSortRank } from "./platform-catalog-insights";
 import { getRegionDisplay, regionDisplayIdentity } from "./region-display";
-import type { CatalogListGame } from "./types";
+import type { CatalogGame, CatalogListGame } from "./types";
 import {
   catalogBrowseFingerprint,
   decodeCatalogBrowseGame,
@@ -51,12 +54,12 @@ type CatalogBrowseData = {
   games: CatalogListGame[];
   filterOptions: CatalogBrowseFilterOptions;
   revision: string;
-  source: "compact" | "live";
+  source: "compact" | "compact-overlay";
 };
 
 let payloadCache: CatalogBrowseIndexPayload | null = null;
 let decodedCache: CatalogListGame[] | null = null;
-const liveCache = new Map<string, Promise<{ games: CatalogListGame[]; catalogCount: number }>>();
+const overlayCache = new Map<string, { games: CatalogListGame[]; catalogCount: number }>();
 
 function payload(): CatalogBrowseIndexPayload {
   if (payloadCache) return payloadCache;
@@ -79,26 +82,6 @@ function decodedGames(): CatalogListGame[] {
   return decodedCache;
 }
 
-async function liveData(revision: string): Promise<{ games: CatalogListGame[]; catalogCount: number }> {
-  let current = liveCache.get(revision);
-  if (!current) {
-    current = Promise.all([
-      import("./catalog-runtime-overlay"),
-      import("./catalog-list-game"),
-      import("./catalog-physical-edition-browse"),
-    ]).then(async ([runtime, rows, groups]) => {
-      const catalog = await runtime.getPublicCatalogWithOverlay();
-      return {
-        games: groups.groupCatalogListGames(catalog.map(rows.toCatalogListGame)),
-        catalogCount: catalog.filter(isDefaultCatalogGame).length,
-      };
-    });
-    liveCache.clear();
-    liveCache.set(revision, current);
-  }
-  return current;
-}
-
 function sortedRegionOptions(options: CatalogRegionFilterOption[]): CatalogRegionFilterOption[] {
   return [...options].sort((left, right) =>
     regionSortRank(left.label) - regionSortRank(right.label) ||
@@ -106,7 +89,178 @@ function sortedRegionOptions(options: CatalogRegionFilterOption[]): CatalogRegio
   );
 }
 
-/** Keep hot worker additions selectable while the exact live catalog path is active. */
+function unique<T>(values: T[]): T[] {
+  return [...new Set(values)];
+}
+
+function overlaySearchText(game: CatalogGame): string {
+  return normalizeCatalogSearchParts([
+    game.id,
+    game.slug,
+    game.title,
+    game.titlePc,
+    game.platformSlug,
+    game.region,
+    game.regionFamily,
+    game.marketRegion,
+    game.edition,
+    game.physicalVariant,
+    game.museumSlug,
+    game.museumRegion,
+    game.pcPath,
+    game.pcRegion,
+    game.pcCondition,
+    ...(game.languages ?? []),
+    ...(game.canonicalSerials ?? []),
+    ...(game.resolutionSerials ?? []),
+  ]);
+}
+
+function appendSearchText(current: string | undefined, addition: string): string {
+  return normalizeCatalogSearchParts([current, addition]);
+}
+
+function extendPriceRange(
+  current: { min: number; max: number } | undefined,
+  values: Array<number | null | undefined>,
+): { min: number; max: number } | undefined {
+  const prices = values.filter((value): value is number => typeof value === "number" && value > 0);
+  if (current) prices.push(current.min, current.max);
+  return prices.length ? { min: Math.min(...prices), max: Math.max(...prices) } : undefined;
+}
+
+function patchPhysicalEditionGroup(
+  group: NonNullable<CatalogListGame["physicalEditionGroup"]>,
+  overlay: CatalogGame,
+): NonNullable<CatalogListGame["physicalEditionGroup"]> {
+  const broadRegion = catalogBroadRegionFromLegacyRegion(overlay.regionFamily ?? overlay.region);
+  const broadRegions = group.broadRegions.some((entry) => entry.value === broadRegion)
+    ? group.broadRegions
+    : [...group.broadRegions, {
+        value: broadRegion,
+        label: catalogBroadRegionLabel(broadRegion),
+        editionCount: 1,
+      }];
+  const complete = extendPriceRange(group.priceRanges.complete, [overlay.estimatedPriceComplete]);
+  const sealed = extendPriceRange(group.priceRanges.sealed, [
+    overlay.estimatedPriceSealed,
+    overlay.estimatedPriceNewRetail,
+  ]);
+  return {
+    ...group,
+    legacyRegions: unique([...group.legacyRegions, overlay.region]),
+    marketRegions: isCatalogMarketRegion(overlay.marketRegion ?? "")
+      ? unique([...group.marketRegions, overlay.marketRegion!])
+      : group.marketRegions,
+    overviewRegions: unique([...group.overviewRegions, overlay.region]),
+    broadRegions,
+    priceRanges: {
+      ...(complete ? { complete } : {}),
+      ...(sealed ? { sealed } : {}),
+    },
+  };
+}
+
+function overlayListGame(
+  overlay: CatalogGame,
+  displayPlatform: string,
+  current?: CatalogListGame,
+): CatalogListGame {
+  const searchText = overlaySearchText(overlay);
+  const optional = <K extends keyof CatalogListGame>(key: K): Pick<CatalogListGame, K> | object => (
+    overlay[key as keyof CatalogGame] !== undefined
+      ? { [key]: overlay[key as keyof CatalogGame] } as Pick<CatalogListGame, K>
+      : {}
+  );
+  return {
+    ...current,
+    id: overlay.id,
+    slug: overlay.slug,
+    title: overlay.title,
+    platformSlug: overlay.platformSlug,
+    region: overlay.region,
+    ...optional("regionalStatus"),
+    ...optional("canonicalSeoSlug"),
+    ...optional("physicalVariant"),
+    coverUrl: overlay.coverUrl,
+    recommendedPrice: overlay.recommendedPrice,
+    ...optional("estimatedPriceLoose"),
+    ...optional("estimatedPriceGameManual"),
+    ...optional("estimatedPriceComplete"),
+    ...optional("estimatedPriceSealed"),
+    ...optional("estimatedPriceNewRetail"),
+    pcRefPrice: overlay.pcRefPrice,
+    hasEsPrice: overlay.hasEsPrice,
+    ...optional("priceRegionVerified"),
+    displayPlatform,
+    displayYear: current?.displayYear ?? null,
+    ...(current?.physicalEditionGroup
+      ? { physicalEditionGroup: patchPhysicalEditionGroup(current.physicalEditionGroup, overlay) }
+      : {}),
+    isGrail: current?.isGrail ?? false,
+    isTopSegment: current?.isTopSegment ?? false,
+    searchText: appendSearchText(current?.searchText, searchText),
+    gameSearchText: appendSearchText(current?.gameSearchText, searchText),
+    companySearchText: current?.companySearchText ?? "",
+    companies: current?.companies ?? [],
+    sortGenre: current?.sortGenre ?? "\uffff",
+    sortReference: overlay.canonicalSerials?.[0]
+      ?? overlay.resolutionSerials?.[0]
+      ?? current?.sortReference
+      ?? overlay.slug
+      ?? overlay.id,
+    genreSlugs: current?.genreSlugs ?? [],
+    subgenreSlugs: current?.subgenreSlugs ?? [],
+    facetSlugs: current?.facetSlugs ?? [],
+  };
+}
+
+/** Apply hot worker rows without loading and regrouping the full source catalog. */
+export function mergeCatalogBrowseOverlay(
+  games: CatalogListGame[],
+  overlays: CatalogGame[],
+  platforms: CatalogPlatformFilterOption[],
+): CatalogListGame[] {
+  const activePlatforms = new Map(platforms.map((platform) => [platform.slug, platform.name]));
+  const result = [...games];
+  const indexByCatalogId = new Map<string, number>();
+  result.forEach((game, index) => {
+    indexByCatalogId.set(game.id, index);
+    for (const catalogId of game.physicalEditionGroup?.catalogIds ?? []) {
+      indexByCatalogId.set(catalogId, index);
+    }
+  });
+
+  for (const overlay of overlays) {
+    const displayPlatform = activePlatforms.get(overlay.platformSlug);
+    if (!displayPlatform || overlay.listingStatus === "excluded" || (overlay.catalogKind && overlay.catalogKind !== "game")) {
+      continue;
+    }
+    const currentIndex = indexByCatalogId.get(overlay.id);
+    if (currentIndex == null) {
+      indexByCatalogId.set(overlay.id, result.length);
+      result.push(overlayListGame(overlay, displayPlatform));
+      continue;
+    }
+    const current = result[currentIndex];
+    if (current.id === overlay.id) {
+      result[currentIndex] = overlayListGame(overlay, displayPlatform, current);
+      continue;
+    }
+    const addition = overlaySearchText(overlay);
+    result[currentIndex] = {
+      ...current,
+      searchText: appendSearchText(current.searchText, addition),
+      gameSearchText: appendSearchText(current.gameSearchText, addition),
+      ...(current.physicalEditionGroup
+        ? { physicalEditionGroup: patchPhysicalEditionGroup(current.physicalEditionGroup, overlay) }
+        : {}),
+    };
+  }
+  return result;
+}
+
+/** Keep hot worker additions selectable in the compact catalog path. */
 export function augmentCatalogBrowseFilterOptions(
   base: CatalogBrowseFilterOptions,
   games: CatalogListGame[],
@@ -189,9 +343,10 @@ export function augmentCatalogBrowseFilterOptions(
 export async function getCatalogBrowseData(): Promise<CatalogBrowseData> {
   const index = payload();
   const overlay = await getCatalogOverlayLiteSnapshot();
-  const overlayMatchesBuild = overlay.games.every(
-    (game) => index.fingerprints[game.id] === catalogBrowseFingerprint(game),
+  const changedOverlayGames = overlay.games.filter(
+    (game) => index.fingerprints[game.id] !== catalogBrowseFingerprint(game),
   );
+  const overlayMatchesBuild = changedOverlayGames.length === 0;
   if (overlayMatchesBuild) {
     return {
       catalogCount: index.catalogCount,
@@ -201,13 +356,30 @@ export async function getCatalogBrowseData(): Promise<CatalogBrowseData> {
       source: "compact",
     };
   }
-  const live = await liveData(overlay.revision);
+
+  let current = overlayCache.get(overlay.revision);
+  if (!current) {
+    const games = mergeCatalogBrowseOverlay(
+      decodedGames(),
+      changedOverlayGames,
+      index.filterOptions.platforms,
+    );
+    const newDefaultGames = changedOverlayGames.filter(
+      (game) => index.fingerprints[game.id] == null && isDefaultCatalogGame(game),
+    ).length;
+    current = {
+      games,
+      catalogCount: index.catalogCount + newDefaultGames,
+    };
+    overlayCache.clear();
+    overlayCache.set(overlay.revision, current);
+  }
   return {
-    catalogCount: live.catalogCount,
-    games: live.games,
-    filterOptions: augmentCatalogBrowseFilterOptions(index.filterOptions, live.games),
+    catalogCount: current.catalogCount,
+    games: current.games,
+    filterOptions: augmentCatalogBrowseFilterOptions(index.filterOptions, current.games),
     revision: overlay.revision,
-    source: "live",
+    source: "compact-overlay",
   };
 }
 
