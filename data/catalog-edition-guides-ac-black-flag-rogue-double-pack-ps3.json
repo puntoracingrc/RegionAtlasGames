@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-black-flag-rogue-double-pack-ps3",
+      "title": "Compilación física Assassin's Creed IV Black Flag + Assassin's Creed Rogue Double Pack en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Producto físico PS3 canónico e independiente que contiene Black Flag y Rogue. No es una edición de ninguno de los dos juegos standalone. Los EAN de Francia e Italia están territorialmente confirmados; los candidatos europeos/ingleses conservan territorio provisional y Rusia conserva barcode pendiente.",
+      "game": {
+        "title": "Assassin's Creed IV Black Flag + Assassin's Creed Rogue Double Pack",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-black-flag-&amp;-rogue",
+        "canonicalGameId": "assassins-creed-black-flag-rogue-double-pack",
+        "platformReleaseId": "assassins-creed-black-flag-rogue-double-pack-ps3",
+        "aliases": [
+          "Assassin's Creed Black Flag & Rogue",
+          "Assassin's Creed Double Pack",
+          "Assassin's Creed IV Black Flag and Assassin's Creed Rogue Double Pack"
+        ]
+      },
+      "editionFamilies": [
+        {
+          "id": "compilation",
+          "label": "Black Flag + Rogue Double Pack",
+          "representativeCatalogId": "ps3-assassin%27s-creed-black-flag-&amp;-rogue",
+          "physicalEditionIds": [
+            "ac-black-flag-rogue-double-pack-ps3-eu-candidate-a",
+            "ac-black-flag-rogue-double-pack-ps3-fr",
+            "ac-black-flag-rogue-double-pack-ps3-it",
+            "ac-black-flag-rogue-double-pack-ps3-english-international",
+            "ac-black-flag-rogue-double-pack-ps3-ru-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-black-flag-rogue-double-pack-ps3-eu-candidate-a",
+          "label": "Double Pack · Europa candidate A",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "softwareLanguages": ["en", "fr", "de", "es", "it", "nl", "pt", "sv", "no", "da", "fi", "pl"],
+          "serial": "BLES-02204",
+          "barcode": "3307215888827",
+          "physicalContents": ["Assassin's Creed IV Black Flag", "Assassin's Creed Rogue", "Número de medios pendiente de verificación física"],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-black-flag-&amp;-rogue",
+            "ps3-assassin%27s-creed-double-pack"
+          ],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-iv-black-flag",
+            "ps3-assassin%27s-creed-rogue"
+          ],
+          "confidence": "HIGH",
+          "evidenceIds": ["doublepack-geedie-eu", "doublepack-redump-bles02204", "doublepack-local-catalog"],
+          "notes": ["Barcode y serial confirmados; territorio exacto y packaging pendientes.", "Las dos rutas legacy se enlazan a una única variante física, no a dos compilaciones duplicadas."]
+        },
+        {
+          "id": "ac-black-flag-rogue-double-pack-ps3-fr",
+          "label": "Double Pack · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["FR"],
+          "softwareLanguages": ["en", "fr", "de", "es", "it", "nl", "pt", "sv", "no", "da", "fi", "pl"],
+          "serial": "BLES-02204",
+          "barcode": "3307215888834",
+          "physicalContents": ["Assassin's Creed IV Black Flag", "Assassin's Creed Rogue", "Número de medios pendiente de verificación física"],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-iv-black-flag",
+            "ps3-assassin%27s-creed-rogue"
+          ],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["doublepack-leclerc-fr", "doublepack-redump-bles02204"],
+          "notes": ["Las fuentes francesas fuertes prevalecen sobre un slug secundario que contiene RUS; este EAN no se marca como ruso."]
+        },
+        {
+          "id": "ac-black-flag-rogue-double-pack-ps3-it",
+          "label": "Double Pack · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["IT"],
+          "softwareLanguages": ["en", "fr", "de", "es", "it", "nl", "pt", "sv", "no", "da", "fi", "pl"],
+          "serial": "BLES-02204",
+          "barcode": "3307215888865",
+          "catalogNumber": "300076391",
+          "physicalContents": ["Assassin's Creed IV Black Flag", "Assassin's Creed Rogue", "Número de medios pendiente de verificación física"],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-iv-black-flag",
+            "ps3-assassin%27s-creed-rogue"
+          ],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["doublepack-bpmpower-it", "doublepack-redump-bles02204"],
+          "notes": ["EAN, mercado y referencia editorial confirmados; packagingLanguages pendiente de caja física."]
+        },
+        {
+          "id": "ac-black-flag-rogue-double-pack-ps3-english-international",
+          "label": "Double Pack · English / International candidate",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "evidenceMarkets": ["GB", "CZ", "SK", "ZA"],
+          "softwareLanguages": ["en", "fr", "de", "es", "it", "nl", "pt", "sv", "no", "da", "fi", "pl"],
+          "serial": "BLES-02204",
+          "barcode": "3307215888803",
+          "physicalContents": ["Assassin's Creed IV Black Flag", "Assassin's Creed Rogue", "Número de medios pendiente de verificación física"],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-iv-black-flag",
+            "ps3-assassin%27s-creed-rogue"
+          ],
+          "confidence": "HIGH",
+          "evidenceIds": ["doublepack-geedie-eu", "doublepack-redump-bles02204", "doublepack-audit-dossier"],
+          "notes": ["Circulación observada en retail UK, sudafricano y centroeuropeo; no se convierte en variantes nacionales ni se cierra como UK exclusivo."]
+        },
+        {
+          "id": "ac-black-flag-rogue-double-pack-ps3-ru-pending",
+          "label": "Double Pack · Rusia · barcode pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["RU"],
+          "serial": "BLES-02211",
+          "physicalContents": ["Assassin's Creed IV Black Flag", "Assassin's Creed Rogue", "Composición de medios pendiente"],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-iv-black-flag",
+            "ps3-assassin%27s-creed-rogue"
+          ],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["doublepack-serialstation-russia", "doublepack-audit-dossier"],
+          "notes": ["Familia BLES-02211/RUS confirmada. No se asigna ningún EAN occidental ni packaging cirílico sin foto o scan."]
+        }
+      ],
+      "physicalBonusItems": [],
+      "relatedReleases": [],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "doublepack-audit-dossier",
+          "type": "UNKNOWN",
+          "label": "Dossier local · Black Flag + Rogue Double Pack PS3",
+          "summary": "Orden de normalización de la compilación, EAN europeos, seriales BLES, contenido y pendientes de packaging.",
+          "supports": ["entidad de compilación propia", "relaciones containsGame", "territorios provisionales", "research pendiente"]
+        },
+        {
+          "id": "doublepack-redump-bles02204",
+          "type": "UNKNOWN",
+          "label": "Redump · BLES-02204",
+          "url": "https://redump.info/",
+          "supports": ["serial BLES-02204", "medio de compilación", "software EN FR DE ES IT NL PT SV NO DA FI PL"]
+        },
+        {
+          "id": "doublepack-geedie-eu",
+          "type": "UNKNOWN",
+          "label": "Geedie · referencias europeas Double Pack",
+          "url": "https://geedie.com/en/ps3-assassin-s-creed-iv-black-flag-and-assassin-s-creed-rogue",
+          "supports": ["EAN 3307215888827", "EAN 3307215888803", "BLES-02204", "candidatos territoriales"]
+        },
+        {
+          "id": "doublepack-leclerc-fr",
+          "type": "RETAILER_ASSET",
+          "label": "E.Leclerc Francia · Double Pack",
+          "url": "https://www.e.leclerc/fp/3307215888834",
+          "supports": ["EAN 3307215888834", "mercado Francia"]
+        },
+        {
+          "id": "doublepack-bpmpower-it",
+          "type": "RETAILER_ASSET",
+          "label": "BPM Power Italia · Double Pack",
+          "url": "https://www.bpm-power.com/it/online/gaming/videogiochi/ps3-compil-ac-4-b0495060",
+          "supports": ["EAN 3307215888865", "mercado Italia", "publisher product 300076391"]
+        },
+        {
+          "id": "doublepack-serialstation-russia",
+          "type": "UNKNOWN",
+          "label": "SerialStation · familia rusa",
+          "url": "https://www.serialstation.com/games/d79a3265-b22b-46ba-bd4a-e23e9ae4cc81",
+          "supports": ["BLES-02211/RUS", "release rusa", "barcode pendiente"]
+        },
+        {
+          "id": "doublepack-local-catalog",
+          "type": "UNKNOWN",
+          "label": "Fichas legacy de RegionAtlas",
+          "summary": "Se conservan dos IDs/rutas legacy asociados a la misma compilación, sus portadas, PriceCharting, precios, rareza, provenance e historial; la conexión posterior resolverá la representación sin borrar rutas.",
+          "supports": ["preservación de catalogIds", "preservación de rutas", "preservación de portadas", "preservación de precios y rareza"]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac_black_flag_rogue_double_pack_ps3.md"},
+        {"label": "Redump", "url": "https://redump.info/"},
+        {"label": "Geedie", "url": "https://geedie.com/en/ps3-assassin-s-creed-iv-black-flag-and-assassin-s-creed-rogue"},
+        {"label": "E.Leclerc France", "url": "https://www.e.leclerc/fp/3307215888834"},
+        {"label": "BPM Power Italy", "url": "https://www.bpm-power.com/it/online/gaming/videogiochi/ps3-compil-ac-4-b0495060"},
+        {"label": "SerialStation", "url": "https://www.serialstation.com/games/d79a3265-b22b-46ba-bd4a-e23e9ae4cc81"},
+        {"label": "Catálogo local RegionAtlas"}
+      ],
+      "evidenceNote": "Los outer barcodes identifican variantes de la compilación; BLES-02204 y BLES-02211 son seriales de familia/medio y no sustituyen el barcode exterior. Los idiomas de Redump se registran como softwareLanguages, nunca como packagingLanguages. Venta local de una importación no crea una variante nacional.",
+      "researchTasks": [
+        {
+          "id": "doublepack-ps3-eu-5888827-territory",
+          "label": "EAN 3307215888827 · territorio y packaging",
+          "status": "PENDING_REVIEW",
+          "notes": ["Comparar frontal, reverso, spine, PEGI, distribuidor y texto legal. Barcode confirmado; territorio provisional."]
+        },
+        {
+          "id": "doublepack-ps3-english-5888803-territory",
+          "label": "EAN 3307215888803 · UK/English/International",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["GB", "CZ", "SK", "ZA"],
+          "notes": ["Resolver packaging de origen. No crear cajas CZ/SK/ZA sólo por retail local."]
+        },
+        {
+          "id": "doublepack-ps3-russia-barcode-packaging",
+          "label": "Rusia BLES-02211 · barcode y packaging",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["RU"],
+          "notes": ["Buscar barcode ruso, distribuidor 1C/Ubisoft, frontal, reverso y texto cirílico. No asignar 3307215888834."]
+        },
+        {
+          "id": "doublepack-ps3-physical-media-composition",
+          "label": "Composición real de medios",
+          "status": "PENDING_REVIEW",
+          "notes": ["Confirmar mediante scan/dump si ambos juegos están en un Blu-ray, dos discos, un menú selector o códigos; Redump sólo abre la hipótesis de medio combinado."]
+        },
+        {
+          "id": "doublepack-ps3-unconfirmed-european-markets",
+          "label": "España / Alemania / Benelux / Polonia / Portugal / Escandinavia",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["ES", "DE", "NL", "BE", "PL", "PT", "SE", "NO", "DK", "FI"],
+          "notes": ["No crear variantes sin outer barcode y evidencia de caja propia; software multilingüe o retail de importación no bastan."]
+        },
+        {
+          "id": "doublepack-ps3-additional-eans",
+          "label": "EAN adicionales cercanos",
+          "status": "UNCONFIRMED",
+          "notes": ["No crear por continuidad numérica ni por menciones secundarias sin barcode/caja verificable."]
+        }
+      ]
+    }
+  ]
+}
