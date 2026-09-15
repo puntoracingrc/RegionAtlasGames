@@ -13,6 +13,7 @@ import {
   catalogBroadRegionLabel,
   catalogEditionFamilyHasVariants,
   catalogMarketRegionToLegacyRegion,
+  catalogPhysicalContentStatusLabel,
   catalogPhysicalEditionTypeLabel,
   isStrongPhysicalEvidence,
   type CatalogEditionFamily,
@@ -406,6 +407,16 @@ function PhysicalEditionRow({
         {confidenceLabel(edition.confidence) ? (
           <Badge tone={edition.confidence === "PENDING_IDENTIFIER" || edition.confidence === "UNCONFIRMED" ? "amber" : "green"}>
             {confidenceLabel(edition.confidence)}
+          </Badge>
+        ) : null}
+        {edition.physicalContentStatus ? (
+          <Badge tone={
+            edition.physicalContentStatus === "PHYSICAL_FULL_GAME" ||
+            edition.physicalContentStatus === "PHYSICAL_DOWNLOAD_REQUIRED"
+              ? "green"
+              : "amber"
+          }>
+            {catalogPhysicalContentStatusLabel(edition.physicalContentStatus)}
           </Badge>
         ) : null}
         {edition.releaseStatus === "CANCELED_PHYSICAL_RELEASE" ? (

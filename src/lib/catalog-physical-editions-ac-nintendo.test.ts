@@ -9,13 +9,15 @@ type PhysicalContentStatus =
   | "CODE_IN_BOX"
   | "COLLECTOR_WITHOUT_GAME"
   | "DIGITAL_ONLY"
-  | "CANCELED_PHYSICAL";
+  | "CANCELED_PHYSICAL"
+  | "UNKNOWN_PHYSICAL_STATUS";
 
 type PhysicalProductType =
   | "NATIVE_GAME_DISC"
   | "NATIVE_GAME_CARD"
   | "GAME_KEY_CARD"
-  | "DOWNLOAD_CODE_IN_BOX";
+  | "DOWNLOAD_CODE_IN_BOX"
+  | "UNKNOWN_PHYSICAL_PRODUCT";
 
 type Edition = {
   id: string;
@@ -136,6 +138,7 @@ test("media taxonomy produces separate non-overlapping counts", () => {
       COLLECTOR_WITHOUT_GAME: 0,
       DIGITAL_ONLY: 0,
       CANCELED_PHYSICAL: 0,
+      UNKNOWN_PHYSICAL_STATUS: 0,
     } satisfies Record<PhysicalContentStatus, number>,
   );
 
@@ -147,8 +150,9 @@ test("media taxonomy produces separate non-overlapping counts", () => {
     COLLECTOR_WITHOUT_GAME: 0,
     DIGITAL_ONLY: 0,
     CANCELED_PHYSICAL: 0,
+    UNKNOWN_PHYSICAL_STATUS: 1,
   });
-  assert.equal(document.guides.flatMap((entry) => entry.physicalEditions).length, 71);
+  assert.equal(document.guides.flatMap((entry) => entry.physicalEditions).length, 72);
   assert.equal(document.guides.flatMap((entry) => entry.physicalEditions).reduce((sum, entry) => sum + entry.physicalGameCount, 0), 56);
 });
 
@@ -170,7 +174,8 @@ test("Switch game cards contain real software but preserve required-download con
     assert.ok(edition.digitalContents.some((content) => /descarga/i.test(content)));
   }
 
-  const ac3 = guide("assassins-creed-iii-remastered-switch-worldwide").physicalEditions;
+  const ac3 = guide("assassins-creed-iii-remastered-switch-worldwide").physicalEditions
+    .filter((edition) => edition.physicalContentStatus === "PHYSICAL_DOWNLOAD_REQUIRED");
   assert.ok(ac3.every((edition) => edition.physicalContents.includes("Assassin's Creed III Remastered")));
   assert.ok(ac3.every((edition) => edition.physicalContents.includes("Assassin's Creed Liberation Remastered")));
   assert.ok(ac3.every((edition) => edition.digitalContents.some((content) => /DLC de un jugador/i.test(content))));
@@ -320,6 +325,7 @@ test("catalog ownership is limited to existing Switch identities plus the two au
   assert.equal(new Set(catalogIds).size, catalogIds.length);
   assert.deepEqual(sorted(catalogIds), sorted([
     "switch-assassin-s-creed-iii-remastered",
+    "switch-assassin-s-creed-iii-remastered-code-in-box",
     "switch-usa-assassin-s-creed-iii-remastered",
     "switch-assassin-s-creed-the-rebel-collection",
     "switch-usa-assassin-s-creed-the-rebel-collection",
@@ -334,6 +340,10 @@ test("catalog ownership is limited to existing Switch identities plus the two au
   ]));
 
   const ac3 = guide("assassins-creed-iii-remastered-switch-worldwide");
-  assert.equal(catalogIds.includes("switch-assassin-s-creed-iii-remastered-code-in-box"), false);
+  const unresolvedCodeInBox = ac3.physicalEditions.find((edition) =>
+    edition.catalogIds?.includes("switch-assassin-s-creed-iii-remastered-code-in-box"),
+  );
+  assert.equal(unresolvedCodeInBox?.physicalContentStatus, "UNKNOWN_PHYSICAL_STATUS");
+  assert.equal(unresolvedCodeInBox?.countsAsNativePhysicalRelease, false);
   assert.ok(ac3.researchTasks?.some((task) => task.id === "ac3r-switch-code-in-box-conflict"));
 });

@@ -117,6 +117,24 @@ export const PHYSICAL_RELEASE_STATUS_VALUES = [
 export type CatalogPhysicalReleaseStatus =
   (typeof PHYSICAL_RELEASE_STATUS_VALUES)[number];
 
+export const PHYSICAL_CONTENT_STATUS_VALUES = [
+  "PHYSICAL_FULL_GAME",
+  "PHYSICAL_DOWNLOAD_REQUIRED",
+  "GAME_KEY_CARD",
+  "CODE_IN_BOX",
+  "COLLECTOR_WITHOUT_GAME",
+  "DIGITAL_ONLY",
+  "CANCELED_PHYSICAL",
+  "PROMOTIONAL_NOT_FOR_RESALE",
+  "PRESS_KIT",
+  "RETAILER_BUNDLE",
+  "HARDWARE_BUNDLE",
+  "UNKNOWN_PHYSICAL_STATUS",
+] as const;
+
+export type CatalogPhysicalContentStatus =
+  (typeof PHYSICAL_CONTENT_STATUS_VALUES)[number];
+
 export const PHYSICAL_BONUS_ITEM_TYPE_VALUES = ["STEELBOOK_CASE"] as const;
 export type CatalogPhysicalBonusItemType =
   (typeof PHYSICAL_BONUS_ITEM_TYPE_VALUES)[number];
@@ -127,8 +145,17 @@ export type CatalogRelatedReleaseType =
 
 export const PHYSICAL_PRODUCT_TYPE_VALUES = [
   "NATIVE_GAME_DISC",
+  "NATIVE_GAME_CARD",
+  "GAME_KEY_CARD",
   "PREVIOUS_GEN_DISC_WITH_UPGRADE",
   "DOWNLOAD_CODE_IN_BOX",
+  "PROMOTIONAL_NOT_FOR_RESALE",
+  "PRESS_KIT",
+  "RETAILER_BUNDLE",
+  "HARDWARE_BUNDLE",
+  "COLLECTOR_WITHOUT_GAME",
+  "DIGITAL_ONLY_PRODUCT",
+  "UNKNOWN_PHYSICAL_PRODUCT",
 ] as const;
 
 export type CatalogPhysicalProductType = (typeof PHYSICAL_PRODUCT_TYPE_VALUES)[number];
@@ -258,6 +285,8 @@ export type CatalogSharedDisc = {
   label: string;
   technicalRegion?: CatalogBroadRegion;
   serial?: string;
+  xemid?: string;
+  mediaId?: string;
   ratingSystems: string[];
   evidence: CatalogPhysicalEvidence[];
 };
@@ -297,12 +326,20 @@ export type CatalogPhysicalEdition = {
   /** Digital/software family identifiers such as PPSA; never treated as packaging identifiers. */
   softwareFamilyCodes: string[];
   productCodes: string[];
+  /** Estado material del producto; separa soporte completo, descargas y objetos no retail. */
+  physicalContentStatus?: CatalogPhysicalContentStatus;
   /** Tipo de soporte incluido; evita contar una caja con código o un disco de otra generación como disco nativo. */
   physicalProductType?: CatalogPhysicalProductType;
   /** Plataforma impresa/prensada en el soporte físico, no la consola compatible mediante actualización. */
   nativePhysicalPlatform?: string;
   compatiblePlatforms: string[];
   containsDisc?: boolean;
+  hasGameCard?: boolean;
+  gameStoredOnCard?: boolean;
+  fullGameDownloadRequired?: boolean;
+  physicalGameCardCount?: number;
+  gameKeyCardCount?: number;
+  physicalGameCount?: number;
   countsAsNativePhysicalRelease?: boolean;
   upgradeToPS5?: boolean;
   upgradePath?: string;
@@ -395,7 +432,54 @@ export type CatalogEditionGuideModel = {
 };
 
 export function isReleasedPhysicalEdition(edition: CatalogPhysicalEdition): boolean {
-  return edition.releaseStatus === "RELEASED" && edition.countsAsNativePhysicalRelease !== false;
+  if (edition.releaseStatus !== "RELEASED" || edition.countsAsNativePhysicalRelease === false) {
+    return false;
+  }
+  if (edition.physicalContentStatus && [
+    "GAME_KEY_CARD",
+    "CODE_IN_BOX",
+    "COLLECTOR_WITHOUT_GAME",
+    "DIGITAL_ONLY",
+    "CANCELED_PHYSICAL",
+    "PROMOTIONAL_NOT_FOR_RESALE",
+    "PRESS_KIT",
+    "RETAILER_BUNDLE",
+    "HARDWARE_BUNDLE",
+    "UNKNOWN_PHYSICAL_STATUS",
+  ].includes(edition.physicalContentStatus)) {
+    return false;
+  }
+  return !edition.physicalProductType || ![
+    "GAME_KEY_CARD",
+    "PREVIOUS_GEN_DISC_WITH_UPGRADE",
+    "DOWNLOAD_CODE_IN_BOX",
+    "PROMOTIONAL_NOT_FOR_RESALE",
+    "PRESS_KIT",
+    "RETAILER_BUNDLE",
+    "HARDWARE_BUNDLE",
+    "COLLECTOR_WITHOUT_GAME",
+    "DIGITAL_ONLY_PRODUCT",
+    "UNKNOWN_PHYSICAL_PRODUCT",
+  ].includes(edition.physicalProductType);
+}
+
+const PHYSICAL_CONTENT_STATUS_LABELS: Record<CatalogPhysicalContentStatus, string> = {
+  PHYSICAL_FULL_GAME: "Juego completo en soporte",
+  PHYSICAL_DOWNLOAD_REQUIRED: "Descarga adicional requerida",
+  GAME_KEY_CARD: "Game-Key Card",
+  CODE_IN_BOX: "Código en caja",
+  COLLECTOR_WITHOUT_GAME: "Coleccionista sin juego",
+  DIGITAL_ONLY: "Sólo digital",
+  CANCELED_PHYSICAL: "Lanzamiento físico cancelado",
+  PROMOTIONAL_NOT_FOR_RESALE: "Promocional · no destinado a venta",
+  PRESS_KIT: "Kit de prensa",
+  RETAILER_BUNDLE: "Pack de tienda",
+  HARDWARE_BUNDLE: "Pack de hardware",
+  UNKNOWN_PHYSICAL_STATUS: "Estado físico pendiente",
+};
+
+export function catalogPhysicalContentStatusLabel(status: CatalogPhysicalContentStatus): string {
+  return PHYSICAL_CONTENT_STATUS_LABELS[status];
 }
 
 export type CatalogPriceRange = {

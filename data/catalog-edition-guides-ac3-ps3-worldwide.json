@@ -3,7 +3,7 @@
   "guides": [
     {
       "schemaVersion": 2,
-      "id": "assassins-creed-iii-ps3-worldwide",
+      "id": "assassins-creed-iii-ps3",
       "title": "Ediciones físicas mundiales de Assassin's Creed III en PlayStation 3",
       "reviewedAt": "2026-09-15",
       "note": "Overlay mundial V2 para una sola obra canónica y un solo lanzamiento PS3. Separa caja, disco, mercado y reedición; no convierte candidatos, bundles de consola ni contenido digital en ediciones físicas standalone.",
@@ -350,7 +350,8 @@
           "catalogNumber": "BLES-01667",
           "physicalContents": ["Juego físico", "Contenido exclusivo para PS3"],
           "confidence": "CONFIRMED_PHYSICAL_COPY",
-          "evidenceIds": ["ac3-originalky-de-exclusive"],
+          "evidenceIds": ["ac-ps3-regional-o112"],
+          "imageKeys": ["ac-ps3-regional-o112-front"],
           "notes": ["Caja y manual alemanes declarados en la evidencia; packagingLanguages global queda vacío al no ser un scan exhaustivo."]
         },
         {
@@ -752,6 +753,9 @@
           "label": "Not for Resale · USA · ficha legacy",
           "broadRegion": "NORTH_AMERICA",
           "editionType": "OTHER",
+          "physicalContentStatus": "PROMOTIONAL_NOT_FOR_RESALE",
+          "physicalProductType": "PROMOTIONAL_NOT_FOR_RESALE",
+          "countsAsNativePhysicalRelease": false,
           "evidenceMarkets": ["US"],
           "physicalContents": ["Juego físico"],
           "catalogIds": ["ps3-usa-assassin-s-creed-iii-not-for-resale"],
@@ -764,6 +768,9 @@
           "label": "Not for Resale · Canadá",
           "broadRegion": "NORTH_AMERICA",
           "editionType": "OTHER",
+          "physicalContentStatus": "PROMOTIONAL_NOT_FOR_RESALE",
+          "physicalProductType": "PROMOTIONAL_NOT_FOR_RESALE",
+          "countsAsNativePhysicalRelease": false,
           "marketRegions": ["CA"],
           "physicalContents": ["Juego físico marcado Not for Resale"],
           "confidence": "CONFIRMED_PHYSICAL_COPY",
@@ -888,11 +895,12 @@
           "supports": ["BLJM-60516", "mercado JP"]
         },
         {
-          "id": "ac3-originalky-de-exclusive",
+          "id": "ac-ps3-regional-o112",
           "type": "RETAILER_PHOTO_CONFIRMED",
-          "label": "Originalky · PS3 Exclusive Edition Alemania",
+          "label": "O112 · PS3 Exclusive Edition con caja y manual alemanes",
           "url": "https://www.originalky.cz/assassin-s-creed-iii-ps3-pouzite-p72877/",
-          "supports": ["EAN 3307215644836", "USK 16", "caja y manual DE declarados"]
+          "summary": "La foto inspeccionada muestra PS3 Exclusive Edition y USK 16; la ficha declara caja y manual alemanes.",
+          "supports": ["EAN 3307215644836", "USK 16", "caja y manual DE declarados", "observación regional O112"]
         },
         {
           "id": "ac3-sumthings-editions",
@@ -963,6 +971,25 @@
           "label": "MobyGames · caja canadiense Not for Resale",
           "url": "https://www.mobygames.com/game/59414/assassins-creed-iii/covers/group-401916/",
           "supports": ["mercado CA", "marca Not for Resale", "caja física"]
+        }
+      ],
+      "images": [
+        {
+          "key": "ac-ps3-regional-o112-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o112.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o112.webp",
+          "width": 373,
+          "height": 440,
+          "caption": "Imagen de producto inspeccionada para O112",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "c15619249d14780220e7f6536ef56a7bd42b842f4870ac2687df43006f412720",
+          "thumbnailSha256": "12a2493d108f36ab76b9e09e5e47db44f0ec3497df0697071c593850afd49f55",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o112.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "3f7de494f4384c065e911c58e619d82d2a6ac3c8b523c0fd5c2b59d098d85f23",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-iii-ps3-pouzite-p72877/",
+          "inspectedAt": "2026-09-13"
         }
       ],
       "sources": [

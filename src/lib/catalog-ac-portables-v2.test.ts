@@ -189,7 +189,7 @@ test("Discovery candidate EANs remain distinct and territorially unresolved", ()
   assert.deepEqual(second.marketRegions, []);
   assert.deepEqual(first.productCodes, []);
   assert.deepEqual(second.productCodes, []);
-  assert.equal(first.catalogIds.length + second.catalogIds.length, 0);
+  assert.equal((first.catalogIds ?? []).length + (second.catalogIds ?? []).length, 0);
 });
 
 test("portable guides never contain PS3 Liberation HD store identifiers", () => {

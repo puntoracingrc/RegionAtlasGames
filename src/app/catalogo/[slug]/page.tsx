@@ -33,6 +33,7 @@ import {
 import {
   catalogBroadRegionLabel,
   catalogMarketRegionToLegacyRegion,
+  isReleasedPhysicalEdition,
 } from "@/lib/catalog-edition-guide-types";
 import {
   collectionItemMatchesPhysicalVariant,
@@ -217,7 +218,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
   const headerPhysicalEditions = currentEditionFamily
     ? editionGuide?.physicalEditions.filter(
         (edition) => currentEditionFamily.physicalEditionIds.includes(edition.id)
-          && edition.releaseStatus === "RELEASED",
+          && isReleasedPhysicalEdition(edition),
       ) ?? []
     : currentPhysicalEdition
       ? [currentPhysicalEdition]
@@ -397,7 +398,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
           const edition = editionGuide.physicalEditions.find((candidate) => candidate.id === editionId);
           return edition ? [edition] : [];
         })
-        .filter((edition) => edition.releaseStatus === "RELEASED")
+        .filter(isReleasedPhysicalEdition)
         .map(async (edition) => {
           const linkedCatalogId = edition.catalogIds[0];
           const linkedGame = linkedCatalogId

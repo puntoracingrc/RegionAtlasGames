@@ -197,15 +197,15 @@ test("outer-packaging candidates do not acquire national markets or packaging la
   assert.deepEqual(editionsWithPackagingLanguage.map((entry) => entry.id), ["ac-anthology-xbox360-at-ch"]);
 });
 
-test("Liberation HD is included only as a digital voucher and never as a physical disc", () => {
+test("Liberation HD is included only as a digital voucher and never as a catalogued physical game", () => {
   const americanSaga = guide("assassins-creed-american-saga-americas-collection-xbox360");
   for (const entry of americanSaga.physicalEditions) {
-    assert.ok(entry.containsCatalogIds?.includes("xbox360-assassin-s-creed-liberation-hd"));
+    assert.equal(entry.containsCatalogIds?.includes("xbox360-assassin-s-creed-liberation-hd"), false);
     assert.ok(entry.digitalContents?.some((value) => /Liberation HD.*voucher.*no disco/i.test(value)));
     assert.equal(entry.physicalContents?.some((value) => /Liberation HD/i.test(value)), false);
   }
   assert.equal(americanSaga.sharedDiscs?.some((entry) => /Liberation/i.test(entry.label)), false);
-  assert.match(americanSaga.evidenceNote, /IncludedGame\/IncludedVoucher/);
+  assert.match(americanSaga.evidenceNote, /sólo en digitalContents como voucher/);
 });
 
 test("Ezio Trilogy remains USA and Japan only with no invented European variant", () => {
@@ -228,7 +228,6 @@ test("the stable IncludedGame dependencies are explicit without touching individ
     "xbox360-assassin-s-creed-ii",
     "xbox360-assassin-s-creed-iii",
     "xbox360-assassin-s-creed-iv-black-flag",
-    "xbox360-assassin-s-creed-liberation-hd",
     "xbox360-assassin-s-creed-revelations",
     "xbox360-assassin-s-creed-rogue",
   ]);

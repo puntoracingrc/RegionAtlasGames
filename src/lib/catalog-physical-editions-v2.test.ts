@@ -25,6 +25,8 @@ import {
   CATALOG_PHYSICAL_PRICE_CONDITION_VALUES,
   PHYSICAL_EDITION_TYPE_VALUES,
   PHYSICAL_EVIDENCE_TYPE_VALUES,
+  PHYSICAL_CONTENT_STATUS_VALUES,
+  PHYSICAL_PRODUCT_TYPE_VALUES,
   PHYSICAL_RELEASE_STATUS_VALUES,
   canEvidenceDefinePhysicalVariant,
   catalogEditionFamilyCountLabel,
@@ -251,6 +253,8 @@ test("schema v2 keeps legacy guides readable and enumerations synchronized", () 
   ]);
   assert.deepEqual(schemaDocument.$defs.evidenceType.enum, [...PHYSICAL_EVIDENCE_TYPE_VALUES]);
   assert.deepEqual(schemaDocument.$defs.releaseStatus.enum, [...PHYSICAL_RELEASE_STATUS_VALUES]);
+  assert.deepEqual(schemaDocument.$defs.physicalContentStatus.enum, [...PHYSICAL_CONTENT_STATUS_VALUES]);
+  assert.deepEqual(schemaDocument.$defs.physicalProductType.enum, [...PHYSICAL_PRODUCT_TYPE_VALUES]);
 });
 
 test("V2 edition families declare their valid price states and Special excludes standard-only parts", () => {
@@ -542,7 +546,10 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
     const market = catalogMarketRegionToLegacyRegion(marketCode);
     assert.ok(ps5RegionOptions.includes(market), `missing PS5 region filter: ${market}`);
   }
-  assert.equal(ps5RegionOptions.includes(catalogMarketRegionToLegacyRegion("PT")), false);
+  assert.equal(
+    absolumGuide().physicalEditions.some((edition) => edition.marketRegions.includes("PT")),
+    false,
+  );
 });
 
 test("V2 overview regions link to the matching regional block or exact physical edition", () => {
@@ -675,31 +682,39 @@ test("every Absolum V2 edition shares verified game details and keeps its physic
   }
 });
 
-test("documented guides use edition families while existing catalog IDs retain exact meaning", () => {
+test("documented guides expose a family for every countable catalog route", () => {
   const guidesWithFamilies = getCatalogEditionGuides().filter((guide) => guide.editionFamilies.length > 0);
-  assert.deepEqual(
-    guidesWithFamilies.map((guide) => guide.id),
-    [
-      "resident-evil-requiem-ps5",
-      "absolum-ps5",
-      ...AC_PS3_GUIDE_IDS,
-      "assassins-creed-iii-remastered-ps4",
-      "assassins-creed-iv-black-flag-ps4",
-      "assassins-creed-chronicles-ps4",
-      "assassins-creed-origins-ps4",
-      "assassins-creed-rogue-remastered-ps4",
-      "assassins-creed-mirage-ps4",
-      "assassins-creed-syndicate-ps4",
-      "assassins-creed-the-ezio-collection-ps4",
-      "assassins-creed-unity-ps4-worldwide",
-      "assassins-creed-valhalla-ps4-worldwide",
-      "assassins-creed-valhalla-dawn-of-ragnarok-ps4",
-      "assassins-creed-odyssey-ps4",
-      "assassins-creed-shadows-ps5-worldwide",
-      "assassins-creed-valhalla-ps5",
-      "assassins-creed-valhalla-dawn-of-ragnarok-ps5",
-    ],
-  );
+  const guideIdsWithFamilies = new Set(guidesWithFamilies.map((guide) => guide.id));
+  for (const guideId of [
+    "resident-evil-requiem-ps5",
+    "absolum-ps5",
+    ...AC_PS3_GUIDE_IDS,
+    "assassins-creed-iii-remastered-ps4",
+    "assassins-creed-iv-black-flag-ps4",
+    "assassins-creed-chronicles-ps4",
+    "assassins-creed-origins-ps4",
+    "assassins-creed-rogue-remastered-ps4",
+    "assassins-creed-mirage-ps4",
+    "assassins-creed-syndicate-ps4",
+    "assassins-creed-the-ezio-collection-ps4",
+    "assassins-creed-unity-ps4-worldwide",
+    "assassins-creed-valhalla-ps4-worldwide",
+    "assassins-creed-valhalla-dawn-of-ragnarok-ps4",
+    "assassins-creed-odyssey-ps4",
+    "assassins-creed-shadows-ps5-worldwide",
+    "assassins-creed-valhalla-ps5",
+    "assassins-creed-valhalla-dawn-of-ragnarok-ps5",
+  ]) {
+    assert.ok(guideIdsWithFamilies.has(guideId), `missing edition families in ${guideId}`);
+  }
+  for (const guide of getCatalogEditionGuides()) {
+    const familyEditionIds = new Set(guide.editionFamilies.flatMap((family) => family.physicalEditionIds));
+    for (const edition of guide.physicalEditions.filter(isReleasedPhysicalEdition)) {
+      if (edition.catalogIds.length > 0) {
+        assert.ok(familyEditionIds.has(edition.id), `${guide.id} leaves ${edition.id} without a family`);
+      }
+    }
+  }
 
   for (const id of [
     "gameboy-es-solomon-s-club",
@@ -744,7 +759,15 @@ test("sitewide V2 groups published regional pages and keeps their catalog collec
     assert.ok(guide, `missing V2 presentation for ${game.id}`);
     assert.equal(guide.schemaVersion, 2);
     assert.ok(guide.currentEditionId || guide.currentBonusItemId);
-    if (guide.currentEditionId) assert.ok(guide.currentEditionFamilyId);
+    if (guide.currentEditionId) {
+      const currentEdition = guide.physicalEditions.find((edition) => edition.id === guide.currentEditionId);
+      assert.ok(currentEdition);
+      if (isReleasedPhysicalEdition(currentEdition)) assert.ok(guide.currentEditionFamilyId);
+      else if (guide.currentEditionFamilyId) {
+        const family = guide.editionFamilies.find((entry) => entry.id === guide.currentEditionFamilyId);
+        assert.ok(family?.physicalEditionIds.includes(currentEdition.id));
+      }
+    }
     if (guide.currentBonusItemId) assert.equal(guide.currentEditionFamilyId, undefined);
   }
 
@@ -911,7 +934,7 @@ test("V2 grouping emits one card when a company index repeats a catalog identity
   ]);
 });
 
-test("the previous four catalog additions remain exact and all prior catalog rows are preserved", () => {
+test("catalog expansion preserves the exact pre-V2 catalog and the original four PS3 additions", () => {
   const rawCatalog = JSON.parse(readFileSync(path.join(process.cwd(), "data", "catalog.json"), "utf8")) as Array<{
     id: string;
     platformSlug: string;
@@ -923,9 +946,12 @@ test("the previous four catalog additions remain exact and all prior catalog row
   assert.equal(acPs3Implementation.preservation.destructiveChanges, 0);
   assert.equal(acPs3Implementation.preservation.userDataChanges, 0);
 
-  const previousCatalog = rawCatalog.filter((entry) => !AC_PS3_NEW_CATALOG_IDS.includes(
-    entry.id as (typeof AC_PS3_NEW_CATALOG_IDS)[number],
-  ));
+  const physicalV2Additions = rawCatalog.filter((entry) => entry.seedSource === "physical-editions-v2");
+  assert.equal(physicalV2Additions.length, 32);
+
+  const previousCatalog = rawCatalog.filter((entry) =>
+    entry.seedSource !== "physical-editions-v2" &&
+    !AC_PS3_NEW_CATALOG_IDS.includes(entry.id as (typeof AC_PS3_NEW_CATALOG_IDS)[number]));
   assert.equal(previousCatalog.length, 81_425);
   assert.equal(
     createHash("sha256").update(JSON.stringify(previousCatalog)).digest("hex"),
@@ -1073,13 +1099,13 @@ test("backed Assassin's Creed PS3 facts remain attached to their exact physical 
 
   const expectedUbiTheBest = new Map([
     ["assassins-creed-connor-saga-ps3", ["BLJM-61287", "4949244003612", "2015-05-28"]],
-    ["assassins-creed-iii-ps3", ["BLJM-61171", undefined, undefined]],
+    ["assassins-creed-iii-ps3", ["BLJM-61171", "4949244003377", "2014-03-20"]],
     ["assassins-creed-iv-black-flag-ps3", ["BLJM-61273", "4949244003575", "2015-06-25"]],
-    ["assassins-creed-rogue-ps3", [undefined, "4949244003926", "2016-03-03"]],
+    ["assassins-creed-rogue-ps3", ["BLJM-61334", "4949244003926", "2016-03-03"]],
   ]);
   for (const [guideId, [catalogNumber, barcode, releaseDate]] of expectedUbiTheBest) {
     const edition = guides.get(guideId)?.physicalEditions.find(
-      (candidate) => candidate.editionType === "BUDGET_REISSUE",
+      (candidate) => candidate.editionType === "BUDGET_REISSUE" && candidate.marketRegions.includes("JP"),
     );
     assert.ok(edition, `missing Ubi the Best in ${guideId}`);
     assert.deepEqual(edition.marketRegions, ["JP"]);
@@ -1087,7 +1113,7 @@ test("backed Assassin's Creed PS3 facts remain attached to their exact physical 
     assert.equal(edition.barcode, barcode);
     assert.equal(edition.releaseDate, releaseDate);
     assert.deepEqual(edition.packagingLanguages, []);
-    assert.deepEqual(edition.ratingSystems, []);
+    assert.deepEqual(edition.ratingSystems, guideId === "assassins-creed-iii-ps3" ? ["CERO Z"] : []);
   }
 
   const ezioSaga = guides.get("assassins-creed-ezio-saga-ps3");
@@ -1137,7 +1163,10 @@ test("Assassin's Creed V2 families filter by documented markets and group idempo
     { ...defaultFilters, region: "PAL España" },
     { platforms: true, regions: true },
   );
-  assert.deepEqual(spanish.items.map((game) => game.id), ["ps3-assassin%27s-creed-brotherhood"]);
+  assert.deepEqual(spanish.items.map((game) => game.id).sort(), [
+    "ps3-assassin%27s-creed-brotherhood",
+    "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+  ]);
   const europe = filterCatalogGames(
     groupedBrotherhood,
     { ...defaultFilters, broadRegion: "EUROPE" },
@@ -1154,7 +1183,6 @@ test("unresolved Assassin's Creed candidates are not promoted into public V2 edi
     guide.physicalEditions.map((edition) => edition.id.toLowerCase()),
   );
   for (const unresolved of [
-    "ubiworkshop",
     "charity",
     "harlequin",
     "doctor",

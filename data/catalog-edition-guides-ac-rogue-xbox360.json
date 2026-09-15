@@ -31,7 +31,7 @@
         {
           "id": "collector",
           "label": "Collector's Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-rogue",
+          "representativeCatalogId": "xbox360-assassin-s-creed-rogue-collector-s-edition",
           "physicalEditionIds": [
             "ac-rogue-xbox360-collector-es-3307215815144",
             "ac-rogue-xbox360-collector-fr-3307215815090",
@@ -43,7 +43,7 @@
         {
           "id": "classics",
           "label": "Classics",
-          "representativeCatalogId": "xbox360-assassin-s-creed-rogue",
+          "representativeCatalogId": "xbox360-assassin-s-creed-rogue-classics",
           "physicalEditionIds": ["ac-rogue-xbox360-classics-fr-3307215898055"],
           "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
         }
@@ -112,6 +112,7 @@
         },
         {
           "id": "ac-rogue-xbox360-collector-es-3307215815144",
+          "catalogIds": ["xbox360-assassin-s-creed-rogue-collector-s-edition"],
           "label": "Collector's Edition · España",
           "broadRegion": "EUROPE",
           "editionType": "COLLECTOR",
@@ -159,6 +160,7 @@
         },
         {
           "id": "ac-rogue-xbox360-classics-fr-3307215898055",
+          "catalogIds": ["xbox360-assassin-s-creed-rogue-classics"],
           "label": "Classics · Francia",
           "broadRegion": "EUROPE",
           "editionType": "BUDGET_REISSUE",

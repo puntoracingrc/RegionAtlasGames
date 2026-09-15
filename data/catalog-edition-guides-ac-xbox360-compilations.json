@@ -500,7 +500,7 @@
           "barcode": "3307215802779",
           "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico"],
           "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
-          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag"],
           "catalogIds": ["xbox360-assassin-s-creed-american-saga"],
           "confidence": "CONFIRMED",
           "evidenceIds": ["ac-american-saga-xtralife-es", "ac-american-saga-yambalu-es"],
@@ -515,7 +515,7 @@
           "barcode": "3307215802786",
           "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico"],
           "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
-          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag"],
           "confidence": "HIGH",
           "evidenceIds": ["ac-american-saga-pricecharting-pal"],
           "notes": ["No se asigna a UK, Francia, Benelux, Portugal o Italia sin outer packaging."]
@@ -531,7 +531,7 @@
           "barcode": "3307215802755",
           "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico"],
           "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
-          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag"],
           "confidence": "HIGH",
           "evidenceIds": ["ac-american-saga-wog-dfi"],
           "notes": ["Los idiomas de software no se copian a packagingLanguages."]
@@ -547,7 +547,7 @@
           "barcode": "887256000622",
           "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico", "Cuatro discos físicos observados; asignación individual pendiente"],
           "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
-          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag"],
           "confidence": "CONFIRMED_PHYSICAL_COPY",
           "evidenceIds": ["ac-americas-bestbuy-us", "ac-americas-physical-us", "ac-americas-liberation-voucher"]
         },
@@ -560,7 +560,7 @@
           "marketRegions": ["AU"],
           "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico"],
           "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
-          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag"],
           "confidence": "PENDING_IDENTIFIER",
           "evidenceIds": ["ac-american-saga-au-release"]
         }
@@ -584,7 +584,7 @@
         {"label": "All Systems Go · copia física", "url": "https://allsystemsgo.games/products/assassins-creed-the-americas-collection-xbox-360"},
         {"label": "DBox · Black Flag Xbox 360", "url": "https://dbox.tools/discs/xbox360/2617/"}
       ],
-      "evidenceNote": "Liberation HD aparece en containsCatalogIds porque es un juego incluido, pero digitalContents fija su soporte como voucher. La integración central debe conservar esa distinción al crear IncludedGame/IncludedVoucher. 887256000615, BLUS-31483, 3307215802496 y 3307215802816 no se publican como Xbox 360.",
+      "evidenceNote": "Liberation HD se conserva sólo en digitalContents como voucher, sin crear una ficha física independiente ni incluirlo en containsCatalogIds. 887256000615, BLUS-31483, 3307215802496 y 3307215802816 no se publican como Xbox 360.",
       "researchTasks": [
         {"id": "ac-american-saga-outer-es", "label": "Confirmar packaging español mediante scan", "status": "PENDING_REVIEW", "marketRegions": ["ES"]},
         {"id": "ac-american-saga-resolve-pal-eans", "label": "Resolver 3307215802786 y 3307215802755 mediante outer packaging", "status": "PENDING_REVIEW"},

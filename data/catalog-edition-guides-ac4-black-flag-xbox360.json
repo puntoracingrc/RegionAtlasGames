@@ -36,7 +36,7 @@
         {
           "id": "special",
           "label": "Special Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-special-edition",
           "physicalEditionIds": [
             "ac4-xbox360-special-fr-3307215705902",
             "ac4-xbox360-special-pal-3307215705919",
@@ -48,7 +48,7 @@
         {
           "id": "skull",
           "label": "Skull Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-skull-edition",
           "physicalEditionIds": [
             "ac4-xbox360-skull-3307215706053",
             "ac4-xbox360-skull-3307215706084",
@@ -60,35 +60,35 @@
         {
           "id": "buccaneer",
           "label": "Buccaneer Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-buccaneer-edition",
           "physicalEditionIds": ["ac4-xbox360-buccaneer-3307215706237"],
           "priceConditions": ["sealed", "newRetail", "complete"]
         },
         {
           "id": "black-chest",
           "label": "Black Chest Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-black-chest-edition",
           "physicalEditionIds": ["ac4-xbox360-black-chest-3307215706343"],
           "priceConditions": ["sealed", "newRetail", "complete"]
         },
         {
           "id": "limited",
           "label": "Limited Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-limited-edition",
           "physicalEditionIds": ["ac4-xbox360-limited-us-008888528111"],
           "priceConditions": ["sealed", "newRetail", "complete"]
         },
         {
           "id": "signature",
           "label": "Signature Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-signature-edition",
           "physicalEditionIds": ["ac4-xbox360-signature-us-008888528449"],
           "priceConditions": ["sealed", "newRetail", "complete"]
         },
         {
           "id": "classics",
           "label": "Classics",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-classics",
           "physicalEditionIds": [
             "ac4-xbox360-classics-es-3307215847404",
             "ac4-xbox360-classics-fr-circulation-3307215791813",
@@ -100,7 +100,7 @@
         {
           "id": "bestseller",
           "label": "Bestseller / budget reprint",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-bestseller",
           "physicalEditionIds": ["ac4-xbox360-bestseller-3307215758854"],
           "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
         }
@@ -228,6 +228,7 @@
         },
         {
           "id": "ac4-xbox360-special-fr-3307215705902",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-special-edition"],
           "label": "Special Edition · Francia",
           "broadRegion": "EUROPE",
           "editionType": "SPECIAL",
@@ -272,6 +273,7 @@
         },
         {
           "id": "ac4-xbox360-skull-3307215706053",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-skull-edition"],
           "label": "Skull Edition · territorio pendiente · 3307215706053",
           "broadRegion": "EUROPE",
           "editionType": "COLLECTOR",
@@ -316,6 +318,7 @@
         },
         {
           "id": "ac4-xbox360-buccaneer-3307215706237",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-buccaneer-edition"],
           "label": "Buccaneer Edition · territorio pendiente",
           "broadRegion": "EUROPE",
           "editionType": "COLLECTOR",
@@ -328,6 +331,7 @@
         },
         {
           "id": "ac4-xbox360-black-chest-3307215706343",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-black-chest-edition"],
           "label": "Black Chest Edition · Europa / UPLAY · país pendiente",
           "broadRegion": "EUROPE",
           "editionType": "COLLECTOR",
@@ -340,6 +344,7 @@
         },
         {
           "id": "ac4-xbox360-limited-us-008888528111",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-limited-edition"],
           "label": "Limited Edition · USA",
           "broadRegion": "NORTH_AMERICA",
           "editionType": "LIMITED",
@@ -351,6 +356,7 @@
         },
         {
           "id": "ac4-xbox360-signature-us-008888528449",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-signature-edition"],
           "label": "Signature Edition · USA",
           "broadRegion": "NORTH_AMERICA",
           "editionType": "SPECIAL",
@@ -363,6 +369,7 @@
         },
         {
           "id": "ac4-xbox360-classics-es-3307215847404",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-classics"],
           "label": "Classics · España",
           "broadRegion": "EUROPE",
           "editionType": "BUDGET_REISSUE",
@@ -411,6 +418,7 @@
         },
         {
           "id": "ac4-xbox360-bestseller-3307215758854",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-bestseller"],
           "label": "Bestseller · territorio pendiente",
           "broadRegion": "EUROPE",
           "editionType": "BUDGET_REISSUE",

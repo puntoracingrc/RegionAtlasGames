@@ -24,10 +24,8 @@ type RawEdition = {
 };
 const variants = guide.physicalEditions as RawEdition[];
 
-const LEGACY_IDS = [
-  "ps3-assassin%27s-creed-black-flag-&amp;-rogue",
-  "ps3-assassin%27s-creed-double-pack",
-] as const;
+const CANONICAL_ID = "ps3-assassin%27s-creed-black-flag-&amp;-rogue";
+const AMBIGUOUS_LEGACY_ID = "ps3-assassin%27s-creed-double-pack";
 const INCLUDED_IDS = [
   "ps3-assassin%27s-creed-iv-black-flag",
   "ps3-assassin%27s-creed-rogue",
@@ -44,7 +42,7 @@ test("the Double Pack is one PS3 compilation, not an edition of either included 
   assert.equal(guide.game.canonicalGameId, "assassins-creed-black-flag-rogue-double-pack");
   assert.equal(guide.game.platformReleaseId, "assassins-creed-black-flag-rogue-double-pack-ps3");
   assert.equal(guide.game.platformSlug, "ps3");
-  assert.equal(guide.game.canonicalCatalogId, LEGACY_IDS[0]);
+  assert.equal(guide.game.canonicalCatalogId, CANONICAL_ID);
   assert.equal(guide.editionFamilies.length, 1);
   assert.equal(guide.editionFamilies[0].id, "compilation");
   assert.ok(variants.every((entry) => entry.editionType === "COMPILATION"));
@@ -107,9 +105,9 @@ test("disc composition stays unresolved instead of inventing one or two media", 
   assert.ok(guide.researchTasks.some((entry) => entry.id === "doublepack-ps3-russia-barcode-packaging"));
 });
 
-test("the two legacy routes map to one physical variant and retain catalog metadata", () => {
+test("the canonical route is claimed while the ambiguous generic Double Pack remains untouched", () => {
   const canonicalVariant = byBarcode("3307215888827");
-  assert.deepEqual(canonicalVariant.catalogIds, [...LEGACY_IDS]);
+  assert.deepEqual(canonicalVariant.catalogIds, [CANONICAL_ID]);
   const expected = {
     "ps3-assassin%27s-creed-black-flag-&amp;-rogue": {
       pcId: 62323,
@@ -120,7 +118,7 @@ test("the two legacy routes map to one physical variant and retain catalog metad
       coverUrl: "/covers/ps3/assassin-39-s-creed-double-pack.jpg",
     },
   } as const;
-  for (const id of LEGACY_IDS) {
+  for (const id of [CANONICAL_ID, AMBIGUOUS_LEGACY_ID] as const) {
     const game = getCatalogGame(id);
     assert.ok(game, id);
     assert.equal(game.pcId, expected[id].pcId);

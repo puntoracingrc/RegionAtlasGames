@@ -45,8 +45,7 @@
           "barcode": "3307215888827",
           "physicalContents": ["Assassin's Creed IV Black Flag", "Assassin's Creed Rogue", "Número de medios pendiente de verificación física"],
           "catalogIds": [
-            "ps3-assassin%27s-creed-black-flag-&amp;-rogue",
-            "ps3-assassin%27s-creed-double-pack"
+            "ps3-assassin%27s-creed-black-flag-&amp;-rogue"
           ],
           "containsCatalogIds": [
             "ps3-assassin%27s-creed-iv-black-flag",
@@ -54,7 +53,7 @@
           ],
           "confidence": "HIGH",
           "evidenceIds": ["doublepack-geedie-eu", "doublepack-redump-bles02204", "doublepack-local-catalog"],
-          "notes": ["Barcode y serial confirmados; territorio exacto y packaging pendientes.", "Las dos rutas legacy se enlazan a una única variante física, no a dos compilaciones duplicadas."]
+          "notes": ["Barcode y serial confirmados; territorio exacto y packaging pendientes.", "La ficha genérica Assassin's Creed Double Pack no se reasigna: también está respaldada como AC I + AC II y exige resolver su portada por separado."]
         },
         {
           "id": "ac-black-flag-rogue-double-pack-ps3-fr",

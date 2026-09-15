@@ -248,7 +248,7 @@
         {
           "id": "original",
           "label": "Ezio Saga · Original",
-          "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga-original",
           "physicalEditionIds": [
             "assassins-creed-ezio-saga-ps3-japan-original"
           ],
@@ -312,7 +312,9 @@
             "Compilación de Assassin’s Creed II, Brotherhood y Revelations"
           ],
           "digitalContents": [],
-          "catalogIds": [],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-ezio-saga-original"
+          ],
           "evidenceIds": [
             "ezio-saga-mediaworld-japan-original"
           ],

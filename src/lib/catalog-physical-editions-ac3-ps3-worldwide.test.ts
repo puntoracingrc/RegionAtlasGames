@@ -32,7 +32,7 @@ function editionByBarcode(barcode: string): RawEdition {
 
 test("AC III PS3 overlay declares one canonical work and platform release", () => {
   assert.equal(rawDocument.guides.length, 1);
-  assert.equal(guide.id, "assassins-creed-iii-ps3-worldwide");
+  assert.equal(guide.id, "assassins-creed-iii-ps3");
   assert.equal(guide.game.canonicalGameId, "assassins-creed-iii");
   assert.equal(guide.game.platformReleaseId, "assassins-creed-iii-ps3");
   assert.equal(guide.game.canonicalCatalogId, "ps3-assassin%27s-creed-iii");
@@ -142,7 +142,7 @@ test("physical ids, family membership, catalog ownership and promoted barcodes a
   assert.deepEqual(new Set(familyMembers), new Set(editionIds));
   const catalogIds = [
     ...guide.physicalEditions.flatMap((edition) => "catalogIds" in edition ? edition.catalogIds ?? [] : []),
-    ...guide.physicalBonusItems.flatMap((item) => item.catalogIds),
+    ...(guide.physicalBonusItems as Array<{ catalogIds?: string[] }>).flatMap((item) => item.catalogIds ?? []),
   ];
   assert.equal(new Set(catalogIds).size, catalogIds.length);
   const barcodes = guide.physicalEditions.flatMap((edition) => "barcode" in edition ? [edition.barcode] : []);

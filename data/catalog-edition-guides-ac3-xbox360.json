@@ -33,7 +33,7 @@
         {
           "id": "special",
           "label": "Special Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iii",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-special-edition",
           "physicalEditionIds": [
             "ac3-xbox360-special-3307215643082",
             "ac3-xbox360-special-3307215643129",
@@ -44,7 +44,7 @@
         {
           "id": "join-or-die",
           "label": "Join or Die Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iii",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-join-or-die-edition",
           "physicalEditionIds": [
             "ac3-xbox360-join-or-die-fr-3307215637746",
             "ac3-xbox360-join-or-die-3307215637456",
@@ -55,7 +55,7 @@
         {
           "id": "freedom",
           "label": "Freedom Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iii",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-freedom-edition",
           "physicalEditionIds": [
             "ac3-xbox360-freedom-3307215637395",
             "ac3-xbox360-freedom-3307215637371",
@@ -66,7 +66,7 @@
         {
           "id": "washington",
           "label": "Washington Edition",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iii",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-washington-edition",
           "physicalEditionIds": [
             "ac3-xbox360-washington-fr-3307215692721",
             "ac3-xbox360-washington-3307215692745",
@@ -78,7 +78,7 @@
         {
           "id": "classics",
           "label": "Classics",
-          "representativeCatalogId": "xbox360-assassin-s-creed-iii",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-classics",
           "physicalEditionIds": [
             "ac3-xbox360-classics-pal-3307215714287",
             "ac3-xbox360-classics-fr-circulation-3307215770238",
@@ -177,6 +177,7 @@
         },
         {
           "id": "ac3-xbox360-special-3307215643082",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-special-edition"],
           "label": "Special Edition · territorio pendiente · 3307215643082",
           "broadRegion": "EUROPE",
           "editionType": "SPECIAL",
@@ -213,6 +214,7 @@
         },
         {
           "id": "ac3-xbox360-join-or-die-fr-3307215637746",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-join-or-die-edition"],
           "label": "Join or Die Edition · Francia",
           "broadRegion": "EUROPE",
           "editionType": "COLLECTOR",
@@ -246,6 +248,7 @@
         },
         {
           "id": "ac3-xbox360-freedom-3307215637395",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-freedom-edition"],
           "label": "Freedom Edition · territorio pendiente · 3307215637395",
           "broadRegion": "EUROPE",
           "editionType": "COLLECTOR",
@@ -282,6 +285,7 @@
         },
         {
           "id": "ac3-xbox360-washington-fr-3307215692721",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-washington-edition"],
           "label": "Washington Edition · Francia",
           "broadRegion": "EUROPE",
           "editionType": "SPECIAL",
@@ -333,6 +337,7 @@
         },
         {
           "id": "ac3-xbox360-classics-pal-3307215714287",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-classics"],
           "label": "Classics · PAL · territorio pendiente · 3307215714287",
           "broadRegion": "EUROPE",
           "editionType": "BUDGET_REISSUE",
