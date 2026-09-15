@@ -97,6 +97,26 @@ export const CATALOG_PHYSICAL_PRICE_CONDITION_VALUES = [
 export type CatalogPhysicalPriceCondition =
   (typeof CATALOG_PHYSICAL_PRICE_CONDITION_VALUES)[number];
 
+export const PHYSICAL_VARIANT_CONFIDENCE_VALUES = [
+  "CONFIRMED_PHYSICAL_COPY",
+  "CONFIRMED",
+  "HIGH",
+  "PENDING_IDENTIFIER",
+  "UNCONFIRMED",
+] as const;
+
+export type CatalogPhysicalVariantConfidence =
+  (typeof PHYSICAL_VARIANT_CONFIDENCE_VALUES)[number];
+
+export const PHYSICAL_RESEARCH_STATUS_VALUES = [
+  "UNCONFIRMED",
+  "PENDING_REVIEW",
+  "PHYSICAL_VARIANT_NOT_CONFIRMED",
+] as const;
+
+export type CatalogPhysicalResearchStatus =
+  (typeof PHYSICAL_RESEARCH_STATUS_VALUES)[number];
+
 export const PHYSICAL_EVIDENCE_TYPE_VALUES = [
   "REAL_SCAN",
   "REAL_PHOTO",
@@ -238,9 +258,17 @@ export type CatalogPhysicalEdition = {
   collectionIdentity: "physical-variant" | "catalog-entry";
   /** Mercados geográficos documentados; V2 usa códigos de país y nunca los deduce del packaging. */
   marketRegions: string[];
+  /** Países donde las fuentes prueban circulación, aunque la caja pertenezca a otro mercado. */
+  evidenceMarkets: CatalogMarketRegion[];
+  /** Mercados de distribución declarados de forma explícita por fabricante o distribuidor. */
+  distributionMarkets: CatalogMarketRegion[];
   packagingLanguages: string[];
+  /** Idiomas del software; nunca se reutilizan para completar los idiomas del packaging. */
+  softwareLanguages: string[];
   componentLanguageEvidence: CatalogComponentLanguageEvidence[];
   ratingSystems: string[];
+  productCodes: string[];
+  confidence?: CatalogPhysicalVariantConfidence;
   barcode?: string;
   catalogNumber?: string;
   serial?: string;
@@ -263,6 +291,14 @@ export type CatalogPhysicalEdition = {
   notes: string[];
 };
 
+export type CatalogPhysicalResearchTask = {
+  id: string;
+  label: string;
+  status: CatalogPhysicalResearchStatus;
+  marketRegions: CatalogMarketRegion[];
+  notes: string[];
+};
+
 export type CatalogEditionGuideModel = {
   schemaVersion: 1 | 2;
   origin: "documented-guide" | "catalog-derived";
@@ -274,12 +310,15 @@ export type CatalogEditionGuideModel = {
     title: string;
     platformSlug: string;
     canonicalCatalogId: string;
+    /** Títulos históricos que deben seguir encontrando la obra canónica. */
+    aliases?: string[];
   };
   physicalEditions: CatalogPhysicalEdition[];
   editionFamilies: CatalogEditionFamily[];
   sharedDiscs: CatalogSharedDisc[];
   sources: CatalogEditionSource[];
   evidenceNote: string;
+  researchTasks: CatalogPhysicalResearchTask[];
   currentCatalogId?: string;
   currentEditionId?: string;
   currentEditionFamilyId?: string;

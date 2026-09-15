@@ -187,9 +187,13 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
     editionType: catalogDerivedEditionType(game),
     collectionIdentity: "catalog-entry",
     marketRegions,
+    evidenceMarkets: [],
+    distributionMarkets: [],
     packagingLanguages: scan?.packaging.languages ?? [],
+    softwareLanguages: [],
     componentLanguageEvidence: [],
     ratingSystems: [],
+    productCodes: [],
     ...(scan?.packaging.ean ? { barcode: scan.packaging.ean } : {}),
     ...(catalogNumber ? { catalogNumber } : {}),
     physicalContents,
@@ -282,6 +286,7 @@ function buildGuide(games: CatalogGame[]): CatalogEditionGuideModel {
     sharedDiscs: [],
     sources: [],
     evidenceNote: "Solo las fichas publicadas cuentan como evidencia regional; los candidatos del worker no se incorporan.",
+    researchTasks: [],
   };
 }
 
@@ -290,6 +295,11 @@ function cloneGuide(guide: CatalogEditionGuideModel): CatalogEditionGuideModel {
     ...guide,
     physicalEditions: guide.physicalEditions.map((edition) => ({
       ...edition,
+      evidenceMarkets: [...edition.evidenceMarkets],
+      distributionMarkets: [...edition.distributionMarkets],
+      packagingLanguages: [...edition.packagingLanguages],
+      softwareLanguages: [...edition.softwareLanguages],
+      productCodes: [...edition.productCodes],
       catalogIds: [...edition.catalogIds],
       catalogLinks: edition.catalogLinks.map((link) => ({ ...link })),
     })),
@@ -297,6 +307,11 @@ function cloneGuide(guide: CatalogEditionGuideModel): CatalogEditionGuideModel {
       ...family,
       physicalEditionIds: [...family.physicalEditionIds],
       priceConditions: [...family.priceConditions],
+    })),
+    researchTasks: guide.researchTasks.map((task) => ({
+      ...task,
+      marketRegions: [...task.marketRegions],
+      notes: [...task.notes],
     })),
   };
 }

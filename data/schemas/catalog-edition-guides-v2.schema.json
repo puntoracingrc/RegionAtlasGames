@@ -110,6 +110,12 @@
     "priceCondition": {
       "enum": ["sealed", "newRetail", "complete", "gameManual", "loose"]
     },
+    "variantConfidence": {
+      "enum": ["CONFIRMED_PHYSICAL_COPY", "CONFIRMED", "HIGH", "PENDING_IDENTIFIER", "UNCONFIRMED"]
+    },
+    "researchStatus": {
+      "enum": ["UNCONFIRMED", "PENDING_REVIEW", "PHYSICAL_VARIANT_NOT_CONFIRMED"]
+    },
     "evidenceType": {
       "enum": ["REAL_SCAN", "REAL_PHOTO", "UNBOXING_FRAME", "RETAILER_PHOTO_CONFIRMED", "RETAILER_ASSET", "PUBLISHER_MOCKUP", "PRE_RELEASE_ASSET", "PUBLISHER_DOCUMENTATION", "OWNER_CONFIRMATION", "UNKNOWN"]
     },
@@ -193,9 +199,14 @@
         "broadRegion": { "$ref": "#/$defs/broadRegion" },
         "editionType": { "$ref": "#/$defs/editionType" },
         "marketRegions": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
+        "evidenceMarkets": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
+        "distributionMarkets": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
         "packagingLanguages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "softwareLanguages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "componentLanguageEvidence": { "type": "array", "items": { "$ref": "#/$defs/componentLanguageEvidence" } },
         "ratingSystems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "productCodes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "confidence": { "$ref": "#/$defs/variantConfidence" },
         "barcode": { "type": "string" },
         "catalogNumber": { "type": "string" },
         "serial": { "type": "string" },
@@ -252,6 +263,18 @@
         "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
       }
     },
+    "researchTask": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/researchStatus" },
+        "marketRegions": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
     "physicalGuide": {
       "type": "object",
       "additionalProperties": false,
@@ -269,7 +292,12 @@
           "properties": {
             "title": { "type": "string", "minLength": 1 },
             "platformSlug": { "type": "string", "minLength": 1 },
-            "canonicalCatalogId": { "type": "string", "minLength": 1 }
+            "canonicalCatalogId": { "type": "string", "minLength": 1 },
+            "aliases": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            }
           }
         },
         "editionFamilies": { "type": "array", "items": { "$ref": "#/$defs/editionFamily" } },
@@ -278,7 +306,8 @@
         "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
         "images": { "type": "array", "items": { "$ref": "#/$defs/image" } },
         "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
-        "evidenceNote": { "type": "string" }
+        "evidenceNote": { "type": "string" },
+        "researchTasks": { "type": "array", "items": { "$ref": "#/$defs/researchTask" } }
       }
     }
   }

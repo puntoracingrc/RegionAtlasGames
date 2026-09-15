@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ac3-remastered-worldwide-v2-2026-09-15",
+  "beforeCommit": "0b8bd3816036e739336f83de44db30b95fa701e1",
+  "createdAt": "2026-09-15",
+  "files": {
+    "data/catalog.json": {
+      "beforeSha256": "88e93523992e05405a1b3227feeca26642564bd0954d2c55fc2230339e0168ce",
+      "afterSha256": "2c483b32f59510023881f63ac4a8a65c5541c129362ff01be568369dcb6acf4c",
+      "changedKeys": [
+        "ps4-assassins-creed-3-remastered"
+      ]
+    }
+  }
+}
