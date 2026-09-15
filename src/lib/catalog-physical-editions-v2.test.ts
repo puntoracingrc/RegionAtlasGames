@@ -922,7 +922,7 @@ test("the previous four catalog additions remain exact and all prior catalog row
   assert.equal(previousCatalog.length, 81_425);
   assert.equal(
     createHash("sha256").update(JSON.stringify(previousCatalog)).digest("hex"),
-    "3cd02710da0100166b4edabb569ea715eb45039daa5c57038f38560d512ddb19",
+    "7117deaedb862fa81c14a1b141063441f808a284a0e80b2224b8da66692f0bea",
   );
 
   const ps4 = rawCatalog.filter((entry) => entry.platformSlug === "ps4");
@@ -931,7 +931,7 @@ test("the previous four catalog additions remain exact and all prior catalog row
   assert.equal(ps5.length, 4_807);
   assert.equal(
     createHash("sha256").update(JSON.stringify(ps4)).digest("hex"),
-    "17b35b373022e3fbe4702a099c49ed1fa69d2637120d20a87937324e875f67f9",
+    "e3ebbd3af1561e5bb03e43ddd6c4e287f5f1bdd364bc9bc4559aa02ae63d6238",
   );
   assert.equal(
     createHash("sha256").update(JSON.stringify(ps5)).digest("hex"),

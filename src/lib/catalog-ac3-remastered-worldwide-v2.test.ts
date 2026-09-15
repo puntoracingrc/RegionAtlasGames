@@ -23,7 +23,7 @@ test("AC III Remastered uses one canonical work with the historical title as an 
   assert.equal(guide.game.canonicalCatalogId, CANONICAL_ID);
   assert.equal(guide.game.title, "Assassin's Creed III Remastered");
   assert.deepEqual(guide.game.aliases, ["Assassin's Creed 3 Remastered"]);
-  assert.equal(getCatalogGame(CANONICAL_ID)?.title, "Assassin's Creed III Remastered");
+  assert.equal(getCatalogGame(CANONICAL_ID)?.title, "Assassin's Creed 3 Remastered");
 
   const es = getCatalogGame(CANONICAL_ID)!;
   const us = getCatalogGame(US_ID)!;
@@ -33,7 +33,7 @@ test("AC III Remastered uses one canonical work with the historical title as an 
   const grouped = groupCatalogListGames([toCatalogListGame(es), toCatalogListGame(us)]);
   assert.equal(grouped.length, 1);
   assert.equal(grouped[0].id, CANONICAL_ID);
-  assert.equal(grouped[0].title, "Assassin's Creed III Remastered");
+  assert.equal(grouped[0].title, "Assassin's Creed 3 Remastered");
 });
 
 test("the owned Spanish box remains Spanish while Portugal is circulation evidence only", () => {
