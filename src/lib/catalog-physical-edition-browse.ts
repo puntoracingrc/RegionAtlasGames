@@ -105,6 +105,7 @@ export function getCatalogPhysicalEditionPublicIdentity(
 
   const familyEditions = guide.physicalEditions.filter((entry) => family.physicalEditionIds.includes(entry.id));
   const editions = familyEditions.filter(isReleasedPhysicalEdition);
+  const hasReleasedDocumentedProduct = familyEditions.some((entry) => entry.releaseStatus === "RELEASED");
   const identityEditions = editions.length ? editions : familyEditions;
   const broadRegions = unique(identityEditions.map((entry) => entry.broadRegion));
   const broadRegionLabel = spanishList(broadRegions.map(catalogBroadRegionLabel));
@@ -117,10 +118,12 @@ export function getCatalogPhysicalEditionPublicIdentity(
     : `${game.title} — ${family.label} · ${platformName}`;
   const documentedMarkets = spanishList(marketRegions);
   const description = editions.length === 0
-    ? `${publicName} para ${platformName}. Lanzamiento físico cancelado; no se contabiliza como edición publicada.`
+    ? hasReleasedDocumentedProduct
+      ? `${publicName} para ${platformName}. Producto físico documentado en ${broadRegionLabel}, sin soporte nativo verificado para el recuento de ${platformName}.`
+      : `${publicName} para ${platformName}. Lanzamiento físico cancelado; no se contabiliza como edición publicada.`
     : editions.length === 1
       ? `${publicName} para ${platformName}. Edición física documentada en ${broadRegionLabel}.`
-      : `${publicName} para ${platformName}. Familia de ${editions.length} ediciones físicas documentadas en ${broadRegionLabel}${documentedMarkets ? ` (${documentedMarkets})` : ""}.`;
+      : `${publicName} para ${platformName}. Familia de ${editions.length} ediciones físicas nativas documentadas en ${broadRegionLabel}${documentedMarkets ? ` (${documentedMarkets})` : ""}.`;
   const coverScope = currentMarketRegions.length
     ? currentMarketRegions.join(" / ")
     : catalogBroadRegionLabel(currentEdition.broadRegion);

@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
+import { isReleasedPhysicalEdition } from "./catalog-edition-guide-types";
 import { getCatalogEditionGuide, getCatalogEditionGuides } from "./catalog-edition-guides";
 import { toCatalogListGame } from "./catalog-list-game";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
-import { groupCatalogListGames } from "./catalog-physical-edition-browse";
+import { getCatalogPhysicalEditionPublicIdentity, groupCatalogListGames } from "./catalog-physical-edition-browse";
 import { catalogGamePath, resolveCatalogGameParam } from "./catalog-url";
 
 const GUIDE_ID = "assassins-creed-valhalla-ps5";
@@ -172,6 +173,42 @@ test("Collector and unconfirmed Korea are excluded from native physical counts",
   const collector = grouped.find((entry) => entry.id === "ps5-assassin-s-creed-valhalla-collector-s-edition");
   assert.equal(standard?.physicalEditionGroup?.physicalEditionCount, 13);
   assert.equal(collector?.physicalEditionGroup?.physicalEditionCount, 0);
+  const standardGame = getCatalogGame("ps5-assassin-s-creed-valhalla");
+  const collectorGame = getCatalogGame("ps5-assassin-s-creed-valhalla-collector-s-edition");
+  assert.ok(standardGame);
+  assert.ok(collectorGame);
+  assert.match(getCatalogPhysicalEditionPublicIdentity(standardGame, "PlayStation 5")?.description ?? "", /13 ediciones físicas nativas/);
+  assert.match(getCatalogPhysicalEditionPublicIdentity(collectorGame, "PlayStation 5")?.description ?? "", /sin soporte nativo verificado/);
+});
+
+test("the shared released-native predicate keeps Shadows and Valhalla counts independent", () => {
+  const shadows = getCatalogEditionGuides().find((entry) => entry.id === "assassins-creed-shadows-ps5-worldwide");
+  assert.ok(shadows);
+  const shadowsGold = shadows.editionFamilies.find((entry) => entry.id === "gold-canceled");
+  const standard = guide().editionFamilies.find((entry) => entry.id === "standard");
+  const collector = guide().editionFamilies.find((entry) => entry.id === "collector");
+  assert.ok(shadowsGold);
+  assert.ok(standard);
+  assert.ok(collector);
+
+  const counted = (ids: string[], editions = guide().physicalEditions) => editions
+    .filter((entry) => ids.includes(entry.id))
+    .filter(isReleasedPhysicalEdition).length;
+
+  assert.equal(counted(shadowsGold.physicalEditionIds, shadows.physicalEditions), 0);
+  assert.equal(counted(standard.physicalEditionIds), 13);
+  assert.equal(counted(collector.physicalEditionIds), 0);
+
+  const korea = edition("ac-valhalla-ps5-standard-kr-pending");
+  assert.equal(korea.releaseStatus, "RELEASED");
+  assert.equal(korea.countsAsNativePhysicalRelease, false);
+  assert.equal(isReleasedPhysicalEdition(korea), false);
+  assert.equal(dawnGuide().physicalEditions.filter(isReleasedPhysicalEdition).length, 0);
+
+  const dawnGame = getCatalogGame("ps5-assassin-s-creed-valhalla-dawn-of-ragnarok");
+  assert.ok(dawnGame);
+  const groupedDawn = groupCatalogListGames([toCatalogListGame(dawnGame)]);
+  assert.equal(groupedDawn[0].physicalEditionGroup?.physicalEditionCount, 0);
 });
 
 test("QA 21: Ragnarök is a base-disc bundle and not the Dawn expansion entity", () => {
