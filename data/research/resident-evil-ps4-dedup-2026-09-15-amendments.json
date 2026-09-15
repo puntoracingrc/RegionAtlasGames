@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "batchId": "resident-evil-ps4-dedup-20260915",
+  "reviewedAt": "2026-09-15",
+  "beforeCommit": "0b8bd3816036e739336f83de44db30b95fa701e1",
+  "reason": "Corrección auditada de identidades Resident Evil PS4 con conservación de cajas regionales, ediciones, escaneos, precios y rutas históricas.",
+  "files": {
+    "data/catalog.json": {
+      "beforeSha256": "88e93523992e05405a1b3227feeca26642564bd0954d2c55fc2230339e0168ce",
+      "afterSha256": "6b0b0ca73871cb2bac1f571a55f9124a4336c721c0f1c3debbbe5dd04c754dfb"
+    },
+    "data/game-details.json": {
+      "beforeSha256": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972",
+      "afterSha256": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce"
+    },
+    "data/index/companies.json": {
+      "beforeSha256": "3bff5d0feeaf0ded52cce367d76629b8f64c2e5d38b1f4a5b871765ff04a0dab",
+      "afterSha256": "92cbd16f65ea267bb9b425324b10c1092d16fd0368edcb7db9278c7da4d9e906"
+    },
+    "data/meta.json": {
+      "beforeSha256": "622224349e0fbfcc7e78c1c7083d0bf360daf909577fd0cd6b8f2c64bf492822",
+      "afterSha256": "0f6b90cc3d545fabc6387726a87d3d51df0cdf6813ec88d06eab5cf0bbb8668e"
+    },
+    "data/catalog-id-aliases.json": {
+      "beforeSha256": "2fd660469b1591db9594af466682fe8d16395779f9c3a1c92bf89c6f90dbb80c",
+      "afterSha256": "bd92e6bf88a5f0c47ff8b35d15a97c6cff9f7f4ff71589d1ba570d7fbc4ffcc4"
+    },
+    "data/catalog-route-redirects.json": {
+      "beforeSha256": "2bea2b9ce3932f60e65d5c8b941d3230008666d41a1464665b504ca7014ffdc5",
+      "afterSha256": "10b3c563ffed8d1472b6eb4a857afa1ee21ec190746a49706610a0b7678ed1d2"
+    },
+    "data/research/company-study/manifest.json": {
+      "beforeSha256": "b48436828f761655dfd82b4609b269934202cccd28c863b6da618bba648ac79d",
+      "afterSha256": "51ab13426d3f32ed6f4cd32d74f3939bd1e2ed7de416d3e2ba2badd49b360df5"
+    },
+    "data/research/person-study/manifest.json": {
+      "beforeSha256": "80bf6a287bd44d592128addbf1e59021aac1b5cae3c7e9302e8f426a112056a8",
+      "afterSha256": "916efc4106b7ca5263747693ef5005f076cf88be2b4ea86c876da9e20153ec52"
+    },
+    "data/curation-report.json": {
+      "beforeSha256": "b43a4fe4bed93367ed51e3da17fa137bb04fe267f33f2edb0dbae942223aa46c",
+      "afterSha256": "859a5e3832d0ae47d5dec3fa094d4c1e701dab9cac593e171cdfe4a98669938c"
+    }
+  }
+}

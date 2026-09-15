@@ -33,6 +33,22 @@ PERSON_RESEARCH_MANIFEST_FILE = ROOT / "data/research/person-study/manifest.json
 SCANS_FILE = ROOT / "data/catalog-owned-scans.json"
 GUIDE_FILE = ROOT / "data/catalog-edition-guides-resident-evil-ps4.json"
 AUDIT_FILE = ROOT / "data/research/resident-evil-ps4-dedup-2026-09-15.json"
+HISTORICAL_AMENDMENT_FILE = (
+    ROOT / "data/research/resident-evil-ps4-dedup-2026-09-15-amendments.json"
+)
+HISTORICAL_BEFORE_COMMIT = "0b8bd3816036e739336f83de44db30b95fa701e1"
+
+HISTORICAL_BEFORE_HASHES = {
+    "data/catalog.json": "88e93523992e05405a1b3227feeca26642564bd0954d2c55fc2230339e0168ce",
+    "data/game-details.json": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972",
+    "data/index/companies.json": "3bff5d0feeaf0ded52cce367d76629b8f64c2e5d38b1f4a5b871765ff04a0dab",
+    "data/meta.json": "622224349e0fbfcc7e78c1c7083d0bf360daf909577fd0cd6b8f2c64bf492822",
+    "data/catalog-id-aliases.json": "2fd660469b1591db9594af466682fe8d16395779f9c3a1c92bf89c6f90dbb80c",
+    "data/catalog-route-redirects.json": "2bea2b9ce3932f60e65d5c8b941d3230008666d41a1464665b504ca7014ffdc5",
+    "data/research/company-study/manifest.json": "b48436828f761655dfd82b4609b269934202cccd28c863b6da618bba648ac79d",
+    "data/research/person-study/manifest.json": "80bf6a287bd44d592128addbf1e59021aac1b5cae3c7e9302e8f426a112056a8",
+    "data/curation-report.json": "b43a4fe4bed93367ed51e3da17fa137bb04fe267f33f2edb0dbae942223aa46c",
+}
 
 PROTECTED_BEFORE_HASHES = {
     "data/index/companies.json": "3bff5d0feeaf0ded52cce367d76629b8f64c2e5d38b1f4a5b871765ff04a0dab",
@@ -199,6 +215,26 @@ def write_json(path: Path, value: Any) -> None:
 
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def historical_amendment() -> dict[str, Any]:
+    return {
+        "schemaVersion": 1,
+        "batchId": BATCH,
+        "reviewedAt": REVIEWED_AT,
+        "beforeCommit": HISTORICAL_BEFORE_COMMIT,
+        "reason": (
+            "Corrección auditada de identidades Resident Evil PS4 con conservación "
+            "de cajas regionales, ediciones, escaneos, precios y rutas históricas."
+        ),
+        "files": {
+            relative_path: {
+                "beforeSha256": before_hash,
+                "afterSha256": sha256_file(ROOT / relative_path),
+            }
+            for relative_path, before_hash in HISTORICAL_BEFORE_HASHES.items()
+        },
+    }
 
 
 def replace_array_row(path: Path, catalog_id: str, value: dict[str, Any]) -> None:
@@ -433,6 +469,7 @@ def assert_final_state() -> dict[str, Any]:
     scans = read_json(SCANS_FILE)
     guide = read_json(GUIDE_FILE)
     audit = read_json(AUDIT_FILE)
+    amendment = read_json(HISTORICAL_AMENDMENT_FILE)
 
     retired = catalog_by_id[RETIRED_VILLAGE_ID]
     canonical = catalog_by_id[CANONICAL_VILLAGE_ID]
@@ -518,6 +555,13 @@ def assert_final_state() -> dict[str, Any]:
     assert audit["preservation"]["imageCount"] == len(preserved_images)
     assert audit["pendingReview"][0]["catalogId"] == PENDING_RE7_GOLD_ID
     assert audit["pendingReview"][0]["status"] == "PENDING_REVIEW"
+    assert amendment["batchId"] == BATCH
+    assert amendment["beforeCommit"] == HISTORICAL_BEFORE_COMMIT
+    for relative_path, before_hash in HISTORICAL_BEFORE_HASHES.items():
+        assert amendment["files"][relative_path] == {
+            "beforeSha256": before_hash,
+            "afterSha256": sha256_file(ROOT / relative_path),
+        }
 
     return {
         "canonicalVillageId": CANONICAL_VILLAGE_ID,
@@ -708,6 +752,8 @@ def apply() -> dict[str, Any]:
             ],
         }
         write_json(AUDIT_FILE, audit)
+
+    write_json(HISTORICAL_AMENDMENT_FILE, historical_amendment())
 
     return assert_final_state()
 
