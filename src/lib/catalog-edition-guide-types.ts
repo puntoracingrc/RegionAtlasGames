@@ -125,6 +125,14 @@ export const RELATED_RELEASE_TYPE_VALUES = ["EXPANSION"] as const;
 export type CatalogRelatedReleaseType =
   (typeof RELATED_RELEASE_TYPE_VALUES)[number];
 
+export const PHYSICAL_PRODUCT_TYPE_VALUES = [
+  "NATIVE_GAME_DISC",
+  "PREVIOUS_GEN_DISC_WITH_UPGRADE",
+  "DOWNLOAD_CODE_IN_BOX",
+] as const;
+
+export type CatalogPhysicalProductType = (typeof PHYSICAL_PRODUCT_TYPE_VALUES)[number];
+
 export const PHYSICAL_RESEARCH_STATUS_VALUES = [
   "UNCONFIRMED",
   "PENDING_REVIEW",
@@ -289,6 +297,18 @@ export type CatalogPhysicalEdition = {
   /** Digital/software family identifiers such as PPSA; never treated as packaging identifiers. */
   softwareFamilyCodes: string[];
   productCodes: string[];
+  /** Tipo de soporte incluido; evita contar una caja con código o un disco de otra generación como disco nativo. */
+  physicalProductType?: CatalogPhysicalProductType;
+  /** Plataforma impresa/prensada en el soporte físico, no la consola compatible mediante actualización. */
+  nativePhysicalPlatform?: string;
+  compatiblePlatforms: string[];
+  containsDisc?: boolean;
+  countsAsNativePhysicalRelease?: boolean;
+  upgradeToPS5?: boolean;
+  upgradePath?: string;
+  redeems?: string;
+  requiresBaseGame?: boolean;
+  expansionOf?: string;
   confidence?: CatalogPhysicalVariantConfidence;
   barcode?: string;
   catalogNumber?: string;
@@ -375,7 +395,7 @@ export type CatalogEditionGuideModel = {
 };
 
 export function isReleasedPhysicalEdition(edition: CatalogPhysicalEdition): boolean {
-  return edition.releaseStatus === "RELEASED";
+  return edition.releaseStatus === "RELEASED" && edition.countsAsNativePhysicalRelease !== false;
 }
 
 export type CatalogPriceRange = {

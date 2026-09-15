@@ -58,7 +58,7 @@ export function catalogPhysicalEditionOverviewRegionLinks(
   editions: CatalogPhysicalEdition[],
 ): Array<{ region: string; targetId: string }> {
   const editionsByBroadRegion = new Map<CatalogPhysicalEdition["broadRegion"], CatalogPhysicalEdition[]>();
-  for (const edition of editions) {
+  for (const edition of editions.filter((entry) => entry.countsAsNativePhysicalRelease !== false)) {
     editionsByBroadRegion.set(edition.broadRegion, [...(editionsByBroadRegion.get(edition.broadRegion) ?? []), edition]);
   }
 

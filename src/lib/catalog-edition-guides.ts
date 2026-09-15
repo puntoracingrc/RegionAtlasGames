@@ -10,6 +10,7 @@ import acEzioCollectionPs4GuideData from "../../data/catalog-edition-guides-ac-e
 import acUnityValhallaGuideData from "../../data/catalog-edition-guides-ac-unity-valhalla.json";
 import acOdysseyGuideData from "../../data/catalog-edition-guides-ac-odyssey.json";
 import acShadowsPs5GuideData from "../../data/catalog-edition-guides-ac-shadows-ps5.json";
+import acValhallaPs5GuideData from "../../data/catalog-edition-guides-ac-valhalla-ps5.json";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
@@ -32,6 +33,7 @@ import {
   type CatalogRelatedRelease,
   type CatalogPhysicalPriceCondition,
   type CatalogPhysicalEditionType,
+  type CatalogPhysicalProductType,
   type CatalogPhysicalResearchStatus,
   type CatalogPhysicalVariantConfidence,
 } from "./catalog-edition-guide-types";
@@ -97,6 +99,16 @@ type PhysicalGuide = {
     ratingSystems?: string[];
     softwareFamilyCodes?: string[];
     productCodes?: string[];
+    physicalProductType?: CatalogPhysicalProductType;
+    nativePhysicalPlatform?: string;
+    compatiblePlatforms?: string[];
+    containsDisc?: boolean;
+    countsAsNativePhysicalRelease?: boolean;
+    upgradeToPS5?: boolean;
+    upgradePath?: string;
+    redeems?: string;
+    requiresBaseGame?: boolean;
+    expansionOf?: string;
     confidence?: CatalogPhysicalVariantConfidence;
     barcode?: string;
     catalogNumber?: string;
@@ -194,6 +206,7 @@ const rawGuideDocuments = [
   acUnityValhallaGuideData,
   acOdysseyGuideData,
   acShadowsPs5GuideData,
+  acValhallaPs5GuideData,
 ] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
@@ -267,6 +280,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       ratingSystems: [],
       softwareFamilyCodes: [],
       productCodes: [],
+      compatiblePlatforms: [entry.identity.platformSlug],
       physicalContents: [],
       digitalContents: [],
       catalogIds: [entry.catalogId],
@@ -405,6 +419,37 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     ensureUnique(entry.softwareLanguages ?? [], `${entry.id} software language`);
     ensureUnique(entry.softwareFamilyCodes ?? [], `${entry.id} software family code`);
     ensureUnique(entry.productCodes ?? [], `${entry.id} product code`);
+    ensureUnique(entry.compatiblePlatforms ?? [], `${entry.id} compatible platform`);
+    if (entry.physicalProductType === "NATIVE_GAME_DISC" && (
+      entry.nativePhysicalPlatform !== raw.game.platformSlug ||
+      entry.containsDisc !== true ||
+      entry.countsAsNativePhysicalRelease === false
+    )) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} invalid native game disc classification`);
+    }
+    if (entry.physicalProductType === "PREVIOUS_GEN_DISC_WITH_UPGRADE" && !entry.upgradeToPS5) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} previous-gen disc is missing its upgrade path`);
+    }
+    if (entry.upgradeToPS5) {
+      if (
+        entry.nativePhysicalPlatform !== "ps4" ||
+        !entry.compatiblePlatforms?.includes("ps4") ||
+        !entry.compatiblePlatforms.includes("ps5") ||
+        entry.upgradePath !== "FREE_DIGITAL_PS5_UPGRADE" ||
+        entry.countsAsNativePhysicalRelease !== false
+      ) {
+        throw new Error(`[catalog-edition-guides] ${entry.id} invalid PS4 to PS5 upgrade classification`);
+      }
+    }
+    if ((entry.physicalProductType === "DOWNLOAD_CODE_IN_BOX" || entry.containsDisc === false) && (
+      entry.physicalProductType !== "DOWNLOAD_CODE_IN_BOX" ||
+      entry.containsDisc !== false || entry.countsAsNativePhysicalRelease !== false
+    )) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} code-in-box must be excluded from native physical counts`);
+    }
+    if (entry.requiresBaseGame && !entry.expansionOf) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} requiresBaseGame without expansionOf`);
+    }
     const links = (entry.catalogIds ?? []).map((catalogId) => {
       const target = requiredCatalogGame(catalogId, raw.game.platformSlug);
       return { catalogId, href: catalogGamePath(target), current: false, region: target.region };
@@ -434,6 +479,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
       ratingSystems: entry.ratingSystems ?? [],
       softwareFamilyCodes: entry.softwareFamilyCodes ?? [],
       productCodes: entry.productCodes ?? [],
+      compatiblePlatforms: entry.compatiblePlatforms ?? [raw.game.platformSlug],
       physicalContents: entry.physicalContents ?? [],
       digitalContents: entry.digitalContents ?? [],
       catalogIds: entry.catalogIds ?? [],

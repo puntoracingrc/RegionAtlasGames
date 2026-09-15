@@ -116,6 +116,9 @@
     "releaseStatus": {
       "enum": ["RELEASED", "CANCELED_PHYSICAL_RELEASE"]
     },
+    "physicalProductType": {
+      "enum": ["NATIVE_GAME_DISC", "PREVIOUS_GEN_DISC_WITH_UPGRADE", "DOWNLOAD_CODE_IN_BOX"]
+    },
     "researchStatus": {
       "enum": ["UNCONFIRMED", "PENDING_REVIEW", "PHYSICAL_VARIANT_NOT_CONFIRMED"]
     },
@@ -211,6 +214,16 @@
         "ratingSystems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "softwareFamilyCodes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
         "productCodes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "physicalProductType": { "$ref": "#/$defs/physicalProductType" },
+        "nativePhysicalPlatform": { "type": "string", "minLength": 1 },
+        "compatiblePlatforms": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "containsDisc": { "type": "boolean" },
+        "countsAsNativePhysicalRelease": { "type": "boolean" },
+        "upgradeToPS5": { "type": "boolean" },
+        "upgradePath": { "type": "string", "minLength": 1 },
+        "redeems": { "type": "string", "minLength": 1 },
+        "requiresBaseGame": { "type": "boolean" },
+        "expansionOf": { "type": "string", "minLength": 1 },
         "confidence": { "$ref": "#/$defs/variantConfidence" },
         "barcode": { "type": "string" },
         "catalogNumber": { "type": "string" },

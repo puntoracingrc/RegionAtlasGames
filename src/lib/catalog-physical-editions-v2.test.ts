@@ -696,6 +696,8 @@ test("documented guides use edition families while existing catalog IDs retain e
       "assassins-creed-valhalla-dawn-of-ragnarok-ps4",
       "assassins-creed-odyssey-ps4",
       "assassins-creed-shadows-ps5-worldwide",
+      "assassins-creed-valhalla-ps5",
+      "assassins-creed-valhalla-dawn-of-ragnarok-ps5",
     ],
   );
 
