@@ -1,0 +1,707 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-mirage-ps4",
+      "title": "Ediciones físicas de Assassin's Creed Mirage en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Una sola obra canónica para Assassin's Creed Mirage y sus aliases con o sin dos puntos. Standard, Deluxe Edition, Collector's Case y Launch Edition se mantienen como familias conceptuales distintas; los idiomas de software nunca se convierten en idiomas de packaging.",
+      "game": {
+        "title": "Assassin's Creed Mirage",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassin%27s-creed-mirage"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-assassin%27s-creed-mirage",
+          "physicalEditionIds": [
+            "ac-mirage-ps4-standard-es-pt",
+            "ac-mirage-ps4-standard-fr",
+            "ac-mirage-ps4-standard-it",
+            "ac-mirage-ps4-standard-de",
+            "ac-mirage-ps4-standard-pl-cz-hu",
+            "ac-mirage-ps4-standard-en-pack",
+            "ac-mirage-ps4-standard-uk-candidate",
+            "ac-mirage-ps4-standard-au",
+            "ac-mirage-ps4-standard-us",
+            "ac-mirage-ps4-standard-ca",
+            "ac-mirage-ps4-standard-mx",
+            "ac-mirage-ps4-standard-jp",
+            "ac-mirage-ps4-standard-kr-pending",
+            "ac-mirage-ps4-standard-asia-chinese-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "deluxe",
+          "label": "Deluxe Edition",
+          "representativeCatalogId": "ps4-assassins-creed-mirage-deluxe-edition",
+          "physicalEditionIds": [
+            "ac-mirage-ps4-deluxe-es-pt",
+            "ac-mirage-ps4-deluxe-fr",
+            "ac-mirage-ps4-deluxe-it",
+            "ac-mirage-ps4-deluxe-de",
+            "ac-mirage-ps4-deluxe-nl",
+            "ac-mirage-ps4-deluxe-pl-cz-nl-pending",
+            "ac-mirage-ps4-deluxe-au",
+            "ac-mirage-ps4-deluxe-us",
+            "ac-mirage-ps4-deluxe-asia-chinese-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "loose"]
+        },
+        {
+          "id": "collectors-case",
+          "label": "Collector's Case",
+          "representativeCatalogId": "ps4-assassin%27s-creed-mirage-collector%27s-edition",
+          "physicalEditionIds": [
+            "ac-mirage-ps4-collectors-case-europe",
+            "ac-mirage-ps4-collectors-case-north-america",
+            "ac-mirage-ps4-collectors-case-asia-chinese"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "launch",
+          "label": "Launch Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-mirage-launch-edition",
+          "physicalEditionIds": [
+            "ac-mirage-ps4-launch-nl",
+            "ac-mirage-ps4-launch-fr",
+            "ac-mirage-ps4-launch-de",
+            "ac-mirage-ps4-launch-amazon-es",
+            "ac-mirage-ps4-launch-north-america-legacy-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-mirage-ps4-standard-es-pt",
+          "label": "Standard · España / Portugal",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES", "PT"],
+          "packagingLanguages": ["ES", "PT"],
+          "ratingSystems": [],
+          "barcode": "3307216257660",
+          "serial": "CUSA-33151",
+          "catalogIds": ["ps4-assassin%27s-creed-mirage"],
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-fnac-es-standard", "mirage-el-corte-ingles-standard", "mirage-redump-europe"],
+          "notes": ["Packaging conjunto Spanish & Portuguese confirmado por la ficha de release; no se separa España de Portugal."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-fr",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "componentLanguageEvidence": [{
+            "component": "BOX",
+            "languages": ["FR"],
+            "basis": "DECLARED",
+            "exhaustive": false,
+            "note": "La fuente de release declara French; falta un scan físico para convertirlo en packagingLanguages exhaustivo.",
+            "evidenceIds": ["mirage-gamefaqs-release-data"]
+          }],
+          "ratingSystems": [],
+          "barcode": "3307216257622",
+          "serial": "CUSA-33151",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-fnac-fr-standard", "mirage-redump-europe"]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-it",
+          "label": "Standard · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["IT"],
+          "packagingLanguages": ["IT"],
+          "ratingSystems": [],
+          "barcode": "3307216257646",
+          "serial": "CUSA-33151",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-ibs-it-standard", "mirage-fullmoon-it-standard", "mirage-redump-europe"],
+          "notes": ["La evidencia física comercial declara copertina e gioco in italiano."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DE"],
+          "componentLanguageEvidence": [{
+            "component": "BOX",
+            "languages": ["DE"],
+            "basis": "DECLARED",
+            "exhaustive": false,
+            "note": "La fuente de release la identifica como German; packagingLanguages queda vacío hasta disponer de scan o reverso.",
+            "evidenceIds": ["mirage-gamefaqs-release-data"]
+          }],
+          "ratingSystems": ["USK"],
+          "barcode": "3307216256748",
+          "serial": "CUSA-33151",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-rebuy-de-standard", "mirage-redump-europe"]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-pl-cz-hu",
+          "label": "Standard · Polonia / Chequia / Hungría",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["PL", "CZ", "HU"],
+          "packagingLanguages": ["PL", "CS", "HU"],
+          "ratingSystems": [],
+          "barcode": "3307216257653",
+          "serial": "CUSA-33151",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-xkom-pl-standard", "mirage-redump-europe"],
+          "notes": ["La caja conjunta no se reduce a Polonia: la fuente la identifica expresamente como Polish, Czech & Hungarian."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-en-pack",
+          "label": "Standard · English Pack",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": ["EN"],
+          "ratingSystems": [],
+          "barcode": "3307216257684",
+          "serial": "CUSA-33151",
+          "evidenceIds": ["mirage-world-of-games-en-pack", "mirage-redump-europe"],
+          "notes": ["No se fusiona con el EAN británico 3307216257691 sin comparar físicamente ambas cajas."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-uk-candidate",
+          "label": "Standard · UK / English retail · pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["GB"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "3307216257691",
+          "serial": "CUSA-33151",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-uk-retail-standard", "mirage-redump-europe"],
+          "notes": ["Confianza HIGH por evidencia retail británica; idiomas de packaging pendientes de comparación física con 3307216257684."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "packagingLanguages": [],
+          "ratingSystems": ["ACB"],
+          "barcode": "3307216256724",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-kmart-au-standard"],
+          "notes": ["Clasificación australiana MA15+.", "No se extiende automáticamente a Nueva Zelanda; NZ_PHYSICAL_VARIANT continúa sin confirmar."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-us",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "ratingSystems": ["ESRB"],
+          "barcode": "887256114138",
+          "serial": "CUSA-33150",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-mirage"],
+          "evidenceIds": ["mirage-target-us-standard", "mirage-redump-north-america"],
+          "notes": ["Clasificación ESRB M."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-ca",
+          "label": "Standard · Canadá",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["CA"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "887256114268",
+          "evidenceIds": ["mirage-gamefaqs-release-data"],
+          "notes": ["Referencia física canadiense propia; idiomas del frontal y reverso pendientes de scan."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-mx",
+          "label": "Standard · México",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["MX"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "887256114220",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-sanborns-mx-standard"],
+          "notes": ["UPC mexicano propio; no se trata como caja USA. Packaging pendiente de scan físico."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["JA"],
+          "ratingSystems": ["CERO"],
+          "barcode": "4949244013307",
+          "catalogNumber": "PLJM-17271",
+          "releaseDate": "2023-10-05",
+          "releaseDateContext": "Lanzamiento físico japonés",
+          "evidenceIds": ["mirage-gamefaqs-release-data"],
+          "notes": ["Clasificación CERO Z.", "Variante japonesa independiente de Corea y de la edición Asia Chinese."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-kr-pending",
+          "label": "Standard · Corea · identificadores pendientes",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "evidenceIds": ["mirage-gamefaqs-release-data"],
+          "notes": ["PHYSICAL_RELEASE_CONFIRMED; barcode, product code e idiomas de packaging pendientes. La localización digital coreana no se usa como identificador físico."]
+        },
+        {
+          "id": "ac-mirage-ps4-standard-asia-chinese-pending",
+          "label": "Standard · Asia Chinese · identificador físico pendiente",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "evidenceIds": ["mirage-play-asia", "mirage-serialstation-asia"],
+          "notes": ["Existencia confirmada. CUSA-33152 identifica la familia asiática/multilenguaje, pero no se publica como product code físico de esta caja sin scan. Barcode e idiomas de packaging pendientes."]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-es-pt",
+          "label": "Deluxe Edition · España / Portugal",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": ["ES", "PT"],
+          "packagingLanguages": ["ES", "PT"],
+          "componentLanguageEvidence": [{
+            "component": "BOX",
+            "languages": ["ES"],
+            "basis": "OBSERVED",
+            "exhaustive": false,
+            "note": "El ejemplar propio español acredita texto en español; la distribución conjunta ES/PT procede de la evidencia de release.",
+            "evidenceIds": ["mirage-owned-deluxe-es-scan"]
+          }],
+          "ratingSystems": [],
+          "barcode": "3307216257806",
+          "serial": "CUSA-33151",
+          "catalogIds": ["ps4-assassins-creed-mirage-deluxe-edition"],
+          "scanSetIds": ["ps4-assassins-creed-mirage-deluxe-edition"],
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-fnac-es-deluxe", "mirage-owned-deluxe-es-scan"],
+          "digitalContents": ["Pack Deluxe inspirado en Prince of Persia", "Libro de arte digital", "Banda sonora digital"],
+          "notes": ["Se conservan el catalogId, el scan propio, el EAN 3307216257806, CUSA-33151 y la referencia de impresión 6257806 del ejemplar."]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-fr",
+          "label": "Deluxe Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": ["FR"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "3307216257769",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-fnac-fr-deluxe"]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-it",
+          "label": "Deluxe Edition · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": ["IT"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "3307216257783",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-gamelife-it-deluxe"],
+          "notes": ["La evidencia confirma la edición física italiana; idiomas exactos de caja pendientes."]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-de",
+          "label": "Deluxe Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "3307216256861",
+          "evidenceIds": ["mirage-gamefaqs-release-data"],
+          "notes": ["Idiomas exactos de packaging pendientes de evidencia física."]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-nl",
+          "label": "Deluxe Edition · Países Bajos",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": ["NL"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "3307216257752",
+          "evidenceIds": ["mirage-gamefaqs-release-data"]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-pl-cz-nl-pending",
+          "label": "Deluxe Edition · PL / CZ / NL · verificación pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "3307216257790",
+          "evidenceIds": ["mirage-gamefaqs-release-data"],
+          "notes": ["NEEDS_PACKAGING_VERIFICATION: la etiqueta Polish, Czech & Netherlands es inconsistente y no se convierte automáticamente en mercados PL/CZ/HU ni en idiomas de packaging."]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-au",
+          "label": "Deluxe Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "DELUXE",
+          "marketRegions": ["AU"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "3307216256847",
+          "evidenceIds": ["mirage-gamefaqs-release-data"],
+          "notes": ["No se extiende automáticamente a Nueva Zelanda."]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-us",
+          "label": "Deluxe Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "DELUXE",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "887256114145",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-mirage-deluxe-edition"],
+          "evidenceIds": ["mirage-gamefaqs-release-data"]
+        },
+        {
+          "id": "ac-mirage-ps4-deluxe-asia-chinese-pending",
+          "label": "Deluxe Edition · Asia Chinese · identificador físico pendiente",
+          "broadRegion": "ASIA",
+          "editionType": "DELUXE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "evidenceIds": ["mirage-play-asia", "mirage-serialstation-asia"],
+          "notes": ["Existencia confirmada. Barcode pendiente; CUSA-33152 no se publica como product code físico de la caja sin scan."]
+        },
+        {
+          "id": "ac-mirage-ps4-collectors-case-europe",
+          "label": "Collector's Case · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "catalogIds": ["ps4-assassin%27s-creed-mirage-collector%27s-edition"],
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-collector-owner-confirmation"],
+          "notes": ["Barcode pendiente. Collector's Edition se conserva como alias regional de la familia conceptual Collector's Case."]
+        },
+        {
+          "id": "ac-mirage-ps4-collectors-case-north-america",
+          "label": "Collector's Case · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "catalogIds": ["ps4-usa-assassin%27s-creed-mirage-collector%27s-case"],
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-collector-owner-confirmation"],
+          "notes": ["Barcode pendiente; no se infiere a partir de Standard o Deluxe."]
+        },
+        {
+          "id": "ac-mirage-ps4-collectors-case-asia-chinese",
+          "label": "Collector's Case / Collector's Edition · Asia Chinese",
+          "broadRegion": "ASIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "evidenceIds": ["mirage-play-asia", "mirage-serialstation-asia", "mirage-collector-owner-confirmation"],
+          "notes": ["Barcode pendiente. CUSA-33152 sólo se registra como familia asiática y no como product code físico de la caja."]
+        },
+        {
+          "id": "ac-mirage-ps4-launch-nl",
+          "label": "Launch Edition · Países Bajos",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["NL"],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "barcode": "3307216257615",
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-reway-nl-launch"],
+          "notes": ["No se amplía automáticamente a Bélgica."]
+        },
+        {
+          "id": "ac-mirage-ps4-launch-fr",
+          "label": "Launch Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["FR"],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [{
+            "component": "BOX",
+            "languages": ["FR"],
+            "basis": "DECLARED",
+            "exhaustive": false,
+            "note": "La ficha de release la denomina Edition Launch (French); falta scan físico.",
+            "evidenceIds": ["mirage-gamefaqs-release-data"]
+          }],
+          "ratingSystems": [],
+          "barcode": "3307216257936",
+          "evidenceIds": ["mirage-gamefaqs-release-data"]
+        },
+        {
+          "id": "ac-mirage-ps4-launch-de",
+          "label": "Launch Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [{
+            "component": "BOX",
+            "languages": ["DE"],
+            "basis": "DECLARED",
+            "exhaustive": false,
+            "note": "La ficha de release la identifica como German; falta scan físico.",
+            "evidenceIds": ["mirage-gamefaqs-release-data"]
+          }],
+          "ratingSystems": [],
+          "barcode": "3307216257912",
+          "serial": "CUSA-33151",
+          "physicalContents": ["Juego Standard en Amaray", "Slipcase", "Mapa de Bagdad", "3 litografías"],
+          "digitalContents": ["Misión The Forty Thieves"],
+          "evidenceIds": ["mirage-gamefaqs-release-data", "mirage-ogdb-de-launch", "mirage-redump-europe"]
+        },
+        {
+          "id": "ac-mirage-ps4-launch-amazon-es",
+          "label": "Launch Edition · Amazon.es Exclusive",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["ES"],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [{
+            "component": "BOX",
+            "languages": ["ES"],
+            "basis": "DECLARED",
+            "exhaustive": false,
+            "note": "La ficha de release la denomina Launch Edition (Spanish) (Amazon.es Exclusive); falta scan físico.",
+            "evidenceIds": ["mirage-gamefaqs-release-data"]
+          }],
+          "ratingSystems": [],
+          "evidenceIds": ["mirage-gamefaqs-release-data"],
+          "notes": ["Barcode pendiente."]
+        },
+        {
+          "id": "ac-mirage-ps4-launch-north-america-legacy-pending",
+          "label": "Launch Edition · ficha norteamericana pendiente de verificación",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "ratingSystems": [],
+          "catalogIds": ["ps4-usa-assassin%27s-creed-mirage-launch-edition"],
+          "evidenceIds": ["mirage-local-catalog-legacy", "mirage-gamefaqs-release-data"],
+          "notes": ["VERIFY_NA_LAUNCH_EDITION: se conserva el catalogId, URL, portada y precios existentes sin afirmar todavía que la caja sea una Launch Edition PS4 USA confirmada."]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "mirage-gamefaqs-release-data",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos de lanzamientos PS4",
+          "url": "https://gamefaqs.gamespot.com/ps4/380031-assassins-creed-mirage/data",
+          "summary": "Fuente de release citada por el dossier para barcodes, mercados y nombres regionales de Standard, Deluxe, Launch y Collector's Case.",
+          "supports": ["barcodes regionales", "mercados declarados", "familias de edición", "lanzamiento japonés", "pendientes de Corea y Launch norteamericana"]
+        },
+        {
+          "id": "mirage-redump-europe",
+          "type": "UNKNOWN",
+          "label": "Redump · CUSA-33151",
+          "url": "https://redump.info/discs?sort=language&system=PS4",
+          "summary": "El dossier atribuye a CUSA-33151 los idiomas de software EN, FR, DE, ES, IT, PT y PL. No acreditan idiomas de caja.",
+          "supports": ["CUSA-33151", "softwareLanguages europeas separadas del packaging"]
+        },
+        {
+          "id": "mirage-redump-north-america",
+          "type": "UNKNOWN",
+          "label": "Redump · CUSA-33150",
+          "url": "https://redump.info/discs?sort=language&system=PS4",
+          "summary": "El dossier atribuye a CUSA-33150 los idiomas de software EN, FR, ES y PT. No acreditan idiomas de caja.",
+          "supports": ["CUSA-33150", "softwareLanguages norteamericanas separadas del packaging"]
+        },
+        {
+          "id": "mirage-serialstation-asia",
+          "type": "UNKNOWN",
+          "label": "SerialStation · familia CUSA-33152",
+          "url": "https://serialstation.com/titles/CUSA/33152",
+          "summary": "Registra CUSA-33152 para la familia asiática multilenguaje; no demuestra un product code físico común para todas las cajas asiáticas.",
+          "supports": ["familia asiática CUSA-33152", "separación Japan Korea Asia Chinese"]
+        },
+        {
+          "id": "mirage-fnac-es-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Standard PS4",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Mirage-PS4-Videojuego-PS4/a9653403",
+          "supports": ["EAN 3307216257660", "mercado España"]
+        },
+        {
+          "id": "mirage-el-corte-ingles-standard",
+          "type": "RETAILER_ASSET",
+          "label": "El Corte Inglés · Standard PS4",
+          "url": "https://www.elcorteingles.es/videojuegos/A48977733-assassins-creed-mirage-playstation-4/",
+          "supports": ["EAN 3307216257660", "mercado España"]
+        },
+        {
+          "id": "mirage-fnac-fr-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Standard PS4",
+          "url": "https://www.fnac.com/a17359131/Assassin-s-Creed-Mirage-PS4-Jeu-video-PlayStation-4",
+          "supports": ["EAN 3307216257622", "mercado Francia"]
+        },
+        {
+          "id": "mirage-ibs-it-standard",
+          "type": "RETAILER_ASSET",
+          "label": "IBS Italia · Standard PS4",
+          "url": "https://www.ibs.it/assassin-s-creed-mirage-ps4-videogioco-ubisoft/e/3307216257646",
+          "supports": ["EAN 3307216257646", "packaging italiano"]
+        },
+        {
+          "id": "mirage-fullmoon-it-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Fullmoon Games Italia · Standard PS4",
+          "url": "https://fullmoongames.it/products/assassins-creed-mirage-ps4-playstation-4-edizione-italiana",
+          "supports": ["edición física italiana", "CUSA-33151"]
+        },
+        {
+          "id": "mirage-rebuy-de-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Rebuy Alemania · referencia Standard citada en el dossier",
+          "supports": ["EAN 3307216256748", "mercado Alemania"]
+        },
+        {
+          "id": "mirage-xkom-pl-standard",
+          "type": "RETAILER_ASSET",
+          "label": "X-kom Poland · Standard PS4",
+          "url": "https://www.x-kom.pl/p/1090765-gra-na-playstation-4-playstation-assassins-creed-mirage.html",
+          "supports": ["EAN 3307216257653", "mercado Polonia"]
+        },
+        {
+          "id": "mirage-world-of-games-en-pack",
+          "type": "RETAILER_ASSET",
+          "label": "World of Games · English Pack",
+          "url": "https://www.wog.ch/en/index.cfm/details/product/176900-Assassins-Creed-Mirage",
+          "supports": ["EAN 3307216257684", "packaging English", "CUSA-33151"]
+        },
+        {
+          "id": "mirage-uk-retail-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Retail UK citado en el dossier",
+          "summary": "Itemdrop, Currys, OnBuy y eBay UK vinculan 3307216257691 con el mercado británico; falta comparación física con 3307216257684.",
+          "supports": ["EAN 3307216257691", "evidencia de mercado GB", "verificación de packaging pendiente"]
+        },
+        {
+          "id": "mirage-kmart-au-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Kmart Australia · Standard PS4",
+          "url": "https://www.kmart.com.au/product/assassin%27s-creed-mirage-ps4-87899788/",
+          "supports": ["EAN 3307216256724", "mercado Australia", "rating MA15+"]
+        },
+        {
+          "id": "mirage-target-us-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Target USA · Standard PS4",
+          "url": "https://www.target.com/p/-/A-87537313",
+          "supports": ["UPC 887256114138", "PS4 físico", "ESRB M"]
+        },
+        {
+          "id": "mirage-sanborns-mx-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Sanborns México · Standard PS4",
+          "url": "https://www.sanborns.com.mx/producto/342654/assassin-s-creed-mirage-playstation-4",
+          "supports": ["UPC 887256114220", "mercado México"]
+        },
+        {
+          "id": "mirage-play-asia",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia · ediciones Asia Chinese PS4",
+          "url": "https://www.play-asia.com/en/assassins-creed-mirage-chinese/13/70fod7",
+          "supports": ["Asia Chinese Standard", "Asia Chinese Deluxe", "Asia Chinese Collector's Edition"]
+        },
+        {
+          "id": "mirage-fnac-es-deluxe",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Deluxe PS4 citada en el dossier",
+          "supports": ["EAN 3307216257806", "mercado España"]
+        },
+        {
+          "id": "mirage-fnac-fr-deluxe",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Deluxe PS4 citada en el dossier",
+          "supports": ["EAN 3307216257769", "mercado Francia"]
+        },
+        {
+          "id": "mirage-gamelife-it-deluxe",
+          "type": "RETAILER_ASSET",
+          "label": "Gamelife · Deluxe física italiana citada en el dossier",
+          "supports": ["EAN 3307216257783", "edición física italiana"]
+        },
+        {
+          "id": "mirage-owned-deluxe-es-scan",
+          "type": "REAL_SCAN",
+          "label": "Scan propio · Deluxe Edition PAL España",
+          "summary": "El set propio conserva portada, contraportada y lomo del ejemplar precintado; acredita EAN 3307216257806, CUSA-33151, referencia 6257806 y texto español.",
+          "supports": ["scan Deluxe ES", "EAN 3307216257806", "CUSA-33151", "packaging español", "referencia de impresión 6257806"]
+        },
+        {
+          "id": "mirage-collector-owner-confirmation",
+          "type": "OWNER_CONFIRMATION",
+          "label": "Confirmación conceptual Collector's Case",
+          "summary": "Collector's Edition en Europa y Collector's Case en Norteamérica representan la misma edición conceptual; Asia Chinese Collector pertenece a la misma familia con variante propia.",
+          "supports": ["un solo edition family Collector's Case", "aliases Collector's Edition y Collector's Case", "variantes EU NA Asia"]
+        },
+        {
+          "id": "mirage-reway-nl-launch",
+          "type": "RETAILER_ASSET",
+          "label": "Reway NL · Launch Edition citada en el dossier",
+          "supports": ["EAN 3307216257615", "mercado Países Bajos"]
+        },
+        {
+          "id": "mirage-ogdb-de-launch",
+          "type": "UNKNOWN",
+          "label": "OGDB · Launch Edition alemana citada en el dossier",
+          "supports": ["EAN 3307216257912", "CUSA-33151", "Amaray", "slipcase", "The Forty Thieves", "mapa de Bagdad", "3 litografías"]
+        },
+        {
+          "id": "mirage-local-catalog-legacy",
+          "type": "UNKNOWN",
+          "label": "Catálogo local RegionAtlas · ficha Launch norteamericana",
+          "summary": "La ficha, portada, URL y precios se conservan, pero el dossier exige verificar su fuente física antes de afirmar que sea una Launch Edition PS4 USA.",
+          "supports": ["preservación de catalogId", "preservación de URL", "preservación de precio", "VERIFY_NA_LAUNCH_EDITION"]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac_mirage_worldwide_variants.md"},
+        {"label": "GameFAQs PS4", "url": "https://gamefaqs.gamespot.com/ps4/380031-assassins-creed-mirage/data"},
+        {"label": "Redump PS4", "url": "https://redump.info/discs?sort=language&system=PS4"},
+        {"label": "Fnac España", "url": "https://www.fnac.es/Assassin-s-Creed-Mirage-PS4-Videojuego-PS4/a9653403"},
+        {"label": "El Corte Inglés España", "url": "https://www.elcorteingles.es/videojuegos/A48977733-assassins-creed-mirage-playstation-4/"},
+        {"label": "Fnac France", "url": "https://www.fnac.com/a17359131/Assassin-s-Creed-Mirage-PS4-Jeu-video-PlayStation-4"},
+        {"label": "IBS Italia", "url": "https://www.ibs.it/assassin-s-creed-mirage-ps4-videogioco-ubisoft/e/3307216257646"},
+        {"label": "Fullmoon Games Italia", "url": "https://fullmoongames.it/products/assassins-creed-mirage-ps4-playstation-4-edizione-italiana"},
+        {"label": "X-kom Poland", "url": "https://www.x-kom.pl/p/1090765-gra-na-playstation-4-playstation-assassins-creed-mirage.html"},
+        {"label": "World of Games English Pack", "url": "https://www.wog.ch/en/index.cfm/details/product/176900-Assassins-Creed-Mirage"},
+        {"label": "Target USA", "url": "https://www.target.com/p/-/A-87537313"},
+        {"label": "Sanborns México", "url": "https://www.sanborns.com.mx/producto/342654/assassin-s-creed-mirage-playstation-4"},
+        {"label": "Kmart Australia", "url": "https://www.kmart.com.au/product/assassin%27s-creed-mirage-ps4-87899788/"},
+        {"label": "Play-Asia Asia", "url": "https://www.play-asia.com/en/assassins-creed-mirage-chinese/13/70fod7"},
+        {"label": "SerialStation CUSA-33152", "url": "https://serialstation.com/titles/CUSA/33152"},
+        {"label": "Scan propio RegionAtlas · Deluxe Edition PAL España"}
+      ],
+      "evidenceNote": "Normalización aditiva basada exclusivamente en el dossier entregado y en los datos ya existentes del repositorio. Los identificadores pendientes permanecen vacíos; no se infieren packaging, mercados, barcodes ni product codes desde localizaciones digitales o familias CUSA."
+    }
+  ]
+}

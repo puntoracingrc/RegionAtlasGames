@@ -12,13 +12,14 @@ import xboxSeriesPeopleData from "../../data/research/platform-history/people-xb
 import segaPeopleData from "../../data/research/platform-history/people-sega-public.json";
 import nintendoPeopleData from "../../data/research/platform-history/people-nintendo-public.json";
 import snkPeopleData from "../../data/research/platform-history/people-snk-public.json";
+import portraitPeopleData from "../../data/research/platform-history/people-portraits-public.json";
 import { getCatalogGame, getPlatform } from "./catalog";
+import { classifyPersonExpertiseTerms } from "./person-expertise";
 import { getPlatformHistory, getPlatformHistoryData } from "./platform-history";
 import type {
   CompanyPersonLink,
   PersonCardData,
   PersonCompanyRelation,
-  PersonExpertise,
   PersonPublicData,
   PersonPublicOverlayData,
   PersonPublicProfile,
@@ -48,6 +49,7 @@ const xboxSeriesData = xboxSeriesPeopleData as unknown as PersonPublicOverlayDat
 const segaData = segaPeopleData as unknown as PersonPublicOverlayData;
 const nintendoData = nintendoPeopleData as unknown as PersonPublicOverlayData;
 const snkData = snkPeopleData as unknown as PersonPublicOverlayData;
+const portraitData = portraitPeopleData as unknown as PersonPublicOverlayData;
 
 function applyOverlay(
   current: PersonPublicData,
@@ -110,6 +112,7 @@ const data = [
   segaData,
   nintendoData,
   snkData,
+  portraitData,
 ].reduce(applyOverlay, baseData);
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));
@@ -142,32 +145,6 @@ function uniqueBy<T>(items: T[], key: (item: T) => string): T[] {
 
 function rowsFor<T extends { personSlug: string }>(rows: T[], personSlug: string): T[] {
   return rows.filter((row) => row.personSlug === personSlug);
-}
-
-function expertiseFor(
-  profile: PersonPublicProfile,
-  relations: PersonCompanyRelation[],
-  credits: PersonWork[],
-): PersonExpertise[] {
-  const haystack = normalize(
-    [
-      ...profile.occupations.map((item) => item.name),
-      ...profile.fieldsOfWork.map((item) => item.name),
-      ...relations.flatMap((item) => [item.role, item.roleLabelEs]),
-      ...credits.map((item) => item.role),
-    ].join(" "),
-  );
-  const matches: [PersonExpertise, RegExp][] = [
-    ["design", /disen|design/],
-    ["programming", /program|ingenier|software|motor/],
-    ["direction", /direccion|director|directora/],
-    ["production", /produccion|productor|productora/],
-    ["music", /music|compositor|compositora|sonido/],
-    ["art", /arte|artist|ilustr|grafico|grafica/],
-    ["founder", /founder|fundador|fundadora/],
-    ["executive", /ejecutiv|president|liderazgo empresarial|ceo/],
-  ];
-  return matches.filter(([, pattern]) => pattern.test(haystack)).map(([value]) => value);
 }
 
 export function personLifeLabel(profile: PersonPublicProfile): string | null {
@@ -239,7 +216,12 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
     occupations,
     companies: companies.slice(0, 3),
     works,
-    expertise: expertiseFor(profile, relations, credits),
+    expertise: classifyPersonExpertiseTerms([
+      ...profile.occupations.map((item) => item.name),
+      ...profile.fieldsOfWork.map((item) => item.name),
+      ...relations.flatMap((item) => [item.role, item.roleLabelEs]),
+      ...credits.map((item) => item.role),
+    ]),
     platformSlugs,
     searchHaystack,
   };

@@ -2,6 +2,7 @@ import {
   catalogBroadRegionLabel,
   catalogMarketRegionToLegacyRegion,
   catalogPhysicalEditionTypeLabel,
+  isReleasedPhysicalEdition,
   isCatalogMarketRegion,
   type CatalogPhysicalEditionGroupSummary,
   type CatalogEditionGuideModel,
@@ -57,7 +58,7 @@ export function catalogPhysicalEditionOverviewRegionLinks(
   editions: CatalogPhysicalEdition[],
 ): Array<{ region: string; targetId: string }> {
   const editionsByBroadRegion = new Map<CatalogPhysicalEdition["broadRegion"], CatalogPhysicalEdition[]>();
-  for (const edition of editions) {
+  for (const edition of editions.filter((entry) => entry.countsAsNativePhysicalRelease !== false)) {
     editionsByBroadRegion.set(edition.broadRegion, [...(editionsByBroadRegion.get(edition.broadRegion) ?? []), edition]);
   }
 
@@ -102,8 +103,11 @@ export function getCatalogPhysicalEditionPublicIdentity(
   const currentEdition = guide.physicalEditions.find((entry) => entry.id === guide.currentEditionId);
   if (!family || !currentEdition) return undefined;
 
-  const editions = guide.physicalEditions.filter((entry) => family.physicalEditionIds.includes(entry.id));
-  const broadRegions = unique(editions.map((entry) => entry.broadRegion));
+  const familyEditions = guide.physicalEditions.filter((entry) => family.physicalEditionIds.includes(entry.id));
+  const editions = familyEditions.filter(isReleasedPhysicalEdition);
+  const hasReleasedDocumentedProduct = familyEditions.some((entry) => entry.releaseStatus === "RELEASED");
+  const identityEditions = editions.length ? editions : familyEditions;
+  const broadRegions = unique(identityEditions.map((entry) => entry.broadRegion));
   const broadRegionLabel = spanishList(broadRegions.map(catalogBroadRegionLabel));
   const marketRegions = unique(editions.flatMap((entry) => entry.marketRegions).filter(isCatalogMarketRegion));
   const currentMarketRegions = unique(currentEdition.marketRegions.filter(isCatalogMarketRegion));
@@ -113,9 +117,13 @@ export function getCatalogPhysicalEditionPublicIdentity(
     ? `${game.title} — ${platformName} · ${broadRegionLabel}`
     : `${game.title} — ${family.label} · ${platformName}`;
   const documentedMarkets = spanishList(marketRegions);
-  const description = editions.length === 1
-    ? `${publicName} para ${platformName}. Edición física documentada en ${broadRegionLabel}.`
-    : `${publicName} para ${platformName}. Familia de ${editions.length} ediciones físicas documentadas en ${broadRegionLabel}${documentedMarkets ? ` (${documentedMarkets})` : ""}.`;
+  const description = editions.length === 0
+    ? hasReleasedDocumentedProduct
+      ? `${publicName} para ${platformName}. Producto físico documentado en ${broadRegionLabel}, sin soporte nativo verificado para el recuento de ${platformName}.`
+      : `${publicName} para ${platformName}. Lanzamiento físico cancelado; no se contabiliza como edición publicada.`
+    : editions.length === 1
+      ? `${publicName} para ${platformName}. Edición física documentada en ${broadRegionLabel}.`
+      : `${publicName} para ${platformName}. Familia de ${editions.length} ediciones físicas nativas documentadas en ${broadRegionLabel}${documentedMarkets ? ` (${documentedMarkets})` : ""}.`;
   const coverScope = currentMarketRegions.length
     ? currentMarketRegions.join(" / ")
     : catalogBroadRegionLabel(currentEdition.broadRegion);
@@ -139,13 +147,16 @@ function buildSummary(
   games: CatalogListGame[],
   family?: CatalogEditionFamily,
 ): CatalogPhysicalEditionGroupSummary {
+  const releasedEditions = editions.filter(isReleasedPhysicalEdition);
+  const releasedCatalogIds = new Set(releasedEditions.flatMap((edition) => edition.catalogIds));
+  const pricedGames = games.filter((game) => releasedCatalogIds.has(game.id));
   const regionCounts = new Map<CatalogPhysicalEditionGroupSummary["broadRegions"][number]["value"], number>();
-  for (const edition of editions) {
+  for (const edition of releasedEditions) {
     regionCounts.set(edition.broadRegion, (regionCounts.get(edition.broadRegion) ?? 0) + 1);
   }
-  const complete = priceRange(games.map((game) => game.estimatedPriceComplete));
-  const sealed = priceRange(games.map((game) => game.estimatedPriceSealed ?? game.estimatedPriceNewRetail));
-  const marketRegions = unique(editions.flatMap((edition) => edition.marketRegions));
+  const complete = priceRange(pricedGames.map((game) => game.estimatedPriceComplete));
+  const sealed = priceRange(pricedGames.map((game) => game.estimatedPriceSealed ?? game.estimatedPriceNewRetail));
+  const marketRegions = unique(releasedEditions.flatMap((edition) => edition.marketRegions));
   const legacyMarketRegions = marketRegions.map(catalogMarketRegionToLegacyRegion);
   return {
     guideId: guide.id,
@@ -154,17 +165,17 @@ function buildSummary(
     catalogIds: unique(games.map((game) => game.id)),
     legacyRegions: unique([...games.map((game) => game.region), ...legacyMarketRegions]),
     marketRegions,
-    overviewRegions: catalogPhysicalEditionOverviewRegions(editions),
-    physicalEditionCount: editions.length,
-    collectibleVariantCount: editions.reduce((total, edition) => total + edition.variants.length, 0),
+    overviewRegions: catalogPhysicalEditionOverviewRegions(releasedEditions),
+    physicalEditionCount: releasedEditions.length,
+    collectibleVariantCount: releasedEditions.reduce((total, edition) => total + edition.variants.length, 0),
     broadRegions: [...regionCounts.entries()].map(([value, editionCount]) => ({
       value,
       label: catalogBroadRegionLabel(value),
       editionCount,
     })),
-    editionTypes: unique(editions.map((edition) => edition.editionType)),
-    ratingSystems: unique(editions.flatMap((edition) => edition.ratingSystems)),
-    packagingLanguages: unique(editions.flatMap((edition) => edition.packagingLanguages)),
+    editionTypes: unique(releasedEditions.map((edition) => edition.editionType)),
+    ratingSystems: unique(releasedEditions.flatMap((edition) => edition.ratingSystems)),
+    packagingLanguages: unique(releasedEditions.flatMap((edition) => edition.packagingLanguages)),
     priceRanges: {
       ...(complete ? { complete } : {}),
       ...(sealed ? { sealed } : {}),
@@ -267,9 +278,12 @@ export function groupCatalogListGames(
         edition.catalogNumber,
         edition.serial,
         edition.boxCode,
+        ...edition.softwareFamilyCodes,
+        ...edition.productCodes,
         ...edition.marketRegions,
         ...edition.marketRegions.map(catalogMarketRegionToLegacyRegion),
         ...edition.packagingLanguages,
+        ...edition.softwareLanguages,
         ...edition.componentLanguageEvidence.flatMap((languageEvidence) => languageEvidence.languages),
         ...edition.ratingSystems,
         ...edition.variants.flatMap((variant) => [variant.label, variant.barcode, variant.boxCode, ...variant.stickers, ...variant.markings]),
@@ -314,10 +328,14 @@ export function catalogPhysicalFilterOptions(platformSlug?: string): CatalogPhys
   const ratingSystems = new Set<string>();
   const documentedGuides = getCatalogEditionGuides();
   const documentedCatalogIds = new Set(documentedGuides.flatMap((guide) =>
-    guide.physicalEditions.flatMap((edition) => edition.catalogIds)));
+    [
+      ...guide.physicalEditions.flatMap((edition) => edition.catalogIds),
+      ...guide.physicalBonusItems.flatMap((item) => item.catalogIds),
+    ]));
   for (const guide of documentedGuides) {
     if (platformSlug && guide.game.platformSlug !== platformSlug) continue;
     for (const edition of guide.physicalEditions) {
+      if (!isReleasedPhysicalEdition(edition)) continue;
       broadRegions.add(edition.broadRegion);
       editionTypes.add(edition.editionType);
       for (const ratingSystem of edition.ratingSystems) ratingSystems.add(ratingSystem);

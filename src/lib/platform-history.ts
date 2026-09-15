@@ -1,6 +1,7 @@
 import platformHistoryData from "../../data/research/platform-history/platforms.json";
 import playstation2HistoryData from "../../data/research/platform-history/platforms-ps2.json";
 import playstation3HistoryData from "../../data/research/platform-history/platforms-ps3.json";
+import playstation4HistoryData from "../../data/research/platform-history/platforms-ps4.json";
 import playstation5HistoryData from "../../data/research/platform-history/platforms-ps5.json";
 import pspHistoryData from "../../data/research/platform-history/platforms-psp.json";
 import psVitaHistoryData from "../../data/research/platform-history/platforms-psvita.json";
@@ -43,6 +44,7 @@ import { PLATFORM_HARDWARE_GROUPS } from "./platform-history-types";
 const baseData = platformHistoryData as PlatformHistoryData;
 const playstation2Data = playstation2HistoryData as PlatformHistoryData;
 const playstation3Data = playstation3HistoryData as PlatformHistoryData;
+const playstation4Data = playstation4HistoryData as PlatformHistoryData;
 const playstation5Data = playstation5HistoryData as PlatformHistoryData;
 const pspData = pspHistoryData as PlatformHistoryData;
 const psVitaData = psVitaHistoryData as PlatformHistoryData;
@@ -79,6 +81,7 @@ const overlays = [
   pspData,
   playstation3Data,
   psVitaData,
+  playstation4Data,
   playstation5Data,
   xboxData,
   xbox360Data,

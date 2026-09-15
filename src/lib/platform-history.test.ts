@@ -42,6 +42,7 @@ test("publishes reusable structured history and keeps an empty fallback", () => 
       "psp",
       "ps3",
       "psvita",
+      "ps4",
       "ps5",
       "xbox",
       "xbox360",

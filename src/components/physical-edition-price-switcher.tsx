@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { RegionFlag } from "@/components/region-flag";
 import { cn } from "@/lib/cn";
@@ -28,10 +28,11 @@ export function PhysicalEditionPriceSwitcher({
   const [selectedId, setSelectedId] = useState(initial);
   const optionsRailRef = useRef<HTMLDivElement>(null);
   const optionRefs = useRef(new Map<string, HTMLButtonElement>());
+  const hasPositionedSelectionRef = useRef(false);
   const selectedIndex = Math.max(0, options.findIndex((option) => option.id === selectedId));
   const selected = options[selectedIndex];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!selectedId) return;
     const rail = optionsRailRef.current;
     const option = optionRefs.current.get(selectedId);
@@ -39,13 +40,14 @@ export function PhysicalEditionPriceSwitcher({
     const railRect = rail.getBoundingClientRect();
     const optionRect = option.getBoundingClientRect();
     rail.scrollTo({
-      behavior: "smooth",
+      behavior: hasPositionedSelectionRef.current ? "smooth" : "auto",
       left:
         rail.scrollLeft +
         optionRect.left -
         railRect.left -
         (rail.clientWidth - optionRect.width) / 2,
     });
+    hasPositionedSelectionRef.current = true;
   }, [selectedId]);
 
   if (!selected) return null;
@@ -122,7 +124,7 @@ export function PhysicalEditionPriceSwitcher({
                   {option.label}
                 </span>
                 <span className="flex shrink-0 items-center gap-1">
-                  {option.regions.map((region) => (
+                  {[...new Set(option.regions)].map((region) => (
                     <RegionFlag key={region} region={region} size="xs" />
                   ))}
                 </span>

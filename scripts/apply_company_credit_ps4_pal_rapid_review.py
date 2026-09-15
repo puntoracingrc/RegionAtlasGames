@@ -240,6 +240,7 @@ NEW_DISPLAY_NAMES = {
     "united-independent-entertainment": "United Independent Entertainment",
 }
 WORK_KEY_OVERRIDES = {
+    "ps4-assassins-creed-3-remastered": "assassin s creed iii remastered",
     "ps4-gravity-rush": "gravity rush",
     "ps4-lego-the-incredibles": "lego the incredibles",
     "ps4-minecraft": "minecraft",

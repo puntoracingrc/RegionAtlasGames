@@ -1,0 +1,876 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-odyssey-ps4",
+      "title": "Ediciones físicas de Assassin's Creed Odyssey en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Una sola obra canónica agrupa las variantes físicas documentadas. Los países donde circuló una caja no se convierten en su identidad de packaging; los UPC candidatos de USA y los EAN Gold sin mapeo permanecen separados hasta disponer de evidencia física concluyente.",
+      "game": {
+        "title": "Assassin's Creed Odyssey",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-odyssey",
+        "aliases": [
+          "Assassins Creed Odyssey"
+        ]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-assassins-creed-odyssey",
+          "physicalEditionIds": [
+            "ac-odyssey-ps4-standard-es",
+            "ac-odyssey-ps4-standard-it",
+            "ac-odyssey-ps4-standard-gb",
+            "ac-odyssey-ps4-standard-dfi",
+            "ac-odyssey-ps4-standard-de",
+            "ac-odyssey-ps4-standard-pl",
+            "ac-odyssey-ps4-standard-southeast-europe-en",
+            "ac-odyssey-ps4-standard-jp",
+            "ac-odyssey-ps4-standard-asia-en-zh-pending",
+            "ac-odyssey-ps4-standard-latam-cover-pending",
+            "ac-odyssey-ps4-standard-us-catalog-unresolved",
+            "ac-odyssey-ps4-standard-us-upc-887256035969",
+            "ac-odyssey-ps4-standard-us-upc-887256036041"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "gold",
+          "label": "Gold Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-odyssey-gold-edition",
+          "physicalEditionIds": [
+            "ac-odyssey-ps4-gold-us-catalog",
+            "ac-odyssey-ps4-gold-jp",
+            "ac-odyssey-ps4-gold-europe-3307216067214-pending",
+            "ac-odyssey-ps4-gold-europe-3307216067290-pending",
+            "ac-odyssey-ps4-gold-europe-3307216079040-pending"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "deluxe",
+          "label": "Deluxe Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-odyssey-deluxe-edition",
+          "physicalEditionIds": [
+            "ac-odyssey-ps4-deluxe-us-catalog",
+            "ac-odyssey-ps4-deluxe-jp-2020"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "collectors",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-odyssey-collector%27s-edition",
+          "physicalEditionIds": [
+            "ac-odyssey-ps4-collectors-us-catalog",
+            "ac-odyssey-ps4-collectors-jp-catalog"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "pantheon",
+          "label": "Pantheon Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-odyssey-pantheon-edition",
+          "physicalEditionIds": [
+            "ac-odyssey-ps4-pantheon-us-catalog"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "athenian",
+          "label": "Athenian Edition",
+          "representativeCatalogId": "ps4-assassin%27s-creed-odyssey-athenian-edition",
+          "physicalEditionIds": [
+            "ac-odyssey-ps4-athenian-es-catalog"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-odyssey-ps4-standard-es",
+          "label": "Standard · caja española",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "evidenceMarkets": [
+            "ES",
+            "PT"
+          ],
+          "packagingLanguages": [
+            "es"
+          ],
+          "softwareLanguages": [
+            "es"
+          ],
+          "ratingSystems": [
+            "PEGI 18"
+          ],
+          "productCodes": [
+            "CUSA-09303"
+          ],
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216063926",
+          "catalogNumber": "CUSA-09303",
+          "catalogIds": [
+            "ps4-assassins-creed-odyssey"
+          ],
+          "scanSetIds": [
+            "ps4-assassins-creed-odyssey"
+          ],
+          "evidenceIds": [
+            "odyssey-es-owned-scan",
+            "odyssey-es-ean-portugal-circulation"
+          ],
+          "notes": [
+            "El EAN español también circuló en Portugal; no demuestra una caja portuguesa ni packaging ES/PT.",
+            "La declaración impresa de voces españolas requiere descarga y no prueba que esas voces estén incluidas en el disco."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-it",
+          "label": "Standard · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "IT"
+          ],
+          "evidenceMarkets": [
+            "IT"
+          ],
+          "packagingLanguages": [
+            "it"
+          ],
+          "softwareLanguages": [
+            "it"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216063933",
+          "evidenceIds": [
+            "odyssey-it-cover-language"
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-gb",
+          "label": "Standard · UK / English",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "GB"
+          ],
+          "evidenceMarkets": [
+            "GB"
+          ],
+          "packagingLanguages": [
+            "en"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216063889",
+          "evidenceIds": [
+            "odyssey-gb-english-packaging"
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-dfi",
+          "label": "Standard · caja D/F/I",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "de",
+            "fr",
+            "it"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216063919",
+          "evidenceIds": [
+            "odyssey-dfi-packaging"
+          ],
+          "notes": [
+            "El packaging D/F/I no se reduce a un país concreto sin evidencia adicional de distribución."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "DE"
+          ],
+          "evidenceMarkets": [
+            "DE"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216063865",
+          "evidenceIds": [
+            "odyssey-de-distinct"
+          ],
+          "notes": [
+            "Variante alemana independiente de la caja D/F/I 3307216063919; el detalle lingüístico de la contraportada queda sin completar."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-pl",
+          "label": "Standard · Polonia · Cenega",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "PL"
+          ],
+          "evidenceMarkets": [
+            "PL"
+          ],
+          "distributionMarkets": [
+            "PL"
+          ],
+          "softwareLanguages": [
+            "pl"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216063940",
+          "evidenceIds": [
+            "odyssey-pl-cenega-localization"
+          ],
+          "notes": [
+            "La distribución de Cenega y la localización polaca no se extrapolan a packagingLanguages sin observar la caja."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-southeast-europe-en",
+          "label": "Standard · Europa sudoriental / English",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "evidenceMarkets": [
+            "GR",
+            "TR"
+          ],
+          "packagingLanguages": [
+            "en"
+          ],
+          "productCodes": [
+            "CUSA-12042"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216063872",
+          "catalogNumber": "CUSA-12042",
+          "evidenceIds": [
+            "odyssey-southeast-europe-en"
+          ],
+          "notes": [
+            "Circula en Grecia, Turquía, Eslovenia y otros mercados; se mantiene como variante supranacional con caja inglesa.",
+            "Eslovenia se conserva en la nota porque el registro V2 compartido todavía no ofrece el código SI; no se inventa un país único."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "evidenceMarkets": [
+            "JP"
+          ],
+          "productCodes": [
+            "PLJM-16214"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "4949244004572",
+          "catalogNumber": "PLJM-16214",
+          "evidenceIds": [
+            "odyssey-japan-identities"
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-asia-en-zh-pending",
+          "label": "Standard · Asia · subtítulos English / Chinese · identificador pendiente",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "softwareLanguages": [
+            "en",
+            "zh"
+          ],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": [
+            "odyssey-asia-en-zh"
+          ],
+          "notes": [
+            "La existencia física está confirmada; barcode, product code y país exacto continúan pendientes.",
+            "Los subtítulos English/Chinese son idiomas de software y no completan packagingLanguages."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-latam-cover-pending",
+          "label": "Standard · LATAM Cover · barcode pendiente",
+          "broadRegion": "LATIN_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": [
+            "odyssey-latam-cover"
+          ],
+          "notes": [
+            "La cubierta latinoamericana diferenciada está confirmada; no se asigna país, barcode ni idioma de caja sin evidencia adicional."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-us-catalog-unresolved",
+          "label": "Standard · USA · ficha de catálogo · UPC por resolver",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "evidenceMarkets": [
+            "US"
+          ],
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-odyssey"
+          ],
+          "evidenceIds": [
+            "odyssey-existing-catalog"
+          ],
+          "notes": [
+            "La ficha regional estadounidense se enlaza a la familia Standard, pero no se adjudica a ninguno de los dos UPC candidatos."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-us-upc-887256035969",
+          "label": "Standard · USA · UPC 887256035969 · candidato independiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "evidenceMarkets": [
+            "US"
+          ],
+          "confidence": "HIGH",
+          "barcode": "887256035969",
+          "evidenceIds": [
+            "odyssey-us-upc-candidates"
+          ],
+          "notes": [
+            "No se afirma que sea reimpresión, tirada de retailer ni equivalente al UPC 887256036041."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-standard-us-upc-887256036041",
+          "label": "Standard · USA · UPC 887256036041 · candidato independiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "evidenceMarkets": [
+            "US"
+          ],
+          "confidence": "HIGH",
+          "barcode": "887256036041",
+          "evidenceIds": [
+            "odyssey-us-upc-candidates"
+          ],
+          "notes": [
+            "No se afirma que sea reimpresión, tirada de retailer ni equivalente al UPC 887256035969."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-gold-us-catalog",
+          "label": "Gold Edition · USA · ficha de catálogo",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "US"
+          ],
+          "evidenceMarkets": [
+            "US"
+          ],
+          "confidence": "HIGH",
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-odyssey-gold-edition"
+          ],
+          "evidenceIds": [
+            "odyssey-existing-catalog"
+          ],
+          "notes": [
+            "La ficha y sus datos históricos se conservan; esta investigación no completa un UPC ausente."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-gold-jp",
+          "label": "Gold Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "JP"
+          ],
+          "evidenceMarkets": [
+            "JP"
+          ],
+          "productCodes": [
+            "PLJM-16292"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "4949244004664",
+          "catalogNumber": "PLJM-16292",
+          "evidenceIds": [
+            "odyssey-japan-identities"
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-gold-europe-3307216067214-pending",
+          "label": "Gold Edition · Europa · EAN 3307216067214 · mapping pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "OTHER",
+          "marketRegions": [],
+          "confidence": "HIGH",
+          "barcode": "3307216067214",
+          "evidenceIds": [
+            "odyssey-gold-europe-unmapped"
+          ],
+          "notes": [
+            "No se asigna país ni packaging hasta comparar una caja física."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-gold-europe-3307216067290-pending",
+          "label": "Gold Edition · Europa · EAN 3307216067290 · mapping pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "OTHER",
+          "marketRegions": [],
+          "confidence": "HIGH",
+          "barcode": "3307216067290",
+          "evidenceIds": [
+            "odyssey-gold-europe-unmapped"
+          ],
+          "notes": [
+            "No se asigna país ni packaging hasta comparar una caja física."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-gold-europe-3307216079040-pending",
+          "label": "Gold Edition · Europa · EAN 3307216079040 · mapping pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "OTHER",
+          "marketRegions": [],
+          "confidence": "HIGH",
+          "barcode": "3307216079040",
+          "evidenceIds": [
+            "odyssey-gold-europe-unmapped"
+          ],
+          "notes": [
+            "No se asigna país ni packaging hasta comparar una caja física."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-deluxe-us-catalog",
+          "label": "Deluxe Edition · USA · ficha de catálogo",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "DELUXE",
+          "marketRegions": [
+            "US"
+          ],
+          "evidenceMarkets": [
+            "US"
+          ],
+          "confidence": "HIGH",
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-odyssey-deluxe-edition"
+          ],
+          "evidenceIds": [
+            "odyssey-existing-catalog"
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-deluxe-jp-2020",
+          "label": "Deluxe Edition · Japón · 2020",
+          "broadRegion": "ASIA",
+          "editionType": "DELUXE",
+          "marketRegions": [
+            "JP"
+          ],
+          "evidenceMarkets": [
+            "JP"
+          ],
+          "productCodes": [
+            "PLJM-16601"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "4949244009805",
+          "catalogNumber": "PLJM-16601",
+          "evidenceIds": [
+            "odyssey-japan-identities"
+          ],
+          "notes": [
+            "La referencia se conserva como Deluxe japonesa de 2020 y no se fusiona con Standard o Gold."
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-collectors-us-catalog",
+          "label": "Collector's Edition · USA · ficha de catálogo",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "US"
+          ],
+          "evidenceMarkets": [
+            "US"
+          ],
+          "confidence": "HIGH",
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-odyssey-collector%27s-edition"
+          ],
+          "evidenceIds": [
+            "odyssey-existing-catalog"
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-collectors-jp-catalog",
+          "label": "Collector's Edition · Japón · ficha de catálogo",
+          "broadRegion": "ASIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "JP"
+          ],
+          "evidenceMarkets": [
+            "JP"
+          ],
+          "confidence": "HIGH",
+          "catalogIds": [
+            "ps4-japon-assassin%27s-creed-odyssey-collector%27s-edition"
+          ],
+          "evidenceIds": [
+            "odyssey-existing-catalog"
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-pantheon-us-catalog",
+          "label": "Pantheon Edition · USA · ficha de catálogo",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "US"
+          ],
+          "evidenceMarkets": [
+            "US"
+          ],
+          "confidence": "HIGH",
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-odyssey-pantheon-edition"
+          ],
+          "evidenceIds": [
+            "odyssey-existing-catalog"
+          ]
+        },
+        {
+          "id": "ac-odyssey-ps4-athenian-es-catalog",
+          "label": "Athenian Edition · PAL España · ficha de catálogo",
+          "broadRegion": "EUROPE",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "ES"
+          ],
+          "evidenceMarkets": [
+            "ES"
+          ],
+          "confidence": "HIGH",
+          "catalogIds": [
+            "ps4-assassin%27s-creed-odyssey-athenian-edition"
+          ],
+          "evidenceIds": [
+            "odyssey-existing-catalog"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "odyssey-es-owned-scan",
+          "type": "REAL_SCAN",
+          "label": "Escaneo propio de la copia española",
+          "summary": "Portada, contraportada y lomo del mismo ejemplar precintado: EAN 3307216063926, CUSA-09303 y packaging español.",
+          "supports": [
+            "ac-odyssey-ps4-standard-es"
+          ]
+        },
+        {
+          "id": "odyssey-es-ean-portugal-circulation",
+          "type": "RETAILER_ASSET",
+          "label": "Circulación del EAN español en Portugal",
+          "summary": "El EAN 3307216063926 se comercializó también en Portugal; esta evidencia sólo demuestra circulación del SKU español.",
+          "supports": [
+            "ac-odyssey-ps4-standard-es"
+          ]
+        },
+        {
+          "id": "odyssey-it-cover-language",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Caja italiana 3307216063933",
+          "summary": "Cover italiana e idioma italiano confirmados.",
+          "supports": [
+            "ac-odyssey-ps4-standard-it"
+          ]
+        },
+        {
+          "id": "odyssey-gb-english-packaging",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Caja UK / English 3307216063889",
+          "summary": "Packaging inglés confirmado.",
+          "supports": [
+            "ac-odyssey-ps4-standard-gb"
+          ]
+        },
+        {
+          "id": "odyssey-dfi-packaging",
+          "type": "REAL_PHOTO",
+          "label": "Caja D/F/I 3307216063919",
+          "summary": "Packaging explícitamente alemán, francés e italiano.",
+          "supports": [
+            "ac-odyssey-ps4-standard-dfi"
+          ]
+        },
+        {
+          "id": "odyssey-de-distinct",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Variante alemana 3307216063865",
+          "summary": "Identidad alemana distinta del EAN D/F/I 3307216063919.",
+          "supports": [
+            "ac-odyssey-ps4-standard-de"
+          ]
+        },
+        {
+          "id": "odyssey-pl-cenega-localization",
+          "type": "RETAILER_ASSET",
+          "label": "Distribución polaca Cenega 3307216063940",
+          "summary": "La edición está distribuida por Cenega y asociada a localización polaca; no se deriva el idioma impreso de la caja.",
+          "supports": [
+            "ac-odyssey-ps4-standard-pl"
+          ]
+        },
+        {
+          "id": "odyssey-southeast-europe-en",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Caja inglesa de Europa sudoriental 3307216063872 / CUSA-12042",
+          "summary": "Circulación confirmada en Grecia, Turquía, Eslovenia y otros mercados sin convertirla en una caja de país único.",
+          "supports": [
+            "ac-odyssey-ps4-standard-southeast-europe-en"
+          ]
+        },
+        {
+          "id": "odyssey-japan-identities",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Identidades físicas japonesas",
+          "summary": "Standard 4949244004572 / PLJM-16214, Gold 4949244004664 / PLJM-16292 y Deluxe 2020 4949244009805 / PLJM-16601.",
+          "supports": [
+            "ac-odyssey-ps4-standard-jp",
+            "ac-odyssey-ps4-gold-jp",
+            "ac-odyssey-ps4-deluxe-jp-2020"
+          ]
+        },
+        {
+          "id": "odyssey-asia-en-zh",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Edición física asiática con subtítulos English / Chinese",
+          "summary": "Confirma la edición física y los subtítulos, pero no un barcode, product code o país concreto.",
+          "supports": [
+            "ac-odyssey-ps4-standard-asia-en-zh-pending"
+          ]
+        },
+        {
+          "id": "odyssey-latam-cover",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Edición física diferenciada LATAM Cover",
+          "summary": "Existencia física confirmada; barcode y mercado nacional pendientes.",
+          "supports": [
+            "ac-odyssey-ps4-standard-latam-cover-pending"
+          ]
+        },
+        {
+          "id": "odyssey-us-upc-candidates",
+          "type": "RETAILER_ASSET",
+          "label": "Dos UPC Standard candidatos de USA",
+          "summary": "887256035969 y 887256036041 se conservan como candidatos independientes; no hay evidencia de reimpresión, retailer o equivalencia.",
+          "supports": [
+            "ac-odyssey-ps4-standard-us-upc-887256035969",
+            "ac-odyssey-ps4-standard-us-upc-887256036041"
+          ]
+        },
+        {
+          "id": "odyssey-gold-europe-unmapped",
+          "type": "RETAILER_ASSET",
+          "label": "EAN Gold europeos pendientes de mapeo",
+          "summary": "3307216067214, 3307216067290 y 3307216079040 se conocen como referencias Gold europeas, sin país ni packaging adjudicados.",
+          "supports": [
+            "ac-odyssey-ps4-gold-europe-3307216067214-pending",
+            "ac-odyssey-ps4-gold-europe-3307216067290-pending",
+            "ac-odyssey-ps4-gold-europe-3307216079040-pending"
+          ]
+        },
+        {
+          "id": "odyssey-existing-catalog",
+          "type": "UNKNOWN",
+          "label": "Inventario histórico de RegionAtlas",
+          "summary": "Las fichas públicas ya existentes se enlazan sin cambiar slugs, rutas, portadas, precios, propiedad ni estado de publicación. La mera ficha no completa identificadores físicos ausentes.",
+          "supports": [
+            "ac-odyssey-ps4-standard-us-catalog-unresolved",
+            "ac-odyssey-ps4-gold-us-catalog",
+            "ac-odyssey-ps4-deluxe-us-catalog",
+            "ac-odyssey-ps4-collectors-us-catalog",
+            "ac-odyssey-ps4-collectors-jp-catalog",
+            "ac-odyssey-ps4-pantheon-us-catalog",
+            "ac-odyssey-ps4-athenian-es-catalog"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Orden documental de Assassin's Creed Odyssey mundial aportada por el usuario"
+        },
+        {
+          "label": "Escaneos propios e inventario histórico conservados por RegionAtlas"
+        }
+      ],
+      "evidenceNote": "Los idiomas de packaging sólo se completan cuando la evidencia describe la caja. Los idiomas del software, los mercados de circulación y los identificadores pendientes permanecen en campos separados; ningún candidato se promociona a ficha de catálogo.",
+      "researchTasks": [
+        {
+          "id": "odyssey-portugal-dedicated-packaging",
+          "label": "Caja física dedicada de Portugal",
+          "status": "UNCONFIRMED",
+          "marketRegions": [
+            "PT"
+          ],
+          "notes": [
+            "Buscar EAN propio y fotografías frontal/dorso. La circulación del SKU español no demuestra una caja portuguesa."
+          ]
+        },
+        {
+          "id": "odyssey-us-upc-relationship",
+          "label": "Relación entre los UPC Standard de USA",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "US"
+          ],
+          "notes": [
+            "Comparar cajas 887256035969 y 887256036041; no asumir reimpresión, exclusivo de retailer ni equivalencia."
+          ]
+        },
+        {
+          "id": "odyssey-asia-physical-identifier",
+          "label": "Barcode y product code de la edición Asia English/Chinese",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "La existencia y los subtítulos están confirmados; falta identificar la caja física sin reutilizar códigos japoneses."
+          ]
+        },
+        {
+          "id": "odyssey-latam-cover-barcode",
+          "label": "Barcode y mercado exacto de LATAM Cover",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "No adjudicar Brasil, México u otro país por simetría o por el país del vendedor."
+          ]
+        },
+        {
+          "id": "odyssey-gold-europe-mapping",
+          "label": "País y packaging de los tres EAN Gold europeos",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "Mapear por fotografía física 3307216067214, 3307216067290 y 3307216079040; mantenerlos separados hasta entonces."
+          ]
+        },
+        {
+          "id": "odyssey-spartan-edition-identity",
+          "label": "Spartan Edition · identidad conceptual separada",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "La ficha histórica ps4-assassin%27s-creed-odyssey-spartan-edition permanece excluida y sin reasignar; requiere evidencia pública antes de incorporarse como edición física V2."
+          ]
+        },
+        {
+          "id": "odyssey-omega-edition-identity",
+          "label": "Omega Edition · identidad conceptual separada",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "La ficha histórica ps4-assassin%27s-creed-odyssey-omega-edition permanece excluida y sin reasignar; no se fusiona con Gold, Deluxe o Standard."
+          ]
+        },
+        {
+          "id": "odyssey-steelbook-edition-identity",
+          "label": "Steelbook · identidad conceptual separada",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "Existe evidencia conceptual, pero faltan identificador, mercado y una ficha pública inequívoca; no se convierte en variante de otra edición por simetría."
+          ]
+        },
+        {
+          "id": "odyssey-limited-edition-identity",
+          "label": "Limited Edition · identidad conceptual separada",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "La ficha histórica ps4-assassin%27s-creed-odyssey-limited-edition permanece excluida y sin reasignar; no se fusiona con Steelbook u otras ediciones."
+          ]
+        },
+        {
+          "id": "odyssey-promo-not-for-resale-identity",
+          "label": "Promo Not For Resale · identidad histórica por revisar",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "La ficha excluida se conserva intacta y fuera de la guía publicada hasta disponer de evidencia física suficiente."
+          ]
+        },
+        {
+          "id": "odyssey-medusa-edition-identity",
+          "label": "Medusa Edition · identidad histórica por revisar",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "La ficha excluida se conserva intacta y no se identifica como otra edición sin comprobar sus componentes."
+          ]
+        }
+      ]
+    }
+  ]
+}

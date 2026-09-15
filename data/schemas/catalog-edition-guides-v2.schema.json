@@ -105,10 +105,22 @@
       ]
     },
     "editionType": {
-      "enum": ["STANDARD", "COMPILATION", "BUDGET_REISSUE", "SPECIAL", "COLLECTOR", "DELUXE", "LIMITED", "STEELBOOK", "OTHER"]
+      "enum": ["STANDARD", "COMPILATION", "BUDGET_REISSUE", "SPECIAL", "COLLECTOR", "DELUXE", "GOLD", "LIMITED", "STEELBOOK", "OTHER"]
     },
     "priceCondition": {
       "enum": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+    },
+    "variantConfidence": {
+      "enum": ["CONFIRMED_PHYSICAL_COPY", "CONFIRMED", "HIGH", "PENDING_IDENTIFIER", "UNCONFIRMED"]
+    },
+    "releaseStatus": {
+      "enum": ["RELEASED", "CANCELED_PHYSICAL_RELEASE"]
+    },
+    "physicalProductType": {
+      "enum": ["NATIVE_GAME_DISC", "PREVIOUS_GEN_DISC_WITH_UPGRADE", "DOWNLOAD_CODE_IN_BOX"]
+    },
+    "researchStatus": {
+      "enum": ["UNCONFIRMED", "PENDING_REVIEW", "PHYSICAL_VARIANT_NOT_CONFIRMED"]
     },
     "evidenceType": {
       "enum": ["REAL_SCAN", "REAL_PHOTO", "UNBOXING_FRAME", "RETAILER_PHOTO_CONFIRMED", "RETAILER_ASSET", "PUBLISHER_MOCKUP", "PRE_RELEASE_ASSET", "PUBLISHER_DOCUMENTATION", "OWNER_CONFIRMATION", "UNKNOWN"]
@@ -192,10 +204,27 @@
         "label": { "type": "string", "minLength": 1 },
         "broadRegion": { "$ref": "#/$defs/broadRegion" },
         "editionType": { "$ref": "#/$defs/editionType" },
+        "releaseStatus": { "$ref": "#/$defs/releaseStatus" },
         "marketRegions": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
+        "evidenceMarkets": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
+        "distributionMarkets": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
         "packagingLanguages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "softwareLanguages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "componentLanguageEvidence": { "type": "array", "items": { "$ref": "#/$defs/componentLanguageEvidence" } },
         "ratingSystems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "softwareFamilyCodes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "productCodes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "physicalProductType": { "$ref": "#/$defs/physicalProductType" },
+        "nativePhysicalPlatform": { "type": "string", "minLength": 1 },
+        "compatiblePlatforms": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "containsDisc": { "type": "boolean" },
+        "countsAsNativePhysicalRelease": { "type": "boolean" },
+        "upgradeToPS5": { "type": "boolean" },
+        "upgradePath": { "type": "string", "minLength": 1 },
+        "redeems": { "type": "string", "minLength": 1 },
+        "requiresBaseGame": { "type": "boolean" },
+        "expansionOf": { "type": "string", "minLength": 1 },
+        "confidence": { "$ref": "#/$defs/variantConfidence" },
         "barcode": { "type": "string" },
         "catalogNumber": { "type": "string" },
         "serial": { "type": "string" },
@@ -214,6 +243,37 @@
         "includesVariantIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "containsCatalogIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "variants": { "type": "array", "items": { "$ref": "#/$defs/variant" } },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "physicalBonusItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "relatedGameId", "type", "market", "includesGame"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "relatedGameId": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["STEELBOOK_CASE"] },
+        "retailer": { "type": "string", "minLength": 1 },
+        "market": { "$ref": "#/$defs/marketRegion" },
+        "upc": { "type": "string", "minLength": 1 },
+        "includesGame": { "const": false },
+        "catalogIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "relatedRelease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "type", "expansionOf"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["EXPANSION"] },
+        "expansionOf": { "type": "string", "minLength": 1 },
+        "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "notes": { "type": "array", "items": { "type": "string" } }
       }
     },
@@ -252,6 +312,18 @@
         "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
       }
     },
+    "researchTask": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/researchStatus" },
+        "marketRegions": { "type": "array", "items": { "$ref": "#/$defs/marketRegion" }, "uniqueItems": true },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
     "physicalGuide": {
       "type": "object",
       "additionalProperties": false,
@@ -270,6 +342,8 @@
             "title": { "type": "string", "minLength": 1 },
             "platformSlug": { "type": "string", "minLength": 1 },
             "canonicalCatalogId": { "type": "string", "minLength": 1 },
+            "canonicalGameId": { "type": "string", "minLength": 1 },
+            "platformReleaseId": { "type": "string", "minLength": 1 },
             "aliases": {
               "type": "array",
               "items": { "type": "string", "minLength": 1 },
@@ -302,11 +376,14 @@
         },
         "editionFamilies": { "type": "array", "items": { "$ref": "#/$defs/editionFamily" } },
         "physicalEditions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/physicalEdition" } },
+        "physicalBonusItems": { "type": "array", "items": { "$ref": "#/$defs/physicalBonusItem" } },
+        "relatedReleases": { "type": "array", "items": { "$ref": "#/$defs/relatedRelease" } },
         "sharedDiscs": { "type": "array", "items": { "$ref": "#/$defs/sharedDisc" } },
         "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
         "images": { "type": "array", "items": { "$ref": "#/$defs/image" } },
         "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
-        "evidenceNote": { "type": "string" }
+        "evidenceNote": { "type": "string" },
+        "researchTasks": { "type": "array", "items": { "$ref": "#/$defs/researchTask" } }
       }
     }
   }

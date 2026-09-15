@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-chronicles-ps4",
+      "title": "Ediciones físicas de Assassin's Creed Chronicles en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Compilación física en un único Blu-ray que reúne Assassin's Creed Chronicles: China, India y Russia. La guía se limita al dossier facilitado y al catálogo existente; separa mercado de venta, packaging e idiomas de software.",
+      "game": {
+        "title": "Assassin's Creed Chronicles",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassin%27s-creed-chronicles"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard-compilation",
+          "label": "Standard Compilation",
+          "representativeCatalogId": "ps4-assassin%27s-creed-chronicles",
+          "physicalEditionIds": [
+            "ac-chronicles-ps4-europe-spain-5916285",
+            "ac-chronicles-ps4-europe-uk-5916254",
+            "ac-chronicles-ps4-europe-germany-5916247",
+            "ac-chronicles-ps4-europe-at-ch-candidate-5916230",
+            "ac-chronicles-ps4-europe-france-5916223",
+            "ac-chronicles-ps4-europe-benelux-france-5916308",
+            "ac-chronicles-ps4-europe-italy-candidate-5916278",
+            "ac-chronicles-ps4-europe-nordic-identifier-review",
+            "ac-chronicles-ps4-oceania-australia-5916315",
+            "ac-chronicles-ps4-north-america-887256019525",
+            "ac-chronicles-ps4-asia-japan-4949244003711"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-chronicles-ps4-europe-spain-5916285",
+          "label": "Compilación Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["ES"],
+          "packagingLanguages": [],
+          "barcode": "3307215916285",
+          "catalogNumber": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "catalogIds": ["ps4-assassin%27s-creed-chronicles"],
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-fnac-spain"],
+          "notes": [
+            "CONFIRMED_MARKET: EAN documentado en retail español.",
+            "No existe scan propio registrado; packagingLanguages queda vacío y necesita verificación de contraportada.",
+            "El mismo EAN aparece vendido en Portugal, lo que no crea una caja PT."
+          ]
+        },
+        {
+          "id": "ac-chronicles-ps4-europe-uk-5916254",
+          "label": "Compilación Standard · Reino Unido / inglés",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["GB"],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "note": "Trader Games declara expresamente Box language: English.",
+              "evidenceIds": ["ac-chronicles-trader-games-uk"]
+            },
+            {
+              "component": "MANUAL",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "note": "Trader Games declara expresamente Manual: English.",
+              "evidenceIds": ["ac-chronicles-trader-games-uk"]
+            }
+          ],
+          "barcode": "3307215916254",
+          "catalogNumber": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-rfgeneration-uk", "ac-chronicles-trader-games-uk"],
+          "notes": [
+            "CONFIRMED: caja y manual en inglés.",
+            "Idiomas de software declarados: EN, FR, DE, ES, IT y PT; no se trasladan a packagingLanguages.",
+            "Su venta en Portugal o Francia no altera la identidad física de esta caja."
+          ]
+        },
+        {
+          "id": "ac-chronicles-ps4-europe-germany-5916247",
+          "label": "Compilación Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "ratingSystems": ["USK 16"],
+          "barcode": "3307215916247",
+          "catalogNumber": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-vgcollect-germany"],
+          "notes": ["CONFIRMED_MARKET: caja alemana con USK 16; idioma exacto del reverso pendiente."]
+        },
+        {
+          "id": "ac-chronicles-ps4-europe-at-ch-candidate-5916230",
+          "label": "Candidato compilación · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["AT", "CH"],
+          "packagingLanguages": [],
+          "barcode": "3307215916230",
+          "catalogNumber": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-rebuy-at"],
+          "notes": [
+            "CANDIDATE/HIGH: Rebuy la identifica como AT Import y aporta evidencia lingüística DE/FR/IT.",
+            "DE/FR/IT no se fija como packagingLanguages hasta comprobar la caja."
+          ]
+        },
+        {
+          "id": "ac-chronicles-ps4-europe-france-5916223",
+          "label": "Compilación Standard · Francia SKU A",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["FR"],
+          "packagingLanguages": [],
+          "barcode": "3307215916223",
+          "catalogNumber": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "releaseDate": "2016-02-09",
+          "releaseDateContext": "Fecha de lanzamiento de la ficha física E.Leclerc Francia",
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-eleclerc-france"],
+          "notes": ["CONFIRMED_MARKET: packaging pendiente; no se mezcla con EAN 3307215916308."]
+        },
+        {
+          "id": "ac-chronicles-ps4-europe-benelux-france-5916308",
+          "label": "Compilación Standard · Benelux / circulación Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["BE", "NL", "FR"],
+          "packagingLanguages": [],
+          "barcode": "3307215916308",
+          "catalogNumber": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-fnac-france", "ac-chronicles-rfgeneration-benelux", "ac-chronicles-mobygames-covers"],
+          "notes": [
+            "CONFIRMED para BE/NL y documentada su circulación en FR.",
+            "Packaging pendiente de inspección de scan: no se decide aún entre FR/NL, Benelux o tirada compartida FR/BE/NL."
+          ]
+        },
+        {
+          "id": "ac-chronicles-ps4-europe-italy-candidate-5916278",
+          "label": "Candidato compilación · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["IT"],
+          "packagingLanguages": [],
+          "barcode": "3307215916278",
+          "catalogNumber": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "releaseDate": "2016-02-09",
+          "releaseDateContext": "Fecha de lanzamiento documentada por Gamelife Italia",
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-gamelife-italy"],
+          "notes": ["CANDIDATE/HIGH: retail italiano confirmado; no se marca IT-only ni packaging italiano sin frontal y reverso."]
+        },
+        {
+          "id": "ac-chronicles-ps4-europe-nordic-identifier-review",
+          "label": "Compilación Standard · Nordic · identificador en revisión",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["SE", "DK", "NO", "FI"],
+          "packagingLanguages": ["SV", "DA", "NO", "FI"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["SV", "DA", "NO", "FI"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "note": "Teknikproffset declara Language on cover: Swedish, Danish, Norwegian, Finnish.",
+              "evidenceIds": ["ac-chronicles-teknikproffset-nordic"]
+            }
+          ],
+          "catalogNumber": "3307215916292",
+          "serial": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-teknikproffset-nordic"],
+          "notes": [
+            "CONFIRMED_PACKAGING: idiomas de portada Nordic.",
+            "3307215916292 se conserva como referencia de producto / EAN probable; 3307215916322 sigue pendiente de reconciliar como EAN real, metadata o segunda tirada.",
+            "La circulación del 3307215916292 en Polonia corresponde a portada Nordic/English y no crea una caja PL-only."
+          ]
+        },
+        {
+          "id": "ac-chronicles-ps4-oceania-australia-5916315",
+          "label": "Compilación Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "COMPILATION",
+          "marketRegions": ["AU"],
+          "packagingLanguages": [],
+          "ratingSystems": ["AU M"],
+          "barcode": "3307215916315",
+          "catalogNumber": "CUSA-03440",
+          "sharedDiscId": "ac-chronicles-ps4-europe-disc",
+          "releaseDate": "2016-02-09",
+          "releaseDateContext": "Fecha australiana documentada por GameFAQs",
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-gamefaqs"],
+          "notes": ["CONFIRMED: no se añade Nueva Zelanda sin barcode o evidencia de packaging AU/NZ compartido."]
+        },
+        {
+          "id": "ac-chronicles-ps4-north-america-887256019525",
+          "label": "Compilación Standard · USA / Canadá / México",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COMPILATION",
+          "marketRegions": ["US", "CA", "MX"],
+          "packagingLanguages": [],
+          "ratingSystems": ["ESRB T"],
+          "barcode": "887256019525",
+          "catalogNumber": "CUSA-03482",
+          "sharedDiscId": "ac-chronicles-ps4-north-america-disc",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-chronicles"],
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-best-buy-north-america", "ac-chronicles-mobygames-covers"],
+          "notes": [
+            "CONFIRMED: un mismo set físico documentado para US/CA/MX; no se crean tres cajas nacionales.",
+            "Modelo Best Buy UBP30501077. Packaging pendiente de inspección del scan.",
+            "La circulación mexicana observada corresponde a región USA; no demuestra packaging LATAM dedicado."
+          ]
+        },
+        {
+          "id": "ac-chronicles-ps4-asia-japan-4949244003711",
+          "label": "Compilación Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "COMPILATION",
+          "marketRegions": ["JP"],
+          "packagingLanguages": [],
+          "ratingSystems": ["CERO C"],
+          "barcode": "4949244003711",
+          "catalogNumber": "PLJM-80132",
+          "releaseDate": "2016-02-25",
+          "releaseDateContext": "Fecha japonesa documentada en el dossier",
+          "catalogIds": ["ps4-japon-assassin%27s-creed-chronicles"],
+          "physicalContents": [
+            "Assassin's Creed Chronicles: China",
+            "Assassin's Creed Chronicles: India",
+            "Assassin's Creed Chronicles: Russia"
+          ],
+          "evidenceIds": ["ac-chronicles-gamefaqs", "ac-chronicles-cdjapan"],
+          "notes": ["CONFIRMED: JAN, PLJM, fecha y CERO C; packaging japonés pendiente de comprobación física."]
+        }
+      ],
+      "sharedDiscs": [
+        {
+          "id": "ac-chronicles-ps4-europe-disc",
+          "label": "Familia de disco Europa / Australia",
+          "technicalRegion": "EUROPE",
+          "serial": "CUSA-03440",
+          "evidenceIds": ["ac-chronicles-gamefaqs"]
+        },
+        {
+          "id": "ac-chronicles-ps4-north-america-disc",
+          "label": "Familia de disco Norteamérica",
+          "technicalRegion": "NORTH_AMERICA",
+          "serial": "CUSA-03482",
+          "ratingSystems": ["ESRB"],
+          "evidenceIds": ["ac-chronicles-best-buy-north-america"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-chronicles-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · release data de Chronicles PS4",
+          "url": "https://gamefaqs.gamespot.com/ps4/184105-assassins-creed-chronicles/data",
+          "summary": "Fuente del dossier para tipo Compilation, códigos y releases territoriales; no acredita por sí sola idiomas impresos.",
+          "supports": ["tipo Compilation", "CUSA-03440", "Australia", "Japón", "fechas", "ratings"]
+        },
+        {
+          "id": "ac-chronicles-fnac-spain",
+          "type": "UNKNOWN",
+          "label": "Fnac España · ficha física",
+          "url": "https://www.fnac.es/Pack-Assassin-s-Creed-Chronicles-PS4-Videojuego-PS4/a1142033",
+          "supports": ["EAN 3307215916285", "mercado ES"]
+        },
+        {
+          "id": "ac-chronicles-trader-games-uk",
+          "type": "UNKNOWN",
+          "label": "Trader Games · English edition",
+          "url": "https://www.tradergames.fr/en/playstation-4/318606-assassin-s-creed-chronicles-ps4-uk-new-game-in-englishfrancaisdeesitpt-3307215916254.html",
+          "supports": ["EAN 3307215916254", "box EN", "manual EN", "idiomas de software"]
+        },
+        {
+          "id": "ac-chronicles-rfgeneration-uk",
+          "type": "UNKNOWN",
+          "label": "RF Generation · UK",
+          "url": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-215-S-02333-A",
+          "supports": ["EAN 3307215916254", "mercado GB"]
+        },
+        {
+          "id": "ac-chronicles-vgcollect-germany",
+          "type": "UNKNOWN",
+          "label": "VGCollect · Alemania",
+          "url": "https://vgcollect.com/item/133769",
+          "supports": ["EAN 3307215916247", "DE", "USK 16"]
+        },
+        {
+          "id": "ac-chronicles-rebuy-at",
+          "type": "UNKNOWN",
+          "label": "Rebuy · AT Import",
+          "url": "https://www.rebuy.de/i%2C11062892/playstation-4/assassin-s-creed-chronicles-at-import",
+          "supports": ["EAN 3307215916230", "AT Import", "evidencia lingüística DE/FR/IT"]
+        },
+        {
+          "id": "ac-chronicles-eleclerc-france",
+          "type": "UNKNOWN",
+          "label": "E.Leclerc France · France SKU A",
+          "url": "https://www.e.leclerc/fp/assassin-s-creed-chronicles-ps4-3307215916223",
+          "supports": ["EAN 3307215916223", "mercado FR", "fecha 2016-02-09"]
+        },
+        {
+          "id": "ac-chronicles-fnac-france",
+          "type": "UNKNOWN",
+          "label": "Fnac France · SKU 3307215916308",
+          "url": "https://www.fnac.com/a9381663/Assassin-s-Creed-Chronicles-PS4-Jeu-video-PlayStation-4",
+          "supports": ["EAN 3307215916308", "circulación FR"]
+        },
+        {
+          "id": "ac-chronicles-rfgeneration-benelux",
+          "type": "UNKNOWN",
+          "label": "RF Generation · Benelux",
+          "url": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-215-S-02330-A",
+          "supports": ["EAN 3307215916308", "BE/NL", "CUSA-03440"]
+        },
+        {
+          "id": "ac-chronicles-gamelife-italy",
+          "type": "UNKNOWN",
+          "label": "Gamelife Italia · candidato italiano",
+          "url": "https://www.gamelife.it/swp40295-assassins-creed-chronicles",
+          "supports": ["EAN 3307215916278", "retail IT", "fecha 2016-02-09"]
+        },
+        {
+          "id": "ac-chronicles-teknikproffset-nordic",
+          "type": "UNKNOWN",
+          "label": "Teknikproffset · Nordic",
+          "url": "https://www.teknikproffset.eu/home-electronics/game-consoles-accessories/sony-playstation-4/games/ubisoft-assassins-creed-chronicles-nordic",
+          "summary": "Declara portada en sueco, danés, noruego y finés; los identificadores 5916292 y 5916322 permanecen sin colapsar.",
+          "supports": ["packaging Nordic", "SE/DK/NO/FI", "referencia 3307215916292", "reconciliar 3307215916322"]
+        },
+        {
+          "id": "ac-chronicles-mobygames-covers",
+          "type": "UNKNOWN",
+          "label": "MobyGames · índice de covers físicos",
+          "url": "https://www.mobygames.com/game/77186/assassins-creed-chronicles/covers/playstation-4/",
+          "summary": "El dossier documenta sets físicos para BE/NL y US/CA/MX; no se copian imágenes ni se fijan idiomas sin inspección.",
+          "supports": ["set BE/NL", "set US/CA/MX", "evidencia física disponible"]
+        },
+        {
+          "id": "ac-chronicles-best-buy-north-america",
+          "type": "UNKNOWN",
+          "label": "Best Buy · Trilogy Pack norteamericano",
+          "url": "https://www.bestbuy.com/product/assassins-creed-chronicles-trilogy-pack-playstation-4/4828400",
+          "supports": ["UPC 887256019525", "modelo UBP30501077", "Trilogy Pack"]
+        },
+        {
+          "id": "ac-chronicles-cdjapan",
+          "type": "UNKNOWN",
+          "label": "CDJapan · edición japonesa",
+          "url": "https://www.cdjapan.co.jp/product/PLJM-80132",
+          "supports": ["PLJM-80132", "JAN 4949244003711", "mercado JP"]
+        }
+      ],
+      "sources": [
+        {"label": "GameFAQs · Chronicles PS4 release data", "url": "https://gamefaqs.gamespot.com/ps4/184105-assassins-creed-chronicles/data"},
+        {"label": "Fnac España", "url": "https://www.fnac.es/Pack-Assassin-s-Creed-Chronicles-PS4-Videojuego-PS4/a1142033"},
+        {"label": "Trader Games · UK English edition", "url": "https://www.tradergames.fr/en/playstation-4/318606-assassin-s-creed-chronicles-ps4-uk-new-game-in-englishfrancaisdeesitpt-3307215916254.html"},
+        {"label": "VGCollect · Germany", "url": "https://vgcollect.com/item/133769"},
+        {"label": "Rebuy · AT Import", "url": "https://www.rebuy.de/i%2C11062892/playstation-4/assassin-s-creed-chronicles-at-import"},
+        {"label": "E.Leclerc France", "url": "https://www.e.leclerc/fp/assassin-s-creed-chronicles-ps4-3307215916223"},
+        {"label": "Fnac France", "url": "https://www.fnac.com/a9381663/Assassin-s-Creed-Chronicles-PS4-Jeu-video-PlayStation-4"},
+        {"label": "RF Generation · UK", "url": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-215-S-02333-A"},
+        {"label": "RF Generation · Benelux", "url": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-215-S-02330-A"},
+        {"label": "Gamelife Italy", "url": "https://www.gamelife.it/swp40295-assassins-creed-chronicles"},
+        {"label": "Teknikproffset · Nordic", "url": "https://www.teknikproffset.eu/home-electronics/game-consoles-accessories/sony-playstation-4/games/ubisoft-assassins-creed-chronicles-nordic"},
+        {"label": "MobyGames · PS4 covers", "url": "https://www.mobygames.com/game/77186/assassins-creed-chronicles/covers/playstation-4/"},
+        {"label": "Best Buy · North America", "url": "https://www.bestbuy.com/product/assassins-creed-chronicles-trilogy-pack-playstation-4/4828400"},
+        {"label": "CDJapan", "url": "https://www.cdjapan.co.jp/product/PLJM-80132"}
+      ],
+      "evidenceNote": "Contenido canónico de la compilación: China, India y Russia. No existen catalogIds separados para esos episodios en el catálogo actual, por lo que se conservan como contenidos nominales de cada caja y no se inventan tres fichas físicas. Pendientes sin promover: packaging dedicado Portugal y Polonia; reconciliación Nordic 3307215916292 vs 3307215916322; físico Nueva Zelanda, Brasil, Corea y Asia Trilogy; packaging exacto de España al no existir scan propio. Las ediciones digitales y los episodios individuales digitales no se usan como evidencia de una caja física."
+    }
+  ]
+}

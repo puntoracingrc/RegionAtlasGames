@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T20:30:00.000Z",
+  "profilePatches": [
+    {
+      "slug": "doug-bowser",
+      "portrait": {
+        "path": "/person-portraits/doug-bowser.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nintendo_Switch_2_release_in_NYC_74.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "artist": "SWinxy",
+        "credit": "Trabajo propio, vía Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-DOUG-BOWSER"
+      }
+    },
+    {
+      "slug": "eiji-aonuma",
+      "portrait": {
+        "path": "/person-portraits/eiji-aonuma.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eiji_Aonuma_at_E3_2013_(cropped_headshot).jpg",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "artist": "Jan Graber",
+        "credit": "Jan Graber, vía Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-EIJI-AONUMA"
+      }
+    },
+    {
+      "slug": "hirokazu-yasuhara",
+      "portrait": {
+        "path": "/person-portraits/hirokazu-yasuhara.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirokazu_yasuhara_gdc_2018.jpg",
+        "license": "CC BY 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+        "artist": "Game Developers Conference",
+        "credit": "Game Developers Conference, vía Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-HIROKAZU-YASUHARA"
+      }
+    },
+    {
+      "slug": "koji-kondo",
+      "portrait": {
+        "path": "/person-portraits/koji-kondo.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koji_Kondo_E3_2006_(3x4_cropped).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "artist": "Vincent Diamante from Los Angeles, CA, USA",
+        "credit": "Vincent Diamante, vía Flickr y Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-KOJI-KONDO"
+      }
+    },
+    {
+      "slug": "masahiro-sakurai",
+      "portrait": {
+        "path": "/person-portraits/masahiro-sakurai.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Masahiro_Sakurai_2021.jpg",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "artist": "Katsuhiro Harada",
+        "credit": "Katsuhiro Harada, vía Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-MASAHIRO-SAKURAI"
+      }
+    },
+    {
+      "slug": "naoto-ohshima",
+      "portrait": {
+        "path": "/person-portraits/naoto-oshima.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naoto_ohshima_gdc_2018.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Game Developers Conference",
+        "credit": "Game Developers Conference, vía Flickr y Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-NAOTO-OHSHIMA"
+      }
+    },
+    {
+      "slug": "reggie-fils-aime",
+      "portrait": {
+        "path": "/person-portraits/reggie-fils-aime.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reggie_Fils-Aime_-_Game_Developers_Conference_2011_-_Day_2_(1).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "Official GDC, vía Flickr y Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-REGGIE-FILS-AIME"
+      }
+    },
+    {
+      "slug": "takashi-tezuka",
+      "portrait": {
+        "path": "/person-portraits/takashi-tezuka.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takashi_Tezuka_GDC_2024_2_(cropped).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "Official GDC, vía Flickr y Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-TAKASHI-TEZUKA"
+      }
+    },
+    {
+      "slug": "tetsuya-mizuguchi",
+      "portrait": {
+        "path": "/person-portraits/tetsuya-mizuguchi.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetsuya_Mizuguchi.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Nic Fillingham from Singapore, Singapore",
+        "credit": "Nic Fillingham, vía Flickr y Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-TETSUYA-MIZUGUCHI"
+      }
+    },
+    {
+      "slug": "tom-kalinske",
+      "portrait": {
+        "path": "/person-portraits/tom-kalinske.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tom_Kalinske_by_Gage_Skidmore.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist": "Gage Skidmore",
+        "credit": "Trabajo propio, vía Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-TOM-KALINSKE"
+      }
+    },
+    {
+      "slug": "toshihiro-nagoshi",
+      "portrait": {
+        "path": "/person-portraits/toshihiro-nagoshi.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshihiro_Nagoshi_20140125.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Gene Wang",
+        "credit": "Gene Wang, vía Flickr y Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-TOSHIHIRO-NAGOSHI"
+      }
+    },
+    {
+      "slug": "yuji-naka",
+      "portrait": {
+        "path": "/person-portraits/yuji-naka.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yuji_Naka%27_-_Magic_-_Monaco_-_2015-03-21-_P1030036_(cropped).jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist": "Yves Tennevin",
+        "credit": "Trabajo propio, vía Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-YUJI-NAKA"
+      }
+    },
+    {
+      "slug": "yukio-futatsugi",
+      "portrait": {
+        "path": "/person-portraits/yukio-futatsugi.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yukio_Futatsugi_-_Game_Developers_Conference_2019_-_03_(cropped).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "Official GDC, vía Flickr y Wikimedia Commons",
+        "attributionRequired": true,
+        "sourceId": "PH-PORTRAIT-YUKIO-FUTATSUGI"
+      }
+    }
+  ],
+  "sources": [
+    { "id": "PH-PORTRAIT-DOUG-BOWSER", "url": "https://commons.wikimedia.org/wiki/File:Nintendo_Switch_2_release_in_NYC_74.jpg", "title": "Retrato de Doug Bowser", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-EIJI-AONUMA", "url": "https://commons.wikimedia.org/wiki/File:Eiji_Aonuma_at_E3_2013_(cropped_headshot).jpg", "title": "Retrato de Eiji Aonuma", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-HIROKAZU-YASUHARA", "url": "https://commons.wikimedia.org/wiki/File:Hirokazu_yasuhara_gdc_2018.jpg", "title": "Retrato de Hirokazu Yasuhara", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-KOJI-KONDO", "url": "https://commons.wikimedia.org/wiki/File:Koji_Kondo_E3_2006_(3x4_cropped).jpg", "title": "Retrato de Koji Kondo", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-MASAHIRO-SAKURAI", "url": "https://commons.wikimedia.org/wiki/File:Masahiro_Sakurai_2021.jpg", "title": "Retrato de Masahiro Sakurai", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-NAOTO-OHSHIMA", "url": "https://commons.wikimedia.org/wiki/File:Naoto_ohshima_gdc_2018.jpg", "title": "Retrato de Naoto Ohshima", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-REGGIE-FILS-AIME", "url": "https://commons.wikimedia.org/wiki/File:Reggie_Fils-Aime_-_Game_Developers_Conference_2011_-_Day_2_(1).jpg", "title": "Retrato de Reggie Fils-Aime", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-TAKASHI-TEZUKA", "url": "https://commons.wikimedia.org/wiki/File:Takashi_Tezuka_GDC_2024_2_(cropped).jpg", "title": "Retrato de Takashi Tezuka", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-TETSUYA-MIZUGUCHI", "url": "https://commons.wikimedia.org/wiki/File:Tetsuya_Mizuguchi.jpg", "title": "Retrato de Tetsuya Mizuguchi", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-TOM-KALINSKE", "url": "https://commons.wikimedia.org/wiki/File:Tom_Kalinske_by_Gage_Skidmore.jpg", "title": "Retrato de Tom Kalinske", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-TOSHIHIRO-NAGOSHI", "url": "https://commons.wikimedia.org/wiki/File:Toshihiro_Nagoshi_20140125.jpg", "title": "Retrato de Toshihiro Nagoshi", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-YUJI-NAKA", "url": "https://commons.wikimedia.org/wiki/File:Yuji_Naka%27_-_Magic_-_Monaco_-_2015-03-21-_P1030036_(cropped).jpg", "title": "Retrato de Yuji Naka", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false },
+    { "id": "PH-PORTRAIT-YUKIO-FUTATSUGI", "url": "https://commons.wikimedia.org/wiki/File:Yukio_Futatsugi_-_Game_Developers_Conference_2019_-_03_(cropped).jpg", "title": "Retrato de Yukio Futatsugi", "kind": "MEDIA_REPOSITORY", "reliability": "HIGH", "language": null, "retrievedAt": "2026-09-15", "verifiedPrimary": false }
+  ]
+}
