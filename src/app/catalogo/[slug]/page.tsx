@@ -486,7 +486,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
                 {headerRegionLinks.length
                   ? headerRegionLinks.map(({ region, targetId }) => (
                     <a
-                      key={region}
+                      key={`${region}:${targetId}`}
                       href={`#${targetId}`}
                       aria-label={`Ir a ${getRegionDisplay(region).label}`}
                       className="rounded-md outline-none transition hover:brightness-110 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"

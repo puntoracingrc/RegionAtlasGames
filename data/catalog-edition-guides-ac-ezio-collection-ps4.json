@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-the-ezio-collection-ps4",
+      "title": "Ediciones físicas de Assassin's Creed: The Ezio Collection en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Recopilatorio físico V2: contiene Assassin's Creed II, Assassin's Creed: Brotherhood y Assassin's Creed: Revelations, además del contenido adicional para un jugador y las películas Lineage y Embers. No incluye el multijugador original. Los mercados de circulación no se convierten en cajas nacionales y los idiomas de software no se copian al packaging.",
+      "game": {
+        "title": "Assassin's Creed: The Ezio Collection",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-the-ezio-collection"
+      },
+      "editionFamilies": [
+        {
+          "id": "ezio-collection-physical-releases",
+          "label": "The Ezio Collection",
+          "representativeCatalogId": "ps4-assassins-creed-the-ezio-collection",
+          "physicalEditionIds": [
+            "assassins-creed-ezio-collection-ps4-au",
+            "assassins-creed-ezio-collection-ps4-eu-3307215977354",
+            "assassins-creed-ezio-collection-ps4-uk",
+            "assassins-creed-ezio-collection-ps4-eu-english-3307215977378",
+            "assassins-creed-ezio-collection-ps4-fr-be",
+            "assassins-creed-ezio-collection-ps4-de",
+            "assassins-creed-ezio-collection-ps4-at-ch",
+            "assassins-creed-ezio-collection-ps4-it",
+            "assassins-creed-ezio-collection-ps4-pl",
+            "assassins-creed-ezio-collection-ps4-eu-3307215977446",
+            "assassins-creed-ezio-collection-ps4-es",
+            "assassins-creed-ezio-collection-ps4-na",
+            "assassins-creed-ezio-collection-ps4-latam",
+            "assassins-creed-ezio-collection-ps4-jp",
+            "assassins-creed-ezio-collection-ps4-asia",
+            "assassins-creed-ezio-collection-ps4-kr",
+            "assassins-creed-ezio-collection-ps4-collector-asia"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-ezio-collection-ps4-au",
+          "label": "The Ezio Collection · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "COMPILATION",
+          "marketRegions": ["AU"],
+          "ratingSystems": ["ACB"],
+          "barcode": "3307215977347",
+          "catalogNumber": "CUSA-04893",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-release-data", "ezio-retail-au"],
+          "notes": ["Clasificación MA15+ documentada; Nueva Zelanda permanece pendiente."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-eu-3307215977354",
+          "label": "The Ezio Collection · Europa · 3307215977354",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "barcode": "3307215977354",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-eu-3307215977354"],
+          "notes": ["Mapeo territorial e idiomas de caja pendientes; CUSA-04893 se conserva como familia probable, no como dato impreso confirmado para esta caja."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-uk",
+          "label": "The Ezio Collection · Reino Unido / inglés",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["GB"],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ezio-retail-uk"]
+            }
+          ],
+          "barcode": "3307215977361",
+          "catalogNumber": "CUSA-04893",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-retail-uk"],
+          "notes": ["Los idiomas de juego multilingües declarados por la fuente no se trasladan al packaging."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-eu-english-3307215977378",
+          "label": "The Ezio Collection · Europa internacional en inglés · 3307215977378",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BACK",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ezio-eu-english-3307215977378"]
+            }
+          ],
+          "barcode": "3307215977378",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-eu-english-3307215977378"],
+          "notes": ["Identidad territorial exacta pendiente; no se fusiona con UK 3307215977361 ni se asigna automáticamente a Rumanía."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-fr-be",
+          "label": "The Ezio Collection · Francia / Bélgica francófona",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["FR", "BE"],
+          "barcode": "3307215977385",
+          "catalogNumber": "CUSA-04893",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-retail-fr-be"],
+          "notes": ["Idioma de packaging pendiente de scan físico."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-de",
+          "label": "The Ezio Collection · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["DE"],
+          "componentLanguageEvidence": [
+            {
+              "component": "MANUAL",
+              "languages": ["DE"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "La fuente comercial declara el manual en alemán; no acredita por sí sola todas las caras de la caja.",
+              "evidenceIds": ["ezio-retail-de"]
+            }
+          ],
+          "ratingSystems": ["USK"],
+          "barcode": "3307215977392",
+          "catalogNumber": "CUSA-04893",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-retail-de"],
+          "notes": ["USK 16 documentado."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-at-ch",
+          "label": "The Ezio Collection · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["AT", "CH"],
+          "barcode": "3307215977408",
+          "catalogNumber": "CUSA-04893",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-retail-at-ch"],
+          "notes": ["La circulación posterior en Bélgica se registra como importación y no convierte la caja en Benelux."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-it",
+          "label": "The Ezio Collection · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["IT"],
+          "packagingLanguages": ["IT"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["IT"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ezio-retail-it"]
+            },
+            {
+              "component": "MANUAL",
+              "languages": ["IT"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ezio-retail-it"]
+            }
+          ],
+          "barcode": "3307215977415",
+          "catalogNumber": "CUSA-04893",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-retail-it"]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-pl",
+          "label": "The Ezio Collection · Polonia / Cenega",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["PL"],
+          "barcode": "3307215977422",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-retail-pl"],
+          "notes": ["Doblaje/subtítulos polacos son evidencia de software; idiomas de caja pendientes."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-eu-3307215977446",
+          "label": "The Ezio Collection · Europa internacional · 3307215977446",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "barcode": "3307215977446",
+          "catalogNumber": "CUSA-04893",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "evidenceIds": ["ezio-eu-3307215977446"],
+          "notes": ["Packaging y país pendientes; su venta como importación en España o Alemania no cambia el origen de la caja."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-es",
+          "label": "The Ezio Collection · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["ES"],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "note": "Portada, contraportada y lomo del mismo ejemplar precintado; la caja declara voces, textos y manual totalmente en castellano.",
+              "evidenceIds": ["ezio-own-scan-es"]
+            }
+          ],
+          "ratingSystems": ["PEGI"],
+          "barcode": "3307215977453",
+          "catalogNumber": "CUSA-04893",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-04893",
+          "physicalContents": [
+            "Assassin's Creed II",
+            "Assassin's Creed: Brotherhood",
+            "Assassin's Creed: Revelations"
+          ],
+          "digitalContents": [
+            "Contenido adicional para un jugador de Assassin's Creed II",
+            "Contenido adicional para un jugador de Assassin's Creed: Brotherhood",
+            "Contenido adicional para un jugador de Assassin's Creed: Revelations",
+            "Assassin's Creed Lineage",
+            "Assassin's Creed Embers"
+          ],
+          "catalogIds": ["ps4-assassins-creed-the-ezio-collection"],
+          "scanSetIds": ["ps4-assassins-creed-the-ezio-collection"],
+          "evidenceIds": ["ezio-own-scan-es"],
+          "notes": [
+            "PEGI 18 observado.",
+            "La contraportada excluye expresamente el contenido multijugador original.",
+            "El mismo EAN circuló en Portugal; no acredita una caja portuguesa dedicada."
+          ]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-na",
+          "label": "The Ezio Collection · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COMPILATION",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB"],
+          "barcode": "887256022280",
+          "catalogNumber": "CUSA-05008",
+          "sharedDiscId": "ezio-collection-ps4-disc-cusa-05008",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-the-ezio-collection"],
+          "evidenceIds": ["ezio-release-data"],
+          "notes": ["ESRB M; circulación canadiense alta pero caja canadiense diferenciada no confirmada."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-latam",
+          "label": "The Ezio Collection · Latinoamérica",
+          "broadRegion": "LATIN_AMERICA",
+          "editionType": "COMPILATION",
+          "marketRegions": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "FRONT",
+              "languages": ["ES"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "La fuente identifica Spanish Cover; contraportada y CUSA permanecen pendientes.",
+              "evidenceIds": ["ezio-retail-latam"]
+            }
+          ],
+          "barcode": "887256024284",
+          "evidenceIds": ["ezio-retail-latam"],
+          "notes": [
+            "Variante física LATAM distinta de USA 887256022280.",
+            "Circulación documentada también en Uruguay, cuyo código de mercado aún no existe en el registro V2.",
+            "Brasil es circulación del mismo UPC, no packaging PT-BR dedicado."
+          ]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-jp",
+          "label": "The Ezio Collection · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "COMPILATION",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["JA"],
+          "ratingSystems": ["CERO"],
+          "barcode": "4949244004183",
+          "catalogNumber": "PLJM-84081",
+          "releaseDate": "2017-02-23",
+          "releaseDateContext": "Lanzamiento físico japonés documentado en el dossier",
+          "evidenceIds": ["ezio-retail-jp"],
+          "notes": ["CERO Z. CUSA-05943 es digital y no se usa como código físico."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-asia",
+          "label": "The Ezio Collection · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "COMPILATION",
+          "componentLanguageEvidence": [
+            {
+              "component": "MANUAL",
+              "languages": ["ZH-HANT"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "note": "La fuente declara manual físico en chino tradicional; el idioma de la caja sigue pendiente.",
+              "evidenceIds": ["ezio-retail-asia"]
+            }
+          ],
+          "catalogNumber": "PLAS-07087",
+          "evidenceIds": ["ezio-retail-asia", "ezio-code-index"],
+          "notes": ["Software documentado con voz inglesa y subtítulos japonés/chino tradicional; barcode de caja pendiente."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-kr",
+          "label": "The Ezio Collection · Corea",
+          "broadRegion": "ASIA",
+          "editionType": "COMPILATION",
+          "marketRegions": ["KR"],
+          "catalogNumber": "PLKS-97034",
+          "evidenceIds": ["ezio-code-index"],
+          "notes": ["Barcode, rating GRAC e idiomas de caja pendientes; la lista multilingüe de PlayStation Korea corresponde al software."]
+        },
+        {
+          "id": "assassins-creed-ezio-collection-ps4-collector-asia",
+          "label": "Collector's Edition · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "COLLECTOR",
+          "physicalContents": [
+            "Assassin's Creed II",
+            "Assassin's Creed: Brotherhood",
+            "Assassin's Creed: Revelations"
+          ],
+          "digitalContents": [
+            "Contenido adicional para un jugador de los tres juegos",
+            "Assassin's Creed Lineage",
+            "Assassin's Creed Embers"
+          ],
+          "evidenceIds": ["ezio-retail-collector-asia"],
+          "notes": [
+            "Existencia de Collector's Edition asiática confirmada; barcode, product code y packaging pendientes.",
+            "No se presupone que use PLAS-07087 hasta inspeccionar la copia incluida.",
+            "No se crean Collector equivalentes para Europa o Norteamérica por simetría."
+          ]
+        }
+      ],
+      "sharedDiscs": [
+        {
+          "id": "ezio-collection-ps4-disc-cusa-04893",
+          "label": "Familia de disco Europa / Australia CUSA-04893",
+          "serial": "CUSA-04893",
+          "ratingSystems": ["PEGI", "USK", "ACB"],
+          "evidenceIds": ["ezio-code-index"]
+        },
+        {
+          "id": "ezio-collection-ps4-disc-cusa-05008",
+          "label": "Familia de disco Norteamérica CUSA-05008",
+          "technicalRegion": "NORTH_AMERICA",
+          "serial": "CUSA-05008",
+          "ratingSystems": ["ESRB"],
+          "evidenceIds": ["ezio-release-data"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ezio-own-scan-es",
+          "type": "REAL_SCAN",
+          "label": "Escaneos propios del ejemplar PAL España",
+          "summary": "Portada, contraportada y lomo del mismo ejemplar precintado confirman EAN 3307215977453, CUSA-04893, PEGI 18, caja en castellano, los tres juegos, Lineage, Embers y la exclusión del multijugador original.",
+          "supports": ["EAN 3307215977453", "CUSA-04893", "mercado ES", "packaging ES", "PEGI 18", "tres juegos contenidos", "bonus media", "sin multijugador original"]
+        },
+        {
+          "id": "ezio-release-data",
+          "type": "UNKNOWN",
+          "label": "Índice de release global citado en el dossier",
+          "url": "https://gamefaqs.gamespot.com/ps4/196142-assassins-creed-the-ezio-collection/data",
+          "supports": ["clasificación Compilation", "UPC 887256022280", "CUSA-05008", "release Australia"]
+        },
+        {
+          "id": "ezio-eu-3307215977354",
+          "type": "UNKNOWN",
+          "label": "SKU europeo 3307215977354 citado en el dossier",
+          "supports": ["EAN 3307215977354", "mapeo territorial pendiente"]
+        },
+        {
+          "id": "ezio-retail-uk",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Trader Games · versión UK",
+          "url": "https://www.tradergames.fr/en/playstation-4/350634-assassin-s-creed-the-ezio-collection-ps4-uk-new-game-in-englishfrancaisdeesitpt-3307215977361.html",
+          "supports": ["EAN 3307215977361", "CUSA-04893", "mercado GB", "box language EN"]
+        },
+        {
+          "id": "ezio-eu-english-3307215977378",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Miravia · contraportada inglesa 3307215977378",
+          "supports": ["EAN 3307215977378", "contraportada EN", "territorio pendiente"]
+        },
+        {
+          "id": "ezio-retail-fr-be",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France / Bélgica",
+          "url": "https://www.fnac.com/a10115771/Assassin-s-Creed-The-Ezio-Collection-PS4-Jeu-video-PlayStation-4",
+          "supports": ["EAN 3307215977385", "mercados FR/BE"]
+        },
+        {
+          "id": "ezio-retail-de",
+          "type": "RETAILER_ASSET",
+          "label": "OGDB / MediaMarkt Alemania",
+          "url": "https://ogdb.eu/index.php?compid=4627&section=compilation",
+          "supports": ["EAN 3307215977392", "CUSA-04893", "mercado DE", "USK 16", "manual DE declarado"]
+        },
+        {
+          "id": "ezio-retail-at-ch",
+          "type": "RETAILER_ASSET",
+          "label": "OGDB · Austria / Suiza",
+          "url": "https://ogdb.eu/index.php?compid=4628&section=compilation",
+          "supports": ["EAN 3307215977408", "CUSA-04893", "mercados AT/CH"]
+        },
+        {
+          "id": "ezio-retail-it",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "IBS Italia · caja y manual italianos",
+          "url": "https://www.ibs.it/assassin-s-creed-ezio-collection-videogioco-ubisoft/e/3307215977415",
+          "supports": ["EAN 3307215977415", "CUSA-04893", "mercado IT", "caja/manual IT"]
+        },
+        {
+          "id": "ezio-retail-pl",
+          "type": "RETAILER_ASSET",
+          "label": "X-kom · distribución Cenega",
+          "url": "https://www.x-kom.pl/p/335528-gra-na-playstation-4-cenega-assassinss-creed-the-ezio-collection.html",
+          "supports": ["EAN 3307215977422", "mercado PL", "software PL"]
+        },
+        {
+          "id": "ezio-eu-3307215977446",
+          "type": "UNKNOWN",
+          "label": "SKU europeo 3307215977446 citado en el dossier",
+          "supports": ["EAN 3307215977446", "CUSA-04893", "Europa genérica"]
+        },
+        {
+          "id": "ezio-retail-au",
+          "type": "RETAILER_ASSET",
+          "label": "Gamesmen Australia",
+          "url": "https://www.gamesmen.com.au/assassin-s-creed-the-ezio-collection-1",
+          "supports": ["EAN 3307215977347", "CUSA-04893", "mercado AU", "MA15+"]
+        },
+        {
+          "id": "ezio-retail-latam",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "GamePlanet / comercios LATAM",
+          "url": "https://gameplanet.com/producto/assassins-creed-the-ezio-collection-ps4/",
+          "supports": ["UPC 887256024284", "variante LATAM", "circulación MX/CL/UY/BR", "Spanish Cover declarado"]
+        },
+        {
+          "id": "ezio-retail-jp",
+          "type": "RETAILER_ASSET",
+          "label": "CDJapan · edición japonesa",
+          "url": "https://www.cdjapan.co.jp/product/PLJM-84081",
+          "supports": ["JAN 4949244004183", "PLJM-84081", "mercado JP", "fecha 2017-02-23", "CERO Z"]
+        },
+        {
+          "id": "ezio-retail-asia",
+          "type": "RETAILER_ASSET",
+          "label": "YesAsia · Asian English / Chinese Version",
+          "url": "https://www.yesasia.com/us/assassins-creed-the-ezio-collection-asian-english-chinese-version/1053288022-0-0-0-en/info.html",
+          "supports": ["versión física Asia", "manual ZH-HANT", "software EN/JA/ZH-HANT"]
+        },
+        {
+          "id": "ezio-code-index",
+          "type": "UNKNOWN",
+          "label": "SerialStation citado en el dossier",
+          "url": "https://serialstation.com/games/d68a3181-70c0-410f-8410-88335b3c60cc",
+          "supports": ["CUSA-04893", "PLAS-07087", "PLKS-97034", "PLJM-84081"]
+        },
+        {
+          "id": "ezio-retail-collector-asia",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia · Collector's Edition Asia",
+          "url": "https://www.play-asia.com/en/assassins-creed-the-ezio-collection-collectors-edition-english-/13/70agan",
+          "supports": ["existencia Collector's Edition Asia", "software ZH/EN"]
+        }
+      ],
+      "sources": [
+        {"label": "Dossier mundial suministrado", "url": "https://gamefaqs.gamespot.com/ps4/196142-assassins-creed-the-ezio-collection/data"},
+        {"label": "Escaneos propios RegionAtlas"},
+        {"label": "SerialStation", "url": "https://serialstation.com/games/d68a3181-70c0-410f-8410-88335b3c60cc"},
+        {"label": "YesAsia", "url": "https://www.yesasia.com/us/assassins-creed-the-ezio-collection-asian-english-chinese-version/1053288022-0-0-0-en/info.html"}
+      ],
+      "evidenceNote": "El recopilatorio se mantiene como una sola obra física con variantes regionales. Portugal, Benelux, Nórdicos, Europa Central, Nueva Zelanda y Brasil dedicado permanecen pendientes; tampoco se inventan Collector's Edition para Europa o Norteamérica."
+    }
+  ]
+}

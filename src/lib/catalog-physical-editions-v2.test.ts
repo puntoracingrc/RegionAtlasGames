@@ -676,7 +676,23 @@ test("documented guides use edition families while existing catalog IDs retain e
   const guidesWithFamilies = getCatalogEditionGuides().filter((guide) => guide.editionFamilies.length > 0);
   assert.deepEqual(
     guidesWithFamilies.map((guide) => guide.id),
-    ["resident-evil-requiem-ps5", "absolum-ps5", ...AC_PS3_GUIDE_IDS],
+    [
+      "resident-evil-requiem-ps5",
+      "absolum-ps5",
+      ...AC_PS3_GUIDE_IDS,
+      "assassins-creed-iii-remastered-ps4",
+      "assassins-creed-iv-black-flag-ps4",
+      "assassins-creed-chronicles-ps4",
+      "assassins-creed-origins-ps4",
+      "assassins-creed-rogue-remastered-ps4",
+      "assassins-creed-mirage-ps4",
+      "assassins-creed-syndicate-ps4",
+      "assassins-creed-the-ezio-collection-ps4",
+      "assassins-creed-unity-ps4-worldwide",
+      "assassins-creed-valhalla-ps4-worldwide",
+      "assassins-creed-valhalla-dawn-of-ragnarok-ps4",
+      "assassins-creed-odyssey-ps4",
+    ],
   );
 
   for (const id of [

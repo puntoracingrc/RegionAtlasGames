@@ -1,0 +1,1285 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-origins-ps4",
+      "title": "Ediciones físicas de Assassin's Creed Origins en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Una sola obra canónica agrupa Standard, Deluxe, Gold y las ediciones de coleccionista. Los mercados indican circulación documentada; nunca implican por sí solos un idioma de caja. Se conservan los aliases y enlaces regionales existentes, y las referencias no resueltas permanecen marcadas como pendientes.",
+      "game": {
+        "title": "Assassin's Creed Origins",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-origins"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-assassins-creed-origins",
+          "physicalEditionIds": [
+            "ac-origins-ps4-standard-es",
+            "ac-origins-ps4-standard-pt-english-sku",
+            "ac-origins-ps4-standard-pt-pending-3307216021636",
+            "ac-origins-ps4-standard-fr",
+            "ac-origins-ps4-standard-it",
+            "ac-origins-ps4-standard-english-3307216025795",
+            "ac-origins-ps4-standard-at-dfi",
+            "ac-origins-ps4-standard-eu-english-cusa-08393",
+            "ac-origins-ps4-standard-eu-reprint-pending-3307216025870",
+            "ac-origins-ps4-standard-benelux-candidate",
+            "ac-origins-ps4-standard-au",
+            "ac-origins-ps4-standard-na-first-pyramids",
+            "ac-origins-ps4-standard-jp",
+            "ac-origins-ps4-standard-kr-pending",
+            "ac-origins-ps4-standard-asia-en-zh"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "gold",
+          "label": "Gold Edition",
+          "representativeCatalogId": "ps4-assassin%27s-creed-origins-gold-edition",
+          "physicalEditionIds": [
+            "ac-origins-ps4-gold-eu-cusa-05625",
+            "ac-origins-ps4-gold-eu-cusa-08393",
+            "ac-origins-ps4-gold-fr",
+            "ac-origins-ps4-gold-us",
+            "ac-origins-ps4-gold-au"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "deluxe",
+          "label": "Deluxe Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-origins-deluxe-edition",
+          "physicalEditionIds": [
+            "ac-origins-ps4-deluxe-us",
+            "ac-origins-ps4-deluxe-eu-cusa-08393r",
+            "ac-origins-ps4-deluxe-eu-pending-3307216026075",
+            "ac-origins-ps4-deluxe-jp-2019"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "gods-collector",
+          "label": "Gods Collector's Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-origins-gods-collector%27s-edition",
+          "physicalEditionIds": [
+            "ac-origins-ps4-gods-collector-us",
+            "ac-origins-ps4-gods-collector-eu",
+            "ac-origins-ps4-gods-collector-asia"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "dawn-collector",
+          "label": "Dawn of the Creed Collector's Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-origins-dawn-of-the-creed-collector%27s-edition",
+          "physicalEditionIds": ["ac-origins-ps4-dawn-collector-us"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "dawn-legendary",
+          "label": "Legendary Edition · identificación pendiente",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-origins-legendary-edition",
+          "physicalEditionIds": ["ac-origins-ps4-legendary-legacy-pending"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-origins-ps4-standard-es",
+          "label": "Standard · caja española",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES", "PT"],
+          "packagingLanguages": ["ES"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["ES"],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "note": "Portada, contraportada y lomo del mismo ejemplar precintado inspeccionados localmente.",
+              "evidenceIds": ["ac-origins-owned-scan-es"]
+            },
+            {
+              "component": "INNER_GAME",
+              "languages": ["ES"],
+              "basis": "OBSERVED",
+              "exhaustive": false,
+              "note": "La contraportada declara juego en español y descarga de voces en castellano; el disco no se abrió.",
+              "evidenceIds": ["ac-origins-owned-scan-es"]
+            }
+          ],
+          "ratingSystems": ["PEGI 18"],
+          "barcode": "3307216025832",
+          "catalogNumber": "CUSA-05625",
+          "catalogIds": ["ps4-assassins-creed-origins"],
+          "scanSetIds": ["ps4-assassins-creed-origins"],
+          "evidenceIds": ["ac-origins-owned-scan-es", "ac-origins-retroloco-es", "ac-origins-pccomponentes-pt"],
+          "notes": [
+            "Confianza: copia física propia confirmada.",
+            "El mismo EAN circuló en Portugal; eso no crea packaging portugués."
+          ]
+        },
+        {
+          "id": "ac-origins-ps4-standard-pt-english-sku",
+          "label": "Standard · referencia portuguesa con inglés declarado",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["PT"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "Fnac declara idioma inglés, pero falta un scan físico que delimite caja y software.",
+              "evidenceIds": ["ac-origins-fnac-pt"]
+            }
+          ],
+          "barcode": "3307216041641",
+          "evidenceIds": ["ac-origins-fnac-pt"],
+          "notes": ["Confianza: SKU de retail alto; packaging exacto pendiente de scan."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-pt-pending-3307216021636",
+          "label": "Standard · Portugal · referencia pendiente 3307216021636",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["PT"],
+          "barcode": "3307216021636",
+          "evidenceIds": ["ac-origins-kuantokusta-pt"],
+          "notes": ["PENDING_MAPPING: no se asigna país de packaging, familia CUSA ni edición hasta identificar la caja real."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-fr",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "barcode": "3307216025801",
+          "catalogNumber": "CUSA-05625",
+          "evidenceIds": ["ac-origins-fnac-fr"],
+          "notes": ["Confianza: mercado confirmado; idioma exacto de contraportada pendiente."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-it",
+          "label": "Standard · caja italiana",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["IT"],
+          "packagingLanguages": ["IT"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["IT"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ac-origins-dbline-it"]
+            },
+            {
+              "component": "INNER_GAME",
+              "languages": ["IT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-origins-dbline-it"]
+            }
+          ],
+          "barcode": "3307216025849",
+          "evidenceIds": ["ac-origins-gamelife-it", "ac-origins-dbline-it"],
+          "notes": ["Confianza: packaging físico declarado de forma explícita por la fuente italiana."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-english-3307216025795",
+          "label": "Standard · caja inglesa",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BACK",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ac-origins-miravia-en"]
+            },
+            {
+              "component": "INNER_GAME",
+              "languages": ["EN", "FR", "DE", "IT", "PT", "ES", "NL", "PL", "KO", "CS"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-origins-miravia-en"]
+            }
+          ],
+          "barcode": "3307216025795",
+          "evidenceIds": ["ac-origins-miravia-en"],
+          "notes": ["No se asigna a Reino Unido o Irlanda sin evidencia de mercado nacional."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-at-dfi",
+          "label": "Standard · Austria / D-F-I internacional",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["AT"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["DE", "FR", "IT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "La fuente no permite separar con certeza idioma de caja e idioma del juego.",
+              "evidenceIds": ["ac-origins-rebuy-at"]
+            }
+          ],
+          "barcode": "3307216025825",
+          "evidenceIds": ["ac-origins-rebuy-at"],
+          "notes": ["Confianza: alta como referencia AT/internacional; packaging exacto pendiente."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-eu-english-cusa-08393",
+          "label": "Standard · Europa inglesa · familia alternativa",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-origins-rebuy-eu"]
+            }
+          ],
+          "barcode": "3307216025788",
+          "catalogNumber": "CUSA-08393",
+          "evidenceIds": ["ac-origins-rebuy-eu", "ac-origins-geedie"],
+          "notes": ["Familia física distinta de CUSA-05625; mercado nacional pendiente."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-eu-reprint-pending-3307216025870",
+          "label": "Standard · Europa · posible reimpresión 3307216025870",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "barcode": "3307216025870",
+          "evidenceIds": ["ac-origins-rebuy-eu"],
+          "notes": ["PENDING_MAPPING: no se fusiona con 3307216025788 hasta comparar cajas."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-benelux-candidate",
+          "label": "Standard · Países Bajos / Benelux pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["NL"],
+          "barcode": "3307216025818",
+          "catalogNumber": "CUSA-05625",
+          "evidenceIds": ["ac-origins-geedie"],
+          "notes": ["Confianza: mercado neerlandés alto; idioma y alcance Benelux pendientes. No es la caja española."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "ratingSystems": ["MA15+"],
+          "barcode": "3307216021629",
+          "catalogNumber": "CUSA-05625",
+          "releaseDate": "2017-10-27",
+          "evidenceIds": ["ac-origins-vgcollect-au", "ac-origins-gamesmen-au"],
+          "notes": ["Nueva Zelanda no se añade sin evidencia de caja compartida o referencia propia."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-na-first-pyramids",
+          "label": "Standard · Norteamérica · Secrets of the First Pyramids",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US", "CA"],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "FRONT",
+              "languages": ["EN"],
+              "basis": "OBSERVED",
+              "exhaustive": false,
+              "note": "La portada documentada incluye el texto Secrets of the First Pyramids.",
+              "evidenceIds": ["ac-origins-vgcollect-na"]
+            }
+          ],
+          "ratingSystems": ["ESRB M"],
+          "barcode": "887256028428",
+          "catalogNumber": "CUSA-05855",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-origins"],
+          "evidenceIds": ["ac-origins-gamefaqs", "ac-origins-vgcollect-na"],
+          "notes": ["Estados Unidos y Canadá comparten UPC/caja; el bonus de portada no crea otra obra canónica."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["JA"],
+          "ratingSystems": ["CERO Z"],
+          "barcode": "4949244004251",
+          "catalogNumber": "PLJM-16012",
+          "releaseDate": "2017-10-27",
+          "evidenceIds": ["ac-origins-gamefaqs"],
+          "notes": ["El CUSA-05640 digital japonés no se usa como código de esta caja física."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-kr-pending",
+          "label": "Standard · Corea · identificadores pendientes",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "evidenceIds": ["ac-origins-vgcollect-korea"],
+          "notes": ["Existencia física documentada; barcode, product code e idiomas de packaging pendientes. No reutiliza Japón ni Asia."]
+        },
+        {
+          "id": "ac-origins-ps4-standard-asia-en-zh",
+          "label": "Standard · Asia · inglés / chino tradicional",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "MANUAL",
+              "languages": ["EN", "ZH-HANT"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ac-origins-yesasia"]
+            },
+            {
+              "component": "INNER_GAME",
+              "languages": ["EN", "ZH-HANT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-origins-yesasia"]
+            }
+          ],
+          "evidenceIds": ["ac-origins-playasia", "ac-origins-yesasia"],
+          "notes": ["Existencia e idiomas confirmados; barcode, product code y país asiático concreto pendientes."]
+        },
+        {
+          "id": "ac-origins-ps4-gold-eu-cusa-05625",
+          "label": "Gold Edition · Europa · CUSA-05625",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": [],
+          "barcode": "3307216025931",
+          "catalogNumber": "CUSA-05625",
+          "catalogIds": ["ps4-assassin%27s-creed-origins-gold-edition"],
+          "evidenceIds": ["ac-origins-pricecharting-gold", "ac-origins-geedie"],
+          "physicalContents": ["Juego base"],
+          "digitalContents": ["Deluxe Pack", "Season Pass"],
+          "notes": ["Mercado nacional exacto pendiente; no se fusiona con la tirada CUSA-08393."]
+        },
+        {
+          "id": "ac-origins-ps4-gold-eu-cusa-08393",
+          "label": "Gold Edition · Europa · CUSA-08393",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": [],
+          "barcode": "3307216025924",
+          "catalogNumber": "CUSA-08393",
+          "evidenceIds": ["ac-origins-geedie"],
+          "physicalContents": ["Juego base"],
+          "digitalContents": ["Deluxe Pack", "Season Pass"],
+          "notes": ["Mercado nacional exacto pendiente; identidad técnica separada de CUSA-05625."]
+        },
+        {
+          "id": "ac-origins-ps4-gold-fr",
+          "label": "Gold Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": ["FR"],
+          "barcode": "3307216025948",
+          "evidenceIds": ["ac-origins-fnac-fr-gold"],
+          "physicalContents": ["Juego base"],
+          "digitalContents": ["Deluxe Pack", "Season Pass"],
+          "notes": ["SKU francés confirmado; packaging exacto pendiente y no se presupone equivalencia con 3307216025931."]
+        },
+        {
+          "id": "ac-origins-ps4-gold-us",
+          "label": "Gold Edition · USA · Steelbook documentada",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STEELBOOK",
+          "marketRegions": ["US"],
+          "barcode": "887256028527",
+          "catalogNumber": "CUSA-05855",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-origins-gold-edition"],
+          "evidenceIds": ["ac-origins-gamefaqs"],
+          "physicalContents": ["Juego base", "Steelbook"],
+          "digitalContents": ["Deluxe Pack", "Season Pass"],
+          "notes": ["La fuente documenta Steelbook Gold. La imagen de la ficha actual no está disponible localmente; no se renombra ni se inventa otra Gold amaray."]
+        },
+        {
+          "id": "ac-origins-ps4-gold-au",
+          "label": "Gold Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "DELUXE",
+          "marketRegions": ["AU"],
+          "ratingSystems": ["MA"],
+          "barcode": "3307216021667",
+          "evidenceIds": ["ac-origins-gamefaqs"],
+          "physicalContents": ["Juego base"],
+          "digitalContents": ["Deluxe Pack", "Season Pass"]
+        },
+        {
+          "id": "ac-origins-ps4-deluxe-us",
+          "label": "Deluxe Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "DELUXE",
+          "marketRegions": ["US"],
+          "barcode": "887256028565",
+          "catalogNumber": "CUSA-05855",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-origins-deluxe-edition"],
+          "evidenceIds": ["ac-origins-gamefaqs"]
+        },
+        {
+          "id": "ac-origins-ps4-deluxe-eu-cusa-08393r",
+          "label": "Deluxe Edition · Europa · CUSA-08393R",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": [],
+          "barcode": "3307216026044",
+          "catalogNumber": "CUSA-08393R",
+          "evidenceIds": ["ac-origins-geedie"],
+          "notes": ["Mercado nacional pendiente; no se colapsa en la familia CUSA-05625."]
+        },
+        {
+          "id": "ac-origins-ps4-deluxe-eu-pending-3307216026075",
+          "label": "Deluxe Edition · Europa · referencia pendiente 3307216026075",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": [],
+          "barcode": "3307216026075",
+          "evidenceIds": ["ac-origins-geedie"],
+          "notes": ["PENDING_MAPPING: no se fusiona con 3307216026044 hasta comparar packaging."]
+        },
+        {
+          "id": "ac-origins-ps4-deluxe-jp-2019",
+          "label": "Deluxe Edition · Japón · reedición 2019",
+          "broadRegion": "ASIA",
+          "editionType": "DELUXE",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["JA"],
+          "ratingSystems": ["CERO Z"],
+          "barcode": "4949244007764",
+          "releaseDate": "2019-07-11",
+          "evidenceIds": ["ac-origins-gamefaqs"],
+          "notes": ["Product code físico pendiente; se mantiene separada de cualquier Deluxe digital de 2017."]
+        },
+        {
+          "id": "ac-origins-ps4-gods-collector-us",
+          "label": "Gods Collector's Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "barcode": "887256032180",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-origins-gods-collector%27s-edition"],
+          "evidenceIds": ["ac-origins-gamefaqs"]
+        },
+        {
+          "id": "ac-origins-ps4-gods-collector-eu",
+          "label": "Gods Collector's Edition · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["BG"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-origins-ozone-gods"]
+            }
+          ],
+          "barcode": "3307216019015",
+          "evidenceIds": ["ac-origins-geedie", "ac-origins-ozone-gods"],
+          "notes": ["Circulación europea/Bulgaria confirmada; no se generaliza una única caja a toda Europa."]
+        },
+        {
+          "id": "ac-origins-ps4-gods-collector-asia",
+          "label": "Gods Collector's Edition · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "INNER_GAME",
+              "languages": ["EN", "ZH-HANT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-origins-playasia"]
+            }
+          ],
+          "evidenceIds": ["ac-origins-playasia"],
+          "notes": ["Existencia e idiomas de software documentados; barcode y product code pendientes."]
+        },
+        {
+          "id": "ac-origins-ps4-dawn-collector-us",
+          "label": "Dawn of the Creed Collector's Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "barcode": "887256032203",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-origins-dawn-of-the-creed-collector%27s-edition"],
+          "evidenceIds": ["ac-origins-pricecharting-dawn"]
+        },
+        {
+          "id": "ac-origins-ps4-legendary-legacy-pending",
+          "label": "Legendary Edition · identidad exacta pendiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "catalogIds": ["ps4-usa-assassin%27s-creed-origins-legendary-edition"],
+          "evidenceIds": ["ac-origins-legendary-documentation"],
+          "notes": [
+            "La edición histórica Dawn of the Creed Legendary Collector's Edition está documentada y es distinta de Dawn Collector normal.",
+            "PENDING_VISUAL_VERIFICATION: la portada/foto actual no existe entre los recursos locales; se conserva el nombre y slug Legendary Edition sin renombrar. Barcode pendiente."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-origins-owned-scan-es",
+          "type": "REAL_SCAN",
+          "label": "Escaneos propios de la caja española",
+          "summary": "Portada, contraportada y lomo inspeccionados localmente: EAN 3307216025832, CUSA-05625, PEGI 18 y textos de caja en español.",
+          "supports": ["mercado ES", "EAN 3307216025832", "CUSA-05625", "packaging ES", "PEGI 18"]
+        },
+        {
+          "id": "ac-origins-retroloco-es",
+          "type": "RETAILER_ASSET",
+          "label": "RetroLoco · Origins PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-origins-esp/",
+          "supports": ["mercado ES", "EAN 3307216025832", "CUSA-05625"]
+        },
+        {
+          "id": "ac-origins-pccomponentes-pt",
+          "type": "RETAILER_ASSET",
+          "label": "PcComponentes Portugal · circulación del SKU español",
+          "url": "https://www.pccomponentes.pt/assassins-creed-origins-ps4",
+          "supports": ["mercado PT", "EAN 3307216025832", "circulación sin packaging PT"]
+        },
+        {
+          "id": "ac-origins-fnac-pt",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Portugal · referencia inglesa",
+          "url": "https://www.fnac.pt/Assassin-s-Creed-Origins-PS4-Videojogo-PlayStation-4/a1360279",
+          "supports": ["mercado PT", "EAN 3307216041641", "inglés declarado"]
+        },
+        {
+          "id": "ac-origins-kuantokusta-pt",
+          "type": "RETAILER_ASSET",
+          "label": "KuantoKusta · referencias comercializadas en Portugal",
+          "url": "https://www.kuantokusta.pt/p/1987422/assassins-creed-origins-ps4",
+          "supports": ["EAN 3307216021636 pendiente", "múltiples SKU en PT"]
+        },
+        {
+          "id": "ac-origins-fnac-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Standard",
+          "url": "https://www.fnac.com/a10761216/Assassin-s-Creed-Origins-PS4-Jeu-video-PlayStation-4",
+          "supports": ["mercado FR", "EAN 3307216025801"]
+        },
+        {
+          "id": "ac-origins-gamelife-it",
+          "type": "RETAILER_ASSET",
+          "label": "Gamelife Italia · Standard",
+          "url": "https://www.gamelife.it/swp40550-assassin-s-creed-origins",
+          "supports": ["mercado IT", "EAN 3307216025849"]
+        },
+        {
+          "id": "ac-origins-dbline-it",
+          "type": "RETAILER_ASSET",
+          "label": "DB-Line Italia · caja y juego en italiano",
+          "url": "https://www.dbline.it/it/products/online-catalog/detail/PS40631",
+          "supports": ["packaging IT", "software IT"]
+        },
+        {
+          "id": "ac-origins-miravia-en",
+          "type": "RETAILER_ASSET",
+          "label": "Miravia · idioma de contraportada inglés",
+          "url": "https://www.miravia.es/p/assassins-creed-origins-juego-para-consola-sony-playstation-4-ps4-i1356353948079165-s2069618378712125.html",
+          "supports": ["EAN 3307216025795", "packaging EN", "software multilingüe"]
+        },
+        {
+          "id": "ac-origins-rebuy-at",
+          "type": "RETAILER_ASSET",
+          "label": "Rebuy · AT Import",
+          "url": "https://www.rebuy.de/i%2C10857128/playstation-4/assassin-s-creed-origins-at-import",
+          "supports": ["EAN 3307216025825", "mercado AT", "idiomas DE/FR/IT declarados"]
+        },
+        {
+          "id": "ac-origins-rebuy-eu",
+          "type": "RETAILER_ASSET",
+          "label": "Rebuy · EU Import",
+          "url": "https://www.rebuy.de/i%2C11027199/playstation-4/assassin-s-creed-origins-eu-import",
+          "supports": ["EAN 3307216025788", "EAN 3307216025870 pendiente", "inglés declarado"]
+        },
+        {
+          "id": "ac-origins-geedie",
+          "type": "RETAILER_ASSET",
+          "label": "Geedie · familias físicas y códigos europeos",
+          "url": "https://geedie.com/en/ps4-assassin-s-creed-origins",
+          "supports": ["CUSA-08393", "CUSA-08393R", "EAN de Standard, Gold y Deluxe europeos"]
+        },
+        {
+          "id": "ac-origins-vgcollect-au",
+          "type": "RETAILER_ASSET",
+          "label": "VGCollect · Australia",
+          "url": "https://vgcollect.com/item/148587",
+          "supports": ["mercado AU", "EAN 3307216021629", "MA15+", "fecha 2017-10-27"]
+        },
+        {
+          "id": "ac-origins-gamesmen-au",
+          "type": "RETAILER_ASSET",
+          "label": "Gamesmen Australia · Standard",
+          "url": "https://www.gamesmen.com.au/ps4-assassins-creed-origins",
+          "supports": ["EAN 3307216021629"]
+        },
+        {
+          "id": "ac-origins-gamefaqs",
+          "type": "RETAILER_ASSET",
+          "label": "GameFAQs · datos físicos regionales y ediciones",
+          "url": "https://gamefaqs.gamespot.com/ps4/211210-assassins-creed-origins/data",
+          "supports": ["UPC norteamericanos", "JAN japoneses", "EAN Australia", "fechas", "ediciones"]
+        },
+        {
+          "id": "ac-origins-vgcollect-na",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "VGCollect · Secrets of the First Pyramids",
+          "url": "https://dev.vgcollect.com/item/126852",
+          "supports": ["UPC 887256028428", "mercados US/CA", "packaging EN", "ESRB M", "bonus de portada"]
+        },
+        {
+          "id": "ac-origins-vgcollect-korea",
+          "type": "RETAILER_ASSET",
+          "label": "VGCollect · existencia de publicación coreana",
+          "url": "https://vgcollect.com/item/148587",
+          "supports": ["existencia física KR", "identificadores pendientes"]
+        },
+        {
+          "id": "ac-origins-playasia",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia · ediciones Asia",
+          "url": "https://play.asia/blog/2017/10/26/assassins-creed-origins-versions-available-pre-order/",
+          "supports": ["Standard Asia EN/ZH", "Gods Edition Asia"]
+        },
+        {
+          "id": "ac-origins-yesasia",
+          "type": "RETAILER_ASSET",
+          "label": "YesAsia · idiomas de edición Asia",
+          "url": "https://www.yesasia.com/global/assassins-creed-origins-asian-english-chinese-version/1060400813-0-0-0-en/info.html",
+          "supports": ["manual EN/ZH-Hant", "software EN/ZH-Hant"]
+        },
+        {
+          "id": "ac-origins-pricecharting-gold",
+          "type": "RETAILER_ASSET",
+          "label": "PriceCharting · Gold Edition PAL",
+          "url": "https://www.pricecharting.com/game/pal-playstation-4/assassin%27s-creed-origins-gold-edition",
+          "supports": ["EAN 3307216025931", "familia Gold"]
+        },
+        {
+          "id": "ac-origins-fnac-fr-gold",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Gold Edition",
+          "url": "https://www.fnac.com/a10759672/Assassin-s-Creed-Origins-Edition-Gold-PS4-Jeu-video-PlayStation-4",
+          "supports": ["mercado FR", "EAN 3307216025948"]
+        },
+        {
+          "id": "ac-origins-ozone-gods",
+          "type": "RETAILER_ASSET",
+          "label": "Ozone Bulgaria · Gods Collector's Edition",
+          "url": "https://www.ozone.bg/product/assassin-s-creed-origins-collector-s-ps4/",
+          "supports": ["EAN 3307216019015", "mercado BG", "inglés declarado"]
+        },
+        {
+          "id": "ac-origins-pricecharting-dawn",
+          "type": "RETAILER_ASSET",
+          "label": "PriceCharting · Dawn of the Creed Collector's Edition",
+          "url": "https://www.pricecharting.com/game/playstation-4/assassin%27s-creed-origins-dawn-of-the-creed-collector%27s-edition",
+          "supports": ["UPC 887256032203", "familia Dawn Collector"]
+        },
+        {
+          "id": "ac-origins-legendary-documentation",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Assassin's Collection · Dawn of the Creed Legendary Collector's Edition",
+          "url": "https://www.assassinscollection.it/database/ac-origins-dawn-of-the-creed-collectors-case-legendary-edition",
+          "supports": ["existencia y nombre histórico", "contenido", "tirada 1-999", "distinción frente a Dawn Collector"]
+        }
+      ],
+      "sources": [
+        {"label": "RetroLoco · España", "url": "https://www.retroloco.es/producto/assassins-creed-origins-esp/"},
+        {"label": "El Corte Inglés · España", "url": "https://www.elcorteingles.es/videojuegos/A23191295-assassins-creed-origins-ps4/"},
+        {"label": "Fnac Portugal", "url": "https://www.fnac.pt/Assassin-s-Creed-Origins-PS4-Videojogo-PlayStation-4/a1360279"},
+        {"label": "PcComponentes Portugal", "url": "https://www.pccomponentes.pt/assassins-creed-origins-ps4"},
+        {"label": "KuantoKusta", "url": "https://www.kuantokusta.pt/p/1987422/assassins-creed-origins-ps4"},
+        {"label": "Fnac France", "url": "https://www.fnac.com/a10761216/Assassin-s-Creed-Origins-PS4-Jeu-video-PlayStation-4"},
+        {"label": "La Poste France", "url": "https://www.laposte.fr/professionnel/boutique/assassin-s-creed-origins-jeu-ps4/p/mp-500225251"},
+        {"label": "Gamelife Italia", "url": "https://www.gamelife.it/swp40550-assassin-s-creed-origins"},
+        {"label": "DB-Line Italia", "url": "https://www.dbline.it/it/products/online-catalog/detail/PS40631"},
+        {"label": "IBS Italia", "url": "https://www.ibs.it/assassin-s-creed-origins-ps4-videogioco-ubisoft/e/3307216025849"},
+        {"label": "Miravia · caja inglesa", "url": "https://www.miravia.es/p/assassins-creed-origins-juego-para-consola-sony-playstation-4-ps4-i1356353948079165-s2069618378712125.html"},
+        {"label": "Rebuy · EU import", "url": "https://www.rebuy.de/i%2C11027199/playstation-4/assassin-s-creed-origins-eu-import"},
+        {"label": "Rebuy · AT import", "url": "https://www.rebuy.de/i%2C10857128/playstation-4/assassin-s-creed-origins-at-import"},
+        {"label": "VGCollect · Australia", "url": "https://vgcollect.com/item/148587"},
+        {"label": "Gamesmen Australia", "url": "https://www.gamesmen.com.au/ps4-assassins-creed-origins"},
+        {"label": "GameFAQs", "url": "https://gamefaqs.gamespot.com/ps4/211210-assassins-creed-origins/data"},
+        {"label": "VGCollect · North America", "url": "https://dev.vgcollect.com/item/126852"},
+        {"label": "Play-Asia", "url": "https://play.asia/blog/2017/10/26/assassins-creed-origins-versions-available-pre-order/"},
+        {"label": "YesAsia", "url": "https://www.yesasia.com/global/assassins-creed-origins-asian-english-chinese-version/1060400813-0-0-0-en/info.html"},
+        {"label": "Geedie", "url": "https://geedie.com/en/ps4-assassin-s-creed-origins"},
+        {"label": "PriceCharting · Gold", "url": "https://www.pricecharting.com/game/pal-playstation-4/assassin%27s-creed-origins-gold-edition"},
+        {"label": "Fnac France · Gold", "url": "https://www.fnac.com/a10759672/Assassin-s-Creed-Origins-Edition-Gold-PS4-Jeu-video-PlayStation-4"},
+        {"label": "Ozone · Gods Collector", "url": "https://www.ozone.bg/product/assassin-s-creed-origins-collector-s-ps4/"},
+        {"label": "PriceCharting · Dawn Collector", "url": "https://www.pricecharting.com/game/playstation-4/assassin%27s-creed-origins-dawn-of-the-creed-collector%27s-edition"},
+        {"label": "Assassin's Collection · Dawn Legendary", "url": "https://www.assassinscollection.it/database/ac-origins-dawn-of-the-creed-collectors-case-legendary-edition"}
+      ],
+      "evidenceNote": "Normalización basada exclusivamente en el dossier entregado y en recursos locales ya presentes. No se hizo investigación externa. Las referencias sin caja observada conservan el estado pendiente y no se promueven como packaging nacional confirmado. El Double Pack Origins + Odyssey sigue siendo una compilación independiente y no forma parte de estas familias. La Limited Edition europea permanece como existencia documentada pendiente de identidad pública enlazable."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-rogue-remastered-ps4",
+      "title": "Ediciones físicas de Assassin's Creed Rogue Remastered en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Una sola obra canónica y una sola familia Standard agrupan las cajas físicas documentadas. Los mercados reflejan evidencia de circulación y no convierten importaciones en packaging nacional. Los aliases Assassin's Creed: Rogue Remastered, Assassin's Creed Rogue HD y Assassin's Creed Rogue (Remastered) permanecen asociados a la misma ficha.",
+      "game": {
+        "title": "Assassin's Creed Rogue Remastered",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-rogue-remastered"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-assassins-creed-rogue-remastered",
+          "physicalEditionIds": [
+            "ac-rogue-remastered-ps4-standard-es",
+            "ac-rogue-remastered-ps4-standard-fr-3307216044451",
+            "ac-rogue-remastered-ps4-standard-fr-multilingual-3307216044499",
+            "ac-rogue-remastered-ps4-standard-de",
+            "ac-rogue-remastered-ps4-standard-gb",
+            "ac-rogue-remastered-ps4-standard-eu-international-3307216044512",
+            "ac-rogue-remastered-ps4-standard-central-eu-3307216044482",
+            "ac-rogue-remastered-ps4-standard-benelux",
+            "ac-rogue-remastered-ps4-standard-poland-cenega-pending",
+            "ac-rogue-remastered-ps4-standard-au",
+            "ac-rogue-remastered-ps4-standard-na",
+            "ac-rogue-remastered-ps4-standard-jp",
+            "ac-rogue-remastered-ps4-standard-kr-pending",
+            "ac-rogue-remastered-ps4-standard-asia-en-zh"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-rogue-remastered-ps4-standard-es",
+          "label": "Standard · caja española",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES", "PT"],
+          "packagingLanguages": ["ES"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["ES"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ac-rogue-retroloco-es"]
+            },
+            {
+              "component": "INNER_GAME",
+              "languages": ["ES", "EN", "FR", "DE", "IT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "Idiomas del juego declarados por RetroLoco; no describen la caja.",
+              "evidenceIds": ["ac-rogue-retroloco-es"]
+            }
+          ],
+          "ratingSystems": ["PEGI"],
+          "barcode": "3307216044505",
+          "catalogNumber": "CUSA-10123",
+          "catalogIds": ["ps4-assassins-creed-rogue-remastered"],
+          "evidenceIds": ["ac-rogue-retroloco-es", "ac-rogue-fnac-es", "ac-rogue-pccomponentes-pt"],
+          "notes": [
+            "Confianza: mercado y packaging español confirmados por fuentes físicas; RegionAtlas no contiene un scan propio de esta ficha.",
+            "El mismo EAN circula en Portugal, pero no crea una caja portuguesa.",
+            "PENDING_COVER_EVIDENCE: la URL de portada legacy se conserva, pero la imagen mostrada lleva clasificación australiana MA15+ y no se usa como prueba de la caja ES."
+          ]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-fr-3307216044451",
+          "label": "Standard · Francia · primera referencia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "barcode": "3307216044451",
+          "catalogNumber": "CUSA-10123",
+          "evidenceIds": ["ac-rogue-fnac-fr", "ac-rogue-consollection-fr"],
+          "notes": ["Mercado confirmado; packaging exacto pendiente de contraportada."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-fr-multilingual-3307216044499",
+          "label": "Standard · Francia multilingüe · segunda referencia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR", "IT"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["FR"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "La copia se describe como PAL FR multilingüe; hace falta scan para enumerar toda la caja.",
+              "evidenceIds": ["ac-rogue-ebay-it-fr"]
+            },
+            {
+              "component": "INNER_GAME",
+              "languages": ["EN", "FR", "ES", "DE", "IT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-rogue-ebay-it-fr"]
+            }
+          ],
+          "barcode": "3307216044499",
+          "catalogNumber": "CUSA-10123",
+          "evidenceIds": ["ac-rogue-ebay-it-fr", "ac-rogue-gamelife-it"],
+          "notes": ["Confianza: alta como caja PAL FR multilingüe. Su venta en Italia no demuestra una edición italiana."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DE"],
+          "ratingSystems": ["USK"],
+          "barcode": "3307216044437",
+          "catalogNumber": "CUSA-10123",
+          "evidenceIds": ["ac-rogue-retroplace-de"],
+          "notes": ["Mercado, EAN, CUSA y clasificación alemana confirmados; idioma exacto de contraportada pendiente."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-gb",
+          "label": "Standard · Reino Unido · caja inglesa",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["GB"],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["ac-rogue-fullmoon-uk"]
+            },
+            {
+              "component": "INNER_GAME",
+              "languages": ["IT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-rogue-fullmoon-uk"]
+            }
+          ],
+          "barcode": "3307216044475",
+          "catalogNumber": "CUSA-10123",
+          "releaseDate": "2018-03-20",
+          "evidenceIds": ["ac-rogue-gadcet-uk", "ac-rogue-fullmoon-uk", "ac-rogue-gamefaqs"],
+          "notes": ["No se convierte en variante italiana aunque incluya italiano y se comercialice allí."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-eu-international-3307216044512",
+          "label": "Standard · Europa inglesa / internacional",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["GB", "ES"],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-rogue-international-4512"]
+            }
+          ],
+          "barcode": "3307216044512",
+          "catalogNumber": "CUSA-10123",
+          "evidenceIds": ["ac-rogue-international-4512"],
+          "notes": ["También documentada como importación en Argentina; eso no la convierte en packaging argentino ni español."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-central-eu-3307216044482",
+          "label": "Standard · Europa central / PAL internacional",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["AT", "CH", "BE", "BG"],
+          "ratingSystems": ["PEGI 18"],
+          "barcode": "3307216044482",
+          "catalogNumber": "CUSA-10123",
+          "componentLanguageEvidence": [
+            {
+              "component": "INNER_GAME",
+              "languages": ["EN", "FR", "DE", "IT", "RU", "ES"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-rogue-central-eu-4482"]
+            }
+          ],
+          "evidenceIds": ["ac-rogue-central-eu-4482"],
+          "notes": [
+            "Confianza: alta como tirada PAL internacional; packaging exacto pendiente y no se asigna a un único país.",
+            "Circulación adicional documentada en Emiratos Árabes Unidos; se mantiene como importación de esta caja europea."
+          ]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-benelux",
+          "label": "Standard · Benelux",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["NL", "BE"],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "Idioma de producto declarado por retailer; contraportada pendiente.",
+              "evidenceIds": ["ac-rogue-bol-nl"]
+            }
+          ],
+          "barcode": "3307216044529",
+          "catalogNumber": "CUSA-10123",
+          "evidenceIds": ["ac-rogue-bol-nl", "ac-rogue-smartoys-be"],
+          "notes": ["No se infieren textos neerlandeses o franceses sin scan."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-poland-cenega-pending",
+          "label": "Standard · Polonia / Cenega · EAN pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["PL"],
+          "componentLanguageEvidence": [
+            {
+              "component": "INNER_GAME",
+              "languages": ["PL", "EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-rogue-xkom-pl", "ac-rogue-morele-pl"]
+            }
+          ],
+          "catalogNumber": "CUSA-10123",
+          "boxCode": "3307216044536",
+          "evidenceIds": ["ac-rogue-xkom-pl", "ac-rogue-morele-pl"],
+          "notes": [
+            "IDENTIFIER_UNRESOLVED: 3307216044536 se conserva como referencia de fabricante, no como EAN.",
+            "Morele sugiere EAN físico 3307216044482; hace falta leer el barcode de una caja real antes de asociarlo. Packaging pendiente."
+          ]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "ratingSystems": ["MA15+"],
+          "barcode": "3307216044444",
+          "catalogNumber": "CUSA-10123",
+          "releaseDate": "2018-03-20",
+          "evidenceIds": ["ac-rogue-gamefaqs", "ac-rogue-gamesmen-au"],
+          "notes": ["Nueva Zelanda no se añade sin evidencia de caja compartida o referencia propia."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-na",
+          "label": "Standard · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US", "CA", "MX"],
+          "packagingLanguages": ["EN", "FR", "ES"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN", "FR", "ES"],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": ["ac-rogue-vgcollect-na"]
+            },
+            {
+              "component": "INNER_GAME",
+              "languages": ["EN", "FR", "ES", "PT"],
+              "basis": "OBSERVED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-rogue-vgcollect-na"]
+            }
+          ],
+          "ratingSystems": ["ESRB M"],
+          "barcode": "887256037499",
+          "catalogNumber": "CUSA-10158",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-rogue-remastered"],
+          "evidenceIds": ["ac-rogue-bestbuy-us", "ac-rogue-vgcollect-na", "ac-rogue-sears-mx"],
+          "notes": ["Estados Unidos, Canadá y México comparten UPC/caja; no se crean variantes nacionales sin otro barcode o packaging."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["JA"],
+          "ratingSystems": ["CERO Z"],
+          "barcode": "4949244004534",
+          "catalogNumber": "PLJM-16169",
+          "releaseDate": "2018-03-22",
+          "evidenceIds": ["ac-rogue-mediaworld-jp", "ac-rogue-gamefaqs"],
+          "notes": ["El CUSA-10132 digital japonés no se usa como código de esta caja física."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-kr-pending",
+          "label": "Standard · Corea · identificadores pendientes",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "componentLanguageEvidence": [
+            {
+              "component": "INNER_GAME",
+              "languages": ["KO", "EN", "ZH-HANT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "Información digital que no se extrapola a la caja física.",
+              "evidenceIds": ["ac-rogue-playstation-kr"]
+            }
+          ],
+          "evidenceIds": ["ac-rogue-playstation-kr"],
+          "notes": ["Existencia física documentada; barcode, product code y packaging pendientes. No reutiliza el código de Asia o Japón."]
+        },
+        {
+          "id": "ac-rogue-remastered-ps4-standard-asia-en-zh",
+          "label": "Standard · Asia · subtítulos chino / inglés",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "INNER_GAME",
+              "languages": ["ZH-HANT", "EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-rogue-playasia"]
+            }
+          ],
+          "evidenceIds": ["ac-rogue-playasia"],
+          "notes": [
+            "Existencia física confirmada; barcode, product code y packaging pendientes.",
+            "El EAN europeo 3307216044482 vendido como Reg.2 en Filipinas es una importación y no identifica esta caja Reg.3."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-rogue-retroloco-es",
+          "type": "RETAILER_ASSET",
+          "label": "RetroLoco · Rogue Remastered PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-rogue-remastered-esp-precintado/",
+          "supports": ["mercado ES", "EAN 3307216044505", "CUSA-10123", "packaging ES", "software ES/EN/FR/DE/IT"]
+        },
+        {
+          "id": "ac-rogue-fnac-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Rogue Remastered",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Rogue-Remastered-PS4-Videojuego-PS4/a1441817",
+          "supports": ["mercado ES", "EAN 3307216044505"]
+        },
+        {
+          "id": "ac-rogue-pccomponentes-pt",
+          "type": "RETAILER_ASSET",
+          "label": "PcComponentes Portugal · circulación del SKU español",
+          "url": "https://www.pccomponentes.pt/assassins-creed-rogue-hd-ps4",
+          "supports": ["mercado PT", "EAN 3307216044505", "circulación sin packaging PT"]
+        },
+        {
+          "id": "ac-rogue-fnac-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · primera referencia francesa",
+          "url": "https://www.fnac.com/a11280848/Assassin-s-Creed-Rogue-Remastered-PS4-Jeu-video-PlayStation-4",
+          "supports": ["mercado FR", "EAN 3307216044451"]
+        },
+        {
+          "id": "ac-rogue-consollection-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Consollection · release física francesa",
+          "url": "https://www.consollection.com/comparateur-jeu-video/3307216044451.php",
+          "supports": ["mercado FR", "EAN 3307216044451"]
+        },
+        {
+          "id": "ac-rogue-ebay-it-fr",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "eBay Italia · copia PAL FR multilingüe",
+          "url": "https://www.ebay.it/itm/178023895867",
+          "supports": ["EAN 3307216044499", "caja PAL FR", "software EN/FR/ES/DE/IT"]
+        },
+        {
+          "id": "ac-rogue-gamelife-it",
+          "type": "RETAILER_ASSET",
+          "label": "Gamelife Italia · circulación de 3307216044499",
+          "url": "https://www.gamelife.it/en/swp40657-assassins-creed-rogue-remastered",
+          "supports": ["mercado IT", "EAN 3307216044499", "circulación sin packaging IT"]
+        },
+        {
+          "id": "ac-rogue-retroplace-de",
+          "type": "RETAILER_ASSET",
+          "label": "Retroplace · edición alemana",
+          "url": "https://www.retroplace.com/de/spiele/153932--assassins-creed-rogue",
+          "supports": ["mercado DE", "EAN 3307216044437", "CUSA-10123", "USK"]
+        },
+        {
+          "id": "ac-rogue-gadcet-uk",
+          "type": "RETAILER_ASSET",
+          "label": "Gadcet · referencia de Reino Unido",
+          "url": "https://www.gadcet.com/products/assassins-creed-rogue-remastered-ps4-game",
+          "supports": ["mercado GB", "EAN 3307216044475"]
+        },
+        {
+          "id": "ac-rogue-fullmoon-uk",
+          "type": "RETAILER_ASSET",
+          "label": "Fullmoon Games · caja UK con italiano",
+          "url": "https://fullmoongames.it/products/assassins-creed-rogue-hd-remastered-ps4-playstation-4-uk-con-italiano",
+          "supports": ["EAN 3307216044475", "packaging EN", "software IT"]
+        },
+        {
+          "id": "ac-rogue-international-4512",
+          "type": "RETAILER_ASSET",
+          "label": "Referencia europea inglesa / internacional",
+          "url": "https://www.kuantokusta.pt/p/1987436/assassins-creed-rogue-remastered-ps4",
+          "supports": ["EAN 3307216044512", "packaging EN declarado", "circulación internacional"]
+        },
+        {
+          "id": "ac-rogue-central-eu-4482",
+          "type": "RETAILER_ASSET",
+          "label": "Referencia PAL internacional 3307216044482",
+          "url": "https://www.morele.net/assassin-s-creed-rogue-remastered-ps4-979614/",
+          "supports": ["EAN 3307216044482", "Europa central", "software multilingüe", "posible EAN físico de Polonia"]
+        },
+        {
+          "id": "ac-rogue-bol-nl",
+          "type": "RETAILER_ASSET",
+          "label": "Bol Netherlands · referencia Benelux",
+          "url": "https://www.bol.com/nl/nl/p/assassin-s-creed-rogue-remastered-ps4/9200000088128937/",
+          "supports": ["mercado NL", "EAN 3307216044529", "inglés declarado"]
+        },
+        {
+          "id": "ac-rogue-smartoys-be",
+          "type": "RETAILER_ASSET",
+          "label": "Smartoys Belgium · referencia Benelux",
+          "url": "https://www.smartoys.be/catalog/jeux-video-playstation-assassins-creed-rogue-remastered-p-3307216044529.html",
+          "supports": ["mercado BE", "EAN 3307216044529"]
+        },
+        {
+          "id": "ac-rogue-xkom-pl",
+          "type": "RETAILER_ASSET",
+          "label": "X-kom · referencia Cenega",
+          "url": "https://www.x-kom.pl/p/417485-gra-na-playstation-4-cenega-assassins-creed-rogue-remastered.html",
+          "supports": ["mercado PL", "referencia fabricante 3307216044536", "software PL/EN"]
+        },
+        {
+          "id": "ac-rogue-morele-pl",
+          "type": "RETAILER_ASSET",
+          "label": "Morele · metadata polaca conflictiva",
+          "url": "https://www.morele.net/assassin-s-creed-rogue-remastered-ps4-979614/",
+          "supports": ["mercado PL", "referencia 3307216044536", "posible EAN 3307216044482", "software PL/EN"]
+        },
+        {
+          "id": "ac-rogue-gamefaqs",
+          "type": "RETAILER_ASSET",
+          "label": "GameFAQs · datos físicos regionales",
+          "url": "https://gamefaqs.gamespot.com/ps4/230464-assassins-creed-rogue-remastered/data",
+          "supports": ["EAN europeo base", "EAN Australia", "JAN Japón", "fechas"]
+        },
+        {
+          "id": "ac-rogue-gamesmen-au",
+          "type": "RETAILER_ASSET",
+          "label": "Gamesmen Australia · Rogue Remastered",
+          "url": "https://www.gamesmen.com.au/assassin-s-creed-rogue-hd-1",
+          "supports": ["mercado AU", "EAN 3307216044444", "MA15+"]
+        },
+        {
+          "id": "ac-rogue-bestbuy-us",
+          "type": "RETAILER_ASSET",
+          "label": "Best Buy · edición física norteamericana",
+          "url": "https://www.bestbuy.com/product/ps4-assassins-creed-rogue-remastered-playstation-4/J3ZY37SYVV",
+          "supports": ["mercado US", "UPC 887256037499"]
+        },
+        {
+          "id": "ac-rogue-vgcollect-na",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "VGCollect · caja norteamericana",
+          "url": "https://vgcollect.com/item/156773",
+          "supports": ["mercados US/CA", "UPC 887256037499", "packaging EN/FR/ES", "software EN/FR/ES/PT", "ESRB M"]
+        },
+        {
+          "id": "ac-rogue-sears-mx",
+          "type": "RETAILER_ASSET",
+          "label": "Sears México · circulación del UPC norteamericano",
+          "supports": ["mercado MX", "UPC 887256037499", "circulación sin packaging MX"]
+        },
+        {
+          "id": "ac-rogue-mediaworld-jp",
+          "type": "RETAILER_ASSET",
+          "label": "MediaWorld Japan · edición física japonesa",
+          "url": "https://mediaworld.co.jp/products/10440849001",
+          "supports": ["mercado JP", "JAN 4949244004534", "PLJM-16169", "CERO Z"]
+        },
+        {
+          "id": "ac-rogue-playstation-kr",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "PlayStation Korea · idiomas digitales",
+          "url": "https://www.playstation.com/ko-kr/games/assassins-creed-rogue-remastered/",
+          "supports": ["software KO/EN/ZH-Hant", "datos digitales no extrapolados a packaging"]
+        },
+        {
+          "id": "ac-rogue-playasia",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia · edición física Asia Chinese/English",
+          "url": "https://www.play-asia.com/en/assassins-creed-rogue-remastered-chinese-english-subs/13/70btlj",
+          "supports": ["existencia física Asia", "subtítulos ZH/EN"]
+        }
+      ],
+      "sources": [
+        {"label": "RetroLoco · España", "url": "https://www.retroloco.es/producto/assassins-creed-rogue-remastered-esp-precintado/"},
+        {"label": "Fnac España", "url": "https://www.fnac.es/Assassin-s-Creed-Rogue-Remastered-PS4-Videojuego-PS4/a1441817"},
+        {"label": "PcComponentes Portugal", "url": "https://www.pccomponentes.pt/assassins-creed-rogue-hd-ps4"},
+        {"label": "KuantoKusta", "url": "https://www.kuantokusta.pt/p/1987436/assassins-creed-rogue-remastered-ps4"},
+        {"label": "Fnac France", "url": "https://www.fnac.com/a11280848/Assassin-s-Creed-Rogue-Remastered-PS4-Jeu-video-PlayStation-4"},
+        {"label": "Consollection France", "url": "https://www.consollection.com/comparateur-jeu-video/3307216044451.php"},
+        {"label": "Retroplace Germany", "url": "https://www.retroplace.com/de/spiele/153932--assassins-creed-rogue"},
+        {"label": "Fullmoon Games · UK", "url": "https://fullmoongames.it/products/assassins-creed-rogue-hd-remastered-ps4-playstation-4-uk-con-italiano"},
+        {"label": "Gadcet · UK", "url": "https://www.gadcet.com/products/assassins-creed-rogue-remastered-ps4-game"},
+        {"label": "Gamelife Italia", "url": "https://www.gamelife.it/en/swp40657-assassins-creed-rogue-remastered"},
+        {"label": "eBay Italia · PAL FR", "url": "https://www.ebay.it/itm/178023895867"},
+        {"label": "Bol Netherlands", "url": "https://www.bol.com/nl/nl/p/assassin-s-creed-rogue-remastered-ps4/9200000088128937/"},
+        {"label": "Smartoys Belgium", "url": "https://www.smartoys.be/catalog/jeux-video-playstation-assassins-creed-rogue-remastered-p-3307216044529.html"},
+        {"label": "X-kom Poland", "url": "https://www.x-kom.pl/p/417485-gra-na-playstation-4-cenega-assassins-creed-rogue-remastered.html"},
+        {"label": "Morele Poland", "url": "https://www.morele.net/assassin-s-creed-rogue-remastered-ps4-979614/"},
+        {"label": "Gamesmen Australia", "url": "https://www.gamesmen.com.au/assassin-s-creed-rogue-hd-1"},
+        {"label": "Best Buy North America", "url": "https://www.bestbuy.com/product/ps4-assassins-creed-rogue-remastered-playstation-4/J3ZY37SYVV"},
+        {"label": "Target North America", "url": "https://www.target.com/p/-/A-85930936"},
+        {"label": "VGCollect North America", "url": "https://vgcollect.com/item/156773"},
+        {"label": "MediaWorld Japan", "url": "https://mediaworld.co.jp/products/10440849001"},
+        {"label": "GameFAQs", "url": "https://gamefaqs.gamespot.com/ps4/230464-assassins-creed-rogue-remastered/data"},
+        {"label": "Play-Asia", "url": "https://www.play-asia.com/en/assassins-creed-rogue-remastered-chinese-english-subs/13/70btlj"},
+        {"label": "PlayStation Korea", "url": "https://www.playstation.com/ko-kr/games/assassins-creed-rogue-remastered/"}
+      ],
+      "evidenceNote": "Normalización basada sólo en el dossier entregado y el catálogo local. RegionAtlas no tiene un scan propio asociado a la ficha española de Rogue Remastered; su portada legacy muestra MA15+ australiana, se conserva por compatibilidad y queda pendiente una imagen ES respaldada. Quedan pendientes el packaging dedicado de Portugal, Italia y países nórdicos; el papel exacto de 3307216044482; el EAN físico de Polonia/Cenega; el mapeo de 5411313912082; Nueva Zelanda; packaging dedicado de Brasil y Latinoamérica; y barcode/product code físicos de Corea y Asia Reg.3. Ninguno se promociona como variante nacional confirmada."
+    }
+  ]
+}

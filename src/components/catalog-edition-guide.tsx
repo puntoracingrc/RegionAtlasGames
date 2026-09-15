@@ -61,6 +61,25 @@ function physicalComponentLabel(component: CatalogPhysicalComponent): string {
   return PHYSICAL_COMPONENT_LABELS[component];
 }
 
+function confidenceLabel(confidence: CatalogPhysicalEdition["confidence"]): string | null {
+  if (!confidence) return null;
+  return {
+    CONFIRMED_PHYSICAL_COPY: "Copia física confirmada",
+    CONFIRMED: "Confirmada",
+    HIGH: "Confianza alta",
+    PENDING_IDENTIFIER: "Identificador pendiente",
+    UNCONFIRMED: "Sin confirmar",
+  }[confidence];
+}
+
+function researchStatusLabel(status: CatalogEditionGuideModel["researchTasks"][number]["status"]): string {
+  return {
+    UNCONFIRMED: "Sin confirmar",
+    PENDING_REVIEW: "Revisión pendiente",
+    PHYSICAL_VARIANT_NOT_CONFIRMED: "Variante física no confirmada",
+  }[status];
+}
+
 export function CatalogEditionGuide({
   game,
   isLoggedIn = false,
@@ -262,6 +281,31 @@ function PhysicalEditionGuide({
             );
           })}
         </div>
+        {guide.researchTasks.length ? (
+          <section className="mt-5 border-t border-border pt-4" aria-label="Investigación regional pendiente">
+            <h3 className="text-sm font-semibold uppercase text-muted">Investigación regional pendiente</h3>
+            <ul className="mt-2 divide-y divide-border/70">
+              {guide.researchTasks.map((task) => (
+                <li key={task.id} className="py-3 first:pt-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="font-semibold text-foreground">{task.label}</p>
+                    <Badge tone="amber">{researchStatusLabel(task.status)}</Badge>
+                    {task.marketRegions.map((region) => (
+                      <RegionFlag
+                        key={region}
+                        region={catalogMarketRegionToLegacyRegion(region)}
+                        size="xs"
+                        showLabel
+                        labelMode="short"
+                      />
+                    ))}
+                  </div>
+                  {task.notes.map((note) => <p key={note} className="mt-1 text-xs leading-5 text-muted">{note}</p>)}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
       </section>
     </Panel>
   );
@@ -351,6 +395,11 @@ function PhysicalEditionRow({
         <Badge tone={edition.editionType === "STANDARD" ? undefined : "amber"}>
           {catalogPhysicalEditionTypeLabel(edition.editionType)}
         </Badge>
+        {confidenceLabel(edition.confidence) ? (
+          <Badge tone={edition.confidence === "PENDING_IDENTIFIER" || edition.confidence === "UNCONFIRMED" ? "amber" : "green"}>
+            {confidenceLabel(edition.confidence)}
+          </Badge>
+        ) : null}
         {ownedCount ? <Badge tone="green">Tengo {ownedCount}</Badge> : null}
       </div>
 
@@ -375,7 +424,12 @@ function PhysicalEditionRow({
           <dl className="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2">
             {edition.barcode ? <Fact label="EAN / UPC / JAN" value={edition.barcode} mono /> : null}
             {edition.catalogNumber ? <Fact label="Referencia del soporte" value={edition.catalogNumber} mono /> : null}
+            {edition.productCodes.length ? <Fact label="Códigos de producto" value={edition.productCodes.join(" · ")} mono /> : null}
             {edition.boxCode ? <Fact label="Código de caja" value={edition.boxCode} mono /> : null}
+            {edition.packagingLanguages.length ? <Fact label="Idiomas de la caja" value={edition.packagingLanguages.map((language) => language.toUpperCase()).join(" / ")} /> : null}
+            {edition.softwareLanguages.length ? <Fact label="Idiomas del software" value={edition.softwareLanguages.map((language) => language.toUpperCase()).join(" / ")} /> : null}
+            {edition.evidenceMarkets.length ? <Fact label="Mercados observados" value={edition.evidenceMarkets.join(" · ")} /> : null}
+            {edition.distributionMarkets.length ? <Fact label="Distribución documentada" value={edition.distributionMarkets.join(" · ")} /> : null}
             {edition.releaseDate ? <Fact label="Fecha de esta edición" value={formatEditionReleaseDate(edition.releaseDate)} /> : null}
             {edition.releaseDateContext ? <Fact label="Contexto de la fecha" value={edition.releaseDateContext} /> : null}
           </dl>

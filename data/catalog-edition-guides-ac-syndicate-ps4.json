@@ -1,0 +1,631 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-syndicate-ps4",
+      "title": "Ediciones físicas de Assassin's Creed Syndicate en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Inventario mundial V2 de Assassin's Creed Syndicate. Las cajas, los mercados y las familias de disco se mantienen separados; los idiomas de software se conservan en notas y no se convierten en idiomas de packaging. La ficha legacy Charing Cross clasificada como USA sigue pendiente porque su asset no está presente en el checkout y no hay barcode, rating ni reverso local que permitan corregirla de forma inequívoca.",
+      "game": {
+        "title": "Assassin's Creed Syndicate",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-syndicate"
+      },
+      "editionFamilies": [
+        {
+          "id": "documented-physical-releases",
+          "label": "Lanzamientos físicos documentados",
+          "representativeCatalogId": "ps4-assassins-creed-syndicate",
+          "physicalEditionIds": [
+            "assassins-creed-syndicate-ps4-standard-es",
+            "assassins-creed-syndicate-ps4-standard-it",
+            "assassins-creed-syndicate-ps4-standard-benelux",
+            "assassins-creed-syndicate-ps4-standard-nordic",
+            "assassins-creed-syndicate-ps4-standard-cz",
+            "assassins-creed-syndicate-ps4-standard-eu-3307215893081",
+            "assassins-creed-syndicate-ps4-standard-eu-3307215893210",
+            "assassins-creed-syndicate-ps4-standard-na",
+            "assassins-creed-syndicate-ps4-standard-jp",
+            "assassins-creed-syndicate-ps4-standard-asia",
+            "assassins-creed-syndicate-ps4-standard-russia-cis",
+            "assassins-creed-syndicate-ps4-standard-middle-east",
+            "assassins-creed-syndicate-ps4-standard-au",
+            "assassins-creed-syndicate-ps4-special-uk",
+            "assassins-creed-syndicate-ps4-special-eu-3307215893319",
+            "assassins-creed-syndicate-ps4-special-eu-3307215893425",
+            "assassins-creed-syndicate-ps4-special-dfi",
+            "assassins-creed-syndicate-ps4-special-au",
+            "assassins-creed-syndicate-ps4-rooks-eu",
+            "assassins-creed-syndicate-ps4-rooks-de-at",
+            "assassins-creed-syndicate-ps4-rooks-es-eu",
+            "assassins-creed-syndicate-ps4-charing-cross-fr-eu",
+            "assassins-creed-syndicate-ps4-charing-cross-au",
+            "assassins-creed-syndicate-ps4-charing-cross-legacy-pending",
+            "assassins-creed-syndicate-ps4-big-ben-eu",
+            "assassins-creed-syndicate-ps4-big-ben-au",
+            "assassins-creed-syndicate-ps4-gold-us",
+            "assassins-creed-syndicate-ps4-limited-us",
+            "assassins-creed-syndicate-ps4-ubi-the-best-jp",
+            "assassins-creed-syndicate-ps4-ebiten-collector-jp"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-es",
+          "label": "Standard Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["ES"],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "note": "Portada, contraportada y lomo del mismo ejemplar precintado; la caja declara voces, textos y manual totalmente en castellano.",
+              "evidenceIds": ["syndicate-own-scan-es"]
+            }
+          ],
+          "ratingSystems": ["PEGI"],
+          "barcode": "3307215893227",
+          "catalogNumber": "CUSA-02376",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "catalogIds": ["ps4-assassins-creed-syndicate"],
+          "scanSetIds": ["ps4-assassins-creed-syndicate"],
+          "evidenceIds": ["syndicate-own-scan-es"],
+          "notes": [
+            "PEGI 18 observado.",
+            "El mismo SKU está documentado en circulación portuguesa, sin acreditar una caja portuguesa dedicada."
+          ]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-it",
+          "label": "Standard Edition · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["IT"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["IT"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["syndicate-retail-it"]
+            }
+          ],
+          "barcode": "3307215893241",
+          "catalogNumber": "CUSA-02376",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "evidenceIds": ["syndicate-retail-it"],
+          "notes": ["Packaging italiano con evidencia comercial fuerte; queda pendiente un scan físico completo."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-benelux",
+          "label": "Standard Edition · Benelux",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["NL", "BE"],
+          "barcode": "3307215893197",
+          "catalogNumber": "CUSA-02376",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "evidenceIds": ["syndicate-retail-benelux"],
+          "notes": ["Idiomas exactos de portada y reverso pendientes de scan físico."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-nordic",
+          "label": "Standard Edition · Nórdicos",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["NO", "SE", "DK", "FI"],
+          "packagingLanguages": ["NO", "SV", "DA", "FI"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BACK",
+              "languages": ["NO", "SV", "DA", "FI"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["syndicate-retail-nordic"]
+            }
+          ],
+          "barcode": "3307215893166",
+          "catalogNumber": "CUSA-02376",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "evidenceIds": ["syndicate-retail-nordic"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-cz",
+          "label": "Standard Edition · Chequia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["CZ"],
+          "packagingLanguages": ["CS"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["CS"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["syndicate-retail-cz"]
+            }
+          ],
+          "barcode": "3307215893265",
+          "catalogNumber": "CUSA-02376",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "evidenceIds": ["syndicate-retail-cz"],
+          "notes": ["La ficha checa declara audio inglés y subtítulos checos; esos datos no se trasladan al packaging."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-eu-3307215893081",
+          "label": "Standard Edition · Europa internacional · 3307215893081",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "barcode": "3307215893081",
+          "catalogNumber": "CUSA-02376",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "evidenceIds": ["syndicate-release-data"],
+          "notes": ["SKU europeo confirmado; país e idiomas de caja pendientes. No se clasifica automáticamente como UK."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-eu-3307215893210",
+          "label": "Standard Edition · Europa · 3307215893210",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "barcode": "3307215893210",
+          "catalogNumber": "CUSA-02376",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "evidenceIds": ["syndicate-edition-index"],
+          "notes": ["Mapeo territorial e idiomas de caja pendientes."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-na",
+          "label": "Standard Edition · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB"],
+          "barcode": "887256013936",
+          "catalogNumber": "CUSA-02389",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02389",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-syndicate"],
+          "evidenceIds": ["syndicate-retail-na"],
+          "notes": ["Circulación canadiense pendiente de evidencia física de caja antes de añadir CA como mercado."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-jp",
+          "label": "Standard Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["JA"],
+          "ratingSystems": ["CERO"],
+          "barcode": "4949244003681",
+          "catalogNumber": "PLJM-84026",
+          "evidenceIds": ["syndicate-retail-jp"],
+          "notes": ["CERO Z; lanzamiento japonés 2015-11-12."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-asia",
+          "label": "Standard Edition · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "catalogNumber": "PLAS-07036",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "evidenceIds": ["syndicate-disc-index"],
+          "notes": ["Barcode e idiomas de caja pendientes; PLAS-07036 se mantiene separado de Japón."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-russia-cis",
+          "label": "Standard Edition · Rusia / CIS",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["RU"],
+          "catalogNumber": "CUSA-02377/RUS",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02377-rus",
+          "evidenceIds": ["syndicate-disc-index"],
+          "notes": ["Familia de software inglés/ruso confirmada; barcode e idiomas impresos pendientes."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-middle-east",
+          "label": "Standard Edition · Oriente Medio / árabe",
+          "broadRegion": "MIDDLE_EAST",
+          "editionType": "STANDARD",
+          "catalogNumber": "CUSA-02378",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02378",
+          "evidenceIds": ["syndicate-disc-index"],
+          "notes": ["Familia de software inglés/árabe confirmada; país, barcode e idiomas impresos pendientes."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-standard-au",
+          "label": "Standard Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "ratingSystems": ["ACB"],
+          "catalogNumber": "CUSA-02376",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02376",
+          "evidenceIds": ["syndicate-release-data"],
+          "notes": ["Release física y clasificación MA documentadas; barcode pendiente."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-special-uk",
+          "label": "Special Edition · UK / inglés",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["GB"],
+          "barcode": "3307215893302",
+          "catalogNumber": "CUSA-02377",
+          "evidenceIds": ["syndicate-edition-index"],
+          "notes": ["Mercado UK respaldado; idiomas exactos de caja pendientes. No se confunde esta referencia occidental con CUSA-02377/RUS."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-special-eu-3307215893319",
+          "label": "Special Edition · Europa · 3307215893319",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "barcode": "3307215893319",
+          "catalogNumber": "CUSA-02376",
+          "evidenceIds": ["syndicate-edition-index"],
+          "notes": ["Mapeo territorial pendiente."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-special-eu-3307215893425",
+          "label": "Special Edition · Europa · 3307215893425",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "barcode": "3307215893425",
+          "catalogNumber": "CUSA-02376",
+          "evidenceIds": ["syndicate-edition-index"],
+          "notes": ["Mapeo territorial pendiente."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-special-dfi",
+          "label": "Special Edition · D/F/I",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE", "AT", "CH"],
+          "packagingLanguages": ["DE", "FR", "IT"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["DE", "FR", "IT"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "evidenceIds": ["syndicate-special-dfi"]
+            }
+          ],
+          "barcode": "3307215893432",
+          "catalogNumber": "CUSA-02376",
+          "evidenceIds": ["syndicate-special-dfi"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-special-au",
+          "label": "Special Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["AU"],
+          "barcode": "3307215893500",
+          "catalogNumber": "CUSA-02377",
+          "evidenceIds": ["syndicate-release-data"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-rooks-eu",
+          "label": "The Rooks Edition · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "barcode": "3307215893524",
+          "catalogNumber": "CUSA-02377",
+          "evidenceIds": ["syndicate-release-data"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-rooks-de-at",
+          "label": "The Rooks Edition · Alemania / Austria",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE", "AT"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["DE"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["syndicate-rooks-de-at"]
+            }
+          ],
+          "barcode": "3307215893586",
+          "evidenceIds": ["syndicate-rooks-de-at"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-rooks-es-eu",
+          "label": "The Rooks Edition · España / Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["ES"],
+          "barcode": "3307215893609",
+          "evidenceIds": ["syndicate-rooks-es"],
+          "notes": ["Circulación española documentada; identidad exacta del packaging pendiente."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-charing-cross-fr-eu",
+          "label": "Charing Cross Edition · Francia / Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["FR"],
+          "barcode": "3307215893739",
+          "evidenceIds": ["syndicate-charing-fr"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-charing-cross-au",
+          "label": "Charing Cross Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["AU"],
+          "barcode": "3307215893791",
+          "evidenceIds": ["syndicate-release-data"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-charing-cross-legacy-pending",
+          "label": "Charing Cross Collector's Edition · ficha legacy pendiente",
+          "broadRegion": "OTHER",
+          "editionType": "COLLECTOR",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-syndicate-charing-cross-collector%27s-edition"],
+          "evidenceIds": ["syndicate-local-charing"],
+          "notes": [
+            "NEEDS_REGION_CORRECTION: el asset indicado por la ficha no existe localmente y no hay reverso, rating o barcode inspeccionable.",
+            "No se vincula esta ficha a la variante Francia/EU ni Australia hasta disponer de evidencia física inequívoca."
+          ]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-big-ben-eu",
+          "label": "Big Ben Collector's Edition · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "barcode": "3307215916391",
+          "catalogNumber": "CUSA-02377",
+          "evidenceIds": ["syndicate-edition-index"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-big-ben-au",
+          "label": "Big Ben Collector's Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["AU"],
+          "evidenceIds": ["syndicate-release-data"],
+          "notes": ["Barcode pendiente; no se mezcla con Charing Cross."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-gold-us",
+          "label": "Gold Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB"],
+          "barcode": "887256013967",
+          "catalogNumber": "CUSA-02389",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02389",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-syndicate-gold-edition"],
+          "evidenceIds": ["syndicate-retail-gold-us"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-limited-us",
+          "label": "Limited Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": ["US"],
+          "catalogNumber": "CUSA-02389",
+          "sharedDiscId": "syndicate-ps4-disc-cusa-02389",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-syndicate-limited-edition"],
+          "evidenceIds": ["syndicate-local-limited"],
+          "notes": ["Identificador físico pendiente de scan local; no se promociona ninguno de los UPC contradictorios del dossier."]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-ubi-the-best-jp",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["JA"],
+          "ratingSystems": ["CERO"],
+          "barcode": "4949244004237",
+          "catalogNumber": "PLJM-84095",
+          "releaseDate": "2017-05-25",
+          "releaseDateContext": "Lanzamiento japonés Ubi the Best documentado en el dossier",
+          "evidenceIds": ["syndicate-retail-jp-reissue"]
+        },
+        {
+          "id": "assassins-creed-syndicate-ps4-ebiten-collector-jp",
+          "label": "Ebiten Exclusive Collector's Bundle · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["JP"],
+          "barcode": "4949244003681",
+          "catalogNumber": "PLJM-84026",
+          "physicalContents": [
+            "Edición Standard japonesa",
+            "Figura Jacob Big Ben de 30 cm",
+            "Petaca",
+            "Libro de arte",
+            "Banda sonora",
+            "Mapa de Londres",
+            "Litografía numerada",
+            "FUTUREPAK",
+            "Caja coleccionista Big Ben"
+          ],
+          "includesEditionIds": ["assassins-creed-syndicate-ps4-standard-jp"],
+          "evidenceIds": ["syndicate-retail-jp"],
+          "notes": ["Bundle externo que contiene la copia Standard japonesa; no crea un gameId nuevo ni presupone un JAN distinto."]
+        }
+      ],
+      "sharedDiscs": [
+        {
+          "id": "syndicate-ps4-disc-cusa-02376",
+          "label": "Familia de disco Europa / Asia CUSA-02376",
+          "technicalRegion": "EUROPE",
+          "serial": "CUSA-02376",
+          "ratingSystems": ["PEGI"],
+          "evidenceIds": ["syndicate-disc-index"]
+        },
+        {
+          "id": "syndicate-ps4-disc-cusa-02389",
+          "label": "Familia de disco Norteamérica CUSA-02389",
+          "technicalRegion": "NORTH_AMERICA",
+          "serial": "CUSA-02389",
+          "ratingSystems": ["ESRB"],
+          "evidenceIds": ["syndicate-disc-index"]
+        },
+        {
+          "id": "syndicate-ps4-disc-cusa-02377-rus",
+          "label": "Familia de disco Rusia / CIS CUSA-02377/RUS",
+          "technicalRegion": "EUROPE",
+          "serial": "CUSA-02377/RUS",
+          "evidenceIds": ["syndicate-disc-index"]
+        },
+        {
+          "id": "syndicate-ps4-disc-cusa-02378",
+          "label": "Familia de disco árabe CUSA-02378",
+          "technicalRegion": "MIDDLE_EAST",
+          "serial": "CUSA-02378",
+          "evidenceIds": ["syndicate-disc-index"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "syndicate-own-scan-es",
+          "type": "REAL_SCAN",
+          "label": "Escaneos propios del ejemplar PAL España",
+          "summary": "Portada, reverso y lomo del mismo ejemplar precintado confirman EAN 3307215893227, CUSA-02376, PEGI 18 y packaging íntegramente en castellano.",
+          "supports": ["EAN 3307215893227", "CUSA-02376", "mercado ES", "packaging ES", "PEGI 18"]
+        },
+        {
+          "id": "syndicate-retail-it",
+          "type": "RETAILER_ASSET",
+          "label": "Gamelife Italia",
+          "url": "https://www.gamelife.it/swp40474-assassin-s-creed-syndicate",
+          "supports": ["EAN 3307215893241", "mercado IT", "packaging IT declarado"]
+        },
+        {
+          "id": "syndicate-retail-benelux",
+          "type": "RETAILER_ASSET",
+          "label": "Bol Países Bajos",
+          "url": "https://www.bol.com/nl/nl/p/assassin-s-creed-syndicate-ps4/9200000036457993/",
+          "supports": ["EAN 3307215893197", "circulación NL y BE"]
+        },
+        {
+          "id": "syndicate-retail-nordic",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Miravia · contraportada nórdica declarada",
+          "url": "https://www.miravia.es/p/i1367012533401423.html",
+          "supports": ["EAN 3307215893166", "contraportada NO/SV/DA/FI"]
+        },
+        {
+          "id": "syndicate-retail-cz",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "PSko Chequia · cover checo declarado",
+          "url": "https://www.psko.cz/ps4hry/ps4-assassins-creed-syndicate-cesky/",
+          "supports": ["EAN 3307215893265", "mercado CZ", "cover CS"]
+        },
+        {
+          "id": "syndicate-release-data",
+          "type": "UNKNOWN",
+          "label": "Índice de releases territoriales citado en el dossier",
+          "url": "https://gamefaqs.gamespot.com/ps4/894434-assassins-creed-syndicate/data",
+          "supports": ["releases EU/AU/US", "EAN de variantes físicas documentadas"]
+        },
+        {
+          "id": "syndicate-edition-index",
+          "type": "UNKNOWN",
+          "label": "Índice de ediciones citado en el dossier",
+          "url": "https://geedie.com/en/ps4-assassin-s-creed-syndicate-special-edition",
+          "supports": ["EAN y CUSA de Standard, Special, Rooks, Big Ben y reprints"]
+        },
+        {
+          "id": "syndicate-special-dfi",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "World of Games · Special Edition D/F/I",
+          "url": "https://www.wog.ch/en/index.cfm/details/product/41847-Assassins-Creed-Syndicate-Special-Edition",
+          "supports": ["EAN 3307215893432", "CUSA-02376", "packaging DE/FR/IT"]
+        },
+        {
+          "id": "syndicate-rooks-de-at",
+          "type": "RETAILER_ASSET",
+          "label": "Rebuy · The Rooks Edition Alemania/Austria",
+          "url": "https://www.rebuy.de/i%2C10153329/playstation-4/assassin-s-creed-syndicate-the-rooks-edition-inkl-artbook-karte-soundtrack",
+          "supports": ["EAN 3307215893586", "mercados DE/AT", "idioma DE declarado"]
+        },
+        {
+          "id": "syndicate-rooks-es",
+          "type": "RETAILER_ASSET",
+          "label": "Yambalú España · The Rooks Edition",
+          "url": "https://www.yambalu.com/es/juego/7350/assassins-creed-syndicate-the-rooks-edition-playstation-4.html",
+          "supports": ["EAN 3307215893609", "circulación ES"]
+        },
+        {
+          "id": "syndicate-charing-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Charing Cross",
+          "url": "https://www.fnac.com/a16906797/ASSASSIN-S-CREED-SYNDICATE-CHARING-CROSS-GFI-PS4-donnee-non-specifiee",
+          "supports": ["EAN 3307215893739", "mercado FR", "Charing Cross EU"]
+        },
+        {
+          "id": "syndicate-retail-na",
+          "type": "RETAILER_ASSET",
+          "label": "Playback Archive · Standard norteamericana",
+          "url": "https://playback-archive.com/archive/game/playstation-playstation-4-1izeeqw",
+          "supports": ["UPC 887256013936", "CUSA-02389", "mercado US"]
+        },
+        {
+          "id": "syndicate-retail-gold-us",
+          "type": "RETAILER_ASSET",
+          "label": "Best Buy · Gold Edition USA",
+          "url": "https://www.bestbuy.com/site/assassins-creed-syndicate-gold-edition-playstation-4/8229117.p",
+          "supports": ["UPC 887256013967", "CUSA-02389", "Gold Edition US"]
+        },
+        {
+          "id": "syndicate-retail-jp",
+          "type": "RETAILER_ASSET",
+          "label": "Rakuten Japón · edición Standard y bundle Ebiten",
+          "url": "https://books.rakuten.co.jp/rb/13301772/",
+          "supports": ["JAN 4949244003681", "PLJM-84026", "mercado JP", "CERO Z"]
+        },
+        {
+          "id": "syndicate-retail-jp-reissue",
+          "type": "RETAILER_ASSET",
+          "label": "Yahoo Shopping Japón · Ubi the Best",
+          "url": "https://store.shopping.yahoo.co.jp/arc-online/4949244004237.html",
+          "supports": ["JAN 4949244004237", "PLJM-84095", "fecha 2017-05-25"]
+        },
+        {
+          "id": "syndicate-disc-index",
+          "type": "UNKNOWN",
+          "label": "Índice Redump citado en el dossier",
+          "url": "https://redump.info/discs?sort=language&system=PS4",
+          "supports": ["CUSA-02376", "CUSA-02377/RUS", "CUSA-02378", "CUSA-02389", "PLAS-07036", "familias de idiomas de software"]
+        },
+        {
+          "id": "syndicate-local-limited",
+          "type": "UNKNOWN",
+          "label": "Ficha legacy Limited Edition USA conservada",
+          "summary": "La ficha existe en el catálogo local, pero su JPG no está materializado y los UPC del dossier son contradictorios.",
+          "supports": ["existencia de la ficha legacy", "identificador pendiente"]
+        },
+        {
+          "id": "syndicate-local-charing",
+          "type": "UNKNOWN",
+          "label": "Auditoría local de la ficha Charing Cross legacy",
+          "summary": "La ficha local conserva región legacy USA y apunta a /covers/ps4/assassin-s-creed-syndicate-charing-cross-collector-s-edition.jpg, pero ese asset no existe en el checkout ni en el árbol Git; clasificación territorial pendiente.",
+          "supports": ["existencia del deep-link legacy", "corrección regional pendiente", "no asignación a EU/AU"]
+        }
+      ],
+      "sources": [
+        {"label": "Dossier mundial suministrado", "url": "https://gamefaqs.gamespot.com/ps4/894434-assassins-creed-syndicate/data"},
+        {"label": "Escaneos propios RegionAtlas"},
+        {"label": "Índice Redump", "url": "https://redump.info/discs?sort=language&system=PS4"},
+        {"label": "Índice Geedie", "url": "https://geedie.com/en/ps4-assassin-s-creed-syndicate-special-edition"}
+      ],
+      "evidenceNote": "Solo se publican identidades y mercados respaldados por el dossier o por escaneos propios. Francia y Alemania Standard, Polonia, México, Brasil, Corea, Nueva Zelanda, PlayStation Hits y los barcodes pendientes permanecen fuera del grafo público. La ficha Charing Cross USA no se reasigna sin imagen local inequívoca."
+    }
+  ]
+}

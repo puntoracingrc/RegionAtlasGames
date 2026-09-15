@@ -1,5 +1,14 @@
 import guideData from "../../data/catalog-edition-guides.json";
 import acPs3GuideData from "../../data/catalog-edition-guides-ac-ps3.json";
+import acPs4WorldwideGuideData from "../../data/catalog-edition-guides-ac-ps4-worldwide.json";
+import ac4BlackFlagGuideData from "../../data/catalog-edition-guides-ac4-black-flag.json";
+import acChroniclesGuideData from "../../data/catalog-edition-guides-ac-chronicles.json";
+import acPs4GuideData from "../../data/catalog-edition-guides-ac-ps4.json";
+import acMirageGuideData from "../../data/catalog-edition-guides-ac-mirage.json";
+import acSyndicatePs4GuideData from "../../data/catalog-edition-guides-ac-syndicate-ps4.json";
+import acEzioCollectionPs4GuideData from "../../data/catalog-edition-guides-ac-ezio-collection-ps4.json";
+import acUnityValhallaGuideData from "../../data/catalog-edition-guides-ac-unity-valhalla.json";
+import acOdysseyGuideData from "../../data/catalog-edition-guides-ac-odyssey.json";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
@@ -20,6 +29,8 @@ import {
   type CatalogPhysicalEdition,
   type CatalogPhysicalPriceCondition,
   type CatalogPhysicalEditionType,
+  type CatalogPhysicalResearchStatus,
+  type CatalogPhysicalVariantConfidence,
 } from "./catalog-edition-guide-types";
 import type { CatalogGame } from "./types";
 
@@ -46,7 +57,12 @@ type PhysicalGuide = {
   title: string;
   reviewedAt: string;
   note: string;
-  game: { title: string; platformSlug: string; canonicalCatalogId: string };
+  game: {
+    title: string;
+    platformSlug: string;
+    canonicalCatalogId: string;
+    aliases?: string[];
+  };
   editionFamilies?: Array<{
     id: string;
     label: string;
@@ -60,7 +76,10 @@ type PhysicalGuide = {
     broadRegion: CatalogPhysicalEdition["broadRegion"];
     editionType: CatalogPhysicalEditionType;
     marketRegions?: string[];
+    evidenceMarkets?: string[];
+    distributionMarkets?: string[];
     packagingLanguages?: string[];
+    softwareLanguages?: string[];
     componentLanguageEvidence?: Array<{
       component: CatalogPhysicalEdition["componentLanguageEvidence"][number]["component"];
       languages: string[];
@@ -70,6 +89,8 @@ type PhysicalGuide = {
       evidenceIds?: string[];
     }>;
     ratingSystems?: string[];
+    productCodes?: string[];
+    confidence?: CatalogPhysicalVariantConfidence;
     barcode?: string;
     catalogNumber?: string;
     serial?: string;
@@ -120,12 +141,31 @@ type PhysicalGuide = {
   images?: CatalogEditionImage[];
   sources: Array<{ label: string; url?: string }>;
   evidenceNote: string;
+  researchTasks?: Array<{
+    id: string;
+    label: string;
+    status: CatalogPhysicalResearchStatus;
+    marketRegions?: string[];
+    notes?: string[];
+  }>;
 };
 
 export type RawCatalogEditionGuide = LegacyGuide | PhysicalGuide;
 type RawGuideDocument = { schemaVersion: 1 | 2; guides: RawCatalogEditionGuide[] };
 
-const rawGuideDocuments = [guideData, acPs3GuideData] as unknown as RawGuideDocument[];
+const rawGuideDocuments = [
+  guideData,
+  acPs3GuideData,
+  acPs4WorldwideGuideData,
+  ac4BlackFlagGuideData,
+  acChroniclesGuideData,
+  acPs4GuideData,
+  acMirageGuideData,
+  acSyndicatePs4GuideData,
+  acEzioCollectionPs4GuideData,
+  acUnityValhallaGuideData,
+  acOdysseyGuideData,
+] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
 let documentedGuideByCatalogIdCache: Map<string, CatalogEditionGuideModel> | null = null;
@@ -181,9 +221,13 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       editionType: legacyEditionType(entry.label),
       collectionIdentity: "catalog-entry",
       marketRegions: [target.region],
+      evidenceMarkets: [],
+      distributionMarkets: [],
       packagingLanguages: [],
+      softwareLanguages: [],
       componentLanguageEvidence: [],
       ratingSystems: [],
+      productCodes: [],
       physicalContents: [],
       digitalContents: [],
       catalogIds: [entry.catalogId],
@@ -230,6 +274,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
     sharedDiscs: [],
     sources: raw.sources,
     evidenceNote: raw.evidenceNote,
+    researchTasks: [],
   };
 }
 
@@ -250,6 +295,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
   if (!catalogIds.includes(raw.game.canonicalCatalogId)) {
     throw new Error(`[catalog-edition-guides] ${raw.id} canonicalCatalogId is not linked to an edition`);
   }
+  ensureUnique(raw.game.aliases ?? [], `${raw.id} game alias`);
 
   const requireEvidence = (ids: string[] = []) => ids.map((id) => {
     const evidence = evidenceById.get(id);
@@ -295,6 +341,21 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
         throw new Error(`[catalog-edition-guides] ${entry.id} market outside ${entry.broadRegion}: ${marketRegion}`);
       }
     }
+    const evidenceMarkets = entry.evidenceMarkets ?? [];
+    const distributionMarkets = entry.distributionMarkets ?? [];
+    for (const [label, regions] of [
+      ["evidence market", evidenceMarkets],
+      ["distribution market", distributionMarkets],
+    ] as const) {
+      ensureUnique(regions, `${entry.id} ${label}`);
+      for (const marketRegion of regions) {
+        if (!isCatalogMarketRegion(marketRegion)) {
+          throw new Error(`[catalog-edition-guides] ${entry.id} invalid ${label}: ${marketRegion}`);
+        }
+      }
+    }
+    ensureUnique(entry.softwareLanguages ?? [], `${entry.id} software language`);
+    ensureUnique(entry.productCodes ?? [], `${entry.id} product code`);
     const links = (entry.catalogIds ?? []).map((catalogId) => {
       const target = requiredCatalogGame(catalogId, raw.game.platformSlug);
       return { catalogId, href: catalogGamePath(target), current: false, region: target.region };
@@ -312,12 +373,16 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
       ...entry,
       collectionIdentity: "physical-variant",
       marketRegions,
+      evidenceMarkets: evidenceMarkets.filter(isCatalogMarketRegion),
+      distributionMarkets: distributionMarkets.filter(isCatalogMarketRegion),
       packagingLanguages: entry.packagingLanguages ?? [],
+      softwareLanguages: entry.softwareLanguages ?? [],
       componentLanguageEvidence: (entry.componentLanguageEvidence ?? []).map((languageEvidence) => ({
         ...languageEvidence,
         evidence: requireEvidence(languageEvidence.evidenceIds),
       })),
       ratingSystems: entry.ratingSystems ?? [],
+      productCodes: entry.productCodes ?? [],
       physicalContents: entry.physicalContents ?? [],
       digitalContents: entry.digitalContents ?? [],
       catalogIds: entry.catalogIds ?? [],
@@ -377,6 +442,22 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     }
     return { ...family };
   });
+  const researchTaskIds = (raw.researchTasks ?? []).map((task) => task.id);
+  ensureUnique(researchTaskIds, `${raw.id} research task id`);
+  const researchTasks = (raw.researchTasks ?? []).map((task) => {
+    const marketRegions = task.marketRegions ?? [];
+    ensureUnique(marketRegions, `${task.id} research market`);
+    for (const marketRegion of marketRegions) {
+      if (!isCatalogMarketRegion(marketRegion)) {
+        throw new Error(`[catalog-edition-guides] ${task.id} invalid research market: ${marketRegion}`);
+      }
+    }
+    return {
+      ...task,
+      marketRegions: marketRegions.filter(isCatalogMarketRegion),
+      notes: task.notes ?? [],
+    };
+  });
 
   return {
     schemaVersion: 2,
@@ -391,6 +472,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     sharedDiscs,
     sources: raw.sources,
     evidenceNote: raw.evidenceNote,
+    researchTasks,
   };
 }
 
