@@ -66,9 +66,12 @@ export type CompanyGenealogyRelation = {
 };
 
 export type PlatformHardwareKind =
+  | "BASE_MODEL"
   | "EARLY_REVISION"
   | "REVISION"
   | "REDESIGN"
+  | "DIGITAL_ONLY_REDESIGN"
+  | "MICROCONSOLE"
   | "DEVELOPMENT_HARDWARE"
   | "HOBBYIST_HARDWARE"
   | "MULTIMEDIA_HYBRID"
@@ -92,9 +95,12 @@ export const PLATFORM_HARDWARE_GROUPS: {
     id: "models",
     label: "Modelos y revisiones",
     kinds: [
+      "BASE_MODEL",
       "EARLY_REVISION",
       "REVISION",
       "REDESIGN",
+      "DIGITAL_ONLY_REDESIGN",
+      "MICROCONSOLE",
       "DEVELOPMENT_HARDWARE",
       "HOBBYIST_HARDWARE",
       "MULTIMEDIA_HYBRID",
@@ -282,6 +288,13 @@ export type PlatformHistory = {
   summaryParagraphsEs: string[];
   historyParagraphsEs?: string[];
   historyTitleEs?: string;
+  architectureTitleEs?: string;
+  architectureDekEs?: string;
+  companiesTitleEs?: string;
+  gamesTitleEs?: string;
+  hardwareTitleEs?: string;
+  servicesTitleEs?: string;
+  servicesDekEs?: string;
   generationStatus?: PlatformGenerationStatus;
   figures: PlatformHistoryFigure[];
   architecture?: PlatformArchitectureItem[];

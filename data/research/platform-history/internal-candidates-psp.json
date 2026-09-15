@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T18:00:00.000Z",
+  "peopleCandidates": [
+    {"personSlug":"tsutomu-kouno","personName":"Tsutomu Kouno","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"El dossier conecta su trabajo con LocoRoco, pero no aporta todavía material biográfico suficiente para una ficha editorial completa."},
+    {"personSlug":"hiroyuki-kotani","personName":"Hiroyuki Kotani","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"La relación creativa con Patapon debe ampliarse con fuentes profesionales y créditos antes de publicar una ficha personal."},
+    {"personSlug":"ru-weerasuriya","personName":"Ru Weerasuriya","status":"NEEDS_EXACT_CREDIT_REVIEW","reasonEs":"Ready at Dawn y sus juegos PSP están documentados, pero el dossier prohíbe adjudicar dirección sin revisar los créditos exactos."}
+  ],
+  "creditCandidates": [
+    {"title":"Metal Gear Solid: Portable Ops","status":"NEEDS_EXACT_CREDIT_REVIEW","reasonEs":"No se asigna un rol exacto a Hideo Kojima sin crédito verificado."},
+    {"title":"LittleBigPlanet PSP · Media Molecule","status":"NEEDS_EXACT_CREDIT_REVIEW","reasonEs":"Se conserva la participación de SCE Cambridge y se evita reasignar el desarrollo principal a Media Molecule sin revisar créditos."}
+  ],
+  "mediaReferences": [
+    {"personSlug":"john-koller","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita en las fuentes autorizadas."},
+    {"personSlug":"hajime-tabata","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita en las fuentes autorizadas."}
+  ]
+}

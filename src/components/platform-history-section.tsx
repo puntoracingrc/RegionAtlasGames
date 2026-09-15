@@ -93,8 +93,8 @@ function ArchitectureSection({ history }: { history: PlatformHistory }) {
   if (!history.architecture?.length) return null;
   return (
     <section id="historia-arquitectura" className="scroll-mt-24 border-t border-border py-7">
-      <div className="flex items-center gap-2"><Cpu className="h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-xl font-bold text-foreground">Arquitectura y socios tecnológicos</h3></div>
-      <p className="mt-1 text-sm text-muted">Componentes y alianzas que dieron forma al sistema.</p>
+      <div className="flex items-center gap-2"><Cpu className="h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-xl font-bold text-foreground">{history.architectureTitleEs ?? "Arquitectura y socios tecnológicos"}</h3></div>
+      <p className="mt-1 text-sm text-muted">{history.architectureDekEs ?? "Componentes y alianzas que dieron forma al sistema."}</p>
       <ul className="mt-5 grid gap-3 md:grid-cols-2">
         {history.architecture.map((item) => (
           <li key={item.id} className="rounded-lg border border-border bg-card p-4">
@@ -138,7 +138,7 @@ function CompaniesSection({ history }: { history: PlatformHistory }) {
   const ungrouped = history.companies.filter((company) => !groupedSlugs.has(company.companySlug));
   return (
     <section id="historia-companias" className="scroll-mt-24 border-t border-border py-7">
-      <div className="flex items-center gap-2"><Building2 className="h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-xl font-bold text-foreground">Estudios, adquisiciones y socios</h3></div>
+      <div className="flex items-center gap-2"><Building2 className="h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-xl font-bold text-foreground">{history.companiesTitleEs ?? "Estudios, adquisiciones y socios"}</h3></div>
       {history.companyGroups?.map((group) => {
         const companies = group.companySlugs.map((slug) => history.companies.find((company) => company.companySlug === slug)).filter((company): company is PlatformHistoryCompany => Boolean(company));
         if (!companies.length) return null;
@@ -176,7 +176,7 @@ function GamesSection({ history }: { history: PlatformHistory }) {
   if (!history.gameGroups?.length) return null;
   return (
     <section id="historia-juegos" className="scroll-mt-24 border-t border-border py-7">
-      <div className="flex items-center gap-2"><Library className="h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-xl font-bold text-foreground">Juegos que definieron la generación</h3></div>
+      <div className="flex items-center gap-2"><Library className="h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-xl font-bold text-foreground">{history.gamesTitleEs ?? "Juegos que definieron la generación"}</h3></div>
       <div className="mt-5 space-y-7">
         {history.gameGroups.map((group) => (
           <section key={group.id} aria-labelledby={`${group.id}-title`}>
@@ -202,7 +202,7 @@ function HardwareSection({ history, people, initialGroup, group }: { history: Pl
   const isModels = group === "models";
   return (
     <section id={isModels ? "historia-hardware" : "historia-control"} className="scroll-mt-24 border-t border-border py-7">
-      <div className="flex items-center gap-2">{isModels ? <Cpu className="h-5 w-5 text-accent" aria-hidden="true" /> : <Gamepad2 className="h-5 w-5 text-accent" aria-hidden="true" />}<h3 className="text-xl font-bold text-foreground">{isModels ? "Modelos y revisiones" : "Control y periféricos"}</h3></div>
+      <div className="flex items-center gap-2">{isModels ? <Cpu className="h-5 w-5 text-accent" aria-hidden="true" /> : <Gamepad2 className="h-5 w-5 text-accent" aria-hidden="true" />}<h3 className="text-xl font-bold text-foreground">{isModels ? (history.hardwareTitleEs ?? "Modelos y revisiones") : "Control y periféricos"}</h3></div>
       <PlatformHardwareExplorer hardware={history.hardware} personNames={people} initialGroup={initialGroup} groups={isModels ? ["models"] : ["controllers", "peripherals"]} />
     </section>
   );
@@ -247,7 +247,8 @@ function ServicesSection({ history }: { history: PlatformHistory }) {
   if (!history.services?.length) return null;
   return (
     <section id="historia-servicios" className="scroll-mt-24 border-t border-border py-7">
-      <div className="flex items-center gap-2"><Cloud className="h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-xl font-bold text-foreground">Servicios y suscripciones</h3></div>
+      <div className="flex items-center gap-2"><Cloud className="h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-xl font-bold text-foreground">{history.servicesTitleEs ?? "Servicios y suscripciones"}</h3></div>
+      {history.servicesDekEs ? <p className="mt-1 max-w-4xl text-sm leading-6 text-muted">{history.servicesDekEs}</p> : null}
       <ul className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         {history.services.map((service) => {
           const parent = service.parentServiceId ? history.services?.find((candidate) => candidate.id === service.parentServiceId) : null;
@@ -303,7 +304,7 @@ function MilestonesSection({ history }: { history: PlatformHistory }) {
 function LegacySection({ history }: { history: PlatformHistory }) {
   return (
     <section id="historia-legado" className="scroll-mt-24 border-t border-border py-7">
-      <h3 className="text-xl font-bold text-foreground">Legado provisional</h3>
+      <h3 className="text-xl font-bold text-foreground">{history.generationStatus ? "Legado provisional" : "Legado"}</h3>
       <div className="mt-4 grid gap-4 text-sm leading-7 text-foreground/80 md:grid-cols-2">{history.legacyEs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
     </section>
   );
