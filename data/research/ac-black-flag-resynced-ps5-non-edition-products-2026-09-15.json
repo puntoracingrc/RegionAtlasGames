@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "canonicalGameId": "assassins-creed-black-flag-resynced",
+  "platformReleaseId": "assassins-creed-black-flag-resynced-ps5",
+  "reviewedAt": "2026-09-15",
+  "digitalEditions": [
+    {
+      "id": "ac-black-flag-resynced-ps5-deluxe-digital",
+      "label": "Deluxe Edition",
+      "distribution": "DIGITAL_ONLY",
+      "includesPhysicalCopy": false,
+      "countsAsPhysicalEdition": false,
+      "source": "Ubisoft official edition description"
+    }
+  ],
+  "physicalBonusItems": [
+    {
+      "id": "ac-black-flag-resynced-ps5-polish-preorder-steelbook",
+      "type": "STEELBOOK_CASE",
+      "market": "PL",
+      "relation": "PREORDER_BONUS",
+      "baseGameBarcode": "3307216308874",
+      "includesGame": false,
+      "countsAsPhysicalEdition": false,
+      "source": "Gamefinity Poland"
+    }
+  ],
+  "retailerBundles": [
+    {
+      "id": "ac-black-flag-resynced-ps5-xtralife-boardgame-pack",
+      "retailer": "Xtralife",
+      "market": "ES",
+      "productId": "110911",
+      "baseGameVariantId": "ac-black-flag-resynced-ps5-standard-es",
+      "components": ["Juego físico", "Nine Men's Morris Boardgame", "Contenido promocional"],
+      "countsAsOfficialPhysicalEdition": false,
+      "sourceUrl": "https://www.xtralife.com/producto/pack-assassins-creed-iv-black-flag-resynced-nine-mens-morris-boardgame/110911"
+    },
+    {
+      "id": "ac-black-flag-resynced-ps5-xtralife-premium-pack",
+      "retailer": "Xtralife",
+      "market": "ES",
+      "productId": "110913",
+      "baseGameVariantId": "ac-black-flag-resynced-ps5-standard-es",
+      "components": ["Juego físico", "Estatua Animus Edward 1/8", "Réplica Hidden Blade", "Nine Men's Morris Boardgame", "Extras promocionales"],
+      "countsAsOfficialPhysicalEdition": false,
+      "sourceUrl": "https://www.xtralife.com/producto/pack-assassins-creed-iv-black-flag-resynced-estatua-18-hoja-oculta-nine-mens-morris-boardgame/110913"
+    }
+  ],
+  "hardwareBundlePolicy": {
+    "classification": "HARDWARE_BUNDLE",
+    "countsAsPhysicalEdition": false,
+    "note": "Un pack PS5 console + juego enlaza la variante real del juego y no crea otra edición física."
+  },
+  "disputedPhysicalRelations": [
+    {
+      "leftBarcode": "3307216308898",
+      "rightBarcode": "3307216308904",
+      "resolution": "KEEP_SEPARATE_PENDING_PHYSICAL_COMPARISON"
+    },
+    {
+      "leftBarcode": "3307216309635",
+      "rightBarcode": "3307216309642",
+      "resolution": "KEEP_SEPARATE_PENDING_PHYSICAL_COMPARISON"
+    },
+    {
+      "leftBarcode": "3307216308850",
+      "rightBarcode": "3307216309598",
+      "resolution": "KEEP_SEPARATE_PENDING_INNER_OUTER_SCAN"
+    }
+  ]
+}
