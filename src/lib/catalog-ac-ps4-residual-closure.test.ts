@@ -10,6 +10,7 @@ import {
   type RawCatalogEditionGuide,
 } from "./catalog-edition-guides";
 import { catalogGamePath } from "./catalog-path";
+import { catalogPhysicalEditionOverviewRegions } from "./catalog-physical-edition-browse";
 import { resolveCatalogGameParam } from "./catalog-url";
 
 const BLACK_FLAG_HITS_ID = "ps4-usa-assassin%27s-creed-iv-black-flag-playstation-hits";
@@ -52,6 +53,7 @@ test("Black Flag PlayStation Hits legacy US identity now maps to Europe, never a
   assert.equal(europe.catalogNumber, "CUSA-00009");
   assert.deepEqual(europe.ratingSystems, ["PEGI 18"]);
   assert.deepEqual(europe.catalogIds, [BLACK_FLAG_HITS_ID]);
+  assert.deepEqual(catalogPhysicalEditionOverviewRegions([europe]), ["PAL Europa"]);
 
   const german = edition(guide, "ac4-black-flag-ps4-europe-germany-playstation-hits-6076926");
   assert.equal(german.barcode, "3307216076926");
@@ -88,6 +90,7 @@ test("Unity legacy Hits asset is Europe pending identifiers, while Asian Greates
   assert.equal(european.barcode, undefined);
   assert.deepEqual(european.productCodes, []);
   assert.deepEqual(european.catalogIds, [UNITY_HITS_ID]);
+  assert.deepEqual(catalogPhysicalEditionOverviewRegions([european]), ["PAL Europa"]);
 
   const asia = edition(guide, "ac-unity-ps4-greatest-hits-asia-en-zh");
   assert.equal(asia.broadRegion, "ASIA");
