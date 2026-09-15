@@ -8,6 +8,10 @@ import xboxHistoryData from "../../data/research/platform-history/platforms-xbox
 import xbox360HistoryData from "../../data/research/platform-history/platforms-xbox360.json";
 import xboxOneHistoryData from "../../data/research/platform-history/platforms-xboxone.json";
 import xboxSeriesHistoryData from "../../data/research/platform-history/platforms-xboxseries.json";
+import neoGeoHistoryData from "../../data/research/platform-history/platforms-neogeo.json";
+import neoGeoCdHistoryData from "../../data/research/platform-history/platforms-neogeocd.json";
+import hyperNeoGeo64HistoryData from "../../data/research/platform-history/platforms-hyper-neogeo64.json";
+import neoGeoPocketHistoryData from "../../data/research/platform-history/platforms-neogeopocket.json";
 import type {
   CompanyPlatformHistoryLink,
   CompanyGenealogyLink,
@@ -27,9 +31,28 @@ const xboxData = xboxHistoryData as PlatformHistoryData;
 const xbox360Data = xbox360HistoryData as PlatformHistoryData;
 const xboxOneData = xboxOneHistoryData as PlatformHistoryData;
 const xboxSeriesData = xboxSeriesHistoryData as PlatformHistoryData;
+const neoGeoData = neoGeoHistoryData as PlatformHistoryData;
+const neoGeoCdData = neoGeoCdHistoryData as PlatformHistoryData;
+const hyperNeoGeo64Data = hyperNeoGeo64HistoryData as PlatformHistoryData;
+const neoGeoPocketData = neoGeoPocketHistoryData as PlatformHistoryData;
+const overlays = [
+  playstation2Data,
+  pspData,
+  playstation3Data,
+  psVitaData,
+  playstation5Data,
+  xboxData,
+  xbox360Data,
+  xboxOneData,
+  xboxSeriesData,
+  neoGeoData,
+  neoGeoCdData,
+  hyperNeoGeo64Data,
+  neoGeoPocketData,
+];
 const data: PlatformHistoryData = {
-  version: Math.max(baseData.version, playstation2Data.version, playstation3Data.version, playstation5Data.version, pspData.version, psVitaData.version, xboxData.version, xbox360Data.version, xboxOneData.version, xboxSeriesData.version),
-  generatedAt: xboxSeriesData.generatedAt,
+  version: Math.max(baseData.version, ...overlays.map((overlay) => overlay.version)),
+  generatedAt: neoGeoPocketData.generatedAt,
   platforms: [
     ...new Map(
       [
@@ -43,6 +66,10 @@ const data: PlatformHistoryData = {
         ...xbox360Data.platforms,
         ...xboxOneData.platforms,
         ...xboxSeriesData.platforms,
+        ...neoGeoData.platforms,
+        ...neoGeoCdData.platforms,
+        ...hyperNeoGeo64Data.platforms,
+        ...neoGeoPocketData.platforms,
       ].map((history) => [history.platformSlug, history]),
     ).values(),
   ],

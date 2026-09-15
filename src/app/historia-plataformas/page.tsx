@@ -30,6 +30,27 @@ const MANUFACTURER_STYLE: Record<Platform["manufacturer"], string> = {
   snk: "border-cyan-400/25 bg-cyan-500/[0.04]",
 };
 
+function historyDateLabel(platform: Platform): string | null {
+  if (platform.status === "announced" && platform.announcedReleaseDate) {
+    return `Anunciada · lanzamiento previsto ${new Intl.DateTimeFormat("es-ES", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
+    }).format(new Date(`${platform.announcedReleaseDate}T00:00:00Z`))}`;
+  }
+  if (platform.spainReleaseYear) return `Desde ${platform.spainReleaseYear} en España`;
+  if (platform.releaseYear) return `Desde ${platform.releaseYear}`;
+  return null;
+}
+
+function platformHistorySortYear(platform: Platform): number {
+  if (platform.spainReleaseYear) return platform.spainReleaseYear;
+  if (platform.releaseYear) return platform.releaseYear;
+  if (platform.announcedReleaseDate) return Number(platform.announcedReleaseDate.slice(0, 4));
+  return Number.MAX_SAFE_INTEGER;
+}
+
 export const metadata: Metadata = {
   title: "Historia por plataforma",
   description:
@@ -38,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Historia por plataforma | Region Atlas",
     description:
-      "Archivo editorial de generaciones, hardware, personas y compañías de la industria del videojuego.",
+      "Archivo editorial de plataformas, familias de hardware, personas y compañías de la industria del videojuego.",
     url: `${getSiteUrl()}/historia-plataformas`,
     type: "website",
   },
@@ -51,8 +72,7 @@ export default function PlatformHistoriesPage() {
       .filter(({ platform }) => platform.manufacturer === manufacturer.id)
       .sort(
         (a, b) =>
-          (a.platform.spainReleaseYear ?? Number.MAX_SAFE_INTEGER) -
-            (b.platform.spainReleaseYear ?? Number.MAX_SAFE_INTEGER) ||
+          platformHistorySortYear(a.platform) - platformHistorySortYear(b.platform) ||
           a.platform.sortOrder - b.platform.sortOrder,
       ),
   })).filter((group) => group.entries.length > 0);
@@ -70,8 +90,8 @@ export default function PlatformHistoriesPage() {
             Historia por plataforma
           </h1>
           <p className="mt-3 max-w-3xl text-base leading-7 text-muted">
-            Generaciones documentadas a través de su hardware, sus responsables, las compañías,
-            los servicios y los juegos que explican cada etapa.
+            Plataformas y familias de hardware documentadas a través de sus responsables, las
+            compañías, los servicios y los juegos que explican cada etapa.
           </p>
           <p className="mt-4 text-sm text-muted">
             <strong className="text-foreground">{histories.length}</strong> historias publicadas
@@ -89,37 +109,41 @@ export default function PlatformHistoriesPage() {
                   </h2>
                 </div>
                 <p className="text-sm text-muted">
-                  {group.entries.length} {group.entries.length === 1 ? "generación" : "generaciones"}
+                  {group.entries.length} {group.entries.length === 1 ? "historia" : "historias"}
                 </p>
               </div>
 
               <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {group.entries.map(({ history, platform }) => (
-                  <li key={history.platformSlug}>
-                    <Link
-                      href={platformHistoryPath(history.platformSlug)}
-                      className={`group relative block min-h-[210px] overflow-hidden rounded-lg border p-5 transition hover:-translate-y-0.5 hover:border-accent/45 hover:bg-card-hover ${MANUFACTURER_STYLE[platform.manufacturer]}`}
-                    >
-                      <PlatformCardArt platform={platform} compact />
-                      <div className="relative z-10 max-w-[calc(100%-5.5rem)]">
-                        <p className="text-xs font-semibold uppercase text-accent">Archivo editorial</p>
-                        <h3 className="mt-2 text-xl font-bold text-foreground">{history.title}</h3>
-                        {platform.spainReleaseYear ? (
-                          <p className="mt-1 text-xs text-muted">Desde {platform.spainReleaseYear} en España</p>
-                        ) : null}
-                      </div>
-                      <p className="relative z-10 mt-5 line-clamp-3 max-w-2xl text-sm leading-6 text-foreground/75">
-                        {history.dekEs}
-                      </p>
-                      <div className="relative z-10 mt-5 flex items-center justify-between gap-3 border-t border-border/70 pt-3 text-xs text-muted">
-                        <span>
-                          {history.figures.length} figuras · {history.companies.length} compañías
-                        </span>
-                        <ArrowRight aria-hidden className="h-4 w-4 shrink-0 text-accent transition group-hover:translate-x-0.5" />
-                      </div>
-                    </Link>
-                  </li>
-                ))}
+                {group.entries.map(({ history, platform }) => {
+                  const dateLabel = historyDateLabel(platform);
+                  return (
+                    <li key={history.platformSlug}>
+                      <Link
+                        href={platformHistoryPath(history.platformSlug)}
+                        className={`group relative block min-h-[210px] overflow-hidden rounded-lg border p-5 transition hover:-translate-y-0.5 hover:border-accent/45 hover:bg-card-hover ${MANUFACTURER_STYLE[platform.manufacturer]}`}
+                      >
+                        <PlatformCardArt platform={platform} compact />
+                        <div className="relative z-10 max-w-[calc(100%-5.5rem)]">
+                          <p className="text-xs font-semibold uppercase text-accent">Archivo editorial</p>
+                          <h3 className="mt-2 text-xl font-bold text-foreground">{history.title}</h3>
+                          {dateLabel ? <p className="mt-1 text-xs text-muted">{dateLabel}</p> : null}
+                        </div>
+                        <p className="relative z-10 mt-5 line-clamp-3 max-w-2xl text-sm leading-6 text-foreground/75">
+                          {history.dekEs}
+                        </p>
+                        <div className="relative z-10 mt-5 flex items-center justify-between gap-3 border-t border-border/70 pt-3 text-xs text-muted">
+                          <span>
+                            {history.figures.length}{" "}
+                            {history.figures.length === 1 ? "figura" : "figuras"} ·{" "}
+                            {history.companies.length}{" "}
+                            {history.companies.length === 1 ? "compañía" : "compañías"}
+                          </span>
+                          <ArrowRight aria-hidden className="h-4 w-4 shrink-0 text-accent transition group-hover:translate-x-0.5" />
+                        </div>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           ))}

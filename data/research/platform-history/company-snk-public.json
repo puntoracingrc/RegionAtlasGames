@@ -1,0 +1,155 @@
+{
+  "version": 8,
+  "profiles": [
+    {
+      "slug": "snk",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-15",
+      "sourceIds": ["source-snk-history","source-snk-company","source-snk-delisting"],
+      "history": {
+        "textEs": "La genealogía de SNK empieza con Shin Nihon Kikaku, fundada en 1978 y renombrada SNK en abril de 1986. Aquella sociedad desarrolló su identidad alrededor del arcade y creó el ecosistema Neo Geo, pero desapareció en 2001.\n\nLa compañía actual es otra persona jurídica: fue establecida como Playmore el 1 de agosto de 2001 y sucedió a la empresa original en sus derechos de propiedad intelectual. Adoptó el nombre SNK Playmore en julio de 2003, absorbió SNK Neogeo en 2004 y concentró de nuevo su actividad en videojuegos y licencias en 2015. Recuperó el nombre SNK Corporation en diciembre de 2016.\n\nRegion Atlas conserva ambas capas sin fusionarlas: SNK (1978-2001) explica la etapa clásica, mientras la ficha actual corresponde a la sociedad fundada en 2001. La continuidad de marca, IP y parte del legado creativo no convierte esa sucesión en un simple cambio de nombre.",
+        "method": "research",
+        "sourceIds": ["source-snk-history","source-snk-company"]
+      }
+    }
+  ],
+  "achievements": [
+    {
+      "id": "achievement-snk-foundation",
+      "companySlug": "snk",
+      "type": "CORPORATE_PREDECESSOR",
+      "title": "Nacimiento de Shin Nihon Kikaku",
+      "summaryEs": "La genealogía histórica de la marca comienza con la compañía original fundada en 1978; se muestra separada de la sociedad actual.",
+      "yearLabel": "1978",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-snk-history",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-snk-name-1986",
+      "companySlug": "snk",
+      "type": "CORPORATE_RENAME",
+      "title": "La compañía original adopta el nombre SNK",
+      "summaryEs": "Shin Nihon Kikaku cambió su nombre corporativo a SNK en abril de 1986 y reforzó su actividad de desarrollo de videojuegos.",
+      "yearLabel": "Abr 1986",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-snk-history",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-snk-neogeo-1990",
+      "companySlug": "snk",
+      "type": "PLATFORM_MILESTONE",
+      "title": "Neo Geo une arcade y hogar",
+      "summaryEs": "MVS y la propuesta doméstica Neo Geo nacieron alrededor de una arquitectura estrechamente compartida y una biblioteca común.",
+      "yearLabel": "1990",
+      "relatedGamesOrSeries": ["Neo Geo MVS","Neo Geo AES"],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-snk-history",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-snk-playmore-2001",
+      "companySlug": "snk",
+      "type": "IP_SUCCESSION",
+      "title": "Playmore sucede los derechos de propiedad intelectual",
+      "summaryEs": "La nueva sociedad fue establecida en 2001 y sucedió a la SNK original en sus IP; no se documenta como la misma persona jurídica.",
+      "yearLabel": "2001",
+      "relatedGamesOrSeries": ["Fatal Fury","The King of Fighters","Samurai Shodown","Metal Slug"],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-snk-history",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-snk-playmore-2003",
+      "companySlug": "snk",
+      "type": "CORPORATE_RENAME",
+      "title": "Playmore pasa a llamarse SNK Playmore",
+      "summaryEs": "La sociedad actual adoptó el nombre SNK Playmore en julio de 2003.",
+      "yearLabel": "Jul 2003",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-snk-company",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-snk-focus-2015",
+      "companySlug": "snk",
+      "type": "BUSINESS_REFOCUS",
+      "title": "Regreso al foco en juegos y licencias",
+      "summaryEs": "La compañía cerró su negocio de pachislot y concentró sus actividades en videojuegos y licencias.",
+      "yearLabel": "2015",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-snk-company",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-snk-name-2016",
+      "companySlug": "snk",
+      "type": "CORPORATE_RENAME",
+      "title": "Vuelve el nombre SNK Corporation",
+      "summaryEs": "Tras recuperar el logotipo SNK en abril, la sociedad cambió su nombre corporativo de SNK Playmore a SNK en diciembre.",
+      "yearLabel": "2016",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-snk-company",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-snk-ownership-2022",
+      "companySlug": "snk",
+      "type": "HISTORICAL_OWNERSHIP_EVENT",
+      "title": "Oferta de EGDC y salida de KOSDAQ",
+      "summaryEs": "En 2022 SNK informó que Electronic Gaming Development Company había alcanzado el 96,18 % tras su oferta y que la compañía sería excluida de KOSDAQ. La ficha no extrapola de este documento una relación de propiedad vigente en 2026.",
+      "yearLabel": "2022",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-snk-delisting",
+      "publicationStatus": "published"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-snk-history",
+      "url": "https://www.snk-corp.co.jp/snk-history/history/",
+      "title": "SNK History 1978-2024",
+      "kind": "OFFICIAL_CORPORATE_HISTORY",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["ja"],
+      "subjectSlugs": ["snk","snk-original","playmore","snk-playmore"],
+      "supportsFields": ["foundation","history","names","platforms","products","relationships"],
+      "retrievedAt": "2026-09-15T12:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "source-snk-company",
+      "url": "https://www.snk-corp.co.jp/us/company/",
+      "title": "SNK Corporation · Company",
+      "kind": "OFFICIAL_CORPORATE_PROFILE",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["snk","playmore","snk-playmore"],
+      "supportsFields": ["foundation","history","names","structure","relationships"],
+      "retrievedAt": "2026-09-15T12:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "source-snk-delisting",
+      "url": "https://www.snk-corp.co.jp/us/wp/wp-content/uploads/2022/05/Notice_of_delisting_from_KRX.pdf",
+      "title": "Notice of delisting from KRX",
+      "kind": "OFFICIAL_INVESTOR_NOTICE",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["snk"],
+      "supportsFields": ["ownership","relationships","stock_exchange"],
+      "retrievedAt": "2026-09-15T12:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    }
+  ]
+}

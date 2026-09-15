@@ -1,4 +1,5 @@
 import publicResearchData from "../../data/research/company-study/public.json";
+import snkResearchData from "../../data/research/platform-history/company-snk-public.json";
 import type {
   CompanyResearchAchievement,
   CompanyResearchPublicData,
@@ -7,7 +8,20 @@ import type {
 } from "./company-research-types";
 import type { CompanyProfile, CompanyProfileSources } from "./types";
 
-const publicData = publicResearchData as CompanyResearchPublicData;
+function mergeByKey<T>(base: T[], overlay: T[], key: (item: T) => string): T[] {
+  const merged = new Map(base.map((item) => [key(item), item]));
+  for (const item of overlay) merged.set(key(item), item);
+  return [...merged.values()];
+}
+
+const baseData = publicResearchData as CompanyResearchPublicData;
+const snkData = snkResearchData as CompanyResearchPublicData;
+const publicData: CompanyResearchPublicData = {
+  version: Math.max(baseData.version, snkData.version),
+  profiles: mergeByKey(baseData.profiles, snkData.profiles, (item) => item.slug),
+  achievements: mergeByKey(baseData.achievements, snkData.achievements, (item) => item.id),
+  sources: mergeByKey(baseData.sources, snkData.sources, (item) => item.id),
+};
 const profiles = new Map(publicData.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(publicData.sources.map((source) => [source.id, source]));
 

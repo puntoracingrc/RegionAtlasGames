@@ -1,0 +1,83 @@
+{
+  "version": 8,
+  "generatedAt": "2026-09-15T12:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "hyper-neogeo-64",
+      "title": "Hyper Neo Geo 64",
+      "dekEs": "La placa arcade de 1997 fue el intento de SNK de suceder técnicamente al MVS y ampliar su lenguaje visual hacia el 3D, aunque convivió con el sistema anterior y reunió un catálogo breve.",
+      "summaryParagraphsEs": [
+        "SNK sitúa el lanzamiento de Hyper Neo Geo 64 en septiembre de 1997 y la define como una placa arcade de altas prestaciones desarrollada para suceder al MVS.",
+        "Su función histórica fue abrir una vía de experimentación poligonal sin abandonar por completo la experiencia 2D acumulada por SNK.",
+        "La intención de reemplazo no equivale a un reemplazo efectivo: MVS siguió recibiendo software, mientras Hyper Neo Geo 64 reunió una biblioteca mucho más pequeña.",
+        "Fue hardware arcade, no una consola doméstica, y no se presenta como compatible con AES."
+      ],
+      "historyTitleEs": "La transición de SNK del 2D al 3D",
+      "historyParagraphsEs": [
+        "A mediados de los noventa el mercado arcade estaba incorporando gráficos poligonales. SNK respondió con una nueva placa que buscaba mejorar el 2D e introducir producción 3D.",
+        "Samurai Shodown 64, Fatal Fury: Wild Ambition y Buriki One trasladaron universos y sensibilidad visual de SNK a espacios poligonales, mientras Road's Edge y Xtreme Rally ampliaron los géneros representados.",
+        "La plataforma no desplazó a MVS. Ambos sistemas coexistieron y el catálogo original de Neo Geo continuó creciendo hasta 2004.",
+        "Su importancia reside tanto en los juegos publicados como en el aprendizaje 3D que anticipó proyectos posteriores, sin convertir esos proyectos en software de Hyper Neo Geo 64."
+      ],
+      "figures": [
+        {"personSlug":"yasuyuki-oda","personName":"Yasuyuki Oda","roleLabelEs":"Desarrollo 3D en SNK","contributionEs":"Su trayectoria en la SNK clásica se relaciona con la transición hacia producción 3D; los créditos concretos se limitan a proyectos documentados.","period":"Finales de los 90","sourceIds":["PH-HYPER-DOSSIER"]},
+        {"personSlug":"hiroaki","personName":"Hiroaki","roleLabelEs":"Arte y personajes","contributionEs":"El artista acreditado bajo este nombre se vincula visualmente con Fatal Fury: Wild Ambition y Buriki One; no se infiere un nombre civil no confirmado.","period":"Etapa Hyper Neo Geo 64","sourceIds":["PH-HYPER-DOSSIER"]}
+      ],
+      "architectureTitleEs": "Una placa arcade para 2D y 3D",
+      "architectureDekEs": "Se conserva la definición funcional oficial y se omiten especificaciones no contrastadas.",
+      "architecture": [
+        {"id":"architecture-hyper-3d","name":"Transición gráfica 2D/3D","kind":"GRAPHICS","summaryEs":"SNK desarrolló la placa para mejorar la capacidad 2D e incorporar gráficos 3D en su producción arcade.","features":["Hardware arcade","Producción poligonal","Sin atribuir especificaciones técnicas no verificadas"],"partners":[{"companySlug":"snk","companyName":"SNK","roleLabelEs":"Diseño y desarrollo"}],"sourceIds":["PH-HYPER-SNK-HISTORY"]},
+        {"id":"architecture-hyper-media","name":"Placa arcade propia","kind":"GAME_MEDIA","summaryEs":"El hardware pertenece a una rama distinta de MVS/AES y no se documenta compatibilidad física con los cartuchos Neo Geo.","features":["Ecosistema arcade independiente","Catálogo específico"],"partners":[{"companySlug":"snk","companyName":"SNK","roleLabelEs":"Fabricante"}],"sourceIds":["PH-HYPER-SNK-HISTORY","PH-HYPER-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Responsabilidad de plataforma",
+      "companies": [
+        {"companySlug":"snk","companyName":"SNK","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y desarrolladora principal","period":"1997-finales de los 90","contributionEs":"Diseñó la placa y publicó la breve biblioteca documentada de Hyper Neo Geo 64.","relatedWorks":["Samurai Shodown 64","Fatal Fury: Wild Ambition","Buriki One","Road's Edge"],"sourceIds":["PH-HYPER-SNK-HISTORY","PH-HYPER-SAMURAI"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "Biblioteca verificada de Hyper Neo Geo 64",
+      "gameGroups": [
+        {
+          "id": "hyper-neogeo64-library",
+          "labelEs": "Juegos representativos",
+          "descriptionEs": "No se enlazan a fichas de otras plataformas ni se amplía la lista con títulos 3D posteriores.",
+          "games": [
+            {"title":"Samurai Shodown 64 / Samurai Spirits: Samurai Tamashii","catalogId":null,"year":1997,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-HYPER-SAMURAI"]},
+            {"title":"Road's Edge","catalogId":null,"year":1997,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-HYPER-DOSSIER"]},
+            {"title":"Xtreme Rally","catalogId":null,"year":1998,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-HYPER-DOSSIER"]},
+            {"title":"Beast Busters: Second Nightmare","catalogId":null,"year":1998,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-HYPER-DOSSIER"]},
+            {"title":"Fatal Fury: Wild Ambition","catalogId":null,"year":1999,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-HYPER-DOSSIER"]},
+            {"title":"Samurai Shodown 64: Warriors Rage / Asura Zanmaden","catalogId":null,"year":1998,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-HYPER-DOSSIER"]},
+            {"title":"Buriki One","catalogId":null,"year":1999,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-HYPER-DOSSIER"]}
+          ]
+        }
+      ],
+      "hardwareTitleEs": "Hardware arcade, no consola doméstica",
+      "hardware": [
+        {"id":"hardware-hyper-neogeo64-board","name":"Hyper Neo Geo 64","kind":"BASE_MODEL","yearLabel":"Septiembre de 1997","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Placa arcade creada como sucesora técnica del MVS y como base para ampliar la producción 3D de SNK.","features":["Uso exclusivo en arcade","Biblioteca específica","No compatible con AES"],"relatedWorks":["Samurai Shodown 64","Fatal Fury: Wild Ambition","Buriki One"],"relatedPersonSlugs":["yasuyuki-oda","hiroaki"],"sourceIds":["PH-HYPER-SNK-HISTORY","PH-HYPER-SAMURAI"]}
+      ],
+      "editorialSections": [
+        {"id":"hyper-need-successor","titleEs":"Por qué SNK buscó un sucesor","dekEs":"La nueva competencia arcade hacía necesario explorar gráficos poligonales.","paragraphsEs":["MVS seguía siendo una plataforma 2D sólida, pero su arquitectura no respondía por sí sola al giro poligonal de mediados de los noventa.","Hyper Neo Geo 64 fue la respuesta técnica de SNK, aunque su intención de sucesión no acabó con MVS."],"cards":[],"sourceIds":["PH-HYPER-SNK-HISTORY"]},
+        {"id":"hyper-visual-transition","titleEs":"Del legado 2D a la experimentación 3D","dekEs":"Una transición estética, no una ruptura limpia.","paragraphsEs":["Los juegos trasladaron personajes, encuadres y sensibilidad de las sagas 2D a escenarios poligonales.","KOF Maximum Impact y otros proyectos 3D posteriores pertenecen al legado conceptual, no al catálogo de esta placa."],"cards":[],"sourceIds":["PH-HYPER-DOSSIER"]},
+        {"id":"hyper-coexistence","titleEs":"Coexistencia con MVS","dekEs":"El sistema anterior mantuvo una vida de software mucho más larga.","paragraphsEs":["Hyper Neo Geo 64 no reemplazó de hecho al MVS: ambos convivieron y el catálogo MVS/AES siguió recibiendo títulos.","Por eso la ficha evita resumir el resultado con una etiqueta simple de éxito o fracaso."],"cards":[],"sourceIds":["PH-HYPER-SNK-HISTORY","PH-HYPER-DOSSIER"]}
+      ],
+      "sectionOrder": ["editorial:hyper-need-successor","architecture","figures","hardware","games","editorial:hyper-visual-transition","editorial:hyper-coexistence","companies","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-hyper-1997-launch","yearLabel":"Sep 1997","sortYear":1997,"title":"Lanzamiento de Hyper Neo Geo 64","summaryEs":"SNK introduce su placa arcade destinada a suceder técnicamente al MVS.","sourceIds":["PH-HYPER-SNK-HISTORY"]},
+        {"id":"milestone-hyper-samurai","yearLabel":"Dic 1997","sortYear":1997,"title":"Samurai Shodown 64","summaryEs":"La serie de lucha de SNK da el salto a gráficos poligonales en la nueva placa.","sourceIds":["PH-HYPER-SAMURAI"]},
+        {"id":"milestone-hyper-expansion","yearLabel":"1998-1999","sortYear":1998,"title":"Biblioteca breve y variada","summaryEs":"Conducción, tiro y lucha amplían el catálogo sin alcanzar la escala de MVS.","sourceIds":["PH-HYPER-DOSSIER"]},
+        {"id":"milestone-hyper-end","yearLabel":"Finales de los 90","sortYear":1999,"title":"Fin de la rama Hyper","summaryEs":"La experimentación 3D continúa en otros proyectos, mientras MVS sigue activo.","sourceIds":["PH-HYPER-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "Hyper Neo Geo 64 documenta el momento en que SNK intentó trasladar su experiencia arcade a una arquitectura poligonal propia.",
+        "Su catálogo pequeño no borra su valor como laboratorio para nuevas formas de representar las sagas de lucha de la compañía.",
+        "La coexistencia con MVS demuestra que una sucesión técnica prevista no siempre se convierte en relevo comercial efectivo."
+      ],
+      "sources": [
+        {"id":"PH-HYPER-DOSSIER","title":"Dossier editorial Region Atlas · Hyper Neo Geo 64","publication":"Region Atlas","publisher":"Archivo de investigación","kind":"reference","language":"es","citation":"Análisis respaldado, septiembre de 2026","url":null},
+        {"id":"PH-HYPER-SNK-HISTORY","title":"SNK History 1978-2024","publication":"SNK History","publisher":"SNK Corporation","kind":"official","language":"ja","citation":"Lanzamiento y propósito de la placa","url":"https://www.snk-corp.co.jp/snk-history/history/"},
+        {"id":"PH-HYPER-SAMURAI","title":"Samurai Spirits 1997","publication":"Samurai Spirits Portal","publisher":"SNK Corporation","kind":"official","language":"ja","citation":"Lanzamiento y plataforma","url":"https://www.snk-corp.co.jp/official/samuraispirits-portal/samuraispirits1997/"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

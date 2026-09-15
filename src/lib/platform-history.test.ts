@@ -36,7 +36,22 @@ test("publishes reusable structured history and keeps an empty fallback", () => 
   assert.equal(getPlatformHistory("snes"), undefined);
   assert.deepEqual(
     getPlatformHistoryData().platforms.map((platform) => platform.platformSlug),
-    ["ps1", "ps2", "psp", "ps3", "psvita", "ps5", "xbox", "xbox360", "xboxone", "xboxseries"],
+    [
+      "ps1",
+      "ps2",
+      "psp",
+      "ps3",
+      "psvita",
+      "ps5",
+      "xbox",
+      "xbox360",
+      "xboxone",
+      "xboxseries",
+      "neogeo",
+      "neogeocd",
+      "hyper-neogeo-64",
+      "neogeopocket",
+    ],
   );
   assert.equal(history.figures.length, 7);
   assert.equal(history.companies.length, 16);
