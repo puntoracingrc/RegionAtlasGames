@@ -356,9 +356,9 @@
     "estimatedCatalogSize": 0,
     "sortOrder": 30,
     "spainReleaseYear": 2020,
-    "active": false,
+    "active": true,
     "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "description": "Generación activa de Microsoft con Xbox Series X y Xbox Series S."
   },
   {
     "slug": "xboxone",
@@ -369,9 +369,9 @@
     "estimatedCatalogSize": 0,
     "sortOrder": 31,
     "spainReleaseYear": 2013,
-    "active": false,
+    "active": true,
     "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "description": "Tercera generación de consolas Xbox, lanzada en 2013."
   },
   {
     "slug": "xbox360",
@@ -382,9 +382,9 @@
     "estimatedCatalogSize": 0,
     "sortOrder": 32,
     "spainReleaseYear": 2005,
-    "active": false,
+    "active": true,
     "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "description": "Segunda generación de consolas Xbox, lanzada en Europa en 2005."
   },
   {
     "slug": "xbox",
@@ -395,8 +395,8 @@
     "estimatedCatalogSize": 0,
     "sortOrder": 33,
     "spainReleaseYear": 2002,
-    "active": false,
+    "active": true,
     "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "description": "Primera consola de Microsoft, lanzada en Europa en 2002."
   }
 ]

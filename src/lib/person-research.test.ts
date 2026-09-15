@@ -19,6 +19,7 @@ import psVitaPublicData from "../../data/research/platform-history/people-psvita
 import xboxPublicData from "../../data/research/platform-history/people-xbox-public.json";
 import xbox360PublicData from "../../data/research/platform-history/people-xbox360-public.json";
 import xboxOnePublicData from "../../data/research/platform-history/people-xboxone-public.json";
+import xboxSeriesPublicData from "../../data/research/platform-history/people-xboxseries-public.json";
 import relationsData from "../../data/research/person-study/relations.json";
 import reviewData from "../../data/research/person-study/review.json";
 import sourcesData from "../../data/research/person-study/sources.json";
@@ -129,6 +130,7 @@ const psVitaPublic = psVitaPublicData as unknown as PersonPublicOverlayData;
 const xboxPublic = xboxPublicData as unknown as PersonPublicOverlayData;
 const xbox360Public = xbox360PublicData as unknown as PersonPublicOverlayData;
 const xboxOnePublic = xboxOnePublicData as unknown as PersonPublicOverlayData;
+const xboxSeriesPublic = xboxSeriesPublicData as unknown as PersonPublicOverlayData;
 const companies = companiesData as Record<string, unknown>;
 
 function sha256File(relativePath: string): string {
@@ -215,6 +217,8 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
       ...(xbox360Public.profilePatches ?? []).map((profile) => profile.slug),
       ...(xboxOnePublic.profiles ?? []).map((profile) => profile.slug),
       ...(xboxOnePublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(xboxSeriesPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(xboxSeriesPublic.profilePatches ?? []).map((profile) => profile.slug),
     ],
   );
   const nonPublic = core.filter(
@@ -234,6 +238,7 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
     ...(xboxPublic.profiles ?? []).map((profile) => profile.slug),
     ...(xbox360Public.profiles ?? []).map((profile) => profile.slug),
     ...(xboxOnePublic.profiles ?? []).map((profile) => profile.slug),
+    ...(xboxSeriesPublic.profiles ?? []).map((profile) => profile.slug),
   ]);
   assert.deepEqual(sorted(publicSlugs), sorted(expectedPublicSlugs));
   for (const person of nonPublic) {

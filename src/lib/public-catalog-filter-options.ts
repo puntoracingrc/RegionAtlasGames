@@ -1,4 +1,4 @@
-import { platforms, publicListedCatalog } from "@/lib/catalog";
+import { hasPublicCatalogGames, platforms, publicListedCatalog } from "@/lib/catalog";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay, regionDisplayIdentity } from "@/lib/region-display";
 import { getCompanies } from "@/lib/indexes";
@@ -30,7 +30,7 @@ const REGISTERED_MARKET_LABELS = new Set(
 
 export function publicPlatformFilterOptions(): CatalogPlatformFilterOption[] {
   return platforms
-    .filter((platform) => platform.active !== false)
+    .filter((platform) => platform.active !== false && hasPublicCatalogGames(platform.slug))
     .sort((a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name, "es", { sensitivity: "base" }))
     .map((platform) => ({ slug: platform.slug, name: platform.shortName || platform.name }));
 }

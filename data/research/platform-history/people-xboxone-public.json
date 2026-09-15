@@ -27,14 +27,14 @@
   "profilePatches":[],
   "companyRelations":[
     {"id":"PHR-XONE-MATTRICK-MICROSOFT","personSlug":"don-mattrick","companySlug":"microsoft","companyName":"Microsoft","role":"XBOX_ONE_LAUNCH_EXECUTIVE","roleLabelEs":"Estrategia inicial de Xbox One","start":null,"end":"2013-07","pointInTime":"2013","confidence":"VERY_HIGH","sourceId":"PH-XONE-REVEAL","relationOrigin":"XBOXONE_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"},
-    {"id":"PHR-XONE-SPENCER-MICROSOFT","personSlug":"phil-spencer","companySlug":"microsoft","companyName":"Microsoft","role":"HEAD_OF_XBOX","roleLabelEs":"Head of Xbox","start":"2014-03-31","end":null,"pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-XONE-SPENCER","relationOrigin":"XBOXONE_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"},
-    {"id":"PHR-XONE-BOOTY-MICROSOFT","personSlug":"matt-booty","companySlug":"microsoft","companyName":"Microsoft","role":"HEAD_XBOX_GAME_STUDIOS","roleLabelEs":"Dirección de Xbox Game Studios","start":"2018","end":null,"pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-XONE-ACQ-2018B","relationOrigin":"XBOXONE_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"},
+    {"id":"PHR-XONE-SPENCER-MICROSOFT","personSlug":"phil-spencer","companySlug":"microsoft","companyName":"Microsoft","role":"HEAD_OF_XBOX","roleLabelEs":"Head of Xbox","start":"2014-03-31","end":"2026-02","pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-XONE-SPENCER","relationOrigin":"XBOXONE_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"},
+    {"id":"PHR-XONE-BOOTY-MICROSOFT","personSlug":"matt-booty","companySlug":"microsoft","companyName":"Microsoft","role":"HEAD_XBOX_GAME_STUDIOS","roleLabelEs":"Dirección de Xbox Game Studios","start":"2018","end":"2023-10","pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-XONE-ACQ-2018B","relationOrigin":"XBOXONE_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"},
     {"id":"PHR-XONE-HRYB-MICROSOFT","personSlug":"larry-hryb","companySlug":"microsoft","companyName":"Microsoft","role":"XBOX_LIVE_COMMUNICATIONS","roleLabelEs":"Xbox Live y comunidad","start":null,"end":null,"pointInTime":"2014","confidence":"HIGH","sourceId":"PH-XONE-SPENCER","relationOrigin":"XBOXONE_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"},
     {"id":"PHR-XONE-ROSS-343","personSlug":"bonnie-ross","companySlug":"343-industries","companyName":"343 Industries","role":"STUDIO_HEAD","roleLabelEs":"Dirección de estudio","start":null,"end":null,"pointInTime":"2015","confidence":"HIGH","sourceId":"PH-XONE-DOSSIER","relationOrigin":"XBOXONE_EDITORIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"}
   ],
   "positions":[
-    {"id":"PHPOS-XONE-SPENCER","personSlug":"phil-spencer","name":"Head of Xbox","start":"2014-03-31","end":null,"pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-XONE-SPENCER"},
-    {"id":"PHPOS-XONE-BOOTY","personSlug":"matt-booty","name":"Head of Xbox Game Studios","start":"2018","end":null,"pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-XONE-ACQ-2018B"}
+    {"id":"PHPOS-XONE-SPENCER","personSlug":"phil-spencer","name":"Head of Xbox","start":"2014-03-31","end":"2026-02","pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-XONE-SPENCER"},
+    {"id":"PHPOS-XONE-BOOTY","personSlug":"matt-booty","name":"Head of Xbox Game Studios","start":"2018","end":"2023-10","pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-XONE-ACQ-2018B"}
   ],
   "exactCredits":[],
   "relatedWorks":[
