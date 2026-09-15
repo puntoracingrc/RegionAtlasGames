@@ -1055,6 +1055,7 @@ export function AdminEntitiesPanel({
                 value={platformStatus}
                 onChange={(e) => setPlatformStatus(e.target.value)}
               >
+                <option value="announced">Anunciada</option>
                 <option value="closed">Cerrada</option>
                 <option value="semi-closed">Semi-cerrada</option>
                 <option value="open">Abierta</option>
@@ -1444,6 +1445,7 @@ export function AdminEntitiesPanel({
                         value={editStatus}
                         onChange={(e) => setEditStatus(e.target.value)}
                       >
+                        <option value="announced">Anunciada</option>
                         <option value="closed">Cerrada</option>
                         <option value="semi-closed">Semi-cerrada</option>
                         <option value="open">Abierta</option>

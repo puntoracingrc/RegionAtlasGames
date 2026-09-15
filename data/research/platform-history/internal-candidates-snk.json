@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T12:00:00.000Z",
+  "peopleCandidates": [
+    {
+      "personSlug": "nao-q",
+      "personName": "Nao Q",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "El dossier respalda su importancia en logotipos y gráficos de Neo Geo, pero aún no aporta una biografía pública suficiente ni una identidad externa estable."
+    },
+    {
+      "personSlug": "tonko",
+      "personName": "Tonko",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Se conservan The Last Blade y Metal Slug como líneas de investigación, sin publicar créditos concretos hasta contrastarlos título a título."
+    },
+    {
+      "personSlug": "nobuyuki-kuroki",
+      "personName": "Nobuyuki Kuroki",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Su relación con Fatal Fury, Garou y la etapa moderna de SNK necesita fuentes de crédito exactas antes de conectarla a juegos o hardware concretos."
+    },
+    {
+      "personSlug": "toyohisa-tanabe",
+      "personName": "Toyohisa Tanabe",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "El dossier lo marca expresamente como candidato y no autoriza presentarlo como creador de The King of Fighters sin una fuente inequívoca."
+    }
+  ],
+  "companyCandidates": [
+    {
+      "companySlug": "electronic-gaming-development-company",
+      "companyName": "Electronic Gaming Development Company",
+      "status": "NEEDS_CURRENT_OWNERSHIP_REVIEW",
+      "reasonEs": "La participación del 96,18 % está respaldada para 2022, pero la relación pública actual requiere una comprobación corporativa posterior antes de crear una entidad o vínculo vigente."
+    }
+  ],
+  "creditCandidates": [
+    {
+      "title": "Neo Geo CD · exclusividades",
+      "status": "NEEDS_TITLE_BY_TITLE_VERIFICATION",
+      "reasonEs": "ADK World, Crossed Swords II y ZinTrick no se publican como exclusivos hasta verificar cada lanzamiento de forma individual."
+    },
+    {
+      "title": "Hyper Neo Geo 64 · créditos personales",
+      "status": "NEEDS_TITLE_BY_TITLE_VERIFICATION",
+      "reasonEs": "No se asignan créditos de Takashi Nishiyama o Nobuyuki Kuroki a juegos concretos sin documentación de cada título."
+    }
+  ],
+  "mediaReferences": [
+    {"personSlug":"eikichi-kawasaki","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."},
+    {"personSlug":"takashi-nishiyama","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."},
+    {"personSlug":"hiroshi-matsumoto","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."},
+    {"personSlug":"shinkiro","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."},
+    {"personSlug":"hiroaki","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."},
+    {"personSlug":"yasuyuki-oda","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."}
+  ]
+}

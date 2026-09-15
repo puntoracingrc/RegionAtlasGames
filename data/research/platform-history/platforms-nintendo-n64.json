@@ -1,0 +1,106 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "n64",
+      "title": "Nintendo 64 / 64DD",
+      "lineage": {"branchLabelEs":"Línea doméstica","summaryEs":"Nintendo 64 sucede a SNES en el salto doméstico al 3D. 64DD amplía el sistema en Japón, pero no constituye una generación ni un lanzamiento global.","links":[
+        {"platformSlug":"snes","platformName":"Super Famicom / Super Nintendo","relationship":"PREDECESSOR","summaryEs":"Continúa la línea doméstica después de la generación de 16 bits.","sourceIds":["PH-NIN-N64-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"gamecube","platformName":"Nintendo GameCube","relationship":"SUCCESSOR","summaryEs":"GameCube continúa la línea doméstica con soporte óptico.","sourceIds":["PH-NIN-N64-DOSSIER","PH-NIN-HISTORY"]}
+      ]},
+      "dekEs": "El salto tridimensional de Nintendo con tecnología de Silicon Graphics, control analógico, cartuchos y expansiones como Rumble Pak, Expansion Pak y el 64DD japonés.",
+      "summaryParagraphsEs": [
+        "Nintendo 64 se lanzó en 1996 y Nintendo registra 32,93 millones de consolas y 224,97 millones de juegos.",
+        "La relación SGI → Project Reality → Nintendo 64 conecta MIPS y Reality Co-Processor con el diseño final sin reducir una arquitectura compleja a una sola empresa o persona.",
+        "El mando de tres puntas, su stick analógico y el puerto de expansión acompañaron el cambio hacia el movimiento 3D. Rumble Pak convirtió la vibración de Star Fox 64 en un hito de control.",
+        "El cartucho ofrecía robustez y tiempos de acceso rápidos a cambio de capacidad y coste. Las relaciones con publishers como Square se narran con matices y no mediante una causa única.",
+        "64DD fue una expansión japonesa de discos magnéticos y servicio Randnet; no se publica como consola global independiente."
+      ],
+      "historyTitleEs": "Project Reality, cartucho y lenguaje 3D",
+      "historyParagraphsEs": [
+        "Silicon Graphics colaboró con Nintendo en Project Reality, origen tecnológico de una máquina basada en arquitectura MIPS y Reality Co-Processor.",
+        "Super Mario 64, Ocarina of Time y Mario Kart 64 transformaron diseño, cámara y control; Rare aportó GoldenEye, Banjo-Kazooie y Perfect Dark como socio independiente.",
+        "Expansion Pak añadió memoria para requisitos o mejoras específicas según el juego. 64DD exploró discos regrabables, Mario Artist y expansión de F-Zero X exclusivamente en Japón."
+      ],
+      "architectureTitleEs": "SGI, MIPS y soporte en cartucho",
+      "architectureDekEs": "Arquitectura base y ampliaciones mantienen identidades separadas.",
+      "figures": [
+        {"personSlug":"hiroshi-yamauchi","personName":"Hiroshi Yamauchi","roleLabelEs":"Dirección empresarial","contributionEs":"Presidió Nintendo durante Project Reality y el ciclo de Nintendo 64.","period":"Etapa Nintendo 64","sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"personSlug":"genyo-takeda","personName":"Genyo Takeda","roleLabelEs":"Dirección de hardware","contributionEs":"Figura principal de IRD vinculada a la arquitectura de Nintendo 64.","period":"Desarrollo de Nintendo 64","sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Dirección y producción creativa","contributionEs":"Figura central en Super Mario 64 y The Legend of Zelda.","period":"Etapa Nintendo 64","sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"personSlug":"eiji-aonuma","personName":"Eiji Aonuma","roleLabelEs":"Dirección de Zelda","contributionEs":"Se incorpora a la dirección de la serie en Ocarina of Time y Majora's Mask.","period":"1998-2000","sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"personSlug":"yoshiaki-koizumi","personName":"Yoshiaki Koizumi","roleLabelEs":"Diseño y dirección","contributionEs":"Contribuyó a Mario y Zelda en el cambio al diseño tridimensional.","period":"Etapa Nintendo 64","sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"personSlug":"hideki-konno","personName":"Hideki Konno","roleLabelEs":"Dirección de juego","contributionEs":"Figura creativa vinculada a Mario Kart 64.","period":"1996","sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"personSlug":"masahiro-sakurai","personName":"Masahiro Sakurai","roleLabelEs":"Dirección creativa externa","contributionEs":"Dirigió Super Smash Bros. desde HAL Laboratory, sin convertir HAL en propiedad de Nintendo.","period":"1999","sourceIds":["PH-NIN-N64-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-n64-project-reality","name":"Project Reality y Reality Co-Processor","kind":"GRAPHICS","summaryEs":"La colaboración con Silicon Graphics da forma al procesamiento gráfico y audiovisual del sistema.","features":["Arquitectura MIPS","Reality Co-Processor","Diseño orientado a 3D"],"partners":[{"companySlug":"silicon-graphics","companyName":"Silicon Graphics","roleLabelEs":"Socio tecnológico"},{"companySlug":"nintendo-ird","companyName":"Nintendo IRD","roleLabelEs":"Diseño e integración"}],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"id":"architecture-n64-cartridge","name":"Cartucho Nintendo 64","kind":"GAME_MEDIA","summaryEs":"Soporte sólido y de acceso rápido con compromisos de capacidad y coste frente al CD.","features":["Acceso rápido","Capacidad menor que el CD contemporáneo","Coste de fabricación por cartucho"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma y licencias"}],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"id":"architecture-64dd-disks","name":"Discos magnéticos 64DD","kind":"STORAGE_IO","summaryEs":"Soporte regrabable de la expansión japonesa 64DD.","features":["Sólo Japón","Datos regrabables","Randnet y Mario Artist"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Expansión"}],"sourceIds":["PH-NIN-N64-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Nintendo, SGI, Rare y socios de software",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"1996-2002","relationshipStart":"1996","relationshipEnd":null,"contributionEs":"Desarrolló la plataforma, periféricos y una parte central del catálogo.","relatedWorks":["Nintendo 64","Super Mario 64","The Legend of Zelda"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-N64-DOSSIER"]},
+        {"companySlug":"nintendo-ird","companyName":"Nintendo IRD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Hardware interno","period":"Desarrollo de Nintendo 64","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Equipo interno de arquitectura e integración de hardware.","relatedWorks":["Nintendo 64"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"companySlug":"silicon-graphics","companyName":"Silicon Graphics","relationshipType":"HARDWARE_PARTNER","relationshipLabelEs":"Socio tecnológico","period":"Project Reality","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó tecnología y colaboración de arquitectura para Project Reality.","relatedWorks":["Project Reality","Reality Co-Processor"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"companySlug":"rare","companyName":"Rare","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa Nintendo 64","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló varias obras decisivas siendo todavía una empresa independiente.","relatedWorks":["GoldenEye 007","Banjo-Kazooie","Perfect Dark"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"companySlug":"hal-laboratory","companyName":"HAL Laboratory","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa Nintendo 64","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló Super Smash Bros. y otros títulos como compañía independiente vinculada a Nintendo.","relatedWorks":["Super Smash Bros.","Kirby 64"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"companySlug":"square","companyName":"Square","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Transición 16/32-64 bits","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Su relación con Nintendo cambió durante la transición al soporte óptico; el cartucho no se presenta como explicación monocausal.","relatedWorks":["Final Fantasy","Super Mario RPG"],"sourceIds":["PH-NIN-N64-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"n64-platform","labelEs":"Plataforma","descriptionEs":"Nintendo, IRD y SGI en la arquitectura del sistema.","companySlugs":["nintendo","nintendo-ird","silicon-graphics"]},
+        {"id":"n64-partners","labelEs":"Socios de software","descriptionEs":"Relaciones externas y fechadas, sin propiedad retroactiva.","companySlugs":["rare","hal-laboratory","square"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "El salto al 3D y sus socios",
+      "gameGroups": [
+        {"id":"n64-nintendo-games","labelEs":"Nintendo","descriptionEs":"Obras que establecieron control, cámara y géneros en tres dimensiones.","games":[
+          {"title":"Super Mario 64","catalogId":null,"year":1996,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+          {"title":"The Legend of Zelda: Ocarina of Time","catalogId":null,"year":1998,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+          {"title":"The Legend of Zelda: Majora's Mask","catalogId":null,"year":2000,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo · Expansion Pak","companySlugs":["nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+          {"title":"Mario Kart 64","catalogId":null,"year":1996,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+          {"title":"Star Fox 64","catalogId":null,"year":1997,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo · Rumble Pak","companySlugs":["nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]}
+        ]},
+        {"id":"n64-partner-games","labelEs":"Socios independientes","descriptionEs":"Rare y HAL conservan identidad empresarial propia.","games":[
+          {"title":"GoldenEye 007","catalogId":null,"year":1997,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Rare / Nintendo","companySlugs":["rare","nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+          {"title":"Banjo-Kazooie","catalogId":null,"year":1998,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Rare / Nintendo","companySlugs":["rare","nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+          {"title":"Perfect Dark","catalogId":null,"year":2000,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Rare / Nintendo · Expansion Pak","companySlugs":["rare","nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+          {"title":"Super Smash Bros.","catalogId":null,"year":1999,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"HAL Laboratory / Nintendo","companySlugs":["hal-laboratory","nintendo"],"sourceIds":["PH-NIN-N64-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Consola, expansiones y control",
+      "hardware": [
+        {"id":"hardware-nintendo64","name":"Nintendo 64","kind":"BASE_MODEL","yearLabel":"1996","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["NUS-001"],"summaryEs":"Consola doméstica de cartuchos diseñada alrededor del salto tridimensional.","features":["Cartuchos","Arquitectura MIPS / RCP","Cuatro puertos de mando"],"relatedWorks":[],"relatedPersonSlugs":["genyo-takeda"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-N64-DOSSIER"]},
+        {"id":"hardware-n64-controller","name":"Mando de Nintendo 64","kind":"CONTROLLER","yearLabel":"1996","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["NUS-005"],"summaryEs":"Mando de tres puntas con stick analógico, botones C y puerto posterior.","features":["Stick analógico","Tres empuñaduras","Puerto de expansión"],"relatedWorks":["Super Mario 64"],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"id":"hardware-rumble-pak","name":"Rumble Pak","kind":"PERIPHERAL","yearLabel":"1997","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["NUS-013"],"summaryEs":"Módulo de vibración conectado al puerto del mando.","features":["Respuesta háptica","Lanzamiento asociado a Star Fox 64","Requiere juegos compatibles"],"relatedWorks":["Star Fox 64"],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"id":"hardware-expansion-pak","name":"Expansion Pak","kind":"PERIPHERAL","yearLabel":"1998","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["NUS-007"],"summaryEs":"Expansión de memoria usada como requisito o mejora según el juego.","features":["Añade RAM","Requerido por algunos títulos","Mejoras opcionales en otros"],"relatedWorks":["Majora's Mask","Donkey Kong 64","Perfect Dark"],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"id":"hardware-64dd","name":"64DD","kind":"HARDWARE_EXPANSION","yearLabel":"1999 · Japón","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["NUD"],"summaryEs":"Unidad japonesa de discos magnéticos regrabables conectada a Nintendo 64.","features":["Sólo Japón","Discos magnéticos","Servicio Randnet"],"relatedWorks":["Mario Artist","F-Zero X Expansion Kit"],"relatedPersonSlugs":["genyo-takeda"],"sourceIds":["PH-NIN-N64-DOSSIER"]}
+      ],
+      "services": [
+        {"id":"service-randnet","name":"Randnet","kind":"NETWORK_SERVICE","launchedLabel":"1999","endedLabel":"2001","statusLabelEs":"Servicio histórico finalizado","parentServiceId":null,"summaryEs":"Servicio japonés vinculado a 64DD para comunicación y contenidos compatibles.","features":["Sólo Japón","Requiere 64DD","Ciclo comercial breve"],"sourceIds":["PH-NIN-N64-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"cartucho-y-64dd","titleEs":"Cartucho y expansión sin relatos monocausales","dekEs":"Los compromisos técnicos y empresariales requieren más de una explicación.","paragraphsEs":["El cartucho combinó acceso rápido y robustez con límites de capacidad y coste. La evolución de Square y otros publishers no se reduce a una única decisión técnica.","64DD amplía Nintendo 64 exclusivamente en Japón. Sus discos, Randnet y software no convierten el accesorio en una plataforma global."],"cards":[],"sourceIds":["PH-NIN-N64-DOSSIER"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:cartucho-y-64dd","companies","games","hardware","services","control","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-n64-project-reality","yearLabel":"1993","sortYear":1993,"title":"Project Reality","summaryEs":"Nintendo y Silicon Graphics presentan la colaboración tecnológica que desemboca en Nintendo 64.","sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"id":"milestone-n64-launch","yearLabel":"1996","sortYear":1996,"title":"Lanzamiento de Nintendo 64","summaryEs":"Comienza la generación doméstica tridimensional de Nintendo.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-n64-rumble","yearLabel":"1997","sortYear":1997,"title":"Rumble Pak y Star Fox 64","summaryEs":"La vibración se integra mediante un periférico del mando.","sourceIds":["PH-NIN-N64-DOSSIER"]},
+        {"id":"milestone-n64-64dd","yearLabel":"1999","sortYear":1999,"title":"64DD y Randnet en Japón","summaryEs":"Nintendo lanza la expansión magnética y su servicio regional.","sourceIds":["PH-NIN-N64-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "Nintendo 64 consolidó stick analógico, cámara y control tridimensional en las series principales de Nintendo.",
+        "Rare y HAL muestran el peso de socios independientes en una biblioteca asociada a la marca Nintendo.",
+        "64DD documenta una vía regional de almacenamiento y red sin convertirse en nueva generación."
+      ],
+      "sources": [
+        {"id":"PH-NIN-N64-DOSSIER","title":"Dossier editorial Region Atlas · Nintendo 64 / 64DD","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Personas, SGI, control, cartucho, Rare y 64DD","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Lanzamiento y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Nintendo 64 · 32,93 M hardware; 224,97 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

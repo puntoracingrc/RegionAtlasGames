@@ -1,0 +1,111 @@
+{
+  "version": 8,
+  "generatedAt": "2026-09-15T12:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "neogeopocket",
+      "title": "Neo Geo Pocket y Pocket Color",
+      "dekEs": "La familia portátil de SNK pasó de una pantalla monocroma en 1998 al color apenas cinco meses después, y construyó una biblioteca pequeña pero muy vinculada a sus sagas y a colaboraciones con Capcom y Sega.",
+      "summaryParagraphsEs": [
+        "Neo Geo Pocket apareció en 1998 como primera entrada completa de SNK en el mercado portátil. La historia oficial destaca su pantalla monocroma, sus distintos diseños y el Good Design Award recibido ese año.",
+        "Neo Geo Pocket Color llegó en marzo de 1999, sólo cinco meses después. En octubre de ese mismo año SNK presentó un rediseño más pequeño, New Neo Geo Pocket Color, que no constituye una nueva generación.",
+        "Su control con microinterruptores resultaba especialmente adecuado para juegos de lucha y acompañó una biblioteca basada en sprites, cartuchos y versiones compactas de las principales sagas de SNK.",
+        "Algunos juegos podían intercambiar o desbloquear contenido con Dreamcast mediante un cable específico. Esa conexión dependía del software y no fue una función universal de todo el catálogo."
+      ],
+      "historyTitleEs": "De la Pocket monocroma a una familia en color",
+      "historyParagraphsEs": [
+        "La rápida llegada del modelo Color muestra una transición de producto muy comprimida. La Pocket original no debe desaparecer de la genealogía sólo porque muchos juegos posteriores conservaran compatibilidad.",
+        "La familia compitió en un mercado dominado por Game Boy y Game Boy Color y, poco después, por nuevas alternativas como WonderSwan. Su ciclo breve también quedó condicionado por la crisis corporativa de SNK alrededor de 2000 y 2001.",
+        "SNK vs. Capcom, Metal Slug, Fatal Fury, Samurai Shodown y The King of Fighters adaptaron la identidad de la compañía al formato portátil, mientras Sonic Pocket Adventure y Magical Drop Pocket muestran la aportación de licencias y compañías externas.",
+        "Desde 2020, NEOGEO Pocket Color Selection ha recuperado parte de ese software mediante emulación oficial. Es preservación y reedición, no una nueva oleada de juegos para el hardware original."
+      ],
+      "figures": [
+        {"personSlug":"eikichi-kawasaki","personName":"Eikichi Kawasaki","roleLabelEs":"Liderazgo corporativo","contributionEs":"La familia portátil se concibió y lanzó durante la etapa final de la SNK original.","period":"1998-2001","sourceIds":["PH-POCKET-SNK-HISTORY","PH-POCKET-DOSSIER"]}
+      ],
+      "architectureTitleEs": "Cartucho, control preciso y pantalla portátil",
+      "architectureDekEs": "Se describen los rasgos históricos respaldados sin rellenar autonomía o chips desde fuentes no verificadas.",
+      "architecture": [
+        {"id":"architecture-pocket-cartridges","name":"Cartuchos portátiles","kind":"GAME_MEDIA","summaryEs":"La familia utilizó cartuchos propios y reunió software monocromo y en color con compatibilidad dependiente del juego.","features":["Formato físico propio","Biblioteca basada en sprites","No relacionada físicamente con AES/MVS"],"partners":[{"companySlug":"snk","companyName":"SNK","roleLabelEs":"Plataforma"}],"sourceIds":["PH-POCKET-SNK-HISTORY","PH-POCKET-DOSSIER"]},
+        {"id":"architecture-pocket-control","name":"Thumbstick con microinterruptores","kind":"STORAGE_IO","summaryEs":"El control direccional característico proporcionaba respuesta táctil y precisión, especialmente apreciable en juegos de lucha.","features":["Respuesta mecánica","Diseño orientado a control direccional preciso"],"partners":[{"companySlug":"snk","companyName":"SNK","roleLabelEs":"Diseño de hardware"}],"sourceIds":["PH-POCKET-DOSSIER"]},
+        {"id":"architecture-pocket-color","name":"Evolución de monocromo a color","kind":"GRAPHICS","summaryEs":"La primera Pocket fue monocroma; Pocket Color añadió pantalla en color cinco meses después sin borrar la identidad de la familia original.","features":["Neo Geo Pocket: monocroma","Neo Geo Pocket Color: color","New Pocket Color: rediseño compacto"],"partners":[{"companySlug":"snk","companyName":"SNK","roleLabelEs":"Diseño de hardware"}],"sourceIds":["PH-POCKET-SNK-HISTORY"]}
+      ],
+      "companiesTitleEs": "SNK y colaboraciones concretas",
+      "companies": [
+        {"companySlug":"snk","companyName":"SNK","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y editora principal","period":"1998-2001","contributionEs":"Diseñó la familia portátil y adaptó a ella sus principales sagas.","relatedWorks":["SNK vs. Capcom","Metal Slug","The King of Fighters","Samurai Shodown"],"relatedCatalogEntries":[{"id":"neogeopocket-pal-snk-vs-capcom-match-millennium","title":"SNK vs. Capcom: Match of the Millennium"},{"id":"neogeopocket-pal-metal-slug-1st-mission","title":"Metal Slug: 1st Mission"}],"sourceIds":["PH-POCKET-SNK-HISTORY","PH-POCKET-CATALOG-DOSSIER"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Licencias y colaboración por juegos","period":"Etapa Pocket Color","contributionEs":"Participó en el cruce SNK vs. Capcom y Card Fighters. Esta relación no implica propiedad ni una alianza corporativa general.","relatedWorks":["SNK vs. Capcom: Match of the Millennium","Card Fighters' Clash"],"relatedCatalogEntries":[{"id":"neogeopocket-pal-snk-vs-capcom-match-millennium","title":"SNK vs. Capcom: Match of the Millennium"}],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]},
+        {"companySlug":"sega","companyName":"Sega","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Software y conectividad concreta","period":"1999-2000","contributionEs":"Sonic Pocket Adventure y determinados enlaces con Dreamcast conectaron ambas plataformas sin convertir a Sega en propietaria o socia general de SNK.","relatedWorks":["Sonic the Hedgehog: Pocket Adventure","Dreamcast link cable"],"relatedCatalogEntries":[{"id":"neogeopocket-pal-sonic-hedgehog-pocket-adventure","title":"Sonic the Hedgehog: Pocket Adventure"}],"sourceIds":["PH-POCKET-DOSSIER"]},
+        {"companySlug":"data-east","companyName":"Data East","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Third party","period":"Etapa Pocket Color","contributionEs":"Magical Drop Pocket representa su aportación documentada al catálogo portátil.","relatedWorks":["Magical Drop Pocket"],"relatedCatalogEntries":[{"id":"neogeopocket-pal-magical-drop-pocket","title":"Magical Drop Pocket"}],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"pocket-platform-holder","labelEs":"Responsable de la plataforma","descriptionEs":"SNK creó el hardware y publicó su núcleo de software.","companySlugs":["snk"]},
+        {"id":"pocket-partners","labelEs":"Colaboraciones por producto","descriptionEs":"Relaciones delimitadas a licencias, juegos y funciones concretas.","companySlugs":["capcom","sega","data-east"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "La biblioteca portátil",
+      "gameGroups": [
+        {
+          "id": "pocket-snk-series",
+          "labelEs": "Sagas de SNK",
+          "descriptionEs": "Versiones y juegos propios concebidos para el formato portátil.",
+          "games": [
+            {"title":"King of Fighters R-1","catalogId":"neogeopocket-pal-king-fighters-r-1","year":1998,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Neo Geo Pocket","companySlugs":["snk"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]},
+            {"title":"Samurai Shodown!","catalogId":"neogeopocket-pal-samurai-shodown","year":1998,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Neo Geo Pocket","companySlugs":["snk"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]},
+            {"title":"Metal Slug: 1st Mission","catalogId":"neogeopocket-pal-metal-slug-1st-mission","year":1999,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Pocket Color","companySlugs":["snk"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]},
+            {"title":"Fatal Fury: First Contact","catalogId":"neogeopocket-pal-fatal-fury-first-contact","year":1999,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Pocket Color","companySlugs":["snk"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]},
+            {"title":"Dark Arms","catalogId":"neogeopocket-pal-dark-arms","year":1999,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Pocket Color","companySlugs":["snk"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]},
+            {"title":"Metal Slug: 2nd Mission","catalogId":"neogeopocket-pal-metal-slug-2nd-mission","year":2000,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Pocket Color","companySlugs":["snk"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]}
+          ]
+        },
+        {
+          "id": "pocket-crossovers",
+          "labelEs": "Cruces y third parties",
+          "descriptionEs": "Juegos concretos que ampliaron el alcance de la plataforma sin implicar propiedad corporativa.",
+          "games": [
+            {"title":"SNK vs. Capcom: Match of the Millennium","catalogId":"neogeopocket-pal-snk-vs-capcom-match-millennium","year":1999,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"SNK y Capcom","companySlugs":["snk","capcom"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]},
+            {"title":"Sonic the Hedgehog: Pocket Adventure","catalogId":"neogeopocket-pal-sonic-hedgehog-pocket-adventure","year":1999,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Licencia Sega","companySlugs":["sega","snk"],"sourceIds":["PH-POCKET-DOSSIER"]},
+            {"title":"Magical Drop Pocket","catalogId":"neogeopocket-pal-magical-drop-pocket","year":1999,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Data East","companySlugs":["data-east"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]},
+            {"title":"Faselei!","catalogId":"neogeopocket-pal-faselei","year":1999,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Catálogo Pocket Color","companySlugs":["snk"],"sourceIds":["PH-POCKET-CATALOG-DOSSIER"]}
+          ]
+        }
+      ],
+      "hardwareTitleEs": "Tres modelos, una familia portátil",
+      "hardware": [
+        {"id":"hardware-neogeo-pocket","name":"Neo Geo Pocket","kind":"BASE_MODEL","yearLabel":"1998","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Modelo monocromo con el que SNK entró plenamente en el mercado portátil.","features":["Pantalla monocroma","Cartuchos propios","Good Design Award 1998 según SNK"],"relatedWorks":["King of Fighters R-1","Samurai Shodown!"],"relatedPersonSlugs":["eikichi-kawasaki"],"sourceIds":["PH-POCKET-SNK-HISTORY"]},
+        {"id":"hardware-neogeo-pocket-color","name":"Neo Geo Pocket Color","kind":"REVISION","yearLabel":"Marzo de 1999","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Revisión en color lanzada apenas cinco meses después de la Pocket original.","features":["Pantalla en color","Biblioteca ampliada","Compatibilidad dependiente del juego"],"relatedWorks":["SNK vs. Capcom: Match of the Millennium","Metal Slug: 1st Mission"],"relatedPersonSlugs":[],"sourceIds":["PH-POCKET-SNK-HISTORY","PH-POCKET-SNK-PRESS"]},
+        {"id":"hardware-new-neogeo-pocket-color","name":"New Neo Geo Pocket Color","kind":"REDESIGN","yearLabel":"Octubre de 1999","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Rediseño más pequeño de Pocket Color; no es una plataforma sucesora independiente.","features":["Cuerpo compacto","Misma familia de software"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-POCKET-SNK-HISTORY"]},
+        {"id":"hardware-pocket-dreamcast-cable","name":"Cable Neo Geo Pocket Color ↔ Dreamcast","kind":"PERIPHERAL","yearLabel":"1999-2000","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Accesorio para intercambiar o desbloquear contenido entre juegos concretos de Pocket Color y Dreamcast.","features":["Compatibilidad por juego","No disponible para toda la biblioteca"],"relatedWorks":["SNK vs. Capcom","The King of Fighters"],"relatedPersonSlugs":[],"sourceIds":["PH-POCKET-DOSSIER"]}
+      ],
+      "compatibilityLinks": [
+        {"id":"compat-pocket-dreamcast","sourcePlatformSlug":"neogeopocket","sourcePlatformName":"Neo Geo Pocket Color","targetPlatformSlug":"dreamcast","targetPlatformName":"Sega Dreamcast","labelEs":"Conexión entre plataformas","summaryEs":"Un cable específico permitía intercambiar o desbloquear contenido en una selección de juegos compatibles.","features":["Compatibilidad limitada a títulos concretos","No implica soporte universal","No convierte a Sega en propietaria de la plataforma"],"sourceIds":["PH-POCKET-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"pocket-model-transition","titleEs":"Monocroma, Color y New Color","dekEs":"Una evolución rápida dentro de la misma familia.","paragraphsEs":["La Pocket original de 1998 conserva identidad histórica propia aunque el modelo Color llegara cinco meses después.","New Neo Geo Pocket Color fue un rediseño compacto de octubre de 1999, no una sucesora."],"cards":[],"sourceIds":["PH-POCKET-SNK-HISTORY"]},
+        {"id":"pocket-market-context","titleEs":"Un ciclo comercial breve","dekEs":"La competencia fue sólo una parte de la historia.","paragraphsEs":["Game Boy y Game Boy Color dominaban el mercado, y WonderSwan añadió otra alternativa portátil en Japón.","La transición acelerada al color, el tamaño del catálogo y la crisis financiera de SNK también condicionaron la retirada."],"cards":[],"sourceIds":["PH-POCKET-DOSSIER"]},
+        {"id":"pocket-preservation","titleEs":"NEOGEO Pocket Color Selection","dekEs":"Reedición moderna, no nuevo software del hardware original.","paragraphsEs":["Desde 2020 SNK ha recuperado juegos mediante emulación oficial en Nintendo Switch.","Estas publicaciones preservan el catálogo y deben enlazarse como reediciones separadas."],"cards":[],"sourceIds":["PH-POCKET-NGPCS","PH-POCKET-SNK-PRESS"]}
+      ],
+      "sectionOrder": ["editorial:pocket-model-transition","figures","architecture","hardware","compatibility","games","companies","editorial:pocket-market-context","editorial:pocket-preservation","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-pocket-1998","yearLabel":"1998","sortYear":1998,"title":"Neo Geo Pocket monocroma","summaryEs":"SNK entra en el mercado portátil y recibe el Good Design Award según su historia oficial.","sourceIds":["PH-POCKET-SNK-HISTORY"]},
+        {"id":"milestone-pocket-color","yearLabel":"Mar 1999","sortYear":1999,"title":"Neo Geo Pocket Color","summaryEs":"La pantalla en color llega sólo cinco meses después del modelo original.","sourceIds":["PH-POCKET-SNK-HISTORY"]},
+        {"id":"milestone-pocket-redesign","yearLabel":"Oct 1999","sortYear":1999,"title":"New Neo Geo Pocket Color","summaryEs":"SNK lanza un rediseño más pequeño dentro de la misma familia.","sourceIds":["PH-POCKET-SNK-HISTORY"]},
+        {"id":"milestone-pocket-links","yearLabel":"1999-2000","sortYear":1999,"title":"Software y enlaces con Dreamcast","summaryEs":"La biblioteca crece con cruces SNK/Capcom y funciones conectadas en juegos concretos.","sourceIds":["PH-POCKET-DOSSIER"]},
+        {"id":"milestone-pocket-end","yearLabel":"2000-2001","sortYear":2000,"title":"Final del ciclo original","summaryEs":"La crisis de la SNK original afecta a la continuidad del hardware.","sourceIds":["PH-POCKET-SNK-HISTORY","PH-POCKET-DOSSIER"]},
+        {"id":"milestone-pocket-selection","yearLabel":"2020+","sortYear":2020,"title":"Preservación oficial","summaryEs":"NEOGEO Pocket Color Selection recupera parte del catálogo en Nintendo Switch.","sourceIds":["PH-POCKET-NGPCS","PH-POCKET-SNK-PRESS"]}
+      ],
+      "legacyEs": [
+        "La familia trasladó la sensibilidad arcade de SNK a una portátil con un control especialmente apto para lucha y acción 2D.",
+        "Su paso casi inmediato de monocromo a color y el rediseño del mismo año condensaron una evolución de hardware poco habitual.",
+        "Las colaboraciones con Capcom y Sega se recuerdan por productos concretos, no como relaciones de propiedad.",
+        "Las reediciones modernas mantienen visible la biblioteca sin reabrir el ciclo comercial del hardware original."
+      ],
+      "sources": [
+        {"id":"PH-POCKET-DOSSIER","title":"Dossier editorial Region Atlas · Neo Geo Pocket/Color","publication":"Region Atlas","publisher":"Archivo de investigación","kind":"reference","language":"es","citation":"Análisis respaldado, septiembre de 2026","url":null},
+        {"id":"PH-POCKET-CATALOG-DOSSIER","title":"Catálogo físico Region Atlas · Neo Geo Pocket","publication":"Region Atlas","publisher":"Catálogo documentado","kind":"reference","language":"es","citation":"Identidades físicas ya catalogadas","url":null},
+        {"id":"PH-POCKET-SNK-HISTORY","title":"SNK History 1978-2024","publication":"SNK History","publisher":"SNK Corporation","kind":"official","language":"ja","citation":"Pocket, Pocket Color y rediseño","url":"https://www.snk-corp.co.jp/snk-history/history/"},
+        {"id":"PH-POCKET-NGPCS","title":"NEOGEO Pocket Color Selection","publication":"SNK Corporation","publisher":"SNK Corporation","kind":"official","language":"en","citation":"Colección de preservación oficial","url":"https://snk-corp.co.jp/official/ngpcs/index.html"},
+        {"id":"PH-POCKET-SNK-PRESS","title":"NEOGEO Pocket Color Selection announcement","publication":"SNK Press","publisher":"SNK Corporation","kind":"official","language":"en","citation":"Más de 80 juegos en la familia y reedición moderna","url":"https://www.snk-corp.co.jp/us/press/2020/102901/"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

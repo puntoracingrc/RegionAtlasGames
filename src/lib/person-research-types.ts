@@ -195,6 +195,7 @@ export type PersonCardData = {
   companies: { slug: string; name: string }[];
   works: string[];
   expertise: PersonExpertise[];
+  platformSlugs: string[];
   searchHaystack: string;
 };
 

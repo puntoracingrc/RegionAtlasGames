@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T08:00:00.000Z",
+  "peopleCandidates": [
+    {
+      "personSlug": "noriyoshi-ohba",
+      "personName": "Noriyoshi Ohba",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Su relevancia en los equipos de SEGA está respaldada, pero faltan fuentes primarias para publicar créditos exactos por juego."
+    },
+    {
+      "personSlug": "shoichiro-irimajiri",
+      "personName": "Shoichiro Irimajiri",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "Debe precisarse con fuentes primarias el período y alcance de sus responsabilidades ejecutivas."
+    },
+    {
+      "personSlug": "takashi-iizuka",
+      "personName": "Takashi Iizuka",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Se conserva como candidato hasta verificar sus créditos concretos en los juegos de Dreamcast citados."
+    },
+    {
+      "personSlug": "masayoshi-kikuchi",
+      "personName": "Masayoshi Kikuchi",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Faltan fuentes primarias suficientes para convertir sus menciones en créditos públicos exactos."
+    },
+    {
+      "personSlug": "yoot-saito",
+      "personName": "Yoot Saito",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "Su conexión creativa con Dreamcast se conserva sin publicar una ficha biográfica incompleta."
+    },
+    {
+      "personSlug": "greg-thomas",
+      "personName": "Greg Thomas",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "La relación con Visual Concepts necesita mayor respaldo biográfico y temporal antes de publicarse."
+    },
+    {
+      "personSlug": "hisao-oguchi",
+      "personName": "Hisao Oguchi",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "Debe documentarse mejor su evolución dentro de los equipos arcade y la dirección corporativa."
+    },
+    {
+      "personSlug": "al-nilsen",
+      "personName": "Al Nilsen",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "Se mantiene como candidato interno para una futura historia comercial de SEGA of America."
+    },
+    {
+      "personSlug": "roger-hector",
+      "personName": "Roger Hector",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "Falta una ficha suficientemente respaldada sobre su trabajo en Sega Technical Institute."
+    }
+  ],
+  "companyCandidates": [
+    {
+      "companySlug": "sega-am-teams",
+      "status": "NEEDS_TEMPORAL_MODEL",
+      "reasonEs": "La genealogía de AM1-AM9 y sus posteriores nombres de estudio exige relaciones fechadas antes de publicarse como estructura corporativa."
+    },
+    {
+      "companySlug": "relic-entertainment",
+      "status": "CURRENT_OWNERSHIP_PENDING",
+      "reasonEs": "La relación histórica con SEGA puede mostrarse, pero su propiedad posterior requiere una fuente actual específica."
+    },
+    {
+      "companySlug": "amplitude-studios",
+      "status": "CURRENT_OWNERSHIP_PENDING",
+      "reasonEs": "La relación histórica con SEGA puede mostrarse, pero su situación posterior requiere una fuente actual específica."
+    }
+  ],
+  "creditCandidates": [
+    {
+      "title": "Asignaciones individuales a placas arcade",
+      "status": "NEEDS_BOARD_LEVEL_SOURCES",
+      "reasonEs": "No se convierten listas generales de juegos en relaciones exactas con cada placa sin una fuente que identifique el hardware usado."
+    },
+    {
+      "title": "Virtua Tennis · Hitmaker",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "La autoría del estudio se conserva como candidata hasta documentar el crédito exacto con una fuente primaria."
+    },
+    {
+      "title": "Sonic R · Traveller's Tales",
+      "status": "PROTECTED_ATTRIBUTION",
+      "reasonEs": "Debe mantenerse separado de Sonic Team y atribuido a Traveller's Tales cuando se publique un crédito exacto."
+    },
+    {
+      "title": "Sonic X-treme",
+      "status": "CANCELLED_NON_RELEASE",
+      "reasonEs": "Solo puede aparecer como proyecto cancelado dentro del contexto editorial de Saturn, nunca como juego publicado."
+    }
+  ],
+  "mediaReferences": [
+    { "personSlug": "david-rosen", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "hayao-nakayama", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "isao-okawa", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "hideki-sato", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "tom-kalinske", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "yuji-naka", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "naoto-ohshima", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "hirokazu-yasuhara", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "tetsuya-mizuguchi", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "toshihiro-nagoshi", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "yukio-futatsugi", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "bernie-stolar", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." },
+    { "personSlug": "hidekazu-yukawa", "status": "PORTRAIT_FALLBACK", "reasonEs": "No se aporta una imagen con licencia explicita reutilizable." }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug":"nes",
+      "title":"Famicom / Nintendo Entertainment System",
+      "lineage":{"branchLabelEs":"Línea doméstica","summaryEs":"Famicom y NES pertenecen al mismo linaje de plataforma, aunque sus carcasas, conectores, cartuchos y políticas regionales no sean intercambiables.","links":[
+        {"platformSlug":"gameandwatch","platformName":"Nintendo Arcade y Game & Watch","relationship":"PREDECESSOR","summaryEs":"La experiencia electrónica y arcade precede la entrada de Nintendo en las consolas de cartuchos.","sourceIds":["PH-NIN-NES-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"snes","platformName":"Super Famicom / Super Nintendo","relationship":"SUCCESSOR","summaryEs":"La línea doméstica continúa con el sistema de 16 bits.","sourceIds":["PH-NIN-NES-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"gameboy","platformName":"Game Boy / Game Boy Color","relationship":"PARALLEL_BRANCH","summaryEs":"Desde 1989 Nintendo mantiene en paralelo una rama portátil propia.","sourceIds":["PH-NIN-HISTORY"]}
+      ]},
+      "dekEs":"La familia doméstica de 8 bits que parte de Famicom en Japón y se rediseña como NES para otros mercados, con Famicom Disk System como expansión japonesa y una nueva relación entre hardware, software y licencias.",
+      "summaryParagraphsEs":[
+        "Family Computer se lanzó en Japón en 1983. Nintendo Entertainment System extendió el mismo linaje a Norteamérica y Europa entre 1985 y 1986, con diferencias físicas y comerciales que no justifican separarlas como generaciones distintas.",
+        "Nintendo registra 61,91 millones de consolas y 500,01 millones de juegos para Famicom/NES. La cifra es mundial, consolidada y de ciclo completo.",
+        "El rediseño internacional adoptó carga frontal y cartuchos de 72 pines, mientras Famicom conservó su formato japonés. El control de licencias y 10NES formó parte de la estrategia norteamericana, pero no resume por sí solo la recuperación del mercado.",
+        "Famicom Disk System llegó a Japón en 1986 como expansión con discos regrabables y Disk Writer. No fue una plataforma global ni debe separarse del ecosistema Famicom."
+      ],
+      "historyTitleEs":"Una plataforma, dos identidades regionales",
+      "historyParagraphsEs":[
+        "Hiroshi Yamauchi impulsó la entrada doméstica y Masayuki Uemura dirigió el diseño del hardware. La transición desde arcade coincidió con equipos internos que desarrollaban software y periféricos con identidades diferenciadas.",
+        "Super Mario Bros. apareció en 1985, dos años después del lanzamiento original de Famicom. Su papel internacional fue decisivo, pero no debe describirse como juego de lanzamiento japonés.",
+        "Nintendo of America, con Minoru Arakawa y Howard Lincoln en papeles empresariales, adaptó producto, distribución y control de licencias al contexto norteamericano.",
+        "Zelda apareció primero en Famicom Disk System en Japón; Metroid y Kid Icarus también se relacionan con el soporte de disco. Las versiones occidentales y en cartucho deben conservar su contexto regional."
+      ],
+      "architectureTitleEs":"Cartucho, control y expansión de disco",
+      "architectureDekEs":"El soporte y las políticas regionales forman capas relacionadas, no una única especificación universal.",
+      "figures":[
+        {"personSlug":"masayuki-uemura","personName":"Masayuki Uemura","roleLabelEs":"Diseño de hardware","contributionEs":"Figura principal de R&D2 en la arquitectura y diseño de Famicom/NES.","period":"Desarrollo y lanzamiento","sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"personSlug":"hiroshi-yamauchi","personName":"Hiroshi Yamauchi","roleLabelEs":"Estrategia ejecutiva","contributionEs":"Dirigió la apuesta por una consola doméstica, el catálogo propio y la expansión internacional.","period":"Presidencia de Nintendo","sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Diseño y dirección","contributionEs":"Conectó la experiencia arcade con Super Mario Bros. y The Legend of Zelda.","period":"Etapa Famicom/NES","sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"personSlug":"takashi-tezuka","personName":"Takashi Tezuka","roleLabelEs":"Diseño de juegos","contributionEs":"Trabajo creativo documentado en Mario y Zelda dentro de un equipo colectivo.","period":"Etapa Famicom/NES","sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"personSlug":"koji-kondo","personName":"Koji Kondo","roleLabelEs":"Música y sonido","contributionEs":"Definió música y sonido asociados a Mario y Zelda.","period":"Etapa Famicom/NES","sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"personSlug":"gunpei-yokoi","personName":"Gunpei Yokoi","roleLabelEs":"R&D1 y producción","contributionEs":"Conectó la línea Game & Watch con equipos y obras como Metroid y Kid Icarus.","period":"Etapa R&D1","sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"personSlug":"minoru-arakawa","personName":"Minoru Arakawa","roleLabelEs":"Nintendo of America","contributionEs":"Lideró la implantación empresarial de Nintendo en Norteamérica.","period":"Lanzamiento y expansión de NES","sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"personSlug":"howard-lincoln","personName":"Howard Lincoln","roleLabelEs":"Estrategia legal y empresarial","contributionEs":"Participó en la estructura de negocio, licencias y expansión de Nintendo of America.","period":"Etapa NES","sourceIds":["PH-NIN-NES-DOSSIER"]}
+      ],
+      "architecture":[
+        {"id":"architecture-nes-cartridges","name":"Cartuchos Famicom y NES","kind":"GAME_MEDIA","summaryEs":"La plataforma comparte base de software, pero los cartuchos japoneses e internacionales tienen conectores y formas físicas distintas.","features":["Famicom: 60 pines","NES: 72 pines","No intercambiables físicamente sin adaptación"],"partners":[{"companySlug":"nintendo-rd2","companyName":"Nintendo R&D2","roleLabelEs":"Diseño de hardware"}],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"id":"architecture-nes-10nes","name":"Licencias y 10NES","kind":"SYSTEM_SOFTWARE","summaryEs":"La estrategia norteamericana combinó control técnico y contractual del catálogo con un sello de calidad.","features":["Control regional de software","Contexto posterior al crash norteamericano","No explica por sí solo el éxito de NES"],"partners":[{"companySlug":"nintendo-of-america","companyName":"Nintendo of America","roleLabelEs":"Política regional"}],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"id":"architecture-fds-media","name":"Discos Famicom Disk System","kind":"GAME_MEDIA","summaryEs":"El periférico japonés usó discos magnéticos regrabables y una infraestructura Disk Writer.","features":["Sólo Japón","Soporte regrabable","Versiones iniciales de Zelda, Metroid y Kid Icarus"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Fabricante y operadora"}],"sourceIds":["PH-NIN-NES-DOSSIER"]}
+      ],
+      "companiesTitleEs":"Equipos internos, expansión regional y third parties",
+      "companies":[
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"1983-ciclo de Famicom/NES","relationshipStart":"1983","relationshipEnd":null,"contributionEs":"Diseñó la plataforma, publicó el catálogo propio y gestionó el ecosistema regional.","relatedWorks":["Famicom","NES","Super Mario Bros.","The Legend of Zelda"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-NES-DOSSIER"]},
+        {"companySlug":"nintendo-rd2","companyName":"Nintendo R&D2","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Hardware interno","period":"Desarrollo Famicom/NES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Equipo asociado al diseño de la consola doméstica.","relatedWorks":["Famicom","NES"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Software y periféricos internos","period":"Etapa 8 bits","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Equipo relacionado con Metroid, Kid Icarus y periféricos, distinto de R&D2.","relatedWorks":["Metroid","Kid Icarus"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"companySlug":"nintendo-of-america","companyName":"Nintendo of America","relationshipType":"REGIONAL_PARTNER","relationshipLabelEs":"Filial regional","period":"Expansión NES","relationshipStart":"1980","relationshipEnd":null,"contributionEs":"Adaptó hardware, distribución, licencias y posicionamiento al mercado norteamericano.","relatedWorks":["Nintendo Entertainment System","R.O.B."],"sourceIds":["PH-NIN-HISTORY","PH-NIN-NES-DOSSIER"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa NES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Publisher externo destacado; su presencia no implica propiedad de Nintendo.","relatedWorks":["Mega Man 2"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"companySlug":"konami","companyName":"Konami","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa NES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó series externas decisivas al catálogo regional.","relatedWorks":["Castlevania","Contra"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"companySlug":"square","companyName":"Square","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Third party","period":"Etapa Famicom/NES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolladora independiente asociada a Final Fantasy.","relatedWorks":["Final Fantasy"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"companySlug":"enix","companyName":"Enix","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa Famicom/NES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Publisher independiente asociado a Dragon Quest.","relatedWorks":["Dragon Quest"],"sourceIds":["PH-NIN-NES-DOSSIER"]}
+      ],
+      "companyGroups":[
+        {"id":"nes-first-party","labelEs":"Estructura Nintendo","descriptionEs":"Fabricante, equipos internos y filial norteamericana mantienen identidades separadas.","companySlugs":["nintendo","nintendo-rd2","nintendo-rd1","nintendo-of-america"]},
+        {"id":"nes-third-parties","labelEs":"Third parties","descriptionEs":"Relaciones por catálogo, sin propiedad ni autoría de la plataforma.","companySlugs":["capcom","konami","square","enix"]}
+      ],
+      "genealogies":[],
+      "gamesTitleEs":"Juegos que definieron Famicom y NES",
+      "gameGroups":[
+        {"id":"nes-first-party-games","labelEs":"Nintendo","descriptionEs":"Obras internas y publicadas por Nintendo que articularon géneros y personajes.","games":[
+          {"title":"Super Mario Bros.","catalogId":null,"year":1985,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-NES-DOSSIER"]},
+          {"title":"The Legend of Zelda","catalogId":null,"year":1986,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"FDS en Japón · Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+          {"title":"Metroid","catalogId":null,"year":1986,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo R&D1","companySlugs":["nintendo","nintendo-rd1"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+          {"title":"Duck Hunt","catalogId":null,"year":1984,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo · Zapper","companySlugs":["nintendo"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+          {"title":"Kirby's Adventure","catalogId":null,"year":1993,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"HAL Laboratory / Nintendo","companySlugs":["hal-laboratory","nintendo"],"sourceIds":["PH-NIN-NES-DOSSIER"]}
+        ]},
+        {"id":"nes-third-party-games","labelEs":"Third parties","descriptionEs":"Series externas que ampliaron el catálogo sin pasar a ser propiedad de Nintendo.","games":[
+          {"title":"Mega Man 2","catalogId":null,"year":1988,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Capcom","companySlugs":["capcom"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+          {"title":"Castlevania","catalogId":null,"year":1986,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Konami","companySlugs":["konami"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+          {"title":"Final Fantasy","catalogId":null,"year":1987,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Square","companySlugs":["square"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+          {"title":"Dragon Quest","catalogId":null,"year":1986,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Enix","companySlugs":["enix"],"sourceIds":["PH-NIN-NES-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs":"Hardware regional y expansión Famicom",
+      "hardware":[
+        {"id":"hardware-famicom","name":"Family Computer (Famicom)","kind":"BASE_MODEL","yearLabel":"15 jul 1983","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Modelo japonés original de la familia, con cartuchos de 60 pines y mandos integrados por cable.","features":["Carcasa roja y blanca","Cartuchos de 60 pines","Lanzamiento japonés"],"relatedWorks":[],"relatedPersonSlugs":["masayuki-uemura","hiroshi-yamauchi"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-NES-DOSSIER"]},
+        {"id":"hardware-nes-international","name":"Nintendo Entertainment System","kind":"REGIONAL_MODEL","yearLabel":"1985-1986","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Rediseño internacional del mismo linaje con carga frontal y cartuchos de 72 pines.","features":["Carga frontal","Cartuchos de 72 pines","Despliegue por mercados"],"relatedWorks":[],"relatedPersonSlugs":["masayuki-uemura","minoru-arakawa","howard-lincoln"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"id":"hardware-famicom-disk-system","name":"Famicom Disk System","kind":"HARDWARE_EXPANSION","yearLabel":"21 feb 1986","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Expansión japonesa de Famicom basada en discos magnéticos regrabables.","features":["Sólo Japón","Disk Cards","Servicio Disk Writer"],"relatedWorks":["The Legend of Zelda","Metroid","Kid Icarus"],"relatedPersonSlugs":["masayuki-uemura"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"id":"hardware-nes-101","name":"NES-101 / New-Style NES","kind":"REDESIGN","yearLabel":"1993","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["NES-101"],"summaryEs":"Rediseño compacto de carga superior para la etapa final norteamericana.","features":["Carga superior","Carcasa compacta","Misma generación"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"id":"hardware-nes-controller","name":"Mando de Famicom / NES","kind":"CONTROLLER","yearLabel":"1983-1985","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Consolidó el pad direccional, dos botones de acción y controles de sistema en un formato doméstico.","features":["Pad direccional","Botones A y B","Start y Select en versiones correspondientes"],"relatedWorks":[],"relatedPersonSlugs":["gunpei-yokoi","masayuki-uemura"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"id":"hardware-rob","name":"R.O.B.","kind":"PERIPHERAL","yearLabel":"1985","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Robot periférico usado en el posicionamiento inicial estadounidense de NES.","features":["Robot Operating Buddy","Uso con software específico","Contexto comercial norteamericano"],"relatedWorks":["Gyromite","Stack-Up"],"relatedPersonSlugs":["minoru-arakawa"],"sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"id":"hardware-nes-zapper","name":"NES Zapper","kind":"PERIPHERAL","yearLabel":"1985","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Pistola de luz vinculada a juegos concretos y a la experiencia previa de Nintendo con light guns.","features":["Tecnología de pistola de luz","Requiere pantalla compatible","Uso con Duck Hunt"],"relatedWorks":["Duck Hunt"],"relatedPersonSlugs":["genyo-takeda"],"sourceIds":["PH-NIN-NES-DOSSIER"]}
+      ],
+      "editorialSections":[
+        {"id":"identidad-regional","titleEs":"Famicom y NES no son dos generaciones","dekEs":"La identidad regional modifica el objeto físico, no el linaje base.","paragraphsEs":["El catálogo puede distinguir cajas, cartuchos y mercados, mientras la historia agrupa Famicom y NES como una sola familia tecnológica.","Famicom Disk System conserva su condición de expansión japonesa; sus primeras versiones de ciertos juegos no convierten el periférico en plataforma mundial."],"cards":[],"sourceIds":["PH-NIN-NES-DOSSIER"]}
+      ],
+      "sectionOrder":["lineage","figures","architecture","editorial:identidad-regional","companies","games","hardware","control","milestones","legacy"],
+      "milestones":[
+        {"id":"milestone-famicom-launch","yearLabel":"1983","sortYear":1983,"title":"Lanzamiento de Famicom","summaryEs":"Nintendo abre su familia doméstica de cartuchos en Japón.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-nes-na","yearLabel":"1985","sortYear":1985,"title":"NES y Super Mario Bros. en Norteamérica","summaryEs":"El rediseño internacional y el software propio sostienen la expansión regional.","sourceIds":["PH-NIN-HISTORY","PH-NIN-NES-DOSSIER"]},
+        {"id":"milestone-fds-europe","yearLabel":"1986","sortYear":1986,"title":"FDS en Japón y expansión europea","summaryEs":"La familia suma una expansión de disco japonesa mientras NES llega a nuevos mercados.","sourceIds":["PH-NIN-NES-DOSSIER"]},
+        {"id":"milestone-nes-late-cycle","yearLabel":"1993","sortYear":1993,"title":"Etapa final y rediseños","summaryEs":"NES-101 y software tardío prolongan una generación ya sucedida por SNES.","sourceIds":["PH-NIN-NES-DOSSIER"]}
+      ],
+      "legacyEs":[
+        "Famicom/NES fijó una relación duradera entre hardware Nintendo, desarrollo interno y personajes propios.",
+        "Las diferencias regionales de cartucho y carcasa anticipan la necesidad de que catálogo e historia usen niveles de identidad distintos.",
+        "FDS, R.O.B. y Zapper muestran que el ecosistema fue más amplio que la consola base, sin convertirse en generaciones separadas."
+      ],
+      "sources":[
+        {"id":"PH-NIN-NES-DOSSIER","title":"Dossier editorial Region Atlas · Famicom / NES y Famicom Disk System","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Hardware regional, personas, software y QA","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Famicom, NES y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Famicom / NES · 61,91 M hardware; 500,01 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed":"2026-09-15"
+    }
+  ]
+}

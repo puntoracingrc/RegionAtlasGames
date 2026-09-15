@@ -7,13 +7,17 @@ import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import { PlatformHeroArt } from "@/components/platform-card-art";
 import { PlatformHistorySection } from "@/components/platform-history-section";
 import { SiteNav } from "@/components/site-nav";
-import { getPlatform, hasPublicCatalogGames } from "@/lib/catalog";
+import { hasPublicCatalogGames } from "@/lib/catalog";
 import {
   getPlatformHistory,
   getPlatformHistorySlugs,
   parsePlatformHardwareGroup,
   platformHistoryPath,
 } from "@/lib/platform-history";
+import {
+  getPlatformHistoryPresentation,
+  isCatalogBackedPlatformHistory,
+} from "@/lib/platform-history-presentation";
 import { getPublicPersonView } from "@/lib/person-public-research";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -54,7 +58,7 @@ export default async function PlatformHistoryPage({ params, searchParams }: Prop
   const { slug } = await params;
   const query = await searchParams;
   const history = getPlatformHistory(slug);
-  const platform = getPlatform(slug);
+  const platform = history ? getPlatformHistoryPresentation(history) : undefined;
   if (!history || !platform) notFound();
 
   const figurePortraits = Object.fromEntries(
@@ -63,7 +67,7 @@ export default async function PlatformHistoryPage({ params, searchParams }: Prop
       getPublicPersonView(figure.personSlug)?.profile.portrait?.path ?? null,
     ]),
   );
-  const hasCatalog = hasPublicCatalogGames(slug);
+  const hasCatalog = isCatalogBackedPlatformHistory(history) && hasPublicCatalogGames(slug);
 
   return (
     <>

@@ -20,6 +20,9 @@ import xboxPublicData from "../../data/research/platform-history/people-xbox-pub
 import xbox360PublicData from "../../data/research/platform-history/people-xbox360-public.json";
 import xboxOnePublicData from "../../data/research/platform-history/people-xboxone-public.json";
 import xboxSeriesPublicData from "../../data/research/platform-history/people-xboxseries-public.json";
+import segaPublicData from "../../data/research/platform-history/people-sega-public.json";
+import nintendoPublicData from "../../data/research/platform-history/people-nintendo-public.json";
+import snkPublicData from "../../data/research/platform-history/people-snk-public.json";
 import relationsData from "../../data/research/person-study/relations.json";
 import reviewData from "../../data/research/person-study/review.json";
 import sourcesData from "../../data/research/person-study/sources.json";
@@ -131,6 +134,9 @@ const xboxPublic = xboxPublicData as unknown as PersonPublicOverlayData;
 const xbox360Public = xbox360PublicData as unknown as PersonPublicOverlayData;
 const xboxOnePublic = xboxOnePublicData as unknown as PersonPublicOverlayData;
 const xboxSeriesPublic = xboxSeriesPublicData as unknown as PersonPublicOverlayData;
+const segaPublic = segaPublicData as unknown as PersonPublicOverlayData;
+const nintendoPublic = nintendoPublicData as unknown as PersonPublicOverlayData;
+const snkPublic = snkPublicData as unknown as PersonPublicOverlayData;
 const companies = companiesData as Record<string, unknown>;
 
 function sha256File(relativePath: string): string {
@@ -219,6 +225,12 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
       ...(xboxOnePublic.profilePatches ?? []).map((profile) => profile.slug),
       ...(xboxSeriesPublic.profiles ?? []).map((profile) => profile.slug),
       ...(xboxSeriesPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(segaPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(segaPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(nintendoPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(nintendoPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(snkPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(snkPublic.profilePatches ?? []).map((profile) => profile.slug),
     ],
   );
   const nonPublic = core.filter(
@@ -239,6 +251,9 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
     ...(xbox360Public.profiles ?? []).map((profile) => profile.slug),
     ...(xboxOnePublic.profiles ?? []).map((profile) => profile.slug),
     ...(xboxSeriesPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(segaPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(nintendoPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(snkPublic.profiles ?? []).map((profile) => profile.slug),
   ]);
   assert.deepEqual(sorted(publicSlugs), sorted(expectedPublicSlugs));
   for (const person of nonPublic) {

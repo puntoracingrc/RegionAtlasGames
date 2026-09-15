@@ -63,7 +63,8 @@ export type CompanyGenealogyRelation = {
     | "BECAME_INDEPENDENT"
     | "TRANSFERRED_TO"
     | "PENDING_TRANSFER"
-    | "CONSULTATION_STARTED";
+    | "CONSULTATION_STARTED"
+    | "IP_SUCCEEDED_BY";
   targetCompanySlug: string | null;
   targetCompanyName: string | null;
   year: number | null;
@@ -73,6 +74,11 @@ export type CompanyGenealogyRelation = {
 
 export type PlatformHardwareKind =
   | "BASE_MODEL"
+  | "HOME_COMPUTER"
+  | "SUCCESSOR_PLATFORM"
+  | "REGIONAL_MODEL"
+  | "HARDWARE_EXPANSION"
+  | "LICENSED_MODEL"
   | "EARLY_REVISION"
   | "REVISION"
   | "REDESIGN"
@@ -85,6 +91,7 @@ export type PlatformHardwareKind =
   | "COMPLEMENTARY_HARDWARE"
   | "COMMEMORATIVE_HARDWARE"
   | "MID_GENERATION_UPGRADE"
+  | "ANNOUNCED_HARDWARE"
   | "CONTROLLER"
   | "PRO_CONTROLLER"
   | "PERIPHERAL"
@@ -102,6 +109,11 @@ export const PLATFORM_HARDWARE_GROUPS: {
     label: "Modelos y revisiones",
     kinds: [
       "BASE_MODEL",
+      "HOME_COMPUTER",
+      "SUCCESSOR_PLATFORM",
+      "REGIONAL_MODEL",
+      "HARDWARE_EXPANSION",
+      "LICENSED_MODEL",
       "EARLY_REVISION",
       "REVISION",
       "REDESIGN",
@@ -113,6 +125,7 @@ export const PLATFORM_HARDWARE_GROUPS: {
       "INTEGRATED_HARDWARE",
       "COMMEMORATIVE_HARDWARE",
       "MID_GENERATION_UPGRADE",
+      "ANNOUNCED_HARDWARE",
     ],
   },
   {
@@ -157,10 +170,12 @@ export type PlatformHistoryMilestone = {
 export type PlatformArchitectureKind =
   | "PROCESSOR"
   | "GRAPHICS"
+  | "DISPLAY"
   | "OPTICAL_MEDIA"
   | "GAME_MEDIA"
   | "SYSTEM_SOFTWARE"
   | "MULTIMEDIA"
+  | "CONNECTIVITY"
   | "STORAGE_IO"
   | "AUDIO"
   | "UPSCALING";
@@ -268,6 +283,36 @@ export type PlatformEditorialSection = {
   sourceIds: string[];
 };
 
+export type PlatformHistoryEditorialIdentity = {
+  shortName: string;
+  manufacturer: "nintendo" | "sony" | "sega" | "snk" | "microsoft";
+  status: "closed" | "semi-closed" | "open";
+  sortOrder: number;
+  releaseYear: number | null;
+  descriptionEs: string;
+};
+
+export type PlatformLineageRelationship =
+  | "PREDECESSOR"
+  | "SUCCESSOR"
+  | "INFLUENCE"
+  | "PARALLEL_BRANCH"
+  | "CONVERGENCE";
+
+export type PlatformLineageLink = {
+  platformSlug: string;
+  platformName: string;
+  relationship: PlatformLineageRelationship;
+  summaryEs: string;
+  sourceIds: string[];
+};
+
+export type PlatformHistoryLineage = {
+  branchLabelEs: string;
+  summaryEs: string;
+  links: PlatformLineageLink[];
+};
+
 export type PlatformGenerationStatus = {
   labelEs: string;
   asOf: string;
@@ -276,6 +321,7 @@ export type PlatformGenerationStatus = {
 };
 
 export type PlatformHistorySectionId =
+  | "lineage"
   | "figures"
   | "architecture"
   | "companies"
@@ -291,6 +337,8 @@ export type PlatformHistorySectionId =
 export type PlatformHistory = {
   platformSlug: string;
   title: string;
+  editorialIdentity?: PlatformHistoryEditorialIdentity;
+  lineage?: PlatformHistoryLineage;
   dekEs: string;
   summaryParagraphsEs: string[];
   historyParagraphsEs?: string[];

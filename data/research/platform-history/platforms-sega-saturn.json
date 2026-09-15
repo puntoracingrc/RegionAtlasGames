@@ -1,0 +1,136 @@
+{
+  "version": 8,
+  "generatedAt": "2026-09-15T08:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "saturn",
+      "title": "Sega Saturn",
+      "dekEs": "La consola de 32 bits de SEGA combinó una arquitectura multiprocesador orientada inicialmente a sprites y 2D con una adaptación progresiva al 3D, una relación intensa con el arcade y una historia comercial muy distinta entre Japón, Norteamérica y Europa.",
+      "summaryParagraphsEs": [
+        "Sega Saturn se lanzó en Japón el 22 de noviembre de 1994. SEGA la describe como una máquina multimedia de 32 bits y como su consola doméstica de mayor éxito relativo en Japón.",
+        "Dos Hitachi SH-2, procesadores auxiliares y chips especializados produjeron una arquitectura potente pero compleja. La descripción correcta no es que Saturn fuera simplemente mala para 3D, sino que su diseño y herramientas exigían otro equilibrio de desarrollo.",
+        "System 32 influyó en el equipo de hardware, Model 1/2/3 alimentaron la cultura de conversión arcade y ST-V compartio una relación técnica estrecha con Saturn. Model 2 arcade no debe confundirse con la revisión doméstica llamada Model 2.",
+        "AM2, AM3, Team Andromeda y Sonic Team convivieron con third parties como Capcom, SNK, Treasure y Game Arts. Las propiedades y los créditos se mantienen separados para no convertir todo el catálogo en first party."
+      ],
+      "historyTitleEs": "Una generación entre el 2D, el 3D y el arcade",
+      "historyParagraphsEs": [
+        "La historia oficial vincula la concepción inicial de Saturn con experiencia acumulada por un equipo relacionado con System 32. El resultado priorizaba sprites, CD-ROM y varios procesadores especializados.",
+        "El auge rápido del 3D obligó a adaptar prioridades, herramientas y software. La complejidad no elimina las fortalezas 2D ni explica por sí sola las diferencias comerciales entre territorios.",
+        "En Japón, Virtua Fighter, Sakura Wars, los RPG y los juegos de lucha encontraron una base especialmente fuerte. Norteamérica y Europa siguieron estrategias de lanzamiento, catálogo y distribución diferentes.",
+        "ST-V facilitó una relación arcade-hogar más directa para determinados juegos, pero la placa seguía siendo arcade. Model 2 y Model 3 aportaron conversiones e identidad visual sin ser compatibles con Saturn.",
+        "32X pertenece al ecosistema Mega Drive y no a Saturn. El solapamiento comercial de 1994 se explica como transición de mercado, no como una genealogía técnica única."
+      ],
+      "architectureTitleEs": "Multiprocesamiento y relación arcade",
+      "architectureDekEs": "Componentes y placas relacionadas se mantienen técnicamente diferenciados.",
+      "figures": [
+        {"personSlug":"hayao-nakayama","personName":"Hayao Nakayama","roleLabelEs":"Liderazgo corporativo","contributionEs":"Dirigió SEGA durante la preparación y el lanzamiento de Saturn.","period":"Etapa de 32 bits","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"personSlug":"hideki-sato","personName":"Hideki Sato","roleLabelEs":"Ingeniería de hardware","contributionEs":"Figura técnica asociada a la arquitectura de Saturn y a la continuidad del hardware SEGA.","period":"Desarrollo de Saturn","sourceIds":["PH-SEGA-SATURN-DOSSIER","PH-SEGA-SATURN-STORY"]},
+        {"personSlug":"tom-kalinske","personName":"Tom Kalinske","roleLabelEs":"SEGA of America","contributionEs":"Responsable ejecutivo de la filial durante el lanzamiento norteamericano, con una estrategia distinta de la japonesa.","period":"Hasta 1996","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"personSlug":"bernie-stolar","personName":"Bernie Stolar","roleLabelEs":"Transición estadounidense","contributionEs":"Dirigió la etapa posterior de SEGA of America y la transición desde Saturn hacia Dreamcast.","period":"1996-1999","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"personSlug":"yu-suzuki","personName":"Yu Suzuki","roleLabelEs":"AM2 y arcade","contributionEs":"Conecta Model 1/2, Virtua Fighter y la cultura de conversiones arcade con Saturn; no se le adjudican ports sin crédito concreto.","period":"Etapa Saturn","sourceIds":["PH-SEGA-SATURN-DOSSIER","PH-SEGA-ARCADE-DOSSIER"]},
+        {"personSlug":"tetsuya-mizuguchi","personName":"Tetsuya Mizuguchi","roleLabelEs":"AM3 y Sega Rally","contributionEs":"Figura creativa del puente entre la experiencia arcade de Sega Rally y su presencia doméstica.","period":"Etapa Saturn","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"personSlug":"yukio-futatsugi","personName":"Yukio Futatsugi","roleLabelEs":"Team Andromeda","contributionEs":"Relaciona Team Andromeda con la trilogía Panzer Dragoon de Saturn.","period":"1995-1998","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"personSlug":"yuji-naka","personName":"Yuji Naka","roleLabelEs":"Sonic Team","contributionEs":"Trabajó en Nights into Dreams y Burning Rangers; Sonic R se mantiene atribuido a Traveller's Tales como desarrollador principal.","period":"Etapa Saturn","sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-saturn-sh2","name":"Doble Hitachi SH-2","kind":"PROCESSOR","summaryEs":"Dos procesadores principales SH-2 formaron el núcleo de una arquitectura multiprocesador con tareas distribuidas.","features":["Dos SH-2","SH-1 para el subsistema CD","Motorola 68EC000 para sonido","Chips especializados"],"partners":[{"companySlug":"hitachi","companyName":"Hitachi","roleLabelEs":"Procesadores SH"},{"companySlug":"sega","companyName":"SEGA","roleLabelEs":"Arquitectura e integración"}],"sourceIds":["PH-SEGA-SATURN-STORY"]},
+        {"id":"architecture-saturn-graphics","name":"Procesamiento 2D y 3D especializado","kind":"GRAPHICS","summaryEs":"El sistema combinaba gran capacidad de sprites y planos 2D con procesado poligonal, dentro de una organización compleja para los estudios.","features":["Fortaleza en sprites y 2D","Capacidades poligonales","Arquitectura multiprocesador","No reducir a incapacidad 3D"],"partners":[{"companySlug":"sega","companyName":"SEGA","roleLabelEs":"Diseño de hardware"}],"sourceIds":["PH-SEGA-SATURN-STORY","PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"architecture-saturn-cd","name":"CD-ROM y audio dedicado","kind":"OPTICAL_MEDIA","summaryEs":"Saturn integra CD-ROM dentro de una máquina multimedia con procesadores dedicados para el subsistema y el sonido.","features":["CD-ROM","SH-1 auxiliar","Audio con CPU dedicada"],"partners":[{"companySlug":"sega","companyName":"SEGA","roleLabelEs":"Integración multimedia"}],"sourceIds":["PH-SEGA-SATURN","PH-SEGA-SATURN-STORY"]},
+        {"id":"architecture-saturn-stv","name":"Relación con SEGA Titan Video","kind":"GAME_MEDIA","summaryEs":"ST-V comparte una base técnica estrecha con Saturn y facilita determinadas conversiones, pero sigue siendo una placa arcade separada.","features":["Placa arcade","Relación técnica con Saturn","No hardware retail","No confundir con Model 2 arcade"],"partners":[{"companySlug":"sega","companyName":"SEGA","roleLabelEs":"Hardware arcade y doméstico"}],"sourceIds":["PH-SEGA-SATURN-DOSSIER","PH-SEGA-ARCADE-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Divisiones first party y third parties decisivos",
+      "companies": [
+        {"companySlug":"sega","companyName":"SEGA","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"Etapa Saturn","relationshipStart":"1994","relationshipEnd":null,"contributionEs":"Desarrolló Saturn, coordinó sus divisiones y publicó el catálogo first party.","relatedWorks":["Sega Saturn","Virtua Fighter 2","Nights into Dreams"],"sourceIds":["PH-SEGA-SATURN"]},
+        {"companySlug":"sega-of-america","companyName":"SEGA of America","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Filial regional","period":"Lanzamiento y ciclo norteamericano","relationshipStart":"1995","relationshipEnd":null,"contributionEs":"Gestionó la estrategia regional norteamericana, distinta de Japón y Europa.","relatedWorks":["Sega Saturn"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"companySlug":"sega-am2","companyName":"Sega AM2","relationshipType":"FIRST_PARTY","relationshipLabelEs":"División interna","period":"Etapa Saturn","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Puente principal entre Model 1/2 y conversiones domésticas como Virtua Fighter y Virtua Cop.","relatedWorks":["Virtua Fighter 2","Virtua Cop","Fighting Vipers"],"sourceIds":["PH-SEGA-SATURN-DOSSIER","PH-SEGA-ARCADE-DOSSIER"]},
+        {"companySlug":"sega-am3","companyName":"Sega AM3","relationshipType":"FIRST_PARTY","relationshipLabelEs":"División interna","period":"Etapa Saturn","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Relacionada con Sega Rally y la continuidad posterior de Hitmaker; no se colapsan ambos nombres fuera de su período.","relatedWorks":["Sega Rally Championship"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"companySlug":"team-andromeda","companyName":"Team Andromeda","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Equipo first party","period":"1995-1998","relationshipStart":"1995","relationshipEnd":"1998","contributionEs":"Equipo de la serie Panzer Dragoon en Saturn.","relatedWorks":["Panzer Dragoon","Panzer Dragoon Zwei","Panzer Dragoon Saga"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"companySlug":"sonic-team","companyName":"Sonic Team","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Equipo first party","period":"Etapa Saturn","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló Nights into Dreams, Burning Rangers y Sonic Jam; Sonic R se atribuye a Traveller's Tales.","relatedWorks":["Nights into Dreams","Burning Rangers","Sonic Jam"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Third party","period":"Etapa Saturn","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó juegos de lucha y otros títulos, con cartuchos RAM en determinados lanzamientos.","relatedWorks":["X-Men vs. Street Fighter","Resident Evil"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"companySlug":"snk","companyName":"SNK","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Third party","period":"Etapa Saturn","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Publicó o licenció conversiones de sus series; no fue estudio first party de SEGA.","relatedWorks":["The King of Fighters","Samurai Shodown","Fatal Fury"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"companySlug":"treasure","companyName":"Treasure","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Third party","period":"Etapa Saturn","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Estudio independiente responsable de obras destacadas del catálogo.","relatedWorks":["Guardian Heroes","Radiant Silvergun"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"companySlug":"game-arts","companyName":"Game Arts","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Third party","period":"Etapa Saturn","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó RPG y conversiones importantes, sin relación de propiedad con SEGA.","relatedWorks":["Grandia","Lunar"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"companySlug":"travellers-tales","companyName":"Traveller's Tales","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Third party","period":"Sonic R","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrollador principal de Sonic R; la presencia de la marca Sonic no convierte el juego en desarrollo de Sonic Team.","relatedWorks":["Sonic R"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"saturn-first-party","labelEs":"Estructura first party","descriptionEs":"Divisiones y equipos con identidades temporales propias.","companySlugs":["sega","sega-of-america","sega-am2","sega-am3","team-andromeda","sonic-team"]},
+        {"id":"saturn-third-party","labelEs":"Third parties","descriptionEs":"Socios externos que no se convierten en propiedad de SEGA por aparecer en Saturn.","companySlugs":["capcom","snk","treasure","game-arts","travellers-tales"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "Arcade, creación interna y third parties",
+      "gameGroups": [
+        {"id":"saturn-arcade-games","labelEs":"Arcade y conversiones","descriptionEs":"Juegos que explican el vinculo con Model 1/2 y ST-V sin asumir compatibilidad universal.","games":[
+          {"title":"Virtua Fighter 2","catalogId":null,"year":1995,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"AM2 / SEGA","companySlugs":["sega-am2","sega"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"title":"Sega Rally Championship","catalogId":null,"year":1995,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"AM3 / SEGA","companySlugs":["sega-am3","sega"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"title":"Virtua Cop","catalogId":null,"year":1995,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"AM2 / SEGA","companySlugs":["sega-am2","sega"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"title":"Radiant Silvergun","catalogId":null,"year":1998,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Treasure / ST-V","companySlugs":["treasure"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+        ]},
+        {"id":"saturn-first-party-games","labelEs":"Identidad doméstica","descriptionEs":"Obras first party que ampliaron Saturn más allá del port arcade.","games":[
+          {"title":"Nights into Dreams","catalogId":null,"year":1996,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Sonic Team","companySlugs":["sonic-team"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"title":"Panzer Dragoon Saga","catalogId":null,"year":1998,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Team Andromeda","companySlugs":["team-andromeda"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"title":"Burning Rangers","catalogId":null,"year":1998,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Sonic Team","companySlugs":["sonic-team"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"title":"Sakura Wars","catalogId":null,"year":1996,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"SEGA y socios externos","companySlugs":["sega","red-entertainment"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+        ]},
+        {"id":"saturn-third-party-games","labelEs":"Third parties decisivos","descriptionEs":"Obras externas especialmente asociadas al catálogo japonés y a géneros 2D.","games":[
+          {"title":"X-Men vs. Street Fighter","catalogId":null,"year":1997,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Capcom","companySlugs":["capcom"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"title":"Guardian Heroes","catalogId":null,"year":1996,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Treasure","companySlugs":["treasure"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"title":"Grandia","catalogId":null,"year":1997,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Game Arts","companySlugs":["game-arts"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Modelos, revisiones y expansión opcional",
+      "hardware": [
+        {"id":"hardware-saturn-japan","name":"Sega Saturn","kind":"BASE_MODEL","yearLabel":"22 nov 1994","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Modelo japonés original de la consola de 32 bits y CD-ROM.","features":["Dos SH-2","CD-ROM","Precio japonés: 44.800 yenes"],"relatedWorks":[],"relatedPersonSlugs":["hayao-nakayama","hideki-sato"],"sourceIds":["PH-SEGA-SATURN"]},
+        {"id":"hardware-saturn-model-2-home","name":"Sega Saturn Model 2 (revisión doméstica)","kind":"REDESIGN","yearLabel":"Etapa Saturn","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Revisión de la consola doméstica; su nombre no tiene relación de identidad con la placa arcade SEGA Model 2.","features":["Carcasa y controles revisados","No es Model 2 arcade"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"hardware-v-saturn","name":"V-Saturn","kind":"LICENSED_MODEL","yearLabel":"Japón","manufacturerCompanySlug":"jvc","manufacturerCompanyName":"JVC","modelNumbers":[],"summaryEs":"Modelo licenciado y co-branded basado en Saturn, con identidad de fabricante visible.","features":["Modelo JVC","Misma familia de plataforma"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"hardware-hi-saturn","name":"Hi-Saturn","kind":"LICENSED_MODEL","yearLabel":"Japón","manufacturerCompanySlug":"hitachi","manufacturerCompanyName":"Hitachi","modelNumbers":[],"summaryEs":"Modelo licenciado de Hitachi dentro de la familia Saturn.","features":["Co-branding Hitachi","Variantes multimedia según modelo"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"hardware-saturn-controller","name":"Mando Sega Saturn","kind":"CONTROLLER","yearLabel":"1994","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Control principal de la plataforma con revisiones regionales.","features":["Diseño de seis botones frontales","Variantes por región"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"hardware-saturn-ram-cartridge","name":"Cartuchos de expansión RAM","kind":"PERIPHERAL","yearLabel":"Etapa Saturn","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Memoria adicional requerida o aprovechada por determinados juegos, especialmente conversiones 2D concretas.","features":["Compatibilidad por título","No ampliación universal obligatoria"],"relatedWorks":["X-Men vs. Street Fighter"],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"hardware-saturn-net-link","name":"Sega Net Link","kind":"PERIPHERAL","yearLabel":"Según región","manufacturerCompanySlug":"sega-of-america","manufacturerCompanyName":"SEGA of America","modelNumbers":[],"summaryEs":"Módem opcional para conectividad y software compatible; no formaba parte estándar de todas las Saturn.","features":["Hardware adicional","Servicios regionales","Catálogo compatible limitado"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+      ],
+      "servicesTitleEs": "Conectividad opcional",
+      "servicesDekEs": "Saturn experimentó con red mediante hardware y servicios regionales.",
+      "services": [
+        {"id":"service-saturn-net-link","name":"Servicios Sega Net Link","kind":"NETWORK_SERVICE","launchedLabel":"Etapa Saturn","endedLabel":null,"statusLabelEs":"Histórico y regional","parentServiceId":null,"summaryEs":"Navegación y juego online para determinados títulos mediante un módem opcional.","features":["No integrado de serie","Disponibilidad y funciones por región","Títulos compatibles concretos"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+      ],
+      "compatibilityLinks": [],
+      "editorialSections": [
+        {"id":"arcade-hardware","titleEs":"System 32, Model y ST-V","dekEs":"Tres relaciones arcade distintas que no deben colapsarse.","paragraphsEs":["El equipo de System 32 influyó en el diseño inicial; Model 1/2/3 aportaron juegos y cultura de conversión; ST-V fue la placa técnicamente más cercana a Saturn."],"cards":[
+          {"id":"saturn-system32","eyebrowEs":"Influencia de equipo","titleEs":"System 32","summaryEs":"La historia oficial vincula experiencia de este equipo con la arquitectura inicial de Saturn.","detailsEs":["Influencia, no compatibilidad","Enfasis inicial en sprites y 2D"],"sourceIds":["PH-SEGA-SATURN-STORY","PH-SEGA-ARCADE-DOSSIER"]},
+          {"id":"saturn-model2","eyebrowEs":"Conversiones arcade","titleEs":"Model 1, Model 2 y Model 3","summaryEs":"Virtua Fighter, Daytona y otros juegos alimentaron la identidad arcade de Saturn.","detailsEs":["No hardware compatible","Verificar cada placa por juego","Model 2 arcade no es Saturn Model 2"],"sourceIds":["PH-SEGA-ARCADE-DOSSIER"]},
+          {"id":"saturn-stv","eyebrowEs":"Relación técnica fuerte","titleEs":"SEGA Titan Video (ST-V)","summaryEs":"Placa arcade estrechamente relacionada con Saturn que facilitó determinados ports.","detailsEs":["Sigue siendo arcade","No Saturn retail","No todos los juegos usan ST-V"],"sourceIds":["PH-SEGA-SATURN-DOSSIER","PH-SEGA-ARCADE-DOSSIER"]}
+        ],"sourceIds":["PH-SEGA-SATURN-STORY","PH-SEGA-ARCADE-DOSSIER"]},
+        {"id":"regional-markets","titleEs":"Tres historias regionales","dekEs":"El rendimiento japonés no describe por sí solo toda la generación.","paragraphsEs":["Japón concentró una gran fortaleza relativa, catálogo doméstico y apoyo 2D. Norteamérica y Europa siguieron lanzamientos, marketing, distribución y localizaciones diferentes."],"cards":[
+          {"id":"saturn-japan","eyebrowEs":"Japón","titleEs":"Mayor fortaleza relativa","summaryEs":"SEGA presenta Saturn como su mayor éxito doméstico en Japón y registra un catálogo cercano a mil títulos con más de cien publishers.","detailsEs":["Cifra atribuida a la cronología oficial","Gran peso de RPG, lucha y Sakura Wars"],"sourceIds":["PH-SEGA-SATURN","PH-SEGA-CORPORATE-TIMELINE"]},
+          {"id":"saturn-west","eyebrowEs":"Norteamérica y Europa","titleEs":"Estrategias diferentes","summaryEs":"Fechas, marketing, catálogo y distribución deben consultarse por territorio.","detailsEs":["No extrapolar Japón","Localizaciones y third parties regionales"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+        ],"sourceIds":["PH-SEGA-SATURN","PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"boundaries","titleEs":"Límites que protegen la identidad de Saturn","dekEs":"Cancelaciones, expansiones y desarrolladores se muestran con precisión.","paragraphsEs":[],"cards":[
+          {"id":"saturn-not-32x","eyebrowEs":"Plataforma distinta","titleEs":"Saturn no es 32X","summaryEs":"32X amplía Mega Drive; Saturn inaugura otra plataforma con arquitectura propia.","detailsEs":["Calendario solapado","Identidades técnicas separadas"],"link":{"labelEs":"Ver Mega Drive y sus expansiones","href":"/historia-plataformas/megadrive"},"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"id":"sonic-xtreme","eyebrowEs":"Cancelado","titleEs":"Sonic X-treme","summaryEs":"Se conserva como proyecto cancelado y nunca como lanzamiento comercial de Saturn.","detailsEs":["No aparece entre los juegos publicados"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"id":"sonic-r","eyebrowEs":"Crédito de desarrollo","titleEs":"Sonic R y Traveller's Tales","summaryEs":"La marca Sonic no cambia la identidad del desarrollador principal.","detailsEs":["Traveller's Tales como desarrollo principal","Sonic Team no se atribuye automáticamente"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+        ],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+      ],
+      "sectionOrder":["figures","architecture","editorial:arcade-hardware","hardware","services","companies","games","editorial:regional-markets","editorial:boundaries","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-saturn-1993","yearLabel":"1993-1994","sortYear":1993,"title":"Preparación de la nueva generación","summaryEs":"SEGA combina experiencia de System 32 con la necesidad de responder al auge 3D.","sourceIds":["PH-SEGA-SATURN-STORY"]},
+        {"id":"milestone-saturn-1994","yearLabel":"22 nov 1994","sortYear":1994,"title":"Lanzamiento en Japón","summaryEs":"Saturn debuta como consola doméstica de 32 bits y CD-ROM.","sourceIds":["PH-SEGA-SATURN"]},
+        {"id":"milestone-saturn-1995","yearLabel":"1995","sortYear":1995,"title":"Expansión internacional","summaryEs":"La consola llega a Norteamérica y Europa mediante estrategias regionales distintas.","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"milestone-saturn-vf2","yearLabel":"1995-1996","sortYear":1995,"title":"Virtua Fighter 2, Sega Rally y Nights","summaryEs":"Arcade y creación doméstica definen la identidad principal del catálogo.","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"milestone-saturn-sakura","yearLabel":"1996","sortYear":1996,"title":"Sakura Wars","summaryEs":"La obra se convierte en uno de los hitos culturales del catálogo japonés.","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"milestone-saturn-1998","yearLabel":"1998","sortYear":1998,"title":"Transición a Dreamcast","summaryEs":"SEGA abre su siguiente plataforma sin borrar el ciclo regional de Saturn.","sourceIds":["PH-SEGA-CORPORATE-TIMELINE"]}
+      ],
+      "legacyEs": [
+        "Saturn conserva una identidad propia en la intersección entre gran rendimiento 2D, experimentación 3D y una arquitectura multiprocesador singular.",
+        "Su fortaleza japonesa y su catálogo de lucha, RPG y arcade muestran por qué una única narrativa global resulta insuficiente.",
+        "La relación con ST-V es uno de los mejores ejemplos de como Región Atlas puede conectar placas arcade y consolas sin convertirlas en el mismo objeto."
+      ],
+      "sources": [
+        {"id":"PH-SEGA-SATURN-DOSSIER","title":"Dossier editorial Región Atlas · Sega Saturn","publication":"Región Atlas","publisher":"Región Atlas","kind":"reference","language":"es","citation":"Informe respaldado entregado el 15 de septiembre de 2026","url":null},
+        {"id":"PH-SEGA-ARCADE-DOSSIER","title":"Dossier editorial Región Atlas · hardware arcade SEGA","publication":"Región Atlas","publisher":"Región Atlas","kind":"reference","language":"es","citation":"System 16 a NAOMI","url":null},
+        {"id":"PH-SEGA-SATURN","title":"Sega Saturn","publication":"SEGA Hardware Encyclopedia","publisher":"SEGA","kind":"official","language":"ja","citation":"Ficha oficial","url":"https://www.sega.jp/history/hard/segasaturn/"},
+        {"id":"PH-SEGA-SATURN-STORY","title":"Sega Saturn Hardware Story","publication":"SEGA Hardware Encyclopedia","publisher":"SEGA","kind":"official","language":"ja","citation":"Columna técnica oficial","url":"https://www.sega.jp/history/hard/column/column_05.html"},
+        {"id":"PH-SEGA-CORPORATE-TIMELINE","title":"SEGA company timeline 1960-2020","publication":"SEGA History","publisher":"SEGA","kind":"official","language":"en","citation":"Cronología oficial","url":"https://www.sega.jp/history/companyTimeline/en/"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

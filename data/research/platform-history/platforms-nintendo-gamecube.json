@@ -1,0 +1,112 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "gamecube",
+      "title": "Nintendo GameCube",
+      "lineage": {"branchLabelEs":"Línea doméstica","summaryEs":"GameCube sucede a Nintendo 64, adopta disco óptico de 8 cm y conecta con GBA. Wii continúa la línea doméstica con compatibilidad sólo en revisiones concretas.","links":[
+        {"platformSlug":"n64","platformName":"Nintendo 64 / 64DD","relationship":"PREDECESSOR","summaryEs":"Continúa la línea doméstica sustituyendo cartucho por disco óptico propio.","sourceIds":["PH-NIN-GC-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"wii","platformName":"Wii","relationship":"SUCCESSOR","summaryEs":"Wii sucede a GameCube y sus primeros modelos preservan discos, mandos y tarjetas de memoria.","sourceIds":["PH-NIN-GC-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"gba","platformName":"Game Boy Advance / SP / Micro","relationship":"PARALLEL_BRANCH","summaryEs":"Game Boy Player y el cable de enlace conectan las ramas sin fusionar sus catálogos.","sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ]},
+      "dekEs": "La primera consola doméstica óptica de Nintendo, construida con IBM y ArtX/ATI, definida por un mando asimétrico, WaveBird y conexiones específicas con Game Boy Advance.",
+      "summaryParagraphsEs": [
+        "GameCube llegó a Japón y Norteamérica en 2001 y a Europa en 2002. Nintendo registra 21,74 millones de consolas y 208,58 millones de juegos.",
+        "IBM desarrolló la CPU Gekko y ArtX, adquirida por ATI, trabajó en el procesador gráfico Flipper. Son relaciones de hardware, no propiedad de Nintendo.",
+        "El disco óptico de 8 cm no reproduce películas DVD en la consola estándar. Panasonic Q fue un híbrido licenciado para Japón y se mantiene como modelo distinto.",
+        "WaveBird fue el mando inalámbrico oficial por radiofrecuencia. Game Boy Player y el cable GBA-GameCube son periféricos separados con usos diferentes.",
+        "Retro Studios pasó a control de Nintendo durante el desarrollo de Metroid Prime; Capcom, Sega, Namco, Square Enix y Platinum mantienen relaciones externas diferenciadas."
+      ],
+      "historyTitleEs": "Disco óptico, control y colaboración externa",
+      "historyParagraphsEs": [
+        "La transición presidencial de Hiroshi Yamauchi a Satoru Iwata coincide con la vida temprana de la consola, sin atribuir el diseño completo a ninguno de ellos.",
+        "El mando combina gatillos analógicos, C-stick y una jerarquía asimétrica de botones. WaveBird desacopla el control del cable sin añadir vibración.",
+        "Metroid Prime ejemplifica la integración de Retro Studios; F-Zero GX, Baten Kaitos, Crystal Chronicles y Resident Evil 4 muestran colaboraciones y third parties con identidades propias."
+      ],
+      "architectureTitleEs": "Gekko, Flipper y disco de 8 cm",
+      "architectureDekEs": "Socios tecnológicos y formatos se documentan con su función precisa.",
+      "figures": [
+        {"personSlug":"hiroshi-yamauchi","personName":"Hiroshi Yamauchi","roleLabelEs":"Presidencia de lanzamiento","contributionEs":"Presidió Nintendo durante el desarrollo y lanzamiento inicial.","period":"Hasta 2002","sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"personSlug":"satoru-iwata","personName":"Satoru Iwata","roleLabelEs":"Presidencia y transición","contributionEs":"Asumió la presidencia durante el ciclo de GameCube y la preparación de DS y Wii.","period":"Desde 2002","sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"personSlug":"genyo-takeda","personName":"Genyo Takeda","roleLabelEs":"Dirección de hardware","contributionEs":"Figura técnica de Nintendo IRD ligada al sistema.","period":"Desarrollo de GameCube","sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Producción creativa","contributionEs":"Supervisó y produjo software first party durante la generación.","period":"Etapa GameCube","sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"personSlug":"eiji-aonuma","personName":"Eiji Aonuma","roleLabelEs":"Dirección y producción de Zelda","contributionEs":"Figura central de The Wind Waker y Twilight Princess.","period":"Etapa GameCube","sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"personSlug":"kensuke-tanabe","personName":"Kensuke Tanabe","roleLabelEs":"Producción y colaboración externa","contributionEs":"Conecta Nintendo con Retro Studios y la producción de Metroid Prime.","period":"Etapa Metroid Prime","sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-gamecube-gekko","name":"IBM Gekko","kind":"PROCESSOR","summaryEs":"CPU personalizada desarrollada por IBM para GameCube.","features":["Arquitectura PowerPC","Diseño personalizado","Integración con Flipper"],"partners":[{"companySlug":"ibm","companyName":"IBM","roleLabelEs":"Socio de CPU"},{"companySlug":"nintendo-ird","companyName":"Nintendo IRD","roleLabelEs":"Integración"}],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"architecture-gamecube-flipper","name":"ATI/ArtX Flipper","kind":"GRAPHICS","summaryEs":"Procesador gráfico desarrollado por ArtX, compañía adquirida por ATI durante el proyecto.","features":["Gráficos e I/O integrados","Relación ArtX-ATI fechada","No es tecnología propiedad de Nintendo"],"partners":[{"companySlug":"artx","companyName":"ArtX","roleLabelEs":"Diseño original"},{"companySlug":"ati-technologies","companyName":"ATI Technologies","roleLabelEs":"Continuidad corporativa"}],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"architecture-gamecube-disc","name":"Nintendo GameCube Game Disc","kind":"OPTICAL_MEDIA","summaryEs":"Disco óptico de 8 cm para juegos; la consola estándar no reproduce DVD-Video.","features":["8 cm","Formato de juego propio","Sin DVD-Video en modelo estándar"],"partners":[{"companySlug":"panasonic","companyName":"Panasonic","roleLabelEs":"Tecnología óptica y modelo Q"}],"sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Hardware compartido, estudio adquirido y socios externos",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"2001-2007","relationshipStart":"2001","relationshipEnd":null,"contributionEs":"Diseñó la plataforma y publicó su catálogo first party.","relatedWorks":["GameCube","Super Mario Sunshine","The Wind Waker"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GC-DOSSIER"]},
+        {"companySlug":"nintendo-ird","companyName":"Nintendo IRD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Hardware interno","period":"Desarrollo de GameCube","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Integró la arquitectura y los socios tecnológicos.","relatedWorks":["GameCube"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"companySlug":"ibm","companyName":"IBM","relationshipType":"HARDWARE_PARTNER","relationshipLabelEs":"Socio de CPU","period":"Proyecto GameCube","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló la CPU Gekko.","relatedWorks":["Gekko"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"companySlug":"ati-technologies","companyName":"ATI Technologies","relationshipType":"HARDWARE_PARTNER","relationshipLabelEs":"Socio gráfico","period":"Proyecto GameCube","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Continuó el trabajo de ArtX sobre Flipper tras adquirir la compañía.","relatedWorks":["Flipper"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"companySlug":"retro-studios","companyName":"Retro Studios","relationshipType":"FIRST_PARTY_ACQUISITION","relationshipLabelEs":"Estudio bajo control de Nintendo","period":"Desde 2002","relationshipStart":"2002","relationshipEnd":null,"contributionEs":"Desarrolló Metroid Prime tras la integración accionarial durante el proyecto.","relatedWorks":["Metroid Prime","Metroid Prime 2"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Socio y third party","period":"Etapa GameCube","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Anunció el contexto Capcom Five y publicó obras propias; no existió relación de propiedad.","relatedWorks":["Resident Evil 4","Viewtiful Joe"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"companySlug":"sega","companyName":"SEGA","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Socio externo","period":"Etapa GameCube","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Publicó software y colaboró en F-Zero GX mediante Amusement Vision.","relatedWorks":["Phantasy Star Online","F-Zero GX"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"companySlug":"namco","companyName":"Namco","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio externo","period":"Etapa GameCube","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Participó en Baten Kaitos y Star Fox Assault sin integrarse en Nintendo.","relatedWorks":["Baten Kaitos","Star Fox Assault"],"sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"gamecube-hardware","labelEs":"Arquitectura","descriptionEs":"Nintendo e integrantes tecnológicos conservan funciones distintas.","companySlugs":["nintendo","nintendo-ird","ibm","ati-technologies"]},
+        {"id":"gamecube-software","labelEs":"Estudios y socios","descriptionEs":"Retro ya integrado y compañías externas sin propiedad.","companySlugs":["retro-studios","capcom","sega","namco"]}
+      ],
+      "genealogies": [
+        {"id":"PHG-NIN-GC-ARTX-ATI","sourceCompanySlug":"artx","sourceCompanyName":"ArtX","relationshipType":"ACQUIRED_BY","targetCompanySlug":"ati-technologies","targetCompanyName":"ATI Technologies","year":2000,"summaryEs":"ATI adquirió ArtX durante el desarrollo; la relación con Flipper conserva ambas identidades históricas.","sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"PHG-NIN-GC-RETRO-NINTENDO","sourceCompanySlug":"retro-studios","sourceCompanyName":"Retro Studios","relationshipType":"ACQUIRED_BY","targetCompanySlug":"nintendo","targetCompanyName":"Nintendo","year":2002,"summaryEs":"Nintendo adquirió el control completo de Retro Studios durante el desarrollo de Metroid Prime; el estudio conserva identidad propia dentro del grupo.","sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ],
+      "gamesTitleEs": "Software propio y alianzas de generación",
+      "gameGroups": [
+        {"id":"gamecube-first-party-games","labelEs":"Nintendo y estudios integrados","descriptionEs":"Juegos publicados por Nintendo con desarrollo interno o first party.","games":[
+          {"title":"Super Mario Sunshine","catalogId":null,"year":2002,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+          {"title":"The Legend of Zelda: The Wind Waker","catalogId":null,"year":2002,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+          {"title":"Metroid Prime","catalogId":null,"year":2002,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Retro Studios / Nintendo","companySlugs":["retro-studios","nintendo"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+          {"title":"Super Smash Bros. Melee","catalogId":null,"year":2001,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"HAL Laboratory / Nintendo","companySlugs":["hal-laboratory","nintendo"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+          {"title":"Pikmin","catalogId":null,"year":2001,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GC-DOSSIER"]}
+        ]},
+        {"id":"gamecube-partner-games","labelEs":"Socios y third parties","descriptionEs":"Colaboraciones sin alterar la identidad empresarial.","games":[
+          {"title":"F-Zero GX","catalogId":null,"year":2003,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Amusement Vision / Nintendo","companySlugs":["sega","nintendo"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+          {"title":"Final Fantasy Crystal Chronicles","catalogId":null,"year":2003,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Square Enix","companySlugs":["square-enix"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+          {"title":"Resident Evil 4","catalogId":null,"year":2005,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Capcom","companySlugs":["capcom"],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+          {"title":"Baten Kaitos","catalogId":null,"year":2003,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Namco / Monolith Soft","companySlugs":["namco","monolith-soft"],"sourceIds":["PH-NIN-GC-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Consola, modelo licenciado y periféricos",
+      "hardware": [
+        {"id":"hardware-gamecube","name":"Nintendo GameCube","kind":"BASE_MODEL","yearLabel":"2001","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["DOL-001","DOL-101"],"summaryEs":"Consola doméstica de disco óptico de 8 cm.","features":["Cuatro puertos de mando","Dos ranuras de memoria","Sin DVD-Video estándar"],"relatedWorks":[],"relatedPersonSlugs":["genyo-takeda"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GC-DOSSIER"]},
+        {"id":"hardware-panasonic-q","name":"Panasonic Q","kind":"MULTIMEDIA_HYBRID","yearLabel":"2001 · Japón","manufacturerCompanySlug":"panasonic","manufacturerCompanyName":"Panasonic","modelNumbers":["SL-GC10"],"summaryEs":"Híbrido licenciado que combina GameCube y reproducción DVD para Japón.","features":["Modelo licenciado","DVD-Video","Sólo Japón"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"hardware-gamecube-controller","name":"Mando de GameCube","kind":"CONTROLLER","yearLabel":"2001","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["DOL-003"],"summaryEs":"Mando con disposición asimétrica, C-stick y gatillos analógicos.","features":["Botón A dominante","C-stick","Gatillos analógicos"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"hardware-wavebird","name":"WaveBird Wireless Controller","kind":"CONTROLLER","yearLabel":"2002","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["DOL-004"],"summaryEs":"Mando inalámbrico oficial por radiofrecuencia.","features":["Radiofrecuencia","Selector de canal","Sin vibración"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"hardware-gamecube-broadband","name":"Broadband Adapter / Modem Adapter","kind":"PERIPHERAL","yearLabel":"2002","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["DOL-012","DOL-015"],"summaryEs":"Adaptadores de red externos usados por un número reducido de títulos.","features":["No integrados de serie","Compatibilidad limitada","Phantasy Star Online"],"relatedWorks":["Phantasy Star Online"],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"hardware-gamecube-gameboy-player","name":"Game Boy Player","kind":"PERIPHERAL","yearLabel":"2003","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["DOL-017"],"summaryEs":"Base con hardware portátil para ejecutar cartuchos GB, GBC y GBA mediante GameCube.","features":["Requiere disco de arranque","No es una GameCube revisada","Catálogo portátil en TV"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ],
+      "compatibilityLinks": [
+        {"id":"compat-gamecube-gba","sourcePlatformSlug":"gamecube","sourcePlatformName":"Nintendo GameCube","targetPlatformSlug":"gba","targetPlatformName":"Game Boy Advance","labelEs":"Conectividad por periférico y juego","summaryEs":"Game Boy Player ejecuta cartuchos mediante hardware dedicado; el cable de enlace habilita funciones sólo en títulos compatibles.","features":["Game Boy Player","Cable GBA-GameCube","No universal"],"sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"optico-y-conectividad","titleEs":"Un disco de juego no equivale a un reproductor DVD","dekEs":"Modelo estándar, híbrido licenciado y conectividad son objetos distintos.","paragraphsEs":["GameCube usa discos ópticos de 8 cm, pero el modelo estándar no reproduce DVD-Video. Panasonic Q incorpora esa función en un híbrido licenciado japonés.","Los adaptadores de red y la conexión con GBA requieren hardware y software compatibles; no son funciones universales integradas."],"cards":[],"sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:optico-y-conectividad","companies","games","hardware","compatibility","control","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-gamecube-launch","yearLabel":"2001-2002","sortYear":2001,"title":"Lanzamiento regional","summaryEs":"GameCube llega a Japón y Norteamérica en 2001 y a Europa en 2002.","sourceIds":["PH-NIN-HISTORY","PH-NIN-GC-DOSSIER"]},
+        {"id":"milestone-gamecube-iwata","yearLabel":"2002","sortYear":2002,"title":"Transición Yamauchi-Iwata","summaryEs":"Satoru Iwata asume la presidencia durante la vida de la consola.","sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"milestone-gamecube-prime","yearLabel":"2002","sortYear":2002,"title":"Metroid Prime y WaveBird","summaryEs":"Retro Studios y el mando inalámbrico definen dos relaciones distintas del ecosistema.","sourceIds":["PH-NIN-GC-DOSSIER"]},
+        {"id":"milestone-gamecube-gba","yearLabel":"2003","sortYear":2003,"title":"Game Boy Player y conectividad GBA","summaryEs":"Nintendo refuerza el puente entre sus dos ramas de hardware.","sourceIds":["PH-NIN-GC-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "GameCube fijó una identidad de control que continúa en hardware y software posteriores.",
+        "Metroid Prime muestra una adquisición fechada; Capcom, SEGA, Namco y Square Enix siguen siendo socios externos.",
+        "La conexión GBA anticipa experiencias de doble pantalla sin convertir el Game Boy Player o el cable en plataformas nuevas."
+      ],
+      "sources": [
+        {"id":"PH-NIN-GC-DOSSIER","title":"Dossier editorial Region Atlas · Nintendo GameCube","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Arquitectura, discos, control, conectividad, estudios y QA","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Lanzamiento y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"GameCube · 21,74 M hardware; 208,58 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

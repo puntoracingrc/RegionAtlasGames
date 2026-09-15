@@ -1,0 +1,94 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "virtualboy",
+      "title": "Virtual Boy",
+      "editorialIdentity": {
+        "shortName": "Virtual Boy",
+        "manufacturer": "nintendo",
+        "status": "closed",
+        "sortOrder": 4,
+        "releaseYear": 1995,
+        "descriptionEs": "Experimento estereoscópico de sobremesa de Nintendo y R&D1 lanzado en Japón y Norteamérica."
+      },
+      "lineage": {
+        "branchLabelEs": "Rama experimental",
+        "summaryEs": "Virtual Boy fue un experimento estereoscópico de sobremesa y ciclo breve; no es un eslabón portátil convencional ni el antecesor técnico directo de Nintendo 3DS.",
+        "links": [
+          {"platformSlug":"gameboy","platformName":"Game Boy / Game Boy Color","relationship":"PARALLEL_BRANCH","summaryEs":"Compartió entorno R&D1, pero su diseño de mesa y pantalla estereoscópica lo separan de la línea portátil de mano.","sourceIds":["PH-NIN-VB-DOSSIER"]},
+          {"platformSlug":"3ds","platformName":"Nintendo 3DS","relationship":"INFLUENCE","summaryEs":"Ambas máquinas exploran imagen estereoscópica sin gafas, como continuidad temática y no como una genealogía tecnológica directa.","sourceIds":["PH-NIN-VB-DOSSIER"]}
+        ]
+      },
+      "dekEs": "Un sistema estereoscópico rojo y negro apoyado sobre una mesa, con dos crucetas y un catálogo breve, documentado como experimento de hardware y no como caricatura histórica.",
+      "summaryParagraphsEs": [
+        "Nintendo lanzó Virtual Boy en 1995 en Japón y Norteamérica; no tuvo un despliegue comercial europeo estándar.",
+        "Su visor utilizaba matrices LED rojas y paralaje estereoscópico. El soporte de mesa y el visor fijo hacen impreciso describirlo como una portátil de mano convencional.",
+        "Gunpei Yokoi es la figura principal vinculada al proyecto dentro de R&D1, pero el sistema fue un trabajo colectivo y no se atribuye a una sola persona.",
+        "El ciclo corto se explica mediante una combinación de límites visuales, ergonomía, coste y catálogo, sin convertir un único factor en causa total ni vincular automáticamente la salida de Yokoi a su resultado."
+      ],
+      "historyTitleEs": "Un experimento estereoscópico de ciclo breve",
+      "historyParagraphsEs": [
+        "Virtual Boy intentó ofrecer profundidad estereoscópica mediante dos imágenes rojas separadas para cada ojo. El planteamiento difería tanto de las consolas domésticas conectadas a un televisor como de Game Boy.",
+        "El mando de dos crucetas permitía trabajar con movimiento y profundidad. Mario's Tennis, Virtual Boy Wario Land, Teleroboxer y Red Alarm ilustran usos distintos de una biblioteca pequeña.",
+        "Su legado se conserva como investigación sobre presentación 3D. Nintendo 3DS retoma la idea general de profundidad sin gafas, pero con tecnología, formato y genealogía diferentes."
+      ],
+      "architectureTitleEs": "LED, paralaje y control simétrico",
+      "architectureDekEs": "La forma física y el sistema óptico explican por qué no encaja como portátil de mano.",
+      "figures": [
+        {"personSlug":"gunpei-yokoi","personName":"Gunpei Yokoi","roleLabelEs":"Producción y R&D1","contributionEs":"Figura principal asociada al concepto y desarrollo, dentro de un equipo colectivo.","period":"Desarrollo y lanzamiento","sourceIds":["PH-NIN-VB-DOSSIER"]},
+        {"personSlug":"satoru-okada","personName":"Satoru Okada","roleLabelEs":"Ingeniería y R&D1","contributionEs":"Representa la continuidad técnica del equipo portátil y experimental de Nintendo.","period":"Etapa Virtual Boy","sourceIds":["PH-NIN-VB-DOSSIER"]},
+        {"personSlug":"hiroshi-yamauchi","personName":"Hiroshi Yamauchi","roleLabelEs":"Dirección empresarial","contributionEs":"Presidió Nintendo durante la aprobación, lanzamiento y retirada del sistema.","period":"1995","sourceIds":["PH-NIN-VB-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-virtualboy-display","name":"Visor estereoscópico LED","kind":"DISPLAY","summaryEs":"Dos matrices LED rojas y un sistema óptico crean imágenes separadas para cada ojo.","features":["Imagen roja y negra","Paralaje estereoscópico","Visor fijo sobre soporte"],"partners":[{"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","roleLabelEs":"Diseño e integración"}],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+        {"id":"architecture-virtualboy-media","name":"Cartuchos Virtual Boy","kind":"GAME_MEDIA","summaryEs":"Formato propio para una biblioteca regional y de ciclo breve.","features":["Formato específico","Biblioteca no compatible con Game Boy","Distribución Japón y Norteamérica"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma"}],"sourceIds":["PH-NIN-VB-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Nintendo, R&D1 y catálogo externo",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"1995-1996","relationshipStart":"1995","relationshipEnd":"1996","contributionEs":"Fabricó y comercializó el sistema en Japón y Norteamérica.","relatedWorks":["Virtual Boy","Mario's Tennis","Teleroboxer"],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+        {"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Equipo interno","period":"Desarrollo de Virtual Boy","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Equipo principal vinculado al hardware y parte del software.","relatedWorks":["Virtual Boy","Virtual Boy Wario Land"],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+        {"companySlug":"atlus","companyName":"Atlus","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"1995","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó software externo al catálogo sin relación de propiedad con Nintendo.","relatedWorks":["Jack Bros."],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+        {"companySlug":"t-and-e-soft","companyName":"T&E Soft","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Desarrolladora externa","period":"1995","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló Red Alarm para el sistema.","relatedWorks":["Red Alarm"],"sourceIds":["PH-NIN-VB-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"virtualboy-first-party","labelEs":"Nintendo y R&D1","descriptionEs":"Fabricante y equipo interno del proyecto.","companySlugs":["nintendo","nintendo-rd1"]},
+        {"id":"virtualboy-third-party","labelEs":"Catálogo externo","descriptionEs":"Participación third party sin propiedad de Nintendo.","companySlugs":["atlus","t-and-e-soft"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "Una biblioteca pequeña pero diferenciada",
+      "gameGroups": [
+        {"id":"virtualboy-games","labelEs":"Juegos representativos","descriptionEs":"Diseño deportivo, plataformas, acción y profundidad estereoscópica.","games":[
+          {"title":"Mario's Tennis","catalogId":null,"year":1995,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+          {"title":"Virtual Boy Wario Land","catalogId":null,"year":1995,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo R&D1","companySlugs":["nintendo","nintendo-rd1"],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+          {"title":"Teleroboxer","catalogId":null,"year":1995,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo R&D1","companySlugs":["nintendo","nintendo-rd1"],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+          {"title":"Red Alarm","catalogId":null,"year":1995,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"T&E Soft","companySlugs":["t-and-e-soft"],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+          {"title":"Jack Bros.","catalogId":null,"year":1995,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Atlus","companySlugs":["atlus"],"sourceIds":["PH-NIN-VB-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Sistema y control",
+      "hardware": [
+        {"id":"hardware-virtualboy","name":"Virtual Boy","kind":"BASE_MODEL","yearLabel":"1995","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Sistema estereoscópico para uso sobre mesa mediante visor y soporte.","features":["Pantalla LED roja y negra","Soporte de mesa","Cartuchos propios"],"relatedWorks":[],"relatedPersonSlugs":["gunpei-yokoi","satoru-okada"],"sourceIds":["PH-NIN-VB-DOSSIER"]},
+        {"id":"hardware-virtualboy-controller","name":"Mando de Virtual Boy","kind":"CONTROLLER","yearLabel":"1995","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Mando simétrico preparado para control de profundidad.","features":["Dos crucetas","Botones posteriores","Alimentación del sistema"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-VB-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"limites-historicos","titleEs":"Qué fue y qué no fue Virtual Boy","dekEs":"Una lectura neutral conserva sus límites comerciales y tecnológicos.","paragraphsEs":["No fue una portátil de mano convencional ni tuvo lanzamiento europeo general. Tampoco debe presentarse como una creación individual de Gunpei Yokoi.","La relación con Nintendo 3DS es temática: ambas exploran profundidad sin gafas, pero no comparten una sucesión técnica directa."],"cards":[],"sourceIds":["PH-NIN-VB-DOSSIER"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:limites-historicos","companies","games","hardware","control","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-virtualboy-launch","yearLabel":"1995","sortYear":1995,"title":"Lanzamiento en Japón y Norteamérica","summaryEs":"Nintendo comercializa su experimento estereoscópico en dos grandes mercados.","sourceIds":["PH-NIN-VB-DOSSIER"]},
+        {"id":"milestone-virtualboy-end","yearLabel":"1996","sortYear":1996,"title":"Fin del ciclo comercial","summaryEs":"El sistema termina una vida breve sin despliegue europeo estándar.","sourceIds":["PH-NIN-VB-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "Virtual Boy documenta una vía experimental de Nintendo distinta de sus líneas doméstica y portátil.",
+        "Su forma de mesa, visor fijo y doble cruceta son esenciales para entender el producto sin etiquetas imprecisas.",
+        "La profundidad estereoscópica reaparece en 3DS como idea general, no como continuidad técnica directa."
+      ],
+      "sources": [
+        {"id":"PH-NIN-VB-DOSSIER","title":"Dossier editorial Region Atlas · Virtual Boy","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Contexto, personas, tecnología, catálogo y límites de publicación","url":null}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

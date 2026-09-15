@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "peopleCandidates": [
+    {
+      "personSlug": "makoto-kano",
+      "personName": "Makoto Kano",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "Su relación con la etapa arcade y R&D1 necesita una biografía y roles fechados antes de publicarse."
+    },
+    {
+      "personSlug": "hirokazu-tanaka",
+      "personName": "Hirokazu Tanaka",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Se conservan menciones musicales y técnicas, pero faltan fuentes precisas para los vínculos por plataforma incluidos en este alcance."
+    },
+    {
+      "personSlug": "alexey-pajitnov",
+      "personName": "Alexey Pajitnov",
+      "status": "RIGHTS_RELATION_PENDING",
+      "reasonEs": "La creación de Tetris es conocida, pero la relación exacta de derechos y negociación del lanzamiento de Game Boy requiere un modelo documental propio."
+    },
+    {
+      "personSlug": "henk-rogers",
+      "personName": "Henk Rogers",
+      "status": "RIGHTS_RELATION_PENDING",
+      "reasonEs": "Su papel en Tetris y Game Boy debe publicarse con fuentes específicas de derechos y negociación, no como una atribución general."
+    },
+    {
+      "personSlug": "ken-sugimori",
+      "personName": "Ken Sugimori",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "La relación artística con Pokémon queda pendiente de créditos primarios por obra."
+    },
+    {
+      "personSlug": "junichi-masuda",
+      "personName": "Junichi Masuda",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Se requiere separar composición, dirección y producción por entrega de Pokémon antes de crear relaciones públicas exactas."
+    },
+    {
+      "personSlug": "chris-stamper",
+      "personName": "Chris Stamper",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "La historia de Rare merece una ficha propia con fuentes independientes y cronología societaria."
+    },
+    {
+      "personSlug": "tim-stamper",
+      "personName": "Tim Stamper",
+      "status": "NEEDS_MORE_BIOGRAPHICAL_EVIDENCE",
+      "reasonEs": "La historia de Rare merece una ficha propia con fuentes independientes y cronología societaria."
+    },
+    {
+      "personSlug": "gregg-mayles",
+      "personName": "Gregg Mayles",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Faltan créditos primarios por juego para la etapa Nintendo 64 de Rare."
+    },
+    {
+      "personSlug": "david-wise",
+      "personName": "David Wise",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Faltan créditos musicales primarios por juego dentro del alcance Nintendo."
+    },
+    {
+      "personSlug": "giles-goddard",
+      "personName": "Giles Goddard",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Las aportaciones tecnológicas a Super Mario 64 y 1080° Snowboarding deben verificarse por crédito antes de una ficha pública."
+    },
+    {
+      "personSlug": "mark-pacini",
+      "personName": "Mark Pacini",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "El rol concreto en Metroid Prime requiere una fuente primaria de créditos."
+    },
+    {
+      "personSlug": "michael-kelbaugh",
+      "personName": "Michael Kelbaugh",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "La cronología entre Nintendo y Retro Studios requiere fuentes biográficas y empresariales adicionales."
+    },
+    {
+      "personSlug": "yusuke-amano",
+      "personName": "Yusuke Amano",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "El rol en Splatoon se mantiene pendiente hasta verificar créditos concretos."
+    },
+    {
+      "personSlug": "tsubasa-sakaguchi",
+      "personName": "Tsubasa Sakaguchi",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "El rol en Splatoon se mantiene pendiente hasta verificar créditos concretos."
+    }
+  ],
+  "companyCandidates": [
+    {
+      "companySlug": "nintendo-internal-development-genealogy",
+      "status": "NEEDS_TEMPORAL_MODEL",
+      "reasonEs": "R&D1/R&D2/R&D3/R&D4, EAD, SPD, IRD, RED, EPD y Technology Development requieren una genealogía corporativa más granular antes de tratar cada transición como hecho jurídico."
+    },
+    {
+      "companySlug": "ikegami-tsushinki",
+      "status": "NEEDS_CONTRACTUAL_SOURCES",
+      "reasonEs": "La colaboración arcade sólo debe publicarse cuando se documenten con precisión contratos, créditos y disputas."
+    },
+    {
+      "companySlug": "the-pokemon-company-ownership",
+      "status": "PROTECTED_OWNERSHIP_BOUNDARY",
+      "reasonEs": "No se publicará como subsidiaria al 100 % de Nintendo; cualquier detalle accionario adicional requiere fuente societaria vigente."
+    },
+    {
+      "companySlug": "intelligent-systems-ownership",
+      "status": "PROTECTED_OWNERSHIP_BOUNDARY",
+      "reasonEs": "Se conserva como socio independiente y no como estudio propiedad de Nintendo."
+    }
+  ],
+  "creditCandidates": [
+    {
+      "title": "Tetris · negociación y derechos de Game Boy",
+      "status": "NEEDS_RIGHTS_SOURCES",
+      "reasonEs": "No se convierten relatos generales en relaciones exactas sin documentación sobre las partes y los derechos."
+    },
+    {
+      "title": "Pokémon · créditos individuales por entrega",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "Game Freak, Creatures, Nintendo y The Pokémon Company conservan papeles distintos; los individuos requieren créditos por juego."
+    },
+    {
+      "title": "Mario Kart World · equipo creativo",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "No se crean perfiles o créditos de la generación activa sin una fuente oficial por función."
+    },
+    {
+      "title": "Donkey Kong Bananza · equipo creativo",
+      "status": "NEEDS_EXACT_ROLE_SOURCES",
+      "reasonEs": "No se infieren director o productor a partir de la relevancia comercial del título."
+    },
+    {
+      "title": "Switch 2 Editions · contabilidad y relación con juego base",
+      "status": "NEEDS_EDITION_LEVEL_MODEL",
+      "reasonEs": "Las ediciones mejoradas deben reutilizar el juego base y respetar las reglas contables publicadas por Nintendo."
+    }
+  ],
+  "hardwareCandidates": [
+    {
+      "id": "switch2-zelda-40th-anniversary-edition",
+      "status": "ANNOUNCED_FUTURE_VARIANT",
+      "availableFrom": "2026-10-29",
+      "reasonEs": "En la fecha de revisión todavía no se había lanzado; no entra en el hardware público ni en el catálogo."
+    }
+  ],
+  "mediaReferences": [
+    {
+      "personSlug": "fusajiro-yamauchi",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "hiroshi-yamauchi",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "tatsumi-kimishima",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "shuntaro-furukawa",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "masayuki-uemura",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "genyo-takeda",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "takashi-tezuka",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "koji-kondo",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "yoshio-sakamoto",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "eiji-aonuma",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "yoshiaki-koizumi",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "hideki-konno",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "katsuya-eguchi",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "kensuke-tanabe",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "shinya-takahashi",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "ko-shiota",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "satoru-shibata",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "doug-bowser",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "reggie-fils-aime",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "minoru-arakawa",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "howard-lincoln",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "satoru-okada",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "kouichi-kawamoto",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "takuhiro-dohta",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "tetsuya-sasaki",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "masahiro-sakurai",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "ryuta-kawashima",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "hisashi-nogami",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "shigesato-itoi",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    },
+    {
+      "personSlug": "dylan-cuthbert",
+      "status": "PORTRAIT_FALLBACK",
+      "reasonEs": "No se aporta una imagen con licencia explícita reutilizable."
+    }
+  ]
+}
