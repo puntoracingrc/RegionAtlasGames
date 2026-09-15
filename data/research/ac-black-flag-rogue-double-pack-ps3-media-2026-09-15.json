@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "compilationId": "assassins-creed-black-flag-rogue-double-pack",
+  "platformReleaseId": "assassins-creed-black-flag-rogue-double-pack-ps3",
+  "reviewedAt": "2026-09-15",
+  "includedGames": [
+    {
+      "canonicalGameId": "assassins-creed-iv-black-flag",
+      "catalogId": "ps3-assassin%27s-creed-iv-black-flag",
+      "relation": "CONTAINS_GAME",
+      "isEditionOfIncludedGame": false
+    },
+    {
+      "canonicalGameId": "assassins-creed-rogue",
+      "catalogId": "ps3-assassin%27s-creed-rogue",
+      "relation": "CONTAINS_GAME",
+      "isEditionOfIncludedGame": false
+    }
+  ],
+  "physicalMedia": [
+    {
+      "serialFamily": "BLES-02204",
+      "region": "EUROPE",
+      "mediumCount": null,
+      "composition": "PENDING_PHYSICAL_SCAN_OR_DUMP_CONFIRMATION",
+      "redumpSignal": "Compilation medium; suggests but does not prove a single combined Blu-ray",
+      "softwareLanguages": ["en", "fr", "de", "es", "it", "nl", "pt", "sv", "no", "da", "fi", "pl"],
+      "packagingLanguages": []
+    },
+    {
+      "serialFamily": "BLES-02211/RUS",
+      "region": "RUSSIA",
+      "mediumCount": null,
+      "composition": "PENDING_PHYSICAL_SCAN_OR_DUMP_CONFIRMATION",
+      "softwareLanguages": [],
+      "packagingLanguages": [],
+      "outerBarcode": null
+    }
+  ],
+  "classification": {
+    "type": "COMPILATION",
+    "isStandaloneProduct": true,
+    "isBlackFlagEdition": false,
+    "isRogueEdition": false,
+    "bonusAndRetailerBundlesCount": 0
+  }
+}
