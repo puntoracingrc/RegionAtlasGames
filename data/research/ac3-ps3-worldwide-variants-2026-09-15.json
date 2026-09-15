@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "gameId": "assassins-creed-iii",
+  "platformReleaseId": "assassins-creed-iii-ps3",
+  "title": "Assassin's Creed III",
+  "platform": "PlayStation 3",
+  "originalReleaseYear": 2012,
+  "reviewedAt": "2026-09-15",
+  "overlayFile": "data/catalog-edition-guides-ac3-ps3-worldwide.json",
+  "decisionSummary": {
+    "australia3307215643075": "Special Edition confirmada por retailer australiano; no se duplica como Standard.",
+    "germany": "3307215634578 Standard, 3307215642962 Special y 3307215644836 PS3 Exclusive son cajas distintas. 4012160251983 queda como reedición ak tronic pendiente de fecha/packaging.",
+    "freedom": "3307215636671 es la caja alemana y 3307215636695 una familia europea; no se fusionan ni se asigna el segundo a un país sin evidencia.",
+    "washington": "3307215692646 Alemania, 3307215692684 candidato PAL, 4250114319772 candidato con idiomas de software D/F/I/E y 4895094019429 Asia permanecen separados; los territorios no demostrados siguen pendientes.",
+    "essentials": "3307215772423 Alemania, 3307215772492 candidato europeo, 3700664521275 distribución francesa Just For Games, BLES-01668/E/ANZ y BLES-01669/E/RUS son reediciones separadas.",
+    "northAmerica": "USA 008888347231 y Canadá/Sudamérica 008888347378 no se fusionan. GameStop, Signature, Limited y Greatest Hits son ediciones separadas; Limited y Greatest Hits conservan UPC pendiente.",
+    "russiaCee": "BLES-01669/RUS original y BLES-01669/E/RUS Essentials se separan. PL/RU/CS/HU son idiomas de software, no de caja.",
+    "asia": "BLAS-50494 Standard, BLAS-50495 Chinese Version, BLAS-50583 Washington y BLAS-50615 PlayStation 3 the Best no se fusionan.",
+    "ubiWorkshop": "Edición física confirmada; barcode exterior pendiente.",
+    "ubiTheBest": "La reedición japonesa se separa de Standard como 4949244003377 / BLJM-61171, con fecha 2014-03-20.",
+    "hardwareBundle": "Se documenta como hardwareBundle y no incrementa PhysicalEdition standalone.",
+    "digital": "Gold, Ultimate, Season Pass y DLC no se cuentan como PhysicalEdition."
+  },
+  "hardwareBundles": [
+    {
+      "id": "ac3-ps3-hardware-bundle-us",
+      "label": "PlayStation 3 bundle with Assassin's Creed III",
+      "market": "US",
+      "includesGame": true,
+      "standalonePhysicalEditionCount": 0,
+      "status": "PENDING_PACKAGING_AUDIT",
+      "source": "https://gamefaqs.gamespot.com/ps3/621796-assassins-creed-iii/data",
+      "notes": ["Verificar si la copia incluida está marcada Not for Resale antes de crear relación de packaging bundled."]
+    }
+  ],
+  "ambiguousIdentifiers": [
+    {"edition": "Limited Edition USA", "candidates": ["008888397717", "008888397649", "008888347644"], "decision": "No barcode publicado hasta distinguir outer box, inner case y SKU distribuidor."},
+    {"edition": "Standard / Special Rusia", "candidates": ["2000001435953"], "decision": "Candidato retenido hasta foto física."},
+    {"edition": "Greatest Hits Norteamérica", "candidates": ["008888347231"], "decision": "No se reutiliza el UPC de Standard sin foto de caja roja."},
+    {"edition": "PlayStation 3 the Best Asia", "candidates": [], "decision": "BLAS-50615 publicado; barcode pendiente."}
+  ],
+  "preservation": {
+    "catalogJsonModified": false,
+    "ownedScansModified": false,
+    "routeRedirectsModified": false,
+    "priceFilesModified": false,
+    "rarityFilesModified": false,
+    "existingCatalogIdsLinkedWhereIdentityIsSafe": true,
+    "notes": ["No hay scans propios de AC III PS3 en el inventario actual.", "Las fichas legacy ambiguas se preservan sin recibir barcodes extranjeros."]
+  },
+  "pending": [
+    "Packaging languages de todas las cajas sin scan exhaustivo",
+    "UPC exterior de Limited Edition",
+    "Barcode de UbiWorkshop",
+    "UPC específico de Greatest Hits",
+    "Barcode de BLES-01668/E/ANZ",
+    "Barcode de BLAS-50615",
+    "EAN Washington CZ/SK",
+    "Outer boxes regionales adicionales de Join or Die y Freedom",
+    "Fecha y packaging de 4012160251983"
+  ]
+}

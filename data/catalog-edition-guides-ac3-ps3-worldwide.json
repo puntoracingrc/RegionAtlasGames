@@ -1,0 +1,1062 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iii-ps3-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed III en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Overlay mundial V2 para una sola obra canónica y un solo lanzamiento PS3. Separa caja, disco, mercado y reedición; no convierte candidatos, bundles de consola ni contenido digital en ediciones físicas standalone.",
+      "game": {
+        "title": "Assassin's Creed III",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-iii",
+        "canonicalGameId": "assassins-creed-iii",
+        "platformReleaseId": "assassins-creed-iii-ps3"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iii",
+          "physicalEditionIds": [
+            "ac3-ps3-standard-es",
+            "ac3-ps3-standard-fr",
+            "ac3-ps3-standard-de",
+            "ac3-ps3-standard-at-ch",
+            "ac3-ps3-standard-us",
+            "ac3-ps3-standard-ca-south-america",
+            "ac3-ps3-standard-ru",
+            "ac3-ps3-standard-asia",
+            "ac3-ps3-standard-chinese",
+            "ac3-ps3-standard-kr",
+            "ac3-ps3-standard-jp"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "special-exclusive",
+          "label": "Special / PS3 Exclusive Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iii-special-edition",
+          "physicalEditionIds": [
+            "ac3-ps3-special-legacy-pal-es",
+            "ac3-ps3-exclusive-legacy-pal-es",
+            "ac3-ps3-exclusive-de",
+            "ac3-ps3-special-de",
+            "ac3-ps3-exclusive-at-ch",
+            "ac3-ps3-special-at-ch",
+            "ac3-ps3-exclusive-gb",
+            "ac3-ps3-special-au"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "collector",
+          "label": "Limited / UbiWorkshop",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-iii-limited-edition",
+          "physicalEditionIds": ["ac3-ps3-limited-us", "ac3-ps3-ubiworkshop-us"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "gamestop",
+          "label": "GameStop Edition",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-iii-gamestop-edition",
+          "physicalEditionIds": ["ac3-ps3-gamestop-us"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "signature",
+          "label": "Signature Edition",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-iii-signature-edition",
+          "physicalEditionIds": ["ac3-ps3-signature-us"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "join-or-die",
+          "label": "Join or Die Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iii-join-or-die-edition",
+          "physicalEditionIds": [
+            "ac3-ps3-join-or-die-es",
+            "ac3-ps3-join-or-die-de",
+            "ac3-ps3-join-or-die-at-ch",
+            "ac3-ps3-join-or-die-gb"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "freedom",
+          "label": "Freedom Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iii-freedom-edition",
+          "physicalEditionIds": [
+            "ac3-ps3-freedom-legacy-pal-es",
+            "ac3-ps3-freedom-de",
+            "ac3-ps3-freedom-eu"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "washington",
+          "label": "Washington Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iii-washington-edition",
+          "physicalEditionIds": [
+            "ac3-ps3-washington-legacy-pal-es",
+            "ac3-ps3-washington-asia",
+            "ac3-ps3-washington-de",
+            "ac3-ps3-washington-pal-candidate",
+            "ac3-ps3-washington-dfi"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "essentials",
+          "label": "Essentials",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iii-essentials",
+          "physicalEditionIds": [
+            "ac3-ps3-essentials-legacy-pal-es",
+            "ac3-ps3-essentials-de",
+            "ac3-ps3-essentials-eu",
+            "ac3-ps3-essentials-fr-jfg",
+            "ac3-ps3-essentials-anz",
+            "ac3-ps3-essentials-ru-cee"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "greatest-hits",
+          "label": "Greatest Hits",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-iii-greatest-hits",
+          "physicalEditionIds": ["ac3-ps3-greatest-hits-na"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "japan-asia-budget",
+          "label": "Ubi the Best / PlayStation 3 the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-iii-ubi-the-best",
+          "physicalEditionIds": ["ac3-ps3-ubi-the-best-jp", "ac3-ps3-the-best-asia"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "not-for-resale",
+          "label": "Not for Resale",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-iii-not-for-resale",
+          "physicalEditionIds": ["ac3-ps3-nfr-us-legacy", "ac3-ps3-nfr-ca"],
+          "priceConditions": ["sealed", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac3-ps3-standard-es",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "packagingLanguages": [],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215634646",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps3-assassin%27s-creed-iii"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-fnac-es-standard", "ac3-gamefaqs"],
+          "notes": ["El mercado español y el EAN están documentados; el idioma de caja queda vacío hasta disponer de scan físico."]
+        },
+        {
+          "id": "ac3-ps3-standard-fr",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "packagingLanguages": [],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215644812",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-fnac-fr-standard", "ac3-leclerc-fr-standard"],
+          "notes": ["La circulación francesa está documentada; packagingLanguages permanece pendiente de scan."]
+        },
+        {
+          "id": "ac3-ps3-standard-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "ratingSystems": ["USK 16"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215634578",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-retroplace-de-standard", "ac3-redump"],
+          "notes": ["No se fusiona con 3307215642962, 3307215644836 ni 4012160251983."]
+        },
+        {
+          "id": "ac3-ps3-standard-at-ch",
+          "label": "Standard · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "evidenceMarkets": ["AT", "CH"],
+          "packagingLanguages": [],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215634615",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-order-dossier"],
+          "notes": ["La fuente documenta la variante AT/CH; no se transforma en variante alemana por compartir idioma o serial."]
+        },
+        {
+          "id": "ac3-ps3-standard-us",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "softwareLanguages": ["en", "fr", "es", "pt"],
+          "ratingSystems": ["ESRB M"],
+          "softwareFamilyCodes": ["BLUS-30991"],
+          "barcode": "008888347231",
+          "catalogNumber": "BLUS-30991",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps3-usa-assassin-s-creed-iii"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs", "ac3-jnl-us", "ac3-redump"]
+        },
+        {
+          "id": "ac3-ps3-standard-ca-south-america",
+          "label": "Standard · caja Canadá / Sudamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["CA"],
+          "distributionMarkets": ["CA"],
+          "softwareLanguages": ["en", "fr", "es", "pt"],
+          "softwareFamilyCodes": ["BLUS-30991"],
+          "barcode": "008888347378",
+          "catalogNumber": "BLUS-30991",
+          "boxCode": "BLUS-30991L",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "evidenceIds": ["ac3-vgcollect-ca-south-america", "ac3-redump"],
+          "notes": ["La caja declara distribución en Canadá y Sudamérica sin enumerar países sudamericanos; no se inventan mercados nacionales."]
+        },
+        {
+          "id": "ac3-ps3-standard-ru",
+          "label": "Standard / Special · Rusia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["RU"],
+          "packagingLanguages": [],
+          "softwareLanguages": ["pl", "ru", "cs", "hu"],
+          "softwareFamilyCodes": ["BLES-01669"],
+          "catalogNumber": "BLES-01669/RUS",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-redump", "ac3-serialstation"],
+          "notes": ["El barcode 2000001435953 permanece candidato hasta foto; no se publica en barcode."]
+        },
+        {
+          "id": "ac3-ps3-standard-asia",
+          "label": "Standard · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "softwareLanguages": ["en", "ja", "zh", "ko"],
+          "softwareFamilyCodes": ["BLAS-50494"],
+          "barcode": "4895094019221",
+          "catalogNumber": "BLAS-50494",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs", "ac3-redump"],
+          "notes": ["La evidencia sólo permite Asia; no se inventan HK, TW, SG o MY como mercados de caja."]
+        },
+        {
+          "id": "ac3-ps3-standard-chinese",
+          "label": "Chinese Version · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "softwareLanguages": ["en", "ja", "zh", "ko"],
+          "softwareFamilyCodes": ["BLAS-50495"],
+          "barcode": "4895094019269",
+          "catalogNumber": "BLAS-50495",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs", "ac3-redump"],
+          "notes": ["Se mantiene separada de BLAS-50494; el idioma de software no define el mercado ni el idioma de caja."]
+        },
+        {
+          "id": "ac3-ps3-standard-kr",
+          "label": "Standard · Corea",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "ratingSystems": ["GRB 18"],
+          "softwareFamilyCodes": ["BLKS-20371"],
+          "barcode": "8809182562380",
+          "catalogNumber": "BLKS-20371",
+          "releaseDate": "2012-11-15",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs"]
+        },
+        {
+          "id": "ac3-ps3-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "ratingSystems": ["CERO Z"],
+          "softwareFamilyCodes": ["BLJM-60516"],
+          "barcode": "4949244002707",
+          "catalogNumber": "BLJM-60516",
+          "releaseDate": "2012-11-15",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps3-japon-assassin%27s-creed-iii"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs", "ac3-cdjapan-jp"]
+        },
+        {
+          "id": "ac3-ps3-special-legacy-pal-es",
+          "label": "Special Edition · ficha PAL España legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["ES"],
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps3-assassin%27s-creed-iii-special-edition"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-local-catalog"],
+          "notes": ["Se conservan ruta, portada y datos legacy; barcode y relación con otras cajas Special pendientes."]
+        },
+        {
+          "id": "ac3-ps3-exclusive-legacy-pal-es",
+          "label": "Special / Exclusive Edition · ficha PAL España legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["ES"],
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps3-assassin%27s-creed-iii-special-edition-exclusive-edition"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-local-catalog"],
+          "notes": ["La identidad legacy se preserva sin adjudicarle un EAN regional no probado."]
+        },
+        {
+          "id": "ac3-ps3-exclusive-de",
+          "label": "PS3 Exklusive Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "ratingSystems": ["USK 16"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215644836",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico", "Contenido exclusivo para PS3"],
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "evidenceIds": ["ac3-originalky-de-exclusive"],
+          "notes": ["Caja y manual alemanes declarados en la evidencia; packagingLanguages global queda vacío al no ser un scan exhaustivo."]
+        },
+        {
+          "id": "ac3-ps3-special-de",
+          "label": "Special Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215642962",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico", "Contenido bonus"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-order-dossier"]
+        },
+        {
+          "id": "ac3-ps3-exclusive-at-ch",
+          "label": "PS3 Exklusive Edition · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["AT", "CH"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215644843",
+          "physicalContents": ["Juego físico", "Contenido exclusivo para PS3"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac3-sumthings-editions"],
+          "notes": ["Circulación AT/CH documentada por inventario fotográfico; packaging exhaustivo pendiente."]
+        },
+        {
+          "id": "ac3-ps3-special-at-ch",
+          "label": "Special / PS3 Exklusive Edition · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["AT", "CH"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215642979",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico", "Contenido bonus"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac3-sumthings-editions"],
+          "notes": ["No se fusiona con la variante alemana por idioma o proximidad del EAN."]
+        },
+        {
+          "id": "ac3-ps3-exclusive-gb",
+          "label": "PS3 Exclusive Edition · Reino Unido",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["GB"],
+          "softwareFamilyCodes": ["BLES-01668"],
+          "barcode": "3307215634509",
+          "catalogNumber": "BLES-01668",
+          "physicalContents": ["Juego físico", "60 minutos de juego exclusivo para PS3"],
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "evidenceIds": ["ac3-order-dossier"]
+        },
+        {
+          "id": "ac3-ps3-special-au",
+          "label": "Special Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["AU"],
+          "ratingSystems": ["ACB MA15+"],
+          "softwareFamilyCodes": ["BLES-01668"],
+          "barcode": "3307215643075",
+          "catalogNumber": "BLES-01668",
+          "physicalContents": ["Juego físico", "Packaging Special Edition", "Misión bonus"],
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "evidenceIds": ["ac3-gamesmen-au"],
+          "notes": ["La ficha y fotos del retailer australiano resuelven la clasificación como Special Edition; no se duplica como Standard."]
+        },
+        {
+          "id": "ac3-ps3-limited-us",
+          "label": "Limited Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB M"],
+          "softwareFamilyCodes": ["BLUS-31035"],
+          "catalogNumber": "BLUS-31035",
+          "physicalContents": ["Juego físico", "Caja exterior y objetos de colección"],
+          "catalogIds": ["ps3-usa-assassin-s-creed-iii-limited-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs", "ac3-order-dossier"],
+          "notes": ["008888397717, 008888397649 y 008888347644 siguen como candidatos de outer box, inner case o SKU distribuidor; no se elige uno arbitrariamente."]
+        },
+        {
+          "id": "ac3-ps3-ubiworkshop-us",
+          "label": "UbiWorkshop Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-order-dossier"],
+          "notes": ["Edición física documentada. Barcode exterior, contenido exacto y marcas de caja siguen pendientes."]
+        },
+        {
+          "id": "ac3-ps3-gamestop-us",
+          "label": "GameStop Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "softwareFamilyCodes": ["BLUS-30991"],
+          "barcode": "008888397236",
+          "catalogNumber": "BLUS-30991GS",
+          "physicalContents": ["Juego físico", "Packaging GameStop Edition"],
+          "catalogIds": ["ps3-usa-assassin-s-creed-iii-gamestop-edition"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac3-gamefaqs"]
+        },
+        {
+          "id": "ac3-ps3-signature-us",
+          "label": "Signature Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "softwareFamilyCodes": ["BLUS-30991"],
+          "barcode": "008888397373",
+          "catalogNumber": "BLUS-30991EBL",
+          "physicalContents": ["Juego físico", "Packaging Signature Edition"],
+          "catalogIds": ["ps3-usa-assassin-s-creed-iii-signature-edition"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac3-gamefaqs"]
+        },
+        {
+          "id": "ac3-ps3-join-or-die-es",
+          "label": "Join or Die Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["ES"],
+          "barcode": "3307215636848",
+          "physicalContents": ["Juego físico", "Medallón", "Cuaderno de George Washington", "Contenido ingame"],
+          "catalogIds": ["ps3-assassin%27s-creed-iii-join-or-die-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-fnac-es-join", "ac3-mediamarkt-es-join"]
+        },
+        {
+          "id": "ac3-ps3-join-or-die-de",
+          "label": "Join or Die Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["DE"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215636800",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico", "Medallón", "Cuaderno de George Washington", "Contenido ingame"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-sumthings-editions"]
+        },
+        {
+          "id": "ac3-ps3-join-or-die-at-ch",
+          "label": "Join or Die Edition · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "evidenceMarkets": ["AT", "CH"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215636817",
+          "physicalContents": ["Juego físico", "Medallón", "Cuaderno de George Washington", "Contenido ingame"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac3-sumthings-editions"]
+        },
+        {
+          "id": "ac3-ps3-join-or-die-gb",
+          "label": "Join or Die Edition · Reino Unido",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["GB"],
+          "barcode": "3307215636756",
+          "physicalContents": ["Juego físico", "Medallón", "Cuaderno de George Washington", "Contenido ingame"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-order-dossier"]
+        },
+        {
+          "id": "ac3-ps3-freedom-legacy-pal-es",
+          "label": "Freedom Edition · ficha PAL España legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "evidenceMarkets": ["ES"],
+          "physicalContents": ["Juego físico", "Contenido de colección"],
+          "catalogIds": ["ps3-assassin%27s-creed-iii-freedom-edition"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-local-catalog"],
+          "notes": ["Se preserva la ficha española sin adjudicarle los EAN alemán o paneuropeo."]
+        },
+        {
+          "id": "ac3-ps3-freedom-de",
+          "label": "Freedom Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["DE"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215636671",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico", "SteelBook", "Cuaderno", "Figura de Connor", "2 litografías"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-order-dossier"]
+        },
+        {
+          "id": "ac3-ps3-freedom-eu",
+          "label": "Freedom Edition · familia europea",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215636695",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico", "SteelBook", "Cuaderno", "Figura de Connor", "2 litografías"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs", "ac3-collectors-freedom"],
+          "notes": ["No se asigna a un país concreto ni se fusiona con 3307215636671."]
+        },
+        {
+          "id": "ac3-ps3-washington-legacy-pal-es",
+          "label": "Washington Edition · ficha PAL España legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["ES"],
+          "physicalContents": ["Juego físico", "The Tyranny of King Washington"],
+          "catalogIds": ["ps3-assassin%27s-creed-iii-washington-edition"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-local-catalog"],
+          "notes": ["Se preserva la ficha PAL España sin asignar uno de los EAN extranjeros."]
+        },
+        {
+          "id": "ac3-ps3-washington-asia",
+          "label": "Washington Edition · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "SPECIAL",
+          "softwareFamilyCodes": ["BLAS-50583"],
+          "barcode": "4895094019429",
+          "catalogNumber": "BLAS-50583",
+          "releaseDate": "2013-04-02",
+          "physicalContents": ["Juego físico", "The Tyranny of King Washington"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs", "ac3-serialstation"]
+        },
+        {
+          "id": "ac3-ps3-washington-de",
+          "label": "Washington Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE"],
+          "ratingSystems": ["USK 16"],
+          "softwareFamilyCodes": ["BLES-01667"],
+          "barcode": "3307215692646",
+          "catalogNumber": "BLES-01667",
+          "physicalContents": ["Juego físico", "The Tyranny of King Washington"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-order-dossier"]
+        },
+        {
+          "id": "ac3-ps3-washington-pal-candidate",
+          "label": "Washington Edition · PAL · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "packagingLanguages": [],
+          "barcode": "3307215692684",
+          "physicalContents": ["Juego físico", "The Tyranny of King Washington"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-order-dossier"],
+          "notes": ["EAN documentado como candidato PAL; país, outer box, inner case y relación con otras Washington pendientes."]
+        },
+        {
+          "id": "ac3-ps3-washington-dfi",
+          "label": "Washington Edition · circulación D/F/I pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "packagingLanguages": [],
+          "softwareLanguages": ["de", "en", "fr", "it"],
+          "barcode": "4250114319772",
+          "physicalContents": ["Juego físico", "The Tyranny of King Washington"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac3-wog-washington"],
+          "notes": ["DE/EN/FR/IT son idiomas de software declarados por el retailer; no se copian a packagingLanguages ni se deduce un mercado D/F/I."]
+        },
+        {
+          "id": "ac3-ps3-essentials-legacy-pal-es",
+          "label": "Essentials · ficha PAL España legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "evidenceMarkets": ["ES"],
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps3-assassin%27s-creed-iii-essentials"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-local-catalog"],
+          "notes": ["Se preserva la ficha española sin asignarle un EAN de otra caja Essentials."]
+        },
+        {
+          "id": "ac3-ps3-essentials-de",
+          "label": "Essentials · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["DE"],
+          "softwareFamilyCodes": ["BLES-01667/E"],
+          "barcode": "3307215772423",
+          "catalogNumber": "BLES-01667/E",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-order-dossier", "ac3-redump"]
+        },
+        {
+          "id": "ac3-ps3-essentials-eu",
+          "label": "Essentials · Europa · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "softwareFamilyCodes": ["BLES-01667/E"],
+          "barcode": "3307215772492",
+          "catalogNumber": "BLES-01667/E",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac3-order-dossier", "ac3-redump"],
+          "notes": ["Caja y mercado editorial exactos pendientes; no se infiere una región por el EAN."]
+        },
+        {
+          "id": "ac3-ps3-essentials-fr-jfg",
+          "label": "Essentials · Francia · distribución Just For Games",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["FR"],
+          "distributionMarkets": ["FR"],
+          "softwareFamilyCodes": ["BLES-01667/E"],
+          "barcode": "3700664521275",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-order-dossier"]
+        },
+        {
+          "id": "ac3-ps3-essentials-anz",
+          "label": "Essentials · ANZ · barcode pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "BUDGET_REISSUE",
+          "softwareFamilyCodes": ["BLES-01668/E/ANZ"],
+          "catalogNumber": "BLES-01668/E/ANZ",
+          "physicalContents": ["Juego físico"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-serialstation"],
+          "notes": ["El serial ANZ está documentado; barcode y packaging siguen pendientes."]
+        },
+        {
+          "id": "ac3-ps3-essentials-ru-cee",
+          "label": "Essentials · Rusia / CEE",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "evidenceMarkets": ["RU"],
+          "packagingLanguages": [],
+          "softwareLanguages": ["pl", "ru", "cs", "hu"],
+          "softwareFamilyCodes": ["BLES-01669/E/RUS", "BLES-01669/E#"],
+          "catalogNumber": "BLES-01669/E/RUS",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-redump", "ac3-serialstation"],
+          "notes": ["Los idiomas proceden del disco; no se usan para completar el packaging ni para inventar una caja nacional por país."]
+        },
+        {
+          "id": "ac3-ps3-greatest-hits-na",
+          "label": "Greatest Hits · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "evidenceMarkets": ["US", "CA"],
+          "softwareLanguages": ["en", "fr", "es", "pt"],
+          "softwareFamilyCodes": ["BLUS-30991"],
+          "catalogNumber": "BLUS-30991GH",
+          "physicalContents": ["Juego físico", "Caja roja Greatest Hits"],
+          "catalogIds": ["ps3-usa-assassin-s-creed-iii-greatest-hits"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-serialstation", "ac3-redump"],
+          "notes": ["No se reutiliza automáticamente el UPC 008888347231 de Standard; el UPC específico permanece pendiente."]
+        },
+        {
+          "id": "ac3-ps3-ubi-the-best-jp",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "ratingSystems": ["CERO Z"],
+          "softwareFamilyCodes": ["BLJM-61171"],
+          "barcode": "4949244003377",
+          "catalogNumber": "BLJM-61171",
+          "releaseDate": "2014-03-20",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps3-japon-assassin%27s-creed-iii-ubi-the-best"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac3-gamefaqs", "ac3-kaitori-ubi-the-best", "ac3-serialstation"],
+          "notes": ["La reedición se mantiene separada de BLJM-60516."]
+        },
+        {
+          "id": "ac3-ps3-the-best-asia",
+          "label": "PlayStation 3 the Best · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "softwareFamilyCodes": ["BLAS-50615", "BLES-01668"],
+          "catalogNumber": "BLAS-50615",
+          "physicalContents": ["Juego físico"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-serialstation"],
+          "notes": ["Serial e internal family documentados; barcode, mercados y packaging pendientes."]
+        },
+        {
+          "id": "ac3-ps3-nfr-us-legacy",
+          "label": "Not for Resale · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "evidenceMarkets": ["US"],
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps3-usa-assassin-s-creed-iii-not-for-resale"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac3-local-catalog"],
+          "notes": ["Se conserva la identidad y precio legacy; relación con bundle y códigos de caja pendientes."]
+        },
+        {
+          "id": "ac3-ps3-nfr-ca",
+          "label": "Not for Resale · Canadá",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "marketRegions": ["CA"],
+          "physicalContents": ["Juego físico marcado Not for Resale"],
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "evidenceIds": ["ac3-mobygames-nfr-ca"],
+          "notes": ["No se fusiona con Standard retail ni se usa para contar el hardware bundle como edición standalone."]
+        }
+      ],
+      "physicalBonusItems": [],
+      "relatedReleases": [
+        {
+          "id": "ac3-the-tyranny-of-king-washington",
+          "label": "The Tyranny of King Washington",
+          "type": "EXPANSION",
+          "expansionOf": "assassins-creed-iii",
+          "evidenceIds": ["ac3-order-dossier"],
+          "notes": ["Los episodios digitales no son PhysicalEdition; Washington Edition sí se modela como caja física documentada."]
+        }
+      ],
+      "sharedDiscs": [
+        {
+          "id": "ac3-ps3-disc-bles-01667",
+          "label": "Disco europeo BLES-01667",
+          "technicalRegion": "EUROPE",
+          "serial": "BLES-01667",
+          "ratingSystems": ["PEGI", "USK"],
+          "evidenceIds": ["ac3-redump"]
+        },
+        {
+          "id": "ac3-ps3-disc-bles-01668",
+          "label": "Disco europeo / australiano BLES-01668",
+          "technicalRegion": "EUROPE",
+          "serial": "BLES-01668",
+          "ratingSystems": ["PEGI", "ACB"],
+          "evidenceIds": ["ac3-serialstation"]
+        },
+        {
+          "id": "ac3-ps3-disc-blus-30991",
+          "label": "Disco norteamericano BLUS-30991",
+          "technicalRegion": "NORTH_AMERICA",
+          "serial": "BLUS-30991",
+          "ratingSystems": ["ESRB"],
+          "evidenceIds": ["ac3-redump", "ac3-serialstation"]
+        },
+        {
+          "id": "ac3-ps3-disc-bles-01669",
+          "label": "Disco Rusia / CEE BLES-01669",
+          "technicalRegion": "EUROPE",
+          "serial": "BLES-01669",
+          "ratingSystems": ["PEGI"],
+          "evidenceIds": ["ac3-redump"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac3-order-dossier",
+          "type": "UNKNOWN",
+          "label": "Dossier local · Assassin's Creed III PS3 worldwide variants",
+          "summary": "Orden de normalización, árbol mínimo, fuentes y 46 controles QA.",
+          "supports": ["alcance mundial PS3", "separación caja disco mercado", "exclusión de digital y DLC", "bundle de consola no standalone"]
+        },
+        {
+          "id": "ac3-local-catalog",
+          "type": "UNKNOWN",
+          "label": "Catálogo local RegionAtlas anterior al overlay",
+          "summary": "Identidades, rutas, portadas y precios que deben conservarse sin reescritura.",
+          "supports": ["catalogIds legacy", "preservación de rutas", "preservación de portadas", "preservación de precios y rareza"]
+        },
+        {
+          "id": "ac3-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · release data PS3",
+          "url": "https://gamefaqs.gamespot.com/ps3/621796-assassins-creed-iii/data",
+          "summary": "Tabla de lanzamientos físicos y digitales con región, producto, barcode, fecha y rating.",
+          "supports": ["BLUS-30991", "BLUS-31035", "BLJM-60516", "BLJM-61171", "JAN 4949244003377", "fecha 2014-03-20", "BLKS-20371", "BLAS-50494", "BLAS-50495", "BLAS-50583", "digital Gold Ultimate", "hardware bundle"]
+        },
+        {
+          "id": "ac3-fnac-es-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Standard PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-III-PS3-Videojuego-PlayStation-3/a711303",
+          "supports": ["EAN 3307215634646", "mercado ES"]
+        },
+        {
+          "id": "ac3-fnac-fr-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Standard PS3",
+          "url": "https://www.fnac.com/a4914694/Assassin-s-creed-III-Jeu-video-Retrogaming",
+          "supports": ["EAN 3307215644812", "circulación FR"]
+        },
+        {
+          "id": "ac3-leclerc-fr-standard",
+          "type": "RETAILER_ASSET",
+          "label": "E.Leclerc · Standard PS3",
+          "url": "https://www.e.leclerc/fp/assassin-s-creed-3-ps3-3307215644812",
+          "supports": ["EAN 3307215644812", "mercado FR"]
+        },
+        {
+          "id": "ac3-retroplace-de-standard",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Retroplace · Standard Alemania",
+          "url": "https://retroplace.com/de/spiele/134784--assassins-creed-iii",
+          "supports": ["EAN 3307215634578", "BLES-01667", "mercado DE"]
+        },
+        {
+          "id": "ac3-jnl-us",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "J&L Game · Standard USA",
+          "url": "https://www.jnlgame.com/products/assassins-creed-iii-ps3-playstation-3-pre-owned",
+          "supports": ["UPC 008888347231", "mercado US"]
+        },
+        {
+          "id": "ac3-vgcollect-ca-south-america",
+          "type": "REAL_PHOTO",
+          "label": "VGCollect · caja Canadá / Sudamérica",
+          "supports": ["UPC 008888347378", "box BLUS-30991L", "disc BLUS-30991", "distribución Canadá y Sudamérica"]
+        },
+        {
+          "id": "ac3-cdjapan-jp",
+          "type": "RETAILER_ASSET",
+          "label": "CDJapan · Standard Japón",
+          "url": "https://www.cdjapan.co.jp/product/BLJM-60516",
+          "supports": ["BLJM-60516", "mercado JP"]
+        },
+        {
+          "id": "ac3-originalky-de-exclusive",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Originalky · PS3 Exclusive Edition Alemania",
+          "url": "https://www.originalky.cz/assassin-s-creed-iii-ps3-pouzite-p72877/",
+          "supports": ["EAN 3307215644836", "USK 16", "caja y manual DE declarados"]
+        },
+        {
+          "id": "ac3-sumthings-editions",
+          "type": "REAL_PHOTO",
+          "label": "Sumthings · inventario fotográfico de ediciones PS3",
+          "url": "https://sumthings.com/games/160927/shots",
+          "supports": ["variantes AT CH", "Join or Die regional", "Ubi the Best"]
+        },
+        {
+          "id": "ac3-gamesmen-au",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "The Gamesmen · Special Edition Australia",
+          "url": "https://www.gamesmen.com.au/ps3-assassins-creed-3-special-edition",
+          "supports": ["EAN 3307215643075", "BLES-01668", "ACB MA15+", "clasificación Special Edition"]
+        },
+        {
+          "id": "ac3-fnac-es-join",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Join or Die",
+          "url": "https://www.fnac.es/Assassin-s-Creed-III-Join-or-Die-PS3-Videojuego-PlayStation-3/a711417",
+          "supports": ["EAN 3307215636848", "mercado ES"]
+        },
+        {
+          "id": "ac3-mediamarkt-es-join",
+          "type": "RETAILER_ASSET",
+          "label": "MediaMarkt España · Join or Die",
+          "url": "https://www.mediamarkt.es/es/product/_ps3-assassins-creed-ed-coleccionista-9322621.html",
+          "supports": ["Join or Die física España"]
+        },
+        {
+          "id": "ac3-collectors-freedom",
+          "type": "REAL_PHOTO",
+          "label": "CollectorsEdition.org · Freedom Edition PAL",
+          "url": "https://collectorsedition.org/game-db/assassins-creed-iii-freedom-edition-360-pal",
+          "supports": ["Freedom Edition física", "contenido de colección"]
+        },
+        {
+          "id": "ac3-wog-washington",
+          "type": "RETAILER_ASSET",
+          "label": "World of Games · Washington Edition",
+          "url": "https://www.wog.ch/en/index.cfm/details/product/31878-Assassins-Creed-3-Washington-Edition",
+          "supports": ["EAN 4250114319772", "software DE EN FR IT", "circulación CH"]
+        },
+        {
+          "id": "ac3-kaitori-ubi-the-best",
+          "type": "RETAILER_ASSET",
+          "label": "Kaitori World · Ubi the Best Japón",
+          "url": "https://www.kaitori-world.jp/products/detail/1200",
+          "supports": ["Ubi the Best física", "BLJM-61171", "mercado JP"]
+        },
+        {
+          "id": "ac3-serialstation",
+          "type": "UNKNOWN",
+          "label": "SerialStation · Assassin's Creed III PS3",
+          "url": "https://serialstation.com/games/7a4d241d-8c8f-4a5c-ab27-5139400de2d9",
+          "supports": ["BLUS-30991GH", "BLES-01668/E/ANZ", "BLES-01669/E/RUS", "BLAS-50615", "familias internas"]
+        },
+        {
+          "id": "ac3-redump",
+          "type": "UNKNOWN",
+          "label": "Redump · discos PS3 de Assassin's Creed III",
+          "url": "https://redump.info/",
+          "supports": ["seriales de disco", "BLES-01669/RUS", "BLES-01669/E/RUS", "idiomas de software", "revisiones de disco"]
+        },
+        {
+          "id": "ac3-mobygames-nfr-ca",
+          "type": "REAL_SCAN",
+          "label": "MobyGames · caja canadiense Not for Resale",
+          "url": "https://www.mobygames.com/game/59414/assassins-creed-iii/covers/group-401916/",
+          "supports": ["mercado CA", "marca Not for Resale", "caja física"]
+        }
+      ],
+      "sources": [
+        {"label": "GameFAQs · release data PS3", "url": "https://gamefaqs.gamespot.com/ps3/621796-assassins-creed-iii/data"},
+        {"label": "SerialStation · Assassin's Creed III", "url": "https://serialstation.com/games/7a4d241d-8c8f-4a5c-ab27-5139400de2d9"},
+        {"label": "Redump · PS3", "url": "https://redump.info/"},
+        {"label": "Sumthings · edition shots", "url": "https://sumthings.com/games/160927/shots"},
+        {"label": "MobyGames · Washington Edition releases", "url": "https://www.mobygames.com/game/223423/assassins-creed-iii-washington-edition/releases/"}
+      ],
+      "evidenceNote": "No existen scans propios de AC III PS3 en el inventario actual. Los idiomas de software proceden de disco y nunca completan packagingLanguages. EAN, UPC, JAN, serial, mercado y contenido sólo se publican cuando la fuente citada respalda esa relación concreta.",
+      "researchTasks": [
+        {
+          "id": "ac3-limited-upc-relations",
+          "label": "Resolver outer box, inner case y SKU de Limited Edition",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US"],
+          "notes": ["Candidatos: 008888397717, 008888397649 y 008888347644. No promover ninguno sin foto de la relación física."]
+        },
+        {
+          "id": "ac3-join-or-die-regional-gaps",
+          "label": "Completar cajas Join or Die restantes",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["IT", "PT", "BE", "NL", "PL", "CZ", "SK", "SE", "DK", "NO", "FI"],
+          "notes": ["No crear una caja paneuropea única ni inferir EAN por secuencia."]
+        },
+        {
+          "id": "ac3-freedom-regional-outers",
+          "label": "Completar outer boxes Freedom por país",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "FR", "IT", "GB", "AT", "CH"],
+          "notes": ["3307215636695 y 3307215636671 permanecen como identidades separadas."]
+        },
+        {
+          "id": "ac3-uk-standard-box",
+          "label": "Buscar Standard UK distinta de PS3 Exclusive",
+          "status": "UNCONFIRMED",
+          "marketRegions": ["GB"],
+          "notes": ["3307215634509 pertenece a PS3 Exclusive; no usarlo para Standard."]
+        },
+        {
+          "id": "ac3-germany-ak-tronic-reissue",
+          "label": "Cerrar fecha y packaging de la reedición alemana ak tronic",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["DE"],
+          "notes": ["EAN 4012160251983. Las fuentes discrepan en fecha; no se publica releaseDate ni se fusiona con Standard/Special/Exclusive."]
+        },
+        {
+          "id": "ac3-russia-barcode",
+          "label": "Verificar barcode físico ruso",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["RU"],
+          "notes": ["Candidato 2000001435953; requiere foto de caja."]
+        },
+        {
+          "id": "ac3-washington-cz-sk",
+          "label": "Localizar EAN y packaging Washington CZ/SK",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["CZ", "SK"],
+          "notes": ["La distribución CONQUEST está documentada; falta identidad de caja."]
+        },
+        {
+          "id": "ac3-ubiworkshop-barcode",
+          "label": "Localizar barcode exterior y marcas UbiWorkshop",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US"],
+          "notes": ["La edición física y el contenido están confirmados; el barcode no."]
+        },
+        {
+          "id": "ac3-ps3-the-best-barcode",
+          "label": "Localizar barcode PlayStation 3 the Best Asia",
+          "status": "PENDING_REVIEW",
+          "notes": ["BLAS-50615 está confirmado; no se inventan países ni barcode."]
+        },
+        {
+          "id": "ac3-hardware-bundle-separate",
+          "label": "Documentar el hardware bundle PS3 sin contarlo como edición standalone",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US"],
+          "notes": ["GameFAQs documenta el bundle. Debe vivir como HardwareBundle; si incluye NFR, la caja bundled se relacionará sin aumentar el contador standalone."]
+        },
+        {
+          "id": "ac3-digital-and-dlc-exclusions",
+          "label": "Mantener Gold, Ultimate y DLC fuera de PhysicalEdition",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "notes": ["Gold Edition, Gold + Liberation, Ultimate, Season Pass, Benedict Arnold, Hidden Secrets, Battle Hardened y los tres episodios Tyranny son digitales salvo nueva evidencia física específica."]
+        },
+        {
+          "id": "ac3-legacy-us-retailer-identities",
+          "label": "Auditar identidades legacy USA no promovidas",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US"],
+          "notes": ["Revolution, Target, Walmart y Special USA conservan catálogo, portada y precio, pero necesitan scan que demuestre caja física propia antes de entrar en PhysicalEdition."]
+        }
+      ]
+    }
+  ]
+}
