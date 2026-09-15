@@ -12,6 +12,7 @@ import mediaData from "../../data/research/person-study/media.json";
 import publicData from "../../data/research/person-study/public.json";
 import playstationPublicData from "../../data/research/platform-history/people-public.json";
 import playstation2PublicData from "../../data/research/platform-history/people-ps2-public.json";
+import playstation3PublicData from "../../data/research/platform-history/people-ps3-public.json";
 import relationsData from "../../data/research/person-study/relations.json";
 import reviewData from "../../data/research/person-study/review.json";
 import sourcesData from "../../data/research/person-study/sources.json";
@@ -115,6 +116,7 @@ const manifest = manifestData as unknown as PersonResearchManifest;
 const publicResearch = publicData as unknown as PersonPublicData;
 const playstationPublic = playstationPublicData as unknown as PersonPublicData;
 const playstation2Public = playstation2PublicData as unknown as PersonPublicOverlayData;
+const playstation3Public = playstation3PublicData as unknown as PersonPublicOverlayData;
 const companies = companiesData as Record<string, unknown>;
 
 function sha256File(relativePath: string): string {
@@ -187,6 +189,8 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
       ...playstationPublic.profiles.map((profile) => profile.slug),
       ...(playstation2Public.profiles ?? []).map((profile) => profile.slug),
       ...(playstation2Public.profilePatches ?? []).map((profile) => profile.slug),
+      ...(playstation3Public.profiles ?? []).map((profile) => profile.slug),
+      ...(playstation3Public.profilePatches ?? []).map((profile) => profile.slug),
     ],
   );
   const nonPublic = core.filter(
@@ -199,6 +203,7 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
     ...publicResearch.profiles.map((profile) => profile.slug),
     ...playstationPublic.profiles.map((profile) => profile.slug),
     ...(playstation2Public.profiles ?? []).map((profile) => profile.slug),
+    ...(playstation3Public.profiles ?? []).map((profile) => profile.slug),
   ]);
   assert.deepEqual(sorted(publicSlugs), sorted(expectedPublicSlugs));
   for (const person of nonPublic) {

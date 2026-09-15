@@ -130,15 +130,91 @@ export type PlatformHistoryMilestone = {
   sourceIds: string[];
 };
 
+export type PlatformArchitectureKind =
+  | "PROCESSOR"
+  | "GRAPHICS"
+  | "OPTICAL_MEDIA"
+  | "SYSTEM_SOFTWARE"
+  | "MULTIMEDIA";
+
+export type PlatformArchitecturePartner = {
+  companySlug: string | null;
+  companyName: string;
+  roleLabelEs: string;
+};
+
+export type PlatformArchitectureItem = {
+  id: string;
+  name: string;
+  kind: PlatformArchitectureKind;
+  summaryEs: string;
+  features: string[];
+  partners: PlatformArchitecturePartner[];
+  sourceIds: string[];
+};
+
+export type PlatformServiceKind =
+  | "NETWORK_SERVICE"
+  | "STORE_SERVICE"
+  | "SUBSCRIPTION_SERVICE"
+  | "SOCIAL_SERVICE";
+
+export type PlatformHistoryService = {
+  id: string;
+  name: string;
+  kind: PlatformServiceKind;
+  launchedLabel: string | null;
+  parentServiceId: string | null;
+  summaryEs: string;
+  features: string[];
+  sourceIds: string[];
+};
+
+export type PlatformGameRelationship =
+  | "FIRST_PARTY"
+  | "INDEPENDENT_PARTNER"
+  | "THIRD_PARTY";
+
+export type PlatformHistoryGame = {
+  title: string;
+  catalogId: string | null;
+  year: number | null;
+  relationshipType: PlatformGameRelationship;
+  relationshipLabelEs: string;
+  companySlugs: string[];
+  sourceIds: string[];
+};
+
+export type PlatformHistoryGameGroup = {
+  id: string;
+  labelEs: string;
+  descriptionEs: string;
+  games: PlatformHistoryGame[];
+};
+
+export type PlatformCompatibilityRevision = {
+  hardwareId: string;
+  labelEs: string;
+  ps1SupportEs: string;
+  ps2SupportEs: string;
+  notesEs: string[];
+  sourceIds: string[];
+};
+
 export type PlatformHistory = {
   platformSlug: string;
   title: string;
   dekEs: string;
   summaryParagraphsEs: string[];
+  historyParagraphsEs?: string[];
   figures: PlatformHistoryFigure[];
+  architecture?: PlatformArchitectureItem[];
   companies: PlatformHistoryCompany[];
   genealogies: CompanyGenealogyRelation[];
+  gameGroups?: PlatformHistoryGameGroup[];
   hardware: PlatformHardwareItem[];
+  services?: PlatformHistoryService[];
+  compatibilityByHardwareRevision?: PlatformCompatibilityRevision[];
   milestones: PlatformHistoryMilestone[];
   legacyEs: string[];
   sources: PlatformHistorySource[];

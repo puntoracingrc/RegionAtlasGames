@@ -1,0 +1,946 @@
+{
+  "version": 3,
+  "generatedAt": "2026-09-15T12:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "ps3",
+      "title": "PlayStation 3",
+      "dekEs": "La generación en la que PlayStation convirtió una arquitectura ambiciosa en un ecosistema conectado, reforzó su red de estudios y sentó las bases digitales que heredaría PS4.",
+      "summaryParagraphsEs": [
+        "PlayStation 3 se estrenó en Japón el 11 de noviembre de 2006, en Norteamérica el 17 de noviembre y en Europa el 23 de marzo de 2007. Su propuesta combinó Cell, RSX, Blu-ray, disco duro, HDMI y conexión de red en una máquina concebida tanto para juegos como para entretenimiento doméstico.",
+        "La complejidad del hardware y el precio inicial condicionaron su arranque. La transición ejecutiva de Ken Kutaragi a Kaz Hirai acompañó una etapa de recuperación basada en la mejora del catálogo, la maduración de PlayStation Network y el rediseño Slim de 2009.",
+        "La generación consolidó a Naughty Dog, Guerrilla, Santa Monica Studio, Japan Studio y Polyphony Digital, mientras Sony adquiría Media Molecule en 2010 y Sucker Punch en 2011. Insomniac Games, Quantic Dream, thatgamecompany y FromSoftware siguieron siendo compañías independientes durante sus colaboraciones de PS3.",
+        "Sony Interactive Entertainment registra más de 87,4 millones de sistemas PS3 distribuidos mundialmente hasta el 31 de marzo de 2017. La cifra describe hardware distribuido, no usuarios, consolas activas ni ventas de software."
+      ],
+      "historyParagraphsEs": [
+        "El proyecto nació de una apuesta por el procesamiento paralelo. Sony, Sony Computer Entertainment, IBM y Toshiba desarrollaron Cell desde la alianza STI iniciada en 2001; SCE y NVIDIA codiseñaron el procesador gráfico RSX. Blu-ray amplió la capacidad de distribución de los juegos y convirtió la consola en reproductor doméstico de alta definición.",
+        "La primera etapa estuvo marcada por configuraciones regionales distintas, un precio elevado y una arquitectura exigente para los equipos de desarrollo. La retrocompatibilidad con PlayStation 2 tampoco fue una propiedad uniforme: cambió según la revisión y el territorio, mientras la reproducción de juegos de la primera PlayStation se mantuvo de forma más amplia.",
+        "PlayStation Network llegó junto a la consola y reunió identidad de usuario, multijugador, amistades, mensajería y distribución digital. La Store renovó su interfaz en abril de 2008 y PlayStation Plus se incorporó en junio de 2010 como suscripción construida sobre el servicio gratuito de PSN.",
+        "En abril de 2011 Sony desconectó PSN y Qriocity tras detectar una intrusión no autorizada y comunicó el compromiso de datos personales. En aquel comunicado no confirmó que se hubieran obtenido datos de tarjetas, aunque tampoco descartó esa posibilidad. La restauración progresiva comenzó en mayo con refuerzos de seguridad y el programa Welcome Back.",
+        "Slim redujo volumen, peso, consumo y precio en 2009; Super Slim cerró la evolución industrial en 2012. Al final de la generación, Uncharted, The Last of Us, LittleBigPlanet, inFAMOUS, Killzone, Resistance, Gran Turismo y una extensa producción externa habían transformado la posición inicial de la consola.",
+        "Mark Cerny aparece en esta etapa como consultor y desarrollador conectado con equipos del ecosistema Sony. Ese trabajo funciona como puente hacia su posterior responsabilidad arquitectónica en PS4 y PS5, pero no lo convierte retroactivamente en arquitecto de PS3."
+      ],
+      "figures": [
+        {
+          "personSlug": "ken-kutaragi",
+          "personName": "Ken Kutaragi",
+          "roleLabelEs": "Liderazgo de plataforma",
+          "contributionEs": "Culminó el lanzamiento mundial de PS3 como Chairman y Group CEO de SCEI y dejó la gestión ejecutiva en junio de 2007 para continuar como presidente honorario y asesor tecnológico.",
+          "period": "Lanzamiento-2007",
+          "sourceIds": ["PH-PS3-TRANSITION-2007"]
+        },
+        {
+          "personSlug": "kazuo-hirai",
+          "personName": "Kaz Hirai",
+          "roleLabelEs": "Recuperación y dirección mundial",
+          "contributionEs": "Pasó de SCEA a President y Group COO de SCEI en diciembre de 2006 y asumió la dirección mundial tras la salida ejecutiva de Kutaragi.",
+          "period": "2006-2011",
+          "sourceIds": ["PH-PS3-MANAGEMENT-2006", "PH-PS3-TRANSITION-2007"]
+        },
+        {
+          "personSlug": "shuhei-yoshida",
+          "personName": "Shuhei Yoshida",
+          "roleLabelEs": "Liderazgo first party",
+          "contributionEs": "Fue vicepresidente sénior de estudios estadounidenses y en 2008 asumió la presidencia de SCE Worldwide Studios durante la expansión first party de PS3.",
+          "period": "2007-2013",
+          "sourceIds": ["PH-PS3-YOSHIDA-2008"]
+        },
+        {
+          "personSlug": "david-reeves",
+          "personName": "David Reeves",
+          "roleLabelEs": "Liderazgo regional europeo",
+          "contributionEs": "Dirigió SCEE durante el lanzamiento europeo y ocupó también la vicepresidencia adjunta de SCEI en la reorganización de 2006.",
+          "period": "2005-2009",
+          "sourceIds": ["PH-PS3-MANAGEMENT-2006", "PH-PS3-EUROPE-60GB"]
+        },
+        {
+          "personSlug": "jack-tretton",
+          "personName": "Jack Tretton",
+          "roleLabelEs": "Liderazgo regional norteamericano",
+          "contributionEs": "Fue presidente y CEO de SCEA durante buena parte de la generación y representó públicamente la estrategia de PS3 en Norteamérica.",
+          "period": "Desde 2006",
+          "sourceIds": ["PH-PS3-MANAGEMENT-2006"]
+        },
+        {
+          "personSlug": "andrew-house",
+          "personName": "Andrew House",
+          "roleLabelEs": "Dirección global",
+          "contributionEs": "Lideró SCEE en la fase final de PS3 y fue nombrado President y Group CEO de SCEI con efecto desde septiembre de 2011.",
+          "period": "2009-2013",
+          "sourceIds": ["PH-PS3-HOUSE-2011"]
+        },
+        {
+          "personSlug": "akira-sato",
+          "personName": "Akira Sato",
+          "roleLabelEs": "Gobierno corporativo",
+          "contributionEs": "Miembro fundador de SCEI, figuró como Vice Chairman en el equipo directivo de 2006 y posteriormente como Chairman hasta su retirada en 2011.",
+          "period": "2006-2011",
+          "sourceIds": ["PH-PS3-MANAGEMENT-2006", "PH-PS3-HOUSE-2011"]
+        },
+        {
+          "personSlug": "masaru-kato",
+          "personName": "Masaru Kato",
+          "roleLabelEs": "Dirección financiera",
+          "contributionEs": "Participó en la transición como Deputy President y Group CFO de SCEI, una responsabilidad ejecutiva que no se presenta como crédito creativo.",
+          "period": "2006-2009",
+          "sourceIds": ["PH-PS3-MANAGEMENT-2006"]
+        },
+        {
+          "personSlug": "amy-hennig",
+          "personName": "Amy Hennig",
+          "roleLabelEs": "Dirección creativa y guion",
+          "contributionEs": "Articuló la identidad narrativa de Uncharted y dirigió creativamente los dos primeros juegos de la serie durante la etapa PS3.",
+          "period": "2007-2011",
+          "sourceIds": ["PH-PS3-DOSSIER", "PH-PS3-GDCA-LIFETIME"]
+        },
+        {
+          "personSlug": "bruce-straley",
+          "personName": "Bruce Straley",
+          "roleLabelEs": "Dirección de juego",
+          "contributionEs": "Fue director de juego de Uncharted 2 y codirector de The Last of Us, después de trabajar como codirector artístico del primer Uncharted.",
+          "period": "2007-2013",
+          "sourceIds": ["PH-PS3-NAUGHTY-DOG-STRALEY"]
+        },
+        {
+          "personSlug": "neil-druckmann",
+          "personName": "Neil Druckmann",
+          "roleLabelEs": "Dirección creativa",
+          "contributionEs": "Trabajó en Uncharted y fue director creativo de The Last of Us, sin proyectar sobre esa etapa los cargos corporativos que asumiría después.",
+          "period": "2007-2013",
+          "sourceIds": ["PH-PS3-NAUGHTY-DOG-TLOU"]
+        },
+        {
+          "personSlug": "evan-wells",
+          "personName": "Evan Wells",
+          "roleLabelEs": "Liderazgo de estudio",
+          "contributionEs": "Codirigió Naughty Dog durante la etapa en la que el estudio produjo Uncharted y The Last of Us.",
+          "period": "Generación PS3",
+          "sourceIds": ["PH-PS3-NAUGHTY-DOG-STRALEY"]
+        },
+        {
+          "personSlug": "ted-price",
+          "personName": "Ted Price",
+          "roleLabelEs": "Fundación y dirección de estudio",
+          "contributionEs": "Como fundador y CEO de Insomniac lideró un socio independiente clave de PlayStation, responsable de Resistance y Ratchet & Clank Future.",
+          "period": "Generación PS3",
+          "sourceIds": ["PH-PS3-TED-PRICE"]
+        },
+        {
+          "personSlug": "alex-evans",
+          "personName": "Alex Evans",
+          "roleLabelEs": "Cofundación y tecnología creativa",
+          "contributionEs": "Cofundó Media Molecule y ayudó a definir la filosofía Play, Create, Share de LittleBigPlanet.",
+          "period": "2006-2013",
+          "sourceIds": ["PH-PS3-MM-HISTORY"]
+        },
+        {
+          "personSlug": "mark-healey",
+          "personName": "Mark Healey",
+          "roleLabelEs": "Cofundación y dirección creativa",
+          "contributionEs": "Cofundó Media Molecule y fue una de las figuras creativas centrales de LittleBigPlanet.",
+          "period": "2006-2013",
+          "sourceIds": ["PH-PS3-MM-HISTORY"]
+        },
+        {
+          "personSlug": "nate-fox",
+          "personName": "Nate Fox",
+          "roleLabelEs": "Dirección de juego",
+          "contributionEs": "Dirigió el trabajo creativo de Sucker Punch en inFAMOUS durante la etapa en que el estudio todavía era independiente.",
+          "period": "2009-2011",
+          "sourceIds": ["PH-PS3-NATE-FOX"]
+        },
+        {
+          "personSlug": "stig-asmussen",
+          "personName": "Stig Asmussen",
+          "roleLabelEs": "Dirección de juego",
+          "contributionEs": "Dirigió God of War III en Santa Monica Studio.",
+          "period": "2010",
+          "sourceIds": ["PH-PS3-STIG"]
+        },
+        {
+          "personSlug": "hidetaka-miyazaki",
+          "personName": "Hidetaka Miyazaki",
+          "roleLabelEs": "Dirección",
+          "contributionEs": "Dirigió Demon's Souls y Dark Souls; la generación PS3 fue decisiva para el origen y consolidación inicial de la fórmula Souls moderna.",
+          "period": "2009-2011",
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "personSlug": "hideo-kojima",
+          "personName": "Hideo Kojima",
+          "roleLabelEs": "Dirección, diseño y guion",
+          "contributionEs": "Dirigió Metal Gear Solid 4 dentro de Konami y Kojima Productions.",
+          "period": "2008",
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "personSlug": "kazunori-yamauchi",
+          "personName": "Kazunori Yamauchi",
+          "roleLabelEs": "Dirección de estudio y serie",
+          "contributionEs": "Lideró Polyphony Digital y la evolución de Gran Turismo 5 y Gran Turismo 6.",
+          "period": "2010-2013",
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "personSlug": "david-cage",
+          "personName": "David Cage",
+          "roleLabelEs": "Dirección y guion",
+          "contributionEs": "Dirigió Heavy Rain y Beyond: Two Souls desde Quantic Dream, estudio independiente durante la generación.",
+          "period": "2010-2013",
+          "sourceIds": ["PH-PS3-QUANTIC"]
+        },
+        {
+          "personSlug": "jenova-chen",
+          "personName": "Jenova Chen",
+          "roleLabelEs": "Dirección creativa",
+          "contributionEs": "Cofundó thatgamecompany y vinculó flOw, Flower y Journey con la distribución digital y el juego de autor en PS3.",
+          "period": "2007-2012",
+          "sourceIds": ["PH-PS3-TGC"]
+        },
+        {
+          "personSlug": "mark-cerny",
+          "personName": "Mark Cerny",
+          "roleLabelEs": "Consultoría y transición tecnológica",
+          "contributionEs": "Colaboró como consultor y desarrollador con equipos del ecosistema Sony; su experiencia en PS3 precede a su posterior papel arquitectónico en PS4 y PS5.",
+          "period": "Generación PS3",
+          "sourceIds": ["PH-PS3-CERNY-AIAS"]
+        }
+      ],
+      "architecture": [
+        {
+          "id": "architecture-ps3-cell",
+          "name": "Cell Broadband Engine",
+          "kind": "PROCESSOR",
+          "summaryEs": "Procesador multicore desarrollado por Sony, Sony Computer Entertainment, IBM y Toshiba dentro de la alianza STI iniciada en 2001.",
+          "features": [
+            "Núcleo basado en Power Architecture",
+            "Synergistic Processing Elements orientados al procesamiento paralelo",
+            "Diseño dirigido a cargas multimedia y procesamiento distribuido"
+          ],
+          "partners": [
+            {"companySlug": "sony", "companyName": "Sony", "roleLabelEs": "codesarrollo"},
+            {"companySlug": "sony-interactive-entertainment", "companyName": "Sony Computer Entertainment", "roleLabelEs": "codesarrollo e integración"},
+            {"companySlug": null, "companyName": "IBM", "roleLabelEs": "codesarrollo tecnológico"},
+            {"companySlug": null, "companyName": "Toshiba", "roleLabelEs": "codesarrollo tecnológico"}
+          ],
+          "sourceIds": ["PH-PS3-CELL-2005", "PH-PS3-CELL-DETAILS"]
+        },
+        {
+          "id": "architecture-ps3-rsx",
+          "name": "RSX Reality Synthesizer",
+          "kind": "GRAPHICS",
+          "summaryEs": "Procesador gráfico codiseñado por NVIDIA y Sony Computer Entertainment para trabajar junto a Cell en PS3.",
+          "features": ["Procesador gráfico específico de PS3", "Integración con la memoria de vídeo GDDR3 del sistema"],
+          "partners": [
+            {"companySlug": null, "companyName": "NVIDIA", "roleLabelEs": "codesarrollo"},
+            {"companySlug": "sony-interactive-entertainment", "companyName": "Sony Computer Entertainment", "roleLabelEs": "codesarrollo e integración"}
+          ],
+          "sourceIds": ["PH-PS3-LAUNCH-SPECS"]
+        },
+        {
+          "id": "architecture-ps3-blu-ray",
+          "name": "Blu-ray Disc",
+          "kind": "OPTICAL_MEDIA",
+          "summaryEs": "PS3 adoptó BD-ROM para la distribución de juegos y BD-Video para el entretenimiento doméstico en alta definición.",
+          "features": ["Distribución física de juegos PS3", "Reproducción de películas Blu-ray", "Convivencia con DVD y CD compatibles"],
+          "partners": [
+            {"companySlug": "sony-interactive-entertainment", "companyName": "Sony Computer Entertainment", "roleLabelEs": "integración en PS3"}
+          ],
+          "sourceIds": ["PH-PS3-LAUNCH-SPECS", "PH-PS3-EUROPE-60GB"]
+        },
+        {
+          "id": "architecture-ps3-xmb",
+          "name": "XrossMediaBar y software del sistema",
+          "kind": "SYSTEM_SOFTWARE",
+          "summaryEs": "La interfaz XMB organizó juegos, vídeo, música, fotos, ajustes y servicios de red, y creció mediante actualizaciones del sistema.",
+          "features": ["Interfaz transversal de contenidos", "Actualizaciones de sistema", "Acceso integrado a PSN y PlayStation Store"],
+          "partners": [
+            {"companySlug": "sony-interactive-entertainment", "companyName": "Sony Computer Entertainment", "roleLabelEs": "desarrollo de plataforma"}
+          ],
+          "sourceIds": ["PH-PS3-HISTORY", "PH-PS3-SLIM-2009"]
+        },
+        {
+          "id": "architecture-ps3-multimedia",
+          "name": "Alta definición y multimedia conectada",
+          "kind": "MULTIMEDIA",
+          "summaryEs": "HDMI, salida hasta 1080p, reproducción multimedia, servicios de vídeo y soporte posterior para Blu-ray 3D ampliaron el papel doméstico de la consola.",
+          "features": ["HDMI y resoluciones de alta definición", "Reproducción local y en red", "Compatibilidad con Blu-ray 3D mediante actualización"],
+          "partners": [
+            {"companySlug": "sony", "companyName": "Sony", "roleLabelEs": "ecosistema audiovisual"}
+          ],
+          "sourceIds": ["PH-PS3-LAUNCH-SPECS", "PH-PS3-3D-2010"]
+        }
+      ],
+      "companies": [
+        {
+          "companySlug": "sony-interactive-entertainment",
+          "companyName": "Sony Computer Entertainment",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Plataforma y red first party",
+          "period": "Generación PlayStation 3",
+          "contributionEs": "Diseñó, publicó y operó PS3, coordinó Worldwide Studios y desarrolló PlayStation Network durante la generación.",
+          "relatedWorks": ["PlayStation 3", "PlayStation Network"],
+          "sourceIds": ["PH-PS3-HISTORY", "PH-PS3-TIMELINE"]
+        },
+        {
+          "companySlug": "sony-computer-entertainment-america",
+          "companyName": "Sony Computer Entertainment America",
+          "relationshipType": "REGIONAL_PARTNER",
+          "relationshipLabelEs": "Operación regional",
+          "period": "Norteamérica",
+          "contributionEs": "Dirigió el lanzamiento y la estrategia comercial de PS3 en Norteamérica.",
+          "relatedWorks": ["PlayStation 3"],
+          "sourceIds": ["PH-PS3-MANAGEMENT-2006", "PH-PS3-LAUNCH-NA"]
+        },
+        {
+          "companySlug": "sony-computer-entertainment-europe",
+          "companyName": "Sony Computer Entertainment Europe",
+          "relationshipType": "REGIONAL_PARTNER",
+          "relationshipLabelEs": "Operación regional",
+          "period": "Europa",
+          "contributionEs": "Coordinó el lanzamiento europeo del 23 de marzo de 2007 y su configuración inicial de 60 GB.",
+          "relatedWorks": ["PlayStation 3"],
+          "sourceIds": ["PH-PS3-EUROPE-60GB"]
+        },
+        {
+          "companySlug": "naughty-dog",
+          "companyName": "Naughty Dog",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Estudio first party",
+          "period": "Toda la generación",
+          "contributionEs": "Definió una parte central de la identidad de PS3 con Uncharted y The Last of Us.",
+          "relatedWorks": ["Uncharted", "The Last of Us"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-uncharted-2-among-thieves", "title": "Uncharted 2: Among Thieves"},
+            {"id": "ps3-the-last-of-us", "title": "The Last of Us"}
+          ],
+          "sourceIds": ["PH-PS3-NAUGHTY-DOG-TLOU", "PH-PS3-NAUGHTY-DOG-STRALEY"]
+        },
+        {
+          "companySlug": "guerrilla-games",
+          "companyName": "Guerrilla Games",
+          "relationshipType": "FIRST_PARTY_ACQUISITION",
+          "relationshipLabelEs": "First party por adquisición",
+          "period": "Desde diciembre de 2005",
+          "contributionEs": "Sony adquirió Guerrilla antes del lanzamiento de PS3; Killzone 2 y Killzone 3 fueron producciones first party de la generación.",
+          "relatedWorks": ["Killzone 2", "Killzone 3"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-killzone-2", "title": "Killzone 2"},
+            {"id": "ps3-killzone-3", "title": "Killzone 3"}
+          ],
+          "sourceIds": ["PH-PS3-GUERRILLA-ACQUISITION"]
+        },
+        {
+          "companySlug": "santa-monica-studio",
+          "companyName": "Santa Monica Studio",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Estudio first party",
+          "period": "Toda la generación",
+          "contributionEs": "Desarrolló God of War III y sostuvo producción y colaboración dentro de Worldwide Studios.",
+          "relatedWorks": ["God of War III"],
+          "relatedCatalogEntries": [{"id": "ps3-god-of-war-iii", "title": "God of War III"}],
+          "sourceIds": ["PH-PS3-STIG", "PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "japan-studio",
+          "companyName": "Japan Studio",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Estudio y productor first party",
+          "period": "Toda la generación",
+          "contributionEs": "Produjo, publicó o colaboró en obras como Demon's Souls, Tokyo Jungle, Puppeteer, rain y The Last Guy sin convertir a sus desarrolladores externos en first party.",
+          "relatedWorks": ["Demon's Souls", "Tokyo Jungle", "Puppeteer", "rain", "The Last Guy"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-demon%27s-souls", "title": "Demon's Souls"},
+            {"id": "ps3-puppeteer", "title": "Puppeteer"}
+          ],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "polyphony-digital",
+          "companyName": "Polyphony Digital",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Estudio first party",
+          "period": "Toda la generación",
+          "contributionEs": "Desarrolló Gran Turismo 5 Prologue, Gran Turismo 5 y Gran Turismo 6.",
+          "relatedWorks": ["Gran Turismo 5", "Gran Turismo 6"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-gran-turismo-5", "title": "Gran Turismo 5"},
+            {"id": "ps3-gran-turismo-6", "title": "Gran Turismo 6"}
+          ],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "media-molecule",
+          "companyName": "Media Molecule",
+          "relationshipType": "FIRST_PARTY_ACQUISITION",
+          "relationshipLabelEs": "Socio independiente; first party desde 2010",
+          "period": "Adquirida en marzo de 2010",
+          "contributionEs": "Creó LittleBigPlanet como estudio independiente y pasó a formar parte de Sony antes de LittleBigPlanet 2.",
+          "relatedWorks": ["LittleBigPlanet", "LittleBigPlanet 2"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-littlebigplanet", "title": "LittleBigPlanet"},
+            {"id": "ps3-littlebigplanet-2", "title": "LittleBigPlanet 2"}
+          ],
+          "sourceIds": ["PH-PS3-MM-ACQUISITION", "PH-PS3-MM-HISTORY"]
+        },
+        {
+          "companySlug": "sucker-punch-productions",
+          "companyName": "Sucker Punch Productions",
+          "relationshipType": "FIRST_PARTY_ACQUISITION",
+          "relationshipLabelEs": "Socio independiente; first party desde 2011",
+          "period": "Adquirida en agosto de 2011",
+          "contributionEs": "Desarrolló inFAMOUS e inFAMOUS 2 como socio independiente y Sony adquirió el estudio después del lanzamiento del segundo juego.",
+          "relatedWorks": ["inFAMOUS", "inFAMOUS 2"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-infamous", "title": "inFAMOUS"},
+            {"id": "ps3-infamous-2", "title": "inFAMOUS 2"}
+          ],
+          "sourceIds": ["PH-PS3-SUCKER-PUNCH-ACQUISITION", "PH-PS3-NATE-FOX"]
+        },
+        {
+          "companySlug": "insomniac-games",
+          "companyName": "Insomniac Games",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Socio independiente",
+          "period": "Independiente durante toda la generación PS3",
+          "contributionEs": "Desarrolló Resistance y Ratchet & Clank Future en estrecha colaboración con PlayStation sin pertenecer a Sony durante esta generación.",
+          "relatedWorks": ["Resistance", "Ratchet & Clank Future"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-resistance-fall-of-man", "title": "Resistance: Fall of Man"},
+            {"id": "ps3-ratchet-&amp;-clank-tools-of-destruction", "title": "Ratchet & Clank: Tools of Destruction"}
+          ],
+          "sourceIds": ["PH-PS3-TED-PRICE", "PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "thatgamecompany-jenova-chen",
+          "companyName": "thatgamecompany",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Socio independiente",
+          "period": "Generación PS3",
+          "contributionEs": "Desarrolló flOw, Flower y Journey como estudio independiente asociado a la distribución digital de PlayStation.",
+          "relatedWorks": ["flOw", "Flower", "Journey"],
+          "relatedCatalogEntries": [{"id": "ps3-journey-collector%27s-edition", "title": "Journey"}],
+          "sourceIds": ["PH-PS3-TGC"]
+        },
+        {
+          "companySlug": "quantic-dream",
+          "companyName": "Quantic Dream",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Socio independiente",
+          "period": "Generación PS3",
+          "contributionEs": "Desarrolló Heavy Rain y Beyond: Two Souls para PlayStation sin ser un estudio first party.",
+          "relatedWorks": ["Heavy Rain", "Beyond: Two Souls"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-heavy-rain", "title": "Heavy Rain"},
+            {"id": "ps3-beyond-two-souls", "title": "Beyond: Two Souls"}
+          ],
+          "sourceIds": ["PH-PS3-QUANTIC", "PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "rockstar-games",
+          "companyName": "Rockstar Games",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Third party esencial",
+          "period": "Generación PS3",
+          "contributionEs": "Publicó Grand Theft Auto IV, Grand Theft Auto V y Red Dead Redemption en PS3.",
+          "relatedWorks": ["Grand Theft Auto IV", "Grand Theft Auto V", "Red Dead Redemption"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-grand-theft-auto-v", "title": "Grand Theft Auto V"},
+            {"id": "ps3-red-dead-redemption", "title": "Red Dead Redemption"}
+          ],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "ubisoft",
+          "companyName": "Ubisoft",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Third party esencial",
+          "period": "Generación PS3",
+          "contributionEs": "Amplió el catálogo con Assassin's Creed, Assassin's Creed II y Far Cry 3.",
+          "relatedWorks": ["Assassin's Creed", "Assassin's Creed II", "Far Cry 3"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-assassin%27s-creed", "title": "Assassin's Creed"},
+            {"id": "ps3-far-cry-3", "title": "Far Cry 3"}
+          ],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "activision",
+          "companyName": "Activision",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Third party esencial",
+          "period": "Generación PS3",
+          "contributionEs": "Call of Duty 4, Modern Warfare 2 y Black Ops fueron pilares del multijugador multiplataforma.",
+          "relatedWorks": ["Call of Duty 4", "Modern Warfare 2", "Black Ops"],
+          "relatedCatalogEntries": [{"id": "ps3-call-of-duty-4-modern-warfare", "title": "Call of Duty 4: Modern Warfare"}],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "bethesda-softworks",
+          "companyName": "Bethesda Softworks",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Third party esencial",
+          "period": "Generación PS3",
+          "contributionEs": "Llevó a PS3 The Elder Scrolls IV: Oblivion, Fallout 3 y The Elder Scrolls V: Skyrim.",
+          "relatedWorks": ["Oblivion", "Fallout 3", "Skyrim"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-fallout-3", "title": "Fallout 3"},
+            {"id": "ps3-elder-scrolls-v-skyrim", "title": "The Elder Scrolls V: Skyrim"}
+          ],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "konami",
+          "companyName": "Konami",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Third party esencial",
+          "period": "Generación PS3",
+          "contributionEs": "Publicó Metal Gear Solid 4 y mantuvo Pro Evolution Soccer como serie relevante de la generación.",
+          "relatedWorks": ["Metal Gear Solid 4", "Pro Evolution Soccer"],
+          "relatedCatalogEntries": [{"id": "ps3-metal-gear-solid-4-guns-of-the-patriots", "title": "Metal Gear Solid 4: Guns of the Patriots"}],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "square-enix",
+          "companyName": "Square Enix",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Third party esencial",
+          "period": "Generación PS3",
+          "contributionEs": "Publicó la trilogía Final Fantasy XIII en la plataforma.",
+          "relatedWorks": ["Final Fantasy XIII"],
+          "relatedCatalogEntries": [{"id": "ps3-final-fantasy-xiii", "title": "Final Fantasy XIII"}],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "capcom",
+          "companyName": "Capcom",
+          "relationshipType": "KEY_PUBLISHER",
+          "relationshipLabelEs": "Third party esencial",
+          "period": "Generación PS3",
+          "contributionEs": "Aportó Street Fighter IV, Resident Evil 5, Devil May Cry 4 y Dragon's Dogma.",
+          "relatedWorks": ["Street Fighter IV", "Resident Evil 5", "Devil May Cry 4", "Dragon's Dogma"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-street-fighter-iv", "title": "Street Fighter IV"},
+            {"id": "ps3-resident-evil-5", "title": "Resident Evil 5"}
+          ],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        },
+        {
+          "companySlug": "fromsoftware",
+          "companyName": "FromSoftware",
+          "relationshipType": "KEY_DEVELOPER",
+          "relationshipLabelEs": "Desarrollador third party independiente",
+          "period": "Independiente durante la generación PS3",
+          "contributionEs": "Desarrolló Demon's Souls junto a la producción de Japan Studio y publicó o desarrolló Dark Souls sin pertenecer a Sony.",
+          "relatedWorks": ["Demon's Souls", "Dark Souls"],
+          "relatedCatalogEntries": [
+            {"id": "ps3-demon%27s-souls", "title": "Demon's Souls"},
+            {"id": "ps3-dark-souls", "title": "Dark Souls"}
+          ],
+          "sourceIds": ["PH-PS3-DOSSIER"]
+        }
+      ],
+      "genealogies": [
+        {
+          "id": "PHG-PS3-GUERRILLA-SONY-2005",
+          "sourceCompanySlug": "guerrilla-games",
+          "sourceCompanyName": "Guerrilla Games",
+          "relationshipType": "ACQUIRED_BY",
+          "targetCompanySlug": "sony-interactive-entertainment",
+          "targetCompanyName": "Sony Computer Entertainment",
+          "year": 2005,
+          "summaryEs": "Sony Computer Entertainment adquirió Guerrilla Games en diciembre de 2005, antes del lanzamiento comercial de PS3.",
+          "sourceIds": ["PH-PS3-GUERRILLA-ACQUISITION"]
+        },
+        {
+          "id": "PHG-PS3-MM-SONY-2010",
+          "sourceCompanySlug": "media-molecule",
+          "sourceCompanyName": "Media Molecule",
+          "relationshipType": "ACQUIRED_BY",
+          "targetCompanySlug": "sony-interactive-entertainment",
+          "targetCompanyName": "Sony Computer Entertainment",
+          "year": 2010,
+          "summaryEs": "Sony Computer Entertainment adquirió Media Molecule en marzo de 2010; sus obras anteriores se mantienen como trabajo de un socio independiente.",
+          "sourceIds": ["PH-PS3-MM-ACQUISITION"]
+        },
+        {
+          "id": "PHG-PS3-SUCKER-PUNCH-SONY-2011",
+          "sourceCompanySlug": "sucker-punch-productions",
+          "sourceCompanyName": "Sucker Punch Productions",
+          "relationshipType": "ACQUIRED_BY",
+          "targetCompanySlug": "sony-interactive-entertainment",
+          "targetCompanyName": "Sony Computer Entertainment",
+          "year": 2011,
+          "summaryEs": "Sony Computer Entertainment adquirió Sucker Punch en agosto de 2011, después del lanzamiento de inFAMOUS 2.",
+          "sourceIds": ["PH-PS3-SUCKER-PUNCH-ACQUISITION"]
+        }
+      ],
+      "gameGroups": [
+        {
+          "id": "ps3-games-first-party",
+          "labelEs": "Estudios first party en el momento del lanzamiento",
+          "descriptionEs": "Obras desarrolladas por estudios que ya pertenecían a Sony cuando se publicaron. La clasificación se aplica por juego y fecha, no retroactivamente.",
+          "games": [
+            {"title": "Uncharted: Drake's Fortune", "catalogId": "ps3-uncharted-drake%27s-fortune", "year": 2007, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Naughty Dog · first party", "companySlugs": ["naughty-dog"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Uncharted 2: Among Thieves", "catalogId": "ps3-uncharted-2-among-thieves", "year": 2009, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Naughty Dog · first party", "companySlugs": ["naughty-dog"], "sourceIds": ["PH-PS3-NAUGHTY-DOG-STRALEY"]},
+            {"title": "Uncharted 3: Drake's Deception", "catalogId": "ps3-uncharted-3-drake%27s-deception", "year": 2011, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Naughty Dog · first party", "companySlugs": ["naughty-dog"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "The Last of Us", "catalogId": "ps3-the-last-of-us", "year": 2013, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Naughty Dog · first party", "companySlugs": ["naughty-dog"], "sourceIds": ["PH-PS3-NAUGHTY-DOG-TLOU"]},
+            {"title": "Killzone 2", "catalogId": "ps3-killzone-2", "year": 2009, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Guerrilla · first party desde 2005", "companySlugs": ["guerrilla-games"], "sourceIds": ["PH-PS3-GUERRILLA-ACQUISITION"]},
+            {"title": "Killzone 3", "catalogId": "ps3-killzone-3", "year": 2011, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Guerrilla · first party desde 2005", "companySlugs": ["guerrilla-games"], "sourceIds": ["PH-PS3-GUERRILLA-ACQUISITION"]},
+            {"title": "LittleBigPlanet 2", "catalogId": "ps3-littlebigplanet-2", "year": 2011, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Media Molecule · first party desde 2010", "companySlugs": ["media-molecule"], "sourceIds": ["PH-PS3-MM-ACQUISITION"]},
+            {"title": "Gran Turismo 5", "catalogId": "ps3-gran-turismo-5", "year": 2010, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Polyphony Digital · first party", "companySlugs": ["polyphony-digital"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Gran Turismo 6", "catalogId": "ps3-gran-turismo-6", "year": 2013, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Polyphony Digital · first party", "companySlugs": ["polyphony-digital"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "God of War III", "catalogId": "ps3-god-of-war-iii", "year": 2010, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Santa Monica Studio · first party", "companySlugs": ["santa-monica-studio"], "sourceIds": ["PH-PS3-STIG"]}
+          ]
+        },
+        {
+          "id": "ps3-games-independent-partners",
+          "labelEs": "Socios y colaboraciones independientes",
+          "descriptionEs": "Exclusivos y producciones asociadas a PlayStation cuyos estudios externos no deben convertirse por ello en first party.",
+          "games": [
+            {"title": "LittleBigPlanet", "catalogId": "ps3-littlebigplanet", "year": 2008, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Media Molecule · independiente en 2008", "companySlugs": ["media-molecule"], "sourceIds": ["PH-PS3-MM-ACQUISITION"]},
+            {"title": "inFAMOUS", "catalogId": "ps3-infamous", "year": 2009, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Sucker Punch · independiente", "companySlugs": ["sucker-punch-productions"], "sourceIds": ["PH-PS3-SUCKER-PUNCH-ACQUISITION"]},
+            {"title": "inFAMOUS 2", "catalogId": "ps3-infamous-2", "year": 2011, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Sucker Punch · anterior a la adquisición", "companySlugs": ["sucker-punch-productions"], "sourceIds": ["PH-PS3-SUCKER-PUNCH-ACQUISITION"]},
+            {"title": "Resistance: Fall of Man", "catalogId": "ps3-resistance-fall-of-man", "year": 2006, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Insomniac · independiente", "companySlugs": ["insomniac-games"], "sourceIds": ["PH-PS3-TED-PRICE"]},
+            {"title": "Resistance 2", "catalogId": "ps3-resistance-2", "year": 2008, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Insomniac · independiente", "companySlugs": ["insomniac-games"], "sourceIds": ["PH-PS3-TED-PRICE"]},
+            {"title": "Resistance 3", "catalogId": "ps3-resistance-3", "year": 2011, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Insomniac · independiente", "companySlugs": ["insomniac-games"], "sourceIds": ["PH-PS3-TED-PRICE"]},
+            {"title": "Ratchet & Clank: Tools of Destruction", "catalogId": "ps3-ratchet-&amp;-clank-tools-of-destruction", "year": 2007, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Insomniac · independiente", "companySlugs": ["insomniac-games"], "sourceIds": ["PH-PS3-TED-PRICE"]},
+            {"title": "Heavy Rain", "catalogId": "ps3-heavy-rain", "year": 2010, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Quantic Dream · independiente", "companySlugs": ["quantic-dream"], "sourceIds": ["PH-PS3-QUANTIC"]},
+            {"title": "Beyond: Two Souls", "catalogId": "ps3-beyond-two-souls", "year": 2013, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Quantic Dream · independiente", "companySlugs": ["quantic-dream"], "sourceIds": ["PH-PS3-QUANTIC"]},
+            {"title": "Journey", "catalogId": "ps3-journey-collector%27s-edition", "year": 2012, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "thatgamecompany · independiente", "companySlugs": ["thatgamecompany-jenova-chen"], "sourceIds": ["PH-PS3-TGC"]},
+            {"title": "Flower", "catalogId": null, "year": 2009, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "thatgamecompany · distribución digital", "companySlugs": ["thatgamecompany-jenova-chen"], "sourceIds": ["PH-PS3-TGC"]},
+            {"title": "Demon's Souls", "catalogId": "ps3-demon%27s-souls", "year": 2009, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "FromSoftware + Japan Studio", "companySlugs": ["fromsoftware", "japan-studio"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Metal Gear Solid 4: Guns of the Patriots", "catalogId": "ps3-metal-gear-solid-4-guns-of-the-patriots", "year": 2008, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Konami · desarrollo externo", "companySlugs": ["konami"], "sourceIds": ["PH-PS3-DOSSIER"]}
+          ]
+        },
+        {
+          "id": "ps3-games-multiplatform",
+          "labelEs": "Multiplataforma esenciales",
+          "descriptionEs": "Obras externas que definieron el catálogo de PS3 sin ser exclusivas ni desarrollos internos de Sony.",
+          "games": [
+            {"title": "Grand Theft Auto IV", "catalogId": "ps3-grand-theft-auto-iv", "year": 2008, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Rockstar · third party", "companySlugs": ["rockstar-games"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Grand Theft Auto V", "catalogId": "ps3-grand-theft-auto-v", "year": 2013, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Rockstar · third party", "companySlugs": ["rockstar-games"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Red Dead Redemption", "catalogId": "ps3-red-dead-redemption", "year": 2010, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Rockstar · third party", "companySlugs": ["rockstar-games"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Call of Duty 4: Modern Warfare", "catalogId": "ps3-call-of-duty-4-modern-warfare", "year": 2007, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Activision · third party", "companySlugs": ["activision"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "The Elder Scrolls V: Skyrim", "catalogId": "ps3-elder-scrolls-v-skyrim", "year": 2011, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Bethesda · third party", "companySlugs": ["bethesda-softworks"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Fallout 3", "catalogId": "ps3-fallout-3", "year": 2008, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Bethesda · third party", "companySlugs": ["bethesda-softworks"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Assassin's Creed", "catalogId": "ps3-assassin%27s-creed", "year": 2007, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Ubisoft · third party", "companySlugs": ["ubisoft"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Street Fighter IV", "catalogId": "ps3-street-fighter-iv", "year": 2009, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Capcom · third party", "companySlugs": ["capcom"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Resident Evil 5", "catalogId": "ps3-resident-evil-5", "year": 2009, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Capcom · third party", "companySlugs": ["capcom"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Final Fantasy XIII", "catalogId": "ps3-final-fantasy-xiii", "year": 2009, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Square Enix · third party", "companySlugs": ["square-enix"], "sourceIds": ["PH-PS3-DOSSIER"]},
+            {"title": "Dark Souls", "catalogId": "ps3-dark-souls", "year": 2011, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "FromSoftware · third party", "companySlugs": ["fromsoftware"], "sourceIds": ["PH-PS3-DOSSIER"]}
+          ]
+        }
+      ],
+      "hardware": [
+        {
+          "id": "hardware-ps3-fat-launch-20-60",
+          "name": "PLAYSTATION 3 Fat · 20 GB / 60 GB",
+          "kind": "EARLY_REVISION",
+          "yearLabel": "2006",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["CECHA", "CECHB"],
+          "summaryEs": "Familia inicial comercializada primero en Japón y Norteamérica, con configuraciones de 20 y 60 GB que no deben extrapolarse sin matices a todos los territorios.",
+          "features": ["Cell y RSX", "Unidad Blu-ray", "Disco duro integrado", "Ethernet y Bluetooth", "Wi-Fi y lector de tarjetas sólo en determinadas configuraciones"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": ["ken-kutaragi", "kazuo-hirai"],
+          "sourceIds": ["PH-PS3-LAUNCH-NA", "PH-PS3-LAUNCH-SPECS"]
+        },
+        {
+          "id": "hardware-ps3-fat-europe-cechc",
+          "name": "PLAYSTATION 3 Fat · Europa 60 GB",
+          "kind": "EARLY_REVISION",
+          "yearLabel": "2007",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["CECHC"],
+          "summaryEs": "Configuración europea de lanzamiento con 60 GB, Wi-Fi, lector de tarjetas, Blu-ray y retrocompatibilidad PS2 mediante una combinación de hardware y software.",
+          "features": ["Lanzamiento europeo: 23 de marzo de 2007", "Compatibilidad amplia con PlayStation", "Compatibilidad PS2 limitada respecto a las primeras revisiones japonesas y norteamericanas", "SIXAXIS incluido"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": ["david-reeves"],
+          "sourceIds": ["PH-PS3-EUROPE-60GB"]
+        },
+        {
+          "id": "hardware-ps3-fat-40gb-cechh",
+          "name": "PLAYSTATION 3 Fat · 40 GB",
+          "kind": "REVISION",
+          "yearLabel": "2007",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["CECHH00"],
+          "summaryEs": "Revisión de 40 GB documentada por SCE para Japón, con dos puertos USB y sin compatibilidad con software PlayStation 2.",
+          "features": ["HDD de 40 GB", "Dos puertos USB 2.0", "Wi-Fi y Bluetooth", "Sin reproducción de juegos PS2"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS3-40GB-2007"]
+        },
+        {
+          "id": "hardware-ps3-slim-cech-2000a",
+          "name": "PlayStation 3 Slim · 120 GB",
+          "kind": "REDESIGN",
+          "yearLabel": "2009",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["CECH-2000A"],
+          "summaryEs": "Rediseño mundial de 120 GB que redujo precio, volumen, peso y consumo y adoptó la marca PlayStation 3 con un nuevo logotipo.",
+          "features": ["Precio recomendado de 299 euros", "32 % menos de volumen", "36 % menos de peso", "34 % menos de consumo", "Sin compatibilidad con juegos PS2"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": ["kazuo-hirai"],
+          "sourceIds": ["PH-PS3-SLIM-2009"]
+        },
+        {
+          "id": "hardware-ps3-slim-160-320",
+          "name": "PlayStation 3 Slim · 160 GB / 320 GB",
+          "kind": "REVISION",
+          "yearLabel": "2010",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["CECH-2500"],
+          "summaryEs": "Ampliación de almacenamiento asociada al crecimiento de la distribución digital y al lanzamiento de PlayStation Move.",
+          "features": ["Capacidades de 160 y 320 GB según mercado y paquete", "Mismo lenguaje industrial de la familia Slim", "Convivencia con contenidos descargables y Move"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS3-DOSSIER", "PH-PS3-MOVE-2010"]
+        },
+        {
+          "id": "hardware-ps3-super-slim-cech-4000",
+          "name": "PlayStation 3 Super Slim",
+          "kind": "REDESIGN",
+          "yearLabel": "2012",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["CECH-4000A", "CECH-4000B"],
+          "summaryEs": "Rediseño final más pequeño y ligero, con tapa deslizante y configuraciones regionales de 12 GB flash, 250 GB o 500 GB.",
+          "features": ["Tapa superior deslizante para el disco", "12 GB flash en determinados mercados europeos", "250 GB en Norteamérica y Japón", "500 GB en Europa, Norteamérica y otros mercados"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": ["andrew-house"],
+          "sourceIds": ["PH-PS3-SUPER-SLIM-2012"]
+        },
+        {
+          "id": "hardware-ps3-sixaxis",
+          "name": "SIXAXIS Wireless Controller",
+          "kind": "CONTROLLER",
+          "yearLabel": "2006",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["SIXAXIS"],
+          "summaryEs": "Mando inalámbrico original de PS3 con Bluetooth y detección de movimiento de seis ejes, pero sin vibración.",
+          "features": ["Conexión Bluetooth", "Control de movimiento de seis ejes", "Uso por USB", "Sin vibración en la revisión inicial"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS3-LAUNCH-NA", "PH-PS3-EUROPE-60GB"]
+        },
+        {
+          "id": "hardware-ps3-dualshock-3",
+          "name": "DualShock 3",
+          "kind": "CONTROLLER",
+          "yearLabel": "2007-2008",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["DUALSHOCK 3"],
+          "summaryEs": "Evolución del mando que combinó la detección SIXAXIS con vibración y pasó a ser el control estándar posterior de PS3.",
+          "features": ["Control de movimiento de seis ejes", "Vibración", "Bluetooth y conexión USB"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS3-DUALSHOCK3-2007", "PH-PS3-HISTORY"]
+        },
+        {
+          "id": "hardware-ps3-playstation-move",
+          "name": "PlayStation Move Motion Controller",
+          "kind": "CONTROLLER",
+          "yearLabel": "2010",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["CECH-ZCM1"],
+          "summaryEs": "Mando de movimiento con sensores inerciales y una esfera luminosa cuyo seguimiento realiza PlayStation Eye.",
+          "features": ["Giroscopio y acelerómetro", "Esfera luminosa con seguimiento por cámara", "Vibración", "Botón Move analógico a la presión"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS3-MOVE-2010"]
+        },
+        {
+          "id": "hardware-ps3-navigation-controller",
+          "name": "PlayStation Move Navigation Controller",
+          "kind": "CONTROLLER",
+          "yearLabel": "2010",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["CECH-ZCS1"],
+          "summaryEs": "Control opcional para acompañar a Move en juegos que necesitan palanca analógica y botones de navegación.",
+          "features": ["Palanca analógica", "Uso complementario, no obligatorio", "Conexión inalámbrica"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS3-MOVE-2010"]
+        },
+        {
+          "id": "hardware-ps3-playstation-eye",
+          "name": "PlayStation Eye",
+          "kind": "PERIPHERAL",
+          "yearLabel": "2007",
+          "manufacturerCompanySlug": "sony",
+          "manufacturerCompanyName": "Sony",
+          "modelNumbers": ["SLEH-00201"],
+          "summaryEs": "Cámara para PS3 que más tarde se convirtió en la referencia visual necesaria para el seguimiento de PlayStation Move.",
+          "features": ["Captura de vídeo y audio", "Seguimiento de la esfera de Move", "Conexión USB"],
+          "relatedWorks": [],
+          "relatedPersonSlugs": [],
+          "sourceIds": ["PH-PS3-MOVE-2010", "PH-PS3-DOSSIER"]
+        }
+      ],
+      "services": [
+        {
+          "id": "service-ps3-psn",
+          "name": "PlayStation Network",
+          "kind": "NETWORK_SERVICE",
+          "launchedLabel": "Noviembre de 2006",
+          "parentServiceId": null,
+          "summaryEs": "La capa conectada de PS3 reunió cuentas, multijugador, amistades, mensajería, trofeos, descargas y servicios multimedia.",
+          "features": ["Identidad PSN", "Multijugador en línea", "Amigos y mensajería", "Trofeos", "Distribución y servicios multimedia"],
+          "sourceIds": ["PH-PS3-HISTORY", "PH-PS3-PSN-LAUNCH"]
+        },
+        {
+          "id": "service-ps3-store",
+          "name": "PlayStation Store",
+          "kind": "STORE_SERVICE",
+          "launchedLabel": "2006 · rediseño en abril de 2008",
+          "parentServiceId": "service-ps3-psn",
+          "summaryEs": "La tienda digital distribuyó juegos, demos, complementos y vídeo; en abril de 2008 estrenó una interfaz nativa más rápida y con más categorías.",
+          "features": ["Juegos descargables", "Demos", "DLC", "Vídeo y otros contenidos", "Nueva interfaz en abril de 2008"],
+          "sourceIds": ["PH-PS3-STORE-2008", "PH-PS3-HISTORY"]
+        },
+        {
+          "id": "service-ps3-plus",
+          "name": "PlayStation Plus",
+          "kind": "SUBSCRIPTION_SERVICE",
+          "launchedLabel": "29 de junio de 2010",
+          "parentServiceId": "service-ps3-psn",
+          "summaryEs": "Suscripción opcional construida sobre el PSN gratuito, con juegos, descuentos, pruebas, acceso anticipado y descargas automáticas en su propuesta inicial.",
+          "features": ["El acceso base a PSN permaneció gratuito", "Juegos y contenidos para miembros", "Descuentos en Store", "Pruebas y acceso anticipado", "Descargas automáticas"],
+          "sourceIds": ["PH-PS3-PSPLUS-2010"]
+        },
+        {
+          "id": "service-ps3-home",
+          "name": "PlayStation Home",
+          "kind": "SOCIAL_SERVICE",
+          "launchedLabel": "2008",
+          "parentServiceId": "service-ps3-psn",
+          "summaryEs": "Espacio social tridimensional de PSN para reunirse, comunicarse y compartir experiencias vinculadas al ecosistema PlayStation.",
+          "features": ["Avatares y espacios 3D", "Encuentro entre usuarios", "Experiencias y eventos vinculados a juegos"],
+          "sourceIds": ["PH-PS3-SLIM-2009", "PH-PS3-DOSSIER"]
+        }
+      ],
+      "compatibilityByHardwareRevision": [
+        {
+          "hardwareId": "hardware-ps3-fat-launch-20-60",
+          "labelEs": "Fat inicial · Japón y Norteamérica",
+          "ps1SupportEs": "La familia inicial se anunció con compatibilidad para un amplio catálogo de PlayStation.",
+          "ps2SupportEs": "Las primeras configuraciones incluyeron compatibilidad PS2, pero el alcance concreto dependió del modelo y del territorio.",
+          "notesEs": ["No se atribuye esta capacidad a todas las revisiones Fat posteriores."],
+          "sourceIds": ["PH-PS3-LAUNCH-NA", "PH-PS3-LAUNCH-SPECS"]
+        },
+        {
+          "hardwareId": "hardware-ps3-fat-europe-cechc",
+          "labelEs": "Fat Europa 60 GB · CECHC",
+          "ps1SupportEs": "Compatibilidad amplia con títulos de la primera PlayStation.",
+          "ps2SupportEs": "Compatibilidad limitada mediante una combinación de hardware y software, menor que en las primeras revisiones japonesas y norteamericanas.",
+          "notesEs": ["La nota oficial europea advierte de que no todo el catálogo PS2 era compatible."],
+          "sourceIds": ["PH-PS3-EUROPE-60GB"]
+        },
+        {
+          "hardwareId": "hardware-ps3-fat-40gb-cechh",
+          "labelEs": "Fat 40 GB · CECHH00",
+          "ps1SupportEs": "Conservó reproducción de software PlayStation compatible.",
+          "ps2SupportEs": "No reproduce software PlayStation 2.",
+          "notesEs": ["La eliminación de PS2 está documentada para esta revisión concreta."],
+          "sourceIds": ["PH-PS3-40GB-2007"]
+        },
+        {
+          "hardwareId": "hardware-ps3-slim-cech-2000a",
+          "labelEs": "Slim 120 GB · CECH-2000A",
+          "ps1SupportEs": "Mantiene compatibilidad con software PlayStation compatible.",
+          "ps2SupportEs": "No es compatible con juegos PlayStation 2.",
+          "notesEs": ["La eliminación de la compatibilidad PS2 forma parte de la especificación del rediseño Slim."],
+          "sourceIds": ["PH-PS3-SLIM-2009"]
+        }
+      ],
+      "milestones": [
+        {"id": "PHM-PS3-2001-STI", "yearLabel": "2001", "sortYear": 2001, "title": "Comienza la colaboración STI", "summaryEs": "Sony, Sony Computer Entertainment, IBM y Toshiba ponen en marcha la alianza tecnológica de la que surgirá Cell.", "sourceIds": ["PH-PS3-CELL-2005"]},
+        {"id": "PHM-PS3-2005-CELL", "yearLabel": "Febrero de 2005", "sortYear": 2005, "title": "Cell Broadband Engine se hace público", "summaryEs": "Los socios presentan la arquitectura multicore y sus primeros detalles técnicos.", "sourceIds": ["PH-PS3-CELL-2005", "PH-PS3-CELL-DETAILS"]},
+        {"id": "PHM-PS3-2005-GUERRILLA", "yearLabel": "Diciembre de 2005", "sortYear": 2005, "title": "Sony adquiere Guerrilla Games", "summaryEs": "El estudio entra en la estructura first party antes del lanzamiento de PS3.", "sourceIds": ["PH-PS3-GUERRILLA-ACQUISITION"]},
+        {"id": "PHM-PS3-2006-JAPAN", "yearLabel": "11 de noviembre de 2006", "sortYear": 2006, "title": "PS3 se lanza en Japón", "summaryEs": "Comienza la comercialización de la plataforma.", "sourceIds": ["PH-PS3-HISTORY", "PH-PS3-TIMELINE"]},
+        {"id": "PHM-PS3-2006-NA", "yearLabel": "17 de noviembre de 2006", "sortYear": 2006, "title": "Lanzamiento norteamericano", "summaryEs": "SCEA estrena las configuraciones de 20 y 60 GB en Norteamérica.", "sourceIds": ["PH-PS3-LAUNCH-NA"]},
+        {"id": "PHM-PS3-2006-PSN", "yearLabel": "Noviembre de 2006", "sortYear": 2006, "title": "PlayStation Network acompaña a PS3", "summaryEs": "Las cuentas, el juego en línea y la distribución digital pasan a formar parte estructural de la plataforma.", "sourceIds": ["PH-PS3-PSN-LAUNCH", "PH-PS3-HISTORY"]},
+        {"id": "PHM-PS3-2006-HIRAI", "yearLabel": "Diciembre de 2006", "sortYear": 2006, "title": "Kaz Hirai asume la presidencia operativa", "summaryEs": "Hirai pasa a ser President y Group COO de SCEI dentro del nuevo equipo directivo.", "sourceIds": ["PH-PS3-MANAGEMENT-2006"]},
+        {"id": "PHM-PS3-2007-EUROPE", "yearLabel": "23 de marzo de 2007", "sortYear": 2007, "title": "PS3 llega a Europa", "summaryEs": "La configuración europea de lanzamiento incluye 60 GB y una solución de retrocompatibilidad PS2 distinta.", "sourceIds": ["PH-PS3-EUROPE-60GB"]},
+        {"id": "PHM-PS3-2007-TRANSITION", "yearLabel": "Junio de 2007", "sortYear": 2007, "title": "Kutaragi deja la gestión ejecutiva", "summaryEs": "Kaz Hirai asume el liderazgo mundial y Kutaragi continúa como presidente honorario y asesor tecnológico.", "sourceIds": ["PH-PS3-TRANSITION-2007"]},
+        {"id": "PHM-PS3-2007-UNCHARTED", "yearLabel": "2007", "sortYear": 2007, "title": "Uncharted inicia una nueva serie", "summaryEs": "Naughty Dog estrena Uncharted: Drake's Fortune en PS3.", "sourceIds": ["PH-PS3-DOSSIER"]},
+        {"id": "PHM-PS3-2008-STORE", "yearLabel": "Abril de 2008", "sortYear": 2008, "title": "PlayStation Store renueva su interfaz", "summaryEs": "La tienda adopta una experiencia nativa con más categorías y más elementos por página.", "sourceIds": ["PH-PS3-STORE-2008"]},
+        {"id": "PHM-PS3-2008-LBP", "yearLabel": "2008", "sortYear": 2008, "title": "LittleBigPlanet propone Play, Create, Share", "summaryEs": "Media Molecule publica su obra como estudio todavía independiente.", "sourceIds": ["PH-PS3-MM-HISTORY", "PH-PS3-MM-ACQUISITION"]},
+        {"id": "PHM-PS3-2009-DEMONS", "yearLabel": "2009", "sortYear": 2009, "title": "Demon's Souls abre una nueva vía", "summaryEs": "FromSoftware y Japan Studio colaboran en una obra decisiva para el posterior desarrollo de Dark Souls.", "sourceIds": ["PH-PS3-DOSSIER"]},
+        {"id": "PHM-PS3-2009-SLIM", "yearLabel": "Septiembre de 2009", "sortYear": 2009, "title": "PlayStation 3 Slim cambia la trayectoria comercial", "summaryEs": "El rediseño reduce precio, volumen, peso y consumo e introduce una nueva identidad de marca.", "sourceIds": ["PH-PS3-SLIM-2009"]},
+        {"id": "PHM-PS3-2009-UNCHARTED2", "yearLabel": "2009", "sortYear": 2009, "title": "Uncharted 2 consolida a Naughty Dog", "summaryEs": "La secuela amplía la escala narrativa y técnica de la serie.", "sourceIds": ["PH-PS3-NAUGHTY-DOG-STRALEY"]},
+        {"id": "PHM-PS3-2010-MM", "yearLabel": "Marzo de 2010", "sortYear": 2010, "title": "Sony adquiere Media Molecule", "summaryEs": "El estudio pasa de socio independiente a first party.", "sourceIds": ["PH-PS3-MM-ACQUISITION"]},
+        {"id": "PHM-PS3-2010-PLUS", "yearLabel": "29 de junio de 2010", "sortYear": 2010, "title": "Se lanza PlayStation Plus", "summaryEs": "La suscripción añade ventajas sobre el acceso gratuito existente de PSN.", "sourceIds": ["PH-PS3-PSPLUS-2010"]},
+        {"id": "PHM-PS3-2010-MOVE", "yearLabel": "Septiembre de 2010", "sortYear": 2010, "title": "PlayStation Move amplía el control", "summaryEs": "El sistema combina sensores inerciales, esfera luminosa y seguimiento mediante PlayStation Eye.", "sourceIds": ["PH-PS3-MOVE-2010"]},
+        {"id": "PHM-PS3-2010-GAMES", "yearLabel": "2010", "sortYear": 2010, "title": "Heavy Rain, God of War III y Gran Turismo 5", "summaryEs": "El año muestra la diversidad de producciones internas y colaboraciones externas de la plataforma.", "sourceIds": ["PH-PS3-DOSSIER"]},
+        {"id": "PHM-PS3-2011-PSN", "yearLabel": "Abril-mayo de 2011", "sortYear": 2011, "title": "Interrupción y restauración de PSN", "summaryEs": "Sony desconecta el servicio tras una intrusión no autorizada, comunica el compromiso de datos personales y restaura progresivamente la red con nuevas medidas de seguridad. El comunicado inicial no confirmó que se hubieran obtenido datos de tarjetas.", "sourceIds": ["PH-PS3-PSN-INCIDENT", "PH-PS3-PSN-RESTORE"]},
+        {"id": "PHM-PS3-2011-SUCKER", "yearLabel": "Agosto de 2011", "sortYear": 2011, "title": "Sony adquiere Sucker Punch", "summaryEs": "La operación se produce después del lanzamiento de inFAMOUS 2.", "sourceIds": ["PH-PS3-SUCKER-PUNCH-ACQUISITION"]},
+        {"id": "PHM-PS3-2011-HOUSE", "yearLabel": "Septiembre de 2011", "sortYear": 2011, "title": "Andrew House lidera SCEI", "summaryEs": "House pasa a ser President y Group CEO en la etapa final de PS3.", "sourceIds": ["PH-PS3-HOUSE-2011"]},
+        {"id": "PHM-PS3-2012-JOURNEY", "yearLabel": "2012", "sortYear": 2012, "title": "Journey culmina la vía digital de autor", "summaryEs": "thatgamecompany publica una de las obras emblemáticas de PSN como estudio independiente.", "sourceIds": ["PH-PS3-TGC"]},
+        {"id": "PHM-PS3-2012-SUPERSLIM", "yearLabel": "Septiembre-octubre de 2012", "sortYear": 2012, "title": "Super Slim cierra la evolución industrial", "summaryEs": "La serie CECH-4000 reduce de nuevo tamaño y peso e introduce una tapa deslizante.", "sourceIds": ["PH-PS3-SUPER-SLIM-2012"]},
+        {"id": "PHM-PS3-2013-TLOU", "yearLabel": "2013", "sortYear": 2013, "title": "The Last of Us corona la etapa de Naughty Dog", "summaryEs": "El estudio publica su nueva obra al final de la generación.", "sourceIds": ["PH-PS3-NAUGHTY-DOG-TLOU"]},
+        {"id": "PHM-PS3-2013-GTAV", "yearLabel": "2013", "sortYear": 2013, "title": "Grand Theft Auto V llega a PS3", "summaryEs": "Rockstar publica uno de los grandes lanzamientos multiplataforma del cierre generacional.", "sourceIds": ["PH-PS3-DOSSIER"]},
+        {"id": "PHM-PS3-2017-SALES", "yearLabel": "31 de marzo de 2017", "sortYear": 2017, "title": "Más de 87,4 millones de PS3 distribuidas", "summaryEs": "SIE registra el acumulado mundial de hardware distribuido hasta esa fecha.", "sourceIds": ["PH-PS3-SALES"]}
+      ],
+      "legacyEs": [
+        "PS3 convirtió la conectividad en una parte permanente de la experiencia PlayStation. Cuentas, amistades, trofeos, Store, distribución digital y Plus dejaron de ser complementos aislados para formar un ecosistema continuo.",
+        "La generación demostró también el coste de una arquitectura muy ambiciosa. Cell y RSX dieron al sistema una identidad técnica singular, pero obligaron a estudios y herramientas a madurar antes de alcanzar resultados más consistentes.",
+        "El mapa first party cambió con fechas concretas: Guerrilla ya pertenecía a Sony antes del lanzamiento; Media Molecule se incorporó en 2010 y Sucker Punch en 2011. Insomniac, Quantic Dream, thatgamecompany y FromSoftware conservaron su independencia durante sus colaboraciones de PS3.",
+        "Uncharted, The Last of Us, LittleBigPlanet, inFAMOUS, Killzone, Resistance, Journey y Demon's Souls anticiparon líneas creativas que continuarían en generaciones posteriores, mientras Slim y Super Slim mostraron cómo una plataforma podía recuperar terreno mediante revisión industrial, precio y catálogo.",
+        "El incidente de PSN de 2011 quedó como una lección central sobre seguridad, comunicación y resiliencia de servicios conectados. Su documentación evita afirmar como hecho aquello que Sony no había confirmado en su comunicación inicial.",
+        "La experiencia de Mark Cerny junto a equipos del ecosistema funciona como transición hacia PS4 y PS5. La historia de PS3 se mantiene atribuida a su red real de ingeniería, dirección, estudios y socios, sin reescribir responsabilidades posteriores sobre el pasado."
+      ],
+      "sources": [
+        {"id": "PH-PS3-DOSSIER", "title": "PlayStation 3: historia completa", "publication": "Dossier editorial Region Atlas", "publisher": "Investigación aportada por el usuario", "kind": "reference", "language": "es", "citation": "regionatlas_codex_playstation3_historia_completa.md", "url": null},
+        {"id": "PH-PS3-HISTORY", "title": "Historia de PlayStation 3", "publication": "PlayStation History 2007-PS3/PS Vita", "publisher": "PlayStation", "kind": "official", "language": "es", "citation": null, "url": "https://www.playstation.com/es-es/playstation-history/2007-ps3-ps-vita/"},
+        {"id": "PH-PS3-TIMELINE", "title": "Expanded company timeline", "publication": "Our Company", "publisher": "Sony Interactive Entertainment", "kind": "official", "language": "en", "citation": null, "url": "https://sonyinteractive.com/en/our-company/expanded-company-timeline/"},
+        {"id": "PH-PS3-SALES", "title": "Business data and sales", "publication": "Our Company", "publisher": "Sony Interactive Entertainment", "kind": "official", "language": "en", "citation": "Datos hasta 31 de marzo de 2017", "url": "https://sonyinteractive.com/en/our-company/business-data-sales/"},
+        {"id": "PH-PS3-LAUNCH-SPECS", "title": "Sony Computer Entertainment unveils PlayStation 3", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "16 de mayo de 2005", "url": "https://sonyinteractive.com/en/press-releases/2005/sony-computer-entertainment-inc-to-launch-its-next-generation-computer-entertainment-system-playstation-3-in-spring-2006/"},
+        {"id": "PH-PS3-LAUNCH-NA", "title": "PlayStation 3 launches on November 17, 2006 in North America", "publication": "Press release", "publisher": "Sony Computer Entertainment America", "kind": "official", "language": "en", "citation": "8 de mayo de 2006", "url": "https://sonyinteractive.com/en/press-releases/2006/playstation3-launcheson-november-17-2006-in-north-america/"},
+        {"id": "PH-PS3-CELL-2005", "title": "Cell processor unveiled", "publication": "News release", "publisher": "Sony Corporation", "kind": "official", "language": "en", "citation": "8 de febrero de 2005", "url": "https://www.sony.com/en/SonyInfo/News/Press/200502/05-0208AE/"},
+        {"id": "PH-PS3-CELL-DETAILS", "title": "Cell Broadband Engine technical details", "publication": "News release", "publisher": "Sony Corporation", "kind": "official", "language": "en", "citation": "25 de agosto de 2005", "url": "https://www.sony.com/en/SonyInfo/News/Press/200508/05-0825E/"},
+        {"id": "PH-PS3-MANAGEMENT-2006", "title": "SCE announces new management team", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "30 de noviembre de 2006", "url": "https://sonyinteractive.com/en/press-releases/2006/sce-announces-new-management-team/"},
+        {"id": "PH-PS3-TRANSITION-2007", "title": "Executive management transition at SCEI", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "26 de abril de 2007", "url": "https://sonyinteractive.com/en/press-releases/2007/scei-and-sony-announce-executive-management-transition-at-sony-computer-entertainment-inc/"},
+        {"id": "PH-PS3-EUROPE-60GB", "title": "Hardware specification of PlayStation 3 for Europe", "publication": "Press release", "publisher": "Sony Computer Entertainment Europe", "kind": "official", "language": "en", "citation": "23 de febrero de 2007", "url": "https://sonyinteractive.com/en/press-releases/2007/sony-computer-entertainment-europe-announces-hardware-specification-of-playstation3-for-europe/"},
+        {"id": "PH-PS3-40GB-2007", "title": "PlayStation 3 CECHH00 and DualShock 3", "publication": "Press release", "publisher": "Sony Computer Entertainment Japan", "kind": "official", "language": "ja", "citation": "9 de octubre de 2007", "url": "https://sonyinteractive.com/jp/press-releases/2007/071009a/"},
+        {"id": "PH-PS3-DUALSHOCK3-2007", "title": "DualShock 3 launch announcement", "publication": "Press release", "publisher": "Sony Computer Entertainment Japan", "kind": "official", "language": "ja", "citation": "9 de octubre de 2007", "url": "https://sonyinteractive.com/jp/press-releases/2007/071009a/"},
+        {"id": "PH-PS3-YOSHIDA-2008", "title": "New president of SCE Worldwide Studios", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "16 de mayo de 2008", "url": "https://sonyinteractive.com/en/press-releases/2008/scei-announces-new-president-of-sce-worldwide-studios/"},
+        {"id": "PH-PS3-SLIM-2009", "title": "New slimmer and lighter PlayStation 3", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "18 de agosto de 2009", "url": "https://sonyinteractive.com/en/press-releases/2009/new-slimmer-and-lighter-playstation3-to-hit-worldwide-market-this-september/"},
+        {"id": "PH-PS3-SUPER-SLIM-2012", "title": "New smaller and lighter PlayStation 3", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "19 de septiembre de 2012", "url": "https://sonyinteractive.com/en/press-releases/2012/new-smaller-and-lighter-playstation3-to-hit-the-worldwide-market/"},
+        {"id": "PH-PS3-MOVE-2010", "title": "PlayStation Move delivers a new entertainment experience", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "2010", "url": "https://sonyinteractive.com/en/press-releases/playstationmove-motion-controller-delivers-a-whole----new-entertainment-experience-to-playstation3/"},
+        {"id": "PH-PS3-3D-2010", "title": "Tokyo Game Show 2010 hardware and software line-up", "publication": "Press release", "publisher": "Sony Computer Entertainment Japan", "kind": "official", "language": "en", "citation": "16 de septiembre de 2010", "url": "https://sonyinteractive.com/en/press-releases/2010/sony-computer-entertainment-japan-unveils-its-strong-hardware-and-software-line-ups-for-the-coming-holiday-season-at-tokyo-game-show-2010/"},
+        {"id": "PH-PS3-PSN-LAUNCH", "title": "PS3 system software and PlayStation Network services", "publication": "Press release", "publisher": "Sony Computer Entertainment Japan", "kind": "official", "language": "ja", "citation": "9 de noviembre de 2006", "url": "https://sonyinteractive.com/uploads/sites/5/2023/02/061109.pdf"},
+        {"id": "PH-PS3-STORE-2008", "title": "New PlayStation Store interface coming in mid-April", "publication": "PlayStation Blog", "publisher": "Sony Computer Entertainment America", "kind": "official", "language": "en", "citation": "31 de marzo de 2008", "url": "https://blog.playstation.com/2008/03/31/new-playstation-store-interface-coming-in-mid-april"},
+        {"id": "PH-PS3-PSPLUS-2010", "title": "PlayStation Plus subscription service on PlayStation Network", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "16 de junio de 2010", "url": "https://sonyinteractive.com/en/press-releases/playstationplus-the-new-subscription-service----package-on-playstationnetwork-delivers----a-whole-new-experience-to-users/"},
+        {"id": "PH-PS3-PSN-INCIDENT", "title": "Update on PlayStation Network and Qriocity", "publication": "PlayStation Blog", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "26 de abril de 2011", "url": "https://blog.playstation.com/2011/04/26/update-on-playstation-network-and-qriocity/"},
+        {"id": "PH-PS3-PSN-RESTORE", "title": "Phased restoration of PlayStation Network and Qriocity services", "publication": "News release", "publisher": "Sony Corporation", "kind": "official", "language": "en", "citation": "15 de mayo de 2011", "url": "https://www.sony.com/en/SonyInfo/News/Press/201105/11-0515E/"},
+        {"id": "PH-PS3-GUERRILLA-ACQUISITION", "title": "Sony Computer Entertainment acquires Guerrilla Games", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "8 de diciembre de 2005", "url": "https://sonyinteractive.com/en/press-releases/2005/sony-computer-entertainment-acquires-guerrilla-games-leading-developer-of-killzone-franchise/"},
+        {"id": "PH-PS3-MM-ACQUISITION", "title": "Sony Computer Entertainment acquires Media Molecule", "publication": "Press release", "publisher": "Sony Computer Entertainment", "kind": "official", "language": "en", "citation": "2 de marzo de 2010", "url": "https://sonyinteractive.com/en/press-releases/2010/sony-computer-entertainment-acquires-media-molecule/"},
+        {"id": "PH-PS3-SUCKER-PUNCH-ACQUISITION", "title": "Sony Computer Entertainment acquires Sucker Punch Productions", "publication": "Press release", "publisher": "Sony Computer Entertainment Japan", "kind": "official", "language": "ja", "citation": "2 de agosto de 2011", "url": "https://sonyinteractive.com/jp/press-releases/2011/110802-2/"},
+        {"id": "PH-PS3-HOUSE-2011", "title": "Andrew House appointed President and Group CEO of SCEI", "publication": "Press release", "publisher": "Sony Computer Entertainment Japan", "kind": "official", "language": "ja", "citation": "29 de junio de 2011", "url": "https://sonyinteractive.com/jp/press-releases/2011/110629-2/"},
+        {"id": "PH-PS3-NAUGHTY-DOG-TLOU", "title": "The Last of Us announcement and creative leadership", "publication": "Naughty Dog Blog", "publisher": "Naughty Dog", "kind": "official", "language": "en", "citation": "2011", "url": "https://www.naughtydog.com/blog/834h472kmfs8"},
+        {"id": "PH-PS3-NAUGHTY-DOG-STRALEY", "title": "A message from President Evan Wells", "publication": "Naughty Dog Blog", "publisher": "Naughty Dog", "kind": "official", "language": "en", "citation": "13 de septiembre de 2017", "url": "https://www.naughtydog.com/blog/a_message_from_president_evan_wells"},
+        {"id": "PH-PS3-TED-PRICE", "title": "Ted Price announces retirement", "publication": "PlayStation Blog", "publisher": "Sony Interactive Entertainment", "kind": "official", "language": "en", "citation": "2025", "url": "https://sonyinteractive.com/en/news/blog/ted-price-announces-retirement/"},
+        {"id": "PH-PS3-MM-HISTORY", "title": "Media Molecule is ten years old", "publication": "Media Molecule Blog", "publisher": "Media Molecule", "kind": "official", "language": "en", "citation": "4 de enero de 2016", "url": "https://www.mediamolecule.com/blog/article/mm_is_10_years_old_today"},
+        {"id": "PH-PS3-NATE-FOX", "title": "inFAMOUS goes hands-on", "publication": "PlayStation Blog", "publisher": "Sony Computer Entertainment America", "kind": "official", "language": "en", "citation": "19 de diciembre de 2008", "url": "https://blog.playstation.com/2008/12/19/infamous-goes-hands-on/comment-page-2/"},
+        {"id": "PH-PS3-STIG", "title": "God of War III: Stig Asmussen answers questions", "publication": "PlayStation Blog", "publisher": "Sony Computer Entertainment America", "kind": "official", "language": "en", "citation": "12 de marzo de 2010", "url": "https://blog.playstation.com/2010/03/12/god-of-war-iii-stig-asmussen-your-questions-answered/"},
+        {"id": "PH-PS3-QUANTIC", "title": "Quantic Dream press and studio history", "publication": "Press", "publisher": "Quantic Dream", "kind": "official", "language": "en", "citation": null, "url": "https://www.quanticdream.com/en/press"},
+        {"id": "PH-PS3-TGC", "title": "thatgamecompany team and Journey", "publication": "Official site", "publisher": "thatgamecompany", "kind": "official", "language": "en", "citation": null, "url": "https://thatgamecompany.com/our-team/"},
+        {"id": "PH-PS3-CERNY-AIAS", "title": "Mark Cerny biography", "publication": "Special Awards", "publisher": "Academy of Interactive Arts & Sciences", "kind": "official", "language": "en", "citation": "Hall of Fame 2010", "url": "https://www.interactive.org/special_awards/details.asp?idSpecialAwards=15"},
+        {"id": "PH-PS3-GDCA-LIFETIME", "title": "Lifetime Achievement Award archive", "publication": "Game Developers Choice Awards", "publisher": "Informa TechTarget", "kind": "official", "language": "en", "citation": "Amy Hennig, 2019", "url": "https://gamechoiceawards.com/archive-lifetime-achievement-award/"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

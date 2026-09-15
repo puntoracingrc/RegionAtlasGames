@@ -30,13 +30,13 @@ const internalCandidates = internalCandidatesData as {
   }[];
 };
 
-test("publishes reusable structured history for PS1 and keeps an empty fallback", () => {
+test("publishes reusable structured history and keeps an empty fallback", () => {
   const history = getPlatformHistory("ps1");
   assert.ok(history);
   assert.equal(getPlatformHistory("snes"), undefined);
   assert.deepEqual(
     getPlatformHistoryData().platforms.map((platform) => platform.platformSlug),
-    ["ps1", "ps2"],
+    ["ps1", "ps2", "ps3"],
   );
   assert.equal(history.figures.length, 7);
   assert.equal(history.companies.length, 16);

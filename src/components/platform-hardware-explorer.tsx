@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/cn";
 import {
   PLATFORM_HARDWARE_GROUPS,
@@ -29,13 +29,24 @@ export function PlatformHardwareExplorer({
   hardware,
   personNames,
   initialGroup = "models",
+  groups,
 }: {
   hardware: PlatformHardwareItem[];
   personNames: Record<string, string>;
   initialGroup?: PlatformHardwareGroupId;
+  groups?: PlatformHardwareGroupId[];
 }) {
-  const [hardwareGroup, setHardwareGroup] = useState<PlatformHardwareGroupId>(initialGroup);
-  const activeHardwareKinds = PLATFORM_HARDWARE_GROUPS.find(
+  const availableGroups = useMemo(
+    () => PLATFORM_HARDWARE_GROUPS.filter(
+      (group) => !groups || groups.includes(group.id),
+    ),
+    [groups],
+  );
+  const defaultGroup = availableGroups.some((group) => group.id === initialGroup)
+    ? initialGroup
+    : (availableGroups[0]?.id ?? "models");
+  const [hardwareGroup, setHardwareGroup] = useState<PlatformHardwareGroupId>(defaultGroup);
+  const activeHardwareKinds = availableGroups.find(
     (group) => group.id === hardwareGroup,
   )?.kinds ?? [];
   const visibleHardware = hardware.filter((item) =>
@@ -48,34 +59,41 @@ export function PlatformHardwareExplorer({
     const targetGroup = target
       ? PLATFORM_HARDWARE_GROUPS.find((group) => group.kinds.includes(target.kind))
       : undefined;
-    if (!target || targetGroup?.id !== hardwareGroup) return;
+    if (
+      !target ||
+      !targetGroup ||
+      targetGroup.id !== hardwareGroup ||
+      !availableGroups.some((group) => group.id === targetGroup.id)
+    ) return;
     const frame = window.requestAnimationFrame(() => {
       document.getElementById(targetId)?.scrollIntoView({ block: "start" });
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [hardware, hardwareGroup]);
+  }, [availableGroups, hardware, hardwareGroup]);
 
   return (
     <>
-      <div className="mt-4 flex max-w-full gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Categorías de hardware">
-        {PLATFORM_HARDWARE_GROUPS.map((group) => (
-          <button
-            key={group.id}
-            type="button"
-            role="tab"
-            aria-selected={hardwareGroup === group.id}
-            onClick={() => setHardwareGroup(group.id)}
-            className={cn(
-              "min-h-11 shrink-0 rounded-lg border px-4 text-sm font-semibold transition",
-              hardwareGroup === group.id
-                ? "border-accent bg-accent text-[var(--accent-fg)]"
-                : "border-border bg-card text-foreground hover:bg-card-hover",
-            )}
-          >
-            {group.label}
-          </button>
-        ))}
-      </div>
+      {availableGroups.length > 1 ? (
+        <div className="mt-4 flex max-w-full gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Categorías de hardware">
+          {availableGroups.map((group) => (
+            <button
+              key={group.id}
+              type="button"
+              role="tab"
+              aria-selected={hardwareGroup === group.id}
+              onClick={() => setHardwareGroup(group.id)}
+              className={cn(
+                "min-h-11 shrink-0 rounded-lg border px-4 text-sm font-semibold transition",
+                hardwareGroup === group.id
+                  ? "border-accent bg-accent text-[var(--accent-fg)]"
+                  : "border-border bg-card text-foreground hover:bg-card-hover",
+              )}
+            >
+              {group.label}
+            </button>
+          ))}
+        </div>
+      ) : null}
       <ul className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {visibleHardware.map((item) => (
           <li id={item.id} key={item.id} className="scroll-mt-24 rounded-lg border border-border bg-card p-4">
