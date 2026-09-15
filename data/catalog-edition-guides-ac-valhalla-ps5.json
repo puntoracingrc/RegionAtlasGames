@@ -1,0 +1,422 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-valhalla-ps5",
+      "title": "Ediciones físicas de Assassin's Creed Valhalla en PlayStation 5",
+      "reviewedAt": "2026-09-15",
+      "note": "Un único lanzamiento canónico de Valhalla en PS5, separado por familias y cajas territoriales. Los PPSA identifican familias de software y no sustituyen EAN/UPC/JAN. Las Collector originales de PlayStation se conservan visibles, pero se clasifican como disco PS4 con actualización digital gratuita a PS5 y no cuentan como lanzamientos físicos nativos de PS5.",
+      "game": {
+        "title": "Assassin's Creed Valhalla",
+        "platformSlug": "ps5",
+        "canonicalCatalogId": "ps5-assassin-s-creed-valhalla"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-valhalla",
+          "physicalEditionIds": [
+            "ac-valhalla-ps5-standard-es", "ac-valhalla-ps5-standard-fr-nl-a", "ac-valhalla-ps5-standard-fr-nl-b",
+            "ac-valhalla-ps5-standard-de", "ac-valhalla-ps5-standard-it", "ac-valhalla-ps5-standard-uk",
+            "ac-valhalla-ps5-standard-pl-cee", "ac-valhalla-ps5-standard-au", "ac-valhalla-ps5-standard-us-a",
+            "ac-valhalla-ps5-standard-us-b", "ac-valhalla-ps5-standard-us-c", "ac-valhalla-ps5-standard-jp",
+            "ac-valhalla-ps5-standard-asia-en", "ac-valhalla-ps5-standard-kr-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "gold",
+          "label": "Gold Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-valhalla-gold-edition",
+          "physicalEditionIds": ["ac-valhalla-ps5-gold-es", "ac-valhalla-ps5-gold-steelbook-us"],
+          "priceConditions": ["sealed", "newRetail", "complete", "loose"]
+        },
+        {
+          "id": "drakkar",
+          "label": "Drakkar Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-valhalla-drakkar-edition",
+          "physicalEditionIds": ["ac-valhalla-ps5-drakkar-eu-game"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "ultimate",
+          "label": "Ultimate Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-valhalla-ultimate-edition",
+          "physicalEditionIds": [
+            "ac-valhalla-ps5-ultimate-eu-legacy-pending", "ac-valhalla-ps5-ultimate-de",
+            "ac-valhalla-ps5-ultimate-at", "ac-valhalla-ps5-ultimate-jp"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "loose"]
+        },
+        {
+          "id": "limited",
+          "label": "Limited Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-valhalla-limited-edition",
+          "physicalEditionIds": ["ac-valhalla-ps5-limited-eu-pending"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "collector",
+          "label": "Collector's Edition · PS4 disc with PS5 upgrade",
+          "representativeCatalogId": "ps5-assassin-s-creed-valhalla-collector-s-edition",
+          "physicalEditionIds": ["ac-valhalla-collector-playstation-eu", "ac-valhalla-collector-playstation-na"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "ragnarok",
+          "label": "Ragnarök Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-valhalla-ragnarok-edition",
+          "physicalEditionIds": [
+            "ac-valhalla-ps5-ragnarok-eu", "ac-valhalla-ps5-ragnarok-dfi-at-ch", "ac-valhalla-ps5-ragnarok-us",
+            "ac-valhalla-ps5-ragnarok-jp", "ac-valhalla-ps5-ragnarok-au-a", "ac-valhalla-ps5-ragnarok-au-b"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-valhalla-ps5-standard-es", "label": "Standard · caja española", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["ES"], "evidenceMarkets": ["ES", "PT"], "packagingLanguages": ["ES"],
+          "softwareLanguages": ["DE", "ES", "FR", "EN", "IT"], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216174349", "catalogIds": ["ps5-assassin-s-creed-valhalla"],
+          "evidenceIds": ["valhalla-ps5-lamee-es", "valhalla-ps5-fnac-es", "valhalla-ps5-local-assets"],
+          "notes": ["La circulación portuguesa del mismo EAN se registra sólo como evidenceMarket; no crea una caja portuguesa."]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-fr-nl-a", "label": "Standard · France / Netherlands A", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["FR", "NL"], "packagingLanguages": ["FR", "NL"], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216174127", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-fnac-fr"]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-fr-nl-b", "label": "Standard · France / Netherlands B", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": [], "evidenceMarkets": ["FR", "NL"], "packagingLanguages": [], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "HIGH", "barcode": "3307216174196",
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-auchan-fr"],
+          "notes": ["Familia física distinta de 3307216174127; el scan exacto de packaging FR/NL sigue pendiente."]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-de", "label": "Standard · Alemania", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["DE"], "packagingLanguages": ["DE"], "ratingSystems": ["USK 18"], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216174219", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-germany"]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-it", "label": "Standard · Italia", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["IT"], "packagingLanguages": [], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216174257", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-gamelife-it"],
+          "notes": ["Mercado italiano confirmado; idiomas impresos exhaustivos pendientes."]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-uk", "label": "Standard · UK / English", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["GB"], "packagingLanguages": ["EN"], "productCodes": ["PPSA-01532"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216174165", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-wog-uk"]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-pl-cee", "label": "Standard · Poland / CEE · English cover", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["PL"], "packagingLanguages": ["EN"], "softwareLanguages": ["PL", "EN"], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216174387", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-pressx-pl"]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-au", "label": "Standard · Australia", "broadRegion": "OCEANIA", "editionType": "STANDARD",
+          "marketRegions": ["AU"], "packagingLanguages": [], "ratingSystems": ["ACB MA15+"], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216174103", "evidenceIds": ["valhalla-ps5-gamefaqs"], "notes": ["No se extiende automáticamente a Nueva Zelanda."]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-us-a", "label": "Standard · USA A", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD",
+          "marketRegions": ["US"], "packagingLanguages": [], "ratingSystems": ["ESRB M"], "productCodes": ["PPSA-01491"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "887256090753", "catalogIds": ["ps5-usa-assassin-s-creed-valhalla"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-local-assets"]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-us-b", "label": "Standard · USA B · Target / GameStop", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD",
+          "marketRegions": ["US"], "packagingLanguages": [], "ratingSystems": ["ESRB M"], "productCodes": ["PPSA-01491"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "887256112554", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-target-gamestop-us"]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-us-c", "label": "Standard · USA C · US / Chile circulation", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD",
+          "marketRegions": ["US"], "evidenceMarkets": ["US", "CL"], "packagingLanguages": [], "ratingSystems": ["ESRB M"],
+          "productCodes": ["PPSA-01491"], "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5",
+          "compatiblePlatforms": ["ps5"], "containsDisc": true, "countsAsNativePhysicalRelease": true,
+          "confidence": "CONFIRMED_PHYSICAL_COPY", "barcode": "887256090661",
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-bestbuy-us", "valhalla-ps5-todojuegos-cl"]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-jp", "label": "Standard · Japón", "broadRegion": "ASIA", "editionType": "STANDARD",
+          "marketRegions": ["JP"], "packagingLanguages": ["JA"], "ratingSystems": ["CERO Z"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "4949244011594", "catalogNumber": "ELJM-30007", "catalogIds": ["ps5-japon-assassin%27s-creed-valhalla"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-local-assets"]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-asia-en", "label": "Standard · Asia · English cover", "broadRegion": "ASIA", "editionType": "STANDARD",
+          "marketRegions": [], "packagingLanguages": ["EN"], "softwareLanguages": ["EN", "JA", "ZH-HANS", "ZH-HANT", "KO"],
+          "productCodes": ["PPSA-01504"], "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5",
+          "compatiblePlatforms": ["ps5"], "containsDisc": true, "countsAsNativePhysicalRelease": true,
+          "confidence": "PENDING_IDENTIFIER", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-play-asia"],
+          "notes": ["Existencia de caja física Asia confirmada; barcode pendiente."]
+        },
+        {
+          "id": "ac-valhalla-ps5-standard-kr-pending", "label": "Standard · Korea · physical release to verify", "broadRegion": "ASIA", "editionType": "STANDARD",
+          "marketRegions": ["KR"], "packagingLanguages": [], "softwareLanguages": ["KO"], "ratingSystems": ["GRAC 18"],
+          "productCodes": ["PPSA-01504"], "compatiblePlatforms": ["ps5"], "countsAsNativePhysicalRelease": false,
+          "confidence": "UNCONFIRMED", "evidenceIds": ["valhalla-ps5-gamefaqs"],
+          "notes": ["La familia digital coreana está documentada; la copia física, barcode y packaging requieren evidencia antes de contarla."]
+        },
+        {
+          "id": "ac-valhalla-ps5-gold-es", "label": "Gold Edition · España", "broadRegion": "EUROPE", "editionType": "SPECIAL",
+          "marketRegions": ["ES"], "packagingLanguages": [], "productCodes": ["PPSA-01532"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216173724", "catalogIds": ["ps5-assassin-s-creed-valhalla-gold-edition"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-fnac-gold-es", "valhalla-ps5-local-assets"]
+        },
+        {
+          "id": "ac-valhalla-ps5-gold-steelbook-us", "label": "Gold Edition Steelbook · USA", "broadRegion": "NORTH_AMERICA", "editionType": "STEELBOOK",
+          "marketRegions": ["US"], "packagingLanguages": [], "ratingSystems": ["ESRB M"], "productCodes": ["PPSA-01491"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "887256110826", "catalogIds": ["ps5-usa-assassin-s-creed-valhalla-gold-edition"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-bestbuy-gold", "valhalla-ps5-local-assets"]
+        },
+        {
+          "id": "ac-valhalla-ps5-drakkar-eu-game", "label": "Drakkar Edition · Europe · GAME Exclusive", "broadRegion": "EUROPE", "editionType": "SPECIAL",
+          "marketRegions": [], "packagingLanguages": [], "productCodes": [],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216173823", "catalogIds": ["ps5-assassin-s-creed-valhalla-drakkar-edition"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-local-assets"]
+        },
+        {
+          "id": "ac-valhalla-ps5-ultimate-eu-legacy-pending", "label": "Ultimate Edition · Europe legacy asset · mapping pending", "broadRegion": "EUROPE", "editionType": "DELUXE",
+          "marketRegions": [], "packagingLanguages": [], "compatiblePlatforms": ["ps5"], "confidence": "PENDING_IDENTIFIER",
+          "countsAsNativePhysicalRelease": false, "catalogIds": ["ps5-assassin-s-creed-valhalla-ultimate-edition"],
+          "evidenceIds": ["valhalla-ps5-local-assets"],
+          "notes": ["El asset legacy prueba una caja PS5 Ultimate física, pero no permite asignarla de forma segura a 3307216173991 o 3307216174011; se conserva la ruta sin duplicar la cuenta."]
+        },
+        {
+          "id": "ac-valhalla-ps5-ultimate-de", "label": "Ultimate Edition · Alemania", "broadRegion": "EUROPE", "editionType": "DELUXE",
+          "marketRegions": ["DE"], "packagingLanguages": [], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216173991", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-retroplace-ultimate-de"]
+        },
+        {
+          "id": "ac-valhalla-ps5-ultimate-at", "label": "Ultimate Edition · Austria", "broadRegion": "EUROPE", "editionType": "DELUXE",
+          "marketRegions": ["AT"], "packagingLanguages": [], "productCodes": ["PPSA-01490"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216174011", "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-retroplace-ultimate-at"]
+        },
+        {
+          "id": "ac-valhalla-ps5-ultimate-jp", "label": "Ultimate Edition · Japón", "broadRegion": "ASIA", "editionType": "DELUXE",
+          "marketRegions": ["JP"], "packagingLanguages": ["JA"], "ratingSystems": ["CERO Z"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "4949244011600", "catalogNumber": "ELJM-30010",
+          "catalogIds": ["ps5-japon-assassin%27s-creed-valhalla-ultimate-edition"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-local-assets"]
+        },
+        {
+          "id": "ac-valhalla-ps5-limited-eu-pending", "label": "Limited Edition · Europe · barcode pending", "broadRegion": "EUROPE", "editionType": "LIMITED",
+          "marketRegions": [], "packagingLanguages": [],
+          "compatiblePlatforms": ["ps5"], "countsAsNativePhysicalRelease": false,
+          "confidence": "PENDING_IDENTIFIER", "catalogIds": ["ps5-assassin-s-creed-valhalla-limited-edition"],
+          "evidenceIds": ["valhalla-ps5-local-assets"],
+          "notes": ["El asset legacy muestra frontal de caja PS5 Limited; barcode, reverso, PPSA e idiomas siguen pendientes. No se reutiliza el EAN PS4 3307216168782."]
+        },
+        {
+          "id": "ac-valhalla-collector-playstation-eu", "label": "Collector's Edition PlayStation · Europe · PS4 disc + PS5 upgrade", "broadRegion": "EUROPE", "editionType": "COLLECTOR",
+          "marketRegions": [], "packagingLanguages": [], "physicalProductType": "PREVIOUS_GEN_DISC_WITH_UPGRADE",
+          "nativePhysicalPlatform": "ps4", "compatiblePlatforms": ["ps4", "ps5"], "containsDisc": true,
+          "countsAsNativePhysicalRelease": false, "upgradeToPS5": true, "upgradePath": "FREE_DIGITAL_PS5_UPGRADE",
+          "confidence": "CONFIRMED", "catalogIds": ["ps5-assassin-s-creed-valhalla-collector-s-edition"],
+          "evidenceIds": ["valhalla-collector-gamespot", "valhalla-ps5-local-assets"],
+          "notes": ["La URL legacy PS5 se mantiene para no romper SEO ni colecciones; el soporte físico incluido es PS4 y no cuenta como lanzamiento físico nativo de PS5."]
+        },
+        {
+          "id": "ac-valhalla-collector-playstation-na", "label": "Collector's Edition PlayStation · North America · PS4 disc + PS5 upgrade", "broadRegion": "NORTH_AMERICA", "editionType": "COLLECTOR",
+          "marketRegions": ["US"], "packagingLanguages": [], "physicalProductType": "PREVIOUS_GEN_DISC_WITH_UPGRADE",
+          "nativePhysicalPlatform": "ps4", "compatiblePlatforms": ["ps4", "ps5"], "containsDisc": true,
+          "countsAsNativePhysicalRelease": false, "upgradeToPS5": true, "upgradePath": "FREE_DIGITAL_PS5_UPGRADE",
+          "confidence": "CONFIRMED", "barcode": "887256110024",
+          "catalogIds": ["ps5-usa-assassin-s-creed-valhalla-collector-s-edition"],
+          "evidenceIds": ["valhalla-collector-gamespot", "valhalla-ps5-local-assets"],
+          "notes": ["UPC del paquete Collector PlayStation compatible PS4/PS5; no identifica un disco PS5 nativo."]
+        },
+        {
+          "id": "ac-valhalla-ps5-ragnarok-eu", "label": "Ragnarök Edition · Europe generic", "broadRegion": "EUROPE", "editionType": "SPECIAL",
+          "marketRegions": [], "packagingLanguages": [], "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5",
+          "compatiblePlatforms": ["ps5"], "containsDisc": true, "countsAsNativePhysicalRelease": true,
+          "confidence": "CONFIRMED_PHYSICAL_COPY", "barcode": "3307216232650",
+          "physicalContents": ["Assassin's Creed Valhalla base game disc"], "digitalContents": ["Dawn of Ragnarök expansion download code"],
+          "catalogIds": ["ps5-assassin-s-creed-valhalla-ragnarok-edition"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-local-assets"]
+        },
+        {
+          "id": "ac-valhalla-ps5-ragnarok-dfi-at-ch", "label": "Ragnarök Edition · D/F/I · Austria / Switzerland", "broadRegion": "EUROPE", "editionType": "SPECIAL",
+          "marketRegions": ["AT", "CH"], "packagingLanguages": ["DE", "FR", "IT"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216232957", "physicalContents": ["Assassin's Creed Valhalla base game disc"],
+          "digitalContents": ["Dawn of Ragnarök expansion download code"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-wog-ragnarok"]
+        },
+        {
+          "id": "ac-valhalla-ps5-ragnarok-us", "label": "Ragnarök Edition · USA · Best Buy Exclusive", "broadRegion": "NORTH_AMERICA", "editionType": "SPECIAL",
+          "marketRegions": ["US"], "packagingLanguages": [], "ratingSystems": ["ESRB M"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "887256112639", "physicalContents": ["Assassin's Creed Valhalla base game disc"],
+          "digitalContents": ["Dawn of Ragnarök expansion download code"], "evidenceIds": ["valhalla-ps5-gamefaqs"]
+        },
+        {
+          "id": "ac-valhalla-ps5-ragnarok-jp", "label": "Ragnarök Edition · Japón", "broadRegion": "ASIA", "editionType": "SPECIAL",
+          "marketRegions": ["JP"], "packagingLanguages": ["JA"], "ratingSystems": ["CERO Z"],
+          "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5", "compatiblePlatforms": ["ps5"],
+          "containsDisc": true, "countsAsNativePhysicalRelease": true, "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "4949244012881", "catalogNumber": "ELJM-30124",
+          "physicalContents": ["Assassin's Creed Valhalla base game disc"], "digitalContents": ["Dawn of Ragnarök expansion download code"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs", "valhalla-ps5-sofmap-suruga"]
+        },
+        {
+          "id": "ac-valhalla-ps5-ragnarok-au-a", "label": "Ragnarök Edition · Australia A", "broadRegion": "OCEANIA", "editionType": "SPECIAL",
+          "marketRegions": ["AU"], "packagingLanguages": [], "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5",
+          "compatiblePlatforms": ["ps5"], "containsDisc": true, "countsAsNativePhysicalRelease": true,
+          "confidence": "CONFIRMED_PHYSICAL_COPY", "barcode": "3307216232544",
+          "physicalContents": ["Assassin's Creed Valhalla base game disc"], "digitalContents": ["Dawn of Ragnarök expansion download code"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs"], "notes": ["Se conserva separada de Australia B; revisión/canal exactos pendientes."]
+        },
+        {
+          "id": "ac-valhalla-ps5-ragnarok-au-b", "label": "Ragnarök Edition · Australia B", "broadRegion": "OCEANIA", "editionType": "SPECIAL",
+          "marketRegions": ["AU"], "packagingLanguages": [], "physicalProductType": "NATIVE_GAME_DISC", "nativePhysicalPlatform": "ps5",
+          "compatiblePlatforms": ["ps5"], "containsDisc": true, "countsAsNativePhysicalRelease": true,
+          "confidence": "CONFIRMED_PHYSICAL_COPY", "barcode": "3307216232902",
+          "physicalContents": ["Assassin's Creed Valhalla base game disc"], "digitalContents": ["Dawn of Ragnarök expansion download code"],
+          "evidenceIds": ["valhalla-ps5-gamefaqs"], "notes": ["Se conserva separada de Australia A; revisión/canal exactos pendientes."]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {"id": "valhalla-ps5-gamefaqs", "type": "UNKNOWN", "label": "GameFAQs · datos de lanzamientos PS5", "url": "https://gamefaqs.gamespot.com/ps5/289140-assassins-creed-valhalla/data", "summary": "Tabla mundial contrastada el 2026-09-15 para EAN, UPC, JAN, PPSA, ELJM, ratings y variantes Ragnarök.", "supports": ["familias PS5", "barcodes mundiales", "PPSA-01490 PPSA-01491 PPSA-01532 PPSA-01504", "ELJM-30007 ELJM-30010 ELJM-30124"]},
+        {"id": "valhalla-ps5-lamee-es", "type": "RETAILER_ASSET", "label": "Lamee Software · Standard España", "url": "https://www.lameesoftware.com/assassin-s-creed-valhalla-ps5sacv.html", "supports": ["EAN 3307216174349", "caja español", "software DE ES FR EN IT"]},
+        {"id": "valhalla-ps5-fnac-es", "type": "RETAILER_ASSET", "label": "Fnac España · Standard PS5", "url": "https://www.fnac.es/Assassin-s-Creed-Valhalla-PS5-Videojuego-PS5/a7704801", "supports": ["PS5 física", "EAN 3307216174349", "mercado España"]},
+        {"id": "valhalla-ps5-fnac-fr", "type": "RETAILER_ASSET", "label": "Fnac France · Standard PS5", "url": "https://www.fnac.com/a15048102/Assassin-s-Creed-Valhalla-PS5-Jeu-video-Playstation-5", "supports": ["PS5 física", "EAN 3307216174127"]},
+        {"id": "valhalla-ps5-auchan-fr", "type": "RETAILER_ASSET", "label": "Auchan France · Standard PS5", "url": "https://www.auchan.fr/assassin-s-creed-valhalla-ps5/pr-C1333668", "supports": ["PS5 física", "EAN 3307216174196"]},
+        {"id": "valhalla-ps5-germany", "type": "RETAILER_ASSET", "label": "Retroplace / GameWorld Germany · Standard PS5", "url": "https://www.gameworld.de/games/playstation-5/action-adventure-spiele-ps5/assassin-s-creed-valhalla_673934_242203", "supports": ["EAN 3307216174219", "versión alemana", "USK 18"]},
+        {"id": "valhalla-ps5-gamelife-it", "type": "RETAILER_ASSET", "label": "Gamelife Italia · Standard PS5", "url": "https://www.gamelife.it/swp50007-assassin-s-creed-valhalla", "supports": ["EAN 3307216174257", "mercado Italia"]},
+        {"id": "valhalla-ps5-wog-uk", "type": "RETAILER_ASSET", "label": "World of Games · UK English Standard", "url": "https://www.wog.ch/en/index.cfm/details/product/151764-Assassins-Creed-Valhalla-EN", "supports": ["EAN 3307216174165", "UK version", "packaging English"]},
+        {"id": "valhalla-ps5-pressx-pl", "type": "RETAILER_ASSET", "label": "PressX Poland · Standard PS5", "url": "https://pressx.com.pl/gry-ps5/125-assassin-s-creed-valhalla-ps5-pl-3307216174387.html", "supports": ["EAN 3307216174387", "English cover", "Polish and English software"]},
+        {"id": "valhalla-ps5-target-gamestop-us", "type": "RETAILER_ASSET", "label": "Target / GameStop · Standard USA B", "url": "https://www.target.com/p/-/A-81117190", "supports": ["UPC 887256112554", "mercado USA"]},
+        {"id": "valhalla-ps5-bestbuy-us", "type": "RETAILER_ASSET", "label": "Best Buy · Standard USA C", "url": "https://www.bestbuy.com/site/-/6426004.p", "supports": ["UPC 887256090661", "mercado USA"]},
+        {"id": "valhalla-ps5-todojuegos-cl", "type": "RETAILER_ASSET", "label": "TodoJuegos Chile · Standard USA C", "url": "https://www.todojuegos.cl/Productos/PS5/Assassins-Creed-Valhalla/", "supports": ["UPC 887256090661", "circulación Chile sin caja LATAM separada"]},
+        {"id": "valhalla-ps5-play-asia", "type": "RETAILER_ASSET", "label": "Play-Asia · Standard Asia PS5", "url": "https://www.play-asia.com/en/assassins-creed-valhalla-multi-language/13/70ib7z", "supports": ["caja física Asia English cover", "software EN ZH", "familia separada de Japón"]},
+        {"id": "valhalla-ps5-fnac-gold-es", "type": "RETAILER_ASSET", "label": "Fnac España · Gold Edition PS5", "url": "https://www.fnac.es/Assassin-s-Creed-Valhalla-Gold-Edition-PS5-Videojuego-PS5/a7704802", "supports": ["EAN 3307216173724", "Gold España"]},
+        {"id": "valhalla-ps5-bestbuy-gold", "type": "RETAILER_ASSET", "label": "Best Buy · Gold Steelbook USA", "url": "https://www.bestbuy.com/product/assassins-creed-valhalla-gold-edition-steelbook-playstation-5/J3ZY37HCLJ", "supports": ["UPC 887256110826", "PS5 full game", "SteelBook", "Season Pass"]},
+        {"id": "valhalla-ps5-retroplace-ultimate-de", "type": "RETAILER_ASSET", "label": "Retroplace · Ultimate Germany", "url": "https://www.retroplace.com/en/games/179940--assassins-creed-valhalla", "supports": ["EAN 3307216173991 Germany", "PPSA-01490"]},
+        {"id": "valhalla-ps5-retroplace-ultimate-at", "type": "RETAILER_ASSET", "label": "Retroplace · Ultimate Austria", "url": "https://www.retroplace.com/es/juegos/184961--assassins-creed-valhalla", "supports": ["EAN 3307216174011 Austria"]},
+        {"id": "valhalla-collector-gamespot", "type": "UNKNOWN", "label": "GameSpot · Collector PlayStation cross-gen", "url": "https://www.gamespot.com/articles/ubisoft-wont-include-physical-copies-in-uk-collect/1100-6481254/", "summary": "La edición PlayStation mantiene box art/copia física PS4 y permite jugar o actualizar a PS5.", "supports": ["nativePhysicalPlatform ps4", "compatiblePlatforms ps4 ps5", "FREE_DIGITAL_PS5_UPGRADE", "exclusión del recuento PS5 nativo"]},
+        {"id": "valhalla-ps5-wog-ragnarok", "type": "RETAILER_ASSET", "label": "World of Games · Ragnarök D/F/I", "url": "https://www.wog.ch/en/index.cfm/details/product/135509-Assassins-Creed-Valhalla-Ragnaroek-Edition", "supports": ["EAN 3307216232957", "Ultra HD Blu-ray", "packaging DE FR IT", "base game plus Dawn code"]},
+        {"id": "valhalla-ps5-sofmap-suruga", "type": "RETAILER_ASSET", "label": "Sofmap / Suruga · Ragnarök Japón", "url": "https://www.sofmap.com/product_detail.aspx?sku=23000153", "supports": ["JAN 4949244012881", "ELJM-30124", "CERO Z"]},
+        {"id": "valhalla-ps5-local-assets", "type": "UNKNOWN", "label": "Assets y fichas legacy PS5 de RegionAtlas", "summary": "Se inspeccionaron las trece fichas y sus portadas remotas el 2026-09-15. IDs, slugs, rutas, portadas y precios se conservan. Standard, Limited, Ultimate, Gold, Drakkar y Ragnarök muestran caja/frontal PS5. Dawn declara PSN voucher y NO DISC INCLUDED. Collector EU sólo muestra outer box y Collector NA muestra el juego con caja PS4.", "supports": ["preservación de trece fichas legacy", "Limited PS5 existe con barcode pendiente", "Dawn containsDisc false", "Collector no prueba disco PS5 nativo"]}
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac_valhalla_ps5_worldwide_variants.md"},
+        {"label": "GameFAQs PS5", "url": "https://gamefaqs.gamespot.com/ps5/289140-assassins-creed-valhalla/data"},
+        {"label": "Lamee Software", "url": "https://www.lameesoftware.com/assassin-s-creed-valhalla-ps5sacv.html"},
+        {"label": "GameSpot Collector cross-gen", "url": "https://www.gamespot.com/articles/ubisoft-wont-include-physical-copies-in-uk-collect/1100-6481254/"},
+        {"label": "Assets y fichas legacy de RegionAtlas"}
+      ],
+      "evidenceNote": "Normalización aditiva basada en el dossier, fuentes contrastadas y assets legacy inspeccionados. Los identificadores pendientes permanecen ausentes; packagingLanguages no se rellena desde idiomas de software. Collector y el candidato coreano permanecen visibles pero fuera del recuento nativo PS5.",
+      "researchTasks": [
+        {"id": "valhalla-ps5-portugal-dedicated", "label": "Portugal PS5 packaging dedicado y EAN alternativos", "status": "PENDING_REVIEW", "marketRegions": ["PT"], "notes": ["Mapear 3307216174332 y 5601988529733; no convertir la caja española 3307216174349 en ES/PT."]},
+        {"id": "valhalla-ps5-fr-nl-b-packaging", "label": "FR/NL B packaging exacto", "status": "PENDING_REVIEW", "marketRegions": ["FR", "NL"], "notes": ["Conseguir scan completo de 3307216174196 antes de fijar packagingLanguages."]},
+        {"id": "valhalla-ps5-us-upc-relationship", "label": "Relación comercial USA A/B/C", "status": "PENDING_REVIEW", "marketRegions": ["US", "CL"], "notes": ["Mantener 887256090753, 887256112554 y 887256090661 separados hasta cerrar retailer, revisión y circulación LATAM."]},
+        {"id": "valhalla-ps5-ca-mx-dedicated", "label": "Standard Canadá y México dedicados", "status": "PHYSICAL_VARIANT_NOT_CONFIRMED", "marketRegions": ["CA", "MX"], "notes": ["No crear variantes por simetría con PS4 sin barcode/caja PS5 física."]},
+        {"id": "valhalla-ps5-korea-physical", "label": "Copia física Korea", "status": "PHYSICAL_VARIANT_NOT_CONFIRMED", "marketRegions": ["KR"], "notes": ["PPSA-01504 digital no demuestra caja o disco coreano; localizar barcode, product code físico y packaging."]},
+        {"id": "valhalla-ps5-gold-europe-regional", "label": "Gold Europe regional variants", "status": "PENDING_REVIEW", "marketRegions": ["FR", "NL", "DE", "IT", "GB"], "notes": ["No crear una única Gold Europe ni copiar identificadores PS4."]},
+        {"id": "valhalla-ps5-limited-identifiers", "label": "Limited Europe barcode / PPSA / packaging", "status": "PENDING_REVIEW", "marketRegions": [], "notes": ["El frontal legacy confirma caja PS5, pero no barcode ni reverso; 3307216168782 es PS4 y queda excluido."]},
+        {"id": "valhalla-ps5-ragnarok-au-mapping", "label": "Ragnarök Australia A/B channel mapping", "status": "PENDING_REVIEW", "marketRegions": ["AU"], "notes": ["Cerrar revisión/canal para 3307216232544 y 3307216232902 sin fusionarlos."]},
+        {"id": "valhalla-ps5-discovery-tour-physical", "label": "Discovery Tour physical release", "status": "PHYSICAL_VARIANT_NOT_CONFIRMED", "marketRegions": ["US", "JP", "AU"], "notes": ["PPSA-05260/05261/05262 son familias digitales; no crear edición física sin caja/disco verificados."]}
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-valhalla-dawn-of-ragnarok-ps5",
+      "title": "Productos físicos de Assassin's Creed Valhalla: Dawn of Ragnarök en PlayStation 5",
+      "reviewedAt": "2026-09-15",
+      "note": "Dawn of Ragnarök es una expansión separada. Sus cajas europeas y australianas contienen un código PSN, no un disco, requieren el juego base y no cuentan como lanzamientos físicos nativos de PS5.",
+      "game": {
+        "title": "Assassin's Creed Valhalla: Dawn of Ragnarok",
+        "platformSlug": "ps5",
+        "canonicalCatalogId": "ps5-assassin-s-creed-valhalla-dawn-of-ragnarok",
+        "aliases": ["Assassin's Creed Valhalla: Dawn of Ragnarök"]
+      },
+      "editionFamilies": [
+        {
+          "id": "code-in-box",
+          "label": "Dawn of Ragnarök · Code in a Box",
+          "representativeCatalogId": "ps5-assassin-s-creed-valhalla-dawn-of-ragnarok",
+          "physicalEditionIds": ["ac-valhalla-ps5-dawn-code-eu", "ac-valhalla-ps5-dawn-code-au"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-valhalla-ps5-dawn-code-eu", "label": "Dawn of Ragnarök · Code in a Box · Europe", "broadRegion": "EUROPE", "editionType": "OTHER",
+          "marketRegions": [], "packagingLanguages": [], "physicalProductType": "DOWNLOAD_CODE_IN_BOX",
+          "compatiblePlatforms": ["ps5"], "containsDisc": false,
+          "countsAsNativePhysicalRelease": false, "redeems": "Assassin's Creed Valhalla: Dawn of Ragnarök",
+          "requiresBaseGame": true, "expansionOf": "ps5-assassin-s-creed-valhalla", "confidence": "CONFIRMED",
+          "barcode": "3307216234258", "catalogIds": ["ps5-assassin-s-creed-valhalla-dawn-of-ragnarok"],
+          "digitalContents": ["Dawn of Ragnarök expansion PSN download code"], "evidenceIds": ["valhalla-dawn-local-asset", "valhalla-dawn-gamefaqs"]
+        },
+        {
+          "id": "ac-valhalla-ps5-dawn-code-au", "label": "Dawn of Ragnarök · Code in a Box · Australia", "broadRegion": "OCEANIA", "editionType": "OTHER",
+          "marketRegions": ["AU"], "packagingLanguages": [], "physicalProductType": "DOWNLOAD_CODE_IN_BOX",
+          "compatiblePlatforms": ["ps5"], "containsDisc": false,
+          "countsAsNativePhysicalRelease": false, "redeems": "Assassin's Creed Valhalla: Dawn of Ragnarök",
+          "requiresBaseGame": true, "expansionOf": "ps5-assassin-s-creed-valhalla", "confidence": "CONFIRMED",
+          "barcode": "3307216234142", "digitalContents": ["Dawn of Ragnarök expansion PSN download code"],
+          "evidenceIds": ["valhalla-dawn-gamefaqs"]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {"id": "valhalla-dawn-local-asset", "type": "RETAILER_ASSET", "label": "Asset legacy RegionAtlas · Dawn of Ragnarök PS5", "summary": "El frontal inspeccionado el 2026-09-15 declara PSN VOUCHER / CODE DOWNLOAD / NO DISC INCLUDED y REQUIRES ASSASSIN'S CREED VALHALLA BASE GAME.", "supports": ["containsDisc false", "requiresBaseGame true", "expansión código en caja", "preservación de ficha legacy"]},
+        {"id": "valhalla-dawn-gamefaqs", "type": "UNKNOWN", "label": "GameFAQs · Dawn of Ragnarök Code in a Box", "url": "https://gamefaqs.gamespot.com/ps5/289140-assassins-creed-valhalla/data", "supports": ["EAN Europe 3307216234258", "EAN Australia 3307216234142"]}
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac_valhalla_ps5_worldwide_variants.md"},
+        {"label": "Asset legacy de RegionAtlas"},
+        {"label": "GameFAQs PS5", "url": "https://gamefaqs.gamespot.com/ps5/289140-assassins-creed-valhalla/data"}
+      ],
+      "evidenceNote": "La caja es un producto físico sin disco y no una edición del juego base. Los EAN alternativos 3307216234654/4548 y 3307216234470/4364 permanecen pendientes de asignación de plataforma, territorio y revisión.",
+      "researchTasks": [
+        {"id": "valhalla-dawn-alternate-barcode-pairs", "label": "Dawn Code in a Box alternate barcode pairs", "status": "PENDING_REVIEW", "marketRegions": ["AU"], "notes": ["Mapear 3307216234654/3307216234548 y 3307216234470/3307216234364 sin copiar pares de PS4 ni inferir territorio por posición de tabla."]}
+      ]
+    }
+  ]
+}

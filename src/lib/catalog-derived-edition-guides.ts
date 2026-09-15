@@ -198,6 +198,7 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
     ratingSystems: [],
     softwareFamilyCodes: [],
     productCodes: [],
+    compatiblePlatforms: [game.platformSlug],
     ...(scan?.packaging.ean ? { barcode: scan.packaging.ean } : {}),
     ...(catalogNumber ? { catalogNumber } : {}),
     physicalContents,
