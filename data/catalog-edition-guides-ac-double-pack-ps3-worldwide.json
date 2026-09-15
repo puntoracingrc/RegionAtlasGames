@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-double-pack-ps3",
+      "title": "Ediciones físicas de Assassin’s Creed + Assassin’s Creed II GOTY en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Compilación física propia. No se modela como edición aislada de ninguno de los juegos incluidos y no se confunde con Anthology, Heritage o Ezio Trilogy.",
+      "game": {
+        "title": "Assassin’s Creed II: Game of the Year Edition + Assassin’s Creed",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-double-pack"
+      },
+      "editionFamilies": [
+        {
+          "id": "double-pack-europe",
+          "label": "Assassin’s Creed Double Pack · Europa",
+          "representativeCatalogId": "ps3-assassin%27s-creed-double-pack",
+          "physicalEditionIds": [
+            "assassins-creed-double-pack-ps3-spain"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "welcome-pack-japan",
+          "label": "Assassin’s Creed I + II Welcome Pack · Japón",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-i-&#43;-ii-welcome-pack",
+          "physicalEditionIds": [
+            "assassins-creed-double-pack-ps3-japan-welcome-pack"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-double-pack-ps3-spain",
+          "label": "Double Pack AC1 + ACII GOTY · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [
+            "EN",
+            "FR",
+            "DE",
+            "ES",
+            "IT",
+            "NL",
+            "SV",
+            "NO",
+            "DA"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215624418",
+          "serial": "BLES-01582",
+          "releaseDate": "2012-03-29",
+          "releaseDateContext": "Fecha de producto publicada por Fnac España",
+          "physicalContents": [
+            "Medio combinado propio con Assassin’s Creed y Assassin’s Creed II Game of the Year Edition"
+          ],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-double-pack"
+          ],
+          "evidenceIds": [
+            "ac-double-pack-fnac-spain",
+            "ac-double-pack-redump-bles-01582"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed",
+            "ps3-assassin%27s-creed-ii-game-of-the-year-edition"
+          ],
+          "notes": [
+            "El contenido extra de ACII GOTY se registra como incorporado al medio combinado; no se presume un voucher.",
+            "PackagingLanguages pendiente de scan completo."
+          ]
+        },
+        {
+          "id": "assassins-creed-double-pack-ps3-japan-welcome-pack",
+          "label": "Assassin’s Creed I + II Welcome Pack · Japón · ficha legacy",
+          "broadRegion": "ASIA",
+          "editionType": "COMPILATION",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-i-&#43;-ii-welcome-pack"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-japon-assassin%27s-creed",
+            "ps3-japon-assassin%27s-creed-ii"
+          ],
+          "notes": [
+            "Se conserva la identidad física y el título local de la ruta existente. JAN, serial, CERO e idiomas de software permanecen pendientes hasta obtener evidencia física o primaria inequívoca."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-double-pack-fnac-spain",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Assassin’s Creed + Assassin’s Creed II PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Assassin-s-Creed-II-PS3-Videojuego-PlayStation-3/a709140",
+          "summary": "La ficha identifica PS3, ambos juegos, EAN y fecha de publicación española.",
+          "supports": [
+            "EAN 3307215624418",
+            "mercado documentado: ES",
+            "publicación: 2012-03-29",
+            "compilación de Assassin’s Creed y Assassin’s Creed II"
+          ]
+        },
+        {
+          "id": "ac-double-pack-redump-bles-01582",
+          "type": "UNKNOWN",
+          "label": "Redump · medio combinado BLES-01582",
+          "url": "https://redump.info/",
+          "summary": "La base de preservación documenta el serial del medio combinado y sus idiomas de software; no acredita idiomas de packaging.",
+          "supports": [
+            "serial BLES-01582",
+            "software EN / FR / DE / ES / IT / NL / SV / NO / DA",
+            "medio combinado propio"
+          ]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {
+          "label": "Fnac España · Double Pack",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Assassin-s-Creed-II-PS3-Videojuego-PlayStation-3/a709140"
+        },
+        {
+          "label": "Redump · composición del medio",
+          "url": "https://redump.info/"
+        },
+        {
+          "label": "GameFAQs · Welcome Pack Japón · contexto de investigación",
+          "url": "https://gamefaqs.gamespot.com/ps3/659346-assassins-creed-double-pack/data"
+        },
+        {
+          "label": "PriceCharting PAL · barcodes alternativos · contexto de investigación",
+          "url": "https://www.pricecharting.com/game/pal-playstation-3/assassin%27s-creed-ii-game-of-the-year-edition-%2B-assassin%27s-creed"
+        }
+      ],
+      "evidenceNote": "España queda cerrada con fuente directa. La identidad japonesa se conserva por su ruta legacy, pero sus identificadores secundarios no se promueven todavía.",
+      "researchTasks": [
+        {
+          "id": "ac-double-pack-europe-barcodes",
+          "label": "Mapear barcodes europeos adicionales",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "Resolver 3307215624272, 3307215624395 y 3307215624449 mediante frontal, contraportada, lomo y barcode del mismo ejemplar.",
+            "No fusionarlos con España por compartir BLES-01582."
+          ]
+        },
+        {
+          "id": "ac-double-pack-japan-identifiers",
+          "label": "Cerrar Welcome Pack Japón",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "JP"
+          ],
+          "notes": [
+            "Verificar físicamente JAN 4949244002752, serial BLJM-60499, CERO Z y los idiomas EN / JA / IT antes de publicarlos como identificadores cerrados.",
+            "No usar el título europeo para la caja japonesa."
+          ]
+        },
+        {
+          "id": "ac-double-pack-classics",
+          "label": "Confirmar o descartar una reedición Classics PS3",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [],
+          "notes": [
+            "Exigir caja PS3, barcode y serial; descartar confusión con Xbox."
+          ]
+        },
+        {
+          "id": "ac-double-pack-anthology-context",
+          "label": "Separar standalone y medio de Anthology",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "BLES-01582 y BLES-01582/ANTHO# comparten familia de software pero tienen contexto físico y provenance distintos."
+          ]
+        },
+        {
+          "id": "ac-double-pack-digital-japan",
+          "label": "No contar NPJB-00214 como variante física",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [
+            "JP"
+          ],
+          "notes": [
+            "La versión PlayStation Store es digital y queda fuera del inventario físico."
+          ]
+        }
+      ]
+    }
+  ]
+}

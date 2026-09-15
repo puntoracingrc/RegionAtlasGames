@@ -1,0 +1,1091 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-brotherhood-ps3",
+      "title": "Ediciones físicas de Assassin's Creed: Brotherhood en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Overlay data-only mundial y conservador. Conserva rutas, portadas, precios e identidades legacy; añade sólo variantes respaldadas por fuente directa o copia física y deja los códigos secundarios en investigación.",
+      "game": {
+        "title": "Assassin's Creed: Brotherhood",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-brotherhood"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-europe-standard",
+            "assassins-creed-brotherhood-ps3-north-america-standard",
+            "assassins-creed-brotherhood-ps3-europe-standard-o107",
+            "assassins-creed-brotherhood-ps3-europe-standard-o108",
+            "assassins-creed-brotherhood-ps3-japan-standard"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "limited-codex",
+          "label": "Limited Codex Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-limited-codex-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-limited-codex",
+            "assassins-creed-brotherhood-ps3-spain-limited-codex"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-special-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-europe-special",
+            "assassins-creed-brotherhood-ps3-europe-special-o109"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "platinum-special",
+          "label": "Platinum / Special Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-platinum",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-europe-platinum",
+            "assassins-creed-brotherhood-ps3-europe-platinum-special-o110"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "auditore",
+          "label": "Auditore Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-auditore-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-france-auditore"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "da-vinci",
+          "label": "Da Vinci Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-da-vinci-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-italy-da-vinci"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "essentials",
+          "label": "Essentials",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-essentials",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-spain-essentials"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "collector",
+          "label": "Collector’s Edition · North America",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-brotherhood-collector-s-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-usa-collector"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "greatest-hits",
+          "label": "Greatest Hits",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-brotherhood-greatest-hits",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-usa-greatest-hits"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "walmart",
+          "label": "Walmart Edition",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-brotherhood-walmart-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-usa-walmart"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "japan-limited",
+          "label": "Limited Edition · Japón",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-brotherhood-limited-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-japan-limited"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "japan-special",
+          "label": "Special Edition / Ubi the Best · Japón",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-brotherhood-special-edition",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-ps3-japan-special"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood"
+          ],
+          "barcode": "3307217927104",
+          "softwareLanguages": [
+            "ES"
+          ],
+          "evidenceIds": [
+            "brotherhood-fnac-spain-standard"
+          ],
+          "notes": [
+            "La ficha española identifica el EAN; voces y textos en español constan en la orden, sin convertirlo en idioma de packaging."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-brotherhood"
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-limited-codex",
+          "label": "Limited Codex Edition",
+          "broadRegion": "EUROPE",
+          "editionType": "LIMITED",
+          "marketRegions": [],
+          "barcode": "3307217934133",
+          "releaseDate": "2010-11-18",
+          "releaseDateContext": "Fecha de producto publicada por Fnac para Francia",
+          "physicalContents": [
+            "Juego",
+            "Cofre coleccionista Renaissance",
+            "Mapa de Roma",
+            "DVD Lineage",
+            "Tarjetas de personajes multijugador",
+            "Codex",
+            "DVD adicional y banda sonora"
+          ],
+          "digitalContents": [
+            "Dos mapas para un jugador",
+            "Dos personajes multijugador"
+          ],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-brotherhood"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-limited-codex-edition"
+          ],
+          "evidenceIds": [
+            "brotherhood-codex-fnac"
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-special",
+          "label": "Special Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-special-edition"
+          ],
+          "barcode": "3307219903915",
+          "evidenceIds": [
+            "brotherhood-ebay-spain-special"
+          ],
+          "notes": [
+            "Copia retail española documentada; otros EAN Special europeos permanecen separados."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-platinum",
+          "label": "Platinum · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-platinum"
+          ],
+          "barcode": "3307219951770",
+          "evidenceIds": [
+            "brotherhood-fnac-spain-platinum"
+          ],
+          "notes": [
+            "Fnac España vincula este EAN a la reedición Platinum; no se extiende a otras cajas nacionales."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-standard-o107",
+          "label": "Standard · caja inglesa declarada · 3307217927036",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "EN"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o107"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307217927036",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o107"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o107-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-standard-o108",
+          "label": "Standard · segunda referencia con caja inglesa declarada · 3307215659311",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "EN"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o108"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307215659311",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o108"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o108-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "El frontal coincide con O107, pero el EAN es distinto; se conserva como identidad separada hasta cotejar reverso y tirada."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-special-o109",
+          "label": "Special Edition · caja alemana declarada · 3307219903939",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o109"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307219903939",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o109"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o109-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-europe-platinum-special-o110",
+          "label": "Platinum · Special Edition · caja alemana declarada · 3307219951312",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o110"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307219951312",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o110"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o110-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-spain-limited-codex",
+          "label": "Limited Codex Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "LIMITED",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "brotherhood-fnac-spain-codex"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-brotherhood"
+          ],
+          "barcode": "3307217934140",
+          "physicalContents": [
+            "Juego",
+            "Codex de 60 páginas",
+            "Mapa de Roma",
+            "Cartas",
+            "Assassin’s Creed Lineage",
+            "DVD bonus"
+          ],
+          "notes": [
+            "Variante española separada del EAN 3307217934133 ya documentado; no se deducen idiomas de packaging."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-france-auditore",
+          "label": "Auditore Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "FR"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-auditore-edition"
+          ],
+          "evidenceIds": [
+            "brotherhood-fnac-france-auditore"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-brotherhood"
+          ],
+          "barcode": "3307219903243",
+          "physicalContents": [
+            "Juego",
+            "Cofre transparente Auditore con retrato 3D de Ezio",
+            "DVD Lineage",
+            "Cartas de personajes multijugador"
+          ],
+          "notes": [
+            "Fnac France documenta además un mapa exclusivo de un jugador; otros EAN Auditore requieren caja propia."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-italy-da-vinci",
+          "label": "Da Vinci Edition · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "IT"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-da-vinci-edition"
+          ],
+          "evidenceIds": [
+            "brotherhood-ebay-italy-da-vinci"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-brotherhood"
+          ],
+          "barcode": "3307219942464",
+          "notes": [
+            "La copia italiana se conserva separada de los candidatos 3307219942396 y 3307219942426."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-spain-essentials",
+          "label": "Essentials · España",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-essentials"
+          ],
+          "evidenceIds": [
+            "brotherhood-lamee-spain-essentials"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "barcode": "3307215659137",
+          "notes": [
+            "La ficha española identifica la línea Essentials y el EAN; otras cajas Essentials quedan pendientes."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-usa-collector",
+          "label": "Collector’s Edition · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-brotherhood-collector-s-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "UPC, BLUS y relación entre caja exterior y cover quedan pendientes de evidencia física cerrada."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-usa-greatest-hits",
+          "label": "Greatest Hits · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-brotherhood-greatest-hits"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "No se reutiliza automáticamente el UPC de Standard."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-usa-walmart",
+          "label": "Walmart Edition · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-brotherhood-walmart-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER"
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-japan-standard",
+          "label": "Standard · Japón · ficha legacy",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-brotherhood"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "JAN y serial permanecen en investigación hasta cotejar una caja física."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-japan-limited",
+          "label": "Limited Edition · Japón · ficha legacy",
+          "broadRegion": "ASIA",
+          "editionType": "LIMITED",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-brotherhood-limited-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER"
+        },
+        {
+          "id": "assassins-creed-brotherhood-ps3-japan-special",
+          "label": "Special Edition / Ubi the Best · Japón · ficha legacy",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-brotherhood-special-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "No se fusiona con la caja japonesa original por compartir juego."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "brotherhood-codex-fnac",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial de Brotherhood Codex para PS3",
+          "url": "https://www.fnac.com/a2899599/Assassin-s-Creed-Brotherhood-Codex-Edition-Jeu-video-Retrogaming",
+          "summary": "Respalda el EAN, la fecha contextual y la composición declarada; no acredita un mercado nacional ni los idiomas del packaging.",
+          "supports": [
+            "EAN 3307217934133",
+            "fecha contextual 2010-11-18",
+            "contenido de la edición"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o107",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O107: Standard · caja inglesa declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p320843/",
+          "summary": "La foto y el campo de idioma de caja identifican esta referencia; el mercado nacional sigue pendiente.",
+          "supports": [
+            "EAN 3307217927036",
+            "idioma de caja declarado: EN",
+            "familia visual: Standard"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o108",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O108: Standard · segunda referencia con caja inglesa declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p176479/",
+          "summary": "La foto y el campo de idioma de caja identifican esta referencia; el mercado nacional sigue pendiente.",
+          "supports": [
+            "EAN 3307215659311",
+            "idioma de caja declarado: EN",
+            "familia visual: Standard"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o109",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O109: Special Edition · caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p86554/",
+          "summary": "La foto y el campo de idioma de caja identifican esta referencia; el mercado nacional sigue pendiente.",
+          "supports": [
+            "EAN 3307219903939",
+            "idioma de caja declarado: DE",
+            "familia visual: Special Edition"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o110",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O110: Platinum · Special Edition · caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-special-edition-ps3-pouzite-p209894/",
+          "summary": "La foto y el campo de idioma de caja identifican esta referencia; el mercado nacional sigue pendiente.",
+          "supports": [
+            "EAN 3307219951312",
+            "idioma de caja declarado: DE",
+            "familia visual: Platinum"
+          ]
+        },
+        {
+          "id": "brotherhood-fnac-spain-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Assassin’s Creed La Hermandad PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-PS3-Videojuego-PlayStation-3/a392470",
+          "summary": "La ficha identifica el producto PS3 español y su EAN.",
+          "supports": [
+            "EAN 3307217927104",
+            "mercado documentado: ES",
+            "edición Standard"
+          ]
+        },
+        {
+          "id": "brotherhood-fnac-spain-codex",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Limited Codex Edition PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-Limited-Codex-Edition-PS3-Videojuego-PlayStation-3/a392711",
+          "summary": "La ficha española identifica la Limited Codex Edition, su EAN y el contenido comercial declarado.",
+          "supports": [
+            "EAN 3307217934140",
+            "mercado documentado: ES",
+            "familia Limited Codex"
+          ]
+        },
+        {
+          "id": "brotherhood-ebay-spain-special",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Copia retail española · Special Edition",
+          "url": "https://www.ebay.es/itm/257010669280",
+          "summary": "La copia física documenta la variante española Special Edition y su EAN.",
+          "supports": [
+            "EAN 3307219903915",
+            "mercado documentado: ES",
+            "familia Special Edition"
+          ]
+        },
+        {
+          "id": "brotherhood-fnac-france-auditore",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Auditore Edition PS3",
+          "url": "https://www.fnac.com/a3046096/Assassin-s-Creed-Brotherhood-Auditore-Edition-Jeu-video-Retrogaming",
+          "summary": "La ficha identifica PS3, el EAN y el contenido físico de la Auditore Edition francesa.",
+          "supports": [
+            "EAN 3307219903243",
+            "mercado documentado: FR",
+            "familia Auditore Edition"
+          ]
+        },
+        {
+          "id": "brotherhood-ebay-italy-da-vinci",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Copia retail italiana · Da Vinci Edition",
+          "url": "https://www.ebay.it/itm/145574818400",
+          "summary": "La copia física documenta la variante italiana Da Vinci Edition y su EAN.",
+          "supports": [
+            "EAN 3307219942464",
+            "mercado documentado: IT",
+            "familia Da Vinci Edition"
+          ]
+        },
+        {
+          "id": "brotherhood-fnac-spain-platinum",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Platinum PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-Platinum-PS3-Videojuego-PlayStation-3/a633978",
+          "summary": "La ficha identifica la reedición Platinum española y su EAN.",
+          "supports": [
+            "EAN 3307219951770",
+            "mercado documentado: ES",
+            "familia Platinum"
+          ]
+        },
+        {
+          "id": "brotherhood-lamee-spain-essentials",
+          "type": "RETAILER_ASSET",
+          "label": "Lamee Software · La Hermandad Essentials PS3",
+          "url": "https://www.lameesoftware.com/assassin-s-creed-hermandad-essentials-ps3sa2b.html",
+          "summary": "La ficha identifica la reedición Essentials para PS3 y su EAN.",
+          "supports": [
+            "EAN 3307215659137",
+            "mercado documentado: ES",
+            "familia Essentials"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Fnac · Assassin's Creed Brotherhood Codex Edition",
+          "url": "https://www.fnac.com/a2899599/Assassin-s-Creed-Brotherhood-Codex-Edition-Jeu-video-Retrogaming"
+        },
+        {
+          "label": "O107 · O107: Standard · caja inglesa declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p320843/"
+        },
+        {
+          "label": "O108 · O108: Standard · segunda referencia con caja inglesa declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p176479/"
+        },
+        {
+          "label": "O109 · O109: Special Edition · caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p86554/"
+        },
+        {
+          "label": "O110 · O110: Platinum · Special Edition · caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-brotherhood-special-edition-ps3-pouzite-p209894/"
+        },
+        {
+          "label": "Fnac España · Standard",
+          "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-PS3-Videojuego-PlayStation-3/a392470"
+        },
+        {
+          "label": "Fnac España · Limited Codex Edition",
+          "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-Limited-Codex-Edition-PS3-Videojuego-PlayStation-3/a392711"
+        },
+        {
+          "label": "Copia retail española · Special Edition",
+          "url": "https://www.ebay.es/itm/257010669280"
+        },
+        {
+          "label": "Fnac France · Auditore Edition",
+          "url": "https://www.fnac.com/a3046096/Assassin-s-Creed-Brotherhood-Auditore-Edition-Jeu-video-Retrogaming"
+        },
+        {
+          "label": "Copia retail italiana · Da Vinci Edition",
+          "url": "https://www.ebay.it/itm/145574818400"
+        },
+        {
+          "label": "Fnac España · Platinum",
+          "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-Platinum-PS3-Videojuego-PlayStation-3/a633978"
+        },
+        {
+          "label": "Lamee Software · Essentials",
+          "url": "https://www.lameesoftware.com/assassin-s-creed-hermandad-essentials-ps3sa2b.html"
+        },
+        {
+          "label": "GameFAQs · datos regionales · contexto de investigación",
+          "url": "https://gamefaqs.gamespot.com/ps3/996092-assassins-creed-brotherhood/data"
+        },
+        {
+          "label": "SerialStation · familias de serial · contexto de investigación",
+          "url": "https://serialstation.com/games/d2b537d9-7f26-4d1d-81a5-de655c124e1f"
+        },
+        {
+          "label": "Geedie · mapa de versiones · contexto de investigación",
+          "url": "https://geedie.com/en/sony-playstation-3-assassin-s-creed-brotherhood-essentials"
+        }
+      ],
+      "evidenceNote": "Cobertura mundial parcial y trazable. Un serial compartido no convierte varias cajas en una sola edición; códigos sin scan completo permanecen pendientes.",
+      "images": [
+        {
+          "key": "ac-ps3-regional-o107-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o107.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o107.webp",
+          "width": 371,
+          "height": 434,
+          "caption": "Imagen de producto inspeccionada para O107",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "2526c1f1d75706131e17b814b0cc3b1889acf063ccb32f380166723b910d64f4",
+          "thumbnailSha256": "bb6bc97c493b42ff6b8dd3e18fa2500019b4315ff9d066594e3b0853dfc8f428",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o107.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "40b35d6bbea6b0d21c8e9f8c4392c18ea46b55002103071e8bd6973024953f26",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p320843/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o108-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o107.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o107.webp",
+          "width": 371,
+          "height": 434,
+          "caption": "Imagen de producto inspeccionada para O108",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "2526c1f1d75706131e17b814b0cc3b1889acf063ccb32f380166723b910d64f4",
+          "thumbnailSha256": "bb6bc97c493b42ff6b8dd3e18fa2500019b4315ff9d066594e3b0853dfc8f428",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o107.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "40b35d6bbea6b0d21c8e9f8c4392c18ea46b55002103071e8bd6973024953f26",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p176479/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o109-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o109.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o109.webp",
+          "width": 351,
+          "height": 413,
+          "caption": "Imagen de producto inspeccionada para O109",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "4e5c5161898b72daaea16b52f6c141565af73bbb7de2d348971e16482744a4f8",
+          "thumbnailSha256": "c852a98c201ea5334dabfd0437f3549369a221ee4a77705e8b166ae5409e28a7",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o109.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "124b25d35360ab8a030e28b1d3d8647d6b0393011ce8546caa0567331a778566",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-brotherhood-ps3-pouzite-p86554/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o110-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o110.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o110.webp",
+          "width": 357,
+          "height": 442,
+          "caption": "Imagen de producto inspeccionada para O110",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "7f4814dcd0e9725185f2f961766263a2f49703ca823edd228ec7b843f94ec52f",
+          "thumbnailSha256": "3ca87a44e69f3bcba291ef306e75efc0f4199dacdd7bc0772e72a535db572238",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o110.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "3a23bee5b41f574e3cd4399608623e8b07e7c7dc306430c5845b069cca4fca5c",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-brotherhood-special-edition-ps3-pouzite-p209894/",
+          "inspectedAt": "2026-09-13"
+        }
+      ],
+      "researchTasks": [
+        {
+          "id": "brotherhood-standard-europe-au",
+          "label": "Resolver Standard Europa y Australia",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "FR",
+            "DE",
+            "IT",
+            "GB",
+            "NL",
+            "BE",
+            "AT",
+            "CH",
+            "AU"
+          ],
+          "notes": [
+            "España queda cerrada como 3307217927104. Cotejar 3307217927036, 3307217927074, 3307217927081 y 3307217927067 con cajas completas.",
+            "Descartar 3307217927180 si corresponde a otra plataforma."
+          ]
+        },
+        {
+          "id": "brotherhood-bles-map",
+          "label": "Separar BLES-00909, BLES-00910 y BLES-00911 por packaging",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "El serial no identifica por sí solo Standard, Codex, Special, Essentials o Platinum.",
+            "Resolver posibles cajas Russia/CEE sin deducir idioma ni país."
+          ]
+        },
+        {
+          "id": "brotherhood-north-america",
+          "label": "Cerrar USA y Canadá, incluidas reediciones",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "US",
+            "CA"
+          ],
+          "notes": [
+            "Verificar 008888346258 / BLUS-30537, 008888246251 / BLUS-30637 y 008888226253 con caja exterior y cover.",
+            "Separar Greatest Hits canadiense y estadounidense aunque compartan disco."
+          ]
+        },
+        {
+          "id": "brotherhood-codex-regions",
+          "label": "Resolver cajas Codex europeas",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "España queda cerrada como 3307217934140. Cotejar 3307217934119, 3307217934126 y la legacy 3307217934133 sin colapsarlas."
+          ]
+        },
+        {
+          "id": "brotherhood-special-regions",
+          "label": "Resolver Special Edition europeas",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "España queda cerrada como 3307219903915. Cotejar 3307219903892, 3307219903939 y 3307219903946 mediante caja física."
+          ]
+        },
+        {
+          "id": "brotherhood-auditore-regions",
+          "label": "Resolver Auditore Edition por mercado",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "AU"
+          ],
+          "notes": [
+            "Francia queda cerrada como 3307219903243. Investigar 3307219903106 y 3307219903212 con scans físicos."
+          ]
+        },
+        {
+          "id": "brotherhood-da-vinci-regions",
+          "label": "Resolver Da Vinci Edition por mercado",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "Italia queda cerrada como 3307219942464. Cotejar 3307219942396 / BLES-00910 y 3307219942426 / BLES-00909."
+          ]
+        },
+        {
+          "id": "brotherhood-budget-regions",
+          "label": "Resolver Platinum y Essentials regionales",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "España queda cerrada como Platinum 3307219951770 y Essentials 3307215659137.",
+            "Investigar Platinum 3307219951282, 3307219951312, 3307219951794 y Essentials 3307215659106, 3307215659267 sin fusionar cajas nacionales."
+          ]
+        },
+        {
+          "id": "brotherhood-japan-asia-korea",
+          "label": "Cerrar Japón, Asia y Corea",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "JP",
+            "KR"
+          ],
+          "notes": [
+            "Confirmar 4949244002134 / BLJM-60250, 4949244002479 / BLJM-60995, BLAS-50278, BLAS-50358 y BLKS-20231 mediante caja física."
+          ]
+        },
+        {
+          "id": "brotherhood-packs-hardware",
+          "label": "Mantener packs y hardware fuera del contador standalone",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "ES"
+          ],
+          "notes": [
+            "Brotherhood + Lineage, Pack Ezio Auditore y PS3 Slim Bundle requieren relaciones Compilation o HardwareBundle, no nuevas ediciones aisladas de Brotherhood."
+          ]
+        },
+        {
+          "id": "brotherhood-digital-exclusions",
+          "label": "No convertir DLC o digitales en PhysicalEdition",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [],
+          "notes": [
+            "Copernicus Conspiracy, Da Vinci Disappearance standalone, Animus Project y ediciones digitales no son cajas físicas.",
+            "La Da Vinci Edition física sí permanece como edición propia."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,886 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ii-ps3",
+      "title": "Ediciones físicas de Assassin's Creed II en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Overlay data-only mundial y conservador. Reutiliza las identidades legacy sin alterar rutas, portadas ni precios; sólo fija identificadores respaldados por evidencia directa y deja el resto en investigación.",
+      "game": {
+        "title": "Assassin's Creed II",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-ii"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-standard",
+            "assassins-creed-ii-ps3-north-america-standard",
+            "assassins-creed-ii-ps3-japan-standard",
+            "assassins-creed-ii-ps3-europe-standard-o103",
+            "assassins-creed-ii-ps3-north-america-shared-o026"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "goty",
+          "label": "Game of the Year Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-game-of-the-year-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-goty",
+            "assassins-creed-ii-ps3-europe-goty-o104"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "black",
+          "label": "Black Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-black-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-black"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "white",
+          "label": "White Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-white-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-white"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "complete",
+          "label": "Complete Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-complete-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-spain-complete"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "essentials",
+          "label": "GOTY Essentials",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-essentials",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-spain-goty-essentials"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "lineage",
+          "label": "Lineage Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-lineage-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-lineage"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "platinum-goty",
+          "label": "Platinum Game of the Year Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-platinum-game-of-the-year-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-platinum-goty"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "special-film",
+          "label": "Special Film Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-ii-special-film-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-europe-special-film"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "gamestop-exclusive",
+          "label": "GameStop Exclusive",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-ii-gamestop-exclusive",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-usa-gamestop-exclusive"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "greatest-hits",
+          "label": "Greatest Hits",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-ii-greatest-hits",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-usa-greatest-hits"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "master-assassin",
+          "label": "Master Assassin’s Edition",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-ii-master-assassin-s-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-usa-master-assassin"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "japan-special",
+          "label": "Special Edition · Japón",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-ii-special-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ii-ps3-japan-special"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-ii-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii"
+          ],
+          "barcode": "3307211666535",
+          "evidenceIds": [
+            "ac-ps3-regional-o024"
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-ii"
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-ii"
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-goty",
+          "label": "Game of the Year Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-game-of-the-year-edition"
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-standard-o103",
+          "label": "Standard · caja inglesa declarada · 3307211666504",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "EN"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o103"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "BBFC"
+          ],
+          "barcode": "3307211666504",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o103"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o103-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; la clasificación visible no demuestra por sí sola todos los mercados de la caja."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-goty-o104",
+          "label": "Game of the Year · Essentials · caja alemana declarada",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o104"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307215659069",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o104"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o104-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; se conserva la línea de reedición visible."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-north-america-shared-o026",
+          "label": "Standard · caja compartida CA / MX / US",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "CA",
+            "MX",
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o026"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "Una caja compartida entre tres mercados; se cuenta y colecciona una sola vez."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-black",
+          "label": "Black Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-black-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "Se conserva la ruta existente; los EAN y el mercado nacional esperan evidencia física cerrada."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-spain-complete",
+          "label": "Complete Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-complete-edition"
+          ],
+          "evidenceIds": [
+            "ac2-fnac-spain-complete"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "barcode": "3307217923328",
+          "notes": [
+            "Fnac identifica la edición y describe secuencias adicionales y guaridas templarias; el serial queda pendiente de scan."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-spain-goty-essentials",
+          "label": "Game of the Year · Essentials · España",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-essentials"
+          ],
+          "evidenceIds": [
+            "ac2-fnac-spain-goty-essentials"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "barcode": "3307215659007",
+          "notes": [
+            "Publicación comercial documentada el 27 de septiembre de 2012; no se extiende este EAN a otras cajas Essentials."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-lineage",
+          "label": "Lineage Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-lineage-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "No se fusiona con Special Film Edition sin portada y contraportada del mismo ejemplar."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-platinum-goty",
+          "label": "Platinum Game of the Year Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-platinum-game-of-the-year-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "Platinum, GOTY y Essentials permanecen como conceptos separados."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-special-film",
+          "label": "Special Film Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-special-film-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "No se fusiona con Lineage Edition sin evidencia de packaging coincidente."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-europe-white",
+          "label": "White Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-ii-white-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "Se conserva la ruta existente; barcode, país y relación entre caja exterior e interior siguen pendientes."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-usa-gamestop-exclusive",
+          "label": "GameStop Exclusive · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-ii-gamestop-exclusive"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER"
+        },
+        {
+          "id": "assassins-creed-ii-ps3-usa-greatest-hits",
+          "label": "Greatest Hits · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-ii-greatest-hits"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "No se reutiliza el UPC de Standard sin scan de la reedición."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-usa-master-assassin",
+          "label": "Master Assassin’s Edition · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-ii-master-assassin-s-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "UPC, serial y contenido exterior esperan evidencia física coherente."
+          ]
+        },
+        {
+          "id": "assassins-creed-ii-ps3-japan-special",
+          "label": "Special Edition · Japón · ficha legacy",
+          "broadRegion": "ASIA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-ii-special-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "No se confunde con Special Film Edition europea; JAN y serial permanecen en investigación."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-ps3-regional-o103",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O103: Assassin's Creed II con caja inglesa declarada",
+          "url": "https://www.gamershouse.cz/akcni-adventury-na-ps3/ps3-assassin-s-creed-ii/",
+          "summary": "La ficha separa el idioma de caja del idioma del juego y lo vincula al EAN.",
+          "supports": [
+            "EAN 3307211666504",
+            "idioma de caja declarado: EN"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o104",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O104: Game of the Year / Essentials con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-ii-game-of-the-year-edition-ps3-pouzite-p268344/",
+          "summary": "La imagen muestra la línea Essentials y Game of the Year; la tienda declara caja alemana.",
+          "supports": [
+            "EAN 3307215659069",
+            "idioma de caja declarado: DE",
+            "línea Essentials / Game of the Year"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o026",
+          "type": "REAL_SCAN",
+          "label": "O026: caja compartida de Assassin's Creed II",
+          "url": "https://www.mobygames.com/game/43958/assassins-creed-ii/covers/group-63645/",
+          "summary": "El grupo de escaneos identifica una sola caja física para Canadá, México y Estados Unidos.",
+          "supports": [
+            "mercados documentados: CA, MX y US",
+            "una sola identidad de packaging"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o024",
+          "type": "RETAILER_ASSET",
+          "label": "O024: referencia PAL España de Assassin's Creed II",
+          "url": "https://www.todoconsolas.com/juegos-ps3/474-assassin_s_creed_ii_ps3_sp_po0274-3307211666535.html",
+          "summary": "La ficha comercial identifica el producto PS3 español y su EAN; sus imágenes se mantienen como ilustrativas.",
+          "supports": [
+            "EAN 3307211666535",
+            "mercado documentado: ES"
+          ]
+        },
+        {
+          "id": "ac2-fnac-spain-complete",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Assassin’s Creed II Complete Edition PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-2-Complete-Edicion-PS3-Videojuego-PlayStation-3/a401875",
+          "summary": "La ficha identifica la edición Complete de PS3 para España y su EAN; describe las secuencias adicionales y guaridas templarias incluidas.",
+          "supports": [
+            "EAN 3307217923328",
+            "edición física Complete para PS3",
+            "mercado documentado: ES"
+          ]
+        },
+        {
+          "id": "ac2-fnac-spain-goty-essentials",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Assassin’s Creed II GOTY Essentials PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-II-GOTY-Essentials-PS3-Videojuego-PlayStation-3/a823887",
+          "summary": "La ficha identifica la reedición GOTY Essentials de PS3, su EAN y la fecha de publicación comercial.",
+          "supports": [
+            "EAN 3307215659007",
+            "línea GOTY Essentials",
+            "mercado documentado: ES",
+            "publicación: 2012-09-27"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "key": "ac-ps3-regional-o103-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o103.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o103.webp",
+          "width": 252,
+          "height": 291,
+          "caption": "Imagen de producto inspeccionada para O103",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "e375fc7970207b3f804dc4e994335ce2a5c7ddee6769ccbb1330a1ce08c77049",
+          "thumbnailSha256": "c38260e38b2aef352fcec708d01d8b5b79429a0813b6a62c3ac18fc171dbc7a6",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o103.png",
+          "originalWidth": 1024,
+          "originalHeight": 768,
+          "originalSha256": "e87f57323b12b76e5e65f14ea33d6124ada4134d1d066d7900562a8c7c26e870",
+          "sourcePageUrl": "https://www.gamershouse.cz/akcni-adventury-na-ps3/ps3-assassin-s-creed-ii/",
+          "inspectedAt": "2026-09-13"
+        },
+        {
+          "key": "ac-ps3-regional-o104-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o104.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o104.webp",
+          "width": 481,
+          "height": 618,
+          "caption": "Imagen de producto inspeccionada para O104",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "48d1e48dddd6fe22d87fff6817d87b19799ec04118650c6e678972ec25c4c12f",
+          "thumbnailSha256": "bdff2785027e9d5eef57688f4191ea1c256c52661ea99dd84caabad15d17b682",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o104.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "50ae6bd40090926b93ac93d764f69b9af5f9f2cab007b15cfca6f20015496e8e",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-ii-game-of-the-year-edition-ps3-pouzite-p268344/",
+          "inspectedAt": "2026-09-13"
+        }
+      ],
+      "sources": [
+        {
+          "label": "O103 · O103: Assassin's Creed II con caja inglesa declarada",
+          "url": "https://www.gamershouse.cz/akcni-adventury-na-ps3/ps3-assassin-s-creed-ii/"
+        },
+        {
+          "label": "O104 · O104: Game of the Year / Essentials con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-ii-game-of-the-year-edition-ps3-pouzite-p268344/"
+        },
+        {
+          "label": "O026 · O026: caja compartida de Assassin's Creed II",
+          "url": "https://www.mobygames.com/game/43958/assassins-creed-ii/covers/group-63645/"
+        },
+        {
+          "label": "O024 · O024: referencia PAL España de Assassin's Creed II",
+          "url": "https://www.todoconsolas.com/juegos-ps3/474-assassin_s_creed_ii_ps3_sp_po0274-3307211666535.html"
+        },
+        {
+          "label": "Fnac España · Assassin’s Creed II Standard PS3",
+          "url": "https://www.fnac.es/Assassins-Creed-II-PS3-Videojuego-PlayStation-3/a336987"
+        },
+        {
+          "label": "Fnac España · Assassin’s Creed II Complete Edition PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-2-Complete-Edicion-PS3-Videojuego-PlayStation-3/a401875"
+        },
+        {
+          "label": "Fnac España · Assassin’s Creed II GOTY Essentials PS3",
+          "url": "https://www.fnac.es/Assassin-s-Creed-II-GOTY-Essentials-PS3-Videojuego-PlayStation-3/a823887"
+        },
+        {
+          "label": "Geedie · Black Edition · contexto de investigación",
+          "url": "https://geedie.com/en/sony-playstation-3-assassin-s-creed-ii-black-edition"
+        },
+        {
+          "label": "Geedie · White Edition · contexto de investigación",
+          "url": "https://geedie.com/en/sony-playstation-3-assassin-s-creed-ii-white-edition"
+        },
+        {
+          "label": "Geedie · Special Film Edition · contexto de investigación",
+          "url": "https://geedie.com/en/sony-playstation-3-assassin-s-creed-ii-special-film-edition"
+        },
+        {
+          "label": "GameFAQs · datos regionales · contexto de investigación",
+          "url": "https://gamefaqs.gamespot.com/ps3/956856-assassins-creed-ii/data"
+        },
+        {
+          "label": "SerialStation · familias de serial · contexto de investigación",
+          "url": "https://serialstation.com/games/0ed485e2-b5b2-4040-8df1-8f2743ba3eb1"
+        }
+      ],
+      "evidenceNote": "Cobertura mundial parcial y trazable. Las rutas legacy se preservan; los códigos secundarios y territorios sin scan coherente no se publican como identidad cerrada.",
+      "researchTasks": [
+        {
+          "id": "ac2-standard-europe-au",
+          "label": "Resolver Standard Europa y Australia",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "FR",
+            "DE",
+            "IT",
+            "GB",
+            "NL",
+            "BE",
+            "AT",
+            "CH",
+            "AU"
+          ],
+          "notes": [
+            "Cotejar 3307211666481, 3307211666474, 3307211666511, 3307211666528, 3307211814202 y 3307211666627 con portada, contraportada y lomo del mismo ejemplar.",
+            "No deducir país sólo por BLES-00669 o BLES-00670."
+          ]
+        },
+        {
+          "id": "ac2-north-america-standard-reissues",
+          "label": "Cerrar USA, Canadá, GameStop, Greatest Hits y Master Assassin",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "US",
+            "CA"
+          ],
+          "notes": [
+            "Verificar 008888345343 / BLUS-30364, 008888525349, 008888240105 / BLUS-30446 y BLUS-30364GH con packaging físico.",
+            "El mismo UPC no acredita que Standard y Greatest Hits sean la misma caja."
+          ]
+        },
+        {
+          "id": "ac2-black-white",
+          "label": "Resolver Black Edition y White Edition por caja",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "AU"
+          ],
+          "notes": [
+            "Cotejar Black 3307211669673, 3307211669680 y 3307211669727; cotejar White 3307211667167 y barcodes regionales.",
+            "Determinar caja exterior e interior sin inferir mercado por idioma."
+          ]
+        },
+        {
+          "id": "ac2-complete-regions",
+          "label": "Separar Complete España, Europa general, Reino Unido y Asia",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "GB"
+          ],
+          "notes": [
+            "España queda cerrada como 3307217923328. Resolver 3307217923281 / BLES-00669, 3307217923274 / BLES-00670 y 3307217928750 / BLAS-50215 con scans propios."
+          ]
+        },
+        {
+          "id": "ac2-budget-lines",
+          "label": "Separar GOTY, Platinum y Essentials regionales",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "AU"
+          ],
+          "notes": [
+            "España GOTY Essentials queda cerrada como 3307215659007. Investigar 3307217934386, 3307217934416, 3307217934430, 3307217934447, 4012160250917, 3307215659045 y 3307215658970.",
+            "Revisar O104 3307215659069 sin fusionarlo automáticamente con España."
+          ]
+        },
+        {
+          "id": "ac2-lineage-special-film",
+          "label": "Resolver Lineage y Special Film Edition",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "Cotejar 3307212314701, 3307212314725 y 3307212314732 con cajas completas.",
+            "No fusionar nombres territoriales sin demostrar que exterior, barcode y contenido coinciden."
+          ]
+        },
+        {
+          "id": "ac2-japan-korea-asia",
+          "label": "Cerrar Japón, Corea y Asia",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "JP",
+            "KR"
+          ],
+          "notes": [
+            "Confirmar 4949244001823 / BLJM-60185, 4949244002011 / BLJM-60233, 8809083646769 / BLKS-20167, BLAS-50159 y 3307217928750 / BLAS-50215 mediante caja física.",
+            "No reutilizar el UPC estadounidense para Asia sin verificar la caja."
+          ]
+        },
+        {
+          "id": "ac2-thats-hot-au",
+          "label": "Confirmar la reedición That’s Hot! de Australia",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [
+            "AU"
+          ],
+          "notes": [
+            "Se requiere scan físico inequívoco de 3307215587799 antes de crear PhysicalEdition."
+          ]
+        },
+        {
+          "id": "ac2-hardware-compilations",
+          "label": "Mantener hardware y compilaciones fuera de ACII aislado",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "ES",
+            "JP"
+          ],
+          "notes": [
+            "El bundle de hardware PS3 debe modelarse como HardwareBundle.",
+            "Assassin’s Creed I + II, Welcome Pack y Ezio Auditore Pack deben modelarse como Compilation en overlays propios."
+          ]
+        },
+        {
+          "id": "ac2-digital-exclusions",
+          "label": "No crear variantes físicas a partir de DLC o ediciones digitales",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [],
+          "notes": [
+            "Deluxe, Ultimate, Battle of Forli y Bonfire of the Vanities digitales no son PhysicalEdition."
+          ]
+        }
+      ]
+    }
+  ]
+}
