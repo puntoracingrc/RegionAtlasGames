@@ -117,12 +117,23 @@ export default async function PlatformPage({ params, searchParams }: Props) {
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
         {catalogGames.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-border p-12 text-center">
-            <p className="text-lg text-foreground/80">Catálogo en construcción</p>
-            <p className="mt-2 text-sm text-muted">
-              Aún no hay fichas catalogadas para esta plataforma.
-            </p>
-          </div>
+          <>
+            <div className="rounded-2xl border border-dashed border-border p-12 text-center">
+              <p className="text-lg text-foreground/80">Catálogo en construcción</p>
+              <p className="mt-2 text-sm text-muted">
+                Aún no hay fichas catalogadas para esta plataforma.
+              </p>
+            </div>
+            {platformHistory ? (
+              <div className="mt-8">
+                <PlatformHistorySection
+                  history={platformHistory}
+                  figurePortraits={figurePortraits}
+                  initialHardwareGroup={parsePlatformHardwareGroup(query?.hardware)}
+                />
+              </div>
+            ) : null}
+          </>
         ) : (
           <>
             <NewsStrip
