@@ -1,0 +1,492 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-rogue-ps3",
+      "title": "Ediciones físicas de Assassin's Creed Rogue en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Overlay mundial data-only. Mantiene Standard y Limited norteamericanas sin separación física hasta inspección, conserva Essentials como Europa de origen pendiente y excluye el Double Pack.",
+      "game": {
+        "title": "Assassin's Creed Rogue",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-rogue",
+        "aliases": [
+          "Assassin's Creed: Rogue"
+        ]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-rogue",
+          "physicalEditionIds": [
+            "assassins-creed-rogue-ps3-europe-standard",
+            "assassins-creed-rogue-ps3-europe-generic-standard",
+            "assassins-creed-rogue-ps3-europe-standard-o113",
+            "assassins-creed-rogue-ps3-europe-standard-o114",
+            "assassins-creed-rogue-ps3-australia-standard",
+            "assassins-creed-rogue-ps3-north-america-standard",
+            "assassins-creed-rogue-ps3-korea-standard",
+            "assassins-creed-rogue-ps3-japan-standard"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "collector",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-rogue-collector%27s-edition",
+          "physicalEditionIds": [
+            "assassins-creed-rogue-ps3-europe-collector",
+            "assassins-creed-rogue-ps3-australia-collector",
+            "assassins-creed-rogue-ps3-russia-collector"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "essentials",
+          "label": "Essentials",
+          "representativeCatalogId": "ps3-assassin%27s-creed-rogue-essentials",
+          "physicalEditionIds": [
+            "assassins-creed-rogue-ps3-europe-essentials"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "ubi-the-best",
+          "label": "Ubi the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-rogue-ubi-the-best",
+          "physicalEditionIds": [
+            "assassins-creed-rogue-ps3-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-rogue-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "softwareLanguages": ["ES", "EN", "FR", "DE", "IT"],
+          "ratingSystems": ["PEGI"],
+          "barcode": "3307215812327",
+          "serial": "BLES-02061",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-assassin%27s-creed-rogue"],
+          "evidenceIds": ["ac-rogue-ps3-retroloco-standard-es", "ac-rogue-ps3-fnac-standard-es", "ac-ps3-regional-o091"]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-europe-generic-standard",
+          "label": "Candidato Standard · Europa · BLES-02061",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "barcode": "3307215812174",
+          "serial": "BLES-02061",
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": [],
+          "evidenceIds": ["ac-rogue-ps3-gamefaqs"],
+          "notes": [
+            "El EAN europeo no sustituye al español y no recibe país ni idiomas sin scan de la caja."
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-europe-standard-o113",
+          "label": "Standard · caja DE declarada · 3307215812303",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["DE"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-ps3-regional-o113"]
+            }
+          ],
+          "ratingSystems": ["PEGI"],
+          "barcode": "3307215812303",
+          "confidence": "HIGH",
+          "catalogIds": [],
+          "evidenceIds": ["ac-ps3-regional-o113"],
+          "imageKeys": ["ac-ps3-regional-o113-front"],
+          "containsCatalogIds": [],
+          "notes": ["Mercado nacional pendiente."]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-europe-standard-o114",
+          "label": "Standard · caja FR declarada · 3307215812273",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["FR"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": ["ac-ps3-regional-o114"]
+            }
+          ],
+          "ratingSystems": [],
+          "barcode": "3307215812273",
+          "confidence": "HIGH",
+          "catalogIds": [],
+          "evidenceIds": ["ac-ps3-regional-o114"],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; la fuente no ofreció una imagen utilizable y se muestra placeholder."
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-australia-standard",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "ratingSystems": ["MA"],
+          "barcode": "3307215812365",
+          "serial": "BLES-02061",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac-rogue-ps3-gamefaqs"]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-north-america-standard",
+          "label": "Standard · Estados Unidos · separación Limited pendiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB"],
+          "barcode": "887256000134",
+          "serial": "BLUS-31465",
+          "confidence": "HIGH",
+          "catalogIds": ["ps3-usa-assassin-s-creed-rogue"],
+          "evidenceIds": ["ac-rogue-ps3-gamefaqs", "ac-rogue-ps3-jnl-limited"],
+          "notes": [
+            "J&L denomina Limited a la misma referencia. No se crea una segunda PhysicalEdition sin cubierta, sticker, insert o configuración física diferenciada."
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-korea-standard",
+          "label": "Standard · Corea",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "ratingSystems": ["GRB 18"],
+          "barcode": "8809182562533",
+          "serial": "BLKS-20499",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac-rogue-ps3-gamefaqs", "ac-rogue-ps3-serialstation"]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "ratingSystems": ["CERO Z"],
+          "barcode": "4949244003537",
+          "serial": "BLJM-61208",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-rogue"],
+          "evidenceIds": ["ac-rogue-ps3-gamefaqs", "ac-rogue-ps3-serialstation"]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-europe-collector",
+          "label": "Collector's Edition · Europa · mercado nacional pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215814956",
+          "serial": "BLES-02062",
+          "confidence": "HIGH",
+          "physicalContents": [
+            "Caja de coleccionista",
+            "Juego",
+            "Artbook",
+            "Banda sonora en CD",
+            "Litografías"
+          ],
+          "catalogIds": ["ps3-assassin%27s-creed-rogue-collector%27s-edition"],
+          "evidenceIds": ["ac-rogue-ps3-gamefaqs", "ac-rogue-ps3-vgdb-collector"],
+          "notes": [
+            "La ficha legacy conserva ruta, portada e identidad de precio, pero PAL España no se transforma en mercado V2 demostrado."
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-australia-collector",
+          "label": "Collector's Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["AU"],
+          "barcode": "3307215815052",
+          "serial": "BLES-02062",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac-rogue-ps3-gamefaqs"]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-russia-collector",
+          "label": "Collector's Edition · Rusia",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["RU"],
+          "ratingSystems": ["RARS 18+"],
+          "barcode": "4603752010004",
+          "serial": "BLES-02062/RUS",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac-rogue-ps3-vgcollect-russia"]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-europe-essentials",
+          "label": "Essentials · Europa · origen y packaging pendientes",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "evidenceMarkets": ["ES"],
+          "packagingLanguages": [],
+          "barcode": "3307215944783",
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": ["ps3-assassin%27s-creed-rogue-essentials"],
+          "evidenceIds": ["ac-rogue-ps3-carrefour-essentials"],
+          "notes": [
+            "La venta en Carrefour España no demuestra caja española.",
+            "Carrefour advierte que carátula o manuales pueden estar en un idioma distinto del español."
+          ]
+        },
+        {
+          "id": "assassins-creed-rogue-ps3-japan-ubi-the-best",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "barcode": "4949244003926",
+          "catalogNumber": "BLJM-61334",
+          "releaseDate": "2016-03-03",
+          "releaseDateContext": "Reedición japonesa Ubi the Best",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-rogue-ubi-the-best"],
+          "evidenceIds": ["assassins-creed-rogue-ubi-the-best-commerce", "ac-rogue-ps3-serialstation"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-rogue-ps3-retroloco-standard-es",
+          "type": "RETAILER_ASSET",
+          "label": "RetroLoco · Standard PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-rogue-esp/",
+          "summary": "Documenta copia PAL España, carátula/manual español, EAN 3307215812327 y BLES-02061.",
+          "supports": ["mercado ES", "packaging ES", "EAN 3307215812327", "BLES-02061"]
+        },
+        {
+          "id": "ac-rogue-ps3-fnac-standard-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Standard",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Rogue-PS3-Videojuego-PlayStation-3/a1064493",
+          "supports": ["mercado ES", "EAN 3307215812327"]
+        },
+        {
+          "id": "ac-ps3-regional-o091",
+          "type": "RETAILER_ASSET",
+          "label": "O091 · referencia PAL España de Rogue",
+          "url": "https://www.todoconsolas.com/juegos-ps3/5033-assassin_s_creed_rogue_ps3_sp_po30044-3307215812327.html",
+          "summary": "Evidencia V2 previa conservada para la identidad Standard española.",
+          "supports": ["mercado ES", "EAN 3307215812327"]
+        },
+        {
+          "id": "ac-ps3-regional-o113",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O113 · Rogue Standard con caja DE declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-rogue-ps3-pouzite-p70457/",
+          "summary": "La tienda vincula el producto PS3 y el EAN con el idioma declarado de la caja; no certifica el mercado.",
+          "supports": ["EAN 3307215812303", "idioma de caja declarado: DE"]
+        },
+        {
+          "id": "ac-ps3-regional-o114",
+          "type": "RETAILER_ASSET",
+          "label": "O114 · Rogue Standard con caja FR declarada",
+          "url": "https://www.tradergames.fr/fr/playstation-3/349787-assassin-s-creed-rogue-sony-playstation-3-ps3-fr-occasion-3307215812273.html",
+          "summary": "La tienda vincula el producto PS3 y el EAN con el idioma declarado de la caja; no certifica el mercado.",
+          "supports": ["EAN 3307215812273", "idioma de caja declarado: FR"]
+        },
+        {
+          "id": "ac-rogue-ps3-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · release data PS3",
+          "url": "https://gamefaqs.gamespot.com/ps3/826286-assassins-creed-rogue/data",
+          "supports": ["barcodes regionales PS3", "seriales PS3", "ediciones PS3"]
+        },
+        {
+          "id": "ac-rogue-ps3-serialstation",
+          "type": "UNKNOWN",
+          "label": "SerialStation · familias de serial PS3",
+          "url": "https://serialstation.com/games/d79a3265-b22b-46ba-bd4a-e23e9ae4cc81",
+          "supports": ["familias BLES/BLUS/BLJM/BLKS"]
+        },
+        {
+          "id": "ac-rogue-ps3-jnl-limited",
+          "type": "RETAILER_ASSET",
+          "label": "J&L · denominación Limited Edition",
+          "url": "https://www.jnlgame.com/products/assassins-creed-rogue-limited-edition-ps3-playstation-3",
+          "summary": "Comercializa UPC 887256000134 / BLUS-31465 como Limited; no prueba por sí sola una caja distinta de Standard.",
+          "supports": ["UPC compartido", "serial compartido", "configuración Limited por inspeccionar"]
+        },
+        {
+          "id": "ac-rogue-ps3-vgcollect-russia",
+          "type": "RETAILER_ASSET",
+          "label": "VGCollect · Collector's Edition Rusia",
+          "url": "https://vgcollect.com/item/166184",
+          "supports": ["mercado RU", "barcode 4603752010004", "BLES-02062/RUS", "RARS 18+"]
+        },
+        {
+          "id": "ac-rogue-ps3-vgdb-collector",
+          "type": "UNKNOWN",
+          "label": "VGDB · Collector's Edition",
+          "url": "https://www.vgdb.com.br/playstation-3-/jogos/assassin-s-creed-rogue-collector-s-edition-/",
+          "supports": ["Collector's Edition PS3", "contenido físico"]
+        },
+        {
+          "id": "ac-rogue-ps3-carrefour-essentials",
+          "type": "RETAILER_ASSET",
+          "label": "Carrefour España · Essentials",
+          "url": "https://www.carrefour.es/assassins-creed-rogue-essentials-juego-para-consola-sony-playstation-3-ps3/3307215944783/p",
+          "summary": "Confirma el producto físico y EAN, pero advierte que carátula o manuales pueden no estar en español.",
+          "supports": ["EAN 3307215944783", "Essentials PS3", "origen e idiomas pendientes"]
+        },
+        {
+          "id": "assassins-creed-rogue-ubi-the-best-commerce",
+          "type": "RETAILER_ASSET",
+          "label": "Rakuten Books · Rogue Ubi the Best",
+          "url": "https://books.rakuten.co.jp/rb/13607096/",
+          "summary": "Evidencia V2 previa conservada para la reedición japonesa.",
+          "supports": ["mercado JP", "JAN 4949244003926", "fecha 2016-03-03"]
+        }
+      ],
+      "sources": [
+        {"label": "RetroLoco · Standard ES", "url": "https://www.retroloco.es/producto/assassins-creed-rogue-esp/"},
+        {"label": "Fnac · Standard ES", "url": "https://www.fnac.es/Assassin-s-Creed-Rogue-PS3-Videojuego-PlayStation-3/a1064493"},
+        {"label": "GameFAQs · Rogue PS3", "url": "https://gamefaqs.gamespot.com/ps3/826286-assassins-creed-rogue/data"},
+        {"label": "SerialStation · Rogue PS3", "url": "https://serialstation.com/games/d79a3265-b22b-46ba-bd4a-e23e9ae4cc81"},
+        {"label": "J&L · Limited", "url": "https://www.jnlgame.com/products/assassins-creed-rogue-limited-edition-ps3-playstation-3"},
+        {"label": "VGCollect · Collector Rusia", "url": "https://vgcollect.com/item/166184"},
+        {"label": "Carrefour · Essentials", "url": "https://www.carrefour.es/assassins-creed-rogue-essentials-juego-para-consola-sony-playstation-3-ps3/3307215944783/p"}
+      ],
+      "evidenceNote": "Los datos proceden de la orden mundial revisada el 15 de septiembre de 2026 y de las decisiones V2 ya fusionadas. Las ventas locales no se convierten automáticamente en mercados físicos y la separación Standard/Limited norteamericana permanece pendiente.",
+      "images": [
+        {
+          "key": "ac-ps3-regional-o113-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o113.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o113.webp",
+          "width": 508,
+          "height": 600,
+          "caption": "Imagen de producto inspeccionada para O113",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "b7366c8fe9115ea54d84b55721dd1d9dbba9498e4b531580c966a992a706cb4f",
+          "thumbnailSha256": "18e80165899f4c80152cc6ef33311a6e4932af5b2a62c659aa031944b1e9572d",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o113.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "7ccdec893abbf5ee637b7413574e3ae1758fbdb0a7e83d5875fcbb4588fc07bd",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-rogue-ps3-pouzite-p70457/",
+          "inspectedAt": "2026-09-13"
+        }
+      ],
+      "researchTasks": [
+        {
+          "id": "ac-rogue-ps3-us-standard-limited-separation",
+          "label": "Inspeccionar físicamente Standard y Limited de Estados Unidos",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["US"],
+          "notes": [
+            "UPC 887256000134 y BLUS-31465 compartidos; la ficha legacy Limited queda sin reclamar por este overlay.",
+            "Buscar impresión Limited, sticker, sleeve, insert o voucher diferenciable."
+          ]
+        },
+        {
+          "id": "ac-rogue-ps3-signature-north-america",
+          "label": "Resolver packaging y barcode de Signature Edition",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["US", "CA"],
+          "notes": ["BLUS-31465SA no basta para crear una caja sin scan físico inequívoco."]
+        },
+        {
+          "id": "ac-rogue-ps3-greatest-hits",
+          "label": "Localizar scan y UPC de Greatest Hits",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["US", "CA"],
+          "notes": ["La ficha legacy y su precio se conservan fuera del overlay hasta obtener scan."]
+        },
+        {
+          "id": "ac-rogue-ps3-not-for-resale",
+          "label": "Resolver la copia Not For Resale / bundle",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [],
+          "notes": ["No debe aumentar el contador de ediciones retail."]
+        },
+        {
+          "id": "ac-rogue-ps3-russia-standard",
+          "label": "Distinguir Standard rusa de Collector's Edition",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["RU"],
+          "notes": ["No deducir una Standard distinta a partir de BLES-02062/RUS o del barcode Collector."]
+        },
+        {
+          "id": "ac-rogue-ps3-europe-national-map",
+          "label": "Resolver cajas FR/DE/UK/IT/Benelux/AT-CH/Nordic y candidatos portugueses",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["FR", "DE", "GB", "IT", "BE", "NL", "AT", "CH", "DK", "SE", "NO", "FI", "PT"],
+          "notes": [
+            "EAN 3307215812181 y 3307215820636 son pistas, no variantes portuguesas confirmadas.",
+            "O113 y O114 conservan idioma declarado sin asignar mercado nacional."
+          ]
+        },
+        {
+          "id": "ac-rogue-ps3-essentials-origin",
+          "label": "Resolver origen, serial e idiomas de Essentials 3307215944783",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": ["No marcar España por el país del retailer."]
+        },
+        {
+          "id": "ac-rogue-ps3-north-america-alt-upc",
+          "label": "Resolver UPC alternos y Canadá bilingüe",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US", "CA"],
+          "notes": ["887256000127, 887256000165 y 887256000172 no se publican sin identificar su caja."]
+        }
+      ]
+    }
+  ]
+}
