@@ -40,6 +40,13 @@ export type PlatformHistoryCompany = {
   sourceIds: string[];
 };
 
+export type PlatformCompanyGroup = {
+  id: string;
+  labelEs: string;
+  descriptionEs: string;
+  companySlugs: string[];
+};
+
 export type CompanyGenealogyRelation = {
   id: string;
   sourceCompanySlug: string;
@@ -68,8 +75,12 @@ export type PlatformHardwareKind =
   | "INTEGRATED_HARDWARE"
   | "COMPLEMENTARY_HARDWARE"
   | "COMMEMORATIVE_HARDWARE"
+  | "MID_GENERATION_UPGRADE"
   | "CONTROLLER"
+  | "PRO_CONTROLLER"
   | "PERIPHERAL"
+  | "VR_HEADSET"
+  | "REMOTE_PLAYER"
   | "ACCESSIBILITY_CONTROLLER";
 
 export const PLATFORM_HARDWARE_GROUPS: {
@@ -89,17 +100,18 @@ export const PLATFORM_HARDWARE_GROUPS: {
       "MULTIMEDIA_HYBRID",
       "INTEGRATED_HARDWARE",
       "COMMEMORATIVE_HARDWARE",
+      "MID_GENERATION_UPGRADE",
     ],
   },
   {
     id: "controllers",
     label: "Mandos",
-    kinds: ["CONTROLLER", "ACCESSIBILITY_CONTROLLER"],
+    kinds: ["CONTROLLER", "PRO_CONTROLLER", "ACCESSIBILITY_CONTROLLER"],
   },
   {
     id: "peripherals",
     label: "Periféricos",
-    kinds: ["PERIPHERAL", "COMPLEMENTARY_HARDWARE"],
+    kinds: ["PERIPHERAL", "COMPLEMENTARY_HARDWARE", "VR_HEADSET", "REMOTE_PLAYER"],
   },
 ];
 
@@ -135,7 +147,10 @@ export type PlatformArchitectureKind =
   | "GRAPHICS"
   | "OPTICAL_MEDIA"
   | "SYSTEM_SOFTWARE"
-  | "MULTIMEDIA";
+  | "MULTIMEDIA"
+  | "STORAGE_IO"
+  | "AUDIO"
+  | "UPSCALING";
 
 export type PlatformArchitecturePartner = {
   companySlug: string | null;
@@ -164,7 +179,10 @@ export type PlatformHistoryService = {
   name: string;
   kind: PlatformServiceKind;
   launchedLabel: string | null;
+  endedLabel?: string | null;
+  statusLabelEs?: string | null;
   parentServiceId: string | null;
+  successorServiceId?: string | null;
   summaryEs: string;
   features: string[];
   sourceIds: string[];
@@ -201,20 +219,82 @@ export type PlatformCompatibilityRevision = {
   sourceIds: string[];
 };
 
+export type PlatformCompatibilityLink = {
+  id: string;
+  sourcePlatformSlug: string;
+  sourcePlatformName: string;
+  targetPlatformSlug: string;
+  targetPlatformName: string;
+  labelEs: string;
+  summaryEs: string;
+  features: string[];
+  sourceIds: string[];
+};
+
+export type PlatformEditorialLink = {
+  labelEs: string;
+  href: string;
+};
+
+export type PlatformEditorialCard = {
+  id: string;
+  eyebrowEs: string | null;
+  titleEs: string;
+  summaryEs: string;
+  detailsEs: string[];
+  link?: PlatformEditorialLink | null;
+  sourceIds: string[];
+};
+
+export type PlatformEditorialSection = {
+  id: string;
+  titleEs: string;
+  dekEs: string | null;
+  paragraphsEs: string[];
+  cards: PlatformEditorialCard[];
+  sourceIds: string[];
+};
+
+export type PlatformGenerationStatus = {
+  labelEs: string;
+  asOf: string;
+  summaryEs: string;
+  sourceIds: string[];
+};
+
+export type PlatformHistorySectionId =
+  | "figures"
+  | "architecture"
+  | "companies"
+  | "games"
+  | "hardware"
+  | "compatibility"
+  | "services"
+  | "control"
+  | "milestones"
+  | "legacy"
+  | `editorial:${string}`;
+
 export type PlatformHistory = {
   platformSlug: string;
   title: string;
   dekEs: string;
   summaryParagraphsEs: string[];
   historyParagraphsEs?: string[];
+  historyTitleEs?: string;
+  generationStatus?: PlatformGenerationStatus;
   figures: PlatformHistoryFigure[];
   architecture?: PlatformArchitectureItem[];
   companies: PlatformHistoryCompany[];
+  companyGroups?: PlatformCompanyGroup[];
   genealogies: CompanyGenealogyRelation[];
   gameGroups?: PlatformHistoryGameGroup[];
   hardware: PlatformHardwareItem[];
   services?: PlatformHistoryService[];
   compatibilityByHardwareRevision?: PlatformCompatibilityRevision[];
+  compatibilityLinks?: PlatformCompatibilityLink[];
+  editorialSections?: PlatformEditorialSection[];
+  sectionOrder?: PlatformHistorySectionId[];
   milestones: PlatformHistoryMilestone[];
   legacyEs: string[];
   sources: PlatformHistorySource[];

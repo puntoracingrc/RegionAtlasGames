@@ -1,6 +1,7 @@
 import platformHistoryData from "../../data/research/platform-history/platforms.json";
 import playstation2HistoryData from "../../data/research/platform-history/platforms-ps2.json";
 import playstation3HistoryData from "../../data/research/platform-history/platforms-ps3.json";
+import playstation5HistoryData from "../../data/research/platform-history/platforms-ps5.json";
 import type {
   CompanyPlatformHistoryLink,
   CompanyGenealogyLink,
@@ -13,15 +14,17 @@ import { PLATFORM_HARDWARE_GROUPS } from "./platform-history-types";
 const baseData = platformHistoryData as PlatformHistoryData;
 const playstation2Data = playstation2HistoryData as PlatformHistoryData;
 const playstation3Data = playstation3HistoryData as PlatformHistoryData;
+const playstation5Data = playstation5HistoryData as PlatformHistoryData;
 const data: PlatformHistoryData = {
-  version: Math.max(baseData.version, playstation2Data.version, playstation3Data.version),
-  generatedAt: playstation3Data.generatedAt,
+  version: Math.max(baseData.version, playstation2Data.version, playstation3Data.version, playstation5Data.version),
+  generatedAt: playstation5Data.generatedAt,
   platforms: [
     ...new Map(
       [
         ...baseData.platforms,
         ...playstation2Data.platforms,
         ...playstation3Data.platforms,
+        ...playstation5Data.platforms,
       ].map((history) => [history.platformSlug, history]),
     ).values(),
   ],
@@ -83,6 +86,32 @@ export function getCompanyGenealogyRelations(companySlug: string): CompanyGeneal
       )
       .map((relation) => ({ ...relation, platformSlug: history.platformSlug })),
   );
+}
+
+export function getEditorialCompanyIdentity(
+  companySlug: string,
+): { slug: string; name: string } | undefined {
+  for (const history of data.platforms) {
+    const company = history.companies.find((candidate) => candidate.companySlug === companySlug);
+    if (company) return { slug: company.companySlug, name: company.companyName };
+
+    const genealogy = history.genealogies.find(
+      (candidate) =>
+        candidate.sourceCompanySlug === companySlug || candidate.targetCompanySlug === companySlug,
+    );
+    if (genealogy?.sourceCompanySlug === companySlug) {
+      return { slug: companySlug, name: genealogy.sourceCompanyName };
+    }
+    if (genealogy?.targetCompanySlug === companySlug && genealogy.targetCompanyName) {
+      return { slug: companySlug, name: genealogy.targetCompanyName };
+    }
+
+    for (const architecture of history.architecture ?? []) {
+      const partner = architecture.partners.find((candidate) => candidate.companySlug === companySlug);
+      if (partner) return { slug: companySlug, name: partner.companyName };
+    }
+  }
+  return undefined;
 }
 
 export function getPlatformHistoryData(): PlatformHistoryData {

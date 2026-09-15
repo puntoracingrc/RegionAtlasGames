@@ -20,8 +20,12 @@ const hardwareLabels: Record<PlatformHardwareKind, string> = {
   INTEGRATED_HARDWARE: "Hardware integrado",
   COMPLEMENTARY_HARDWARE: "Hardware complementario",
   COMMEMORATIVE_HARDWARE: "Producto conmemorativo",
+  MID_GENERATION_UPGRADE: "Actualización de media generación",
   CONTROLLER: "Mando",
+  PRO_CONTROLLER: "Mando profesional",
   PERIPHERAL: "Periférico",
+  VR_HEADSET: "Realidad virtual",
+  REMOTE_PLAYER: "Reproductor remoto",
   ACCESSIBILITY_CONTROLLER: "Mando accesible",
 };
 
@@ -54,21 +58,43 @@ export function PlatformHardwareExplorer({
   );
 
   useEffect(() => {
-    const targetId = window.location.hash.slice(1);
-    const target = hardware.find((item) => item.id === targetId);
-    const targetGroup = target
-      ? PLATFORM_HARDWARE_GROUPS.find((group) => group.kinds.includes(target.kind))
-      : undefined;
-    if (
-      !target ||
-      !targetGroup ||
-      targetGroup.id !== hardwareGroup ||
-      !availableGroups.some((group) => group.id === targetGroup.id)
-    ) return;
-    const frame = window.requestAnimationFrame(() => {
-      document.getElementById(targetId)?.scrollIntoView({ block: "start" });
-    });
-    return () => window.cancelAnimationFrame(frame);
+    let frame: number | undefined;
+    let settleFrame: number | undefined;
+
+    const revealTarget = (targetId: string) => {
+      const target = hardware.find((item) => item.id === targetId);
+      const targetGroup = target
+        ? PLATFORM_HARDWARE_GROUPS.find((group) => group.kinds.includes(target.kind))
+        : undefined;
+
+      if (!target || !targetGroup || !availableGroups.some((group) => group.id === targetGroup.id)) return;
+      if (targetGroup.id !== hardwareGroup) setHardwareGroup(targetGroup.id);
+
+      frame = window.requestAnimationFrame(() => {
+        settleFrame = window.requestAnimationFrame(() => {
+          document.getElementById(targetId)?.scrollIntoView({ block: "start" });
+        });
+      });
+    };
+
+    const revealHashTarget = () => revealTarget(window.location.hash.slice(1));
+    const revealClickedTarget = (event: MouseEvent) => {
+      const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[href]") : null;
+      if (!anchor) return;
+      const destination = new URL(anchor.href, window.location.href);
+      if (destination.origin !== window.location.origin || destination.pathname !== window.location.pathname) return;
+      revealTarget(destination.hash.slice(1));
+    };
+
+    revealHashTarget();
+    window.addEventListener("hashchange", revealHashTarget);
+    document.addEventListener("click", revealClickedTarget);
+    return () => {
+      window.removeEventListener("hashchange", revealHashTarget);
+      document.removeEventListener("click", revealClickedTarget);
+      if (frame !== undefined) window.cancelAnimationFrame(frame);
+      if (settleFrame !== undefined) window.cancelAnimationFrame(settleFrame);
+    };
   }, [availableGroups, hardware, hardwareGroup]);
 
   return (

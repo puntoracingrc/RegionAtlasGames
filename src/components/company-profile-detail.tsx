@@ -224,29 +224,33 @@ export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds
           </section>
         )}
 
-        <div className="mb-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-          <CompanyPlatformGames platforms={view.platforms} />
-          <CompanyCollaborators collaborators={view.collaborators} selfName={view.name} />
-        </div>
+        {!view.editorialOnly && (
+          <>
+            <div className="mb-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
+              <CompanyPlatformGames platforms={view.platforms} />
+              <CompanyCollaborators collaborators={view.collaborators} selfName={view.name} />
+            </div>
 
-        <CompanyCatalogGroups companyName={view.name} groups={franchises} kind="franchise" />
-        <CompanyCatalogGroups companyName={view.name} groups={series} kind="series" />
+            <CompanyCatalogGroups companyName={view.name} groups={franchises} kind="franchise" />
+            <CompanyCatalogGroups companyName={view.name} groups={series} kind="series" />
 
-        <section className="space-y-4">
-          <div>
-            <h2 className="text-xl font-bold text-foreground">Catálogo completo · {view.name}</h2>
-            <p className="mt-1 text-sm text-foreground/75">
-              Explora y filtra todas las fichas atribuidas a {view.name} en Region Atlas.
-            </p>
-          </div>
-          <EntityBrowser
-            games={games}
-            title={view.name}
-            ownedCatalogIds={ownedCatalogIds}
-            isLoggedIn={isLoggedIn}
-            showPriceLegend={false}
-          />
-        </section>
+            <section className="space-y-4">
+              <div>
+                <h2 className="text-xl font-bold text-foreground">Catálogo completo · {view.name}</h2>
+                <p className="mt-1 text-sm text-foreground/75">
+                  Explora y filtra todas las fichas atribuidas a {view.name} en Region Atlas.
+                </p>
+              </div>
+              <EntityBrowser
+                games={games}
+                title={view.name}
+                ownedCatalogIds={ownedCatalogIds}
+                isLoggedIn={isLoggedIn}
+                showPriceLegend={false}
+              />
+            </section>
+          </>
+        )}
       </main>
     </>
   );
