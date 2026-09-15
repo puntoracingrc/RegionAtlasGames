@@ -25,6 +25,7 @@ const architectureLabels = {
   PROCESSOR: "Procesador",
   GRAPHICS: "Gráficos",
   OPTICAL_MEDIA: "Formato óptico",
+  GAME_MEDIA: "Soporte físico",
   SYSTEM_SOFTWARE: "Sistema",
   MULTIMEDIA: "Multimedia",
   STORAGE_IO: "Almacenamiento y E/S",
