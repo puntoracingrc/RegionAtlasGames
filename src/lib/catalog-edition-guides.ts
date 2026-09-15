@@ -5,6 +5,7 @@ import ac4BlackFlagGuideData from "../../data/catalog-edition-guides-ac4-black-f
 import acChroniclesGuideData from "../../data/catalog-edition-guides-ac-chronicles.json";
 import acPs4GuideData from "../../data/catalog-edition-guides-ac-ps4.json";
 import acMirageGuideData from "../../data/catalog-edition-guides-ac-mirage.json";
+import acSyndicatePs4GuideData from "../../data/catalog-edition-guides-ac-syndicate-ps4.json";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
@@ -157,6 +158,7 @@ const rawGuideDocuments = [
   acChroniclesGuideData,
   acPs4GuideData,
   acMirageGuideData,
+  acSyndicatePs4GuideData,
 ] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
