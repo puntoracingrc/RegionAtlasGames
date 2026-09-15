@@ -5,6 +5,9 @@ import { buildPlatformMetadata } from "@/lib/catalog-seo";
 import { NewsStrip } from "@/components/news-strip";
 import { PlatformCatalogSection } from "@/components/platform-catalog-section";
 import { PlatformHistorySection } from "@/components/platform-history-section";
+import { BackLink } from "@/components/breadcrumbs";
+import { ManufacturerLogo } from "@/components/manufacturer-logo";
+import { PlatformHeroArt } from "@/components/platform-card-art";
 import { SiteNav } from "@/components/site-nav";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import {
@@ -118,11 +121,24 @@ export default async function PlatformPage({ params, searchParams }: Props) {
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
         {catalogGames.length === 0 ? (
           <>
-            <div className="rounded-2xl border border-dashed border-border p-12 text-center">
-              <p className="text-lg text-foreground/80">Catálogo en construcción</p>
-              <p className="mt-2 text-sm text-muted">
-                Aún no hay fichas catalogadas para esta plataforma.
-              </p>
+            <header className="mb-8 space-y-4">
+              <BackLink href="/plataformas">Plataformas</BackLink>
+              <div className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+                <PlatformHeroArt platform={platform} />
+                <div className="relative z-10 space-y-3 p-5 md:p-7">
+                  <ManufacturerLogo manufacturer={platform.manufacturer} />
+                  <h1 className="text-3xl font-bold text-foreground md:text-4xl">
+                    {platform.name}
+                  </h1>
+                  <p className="max-w-xl text-sm leading-relaxed text-muted">
+                    {platform.description}
+                  </p>
+                </div>
+              </div>
+            </header>
+            <div className="flex flex-col gap-1 border-y border-border/70 py-4 sm:flex-row sm:items-baseline sm:justify-between">
+              <p className="font-medium text-foreground/80">Catálogo en construcción</p>
+              <p className="text-sm text-muted">Aún no hay fichas catalogadas para esta plataforma.</p>
             </div>
             {platformHistory ? (
               <div className="mt-8">
