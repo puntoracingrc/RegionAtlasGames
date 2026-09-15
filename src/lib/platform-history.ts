@@ -27,6 +27,10 @@ import nintendo3dsHistoryData from "../../data/research/platform-history/platfor
 import nintendoWiiUHistoryData from "../../data/research/platform-history/platforms-nintendo-wiiu.json";
 import nintendoSwitchHistoryData from "../../data/research/platform-history/platforms-nintendo-switch.json";
 import nintendoSwitch2HistoryData from "../../data/research/platform-history/platforms-nintendo-switch2.json";
+import neoGeoHistoryData from "../../data/research/platform-history/platforms-neogeo.json";
+import neoGeoCdHistoryData from "../../data/research/platform-history/platforms-neogeocd.json";
+import hyperNeoGeo64HistoryData from "../../data/research/platform-history/platforms-hyper-neogeo64.json";
+import neoGeoPocketHistoryData from "../../data/research/platform-history/platforms-neogeopocket.json";
 import type {
   CompanyPlatformHistoryLink,
   CompanyGenealogyLink,
@@ -65,72 +69,57 @@ const nintendo3dsData = nintendo3dsHistoryData as PlatformHistoryData;
 const nintendoWiiUData = nintendoWiiUHistoryData as PlatformHistoryData;
 const nintendoSwitchData = nintendoSwitchHistoryData as PlatformHistoryData;
 const nintendoSwitch2Data = nintendoSwitch2HistoryData as PlatformHistoryData;
+const neoGeoData = neoGeoHistoryData as PlatformHistoryData;
+const neoGeoCdData = neoGeoCdHistoryData as PlatformHistoryData;
+const hyperNeoGeo64Data = hyperNeoGeo64HistoryData as PlatformHistoryData;
+const neoGeoPocketData = neoGeoPocketHistoryData as PlatformHistoryData;
+
+const overlays = [
+  playstation2Data,
+  pspData,
+  playstation3Data,
+  psVitaData,
+  playstation5Data,
+  xboxData,
+  xbox360Data,
+  xboxOneData,
+  xboxSeriesData,
+  segaEarlyData,
+  segaMegaDriveData,
+  segaGameGearData,
+  segaSaturnData,
+  segaDreamcastData,
+  nintendoGameAndWatchData,
+  nintendoNesData,
+  nintendoGameBoyData,
+  nintendoSnesData,
+  nintendoVirtualBoyData,
+  nintendoN64Data,
+  nintendoGbaData,
+  nintendoGameCubeData,
+  nintendoDsData,
+  nintendoWiiData,
+  nintendo3dsData,
+  nintendoWiiUData,
+  nintendoSwitchData,
+  nintendoSwitch2Data,
+  neoGeoData,
+  neoGeoCdData,
+  hyperNeoGeo64Data,
+  neoGeoPocketData,
+];
+
 const data: PlatformHistoryData = {
-  version: Math.max(
-    baseData.version,
-    playstation2Data.version,
-    playstation3Data.version,
-    playstation5Data.version,
-    pspData.version,
-    psVitaData.version,
-    xboxData.version,
-    xbox360Data.version,
-    xboxOneData.version,
-    xboxSeriesData.version,
-    segaEarlyData.version,
-    segaMegaDriveData.version,
-    segaGameGearData.version,
-    segaSaturnData.version,
-    segaDreamcastData.version,
-    nintendoGameAndWatchData.version,
-    nintendoNesData.version,
-    nintendoGameBoyData.version,
-    nintendoSnesData.version,
-    nintendoVirtualBoyData.version,
-    nintendoN64Data.version,
-    nintendoGbaData.version,
-    nintendoGameCubeData.version,
-    nintendoDsData.version,
-    nintendoWiiData.version,
-    nintendo3dsData.version,
-    nintendoWiiUData.version,
-    nintendoSwitchData.version,
-    nintendoSwitch2Data.version,
+  version: Math.max(baseData.version, ...overlays.map((overlay) => overlay.version)),
+  generatedAt: overlays.reduce(
+    (latest, overlay) => overlay.generatedAt > latest ? overlay.generatedAt : latest,
+    baseData.generatedAt,
   ),
-  generatedAt: nintendoSwitch2Data.generatedAt,
   platforms: [
     ...new Map(
-      [
-        ...baseData.platforms,
-        ...playstation2Data.platforms,
-        ...pspData.platforms,
-        ...playstation3Data.platforms,
-        ...psVitaData.platforms,
-        ...playstation5Data.platforms,
-        ...xboxData.platforms,
-        ...xbox360Data.platforms,
-        ...xboxOneData.platforms,
-        ...xboxSeriesData.platforms,
-        ...segaEarlyData.platforms,
-        ...segaMegaDriveData.platforms,
-        ...segaGameGearData.platforms,
-        ...segaSaturnData.platforms,
-        ...segaDreamcastData.platforms,
-        ...nintendoGameAndWatchData.platforms,
-        ...nintendoNesData.platforms,
-        ...nintendoGameBoyData.platforms,
-        ...nintendoSnesData.platforms,
-        ...nintendoVirtualBoyData.platforms,
-        ...nintendoN64Data.platforms,
-        ...nintendoGbaData.platforms,
-        ...nintendoGameCubeData.platforms,
-        ...nintendoDsData.platforms,
-        ...nintendoWiiData.platforms,
-        ...nintendo3dsData.platforms,
-        ...nintendoWiiUData.platforms,
-        ...nintendoSwitchData.platforms,
-        ...nintendoSwitch2Data.platforms,
-      ].map((history) => [history.platformSlug, history]),
+      [baseData, ...overlays]
+        .flatMap((overlay) => overlay.platforms)
+        .map((history) => [history.platformSlug, history]),
     ).values(),
   ],
 };

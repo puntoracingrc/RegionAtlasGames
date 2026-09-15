@@ -11,6 +11,9 @@ import xboxOnePeopleData from "../../data/research/platform-history/people-xboxo
 import xboxSeriesPeopleData from "../../data/research/platform-history/people-xboxseries-public.json";
 import segaPeopleData from "../../data/research/platform-history/people-sega-public.json";
 import nintendoPeopleData from "../../data/research/platform-history/people-nintendo-public.json";
+import snkPeopleData from "../../data/research/platform-history/people-snk-public.json";
+import { getCatalogGame, getPlatform } from "./catalog";
+import { getPlatformHistory, getPlatformHistoryData } from "./platform-history";
 import type {
   CompanyPersonLink,
   PersonCardData,
@@ -44,6 +47,7 @@ const xboxOneData = xboxOnePeopleData as unknown as PersonPublicOverlayData;
 const xboxSeriesData = xboxSeriesPeopleData as unknown as PersonPublicOverlayData;
 const segaData = segaPeopleData as unknown as PersonPublicOverlayData;
 const nintendoData = nintendoPeopleData as unknown as PersonPublicOverlayData;
+const snkData = snkPeopleData as unknown as PersonPublicOverlayData;
 
 function applyOverlay(
   current: PersonPublicData,
@@ -105,9 +109,19 @@ const data = [
   xboxSeriesData,
   segaData,
   nintendoData,
+  snkData,
 ].reduce(applyOverlay, baseData);
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));
+const figurePlatformSlugsByPerson = new Map<string, Set<string>>();
+
+for (const history of getPlatformHistoryData().platforms) {
+  for (const figure of history.figures) {
+    const slugs = figurePlatformSlugsByPerson.get(figure.personSlug) ?? new Set<string>();
+    slugs.add(history.platformSlug);
+    figurePlatformSlugsByPerson.set(figure.personSlug, slugs);
+  }
+}
 
 function normalize(value: string): string {
   return value
@@ -180,6 +194,18 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
   const occupations = uniqueBy(profile.occupations, (occupation) => occupation.name)
     .slice(0, 3)
     .map((occupation) => occupation.name);
+  const platformSlugs = [
+    ...historicalRelations.flatMap((relation) => {
+      if (relation.platformSlug) return [relation.platformSlug];
+      return relation.targetType === "platform" ? [relation.targetSlug] : [];
+    }),
+    ...(figurePlatformSlugsByPerson.get(profile.slug) ?? []),
+    ...[...credits, ...relatedWorks].flatMap((work) => {
+      if (!work.catalogId) return [];
+      const platformSlug = getCatalogGame(work.catalogId)?.platformSlug;
+      return platformSlug ? [platformSlug] : [];
+    }),
+  ].filter((slug, index, slugs) => slugs.indexOf(slug) === index);
   const searchHaystack = normalize(
     [
       profile.name,
@@ -192,6 +218,10 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
       ...profile.fieldsOfWork.map((item) => item.name),
       ...companies.map((company) => company.name),
       ...works,
+      ...platformSlugs.flatMap((platformSlug) => [
+        platformSlug,
+        getPlatformHistory(platformSlug)?.title ?? getPlatform(platformSlug)?.name ?? "",
+      ]),
       ...historicalRelations.flatMap((relation) => [
         relation.targetName,
         relation.relationshipLabelEs,
@@ -210,6 +240,7 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
     companies: companies.slice(0, 3),
     works,
     expertise: expertiseFor(profile, relations, credits),
+    platformSlugs,
     searchHaystack,
   };
 }

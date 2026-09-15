@@ -66,6 +66,10 @@ test("publishes reusable structured history and keeps an empty fallback", () => 
       "wiiu",
       "switch",
       "switch2",
+      "neogeo",
+      "neogeocd",
+      "hyper-neogeo-64",
+      "neogeopocket",
     ],
   );
   assert.equal(history.figures.length, 7);

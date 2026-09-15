@@ -29,6 +29,7 @@ const hardwareLabels: Record<PlatformHardwareKind, string> = {
   COMPLEMENTARY_HARDWARE: "Hardware complementario",
   COMMEMORATIVE_HARDWARE: "Producto conmemorativo",
   MID_GENERATION_UPGRADE: "Actualización de media generación",
+  ANNOUNCED_HARDWARE: "Hardware anunciado",
   CONTROLLER: "Mando",
   PRO_CONTROLLER: "Mando profesional",
   PERIPHERAL: "Periférico",

@@ -22,6 +22,7 @@ import xboxOnePublicData from "../../data/research/platform-history/people-xboxo
 import xboxSeriesPublicData from "../../data/research/platform-history/people-xboxseries-public.json";
 import segaPublicData from "../../data/research/platform-history/people-sega-public.json";
 import nintendoPublicData from "../../data/research/platform-history/people-nintendo-public.json";
+import snkPublicData from "../../data/research/platform-history/people-snk-public.json";
 import relationsData from "../../data/research/person-study/relations.json";
 import reviewData from "../../data/research/person-study/review.json";
 import sourcesData from "../../data/research/person-study/sources.json";
@@ -135,6 +136,7 @@ const xboxOnePublic = xboxOnePublicData as unknown as PersonPublicOverlayData;
 const xboxSeriesPublic = xboxSeriesPublicData as unknown as PersonPublicOverlayData;
 const segaPublic = segaPublicData as unknown as PersonPublicOverlayData;
 const nintendoPublic = nintendoPublicData as unknown as PersonPublicOverlayData;
+const snkPublic = snkPublicData as unknown as PersonPublicOverlayData;
 const companies = companiesData as Record<string, unknown>;
 
 function sha256File(relativePath: string): string {
@@ -227,6 +229,8 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
       ...(segaPublic.profilePatches ?? []).map((profile) => profile.slug),
       ...(nintendoPublic.profiles ?? []).map((profile) => profile.slug),
       ...(nintendoPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(snkPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(snkPublic.profilePatches ?? []).map((profile) => profile.slug),
     ],
   );
   const nonPublic = core.filter(
@@ -249,6 +253,7 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
     ...(xboxSeriesPublic.profiles ?? []).map((profile) => profile.slug),
     ...(segaPublic.profiles ?? []).map((profile) => profile.slug),
     ...(nintendoPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(snkPublic.profiles ?? []).map((profile) => profile.slug),
   ]);
   assert.deepEqual(sorted(publicSlugs), sorted(expectedPublicSlugs));
   for (const person of nonPublic) {

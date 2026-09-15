@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { PersonExplorer } from "@/components/person-explorer";
 import { SiteNav } from "@/components/site-nav";
+import { getPersonPlatformFilterGroups } from "@/lib/person-platform-filters";
 import { getPersonCards } from "@/lib/person-public-research";
 import { getSiteUrl } from "@/lib/site-url";
 
 const people = getPersonCards();
+const platformGroups = getPersonPlatformFilterGroups();
 
 export const metadata: Metadata = {
   title: "Personas de la industria del videojuego",
@@ -34,7 +36,7 @@ export default function PeoplePage() {
             <span><strong className="text-foreground">{portraits}</strong> retratos acreditados</span>
           </div>
         </header>
-        <PersonExplorer people={people} />
+        <PersonExplorer people={people} platformGroups={platformGroups} />
       </main>
     </>
   );

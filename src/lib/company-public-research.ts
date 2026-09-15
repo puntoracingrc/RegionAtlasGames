@@ -1,6 +1,7 @@
 import publicResearchData from "../../data/research/company-study/public.json";
 import segaResearchData from "../../data/research/platform-history/company-sega-public.json";
 import nintendoResearchData from "../../data/research/platform-history/company-nintendo-public.json";
+import snkResearchData from "../../data/research/platform-history/company-snk-public.json";
 import type {
   CompanyResearchAchievement,
   CompanyResearchPublicData,
@@ -18,22 +19,22 @@ function mergeByKey<T>(base: T[], overlay: T[], key: (item: T) => string): T[] {
 const baseData = publicResearchData as CompanyResearchPublicData;
 const segaData = segaResearchData as CompanyResearchPublicData;
 const nintendoData = nintendoResearchData as CompanyResearchPublicData;
+const snkData = snkResearchData as CompanyResearchPublicData;
+const overlays = [segaData, nintendoData, snkData];
 const publicData: CompanyResearchPublicData = {
-  version: Math.max(baseData.version, segaData.version, nintendoData.version),
-  profiles: mergeByKey(
-    mergeByKey(baseData.profiles, segaData.profiles, (item) => item.slug),
-    nintendoData.profiles,
-    (item) => item.slug,
+  version: Math.max(baseData.version, ...overlays.map((overlay) => overlay.version)),
+  profiles: overlays.reduce(
+    (profiles, overlay) => mergeByKey(profiles, overlay.profiles, (item) => item.slug),
+    baseData.profiles,
   ),
-  achievements: mergeByKey(
-    mergeByKey(baseData.achievements, segaData.achievements, (item) => item.id),
-    nintendoData.achievements,
-    (item) => item.id,
+  achievements: overlays.reduce(
+    (achievements, overlay) =>
+      mergeByKey(achievements, overlay.achievements, (item) => item.id),
+    baseData.achievements,
   ),
-  sources: mergeByKey(
-    mergeByKey(baseData.sources, segaData.sources, (item) => item.id),
-    nintendoData.sources,
-    (item) => item.id,
+  sources: overlays.reduce(
+    (sources, overlay) => mergeByKey(sources, overlay.sources, (item) => item.id),
+    baseData.sources,
   ),
 };
 const profiles = new Map(publicData.profiles.map((profile) => [profile.slug, profile]));

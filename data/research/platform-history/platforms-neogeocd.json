@@ -1,0 +1,91 @@
+{
+  "version": 8,
+  "generatedAt": "2026-09-15T12:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "neogeocd",
+      "title": "Neo Geo CD y CDZ",
+      "dekEs": "La rama óptica de Neo Geo sustituyó el costoso cartucho ROM por CD para acercar el catálogo a más público, a cambio de unas cargas que marcaron su experiencia.",
+      "summaryParagraphsEs": [
+        "SNK lanzó Neo Geo CD en septiembre de 1994 con un objetivo explícito: reducir el coste del soporte y ampliar el público de su catálogo arcade y doméstico.",
+        "La familia tuvo tres formas principales: el primer modelo de carga frontal, el modelo de carga superior y el rediseño compacto Neo Geo CDZ. Son revisiones de una misma plataforma, no generaciones independientes.",
+        "El CD aportó un soporte más económico y audio en formato CD, pero muchos juegos sufrieron esperas prolongadas al mover datos desde el lector óptico.",
+        "Su catálogo procede en buena medida de MVS/AES, pero no todo el software Neo Geo llegó a CD y cada posible exclusividad debe comprobarse de forma individual."
+      ],
+      "historyTitleEs": "Abaratar Neo Geo mediante soporte óptico",
+      "historyParagraphsEs": [
+        "El precio de los cartuchos era una barrera estructural para AES. Neo Geo CD conservó la identidad de juego de la familia y cambió el medio físico por discos mucho más baratos de producir.",
+        "La decisión facilitó ediciones con audio CD, pero convirtió la transferencia de datos en una parte visible de la experiencia. Las cargas variaban según el juego y no deben resumirse con una cifra universal.",
+        "CDZ buscó mejorar esa experiencia en un cuerpo más compacto. Sin una fuente técnica primaria suficiente, la ficha evita fijar velocidades o especificaciones concretas.",
+        "La plataforma convivió con nuevas consolas ópticas y 3D durante la segunda mitad de los noventa sin sustituir técnicamente al MVS."
+      ],
+      "figures": [
+        {"personSlug":"eikichi-kawasaki","personName":"Eikichi Kawasaki","roleLabelEs":"Liderazgo corporativo","contributionEs":"La rama CD nació durante su etapa al frente de la SNK original.","period":"1994","sourceIds":["PH-CD-SNK-HISTORY","PH-CD-DOSSIER"]},
+        {"personSlug":"takashi-nishiyama","personName":"Takashi Nishiyama","roleLabelEs":"Dirección de desarrollo","contributionEs":"Se vincula al contexto de desarrollo de SNK y del ecosistema Neo Geo, sin atribuirle en solitario la arquitectura de Neo Geo CD.","period":"Etapa clásica de SNK","sourceIds":["PH-CD-DOSSIER"]},
+        {"personSlug":"hiroshi-matsumoto","personName":"Hiroshi Matsumoto","roleLabelEs":"Juegos del ecosistema","contributionEs":"Participó en series que pasaron por la rama CD; los créditos exactos se conservan por título.","period":"Años 90","sourceIds":["PH-CD-DOSSIER"]},
+        {"personSlug":"shinkiro","personName":"Shinkiro","roleLabelEs":"Identidad visual","contributionEs":"Su arte acompañó varias de las series principales distribuidas también en Neo Geo CD.","period":"Años 90","sourceIds":["PH-CD-DOSSIER"]}
+      ],
+      "architectureTitleEs": "El cambio de cartucho a disco",
+      "architectureDekEs": "La ficha se centra en las consecuencias documentadas del soporte óptico.",
+      "architecture": [
+        {"id":"architecture-neogeocd-media","name":"CD-ROM","kind":"OPTICAL_MEDIA","summaryEs":"Soporte físico más económico que los cartuchos ROM de AES y concebido para ampliar el acceso al catálogo.","features":["Menor coste de fabricación","Catálogo derivado de Neo Geo","Sin compatibilidad física con cartuchos AES/MVS"],"partners":[{"companySlug":"snk","companyName":"SNK","roleLabelEs":"Diseño y plataforma"}],"sourceIds":["PH-CD-SNK-HISTORY"]},
+        {"id":"architecture-neogeocd-audio","name":"Audio CD","kind":"AUDIO","summaryEs":"El formato permitía pistas de audio de calidad CD y arreglos específicos en parte del catálogo.","features":["Reproducción desde disco","Implementación dependiente del juego"],"partners":[{"companySlug":"snk","companyName":"SNK","roleLabelEs":"Plataforma"}],"sourceIds":["PH-CD-DOSSIER"]}
+      ],
+      "companiesTitleEs": "SNK, ADK y el catálogo en CD",
+      "companies": [
+        {"companySlug":"snk","companyName":"SNK","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y editora principal","period":"1994-finales de los 90","contributionEs":"Creó la plataforma y trasladó a CD varias de sus series centrales.","relatedWorks":["The King of Fighters","Fatal Fury","Samurai Shodown","Metal Slug"],"relatedCatalogEntries":[{"id":"neogeocd-usa-king-fighters-94","title":"The King of Fighters '94"},{"id":"neogeocd-usa-metal-slug","title":"Metal Slug"}],"sourceIds":["PH-CD-SNK-HISTORY","PH-CD-NEOGEO-CATALOGUE"]},
+        {"companySlug":"adk","companyName":"ADK","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Desarrolladora externa clave","period":"Etapa Neo Geo CD","contributionEs":"Su biblioteca tuvo una presencia relevante en CD. ADK conserva identidad propia y no se fusiona con SNK.","relatedWorks":["ADK World","Crossed Swords II","ZinTrick"],"sourceIds":["PH-CD-DOSSIER","PH-CD-NEOGEO-CATALOGUE"]}
+      ],
+      "companyGroups": [
+        {"id":"neogeocd-platform-holder","labelEs":"Responsable de la plataforma","descriptionEs":"SNK diseñó y comercializó la rama óptica.","companySlugs":["snk"]},
+        {"id":"neogeocd-external","labelEs":"Desarrollo externo documentado","descriptionEs":"ADK se mantiene como compañía independiente en la relación editorial.","companySlugs":["adk"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "Catálogo trasladado y particularidades",
+      "gameGroups": [
+        {
+          "id": "neogeocd-representative",
+          "labelEs": "Lanzamientos representativos",
+          "descriptionEs": "Ejemplos comprobables del catálogo, sin asumir que toda la biblioteca MVS/AES llegó a CD.",
+          "games": [
+            {"title":"The King of Fighters '94","catalogId":"neogeocd-usa-king-fighters-94","year":1994,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-CD-KOF-PORTAL","PH-CD-NEOGEO-CATALOGUE"]},
+            {"title":"Fatal Fury Special","catalogId":"neogeocd-usa-fatal-fury-special","year":1994,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-CD-NEOGEO-CATALOGUE"]},
+            {"title":"Samurai Shodown II","catalogId":"neogeocd-usa-samurai-shodown-ii","year":1994,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK","companySlugs":["snk"],"sourceIds":["PH-CD-NEOGEO-CATALOGUE"]},
+            {"title":"Metal Slug","catalogId":"neogeocd-usa-metal-slug","year":1996,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SNK/Nazca","companySlugs":["snk","nazca"],"sourceIds":["PH-CD-NEOGEO-CATALOGUE"]},
+            {"title":"Twinkle Star Sprites","catalogId":"neogeocd-japon-twinkle-star-sprites","year":1997,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"ADK","companySlugs":["adk"],"sourceIds":["PH-CD-NEOGEO-CATALOGUE"]},
+            {"title":"The King of Fighters '99","catalogId":"neogeocd-japon-king-fighters-99","year":1999,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Tramo final","companySlugs":["snk"],"sourceIds":["PH-CD-NEOGEO-CATALOGUE"]}
+          ]
+        }
+      ],
+      "hardwareTitleEs": "Tres formas de una misma plataforma",
+      "hardware": [
+        {"id":"hardware-neogeocd-front-loader","name":"Neo Geo CD Front Loader","kind":"BASE_MODEL","yearLabel":"1994","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Primer diseño de carga frontal de la familia Neo Geo CD.","features":["Lector CD-ROM","Carga frontal","No admite cartuchos AES/MVS"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-CD-SNK-HISTORY","PH-CD-DOSSIER"]},
+        {"id":"hardware-neogeocd-top-loader","name":"Neo Geo CD Top Loader","kind":"REVISION","yearLabel":"Años 90","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Revisión con tapa superior que conserva la misma familia de software en disco.","features":["Carga superior","Misma plataforma comercial"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-CD-SNK-HISTORY","PH-CD-DOSSIER"]},
+        {"id":"hardware-neogeocdz","name":"Neo Geo CDZ","kind":"REDESIGN","yearLabel":"Años 90","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Rediseño más compacto concebido para mejorar la experiencia de la rama CD; no se presenta como nueva generación.","features":["Cuerpo compacto","Revisión de Neo Geo CD","Especificaciones no completadas sin fuente técnica primaria"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-CD-SNK-HISTORY","PH-CD-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"cartridge-vs-cd","titleEs":"Cartucho frente a CD","dekEs":"La reducción de coste cambió el ritmo de uso.","paragraphsEs":["El disco era mucho más barato de producir que el gran cartucho ROM de AES.","El sistema debía transferir datos desde un lector óptico, de modo que la espera pasó a formar parte de muchos juegos."],"cards":[{"id":"cd-advantage","eyebrowEs":"Ventaja","titleEs":"Soporte asequible","summaryEs":"El CD reducía la barrera económica del formato físico.","detailsEs":["Menor coste de fabricación","Audio CD"],"sourceIds":["PH-CD-SNK-HISTORY"]},{"id":"cd-tradeoff","eyebrowEs":"Contrapartida","titleEs":"Tiempos de carga","summaryEs":"Las cargas podían ser prolongadas y dependían del título.","detailsEs":["No existe una cifra universal","CDZ buscó mejorar la experiencia"],"sourceIds":["PH-CD-DOSSIER"]}],"sourceIds":["PH-CD-SNK-HISTORY","PH-CD-DOSSIER"]},
+        {"id":"cd-exclusives","titleEs":"Particularidades y exclusividades","dekEs":"Cada caso necesita verificación individual.","paragraphsEs":["ADK World, Crossed Swords II y ZinTrick quedan señalados como casos a comprobar con su fuente exacta antes de etiquetarlos públicamente como exclusivos.","La ficha no convierte automáticamente un port de MVS/AES en lanzamiento de Neo Geo CD ni aplica la biblioteca completa por herencia."],"cards":[],"sourceIds":["PH-CD-DOSSIER"]}
+      ],
+      "sectionOrder": ["figures","architecture","hardware","editorial:cartridge-vs-cd","companies","games","editorial:cd-exclusives","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-neogeocd-1994-launch","yearLabel":"Sep 1994","sortYear":1994,"title":"Lanzamiento de Neo Geo CD","summaryEs":"SNK sustituye el cartucho ROM por CD-ROM para llegar a un público más amplio.","sourceIds":["PH-CD-SNK-HISTORY"]},
+        {"id":"milestone-neogeocd-kof94","yearLabel":"2 nov 1994","sortYear":1994,"title":"The King of Fighters '94 en CD","summaryEs":"El portal y el catálogo oficial sitúan esta versión a comienzos de la vida de la plataforma.","sourceIds":["PH-CD-KOF-PORTAL","PH-CD-NEOGEO-CATALOGUE"]},
+        {"id":"milestone-neogeocd-1995","yearLabel":"1995","sortYear":1995,"title":"Expansión del catálogo","summaryEs":"La biblioteca crece con conversiones de series propias y juegos de estudios asociados.","sourceIds":["PH-CD-NEOGEO-CATALOGUE"]},
+        {"id":"milestone-neogeocd-final","yearLabel":"Finales de los 90","sortYear":1999,"title":"Fin del ciclo comercial","summaryEs":"La rama pierde relevancia ante nuevas plataformas ópticas y 3D.","sourceIds":["PH-CD-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "Neo Geo CD fue un intento explícito de democratizar una biblioteca asociada hasta entonces a cartuchos de precio muy elevado.",
+        "El formato óptico permitió audio CD y ediciones más asequibles, pero hizo visibles las limitaciones del lector en forma de esperas.",
+        "CDZ pertenece a esa misma historia como rediseño; no es una nueva generación ni un sistema compatible con cartuchos AES."
+      ],
+      "sources": [
+        {"id":"PH-CD-DOSSIER","title":"Dossier editorial Region Atlas · Neo Geo CD/CDZ","publication":"Region Atlas","publisher":"Archivo de investigación","kind":"reference","language":"es","citation":"Análisis respaldado, septiembre de 2026","url":null},
+        {"id":"PH-CD-SNK-HISTORY","title":"SNK History 1978-2024","publication":"SNK History","publisher":"SNK Corporation","kind":"official","language":"ja","citation":"Neo Geo CD y modelos","url":"https://www.snk-corp.co.jp/snk-history/history/"},
+        {"id":"PH-CD-KOF-PORTAL","title":"KOF Portal","publication":"The King of Fighters","publisher":"SNK Corporation","kind":"official","language":"en","citation":"Cronología de lanzamientos","url":"https://www.snk-corp.co.jp/us/games/kof-portal/"},
+        {"id":"PH-CD-NEOGEO-CATALOGUE","title":"Title Catalogue","publication":"NEOGEO Museum","publisher":"SNK Corporation","kind":"official","language":"en","citation":"Fechas y editores de versiones CD","url":"https://neogeomuseum.snk-corp.co.jp/english/catalogue/index.php"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

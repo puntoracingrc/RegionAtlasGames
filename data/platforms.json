@@ -174,6 +174,7 @@
     "status": "closed",
     "estimatedCatalogSize": 248,
     "sortOrder": 16,
+    "releaseYear": 1990,
     "spainReleaseYear": 1991,
     "description": "Catálogo con dos variantes regionales: Occidental y Japonesa."
   },
@@ -182,13 +183,13 @@
     "name": "NEOGEO AES+",
     "shortName": "AES+",
     "manufacturer": "snk",
-    "status": "open",
+    "status": "announced",
     "estimatedCatalogSize": 20,
     "sortOrder": 16.5,
-    "spainReleaseYear": 2026,
-    "active": true,
+    "announcedReleaseDate": "2027-09-16",
+    "active": false,
     "newsEnabled": true,
-    "description": "Catálogo abierto de reediciones físicas oficiales para NEOGEO AES+, separadas en versiones Internacional y Japonesa."
+    "description": "Hardware anunciado por SNK y PLAION REPLAI. El lanzamiento y los envíos están previstos para el 16 de septiembre de 2027."
   },
   {
     "slug": "neogeocd",
@@ -198,8 +199,22 @@
     "status": "closed",
     "estimatedCatalogSize": 183,
     "sortOrder": 17,
+    "releaseYear": 1994,
     "spainReleaseYear": 1996,
     "description": "Catálogo físico organizado en sus dos familias comerciales: Occidental y Japonesa."
+  },
+  {
+    "slug": "hyper-neogeo-64",
+    "name": "Hyper Neo Geo 64",
+    "shortName": "Hyper Neo Geo 64",
+    "manufacturer": "snk",
+    "status": "closed",
+    "estimatedCatalogSize": 0,
+    "sortOrder": 17.5,
+    "releaseYear": 1997,
+    "active": false,
+    "newsEnabled": false,
+    "description": "Placa arcade de SNK lanzada en 1997 como sucesora técnica del MVS y campo de transición hacia gráficos 3D."
   },
   {
     "slug": "neogeopocket",
@@ -209,6 +224,7 @@
     "status": "closed",
     "estimatedCatalogSize": 169,
     "sortOrder": 18,
+    "releaseYear": 1998,
     "spainReleaseYear": 1999,
     "description": "Catálogo físico organizado en sus tres familias comerciales: USA, Europea y Japonesa."
   },

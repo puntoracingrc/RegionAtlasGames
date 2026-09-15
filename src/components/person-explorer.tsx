@@ -5,6 +5,11 @@ import { RotateCcw, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { PersonPortrait } from "@/components/person-portrait";
 import { cn } from "@/lib/cn";
+import { personMatchesPlatformFilters } from "@/lib/person-platform-filter-match";
+import type {
+  PersonPlatformBrand,
+  PersonPlatformFilterGroup,
+} from "@/lib/person-platform-filters";
 import type {
   PersonCardData,
   PersonExpertise,
@@ -68,17 +73,29 @@ function PersonCard({ person, priority = false }: { person: PersonCardData; prio
   );
 }
 
-export function PersonExplorer({ people }: { people: PersonCardData[] }) {
+export function PersonExplorer({
+  people,
+  platformGroups,
+}: {
+  people: PersonCardData[];
+  platformGroups: PersonPlatformFilterGroup[];
+}) {
   const [query, setQuery] = useState("");
   const [expertise, setExpertise] = useState<"all" | PersonExpertise>("all");
+  const [brand, setBrand] = useState<"all" | PersonPlatformBrand>("all");
+  const [platformSlug, setPlatformSlug] = useState<"all" | string>("all");
   const [sort, setSort] = useState<Sort>("name");
   const [visible, setVisible] = useState(PAGE_SIZE);
+  const selectedPlatformGroup = platformGroups.find((group) => group.brand === brand);
 
   const filtered = useMemo(() => {
     const normalizedQuery = normalize(query.trim());
     return people
       .filter((person) => !normalizedQuery || person.searchHaystack.includes(normalizedQuery))
       .filter((person) => expertise === "all" || person.expertise.includes(expertise))
+      .filter((person) =>
+        personMatchesPlatformFilters(person, brand, platformSlug, platformGroups),
+      )
       .sort((a, b) => {
         if (sort === "birth") {
           const aYear = Number(a.lifeLabel?.match(/\d{4}/)?.[0] ?? 9999);
@@ -87,14 +104,21 @@ export function PersonExplorer({ people }: { people: PersonCardData[] }) {
         }
         return a.name.localeCompare(b.name, "es", { numeric: true });
       });
-  }, [expertise, people, query, sort]);
+  }, [brand, expertise, people, platformGroups, platformSlug, query, sort]);
 
-  const active = query.trim() || expertise !== "all" || sort !== "name";
+  const active =
+    query.trim() ||
+    expertise !== "all" ||
+    brand !== "all" ||
+    platformSlug !== "all" ||
+    sort !== "name";
   const shown = filtered.slice(0, visible);
 
   function reset() {
     setQuery("");
     setExpertise("all");
+    setBrand("all");
+    setPlatformSlug("all");
     setSort("name");
     setVisible(PAGE_SIZE);
   }
@@ -117,29 +141,90 @@ export function PersonExplorer({ people }: { people: PersonCardData[] }) {
           />
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2" aria-label="Filtrar por especialidad">
-          {expertiseOptions.map((option) => (
-            <button
-              key={option.value}
-              type="button"
-              aria-pressed={expertise === option.value}
-              onClick={() => {
-                setExpertise(option.value);
+        <fieldset className="mt-4">
+          <legend className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted">
+            Especialidad
+          </legend>
+          <div className="flex flex-wrap gap-2">
+            {expertiseOptions.map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                aria-pressed={expertise === option.value}
+                onClick={() => {
+                  setExpertise(option.value);
+                  setVisible(PAGE_SIZE);
+                }}
+                className={cn(
+                  "rounded-lg border px-3 py-2 text-xs font-semibold transition",
+                  expertise === option.value
+                    ? "border-accent bg-accent text-accent-fg"
+                    : "border-border bg-background/45 text-foreground/80 hover:bg-card-hover",
+                )}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset className="mt-4 border-t border-border pt-4">
+          <legend className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted">
+            Marca
+          </legend>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { brand: "all" as const, label: "Todas las marcas" },
+              ...platformGroups,
+            ].map((option) => (
+              <button
+                key={option.brand}
+                type="button"
+                aria-pressed={brand === option.brand}
+                onClick={() => {
+                  setBrand(option.brand);
+                  setPlatformSlug("all");
+                  setVisible(PAGE_SIZE);
+                }}
+                className={cn(
+                  "rounded-lg border px-3 py-2 text-xs font-semibold transition",
+                  brand === option.brand
+                    ? "border-accent bg-accent text-accent-fg"
+                    : "border-border bg-background/45 text-foreground/80 hover:bg-card-hover",
+                )}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-[minmax(17rem,24rem)_15rem_auto]">
+          <label className="space-y-1">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">
+              Plataforma
+            </span>
+            <select
+              className="input disabled:cursor-not-allowed disabled:opacity-60"
+              value={platformSlug}
+              disabled={!selectedPlatformGroup}
+              onChange={(event) => {
+                setPlatformSlug(event.target.value);
                 setVisible(PAGE_SIZE);
               }}
-              className={cn(
-                "rounded-lg border px-3 py-2 text-xs font-semibold transition",
-                expertise === option.value
-                  ? "border-accent bg-accent text-accent-fg"
-                  : "border-border bg-background/45 text-foreground/80 hover:bg-card-hover",
-              )}
             >
-              {option.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-4 grid gap-3 sm:grid-cols-[15rem_auto]">
+              <option value="all">
+                {selectedPlatformGroup
+                  ? `Todas las plataformas de ${selectedPlatformGroup.label}`
+                  : "Selecciona primero una marca"}
+              </option>
+              {selectedPlatformGroup?.platforms.map((platform) => (
+                <option key={platform.slug} value={platform.slug}>
+                  {platform.label}
+                </option>
+              ))}
+            </select>
+          </label>
           <label className="space-y-1">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Orden</span>
             <select className="input" value={sort} onChange={(event) => setSort(event.target.value as Sort)}>
@@ -147,7 +232,7 @@ export function PersonExplorer({ people }: { people: PersonCardData[] }) {
               <option value="birth">Nacimiento</option>
             </select>
           </label>
-          <div className="flex items-end justify-between gap-3 lg:justify-end">
+          <div className="flex items-end justify-between gap-3 sm:col-span-2 lg:col-span-1 lg:justify-end">
             <p className="pb-2.5 text-sm text-muted">
               <strong className="text-foreground">{filtered.length.toLocaleString("es-ES")}</strong> personas
             </p>

@@ -63,7 +63,8 @@ export type CompanyGenealogyRelation = {
     | "BECAME_INDEPENDENT"
     | "TRANSFERRED_TO"
     | "PENDING_TRANSFER"
-    | "CONSULTATION_STARTED";
+    | "CONSULTATION_STARTED"
+    | "IP_SUCCEEDED_BY";
   targetCompanySlug: string | null;
   targetCompanyName: string | null;
   year: number | null;
@@ -90,6 +91,7 @@ export type PlatformHardwareKind =
   | "COMPLEMENTARY_HARDWARE"
   | "COMMEMORATIVE_HARDWARE"
   | "MID_GENERATION_UPGRADE"
+  | "ANNOUNCED_HARDWARE"
   | "CONTROLLER"
   | "PRO_CONTROLLER"
   | "PERIPHERAL"
@@ -123,6 +125,7 @@ export const PLATFORM_HARDWARE_GROUPS: {
       "INTEGRATED_HARDWARE",
       "COMMEMORATIVE_HARDWARE",
       "MID_GENERATION_UPGRADE",
+      "ANNOUNCED_HARDWARE",
     ],
   },
   {

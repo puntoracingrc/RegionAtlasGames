@@ -19,6 +19,7 @@ export function getPlatformHistoryPresentation(
     status: identity.status,
     estimatedCatalogSize: 0,
     sortOrder: identity.sortOrder,
+    releaseYear: identity.releaseYear ?? undefined,
     description: identity.descriptionEs,
     active: false,
     newsEnabled: false,
