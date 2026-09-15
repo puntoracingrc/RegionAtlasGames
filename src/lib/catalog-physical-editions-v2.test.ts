@@ -550,6 +550,7 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
     absolumGuide().physicalEditions.some((edition) => edition.marketRegions.includes("PT")),
     false,
   );
+  assert.equal(ps5RegionOptions.includes(catalogMarketRegionToLegacyRegion("PT")), true);
 });
 
 test("V2 overview regions link to the matching regional block or exact physical edition", () => {
@@ -695,6 +696,7 @@ test("documented guides expose a family for every countable catalog route", () =
     "assassins-creed-origins-ps4",
     "assassins-creed-rogue-remastered-ps4",
     "assassins-creed-mirage-ps4",
+    "assassins-creed-mirage-ps5",
     "assassins-creed-syndicate-ps4",
     "assassins-creed-the-ezio-collection-ps4",
     "assassins-creed-unity-ps4-worldwide",

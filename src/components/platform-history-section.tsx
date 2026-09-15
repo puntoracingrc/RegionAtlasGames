@@ -400,7 +400,7 @@ export function PlatformHistorySection({
             </div>
           ) : null}
         </div>
-        <dl className="grid grid-cols-3 gap-5 border-l-0 border-border lg:border-l lg:pl-7">
+        <dl className="grid shrink-0 grid-cols-3 gap-5 border-l-0 border-border lg:border-l lg:pl-7">
           <div><dt className="text-xs text-muted">Figuras</dt><dd className="mt-1 text-2xl font-black text-foreground">{history.figures.length}</dd></div>
           <div><dt className="text-xs text-muted">Compañías</dt><dd className="mt-1 text-2xl font-black text-foreground">{history.companies.length}</dd></div>
           <div><dt className="text-xs text-muted">Hardware</dt><dd className="mt-1 text-2xl font-black text-foreground">{history.hardware.length}</dd></div>
