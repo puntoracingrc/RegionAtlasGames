@@ -5,10 +5,13 @@ import ac4BlackFlagGuideData from "../../data/catalog-edition-guides-ac4-black-f
 import acChroniclesGuideData from "../../data/catalog-edition-guides-ac-chronicles.json";
 import acPs4GuideData from "../../data/catalog-edition-guides-ac-ps4.json";
 import acMirageGuideData from "../../data/catalog-edition-guides-ac-mirage.json";
+import acMiragePs5GuideData from "../../data/catalog-edition-guides-ac-mirage-ps5.json";
 import acSyndicatePs4GuideData from "../../data/catalog-edition-guides-ac-syndicate-ps4.json";
 import acEzioCollectionPs4GuideData from "../../data/catalog-edition-guides-ac-ezio-collection-ps4.json";
 import acUnityValhallaGuideData from "../../data/catalog-edition-guides-ac-unity-valhalla.json";
 import acOdysseyGuideData from "../../data/catalog-edition-guides-ac-odyssey.json";
+import acShadowsPs5GuideData from "../../data/catalog-edition-guides-ac-shadows-ps5.json";
+import acValhallaPs5GuideData from "../../data/catalog-edition-guides-ac-valhalla-ps5.json";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
@@ -27,8 +30,11 @@ import {
   type CatalogEditionFamily,
   type CatalogEditionImage,
   type CatalogPhysicalEdition,
+  type CatalogPhysicalBonusItem,
+  type CatalogRelatedRelease,
   type CatalogPhysicalPriceCondition,
   type CatalogPhysicalEditionType,
+  type CatalogPhysicalProductType,
   type CatalogPhysicalResearchStatus,
   type CatalogPhysicalVariantConfidence,
 } from "./catalog-edition-guide-types";
@@ -61,6 +67,8 @@ type PhysicalGuide = {
     title: string;
     platformSlug: string;
     canonicalCatalogId: string;
+    canonicalGameId?: string;
+    platformReleaseId?: string;
     aliases?: string[];
   };
   editionFamilies?: Array<{
@@ -75,6 +83,7 @@ type PhysicalGuide = {
     label: string;
     broadRegion: CatalogPhysicalEdition["broadRegion"];
     editionType: CatalogPhysicalEditionType;
+    releaseStatus?: CatalogPhysicalEdition["releaseStatus"];
     marketRegions?: string[];
     evidenceMarkets?: string[];
     distributionMarkets?: string[];
@@ -89,7 +98,18 @@ type PhysicalGuide = {
       evidenceIds?: string[];
     }>;
     ratingSystems?: string[];
+    softwareFamilyCodes?: string[];
     productCodes?: string[];
+    physicalProductType?: CatalogPhysicalProductType;
+    nativePhysicalPlatform?: string;
+    compatiblePlatforms?: string[];
+    containsDisc?: boolean;
+    countsAsNativePhysicalRelease?: boolean;
+    upgradeToPS5?: boolean;
+    upgradePath?: string;
+    redeems?: string;
+    requiresBaseGame?: boolean;
+    expansionOf?: string;
     confidence?: CatalogPhysicalVariantConfidence;
     barcode?: string;
     catalogNumber?: string;
@@ -120,6 +140,27 @@ type PhysicalGuide = {
       scanSetIds?: string[];
       priceIdentity: string;
     }>;
+    notes?: string[];
+  }>;
+  physicalBonusItems?: Array<{
+    id: string;
+    label: string;
+    relatedGameId: string;
+    type: CatalogPhysicalBonusItem["type"];
+    retailer?: string;
+    market: string;
+    upc?: string;
+    includesGame: false;
+    catalogIds?: string[];
+    evidenceIds?: string[];
+    notes?: string[];
+  }>;
+  relatedReleases?: Array<{
+    id: string;
+    label: string;
+    type: CatalogRelatedRelease["type"];
+    expansionOf: string;
+    evidenceIds?: string[];
     notes?: string[];
   }>;
   sharedDiscs?: Array<{
@@ -161,16 +202,26 @@ const rawGuideDocuments = [
   acChroniclesGuideData,
   acPs4GuideData,
   acMirageGuideData,
+  acMiragePs5GuideData,
   acSyndicatePs4GuideData,
   acEzioCollectionPs4GuideData,
   acUnityValhallaGuideData,
   acOdysseyGuideData,
+  acShadowsPs5GuideData,
+  acValhallaPs5GuideData,
 ] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
 let documentedGuideByCatalogIdCache: Map<string, CatalogEditionGuideModel> | null = null;
 let documentedCatalogIdsCache: Set<string> | null = null;
 const lazyDerivedGuideByCatalogId = new Map<string, CatalogEditionGuideModel>();
+
+function catalogIdsOwnedByGuide(guide: CatalogEditionGuideModel): string[] {
+  return [
+    ...guide.physicalEditions.flatMap((edition) => edition.catalogIds),
+    ...guide.physicalBonusItems.flatMap((item) => item.catalogIds),
+  ];
+}
 
 function requiredCatalogGame(catalogId: string, platformSlug?: string): CatalogGame {
   const game = getCatalogGame(catalogId);
@@ -186,6 +237,7 @@ function requiredCatalogGame(catalogId: string, platformSlug?: string): CatalogG
 function legacyEditionType(label: string): CatalogPhysicalEditionType {
   const normalized = label.toLowerCase();
   if (normalized.includes("collector")) return "COLLECTOR";
+  if (normalized.includes("gold")) return "GOLD";
   if (normalized.includes("deluxe")) return "DELUXE";
   if (normalized.includes("limited")) return "LIMITED";
   if (normalized.includes("steelbook")) return "STEELBOOK";
@@ -219,6 +271,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       label: entry.label,
       broadRegion: catalogBroadRegionFromLegacyRegion(entry.identity.region),
       editionType: legacyEditionType(entry.label),
+      releaseStatus: "RELEASED",
       collectionIdentity: "catalog-entry",
       marketRegions: [target.region],
       evidenceMarkets: [],
@@ -227,7 +280,9 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       softwareLanguages: [],
       componentLanguageEvidence: [],
       ratingSystems: [],
+      softwareFamilyCodes: [],
       productCodes: [],
+      compatiblePlatforms: [entry.identity.platformSlug],
       physicalContents: [],
       digitalContents: [],
       catalogIds: [entry.catalogId],
@@ -270,6 +325,8 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
     note: raw.note,
     game: { title: canonical.title, platformSlug: canonical.platformSlug, canonicalCatalogId: canonical.id },
     physicalEditions,
+    physicalBonusItems: [],
+    relatedReleases: [],
     editionFamilies,
     sharedDiscs: [],
     sources: raw.sources,
@@ -282,11 +339,18 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
   const evidenceById = new Map(raw.evidence.map((entry) => [entry.id, entry]));
   const imagesByKey = new Map((raw.images ?? []).map((entry) => [entry.key, entry]));
   const editionIds = raw.physicalEditions.map((entry) => entry.id);
+  const bonusItemIds = (raw.physicalBonusItems ?? []).map((entry) => entry.id);
+  const relatedReleaseIds = (raw.relatedReleases ?? []).map((entry) => entry.id);
   const sharedDiscIds = (raw.sharedDiscs ?? []).map((entry) => entry.id);
   const variantIds = raw.physicalEditions.flatMap((entry) => (entry.variants ?? []).map((variant) => variant.id));
   const priceIdentities = raw.physicalEditions.flatMap((entry) => (entry.variants ?? []).map((variant) => variant.priceIdentity));
-  const catalogIds = raw.physicalEditions.flatMap((entry) => entry.catalogIds ?? []);
+  const catalogIds = [
+    ...raw.physicalEditions.flatMap((entry) => entry.catalogIds ?? []),
+    ...(raw.physicalBonusItems ?? []).flatMap((entry) => entry.catalogIds ?? []),
+  ];
   ensureUnique(editionIds, `${raw.id} physical edition id`);
+  ensureUnique(bonusItemIds, `${raw.id} physical bonus item id`);
+  ensureUnique(relatedReleaseIds, `${raw.id} related release id`);
   ensureUnique(sharedDiscIds, `${raw.id} shared disc id`);
   ensureUnique(variantIds, `${raw.id} collectible variant id`);
   ensureUnique(priceIdentities, `${raw.id} collectible variant price identity`);
@@ -355,7 +419,39 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
       }
     }
     ensureUnique(entry.softwareLanguages ?? [], `${entry.id} software language`);
+    ensureUnique(entry.softwareFamilyCodes ?? [], `${entry.id} software family code`);
     ensureUnique(entry.productCodes ?? [], `${entry.id} product code`);
+    ensureUnique(entry.compatiblePlatforms ?? [], `${entry.id} compatible platform`);
+    if (entry.physicalProductType === "NATIVE_GAME_DISC" && (
+      entry.nativePhysicalPlatform !== raw.game.platformSlug ||
+      entry.containsDisc !== true ||
+      entry.countsAsNativePhysicalRelease === false
+    )) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} invalid native game disc classification`);
+    }
+    if (entry.physicalProductType === "PREVIOUS_GEN_DISC_WITH_UPGRADE" && !entry.upgradeToPS5) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} previous-gen disc is missing its upgrade path`);
+    }
+    if (entry.upgradeToPS5) {
+      if (
+        entry.nativePhysicalPlatform !== "ps4" ||
+        !entry.compatiblePlatforms?.includes("ps4") ||
+        !entry.compatiblePlatforms.includes("ps5") ||
+        entry.upgradePath !== "FREE_DIGITAL_PS5_UPGRADE" ||
+        entry.countsAsNativePhysicalRelease !== false
+      ) {
+        throw new Error(`[catalog-edition-guides] ${entry.id} invalid PS4 to PS5 upgrade classification`);
+      }
+    }
+    if ((entry.physicalProductType === "DOWNLOAD_CODE_IN_BOX" || entry.containsDisc === false) && (
+      entry.physicalProductType !== "DOWNLOAD_CODE_IN_BOX" ||
+      entry.containsDisc !== false || entry.countsAsNativePhysicalRelease !== false
+    )) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} code-in-box must be excluded from native physical counts`);
+    }
+    if (entry.requiresBaseGame && !entry.expansionOf) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} requiresBaseGame without expansionOf`);
+    }
     const links = (entry.catalogIds ?? []).map((catalogId) => {
       const target = requiredCatalogGame(catalogId, raw.game.platformSlug);
       return { catalogId, href: catalogGamePath(target), current: false, region: target.region };
@@ -372,6 +468,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     return {
       ...entry,
       collectionIdentity: "physical-variant",
+      releaseStatus: entry.releaseStatus ?? "RELEASED",
       marketRegions,
       evidenceMarkets: evidenceMarkets.filter(isCatalogMarketRegion),
       distributionMarkets: distributionMarkets.filter(isCatalogMarketRegion),
@@ -382,7 +479,9 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
         evidence: requireEvidence(languageEvidence.evidenceIds),
       })),
       ratingSystems: entry.ratingSystems ?? [],
+      softwareFamilyCodes: entry.softwareFamilyCodes ?? [],
       productCodes: entry.productCodes ?? [],
+      compatiblePlatforms: entry.compatiblePlatforms ?? [raw.game.platformSlug],
       physicalContents: entry.physicalContents ?? [],
       digitalContents: entry.digitalContents ?? [],
       catalogIds: entry.catalogIds ?? [],
@@ -394,6 +493,39 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
       includesVariantIds: entry.includesVariantIds ?? [],
       containsCatalogIds: entry.containsCatalogIds ?? [],
       variants,
+      notes: entry.notes ?? [],
+    };
+  });
+  const physicalBonusItems = (raw.physicalBonusItems ?? []).map((entry): CatalogPhysicalBonusItem => {
+    if (!isCatalogMarketRegion(entry.market)) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} invalid bonus market: ${entry.market}`);
+    }
+    if (entry.includesGame !== false) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} physical bonus must not include the game`);
+    }
+    if (raw.game.canonicalGameId && entry.relatedGameId !== raw.game.canonicalGameId) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} bonus points to a different canonical game`);
+    }
+    const catalogLinks = (entry.catalogIds ?? []).map((catalogId) => {
+      const target = requiredCatalogGame(catalogId, raw.game.platformSlug);
+      return { catalogId, href: catalogGamePath(target), current: false, region: target.region };
+    });
+    return {
+      ...entry,
+      market: entry.market,
+      catalogIds: entry.catalogIds ?? [],
+      catalogLinks,
+      evidence: requireEvidence(entry.evidenceIds),
+      notes: entry.notes ?? [],
+    };
+  });
+  const relatedReleases = (raw.relatedReleases ?? []).map((entry): CatalogRelatedRelease => {
+    if (raw.game.canonicalGameId && entry.expansionOf !== raw.game.canonicalGameId) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} points to a different canonical game`);
+    }
+    return {
+      ...entry,
+      evidence: requireEvidence(entry.evidenceIds),
       notes: entry.notes ?? [],
     };
   });
@@ -468,6 +600,8 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     note: raw.note,
     game: raw.game,
     physicalEditions,
+    physicalBonusItems,
+    relatedReleases,
     editionFamilies,
     sharedDiscs,
     sources: raw.sources,
@@ -494,8 +628,8 @@ export function getCatalogEditionGuides(): CatalogEditionGuideModel[] {
 function documentedGuideByCatalogId(): Map<string, CatalogEditionGuideModel> {
   if (!documentedGuideByCatalogIdCache) {
     documentedGuideByCatalogIdCache = new Map(
-      getCatalogEditionGuides().flatMap((guide) => guide.physicalEditions.flatMap((edition) =>
-        edition.catalogIds.map((catalogId) => [catalogId, guide] as const))),
+      getCatalogEditionGuides().flatMap((guide) =>
+        catalogIdsOwnedByGuide(guide).map((catalogId) => [catalogId, guide] as const)),
     );
   }
   return documentedGuideByCatalogIdCache;
@@ -525,7 +659,7 @@ export function getGroupableCatalogEditionGuides(): CatalogEditionGuideModel[] {
 function catalogDerivedGuides() {
   if (!derivedGuidesCache) {
     const claimedCatalogIds = new Set(
-      getCatalogEditionGuides().flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.catalogIds)),
+      getCatalogEditionGuides().flatMap(catalogIdsOwnedByGuide),
     );
     derivedGuidesCache = buildCatalogDerivedGuideIndex(claimedCatalogIds);
   }
@@ -560,6 +694,7 @@ function withCurrentCatalogEdition(
   catalogId: string,
 ): CatalogEditionGuideModel {
   const currentEdition = guide.physicalEditions.find((edition) => edition.catalogIds.includes(catalogId));
+  const currentBonusItem = guide.physicalBonusItems.find((item) => item.catalogIds.includes(catalogId));
   const currentEditionFamily = guide.editionFamilies.find((family) =>
     currentEdition ? family.physicalEditionIds.includes(currentEdition.id) : false,
   );
@@ -568,9 +703,14 @@ function withCurrentCatalogEdition(
     currentCatalogId: catalogId,
     currentEditionId: currentEdition?.id,
     currentEditionFamilyId: currentEditionFamily?.id,
+    currentBonusItemId: currentBonusItem?.id,
     physicalEditions: guide.physicalEditions.map((edition) => ({
       ...edition,
       catalogLinks: edition.catalogLinks.map((link) => ({ ...link, current: link.catalogId === catalogId })),
+    })),
+    physicalBonusItems: guide.physicalBonusItems.map((item) => ({
+      ...item,
+      catalogLinks: item.catalogLinks.map((link) => ({ ...link, current: link.catalogId === catalogId })),
     })),
   };
 }

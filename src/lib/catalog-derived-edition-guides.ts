@@ -29,6 +29,7 @@ const FAMILY_TYPE_ORDER: CatalogPhysicalEditionType[] = [
   "SPECIAL",
   "COLLECTOR",
   "DELUXE",
+  "GOLD",
   "LIMITED",
   "STEELBOOK",
   "COMPILATION",
@@ -111,6 +112,7 @@ export function catalogDerivedEditionType(game: CatalogGame): CatalogPhysicalEdi
 
   if (has(/steelbook|steel book/) || titleHas(/steelbook|steel book/)) return "STEELBOOK";
   if (has(/collector|coleccionista/) || titleHas(/collector s edition|edicion coleccionista/)) return "COLLECTOR";
+  if (has(/gold/) || titleHas(/gold edition/)) return "GOLD";
   if (has(/deluxe/) || titleHas(/deluxe edition/)) return "DELUXE";
   if (has(/limited|limitada/) || titleHas(/limited edition|edicion limitada/)) return "LIMITED";
   if (has(/special|especial|lenticular/) || titleHas(/special edition|edicion especial|lenticular/)) return "SPECIAL";
@@ -145,7 +147,7 @@ function familyLabel(game: CatalogGame): string {
 }
 
 function priceConditions(type: CatalogPhysicalEditionType): CatalogPhysicalPriceCondition[] {
-  if (["SPECIAL", "COLLECTOR", "DELUXE", "LIMITED", "STEELBOOK"].includes(type)) {
+  if (["SPECIAL", "COLLECTOR", "DELUXE", "GOLD", "LIMITED", "STEELBOOK"].includes(type)) {
     return ["sealed", "newRetail", "complete"];
   }
   return ["sealed", "newRetail", "complete", "gameManual", "loose"];
@@ -185,6 +187,7 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
     label: familyLabel(game),
     broadRegion: catalogDerivedBroadRegion(game),
     editionType: catalogDerivedEditionType(game),
+    releaseStatus: "RELEASED",
     collectionIdentity: "catalog-entry",
     marketRegions,
     evidenceMarkets: [],
@@ -193,7 +196,9 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
     softwareLanguages: [],
     componentLanguageEvidence: [],
     ratingSystems: [],
+    softwareFamilyCodes: [],
     productCodes: [],
+    compatiblePlatforms: [game.platformSlug],
     ...(scan?.packaging.ean ? { barcode: scan.packaging.ean } : {}),
     ...(catalogNumber ? { catalogNumber } : {}),
     physicalContents,
@@ -282,6 +287,8 @@ function buildGuide(games: CatalogGame[]): CatalogEditionGuideModel {
       canonicalCatalogId,
     },
     physicalEditions: editions,
+    physicalBonusItems: [],
+    relatedReleases: [],
     editionFamilies: families,
     sharedDiscs: [],
     sources: [],
@@ -299,9 +306,22 @@ function cloneGuide(guide: CatalogEditionGuideModel): CatalogEditionGuideModel {
       distributionMarkets: [...edition.distributionMarkets],
       packagingLanguages: [...edition.packagingLanguages],
       softwareLanguages: [...edition.softwareLanguages],
+      softwareFamilyCodes: [...edition.softwareFamilyCodes],
       productCodes: [...edition.productCodes],
       catalogIds: [...edition.catalogIds],
       catalogLinks: edition.catalogLinks.map((link) => ({ ...link })),
+    })),
+    physicalBonusItems: guide.physicalBonusItems.map((item) => ({
+      ...item,
+      catalogIds: [...item.catalogIds],
+      catalogLinks: item.catalogLinks.map((link) => ({ ...link })),
+      evidence: item.evidence.map((entry) => ({ ...entry })),
+      notes: [...item.notes],
+    })),
+    relatedReleases: guide.relatedReleases.map((release) => ({
+      ...release,
+      evidence: release.evidence.map((entry) => ({ ...entry })),
+      notes: [...release.notes],
     })),
     editionFamilies: guide.editionFamilies.map((family) => ({
       ...family,
@@ -389,7 +409,10 @@ export function extendDocumentedGuidesWithCatalog(
   inputGuides: CatalogEditionGuideModel[],
 ): CatalogEditionGuideModel[] {
   const guides = inputGuides.map(cloneGuide);
-  const claimed = new Set(guides.flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.catalogIds)));
+  const claimed = new Set(guides.flatMap((guide) => [
+    ...guide.physicalEditions.flatMap((edition) => edition.catalogIds),
+    ...guide.physicalBonusItems.flatMap((item) => item.catalogIds),
+  ]));
   const guidesByRelationship = new Map<string, Set<number>>();
 
   guides.forEach((guide, index) => {
@@ -483,7 +506,10 @@ export function buildRuntimeCatalogEditionGuide(
   }
 
   const claimed = new Set(
-    documentedGuides.flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.catalogIds)),
+    documentedGuides.flatMap((guide) => [
+      ...guide.physicalEditions.flatMap((edition) => edition.catalogIds),
+      ...guide.physicalBonusItems.flatMap((item) => item.catalogIds),
+    ]),
   );
   const siblings = game.listingStatus === "listed"
     ? (catalogGamesByDerivedGroup().get(key) ?? []).filter((candidate) => !claimed.has(candidate.id))

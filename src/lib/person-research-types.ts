@@ -1,4 +1,5 @@
 import type { ResearchConfidence } from "./research-types";
+import type { PersonExpertise } from "./person-expertise";
 
 export type PersonPublicationLevel = "editorial";
 
@@ -173,16 +174,6 @@ export type PersonPublicOverlayData = {
   historicalRelations?: PersonHistoricalRelation[];
   sources?: PersonPublicSource[];
 };
-
-export type PersonExpertise =
-  | "design"
-  | "programming"
-  | "direction"
-  | "production"
-  | "music"
-  | "art"
-  | "founder"
-  | "executive";
 
 export type PersonCardData = {
   slug: string;

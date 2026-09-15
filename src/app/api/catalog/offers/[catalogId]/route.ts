@@ -93,12 +93,15 @@ export async function GET(request: Request, { params }: RouteParams) {
   }
 
   const guide = getCatalogEditionGuide(game);
+  const currentEdition = guide?.physicalEditions.find((edition) => edition.id === guide.currentEditionId);
+  if (currentEdition?.releaseStatus === "CANCELED_PHYSICAL_RELEASE") {
+    return withHeaders(disabledPayload(catalogId, "canceled_physical_release"));
+  }
   const family = guide?.editionFamilies.find((entry) => entry.id === guide.currentEditionFamilyId);
   const familyEditions = guide?.schemaVersion === 2 && family
     ? guide.physicalEditions.filter((edition) => family.physicalEditionIds.includes(edition.id))
     : [];
   const regionOptions = catalogEbayRegionOptions(familyEditions);
-  const currentEdition = guide?.physicalEditions.find((edition) => edition.id === guide.currentEditionId);
   const currentMarket = currentEdition?.marketRegions.length === 1
     ? currentEdition.marketRegions[0]
     : null;

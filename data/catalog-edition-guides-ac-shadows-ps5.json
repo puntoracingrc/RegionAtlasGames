@@ -1,0 +1,642 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-shadows-ps5-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed Shadows en PlayStation 5",
+      "reviewedAt": "2026-09-15",
+      "note": "Normalización mundial V2 basada en identificadores físicos documentados. Las cajas Gold canceladas y el SteelBook case-only de Target se conservan como relaciones históricas sin contarlos como lanzamientos físicos del juego.",
+      "game": {
+        "title": "Assassin's Creed Shadows",
+        "platformSlug": "ps5",
+        "canonicalCatalogId": "ps5-assassin-s-creed-shadows",
+        "canonicalGameId": "assassins-creed-shadows",
+        "platformReleaseId": "assassins-creed-shadows-ps5"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-shadows",
+          "physicalEditionIds": [
+            "ac-shadows-ps5-standard-au",
+            "ac-shadows-ps5-standard-de",
+            "ac-shadows-ps5-standard-eu-unknown-3307216292593",
+            "ac-shadows-ps5-standard-fr",
+            "ac-shadows-ps5-standard-dfi",
+            "ac-shadows-ps5-standard-it",
+            "ac-shadows-ps5-standard-pl",
+            "ac-shadows-ps5-standard-es-pt-circulation",
+            "ac-shadows-ps5-standard-eu-generic",
+            "ac-shadows-ps5-standard-nordic-en",
+            "ac-shadows-ps5-standard-na",
+            "ac-shadows-ps5-standard-jp"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "limited",
+          "label": "Limited Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-shadows-limited-edition",
+          "physicalEditionIds": ["ac-shadows-ps5-limited-eu-amazon", "ac-shadows-ps5-limited-us-amazon"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-shadows-special-edition",
+          "physicalEditionIds": [
+            "ac-shadows-ps5-special-au",
+            "ac-shadows-ps5-special-it-gamelife",
+            "ac-shadows-ps5-special-es-eu",
+            "ac-shadows-ps5-special-us-walmart"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "collectors",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-shadows-collector-s-edition",
+          "physicalEditionIds": ["ac-shadows-ps5-collectors-eu-shared", "ac-shadows-ps5-collectors-us-gamestop"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "gold-canceled",
+          "label": "Gold Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-shadows-gold-edition",
+          "physicalEditionIds": [
+            "ac-shadows-ps5-gold-us-canceled",
+            "ac-shadows-ps5-gold-eu-canceled",
+            "ac-shadows-ps5-gold-au-canceled",
+            "ac-shadows-ps5-gold-jp-canceled"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-shadows-ps5-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "ratingSystems": ["ACB MA15+"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292579",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamesmen-au"]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DE"],
+          "ratingSystems": ["USK 18"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292586",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-ogdb-de"]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-eu-unknown-3307216292593",
+          "label": "Standard · Europa · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292593",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs"],
+          "notes": ["Variante/import físico existente. País y packaging exactos pendientes; no se asigna un territorio por inferencia."]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-fr",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292609",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-fnac-fr"],
+          "notes": ["Retail francés confirmado; packaging exacto pendiente de scan."]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-dfi",
+          "label": "Standard · D/F/I multilingüe",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "packagingLanguages": ["de", "fr", "it"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292616",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-wog-dfi"]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-it",
+          "label": "Standard · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["IT"],
+          "packagingLanguages": ["it"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292623",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs"]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-pl",
+          "label": "Standard · Polonia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["PL"],
+          "packagingLanguages": ["pl"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292630",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefinity-pl"]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-es-pt-circulation",
+          "label": "Standard · circulación España / Portugal",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "evidenceMarkets": ["ES", "PT"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292647",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps5-assassin-s-creed-shadows"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-fnac-es", "shadows-pccomponentes-es", "shadows-fnac-pt", "shadows-local-assets"],
+          "notes": ["Vendido oficialmente en España y Portugal. packagingLanguages permanece pendiente de scan físico."]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-eu-generic",
+          "label": "Standard · Europa genérica",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292654",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs"],
+          "notes": ["SKU europeo genérico; packaging pendiente."]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-nordic-en",
+          "label": "Standard · Nordic / English international",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "evidenceMarkets": ["NO", "RO"],
+          "packagingLanguages": ["en"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292661",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["shadows-gamefaqs"],
+          "notes": ["Circulación observada en Noruega, Rumanía y otros mercados; no se crea una variante nacional NO o RO."]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-na",
+          "label": "Standard · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "evidenceMarkets": ["US", "CA"],
+          "softwareFamilyCodes": ["PPSA-20396"],
+          "barcode": "887256116286",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps5-usa-assassin-s-creed-shadows"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-target-us", "shadows-bestbuy-ca", "shadows-local-assets"],
+          "notes": ["Mismo UPC documentado en USA y Canadá; se mantiene una sola caja norteamericana."]
+        },
+        {
+          "id": "ac-shadows-ps5-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["ja"],
+          "ratingSystems": ["CERO Z"],
+          "softwareFamilyCodes": ["PPSA-22101"],
+          "barcode": "4949244013437",
+          "catalogNumber": "ELJM-30491",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs"]
+        },
+        {
+          "id": "ac-shadows-ps5-limited-eu-amazon",
+          "label": "Limited Edition · Europa · Amazon Exclusive",
+          "broadRegion": "EUROPE",
+          "editionType": "LIMITED",
+          "evidenceMarkets": ["ES", "GB"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292814",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps5-assassin-s-creed-shadows-limited-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-limited-eu", "shadows-local-assets"],
+          "notes": ["Una sola familia mientras barcode y caja coincidan; packaging exacto por mercado pendiente."]
+        },
+        {
+          "id": "ac-shadows-ps5-limited-us-amazon",
+          "label": "Limited Edition · USA · Amazon Exclusive",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": ["US"],
+          "softwareFamilyCodes": ["PPSA-20396"],
+          "barcode": "887256116552",
+          "physicalContents": ["1 disco de juego"],
+          "catalogIds": ["ps5-usa-assassin-s-creed-shadows-limited-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs", "shadows-local-assets"]
+        },
+        {
+          "id": "ac-shadows-ps5-special-au",
+          "label": "Special Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["AU"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292876",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs"]
+        },
+        {
+          "id": "ac-shadows-ps5-special-it-gamelife",
+          "label": "Special Edition · Italia · Gamelife Exclusive",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["IT"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292920",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamelife-it"]
+        },
+        {
+          "id": "ac-shadows-ps5-special-es-eu",
+          "label": "Special Edition · España / Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["ES"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216292944",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps5-assassin-s-creed-shadows-special-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs", "shadows-local-assets"],
+          "notes": ["GameFAQs la documenta como EU y TodoConsolas como PAL/ES; packaging pendiente de revisión."]
+        },
+        {
+          "id": "ac-shadows-ps5-special-us-walmart",
+          "label": "Special Edition · USA · Walmart Exclusive",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "softwareFamilyCodes": ["PPSA-20396"],
+          "barcode": "887256116569",
+          "physicalContents": ["Juego físico"],
+          "digitalContents": ["Sekiryu Character Pack"],
+          "catalogIds": ["ps5-usa-assassin-s-creed-shadows-special-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-walmart-us", "shadows-local-assets"]
+        },
+        {
+          "id": "ac-shadows-ps5-collectors-eu-shared",
+          "label": "Collector's Edition · Europa compartida",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "evidenceMarkets": ["ES", "FR", "BE", "IT", "PL"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216294559",
+          "physicalContents": ["Juego base", "Estatua doble de Naoe y Yasuke", "SteelBook", "Libro de arte", "Tsuba de katana", "Mapa del mundo", "Pergamino mural del Credo", "2 litografías sumi-e"],
+          "digitalContents": ["Contenido digital Sekiryu"],
+          "catalogIds": ["ps5-assassin-s-creed-shadows-collector-s-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-collector-eu", "shadows-local-assets"],
+          "notes": ["Mismo SKU vendido en España, Francia, Bélgica, Italia y Polonia. Packaging exacto/multilingüe pendiente de scan."]
+        },
+        {
+          "id": "ac-shadows-ps5-collectors-us-gamestop",
+          "label": "Collector's Edition · USA · GameStop Exclusive",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "softwareFamilyCodes": ["PPSA-20396"],
+          "barcode": "887256116514",
+          "physicalContents": ["Disco del juego base", "Estatua doble de Naoe y Yasuke", "SteelBook", "Libro de arte", "Tsuba de katana", "Mapa del mundo", "Pergamino mural del Credo", "2 litografías sumi-e"],
+          "digitalContents": ["Contenido digital Sekiryu"],
+          "catalogIds": ["ps5-usa-assassin-s-creed-shadows-collector-s-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-collector-us", "shadows-local-assets"]
+        },
+        {
+          "id": "ac-shadows-ps5-gold-us-canceled",
+          "label": "Gold Edition · USA · cancelada",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "GOLD",
+          "releaseStatus": "CANCELED_PHYSICAL_RELEASE",
+          "marketRegions": ["US"],
+          "softwareFamilyCodes": ["PPSA-20396"],
+          "barcode": "887256116323",
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs"],
+          "notes": ["Lanzamiento físico previsto y cancelado. No cuenta como retail release ni admite precios CIB/new."]
+        },
+        {
+          "id": "ac-shadows-ps5-gold-eu-canceled",
+          "label": "Gold Edition · Europa · cancelada",
+          "broadRegion": "EUROPE",
+          "editionType": "GOLD",
+          "releaseStatus": "CANCELED_PHYSICAL_RELEASE",
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216293101",
+          "catalogIds": ["ps5-assassin-s-creed-shadows-gold-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gamefaqs", "shadows-gold-local-prerelease"],
+          "notes": ["La ficha y el mockup legacy se preservan como evidencia histórica de prerelease, no como prueba de publicación física. El EAN Fnac 3307216293095 tampoco demuestra lanzamiento."]
+        },
+        {
+          "id": "ac-shadows-ps5-gold-au-canceled",
+          "label": "Gold Edition · Australia · cancelada",
+          "broadRegion": "OCEANIA",
+          "editionType": "GOLD",
+          "releaseStatus": "CANCELED_PHYSICAL_RELEASE",
+          "marketRegions": ["AU"],
+          "softwareFamilyCodes": ["PPSA-20397"],
+          "barcode": "3307216293026",
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gold-au-canceled"]
+        },
+        {
+          "id": "ac-shadows-ps5-gold-jp-canceled",
+          "label": "Gold Edition · Japón · cancelada",
+          "broadRegion": "ASIA",
+          "editionType": "GOLD",
+          "releaseStatus": "CANCELED_PHYSICAL_RELEASE",
+          "marketRegions": ["JP"],
+          "softwareFamilyCodes": ["PPSA-22101"],
+          "barcode": "4949244013444",
+          "catalogNumber": "ELJM-30490",
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["shadows-gold-jp-canceled"]
+        }
+      ],
+      "physicalBonusItems": [
+        {
+          "id": "ac-shadows-ps5-target-steelbook-us",
+          "label": "Target Exclusive SteelBook case",
+          "relatedGameId": "assassins-creed-shadows",
+          "type": "STEELBOOK_CASE",
+          "retailer": "Target",
+          "market": "US",
+          "upc": "887256116729",
+          "includesGame": false,
+          "catalogIds": ["ps5-usa-assassin-s-creed-shadows-steelbook"],
+          "evidenceIds": ["shadows-target-steelbook", "shadows-steelbook-local-asset"],
+          "notes": ["Case-only / No Game. Puede relacionarse como bonus de retailer, pero nunca como PhysicalEdition del juego."]
+        }
+      ],
+      "relatedReleases": [
+        {
+          "id": "ac-shadows-claws-of-awaji",
+          "label": "Claws of Awaji",
+          "type": "EXPANSION",
+          "expansionOf": "assassins-creed-shadows",
+          "evidenceIds": ["shadows-audit-dossier"],
+          "notes": ["No se crea una edición física PS5 sin evidencia de caja, barcode o disco."]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "shadows-audit-dossier",
+          "type": "UNKNOWN",
+          "label": "Dossier local · Assassin's Creed Shadows PS5 worldwide variants",
+          "summary": "Orden de normalización con el inventario de EAN/UPC/JAN/PPSA/ELJM, cancelaciones, bonus Target y pendientes territoriales.",
+          "supports": ["alcance mundial PS5", "Gold cancelada", "Target SteelBook case-only", "Claws of Awaji expansion"]
+        },
+        {
+          "id": "shadows-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos de lanzamiento PS5",
+          "url": "https://gamefaqs.gamespot.com/ps5/380042-assassins-creed-shadows/data",
+          "supports": ["EAN UPC JAN", "PPSA-20396", "PPSA-20397", "PPSA-22101", "ELJM-30491", "lanzamientos y cancelaciones"]
+        },
+        {
+          "id": "shadows-fnac-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Standard PS5",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Shadows-PS5-Videojuego-PS5/a11056590",
+          "supports": ["EAN 3307216292647", "circulación España"]
+        },
+        {
+          "id": "shadows-pccomponentes-es",
+          "type": "RETAILER_ASSET",
+          "label": "PcComponentes · Standard PS5",
+          "url": "https://www.pccomponentes.com/assassin-s-creed-shadows-ps5",
+          "supports": ["Standard PS5 España"]
+        },
+        {
+          "id": "shadows-fnac-pt",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Portugal · Standard PS5",
+          "url": "https://www.fnac.pt/Assassin-s-Creed-Shadows-PS5-Videojogo-PlayStation-5/a11958556",
+          "supports": ["EAN 3307216292647", "circulación Portugal"]
+        },
+        {
+          "id": "shadows-ogdb-de",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "OGDB Alemania · Standard PS5",
+          "url": "https://ogdb.eu/index.php?gameid=167059&section=game",
+          "supports": ["EAN 3307216292586", "variante alemana", "USK 18"]
+        },
+        {
+          "id": "shadows-fnac-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Standard PS5",
+          "url": "https://www.fnac.com/a15941802/Assassin-s-Creed-Shadows-PS5-Jeu-video-Playstation-5",
+          "supports": ["EAN 3307216292609", "retail Francia"]
+        },
+        {
+          "id": "shadows-wog-dfi",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "World of Games · Standard D/F/I",
+          "url": "https://www.wog.ch/en/index.cfm/details/product/194741-Assassins-Creed-Shadows/",
+          "supports": ["EAN 3307216292616", "packaging DE FR IT"]
+        },
+        {
+          "id": "shadows-gamelife-it",
+          "type": "RETAILER_ASSET",
+          "label": "Gamelife Italia · Special Edition",
+          "url": "https://www.gamelife.it/swp51292-assassin-s-creed-shadows",
+          "supports": ["EAN 3307216292920", "Gamelife Exclusive"]
+        },
+        {
+          "id": "shadows-gamefinity-pl",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Gamefinity Poland · Standard PS5",
+          "url": "https://gamefinity.pl/produkt/assassins-creed-shadows-pl-ps5",
+          "supports": ["EAN 3307216292630", "portada polaca"]
+        },
+        {
+          "id": "shadows-gamesmen-au",
+          "type": "RETAILER_ASSET",
+          "label": "Gamesmen Australia · Standard PS5",
+          "url": "https://www.gamesmen.com.au/ps5-assassins-creed-shadows",
+          "supports": ["EAN 3307216292579", "Australia", "ACB MA15+"]
+        },
+        {
+          "id": "shadows-target-us",
+          "type": "RETAILER_ASSET",
+          "label": "Target USA · Standard PS5",
+          "url": "https://www.target.com/p/-/A-92206025",
+          "supports": ["UPC 887256116286", "mercado USA"]
+        },
+        {
+          "id": "shadows-bestbuy-ca",
+          "type": "RETAILER_ASSET",
+          "label": "Best Buy Canada · Standard PS5",
+          "url": "https://www.bestbuy.ca/en-ca/product/assassin-s-creed-shadows-ps5/17936700",
+          "supports": ["UPC 887256116286", "mercado Canadá"]
+        },
+        {
+          "id": "shadows-limited-eu",
+          "type": "RETAILER_ASSET",
+          "label": "Limited Edition Amazon.es · ficha preservada",
+          "url": "https://es.seekmonkey.com/productos/B0D362WFCC-assassin-s-creed-shadows-limited-edition-exclusivo-para-amazon-es-ps5/",
+          "supports": ["EAN 3307216292814", "Amazon.es Exclusive"]
+        },
+        {
+          "id": "shadows-walmart-us",
+          "type": "RETAILER_ASSET",
+          "label": "Walmart USA · Special Edition",
+          "url": "https://www.walmart.com/ip/14579763250",
+          "supports": ["UPC 887256116569", "Walmart Exclusive", "Sekiryu Character Pack"]
+        },
+        {
+          "id": "shadows-collector-eu",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Collector's Edition",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Shadows-Collector-s-Edition-PS5-Videojuego-PS5/a11056611",
+          "supports": ["EAN 3307216294559", "Collector paneuropea", "contenido Collector"]
+        },
+        {
+          "id": "shadows-collector-us",
+          "type": "RETAILER_ASSET",
+          "label": "GameStop USA · Collector's Edition",
+          "url": "https://www.gamestop.com/video-games/playstation-5/products/assassins-creed-shadows-collectors-edition---playstation-5-gamestop-exclusive/409150.html",
+          "supports": ["UPC 887256116514", "disco físico", "GameStop Exclusive", "contenido Collector"]
+        },
+        {
+          "id": "shadows-gold-au-canceled",
+          "type": "PRE_RELEASE_ASSET",
+          "label": "Gamesmen Australia · Gold Edition cancelada",
+          "url": "https://www.gamesmen.com.au/ps5-assassins-creed-shadows-gold-edition",
+          "supports": ["EAN 3307216293026", "Release Date Cancelled"]
+        },
+        {
+          "id": "shadows-gold-jp-canceled",
+          "type": "PRE_RELEASE_ASSET",
+          "label": "MediaWorld Japón · Gold Edition cancelada",
+          "url": "https://mediaworld.co.jp/products/10480629000",
+          "supports": ["JAN 4949244013444", "ELJM-30490", "lanzamiento cancelado"]
+        },
+        {
+          "id": "shadows-target-steelbook",
+          "type": "RETAILER_ASSET",
+          "label": "Target Exclusive SteelBook case-only",
+          "url": "https://www.target.com/p/-/A-92206025",
+          "supports": ["UPC 887256116729", "SteelBook case only", "No Game"]
+        },
+        {
+          "id": "shadows-local-assets",
+          "type": "UNKNOWN",
+          "label": "Fichas y portadas legacy de RegionAtlas",
+          "summary": "Se inspeccionaron las diez fichas PS5 y se preservan sus catalogIds, slugs, rutas PriceCharting, portadas, precios y datos asociados.",
+          "supports": ["preservación de IDs", "preservación de rutas", "preservación de portadas", "preservación de precios"]
+        },
+        {
+          "id": "shadows-gold-local-prerelease",
+          "type": "PRE_RELEASE_ASSET",
+          "label": "Mockup Gold legacy de RegionAtlas",
+          "url": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/ps5/assassin-s-creed-shadows-gold-edition.jpg",
+          "summary": "Frontal promocional inspeccionado: no demuestra fabricación ni lanzamiento retail.",
+          "supports": ["preservación de portada Gold", "naturaleza prerelease"]
+        },
+        {
+          "id": "shadows-steelbook-local-asset",
+          "type": "RETAILER_ASSET",
+          "label": "Asset SteelBook legacy de RegionAtlas",
+          "url": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/ps5/usa-assassin-s-creed-shadows-steelbook.jpg",
+          "summary": "Imagen inspeccionada de la caja metálica abierta sin juego visible.",
+          "supports": ["preservación de portada SteelBook", "case-only"]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac_shadows_ps5_worldwide_variants.md"},
+        {"label": "GameFAQs PS5", "url": "https://gamefaqs.gamespot.com/ps5/380042-assassins-creed-shadows/data"},
+        {"label": "Fnac España Standard", "url": "https://www.fnac.es/Assassin-s-Creed-Shadows-PS5-Videojuego-PS5/a11056590"},
+        {"label": "PcComponentes", "url": "https://www.pccomponentes.com/assassin-s-creed-shadows-ps5"},
+        {"label": "Fnac Portugal", "url": "https://www.fnac.pt/Assassin-s-Creed-Shadows-PS5-Videojogo-PlayStation-5/a11958556"},
+        {"label": "OGDB Germany", "url": "https://ogdb.eu/index.php?gameid=167059&section=game"},
+        {"label": "Fnac France", "url": "https://www.fnac.com/a15941802/Assassin-s-Creed-Shadows-PS5-Jeu-video-Playstation-5"},
+        {"label": "World of Games D/F/I", "url": "https://www.wog.ch/en/index.cfm/details/product/194741-Assassins-Creed-Shadows/"},
+        {"label": "Gamelife Italy", "url": "https://www.gamelife.it/swp51292-assassin-s-creed-shadows"},
+        {"label": "Gamefinity Poland", "url": "https://gamefinity.pl/produkt/assassins-creed-shadows-pl-ps5"},
+        {"label": "Gamesmen Australia", "url": "https://www.gamesmen.com.au/ps5-assassins-creed-shadows"},
+        {"label": "Target US", "url": "https://www.target.com/p/-/A-92206025"},
+        {"label": "Best Buy Canada", "url": "https://www.bestbuy.ca/en-ca/product/assassin-s-creed-shadows-ps5/17936700"},
+        {"label": "Collector EU", "url": "https://www.fnac.es/Assassin-s-Creed-Shadows-Collector-s-Edition-PS5-Videojuego-PS5/a11056611"},
+        {"label": "Collector US", "url": "https://www.gamestop.com/video-games/playstation-5/products/assassins-creed-shadows-collectors-edition---playstation-5-gamestop-exclusive/409150.html"},
+        {"label": "Limited EU Amazon", "url": "https://es.seekmonkey.com/productos/B0D362WFCC-assassin-s-creed-shadows-limited-edition-exclusivo-para-amazon-es-ps5/"},
+        {"label": "Special US Walmart", "url": "https://www.walmart.com/ip/14579763250"},
+        {"label": "Gold AU canceled", "url": "https://www.gamesmen.com.au/ps5-assassins-creed-shadows-gold-edition"},
+        {"label": "Gold JP canceled", "url": "https://mediaworld.co.jp/products/10480629000"},
+        {"label": "Assets legacy de RegionAtlas"}
+      ],
+      "evidenceNote": "Los EAN/UPC/JAN/ELJM documentan variantes físicas concretas. PPSA-20396, PPSA-20397 y PPSA-22101 se conservan como familias de software, no como sustitutos de un identificador físico. No se infieren packaging, países ni SKUs para Asia, Corea, México, Brasil o Nueva Zelanda.",
+      "researchTasks": [
+        {
+          "id": "shadows-ps5-asia-korea-physical",
+          "label": "Asia / Corea · variantes físicas pendientes",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["KR"],
+          "notes": ["No crear Asia ni Corea sin barcode y caja verificables."]
+        },
+        {
+          "id": "shadows-ps5-mx-br-nz-physical",
+          "label": "México / Brasil / Nueva Zelanda · variantes físicas pendientes",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["MX", "BR", "NZ"],
+          "notes": ["No crear variantes nacionales por simetría comercial ni por disponibilidad de importación."]
+        },
+        {
+          "id": "shadows-ps5-premium-physical",
+          "label": "Premium Edition física PS5",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "notes": ["Premium existe en digital; no hay evidencia en esta auditoría de una edición física PS5."]
+        },
+        {
+          "id": "shadows-ps5-packaging-scans",
+          "label": "Scans físicos pendientes de packaging",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "PT", "FR", "GB"],
+          "notes": ["Cerrar idiomas exactos de 3307216292647, 3307216292609, Limited EU y Collector EU sin reutilizar idiomas de software."]
+        }
+      ]
+    }
+  ]
+}
