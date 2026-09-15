@@ -28,6 +28,7 @@ import { formatEur } from "@/lib/price-format";
 import { catalogConditionPriceRows } from "@/lib/price-display";
 import {
   catalogPhysicalEditionBroadRegionAnchorId,
+  catalogPhysicalEditionOverviewRegions,
 } from "@/lib/catalog-physical-edition-browse";
 import { catalogPhysicalEditionHeadingLabel } from "@/lib/catalog-physical-edition-display";
 import {
@@ -359,7 +360,7 @@ function PhysicalEditionRow({
   const isCurrentEdition = edition.id === guide.currentEditionId;
   const documentedRegions = edition.marketRegions.length
     ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
-    : [...new Set(edition.catalogLinks.map((link) => link.region))];
+    : catalogPhysicalEditionOverviewRegions([edition]);
   const alternateCatalogLinks = edition.catalogLinks.filter((link) => !link.current);
   const includedEditions = edition.includesEditionIds.flatMap((id) => {
     const target = guide.physicalEditions.find((candidate) => candidate.id === id);

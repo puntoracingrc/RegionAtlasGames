@@ -1,5 +1,6 @@
 import guideData from "../../data/catalog-edition-guides.json";
 import acPs3GuideData from "../../data/catalog-edition-guides-ac-ps3.json";
+import residentEvilPs4GuideData from "../../data/catalog-edition-guides-resident-evil-ps4.json";
 import acPs4WorldwideGuideData from "../../data/catalog-edition-guides-ac-ps4-worldwide.json";
 import ac4BlackFlagGuideData from "../../data/catalog-edition-guides-ac4-black-flag.json";
 import acChroniclesGuideData from "../../data/catalog-edition-guides-ac-chronicles.json";
@@ -95,6 +96,11 @@ type PhysicalGuide = {
     canonicalGameId?: string;
     platformReleaseId?: string;
     aliases?: string[];
+    regionalTitles?: Array<{
+      title: string;
+      marketRegions: string[];
+      catalogIds: string[];
+    }>;
   };
   editionFamilies?: Array<{
     id: string;
@@ -231,6 +237,7 @@ type RawGuideDocument = { schemaVersion: 1 | 2; guides: RawCatalogEditionGuide[]
 const rawGuideDocuments = [
   guideData,
   acPs3GuideData,
+  residentEvilPs4GuideData,
   acPs4WorldwideGuideData,
   ac4BlackFlagGuideData,
   acChroniclesGuideData,
@@ -442,6 +449,23 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     throw new Error(`[catalog-edition-guides] ${raw.id} canonicalCatalogId is not linked to an edition`);
   }
   ensureUnique(raw.game.aliases ?? [], `${raw.id} game alias`);
+  for (const regionalTitle of raw.game.regionalTitles ?? []) {
+    if (!regionalTitle.title.trim()) {
+      throw new Error(`[catalog-edition-guides] ${raw.id} empty regional title`);
+    }
+    ensureUnique(regionalTitle.marketRegions, `${raw.id} regional-title market`);
+    ensureUnique(regionalTitle.catalogIds, `${raw.id} regional-title catalogId`);
+    for (const marketRegion of regionalTitle.marketRegions) {
+      if (!isCatalogMarketRegion(marketRegion)) {
+        throw new Error(`[catalog-edition-guides] ${raw.id} invalid regional-title market: ${marketRegion}`);
+      }
+    }
+    for (const catalogId of regionalTitle.catalogIds) {
+      if (!catalogIds.includes(catalogId)) {
+        throw new Error(`[catalog-edition-guides] ${raw.id} regional title references an unlinked catalogId: ${catalogId}`);
+      }
+    }
+  }
 
   const requireEvidence = (ids: string[] = []) => ids.map((id) => {
     const evidence = evidenceById.get(id);
@@ -728,6 +752,10 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     }
     return { ...family };
   });
+  const regionalTitles = raw.game.regionalTitles?.map((regionalTitle) => ({
+    ...regionalTitle,
+    marketRegions: regionalTitle.marketRegions.filter(isCatalogMarketRegion),
+  }));
   const researchTaskIds = (raw.researchTasks ?? []).map((task) => task.id);
   ensureUnique(researchTaskIds, `${raw.id} research task id`);
   const researchTasks = (raw.researchTasks ?? []).map((task) => {
@@ -752,7 +780,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     title: raw.title,
     reviewedAt: raw.reviewedAt,
     note: raw.note,
-    game: raw.game,
+    game: { ...raw.game, regionalTitles },
     physicalEditions,
     physicalBonusItems,
     relatedReleases,

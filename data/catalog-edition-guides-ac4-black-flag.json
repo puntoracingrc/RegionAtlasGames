@@ -67,8 +67,8 @@
           "representativeCatalogId": "ps4-usa-assassin%27s-creed-iv-black-flag-playstation-hits",
           "physicalEditionIds": [
             "ac4-black-flag-ps4-europe-playstation-hits-6076957",
+            "ac4-black-flag-ps4-europe-germany-playstation-hits-6076926",
             "ac4-black-flag-ps4-oceania-australia-playstation-hits-6077008",
-            "ac4-black-flag-ps4-north-america-playstation-hits",
             "ac4-black-flag-ps4-asia-japan-ubi-the-best"
           ],
           "priceConditions": [
@@ -462,11 +462,33 @@
           "editionType": "BUDGET_REISSUE",
           "marketRegions": [],
           "packagingLanguages": [],
+          "ratingSystems": ["PEGI 18"],
           "barcode": "3307216076957",
           "catalogNumber": "CUSA-00009",
           "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
-          "evidenceIds": ["ac4-black-flag-gamefaqs"],
-          "notes": ["Reimpresión europea confirmada; los demás EAN regionales Hits siguen pendientes de mapping."]
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-playstation-hits"],
+          "evidenceIds": [
+            "ac4-black-flag-current-hits-asset",
+            "ac4-black-flag-gamefaqs",
+            "ac4-black-flag-fnac-spain-hits"
+          ],
+          "notes": [
+            "La ficha legacy conserva su ID, slug, portada y precio, pero ya no representa una publicación física US.",
+            "El frontal público muestra PlayStation Hits y PEGI 18; no muestra reverso, EAN ni product code. El EAN 3307216076957 y CUSA-00009 proceden de las fuentes europeas enlazadas."
+          ]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-germany-playstation-hits-6076926",
+          "label": "PlayStation Hits · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "barcode": "3307216076926",
+          "evidenceIds": ["ac4-black-flag-rebuy-germany-hits"],
+          "notes": [
+            "Variante alemana separada por EAN. El retailer declara idioma alemán, pero sin reverso inspeccionado no se promueve a packagingLanguages."
+          ]
         },
         {
           "id": "ac4-black-flag-ps4-oceania-australia-playstation-hits-6077008",
@@ -481,18 +503,6 @@
           "releaseDate": "2018-07-18",
           "releaseDateContext": "Fecha de la edición PlayStation Hits documentada por Gamesmen Australia",
           "evidenceIds": ["ac4-black-flag-gamesmen-australia"]
-        },
-        {
-          "id": "ac4-black-flag-ps4-north-america-playstation-hits",
-          "label": "PlayStation Hits · Norteamérica",
-          "broadRegion": "NORTH_AMERICA",
-          "editionType": "BUDGET_REISSUE",
-          "marketRegions": ["US"],
-          "packagingLanguages": [],
-          "catalogNumber": "CUSA-00010",
-          "sharedDiscId": "ac4-black-flag-ps4-north-america-disc",
-          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-playstation-hits"],
-          "evidenceIds": ["ac4-black-flag-existing-catalog"]
         },
         {
           "id": "ac4-black-flag-ps4-asia-japan-ubi-the-best",
@@ -613,6 +623,44 @@
           "supports": ["releases territoriales", "ratings", "barcodes", "reimpresiones"]
         },
         {
+          "id": "ac4-black-flag-current-hits-asset",
+          "type": "RETAILER_ASSET",
+          "label": "Asset público actual de RegionAtlas · Black Flag PlayStation Hits",
+          "url": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/ps4/assassin-s-creed-iv-black-flag-playstation-hits.jpg",
+          "summary": "Inspeccionado el 2026-09-15: frontal rojo PlayStation Hits con PEGI 18 y sin marca ESRB; no contiene reverso, barcode ni product code legibles.",
+          "supports": [
+            "PlayStation Hits",
+            "PEGI 18",
+            "no US asset evidence",
+            "barcode pending from asset"
+          ]
+        },
+        {
+          "id": "ac4-black-flag-fnac-spain-hits",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Black Flag Hits",
+          "url": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Hits-PS4-Videojuego-PS4/a5006094",
+          "summary": "Confirma lanzamiento europeo/español el 2018-07-18, PEGI 18 y EAN 3307216076957.",
+          "supports": [
+            "PlayStation Hits Europa",
+            "EAN 3307216076957",
+            "PEGI 18",
+            "fecha 2018-07-18"
+          ]
+        },
+        {
+          "id": "ac4-black-flag-rebuy-germany-hits",
+          "type": "RETAILER_ASSET",
+          "label": "Rebuy Alemania · Black Flag PlayStation Hits",
+          "url": "https://www.rebuy.de/i%2C11033643/playstation-4/assassin-s-creed-iv-black-flag-playstation-hits",
+          "summary": "Confirma la variante alemana con EAN 3307216076926; el reverso físico no fue inspeccionado.",
+          "supports": [
+            "PlayStation Hits Alemania",
+            "EAN 3307216076926",
+            "mercado DE"
+          ]
+        },
+        {
           "id": "ac4-black-flag-redump",
           "type": "UNKNOWN",
           "label": "Redump · datos de disco PS4",
@@ -730,7 +778,7 @@
         {"label": "Gamesmen Australia · PlayStation Hits", "url": "https://www.gamesmen.com.au/assassin-s-creed-iv-black-flag"},
         {"label": "SerialStation · Asia", "url": "https://www.serialstation.com/games/d4a7d7a2-ccc6-4ba7-8bb3-674cb681db74"}
       ],
-      "evidenceNote": "Confirmado por scan propio: ES 3307215717769 / CUSA-00009 / packaging ES. Pendientes sin promover: packaging dedicado Portugal e Italia; SKU físico Nueva Zelanda; barcode/product code Corea; barcode Brasil; edición exacta Mexico/LATAM para UPC 008888358121; Buccaneer y Black Chest; EAN Jackdaw 3307215771495/3307215771501; EAN europeos adicionales 3307215715123/5717691/5717714/5717820/5771457/5984444; mapping regional PlayStation Hits 3307216076872/6076889/6076919/6076926/6076964. El catálogo legacy excluido se conserva sin borrado y sus datos de usuario no se modifican."
+      "evidenceNote": "Confirmado por scan propio: ES 3307215717769 / CUSA-00009 / packaging ES. Cierre residual: el asset PlayStation Hits muestra PEGI 18, no ESRB, y la ficha legacy queda enlazada a Europa 3307216076957; Alemania 3307216076926 y Australia 3307216077008 permanecen variantes separadas. No hay publicación física PlayStation Hits norteamericana demostrada. Pendientes sin promover: packaging dedicado Portugal e Italia; SKU físico Nueva Zelanda; barcode/product code Corea; barcode Brasil; edición exacta Mexico/LATAM para UPC 008888358121; Buccaneer y Black Chest; EAN Jackdaw 3307215771495/3307215771501; EAN europeos adicionales 3307215715123/5717691/5717714/5717820/5771457/5984444; mapping regional PlayStation Hits 3307216076872/6076889/6076919/6076964. El catálogo legacy excluido se conserva sin borrado y sus datos de usuario no se modifican."
     }
   ]
 }

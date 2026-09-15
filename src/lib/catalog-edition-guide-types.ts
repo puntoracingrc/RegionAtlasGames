@@ -416,6 +416,12 @@ export type CatalogEditionGuideModel = {
     platformReleaseId?: string;
     /** Títulos históricos que deben seguir encontrando la obra canónica. */
     aliases?: string[];
+    /** Denominaciones comerciales regionales, vinculadas a sus cajas concretas. */
+    regionalTitles?: Array<{
+      title: string;
+      marketRegions: CatalogMarketRegion[];
+      catalogIds: string[];
+    }>;
   };
   physicalEditions: CatalogPhysicalEdition[];
   physicalBonusItems: CatalogPhysicalBonusItem[];
