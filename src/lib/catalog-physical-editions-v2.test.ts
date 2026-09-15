@@ -684,6 +684,7 @@ test("documented guides use edition families while existing catalog IDs retain e
       "assassins-creed-iv-black-flag-ps4",
       "assassins-creed-chronicles-ps4",
       "assassins-creed-origins-ps4",
+      "assassins-creed-rogue-remastered-ps4",
     ],
   );
 
