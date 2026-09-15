@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "batchId": "resident-evil-ps4-dedup-20260915",
+  "reviewedAt": "2026-09-15",
+  "scope": "Resident Evil en PlayStation 4",
+  "canonicalEntities": {
+    "village": "ps4-resident-evil-village",
+    "residentEvil7": "ps4-resident-evil-7-biohazard",
+    "residentEvil4Remake": "ps4-resident-evil-4-remake"
+  },
+  "exactMerge": {
+    "retiredCatalogId": "ps4-resident-evil-8-village",
+    "canonicalCatalogId": "ps4-resident-evil-village",
+    "evidence": [
+      "Ambas filas son PS4, PAL España, Standard y comparten pcId 2164917.",
+      "La ficha canónica conserva el scan propio España / Italia; la portada legacy permanece en la galería V2."
+    ],
+    "before": {
+      "retired": {
+        "id": "ps4-resident-evil-8-village",
+        "slug": "resident-evil-8-village",
+        "title": "Resident Evil 8 Village",
+        "titlePc": "Resident Evil Village",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps4/resident-evil-8-village.jpg",
+        "pcId": 2164917,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 31.25,
+        "deltaEsVsPc": -48.8,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true
+      },
+      "canonical": {
+        "id": "ps4-resident-evil-village",
+        "slug": "resident-evil-village",
+        "title": "Resident Evil Village",
+        "titlePc": "Resident Evil Village",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada-catalogo.webp",
+        "pcPath": "/game/pal-playstation-4/resident-evil-village",
+        "pcId": 2164917,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": null,
+        "matchConfidence": "SEED_PC",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": null,
+        "pcRefPrice": null,
+        "deltaEsVsPc": null,
+        "priceSource": null,
+        "updatedAt": null,
+        "hasEsPrice": false,
+        "seedSource": "pricecharting-pal",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      }
+    },
+    "after": {
+      "retired": {
+        "id": "ps4-resident-evil-8-village",
+        "slug": "resident-evil-8-village",
+        "title": "Resident Evil 8 Village",
+        "titlePc": "Resident Evil Village",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "excluded",
+        "coverUrl": "/covers/ps4/resident-evil-8-village.jpg",
+        "pcId": 2164917,
+        "pcRegion": null,
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 31.25,
+        "deltaEsVsPc": -48.8,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "excludeCategory": "duplicate",
+        "excludeReason": "Misma edición PS4 PAL España que ps4-resident-evil-village: plataforma, mercado, edición y pcId 2164917 coinciden. Datos, portada legacy y relaciones conservados mediante alias y redirección."
+      },
+      "canonical": {
+        "id": "ps4-resident-evil-village",
+        "slug": "resident-evil-village",
+        "title": "Resident Evil Village",
+        "titlePc": "Resident Evil Village",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada-catalogo.webp",
+        "pcPath": "/game/pal-playstation-4/resident-evil-village",
+        "pcId": 2164917,
+        "pcRegion": "PAL EU (referencia)",
+        "pcCondition": "Normal wear",
+        "matchConfidence": "MATCH_ALTO",
+        "marketMin": null,
+        "marketMax": null,
+        "recommendedPrice": 16,
+        "pcRefPrice": 31.25,
+        "deltaEsVsPc": -48.8,
+        "priceSource": "Wallapop/eBay ES",
+        "updatedAt": "2026-06-12",
+        "hasEsPrice": true,
+        "seedSource": "pricecharting-pal",
+        "regionVerified": true,
+        "regionEvidence": [
+          "owner_confirmed_pal_es_it",
+          "owned_scan_spanish_italian_packaging_20260912"
+        ]
+      }
+    },
+    "redirect": {
+      "sourceParams": [
+        "ps4-resident-evil-8-village",
+        "resident-evil-8-village",
+        "resident-evil-8-village-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-resident-evil-village",
+      "targetParam": "resident-evil-village-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-15",
+      "reviewBatch": "resident-evil-ps4-dedup-20260915"
+    }
+  },
+  "regionalRelationships": {
+    "villageWorkKey": "catalog-entry:ps4-resident-evil-village",
+    "residentEvil7WorkKey": "resident evil 7",
+    "residentEvil4RemakeWorkKey": "resident evil 4 remake",
+    "villageCatalogIds": [
+      "ps4-resident-evil-8-village",
+      "ps4-resident-evil-village",
+      "ps4-usa-resident-evil-village",
+      "ps4-japon-biohazard-village",
+      "ps4-usa-resident-evil-village-gold-edition",
+      "ps4-japon-biohazard-village-gold-edition",
+      "ps4-usa-resident-evil-village-collector%27s-edition",
+      "ps4-japon-biohazard-village-z-version-collector%27s-edition",
+      "ps4-usa-resident-evil-village-deluxe-edition",
+      "ps4-japon-biohazard-village-premium-set",
+      "ps4-japon-biohazard-village-z-version",
+      "ps4-resident-evil-village-collector%27s-edition",
+      "ps4-resident-evil-village-gold-edition",
+      "ps4-resident-evil-village-steelbook-edition"
+    ],
+    "residentEvil7CatalogIds": [
+      "ps4-resident-evil-7-biohazard",
+      "ps4-usa-resident-evil-7-biohazard",
+      "ps4-japon-biohazard-7-resident-evil",
+      "ps4-resident-evil-7-biohazard-gold-edition",
+      "ps4-usa-resident-evil-7-biohazard-gold-edition",
+      "ps4-japon-biohazard-7-resident-evil-gold-edition",
+      "ps4-usa-resident-evil-7-biohazard-collector%27s-edition",
+      "ps4-usa-resident-evil-7-biohazard-deluxe-edition",
+      "ps4-japon-biohazard-7-resident-evil-limited-edition",
+      "ps4-resident-evil-7-steelbook",
+      "ps4-usa-resident-evil-7-biohazard-playstation-hits",
+      "ps4-japon-biohazard-7-grotesque-version",
+      "ps4-resident-evil-7-biohazard-collector%27s-edition",
+      "ps4-resident-evil-7-biohazard-lenticular-edition",
+      "ps4-resident-evil-7-biohazard-not-for-resale",
+      "ps4-resident-evil-7-biohazard-playstation-hits",
+      "ps4-resident-evil-7-biohazard-steelbook-edition"
+    ],
+    "residentEvil4RemakeCatalogIds": [
+      "ps4-resident-evil-4-remake",
+      "ps4-usa-resident-evil-4-remake",
+      "ps4-resident-evil-4-gold-edition",
+      "ps4-japon-biohazard-re4-gold-edition",
+      "ps4-usa-resident-evil-4-collector%27s-edition",
+      "ps4-japon-resident-evil-4-remake-collector%27s-edition",
+      "ps4-resident-evil-4-remake-steelbook",
+      "ps4-resident-evil-4-remake-collector%27s-edition",
+      "ps4-resident-evil-4-remake-lenticular-edition",
+      "ps4-resident-evil-4-remake-steelbook-edition"
+    ]
+  },
+  "protectedDistinctEditions": [
+    "ps4-usa-resident-evil-village-collector%27s-edition",
+    "ps4-usa-resident-evil-village-deluxe-edition",
+    "ps4-usa-resident-evil-village-gold-edition",
+    "ps4-usa-resident-evil-7-biohazard-collector%27s-edition",
+    "ps4-usa-resident-evil-7-biohazard-deluxe-edition",
+    "ps4-resident-evil-7-steelbook",
+    "ps4-usa-resident-evil-7-biohazard-playstation-hits",
+    "ps4-japon-biohazard-7-resident-evil-limited-edition",
+    "ps4-resident-evil-4-gold-edition",
+    "ps4-usa-resident-evil-4-collector%27s-edition",
+    "ps4-resident-evil-4-remake-steelbook"
+  ],
+  "preservation": {
+    "ownedScanSetIds": [
+      "ps4-resident-evil-village",
+      "ps4-resident-evil-7-biohazard-gold-edition",
+      "ps4-resident-evil-4-remake-steelbook"
+    ],
+    "images": [
+      {
+        "catalogId": "ps4-resident-evil-8-village",
+        "role": "legacy-cover",
+        "url": "/covers/ps4/resident-evil-8-village.jpg"
+      },
+      {
+        "catalogId": "ps4-resident-evil-village",
+        "role": "portada",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-portada.webp"
+      },
+      {
+        "catalogId": "ps4-resident-evil-village",
+        "role": "contraportada",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-contraportada.webp"
+      },
+      {
+        "catalogId": "ps4-resident-evil-village",
+        "role": "lomo",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-village/resident-evil-village-ps4-es-it-lomo.webp"
+      },
+      {
+        "catalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+        "role": "portada",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-portada.webp"
+      },
+      {
+        "catalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+        "role": "contraportada",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-contraportada.webp"
+      },
+      {
+        "catalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+        "role": "lomo",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-7-biohazard-gold-edition/resident-evil-7-biohazard-gold-edition-ps4-es-it-lomo.webp"
+      },
+      {
+        "catalogId": "ps4-resident-evil-4-remake-steelbook",
+        "role": "portada",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-portada.webp"
+      },
+      {
+        "catalogId": "ps4-resident-evil-4-remake-steelbook",
+        "role": "contraportada",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-contraportada.webp"
+      },
+      {
+        "catalogId": "ps4-resident-evil-4-remake-steelbook",
+        "role": "lomo",
+        "url": "/catalog-covers/ps4/escaneos-propios/resident-evil-4-remake-steelbook/resident-evil-4-remake-steelbook-ps4-es-it-lomo.webp"
+      }
+    ],
+    "imageCount": 10,
+    "userDataModified": false,
+    "historicalResearchModified": false
+  },
+  "changedCompanyIndexes": [
+    "capcom"
+  ],
+  "pendingReview": [
+    {
+      "catalogId": "ps4-japon-biohazard-7-gold",
+      "title": "Biohazard 7: Gold",
+      "status": "PENDING_REVIEW",
+      "reason": "El repositorio no permite demostrar si Biohazard 7: Gold es la misma caja que Biohazard 7: Resident Evil [Gold Edition]. No se fusiona ni se reasigna."
+    }
+  ]
+}

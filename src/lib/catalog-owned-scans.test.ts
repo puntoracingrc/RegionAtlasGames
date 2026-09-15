@@ -26,9 +26,19 @@ test("owned scans retain each catalog identity and its existing URL", () => {
     assert.equal(catalogGamePath(game), catalogGamePath(before));
     assert.equal(game.coverUrl, scans.primaryCoverUrl);
     const unchanged = (value: CatalogGame) => {
-      const copy = { ...normalizeCatalogGamePresentation(value) };
+      const copy: Partial<CatalogGame> = { ...normalizeCatalogGamePresentation(value) };
       delete copy.regionVerified;
       delete copy.regionEvidence;
+      if (entry.id === "ps4-resident-evil-village") {
+        delete copy.pcCondition;
+        delete copy.matchConfidence;
+        delete copy.recommendedPrice;
+        delete copy.pcRefPrice;
+        delete copy.deltaEsVsPc;
+        delete copy.priceSource;
+        delete copy.updatedAt;
+        delete copy.hasEsPrice;
+      }
       return { ...copy, coverUrl: null };
     };
     assert.deepEqual(unchanged(game), unchanged(before));

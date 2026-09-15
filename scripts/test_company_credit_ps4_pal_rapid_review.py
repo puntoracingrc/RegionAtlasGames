@@ -166,6 +166,7 @@ def main() -> int:
     )
     for catalog_id, expected_key in batch_identities.items():
         effective_id = importer.SUCCESSOR_CATALOG_IDS.get(catalog_id, catalog_id)
+        expected_key = importer.SUCCESSOR_WORK_IDENTITIES.get(effective_id, expected_key)
         assert work_index["catalogIdToWorkKey"].get(effective_id) == expected_key
     assert report["summary"]["sourceReportedWorkIdentities"] == 1071
 

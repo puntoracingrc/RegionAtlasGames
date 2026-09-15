@@ -1,5 +1,6 @@
 import guideData from "../../data/catalog-edition-guides.json";
 import acPs3GuideData from "../../data/catalog-edition-guides-ac-ps3.json";
+import residentEvilPs4GuideData from "../../data/catalog-edition-guides-resident-evil-ps4.json";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
@@ -46,7 +47,17 @@ type PhysicalGuide = {
   title: string;
   reviewedAt: string;
   note: string;
-  game: { title: string; platformSlug: string; canonicalCatalogId: string };
+  game: {
+    title: string;
+    platformSlug: string;
+    canonicalCatalogId: string;
+    aliases?: string[];
+    regionalTitles?: Array<{
+      title: string;
+      marketRegions: string[];
+      catalogIds: string[];
+    }>;
+  };
   editionFamilies?: Array<{
     id: string;
     label: string;
@@ -125,7 +136,11 @@ type PhysicalGuide = {
 export type RawCatalogEditionGuide = LegacyGuide | PhysicalGuide;
 type RawGuideDocument = { schemaVersion: 1 | 2; guides: RawCatalogEditionGuide[] };
 
-const rawGuideDocuments = [guideData, acPs3GuideData] as unknown as RawGuideDocument[];
+const rawGuideDocuments = [
+  guideData,
+  acPs3GuideData,
+  residentEvilPs4GuideData,
+] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
 let documentedGuideByCatalogIdCache: Map<string, CatalogEditionGuideModel> | null = null;
@@ -249,6 +264,24 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
   requiredCatalogGame(raw.game.canonicalCatalogId, raw.game.platformSlug);
   if (!catalogIds.includes(raw.game.canonicalCatalogId)) {
     throw new Error(`[catalog-edition-guides] ${raw.id} canonicalCatalogId is not linked to an edition`);
+  }
+  ensureUnique(raw.game.aliases ?? [], `${raw.id} game alias`);
+  for (const regionalTitle of raw.game.regionalTitles ?? []) {
+    if (!regionalTitle.title.trim()) {
+      throw new Error(`[catalog-edition-guides] ${raw.id} empty regional title`);
+    }
+    ensureUnique(regionalTitle.marketRegions, `${raw.id} regional-title market`);
+    ensureUnique(regionalTitle.catalogIds, `${raw.id} regional-title catalogId`);
+    for (const marketRegion of regionalTitle.marketRegions) {
+      if (!isCatalogMarketRegion(marketRegion)) {
+        throw new Error(`[catalog-edition-guides] ${raw.id} invalid regional-title market: ${marketRegion}`);
+      }
+    }
+    for (const catalogId of regionalTitle.catalogIds) {
+      if (!catalogIds.includes(catalogId)) {
+        throw new Error(`[catalog-edition-guides] ${raw.id} regional title references an unlinked catalogId: ${catalogId}`);
+      }
+    }
   }
 
   const requireEvidence = (ids: string[] = []) => ids.map((id) => {
@@ -377,6 +410,10 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     }
     return { ...family };
   });
+  const regionalTitles = raw.game.regionalTitles?.map((regionalTitle) => ({
+    ...regionalTitle,
+    marketRegions: regionalTitle.marketRegions.filter(isCatalogMarketRegion),
+  }));
 
   return {
     schemaVersion: 2,
@@ -385,7 +422,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     title: raw.title,
     reviewedAt: raw.reviewedAt,
     note: raw.note,
-    game: raw.game,
+    game: { ...raw.game, regionalTitles },
     physicalEditions,
     editionFamilies,
     sharedDiscs,

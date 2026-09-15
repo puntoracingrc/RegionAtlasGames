@@ -1,0 +1,845 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "resident-evil-village-ps4",
+      "title": "Ediciones físicas de Resident Evil Village en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Resident Evil 8 Village se conserva como alias histórico. Biohazard Village es el título regional japonés; cada caja mantiene su portada, mercado y precio propios.",
+      "game": {
+        "title": "Resident Evil Village",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-resident-evil-village",
+        "aliases": [
+          "Resident Evil 8 Village"
+        ],
+        "regionalTitles": [
+          {
+            "title": "Biohazard Village",
+            "marketRegions": [
+              "JP"
+            ],
+            "catalogIds": [
+              "ps4-japon-biohazard-village"
+            ]
+          }
+        ]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-resident-evil-village",
+          "physicalEditionIds": [
+            "resident-evil-village-ps4-europe-standard-es-it",
+            "resident-evil-village-ps4-north-america-standard",
+            "resident-evil-village-ps4-japan-standard"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "gold",
+          "label": "Gold Edition",
+          "representativeCatalogId": "ps4-usa-resident-evil-village-gold-edition",
+          "physicalEditionIds": [
+            "resident-evil-village-ps4-north-america-gold",
+            "resident-evil-village-ps4-japan-gold"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "collector",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "ps4-usa-resident-evil-village-collector%27s-edition",
+          "physicalEditionIds": [
+            "resident-evil-village-ps4-north-america-collector",
+            "resident-evil-village-ps4-japan-z-collector"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "deluxe",
+          "label": "Deluxe Edition",
+          "representativeCatalogId": "ps4-usa-resident-evil-village-deluxe-edition",
+          "physicalEditionIds": [
+            "resident-evil-village-ps4-north-america-deluxe"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "premium-set",
+          "label": "Premium Set",
+          "representativeCatalogId": "ps4-japon-biohazard-village-premium-set",
+          "physicalEditionIds": [
+            "resident-evil-village-ps4-japan-premium-set"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "z-version",
+          "label": "Z Version",
+          "representativeCatalogId": "ps4-japon-biohazard-village-z-version",
+          "physicalEditionIds": [
+            "resident-evil-village-ps4-japan-z-version"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "resident-evil-village-ps4-europe-standard-es-it",
+          "label": "Standard Edition",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES",
+            "IT"
+          ],
+          "packagingLanguages": [
+            "ES",
+            "IT"
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "5055060902141",
+          "catalogNumber": "CUSA-18008",
+          "releaseDate": "2021-05-07",
+          "catalogIds": [
+            "ps4-resident-evil-village"
+          ],
+          "scanSetIds": [
+            "ps4-resident-evil-village"
+          ],
+          "evidenceIds": [
+            "resident-evil-village-owned-scan",
+            "resident-evil-village-legacy-alias"
+          ],
+          "imageKeys": [
+            "resident-evil-village-legacy-re8-cover"
+          ],
+          "notes": [
+            "La portada legacy de Resident Evil 8 Village se conserva en la galería sin sustituir el escaneo propio de la caja España / Italia."
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-north-america-standard",
+          "label": "Standard Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2021-05-07",
+          "catalogIds": [
+            "ps4-usa-resident-evil-village"
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-japan-standard",
+          "label": "Standard Edition",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "releaseDate": "2021-05-08",
+          "catalogIds": [
+            "ps4-japon-biohazard-village"
+          ],
+          "notes": [
+            "Título regional documentado en esta caja: Biohazard Village."
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-north-america-gold",
+          "label": "Gold Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2022-11-01",
+          "catalogIds": [
+            "ps4-usa-resident-evil-village-gold-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-japan-gold",
+          "label": "Gold Edition",
+          "broadRegion": "ASIA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps4-japon-biohazard-village-gold-edition"
+          ],
+          "notes": [
+            "Denominación regional conservada: Biohazard Village [Gold Edition]."
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-north-america-collector",
+          "label": "Collector's Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2021-05-07",
+          "catalogIds": [
+            "ps4-usa-resident-evil-village-collector%27s-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-japan-z-collector",
+          "label": "Z Version Collector's Edition",
+          "broadRegion": "ASIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps4-japon-biohazard-village-z-version-collector%27s-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-north-america-deluxe",
+          "label": "Deluxe Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "DELUXE",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2021-05-07",
+          "catalogIds": [
+            "ps4-usa-resident-evil-village-deluxe-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-japan-premium-set",
+          "label": "Premium Set",
+          "broadRegion": "ASIA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps4-japon-biohazard-village-premium-set"
+          ]
+        },
+        {
+          "id": "resident-evil-village-ps4-japan-z-version",
+          "label": "Z Version",
+          "broadRegion": "ASIA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "JP"
+          ],
+          "barcode": "4976219116688",
+          "releaseDate": "2021-05-07",
+          "catalogIds": [
+            "ps4-japon-biohazard-village-z-version"
+          ]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "resident-evil-village-owned-scan",
+          "type": "REAL_SCAN",
+          "label": "Escaneo propio de Resident Evil Village PS4 España / Italia",
+          "summary": "Portada, contraportada y lomo del ejemplar conservado en el registro de escaneos propios.",
+          "supports": [
+            "resident-evil-village-ps4-europe-standard-es-it"
+          ]
+        },
+        {
+          "id": "resident-evil-village-legacy-alias",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Portada legacy de Resident Evil 8 Village",
+          "summary": "La ficha retirada comparte plataforma, mercado, edición y pcId 2164917 con la ficha canónica.",
+          "supports": [
+            "resident-evil-village-ps4-europe-standard-es-it"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "key": "resident-evil-village-legacy-re8-cover",
+          "placement": "GALLERY",
+          "url": "/covers/ps4/resident-evil-8-village.jpg",
+          "thumbnailUrl": "/covers/ps4/resident-evil-8-village.jpg",
+          "width": 600,
+          "height": 800,
+          "caption": "Portada legacy de la ficha Resident Evil 8 Village, conservada tras la unificación.",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED"
+        }
+      ],
+      "sources": [],
+      "evidenceNote": "La identidad se revisó sobre las fichas y fuentes ya presentes en el repositorio; no se añadieron idiomas, códigos ni mercados no respaldados."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "resident-evil-7-biohazard-ps4",
+      "title": "Ediciones físicas de Resident Evil 7 Biohazard en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Resident Evil 7 Biohazard y Biohazard 7: Resident Evil son la misma obra con denominaciones regionales distintas. Las ediciones Gold comparten padre conceptual, pero cada caja mantiene identidad y precio regional.",
+      "game": {
+        "title": "Resident Evil 7 Biohazard",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-resident-evil-7-biohazard",
+        "regionalTitles": [
+          {
+            "title": "Biohazard 7: Resident Evil",
+            "marketRegions": [
+              "JP"
+            ],
+            "catalogIds": [
+              "ps4-japon-biohazard-7-resident-evil"
+            ]
+          }
+        ]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-resident-evil-7-biohazard",
+          "physicalEditionIds": [
+            "resident-evil-7-ps4-europe-standard",
+            "resident-evil-7-ps4-north-america-standard",
+            "resident-evil-7-ps4-japan-standard"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "gold",
+          "label": "Gold Edition",
+          "representativeCatalogId": "ps4-resident-evil-7-biohazard-gold-edition",
+          "physicalEditionIds": [
+            "resident-evil-7-ps4-europe-gold-es-it",
+            "resident-evil-7-ps4-north-america-gold",
+            "resident-evil-7-ps4-japan-gold"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "collector",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "ps4-usa-resident-evil-7-biohazard-collector%27s-edition",
+          "physicalEditionIds": [
+            "resident-evil-7-ps4-north-america-collector"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "deluxe",
+          "label": "Deluxe Edition",
+          "representativeCatalogId": "ps4-usa-resident-evil-7-biohazard-deluxe-edition",
+          "physicalEditionIds": [
+            "resident-evil-7-ps4-north-america-deluxe"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "limited",
+          "label": "Limited Edition",
+          "representativeCatalogId": "ps4-japon-biohazard-7-resident-evil-limited-edition",
+          "physicalEditionIds": [
+            "resident-evil-7-ps4-japan-limited"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "steelbook",
+          "label": "Steelbook",
+          "representativeCatalogId": "ps4-resident-evil-7-steelbook",
+          "physicalEditionIds": [
+            "resident-evil-7-ps4-europe-steelbook"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "playstation-hits",
+          "label": "PlayStation Hits",
+          "representativeCatalogId": "ps4-usa-resident-evil-7-biohazard-playstation-hits",
+          "physicalEditionIds": [
+            "resident-evil-7-ps4-north-america-playstation-hits"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "grotesque-version",
+          "label": "Grotesque Version",
+          "representativeCatalogId": "ps4-japon-biohazard-7-grotesque-version",
+          "physicalEditionIds": [
+            "resident-evil-7-ps4-japan-grotesque-version"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "resident-evil-7-ps4-europe-standard",
+          "label": "Standard Edition",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "barcode": "5055060900642",
+          "catalogNumber": "CUSA-03839",
+          "releaseDate": "2017-01-24",
+          "catalogIds": [
+            "ps4-resident-evil-7-biohazard"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-north-america-standard",
+          "label": "Standard Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogNumber": "CUSA-03839",
+          "releaseDate": "2017-01-24",
+          "catalogIds": [
+            "ps4-usa-resident-evil-7-biohazard"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-japan-standard",
+          "label": "Standard Edition",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogNumber": "CUSA-03839",
+          "catalogIds": [
+            "ps4-japon-biohazard-7-resident-evil"
+          ],
+          "notes": [
+            "Título regional documentado en esta caja: Biohazard 7: Resident Evil."
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-europe-gold-es-it",
+          "label": "Gold Edition",
+          "broadRegion": "EUROPE",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "ES",
+            "IT"
+          ],
+          "packagingLanguages": [
+            "ES",
+            "IT"
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "5055060945513",
+          "catalogNumber": "CUSA-09473",
+          "releaseDate": "2017-12-12",
+          "catalogIds": [
+            "ps4-resident-evil-7-biohazard-gold-edition"
+          ],
+          "scanSetIds": [
+            "ps4-resident-evil-7-biohazard-gold-edition"
+          ],
+          "evidenceIds": [
+            "resident-evil-7-gold-owned-scan"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-north-america-gold",
+          "label": "Gold Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogNumber": "CUSA-09643",
+          "releaseDate": "2017-12-12",
+          "catalogIds": [
+            "ps4-usa-resident-evil-7-biohazard-gold-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-japan-gold",
+          "label": "Gold Edition",
+          "broadRegion": "ASIA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps4-japon-biohazard-7-resident-evil-gold-edition"
+          ],
+          "notes": [
+            "Denominación regional conservada: Biohazard 7: Resident Evil [Gold Edition]."
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-north-america-collector",
+          "label": "Collector's Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2017-01-24",
+          "catalogIds": [
+            "ps4-usa-resident-evil-7-biohazard-collector%27s-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-north-america-deluxe",
+          "label": "Deluxe Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "DELUXE",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2017-01-24",
+          "catalogIds": [
+            "ps4-usa-resident-evil-7-biohazard-deluxe-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-japan-limited",
+          "label": "Limited Edition",
+          "broadRegion": "ASIA",
+          "editionType": "LIMITED",
+          "marketRegions": [
+            "JP"
+          ],
+          "releaseDate": "2017-01-24",
+          "catalogIds": [
+            "ps4-japon-biohazard-7-resident-evil-limited-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-europe-steelbook",
+          "label": "Steelbook",
+          "broadRegion": "EUROPE",
+          "editionType": "STEELBOOK",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps4-resident-evil-7-steelbook"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-north-america-playstation-hits",
+          "label": "PlayStation Hits",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2019-05-17",
+          "catalogIds": [
+            "ps4-usa-resident-evil-7-biohazard-playstation-hits"
+          ]
+        },
+        {
+          "id": "resident-evil-7-ps4-japan-grotesque-version",
+          "label": "Grotesque Version",
+          "broadRegion": "ASIA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "JP"
+          ],
+          "releaseDate": "2017-01-26",
+          "catalogIds": [
+            "ps4-japon-biohazard-7-grotesque-version"
+          ]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "resident-evil-7-gold-owned-scan",
+          "type": "REAL_SCAN",
+          "label": "Escaneo propio de Resident Evil 7 Biohazard Gold Edition PS4 España / Italia",
+          "summary": "Portada, contraportada y lomo del ejemplar Gold conservado en el registro de escaneos propios.",
+          "supports": [
+            "resident-evil-7-ps4-europe-gold-es-it"
+          ]
+        }
+      ],
+      "images": [],
+      "sources": [],
+      "evidenceNote": "Las relaciones usan únicamente títulos, IDs externos, fechas, códigos y escaneos ya presentes en el repositorio. Biohazard 7: Gold queda fuera y pendiente de revisión por posible solapamiento."
+    },
+    {
+      "schemaVersion": 2,
+      "id": "resident-evil-4-remake-ps4",
+      "title": "Ediciones físicas de Resident Evil 4 Remake en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "La Gold Edition de 2024 pertenece a Resident Evil 4 Remake. El port moderno del Resident Evil 4 original conserva una identidad de juego distinta.",
+      "game": {
+        "title": "Resident Evil 4 Remake",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-resident-evil-4-remake"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-resident-evil-4-remake",
+          "physicalEditionIds": [
+            "resident-evil-4-remake-ps4-europe-standard",
+            "resident-evil-4-remake-ps4-north-america-standard"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "gold",
+          "label": "Gold Edition",
+          "representativeCatalogId": "ps4-resident-evil-4-gold-edition",
+          "physicalEditionIds": [
+            "resident-evil-4-remake-ps4-europe-gold",
+            "resident-evil-4-remake-ps4-japan-gold"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "collector",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "ps4-usa-resident-evil-4-collector%27s-edition",
+          "physicalEditionIds": [
+            "resident-evil-4-remake-ps4-north-america-collector",
+            "resident-evil-4-remake-ps4-japan-collector"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "steelbook",
+          "label": "Steelbook",
+          "representativeCatalogId": "ps4-resident-evil-4-remake-steelbook",
+          "physicalEditionIds": [
+            "resident-evil-4-remake-ps4-europe-steelbook-es-it"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "resident-evil-4-remake-ps4-europe-standard",
+          "label": "Standard Edition",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps4-resident-evil-4-remake"
+          ]
+        },
+        {
+          "id": "resident-evil-4-remake-ps4-north-america-standard",
+          "label": "Standard Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2023-03-24",
+          "catalogIds": [
+            "ps4-usa-resident-evil-4-remake"
+          ]
+        },
+        {
+          "id": "resident-evil-4-remake-ps4-europe-gold",
+          "label": "Gold Edition",
+          "broadRegion": "EUROPE",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "ES"
+          ],
+          "releaseDate": "2024-03-08",
+          "catalogIds": [
+            "ps4-resident-evil-4-gold-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-4-remake-ps4-japan-gold",
+          "label": "Gold Edition",
+          "broadRegion": "ASIA",
+          "editionType": "OTHER",
+          "marketRegions": [
+            "JP"
+          ],
+          "releaseDate": "2024-02-09",
+          "catalogIds": [
+            "ps4-japon-biohazard-re4-gold-edition"
+          ],
+          "notes": [
+            "Denominación regional conservada: Biohazard RE:4 Gold Edition."
+          ]
+        },
+        {
+          "id": "resident-evil-4-remake-ps4-north-america-collector",
+          "label": "Collector's Edition",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogNumber": "56096S",
+          "releaseDate": "2023-03-24",
+          "catalogIds": [
+            "ps4-usa-resident-evil-4-collector%27s-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-4-remake-ps4-japan-collector",
+          "label": "Collector's Edition",
+          "broadRegion": "ASIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps4-japon-resident-evil-4-remake-collector%27s-edition"
+          ]
+        },
+        {
+          "id": "resident-evil-4-remake-ps4-europe-steelbook-es-it",
+          "label": "Steelbook",
+          "broadRegion": "EUROPE",
+          "editionType": "STEELBOOK",
+          "marketRegions": [
+            "ES",
+            "IT"
+          ],
+          "packagingLanguages": [
+            "ES",
+            "IT"
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "5055060903391",
+          "catalogNumber": "CUSA-33388",
+          "catalogIds": [
+            "ps4-resident-evil-4-remake-steelbook"
+          ],
+          "scanSetIds": [
+            "ps4-resident-evil-4-remake-steelbook"
+          ],
+          "evidenceIds": [
+            "resident-evil-4-remake-steelbook-owned-scan"
+          ]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "resident-evil-4-remake-steelbook-owned-scan",
+          "type": "REAL_SCAN",
+          "label": "Escaneo propio de Resident Evil 4 Remake Steelbook PS4 España / Italia",
+          "summary": "Portada, contraportada y lomo de la caja exterior conservados en el registro de escaneos propios.",
+          "supports": [
+            "resident-evil-4-remake-ps4-europe-steelbook-es-it"
+          ]
+        }
+      ],
+      "images": [],
+      "sources": [],
+      "evidenceNote": "El parentesco de Gold se apoya en el año 2024 y las identidades ya documentadas en el catálogo; no se modifica el Resident Evil 4 original de 2016."
+    }
+  ]
+}

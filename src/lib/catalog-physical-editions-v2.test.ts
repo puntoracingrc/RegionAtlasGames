@@ -8,6 +8,7 @@ import acPs3GuideDocument from "../../data/catalog-edition-guides-ac-ps3.json";
 import acPs3Implementation from "../../data/research/ac-ps3-backed-v2-2026-09-13.json";
 import acPs3RegionalDecisions from "../../data/research/ac-ps3-regional-packaging-decisions-2026-09-13.json";
 import guideDocument from "../../data/catalog-edition-guides.json";
+import residentEvilPs4Dedup from "../../data/research/resident-evil-ps4-dedup-2026-09-15.json";
 import scanAssets from "../../data/research/owned-scans/2026-09-12-absolum-special-edition-assets.json";
 import schemaDocument from "../../data/schemas/catalog-edition-guides-v2.schema.json";
 import { catalog, getCatalogGame, getPlatform, publicListedCatalog } from "./catalog";
@@ -106,6 +107,12 @@ const AC_PS3_GUIDE_IDS = [
   "assassins-creed-ii-ps3",
   "assassins-creed-revelations-ps3",
   "assassins-creed-american-saga-ps3",
+] as const;
+
+const RESIDENT_EVIL_PS4_GUIDE_IDS = [
+  "resident-evil-village-ps4",
+  "resident-evil-7-biohazard-ps4",
+  "resident-evil-4-remake-ps4",
 ] as const;
 
 function absolumGuide() {
@@ -676,7 +683,12 @@ test("documented guides use edition families while existing catalog IDs retain e
   const guidesWithFamilies = getCatalogEditionGuides().filter((guide) => guide.editionFamilies.length > 0);
   assert.deepEqual(
     guidesWithFamilies.map((guide) => guide.id),
-    ["resident-evil-requiem-ps5", "absolum-ps5", ...AC_PS3_GUIDE_IDS],
+    [
+      "resident-evil-requiem-ps5",
+      "absolum-ps5",
+      ...AC_PS3_GUIDE_IDS,
+      ...RESIDENT_EVIL_PS4_GUIDE_IDS,
+    ],
   );
 
   for (const id of [
@@ -903,18 +915,34 @@ test("the previous four catalog additions remain exact and all prior catalog row
   const previousCatalog = rawCatalog.filter((entry) => !AC_PS3_NEW_CATALOG_IDS.includes(
     entry.id as (typeof AC_PS3_NEW_CATALOG_IDS)[number],
   ));
+  const residentEvilBeforeById = new Map<string, (typeof rawCatalog)[number]>([
+    [
+      residentEvilPs4Dedup.exactMerge.retiredCatalogId,
+      residentEvilPs4Dedup.exactMerge.before.retired,
+    ],
+    [
+      residentEvilPs4Dedup.exactMerge.canonicalCatalogId,
+      residentEvilPs4Dedup.exactMerge.before.canonical,
+    ],
+  ]);
+  const previousCatalogBeforeResidentEvil = previousCatalog.map(
+    (entry) => residentEvilBeforeById.get(entry.id) ?? entry,
+  );
   assert.equal(previousCatalog.length, 81_425);
   assert.equal(
-    createHash("sha256").update(JSON.stringify(previousCatalog)).digest("hex"),
+    createHash("sha256").update(JSON.stringify(previousCatalogBeforeResidentEvil)).digest("hex"),
     "7117deaedb862fa81c14a1b141063441f808a284a0e80b2224b8da66692f0bea",
   );
 
   const ps4 = rawCatalog.filter((entry) => entry.platformSlug === "ps4");
   const ps5 = rawCatalog.filter((entry) => entry.platformSlug === "ps5");
+  const ps4BeforeResidentEvil = ps4.map(
+    (entry) => residentEvilBeforeById.get(entry.id) ?? entry,
+  );
   assert.equal(ps4.length, 9_716);
   assert.equal(ps5.length, 4_807);
   assert.equal(
-    createHash("sha256").update(JSON.stringify(ps4)).digest("hex"),
+    createHash("sha256").update(JSON.stringify(ps4BeforeResidentEvil)).digest("hex"),
     "e3ebbd3af1561e5bb03e43ddd6c4e287f5f1bdd364bc9bc4559aa02ae63d6238",
   );
   assert.equal(

@@ -61,6 +61,13 @@ ALLOWED_SUCCESSOR_ROLE_CREDITS = {
 SUCCESSOR_CATALOG_IDS = {
     "ps4-deadpool-masacre": "ps4-deadpool",
     "ps4-annapurna-ultimate-collection": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
+    "ps4-resident-evil-8-village": "ps4-resident-evil-village",
+}
+# Later identity audits may correct the work parent without invalidating this
+# role-credit batch. These values are still checked explicitly here.
+SUCCESSOR_WORK_IDENTITIES = {
+    "ps4-resident-evil-4-gold-edition": "resident evil 4 remake",
+    "ps4-resident-evil-village": "catalog-entry:ps4-resident-evil-village",
 }
 WORKBOOK_NAME = "RegionAtlas_PS4_PAL_repaso_rapido_creditos_2026-09-05.xlsx"
 WORKBOOK_SHA256 = "f8a1589ad8cfd168c202a0c6173b64994fd1c127c01ee955861b0c7226531de1"
@@ -1290,7 +1297,8 @@ def check_committed() -> None:
     batch_identities = build_work_identities(resolved, conflicts, non_games)
     for catalog_id, work_key_value in batch_identities.items():
         effective_id = SUCCESSOR_CATALOG_IDS.get(catalog_id, catalog_id)
-        if work_index["catalogIdToWorkKey"].get(effective_id) != work_key_value:
+        expected_work_key = SUCCESSOR_WORK_IDENTITIES.get(effective_id, work_key_value)
+        if work_index["catalogIdToWorkKey"].get(effective_id) != expected_work_key:
             raise ValueError(f"Committed batch work identity changed: {effective_id}")
     if read_json(BLOCKED_FILE)["count"] != EXPECTED["conflicts"]:
         raise ValueError("Blocked conflicts changed")
