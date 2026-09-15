@@ -209,10 +209,18 @@ function buildCompanyProfileViewFromProfile(
     (relation) =>
       relation.sourceCompanySlug === entry.slug && relation.relationshipType === "CLOSED",
   );
-  const acquisition = historicalGenealogy.find(
-    (relation) =>
-      relation.sourceCompanySlug === entry.slug && relation.relationshipType === "ACQUIRED_BY",
-  );
+  const ownershipEvents = historicalGenealogy
+    .filter(
+      (relation) =>
+        relation.sourceCompanySlug === entry.slug &&
+        ["ACQUIRED_BY", "TRANSFERRED_TO", "BECAME_INDEPENDENT"].includes(relation.relationshipType),
+    )
+    .sort((a, b) => (a.year ?? -Infinity) - (b.year ?? -Infinity));
+  const latestOwnershipEvent = ownershipEvents[ownershipEvents.length - 1];
+  const acquisition = latestOwnershipEvent &&
+    ["ACQUIRED_BY", "TRANSFERRED_TO"].includes(latestOwnershipEvent.relationshipType)
+      ? latestOwnershipEvent
+      : undefined;
   const renamedAs = historicalGenealogy.find(
     (relation) =>
       relation.sourceCompanySlug === entry.slug &&

@@ -1,0 +1,17 @@
+{
+  "version":1,
+  "generatedAt":"2026-09-15T22:30:00.000Z",
+  "peopleCandidates":[
+    {"personSlug":"chris-lewis","personName":"Chris Lewis","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"El liderazgo europeo está identificado, pero falta una biografía pública respaldada de amplitud suficiente."},
+    {"personSlug":"peter-zotov","personName":"Peter Zotov","status":"NEEDS_IDENTITY_AND_ROLE_REVIEW","reasonEs":"No se crea una ficha técnica sin confirmar identidad y responsabilidad exacta en la arquitectura."},
+    {"personSlug":"dan-greenawalt","personName":"Dan Greenawalt","status":"NEEDS_EXACT_ROLE_SOURCES","reasonEs":"La relación con Forza requiere fuentes primarias específicas antes de publicar el perfil."}
+  ],
+  "companyCandidates":[],
+  "creditCandidates":[
+    {"title":"Nobuo Uematsu · Blue Dragon / Lost Odyssey","status":"NEEDS_EXACT_CREDIT_REVIEW","reasonEs":"La música se conserva como candidata hasta vincular créditos exactos por obra."}
+  ],
+  "mediaReferences":[
+    {"personSlug":"shane-kim","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita."},
+    {"personSlug":"alex-kipman","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita."}
+  ]
+}
