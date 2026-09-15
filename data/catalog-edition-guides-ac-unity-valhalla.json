@@ -1318,6 +1318,1246 @@
           ]
         }
       ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-valhalla-ps4-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed Valhalla en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "El juego base, sus ediciones físicas y sus variantes regionales se mantienen separados de la expansión Dawn of Ragnarök y de los productos físicos que sólo contienen un código.",
+      "game": {
+        "title": "Assassin's Creed Valhalla",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-valhalla"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-valhalla-ps4-standard-es",
+          "label": "Standard Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [
+            "ES"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "ES"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "note": "Portada, contraportada y lomo del mismo ejemplar precintado.",
+              "evidenceIds": [
+                "valhalla-owned-scan-es"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307216168379",
+          "serial": "CUSA-18534",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-assassins-creed-valhalla"
+          ],
+          "scanSetIds": [
+            "ps4-assassins-creed-valhalla"
+          ],
+          "evidenceIds": [
+            "valhalla-owned-scan-es",
+            "valhalla-spain-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_PHYSICAL_PACKAGING. El scan propio confirma EAN, CUSA y caja en español.",
+            "La contraportada indica que las voces en castellano requieren descarga; esta disponibilidad de software no se copia al packaging."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-fr-nl",
+          "label": "Standard Edition · Francia / packaging FR-NL",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "FR",
+            "BE",
+            "NL"
+          ],
+          "packagingLanguages": [
+            "FR",
+            "NL"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168287",
+          "serial": "CUSA-18534",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-france-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_PHYSICAL_PACKAGING. La misma caja FR/NL circula en FR/BE/NL; no se duplica como Benelux."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-pl",
+          "label": "Standard Edition · Polonia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "PL"
+          ],
+          "packagingLanguages": [
+            "PL"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168348",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-poland-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_PHYSICAL_PACKAGING. Software con subtítulos polacos; no se reclasifica como Ultimate por títulos erróneos de marketplace."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-en",
+          "label": "Standard Edition · English packaging / UK-internacional",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "GB"
+          ],
+          "packagingLanguages": [
+            "EN"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168362",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-english-pack"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_PHYSICAL_PACKAGING. Ventas de importación no convierten esta caja en ES o IT."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-at",
+          "label": "Standard Edition · Austria / PEGI-AT",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "AT"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307216168324",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-austria-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_MARKET. Packaging pendiente; no se convierte en Alemania/USK."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-it-market-en-cover",
+          "label": "Standard Edition · mercado Italia / caja inglesa",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "IT"
+          ],
+          "packagingLanguages": [
+            "EN"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168294",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-italy-market"
+          ],
+          "variants": [],
+          "notes": [
+            "Identidad territorial: PENDING. Evidencia de software italiano, pero no de packaging italiano; DEDICATED_ITALIAN_STANDARD sigue sin confirmar."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-eu-cusa18535",
+          "label": "Standard Edition · Europa genérica",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307216168300",
+          "serial": "CUSA-18535",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_SKU. Mercado y packaging pendientes; CUSA-18535 no se colapsa con CUSA-18534."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-eu-pending-3307216168317",
+          "label": "Standard Edition · Europa · mapeo pendiente 3307216168317",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168317",
+          "serial": "CUSA-18534",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Estado: PENDING_TERRITORIAL_MAPPING. No se asigna a ES/FR/DE por el país del retailer."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-au",
+          "label": "Standard Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "ACB MA"
+          ],
+          "barcode": "3307216167259",
+          "serial": "CUSA-18534",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. No se añade Nueva Zelanda automáticamente."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-us-a",
+          "label": "Standard Edition · USA A",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "ESRB"
+          ],
+          "barcode": "887256110116",
+          "serial": "CUSA-18522",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-valhalla"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. UPC principal Standard; no se sustituye por 887256110123."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-us-b",
+          "label": "Standard Edition · USA B / candidata retailer-reprint",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "887256110123",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-us-standard-b"
+          ],
+          "variants": [],
+          "notes": [
+            "Estado: NEEDS_PHYSICAL_MAPPING. Portada, retailer, bonus insert y revisión de fabricación pendientes."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-ca",
+          "label": "Standard Edition · Canadá bilingüe",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "CA"
+          ],
+          "packagingLanguages": [
+            "EN",
+            "FR"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "887256110130",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-canada-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_DISTINCT_CANADIAN_SKU. Evidencia retail bilingüe fuerte; confirmar el scan físico exacto."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-jp",
+          "label": "Standard Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [
+            "JA"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "CERO"
+          ],
+          "barcode": "4949244010962",
+          "serial": "PLJM-16677",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. CERO Z; el código físico PLJM se mantiene separado de la familia digital CUSA-18524."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-standard-asia",
+          "label": "Standard Edition · Asia Multi-Language",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-asia-language"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_EXISTENCE. Familia digital CUSA-18524; barcode, product code físico y packaging pendientes.",
+            "Software documentado: EN/JA/ZH-Hans/ZH-Hant/KO. No se mezcla con Japón ni con una Corea física aún no confirmada."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-gold-eu",
+          "label": "Gold Edition · Europa genérica",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168553",
+          "serial": "CUSA-18534",
+          "physicalContents": [
+            "Juego base"
+          ],
+          "digitalContents": [
+            "Season Pass"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. Regionalizaciones internas y packaging pendientes."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-gold-steelbook-us",
+          "label": "Gold Steelbook Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STEELBOOK",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "887256110628",
+          "serial": "CUSA-18522",
+          "physicalContents": [
+            "Juego base",
+            "Steelbook"
+          ],
+          "digitalContents": [
+            "Season Pass"
+          ],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-valhalla-gold-edition"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamestop-gold"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. La ficha y su precio existentes se preservan."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-gold-au",
+          "label": "Gold Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "DELUXE",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216167198",
+          "serial": "CUSA-18534",
+          "physicalContents": [
+            "Juego base"
+          ],
+          "digitalContents": [
+            "Season Pass"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-gold-steelbook-au",
+          "label": "Gold Steelbook Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STEELBOOK",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216169413",
+          "serial": "CUSA-18534",
+          "physicalContents": [
+            "Juego base",
+            "Steelbook"
+          ],
+          "digitalContents": [
+            "Season Pass"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. No se fusiona con Gold Australia 3307216167198."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ultimate-eu-game",
+          "label": "Ultimate Edition · Europa / GAME Exclusive",
+          "broadRegion": "EUROPE",
+          "editionType": "DELUXE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168423",
+          "serial": "CUSA-18534",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. Se mantiene separada de Standard y Gold."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ultimate-steelbook-us",
+          "label": "Ultimate Steelbook Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STEELBOOK",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "887256110642",
+          "serial": "CUSA-18522",
+          "physicalContents": [
+            "Juego base",
+            "Steelbook"
+          ],
+          "digitalContents": [
+            "Season Pass",
+            "Ultimate Pack"
+          ],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-valhalla-ultimate-edition"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamestop-ultimate"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. GameStop Exclusive; ficha y precio existentes preservados."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ultimate-au",
+          "label": "Ultimate Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "DELUXE",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216167228",
+          "serial": "CUSA-18534",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ultimate-jp",
+          "label": "Ultimate Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "DELUXE",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [
+            "JA"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "CERO"
+          ],
+          "barcode": "4949244010979",
+          "serial": "PLJM-16678",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. CERO Z; no se mezcla con Standard PLJM-16677."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-limited-fr-eu",
+          "label": "Limited Edition · Francia / Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "LIMITED",
+          "marketRegions": [
+            "FR"
+          ],
+          "packagingLanguages": [
+            "FR"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168782",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-limited-fr"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. No representa automáticamente toda Europa."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-drakkar-eu",
+          "label": "Drakkar Edition · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307216168904",
+          "serial": "CUSA-18535",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. País y packaging pendientes; no se colapsa con CUSA-18534."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ragnarok-eu",
+          "label": "Ragnarök Edition · Europa genérica",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307216232650",
+          "physicalContents": [
+            "Assassin's Creed Valhalla base game disc"
+          ],
+          "digitalContents": [
+            "Código de descarga de Dawn of Ragnarök"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Tipo semántico: BASE_GAME_PLUS_EXPANSION_CODE. Es una edición del juego base, no la expansión autónoma ni un Code in a Box sin disco."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ragnarok-fr",
+          "label": "Ragnarök Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "FR"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307216232759",
+          "physicalContents": [
+            "Assassin's Creed Valhalla base game disc"
+          ],
+          "digitalContents": [
+            "Código de descarga de Dawn of Ragnarök"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-ragnarok-fr"
+          ],
+          "variants": [],
+          "notes": [
+            "Tipo semántico: BASE_GAME_PLUS_EXPANSION_CODE. Es una edición del juego base, no la expansión autónoma ni un Code in a Box sin disco."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ragnarok-au",
+          "label": "Ragnarök Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "ACB MA15+"
+          ],
+          "barcode": "3307216232728",
+          "physicalContents": [
+            "Assassin's Creed Valhalla base game disc"
+          ],
+          "digitalContents": [
+            "Código de descarga de Dawn of Ragnarök"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-ragnarok-au"
+          ],
+          "variants": [],
+          "notes": [
+            "Tipo semántico: BASE_GAME_PLUS_EXPANSION_CODE. Es una edición del juego base, no la expansión autónoma ni un Code in a Box sin disco."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ragnarok-jp",
+          "label": "Ragnarök Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [
+            "JA"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "CERO"
+          ],
+          "barcode": "4949244012720",
+          "serial": "PLJM-16994",
+          "releaseDate": "2022-03-10",
+          "physicalContents": [
+            "Assassin's Creed Valhalla base game disc"
+          ],
+          "digitalContents": [
+            "Código de descarga de Dawn of Ragnarök"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-ragnarok-jp"
+          ],
+          "variants": [],
+          "notes": [
+            "Tipo semántico: BASE_GAME_PLUS_EXPANSION_CODE. Es una edición del juego base, no la expansión autónoma ni un Code in a Box sin disco."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ragnarok-pal-catalog-pending",
+          "label": "Ragnarök Edition · ficha PAL España existente / SKU pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [
+            "Assassin's Creed Valhalla base game disc"
+          ],
+          "digitalContents": [
+            "Código de descarga de Dawn of Ragnarök"
+          ],
+          "catalogIds": [
+            "ps4-assassin%27s-creed-valhalla-ragnarok-edition"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [],
+          "variants": [],
+          "notes": [
+            "Tipo semántico: BASE_GAME_PLUS_EXPANSION_CODE. Se conservan URL, portada y precio provisionales; el dossier no cierra su EAN/mercado físico exacto."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-ragnarok-us-platform-pending",
+          "label": "Ragnarök Edition · USA / plataforma de UPC pendiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [
+            "Assassin's Creed Valhalla base game disc"
+          ],
+          "digitalContents": [
+            "Código de descarga de Dawn of Ragnarök"
+          ],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-valhalla-ragnarok-edition"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-ragnarok-us-conflict"
+          ],
+          "variants": [],
+          "notes": [
+            "Tipo semántico: BASE_GAME_PLUS_EXPANSION_CODE. UPC candidato 887256112639 queda en PLATFORM_MAPPING_NEEDS_VERIFICATION y no se publica como barcode PS4 confirmado."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-collector-us-existing",
+          "label": "Collector's Edition · USA / ficha existente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-valhalla-collector%27s-editions"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [],
+          "variants": [],
+          "notes": [
+            "Ficha pública, URL, portada y precio existentes preservados. El dossier entregado no aporta identificadores físicos suficientes para ampliarla."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "valhalla-owned-scan-es",
+          "type": "REAL_SCAN",
+          "label": "Escaneos propios de la Standard PAL España",
+          "summary": "Portada, contraportada y lomo del ejemplar precintado confirman caja española, EAN 3307216168379 y CUSA-18534.",
+          "supports": [
+            "Standard España",
+            "EAN",
+            "CUSA",
+            "packaging español"
+          ]
+        },
+        {
+          "id": "valhalla-spain-retail",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "RetroLoco/Fnac/PcComponentes · Standard España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-valhalla-esp/",
+          "summary": "Confirma PAL España, EAN 3307216168379, CUSA-18534 y carátula/manual español.",
+          "supports": [
+            "Standard España"
+          ]
+        },
+        {
+          "id": "valhalla-france-retail",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "RetroLoco/Fnac Francia · caja FR/NL",
+          "url": "https://www.retroloco.es/producto/assassins-creed-valhalla-fra/",
+          "summary": "Confirma EAN 3307216168287, CUSA-18534 y packaging FR/NL.",
+          "supports": [
+            "Standard Francia/Benelux"
+          ]
+        },
+        {
+          "id": "valhalla-poland-retail",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Gamefinity/listing físico · Polonia",
+          "url": "https://gamefinity.pl/produkt/assassins-creed-valhalla-pl-ps4",
+          "summary": "Confirma EAN 3307216168348 y portada polaca.",
+          "supports": [
+            "Standard Polonia"
+          ]
+        },
+        {
+          "id": "valhalla-english-pack",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Miravia/eBay UK · caja inglesa",
+          "url": "https://www.miravia.es/p/assassins-creed-valhalla-juego-para-consola-sony-playstation-4-ps4-i1356428560332807.html",
+          "summary": "Confirma EAN 3307216168362 y contraportada inglesa.",
+          "supports": [
+            "Standard English packaging"
+          ]
+        },
+        {
+          "id": "valhalla-austria-retail",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "GameNatiX · PEGI-AT",
+          "url": "https://www.gamenatix.de/assassins-creed-valhalla-ps4-gebraucht-pegi-at.html",
+          "summary": "Confirma EAN 3307216168324 como variante Austria/PEGI-AT.",
+          "supports": [
+            "Standard Austria"
+          ]
+        },
+        {
+          "id": "valhalla-italy-market",
+          "type": "RETAILER_ASSET",
+          "label": "GamesandMovies Italia · caja inglesa",
+          "url": "https://www.gamesandmovies.it/",
+          "summary": "El dossier documenta EAN 3307216168294 vendido en Italia con cover inglesa y software italiano.",
+          "supports": [
+            "Italy-market English-cover candidate"
+          ]
+        },
+        {
+          "id": "valhalla-eu-pending",
+          "type": "RETAILER_ASSET",
+          "label": "RetroBroker/retailers UE · EAN sin cerrar",
+          "url": "https://www.retrobroker.com/",
+          "summary": "Vincula 3307216168317 a CUSA-18534 sin resolver su identidad territorial.",
+          "supports": [
+            "EU pending mapping"
+          ]
+        },
+        {
+          "id": "valhalla-gamefaqs-release-data",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos de lanzamiento suministrados",
+          "url": "https://gamefaqs.gamespot.com/ps4/289109-assassins-creed-valhalla/data",
+          "summary": "Fuente agregada del dossier para SKU y ediciones; los conflictos de plataforma y mercados permanecen pendientes.",
+          "supports": [
+            "Standard",
+            "Gold",
+            "Ultimate",
+            "Drakkar",
+            "Ragnarök"
+          ]
+        },
+        {
+          "id": "valhalla-us-standard-b",
+          "type": "RETAILER_ASSET",
+          "label": "Best Buy · segundo UPC Standard",
+          "url": "https://www.bestbuy.com/",
+          "summary": "Registra 887256110123 como Standard; revisión física exacta pendiente.",
+          "supports": [
+            "USA Standard B"
+          ]
+        },
+        {
+          "id": "valhalla-canada-retail",
+          "type": "RETAILER_ASSET",
+          "label": "Toys R Us Canada · Standard bilingüe",
+          "url": "https://www.toysrus.ca/en/PlayStation-4-Assassins-Creed-Valhalla/64D6FB7C.html",
+          "summary": "Confirma UPC 887256110130 y producto bilingüe canadiense.",
+          "supports": [
+            "Canada Standard"
+          ]
+        },
+        {
+          "id": "valhalla-asia-language",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia/PlayStation Asia · Multi-Language",
+          "url": "https://www.play-asia.com/en/assassins-creed-valhalla-multi-language/13/70dxjn",
+          "summary": "Confirma existencia física Asia y software EN/JA/ZH-Hans/ZH-Hant/KO; identificadores físicos pendientes.",
+          "supports": [
+            "Asia Standard"
+          ]
+        },
+        {
+          "id": "valhalla-gamestop-gold",
+          "type": "RETAILER_ASSET",
+          "label": "GameStop · Gold Steelbook USA",
+          "url": "https://www.gamestop.com/video-games/playstation-4/products/assassins-creed-valhalla-gold-steelbook-edition---playstation-4/215855.html",
+          "summary": "Confirma base game, Steelbook, Season Pass y UPC 887256110628.",
+          "supports": [
+            "Gold Steelbook USA"
+          ]
+        },
+        {
+          "id": "valhalla-gamestop-ultimate",
+          "type": "RETAILER_ASSET",
+          "label": "GameStop · Ultimate Steelbook USA",
+          "url": "https://www.gamestop.com/video-games/playstation-4/products/assassins-creed-valhalla-ultimate-steelbook-edition---playstation-4-gamestop-exclusive/215859.html",
+          "summary": "Confirma base game, Steelbook, Season Pass, Ultimate Pack y UPC 887256110642.",
+          "supports": [
+            "Ultimate Steelbook USA"
+          ]
+        },
+        {
+          "id": "valhalla-limited-fr",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Trader Games · Limited francesa/europea",
+          "url": "https://www.tradergames.fr/",
+          "summary": "Confirma EAN 3307216168782 y texto físico francés.",
+          "supports": [
+            "Limited Edition Francia/Europa"
+          ]
+        },
+        {
+          "id": "valhalla-ragnarok-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Ragnarök Edition",
+          "url": "https://www.fnac.com/a16632201/Assassin-s-Creed-Valhalla-Edition-Ragnarok-PS4-Jeu-video-PlayStation-4",
+          "summary": "Confirma juego base en disco más código de L'Aube du Ragnarök, EAN 3307216232759.",
+          "supports": [
+            "Ragnarök Edition Francia",
+            "base disc",
+            "expansion code"
+          ]
+        },
+        {
+          "id": "valhalla-ragnarok-au",
+          "type": "RETAILER_ASSET",
+          "label": "Gamesmen Australia · Ragnarök Edition",
+          "url": "https://www.gamesmen.com.au/ps4-assassins-creed-valhalla-ragnarok-edition",
+          "summary": "Confirma EAN 3307216232728, PAL, MA15+ y lanzamiento australiano.",
+          "supports": [
+            "Ragnarök Edition Australia"
+          ]
+        },
+        {
+          "id": "valhalla-ragnarok-jp",
+          "type": "RETAILER_ASSET",
+          "label": "Rakuten/Nojima/MediaWorld Japón · Ragnarök Edition",
+          "url": "https://books.rakuten.co.jp/rb/17031859/",
+          "summary": "Confirma disco base, código Dawn of Ragnarök, JAN 4949244012720 y PLJM-16994.",
+          "supports": [
+            "Ragnarök Edition Japón",
+            "base disc",
+            "expansion code"
+          ]
+        },
+        {
+          "id": "valhalla-ragnarok-us-conflict",
+          "type": "UNKNOWN",
+          "label": "Conflicto de plataforma del UPC Best Buy",
+          "url": "https://gamefaqs.gamespot.com/ps4/289109-assassins-creed-valhalla/data",
+          "summary": "GameFAQs sitúa 887256112639 en PS4, pero la ficha Best Buy indexada corresponde a Xbox; no se confirma como UPC PS4.",
+          "supports": [
+            "Ragnarök USA pending"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Orden local: regionatlas_codex_ac_valhalla_worldwide_variants.md"
+        },
+        {
+          "label": "Escaneos propios registrados en RegionAtlas"
+        }
+      ],
+      "evidenceNote": "No se realizó investigación externa. Retailer country no equivale a mercado físico; idiomas de software no equivalen a idiomas de caja. Los huecos de Portugal, Alemania, Nordic, Italia IT-only, Nueva Zelanda, México/LATAM, Brasil, Corea y Asia permanecen pendientes.",
+      "editionFamilies": [
+        {
+          "id": "documented-worldwide-editions",
+          "label": "Ediciones físicas documentadas",
+          "representativeCatalogId": "ps4-assassins-creed-valhalla",
+          "physicalEditionIds": [
+            "ac-valhalla-ps4-standard-es",
+            "ac-valhalla-ps4-standard-fr-nl",
+            "ac-valhalla-ps4-standard-pl",
+            "ac-valhalla-ps4-standard-en",
+            "ac-valhalla-ps4-standard-at",
+            "ac-valhalla-ps4-standard-it-market-en-cover",
+            "ac-valhalla-ps4-standard-eu-cusa18535",
+            "ac-valhalla-ps4-standard-eu-pending-3307216168317",
+            "ac-valhalla-ps4-standard-au",
+            "ac-valhalla-ps4-standard-us-a",
+            "ac-valhalla-ps4-standard-us-b",
+            "ac-valhalla-ps4-standard-ca",
+            "ac-valhalla-ps4-standard-jp",
+            "ac-valhalla-ps4-standard-asia",
+            "ac-valhalla-ps4-gold-eu",
+            "ac-valhalla-ps4-gold-steelbook-us",
+            "ac-valhalla-ps4-gold-au",
+            "ac-valhalla-ps4-gold-steelbook-au",
+            "ac-valhalla-ps4-ultimate-eu-game",
+            "ac-valhalla-ps4-ultimate-steelbook-us",
+            "ac-valhalla-ps4-ultimate-au",
+            "ac-valhalla-ps4-ultimate-jp",
+            "ac-valhalla-ps4-limited-fr-eu",
+            "ac-valhalla-ps4-drakkar-eu",
+            "ac-valhalla-ps4-ragnarok-eu",
+            "ac-valhalla-ps4-ragnarok-fr",
+            "ac-valhalla-ps4-ragnarok-au",
+            "ac-valhalla-ps4-ragnarok-jp",
+            "ac-valhalla-ps4-ragnarok-pal-catalog-pending",
+            "ac-valhalla-ps4-ragnarok-us-platform-pending",
+            "ac-valhalla-ps4-collector-us-existing"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-valhalla-dawn-of-ragnarok-ps4",
+      "title": "Producto físico de código de Assassin's Creed Valhalla: Dawn of Ragnarök en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Dawn of Ragnarök es una expansión de Assassin's Creed Valhalla. Sus cajas Code in a Box son productos físicos de descarga sin disco y no son ediciones físicas del juego base.",
+      "game": {
+        "title": "Assassin's Creed Valhalla: Dawn of Ragnarök",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-valhalla-dawn-of-ragnarok"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-valhalla-dawn-ragnarok-ps4-code-box-eu",
+          "label": "Dawn of Ragnarök · Code in a Box · Europa / ficha existente",
+          "broadRegion": "EUROPE",
+          "editionType": "OTHER",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [
+            "Caja física",
+            "Sin disco"
+          ],
+          "digitalContents": [
+            "Código de descarga de la expansión Dawn of Ragnarök"
+          ],
+          "catalogIds": [
+            "ps4-assassins-creed-valhalla-dawn-of-ragnarok"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-dawn-code-box"
+          ],
+          "variants": [],
+          "notes": [
+            "Tipo: PHYSICAL_DOWNLOAD_CODE. Requiere Assassin's Creed Valhalla; identifiers PS4-specific y mercado exacto pendientes.",
+            "EAN candidatos 3307216234470 y 3307216234364 permanecen en backlog sin asignarse a PS4 por posibles mezclas con Xbox."
+          ]
+        },
+        {
+          "id": "ac-valhalla-dawn-ragnarok-ps4-code-box-us",
+          "label": "Dawn of Ragnarök · Code in a Box · USA / ficha existente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [
+            "Caja física",
+            "Sin disco"
+          ],
+          "digitalContents": [
+            "Código de descarga de la expansión Dawn of Ragnarök"
+          ],
+          "catalogIds": [
+            "ps4-usa-assassins-creed-valhalla-dawn-of-ragnarok"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-dawn-code-box"
+          ],
+          "variants": [],
+          "notes": [
+            "Tipo: PHYSICAL_DOWNLOAD_CODE. Requiere el juego base; UPC/product code y correspondencia física exacta pendientes."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "valhalla-dawn-code-box",
+          "type": "UNKNOWN",
+          "label": "Dossier entregado · Dawn of Ragnarök Code in a Box",
+          "url": "https://gamefaqs.gamespot.com/ps4/289109-assassins-creed-valhalla/data",
+          "summary": "Documenta productos físicos que contienen únicamente un código; las tablas agregadas mezclan plataformas para algunos EAN.",
+          "supports": [
+            "expansión",
+            "sin disco",
+            "requiere juego base",
+            "EAN pending"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Orden local: regionatlas_codex_ac_valhalla_worldwide_variants.md"
+        }
+      ],
+      "evidenceNote": "Relación semántica: Dawn of Ragnarök = EXPANSION, expansionOf ps4-assassins-creed-valhalla. Code in a Box = PHYSICAL_DOWNLOAD_CODE, containsDisc false. No se asignan EAN dudosos a PS4.",
+      "editionFamilies": [
+        {
+          "id": "documented-worldwide-editions",
+          "label": "Ediciones físicas documentadas",
+          "representativeCatalogId": "ps4-assassins-creed-valhalla-dawn-of-ragnarok",
+          "physicalEditionIds": [
+            "ac-valhalla-dawn-ragnarok-ps4-code-box-eu",
+            "ac-valhalla-dawn-ragnarok-ps4-code-box-us"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        }
+      ]
     }
   ]
 }

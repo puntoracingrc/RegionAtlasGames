@@ -689,6 +689,8 @@ test("documented guides use edition families while existing catalog IDs retain e
       "assassins-creed-syndicate-ps4",
       "assassins-creed-the-ezio-collection-ps4",
       "assassins-creed-unity-ps4-worldwide",
+      "assassins-creed-valhalla-ps4-worldwide",
+      "assassins-creed-valhalla-dawn-of-ragnarok-ps4",
     ],
   );
 
