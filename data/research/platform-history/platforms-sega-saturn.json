@@ -5,19 +5,19 @@
     {
       "platformSlug": "saturn",
       "title": "Sega Saturn",
-      "dekEs": "La consola de 32 bits de SEGA combino una arquitectura multiprocesador orientada inicialmente a sprites y 2D con una adaptación progresiva al 3D, una relación intensa con el arcade y una historia comercial muy distinta entre Japón, Norteamérica y Europa.",
+      "dekEs": "La consola de 32 bits de SEGA combinó una arquitectura multiprocesador orientada inicialmente a sprites y 2D con una adaptación progresiva al 3D, una relación intensa con el arcade y una historia comercial muy distinta entre Japón, Norteamérica y Europa.",
       "summaryParagraphsEs": [
         "Sega Saturn se lanzó en Japón el 22 de noviembre de 1994. SEGA la describe como una máquina multimedia de 32 bits y como su consola doméstica de mayor éxito relativo en Japón.",
         "Dos Hitachi SH-2, procesadores auxiliares y chips especializados produjeron una arquitectura potente pero compleja. La descripción correcta no es que Saturn fuera simplemente mala para 3D, sino que su diseño y herramientas exigían otro equilibrio de desarrollo.",
-        "System 32 influyo en el equipo de hardware, Model 1/2/3 alimentaron la cultura de conversión arcade y ST-V compartio una relación técnica estrecha con Saturn. Model 2 arcade no debe confundirse con la revisión doméstica llamada Model 2.",
+        "System 32 influyó en el equipo de hardware, Model 1/2/3 alimentaron la cultura de conversión arcade y ST-V compartio una relación técnica estrecha con Saturn. Model 2 arcade no debe confundirse con la revisión doméstica llamada Model 2.",
         "AM2, AM3, Team Andromeda y Sonic Team convivieron con third parties como Capcom, SNK, Treasure y Game Arts. Las propiedades y los créditos se mantienen separados para no convertir todo el catálogo en first party."
       ],
       "historyTitleEs": "Una generación entre el 2D, el 3D y el arcade",
       "historyParagraphsEs": [
         "La historia oficial vincula la concepción inicial de Saturn con experiencia acumulada por un equipo relacionado con System 32. El resultado priorizaba sprites, CD-ROM y varios procesadores especializados.",
-        "El auge rápido del 3D obligo a adaptar prioridades, herramientas y software. La complejidad no elimina las fortalezas 2D ni explica por si sola las diferencias comerciales entre territorios.",
+        "El auge rápido del 3D obligó a adaptar prioridades, herramientas y software. La complejidad no elimina las fortalezas 2D ni explica por sí sola las diferencias comerciales entre territorios.",
         "En Japón, Virtua Fighter, Sakura Wars, los RPG y los juegos de lucha encontraron una base especialmente fuerte. Norteamérica y Europa siguieron estrategias de lanzamiento, catálogo y distribución diferentes.",
-        "ST-V facilito una relación arcade-hogar más directa para determinados juegos, pero la placa seguia siendo arcade. Model 2 y Model 3 aportaron conversiones e identidad visual sin ser compatibles con Saturn.",
+        "ST-V facilitó una relación arcade-hogar más directa para determinados juegos, pero la placa seguía siendo arcade. Model 2 y Model 3 aportaron conversiones e identidad visual sin ser compatibles con Saturn.",
         "32X pertenece al ecosistema Mega Drive y no a Saturn. El solapamiento comercial de 1994 se explica como transición de mercado, no como una genealogía técnica única."
       ],
       "architectureTitleEs": "Multiprocesamiento y relación arcade",
@@ -29,8 +29,8 @@
         {"personSlug":"bernie-stolar","personName":"Bernie Stolar","roleLabelEs":"Transición estadounidense","contributionEs":"Dirigió la etapa posterior de SEGA of America y la transición desde Saturn hacia Dreamcast.","period":"1996-1999","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
         {"personSlug":"yu-suzuki","personName":"Yu Suzuki","roleLabelEs":"AM2 y arcade","contributionEs":"Conecta Model 1/2, Virtua Fighter y la cultura de conversiones arcade con Saturn; no se le adjudican ports sin crédito concreto.","period":"Etapa Saturn","sourceIds":["PH-SEGA-SATURN-DOSSIER","PH-SEGA-ARCADE-DOSSIER"]},
         {"personSlug":"tetsuya-mizuguchi","personName":"Tetsuya Mizuguchi","roleLabelEs":"AM3 y Sega Rally","contributionEs":"Figura creativa del puente entre la experiencia arcade de Sega Rally y su presencia doméstica.","period":"Etapa Saturn","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
-        {"personSlug":"yukio-futatsugi","personName":"Yukio Futatsugi","roleLabelEs":"Team Andromeda","contributionEs":"Relaciona Team Andromeda con la trilogia Panzer Dragoon de Saturn.","period":"1995-1998","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
-        {"personSlug":"yuji-naka","personName":"Yuji Naka","roleLabelEs":"Sonic Team","contributionEs":"Trabajo en Nights into Dreams y Burning Rangers; Sonic R se mantiene atribuido a Traveller's Tales como desarrollador principal.","period":"Etapa Saturn","sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
+        {"personSlug":"yukio-futatsugi","personName":"Yukio Futatsugi","roleLabelEs":"Team Andromeda","contributionEs":"Relaciona Team Andromeda con la trilogía Panzer Dragoon de Saturn.","period":"1995-1998","sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"personSlug":"yuji-naka","personName":"Yuji Naka","roleLabelEs":"Sonic Team","contributionEs":"Trabajó en Nights into Dreams y Burning Rangers; Sonic R se mantiene atribuido a Traveller's Tales como desarrollador principal.","period":"Etapa Saturn","sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
       ],
       "architecture": [
         {"id":"architecture-saturn-sh2","name":"Doble Hitachi SH-2","kind":"PROCESSOR","summaryEs":"Dos procesadores principales SH-2 formaron el núcleo de una arquitectura multiprocesador con tareas distribuidas.","features":["Dos SH-2","SH-1 para el subsistema CD","Motorola 68EC000 para sonido","Chips especializados"],"partners":[{"companySlug":"hitachi","companyName":"Hitachi","roleLabelEs":"Procesadores SH"},{"companySlug":"sega","companyName":"SEGA","roleLabelEs":"Arquitectura e integración"}],"sourceIds":["PH-SEGA-SATURN-STORY"]},
@@ -84,7 +84,7 @@
         {"id":"hardware-v-saturn","name":"V-Saturn","kind":"LICENSED_MODEL","yearLabel":"Japón","manufacturerCompanySlug":"jvc","manufacturerCompanyName":"JVC","modelNumbers":[],"summaryEs":"Modelo licenciado y co-branded basado en Saturn, con identidad de fabricante visible.","features":["Modelo JVC","Misma familia de plataforma"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
         {"id":"hardware-hi-saturn","name":"Hi-Saturn","kind":"LICENSED_MODEL","yearLabel":"Japón","manufacturerCompanySlug":"hitachi","manufacturerCompanyName":"Hitachi","modelNumbers":[],"summaryEs":"Modelo licenciado de Hitachi dentro de la familia Saturn.","features":["Co-branding Hitachi","Variantes multimedia según modelo"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
         {"id":"hardware-saturn-controller","name":"Mando Sega Saturn","kind":"CONTROLLER","yearLabel":"1994","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Control principal de la plataforma con revisiones regionales.","features":["Diseño de seis botones frontales","Variantes por región"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
-        {"id":"hardware-saturn-ram-cartridge","name":"Cartuchos de expansión RAM","kind":"PERIPHERAL","yearLabel":"Etapa Saturn","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Memoria adicional requerida o aprovechada por determinados juegos, especialmente conversiones 2D concretas.","features":["Compatibilidad por título","No ampliacion universal obligatoria"],"relatedWorks":["X-Men vs. Street Fighter"],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+        {"id":"hardware-saturn-ram-cartridge","name":"Cartuchos de expansión RAM","kind":"PERIPHERAL","yearLabel":"Etapa Saturn","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Memoria adicional requerida o aprovechada por determinados juegos, especialmente conversiones 2D concretas.","features":["Compatibilidad por título","No ampliación universal obligatoria"],"relatedWorks":["X-Men vs. Street Fighter"],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
         {"id":"hardware-saturn-net-link","name":"Sega Net Link","kind":"PERIPHERAL","yearLabel":"Según región","manufacturerCompanySlug":"sega-of-america","manufacturerCompanyName":"SEGA of America","modelNumbers":[],"summaryEs":"Módem opcional para conectividad y software compatible; no formaba parte estándar de todas las Saturn.","features":["Hardware adicional","Servicios regionales","Catálogo compatible limitado"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
       ],
       "servicesTitleEs": "Conectividad opcional",
@@ -94,17 +94,17 @@
       ],
       "compatibilityLinks": [],
       "editorialSections": [
-        {"id":"arcade-hardware","titleEs":"System 32, Model y ST-V","dekEs":"Tres relaciones arcade distintas que no deben colapsarse.","paragraphsEs":["El equipo de System 32 influyo en el diseño inicial; Model 1/2/3 aportaron juegos y cultura de conversión; ST-V fue la placa técnicamente más cercana a Saturn."],"cards":[
+        {"id":"arcade-hardware","titleEs":"System 32, Model y ST-V","dekEs":"Tres relaciones arcade distintas que no deben colapsarse.","paragraphsEs":["El equipo de System 32 influyó en el diseño inicial; Model 1/2/3 aportaron juegos y cultura de conversión; ST-V fue la placa técnicamente más cercana a Saturn."],"cards":[
           {"id":"saturn-system32","eyebrowEs":"Influencia de equipo","titleEs":"System 32","summaryEs":"La historia oficial vincula experiencia de este equipo con la arquitectura inicial de Saturn.","detailsEs":["Influencia, no compatibilidad","Enfasis inicial en sprites y 2D"],"sourceIds":["PH-SEGA-SATURN-STORY","PH-SEGA-ARCADE-DOSSIER"]},
           {"id":"saturn-model2","eyebrowEs":"Conversiones arcade","titleEs":"Model 1, Model 2 y Model 3","summaryEs":"Virtua Fighter, Daytona y otros juegos alimentaron la identidad arcade de Saturn.","detailsEs":["No hardware compatible","Verificar cada placa por juego","Model 2 arcade no es Saturn Model 2"],"sourceIds":["PH-SEGA-ARCADE-DOSSIER"]},
           {"id":"saturn-stv","eyebrowEs":"Relación técnica fuerte","titleEs":"SEGA Titan Video (ST-V)","summaryEs":"Placa arcade estrechamente relacionada con Saturn que facilitó determinados ports.","detailsEs":["Sigue siendo arcade","No Saturn retail","No todos los juegos usan ST-V"],"sourceIds":["PH-SEGA-SATURN-DOSSIER","PH-SEGA-ARCADE-DOSSIER"]}
         ],"sourceIds":["PH-SEGA-SATURN-STORY","PH-SEGA-ARCADE-DOSSIER"]},
-        {"id":"regional-markets","titleEs":"Tres historias regionales","dekEs":"El rendimiento japonés no describe por si solo toda la generación.","paragraphsEs":["Japón concentró una gran fortaleza relativa, catálogo doméstico y apoyo 2D. Norteamérica y Europa siguieron lanzamientos, marketing, distribución y localizaciones diferentes."],"cards":[
+        {"id":"regional-markets","titleEs":"Tres historias regionales","dekEs":"El rendimiento japonés no describe por sí solo toda la generación.","paragraphsEs":["Japón concentró una gran fortaleza relativa, catálogo doméstico y apoyo 2D. Norteamérica y Europa siguieron lanzamientos, marketing, distribución y localizaciones diferentes."],"cards":[
           {"id":"saturn-japan","eyebrowEs":"Japón","titleEs":"Mayor fortaleza relativa","summaryEs":"SEGA presenta Saturn como su mayor éxito doméstico en Japón y registra un catálogo cercano a mil títulos con más de cien publishers.","detailsEs":["Cifra atribuida a la cronología oficial","Gran peso de RPG, lucha y Sakura Wars"],"sourceIds":["PH-SEGA-SATURN","PH-SEGA-CORPORATE-TIMELINE"]},
           {"id":"saturn-west","eyebrowEs":"Norteamérica y Europa","titleEs":"Estrategias diferentes","summaryEs":"Fechas, marketing, catálogo y distribución deben consultarse por territorio.","detailsEs":["No extrapolar Japón","Localizaciones y third parties regionales"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
         ],"sourceIds":["PH-SEGA-SATURN","PH-SEGA-SATURN-DOSSIER"]},
         {"id":"boundaries","titleEs":"Límites que protegen la identidad de Saturn","dekEs":"Cancelaciones, expansiones y desarrolladores se muestran con precisión.","paragraphsEs":[],"cards":[
-          {"id":"saturn-not-32x","eyebrowEs":"Plataforma distinta","titleEs":"Saturn no es 32X","summaryEs":"32X amplia Mega Drive; Saturn inaugura otra plataforma con arquitectura propia.","detailsEs":["Calendario solapado","Identidades técnicas separadas"],"link":{"labelEs":"Ver Mega Drive y sus expansiones","href":"/historia-plataformas/megadrive"},"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
+          {"id":"saturn-not-32x","eyebrowEs":"Plataforma distinta","titleEs":"Saturn no es 32X","summaryEs":"32X amplía Mega Drive; Saturn inaugura otra plataforma con arquitectura propia.","detailsEs":["Calendario solapado","Identidades técnicas separadas"],"link":{"labelEs":"Ver Mega Drive y sus expansiones","href":"/historia-plataformas/megadrive"},"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
           {"id":"sonic-xtreme","eyebrowEs":"Cancelado","titleEs":"Sonic X-treme","summaryEs":"Se conserva como proyecto cancelado y nunca como lanzamiento comercial de Saturn.","detailsEs":["No aparece entre los juegos publicados"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]},
           {"id":"sonic-r","eyebrowEs":"Crédito de desarrollo","titleEs":"Sonic R y Traveller's Tales","summaryEs":"La marca Sonic no cambia la identidad del desarrollador principal.","detailsEs":["Traveller's Tales como desarrollo principal","Sonic Team no se atribuye automáticamente"],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
         ],"sourceIds":["PH-SEGA-SATURN-DOSSIER"]}
@@ -120,7 +120,7 @@
       ],
       "legacyEs": [
         "Saturn conserva una identidad propia en la intersección entre gran rendimiento 2D, experimentación 3D y una arquitectura multiprocesador singular.",
-        "Su fortaleza japonesa y su catálogo de lucha, RPG y arcade muestran por que una única narrativa global resulta insuficiente.",
+        "Su fortaleza japonesa y su catálogo de lucha, RPG y arcade muestran por qué una única narrativa global resulta insuficiente.",
         "La relación con ST-V es uno de los mejores ejemplos de como Región Atlas puede conectar placas arcade y consolas sin convertirlas en el mismo objeto."
       ],
       "sources": [

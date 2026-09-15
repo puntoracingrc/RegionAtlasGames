@@ -15,9 +15,9 @@
       "historyTitleEs": "Color portátil y una identidad propia",
       "historyParagraphsEs": [
         "SEGA desarrolló Game Gear como una respuesta diferenciada al mercado portátil: color, retroiluminación y una carcasa horizontal a cambio de mayor consumo energético.",
-        "Su parentesco con Mark III / Master System facilito conversiones y el uso de ciertos juegos mediante adaptador, pero los cartuchos y la experiencia física de la portátil mantuvieron una identidad separada.",
-        "La consola recibio software propio, versiones adaptadas de series SEGA y apoyo third party. Distinguir versiones especificas de ports directos evita atribuciones falsas en el catálogo.",
-        "Kids Gear fue una variante de la familia y Game Gear Micro una celebracion retro de 2020; ninguna se presenta como nueva generación."
+        "Su parentesco con Mark III / Master System facilitó conversiones y el uso de ciertos juegos mediante adaptador, pero los cartuchos y la experiencia física de la portátil mantuvieron una identidad separada.",
+        "La consola recibió software propio, versiones adaptadas de series SEGA y apoyo third party. Distinguir versiones específicas de ports directos evita atribuciones falsas en el catálogo.",
+        "Kids Gear fue una variante de la familia y Game Gear Micro una celebración retro de 2020; ninguna se presenta como nueva generación."
       ],
       "architectureTitleEs": "Una arquitectura portátil cercana a Master System",
       "architectureDekEs": "Parentesco técnico no significa compatibilidad física directa.",
@@ -43,7 +43,7 @@
       "genealogies": [],
       "gamesTitleEs": "Catálogo propio, versiones y third parties",
       "gameGroups": [
-        {"id":"gamegear-sega-games","labelEs":"SEGA y sus series","descriptionEs":"Juegos propios y adaptaciones especificas para la portátil.","games":[
+        {"id":"gamegear-sega-games","labelEs":"SEGA y sus series","descriptionEs":"Juegos propios y adaptaciones específicas para la portátil.","games":[
           {"title":"Columns","catalogId":null,"year":1990,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SEGA","companySlugs":["sega"],"sourceIds":["PH-SEGA-GG-DOSSIER"]},
           {"title":"Sonic the Hedgehog","catalogId":null,"year":1991,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Versión Game Gear","companySlugs":["sega"],"sourceIds":["PH-SEGA-GG-DOSSIER"]},
           {"title":"Sonic Chaos","catalogId":null,"year":1993,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"SEGA","companySlugs":["sega"],"sourceIds":["PH-SEGA-GG-DOSSIER"]},
@@ -63,7 +63,7 @@
         {"id":"hardware-kids-gear","name":"Kids Gear","kind":"REGIONAL_MODEL","yearLabel":"Etapa Game Gear","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Variante de la familia Game Gear; no es una sucesora generacional.","features":["Identidad de producto dentro de la misma familia"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-GG-DOSSIER"]},
         {"id":"hardware-gamegear-micro","name":"Game Gear Micro","kind":"COMMEMORATIVE_HARDWARE","yearLabel":"2020","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Producto mini conmemorativo, separado de la línea histórica como plataforma de los años 1990.","features":["Producto retro","No nueva generación"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-GG-DOSSIER"]},
         {"id":"hardware-master-gear-converter","name":"Master Gear Converter","kind":"PERIPHERAL","yearLabel":"Etapa Game Gear","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Adaptador para determinados cartuchos Master System; los cartuchos no se usan directamente sin converter.","features":["Compatibilidad mediada por adaptador","Límites de software y región"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-GAMEGEAR-DEVICES"]},
-        {"id":"hardware-gamegear-tv-tuner","name":"TV Tuner Pack","kind":"PERIPHERAL","yearLabel":"Etapa Game Gear","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Sintonizador con entrada externa que extendía Game Gear como dispositivo multimedia portátil.","features":["Televisión portátil","Entrada de video externa","Disponibilidad regional"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-GAMEGEAR-DEVICES"]}
+        {"id":"hardware-gamegear-tv-tuner","name":"TV Tuner Pack","kind":"PERIPHERAL","yearLabel":"Etapa Game Gear","manufacturerCompanySlug":"sega","manufacturerCompanyName":"SEGA","modelNumbers":[],"summaryEs":"Sintonizador con entrada externa que extendía Game Gear como dispositivo multimedia portátil.","features":["Televisión portátil","Entrada de vídeo externa","Disponibilidad regional"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SEGA-GAMEGEAR-DEVICES"]}
       ],
       "services": [],
       "compatibilityLinks": [
@@ -72,7 +72,7 @@
       "editorialSections": [
         {"id":"portable-tradeoffs","titleEs":"Color, autonomía y competencia","dekEs":"Una elección técnica con ventajas y costes, no una explicación única del mercado.","paragraphsEs":["La pantalla en color y retroiluminada diferenciaba a Game Gear frente a Game Boy, Atari Lynx y TurboExpress. También elevaba el consumo energético, pero la trayectoria de la máquina depende de catálogo, precio, distribución y mercados regionales."],"cards":[
           {"id":"gamegear-color","eyebrowEs":"Propuesta","titleEs":"Color retroiluminado","summaryEs":"La pantalla fue el centro de la identidad del sistema.","detailsEs":["Ventaja visual","Mayor consumo energético","Diseño horizontal"],"sourceIds":["PH-SEGA-GAMEGEAR","PH-SEGA-GAMEGEAR-STORY"]},
-          {"id":"gamegear-not-megadrive","eyebrowEs":"Limite editorial","titleEs":"No es una Mega Drive portátil","summaryEs":"Su parentesco técnico principal se establece con Mark III / Master System.","detailsEs":["Cartuchos propios","Compatibilidad por adaptador"],"link":{"labelEs":"Ver historia de Master System","href":"/historia-plataformas/mastersystem"},"sourceIds":["PH-SEGA-GG-DOSSIER"]}
+          {"id":"gamegear-not-megadrive","eyebrowEs":"Límite editorial","titleEs":"No es una Mega Drive portátil","summaryEs":"Su parentesco técnico principal se establece con Mark III / Master System.","detailsEs":["Cartuchos propios","Compatibilidad por adaptador"],"link":{"labelEs":"Ver historia de Master System","href":"/historia-plataformas/mastersystem"},"sourceIds":["PH-SEGA-GG-DOSSIER"]}
         ],"sourceIds":["PH-SEGA-GAMEGEAR","PH-SEGA-GAMEGEAR-STORY","PH-SEGA-GG-DOSSIER"]},
         {"id":"multimedia","titleEs":"Una portátil que quería ser más que una consola","dekEs":"Los periféricos ampliaban el valor de la pantalla.","paragraphsEs":["El TV Tuner Pack permitía recibir televisión y usar una entrada externa. Esta función se conserva como ejemplo de expansión multimedia, sin confundir el accesorio con una revisión de la consola."],"cards":[
           {"id":"gamegear-tv","eyebrowEs":"Periférico","titleEs":"TV Tuner Pack","summaryEs":"Televisión portátil y entrada externa en mercados compatibles.","detailsEs":["Accesorio separado","Disponibilidad regional"],"sourceIds":["PH-SEGA-GAMEGEAR-DEVICES"]}
@@ -82,7 +82,7 @@
       "milestones": [
         {"id":"milestone-gg-1990","yearLabel":"6 oct 1990","sortYear":1990,"title":"Game Gear en Japón","summaryEs":"SEGA lanza su primera portátil con pantalla en color retroiluminada.","sourceIds":["PH-SEGA-GAMEGEAR"]},
         {"id":"milestone-gg-1991","yearLabel":"1991","sortYear":1991,"title":"Expansión occidental","summaryEs":"La máquina llega a nuevos mercados con calendarios y catálogos regionales.","sourceIds":["PH-SEGA-GG-DOSSIER"]},
-        {"id":"milestone-gg-1990s","yearLabel":"Años 1990","sortYear":1992,"title":"Sonic y catálogo propio","summaryEs":"Versiones especificas y nuevas entregas consolidan una identidad de software portátil.","sourceIds":["PH-SEGA-GG-DOSSIER"]},
+        {"id":"milestone-gg-1990s","yearLabel":"Años 1990","sortYear":1992,"title":"Sonic y catálogo propio","summaryEs":"Versiones específicas y nuevas entregas consolidan una identidad de software portátil.","sourceIds":["PH-SEGA-GG-DOSSIER"]},
         {"id":"milestone-gg-2020","yearLabel":"2020","sortYear":2020,"title":"Game Gear Micro","summaryEs":"SEGA recupera la marca como producto conmemorativo, no como nueva generación.","sourceIds":["PH-SEGA-GG-DOSSIER"]}
       ],
       "legacyEs": [
