@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-mirage-ps5",
+      "title": "Ediciones físicas de Assassin's Creed Mirage en PlayStation 5",
+      "reviewedAt": "2026-09-15",
+      "note": "Una única obra canónica de Assassin's Creed Mirage en PS5, organizada en Standard, Deluxe Edition, Launch Edition y Collector's Case. Collector's Edition se conserva como alias conceptual de Collector's Case. Los PPSA son familias digitales de software/Store y nunca sustituyen el barcode físico.",
+      "game": {
+        "title": "Assassin's Creed Mirage",
+        "platformSlug": "ps5",
+        "canonicalCatalogId": "ps5-assassin-s-creed-mirage",
+        "aliases": ["Assassin's Creed: Mirage"]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-mirage",
+          "physicalEditionIds": [
+            "ac-mirage-ps5-standard-es-pt", "ac-mirage-ps5-standard-fr", "ac-mirage-ps5-standard-de", "ac-mirage-ps5-standard-it",
+            "ac-mirage-ps5-standard-pl-cz-hu", "ac-mirage-ps5-standard-uk", "ac-mirage-ps5-standard-au", "ac-mirage-ps5-standard-us",
+            "ac-mirage-ps5-standard-mx", "ac-mirage-ps5-standard-jp", "ac-mirage-ps5-standard-asia-chinese", "ac-mirage-ps5-standard-kr-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "deluxe",
+          "label": "Deluxe Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-mirage-deluxe-edition",
+          "physicalEditionIds": [
+            "ac-mirage-ps5-deluxe-es-pt", "ac-mirage-ps5-deluxe-de", "ac-mirage-ps5-deluxe-it", "ac-mirage-ps5-deluxe-nl",
+            "ac-mirage-ps5-deluxe-pl-cz-hu", "ac-mirage-ps5-deluxe-au", "ac-mirage-ps5-deluxe-us", "ac-mirage-ps5-deluxe-ca",
+            "ac-mirage-ps5-deluxe-asia-chinese", "ac-mirage-ps5-deluxe-kr-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "loose"]
+        },
+        {
+          "id": "launch",
+          "label": "Launch Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-mirage-launch-edition",
+          "physicalEditionIds": [
+            "ac-mirage-ps5-launch-fr", "ac-mirage-ps5-launch-nl", "ac-mirage-ps5-launch-amazon-es-pending",
+            "ac-mirage-ps5-launch-amazon-it-pending", "ac-mirage-ps5-launch-ca"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "collectors-case",
+          "label": "Collector's Case",
+          "representativeCatalogId": "ps5-assassin-s-creed-mirage-collector-s-edition",
+          "physicalEditionIds": [
+            "ac-mirage-ps5-collectors-case-us-pending", "ac-mirage-ps5-collectors-case-eu-game-pending",
+            "ac-mirage-ps5-collectors-case-pl-cz-hu", "ac-mirage-ps5-collectors-case-asia-chinese",
+            "ac-mirage-ps5-collectors-case-kr-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-mirage-ps5-standard-es-pt", "label": "Standard · España / Portugal", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["ES", "PT"], "packagingLanguages": ["ES", "PT"], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED",
+          "barcode": "3307216258285", "catalogIds": ["ps5-assassin-s-creed-mirage"],
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-fnac-es", "mirage-ps5-carrefour-es", "mirage-ps5-local-assets"],
+          "notes": ["CONFIRMED_PHYSICAL_PACKAGING. PPSA-07231 es la familia digital Europa/Australia, no el barcode físico."]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-fr", "label": "Standard · Francia", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["FR"], "packagingLanguages": ["FR"], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED",
+          "barcode": "3307216258247", "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-auchan-fr", "mirage-ps5-tradergames-fr"],
+          "notes": ["CONFIRMED_PHYSICAL_PACKAGING; Trader Games declara expresamente idioma de caja francés."]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-de", "label": "Standard · Alemania", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["DE"], "packagingLanguages": ["DE"], "ratingSystems": ["USK"], "productCodes": ["PPSA-07231"],
+          "confidence": "CONFIRMED", "barcode": "3307216256786", "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-mediamarkt-de"]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-it", "label": "Standard · Italia", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["IT"], "packagingLanguages": ["IT"], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED",
+          "barcode": "3307216258261", "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-ibs-it"],
+          "notes": ["CONFIRMED_PHYSICAL_PACKAGING según la ficha italiana citada en el dossier."]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-pl-cz-hu", "label": "Standard · Polonia / Chequia / Hungría", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["PL", "CZ", "HU"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED",
+          "barcode": "3307216258278", "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-xkom-pl"],
+          "notes": ["CONFIRMED_FAMILY. X-kom acredita el código y subtítulos polacos, pero no los idiomas impresos exhaustivos de la caja."]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-uk", "label": "Standard · UK / English retail", "broadRegion": "EUROPE", "editionType": "STANDARD",
+          "marketRegions": ["GB"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "HIGH", "barcode": "3307216258315",
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-argos-uk"], "notes": ["CONFIRMED_UK_RETAIL. Packaging pendiente de scan físico."]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-au", "label": "Standard · Australia", "broadRegion": "OCEANIA", "editionType": "STANDARD",
+          "marketRegions": ["AU"], "packagingLanguages": [], "ratingSystems": ["ACB MA"], "productCodes": ["PPSA-07231"],
+          "confidence": "CONFIRMED", "barcode": "3307216256762", "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-harvey-norman-au"],
+          "notes": ["No se extiende automáticamente a Nueva Zelanda."]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-us", "label": "Standard · USA", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD",
+          "marketRegions": ["US"], "packagingLanguages": [], "ratingSystems": ["ESRB M"], "productCodes": ["PPSA-07230"],
+          "confidence": "CONFIRMED", "barcode": "887256114299", "catalogIds": ["ps5-usa-assassin-s-creed-mirage"],
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-gamestop-us", "mirage-ps5-local-assets"]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-mx", "label": "Standard · México", "broadRegion": "NORTH_AMERICA", "editionType": "STANDARD",
+          "marketRegions": ["MX"], "packagingLanguages": [], "productCodes": ["PPSA-07230"], "confidence": "CONFIRMED", "barcode": "887256114350",
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-sanborns-mx"],
+          "notes": ["CONFIRMED_DISTINCT_SKU. Packaging pendiente; no se fusiona con USA."]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-jp", "label": "Standard · Japón", "broadRegion": "ASIA", "editionType": "STANDARD",
+          "marketRegions": ["JP"], "packagingLanguages": ["JA"], "ratingSystems": ["CERO Z"], "productCodes": ["PPSA-07232"],
+          "confidence": "CONFIRMED", "barcode": "4949244013314", "catalogNumber": "ELJM-30329", "releaseDate": "2023-10-05",
+          "releaseDateContext": "Lanzamiento físico japonés", "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-ubisoft-japan"]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-asia-chinese", "label": "Standard · Asia Chinese", "broadRegion": "ASIA", "editionType": "STANDARD",
+          "marketRegions": [], "packagingLanguages": [], "softwareLanguages": ["EN", "JA", "ZH-HANS", "ZH-HANT", "KO"],
+          "productCodes": ["PPSA-07232"], "confidence": "CONFIRMED", "barcode": "3307216275121",
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-play-asia"],
+          "notes": ["Los subtítulos documentados son softwareLanguages y no completan packagingLanguages. Variante independiente de Japón."]
+        },
+        {
+          "id": "ac-mirage-ps5-standard-kr-pending", "label": "Standard · Corea · identificadores pendientes", "broadRegion": "ASIA", "editionType": "STANDARD",
+          "marketRegions": ["KR"], "packagingLanguages": [], "ratingSystems": ["GRAC 18"], "productCodes": ["PPSA-07232"],
+          "confidence": "PENDING_IDENTIFIER", "evidenceIds": ["mirage-ps5-gamefaqs"],
+          "notes": ["PHYSICAL_RELEASE_CONFIRMED; barcode, product code físico e idiomas de packaging pendientes."]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-es-pt", "label": "Deluxe Edition · España / Portugal", "broadRegion": "EUROPE", "editionType": "DELUXE",
+          "marketRegions": ["ES", "PT"], "packagingLanguages": ["ES", "PT"], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED",
+          "barcode": "3307216258421", "catalogIds": ["ps5-assassin-s-creed-mirage-deluxe-edition"],
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-el-corte-ingles-deluxe", "mirage-ps5-local-assets"]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-de", "label": "Deluxe Edition · Alemania", "broadRegion": "EUROPE", "editionType": "DELUXE",
+          "marketRegions": ["DE"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED", "barcode": "3307216256960",
+          "evidenceIds": ["mirage-ps5-gamefaqs"]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-it", "label": "Deluxe Edition · Italia", "broadRegion": "EUROPE", "editionType": "DELUXE",
+          "marketRegions": ["IT"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED", "barcode": "3307216258407",
+          "evidenceIds": ["mirage-ps5-gamefaqs"]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-nl", "label": "Deluxe Edition · Países Bajos", "broadRegion": "EUROPE", "editionType": "DELUXE",
+          "marketRegions": ["NL"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED", "barcode": "3307216258377",
+          "evidenceIds": ["mirage-ps5-gamefaqs"]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-pl-cz-hu", "label": "Deluxe Edition · Polonia / Chequia / Hungría", "broadRegion": "EUROPE", "editionType": "DELUXE",
+          "marketRegions": ["PL", "CZ", "HU"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED",
+          "barcode": "3307216258414", "evidenceIds": ["mirage-ps5-gamefaqs"]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-au", "label": "Deluxe Edition · Australia", "broadRegion": "OCEANIA", "editionType": "DELUXE",
+          "marketRegions": ["AU"], "packagingLanguages": [], "ratingSystems": ["ACB MA"], "productCodes": ["PPSA-07231"],
+          "confidence": "CONFIRMED", "barcode": "3307216256946", "evidenceIds": ["mirage-ps5-gamefaqs"]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-us", "label": "Deluxe Edition · USA", "broadRegion": "NORTH_AMERICA", "editionType": "DELUXE",
+          "marketRegions": ["US"], "evidenceMarkets": ["US", "MX"], "packagingLanguages": [], "ratingSystems": ["ESRB M"],
+          "productCodes": ["PPSA-07230"], "confidence": "CONFIRMED", "barcode": "887256114282",
+          "catalogIds": ["ps5-usa-assassin-s-creed-mirage-deluxe-edition"], "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-local-assets"],
+          "notes": ["El mismo UPC aparece en Edicion Deluxe (Mexico); se registra MX como evidenceMarket sin crear un SKU mexicano duplicado."]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-ca", "label": "Deluxe Edition · Canadá", "broadRegion": "NORTH_AMERICA", "editionType": "DELUXE",
+          "marketRegions": ["CA"], "packagingLanguages": [], "ratingSystems": ["ESRB M"], "productCodes": ["PPSA-07230"],
+          "confidence": "CONFIRMED", "barcode": "887256114398", "evidenceIds": ["mirage-ps5-gamefaqs"], "notes": ["CONFIRMED_DISTINCT_SKU."]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-asia-chinese", "label": "Deluxe Edition · Asia Chinese", "broadRegion": "ASIA", "editionType": "DELUXE",
+          "marketRegions": [], "packagingLanguages": [], "productCodes": ["PPSA-07232"], "confidence": "CONFIRMED", "barcode": "3307216275732",
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-play-asia"]
+        },
+        {
+          "id": "ac-mirage-ps5-deluxe-kr-pending", "label": "Deluxe Edition · Corea · identificadores pendientes", "broadRegion": "ASIA", "editionType": "DELUXE",
+          "marketRegions": ["KR"], "packagingLanguages": [], "ratingSystems": ["GRAC 18"], "productCodes": ["PPSA-07232"],
+          "confidence": "PENDING_IDENTIFIER", "evidenceIds": ["mirage-ps5-gamefaqs"], "notes": ["PHYSICAL_RELEASE_CONFIRMED; barcode y product code físico pendientes."]
+        },
+        {
+          "id": "ac-mirage-ps5-launch-fr", "label": "Launch Edition · Francia", "broadRegion": "EUROPE", "editionType": "SPECIAL",
+          "marketRegions": ["FR"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED", "barcode": "3307216258100",
+          "physicalContents": ["Juego físico", "Mapa de Bagdad", "3 litografías", "Bonus de lanzamiento"],
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-launch-fr-retail"]
+        },
+        {
+          "id": "ac-mirage-ps5-launch-nl", "label": "Launch Edition · Países Bajos", "broadRegion": "EUROPE", "editionType": "SPECIAL",
+          "marketRegions": ["NL"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED", "barcode": "3307216258230",
+          "evidenceIds": ["mirage-ps5-gamefaqs"]
+        },
+        {
+          "id": "ac-mirage-ps5-launch-amazon-es-pending", "label": "Launch Edition · España · Amazon.es Exclusive · barcode pendiente", "broadRegion": "EUROPE", "editionType": "SPECIAL",
+          "marketRegions": ["ES"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": ["ps5-assassin-s-creed-mirage-launch-edition"], "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-local-assets"],
+          "notes": ["CONFIRMED_EXISTENCE / BARCODE_PENDING. La ficha legacy PAL España y su portada se preservan; el frontal actual no cierra idioma ni barcode."]
+        },
+        {
+          "id": "ac-mirage-ps5-launch-amazon-it-pending", "label": "Launch Edition · Italia · Amazon.it Exclusive · barcode pendiente", "broadRegion": "EUROPE", "editionType": "SPECIAL",
+          "marketRegions": ["IT"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["mirage-ps5-gamefaqs"], "notes": ["CONFIRMED_EXISTENCE / BARCODE_PENDING."]
+        },
+        {
+          "id": "ac-mirage-ps5-launch-ca", "label": "Launch Edition · Canadá", "broadRegion": "NORTH_AMERICA", "editionType": "SPECIAL",
+          "marketRegions": ["CA"], "packagingLanguages": [], "ratingSystems": ["ESRB M"], "productCodes": ["PPSA-07230"],
+          "confidence": "CONFIRMED", "barcode": "887256114381", "catalogIds": ["ps5-usa-assassin-s-creed-mirage-launch-edition"],
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-local-assets"],
+          "notes": ["La identidad y ruta legacy USA se conservan; la evidencia física publicada corresponde al SKU canadiense y no autoriza inventar una Launch USA distinta."]
+        },
+        {
+          "id": "ac-mirage-ps5-collectors-case-us-pending", "label": "Collector's Case · USA · barcode pendiente", "broadRegion": "NORTH_AMERICA", "editionType": "COLLECTOR",
+          "marketRegions": ["US"], "packagingLanguages": [], "ratingSystems": ["ESRB M"], "productCodes": ["PPSA-07230"],
+          "confidence": "PENDING_IDENTIFIER", "catalogIds": ["ps5-usa-assassin-s-creed-mirage-collector-s-case"],
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-local-assets"],
+          "notes": ["Existencia confirmada. El asset legacy muestra Collector's Case Bundle y GameStop Exclusive; barcode físico pendiente."]
+        },
+        {
+          "id": "ac-mirage-ps5-collectors-case-eu-game-pending", "label": "Collector's Case · Europa · GAME Exclusive · barcode pendiente", "broadRegion": "EUROPE", "editionType": "COLLECTOR",
+          "marketRegions": [], "evidenceMarkets": ["IT"], "packagingLanguages": [],
+          "componentLanguageEvidence": [{"component": "OUTER_BOX", "languages": ["IT"], "basis": "OBSERVED", "exhaustive": false, "note": "El asset legacy europeo muestra texto italiano; no demuestra una variante italiana separada ni todo el packaging.", "evidenceIds": ["mirage-ps5-local-assets"]}],
+          "productCodes": ["PPSA-07231"], "confidence": "PENDING_IDENTIFIER", "catalogIds": ["ps5-assassin-s-creed-mirage-collector-s-edition"],
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-local-assets"],
+          "notes": ["Collector's Edition y Collector's Case son aliases de una sola familia conceptual. La ficha legacy europea y su portada se preservan; barcode pendiente."]
+        },
+        {
+          "id": "ac-mirage-ps5-collectors-case-pl-cz-hu", "label": "Collector's Case · Polonia / Chequia / Hungría", "broadRegion": "EUROPE", "editionType": "COLLECTOR",
+          "marketRegions": ["PL", "CZ", "HU"], "packagingLanguages": [], "productCodes": ["PPSA-07231"], "confidence": "CONFIRMED",
+          "barcode": "3307216251392", "evidenceIds": ["mirage-ps5-gamefaqs"]
+        },
+        {
+          "id": "ac-mirage-ps5-collectors-case-asia-chinese", "label": "Collector's Case · Asia Chinese", "broadRegion": "ASIA", "editionType": "COLLECTOR",
+          "marketRegions": [], "packagingLanguages": [], "productCodes": ["PPSA-07232"], "confidence": "CONFIRMED", "barcode": "3307216280255",
+          "evidenceIds": ["mirage-ps5-gamefaqs", "mirage-ps5-play-asia"], "notes": ["Collector's Edition (Chinese) pertenece a la familia conceptual Collector's Case."]
+        },
+        {
+          "id": "ac-mirage-ps5-collectors-case-kr-pending", "label": "Collector's Case · Corea · identificadores pendientes", "broadRegion": "ASIA", "editionType": "COLLECTOR",
+          "marketRegions": ["KR"], "packagingLanguages": [], "ratingSystems": ["GRAC 18"], "productCodes": ["PPSA-07232"],
+          "confidence": "PENDING_IDENTIFIER", "evidenceIds": ["mirage-ps5-gamefaqs"], "notes": ["PHYSICAL_RELEASE_CONFIRMED; barcode y product code físico pendientes."]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {"id": "mirage-ps5-gamefaqs", "type": "UNKNOWN", "label": "GameFAQs · datos de lanzamientos PS5", "url": "https://gamefaqs.gamespot.com/ps5/379221-assassins-creed-mirage/data", "summary": "Tabla mundial contrastada el 2026-09-15 para nombres regionales, barcodes, ELJM-30329, PPSA-07230/07231/07232, ratings y lanzamientos físicos sin identificador publicado.", "supports": ["familias y mercados PS5", "EAN UPC JAN", "ELJM-30329", "PPSA digitales", "pendientes Korea y Collector EU/US"]},
+        {"id": "mirage-ps5-fnac-es", "type": "RETAILER_ASSET", "label": "Fnac España · Standard PS5", "url": "https://www.fnac.es/Assassin-s-Creed-Mirage-PS5-Videojuego-PS5/a9653441", "supports": ["PS5 física", "EAN 3307216258285", "mercado España"]},
+        {"id": "mirage-ps5-carrefour-es", "type": "RETAILER_ASSET", "label": "Carrefour España · Standard PS5", "url": "https://www.carrefour.es/assassins-creed-mirage-para-ps5/VC4A-19900986/p", "supports": ["PS5 física", "EAN 3307216258285", "edición estándar"]},
+        {"id": "mirage-ps5-auchan-fr", "type": "RETAILER_ASSET", "label": "Auchan France · Standard PS5", "url": "https://www.auchan.fr/assassin-s-creed-mirage-ps5/pr-C1604824", "supports": ["PS5 física", "EAN 3307216258247", "mercado Francia"]},
+        {"id": "mirage-ps5-tradergames-fr", "type": "RETAILER_ASSET", "label": "Trader Games France · Standard PS5", "url": "https://www.tradergames.fr/fr/playstation-5/202828-assassin-s-creed-mirage-ps5-fr-new-game-in-englishfrdeesit-3307216258247.html", "supports": ["EAN 3307216258247", "edición francesa", "idioma de caja francés"]},
+        {"id": "mirage-ps5-mediamarkt-de", "type": "RETAILER_ASSET", "label": "MediaMarkt Alemania · Standard PS5", "url": "https://www.mediamarkt.de/de/product/_assassins-creed-mirage-playstation-5-2977310.html", "supports": ["PS5 Blu-ray", "GTIN 3307216256786", "USK", "packaging alemán"]},
+        {"id": "mirage-ps5-ibs-it", "type": "RETAILER_ASSET", "label": "IBS Italia · Standard PS5", "url": "https://www.ibs.it/assassin-s-creed-mirage-ps5-videogioco-ubisoft/e/3307216258261", "supports": ["PS5 física", "EAN 3307216258261", "edición italiana"]},
+        {"id": "mirage-ps5-xkom-pl", "type": "RETAILER_ASSET", "label": "X-kom Poland · Standard PS5", "url": "https://www.x-kom.pl/p/1090769-gra-na-playstation-5-playstation-assassins-creed-mirage.html", "supports": ["PS5 Blu-ray", "código 3307216258278 / Cenega", "subtítulos polacos"]},
+        {"id": "mirage-ps5-argos-uk", "type": "RETAILER_ASSET", "label": "Argos UK · Standard PS5", "url": "https://www.argos.co.uk/product/4845412/", "supports": ["PS5 physical game disc", "EAN 3307216258315", "mercado GB"]},
+        {"id": "mirage-ps5-harvey-norman-au", "type": "RETAILER_ASSET", "label": "Harvey Norman Australia · Standard PS5", "url": "https://www.harveynorman.com.au/assassin-s-creed-mirage-ps5.html", "supports": ["PS5 física", "barcode 3307216256762", "mercado Australia"]},
+        {"id": "mirage-ps5-gamestop-us", "type": "RETAILER_ASSET", "label": "GameStop USA · Standard PS5", "url": "https://www.gamestop.com/video-games/playstation-5/products/assassins-creed-mirage---playstation-5/401269.html", "supports": ["PS5 física", "UPC 887256114299", "mercado USA", "ESRB M"]},
+        {"id": "mirage-ps5-sanborns-mx", "type": "RETAILER_ASSET", "label": "Sanborns México · Standard PS5", "url": "https://www.sanborns.com.mx/producto/342652/", "supports": ["PS5 física", "UPC 887256114350", "mercado México"]},
+        {"id": "mirage-ps5-play-asia", "type": "RETAILER_ASSET", "label": "Play-Asia · Standard Asia PS5", "url": "https://www.play-asia.com/en/assassins-creed-mirage-multi-language/13/70gm63", "supports": ["versión Asia PS5", "softwareLanguages EN JA ZH-Hans ZH-Hant KO", "separación Asia Japan Korea"]},
+        {"id": "mirage-ps5-ubisoft-japan", "type": "PUBLISHER_DOCUMENTATION", "label": "Ubisoft Japan · Assassin's Creed Mirage", "url": "https://news.ubisoft.com/ja-jp/article/6kaRWNkZmzMkYrXmWmWvWM", "supports": ["lanzamiento japonés", "packaging japonés"]},
+        {"id": "mirage-ps5-el-corte-ingles-deluxe", "type": "RETAILER_ASSET", "label": "El Corte Inglés · Deluxe PS5 citada en el dossier", "supports": ["EAN 3307216258421", "Deluxe ES/PT"]},
+        {"id": "mirage-ps5-launch-fr-retail", "type": "RETAILER_ASSET", "label": "Fnac / Consollection · Launch Edition France citadas en el dossier", "supports": ["EAN 3307216258100", "juego físico", "mapa de Bagdad", "3 litografías", "bonus de lanzamiento"]},
+        {"id": "mirage-ps5-local-assets", "type": "UNKNOWN", "label": "Assets y fichas legacy PS5 de RegionAtlas", "summary": "Se inspeccionaron las ocho fichas y sus portadas remotas el 2026-09-15. Se conservan IDs, slugs, rutas PriceCharting, portadas y precios. La Collector europea muestra texto italiano y la USA muestra Collector's Case Bundle / GameStop Exclusive; ninguna aporta barcode legible.", "supports": ["preservación de ocho fichas legacy", "mapeo Collector EU y US", "preservación de portadas precios y rutas"]}
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac_mirage_ps5_worldwide_variants.md"},
+        {"label": "GameFAQs PS5", "url": "https://gamefaqs.gamespot.com/ps5/379221-assassins-creed-mirage/data"},
+        {"label": "Fnac España", "url": "https://www.fnac.es/Assassin-s-Creed-Mirage-PS5-Videojuego-PS5/a9653441"},
+        {"label": "Carrefour España", "url": "https://www.carrefour.es/assassins-creed-mirage-para-ps5/VC4A-19900986/p"},
+        {"label": "Auchan France", "url": "https://www.auchan.fr/assassin-s-creed-mirage-ps5/pr-C1604824"},
+        {"label": "Trader Games France", "url": "https://www.tradergames.fr/fr/playstation-5/202828-assassin-s-creed-mirage-ps5-fr-new-game-in-englishfrdeesit-3307216258247.html"},
+        {"label": "MediaMarkt Germany", "url": "https://www.mediamarkt.de/de/product/_assassins-creed-mirage-playstation-5-2977310.html"},
+        {"label": "IBS Italy", "url": "https://www.ibs.it/assassin-s-creed-mirage-ps5-videogioco-ubisoft/e/3307216258261"},
+        {"label": "X-kom Poland", "url": "https://www.x-kom.pl/p/1090769-gra-na-playstation-5-playstation-assassins-creed-mirage.html"},
+        {"label": "Argos UK", "url": "https://www.argos.co.uk/product/4845412/"},
+        {"label": "Harvey Norman Australia", "url": "https://www.harveynorman.com.au/assassin-s-creed-mirage-ps5.html"},
+        {"label": "GameStop USA", "url": "https://www.gamestop.com/video-games/playstation-5/products/assassins-creed-mirage---playstation-5/401269.html"},
+        {"label": "Sanborns México", "url": "https://www.sanborns.com.mx/producto/342652/"},
+        {"label": "Play-Asia", "url": "https://www.play-asia.com/en/assassins-creed-mirage-multi-language/13/70gm63"},
+        {"label": "Ubisoft Japan", "url": "https://news.ubisoft.com/ja-jp/article/6kaRWNkZmzMkYrXmWmWvWM"},
+        {"label": "Assets y fichas legacy de RegionAtlas"}
+      ],
+      "evidenceNote": "Normalización aditiva basada en el dossier, la tabla mundial contrastada y los assets legacy inspeccionados. Los barcodes y product codes físicos pendientes permanecen ausentes; los PPSA se identifican sólo como familias digitales y los idiomas de software nunca completan packagingLanguages.",
+      "researchTasks": [
+        {"id": "mirage-ps5-standard-ca-unconfirmed", "label": "Standard Canadá independiente", "status": "PHYSICAL_VARIANT_NOT_CONFIRMED", "marketRegions": ["CA"], "notes": ["No crear una variante Standard CA por simetría con PS4; la tabla principal sólo demuestra Deluxe y Launch canadienses."]},
+        {"id": "mirage-ps5-korea-identifiers", "label": "Identificadores físicos Corea", "status": "PENDING_REVIEW", "marketRegions": ["KR"], "notes": ["Localizar barcode y product code físico para Standard, Deluxe y Collector's Case sin reutilizar identificadores PS4."]},
+        {"id": "mirage-ps5-collector-eu-us-identifiers", "label": "Identificadores Collector's Case EU / US", "status": "PENDING_REVIEW", "marketRegions": ["US"], "notes": ["Cerrar barcodes físicos EU GAME y USA; no deducirlos de PPSA ni de otras plataformas."]}
+      ]
+    }
+  ]
+}
