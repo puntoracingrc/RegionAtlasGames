@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ezio-trilogy-ps3",
+      "title": "Ediciones físicas de Assassin's Creed: Ezio Trilogy en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Compilación física norteamericana y brasileña. Se conserva separada de Ezio Saga Japón, sin crear una edición europea por analogía.",
+      "game": {
+        "title": "Assassin's Creed: Ezio Trilogy",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-usa-assassin-s-creed-ezio-trilogy"
+      },
+      "editionFamilies": [
+        {
+          "id": "ezio-trilogy",
+          "label": "Ezio Trilogy",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-ezio-trilogy",
+          "physicalEditionIds": [
+            "assassins-creed-ezio-trilogy-ps3-north-america",
+            "assassins-creed-ezio-trilogy-ps3-brazil"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-ezio-trilogy-ps3-north-america",
+          "label": "Ezio Trilogy · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COMPILATION",
+          "marketRegions": [
+            "US"
+          ],
+          "releaseDate": "2012-11-13",
+          "releaseDateContext": "Lanzamiento norteamericano anunciado por Ubisoft",
+          "physicalContents": [
+            "Un disco de compilación con Assassin’s Creed II, Brotherhood y Revelations"
+          ],
+          "digitalContents": [
+            "Contenido descargable de Assassin's Creed II"
+          ],
+          "containsCatalogIds": [
+            "ps3-usa-assassin-s-creed-ii",
+            "ps3-usa-assassin-s-creed-brotherhood",
+            "ps3-usa-assassin-s-creed-revelations"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-ezio-trilogy"
+          ],
+          "evidenceIds": [
+            "ezio-trilogy-playstation-announcement",
+            "ezio-trilogy-jnl-usa",
+            "ezio-trilogy-redump-software"
+          ],
+          "barcode": "008888347910",
+          "serial": "BLUS-31145",
+          "ratingSystems": [
+            "ESRB"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [
+            "EN",
+            "FR",
+            "DE",
+            "ES",
+            "IT",
+            "PT"
+          ],
+          "notes": [
+            "Los idiomas del disco no se convierten en idiomas de packaging.",
+            "Los UPC alternativos permanecen en investigación como reprint, código de distribuidor o packaging canadiense."
+          ]
+        },
+        {
+          "id": "assassins-creed-ezio-trilogy-ps3-brazil",
+          "label": "Ezio Trilogy · Brasil",
+          "broadRegion": "LATIN_AMERICA",
+          "editionType": "COMPILATION",
+          "marketRegions": [
+            "BR"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "008888348030",
+          "serial": "BLUS-31145SA",
+          "physicalContents": [
+            "Compilación física con Assassin’s Creed II, Brotherhood y Revelations"
+          ],
+          "digitalContents": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "ezio-trilogy-vgdb-brazil"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-usa-assassin-s-creed-ii",
+            "ps3-usa-assassin-s-creed-brotherhood",
+            "ps3-usa-assassin-s-creed-revelations"
+          ],
+          "notes": [
+            "VGDB documenta el lanzamiento brasileño en 2013.",
+            "No se fusiona con USA; packagingLanguages e idiomas del medio brasileño quedan pendientes de evidencia propia."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ezio-trilogy-playstation-announcement",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Anuncio oficial norteamericano de Ezio Trilogy",
+          "url": "https://blog.playstation.com/2012/09/26/exclusive-assassins-creed-ezio-trilogy-to-launch-on-ps3/",
+          "summary": "Respalda el producto PS3, su fecha norteamericana, los tres juegos incluidos y que el DLC indicado corresponde a Assassin's Creed II.",
+          "supports": [
+            "mercado US",
+            "fecha 2012-11-13",
+            "juegos incluidos",
+            "DLC de Assassin's Creed II"
+          ]
+        },
+        {
+          "id": "ezio-trilogy-jnl-usa",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "J&L Game · Ezio Trilogy PS3 USA",
+          "url": "https://www.jnlgame.com/products/assassins-creed-ezio-trilogy-ps3-playstation-3-pre-owned",
+          "summary": "La ficha de copia usada identifica compilación PS3, país USA, fecha, ESRB, Product ID y UPC.",
+          "supports": [
+            "UPC 008888347910",
+            "serial BLUS-31145",
+            "mercado US",
+            "fecha 2012-11-13",
+            "ESRB M"
+          ]
+        },
+        {
+          "id": "ezio-trilogy-vgdb-brazil",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "VGDB Brasil · Ezio Trilogy PS3",
+          "url": "https://www.vgdb.com.br/playstation-3-/jogos/assassin-s-creed-ezio-trilogy/",
+          "summary": "La base brasileña documenta lanzamiento oficial/licenciado, contenido de la compilación y la fila regional de Brasil.",
+          "supports": [
+            "barcode 008888348030",
+            "serial BLUS-31145SA",
+            "mercado BR",
+            "lanzamiento 2013"
+          ]
+        },
+        {
+          "id": "ezio-trilogy-redump-software",
+          "type": "UNKNOWN",
+          "label": "Redump · medio BLUS-31145",
+          "url": "https://redump.info/",
+          "summary": "La base de preservación documenta el medio de compilación y sus idiomas de software; no acredita packagingLanguages.",
+          "supports": [
+            "serial BLUS-31145",
+            "software EN / FR / DE / ES / IT / PT",
+            "un medio de compilación"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "PlayStation Blog · anuncio de Ezio Trilogy",
+          "url": "https://blog.playstation.com/2012/09/26/exclusive-assassins-creed-ezio-trilogy-to-launch-on-ps3/"
+        },
+        {
+          "label": "J&L Game · copia PS3 USA",
+          "url": "https://www.jnlgame.com/products/assassins-creed-ezio-trilogy-ps3-playstation-3-pre-owned"
+        },
+        {
+          "label": "VGDB Brasil · Ezio Trilogy",
+          "url": "https://www.vgdb.com.br/playstation-3-/jogos/assassin-s-creed-ezio-trilogy/"
+        },
+        {
+          "label": "GameFAQs · release data · contexto de investigación",
+          "url": "https://gamefaqs.gamespot.com/ps3/674200-assassins-creed-ezio-trilogy/data"
+        },
+        {
+          "label": "Redump · composición del medio",
+          "url": "https://redump.info/"
+        }
+      ],
+      "evidenceNote": "USA y Brasil se conservan como packaging regional distinto. No se promueven UPC alternativos ni una supuesta edición europea sin caja física.",
+      "researchTasks": [
+        {
+          "id": "ezio-trilogy-us-alternate-upcs",
+          "label": "Resolver UPC alternativos de Norteamérica",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "US",
+            "CA"
+          ],
+          "notes": [
+            "Cotejar 008888347927 y 008888528838 con caja física para distinguir reprint, cover/distributor code, Canadá o miscatalogación."
+          ]
+        },
+        {
+          "id": "ezio-trilogy-brazil-packaging",
+          "label": "Completar packaging brasileño",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "BR"
+          ],
+          "notes": [
+            "Conseguir scans de portada, reverso y lomo para cerrar packagingLanguages, rating y composición física."
+          ]
+        },
+        {
+          "id": "ezio-trilogy-europe",
+          "label": "No crear Ezio Trilogy PS3 Europa por analogía",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [],
+          "notes": [
+            "Europa tuvo otros packs; exigir barcode, serial y foto de caja equivalente antes de crear una edición."
+          ]
+        },
+        {
+          "id": "ezio-trilogy-platform-confusion",
+          "label": "Separar PS3 de The Ezio Collection posterior",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [],
+          "notes": [
+            "No mezclar este producto PS3 con lanzamientos PS4, Xbox One o Switch."
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ezio-saga-ps3",
+      "title": "Ediciones físicas de Assassin's Creed Ezio Saga en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Familia japonesa de Ezio Saga. Conserva la edición original, Limited Complete y Ubi the Best como contextos físicos distintos, sin trasladar códigos entre cajas.",
+      "game": {
+        "title": "Assassin's Creed Ezio Saga",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga"
+      },
+      "editionFamilies": [
+        {
+          "id": "original",
+          "label": "Ezio Saga · Original",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga",
+          "physicalEditionIds": [
+            "assassins-creed-ezio-saga-ps3-japan-original"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "ubi-the-best",
+          "label": "Ubi the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga",
+          "physicalEditionIds": [
+            "assassins-creed-ezio-saga-ps3-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "limited-complete",
+          "label": "Limited Complete Edition",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-ezio-saga-limited-complete-edition",
+          "physicalEditionIds": [
+            "assassins-creed-ezio-saga-ps3-japan-limited-complete"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-ezio-saga-ps3-japan-original",
+          "label": "Ezio Saga · Original · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "COMPILATION",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "CERO"
+          ],
+          "barcode": "4949244002813",
+          "serial": "BLJM-67011",
+          "releaseDate": "2012-09-06",
+          "releaseDateContext": "Fecha publicada por MediaWorld Japón",
+          "physicalContents": [
+            "Compilación de Assassin’s Creed II, Brotherhood y Revelations"
+          ],
+          "digitalContents": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "ezio-saga-mediaworld-japan-original"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-japon-assassin%27s-creed-ii",
+            "ps3-japon-assassin%27s-creed-brotherhood",
+            "ps3-japon-assassin%27s-creed-revelations"
+          ],
+          "notes": [
+            "MediaWorld documenta el software individual procedente de Ezio Saga; la relación exacta con la caja exterior y Limited Complete debe cerrarse con scan del conjunto."
+          ]
+        },
+        {
+          "id": "assassins-creed-ezio-saga-ps3-japan-ubi-the-best",
+          "label": "Ezio Saga · Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "JP"
+          ],
+          "releaseDate": "2015-05-28",
+          "releaseDateContext": "Reedición japonesa Ubi the Best",
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-ezio-saga"
+          ],
+          "evidenceIds": [
+            "ezio-saga-ubi-the-best-release",
+            "ezio-saga-ubi-the-best-commerce",
+            "ezio-saga-rakuten-ubi-the-best",
+            "ezio-saga-mediaworld-ubi-the-best"
+          ],
+          "barcode": "4949244003636",
+          "serial": "BLJM-67021",
+          "ratingSystems": [
+            "CERO"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "containsCatalogIds": [
+            "ps3-japon-assassin%27s-creed-ii",
+            "ps3-japon-assassin%27s-creed-brotherhood",
+            "ps3-japon-assassin%27s-creed-revelations"
+          ],
+          "notes": [
+            "Rakuten y MediaWorld identifican PS3, JAN, serial, CERO Z y tres títulos; no se incluyen DLC."
+          ]
+        },
+        {
+          "id": "assassins-creed-ezio-saga-ps3-japan-limited-complete",
+          "label": "Ezio Saga · Limited Complete Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "LIMITED",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-ezio-saga-limited-complete-edition"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ezio-saga-ubi-the-best-release",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Comunicado de lanzamiento japonés de Ezio Saga",
+          "url": "https://www.4gamer.net/games/169/G016989/20150507019/",
+          "summary": "Respalda la fecha japonesa de Ezio Saga; la identidad Ubi the Best se coteja con la ficha comercial y la portada ya guardada.",
+          "supports": [
+            "fecha 2015-05-28"
+          ]
+        },
+        {
+          "id": "ezio-saga-ubi-the-best-commerce",
+          "type": "RETAILER_ASSET",
+          "label": "Ficha comercial de Ezio Saga Ubi the Best",
+          "url": "https://kakaku.com/item/K0000753939/",
+          "summary": "Respalda la denominación Ubi the Best y la fecha; la portada existente muestra la misma línea de reedición.",
+          "supports": [
+            "identidad Ubi the Best",
+            "fecha 2015-05-28"
+          ]
+        },
+        {
+          "id": "ezio-saga-mediaworld-japan-original",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "MediaWorld Japón · Ezio Saga original PS3",
+          "url": "https://mediaworld.co.jp/products/10412782001",
+          "summary": "La ficha física identifica PS3, fecha, JAN, serial, CERO Z y explica que el software procede del conjunto Ezio Saga.",
+          "supports": [
+            "JAN 4949244002813",
+            "serial BLJM-67011",
+            "mercado JP",
+            "fecha 2012-09-06",
+            "CERO Z"
+          ]
+        },
+        {
+          "id": "ezio-saga-rakuten-ubi-the-best",
+          "type": "RETAILER_ASSET",
+          "label": "Rakuten Books · Ezio Saga Ubi the Best PS3",
+          "url": "https://books.rakuten.co.jp/rb/13168109/?l-id=item-c-physical-series",
+          "summary": "La ficha identifica PS3, Ubi the Best, JAN, serial, fecha, CERO Z y los tres títulos incluidos.",
+          "supports": [
+            "JAN 4949244003636",
+            "serial BLJM-67021",
+            "fecha 2015-05-28",
+            "CERO Z",
+            "tres títulos incluidos",
+            "sin DLC"
+          ]
+        },
+        {
+          "id": "ezio-saga-mediaworld-ubi-the-best",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "MediaWorld Japón · Ezio Saga Ubi the Best PS3",
+          "url": "https://mediaworld.co.jp/products/10412624001",
+          "summary": "La copia usada confirma plataforma, JAN, serial, fecha, CERO Z y contenido de la reedición.",
+          "supports": [
+            "JAN 4949244003636",
+            "serial BLJM-67021",
+            "fecha 2015-05-28",
+            "CERO Z"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "4Gamer · lanzamiento de Ezio Saga",
+          "url": "https://www.4gamer.net/games/169/G016989/20150507019/"
+        },
+        {
+          "label": "Kakaku · Ezio Saga Ubi the Best",
+          "url": "https://kakaku.com/item/K0000753939/"
+        },
+        {
+          "label": "MediaWorld Japón · Ezio Saga original",
+          "url": "https://mediaworld.co.jp/products/10412782001"
+        },
+        {
+          "label": "Rakuten Books · Ubi the Best",
+          "url": "https://books.rakuten.co.jp/rb/13168109/?l-id=item-c-physical-series"
+        },
+        {
+          "label": "MediaWorld Japón · Ubi the Best",
+          "url": "https://mediaworld.co.jp/products/10412624001"
+        },
+        {
+          "label": "GameFAQs · release data · contexto de investigación",
+          "url": "https://gamefaqs.gamespot.com/ps3/674200-assassins-creed-ezio-trilogy/data"
+        },
+        {
+          "label": "Redump · composición del medio",
+          "url": "https://redump.info/"
+        }
+      ],
+      "evidenceNote": "La original y Ubi the Best tienen identificadores directos; Limited Complete conserva su ruta propia y permanece sin códigos hasta inspeccionar su caja exterior.",
+      "researchTasks": [
+        {
+          "id": "ezio-saga-original-limited-context",
+          "label": "Separar original, software suelto y Limited Complete",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "JP"
+          ],
+          "notes": [
+            "Cotejar la caja exterior, el disco BLJM-67011 y los extras de la Limited Complete, incluidos seis CD de audio y enciclopedia.",
+            "No duplicar el mismo software como tres copias coleccionables si sólo cambia el contexto exterior documentado."
+          ]
+        },
+        {
+          "id": "ezio-saga-jes1-00250",
+          "label": "Resolver JES1-00250 / 4949244002820",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "JP"
+          ],
+          "notes": [
+            "Las fuentes actuales apuntan a un producto Xbox 360; no sustituir BLJM-67011 / 4949244002813 ni crear variante PS3 sin caja inequívoca."
+          ]
+        },
+        {
+          "id": "ezio-saga-ubi-best-medium",
+          "label": "Completar composición física de Ubi the Best",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "JP"
+          ],
+          "notes": [
+            "Cerrar packagingLanguages y confirmar la disposición del medio japonés mediante scans propios."
+          ]
+        },
+        {
+          "id": "ezio-saga-digital-exclusion",
+          "label": "No contar NPJB-00230 como edición física",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [
+            "JP"
+          ],
+          "notes": [
+            "La edición PlayStation Store es digital."
+          ]
+        }
+      ]
+    }
+  ]
+}
