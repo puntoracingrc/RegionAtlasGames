@@ -13,12 +13,12 @@ import segaPeopleData from "../../data/research/platform-history/people-sega-pub
 import nintendoPeopleData from "../../data/research/platform-history/people-nintendo-public.json";
 import snkPeopleData from "../../data/research/platform-history/people-snk-public.json";
 import { getCatalogGame, getPlatform } from "./catalog";
+import { classifyPersonExpertiseTerms } from "./person-expertise";
 import { getPlatformHistory, getPlatformHistoryData } from "./platform-history";
 import type {
   CompanyPersonLink,
   PersonCardData,
   PersonCompanyRelation,
-  PersonExpertise,
   PersonPublicData,
   PersonPublicOverlayData,
   PersonPublicProfile,
@@ -144,32 +144,6 @@ function rowsFor<T extends { personSlug: string }>(rows: T[], personSlug: string
   return rows.filter((row) => row.personSlug === personSlug);
 }
 
-function expertiseFor(
-  profile: PersonPublicProfile,
-  relations: PersonCompanyRelation[],
-  credits: PersonWork[],
-): PersonExpertise[] {
-  const haystack = normalize(
-    [
-      ...profile.occupations.map((item) => item.name),
-      ...profile.fieldsOfWork.map((item) => item.name),
-      ...relations.flatMap((item) => [item.role, item.roleLabelEs]),
-      ...credits.map((item) => item.role),
-    ].join(" "),
-  );
-  const matches: [PersonExpertise, RegExp][] = [
-    ["design", /disen|design/],
-    ["programming", /program|ingenier|software|motor/],
-    ["direction", /direccion|director|directora/],
-    ["production", /produccion|productor|productora/],
-    ["music", /music|compositor|compositora|sonido/],
-    ["art", /arte|artist|ilustr|grafico|grafica/],
-    ["founder", /founder|fundador|fundadora/],
-    ["executive", /ejecutiv|president|liderazgo empresarial|ceo/],
-  ];
-  return matches.filter(([, pattern]) => pattern.test(haystack)).map(([value]) => value);
-}
-
 export function personLifeLabel(profile: PersonPublicProfile): string | null {
   const birth = profile.birthYear ?? profile.birthDate;
   const death = profile.deathYear ?? profile.deathDate;
@@ -239,7 +213,12 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
     occupations,
     companies: companies.slice(0, 3),
     works,
-    expertise: expertiseFor(profile, relations, credits),
+    expertise: classifyPersonExpertiseTerms([
+      ...profile.occupations.map((item) => item.name),
+      ...profile.fieldsOfWork.map((item) => item.name),
+      ...relations.flatMap((item) => [item.role, item.roleLabelEs]),
+      ...credits.map((item) => item.role),
+    ]),
     platformSlugs,
     searchHaystack,
   };

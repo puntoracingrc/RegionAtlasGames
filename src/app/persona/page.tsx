@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PersonExplorer } from "@/components/person-explorer";
 import { SiteNav } from "@/components/site-nav";
+import { getAvailablePersonExpertiseFilters } from "@/lib/person-expertise";
 import { getPersonPlatformFilterGroups } from "@/lib/person-platform-filters";
 import { getPersonCards } from "@/lib/person-public-research";
 import { getSiteUrl } from "@/lib/site-url";
 
 const people = getPersonCards();
 const platformGroups = getPersonPlatformFilterGroups();
+const expertiseOptions = getAvailablePersonExpertiseFilters(people);
 
 export const metadata: Metadata = {
   title: "Personas de la industria del videojuego",
@@ -36,7 +39,19 @@ export default function PeoplePage() {
             <span><strong className="text-foreground">{portraits}</strong> retratos acreditados</span>
           </div>
         </header>
-        <PersonExplorer people={people} platformGroups={platformGroups} />
+        <Suspense
+          fallback={(
+            <div className="rounded-lg border border-border bg-card px-4 py-14 text-center text-sm text-muted">
+              Cargando filtros de personas…
+            </div>
+          )}
+        >
+          <PersonExplorer
+            people={people}
+            platformGroups={platformGroups}
+            expertiseOptions={expertiseOptions}
+          />
+        </Suspense>
       </main>
     </>
   );
