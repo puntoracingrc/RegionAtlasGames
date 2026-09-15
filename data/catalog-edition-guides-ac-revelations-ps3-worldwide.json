@@ -1,0 +1,1025 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-revelations-ps3",
+      "title": "Ediciones físicas de Assassin's Creed: Revelations en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Overlay data-only mundial y conservador. Preserva rutas, portadas, precios e identidades legacy; separa packaging y software, y sólo fija códigos respaldados por fotos físicas o fichas directas.",
+      "game": {
+        "title": "Assassin's Creed: Revelations",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-revelations"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-europe-standard",
+            "assassins-creed-revelations-ps3-north-america-standard",
+            "assassins-creed-revelations-ps3-japan-standard",
+            "assassins-creed-revelations-ps3-standard-o097",
+            "assassins-creed-revelations-ps3-france-standard",
+            "assassins-creed-revelations-ps3-germany-standard"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations-special-edition",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-europe-special",
+            "assassins-creed-revelations-ps3-europe-ac1-o096",
+            "assassins-creed-revelations-ps3-europe-special-o111"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "collector",
+          "label": "Collector’s Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations-collector%27s-edition",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-france-collector"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "animus",
+          "label": "Animus Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations-animus-edition",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-spain-animus"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "ottoman",
+          "label": "Ottoman Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations-ottoman-edition",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-europe-ottoman"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "essentials",
+          "label": "Essentials",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations-essentials",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-europe-essentials"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "platinum",
+          "label": "Platinum",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations-platinum",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-europe-platinum"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "promo",
+          "label": "Promo / Not for Resale",
+          "representativeCatalogId": "ps3-assassin%27s-creed-revelations-promo-not-for-resale",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-europe-promo"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "greatest-hits",
+          "label": "Greatest Hits",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-revelations-greatest-hits",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-usa-greatest-hits"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "signature",
+          "label": "Signature Edition",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-revelations-signature-edition",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-usa-signature"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "no-exclusive-label",
+          "label": "No Exclusive Label · USA",
+          "representativeCatalogId": "ps3-usa-assassins-creed-revelations-no-exclusive-label",
+          "physicalEditionIds": [
+            "assassins-creed-revelations-ps3-usa-no-exclusive-label"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-revelations-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations"
+          ],
+          "barcode": "3307215590058",
+          "serial": "BLES-01467",
+          "packagingLanguages": [
+            "ES"
+          ],
+          "softwareLanguages": [
+            "ES",
+            "EN",
+            "FR",
+            "DE",
+            "IT"
+          ],
+          "evidenceIds": [
+            "revelations-retroloco-spain-standard"
+          ],
+          "notes": [
+            "RetroLoco documenta portada, reverso, interior y lomo del ejemplar PAL España; los idiomas de software no se reutilizan como idiomas de caja."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-north-america-standard",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-revelations"
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "catalogIds": [
+            "ps3-japon-assassin%27s-creed-revelations"
+          ],
+          "barcode": "4949244002387",
+          "serial": "BLJM-60412",
+          "ratingSystems": [
+            "CERO"
+          ],
+          "evidenceIds": [
+            "revelations-mediaworld-japan-standard"
+          ],
+          "notes": [
+            "MediaWorld identifica PS3, JAN, serial, fecha japonesa y CERO Z."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-special",
+          "label": "Special Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "ES"
+          ],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations-special-edition"
+          ],
+          "barcode": "3307215589809",
+          "serial": "BLES-01467",
+          "packagingLanguages": [
+            "ES"
+          ],
+          "softwareLanguages": [
+            "ES",
+            "EN",
+            "FR",
+            "DE",
+            "IT"
+          ],
+          "evidenceIds": [
+            "revelations-retroloco-spain-special"
+          ],
+          "notes": [
+            "RetroLoco documenta físicamente la Special Edition PAL España; no se extiende el EAN a otras cajas Special."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-ac1-o096",
+          "label": "Revelations con Assassin's Creed · contraportada NL / FR",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BACK",
+              "languages": [
+                "NL",
+                "FR"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": false,
+              "note": "Sólo se examinó la contraportada.",
+              "evidenceIds": [
+                "ac-ps3-regional-o096"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307215586631",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o096"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed"
+          ],
+          "notes": [
+            "Mercado nacional pendiente; no se duplica por aparecer en comercios de dos países."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-standard-o097",
+          "label": "Standard · contraportada EN / FR · 346845-CVRF",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BACK",
+              "languages": [
+                "EN",
+                "FR"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": false,
+              "note": "No se han examinado portada y lomo.",
+              "evidenceIds": [
+                "ac-ps3-regional-o097"
+              ]
+            }
+          ],
+          "ratingSystems": [],
+          "boxCode": "346845-CVRF",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o097"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "notes": [
+            "Mercado nacional pendiente; el código conservado es de impresión, no un EAN."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-special-o111",
+          "label": "Special Edition · caja alemana declarada",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "DE"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "DE"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac-ps3-regional-o111"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307215589786",
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-ps3-regional-o111",
+            "revelations-retroplace-germany-special"
+          ],
+          "imageKeys": [
+            "ac-ps3-regional-o111-front"
+          ],
+          "containsCatalogIds": [],
+          "notes": [
+            "La referencia física alemana confirma mercado, EAN y serial; la declaración de idioma de caja legacy se conserva por separado."
+          ],
+          "serial": "BLES-01467"
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-france-standard",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "FR"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "revelations-fnac-france-standard"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "barcode": "3307215586358",
+          "serial": "BLES-01467",
+          "notes": [
+            "Variante francesa separada de España y Alemania; no se inventan idiomas de packaging."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-germany-standard",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "DE"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "revelations-retroplace-germany-standard"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "barcode": "3307215587942",
+          "serial": "BLES-01467",
+          "notes": [
+            "Los EAN alemanes y AT/CH alternativos permanecen en investigación como posibles reimpresiones o cajas distintas."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-france-collector",
+          "label": "Collector’s Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "FR"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations-collector%27s-edition"
+          ],
+          "evidenceIds": [
+            "revelations-fnac-france-collector"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "barcode": "3307215589380",
+          "notes": [
+            "La ficha francesa identifica PS3, Collector y EAN; UK y Alemania requieren evidencia propia."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-spain-animus",
+          "label": "Animus Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations-animus-edition"
+          ],
+          "evidenceIds": [
+            "revelations-xtralife-spain-animus"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-revelations"
+          ],
+          "physicalContents": [
+            "Juego físico",
+            "Animus Box",
+            "Enciclopedia",
+            "Banda sonora",
+            "Corto de animación"
+          ],
+          "digitalContents": [
+            "Contenido in-game"
+          ],
+          "notes": [
+            "No se asigna EAN a España hasta obtener foto inequívoca del barcode físico, tal como exige la orden."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-ottoman",
+          "label": "Ottoman Edition · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations-ottoman-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "Los EAN de Alemania, AT/CH y Australia esperan cotejo de plataforma y caja exterior."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-essentials",
+          "label": "Essentials · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations-essentials"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "El candidato español y las cajas alemana/RUS-CEE no se fusionan sin evidencia completa."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-platinum",
+          "label": "Platinum · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations-platinum"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER"
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-europe-promo",
+          "label": "Promo / Not for Resale · ficha legacy",
+          "broadRegion": "EUROPE",
+          "editionType": "OTHER",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-revelations-promo-not-for-resale"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "Se conserva la ruta existente sin inventar identificadores ni mercado nacional."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-usa-greatest-hits",
+          "label": "Greatest Hits · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-revelations-greatest-hits"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "BLUS-30808GH y variantes canadienses esperan scan físico."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-usa-signature",
+          "label": "Signature Edition · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassin-s-creed-revelations-signature-edition"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "notes": [
+            "UPC y serial de Signature permanecen en investigación; no se fusiona con First Print Limited."
+          ]
+        },
+        {
+          "id": "assassins-creed-revelations-ps3-usa-no-exclusive-label",
+          "label": "No Exclusive Label · USA · ficha legacy",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "catalogIds": [
+            "ps3-usa-assassins-creed-revelations-no-exclusive-label"
+          ],
+          "evidenceIds": [],
+          "imageKeys": [],
+          "containsCatalogIds": [],
+          "confidence": "PENDING_IDENTIFIER"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-ps3-regional-o096",
+          "type": "REAL_PHOTO",
+          "label": "O096: Revelations con Assassin's Creed incluido",
+          "url": "https://www.smartoys.be/catalog/retro-gaming-playstation-assassins-creed-revelations-p-3307215586631.html",
+          "summary": "El reverso observado contiene bloques NL y FR; los comercios NL y BE apuntan al mismo EAN.",
+          "supports": [
+            "EAN 3307215586631",
+            "contraportada observada: NL / FR",
+            "incluye Assassin's Creed"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o097",
+          "type": "REAL_PHOTO",
+          "label": "O097: reverso EN / FR con código de impresión",
+          "url": "https://psgames.ca/ps3-assassins-creed-revelations.html",
+          "summary": "La imagen del reverso permite leer inglés, francés y el código de impresión 346845-CVRF; no aporta EAN.",
+          "supports": [
+            "código de impresión 346845-CVRF",
+            "contraportada observada: EN / FR"
+          ]
+        },
+        {
+          "id": "ac-ps3-regional-o111",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "O111: Special Edition con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-revelations-ps3-pouzite-p221262/",
+          "summary": "La foto inspeccionada muestra Special Edition y USK; la tienda declara caja alemana.",
+          "supports": [
+            "EAN 3307215589786",
+            "idioma de caja declarado: DE",
+            "familia Special Edition"
+          ]
+        },
+        {
+          "id": "revelations-retroloco-spain-standard",
+          "type": "REAL_PHOTO",
+          "label": "RetroLoco · Standard PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-revelations-esp-rebajado/",
+          "summary": "Fotos del mismo ejemplar muestran portada, reverso, interior y lomo; la ficha separa región, serial, EAN e idiomas de juego y carátula/manual.",
+          "supports": [
+            "EAN 3307215590058",
+            "serial BLES-01467",
+            "mercado ES",
+            "packaging ES",
+            "software ES / EN / FR / DE / IT"
+          ]
+        },
+        {
+          "id": "revelations-fnac-france-standard",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Standard PS3",
+          "url": "https://www.fnac.com/a3617464/Assassin-s-Creed-Revelations-Jeu-video-Retrogaming",
+          "summary": "La ficha identifica PlayStation 3 y el EAN de la edición francesa.",
+          "supports": [
+            "EAN 3307215586358",
+            "mercado documentado: FR",
+            "edición Standard"
+          ]
+        },
+        {
+          "id": "revelations-retroplace-germany-standard",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Retroplace · Standard Alemania",
+          "url": "https://www.retroplace.com/es/juegos/121963--assassins-creed-revelations",
+          "summary": "La ficha física documenta el EAN y serial de la caja alemana.",
+          "supports": [
+            "EAN 3307215587942",
+            "serial BLES-01467",
+            "mercado documentado: DE"
+          ]
+        },
+        {
+          "id": "revelations-retroloco-spain-special",
+          "type": "REAL_PHOTO",
+          "label": "RetroLoco · Special Edition PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-revelations-edicion-especial-esp/",
+          "summary": "Fotos del mismo ejemplar muestran portada, reverso, interior y lomo; la ficha identifica EAN, serial y lenguas por componente.",
+          "supports": [
+            "EAN 3307215589809",
+            "serial BLES-01467",
+            "mercado ES",
+            "packaging ES",
+            "software ES / EN / FR / DE / IT"
+          ]
+        },
+        {
+          "id": "revelations-retroplace-germany-special",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Retroplace · Special Edition Alemania",
+          "url": "https://www.retroplace.com/es/juegos/176031--assassins-creed-revelations",
+          "summary": "La ficha física documenta la Special Edition alemana, su EAN y serial.",
+          "supports": [
+            "EAN 3307215589786",
+            "serial BLES-01467",
+            "mercado documentado: DE"
+          ]
+        },
+        {
+          "id": "revelations-fnac-france-collector",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac France · Collector’s Edition PS3",
+          "url": "https://www.fnac.com/a3617462/Assassin-s-Creed-Revelations-Edition-Collector-Jeu-video-Retrogaming",
+          "summary": "La ficha identifica plataforma PS3, edición Collector y EAN.",
+          "supports": [
+            "EAN 3307215589380",
+            "mercado documentado: FR",
+            "familia Collector"
+          ]
+        },
+        {
+          "id": "revelations-xtralife-spain-animus",
+          "type": "RETAILER_ASSET",
+          "label": "Xtralife · Animus Edition PAL España",
+          "url": "https://www.xtralife.com/producto/assassins-creed-revelations-animus-edicion-ps3/10575",
+          "summary": "La ficha confirma el producto físico PAL España y enumera caja Animus, enciclopedia, banda sonora, corto y juego.",
+          "supports": [
+            "mercado documentado: ES",
+            "familia Animus Edition",
+            "contenido físico declarado",
+            "sin EAN confirmado"
+          ]
+        },
+        {
+          "id": "revelations-mediaworld-japan-standard",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "MediaWorld Japón · Standard PS3",
+          "url": "https://mediaworld.co.jp/products/10410723003",
+          "summary": "La ficha identifica plataforma, JAN, serial, fecha japonesa, fabricante y clasificación CERO Z.",
+          "supports": [
+            "JAN 4949244002387",
+            "serial BLJM-60412",
+            "mercado documentado: JP",
+            "CERO Z"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "key": "ac-ps3-regional-o111-front",
+          "url": "/catalog-covers/ps3/ac-regional-2026-09-13/display/o111.webp",
+          "thumbnailUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/thumb/o111.webp",
+          "width": 500,
+          "height": 585,
+          "caption": "Imagen de producto inspeccionada para O111",
+          "evidenceType": "RETAILER_PHOTO_CONFIRMED",
+          "sha256": "fdbfcfd025a4943778dc2525ad986d6e8f1d887d0c392c63807ce798ac4c038c",
+          "thumbnailSha256": "c3ceb64fe562e8db77b4d2bed10faa28612481f5482e840fe54cad6aa314c1b9",
+          "originalUrl": "/catalog-covers/ps3/ac-regional-2026-09-13/original/o111.jpg",
+          "originalWidth": 1200,
+          "originalHeight": 630,
+          "originalSha256": "d9ef6da3c6f4525f99eb02c88cd5345c767096cce7ee7fad0dc738f0ee982445",
+          "sourcePageUrl": "https://www.originalky.cz/assassin-s-creed-revelations-ps3-pouzite-p221262/",
+          "inspectedAt": "2026-09-13"
+        }
+      ],
+      "sources": [
+        {
+          "label": "O096 · O096: Revelations con Assassin's Creed incluido",
+          "url": "https://www.smartoys.be/catalog/retro-gaming-playstation-assassins-creed-revelations-p-3307215586631.html"
+        },
+        {
+          "label": "O097 · O097: reverso EN / FR con código de impresión",
+          "url": "https://psgames.ca/ps3-assassins-creed-revelations.html"
+        },
+        {
+          "label": "O111 · O111: Special Edition con caja alemana declarada",
+          "url": "https://www.originalky.cz/assassin-s-creed-revelations-ps3-pouzite-p221262/"
+        },
+        {
+          "label": "RetroLoco · Standard PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-revelations-esp-rebajado/"
+        },
+        {
+          "label": "Fnac France · Standard",
+          "url": "https://www.fnac.com/a3617464/Assassin-s-Creed-Revelations-Jeu-video-Retrogaming"
+        },
+        {
+          "label": "Retroplace · Standard Alemania",
+          "url": "https://www.retroplace.com/es/juegos/121963--assassins-creed-revelations"
+        },
+        {
+          "label": "RetroLoco · Special Edition PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-revelations-edicion-especial-esp/"
+        },
+        {
+          "label": "Retroplace · Special Edition Alemania",
+          "url": "https://www.retroplace.com/es/juegos/176031--assassins-creed-revelations"
+        },
+        {
+          "label": "Fnac France · Collector’s Edition",
+          "url": "https://www.fnac.com/a3617462/Assassin-s-Creed-Revelations-Edition-Collector-Jeu-video-Retrogaming"
+        },
+        {
+          "label": "Xtralife · Animus Edition PAL España",
+          "url": "https://www.xtralife.com/producto/assassins-creed-revelations-animus-edicion-ps3/10575"
+        },
+        {
+          "label": "MediaWorld Japón · Standard",
+          "url": "https://mediaworld.co.jp/products/10410723003"
+        },
+        {
+          "label": "GameFAQs · datos regionales · contexto de investigación",
+          "url": "https://gamefaqs.gamespot.com/ps3/628357-assassins-creed-revelations/data"
+        },
+        {
+          "label": "SerialStation · familias de serial · contexto de investigación",
+          "url": "https://serialstation.com/games/4b19f792-11ef-4095-9cf9-10bd1cdaed5f"
+        },
+        {
+          "label": "Redump keys · contexto de investigación de software",
+          "url": "https://ps3.aldostools.org/dkey.html"
+        },
+        {
+          "label": "Sumthings · mapa regional · contexto de investigación",
+          "url": "https://sumthings.com/games/7045/sales"
+        }
+      ],
+      "evidenceNote": "Cobertura mundial parcial y trazable. Los idiomas se atribuyen por componente; serial compartido o país de venta no bastan para fusionar packaging.",
+      "researchTasks": [
+        {
+          "id": "revelations-standard-europe",
+          "label": "Resolver Standard europeo por caja y reimpresión",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "GB",
+            "AT",
+            "CH"
+          ],
+          "notes": [
+            "España, Francia y Alemania quedan cerradas con evidencia directa. Investigar 3307215599754, 3307215623459, 3307215590546 y 3307215599761.",
+            "Separar BLES-01467 de BLES-01384 sin deducir mercado por serial."
+          ]
+        },
+        {
+          "id": "revelations-uk-standard-ac1",
+          "label": "Resolver las tres referencias UK y la inclusión de AC1",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "GB"
+          ],
+          "notes": [
+            "Cotejar 3307215588222, 3307215586495 y 3307215586471 con caja exterior y contenido.",
+            "Determinar si 3307215586495 es Standard, First Print, bundle o repackage."
+          ]
+        },
+        {
+          "id": "revelations-north-america",
+          "label": "Separar USA, Canadá, First Print, Signature y Greatest Hits",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "US",
+            "CA"
+          ],
+          "notes": [
+            "Verificar 008888366843 / BLUS-30808, 008888346845 / BLUS-30905 y 008888396840 / BLUS-30905GS con caja física.",
+            "No fusionar packaging canadiense/francés con USA aunque compartan disco."
+          ]
+        },
+        {
+          "id": "revelations-special-regions",
+          "label": "Resolver Special Edition fuera de España y Alemania",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "AU"
+          ],
+          "notes": [
+            "España 3307215589809 y Alemania 3307215589786 quedan cerradas. Investigar 3307215589236, 3307215590300 y 3307215596852."
+          ]
+        },
+        {
+          "id": "revelations-collector-regions",
+          "label": "Resolver Collector UK y Alemania",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "GB",
+            "DE"
+          ],
+          "notes": [
+            "Francia queda cerrada como 3307215589380. Cotejar 3307215589229, 3307215589724 y 3307215589564, distinguiendo caja exterior e interior."
+          ]
+        },
+        {
+          "id": "revelations-animus-spain-barcode",
+          "label": "Conseguir barcode físico de Animus España",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "ES"
+          ],
+          "notes": [
+            "La edición física española y sus contenidos están confirmados, pero no se asigna EAN sin foto inequívoca."
+          ]
+        },
+        {
+          "id": "revelations-animus-regions",
+          "label": "Cerrar variantes Animus europeas",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "DE",
+            "NL",
+            "BE",
+            "IT",
+            "GB"
+          ],
+          "notes": [
+            "Cotejar 3307215589670, 3307215589700, 3307215589663, 3307215589274, 3307215589373 y 3307215589519 con exterior, barcode y mercado declarado.",
+            "No usar el país del vendedor como mercado de origen."
+          ]
+        },
+        {
+          "id": "revelations-ottoman-regions",
+          "label": "Resolver Ottoman Alemania, AT/CH y Australia",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "DE",
+            "AT",
+            "CH",
+            "AU"
+          ],
+          "notes": [
+            "Verificar 3307215628102, 3307215628225, 3307215628218, 3307215628096 y 3307215628201; descartar mezclas de plataforma."
+          ]
+        },
+        {
+          "id": "revelations-budget-regions",
+          "label": "Separar Essentials, Platinum y Greatest Hits",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "ES",
+            "DE",
+            "US",
+            "CA"
+          ],
+          "notes": [
+            "Investigar el candidato Essentials España 3307215694244, Alemania 3307215694183, BLES-01384/E, BLES-01385/E/RUS, BLES-01385/P, BLUS-30808GH y BLUS-30905GHF."
+          ]
+        },
+        {
+          "id": "revelations-japan-special",
+          "label": "Confirmar Special Edition japonesa",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "JP"
+          ],
+          "notes": [
+            "La Standard japonesa queda cerrada como 4949244002387 / BLJM-60412. Cerrar 4949244002714 / BLJM-60573 con caja física propia."
+          ]
+        },
+        {
+          "id": "revelations-korea-asia",
+          "label": "Cerrar Corea, Asia y PS3 the Best",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "KR"
+          ],
+          "notes": [
+            "Verificar 8809182562359 / BLKS-20325, 3307215599549 / BLAS-50418 y BLAS-50499 mediante packaging físico."
+          ]
+        },
+        {
+          "id": "revelations-dlc-exclusion",
+          "label": "No crear ediciones por DLC sin cambio físico",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [],
+          "notes": [
+            "El contenido descargable sólo distingue una PhysicalEdition cuando existe packaging físico propio documentado."
+          ]
+        }
+      ]
+    }
+  ]
+}
