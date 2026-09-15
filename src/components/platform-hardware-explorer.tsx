@@ -147,9 +147,13 @@ export function PlatformHardwareExplorer({
                 {item.features.slice(0, 4).map((feature) => <li key={feature} className="text-xs leading-5 text-foreground/70">{feature}</li>)}
               </ul>
             ) : null}
-            {item.relatedPersonSlugs.map((slug) => personNames[slug] ? (
-              <Link key={slug} href={`/persona/${slug}`} className="mt-3 inline-block text-xs font-semibold text-accent hover:underline">{personNames[slug]}</Link>
-            ) : null)}
+            {item.relatedPersonSlugs.length > 0 ? (
+              <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                {item.relatedPersonSlugs.map((slug) => personNames[slug] ? (
+                  <Link key={slug} href={`/persona/${slug}`} className="text-xs font-semibold text-accent hover:underline">{personNames[slug]}</Link>
+                ) : null)}
+              </div>
+            ) : null}
             {item.relatedCatalogEntries && item.relatedCatalogEntries.length > 0 ? (
               <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
                 {item.relatedCatalogEntries.map((game) => <Link key={game.id} href={`/catalogo/${game.id}`} className="text-xs font-medium text-accent hover:underline">{game.title}</Link>)}

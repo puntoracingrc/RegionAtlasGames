@@ -152,6 +152,7 @@ export type PlatformArchitectureKind =
   | "PROCESSOR"
   | "GRAPHICS"
   | "OPTICAL_MEDIA"
+  | "GAME_MEDIA"
   | "SYSTEM_SOFTWARE"
   | "MULTIMEDIA"
   | "STORAGE_IO"
