@@ -1,0 +1,675 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-anthology-xbox360",
+      "title": "Ediciones físicas de Assassin's Creed Anthology en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Compilación física independiente. No se convierte en una edición de sus cinco juegos ni hereda la arquitectura de discos de PlayStation 3. El marketing incluye contenido adicional de ACII, Da Vinci para Brotherhood, Ottoman para Revelations y el Season Pass de ACIII, pero su procedencia on-disc/voucher/descarga permanece pendiente de inventario.",
+      "game": {
+        "title": "Assassin's Creed Anthology",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-anthology",
+        "canonicalGameId": "assassins-creed-anthology",
+        "platformReleaseId": "assassins-creed-anthology-xbox360"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-anthology-xbox360-gb",
+          "label": "Anthology · Gran Bretaña",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["GB"],
+          "barcode": "3307215678824",
+          "physicalContents": ["Cinco juegos en soporte físico", "SteelBook", "Cinco litografías", "Caja de coleccionista"],
+          "digitalContents": ["Contenido descargable y Season Pass de Assassin's Creed III; soporte exacto pendiente de inventario"],
+          "containsCatalogIds": [
+            "xbox360-assassin-s-creed",
+            "xbox360-assassin-s-creed-ii",
+            "xbox360-assassin-s-creed-brotherhood",
+            "xbox360-assassin-s-creed-revelations",
+            "xbox360-assassin-s-creed-iii"
+          ],
+          "catalogIds": ["xbox360-assassin-s-creed-anthology"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-anthology-retroplace-gb"],
+          "notes": ["Idiomas del packaging y composición exacta de discos pendientes de inspección del outer packaging y de los medios."]
+        },
+        {
+          "id": "ac-anthology-xbox360-de",
+          "label": "Anthology · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["DE"],
+          "ratingSystems": ["USK 16"],
+          "barcode": "3307215678916",
+          "physicalContents": ["Cinco juegos en soporte físico", "SteelBook", "Cinco litografías", "Caja de coleccionista"],
+          "digitalContents": ["Contenido descargable y Season Pass de Assassin's Creed III; soporte exacto pendiente de inventario"],
+          "containsCatalogIds": [
+            "xbox360-assassin-s-creed",
+            "xbox360-assassin-s-creed-ii",
+            "xbox360-assassin-s-creed-brotherhood",
+            "xbox360-assassin-s-creed-revelations",
+            "xbox360-assassin-s-creed-iii"
+          ],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-anthology-retroplace-de"]
+        },
+        {
+          "id": "ac-anthology-xbox360-at-ch",
+          "label": "Anthology · Austria y Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["AT", "CH"],
+          "packagingLanguages": ["de"],
+          "softwareLanguages": ["de", "en", "fr", "it"],
+          "ratingSystems": ["PEGI 18"],
+          "barcode": "3307215678923",
+          "physicalContents": ["Cinco juegos en soporte físico", "SteelBook", "Cinco litografías", "Caja de coleccionista"],
+          "digitalContents": ["Contenido descargable y Season Pass de Assassin's Creed III; soporte exacto pendiente de inventario"],
+          "containsCatalogIds": [
+            "xbox360-assassin-s-creed",
+            "xbox360-assassin-s-creed-ii",
+            "xbox360-assassin-s-creed-brotherhood",
+            "xbox360-assassin-s-creed-revelations",
+            "xbox360-assassin-s-creed-iii"
+          ],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-anthology-ogdb-at-ch", "ac-anthology-wog-at-ch"],
+          "notes": ["Se conserva separada de Alemania aunque el idioma exterior documentado sea alemán."]
+        },
+        {
+          "id": "ac-anthology-xbox360-pal-3307215678862",
+          "label": "Anthology · PAL/CEE · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "releaseStatus": "RELEASED",
+          "evidenceMarkets": ["PL"],
+          "barcode": "3307215678862",
+          "physicalContents": ["Cinco juegos en soporte físico", "SteelBook", "Cinco litografías", "Caja de coleccionista"],
+          "digitalContents": ["Contenido descargable y Season Pass de Assassin's Creed III; soporte exacto pendiente de inventario"],
+          "containsCatalogIds": [
+            "xbox360-assassin-s-creed",
+            "xbox360-assassin-s-creed-ii",
+            "xbox360-assassin-s-creed-brotherhood",
+            "xbox360-assassin-s-creed-revelations",
+            "xbox360-assassin-s-creed-iii"
+          ],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac-anthology-pal-3307215678862"],
+          "notes": ["La venta en Polonia no demuestra una caja polaca; exige outer packaging para asignar mercado e idiomas."]
+        },
+        {
+          "id": "ac-anthology-xbox360-es-candidate",
+          "label": "Anthology · España candidata",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "releaseStatus": "RELEASED",
+          "evidenceMarkets": ["ES"],
+          "barcode": "3307215678954",
+          "physicalContents": ["Cinco juegos en soporte físico", "SteelBook", "Cinco litografías", "Caja de coleccionista"],
+          "digitalContents": ["Contenido descargable y Season Pass de Assassin's Creed III; soporte exacto pendiente de inventario"],
+          "containsCatalogIds": [
+            "xbox360-assassin-s-creed",
+            "xbox360-assassin-s-creed-ii",
+            "xbox360-assassin-s-creed-brotherhood",
+            "xbox360-assassin-s-creed-revelations",
+            "xbox360-assassin-s-creed-iii"
+          ],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac-anthology-yambalu-es"],
+          "notes": ["Retail español fuerte, pero marketRegions y packagingLanguages permanecen vacíos hasta disponer de scan físico."]
+        },
+        {
+          "id": "ac-anthology-xbox360-au",
+          "label": "Anthology · Australia · barcode pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["AU"],
+          "physicalContents": ["Cinco juegos en soporte físico", "SteelBook", "Cinco litografías", "Caja de coleccionista"],
+          "digitalContents": ["Contenido descargable y Season Pass de Assassin's Creed III; soporte exacto pendiente de inventario"],
+          "containsCatalogIds": [
+            "xbox360-assassin-s-creed",
+            "xbox360-assassin-s-creed-ii",
+            "xbox360-assassin-s-creed-brotherhood",
+            "xbox360-assassin-s-creed-revelations",
+            "xbox360-assassin-s-creed-iii"
+          ],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac-anthology-gamefaqs-release"]
+        }
+      ],
+      "evidence": [
+        {"id": "ac-anthology-retroplace-gb", "type": "UNKNOWN", "label": "Retroplace · Anthology Gran Bretaña", "url": "https://www.retroplace.com/en/games/205382--assassins-creed-anthology", "supports": ["Xbox 360", "mercado GB", "EAN 3307215678824"]},
+        {"id": "ac-anthology-retroplace-de", "type": "UNKNOWN", "label": "Retroplace · Anthology Alemania", "url": "https://www.retroplace.com/en/games/106277--assassins-creed-anthology", "supports": ["Xbox 360", "mercado DE", "EAN 3307215678916"]},
+        {"id": "ac-anthology-ogdb-at-ch", "type": "UNKNOWN", "label": "OGDB · Anthology Austria/Suiza", "url": "https://ogdb.eu/index.php?compid=2886&section=compilation", "supports": ["mercados AT/CH", "EAN 3307215678923", "PEGI 18"]},
+        {"id": "ac-anthology-wog-at-ch", "type": "RETAILER_ASSET", "label": "World of Games · Anthology", "url": "https://www.wog.ch/de/index.cfm/details/product/30780-Assassins-Creed-Anthology", "supports": ["packaging alemán", "software DE/EN/FR/IT"]},
+        {"id": "ac-anthology-pal-3307215678862", "type": "UNKNOWN", "label": "Fuentes PAL/Polonia recopiladas en el dossier", "supports": ["EAN 3307215678862", "circulación en Polonia", "territorio pendiente"]},
+        {"id": "ac-anthology-yambalu-es", "type": "RETAILER_ASSET", "label": "Yambalú España · Anthology", "url": "https://www.yambalu.com/es/juego/5768/assassins-creed-anthology-xbox-360.html", "supports": ["Xbox 360", "retail ES", "EAN 3307215678954"]},
+        {"id": "ac-anthology-gamefaqs-release", "type": "UNKNOWN", "label": "GameFAQs · lanzamientos Anthology Xbox 360", "url": "https://gamefaqs.gamespot.com/xbox360/689512-assassins-creed-anthology/data", "supports": ["lanzamiento europeo", "lanzamiento australiano"]}
+      ],
+      "sources": [
+        {"label": "Dossier entregado · Anthology Xbox 360"},
+        {"label": "Retroplace · Gran Bretaña", "url": "https://www.retroplace.com/en/games/205382--assassins-creed-anthology"},
+        {"label": "OGDB · Austria/Suiza", "url": "https://ogdb.eu/index.php?compid=2886&section=compilation"}
+      ],
+      "evidenceNote": "Las identidades incluidas apuntan a IDs Xbox 360 estables; Assassin's Creed III depende de que la integración central añada su fila canónica. Faltan inventario físico completo, Media IDs/XeMID y separación verificable de on-disc frente a voucher.",
+      "researchTasks": [
+        {"id": "ac-anthology-outer-es", "label": "Confirmar outer packaging español de 3307215678954", "status": "PENDING_REVIEW", "marketRegions": ["ES"]},
+        {"id": "ac-anthology-resolve-3307215678862", "label": "Resolver mercado y packaging de 3307215678862", "status": "PENDING_REVIEW", "marketRegions": ["PL"]},
+        {"id": "ac-anthology-disc-inventory", "label": "Inventariar todos los discos Xbox 360 y sus Media ID/XeMID", "status": "PENDING_REVIEW"},
+        {"id": "ac-anthology-voucher-boundary", "label": "Separar DLC on-disc, voucher y descarga requerida", "status": "PENDING_REVIEW"}
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-heritage-collection-xbox360",
+      "title": "Ediciones físicas de Assassin's Creed Heritage Collection en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Compilación de cinco juegos. Los identificadores de PlayStation 3 presentes en fuentes mixtas quedan excluidos.",
+      "game": {
+        "title": "Assassin's Creed Heritage Collection",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-heritage-collection",
+        "canonicalGameId": "assassins-creed-heritage-collection",
+        "platformReleaseId": "assassins-creed-heritage-collection-xbox360"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-heritage-xbox360-es",
+          "label": "Heritage Collection · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["ES"],
+          "productCodes": ["UBI*300062048"],
+          "barcode": "3307215760420",
+          "physicalContents": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed: Brotherhood", "Assassin's Creed: Revelations", "Assassin's Creed III"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed", "xbox360-assassin-s-creed-ii", "xbox360-assassin-s-creed-brotherhood", "xbox360-assassin-s-creed-revelations", "xbox360-assassin-s-creed-iii"],
+          "catalogIds": ["xbox360-assassin-s-creed-heritage-collection"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-heritage-fnac-es"],
+          "notes": ["La presencia en retail nacional confirma el mercado; el idioma de caja exige scan."]
+        },
+        {
+          "id": "ac-heritage-xbox360-fr",
+          "label": "Heritage Collection · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["FR"],
+          "barcode": "3307215760369",
+          "physicalContents": ["Cinco juegos en soporte físico"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed", "xbox360-assassin-s-creed-ii", "xbox360-assassin-s-creed-brotherhood", "xbox360-assassin-s-creed-revelations", "xbox360-assassin-s-creed-iii"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-heritage-fnac-fr"]
+        },
+        {
+          "id": "ac-heritage-xbox360-de",
+          "label": "Heritage Collection · Alemania · Classics por comprobar",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["DE"],
+          "productCodes": ["300-062082"],
+          "boxCode": "300-062082",
+          "barcode": "3307215760383",
+          "physicalContents": ["Cinco juegos en soporte físico"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed", "xbox360-assassin-s-creed-ii", "xbox360-assassin-s-creed-brotherhood", "xbox360-assassin-s-creed-revelations", "xbox360-assassin-s-creed-iii"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-heritage-retroplace-de"],
+          "notes": ["Retroplace muestra Classics; no se afirma que todas las tiradas alemanas compartan ese branding."]
+        },
+        {
+          "id": "ac-heritage-xbox360-gb",
+          "label": "Heritage Collection · Gran Bretaña",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["GB"],
+          "barcode": "3307215760390",
+          "physicalContents": ["Cinco juegos en soporte físico"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed", "xbox360-assassin-s-creed-ii", "xbox360-assassin-s-creed-brotherhood", "xbox360-assassin-s-creed-revelations", "xbox360-assassin-s-creed-iii"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-heritage-gb-physical"]
+        },
+        {
+          "id": "ac-heritage-xbox360-pal-3307215760437",
+          "label": "Heritage Collection · PAL · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "barcode": "3307215760437",
+          "physicalContents": ["Cinco juegos en soporte físico"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed", "xbox360-assassin-s-creed-ii", "xbox360-assassin-s-creed-brotherhood", "xbox360-assassin-s-creed-revelations", "xbox360-assassin-s-creed-iii"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac-heritage-pricecharting-pal"],
+          "notes": ["No se asigna por secuencia a Italia, España/Portugal, Nórdicos, Benelux o CEE."]
+        }
+      ],
+      "sharedDiscs": [
+        {"id": "ac2-xbox360-goty-classics-heritage-disc", "label": "Assassin's Creed II GOTY/Classics/Heritage · Media ID 7A2F4667", "serial": "Media ID 7A2F4667", "evidenceIds": ["ac-heritage-dbox-ac2"]},
+        {"id": "ac-brotherhood-xbox360-heritage-family-disc", "label": "Brotherhood · familia reutilizada en Heritage · Media ID 6D88AE4F", "serial": "Media ID 6D88AE4F", "evidenceIds": ["ac-heritage-dbox-brotherhood"]}
+      ],
+      "evidence": [
+        {"id": "ac-heritage-fnac-es", "type": "RETAILER_ASSET", "label": "Fnac España · Heritage Collection Xbox 360", "url": "https://www.fnac.es/Assassin-s-Creed-Heritage-Collection-Xbox-360-Videojuego-Xbox-360/a933094", "supports": ["retail ES", "EAN 3307215760420", "SKU UBI*300062048"]},
+        {"id": "ac-heritage-fnac-fr", "type": "RETAILER_ASSET", "label": "Fnac Francia · Heritage Collection", "url": "https://www.fnac.com/a6519011/Assassin-s-Creed-Heritage-Collection-Xbox-360-Jeu-video-Retrogaming", "supports": ["mercado FR", "EAN 3307215760369"]},
+        {"id": "ac-heritage-retroplace-de", "type": "UNKNOWN", "label": "Retroplace · Heritage Collection Alemania", "url": "https://www.retroplace.com/en/games/106367--assassins-creed-heritage-collection", "supports": ["mercado DE", "EAN 3307215760383", "código 300-062082", "marcado Classics"]},
+        {"id": "ac-heritage-gb-physical", "type": "REAL_PHOTO", "label": "Copias físicas británicas recopiladas en el dossier", "supports": ["mercado GB", "EAN 3307215760390"]},
+        {"id": "ac-heritage-pricecharting-pal", "type": "UNKNOWN", "label": "PriceCharting · Heritage Collection PAL", "supports": ["PAL Xbox 360", "EAN 3307215760437", "territorio pendiente"]},
+        {"id": "ac-heritage-dbox-ac2", "type": "UNKNOWN", "label": "DBox · Assassin's Creed II Xbox 360", "url": "https://dbox.tools/discs/xbox360/2625/", "supports": ["Media ID 7A2F4667", "reutilización en Heritage"]},
+        {"id": "ac-heritage-dbox-brotherhood", "type": "UNKNOWN", "label": "DBox · Brotherhood Xbox 360", "url": "https://dbox.tools/discs/xbox360/2599/", "supports": ["Media ID 6D88AE4F", "reutilización en Heritage"]}
+      ],
+      "sources": [
+        {"label": "Dossier entregado · Heritage Collection Xbox 360"},
+        {"label": "Fnac España · Heritage Collection", "url": "https://www.fnac.es/Assassin-s-Creed-Heritage-Collection-Xbox-360-Videojuego-Xbox-360/a933094"},
+        {"label": "DBox · medios Xbox 360", "url": "https://dbox.tools/discs/xbox360/2625/"}
+      ],
+      "evidenceNote": "3307215760291, 4895094019870 y BLAS-55010 son contaminación PS3 y no aparecen como identidad Xbox. Assassin's Creed III depende de una futura fila canónica central.",
+      "researchTasks": [
+        {"id": "ac-heritage-outer-es", "label": "Confirmar packaging español mediante scan", "status": "PENDING_REVIEW", "marketRegions": ["ES"]},
+        {"id": "ac-heritage-classics-de", "label": "Resolver si Alemania tuvo tiradas original y Classics", "status": "PENDING_REVIEW", "marketRegions": ["DE"]},
+        {"id": "ac-heritage-resolve-3307215760437", "label": "Resolver el territorio de 3307215760437", "status": "PENDING_REVIEW"},
+        {"id": "ac-heritage-disc-inventory", "label": "Inventariar todos los discos, labels, Media IDs y XeMID", "status": "PENDING_REVIEW"}
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-double-pack-xbox360",
+      "title": "Ediciones físicas de Assassin's Creed Double Pack en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Compilación de Assassin's Creed y Assassin's Creed II; no equivale a una venta conjunta de dos cajas ni a la versión PS3.",
+      "game": {
+        "title": "Assassin's Creed Double Pack",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-double-pack",
+        "canonicalGameId": "assassins-creed-double-pack",
+        "platformReleaseId": "assassins-creed-double-pack-xbox360",
+        "aliases": ["Assassin's Creed I + II Welcome Pack"]
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-double-pack-1-2-xbox360-es",
+          "label": "Double Pack AC1 + ACII · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["ES"],
+          "barcode": "3307215624517",
+          "physicalContents": ["Assassin's Creed · disco por verificar", "Assassin's Creed II · disco y edición exacta por verificar"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed", "xbox360-assassin-s-creed-ii"],
+          "catalogIds": ["xbox360-assassin-s-creed-double-pack"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-double-pack-fnac-es"],
+          "notes": ["El mercado retail está confirmado; idioma de caja y branding original/Classics exigen scan."]
+        },
+        {
+          "id": "ac-double-pack-1-2-xbox360-eu-classics",
+          "label": "Double Pack AC1 + ACII · Europe Classics · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "releaseStatus": "RELEASED",
+          "barcode": "3307215624470",
+          "physicalContents": ["Assassin's Creed · disco por verificar", "Assassin's Creed II · disco y edición exacta por verificar"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed", "xbox360-assassin-s-creed-ii"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac-double-pack-eu-classics"],
+          "notes": ["Puede corresponder a CEE, Europa inglesa, Benelux u otro territorio; no se asigna sin caja física."]
+        },
+        {
+          "id": "ac-double-pack-1-2-xbox360-jp-welcome-pack",
+          "label": "Assassin's Creed I + II Welcome Pack · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["JP"],
+          "productCodes": ["JES1-00239"],
+          "barcode": "4949244002745",
+          "physicalContents": ["Assassin's Creed", "Assassin's Creed II"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed", "xbox360-assassin-s-creed-ii"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-double-pack-gamefaqs-jp"]
+        }
+      ],
+      "evidence": [
+        {"id": "ac-double-pack-fnac-es", "type": "RETAILER_ASSET", "label": "Fnac España · Assassin's Creed + Assassin's Creed II", "url": "https://www.fnac.es/Assassin-s-Creed-Assassin-s-Creed-II-Xbox-360-Videojuego-Xbox-360/a709141", "supports": ["Xbox 360", "retail ES", "EAN 3307215624517"]},
+        {"id": "ac-double-pack-eu-classics", "type": "REAL_PHOTO", "label": "Fuentes físicas PAL/Classics recopiladas en el dossier", "url": "https://bestkonzol.hu/assassin-s-creed-double-pack-xbox-360-12084", "supports": ["Xbox 360", "Double Pack Classics", "EAN 3307215624470"]},
+        {"id": "ac-double-pack-gamefaqs-jp", "type": "UNKNOWN", "label": "GameFAQs · Welcome Pack Xbox 360 Japón", "url": "https://gamefaqs.gamespot.com/xbox360/659347-assassins-creed-double-pack/data", "supports": ["JAN 4949244002745", "JES1-00239", "mercado JP"]}
+      ],
+      "sources": [
+        {"label": "Dossier entregado · AC1 + ACII Double Pack Xbox 360"},
+        {"label": "Fnac España · Double Pack", "url": "https://www.fnac.es/Assassin-s-Creed-Assassin-s-Creed-II-Xbox-360-Videojuego-Xbox-360/a709141"},
+        {"label": "GameFAQs · Welcome Pack Xbox 360", "url": "https://gamefaqs.gamespot.com/xbox360/659347-assassins-creed-double-pack/data"}
+      ],
+      "evidenceNote": "4949244002752, BLJM-60499 y BLES-01582 son identificadores PS3 y quedan excluidos. El modelo actual no enlaza dos PhysicalMedium estructurados; el detalle permanece en physicalContents hasta integración central.",
+      "researchTasks": [
+        {"id": "ac-double-pack-outer-es", "label": "Confirmar packaging y branding español", "status": "PENDING_REVIEW", "marketRegions": ["ES"]},
+        {"id": "ac-double-pack-resolve-3307215624470", "label": "Asignar territorio exacto a 3307215624470", "status": "PENDING_REVIEW"},
+        {"id": "ac-double-pack-disc-inventory", "label": "Verificar dos discos, Media IDs/XeMID y edición de ACII", "status": "PENDING_REVIEW"}
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-brotherhood-revelations-double-pack-xbox360",
+      "title": "Ediciones físicas de Assassin's Creed Brotherhood + Revelations Double Pack en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "La existencia del Double Pack/Classics está documentada, pero sus EAN conflictivos no se promueven a outer barcode sin fotografía exterior Xbox 360.",
+      "game": {
+        "title": "Assassin's Creed Brotherhood + Assassin's Creed Revelations Double Pack",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-brotherhood-revelations-double-pack",
+        "canonicalGameId": "assassins-creed-brotherhood-revelations-double-pack",
+        "platformReleaseId": "assassins-creed-brotherhood-revelations-double-pack-xbox360",
+        "aliases": ["Assassin's Creed Pack Hermandad + Revelations"]
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-brotherhood-revelations-double-pack-xbox360-uk-pal-candidate",
+          "label": "Brotherhood + Revelations Double Pack · UK/PAL candidato",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "releaseStatus": "RELEASED",
+          "evidenceMarkets": ["GB"],
+          "barcode": "3307215689271",
+          "physicalContents": ["Assassin's Creed: Brotherhood · soporte exacto pendiente", "Assassin's Creed: Revelations · soporte exacto pendiente"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-brotherhood", "xbox360-assassin-s-creed-revelations"],
+          "catalogIds": ["xbox360-assassin-s-creed-brotherhood-revelations-double-pack"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac-br-rev-nedgame", "ac-br-rev-ebay-uk"],
+          "notes": ["Outer packaging obligatorio antes de convertir evidenceMarkets GB en marketRegions o declarar idiomas."]
+        }
+      ],
+      "evidence": [
+        {"id": "ac-br-rev-nedgame", "type": "RETAILER_ASSET", "label": "Nedgame · Brotherhood/Revelations Double Pack Classics", "url": "https://www.nedgame.nl/xbox-360/assassin-s-creed-brotherhood---revelations-double-pack--classics-/6883414839/", "supports": ["producto físico Xbox 360", "Double Pack/Classics", "dos juegos incluidos"]},
+        {"id": "ac-br-rev-ebay-uk", "type": "REAL_PHOTO", "label": "Copia PAL/UK recopilada en el dossier", "supports": ["Xbox 360", "GTIN candidato 3307215689271", "circulación GB"]},
+        {"id": "ac-br-rev-yambalu-conflict", "type": "RETAILER_ASSET", "label": "Yambalú · candidato español con conflicto de plataforma", "url": "https://www.yambalu.com/juego/5846/assassins-creed-pack-hermandad-revelations-xbox-360.html", "supports": ["EAN 3307215689165", "PLATFORM_CONFLICT", "no publicable sin outer Xbox"]},
+        {"id": "ac-br-rev-revelations-standalone", "type": "UNKNOWN", "label": "Geedie · Revelations standalone", "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-revelations-4", "supports": ["3307215693865 corresponde probablemente a Revelations standalone"]}
+      ],
+      "sources": [
+        {"label": "Dossier entregado · Brotherhood + Revelations Double Pack Xbox 360"},
+        {"label": "Nedgame · Double Pack Classics", "url": "https://www.nedgame.nl/xbox-360/assassin-s-creed-brotherhood---revelations-double-pack--classics-/6883414839/"}
+      ],
+      "evidenceNote": "3307215689165 queda sólo como conflicto de plataforma; 3307215693865 se trata como probable Revelations standalone y 3307215673393 como Brotherhood standalone. Ninguno es outer barcode de la compilación.",
+      "researchTasks": [
+        {"id": "ac-br-rev-outer-3307215689271", "label": "Obtener outer packaging completo de 3307215689271", "status": "PENDING_REVIEW", "marketRegions": ["GB"]},
+        {"id": "ac-br-rev-resolve-3307215689165", "label": "Resolver conflicto Xbox 360/PS3 de 3307215689165", "status": "PENDING_REVIEW", "marketRegions": ["ES"]},
+        {"id": "ac-br-rev-packaging-model", "label": "Determinar sleeve con dos cajas, keepcase compartida o packaging Classics", "status": "PENDING_REVIEW"},
+        {"id": "ac-br-rev-disc-inventory", "label": "Inventariar discos y Media IDs/XeMID", "status": "PENDING_REVIEW"}
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ezio-trilogy-saga-xbox360",
+      "title": "Ediciones físicas de Assassin's Creed Ezio Trilogy / Ezio Saga en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "La edición estadounidense Ezio Trilogy y la japonesa Ezio Saga son variantes regionales de la compilación Xbox 360; no existe SKU europeo demostrado.",
+      "game": {
+        "title": "Assassin's Creed Ezio Trilogy / Ezio Saga",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-ezio-trilogy",
+        "canonicalGameId": "assassins-creed-ezio-trilogy",
+        "platformReleaseId": "assassins-creed-ezio-trilogy-xbox360",
+        "aliases": ["Assassin's Creed Ezio Saga"]
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-ezio-trilogy-xbox360-us",
+          "label": "Ezio Trilogy · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["US"],
+          "productCodes": ["528838-CVR"],
+          "boxCode": "528838-CVR",
+          "barcode": "008888528838",
+          "releaseDate": "2013-10-01",
+          "releaseDateContext": "Fecha de salida estadounidense documentada",
+          "ratingSystems": ["ESRB T"],
+          "physicalContents": ["Assassin's Creed II", "Assassin's Creed: Brotherhood", "Assassin's Creed: Revelations"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-ii", "xbox360-assassin-s-creed-brotherhood", "xbox360-assassin-s-creed-revelations"],
+          "catalogIds": ["xbox360-assassin-s-creed-ezio-trilogy"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-ezio-gamefaqs-us", "ac-ezio-dbox-us"]
+        },
+        {
+          "id": "ac-ezio-saga-xbox360-jp",
+          "label": "Ezio Saga · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["JP"],
+          "productCodes": ["JES1-00250"],
+          "barcode": "4949244002820",
+          "releaseDate": "2012-09-06",
+          "releaseDateContext": "Fecha de salida japonesa documentada",
+          "ratingSystems": ["CERO Z"],
+          "physicalContents": ["Assassin's Creed II", "Assassin's Creed: Brotherhood", "Assassin's Creed: Revelations"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-ii", "xbox360-assassin-s-creed-brotherhood", "xbox360-assassin-s-creed-revelations"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-ezio-gamefaqs-jp"]
+        }
+      ],
+      "sharedDiscs": [
+        {"id": "ac-brotherhood-xbox360-ezio-family-disc", "label": "Brotherhood · familia reutilizada en Ezio Trilogy", "technicalRegion": "NORTH_AMERICA", "serial": "XeMID US214101W0X11 · Media ID 6D88AE4F", "evidenceIds": ["ac-ezio-dbox-us"]}
+      ],
+      "evidence": [
+        {"id": "ac-ezio-gamefaqs-us", "type": "UNKNOWN", "label": "GameFAQs · Ezio Trilogy Xbox 360 USA", "url": "https://gamefaqs.gamespot.com/xbox360/674201-assassins-creed-ezio-saga/data", "supports": ["UPC 008888528838", "mercado US", "fecha 2013-10-01", "ESRB T"]},
+        {"id": "ac-ezio-dbox-us", "type": "UNKNOWN", "label": "DBox · Ezio Trilogy Xbox 360", "url": "https://dbox.tools/discs/xbox360/2625/", "supports": ["box code 528838-CVR", "XeMID US214101W0X11", "Media ID 6D88AE4F"]},
+        {"id": "ac-ezio-gamefaqs-jp", "type": "UNKNOWN", "label": "GameFAQs · Ezio Saga Xbox 360 Japón", "url": "https://gamefaqs.gamespot.com/xbox360/674201-assassins-creed-ezio-saga/data", "supports": ["JAN 4949244002820", "JES1-00250", "mercado JP", "CERO Z"]}
+      ],
+      "sources": [
+        {"label": "Dossier entregado · Ezio Trilogy / Saga Xbox 360"},
+        {"label": "GameFAQs · Ezio Trilogy / Saga Xbox 360", "url": "https://gamefaqs.gamespot.com/xbox360/674201-assassins-creed-ezio-saga/data"},
+        {"label": "DBox · Ezio Trilogy Xbox 360", "url": "https://dbox.tools/discs/xbox360/2625/"}
+      ],
+      "evidenceNote": "4949244002813 y BLJM-67011 pertenecen a PS3. No se crea Ezio Trilogy europea por analogía ni se asigna JAN a la Limited Complete japonesa sin outer scan.",
+      "researchTasks": [
+        {"id": "ac-ezio-disc-inventory-us", "label": "Inventariar discos completos de USA", "status": "PENDING_REVIEW", "marketRegions": ["US"]},
+        {"id": "ac-ezio-disc-inventory-jp", "label": "Inventariar discos completos de Japón", "status": "PENDING_REVIEW", "marketRegions": ["JP"]},
+        {"id": "ac-ezio-jp-limited-outer", "label": "Localizar outer JAN de Limited Complete japonesa", "status": "PENDING_REVIEW", "marketRegions": ["JP"]},
+        {"id": "ac-ezio-europe-not-confirmed", "label": "Mantener Europa como variante física no confirmada", "status": "PHYSICAL_VARIANT_NOT_CONFIRMED"}
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-american-saga-americas-collection-xbox360",
+      "title": "Ediciones físicas de Assassin's Creed American Saga / The Americas Collection en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Assassin's Creed III y Black Flag son componentes físicos. Liberation HD forma parte del paquete mediante voucher digital y nunca se cuenta como disco Xbox 360.",
+      "game": {
+        "title": "Assassin's Creed: Birth of a New World - The American Saga / The Americas Collection",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-american-saga",
+        "canonicalGameId": "assassins-creed-american-saga",
+        "platformReleaseId": "assassins-creed-american-saga-xbox360",
+        "aliases": ["Assassin's Creed: The Americas Collection", "Assassin's Creed: La Saga Americana", "Assassin's Creed: El Origen de un Nuevo Mundo"]
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-american-saga-xbox360-es",
+          "label": "American Saga · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["ES"],
+          "barcode": "3307215802779",
+          "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico"],
+          "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "catalogIds": ["xbox360-assassin-s-creed-american-saga"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-american-saga-xtralife-es", "ac-american-saga-yambalu-es"],
+          "notes": ["PAL España está documentado; packagingLanguages exige scan."]
+        },
+        {
+          "id": "ac-american-saga-xbox360-pal-3307215802786",
+          "label": "American Saga · PAL alternativo · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "barcode": "3307215802786",
+          "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico"],
+          "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac-american-saga-pricecharting-pal"],
+          "notes": ["No se asigna a UK, Francia, Benelux, Portugal o Italia sin outer packaging."]
+        },
+        {
+          "id": "ac-american-saga-xbox360-dfi-ch-candidate",
+          "label": "American Saga · D/F/I/Suiza candidata",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "evidenceMarkets": ["CH"],
+          "softwareLanguages": ["de", "en", "fr", "it"],
+          "barcode": "3307215802755",
+          "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico"],
+          "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac-american-saga-wog-dfi"],
+          "notes": ["Los idiomas de software no se copian a packagingLanguages."]
+        },
+        {
+          "id": "ac-americas-collection-xbox360-us",
+          "label": "The Americas Collection · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["US"],
+          "productCodes": ["UBP50201025"],
+          "barcode": "887256000622",
+          "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico", "Cuatro discos físicos observados; asignación individual pendiente"],
+          "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "evidenceIds": ["ac-americas-bestbuy-us", "ac-americas-physical-us", "ac-americas-liberation-voucher"]
+        },
+        {
+          "id": "ac-american-saga-xbox360-au",
+          "label": "American Saga · Australia · barcode pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["AU"],
+          "physicalContents": ["Assassin's Creed III · soporte físico", "Assassin's Creed IV Black Flag · soporte físico"],
+          "digitalContents": ["Assassin's Creed Liberation HD · código de descarga (voucher), no disco"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iii", "xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-liberation-hd"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac-american-saga-au-release"]
+        }
+      ],
+      "sharedDiscs": [
+        {"id": "ac-black-flag-xbox360-americas-disc-family", "label": "Black Flag · familia asociada a Americas Collection · Disc 1/2", "technicalRegion": "NORTH_AMERICA", "serial": "XeMID US224201W05F12 · Media ID 68EC85BF", "evidenceIds": ["ac-americas-dbox-black-flag"]}
+      ],
+      "evidence": [
+        {"id": "ac-american-saga-xtralife-es", "type": "RETAILER_ASSET", "label": "Xtralife · American Saga Xbox 360 España", "url": "https://www.xtralife.com/producto/assassins-creed-birth-of-a-new-world-the-american-saga-xbox-360/16876", "supports": ["Xbox 360", "PAL España"]},
+        {"id": "ac-american-saga-yambalu-es", "type": "RETAILER_ASSET", "label": "Yambalú · American Saga Xbox 360", "url": "https://www.yambalu.com/juego/6932/assassins-creed-birth-of-a-new-world-the-american-saga-xbox-360.html", "supports": ["retail ES", "EAN 3307215802779"]},
+        {"id": "ac-american-saga-pricecharting-pal", "type": "UNKNOWN", "label": "PriceCharting · American Saga PAL alternativo", "supports": ["PAL Xbox 360", "EAN 3307215802786", "territorio pendiente"]},
+        {"id": "ac-american-saga-wog-dfi", "type": "RETAILER_ASSET", "label": "World of Games · Birth of a New World", "url": "https://www.wog.ch/en/index.cfm/details/product/40439-Assassins-Creed-Birth-of-a-New-World", "supports": ["EAN 3307215802755", "software DE/EN/FR/IT", "Liberation HD sólo digital"]},
+        {"id": "ac-americas-bestbuy-us", "type": "RETAILER_ASSET", "label": "Best Buy · The Americas Collection Xbox 360", "url": "https://www.bestbuy.com/site/assassins-creed-the-americas-collection-xbox-360/9209106.p", "supports": ["mercado US", "UPC 887256000622", "modelo UBP50201025"]},
+        {"id": "ac-americas-physical-us", "type": "REAL_PHOTO", "label": "All Systems Go · copia física Americas Collection", "url": "https://allsystemsgo.games/products/assassins-creed-the-americas-collection-xbox-360", "supports": ["caja Xbox 360", "cuatro discos", "voucher de Liberation HD"]},
+        {"id": "ac-americas-liberation-voucher", "type": "OWNER_CONFIRMATION", "label": "Evidencia de compradores recopilada en el dossier", "url": "https://gamerz-forum.com/threads/ac-liberation-hd-redeem-code-problems.81732/", "supports": ["Liberation HD mediante redeem code", "Liberation HD no es disco"]},
+        {"id": "ac-american-saga-au-release", "type": "UNKNOWN", "label": "Registro de lanzamiento australiano recopilado en el dossier", "supports": ["lanzamiento AU", "barcode Xbox pendiente"]},
+        {"id": "ac-americas-dbox-black-flag", "type": "UNKNOWN", "label": "DBox · Black Flag en Americas Collection", "url": "https://dbox.tools/discs/xbox360/2617/", "supports": ["XeMID US224201W05F12", "Media ID 68EC85BF", "Disc 1/2"]}
+      ],
+      "sources": [
+        {"label": "Dossier entregado · American Saga / Americas Collection Xbox 360"},
+        {"label": "All Systems Go · copia física", "url": "https://allsystemsgo.games/products/assassins-creed-the-americas-collection-xbox-360"},
+        {"label": "DBox · Black Flag Xbox 360", "url": "https://dbox.tools/discs/xbox360/2617/"}
+      ],
+      "evidenceNote": "Liberation HD aparece en containsCatalogIds porque es un juego incluido, pero digitalContents fija su soporte como voucher. La integración central debe conservar esa distinción al crear IncludedGame/IncludedVoucher. 887256000615, BLUS-31483, 3307215802496 y 3307215802816 no se publican como Xbox 360.",
+      "researchTasks": [
+        {"id": "ac-american-saga-outer-es", "label": "Confirmar packaging español mediante scan", "status": "PENDING_REVIEW", "marketRegions": ["ES"]},
+        {"id": "ac-american-saga-resolve-pal-eans", "label": "Resolver 3307215802786 y 3307215802755 mediante outer packaging", "status": "PENDING_REVIEW"},
+        {"id": "ac-american-saga-au-barcode", "label": "Localizar barcode Xbox 360 australiano", "status": "PENDING_REVIEW", "marketRegions": ["AU"]},
+        {"id": "ac-american-saga-disc-inventory", "label": "Inventariar cuatro discos y Media IDs/XeMID", "status": "PENDING_REVIEW"}
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-black-flag-rogue-double-pack-xbox360",
+      "title": "Ediciones físicas de Assassin's Creed IV Black Flag + Rogue Double Pack en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Double Pack físico de 2015. Se mantiene separado de Rebel Collection, de los juegos individuales y de ventas conjuntas de dos cajas.",
+      "game": {
+        "title": "Assassin's Creed IV Black Flag + Assassin's Creed Rogue",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-black-flag-rogue-double-pack",
+        "canonicalGameId": "assassins-creed-black-flag-rogue-double-pack",
+        "platformReleaseId": "assassins-creed-black-flag-rogue-double-pack-xbox360"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-black-flag-rogue-double-pack-xbox360-fr",
+          "label": "Black Flag + Rogue Double Pack · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["FR"],
+          "barcode": "3307215889947",
+          "releaseDate": "2015-08-15",
+          "releaseDateContext": "Fecha publicada por E.Leclerc",
+          "physicalContents": ["Assassin's Creed IV Black Flag · soporte físico, inventario pendiente", "Assassin's Creed Rogue · soporte físico, inventario pendiente"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-rogue"],
+          "catalogIds": ["xbox360-assassin-s-creed-black-flag-rogue-double-pack"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac-bf-rogue-leclerc-fr"]
+        },
+        {
+          "id": "ac-black-flag-rogue-double-pack-xbox360-pt-pal",
+          "label": "Black Flag + Rogue Double Pack · Portugal/PAL candidato",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "evidenceMarkets": ["PT"],
+          "barcode": "3307215889961",
+          "physicalContents": ["Assassin's Creed IV Black Flag · soporte físico, inventario pendiente", "Assassin's Creed Rogue · soporte físico, inventario pendiente"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-rogue"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac-bf-rogue-wook-pt"],
+          "notes": ["La venta portuguesa no demuestra packaging portugués, ibérico ni ES/PT; exige outer packaging."]
+        },
+        {
+          "id": "ac-black-flag-rogue-double-pack-xbox360-nz-oceania",
+          "label": "Black Flag + Rogue Double Pack · Nueva Zelanda/Oceanía · barcode pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "COMPILATION",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["NZ"],
+          "physicalContents": ["Assassin's Creed IV Black Flag · soporte físico, inventario pendiente", "Assassin's Creed Rogue · soporte físico, inventario pendiente"],
+          "containsCatalogIds": ["xbox360-assassin-s-creed-iv-black-flag", "xbox360-assassin-s-creed-rogue"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["ac-bf-rogue-firstgames-nz"],
+          "notes": ["El retailer declara voz, subtítulos y manual en inglés, pero el idioma del outer packaging y el barcode requieren foto."]
+        }
+      ],
+      "evidence": [
+        {"id": "ac-bf-rogue-leclerc-fr", "type": "RETAILER_ASSET", "label": "E.Leclerc · Double Pack Xbox 360 Francia", "url": "https://www.e.leclerc/fp/3307215889947", "supports": ["Xbox 360", "mercado FR", "EAN 3307215889947", "release 2015-08-15"]},
+        {"id": "ac-bf-rogue-wook-pt", "type": "RETAILER_ASSET", "label": "Wook Portugal · Double Pack Xbox 360", "url": "https://www.wook.pt/gaming/assassins-creed-iv-black-flag-assassins-creed-rogue-xbox-360/29614232", "supports": ["Xbox 360", "retail PT", "EAN 3307215889961"]},
+        {"id": "ac-bf-rogue-firstgames-nz", "type": "RETAILER_ASSET", "label": "First Games NZ · Double Pack Xbox 360", "url": "https://www.firstgames.co.nz/assassins-creed-iv-black-flag-assassins-creed-rogue-x360/", "supports": ["producto físico Xbox 360", "circulación NZ", "audio/subtítulos/manual EN", "barcode pendiente"]},
+        {"id": "ac-bf-rogue-cashexpress", "type": "REAL_PHOTO", "label": "Cash Express · copia física Double Pack", "url": "https://www.cashexpress.fr/p-19548/450035/xbox-360-jeu-compilation-assassin-s-creed-iv-black-flag-assassin-s-creed-rogue", "supports": ["existencia física Xbox 360", "releaseStatus RELEASED"]}
+      ],
+      "sources": [
+        {"label": "Dossier entregado · Black Flag + Rogue Double Pack Xbox 360"},
+        {"label": "E.Leclerc · variante francesa", "url": "https://www.e.leclerc/fp/3307215889947"},
+        {"label": "First Games NZ · producto físico", "url": "https://www.firstgames.co.nz/assassins-creed-iv-black-flag-assassins-creed-rogue-x360/"}
+      ],
+      "evidenceNote": "El producto se marca RELEASED en mercados probados pese a la ficha Unreleased de MobyGames. 3307215888858 es PS3 y queda excluido. No se hereda ningún DLC de Rebel Collection ni de copy promocional genérico.",
+      "researchTasks": [
+        {"id": "ac-bf-rogue-outer-fr", "label": "Inspeccionar caja completa francesa 3307215889947", "status": "PENDING_REVIEW", "marketRegions": ["FR"]},
+        {"id": "ac-bf-rogue-outer-pt", "label": "Inspeccionar outer packaging de 3307215889961", "status": "PENDING_REVIEW", "marketRegions": ["PT"]},
+        {"id": "ac-bf-rogue-es", "label": "Localizar barcode Xbox 360 español sin reutilizar el PS3", "status": "PHYSICAL_VARIANT_NOT_CONFIRMED", "marketRegions": ["ES"]},
+        {"id": "ac-bf-rogue-oceania-barcode", "label": "Localizar barcode Australia/Nueva Zelanda", "status": "PENDING_REVIEW", "marketRegions": ["AU", "NZ"]},
+        {"id": "ac-bf-rogue-disc-inventory", "label": "Inventariar número de discos, labels y Media IDs", "status": "PENDING_REVIEW"},
+        {"id": "ac-bf-rogue-dlc-proof", "label": "Registrar DLC sólo si aparece en insert u outer packaging", "status": "PENDING_REVIEW"}
+      ]
+    }
+  ]
+}
