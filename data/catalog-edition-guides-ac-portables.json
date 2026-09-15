@@ -1,0 +1,996 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iii-liberation-psvita-worldwide",
+      "title": "Ediciones físicas de Assassin's Creed III: Liberation en PlayStation Vita",
+      "reviewedAt": "2026-09-15",
+      "note": "Una sola obra y lanzamiento de Vita; cada caja regional conserva su identidad física y los bundles de hardware quedan fuera de las ediciones standalone.",
+      "game": {
+        "title": "Assassin's Creed III: Liberation",
+        "platformSlug": "psvita",
+        "canonicalCatalogId": "psvita-assassin-s-creed-iii-liberation",
+        "canonicalGameId": "assassins-creed-iii-liberation",
+        "platformReleaseId": "assassins-creed-iii-liberation-psvita",
+        "aliases": ["Assassin's Creed III: Lady Liberty"]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "psvita-assassin-s-creed-iii-liberation",
+          "physicalEditionIds": [
+            "ac3-liberation-vita-standard-es",
+            "ac3-liberation-vita-standard-de",
+            "ac3-liberation-vita-standard-at-ch",
+            "ac3-liberation-vita-standard-it",
+            "ac3-liberation-vita-standard-eu-unresolved",
+            "ac3-liberation-vita-standard-au",
+            "ac3-liberation-vita-standard-us",
+            "ac3-liberation-vita-standard-na-trilingual",
+            "ac3-liberation-vita-standard-kr-pending",
+            "ac3-liberation-vita-lady-liberty-jp",
+            "ac3-liberation-vita-lady-liberty-jp-ubi-the-best"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac3-liberation-vita-standard-es",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["es"],
+          "softwareLanguages": ["es", "en", "fr", "de", "it"],
+          "ratingSystems": ["PEGI 18"],
+          "softwareFamilyCodes": ["PCSB-00074"],
+          "barcode": "3307215652312",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["psvita-assassin-s-creed-iii-liberation"],
+          "evidenceIds": ["liberation-vita-retroloco-es", "liberation-vita-fnac-es"]
+        },
+        {
+          "id": "ac3-liberation-vita-standard-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["PCSB-00074"],
+          "barcode": "3307215652282",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-retroplace-europe"]
+        },
+        {
+          "id": "ac3-liberation-vita-standard-at-ch",
+          "label": "Standard · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["AT", "CH"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["PCSB-00074"],
+          "barcode": "3307215652299",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-retroplace-europe"]
+        },
+        {
+          "id": "ac3-liberation-vita-standard-it",
+          "label": "Standard · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["IT"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["PCSB-00074"],
+          "barcode": "3307215652305",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-vgcollect-it"]
+        },
+        {
+          "id": "ac3-liberation-vita-standard-eu-unresolved",
+          "label": "Standard · Europa · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["PCSB-00074"],
+          "barcode": "3307215652251",
+          "confidence": "UNCONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-gamefaqs"],
+          "notes": ["No representa toda Europa ni se asigna a Francia, Reino Unido, Benelux, países nórdicos o Europa central sin una caja inequívoca."]
+        },
+        {
+          "id": "ac3-liberation-vita-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["AU"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": ["ACB M"],
+          "softwareFamilyCodes": ["PCSB-00074"],
+          "barcode": "3307215652343",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-gamefaqs"]
+        },
+        {
+          "id": "ac3-liberation-vita-standard-us",
+          "label": "Standard · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": ["ESRB M"],
+          "softwareFamilyCodes": ["PCSE-00053"],
+          "barcode": "008888317234",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["psvita-usa-assassin-s-creed-iii-liberation"],
+          "evidenceIds": ["liberation-vita-gamefaqs"]
+        },
+        {
+          "id": "ac3-liberation-vita-standard-na-trilingual",
+          "label": "Standard · Norteamérica · Trilingual",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": [],
+          "evidenceMarkets": ["US"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["PCSE-00053L"],
+          "barcode": "008888317371",
+          "confidence": "UNCONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-gamefaqs"],
+          "notes": ["Se mantiene separada de la caja USA 008888317234; Canadá, Latinoamérica e idiomas impresos exactos siguen pendientes de scan."]
+        },
+        {
+          "id": "ac3-liberation-vita-standard-kr-pending",
+          "label": "Standard · Corea · identificadores pendientes",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["KR"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-gamefaqs"],
+          "notes": ["Barcode, código de producto y rating coreano pendientes de evidencia física."]
+        },
+        {
+          "id": "ac3-liberation-vita-lady-liberty-jp",
+          "label": "Lady Liberty · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["JP"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": ["CERO Z"],
+          "softwareFamilyCodes": ["VLJM-35021"],
+          "barcode": "4949244002769",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-gamefaqs"],
+          "notes": ["Lady Liberty es el título local japonés del mismo lanzamiento de Vita, no un gameId distinto."]
+        },
+        {
+          "id": "ac3-liberation-vita-lady-liberty-jp-ubi-the-best",
+          "label": "Lady Liberty · Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["JP"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["VLJM-35095"],
+          "barcode": "4949244003438",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["liberation-vita-gamefaqs"],
+          "notes": ["Reedición separada de la tirada japonesa original; el documento fuente confirma 2014 sin fijar día ni mes."]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "liberation-vita-retroloco-es",
+          "type": "UNKNOWN",
+          "label": "RetroLoco · ejemplar PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-iii-liberation-esp/",
+          "summary": "Identifica EAN, PCSB-00074, caja española y software multilingüe.",
+          "supports": ["3307215652312", "PCSB-00074", "mercado ES", "packaging es", "software es/en/fr/de/it", "PEGI 18"]
+        },
+        {
+          "id": "liberation-vita-fnac-es",
+          "type": "UNKNOWN",
+          "label": "Fnac España · ficha nacional",
+          "url": "https://www.fnac.es/Assassin-s-Creed-3-Liberation-PS-Vita-Videojuego-PS-Vita/a821441",
+          "supports": ["producto PS Vita vendido en España"]
+        },
+        {
+          "id": "liberation-vita-retroplace-europe",
+          "type": "UNKNOWN",
+          "label": "Retroplace · referencias europeas",
+          "url": "https://www.retroplace.com/es/juegos/152526--assassins-creed-iii-liberation",
+          "supports": ["3307215652282 Alemania", "3307215652299 Austria/Suiza", "PCSB-00074"]
+        },
+        {
+          "id": "liberation-vita-vgcollect-it",
+          "type": "UNKNOWN",
+          "label": "VGCollect · referencia italiana",
+          "url": "https://vgcollect.com/item/180177",
+          "supports": ["3307215652305 Italia", "PCSB-00074"]
+        },
+        {
+          "id": "liberation-vita-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos regionales de Liberation Vita",
+          "url": "https://gamefaqs.gamespot.com/vita/640108-assassins-creed-iii-liberation/data",
+          "supports": ["Europa 3307215652251", "Australia 3307215652343", "USA 008888317234 / PCSE-00053", "Trilingual 008888317371 / PCSE-00053L", "Corea física", "Lady Liberty Japón", "Ubi the Best Japón"]
+        },
+        {
+          "id": "liberation-vita-serialstation",
+          "type": "UNKNOWN",
+          "label": "SerialStation · familia PCSB-00074",
+          "url": "https://serialstation.com/titles/PCSB/00074",
+          "supports": ["familia de software europea PCSB-00074"]
+        }
+      ],
+      "sources": [
+        {"label": "GameFAQs", "url": "https://gamefaqs.gamespot.com/vita/640108-assassins-creed-iii-liberation/data"},
+        {"label": "RetroLoco España", "url": "https://www.retroloco.es/producto/assassins-creed-iii-liberation-esp/"},
+        {"label": "Fnac España", "url": "https://www.fnac.es/Assassin-s-Creed-3-Liberation-PS-Vita-Videojuego-PS-Vita/a821441"},
+        {"label": "Retroplace", "url": "https://www.retroplace.com/es/juegos/152526--assassins-creed-iii-liberation"},
+        {"label": "VGCollect", "url": "https://vgcollect.com/item/180177"},
+        {"label": "SerialStation", "url": "https://serialstation.com/titles/PCSB/00074"}
+      ],
+      "evidenceNote": "Los idiomas del software no se trasladan a cajas distintas. El EAN europeo 3307215652251 conserva territorio pendiente y la familia PCSB-00074 no colapsa los packaging nacionales.",
+      "researchTasks": [
+        {
+          "id": "liberation-vita-asia-vlas-38019",
+          "label": "Confirmar caja física Asia VLAS-38019",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["HK", "SG", "TW"],
+          "notes": ["No crear variante hasta disponer de una ficha física o scan inequívoco; barcode pendiente."]
+        },
+        {
+          "id": "liberation-vita-hardware-bundles",
+          "label": "Documentar copias incluidas en bundles de hardware Vita",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US"],
+          "notes": ["Crystal White Wi-Fi USA y Wi-Fi Europe son HardwareBundle; una copia NFR o sleeve sólo sería BundleCopyVariant con evidencia propia."]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-bloodlines-psp-worldwide",
+      "title": "Ediciones físicas de Assassin's Creed: Bloodlines en PSP",
+      "reviewedAt": "2026-09-15",
+      "note": "Original, reediciones económicas y copia Not for Resale permanecen separadas; las versiones PSN no forman parte del inventario físico.",
+      "game": {
+        "title": "Assassin's Creed: Bloodlines",
+        "platformSlug": "psp",
+        "canonicalCatalogId": "psp-assassin-s-creed-bloodlines",
+        "canonicalGameId": "assassins-creed-bloodlines",
+        "platformReleaseId": "assassins-creed-bloodlines-psp"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "psp-assassin-s-creed-bloodlines",
+          "physicalEditionIds": [
+            "ac-bloodlines-psp-standard-es",
+            "ac-bloodlines-psp-standard-uk-candidate",
+            "ac-bloodlines-psp-standard-au",
+            "ac-bloodlines-psp-standard-us",
+            "ac-bloodlines-psp-standard-kr",
+            "ac-bloodlines-psp-standard-jp",
+            "ac-bloodlines-psp-greatest-hits-us",
+            "ac-bloodlines-psp-ubi-the-best-jp"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "essentials",
+          "label": "PSP Essentials",
+          "representativeCatalogId": "psp-assassin-s-creed-bloodlines-essentials",
+          "physicalEditionIds": ["ac-bloodlines-psp-essentials-es"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "bundle-copy-nfr",
+          "label": "Not for Resale / Bundle Copy",
+          "representativeCatalogId": "psp-usa-assassin-s-creed-bloodlines-not-for-resale",
+          "physicalEditionIds": ["ac-bloodlines-psp-nfr-us"],
+          "priceConditions": ["sealed", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-bloodlines-psp-standard-es",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["es"],
+          "softwareLanguages": ["es", "en", "fr", "de", "it"],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["ULES-01367"],
+          "catalogNumber": "ULES-01367",
+          "barcode": "3307211667679",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["psp-assassin-s-creed-bloodlines"],
+          "evidenceIds": ["bloodlines-retroloco-standard-es", "bloodlines-fnac-standard-es"]
+        },
+        {
+          "id": "ac-bloodlines-psp-standard-uk-candidate",
+          "label": "Standard · caja inglesa candidata · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["ULES-01367"],
+          "catalogNumber": "ULES-01367",
+          "barcode": "3307211667631",
+          "confidence": "UNCONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["bloodlines-fnac-english-candidate"],
+          "notes": ["No se asigna a GB hasta comprobar contraportada y código impreso."]
+        },
+        {
+          "id": "ac-bloodlines-psp-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["AU"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": ["ACB MA"],
+          "softwareFamilyCodes": ["ULES-01367"],
+          "catalogNumber": "ULES-01367",
+          "barcode": "3307211667648",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["bloodlines-gamefaqs"]
+        },
+        {
+          "id": "ac-bloodlines-psp-standard-us",
+          "label": "Standard · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "softwareLanguages": ["en", "fr", "de", "es", "it"],
+          "ratingSystems": ["ESRB M"],
+          "softwareFamilyCodes": ["ULUS-10455"],
+          "catalogNumber": "ULUS-10455",
+          "barcode": "008888335733",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["psp-usa-assassin-s-creed-bloodlines"],
+          "evidenceIds": ["bloodlines-gamefaqs", "bloodlines-vgindex-languages"]
+        },
+        {
+          "id": "ac-bloodlines-psp-standard-kr",
+          "label": "Standard · Corea",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["KR"],
+          "packagingLanguages": [],
+          "softwareLanguages": ["en"],
+          "ratingSystems": ["GRAC 18"],
+          "softwareFamilyCodes": ["ULKS-46231"],
+          "catalogNumber": "ULKS-46231",
+          "barcode": "8809083646639",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["bloodlines-gamefaqs", "bloodlines-vgindex-languages"]
+        },
+        {
+          "id": "ac-bloodlines-psp-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["JP"],
+          "packagingLanguages": [],
+          "softwareLanguages": ["en", "ja"],
+          "ratingSystems": ["CERO Z"],
+          "softwareFamilyCodes": ["ULJM-05571"],
+          "catalogNumber": "ULJM-05571",
+          "barcode": "4949244001915",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["bloodlines-gamefaqs", "bloodlines-vgindex-languages"]
+        },
+        {
+          "id": "ac-bloodlines-psp-essentials-es",
+          "label": "PSP Essentials · España",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["ES"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["ULES-01367/E"],
+          "catalogNumber": "ULES-01367/E",
+          "barcode": "3307215638316",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["psp-assassin-s-creed-bloodlines-essentials"],
+          "evidenceIds": ["bloodlines-retroloco-essentials-es", "bloodlines-fnac-essentials-es", "bloodlines-serialstation"],
+          "notes": ["El idioma de packaging queda vacío hasta verificar una caja propia; no se deduce del mercado ni del software."]
+        },
+        {
+          "id": "ac-bloodlines-psp-greatest-hits-us",
+          "label": "Greatest Hits · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["ULUS-10455GH"],
+          "catalogNumber": "ULUS-10455GH",
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": [],
+          "evidenceIds": ["bloodlines-gamefaqs"],
+          "notes": ["Barcode pendiente; no se reutiliza el UPC de la edición Standard sin scan."]
+        },
+        {
+          "id": "ac-bloodlines-psp-ubi-the-best-jp",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["JP"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["ULJM-05720"],
+          "catalogNumber": "ULJM-05720",
+          "barcode": "4949244002035",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["bloodlines-gamefaqs"]
+        },
+        {
+          "id": "ac-bloodlines-psp-nfr-us",
+          "label": "Not for Resale · copia de bundle/promoción · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "OTHER",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "softwareFamilyCodes": ["ULUS-10455"],
+          "catalogNumber": "ULUS-10455",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["psp-usa-assassin-s-creed-bloodlines-not-for-resale"],
+          "evidenceIds": ["bloodlines-gamefaqs"],
+          "notes": ["No es una edición retail standalone y no se fusiona con Standard. El bundle o promoción de origen y el barcode siguen pendientes."]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "bloodlines-retroloco-standard-es",
+          "type": "UNKNOWN",
+          "label": "RetroLoco · Bloodlines Standard España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-bloodlines-esp/",
+          "supports": ["3307211667679", "ULES-01367", "mercado ES", "packaging es", "software es/en/fr/de/it"]
+        },
+        {
+          "id": "bloodlines-fnac-standard-es",
+          "type": "UNKNOWN",
+          "label": "Fnac España · Bloodlines Standard",
+          "url": "https://www.fnac.es/Assassins-Creed-Bloodlines-PSP-Videojuego-PSP/a345350",
+          "supports": ["producto Standard PSP en España"]
+        },
+        {
+          "id": "bloodlines-retroloco-essentials-es",
+          "type": "UNKNOWN",
+          "label": "RetroLoco · Bloodlines Essentials España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-bloodlines-esp-essentials/",
+          "supports": ["3307215638316", "ULES-01367-E", "PSP Essentials España"]
+        },
+        {
+          "id": "bloodlines-fnac-essentials-es",
+          "type": "UNKNOWN",
+          "label": "Fnac España · Bloodlines Essentials",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Bloodlines-Essentials-PSP-Videojuego-PSP/a714582",
+          "supports": ["PSP Essentials España"]
+        },
+        {
+          "id": "bloodlines-fnac-english-candidate",
+          "type": "UNKNOWN",
+          "label": "Fnac marketplace · importación inglesa candidata",
+          "url": "https://www.fnac.es/mp889860/Assassins-Creed-Bloodlines-PSP-Importacion-inglesa",
+          "supports": ["3307211667631", "importación inglesa declarada"]
+        },
+        {
+          "id": "bloodlines-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos regionales de Bloodlines",
+          "url": "https://gamefaqs.gamespot.com/psp/958338-assassins-creed-bloodlines/data",
+          "supports": ["Australia 3307211667648", "USA 008888335733 / ULUS-10455", "Not for Resale", "Greatest Hits ULUS-10455GH", "Japón original y Ubi the Best", "Corea 8809083646639 / ULKS-46231"]
+        },
+        {
+          "id": "bloodlines-serialstation",
+          "type": "UNKNOWN",
+          "label": "SerialStation · ULES-01367 original y Essentials",
+          "url": "https://www.serialstation.com/titles/ULES/01367",
+          "supports": ["ULES-01367 original", "ULES-01367/E PSP Essentials"]
+        },
+        {
+          "id": "bloodlines-vgindex-languages",
+          "type": "UNKNOWN",
+          "label": "VGIndex · idiomas de software documentados en la orden",
+          "summary": "La orden separa expresamente estos idiomas de los idiomas de packaging.",
+          "supports": ["Europe EN/FR/DE/ES/IT/RU", "USA EN/FR/DE/ES/IT", "Japan EN/JA", "Korea software English"]
+        }
+      ],
+      "sources": [
+        {"label": "GameFAQs", "url": "https://gamefaqs.gamespot.com/psp/958338-assassins-creed-bloodlines/data"},
+        {"label": "RetroLoco Standard España", "url": "https://www.retroloco.es/producto/assassins-creed-bloodlines-esp/"},
+        {"label": "RetroLoco Essentials España", "url": "https://www.retroloco.es/producto/assassins-creed-bloodlines-esp-essentials/"},
+        {"label": "Fnac Standard España", "url": "https://www.fnac.es/Assassins-Creed-Bloodlines-PSP-Videojuego-PSP/a345350"},
+        {"label": "Fnac Essentials España", "url": "https://www.fnac.es/Assassin-s-Creed-Bloodlines-Essentials-PSP-Videojuego-PSP/a714582"},
+        {"label": "SerialStation", "url": "https://www.serialstation.com/titles/ULES/01367"}
+      ],
+      "evidenceNote": "Los idiomas del UMD no se reutilizan para completar idiomas de caja. NPUH-10032 y NPEH-00029 son digitales y quedan fuera de physicalEditions.",
+      "researchTasks": [
+        {
+          "id": "bloodlines-other-european-packaging",
+          "label": "Resolver otras cajas europeas ULES-01367",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["FR", "DE", "IT", "PT", "BE", "NL", "AT", "CH", "RU"],
+          "notes": ["No asumir que España, la caja inglesa candidata y Australia agotan los EAN físicos."]
+        },
+        {
+          "id": "bloodlines-nfr-bundle-source",
+          "label": "Identificar bundle o promoción de la copia Not for Resale",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US"],
+          "notes": ["Buscar caja o UMD, texto NFR y barcode; mantenerla fuera de retail standalone."]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-altairs-chronicles-ds-worldwide",
+      "title": "Ediciones físicas de Assassin's Creed: Altaïr's Chronicles en Nintendo DS",
+      "reviewedAt": "2026-09-15",
+      "note": "El cartucho o ROM compartido no colapsa cajas nacionales; los ports móviles posteriores quedan fuera de este lanzamiento DS.",
+      "game": {
+        "title": "Assassin's Creed: Altaïr's Chronicles",
+        "platformSlug": "ds",
+        "canonicalCatalogId": "ds-assassin%27s-creed-altair%27s-chronicles",
+        "canonicalGameId": "assassins-creed-altairs-chronicles",
+        "platformReleaseId": "assassins-creed-altairs-chronicles-ds",
+        "aliases": ["Assassin's Creed: Altair's Chronicles", "Assassin's Creed Altair's Chronicles"]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ds-assassin%27s-creed-altair%27s-chronicles",
+          "physicalEditionIds": [
+            "ac-altairs-chronicles-ds-standard-es",
+            "ac-altairs-chronicles-ds-standard-it",
+            "ac-altairs-chronicles-ds-standard-gb",
+            "ac-altairs-chronicles-ds-standard-us"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-altairs-chronicles-ds-standard-es",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["es"],
+          "softwareLanguages": ["es", "en", "fr", "de", "it"],
+          "ratingSystems": ["PEGI 12"],
+          "productCodes": ["NTR-YAHP-ESP"],
+          "barcode": "3307210263667",
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "catalogIds": ["ds-assassin%27s-creed-altair%27s-chronicles"],
+          "evidenceIds": ["altairs-ds-retroloco-es", "altairs-ds-fnac-es"]
+        },
+        {
+          "id": "ac-altairs-chronicles-ds-standard-it",
+          "label": "Standard · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["IT"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "productCodes": ["NTR-YAHP-ITA"],
+          "barcode": "3307210263650",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["altairs-ds-gamefaqs"]
+        },
+        {
+          "id": "ac-altairs-chronicles-ds-standard-gb",
+          "label": "Standard · Reino Unido",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["GB"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "productCodes": ["NTR-YAHP-UKV"],
+          "barcode": "3307210263636",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["altairs-ds-gamefaqs"]
+        },
+        {
+          "id": "ac-altairs-chronicles-ds-standard-us",
+          "label": "Standard · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": ["ESRB T"],
+          "productCodes": ["NTR-YAHE-USA"],
+          "barcode": "008888163398",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ds-usa-assassins-creed-altair%27s-chronicles"],
+          "evidenceIds": ["altairs-ds-gamefaqs"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "altairs-ds-retroloco-es",
+          "type": "UNKNOWN",
+          "label": "RetroLoco · ejemplar PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-altairs-chronicles-esp/",
+          "supports": ["3307210263667", "NTR-YAHP-ESP", "packaging es", "software es/en/fr/de/it", "PEGI 12"]
+        },
+        {
+          "id": "altairs-ds-fnac-es",
+          "type": "UNKNOWN",
+          "label": "Fnac España · mismo EAN",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Nintendo-DS-Videojuego-Nintendo-DS/a10281",
+          "supports": ["3307210263667", "mercado ES"]
+        },
+        {
+          "id": "altairs-ds-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos regionales de Altaïr's Chronicles DS",
+          "url": "https://gamefaqs.gamespot.com/ds/939560-assassins-creed-altairs-chronicles/data",
+          "supports": ["Italia 3307210263650 / NTR-YAHP-ITA", "Reino Unido 3307210263636 / NTR-YAHP-UKV", "USA 008888163398 / NTR-YAHE-USA", "Australia candidata INTR-P-YAHE"]
+        },
+        {
+          "id": "altairs-ds-nintendo-es",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Nintendo España · lanzamiento Nintendo DS",
+          "url": "https://www.nintendo.com/es-es/Juegos/Nintendo-DS/Assassin-s-Creed-Altair-s-Chronicles-270088.html",
+          "supports": ["lanzamiento oficial en Nintendo DS"]
+        }
+      ],
+      "sources": [
+        {"label": "GameFAQs", "url": "https://gamefaqs.gamespot.com/ds/939560-assassins-creed-altairs-chronicles/data"},
+        {"label": "RetroLoco", "url": "https://www.retroloco.es/producto/assassins-creed-altairs-chronicles-esp/"},
+        {"label": "Fnac España", "url": "https://www.fnac.es/Assassin-s-Creed-Nintendo-DS-Videojuego-Nintendo-DS/a10281"},
+        {"label": "Nintendo España", "url": "https://www.nintendo.com/es-es/Juegos/Nintendo-DS/Assassin-s-Creed-Altair-s-Chronicles-270088.html"}
+      ],
+      "evidenceNote": "Se conserva NTR-YAHP-ESP como código respaldado para España. NTR-YAHP-SPA no crea una segunda variante hasta inspeccionar el código físicamente impreso.",
+      "researchTasks": [
+        {
+          "id": "altairs-ds-australia-packaging",
+          "label": "Confirmar packaging australiano 008888163398 / INTR-P-YAHE",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["AU"],
+          "notes": ["Compartir UPC con USA no demuestra la misma caja; confirmar código y rating PG en packaging."]
+        },
+        {
+          "id": "altairs-ds-european-packaging",
+          "label": "Resolver cajas Francia, Alemania y Benelux",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["FR", "DE", "BE", "NL"],
+          "notes": ["Buscar sufijos NOE, FRA, HOL, FAH o EUR sólo cuando aparezcan físicamente; no deducir EAN por secuencia."]
+        },
+        {
+          "id": "altairs-ds-spain-code-normalization",
+          "label": "Resolver ESP frente a SPA en la caja española",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES"],
+          "notes": ["Inspeccionar lomo, reverso y etiqueta de cartucho; no almacenar dos variantes por una convención de base de datos."]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ii-discovery-ds-worldwide",
+      "title": "Ediciones físicas de Assassin's Creed II: Discovery en Nintendo DS",
+      "reviewedAt": "2026-09-15",
+      "note": "Las cajas regionales confirmadas se separan; España conserva lanzamiento confirmado con identificadores y packaging pendientes, y los EAN europeos candidatos no se asignan por secuencia.",
+      "game": {
+        "title": "Assassin's Creed II: Discovery",
+        "platformSlug": "ds",
+        "canonicalCatalogId": "ds-assassin%27s-creed-ii-discovery",
+        "canonicalGameId": "assassins-creed-ii-discovery",
+        "platformReleaseId": "assassins-creed-ii-discovery-ds"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ds-assassin%27s-creed-ii-discovery",
+          "physicalEditionIds": [
+            "ac2-discovery-ds-standard-es-pending",
+            "ac2-discovery-ds-standard-us",
+            "ac2-discovery-ds-standard-de",
+            "ac2-discovery-ds-standard-fr",
+            "ac2-discovery-ds-standard-gb",
+            "ac2-discovery-ds-standard-it",
+            "ac2-discovery-ds-standard-au",
+            "ac2-discovery-ds-standard-eu-3307211667396",
+            "ac2-discovery-ds-standard-eu-3307211667457"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac2-discovery-ds-standard-es-pending",
+          "label": "Standard · España · identificadores pendientes",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["ES"],
+          "packagingLanguages": [],
+          "softwareLanguages": ["es", "en"],
+          "ratingSystems": [],
+          "softwareFamilyCodes": [],
+          "productCodes": [],
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": ["ds-assassin%27s-creed-ii-discovery"],
+          "evidenceIds": ["discovery-ds-game-es", "discovery-ds-vandal", "discovery-ds-todocoleccion"],
+          "notes": ["Textos en español y voces en inglés están documentados como software; barcode, código físico e idiomas de caja requieren scan PAL España."]
+        },
+        {
+          "id": "ac2-discovery-ds-standard-us",
+          "label": "Standard · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": ["ESRB T"],
+          "productCodes": ["TWL-VACE-USA"],
+          "barcode": "008888165347",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ds-usa-assassin%27s-creed-ii-discovery"],
+          "evidenceIds": ["discovery-ds-gamefaqs"]
+        },
+        {
+          "id": "ac2-discovery-ds-standard-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "productCodes": ["TWL-VACV-NOE"],
+          "barcode": "3307211667419",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["discovery-ds-gamefaqs"]
+        },
+        {
+          "id": "ac2-discovery-ds-standard-fr",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["FR"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "productCodes": ["TWL-VACV-FRA"],
+          "barcode": "3307211667365",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["discovery-ds-gamefaqs"]
+        },
+        {
+          "id": "ac2-discovery-ds-standard-gb",
+          "label": "Standard · Reino Unido",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["GB"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "productCodes": ["TWL-VACV-UKV"],
+          "barcode": "3307211667372",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["discovery-ds-gamefaqs"]
+        },
+        {
+          "id": "ac2-discovery-ds-standard-it",
+          "label": "Standard · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["IT"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "productCodes": ["TWL-VACV-ITA"],
+          "barcode": "3307211667440",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["discovery-ds-gamefaqs"]
+        },
+        {
+          "id": "ac2-discovery-ds-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": ["AU"],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": ["ACB M"],
+          "productCodes": ["TWL-VACV-AUS"],
+          "barcode": "3307211667402",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["discovery-ds-gamefaqs"]
+        },
+        {
+          "id": "ac2-discovery-ds-standard-eu-3307211667396",
+          "label": "Standard · Europa · territorio pendiente · 3307211667396",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "productCodes": [],
+          "barcode": "3307211667396",
+          "confidence": "UNCONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["discovery-ds-gameshop-twente"],
+          "notes": ["Aparece asociado a una copia PAL English y retail europeo; no se asigna a España ni Países Bajos sin scan."]
+        },
+        {
+          "id": "ac2-discovery-ds-standard-eu-3307211667457",
+          "label": "Standard · Europa · territorio pendiente · 3307211667457",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "releaseStatus": "RELEASED",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "ratingSystems": [],
+          "productCodes": [],
+          "barcode": "3307211667457",
+          "confidence": "UNCONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["discovery-ds-gameshop-twente"],
+          "notes": ["EAN agregado junto con otras cajas europeas; no se asigna a España, Benelux u otro mercado por secuencia."]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "discovery-ds-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos regionales de Discovery DS",
+          "url": "https://gamefaqs.gamespot.com/ds/974818-assassins-creed-ii-discovery/data",
+          "supports": ["USA 008888165347 / TWL-VACE-USA", "Alemania 3307211667419 / TWL-VACV-NOE", "Francia 3307211667365 / TWL-VACV-FRA", "Reino Unido 3307211667372 / TWL-VACV-UKV", "Italia 3307211667440 / TWL-VACV-ITA", "Australia 3307211667402 / TWL-VACV-AUS"]
+        },
+        {
+          "id": "discovery-ds-game-es",
+          "type": "UNKNOWN",
+          "label": "GAME España · ficha Nintendo DS",
+          "url": "https://www.game.es/assassins-creed-ii-discovery-nintendo-ds-094335",
+          "supports": ["lanzamiento comercial español confirmado"]
+        },
+        {
+          "id": "discovery-ds-vandal",
+          "type": "UNKNOWN",
+          "label": "Vandal · lanzamiento y software español",
+          "url": "https://vandal.elespanol.com/juegos/nds/assassins-creed-2-discovery/11153",
+          "supports": ["lanzamiento español", "textos en español", "voces en inglés"]
+        },
+        {
+          "id": "discovery-ds-todocoleccion",
+          "type": "UNKNOWN",
+          "label": "TodoColeccion · copia PAL España",
+          "url": "https://www.todocoleccion.net/videojuegos-consola-nintendo-ds/assassins-creed-ii-discovery-nintendo-pal-espana~x639709769",
+          "supports": ["existencia de copia PAL España"]
+        },
+        {
+          "id": "discovery-ds-gameshop-twente",
+          "type": "UNKNOWN",
+          "label": "Gameshop Twente · EAN europeos agrupados",
+          "url": "https://gameshop-twente.nl/assassin-s-creed-ii-discovery-standaard-nds-gebruikt.html",
+          "supports": ["3307211667457", "3307211667372", "3307211667396"],
+          "summary": "La agrupación comercial no resuelve el territorio físico de 3307211667396 ni 3307211667457."
+        }
+      ],
+      "sources": [
+        {"label": "GameFAQs", "url": "https://gamefaqs.gamespot.com/ds/974818-assassins-creed-ii-discovery/data"},
+        {"label": "GAME España", "url": "https://www.game.es/assassins-creed-ii-discovery-nintendo-ds-094335"},
+        {"label": "Vandal", "url": "https://vandal.elespanol.com/juegos/nds/assassins-creed-2-discovery/11153"},
+        {"label": "TodoColeccion", "url": "https://www.todocoleccion.net/videojuegos-consola-nintendo-ds/assassins-creed-ii-discovery-nintendo-pal-espana~x639709769"},
+        {"label": "Gameshop Twente", "url": "https://gameshop-twente.nl/assassin-s-creed-ii-discovery-standaard-nds-gebruikt.html"}
+      ],
+      "evidenceNote": "España está confirmada como lanzamiento, pero no se asigna 3307211667396 ni 3307211667457 sin foto inequívoca de contraportada. Los ports iOS quedan fuera del lanzamiento físico DS.",
+      "researchTasks": [
+        {
+          "id": "discovery-ds-spain-physical-scan",
+          "label": "Leer barcode, código físico e idiomas de caja PAL España",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES"],
+          "notes": ["No elegir entre 3307211667396 y 3307211667457 sin scan inequívoco."]
+        },
+        {
+          "id": "discovery-ds-unresolved-european-packaging",
+          "label": "Resolver Benelux, Portugal, Austria/Suiza y países nórdicos",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["BE", "NL", "PT", "AT", "CH", "DK", "SE", "NO", "FI"],
+          "notes": ["Buscar códigos impresos HOL, FAH, NOE, EUR, ESP, UKV o FRA sin presuponerlos."]
+        }
+      ]
+    }
+  ]
+}
