@@ -6,6 +6,7 @@ import acChroniclesGuideData from "../../data/catalog-edition-guides-ac-chronicl
 import acPs4GuideData from "../../data/catalog-edition-guides-ac-ps4.json";
 import acMirageGuideData from "../../data/catalog-edition-guides-ac-mirage.json";
 import acSyndicatePs4GuideData from "../../data/catalog-edition-guides-ac-syndicate-ps4.json";
+import acEzioCollectionPs4GuideData from "../../data/catalog-edition-guides-ac-ezio-collection-ps4.json";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
@@ -159,6 +160,7 @@ const rawGuideDocuments = [
   acPs4GuideData,
   acMirageGuideData,
   acSyndicatePs4GuideData,
+  acEzioCollectionPs4GuideData,
 ] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
