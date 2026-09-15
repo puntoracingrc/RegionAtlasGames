@@ -8,6 +8,11 @@ import xboxHistoryData from "../../data/research/platform-history/platforms-xbox
 import xbox360HistoryData from "../../data/research/platform-history/platforms-xbox360.json";
 import xboxOneHistoryData from "../../data/research/platform-history/platforms-xboxone.json";
 import xboxSeriesHistoryData from "../../data/research/platform-history/platforms-xboxseries.json";
+import segaEarlyHistoryData from "../../data/research/platform-history/platforms-sega-early.json";
+import segaMegaDriveHistoryData from "../../data/research/platform-history/platforms-sega-megadrive.json";
+import segaGameGearHistoryData from "../../data/research/platform-history/platforms-sega-gamegear.json";
+import segaSaturnHistoryData from "../../data/research/platform-history/platforms-sega-saturn.json";
+import segaDreamcastHistoryData from "../../data/research/platform-history/platforms-sega-dreamcast.json";
 import type {
   CompanyPlatformHistoryLink,
   CompanyGenealogyLink,
@@ -27,9 +32,30 @@ const xboxData = xboxHistoryData as PlatformHistoryData;
 const xbox360Data = xbox360HistoryData as PlatformHistoryData;
 const xboxOneData = xboxOneHistoryData as PlatformHistoryData;
 const xboxSeriesData = xboxSeriesHistoryData as PlatformHistoryData;
+const segaEarlyData = segaEarlyHistoryData as PlatformHistoryData;
+const segaMegaDriveData = segaMegaDriveHistoryData as PlatformHistoryData;
+const segaGameGearData = segaGameGearHistoryData as PlatformHistoryData;
+const segaSaturnData = segaSaturnHistoryData as PlatformHistoryData;
+const segaDreamcastData = segaDreamcastHistoryData as PlatformHistoryData;
 const data: PlatformHistoryData = {
-  version: Math.max(baseData.version, playstation2Data.version, playstation3Data.version, playstation5Data.version, pspData.version, psVitaData.version, xboxData.version, xbox360Data.version, xboxOneData.version, xboxSeriesData.version),
-  generatedAt: xboxSeriesData.generatedAt,
+  version: Math.max(
+    baseData.version,
+    playstation2Data.version,
+    playstation3Data.version,
+    playstation5Data.version,
+    pspData.version,
+    psVitaData.version,
+    xboxData.version,
+    xbox360Data.version,
+    xboxOneData.version,
+    xboxSeriesData.version,
+    segaEarlyData.version,
+    segaMegaDriveData.version,
+    segaGameGearData.version,
+    segaSaturnData.version,
+    segaDreamcastData.version,
+  ),
+  generatedAt: segaDreamcastData.generatedAt,
   platforms: [
     ...new Map(
       [
@@ -43,6 +69,11 @@ const data: PlatformHistoryData = {
         ...xbox360Data.platforms,
         ...xboxOneData.platforms,
         ...xboxSeriesData.platforms,
+        ...segaEarlyData.platforms,
+        ...segaMegaDriveData.platforms,
+        ...segaGameGearData.platforms,
+        ...segaSaturnData.platforms,
+        ...segaDreamcastData.platforms,
       ].map((history) => [history.platformSlug, history]),
     ).values(),
   ],

@@ -12,6 +12,11 @@ import {
 
 const hardwareLabels: Record<PlatformHardwareKind, string> = {
   BASE_MODEL: "Modelo original",
+  HOME_COMPUTER: "Ordenador doméstico",
+  SUCCESSOR_PLATFORM: "Plataforma sucesora",
+  REGIONAL_MODEL: "Modelo regional",
+  HARDWARE_EXPANSION: "Expansión de hardware",
+  LICENSED_MODEL: "Modelo licenciado",
   EARLY_REVISION: "Revisión temprana",
   REVISION: "Revisión técnica",
   REDESIGN: "Rediseño",

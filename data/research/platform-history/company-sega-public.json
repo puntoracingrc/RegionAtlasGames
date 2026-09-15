@@ -1,0 +1,132 @@
+{
+  "version": 8,
+  "profiles": [
+    {
+      "slug": "sega",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-15",
+      "sourceIds": [
+        "source-2ae44cffb0876718",
+        "PH-COMPANY-SEGA-TIMELINE",
+        "PH-COMPANY-SEGA-HARDWARE",
+        "PH-COMPANY-SEGA-OUTLINE"
+      ],
+      "history": {
+        "textEs": "La genealogía corporativa de SEGA parte de Nihon Goraku Bussan, establecida en 1960, y de Rosen Enterprises. La fusión de 1965 dio lugar a SEGA Enterprises, con David Rosen como figura fundacional. Tras la etapa de Gulf and Western, la adquisición de los activos japoneses por el entorno de CSK en 1984 situó a Hayao Nakayama e Isao Okawa en momentos decisivos de la expansión.\n\nSEGA construyó una relación continua entre sus recreativas y el hogar. SG-1000 y SC-3000 abrieron la etapa doméstica en 1983; Mark III y Master System la extendieron; Mega Drive / Genesis convirtió a la compañía en competidor mundial; Game Gear abrió una rama portátil; Saturn y Dreamcast estrecharon los vínculos con placas como ST-V y NAOMI. Mega-CD y 32X se conservan como expansiones de Mega Drive, no como generaciones independientes.\n\nEn enero de 2001 SEGA decidió abandonar la fabricación de consolas domésticas y pasar a desarrollar y publicar para múltiples plataformas. Ese cambio no fue el cierre de la empresa: las franquicias, los equipos y la actividad arcade continuaron, y la compañía se integró en SEGA SAMMY HOLDINGS en 2004. Las reorganizaciones de SEGA Games y SEGA Interactive culminaron en su reunión dentro de SEGA Corporation en 2020.\n\nLa estructura moderna incorpora estudios y marcas adquiridos en momentos distintos, entre ellos Creative Assembly, Sports Interactive, Atlus, Two Point Studios y Rovio. Estas relaciones se entienden por fecha y no convierten retroactivamente sus obras anteriores en creaciones originales de SEGA.",
+        "method": "research",
+        "sourceIds": [
+          "source-2ae44cffb0876718",
+          "PH-COMPANY-SEGA-TIMELINE",
+          "PH-COMPANY-SEGA-HARDWARE",
+          "PH-COMPANY-SEGA-OUTLINE"
+        ]
+      }
+    }
+  ],
+  "achievements": [
+    {
+      "id": "achievement-sega-corporate-genealogy",
+      "companySlug": "sega",
+      "type": "CORPORATE_GENEALOGY",
+      "title": "De Nihon Goraku Bussan y Rosen Enterprises a SEGA Enterprises",
+      "summaryEs": "La historia oficial situa la constitucion japonesa en 1960 y la fusión con Rosen Enterprises y adopción del nombre SEGA Enterprises en 1965.",
+      "yearLabel": "1960-1965",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-2ae44cffb0876718",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-sega-arcade-consumer-loop",
+      "companySlug": "sega",
+      "type": "PLATFORM_ECOSYSTEM",
+      "title": "Un ecosistema continuo entre arcade y consolas",
+      "summaryEs": "System 16, Model 1/2/3, ST-V y NAOMI documentan distintas formas de intercambio técnico y creativo con Mega Drive, Saturn y Dreamcast sin convertir placas y consolas en el mismo objeto.",
+      "yearLabel": "Años 1980-2000",
+      "relatedGamesOrSeries": [
+        "Out Run",
+        "Virtua Fighter",
+        "Daytona USA",
+        "Crazy Taxi"
+      ],
+      "confidence": "HIGH",
+      "sourceId": "PH-COMPANY-SEGA-HARDWARE",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-sega-third-party-transition",
+      "companySlug": "sega",
+      "type": "BUSINESS_TRANSITION",
+      "title": "Transición de fabricante de consolas a publisher multiplataforma",
+      "summaryEs": "La decisión de enero de 2001 puso fin a la producción de Dreamcast y al hardware doméstico propio, pero mantuvo la compañía, sus estudios y sus propiedades intelectuales.",
+      "yearLabel": "2001",
+      "relatedGamesOrSeries": [
+        "Dreamcast",
+        "Sonic the Hedgehog",
+        "Shenmue"
+      ],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-2ae44cffb0876718",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-sega-modern-group",
+      "companySlug": "sega",
+      "type": "MODERN_GROUP",
+      "title": "Un grupo moderno construido mediante adquisiciones fechadas",
+      "summaryEs": "Creative Assembly, Sports Interactive, Atlus, Two Point Studios y Rovio se integraron en períodos diferentes; sus historias anteriores no se reescriben como origen SEGA.",
+      "yearLabel": "2005-2023",
+      "relatedGamesOrSeries": [
+        "Total War",
+        "Football Manager",
+        "Persona",
+        "Two Point",
+        "Angry Birds"
+      ],
+      "confidence": "HIGH",
+      "sourceId": "PH-COMPANY-SEGA-TIMELINE",
+      "publicationStatus": "published"
+    }
+  ],
+  "sources": [
+    {
+      "id": "PH-COMPANY-SEGA-TIMELINE",
+      "url": "https://www.sega.jp/history/companyTimeline/en/",
+      "title": "SEGA company timeline 1960-2020",
+      "kind": "OFFICIAL_CORPORATE_TIMELINE",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["sega"],
+      "supportsFields": ["foundation", "history", "relationships", "products"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-SEGA-HARDWARE",
+      "url": "https://www.sega.jp/history/hard/",
+      "title": "SEGA Hardware Encyclopedia",
+      "kind": "OFFICIAL_HARDWARE_HISTORY",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["ja"],
+      "subjectSlugs": ["sega"],
+      "supportsFields": ["history", "products", "relationships", "achievements"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-SEGA-OUTLINE",
+      "url": "https://www.sega.co.jp/en/company/outline/index.html",
+      "title": "SEGA company outline",
+      "kind": "OFFICIAL_CORPORATE_PROFILE",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["sega"],
+      "supportsFields": ["status", "currentStructure", "history"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    }
+  ]
+}

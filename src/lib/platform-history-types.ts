@@ -73,6 +73,11 @@ export type CompanyGenealogyRelation = {
 
 export type PlatformHardwareKind =
   | "BASE_MODEL"
+  | "HOME_COMPUTER"
+  | "SUCCESSOR_PLATFORM"
+  | "REGIONAL_MODEL"
+  | "HARDWARE_EXPANSION"
+  | "LICENSED_MODEL"
   | "EARLY_REVISION"
   | "REVISION"
   | "REDESIGN"
@@ -102,6 +107,11 @@ export const PLATFORM_HARDWARE_GROUPS: {
     label: "Modelos y revisiones",
     kinds: [
       "BASE_MODEL",
+      "HOME_COMPUTER",
+      "SUCCESSOR_PLATFORM",
+      "REGIONAL_MODEL",
+      "HARDWARE_EXPANSION",
+      "LICENSED_MODEL",
       "EARLY_REVISION",
       "REVISION",
       "REDESIGN",
