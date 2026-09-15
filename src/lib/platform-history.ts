@@ -13,6 +13,20 @@ import segaMegaDriveHistoryData from "../../data/research/platform-history/platf
 import segaGameGearHistoryData from "../../data/research/platform-history/platforms-sega-gamegear.json";
 import segaSaturnHistoryData from "../../data/research/platform-history/platforms-sega-saturn.json";
 import segaDreamcastHistoryData from "../../data/research/platform-history/platforms-sega-dreamcast.json";
+import nintendoGameAndWatchHistoryData from "../../data/research/platform-history/platforms-nintendo-gameandwatch.json";
+import nintendoNesHistoryData from "../../data/research/platform-history/platforms-nintendo-nes.json";
+import nintendoGameBoyHistoryData from "../../data/research/platform-history/platforms-nintendo-gameboy.json";
+import nintendoSnesHistoryData from "../../data/research/platform-history/platforms-nintendo-snes.json";
+import nintendoVirtualBoyHistoryData from "../../data/research/platform-history/platforms-nintendo-virtualboy.json";
+import nintendoN64HistoryData from "../../data/research/platform-history/platforms-nintendo-n64.json";
+import nintendoGbaHistoryData from "../../data/research/platform-history/platforms-nintendo-gba.json";
+import nintendoGameCubeHistoryData from "../../data/research/platform-history/platforms-nintendo-gamecube.json";
+import nintendoDsHistoryData from "../../data/research/platform-history/platforms-nintendo-ds.json";
+import nintendoWiiHistoryData from "../../data/research/platform-history/platforms-nintendo-wii.json";
+import nintendo3dsHistoryData from "../../data/research/platform-history/platforms-nintendo-3ds.json";
+import nintendoWiiUHistoryData from "../../data/research/platform-history/platforms-nintendo-wiiu.json";
+import nintendoSwitchHistoryData from "../../data/research/platform-history/platforms-nintendo-switch.json";
+import nintendoSwitch2HistoryData from "../../data/research/platform-history/platforms-nintendo-switch2.json";
 import type {
   CompanyPlatformHistoryLink,
   CompanyGenealogyLink,
@@ -37,6 +51,20 @@ const segaMegaDriveData = segaMegaDriveHistoryData as PlatformHistoryData;
 const segaGameGearData = segaGameGearHistoryData as PlatformHistoryData;
 const segaSaturnData = segaSaturnHistoryData as PlatformHistoryData;
 const segaDreamcastData = segaDreamcastHistoryData as PlatformHistoryData;
+const nintendoGameAndWatchData = nintendoGameAndWatchHistoryData as PlatformHistoryData;
+const nintendoNesData = nintendoNesHistoryData as PlatformHistoryData;
+const nintendoGameBoyData = nintendoGameBoyHistoryData as PlatformHistoryData;
+const nintendoSnesData = nintendoSnesHistoryData as PlatformHistoryData;
+const nintendoVirtualBoyData = nintendoVirtualBoyHistoryData as PlatformHistoryData;
+const nintendoN64Data = nintendoN64HistoryData as PlatformHistoryData;
+const nintendoGbaData = nintendoGbaHistoryData as PlatformHistoryData;
+const nintendoGameCubeData = nintendoGameCubeHistoryData as PlatformHistoryData;
+const nintendoDsData = nintendoDsHistoryData as PlatformHistoryData;
+const nintendoWiiData = nintendoWiiHistoryData as PlatformHistoryData;
+const nintendo3dsData = nintendo3dsHistoryData as PlatformHistoryData;
+const nintendoWiiUData = nintendoWiiUHistoryData as PlatformHistoryData;
+const nintendoSwitchData = nintendoSwitchHistoryData as PlatformHistoryData;
+const nintendoSwitch2Data = nintendoSwitch2HistoryData as PlatformHistoryData;
 const data: PlatformHistoryData = {
   version: Math.max(
     baseData.version,
@@ -54,8 +82,22 @@ const data: PlatformHistoryData = {
     segaGameGearData.version,
     segaSaturnData.version,
     segaDreamcastData.version,
+    nintendoGameAndWatchData.version,
+    nintendoNesData.version,
+    nintendoGameBoyData.version,
+    nintendoSnesData.version,
+    nintendoVirtualBoyData.version,
+    nintendoN64Data.version,
+    nintendoGbaData.version,
+    nintendoGameCubeData.version,
+    nintendoDsData.version,
+    nintendoWiiData.version,
+    nintendo3dsData.version,
+    nintendoWiiUData.version,
+    nintendoSwitchData.version,
+    nintendoSwitch2Data.version,
   ),
-  generatedAt: segaDreamcastData.generatedAt,
+  generatedAt: nintendoSwitch2Data.generatedAt,
   platforms: [
     ...new Map(
       [
@@ -74,6 +116,20 @@ const data: PlatformHistoryData = {
         ...segaGameGearData.platforms,
         ...segaSaturnData.platforms,
         ...segaDreamcastData.platforms,
+        ...nintendoGameAndWatchData.platforms,
+        ...nintendoNesData.platforms,
+        ...nintendoGameBoyData.platforms,
+        ...nintendoSnesData.platforms,
+        ...nintendoVirtualBoyData.platforms,
+        ...nintendoN64Data.platforms,
+        ...nintendoGbaData.platforms,
+        ...nintendoGameCubeData.platforms,
+        ...nintendoDsData.platforms,
+        ...nintendoWiiData.platforms,
+        ...nintendo3dsData.platforms,
+        ...nintendoWiiUData.platforms,
+        ...nintendoSwitchData.platforms,
+        ...nintendoSwitch2Data.platforms,
       ].map((history) => [history.platformSlug, history]),
     ).values(),
   ],

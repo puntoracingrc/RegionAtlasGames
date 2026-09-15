@@ -1,0 +1,107 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "gameandwatch",
+      "title": "Nintendo Arcade y Game & Watch",
+      "editorialIdentity": {
+        "shortName": "Game & Watch",
+        "manufacturer": "nintendo",
+        "status": "closed",
+        "sortOrder": 0,
+        "releaseYear": 1980,
+        "descriptionEs": "Etapa editorial previa a Famicom: recreativas, juguetes electrónicos y la familia portátil de juegos LCD Game & Watch."
+      },
+      "lineage": {
+        "branchLabelEs": "Orígenes electrónicos y portátiles",
+        "summaryEs": "Game & Watch no fue una consola de cartuchos, sino una familia de dispositivos LCD de un solo juego. Su diseño enlaza los juguetes electrónicos de Nintendo con Game Boy y anticipa ideas recuperadas por Nintendo DS.",
+        "links": [
+          {"platformSlug":"gameboy","platformName":"Game Boy / Game Boy Color","relationship":"SUCCESSOR","summaryEs":"La experiencia de R&D1 en consumo, autonomía y portabilidad continuó en Game Boy.","sourceIds":["PH-NIN-GW-DOSSIER","PH-NIN-HISTORY"]},
+          {"platformSlug":"ds","platformName":"Nintendo DS","relationship":"INFLUENCE","summaryEs":"Los modelos Multi Screen forman un antecedente de diseño, no una compatibilidad técnica directa.","sourceIds":["PH-NIN-GW-DOSSIER"]},
+          {"platformSlug":"nes","platformName":"Famicom / NES","relationship":"PARALLEL_BRANCH","summaryEs":"La experiencia arcade alimentó la entrada doméstica de Nintendo y su software para Famicom.","sourceIds":["PH-NIN-GW-DOSSIER","PH-NIN-HISTORY"]}
+        ]
+      },
+      "dekEs": "La etapa que explica el paso de Nintendo desde juguetes y electrónica hacia el videojuego doméstico: recreativas, Game & Watch y dos líneas de aprendizaje que confluirían en Famicom y Game Boy.",
+      "summaryParagraphsEs": [
+        "Nintendo empezó a vender máquinas recreativas en 1978 y lanzó Game & Watch en 1980. Donkey Kong llegó al arcade en 1981 dentro de una transición que combinó diseño de juego, ingeniería y expansión internacional.",
+        "Game & Watch fue una familia de dispositivos LCD portátiles, cada uno construido alrededor de un juego concreto. Los modelos Silver, Gold, Multi Screen, Table Top y Panorama representan formatos dentro de la familia, no revisiones de una consola de cartuchos.",
+        "Gunpei Yokoi conecta juguetes electrónicos, Game & Watch y Game Boy; Genyo Takeda representa la vertiente técnica y arcade; Shigeru Miyamoto enlaza Radar Scope con Donkey Kong y Mario Bros. sin convertir Donkey Kong en su primer trabajo para Nintendo.",
+        "El pad direccional del Game & Watch Donkey Kong es un hito de control, pero su historia se documenta dentro de un trabajo colectivo de hardware y software."
+      ],
+      "historyTitleEs": "De los juguetes electrónicos a dos ramas de hardware",
+      "historyParagraphsEs": [
+        "La diversificación promovida por Hiroshi Yamauchi llevó a Nintendo desde cartas y juguetes hacia experiencias electrónicas. Color TV-Game abrió la etapa doméstica en 1977 y las recreativas aportaron experiencia de diseño, distribución y tecnología.",
+        "Radar Scope sirve de contexto industrial para Donkey Kong, pero no es el mismo juego. El éxito de Donkey Kong y Mario Bros. consolidó personajes y equipos que pronto trabajarían también en Famicom.",
+        "Game & Watch priorizó una forma compacta, autonomía y una interacción inmediatamente legible. Multi Screen añadió dos pantallas y el modelo Donkey Kong incorporó un pad direccional que después sería central en el mando de Famicom.",
+        "La genealogía no es lineal: el arcade conduce al negocio doméstico de Famicom, mientras Game & Watch alimenta la rama portátil de Game Boy. Nintendo DS retomaría dos pantallas décadas después sin ser una sucesora técnica directa."
+      ],
+      "architectureTitleEs": "LCD, control y aprendizaje arcade",
+      "architectureDekEs": "Tecnologías diferentes que comparten una misma etapa de formación industrial.",
+      "figures": [
+        {"personSlug":"gunpei-yokoi","personName":"Gunpei Yokoi","roleLabelEs":"Diseño e ingeniería","contributionEs":"Conectó juguetes electrónicos, Game & Watch, el pad direccional y la futura filosofía portátil de Game Boy.","period":"Años 1960-1980","sourceIds":["PH-NIN-GW-DOSSIER"]},
+        {"personSlug":"genyo-takeda","personName":"Genyo Takeda","roleLabelEs":"Ingeniería y arcade","contributionEs":"Figura técnica de la etapa recreativa y de la continuidad posterior del hardware Nintendo.","period":"Etapa pre-Famicom","sourceIds":["PH-NIN-GW-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Diseño de juegos arcade","contributionEs":"Trabajó en el contexto de Radar Scope y dirigió el diseño de Donkey Kong antes de Mario Bros.","period":"Finales de 1970 y primeros 1980","sourceIds":["PH-NIN-GW-DOSSIER","PH-NIN-HISTORY"]},
+        {"personSlug":"hiroshi-yamauchi","personName":"Hiroshi Yamauchi","roleLabelEs":"Estrategia corporativa","contributionEs":"Impulsó la diversificación hacia juguetes, electrónica, arcade y videojuegos domésticos.","period":"Presidencia 1949-2002","sourceIds":["PH-NIN-GW-DOSSIER"]},
+        {"personSlug":"satoru-okada","personName":"Satoru Okada","roleLabelEs":"R&D1","contributionEs":"Participó en la continuidad de ingeniería portátil entre Game & Watch y Game Boy.","period":"Etapa R&D1","sourceIds":["PH-NIN-GW-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-gamewatch-lcd","name":"Pantallas LCD de segmentos","kind":"DISPLAY","summaryEs":"Cada dispositivo integraba una pantalla y lógica adaptadas a un único juego, con bajo consumo y lectura inmediata.","features":["Un juego por dispositivo","Series de una y dos pantallas","Diseño orientado a portabilidad y autonomía"],"partners":[{"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","roleLabelEs":"Diseño e integración"}],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+        {"id":"architecture-nintendo-arcade","name":"Electrónica y desarrollo arcade","kind":"SYSTEM_SOFTWARE","summaryEs":"La experiencia recreativa aportó equipos técnicos y de diseño que después trabajarían en el negocio doméstico.","features":["EVR Race y Sheriff como antecedentes","Radar Scope y Donkey Kong son proyectos distintos","VS. System prolonga la relación con Famicom"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Fabricante y desarrolladora"}],"sourceIds":["PH-NIN-GW-DOSSIER","PH-NIN-HISTORY"]}
+      ],
+      "companiesTitleEs": "Equipos que formaron la etapa electrónica",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y desarrolladora","period":"Desde los años 1970","relationshipStart":"1977","relationshipEnd":null,"contributionEs":"Articuló juguetes, hardware doméstico, recreativas y Game & Watch como negocios relacionados.","relatedWorks":["Color TV-Game","Game & Watch","Donkey Kong","Mario Bros."],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GW-DOSSIER"]},
+        {"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Equipo interno","period":"Etapa Game & Watch","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Núcleo asociado al hardware portátil y a la posterior línea Game Boy.","relatedWorks":["Game & Watch","Game Boy"],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+        {"companySlug":"nintendo-rd2","companyName":"Nintendo R&D2","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Equipo interno","period":"Etapa electrónica y doméstica","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Representa la continuidad técnica hacia el hardware doméstico anterior a Famicom.","relatedWorks":["Color TV-Game","Famicom"],"sourceIds":["PH-NIN-GW-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"gamewatch-internal","labelEs":"Desarrollo interno","descriptionEs":"Nintendo y sus equipos de investigación se muestran como estructuras relacionadas, no como alias intercambiables.","companySlugs":["nintendo","nintendo-rd1","nintendo-rd2"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "Del salón recreativo al bolsillo",
+      "gameGroups": [
+        {"id":"nintendo-arcade-games","labelEs":"Arcade","descriptionEs":"Obras que explican la formación de equipos y personajes antes de Famicom.","games":[
+          {"title":"EVR Race","catalogId":null,"year":1975,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo · antecedente electromecánico","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+          {"title":"Sheriff","catalogId":null,"year":1979,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo arcade","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+          {"title":"Radar Scope","catalogId":null,"year":1980,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo arcade","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+          {"title":"Donkey Kong","catalogId":null,"year":1981,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo arcade","companySlugs":["nintendo"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GW-DOSSIER"]},
+          {"title":"Mario Bros.","catalogId":null,"year":1983,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo arcade","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GW-DOSSIER"]}
+        ]},
+        {"id":"gamewatch-games","labelEs":"Game & Watch","descriptionEs":"Juegos integrados en dispositivos concretos, no cartuchos para una consola común.","games":[
+          {"title":"Ball","catalogId":null,"year":1980,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Game & Watch","companySlugs":["nintendo","nintendo-rd1"],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+          {"title":"Donkey Kong","catalogId":null,"year":1982,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Game & Watch Multi Screen","companySlugs":["nintendo","nintendo-rd1"],"sourceIds":["PH-NIN-GW-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Familias y formatos anteriores a Famicom",
+      "hardware": [
+        {"id":"hardware-color-tv-game","name":"Color TV-Game","kind":"BASE_MODEL","yearLabel":"1977","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Primera etapa de máquinas domésticas dedicadas de Nintendo; antecedente de Famicom, no parte de Game & Watch.","features":["Juegos integrados","Uso doméstico","TV Game 6 y TV Game 15"],"relatedWorks":[],"relatedPersonSlugs":["hiroshi-yamauchi","genyo-takeda"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GW-DOSSIER"]},
+        {"id":"hardware-gamewatch-silver-gold","name":"Game & Watch Silver / Gold","kind":"BASE_MODEL","yearLabel":"1980-1981","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Primeras series de dispositivos LCD portátiles de un solo juego.","features":["Reloj y alarma","Juego integrado","Pantalla LCD"],"relatedWorks":["Ball"],"relatedPersonSlugs":["gunpei-yokoi","satoru-okada"],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+        {"id":"hardware-gamewatch-multiscreen","name":"Game & Watch Multi Screen","kind":"REVISION","yearLabel":"Desde 1982","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Formato de dos pantallas dentro de Game & Watch, recordado como antecedente conceptual de Nintendo DS.","features":["Dos pantallas","Diseño plegable en varios modelos","No usa cartuchos"],"relatedWorks":["Donkey Kong"],"relatedPersonSlugs":["gunpei-yokoi"],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+        {"id":"hardware-gamewatch-tabletop","name":"Game & Watch Table Top / Panorama","kind":"REVISION","yearLabel":"1983","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Variantes de sobremesa y pantalla reflectada que ampliaron la forma física de la familia.","features":["Formato de sobremesa","Juego integrado","Pantalla en color mediante filtros"],"relatedWorks":[],"relatedPersonSlugs":["gunpei-yokoi"],"sourceIds":["PH-NIN-GW-DOSSIER"]},
+        {"id":"hardware-gamewatch-dpad","name":"Pad direccional de Game & Watch Donkey Kong","kind":"CONTROLLER","yearLabel":"1982","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Control en cruz integrado en el dispositivo; un antecedente directo del mando de Famicom.","features":["Cuatro direcciones","Integrado en el hardware","Diseño adaptado a formato plegable"],"relatedWorks":["Donkey Kong"],"relatedPersonSlugs":["gunpei-yokoi"],"sourceIds":["PH-NIN-GW-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"dos-ramas","titleEs":"Dos ramas antes de Famicom","dekEs":"El arcade y la portabilidad avanzaron en paralelo.","paragraphsEs":["La rama recreativa consolidó diseño de juego, personajes y experiencia técnica. La rama Game & Watch convirtió tecnología LCD conocida en objetos portátiles de uso cotidiano.","Famicom heredó parte del aprendizaje doméstico y arcade; Game Boy heredó la disciplina portátil de R&D1. La relación es histórica, no una compatibilidad entre sistemas."],"cards":[],"sourceIds":["PH-NIN-GW-DOSSIER","PH-NIN-HISTORY"]}
+      ],
+      "sectionOrder":["lineage","figures","architecture","editorial:dos-ramas","companies","games","hardware","control","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-color-tv-game","yearLabel":"1977","sortYear":1977,"title":"Color TV-Game","summaryEs":"Nintendo inicia su etapa de máquinas domésticas dedicadas.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-nintendo-arcade","yearLabel":"1978","sortYear":1978,"title":"Máquinas arcade","summaryEs":"La compañía comienza a desarrollar y vender videojuegos recreativos.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-gamewatch","yearLabel":"1980","sortYear":1980,"title":"Game & Watch","summaryEs":"Comienza la familia portátil LCD de un solo juego.","sourceIds":["PH-NIN-HISTORY","PH-NIN-GW-DOSSIER"]},
+        {"id":"milestone-donkey-kong-arcade","yearLabel":"1981","sortYear":1981,"title":"Donkey Kong","summaryEs":"El arcade consolida una nueva etapa creativa y personajes duraderos.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-gamewatch-dpad","yearLabel":"1982","sortYear":1982,"title":"Multi Screen y pad direccional","summaryEs":"Game & Watch Donkey Kong combina dos pantallas y control en cruz.","sourceIds":["PH-NIN-GW-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "Game & Watch demostró que una tecnología conocida podía reorganizarse alrededor de autonomía, portabilidad y una interacción concreta.",
+        "El pad direccional y los formatos Multi Screen reaparecen como referencias de diseño en Famicom y Nintendo DS, sin convertirlos en una única plataforma.",
+        "La etapa arcade estableció una continuidad de personajes, diseño y equipos que acompañaría al hardware doméstico de Nintendo."
+      ],
+      "sources": [
+        {"id":"PH-NIN-GW-DOSSIER","title":"Dossier editorial Region Atlas · Nintendo Arcade y Game & Watch","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Etapa pre-Famicom, personas y límites de atribución","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"1977-1983","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"}
+      ],
+      "lastReviewed":"2026-09-15"
+    }
+  ]
+}

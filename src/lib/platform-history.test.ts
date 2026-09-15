@@ -33,7 +33,7 @@ const internalCandidates = internalCandidatesData as {
 test("publishes reusable structured history and keeps an empty fallback", () => {
   const history = getPlatformHistory("ps1");
   assert.ok(history);
-  assert.equal(getPlatformHistory("snes"), undefined);
+  assert.ok(getPlatformHistory("snes"));
   assert.deepEqual(
     getPlatformHistoryData().platforms.map((platform) => platform.platformSlug),
     [
@@ -52,6 +52,20 @@ test("publishes reusable structured history and keeps an empty fallback", () => 
       "gamegear",
       "saturn",
       "dreamcast",
+      "gameandwatch",
+      "nes",
+      "gameboy",
+      "snes",
+      "virtualboy",
+      "n64",
+      "gba",
+      "gamecube",
+      "ds",
+      "wii",
+      "3ds",
+      "wiiu",
+      "switch",
+      "switch2",
     ],
   );
   assert.equal(history.figures.length, 7);

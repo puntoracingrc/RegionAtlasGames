@@ -8,6 +8,7 @@ import {
   History,
   Library,
   Network,
+  Split,
   ShieldCheck,
 } from "lucide-react";
 import { PersonPortrait } from "@/components/person-portrait";
@@ -24,10 +25,12 @@ import type {
 const architectureLabels = {
   PROCESSOR: "Procesador",
   GRAPHICS: "Gráficos",
+  DISPLAY: "Pantalla",
   OPTICAL_MEDIA: "Formato óptico",
   GAME_MEDIA: "Soporte físico",
   SYSTEM_SOFTWARE: "Sistema",
   MULTIMEDIA: "Multimedia",
+  CONNECTIVITY: "Conectividad",
   STORAGE_IO: "Almacenamiento y E/S",
   AUDIO: "Audio",
   UPSCALING: "Reconstrucción de imagen",
@@ -41,6 +44,7 @@ const serviceLabels = {
 } as const;
 
 const defaultSectionOrder: PlatformHistorySectionId[] = [
+  "lineage",
   "figures",
   "architecture",
   "companies",
@@ -52,6 +56,44 @@ const defaultSectionOrder: PlatformHistorySectionId[] = [
   "milestones",
   "legacy",
 ];
+
+const lineageRelationshipLabels = {
+  PREDECESSOR: "Predecesora",
+  SUCCESSOR: "Sucesora",
+  INFLUENCE: "Influencia",
+  PARALLEL_BRANCH: "Rama paralela",
+  CONVERGENCE: "Convergencia",
+} as const;
+
+function LineageSection({ history }: { history: PlatformHistory }) {
+  if (!history.lineage) return null;
+  return (
+    <section id="historia-linaje" className="scroll-mt-24 border-t border-border py-7">
+      <div className="flex items-center gap-2">
+        <Split className="h-5 w-5 text-accent" aria-hidden="true" />
+        <h3 className="text-xl font-bold text-foreground">Linaje de hardware</h3>
+      </div>
+      <p className="mt-1 text-sm font-semibold text-accent">{history.lineage.branchLabelEs}</p>
+      <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">{history.lineage.summaryEs}</p>
+      <ul className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        {history.lineage.links.map((link) => (
+          <li key={`${link.relationship}-${link.platformSlug}`}>
+            <Link
+              href={`/historia-plataformas/${encodeURIComponent(link.platformSlug)}`}
+              className="block h-full rounded-lg border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+                {lineageRelationshipLabels[link.relationship]}
+              </p>
+              <h4 className="mt-1 font-bold text-foreground">{link.platformName}</h4>
+              <p className="mt-2 text-xs leading-5 text-foreground/70">{link.summaryEs}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
 
 function SourceReference({ source }: { source: PlatformHistorySource }) {
   const label = [source.publication, source.citation].filter(Boolean).join(" · ");
@@ -330,6 +372,7 @@ export function PlatformHistorySection({
       return section ? <EditorialSection key={sectionId} section={section} /> : null;
     }
     switch (sectionId) {
+      case "lineage": return <LineageSection key={sectionId} history={history} />;
       case "figures": return <FiguresSection key={sectionId} history={history} portraits={figurePortraits} />;
       case "architecture": return <ArchitectureSection key={sectionId} history={history} />;
       case "companies": return <CompaniesSection key={sectionId} history={history} />;

@@ -1,0 +1,115 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "switch2",
+      "title": "Nintendo Switch 2",
+      "lineage": {"branchLabelEs":"Convergencia híbrida · segunda generación","summaryEs":"Switch 2 sucede a Switch conservando su concepto híbrido, Nintendo Account y una biblioteca compatible con excepciones.","links":[
+        {"platformSlug":"switch","platformName":"Nintendo Switch","relationship":"PREDECESSOR","summaryEs":"La nueva generación mantiene tres modos y compatibilidad con una amplia selección de software Switch, no con el 100 % sin excepciones.","sourceIds":["PH-NIN-SW2-DEVELOPER","PH-NIN-SW2-DOSSIER"]}
+      ]},
+      "generationStatus": {"labelEs":"Generación en curso","asOf":"2026-09-15","summaryEs":"Plataforma activa; cifras, software y servicios reflejan la información oficial disponible hasta septiembre de 2026.","sourceIds":["PH-NIN-SW2-LAUNCH","PH-NIN-SW2-SALES"]},
+      "dekEs": "La segunda generación híbrida de Nintendo amplía pantalla, potencia, almacenamiento y comunicación con Joy-Con 2 magnéticos, control tipo ratón y GameChat.",
+      "summaryParagraphsEs": [
+        "Nintendo Switch 2 se lanzó el 5 de junio de 2025. A 30 de junio de 2026, Nintendo registra 23,68 millones de consolas y 58,17 millones de juegos.",
+        "El equipo central documentado reúne a Kouichi Kawamoto como productor, Takuhiro Dohta como director y Tetsuya Sasaki como director técnico. El trabajo conjunto formal se sitúa alrededor de 2019, con investigación tecnológica anterior.",
+        "El sistema incorpora procesador personalizado de NVIDIA, pantalla LCD de 7,9 pulgadas a 1920 × 1080, HDR10, VRR hasta 120 Hz, 256 GB UFS, Wi-Fi 6 y dos puertos USB-C.",
+        "El dock permite salida hasta 4K/60 y hasta 120 fps a 1080p o 1440p. Es capacidad de salida: no afirma resolución nativa o rendimiento idéntico para todos los juegos.",
+        "Joy-Con 2 se acopla magnéticamente, añade sensor de ratón en ambos mandos, HD Rumble 2 y botón C. GameChat ofrece voz, pantalla compartida y vídeo opcional compatible."
+      ],
+      "historyTitleEs": "Preservar el concepto y ampliar su capacidad",
+      "historyParagraphsEs": [
+        "Nintendo investigaba tecnologías antes de 2019 y reunió alrededor de ese año al núcleo Kawamoto-Dohta-Sasaki. La meta fue conservar la forma de jugar de Switch mientras aumentaba capacidad y rendimiento.",
+        "La compatibilidad con Switch estuvo presente desde la planificación. Nintendo advierte que algunos títulos no son compatibles o no funcionan por completo; por eso no se publica como compatibilidad absoluta.",
+        "Switch 2 Editions son versiones mejoradas de juegos Switch. Se modelan como ediciones o versiones relacionadas, no como duplicados automáticos del juego base.",
+        "La edición Zelda por el 40 aniversario anunciada para octubre de 2026 permanece fuera del hardware publicado hasta su lanzamiento: en septiembre de 2026 sigue siendo futura."
+      ],
+      "architectureTitleEs": "LCD 1080p, NVIDIA y almacenamiento UFS",
+      "architectureDekEs": "Especificaciones oficiales separan capacidad de sistema, salida de vídeo y rendimiento por juego.",
+      "figures": [
+        {"personSlug":"kouichi-kawamoto","personName":"Kouichi Kawamoto","roleLabelEs":"Productor de Nintendo Switch 2","contributionEs":"Determina la dirección y tipo de sistema y coordina las decisiones con los equipos de hardware.","period":"Desde alrededor de 2019","sourceIds":["PH-NIN-SW2-DEVELOPER"]},
+        {"personSlug":"takuhiro-dohta","personName":"Takuhiro Dohta","roleLabelEs":"Director de Nintendo Switch 2","contributionEs":"Aporta la perspectiva de desarrollo de software al diseño de plataforma y fue director técnico de Tears of the Kingdom.","period":"Desde alrededor de 2019","sourceIds":["PH-NIN-SW2-DEVELOPER"]},
+        {"personSlug":"tetsuya-sasaki","personName":"Tetsuya Sasaki","roleLabelEs":"Director técnico de Nintendo Switch 2","contributionEs":"Supervisa tecnología de hardware, software de sistema y servicios de red.","period":"Desde alrededor de 2019","sourceIds":["PH-NIN-SW2-DEVELOPER"]},
+        {"personSlug":"shuntaro-furukawa","personName":"Shuntaro Furukawa","roleLabelEs":"Presidencia de lanzamiento","contributionEs":"Preside Nintendo durante el lanzamiento y primer ciclo comercial de la plataforma.","period":"2025-2026","sourceIds":["PH-NIN-OFFICERS","PH-NIN-SW2-DOSSIER"]},
+        {"personSlug":"ko-shiota","personName":"Ko Shiota","roleLabelEs":"Liderazgo tecnológico","contributionEs":"Senior Executive Officer ligado al desarrollo tecnológico de hardware.","period":"Etapa Switch 2","sourceIds":["PH-NIN-OFFICERS","PH-NIN-SW2-DOSSIER"]},
+        {"personSlug":"shinya-takahashi","personName":"Shinya Takahashi","roleLabelEs":"Liderazgo de software y negocio","contributionEs":"Senior Managing Executive Officer durante la generación.","period":"Etapa Switch 2","sourceIds":["PH-NIN-OFFICERS","PH-NIN-SW2-DOSSIER"]},
+        {"personSlug":"yoshiaki-koizumi","personName":"Yoshiaki Koizumi","roleLabelEs":"Dirección ejecutiva","contributionEs":"Senior Executive Officer; su papel central documentado en Switch no se extrapola a un cargo técnico de Switch 2 no publicado.","period":"2025-2026","sourceIds":["PH-NIN-OFFICERS","PH-NIN-SW2-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-switch2-processor","name":"Procesador personalizado NVIDIA","kind":"PROCESSOR","summaryEs":"Procesador personalizado oficialmente atribuido a NVIDIA, sin inventar un modelo de chip no publicado por Nintendo.","features":["CPU/GPU personalizadas","Diseño híbrido","Sin nombre SoC especulativo"],"partners":[{"companySlug":"nvidia","companyName":"NVIDIA","roleLabelEs":"Socio tecnológico"},{"companySlug":"nintendo-td","companyName":"Nintendo Technology Development","roleLabelEs":"Integración de plataforma"}],"sourceIds":["PH-NIN-SW2-SPECS","PH-NIN-SW2-DEVELOPER"]},
+        {"id":"architecture-switch2-display","name":"Pantalla LCD de 7,9 pulgadas","kind":"DISPLAY","summaryEs":"Panel integrado de 1920 × 1080 con HDR10 y VRR hasta 120 Hz.","features":["LCD, no OLED","1920 × 1080","HDR10","VRR hasta 120 Hz"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Especificación de sistema"}],"sourceIds":["PH-NIN-SW2-SPECS"]},
+        {"id":"architecture-switch2-storage","name":"256 GB UFS y microSD Express","kind":"STORAGE_IO","summaryEs":"Almacenamiento interno UFS y expansión para software Switch 2 mediante microSD Express.","features":["256 GB UFS","microSD Express","Ruptura técnica con microSD estándar para almacenamiento de juegos Switch 2"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma"}],"sourceIds":["PH-NIN-SW2-SPECS"]},
+        {"id":"architecture-switch2-tv","name":"Salida de vídeo del dock","kind":"DISPLAY","summaryEs":"Capacidad máxima de salida que no garantiza renderizado nativo idéntico por juego.","features":["Hasta 4K a 60 fps","Hasta 120 fps a 1080p/1440p","HDR10"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Dock y salida"}],"sourceIds":["PH-NIN-SW2-SPECS"]},
+        {"id":"architecture-switch2-network","name":"Wi-Fi 6, micrófono y GameChat","kind":"CONNECTIVITY","summaryEs":"La plataforma integra conectividad y captura de voz para comunicación de sistema.","features":["Wi-Fi 6","Micrófono integrado","Dos USB-C","GameChat"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Sistema y red"}],"sourceIds":["PH-NIN-SW2-SPECS","PH-NIN-SW2-FEATURES"]}
+      ],
+      "companiesTitleEs": "Nintendo, NVIDIA y desarrollo asociado",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"Desde 2025","relationshipStart":"2025","relationshipEnd":null,"contributionEs":"Diseñó, fabrica y opera la plataforma y sus servicios.","relatedWorks":["Nintendo Switch 2","Joy-Con 2","GameChat"],"sourceIds":["PH-NIN-SW2-LAUNCH","PH-NIN-SW2-DEVELOPER"]},
+        {"companySlug":"nintendo-epd","companyName":"Nintendo EPD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Desarrollo y producción interna","period":"Etapa Switch 2","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aporta dirección de plataforma y software mediante Kawamoto y Dohta.","relatedWorks":["Nintendo Switch 2","Mario Kart World"],"sourceIds":["PH-NIN-SW2-DEVELOPER"]},
+        {"companySlug":"nintendo-td","companyName":"Nintendo Technology Development","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Tecnología interna","period":"Etapa Switch 2","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Integra hardware, software de sistema, red y entorno de desarrollo mediante el área técnica.","relatedWorks":["Nintendo Switch 2"],"sourceIds":["PH-NIN-SW2-DEVELOPER"]},
+        {"companySlug":"nvidia","companyName":"NVIDIA","relationshipType":"HARDWARE_PARTNER","relationshipLabelEs":"Socio tecnológico","period":"Etapa Switch 2","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Proporciona el procesador personalizado documentado oficialmente.","relatedWorks":["Procesador personalizado Switch 2"],"sourceIds":["PH-NIN-SW2-SPECS"]},
+        {"companySlug":"hal-laboratory","companyName":"HAL Laboratory","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa Switch 2","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Participa en software de Kirby conservando identidad independiente.","relatedWorks":["Kirby Air Riders"],"sourceIds":["PH-NIN-SW2-DOSSIER"]},
+        {"companySlug":"game-freak","companyName":"Game Freak","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa Switch 2","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Se relaciona con ediciones y software Pokémon sin convertirse en estudio de Nintendo.","relatedWorks":["Pokémon Legends: Z-A · Switch 2 Edition"],"sourceIds":["PH-NIN-SW2-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"switch2-platform","labelEs":"Plataforma y tecnología","descriptionEs":"Nintendo, sus divisiones y NVIDIA mantienen papeles diferenciados.","companySlugs":["nintendo","nintendo-epd","nintendo-td","nvidia"]},
+        {"id":"switch2-partners","labelEs":"Socios independientes","descriptionEs":"Relaciones de software sin propiedad de Nintendo.","companySlugs":["hal-laboratory","game-freak"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "Software nativo y Switch 2 Editions",
+      "gameGroups": [
+        {"id":"switch2-native-games","labelEs":"Software de Switch 2","descriptionEs":"Juegos publicados para la nueva generación con cifras oficiales cuando existen.","games":[
+          {"title":"Mario Kart World","catalogId":null,"year":2025,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EPD","companySlugs":["nintendo","nintendo-epd"],"sourceIds":["PH-NIN-SW2-SALES"]},
+          {"title":"Donkey Kong Bananza","catalogId":null,"year":2025,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-SW2-SALES"]},
+          {"title":"Nintendo Switch 2 Welcome Tour","catalogId":null,"year":2025,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-SW2-DOSSIER"]},
+          {"title":"Kirby Air Riders","catalogId":null,"year":2025,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"HAL Laboratory / Nintendo","companySlugs":["hal-laboratory","nintendo"],"sourceIds":["PH-NIN-SW2-SALES"]},
+          {"title":"Pokémon Pokopia","catalogId":null,"year":2026,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Ecosistema Pokémon / Nintendo","companySlugs":["game-freak","nintendo"],"sourceIds":["PH-NIN-SW2-SALES"]}
+        ]},
+        {"id":"switch2-editions","labelEs":"Switch 2 Editions","descriptionEs":"Versiones mejoradas relacionadas con el juego Switch base, no duplicados conceptuales.","games":[
+          {"title":"The Legend of Zelda: Tears of the Kingdom · Nintendo Switch 2 Edition","catalogId":null,"year":2025,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Edición mejorada de título Switch","companySlugs":["nintendo","nintendo-epd"],"sourceIds":["PH-NIN-SW2-DOSSIER"]},
+          {"title":"Pokémon Legends: Z-A · Nintendo Switch 2 Edition","catalogId":null,"year":2025,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Edición mejorada · Game Freak / Nintendo","companySlugs":["game-freak","nintendo"],"sourceIds":["PH-NIN-SW2-SALES"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Modelo activo, dock y Joy-Con 2",
+      "hardware": [
+        {"id":"hardware-switch2","name":"Nintendo Switch 2","kind":"BASE_MODEL","yearLabel":"5 jun 2025","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Segunda generación híbrida con pantalla LCD 1080p y 256 GB UFS.","features":["LCD 7,9 pulgadas","1920 × 1080","256 GB UFS","Dos USB-C"],"relatedWorks":["Mario Kart World"],"relatedPersonSlugs":["kouichi-kawamoto","takuhiro-dohta","tetsuya-sasaki"],"sourceIds":["PH-NIN-SW2-LAUNCH","PH-NIN-SW2-SPECS"]},
+        {"id":"hardware-switch2-japanese-language","name":"Nintendo Switch 2 · sistema para Japón","kind":"REGIONAL_MODEL","yearLabel":"2025 · Japón","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Variante regional configurada para idioma y cuenta de Nintendo japoneses, distinta del modelo multilingüe.","features":["Distribución japonesa","Idioma japonés","Condiciones regionales de Nintendo Account"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-SW2-DOSSIER"]},
+        {"id":"hardware-joycon2","name":"Joy-Con 2","kind":"CONTROLLER","yearLabel":"2025","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Mandos magnéticos con sensor de ratón en ambos lados, HD Rumble 2 y botón C.","features":["Acoplamiento magnético","Sensor de ratón izquierdo y derecho","HD Rumble 2","Botón C","NFC derecho"],"relatedWorks":["Drag x Drive"],"relatedPersonSlugs":["kouichi-kawamoto","tetsuya-sasaki"],"sourceIds":["PH-NIN-SW2-DEVELOPER","PH-NIN-SW2-SPECS"]},
+        {"id":"hardware-switch2-dock","name":"Dock de Nintendo Switch 2","kind":"PERIPHERAL","yearLabel":"2025","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Dock con salida de vídeo, LAN y refrigeración para modo TV.","features":["Hasta 4K/60","Hasta 120 fps a menor resolución","LAN","Ventilación integrada"],"relatedWorks":[],"relatedPersonSlugs":["tetsuya-sasaki"],"sourceIds":["PH-NIN-SW2-SPECS"]}
+      ],
+      "services": [
+        {"id":"service-switch2-gamechat","name":"GameChat","kind":"SOCIAL_SERVICE","launchedLabel":"2025","endedLabel":null,"statusLabelEs":"Activo bajo condiciones vigentes","parentServiceId":null,"summaryEs":"Función de sistema para voz, pantalla compartida y vídeo con cámara compatible; no es una red social separada.","features":["Chat de voz","Pantalla compartida","Vídeo opcional","Botón C"],"sourceIds":["PH-NIN-SW2-FEATURES"]},
+        {"id":"service-switch2-online","name":"Nintendo Switch Online en Switch 2","kind":"SUBSCRIPTION_SERVICE","launchedLabel":"2025 en Switch 2","endedLabel":null,"statusLabelEs":"Activo","parentServiceId":null,"summaryEs":"Continuidad de la suscripción y Nintendo Account bajo funciones y condiciones compatibles.","features":["Online","Nube según juego","Catálogos y funciones compatibles"],"sourceIds":["PH-NIN-SW2-FEATURES"]}
+      ],
+      "compatibilityLinks": [
+        {"id":"compat-switch2-switch","sourcePlatformSlug":"switch2","sourcePlatformName":"Nintendo Switch 2","targetPlatformSlug":"switch","targetPlatformName":"Nintendo Switch","labelEs":"Compatibilidad amplia con excepciones","summaryEs":"Nintendo diseñó compatibilidad con software Switch desde la planificación, pero algunos títulos pueden no ser compatibles o no funcionar plenamente.","features":["Game Cards y software digital compatible","Nintendo Account","Excepciones publicadas","No se afirma 100 %"],"sourceIds":["PH-NIN-SW2-DEVELOPER","PH-NIN-SW2-FEATURES"]}
+      ],
+      "editorialSections": [
+        {"id":"desarrollo-y-limites","titleEs":"Nueva generación con continuidad explícita","dekEs":"Compatibilidad y ediciones mejoradas no borran la frontera entre Switch y Switch 2.","paragraphsEs":["La plataforma conserva el concepto híbrido, pero estrena capacidad, pantalla, almacenamiento, controles y software de sistema propios. La compatibilidad se describe como amplia y con excepciones.","Las Switch 2 Editions se conectan con sus juegos base. La capacidad 4K/120 del sistema no se presenta como resolución o rendimiento nativo universal."],"cards":[],"sourceIds":["PH-NIN-SW2-DEVELOPER","PH-NIN-SW2-SPECS"]},
+        {"id":"ventas-2026","titleEs":"Cifras oficiales a 30 de junio de 2026","dekEs":"Fotografía temporal de una generación activa.","paragraphsEs":["Nintendo declara 23,68 millones de consolas y 58,17 millones de juegos. Mario Kart World alcanza 15,39 millones y Donkey Kong Bananza 4,78 millones a la misma fecha."],"cards":[],"sourceIds":["PH-NIN-SW2-SALES"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:desarrollo-y-limites","companies","games","hardware","compatibility","services","editorial:ventas-2026","control","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-switch2-research","yearLabel":"Antes de 2019","sortYear":2018,"title":"Investigación tecnológica previa","summaryEs":"Nintendo estudia tecnologías que después alimentan el nuevo sistema.","sourceIds":["PH-NIN-SW2-DEVELOPER"]},
+        {"id":"milestone-switch2-core-team","yearLabel":"Alrededor de 2019","sortYear":2019,"title":"Núcleo de desarrollo","summaryEs":"Kawamoto, Dohta y Sasaki trabajan conjuntamente para preservar el concepto de Switch y ampliar su capacidad.","sourceIds":["PH-NIN-SW2-DEVELOPER"]},
+        {"id":"milestone-switch2-launch","yearLabel":"5 jun 2025","sortYear":2025,"title":"Lanzamiento de Nintendo Switch 2","summaryEs":"Nintendo lanza su primera plataforma completamente nueva en ocho años.","sourceIds":["PH-NIN-SW2-LAUNCH"]},
+        {"id":"milestone-switch2-sales","yearLabel":"30 jun 2026","sortYear":2026,"title":"23,68 millones de consolas","summaryEs":"Cifra oficial de hardware para la generación activa.","sourceIds":["PH-NIN-SW2-SALES"]}
+      ],
+      "legacyEs": [
+        "Legado provisional: Switch 2 preserva la forma híbrida mientras refuerza pantalla, control, almacenamiento y comunicación.",
+        "Joy-Con 2 convierte el acoplamiento magnético y el control tipo ratón en rasgos propios de la generación.",
+        "La continuidad de cuenta y software se documenta con excepciones y sin borrar la identidad de Switch."
+      ],
+      "sources": [
+        {"id":"PH-NIN-SW2-DOSSIER","title":"Dossier editorial Region Atlas · Nintendo Switch 2","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Alcance, software, relaciones, estados futuros y QA","url":null},
+        {"id":"PH-NIN-SW2-LAUNCH","title":"Power up your play with Nintendo Switch 2","publication":"Nintendo News","publisher":"Nintendo","kind":"official","language":"en","citation":"Lanzamiento mundial · 5 de junio de 2025","url":"https://www.nintendo.com/us/whatsnew/power-up-your-play-with-nintendo-switch-2-and-mario-kart-world-launching-today/"},
+        {"id":"PH-NIN-SW2-DEVELOPER","title":"Ask the Developer Vol. 16 · Nintendo Switch 2","publication":"Nintendo News","publisher":"Nintendo","kind":"interview","language":"en","citation":"Equipo, cronología, Joy-Con 2 y compatibilidad","url":"https://www.nintendo.com/us/whatsnew/ask-the-developer-vol-16-nintendo-switch-2-part-1/"},
+        {"id":"PH-NIN-SW2-SPECS","title":"Nintendo Switch 2 Tech Specs","publication":"Nintendo","publisher":"Nintendo","kind":"official","language":"en","citation":"Pantalla, almacenamiento, conectividad, Joy-Con 2 y salida TV","url":"https://www.nintendo.com/us/gaming-systems/switch-2/tech-specs/"},
+        {"id":"PH-NIN-SW2-FEATURES","title":"Nintendo Switch 2 Features","publication":"Nintendo","publisher":"Nintendo","kind":"official","language":"en","citation":"GameChat, compatibilidad y funciones del sistema","url":"https://www.nintendo.com/us/gaming-systems/switch-2/features/"},
+        {"id":"PH-NIN-SW2-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Switch 2 · 23,68 M hardware; 58,17 M software a 30 jun 2026","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"},
+        {"id":"PH-NIN-OFFICERS","title":"Directors and Executive Officers","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Dirección vigente en septiembre de 2026","url":"https://www.nintendo.co.jp/corporate/en/officer/index.html"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

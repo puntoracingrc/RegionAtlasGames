@@ -1,0 +1,114 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "3ds",
+      "title": "Nintendo 3DS / 2DS / New 3DS",
+      "lineage": {"branchLabelEs":"Línea portátil","summaryEs":"Nintendo 3DS sucede a DS con pantalla estereoscópica sin gafas. 2DS y New 3DS permanecen dentro de la misma generación; Switch recibe después la convergencia portátil y doméstica.","links":[
+        {"platformSlug":"ds","platformName":"Nintendo DS / DSi","relationship":"PREDECESSOR","summaryEs":"Mantiene dos pantallas, tacto inferior y compatibilidad con juegos DS.","sourceIds":["PH-NIN-3DS-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"switch","platformName":"Nintendo Switch","relationship":"SUCCESSOR","summaryEs":"Switch absorbe la continuidad portátil dentro de una plataforma híbrida.","sourceIds":["PH-NIN-3DS-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"virtualboy","platformName":"Virtual Boy","relationship":"INFLUENCE","summaryEs":"La exploración estereoscópica es una afinidad temática, no una sucesión técnica directa.","sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ]},
+      "dekEs": "Profundidad estereoscópica sin gafas, StreetPass, eShop y una amplia familia de revisiones, incluida New 3DS como mejora interna y no como generación nueva.",
+      "summaryParagraphsEs": [
+        "Nintendo 3DS se lanzó en 2011. Nintendo registra 75,94 millones de consolas y 392,31 millones de juegos.",
+        "La pantalla superior ofrece 3D estereoscópico ajustable sin gafas; la inferior conserva tacto. Circle Pad, cámaras, tarjetas AR, StreetPass y SpotPass amplían la interacción.",
+        "Nintendo 2DS elimina el 3D y cambia la forma física, pero pertenece a la familia. New Nintendo 3DS añade C-stick, botones extra, mejor CPU y funciones exclusivas o mejoradas sin abrir otra generación.",
+        "La familia reproduce software DS, no cartuchos GBA retail. Nintendo eShop y sus compras cerraron, mientras las funciones online deben documentarse con su estado histórico específico."
+      ],
+      "historyTitleEs": "3D sin gafas, encuentros locales y familia ampliada",
+      "historyParagraphsEs": [
+        "Tras un lanzamiento difícil, Nintendo redujo el precio y creó el Ambassador Program como respuesta histórica para primeros compradores.",
+        "StreetPass intercambia datos entre consolas cercanas; SpotPass recibe contenido mediante internet. Son mecanismos distintos aunque convivieran en el mismo sistema.",
+        "Nintendo eShop distribuyó juegos completos, contenido descargable y Virtual Console. Su identidad no se mezcla con DSi Shop, Wii Shop o Nintendo Switch Online.",
+        "Game Freak, Intelligent Systems, HAL, Grezzo, Next Level y Capcom contribuyeron desde relaciones empresariales diferentes."
+      ],
+      "architectureTitleEs": "Pantalla estereoscópica y conectividad ambiental",
+      "architectureDekEs": "Modelos y servicios modifican la experiencia sin multiplicar generaciones.",
+      "figures": [
+        {"personSlug":"satoru-iwata","personName":"Satoru Iwata","roleLabelEs":"Presidencia y estrategia","contributionEs":"Dirigió Nintendo durante el lanzamiento, ajuste de precio y etapa principal de 3DS.","period":"2011-2015","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Supervisión creativa","contributionEs":"Participó en la orientación de software y experiencias de la plataforma.","period":"Etapa 3DS","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"personSlug":"hideki-konno","personName":"Hideki Konno","roleLabelEs":"Planificación de hardware y software","contributionEs":"Figura vinculada al desarrollo de la plataforma y Mario Kart 7.","period":"Desarrollo y lanzamiento","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"personSlug":"ko-shiota","personName":"Ko Shiota","roleLabelEs":"Tecnología de hardware","contributionEs":"Representa el trabajo de los equipos tecnológicos de Nintendo en la familia.","period":"Etapa 3DS","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"personSlug":"reggie-fils-aime","personName":"Reggie Fils-Aimé","roleLabelEs":"Liderazgo regional","contributionEs":"Presidió Nintendo of America durante el ciclo comercial.","period":"2011-2019","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"personSlug":"eiji-aonuma","personName":"Eiji Aonuma","roleLabelEs":"Producción de Zelda","contributionEs":"Figura de software relacionada con A Link Between Worlds y las revisiones 3D de Zelda.","period":"Etapa 3DS","sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-3ds-display","name":"Pantalla estereoscópica sin gafas","kind":"DISPLAY","summaryEs":"Pantalla superior con barrera de paralaje y control de profundidad mediante 3D Slider.","features":["3D sin gafas","3D Slider","Pantalla táctil inferior"],"partners":[{"companySlug":"nintendo-red","companyName":"Nintendo RED","roleLabelEs":"Desarrollo de hardware"}],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"architecture-3ds-streetpass","name":"StreetPass y SpotPass","kind":"CONNECTIVITY","summaryEs":"Intercambio local pasivo y recepción online de contenido son funciones distintas.","features":["StreetPass local","SpotPass por internet","Plaza Mii"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Sistema y servicios"}],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"architecture-new3ds","name":"Mejoras New Nintendo 3DS","kind":"PROCESSOR","summaryEs":"Mejora de rendimiento y control dentro de la misma generación.","features":["CPU mejorada","C-stick","ZL/ZR","Software exclusivo o mejorado"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Revisión de plataforma"}],"sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Equipos Nintendo y socios especializados",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"2011-2020","relationshipStart":"2011","relationshipEnd":null,"contributionEs":"Fabricó la familia, operó servicios y publicó software.","relatedWorks":["Nintendo 3DS","Super Mario 3D Land","Animal Crossing: New Leaf"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-3DS-DOSSIER"]},
+        {"companySlug":"nintendo-ead","companyName":"Nintendo EAD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Desarrollo interno","period":"Hasta 2015","relationshipStart":null,"relationshipEnd":"2015","contributionEs":"Desarrolló software principal de la primera etapa.","relatedWorks":["Super Mario 3D Land","Mario Kart 7","Animal Crossing: New Leaf"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"companySlug":"nintendo-epd","companyName":"Nintendo EPD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Desarrollo interno reorganizado","period":"Desde 2015","relationshipStart":"2015","relationshipEnd":null,"contributionEs":"Continúa producción y desarrollo tras la integración de EAD y SPD.","relatedWorks":["Metroid: Samus Returns"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"companySlug":"game-freak","companyName":"Game Freak","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa 3DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló las entregas principales de Pokémon.","relatedWorks":["Pokémon X / Y","Pokémon Sun / Moon"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"companySlug":"intelligent-systems","companyName":"Intelligent Systems","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa 3DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló Fire Emblem Awakening y otros títulos sin ser subsidiaria.","relatedWorks":["Fire Emblem Awakening"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"companySlug":"grezzo","companyName":"Grezzo","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa 3DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló versiones de Zelda y otros proyectos para Nintendo.","relatedWorks":["Ocarina of Time 3D","Majora's Mask 3D"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"companySlug":"next-level-games","companyName":"Next Level Games","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Antes de adquisición de 2021","relationshipStart":null,"relationshipEnd":"2020","contributionEs":"Desarrolló Luigi's Mansion 2 antes de convertirse en first party.","relatedWorks":["Luigi's Mansion 2"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa 3DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó Monster Hunter y otro catálogo externo.","relatedWorks":["Monster Hunter 4 Ultimate"],"sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"3ds-nintendo","labelEs":"Nintendo","descriptionEs":"EAD y EPD aparecen con su reorganización temporal.","companySlugs":["nintendo","nintendo-ead","nintendo-epd"]},
+        {"id":"3ds-partners","labelEs":"Socios independientes","descriptionEs":"Estudios y publishers externos.","companySlugs":["game-freak","intelligent-systems","grezzo","next-level-games","capcom"]}
+      ],
+      "genealogies": [
+        {"id":"PHG-NIN-3DS-EAD-EPD","sourceCompanySlug":"nintendo-ead","sourceCompanyName":"Nintendo EAD","relationshipType":"REORGANIZED_AS","targetCompanySlug":"nintendo-epd","targetCompanyName":"Nintendo EPD","year":2015,"summaryEs":"EAD y SPD se integraron en la nueva estructura EPD; no se tratan como alias simultáneos.","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"PHG-NIN-3DS-SPD-EPD","sourceCompanySlug":"nintendo-spd","sourceCompanyName":"Nintendo SPD","relationshipType":"REORGANIZED_AS","targetCompanySlug":"nintendo-epd","targetCompanyName":"Nintendo EPD","year":2015,"summaryEs":"La reorganización integra funciones de SPD en EPD con fecha explícita.","sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "gamesTitleEs": "Estereoscopía, juego local y catálogo asociado",
+      "gameGroups": [
+        {"id":"3ds-games","labelEs":"Juegos representativos","descriptionEs":"Software interno, socios y third parties con atribución separada.","games":[
+          {"title":"Super Mario 3D Land","catalogId":null,"year":2011,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+          {"title":"Mario Kart 7","catalogId":null,"year":2011,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+          {"title":"Animal Crossing: New Leaf","catalogId":null,"year":2012,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+          {"title":"The Legend of Zelda: A Link Between Worlds","catalogId":null,"year":2013,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+          {"title":"Pokémon X / Y","catalogId":null,"year":2013,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Game Freak / Nintendo","companySlugs":["game-freak","nintendo"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+          {"title":"Fire Emblem Awakening","catalogId":null,"year":2012,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Intelligent Systems / Nintendo","companySlugs":["intelligent-systems","nintendo"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+          {"title":"Luigi's Mansion 2","catalogId":null,"year":2013,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Next Level Games / Nintendo","companySlugs":["next-level-games","nintendo"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+          {"title":"Monster Hunter 4 Ultimate","catalogId":null,"year":2014,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Capcom","companySlugs":["capcom"],"sourceIds":["PH-NIN-3DS-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Una generación, seis formas principales",
+      "hardware": [
+        {"id":"hardware-nintendo-3ds","name":"Nintendo 3DS","kind":"BASE_MODEL","yearLabel":"2011","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["CTR-001"],"summaryEs":"Modelo original plegable con pantalla 3D sin gafas.","features":["3D Slider","Circle Pad","Compatibilidad DS"],"relatedWorks":[],"relatedPersonSlugs":["hideki-konno","ko-shiota"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-3DS-DOSSIER"]},
+        {"id":"hardware-nintendo-3ds-xl","name":"Nintendo 3DS XL","kind":"REDESIGN","yearLabel":"2012","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["SPR-001"],"summaryEs":"Rediseño con pantallas mayores dentro de la misma generación.","features":["Pantallas mayores","3D sin gafas","Compatibilidad DS"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"hardware-nintendo-2ds","name":"Nintendo 2DS","kind":"REDESIGN","yearLabel":"2013","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["FTR-001"],"summaryEs":"Modelo sin bisagra ni imagen estereoscópica que conserva el catálogo 3DS.","features":["Diseño tipo pizarra","Pantalla 2D","Misma generación"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"hardware-new-nintendo-3ds","name":"New Nintendo 3DS / XL","kind":"MID_GENERATION_UPGRADE","yearLabel":"2014-2015","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["KTR-001","RED-001"],"summaryEs":"Mejora interna de rendimiento y control, no una generación nueva.","features":["CPU mejorada","C-stick","ZL/ZR","NFC integrado"],"relatedWorks":[],"relatedPersonSlugs":["ko-shiota"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"hardware-new-nintendo-2ds-xl","name":"New Nintendo 2DS XL","kind":"REDESIGN","yearLabel":"2017","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["JAN-001"],"summaryEs":"Formato plegable sin 3D con las mejoras de la línea New.","features":["Pantallas XL","Sin 3D","CPU y controles New"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "services": [
+        {"id":"service-3ds-eshop","name":"Nintendo eShop para 3DS","kind":"STORE_SERVICE","launchedLabel":"2011","endedLabel":"2023 para compras","statusLabelEs":"Compras cerradas; historial conservado","parentServiceId":null,"summaryEs":"Tienda de juegos, DLC y Virtual Console propia de 3DS.","features":["Juegos completos","DLC","Virtual Console","Servicio distinto de DSi Shop"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"service-3ds-streetpass","name":"StreetPass","kind":"SOCIAL_SERVICE","launchedLabel":"2011","endedLabel":null,"statusLabelEs":"Función local histórica","parentServiceId":null,"summaryEs":"Intercambio pasivo de datos entre consolas cercanas.","features":["Comunicación local","Plaza Mii","Datos por juego"],"sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"service-3ds-spotpass","name":"SpotPass","kind":"NETWORK_SERVICE","launchedLabel":"2011","endedLabel":null,"statusLabelEs":"Función online histórica","parentServiceId":null,"summaryEs":"Recepción de datos y contenidos mediante internet.","features":["Descargas en reposo","Contenido por sistema o juego","No es StreetPass"],"sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "compatibilityLinks": [
+        {"id":"compat-3ds-ds","sourcePlatformSlug":"3ds","sourcePlatformName":"Nintendo 3DS family","targetPlatformSlug":"ds","targetPlatformName":"Nintendo DS","labelEs":"Compatibilidad hacia atrás","summaryEs":"La familia 3DS reproduce la mayoría del software DS mediante su ranura de cartuchos, sin añadir soporte retail GBA.","features":["Cartuchos DS","Sin cartuchos GBA","Límites por software y funciones"],"sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"familia-no-generaciones","titleEs":"2DS y New 3DS siguen siendo 3DS","dekEs":"Forma, 3D y rendimiento cambian sin abrir plataformas independientes.","paragraphsEs":["2DS elimina la visualización estereoscópica y New 3DS añade capacidad y controles. Ambas variantes comparten la familia comercial y una biblioteca con excepciones explícitas.","La compatibilidad hacia atrás llega a DS, no a cartuchos GBA. eShop permanece separada de servicios anteriores y posteriores."],"cards":[],"sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:familia-no-generaciones","companies","games","hardware","compatibility","services","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-3ds-launch","yearLabel":"2011","sortYear":2011,"title":"Lanzamiento de Nintendo 3DS","summaryEs":"El 3D sin gafas se incorpora a la línea portátil de dos pantallas.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-3ds-ambassador","yearLabel":"2011","sortYear":2011,"title":"Rebaja y Ambassador Program","summaryEs":"Nintendo responde al arranque comercial con precio reducido y software para primeros compradores.","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"milestone-3ds-2ds","yearLabel":"2013","sortYear":2013,"title":"Nintendo 2DS","summaryEs":"La familia añade un modelo sin 3D estereoscópico.","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"milestone-3ds-new","yearLabel":"2014-2015","sortYear":2014,"title":"New Nintendo 3DS","summaryEs":"Una mejora de media generación añade rendimiento y controles.","sourceIds":["PH-NIN-3DS-DOSSIER"]},
+        {"id":"milestone-3ds-eshop-close","yearLabel":"2023","sortYear":2023,"title":"Cierre de compras en eShop","summaryEs":"La tienda deja de admitir nuevas compras, conservando su identidad histórica.","sourceIds":["PH-NIN-3DS-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "3DS convirtió la estereoscopía sin gafas en una función de consumo masivo durante una generación portátil completa.",
+        "StreetPass creó encuentros locales asincrónicos que dependían de llevar la consola consigo.",
+        "La amplitud de 2DS y New 3DS demuestra por qué revisión, variante y nueva generación deben modelarse por separado."
+      ],
+      "sources": [
+        {"id":"PH-NIN-3DS-DOSSIER","title":"Dossier editorial Region Atlas · Nintendo 3DS","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Características, modelos, servicios, software y QA","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Nintendo 3DS y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"3DS · 75,94 M hardware; 392,31 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

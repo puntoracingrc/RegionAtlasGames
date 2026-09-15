@@ -1,0 +1,212 @@
+{
+  "version": 9,
+  "profiles": [
+    {
+      "slug": "nintendo",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-15",
+      "sourceIds": [
+        "source-e5449238936467c6",
+        "PH-COMPANY-NIN-HISTORY",
+        "PH-COMPANY-NIN-OUTLINE",
+        "PH-COMPANY-NIN-OFFICERS",
+        "PH-COMPANY-NIN-SALES",
+        "PH-COMPANY-NIN-DEVELOPMENT"
+      ],
+      "history": {
+        "textEs": "La continuidad histórica de Nintendo comienza en Kioto en 1889 con Fusajiro Yamauchi y la fabricación de cartas hanafuda. La sociedad incorporada en 1947 evolucionó hasta adoptar el nombre Nintendo Co., Ltd. en 1963. Bajo Hiroshi Yamauchi, el negocio se diversificó desde cartas y juguetes hacia entretenimiento electrónico, light gun, recreativas y videojuegos; no se trata la empresa histórica y la moderna como entidades sin relación.\n\nLa etapa electrónica construyó dos ramas paralelas. La doméstica avanza desde Color TV-Game, Famicom/NES, SNES, Nintendo 64, GameCube, Wii y Wii U. La portátil pasa de Game & Watch a Game Boy, Game Boy Advance, Nintendo DS y Nintendo 3DS. Famicom Disk System, 64DD, Game Boy Player y otros periféricos amplían una plataforma concreta sin convertirse automáticamente en generaciones nuevas. Nintendo Switch reúne en 2017 las dos ramas en una plataforma híbrida y Nintendo Switch 2 continúa esa línea desde 2025.\n\nLa organización de desarrollo también cambia con el tiempo. R&D1, R&D2, R&D3/R&D4, EAD, SPD, IRD y RED no son alias simultáneos: representan equipos y reorganizaciones con funciones y períodos diferentes. En 2015, EAD y SPD se integraron en Nintendo EPD, mientras Technology Development sostiene la continuidad de hardware, software de sistema y red.\n\nEl grupo moderno incorpora estudios y compañías mediante relaciones fechadas. Nintendo adquirió el control de Monolith Soft en 2007, Next Level Games en 2021, SRD y Dynamo Pictures en 2022 y Shiver Entertainment en 2024; Dynamo se reorganizó como Nintendo Pictures. Nintendo Systems se estableció en 2023 como joint venture participada por Nintendo y DeNA, no como alias de ninguna de ellas. Retro Studios, Nintendo Software Technology, Nintendo Cube, 1-UP Studio, Mario Club e iQue mantienen historias y funciones propias dentro del ecosistema.\n\nThe Pokémon Company conserva una estructura compartida vinculada a Nintendo, Game Freak y Creatures; no se presenta como subsidiaria propiedad al 100 % de Nintendo. Del mismo modo, HAL Laboratory, Game Freak e Intelligent Systems son colaboradores estrechos pero no estudios propiedad de Nintendo.\n\nLa etapa contemporánea amplía las propiedades intelectuales hacia cine, parques, dispositivos móviles, mercancía y Nintendo Pictures. Esas actividades se muestran como expansión corporativa y sólo pasan al grafo de créditos de videojuegos cuando existe una relación directa documentada. En septiembre de 2026, Shuntaro Furukawa preside Nintendo; Shigeru Miyamoto es Executive Fellow, y Shinya Takahashi, Satoru Shibata, Ko Shiota y Yoshiaki Koizumi figuran entre sus ejecutivos.",
+        "method": "research",
+        "sourceIds": [
+          "source-e5449238936467c6",
+          "PH-COMPANY-NIN-HISTORY",
+          "PH-COMPANY-NIN-OUTLINE",
+          "PH-COMPANY-NIN-OFFICERS",
+          "PH-COMPANY-NIN-DEVELOPMENT",
+          "PH-COMPANY-NIN-MONOLITH",
+          "PH-COMPANY-NIN-SHIVER",
+          "PH-COMPANY-NIN-SYSTEMS"
+        ]
+      }
+    }
+  ],
+  "achievements": [
+    {
+      "id": "achievement-nintendo-corporate-continuity",
+      "companySlug": "nintendo",
+      "type": "CORPORATE_GENEALOGY",
+      "title": "De las cartas hanafuda a Nintendo Co., Ltd.",
+      "summaryEs": "La historia oficial conecta la fundación de 1889, la incorporación societaria de 1947 y la adopción del nombre Nintendo Co., Ltd. en 1963.",
+      "yearLabel": "1889-1963",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-COMPANY-NIN-HISTORY",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-nintendo-electronic-transition",
+      "companySlug": "nintendo",
+      "type": "BUSINESS_TRANSITION",
+      "title": "Juguetes, arcade y entrada en consolas",
+      "summaryEs": "Color TV-Game, Game & Watch, Donkey Kong y Famicom documentan una transición progresiva al entretenimiento electrónico, no un cambio instantáneo de identidad.",
+      "yearLabel": "Décadas de 1970-1980",
+      "relatedGamesOrSeries": ["Game & Watch", "Donkey Kong", "Famicom / NES"],
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-COMPANY-NIN-HISTORY",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-nintendo-dual-lineage",
+      "companySlug": "nintendo",
+      "type": "PLATFORM_ECOSYSTEM",
+      "title": "Dos líneas de hardware convergen en Switch",
+      "summaryEs": "Las generaciones domésticas y portátiles evolucionaron en paralelo hasta que Nintendo Switch reunió ambos modos en una única plataforma híbrida.",
+      "yearLabel": "1980-2017",
+      "relatedGamesOrSeries": ["NES", "Game Boy", "Nintendo DS", "Wii", "Nintendo Switch"],
+      "confidence": "HIGH",
+      "sourceId": "PH-COMPANY-NIN-HISTORY",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-nintendo-development-reorganization",
+      "companySlug": "nintendo",
+      "type": "ORGANIZATIONAL_HISTORY",
+      "title": "Equipos internos con genealogía temporal",
+      "summaryEs": "R&D, EAD, SPD, EPD, IRD, RED y Technology Development se modelan por etapa y función para evitar convertir reorganizaciones en alias sin fecha.",
+      "yearLabel": "Décadas de 1970-2020",
+      "relatedGamesOrSeries": [],
+      "confidence": "HIGH",
+      "sourceId": "PH-COMPANY-NIN-DEVELOPMENT",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-nintendo-studio-expansion",
+      "companySlug": "nintendo",
+      "type": "MODERN_GROUP",
+      "title": "Estudios y compañías incorporados con fecha",
+      "summaryEs": "Monolith Soft, Next Level Games, SRD, Nintendo Pictures y Shiver Entertainment se integraron en momentos distintos; su trabajo anterior conserva su procedencia original.",
+      "yearLabel": "2007-2024",
+      "relatedGamesOrSeries": ["Xenoblade", "Luigi's Mansion", "Metroid Prime"],
+      "confidence": "HIGH",
+      "sourceId": "PH-COMPANY-NIN-DEVELOPMENT",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-nintendo-switch2-active",
+      "companySlug": "nintendo",
+      "type": "ACTIVE_PLATFORM",
+      "title": "Switch 2 mantiene la convergencia híbrida",
+      "summaryEs": "Nintendo lanzó Switch 2 el 5 de junio de 2025; a 30 de junio de 2026 declara 23,68 millones de consolas y 58,17 millones de juegos.",
+      "yearLabel": "2025-2026",
+      "relatedGamesOrSeries": ["Nintendo Switch 2", "Mario Kart World"],
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-COMPANY-NIN-SALES",
+      "publicationStatus": "published"
+    }
+  ],
+  "sources": [
+    {
+      "id": "PH-COMPANY-NIN-HISTORY",
+      "url": "https://www.nintendo.co.jp/corporate/en/history/index.html",
+      "title": "Nintendo Company History",
+      "kind": "OFFICIAL_CORPORATE_TIMELINE",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["nintendo"],
+      "supportsFields": ["foundation", "history", "products", "relationships"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-NIN-OUTLINE",
+      "url": "https://www.nintendo.co.jp/corporate/en/outline/index.html",
+      "title": "Nintendo Corporate Information",
+      "kind": "OFFICIAL_CORPORATE_PROFILE",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["nintendo"],
+      "supportsFields": ["status", "currentStructure", "history"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-NIN-OFFICERS",
+      "url": "https://www.nintendo.co.jp/corporate/en/officer/index.html",
+      "title": "Directors and Executive Officers",
+      "kind": "OFFICIAL_LEADERSHIP",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["nintendo"],
+      "supportsFields": ["currentStructure", "people", "status"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-NIN-SALES",
+      "url": "https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html",
+      "title": "Dedicated Video Game Sales Units",
+      "kind": "OFFICIAL_INVESTOR_RELATIONS",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["nintendo"],
+      "supportsFields": ["products", "achievements"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-NIN-DEVELOPMENT",
+      "url": "https://www.nintendo.co.jp/ir/pdf/2024/241106e.pdf",
+      "title": "Strengthening Development Resources",
+      "kind": "OFFICIAL_INVESTOR_RELATIONS",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["nintendo"],
+      "supportsFields": ["relationships", "currentStructure", "history"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-NIN-MONOLITH",
+      "url": "https://www.nintendo.co.jp/ir/en/events/070427qa/index.html",
+      "title": "Nintendo fiscal-year Q&A · Monolith Soft",
+      "kind": "OFFICIAL_INVESTOR_RELATIONS",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["nintendo", "monolith-soft"],
+      "supportsFields": ["relationships"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-NIN-SHIVER",
+      "url": "https://www.nintendo.co.jp/ir/pdf/2024/240521e.pdf",
+      "title": "Acquisition of Shiver Entertainment",
+      "kind": "OFFICIAL_INVESTOR_RELATIONS",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["nintendo", "shiver-entertainment"],
+      "supportsFields": ["relationships"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "PH-COMPANY-NIN-SYSTEMS",
+      "url": "https://www.nintendo.co.jp/ir/pdf/2022/221109e.pdf",
+      "title": "Establishment of Nintendo Systems",
+      "kind": "OFFICIAL_INVESTOR_RELATIONS",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": ["en"],
+      "subjectSlugs": ["nintendo", "nintendo-systems", "dena"],
+      "supportsFields": ["relationships", "currentStructure"],
+      "retrievedAt": "2026-09-15T08:00:00.000Z",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    }
+  ]
+}

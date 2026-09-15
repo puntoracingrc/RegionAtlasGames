@@ -4,13 +4,13 @@ import { ArrowRight, History } from "lucide-react";
 import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import { PlatformCardArt } from "@/components/platform-card-art";
 import { SiteNav } from "@/components/site-nav";
-import { getPlatform } from "@/lib/catalog";
 import { getPlatformHistoryData, platformHistoryPath } from "@/lib/platform-history";
+import { getPlatformHistoryPresentation } from "@/lib/platform-history-presentation";
 import { getSiteUrl } from "@/lib/site-url";
 import type { Platform } from "@/lib/types";
 
 const histories = getPlatformHistoryData().platforms.flatMap((history) => {
-  const platform = getPlatform(history.platformSlug);
+  const platform = getPlatformHistoryPresentation(history);
   return platform ? [{ history, platform }] : [];
 });
 
@@ -51,8 +51,12 @@ export default function PlatformHistoriesPage() {
       .filter(({ platform }) => platform.manufacturer === manufacturer.id)
       .sort(
         (a, b) =>
-          (a.platform.spainReleaseYear ?? Number.MAX_SAFE_INTEGER) -
-            (b.platform.spainReleaseYear ?? Number.MAX_SAFE_INTEGER) ||
+          (a.platform.spainReleaseYear ??
+            a.history.editorialIdentity?.releaseYear ??
+            Number.MAX_SAFE_INTEGER) -
+            (b.platform.spainReleaseYear ??
+              b.history.editorialIdentity?.releaseYear ??
+              Number.MAX_SAFE_INTEGER) ||
           a.platform.sortOrder - b.platform.sortOrder,
       ),
   })).filter((group) => group.entries.length > 0);
@@ -89,7 +93,7 @@ export default function PlatformHistoriesPage() {
                   </h2>
                 </div>
                 <p className="text-sm text-muted">
-                  {group.entries.length} {group.entries.length === 1 ? "generación" : "generaciones"}
+                  {group.entries.length} {group.entries.length === 1 ? "historia" : "historias"}
                 </p>
               </div>
 
@@ -106,6 +110,10 @@ export default function PlatformHistoriesPage() {
                         <h3 className="mt-2 text-xl font-bold text-foreground">{history.title}</h3>
                         {platform.spainReleaseYear ? (
                           <p className="mt-1 text-xs text-muted">Desde {platform.spainReleaseYear} en España</p>
+                        ) : history.editorialIdentity?.releaseYear ? (
+                          <p className="mt-1 text-xs text-muted">
+                            Desde {history.editorialIdentity.releaseYear}
+                          </p>
                         ) : null}
                       </div>
                       <p className="relative z-10 mt-5 line-clamp-3 max-w-2xl text-sm leading-6 text-foreground/75">

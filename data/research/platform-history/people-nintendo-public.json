@@ -1,0 +1,4840 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "profiles": [
+    {
+      "slug": "fusajiro-yamauchi",
+      "name": "Fusajiro Yamauchi",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Kioto · Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Empresario y fundador"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Naipes y origen corporativo de Nintendo"
+        }
+      ],
+      "education": [],
+      "careerStart": "1889",
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Fusajiro Yamauchi fundó en Kioto en 1889 el negocio de cartas hanafuda del que procede Nintendo. Su relación es fundacional y corporativa, anterior al videojuego electrónico.",
+      "biographyClaims": [
+        {
+          "text": "Fusajiro Yamauchi fundó en Kioto en 1889 el negocio de cartas hanafuda del que procede Nintendo. Su relación es fundacional y corporativa, anterior al videojuego electrónico.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Fusajiro Yamauchi fundó en Kioto en 1889 el negocio de cartas hanafuda del que procede Nintendo. Su relación es fundacional y corporativa, anterior al videojuego electrónico.",
+      "industryImpactEs": "Su trayectoria conecta naipes y origen corporativo de nintendo con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "hiroshi-yamauchi",
+      "name": "Hiroshi Yamauchi",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Kioto · Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Dirección empresarial y transformación de Nintendo"
+        }
+      ],
+      "education": [],
+      "careerStart": "1949",
+      "careerEnd": "2002",
+      "officialWebsites": [],
+      "biographyEs": "Hiroshi Yamauchi presidió Nintendo entre 1949 y 2002 y dirigió su transformación desde cartas y juguetes hacia entretenimiento electrónico, arcade y consolas. Su papel se presenta como liderazgo empresarial, no como diseño individual de cada máquina.",
+      "biographyClaims": [
+        {
+          "text": "Hiroshi Yamauchi presidió Nintendo entre 1949 y 2002 y dirigió su transformación desde cartas y juguetes hacia entretenimiento electrónico, arcade y consolas. Su papel se presenta como liderazgo empresarial, no como diseño individual de cada máquina.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Hiroshi Yamauchi presidió Nintendo entre 1949 y 2002 y dirigió su transformación desde cartas y juguetes hacia entretenimiento electrónico, arcade y consolas. Su papel se presenta como liderazgo empresarial, no como diseño individual de cada máquina.",
+      "industryImpactEs": "Su trayectoria conecta dirección empresarial y transformación de nintendo con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "tatsumi-kimishima",
+      "name": "Tatsumi Kimishima",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Dirección corporativa y transición de plataformas"
+        }
+      ],
+      "education": [],
+      "careerStart": "2015",
+      "careerEnd": "2018",
+      "officialWebsites": [],
+      "biographyEs": "Tatsumi Kimishima presidió Nintendo entre 2015 y 2018. Su etapa conecta el final de Wii U con la presentación y lanzamiento de Nintendo Switch.",
+      "biographyClaims": [
+        {
+          "text": "Tatsumi Kimishima presidió Nintendo entre 2015 y 2018. Su etapa conecta el final de Wii U con la presentación y lanzamiento de Nintendo Switch.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Tatsumi Kimishima presidió Nintendo entre 2015 y 2018. Su etapa conecta el final de Wii U con la presentación y lanzamiento de Nintendo Switch.",
+      "industryImpactEs": "Su trayectoria conecta dirección corporativa y transición de plataformas con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "shuntaro-furukawa",
+      "name": "Shuntaro Furukawa",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Dirección corporativa, cuenta y continuidad generacional"
+        }
+      ],
+      "education": [],
+      "careerStart": "2018",
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Shuntaro Furukawa preside Nintendo desde 2018. Su etapa incluye la expansión de Switch, el lanzamiento de Switch 2 y la continuidad corporativa basada en Nintendo Account y nuevas extensiones de IP.",
+      "biographyClaims": [
+        {
+          "text": "Shuntaro Furukawa preside Nintendo desde 2018. Su etapa incluye la expansión de Switch, el lanzamiento de Switch 2 y la continuidad corporativa basada en Nintendo Account y nuevas extensiones de IP.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-OFFICERS"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Shuntaro Furukawa preside Nintendo desde 2018. Su etapa incluye la expansión de Switch, el lanzamiento de Switch 2 y la continuidad corporativa basada en Nintendo Account y nuevas extensiones de IP.",
+      "industryImpactEs": "Su trayectoria conecta dirección corporativa, cuenta y continuidad generacional con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-OFFICERS"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "masayuki-uemura",
+      "name": "Masayuki Uemura",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ingeniero y diseñador de hardware"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Hardware doméstico de Nintendo"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Masayuki Uemura fue una figura central de Nintendo R&D2 en el desarrollo de Famicom/NES y Super Famicom/SNES. Su trabajo representa una línea doméstica colectiva y no la autoría aislada de todas sus revisiones.",
+      "biographyClaims": [
+        {
+          "text": "Masayuki Uemura fue una figura central de Nintendo R&D2 en el desarrollo de Famicom/NES y Super Famicom/SNES. Su trabajo representa una línea doméstica colectiva y no la autoría aislada de todas sus revisiones.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Masayuki Uemura fue una figura central de Nintendo R&D2 en el desarrollo de Famicom/NES y Super Famicom/SNES. Su trabajo representa una línea doméstica colectiva y no la autoría aislada de todas sus revisiones.",
+      "industryImpactEs": "Su trayectoria conecta hardware doméstico de nintendo con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "genyo-takeda",
+      "name": "Genyo Takeda",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ingeniero y ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Hardware, arcade y tecnología de consolas"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Genyo Takeda conectó la etapa arcade de Nintendo con la dirección tecnológica de Nintendo 64, GameCube, Wii y Wii U. Sus vínculos se modelan por plataforma sin atribuirle individualmente toda la arquitectura.",
+      "biographyClaims": [
+        {
+          "text": "Genyo Takeda conectó la etapa arcade de Nintendo con la dirección tecnológica de Nintendo 64, GameCube, Wii y Wii U. Sus vínculos se modelan por plataforma sin atribuirle individualmente toda la arquitectura.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Genyo Takeda conectó la etapa arcade de Nintendo con la dirección tecnológica de Nintendo 64, GameCube, Wii y Wii U. Sus vínculos se modelan por plataforma sin atribuirle individualmente toda la arquitectura.",
+      "industryImpactEs": "Su trayectoria conecta hardware, arcade y tecnología de consolas con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "takashi-tezuka",
+      "name": "Takashi Tezuka",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Diseñador, director y productor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Mario, Zelda y desarrollo interno de Nintendo"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Takashi Tezuka ha desempeñado funciones de diseño, dirección y producción en las series Mario y Zelda. Su trayectoria atraviesa varias generaciones dentro de los equipos internos de Nintendo.",
+      "biographyClaims": [
+        {
+          "text": "Takashi Tezuka ha desempeñado funciones de diseño, dirección y producción en las series Mario y Zelda. Su trayectoria atraviesa varias generaciones dentro de los equipos internos de Nintendo.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Takashi Tezuka ha desempeñado funciones de diseño, dirección y producción en las series Mario y Zelda. Su trayectoria atraviesa varias generaciones dentro de los equipos internos de Nintendo.",
+      "industryImpactEs": "Su trayectoria conecta mario, zelda y desarrollo interno de nintendo con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "koji-kondo",
+      "name": "Koji Kondo",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Compositor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Música de Mario y The Legend of Zelda"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Koji Kondo desarrolló identidades musicales esenciales de Mario y The Legend of Zelda. Region Atlas conecta su trabajo con las generaciones pertinentes sin convertirlo en responsable de todo el audio de Nintendo.",
+      "biographyClaims": [
+        {
+          "text": "Koji Kondo desarrolló identidades musicales esenciales de Mario y The Legend of Zelda. Region Atlas conecta su trabajo con las generaciones pertinentes sin convertirlo en responsable de todo el audio de Nintendo.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Koji Kondo desarrolló identidades musicales esenciales de Mario y The Legend of Zelda. Region Atlas conecta su trabajo con las generaciones pertinentes sin convertirlo en responsable de todo el audio de Nintendo.",
+      "industryImpactEs": "Su trayectoria conecta música de mario y the legend of zelda con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "yoshio-sakamoto",
+      "name": "Yoshio Sakamoto",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Diseñador, director y productor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Metroid, WarioWare y producción interna"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Yoshio Sakamoto conecta Nintendo R&D1 y SPD con Metroid, WarioWare y varias generaciones portátiles. Sus papeles se conservan como dirección o producción según el contexto, no como autoría total de las series.",
+      "biographyClaims": [
+        {
+          "text": "Yoshio Sakamoto conecta Nintendo R&D1 y SPD con Metroid, WarioWare y varias generaciones portátiles. Sus papeles se conservan como dirección o producción según el contexto, no como autoría total de las series.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Yoshio Sakamoto conecta Nintendo R&D1 y SPD con Metroid, WarioWare y varias generaciones portátiles. Sus papeles se conservan como dirección o producción según el contexto, no como autoría total de las series.",
+      "industryImpactEs": "Su trayectoria conecta metroid, warioware y producción interna con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "eiji-aonuma",
+      "name": "Eiji Aonuma",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Director y productor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "The Legend of Zelda"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Eiji Aonuma se incorporó a la dirección de The Legend of Zelda en la etapa Nintendo 64 y pasó a ser una de sus figuras de producción centrales. Sus relaciones se limitan a las obras y generaciones documentadas.",
+      "biographyClaims": [
+        {
+          "text": "Eiji Aonuma se incorporó a la dirección de The Legend of Zelda en la etapa Nintendo 64 y pasó a ser una de sus figuras de producción centrales. Sus relaciones se limitan a las obras y generaciones documentadas.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Eiji Aonuma se incorporó a la dirección de The Legend of Zelda en la etapa Nintendo 64 y pasó a ser una de sus figuras de producción centrales. Sus relaciones se limitan a las obras y generaciones documentadas.",
+      "industryImpactEs": "Su trayectoria conecta the legend of zelda con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "yoshiaki-koizumi",
+      "name": "Yoshiaki Koizumi",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Diseñador, director, productor y ejecutivo"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Mario, Zelda y producción de plataformas"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Yoshiaki Koizumi conecta el diseño de Mario y Zelda con la producción de Super Mario Galaxy y la producción general de Nintendo Switch. Su cargo actual es ejecutivo; no se extrapola un papel técnico no documentado en Switch 2.",
+      "biographyClaims": [
+        {
+          "text": "Yoshiaki Koizumi conecta el diseño de Mario y Zelda con la producción de Super Mario Galaxy y la producción general de Nintendo Switch. Su cargo actual es ejecutivo; no se extrapola un papel técnico no documentado en Switch 2.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-OFFICERS"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Yoshiaki Koizumi conecta el diseño de Mario y Zelda con la producción de Super Mario Galaxy y la producción general de Nintendo Switch. Su cargo actual es ejecutivo; no se extrapola un papel técnico no documentado en Switch 2.",
+      "industryImpactEs": "Su trayectoria conecta mario, zelda y producción de plataformas con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-OFFICERS"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "hideki-konno",
+      "name": "Hideki Konno",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Director y productor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Mario Kart, Nintendogs y planificación de hardware"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Hideki Konno dirigió o produjo obras de Mario Kart y Nintendogs y participó en planificación de hardware y software. Cada relación se presenta con el alcance de la generación correspondiente.",
+      "biographyClaims": [
+        {
+          "text": "Hideki Konno dirigió o produjo obras de Mario Kart y Nintendogs y participó en planificación de hardware y software. Cada relación se presenta con el alcance de la generación correspondiente.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Hideki Konno dirigió o produjo obras de Mario Kart y Nintendogs y participó en planificación de hardware y software. Cada relación se presenta con el alcance de la generación correspondiente.",
+      "industryImpactEs": "Su trayectoria conecta mario kart, nintendogs y planificación de hardware con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "katsuya-eguchi",
+      "name": "Katsuya Eguchi",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Diseñador y productor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Animal Crossing y producción de plataformas"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Katsuya Eguchi está ligado a Animal Crossing y a la producción de experiencias de Wii y Wii U. El vínculo con GamePad se presenta como trabajo de producción colectiva.",
+      "biographyClaims": [
+        {
+          "text": "Katsuya Eguchi está ligado a Animal Crossing y a la producción de experiencias de Wii y Wii U. El vínculo con GamePad se presenta como trabajo de producción colectiva.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Katsuya Eguchi está ligado a Animal Crossing y a la producción de experiencias de Wii y Wii U. El vínculo con GamePad se presenta como trabajo de producción colectiva.",
+      "industryImpactEs": "Su trayectoria conecta animal crossing y producción de plataformas con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "kensuke-tanabe",
+      "name": "Kensuke Tanabe",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Productor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Producción externa y Metroid Prime"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Kensuke Tanabe conecta la producción de Nintendo con estudios externos, especialmente Retro Studios y Metroid Prime. La relación no sustituye los créditos concretos de los equipos desarrolladores.",
+      "biographyClaims": [
+        {
+          "text": "Kensuke Tanabe conecta la producción de Nintendo con estudios externos, especialmente Retro Studios y Metroid Prime. La relación no sustituye los créditos concretos de los equipos desarrolladores.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Kensuke Tanabe conecta la producción de Nintendo con estudios externos, especialmente Retro Studios y Metroid Prime. La relación no sustituye los créditos concretos de los equipos desarrolladores.",
+      "industryImpactEs": "Su trayectoria conecta producción externa y metroid prime con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "shinya-takahashi",
+      "name": "Shinya Takahashi",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo y productor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Dirección de desarrollo de software"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Shinya Takahashi dirige áreas de desarrollo y negocio de software en Nintendo y figura en la dirección actual como Senior Managing Executive Officer. Su perfil conecta organización y plataformas, no créditos automáticos sobre todos sus juegos.",
+      "biographyClaims": [
+        {
+          "text": "Shinya Takahashi dirige áreas de desarrollo y negocio de software en Nintendo y figura en la dirección actual como Senior Managing Executive Officer. Su perfil conecta organización y plataformas, no créditos automáticos sobre todos sus juegos.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-OFFICERS"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Shinya Takahashi dirige áreas de desarrollo y negocio de software en Nintendo y figura en la dirección actual como Senior Managing Executive Officer. Su perfil conecta organización y plataformas, no créditos automáticos sobre todos sus juegos.",
+      "industryImpactEs": "Su trayectoria conecta dirección de desarrollo de software con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-OFFICERS"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "ko-shiota",
+      "name": "Ko Shiota",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ingeniero y ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Desarrollo tecnológico de hardware"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Ko Shiota representa la continuidad de Technology Development en 3DS, Switch y Switch 2. Nintendo lo identifica actualmente como Senior Executive Officer.",
+      "biographyClaims": [
+        {
+          "text": "Ko Shiota representa la continuidad de Technology Development en 3DS, Switch y Switch 2. Nintendo lo identifica actualmente como Senior Executive Officer.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-OFFICERS"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Ko Shiota representa la continuidad de Technology Development en 3DS, Switch y Switch 2. Nintendo lo identifica actualmente como Senior Executive Officer.",
+      "industryImpactEs": "Su trayectoria conecta desarrollo tecnológico de hardware con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-OFFICERS"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "satoru-shibata",
+      "name": "Satoru Shibata",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Dirección regional y corporativa"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Satoru Shibata ocupó responsabilidades regionales en Nintendo of Europe y figura en la dirección actual de Nintendo como Managing Executive Officer. Su papel se conserva como liderazgo empresarial y regional.",
+      "biographyClaims": [
+        {
+          "text": "Satoru Shibata ocupó responsabilidades regionales en Nintendo of Europe y figura en la dirección actual de Nintendo como Managing Executive Officer. Su papel se conserva como liderazgo empresarial y regional.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-OFFICERS"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Satoru Shibata ocupó responsabilidades regionales en Nintendo of Europe y figura en la dirección actual de Nintendo como Managing Executive Officer. Su papel se conserva como liderazgo empresarial y regional.",
+      "industryImpactEs": "Su trayectoria conecta dirección regional y corporativa con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-OFFICERS"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-OFFICERS"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "doug-bowser",
+      "name": "Doug Bowser",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Estados Unidos",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Dirección regional de Nintendo of America"
+        }
+      ],
+      "education": [],
+      "careerStart": "2019",
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Doug Bowser preside Nintendo of America en la etapa de Switch y Switch 2. Su relación es regional y ejecutiva, no de diseño de hardware o juegos.",
+      "biographyClaims": [
+        {
+          "text": "Doug Bowser preside Nintendo of America en la etapa de Switch y Switch 2. Su relación es regional y ejecutiva, no de diseño de hardware o juegos.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Doug Bowser preside Nintendo of America en la etapa de Switch y Switch 2. Su relación es regional y ejecutiva, no de diseño de hardware o juegos.",
+      "industryImpactEs": "Su trayectoria conecta dirección regional de nintendo of america con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "reggie-fils-aime",
+      "name": "Reggie Fils-Aimé",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Estados Unidos",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Dirección regional de Nintendo of America"
+        }
+      ],
+      "education": [],
+      "careerStart": "2006",
+      "careerEnd": "2019",
+      "officialWebsites": [],
+      "biographyEs": "Reggie Fils-Aimé presidió Nintendo of America entre 2006 y 2019. Su trayectoria regional abarca Wii, DS, 3DS, Wii U y el lanzamiento de Switch.",
+      "biographyClaims": [
+        {
+          "text": "Reggie Fils-Aimé presidió Nintendo of America entre 2006 y 2019. Su trayectoria regional abarca Wii, DS, 3DS, Wii U y el lanzamiento de Switch.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Reggie Fils-Aimé presidió Nintendo of America entre 2006 y 2019. Su trayectoria regional abarca Wii, DS, 3DS, Wii U y el lanzamiento de Switch.",
+      "industryImpactEs": "Su trayectoria conecta dirección regional de nintendo of america con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "minoru-arakawa",
+      "name": "Minoru Arakawa",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón / Estados Unidos",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Fundación y dirección regional de Nintendo of America"
+        }
+      ],
+      "education": [],
+      "careerStart": "1980",
+      "careerEnd": "2002",
+      "officialWebsites": [],
+      "biographyEs": "Minoru Arakawa fundó y presidió Nintendo of America durante la construcción del negocio de NES y la expansión posterior. Su papel fue regional y empresarial.",
+      "biographyClaims": [
+        {
+          "text": "Minoru Arakawa fundó y presidió Nintendo of America durante la construcción del negocio de NES y la expansión posterior. Su papel fue regional y empresarial.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Minoru Arakawa fundó y presidió Nintendo of America durante la construcción del negocio de NES y la expansión posterior. Su papel fue regional y empresarial.",
+      "industryImpactEs": "Su trayectoria conecta fundación y dirección regional de nintendo of america con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "howard-lincoln",
+      "name": "Howard Lincoln",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Estados Unidos",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ejecutivo y abogado"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Negocio, licencias y dirección regional"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Howard Lincoln fue una figura jurídica y ejecutiva de Nintendo of America durante NES, SNES y Nintendo 64. Su perfil conecta estrategia comercial y licencias, no diseño técnico.",
+      "biographyClaims": [
+        {
+          "text": "Howard Lincoln fue una figura jurídica y ejecutiva de Nintendo of America durante NES, SNES y Nintendo 64. Su perfil conecta estrategia comercial y licencias, no diseño técnico.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Howard Lincoln fue una figura jurídica y ejecutiva de Nintendo of America durante NES, SNES y Nintendo 64. Su perfil conecta estrategia comercial y licencias, no diseño técnico.",
+      "industryImpactEs": "Su trayectoria conecta negocio, licencias y dirección regional con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "satoru-okada",
+      "name": "Satoru Okada",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Ingeniero y diseñador de hardware"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Hardware portátil de Nintendo R&D1"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Satoru Okada fue una figura esencial de ingeniería en Game Boy y la continuidad portátil hasta Game Boy Advance. Su trabajo se presenta dentro del equipo R&D1 y no como autoría exclusiva.",
+      "biographyClaims": [
+        {
+          "text": "Satoru Okada fue una figura esencial de ingeniería en Game Boy y la continuidad portátil hasta Game Boy Advance. Su trabajo se presenta dentro del equipo R&D1 y no como autoría exclusiva.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Satoru Okada fue una figura esencial de ingeniería en Game Boy y la continuidad portátil hasta Game Boy Advance. Su trabajo se presenta dentro del equipo R&D1 y no como autoría exclusiva.",
+      "industryImpactEs": "Su trayectoria conecta hardware portátil de nintendo r&d1 con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "kouichi-kawamoto",
+      "name": "Kouichi Kawamoto",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Director y productor de plataformas"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Nintendo Switch, Switch 2 y hardware-software integrado"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Kouichi Kawamoto fue director general de Nintendo Switch y productor de Nintendo Switch 2. Nintendo describe su función como responsable de orientar el tipo de sistema y coordinar decisiones con los equipos de hardware.",
+      "biographyClaims": [
+        {
+          "text": "Kouichi Kawamoto fue director general de Nintendo Switch y productor de Nintendo Switch 2. Nintendo describe su función como responsable de orientar el tipo de sistema y coordinar decisiones con los equipos de hardware.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-SW2"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Kouichi Kawamoto fue director general de Nintendo Switch y productor de Nintendo Switch 2. Nintendo describe su función como responsable de orientar el tipo de sistema y coordinar decisiones con los equipos de hardware.",
+      "industryImpactEs": "Su trayectoria conecta nintendo switch, switch 2 y hardware-software integrado con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-SW2"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-SW2"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-SW2"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-SW2"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "takuhiro-dohta",
+      "name": "Takuhiro Dohta",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Director e ingeniero de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Diseño de plataforma desde la perspectiva de software"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Takuhiro Dohta es director de Nintendo Switch 2 y aporta al hardware la perspectiva de desarrollo de software. También está documentado como director técnico de The Legend of Zelda: Tears of the Kingdom.",
+      "biographyClaims": [
+        {
+          "text": "Takuhiro Dohta es director de Nintendo Switch 2 y aporta al hardware la perspectiva de desarrollo de software. También está documentado como director técnico de The Legend of Zelda: Tears of the Kingdom.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-SW2"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Takuhiro Dohta es director de Nintendo Switch 2 y aporta al hardware la perspectiva de desarrollo de software. También está documentado como director técnico de The Legend of Zelda: Tears of the Kingdom.",
+      "industryImpactEs": "Su trayectoria conecta diseño de plataforma desde la perspectiva de software con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-SW2"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-SW2"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-SW2"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-SW2"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "tetsuya-sasaki",
+      "name": "Tetsuya Sasaki",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Director técnico e ingeniero de plataformas"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Hardware, software de sistema y servicios de red"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Tetsuya Sasaki es director técnico de Nintendo Switch 2 y supervisa tecnología de hardware, software de sistema y servicios de red. Su trayectoria previa incluye el sistema y el entorno de desarrollo de Switch.",
+      "biographyClaims": [
+        {
+          "text": "Tetsuya Sasaki es director técnico de Nintendo Switch 2 y supervisa tecnología de hardware, software de sistema y servicios de red. Su trayectoria previa incluye el sistema y el entorno de desarrollo de Switch.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-SW2"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Tetsuya Sasaki es director técnico de Nintendo Switch 2 y supervisa tecnología de hardware, software de sistema y servicios de red. Su trayectoria previa incluye el sistema y el entorno de desarrollo de Switch.",
+      "industryImpactEs": "Su trayectoria conecta hardware, software de sistema y servicios de red con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-SW2"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-SW2"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-SW2"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-SW2"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "masahiro-sakurai",
+      "name": "Masahiro Sakurai",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Director y diseñador de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Kirby y Super Smash Bros."
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Masahiro Sakurai creó Kirby y dirigió Super Smash Bros. desde relaciones empresariales que no convierten a HAL Laboratory en propiedad de Nintendo. Los créditos se vinculan a cada obra y etapa.",
+      "biographyClaims": [
+        {
+          "text": "Masahiro Sakurai creó Kirby y dirigió Super Smash Bros. desde relaciones empresariales que no convierten a HAL Laboratory en propiedad de Nintendo. Los créditos se vinculan a cada obra y etapa.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Masahiro Sakurai creó Kirby y dirigió Super Smash Bros. desde relaciones empresariales que no convierten a HAL Laboratory en propiedad de Nintendo. Los créditos se vinculan a cada obra y etapa.",
+      "industryImpactEs": "Su trayectoria conecta kirby y super smash bros. con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "ryuta-kawashima",
+      "name": "Ryuta Kawashima",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Neurocientífico y colaborador cultural"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Brain Age y divulgación científica"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Ryuta Kawashima colaboró con Nintendo en Brain Age a partir de su trabajo de divulgación e investigación. El vínculo no lo convierte en diseñador de Nintendo DS ni empleado de la compañía.",
+      "biographyClaims": [
+        {
+          "text": "Ryuta Kawashima colaboró con Nintendo en Brain Age a partir de su trabajo de divulgación e investigación. El vínculo no lo convierte en diseñador de Nintendo DS ni empleado de la compañía.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Ryuta Kawashima colaboró con Nintendo en Brain Age a partir de su trabajo de divulgación e investigación. El vínculo no lo convierte en diseñador de Nintendo DS ni empleado de la compañía.",
+      "industryImpactEs": "Su trayectoria conecta brain age y divulgación científica con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "hisashi-nogami",
+      "name": "Hisashi Nogami",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Diseñador y productor de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Animal Crossing y Splatoon"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Hisashi Nogami conecta la producción de Animal Crossing con el nacimiento y desarrollo de Splatoon. La ficha limita esa relación a las obras y generaciones documentadas.",
+      "biographyClaims": [
+        {
+          "text": "Hisashi Nogami conecta la producción de Animal Crossing con el nacimiento y desarrollo de Splatoon. La ficha limita esa relación a las obras y generaciones documentadas.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Hisashi Nogami conecta la producción de Animal Crossing con el nacimiento y desarrollo de Splatoon. La ficha limita esa relación a las obras y generaciones documentadas.",
+      "industryImpactEs": "Su trayectoria conecta animal crossing y splatoon con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "shigesato-itoi",
+      "name": "Shigesato Itoi",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Escritor y creador de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Mother / EarthBound"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Shigesato Itoi es la figura creativa central de la serie Mother. Su colaboración con Nintendo se presenta como relación externa y no como pertenencia a un estudio first party.",
+      "biographyClaims": [
+        {
+          "text": "Shigesato Itoi es la figura creativa central de la serie Mother. Su colaboración con Nintendo se presenta como relación externa y no como pertenencia a un estudio first party.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Shigesato Itoi es la figura creativa central de la serie Mother. Su colaboración con Nintendo se presenta como relación externa y no como pertenencia a un estudio first party.",
+      "industryImpactEs": "Su trayectoria conecta mother / earthbound con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "dylan-cuthbert",
+      "name": "Dylan Cuthbert",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Reino Unido",
+      "occupations": [
+        {
+          "qid": null,
+          "name": "Programador y desarrollador de videojuegos"
+        }
+      ],
+      "fieldsOfWork": [
+        {
+          "qid": null,
+          "name": "Tecnología 3D, Super FX y Star Fox"
+        }
+      ],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Dylan Cuthbert conecta el trabajo de Argonaut Software sobre tecnología 3D y Super FX con Star Fox. Esa colaboración fue externa y no convierte a Argonaut en un estudio propiedad de Nintendo.",
+      "biographyClaims": [
+        {
+          "text": "Dylan Cuthbert conecta el trabajo de Argonaut Software sobre tecnología 3D y Super FX con Star Fox. Esa colaboración fue externa y no convierte a Argonaut en un estudio propiedad de Nintendo.",
+          "sourceIds": [
+            "PH-NIN-PEOPLE-DOSSIER"
+          ]
+        }
+      ],
+      "careerSummaryEs": "Dylan Cuthbert conecta el trabajo de Argonaut Software sobre tecnología 3D y Super FX con Star Fox. Esa colaboración fue externa y no convierte a Argonaut en un estudio propiedad de Nintendo.",
+      "industryImpactEs": "Su trayectoria conecta tecnología 3d, super fx y star fox con la historia documentada de Nintendo.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "occupations": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ],
+        "biographyEs": [
+          "PH-NIN-PEOPLE-DOSSIER"
+        ]
+      },
+      "sourceIds": [
+        "PH-NIN-PEOPLE-DOSSIER"
+      ],
+      "lastChecked": "2026-09-15"
+    }
+  ],
+  "profilePatches": [],
+  "companyRelations": [
+    {
+      "id": "PHR-NIN-FUSAJIRO-YAMAUCHI-NINTENDO",
+      "personSlug": "fusajiro-yamauchi",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "FOUNDER",
+      "roleLabelEs": "Fundador",
+      "start": "1889",
+      "end": null,
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-HIROSHI-YAMAUCHI-NINTENDO",
+      "personSlug": "hiroshi-yamauchi",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PRESIDENT",
+      "roleLabelEs": "Presidente",
+      "start": "1949",
+      "end": "2002",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-TATSUMI-KIMISHIMA-NINTENDO",
+      "personSlug": "tatsumi-kimishima",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PRESIDENT",
+      "roleLabelEs": "Presidente",
+      "start": "2015",
+      "end": "2018",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-SHUNTARO-FURUKAWA-NINTENDO",
+      "personSlug": "shuntaro-furukawa",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PRESIDENT_REPRESENTATIVE_DIRECTOR",
+      "roleLabelEs": "President and Representative Director",
+      "start": "2018",
+      "end": null,
+      "pointInTime": null,
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS",
+      "relationOrigin": "NINTENDO_OFFICIAL_SOURCE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-MASAYUKI-UEMURA-NINTENDO-RD2",
+      "personSlug": "masayuki-uemura",
+      "companySlug": "nintendo-rd2",
+      "companyName": "Nintendo R&D2",
+      "role": "HARDWARE_ENGINEERING_DIRECTION",
+      "roleLabelEs": "Ingeniería y dirección de hardware",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-MASAYUKI-UEMURA-NINTENDO-PARENT",
+      "personSlug": "masayuki-uemura",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "HARDWARE_ENGINEERING_DIRECTION",
+      "roleLabelEs": "Ingeniería y dirección de hardware · unidad Nintendo R&D2",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-GENYO-TAKEDA-NINTENDO-IRD",
+      "personSlug": "genyo-takeda",
+      "companySlug": "nintendo-ird",
+      "companyName": "Nintendo IRD",
+      "role": "TECHNOLOGY_GENERAL_MANAGER",
+      "roleLabelEs": "Dirección tecnológica",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-GENYO-TAKEDA-NINTENDO-PARENT",
+      "personSlug": "genyo-takeda",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "TECHNOLOGY_GENERAL_MANAGER",
+      "roleLabelEs": "Dirección tecnológica · unidad Nintendo IRD",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-TAKASHI-TEZUKA-NINTENDO",
+      "personSlug": "takashi-tezuka",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "GAME_DESIGN_PRODUCTION",
+      "roleLabelEs": "Diseñador y productor",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-KOJI-KONDO-NINTENDO",
+      "personSlug": "koji-kondo",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "COMPOSER",
+      "roleLabelEs": "Compositor",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-YOSHIO-SAKAMOTO-NINTENDO-RD1",
+      "personSlug": "yoshio-sakamoto",
+      "companySlug": "nintendo-rd1",
+      "companyName": "Nintendo R&D1",
+      "role": "CREATIVE_DIRECTION_PRODUCTION",
+      "roleLabelEs": "Dirección y producción creativa",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-YOSHIO-SAKAMOTO-NINTENDO-PARENT",
+      "personSlug": "yoshio-sakamoto",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "CREATIVE_DIRECTION_PRODUCTION",
+      "roleLabelEs": "Dirección y producción creativa · unidad Nintendo R&D1",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-EIJI-AONUMA-NINTENDO",
+      "personSlug": "eiji-aonuma",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "GAME_DIRECTION_PRODUCTION",
+      "roleLabelEs": "Director y productor",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-YOSHIAKI-KOIZUMI-NINTENDO",
+      "personSlug": "yoshiaki-koizumi",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "SENIOR_EXECUTIVE_OFFICER",
+      "roleLabelEs": "Senior Executive Officer",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS",
+      "relationOrigin": "NINTENDO_OFFICIAL_SOURCE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-HIDEKI-KONNO-NINTENDO",
+      "personSlug": "hideki-konno",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "GAME_DIRECTION_PRODUCTION",
+      "roleLabelEs": "Director y productor",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-KATSUYA-EGUCHI-NINTENDO",
+      "personSlug": "katsuya-eguchi",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PRODUCER",
+      "roleLabelEs": "Productor",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-KENSUKE-TANABE-NINTENDO",
+      "personSlug": "kensuke-tanabe",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "EXTERNAL_DEVELOPMENT_PRODUCER",
+      "roleLabelEs": "Productor de desarrollo externo",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-SHINYA-TAKAHASHI-NINTENDO",
+      "personSlug": "shinya-takahashi",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "SENIOR_MANAGING_EXECUTIVE_OFFICER",
+      "roleLabelEs": "Senior Managing Executive Officer",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS",
+      "relationOrigin": "NINTENDO_OFFICIAL_SOURCE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-KO-SHIOTA-NINTENDO-TD",
+      "personSlug": "ko-shiota",
+      "companySlug": "nintendo-td",
+      "companyName": "Nintendo Technology Development",
+      "role": "SENIOR_EXECUTIVE_TECHNOLOGY",
+      "roleLabelEs": "Senior Executive Officer y liderazgo tecnológico",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS",
+      "relationOrigin": "NINTENDO_OFFICIAL_SOURCE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-KO-SHIOTA-NINTENDO-PARENT",
+      "personSlug": "ko-shiota",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "SENIOR_EXECUTIVE_TECHNOLOGY",
+      "roleLabelEs": "Senior Executive Officer y liderazgo tecnológico · unidad Nintendo Technology Development",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-SATORU-SHIBATA-NINTENDO",
+      "personSlug": "satoru-shibata",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "MANAGING_EXECUTIVE_OFFICER",
+      "roleLabelEs": "Managing Executive Officer",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS",
+      "relationOrigin": "NINTENDO_OFFICIAL_SOURCE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-DOUG-BOWSER-NINTENDO-OF-AMERICA",
+      "personSlug": "doug-bowser",
+      "companySlug": "nintendo-of-america",
+      "companyName": "Nintendo of America",
+      "role": "REGIONAL_PRESIDENT",
+      "roleLabelEs": "Presidente",
+      "start": "2019",
+      "end": null,
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-DOUG-BOWSER-NINTENDO-PARENT",
+      "personSlug": "doug-bowser",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "REGIONAL_PRESIDENT",
+      "roleLabelEs": "Presidente · unidad Nintendo of America",
+      "start": "2019",
+      "end": null,
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-REGGIE-FILS-AIME-NINTENDO-OF-AMERICA",
+      "personSlug": "reggie-fils-aime",
+      "companySlug": "nintendo-of-america",
+      "companyName": "Nintendo of America",
+      "role": "REGIONAL_PRESIDENT",
+      "roleLabelEs": "Presidente",
+      "start": "2006",
+      "end": "2019",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-REGGIE-FILS-AIME-NINTENDO-PARENT",
+      "personSlug": "reggie-fils-aime",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "REGIONAL_PRESIDENT",
+      "roleLabelEs": "Presidente · unidad Nintendo of America",
+      "start": "2006",
+      "end": "2019",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-MINORU-ARAKAWA-NINTENDO-OF-AMERICA",
+      "personSlug": "minoru-arakawa",
+      "companySlug": "nintendo-of-america",
+      "companyName": "Nintendo of America",
+      "role": "REGIONAL_FOUNDER_PRESIDENT",
+      "roleLabelEs": "Fundador y presidente",
+      "start": "1980",
+      "end": "2002",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-MINORU-ARAKAWA-NINTENDO-PARENT",
+      "personSlug": "minoru-arakawa",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "REGIONAL_FOUNDER_PRESIDENT",
+      "roleLabelEs": "Fundador y presidente · unidad Nintendo of America",
+      "start": "1980",
+      "end": "2002",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-HOWARD-LINCOLN-NINTENDO-OF-AMERICA",
+      "personSlug": "howard-lincoln",
+      "companySlug": "nintendo-of-america",
+      "companyName": "Nintendo of America",
+      "role": "REGIONAL_LEGAL_EXECUTIVE",
+      "roleLabelEs": "Ejecutivo y responsable jurídico",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-HOWARD-LINCOLN-NINTENDO-PARENT",
+      "personSlug": "howard-lincoln",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "REGIONAL_LEGAL_EXECUTIVE",
+      "roleLabelEs": "Ejecutivo y responsable jurídico · unidad Nintendo of America",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-SATORU-OKADA-NINTENDO-RD1",
+      "personSlug": "satoru-okada",
+      "companySlug": "nintendo-rd1",
+      "companyName": "Nintendo R&D1",
+      "role": "PORTABLE_HARDWARE_ENGINEERING",
+      "roleLabelEs": "Ingeniería y diseño de hardware",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-SATORU-OKADA-NINTENDO-PARENT",
+      "personSlug": "satoru-okada",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PORTABLE_HARDWARE_ENGINEERING",
+      "roleLabelEs": "Ingeniería y diseño de hardware · unidad Nintendo R&D1",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-KOUICHI-KAWAMOTO-NINTENDO-EPD",
+      "personSlug": "kouichi-kawamoto",
+      "companySlug": "nintendo-epd",
+      "companyName": "Nintendo EPD",
+      "role": "PLATFORM_GENERAL_DIRECTOR_PRODUCER",
+      "roleLabelEs": "Director general de Switch y productor de Switch 2",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2",
+      "relationOrigin": "NINTENDO_OFFICIAL_SOURCE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-KOUICHI-KAWAMOTO-NINTENDO-PARENT",
+      "personSlug": "kouichi-kawamoto",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PLATFORM_GENERAL_DIRECTOR_PRODUCER",
+      "roleLabelEs": "Director general de Switch y productor de Switch 2 · unidad Nintendo EPD",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-TAKUHIRO-DOHTA-NINTENDO-EPD",
+      "personSlug": "takuhiro-dohta",
+      "companySlug": "nintendo-epd",
+      "companyName": "Nintendo EPD",
+      "role": "PLATFORM_DIRECTOR",
+      "roleLabelEs": "Director de Nintendo Switch 2",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2",
+      "relationOrigin": "NINTENDO_OFFICIAL_SOURCE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-TAKUHIRO-DOHTA-NINTENDO-PARENT",
+      "personSlug": "takuhiro-dohta",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PLATFORM_DIRECTOR",
+      "roleLabelEs": "Director de Nintendo Switch 2 · unidad Nintendo EPD",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-TETSUYA-SASAKI-NINTENDO-TD",
+      "personSlug": "tetsuya-sasaki",
+      "companySlug": "nintendo-td",
+      "companyName": "Nintendo Technology Development",
+      "role": "PLATFORM_TECHNICAL_DIRECTOR",
+      "roleLabelEs": "Director técnico de Nintendo Switch 2",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2",
+      "relationOrigin": "NINTENDO_OFFICIAL_SOURCE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-TETSUYA-SASAKI-NINTENDO-PARENT",
+      "personSlug": "tetsuya-sasaki",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PLATFORM_TECHNICAL_DIRECTOR",
+      "roleLabelEs": "Director técnico de Nintendo Switch 2 · unidad Nintendo Technology Development",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2",
+      "relationOrigin": "NINTENDO_GROUP_RELATION",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-MASAHIRO-SAKURAI-HAL-LABORATORY",
+      "personSlug": "masahiro-sakurai",
+      "companySlug": "hal-laboratory",
+      "companyName": "HAL Laboratory",
+      "role": "GAME_DIRECTOR_DESIGNER",
+      "roleLabelEs": "Director y diseñador",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-RYUTA-KAWASHIMA-NINTENDO",
+      "personSlug": "ryuta-kawashima",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "SCIENTIFIC_COLLABORATOR",
+      "roleLabelEs": "Colaborador externo de Brain Age",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-HISASHI-NOGAMI-NINTENDO",
+      "personSlug": "hisashi-nogami",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "PRODUCER",
+      "roleLabelEs": "Productor",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-SHIGESATO-ITOI-NINTENDO",
+      "personSlug": "shigesato-itoi",
+      "companySlug": "nintendo",
+      "companyName": "Nintendo",
+      "role": "EXTERNAL_CREATIVE_COLLABORATOR",
+      "roleLabelEs": "Creador colaborador externo",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PHR-NIN-DYLAN-CUTHBERT-ARGONAUT-SOFTWARE",
+      "personSlug": "dylan-cuthbert",
+      "companySlug": "argonaut-software",
+      "companyName": "Argonaut Software",
+      "role": "PROGRAMMER",
+      "roleLabelEs": "Programador",
+      "start": null,
+      "end": null,
+      "pointInTime": "Etapa Nintendo documentada",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER",
+      "relationOrigin": "NINTENDO_DOSSIER_BACKED",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    }
+  ],
+  "positions": [
+    {
+      "id": "PHPOS-NIN-HIROSHI-YAMAUCHI",
+      "personSlug": "hiroshi-yamauchi",
+      "name": "Presidente, Nintendo",
+      "start": "1949",
+      "end": "2002",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHPOS-NIN-TATSUMI-KIMISHIMA",
+      "personSlug": "tatsumi-kimishima",
+      "name": "Presidente, Nintendo",
+      "start": "2015",
+      "end": "2018",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHPOS-NIN-SHUNTARO-FURUKAWA",
+      "personSlug": "shuntaro-furukawa",
+      "name": "President and Representative Director, Nintendo",
+      "start": "2018",
+      "end": null,
+      "pointInTime": null,
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS"
+    },
+    {
+      "id": "PHPOS-NIN-YOSHIAKI-KOIZUMI",
+      "personSlug": "yoshiaki-koizumi",
+      "name": "Senior Executive Officer, Nintendo",
+      "start": null,
+      "end": null,
+      "pointInTime": "Cargo documentado en septiembre de 2026",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS"
+    },
+    {
+      "id": "PHPOS-NIN-SHINYA-TAKAHASHI",
+      "personSlug": "shinya-takahashi",
+      "name": "Senior Managing Executive Officer, Nintendo",
+      "start": null,
+      "end": null,
+      "pointInTime": "Cargo documentado en septiembre de 2026",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS"
+    },
+    {
+      "id": "PHPOS-NIN-KO-SHIOTA",
+      "personSlug": "ko-shiota",
+      "name": "Senior Executive Officer y liderazgo tecnológico, Nintendo Technology Development",
+      "start": null,
+      "end": null,
+      "pointInTime": "Cargo documentado en septiembre de 2026",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS"
+    },
+    {
+      "id": "PHPOS-NIN-SATORU-SHIBATA",
+      "personSlug": "satoru-shibata",
+      "name": "Managing Executive Officer, Nintendo",
+      "start": null,
+      "end": null,
+      "pointInTime": "Cargo documentado en septiembre de 2026",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS"
+    },
+    {
+      "id": "PHPOS-NIN-DOUG-BOWSER",
+      "personSlug": "doug-bowser",
+      "name": "Presidente, Nintendo of America",
+      "start": "2019",
+      "end": null,
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHPOS-NIN-REGGIE-FILS-AIME",
+      "personSlug": "reggie-fils-aime",
+      "name": "Presidente, Nintendo of America",
+      "start": "2006",
+      "end": "2019",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHPOS-NIN-MINORU-ARAKAWA",
+      "personSlug": "minoru-arakawa",
+      "name": "Fundador y presidente, Nintendo of America",
+      "start": "1980",
+      "end": "2002",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHPOS-NIN-HOWARD-LINCOLN",
+      "personSlug": "howard-lincoln",
+      "name": "Ejecutivo y responsable jurídico, Nintendo of America",
+      "start": null,
+      "end": null,
+      "pointInTime": "Cargo documentado en septiembre de 2026",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    }
+  ],
+  "exactCredits": [],
+  "relatedWorks": [
+    {
+      "id": "PHWORK-NIN-MASAYUKI-UEMURA-1",
+      "personSlug": "masayuki-uemura",
+      "workQid": null,
+      "title": "Famicom / NES",
+      "catalogId": null,
+      "year": null,
+      "role": "HARDWARE_ENGINEERING_DIRECTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-MASAYUKI-UEMURA-2",
+      "personSlug": "masayuki-uemura",
+      "workQid": null,
+      "title": "Super Famicom / SNES",
+      "catalogId": null,
+      "year": null,
+      "role": "HARDWARE_ENGINEERING_DIRECTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-GENYO-TAKEDA-1",
+      "personSlug": "genyo-takeda",
+      "workQid": null,
+      "title": "EVR Race",
+      "catalogId": null,
+      "year": null,
+      "role": "TECHNOLOGY_GENERAL_MANAGER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-GENYO-TAKEDA-2",
+      "personSlug": "genyo-takeda",
+      "workQid": null,
+      "title": "Nintendo 64",
+      "catalogId": null,
+      "year": null,
+      "role": "TECHNOLOGY_GENERAL_MANAGER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-TAKASHI-TEZUKA-1",
+      "personSlug": "takashi-tezuka",
+      "workQid": null,
+      "title": "Super Mario Bros.",
+      "catalogId": null,
+      "year": null,
+      "role": "GAME_DESIGN_PRODUCTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-TAKASHI-TEZUKA-2",
+      "personSlug": "takashi-tezuka",
+      "workQid": null,
+      "title": "The Legend of Zelda",
+      "catalogId": null,
+      "year": null,
+      "role": "GAME_DESIGN_PRODUCTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-KOJI-KONDO-1",
+      "personSlug": "koji-kondo",
+      "workQid": null,
+      "title": "Super Mario Bros.",
+      "catalogId": null,
+      "year": null,
+      "role": "COMPOSER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-KOJI-KONDO-2",
+      "personSlug": "koji-kondo",
+      "workQid": null,
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "catalogId": null,
+      "year": null,
+      "role": "COMPOSER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-YOSHIO-SAKAMOTO-1",
+      "personSlug": "yoshio-sakamoto",
+      "workQid": null,
+      "title": "Metroid",
+      "catalogId": null,
+      "year": null,
+      "role": "CREATIVE_DIRECTION_PRODUCTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-YOSHIO-SAKAMOTO-2",
+      "personSlug": "yoshio-sakamoto",
+      "workQid": null,
+      "title": "WarioWare",
+      "catalogId": null,
+      "year": null,
+      "role": "CREATIVE_DIRECTION_PRODUCTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-EIJI-AONUMA-1",
+      "personSlug": "eiji-aonuma",
+      "workQid": null,
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "catalogId": null,
+      "year": null,
+      "role": "GAME_DIRECTION_PRODUCTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-EIJI-AONUMA-2",
+      "personSlug": "eiji-aonuma",
+      "workQid": null,
+      "title": "The Legend of Zelda: The Wind Waker",
+      "catalogId": null,
+      "year": null,
+      "role": "GAME_DIRECTION_PRODUCTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-YOSHIAKI-KOIZUMI-1",
+      "personSlug": "yoshiaki-koizumi",
+      "workQid": null,
+      "title": "Super Mario Galaxy",
+      "catalogId": null,
+      "year": null,
+      "role": "SENIOR_EXECUTIVE_OFFICER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS"
+    },
+    {
+      "id": "PHWORK-NIN-YOSHIAKI-KOIZUMI-2",
+      "personSlug": "yoshiaki-koizumi",
+      "workQid": null,
+      "title": "Nintendo Switch",
+      "catalogId": null,
+      "year": null,
+      "role": "SENIOR_EXECUTIVE_OFFICER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS"
+    },
+    {
+      "id": "PHWORK-NIN-HIDEKI-KONNO-1",
+      "personSlug": "hideki-konno",
+      "workQid": null,
+      "title": "Mario Kart 64",
+      "catalogId": null,
+      "year": null,
+      "role": "GAME_DIRECTION_PRODUCTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-HIDEKI-KONNO-2",
+      "personSlug": "hideki-konno",
+      "workQid": null,
+      "title": "Nintendogs",
+      "catalogId": null,
+      "year": null,
+      "role": "GAME_DIRECTION_PRODUCTION",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-KATSUYA-EGUCHI-1",
+      "personSlug": "katsuya-eguchi",
+      "workQid": null,
+      "title": "Animal Crossing",
+      "catalogId": null,
+      "year": null,
+      "role": "PRODUCER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-KATSUYA-EGUCHI-2",
+      "personSlug": "katsuya-eguchi",
+      "workQid": null,
+      "title": "Nintendo Land",
+      "catalogId": null,
+      "year": null,
+      "role": "PRODUCER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-KENSUKE-TANABE-1",
+      "personSlug": "kensuke-tanabe",
+      "workQid": null,
+      "title": "Metroid Prime",
+      "catalogId": null,
+      "year": null,
+      "role": "EXTERNAL_DEVELOPMENT_PRODUCER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-KO-SHIOTA-1",
+      "personSlug": "ko-shiota",
+      "workQid": null,
+      "title": "Nintendo Switch",
+      "catalogId": null,
+      "year": null,
+      "role": "SENIOR_EXECUTIVE_TECHNOLOGY",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-OFFICERS"
+    },
+    {
+      "id": "PHWORK-NIN-SATORU-OKADA-1",
+      "personSlug": "satoru-okada",
+      "workQid": null,
+      "title": "Game Boy",
+      "catalogId": null,
+      "year": null,
+      "role": "PORTABLE_HARDWARE_ENGINEERING",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-SATORU-OKADA-2",
+      "personSlug": "satoru-okada",
+      "workQid": null,
+      "title": "Game Boy Advance",
+      "catalogId": null,
+      "year": null,
+      "role": "PORTABLE_HARDWARE_ENGINEERING",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-KOUICHI-KAWAMOTO-1",
+      "personSlug": "kouichi-kawamoto",
+      "workQid": null,
+      "title": "Ring Fit Adventure",
+      "catalogId": null,
+      "year": null,
+      "role": "PLATFORM_GENERAL_DIRECTOR_PRODUCER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHWORK-NIN-KOUICHI-KAWAMOTO-2",
+      "personSlug": "kouichi-kawamoto",
+      "workQid": null,
+      "title": "Nintendo Switch 2",
+      "catalogId": null,
+      "year": null,
+      "role": "PLATFORM_GENERAL_DIRECTOR_PRODUCER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHWORK-NIN-TAKUHIRO-DOHTA-1",
+      "personSlug": "takuhiro-dohta",
+      "workQid": null,
+      "title": "The Legend of Zelda: Tears of the Kingdom",
+      "catalogId": null,
+      "year": null,
+      "role": "PLATFORM_DIRECTOR",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHWORK-NIN-TAKUHIRO-DOHTA-2",
+      "personSlug": "takuhiro-dohta",
+      "workQid": null,
+      "title": "Nintendo Switch 2",
+      "catalogId": null,
+      "year": null,
+      "role": "PLATFORM_DIRECTOR",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHWORK-NIN-TETSUYA-SASAKI-1",
+      "personSlug": "tetsuya-sasaki",
+      "workQid": null,
+      "title": "Nintendo Switch",
+      "catalogId": null,
+      "year": null,
+      "role": "PLATFORM_TECHNICAL_DIRECTOR",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHWORK-NIN-TETSUYA-SASAKI-2",
+      "personSlug": "tetsuya-sasaki",
+      "workQid": null,
+      "title": "Nintendo Switch 2",
+      "catalogId": null,
+      "year": null,
+      "role": "PLATFORM_TECHNICAL_DIRECTOR",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHWORK-NIN-MASAHIRO-SAKURAI-1",
+      "personSlug": "masahiro-sakurai",
+      "workQid": null,
+      "title": "Kirby",
+      "catalogId": null,
+      "year": null,
+      "role": "GAME_DIRECTOR_DESIGNER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-MASAHIRO-SAKURAI-2",
+      "personSlug": "masahiro-sakurai",
+      "workQid": null,
+      "title": "Super Smash Bros.",
+      "catalogId": null,
+      "year": null,
+      "role": "GAME_DIRECTOR_DESIGNER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-RYUTA-KAWASHIMA-1",
+      "personSlug": "ryuta-kawashima",
+      "workQid": null,
+      "title": "Brain Age",
+      "catalogId": null,
+      "year": null,
+      "role": "SCIENTIFIC_COLLABORATOR",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-HISASHI-NOGAMI-1",
+      "personSlug": "hisashi-nogami",
+      "workQid": null,
+      "title": "Animal Crossing",
+      "catalogId": null,
+      "year": null,
+      "role": "PRODUCER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-HISASHI-NOGAMI-2",
+      "personSlug": "hisashi-nogami",
+      "workQid": null,
+      "title": "Splatoon",
+      "catalogId": null,
+      "year": null,
+      "role": "PRODUCER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-SHIGESATO-ITOI-1",
+      "personSlug": "shigesato-itoi",
+      "workQid": null,
+      "title": "Mother",
+      "catalogId": null,
+      "year": null,
+      "role": "EXTERNAL_CREATIVE_COLLABORATOR",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-SHIGESATO-ITOI-2",
+      "personSlug": "shigesato-itoi",
+      "workQid": null,
+      "title": "EarthBound",
+      "catalogId": null,
+      "year": null,
+      "role": "EXTERNAL_CREATIVE_COLLABORATOR",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-DYLAN-CUTHBERT-1",
+      "personSlug": "dylan-cuthbert",
+      "workQid": null,
+      "title": "Star Fox",
+      "catalogId": null,
+      "year": null,
+      "role": "PROGRAMMER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHWORK-NIN-DYLAN-CUTHBERT-2",
+      "personSlug": "dylan-cuthbert",
+      "workQid": null,
+      "title": "1080° Snowboarding",
+      "catalogId": null,
+      "year": null,
+      "role": "PROGRAMMER",
+      "relationshipPrecision": "ASSOCIATION_NOT_EXACT_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    }
+  ],
+  "awards": [],
+  "curiosities": [],
+  "historicalRelations": [
+    {
+      "id": "PHREL-NIN-HIROSHI-YAMAUCHI-GAMEANDWATCH",
+      "personSlug": "hiroshi-yamauchi",
+      "targetType": "platform",
+      "targetSlug": "gameandwatch",
+      "targetName": "Nintendo Arcade y Game & Watch",
+      "platformSlug": "gameandwatch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo Arcade y Game & Watch",
+      "summaryEs": "Hiroshi Yamauchi se relaciona con Nintendo Arcade y Game & Watch mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIROSHI-YAMAUCHI-NES",
+      "personSlug": "hiroshi-yamauchi",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Hiroshi Yamauchi se relaciona con Famicom / Nintendo Entertainment System mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIROSHI-YAMAUCHI-GAMEBOY",
+      "personSlug": "hiroshi-yamauchi",
+      "targetType": "platform",
+      "targetSlug": "gameboy",
+      "targetName": "Game Boy / Game Boy Color",
+      "platformSlug": "gameboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Game Boy / Game Boy Color",
+      "summaryEs": "Hiroshi Yamauchi se relaciona con Game Boy / Game Boy Color mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIROSHI-YAMAUCHI-SNES",
+      "personSlug": "hiroshi-yamauchi",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Hiroshi Yamauchi se relaciona con Super Famicom / Super Nintendo mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIROSHI-YAMAUCHI-VIRTUALBOY",
+      "personSlug": "hiroshi-yamauchi",
+      "targetType": "platform",
+      "targetSlug": "virtualboy",
+      "targetName": "Virtual Boy",
+      "platformSlug": "virtualboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Virtual Boy",
+      "summaryEs": "Hiroshi Yamauchi se relaciona con Virtual Boy mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIROSHI-YAMAUCHI-N64",
+      "personSlug": "hiroshi-yamauchi",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Hiroshi Yamauchi se relaciona con Nintendo 64 / 64DD mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIROSHI-YAMAUCHI-GBA",
+      "personSlug": "hiroshi-yamauchi",
+      "targetType": "platform",
+      "targetSlug": "gba",
+      "targetName": "Game Boy Advance / SP / Micro",
+      "platformSlug": "gba",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Game Boy Advance / SP / Micro",
+      "summaryEs": "Hiroshi Yamauchi se relaciona con Game Boy Advance / SP / Micro mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIROSHI-YAMAUCHI-GAMECUBE",
+      "personSlug": "hiroshi-yamauchi",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Hiroshi Yamauchi se relaciona con Nintendo GameCube mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-TATSUMI-KIMISHIMA-WIIU",
+      "personSlug": "tatsumi-kimishima",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Wii U",
+      "summaryEs": "Tatsumi Kimishima se relaciona con Wii U mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-TATSUMI-KIMISHIMA-SWITCH",
+      "personSlug": "tatsumi-kimishima",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Tatsumi Kimishima se relaciona con Nintendo Switch mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHUNTARO-FURUKAWA-SWITCH",
+      "personSlug": "shuntaro-furukawa",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "President and Representative Director",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Shuntaro Furukawa se relaciona con Nintendo Switch mediante president and representative director. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHUNTARO-FURUKAWA-SWITCH2",
+      "personSlug": "shuntaro-furukawa",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "President and Representative Director",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Shuntaro Furukawa se relaciona con Nintendo Switch 2 mediante president and representative director. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MASAYUKI-UEMURA-NES",
+      "personSlug": "masayuki-uemura",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ingeniería y dirección de hardware",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Masayuki Uemura se relaciona con Famicom / Nintendo Entertainment System mediante ingeniería y dirección de hardware. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MASAYUKI-UEMURA-SNES",
+      "personSlug": "masayuki-uemura",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ingeniería y dirección de hardware",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Masayuki Uemura se relaciona con Super Famicom / Super Nintendo mediante ingeniería y dirección de hardware. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GENYO-TAKEDA-GAMEANDWATCH",
+      "personSlug": "genyo-takeda",
+      "targetType": "platform",
+      "targetSlug": "gameandwatch",
+      "targetName": "Nintendo Arcade y Game & Watch",
+      "platformSlug": "gameandwatch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección tecnológica",
+      "period": "Etapa Nintendo Arcade y Game & Watch",
+      "summaryEs": "Genyo Takeda se relaciona con Nintendo Arcade y Game & Watch mediante dirección tecnológica. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GENYO-TAKEDA-N64",
+      "personSlug": "genyo-takeda",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección tecnológica",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Genyo Takeda se relaciona con Nintendo 64 / 64DD mediante dirección tecnológica. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GENYO-TAKEDA-GAMECUBE",
+      "personSlug": "genyo-takeda",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección tecnológica",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Genyo Takeda se relaciona con Nintendo GameCube mediante dirección tecnológica. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GENYO-TAKEDA-WII",
+      "personSlug": "genyo-takeda",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección tecnológica",
+      "period": "Etapa Wii",
+      "summaryEs": "Genyo Takeda se relaciona con Wii mediante dirección tecnológica. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GENYO-TAKEDA-WIIU",
+      "personSlug": "genyo-takeda",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección tecnológica",
+      "period": "Etapa Wii U",
+      "summaryEs": "Genyo Takeda se relaciona con Wii U mediante dirección tecnológica. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-TAKASHI-TEZUKA-NES",
+      "personSlug": "takashi-tezuka",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseñador y productor",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Takashi Tezuka se relaciona con Famicom / Nintendo Entertainment System mediante diseñador y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-TAKASHI-TEZUKA-SNES",
+      "personSlug": "takashi-tezuka",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseñador y productor",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Takashi Tezuka se relaciona con Super Famicom / Super Nintendo mediante diseñador y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-TAKASHI-TEZUKA-N64",
+      "personSlug": "takashi-tezuka",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseñador y productor",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Takashi Tezuka se relaciona con Nintendo 64 / 64DD mediante diseñador y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-TAKASHI-TEZUKA-GAMECUBE",
+      "personSlug": "takashi-tezuka",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseñador y productor",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Takashi Tezuka se relaciona con Nintendo GameCube mediante diseñador y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KOJI-KONDO-NES",
+      "personSlug": "koji-kondo",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Compositor",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Koji Kondo se relaciona con Famicom / Nintendo Entertainment System mediante compositor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KOJI-KONDO-SNES",
+      "personSlug": "koji-kondo",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Compositor",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Koji Kondo se relaciona con Super Famicom / Super Nintendo mediante compositor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KOJI-KONDO-N64",
+      "personSlug": "koji-kondo",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Compositor",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Koji Kondo se relaciona con Nintendo 64 / 64DD mediante compositor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIO-SAKAMOTO-NES",
+      "personSlug": "yoshio-sakamoto",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección y producción creativa",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Yoshio Sakamoto se relaciona con Famicom / Nintendo Entertainment System mediante dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIO-SAKAMOTO-SNES",
+      "personSlug": "yoshio-sakamoto",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección y producción creativa",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Yoshio Sakamoto se relaciona con Super Famicom / Super Nintendo mediante dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIO-SAKAMOTO-GBA",
+      "personSlug": "yoshio-sakamoto",
+      "targetType": "platform",
+      "targetSlug": "gba",
+      "targetName": "Game Boy Advance / SP / Micro",
+      "platformSlug": "gba",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección y producción creativa",
+      "period": "Etapa Game Boy Advance / SP / Micro",
+      "summaryEs": "Yoshio Sakamoto se relaciona con Game Boy Advance / SP / Micro mediante dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIO-SAKAMOTO-DS",
+      "personSlug": "yoshio-sakamoto",
+      "targetType": "platform",
+      "targetSlug": "ds",
+      "targetName": "Nintendo DS / DSi",
+      "platformSlug": "ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Dirección y producción creativa",
+      "period": "Etapa Nintendo DS / DSi",
+      "summaryEs": "Yoshio Sakamoto se relaciona con Nintendo DS / DSi mediante dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-EIJI-AONUMA-N64",
+      "personSlug": "eiji-aonuma",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y productor",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Eiji Aonuma se relaciona con Nintendo 64 / 64DD mediante director y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-EIJI-AONUMA-GAMECUBE",
+      "personSlug": "eiji-aonuma",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y productor",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Eiji Aonuma se relaciona con Nintendo GameCube mediante director y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-EIJI-AONUMA-3DS",
+      "personSlug": "eiji-aonuma",
+      "targetType": "platform",
+      "targetSlug": "3ds",
+      "targetName": "Nintendo 3DS / 2DS / New 3DS",
+      "platformSlug": "3ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y productor",
+      "period": "Etapa Nintendo 3DS / 2DS / New 3DS",
+      "summaryEs": "Eiji Aonuma se relaciona con Nintendo 3DS / 2DS / New 3DS mediante director y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIAKI-KOIZUMI-N64",
+      "personSlug": "yoshiaki-koizumi",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Yoshiaki Koizumi se relaciona con Nintendo 64 / 64DD mediante senior executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIAKI-KOIZUMI-GAMECUBE",
+      "personSlug": "yoshiaki-koizumi",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Yoshiaki Koizumi se relaciona con Nintendo GameCube mediante senior executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIAKI-KOIZUMI-WII",
+      "personSlug": "yoshiaki-koizumi",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer",
+      "period": "Etapa Wii",
+      "summaryEs": "Yoshiaki Koizumi se relaciona con Wii mediante senior executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIAKI-KOIZUMI-WIIU",
+      "personSlug": "yoshiaki-koizumi",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer",
+      "period": "Etapa Wii U",
+      "summaryEs": "Yoshiaki Koizumi se relaciona con Wii U mediante senior executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIAKI-KOIZUMI-SWITCH",
+      "personSlug": "yoshiaki-koizumi",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Yoshiaki Koizumi se relaciona con Nintendo Switch mediante senior executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-YOSHIAKI-KOIZUMI-SWITCH2",
+      "personSlug": "yoshiaki-koizumi",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Yoshiaki Koizumi se relaciona con Nintendo Switch 2 mediante senior executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIDEKI-KONNO-N64",
+      "personSlug": "hideki-konno",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y productor",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Hideki Konno se relaciona con Nintendo 64 / 64DD mediante director y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIDEKI-KONNO-GAMECUBE",
+      "personSlug": "hideki-konno",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y productor",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Hideki Konno se relaciona con Nintendo GameCube mediante director y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIDEKI-KONNO-DS",
+      "personSlug": "hideki-konno",
+      "targetType": "platform",
+      "targetSlug": "ds",
+      "targetName": "Nintendo DS / DSi",
+      "platformSlug": "ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y productor",
+      "period": "Etapa Nintendo DS / DSi",
+      "summaryEs": "Hideki Konno se relaciona con Nintendo DS / DSi mediante director y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIDEKI-KONNO-WII",
+      "personSlug": "hideki-konno",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y productor",
+      "period": "Etapa Wii",
+      "summaryEs": "Hideki Konno se relaciona con Wii mediante director y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HIDEKI-KONNO-3DS",
+      "personSlug": "hideki-konno",
+      "targetType": "platform",
+      "targetSlug": "3ds",
+      "targetName": "Nintendo 3DS / 2DS / New 3DS",
+      "platformSlug": "3ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y productor",
+      "period": "Etapa Nintendo 3DS / 2DS / New 3DS",
+      "summaryEs": "Hideki Konno se relaciona con Nintendo 3DS / 2DS / New 3DS mediante director y productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KATSUYA-EGUCHI-GAMECUBE",
+      "personSlug": "katsuya-eguchi",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Productor",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Katsuya Eguchi se relaciona con Nintendo GameCube mediante productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KATSUYA-EGUCHI-DS",
+      "personSlug": "katsuya-eguchi",
+      "targetType": "platform",
+      "targetSlug": "ds",
+      "targetName": "Nintendo DS / DSi",
+      "platformSlug": "ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Productor",
+      "period": "Etapa Nintendo DS / DSi",
+      "summaryEs": "Katsuya Eguchi se relaciona con Nintendo DS / DSi mediante productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KATSUYA-EGUCHI-WII",
+      "personSlug": "katsuya-eguchi",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Productor",
+      "period": "Etapa Wii",
+      "summaryEs": "Katsuya Eguchi se relaciona con Wii mediante productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KATSUYA-EGUCHI-WIIU",
+      "personSlug": "katsuya-eguchi",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Productor",
+      "period": "Etapa Wii U",
+      "summaryEs": "Katsuya Eguchi se relaciona con Wii U mediante productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KENSUKE-TANABE-GAMECUBE",
+      "personSlug": "kensuke-tanabe",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Productor de desarrollo externo",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Kensuke Tanabe se relaciona con Nintendo GameCube mediante productor de desarrollo externo. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHINYA-TAKAHASHI-GAMECUBE",
+      "personSlug": "shinya-takahashi",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Managing Executive Officer",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Shinya Takahashi se relaciona con Nintendo GameCube mediante senior managing executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHINYA-TAKAHASHI-WIIU",
+      "personSlug": "shinya-takahashi",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Managing Executive Officer",
+      "period": "Etapa Wii U",
+      "summaryEs": "Shinya Takahashi se relaciona con Wii U mediante senior managing executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHINYA-TAKAHASHI-SWITCH",
+      "personSlug": "shinya-takahashi",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Managing Executive Officer",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Shinya Takahashi se relaciona con Nintendo Switch mediante senior managing executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHINYA-TAKAHASHI-SWITCH2",
+      "personSlug": "shinya-takahashi",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Managing Executive Officer",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Shinya Takahashi se relaciona con Nintendo Switch 2 mediante senior managing executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KO-SHIOTA-DS",
+      "personSlug": "ko-shiota",
+      "targetType": "platform",
+      "targetSlug": "ds",
+      "targetName": "Nintendo DS / DSi",
+      "platformSlug": "ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer y liderazgo tecnológico",
+      "period": "Etapa Nintendo DS / DSi",
+      "summaryEs": "Ko Shiota se relaciona con Nintendo DS / DSi mediante senior executive officer y liderazgo tecnológico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KO-SHIOTA-WII",
+      "personSlug": "ko-shiota",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer y liderazgo tecnológico",
+      "period": "Etapa Wii",
+      "summaryEs": "Ko Shiota se relaciona con Wii mediante senior executive officer y liderazgo tecnológico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KO-SHIOTA-3DS",
+      "personSlug": "ko-shiota",
+      "targetType": "platform",
+      "targetSlug": "3ds",
+      "targetName": "Nintendo 3DS / 2DS / New 3DS",
+      "platformSlug": "3ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer y liderazgo tecnológico",
+      "period": "Etapa Nintendo 3DS / 2DS / New 3DS",
+      "summaryEs": "Ko Shiota se relaciona con Nintendo 3DS / 2DS / New 3DS mediante senior executive officer y liderazgo tecnológico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KO-SHIOTA-SWITCH",
+      "personSlug": "ko-shiota",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer y liderazgo tecnológico",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Ko Shiota se relaciona con Nintendo Switch mediante senior executive officer y liderazgo tecnológico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KO-SHIOTA-SWITCH2",
+      "personSlug": "ko-shiota",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Senior Executive Officer y liderazgo tecnológico",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Ko Shiota se relaciona con Nintendo Switch 2 mediante senior executive officer y liderazgo tecnológico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-SHIBATA-WII",
+      "personSlug": "satoru-shibata",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Managing Executive Officer",
+      "period": "Etapa Wii",
+      "summaryEs": "Satoru Shibata se relaciona con Wii mediante managing executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-SHIBATA-3DS",
+      "personSlug": "satoru-shibata",
+      "targetType": "platform",
+      "targetSlug": "3ds",
+      "targetName": "Nintendo 3DS / 2DS / New 3DS",
+      "platformSlug": "3ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Managing Executive Officer",
+      "period": "Etapa Nintendo 3DS / 2DS / New 3DS",
+      "summaryEs": "Satoru Shibata se relaciona con Nintendo 3DS / 2DS / New 3DS mediante managing executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-SHIBATA-SWITCH",
+      "personSlug": "satoru-shibata",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Managing Executive Officer",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Satoru Shibata se relaciona con Nintendo Switch mediante managing executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-SHIBATA-SWITCH2",
+      "personSlug": "satoru-shibata",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Managing Executive Officer",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Satoru Shibata se relaciona con Nintendo Switch 2 mediante managing executive officer. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-DOUG-BOWSER-SWITCH",
+      "personSlug": "doug-bowser",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Doug Bowser se relaciona con Nintendo Switch mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-DOUG-BOWSER-SWITCH2",
+      "personSlug": "doug-bowser",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Doug Bowser se relaciona con Nintendo Switch 2 mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-REGGIE-FILS-AIME-DS",
+      "personSlug": "reggie-fils-aime",
+      "targetType": "platform",
+      "targetSlug": "ds",
+      "targetName": "Nintendo DS / DSi",
+      "platformSlug": "ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo DS / DSi",
+      "summaryEs": "Reggie Fils-Aimé se relaciona con Nintendo DS / DSi mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-REGGIE-FILS-AIME-WII",
+      "personSlug": "reggie-fils-aime",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Wii",
+      "summaryEs": "Reggie Fils-Aimé se relaciona con Wii mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-REGGIE-FILS-AIME-3DS",
+      "personSlug": "reggie-fils-aime",
+      "targetType": "platform",
+      "targetSlug": "3ds",
+      "targetName": "Nintendo 3DS / 2DS / New 3DS",
+      "platformSlug": "3ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo 3DS / 2DS / New 3DS",
+      "summaryEs": "Reggie Fils-Aimé se relaciona con Nintendo 3DS / 2DS / New 3DS mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-REGGIE-FILS-AIME-WIIU",
+      "personSlug": "reggie-fils-aime",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Wii U",
+      "summaryEs": "Reggie Fils-Aimé se relaciona con Wii U mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-REGGIE-FILS-AIME-SWITCH",
+      "personSlug": "reggie-fils-aime",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Presidente",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Reggie Fils-Aimé se relaciona con Nintendo Switch mediante presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MINORU-ARAKAWA-NES",
+      "personSlug": "minoru-arakawa",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Fundador y presidente",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Minoru Arakawa se relaciona con Famicom / Nintendo Entertainment System mediante fundador y presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MINORU-ARAKAWA-GAMEBOY",
+      "personSlug": "minoru-arakawa",
+      "targetType": "platform",
+      "targetSlug": "gameboy",
+      "targetName": "Game Boy / Game Boy Color",
+      "platformSlug": "gameboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Fundador y presidente",
+      "period": "Etapa Game Boy / Game Boy Color",
+      "summaryEs": "Minoru Arakawa se relaciona con Game Boy / Game Boy Color mediante fundador y presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MINORU-ARAKAWA-SNES",
+      "personSlug": "minoru-arakawa",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Fundador y presidente",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Minoru Arakawa se relaciona con Super Famicom / Super Nintendo mediante fundador y presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MINORU-ARAKAWA-N64",
+      "personSlug": "minoru-arakawa",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Fundador y presidente",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Minoru Arakawa se relaciona con Nintendo 64 / 64DD mediante fundador y presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MINORU-ARAKAWA-GAMECUBE",
+      "personSlug": "minoru-arakawa",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Fundador y presidente",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Minoru Arakawa se relaciona con Nintendo GameCube mediante fundador y presidente. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HOWARD-LINCOLN-NES",
+      "personSlug": "howard-lincoln",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ejecutivo y responsable jurídico",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Howard Lincoln se relaciona con Famicom / Nintendo Entertainment System mediante ejecutivo y responsable jurídico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HOWARD-LINCOLN-GAMEBOY",
+      "personSlug": "howard-lincoln",
+      "targetType": "platform",
+      "targetSlug": "gameboy",
+      "targetName": "Game Boy / Game Boy Color",
+      "platformSlug": "gameboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ejecutivo y responsable jurídico",
+      "period": "Etapa Game Boy / Game Boy Color",
+      "summaryEs": "Howard Lincoln se relaciona con Game Boy / Game Boy Color mediante ejecutivo y responsable jurídico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HOWARD-LINCOLN-SNES",
+      "personSlug": "howard-lincoln",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ejecutivo y responsable jurídico",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Howard Lincoln se relaciona con Super Famicom / Super Nintendo mediante ejecutivo y responsable jurídico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HOWARD-LINCOLN-N64",
+      "personSlug": "howard-lincoln",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ejecutivo y responsable jurídico",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Howard Lincoln se relaciona con Nintendo 64 / 64DD mediante ejecutivo y responsable jurídico. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-OKADA-GAMEANDWATCH",
+      "personSlug": "satoru-okada",
+      "targetType": "platform",
+      "targetSlug": "gameandwatch",
+      "targetName": "Nintendo Arcade y Game & Watch",
+      "platformSlug": "gameandwatch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ingeniería y diseño de hardware",
+      "period": "Etapa Nintendo Arcade y Game & Watch",
+      "summaryEs": "Satoru Okada se relaciona con Nintendo Arcade y Game & Watch mediante ingeniería y diseño de hardware. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-OKADA-GAMEBOY",
+      "personSlug": "satoru-okada",
+      "targetType": "platform",
+      "targetSlug": "gameboy",
+      "targetName": "Game Boy / Game Boy Color",
+      "platformSlug": "gameboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ingeniería y diseño de hardware",
+      "period": "Etapa Game Boy / Game Boy Color",
+      "summaryEs": "Satoru Okada se relaciona con Game Boy / Game Boy Color mediante ingeniería y diseño de hardware. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-OKADA-VIRTUALBOY",
+      "personSlug": "satoru-okada",
+      "targetType": "platform",
+      "targetSlug": "virtualboy",
+      "targetName": "Virtual Boy",
+      "platformSlug": "virtualboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ingeniería y diseño de hardware",
+      "period": "Etapa Virtual Boy",
+      "summaryEs": "Satoru Okada se relaciona con Virtual Boy mediante ingeniería y diseño de hardware. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-OKADA-GBA",
+      "personSlug": "satoru-okada",
+      "targetType": "platform",
+      "targetSlug": "gba",
+      "targetName": "Game Boy Advance / SP / Micro",
+      "platformSlug": "gba",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Ingeniería y diseño de hardware",
+      "period": "Etapa Game Boy Advance / SP / Micro",
+      "summaryEs": "Satoru Okada se relaciona con Game Boy Advance / SP / Micro mediante ingeniería y diseño de hardware. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KOUICHI-KAWAMOTO-SWITCH",
+      "personSlug": "kouichi-kawamoto",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director general de Switch y productor de Switch 2",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Kouichi Kawamoto se relaciona con Nintendo Switch mediante director general de switch y productor de switch 2. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KOUICHI-KAWAMOTO-SWITCH2",
+      "personSlug": "kouichi-kawamoto",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director general de Switch y productor de Switch 2",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Kouichi Kawamoto se relaciona con Nintendo Switch 2 mediante director general de switch y productor de switch 2. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHREL-NIN-TAKUHIRO-DOHTA-SWITCH2",
+      "personSlug": "takuhiro-dohta",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director de Nintendo Switch 2",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Takuhiro Dohta se relaciona con Nintendo Switch 2 mediante director de nintendo switch 2. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHREL-NIN-TETSUYA-SASAKI-SWITCH",
+      "personSlug": "tetsuya-sasaki",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director técnico de Nintendo Switch 2",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Tetsuya Sasaki se relaciona con Nintendo Switch mediante director técnico de nintendo switch 2. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-TETSUYA-SASAKI-SWITCH2",
+      "personSlug": "tetsuya-sasaki",
+      "targetType": "platform",
+      "targetSlug": "switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director técnico de Nintendo Switch 2",
+      "period": "Etapa Nintendo Switch 2",
+      "summaryEs": "Tetsuya Sasaki se relaciona con Nintendo Switch 2 mediante director técnico de nintendo switch 2. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHREL-NIN-MASAHIRO-SAKURAI-N64",
+      "personSlug": "masahiro-sakurai",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y diseñador",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Masahiro Sakurai se relaciona con Nintendo 64 / 64DD mediante director y diseñador. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MASAHIRO-SAKURAI-GAMECUBE",
+      "personSlug": "masahiro-sakurai",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y diseñador",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Masahiro Sakurai se relaciona con Nintendo GameCube mediante director y diseñador. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-MASAHIRO-SAKURAI-3DS",
+      "personSlug": "masahiro-sakurai",
+      "targetType": "platform",
+      "targetSlug": "3ds",
+      "targetName": "Nintendo 3DS / 2DS / New 3DS",
+      "platformSlug": "3ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Director y diseñador",
+      "period": "Etapa Nintendo 3DS / 2DS / New 3DS",
+      "summaryEs": "Masahiro Sakurai se relaciona con Nintendo 3DS / 2DS / New 3DS mediante director y diseñador. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-RYUTA-KAWASHIMA-DS",
+      "personSlug": "ryuta-kawashima",
+      "targetType": "platform",
+      "targetSlug": "ds",
+      "targetName": "Nintendo DS / DSi",
+      "platformSlug": "ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Colaborador externo de Brain Age",
+      "period": "Etapa Nintendo DS / DSi",
+      "summaryEs": "Ryuta Kawashima se relaciona con Nintendo DS / DSi mediante colaborador externo de brain age. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HISASHI-NOGAMI-WIIU",
+      "personSlug": "hisashi-nogami",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Productor",
+      "period": "Etapa Wii U",
+      "summaryEs": "Hisashi Nogami se relaciona con Wii U mediante productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-HISASHI-NOGAMI-SWITCH",
+      "personSlug": "hisashi-nogami",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Productor",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Hisashi Nogami se relaciona con Nintendo Switch mediante productor. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGESATO-ITOI-NES",
+      "personSlug": "shigesato-itoi",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Creador colaborador externo",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Shigesato Itoi se relaciona con Famicom / Nintendo Entertainment System mediante creador colaborador externo. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGESATO-ITOI-SNES",
+      "personSlug": "shigesato-itoi",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Creador colaborador externo",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Shigesato Itoi se relaciona con Super Famicom / Super Nintendo mediante creador colaborador externo. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-DYLAN-CUTHBERT-SNES",
+      "personSlug": "dylan-cuthbert",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programador",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Dylan Cuthbert se relaciona con Super Famicom / Super Nintendo mediante programador. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-DYLAN-CUTHBERT-N64",
+      "personSlug": "dylan-cuthbert",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programador",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Dylan Cuthbert se relaciona con Nintendo 64 / 64DD mediante programador. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GUNPEI-YOKOI-GAMEANDWATCH",
+      "personSlug": "gunpei-yokoi",
+      "targetType": "platform",
+      "targetSlug": "gameandwatch",
+      "targetName": "Nintendo Arcade y Game & Watch",
+      "platformSlug": "gameandwatch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, producción y filosofía portátil",
+      "period": "Etapa Nintendo Arcade y Game & Watch",
+      "summaryEs": "Gunpei Yokoi se relaciona con Nintendo Arcade y Game & Watch mediante diseño, producción y filosofía portátil. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GUNPEI-YOKOI-NES",
+      "personSlug": "gunpei-yokoi",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, producción y filosofía portátil",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Gunpei Yokoi se relaciona con Famicom / Nintendo Entertainment System mediante diseño, producción y filosofía portátil. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GUNPEI-YOKOI-GAMEBOY",
+      "personSlug": "gunpei-yokoi",
+      "targetType": "platform",
+      "targetSlug": "gameboy",
+      "targetName": "Game Boy / Game Boy Color",
+      "platformSlug": "gameboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, producción y filosofía portátil",
+      "period": "Etapa Game Boy / Game Boy Color",
+      "summaryEs": "Gunpei Yokoi se relaciona con Game Boy / Game Boy Color mediante diseño, producción y filosofía portátil. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GUNPEI-YOKOI-SNES",
+      "personSlug": "gunpei-yokoi",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, producción y filosofía portátil",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Gunpei Yokoi se relaciona con Super Famicom / Super Nintendo mediante diseño, producción y filosofía portátil. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-GUNPEI-YOKOI-VIRTUALBOY",
+      "personSlug": "gunpei-yokoi",
+      "targetType": "platform",
+      "targetSlug": "virtualboy",
+      "targetName": "Virtual Boy",
+      "platformSlug": "virtualboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, producción y filosofía portátil",
+      "period": "Etapa Virtual Boy",
+      "summaryEs": "Gunpei Yokoi se relaciona con Virtual Boy mediante diseño, producción y filosofía portátil. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-IWATA-N64",
+      "personSlug": "satoru-iwata",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programación, presidencia y estrategia",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Satoru Iwata se relaciona con Nintendo 64 / 64DD mediante programación, presidencia y estrategia. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-IWATA-GBA",
+      "personSlug": "satoru-iwata",
+      "targetType": "platform",
+      "targetSlug": "gba",
+      "targetName": "Game Boy Advance / SP / Micro",
+      "platformSlug": "gba",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programación, presidencia y estrategia",
+      "period": "Etapa Game Boy Advance / SP / Micro",
+      "summaryEs": "Satoru Iwata se relaciona con Game Boy Advance / SP / Micro mediante programación, presidencia y estrategia. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-IWATA-GAMECUBE",
+      "personSlug": "satoru-iwata",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programación, presidencia y estrategia",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Satoru Iwata se relaciona con Nintendo GameCube mediante programación, presidencia y estrategia. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-IWATA-DS",
+      "personSlug": "satoru-iwata",
+      "targetType": "platform",
+      "targetSlug": "ds",
+      "targetName": "Nintendo DS / DSi",
+      "platformSlug": "ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programación, presidencia y estrategia",
+      "period": "Etapa Nintendo DS / DSi",
+      "summaryEs": "Satoru Iwata se relaciona con Nintendo DS / DSi mediante programación, presidencia y estrategia. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-IWATA-WII",
+      "personSlug": "satoru-iwata",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programación, presidencia y estrategia",
+      "period": "Etapa Wii",
+      "summaryEs": "Satoru Iwata se relaciona con Wii mediante programación, presidencia y estrategia. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-IWATA-3DS",
+      "personSlug": "satoru-iwata",
+      "targetType": "platform",
+      "targetSlug": "3ds",
+      "targetName": "Nintendo 3DS / 2DS / New 3DS",
+      "platformSlug": "3ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programación, presidencia y estrategia",
+      "period": "Etapa Nintendo 3DS / 2DS / New 3DS",
+      "summaryEs": "Satoru Iwata se relaciona con Nintendo 3DS / 2DS / New 3DS mediante programación, presidencia y estrategia. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-IWATA-WIIU",
+      "personSlug": "satoru-iwata",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programación, presidencia y estrategia",
+      "period": "Etapa Wii U",
+      "summaryEs": "Satoru Iwata se relaciona con Wii U mediante programación, presidencia y estrategia. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATORU-IWATA-SWITCH",
+      "personSlug": "satoru-iwata",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Programación, presidencia y estrategia",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Satoru Iwata se relaciona con Nintendo Switch mediante programación, presidencia y estrategia. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-GAMEANDWATCH",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "gameandwatch",
+      "targetName": "Nintendo Arcade y Game & Watch",
+      "platformSlug": "gameandwatch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Nintendo Arcade y Game & Watch",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Nintendo Arcade y Game & Watch mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-NES",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "nes",
+      "targetName": "Famicom / Nintendo Entertainment System",
+      "platformSlug": "nes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Famicom / Nintendo Entertainment System",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Famicom / Nintendo Entertainment System mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-SNES",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "snes",
+      "targetName": "Super Famicom / Super Nintendo",
+      "platformSlug": "snes",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Super Famicom / Super Nintendo",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Super Famicom / Super Nintendo mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-N64",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "n64",
+      "targetName": "Nintendo 64 / 64DD",
+      "platformSlug": "n64",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Nintendo 64 / 64DD",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Nintendo 64 / 64DD mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-GAMECUBE",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "gamecube",
+      "targetName": "Nintendo GameCube",
+      "platformSlug": "gamecube",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Nintendo GameCube",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Nintendo GameCube mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-DS",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "ds",
+      "targetName": "Nintendo DS / DSi",
+      "platformSlug": "ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Nintendo DS / DSi",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Nintendo DS / DSi mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-WII",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "wii",
+      "targetName": "Wii",
+      "platformSlug": "wii",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Wii",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Wii mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-3DS",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "3ds",
+      "targetName": "Nintendo 3DS / 2DS / New 3DS",
+      "platformSlug": "3ds",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Nintendo 3DS / 2DS / New 3DS",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Nintendo 3DS / 2DS / New 3DS mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-WIIU",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "wiiu",
+      "targetName": "Wii U",
+      "platformSlug": "wiiu",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Wii U",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Wii U mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SHIGERU-MIYAMOTO-SWITCH",
+      "personSlug": "shigeru-miyamoto",
+      "targetType": "platform",
+      "targetSlug": "switch",
+      "targetName": "Nintendo Switch",
+      "platformSlug": "switch",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Diseño, dirección y producción creativa",
+      "period": "Etapa Nintendo Switch",
+      "summaryEs": "Shigeru Miyamoto se relaciona con Nintendo Switch mediante diseño, dirección y producción creativa. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-SATOSHI-TAJIRI-GAMEBOY",
+      "personSlug": "satoshi-tajiri",
+      "targetType": "platform",
+      "targetSlug": "gameboy",
+      "targetName": "Game Boy / Game Boy Color",
+      "platformSlug": "gameboy",
+      "relationshipType": "DOCUMENTED_PLATFORM_RELATION",
+      "relationshipLabelEs": "Creación de Pokémon desde Game Freak",
+      "period": "Etapa Game Boy / Game Boy Color",
+      "summaryEs": "Satoshi Tajiri se relaciona con Game Boy / Game Boy Color mediante creación de pokémon desde game freak. La relación no amplía por sí sola sus créditos a todo el catálogo.",
+      "confidence": "HIGH",
+      "sourceId": "PH-NIN-PEOPLE-DOSSIER"
+    },
+    {
+      "id": "PHREL-NIN-KAWAMOTO-JOYCON2",
+      "personSlug": "kouichi-kawamoto",
+      "targetType": "hardware",
+      "targetSlug": "hardware-joycon2",
+      "targetName": "Joy-Con 2",
+      "platformSlug": "switch2",
+      "relationshipType": "PLATFORM_PRODUCTION",
+      "relationshipLabelEs": "Producción de plataforma y control",
+      "period": "Desarrollo de Nintendo Switch 2",
+      "summaryEs": "Su función de productor conecta las decisiones de sistema con Joy-Con 2 sin atribuir la invención del control tipo ratón a una sola persona.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHREL-NIN-DOHTA-SWITCH2-HARDWARE",
+      "personSlug": "takuhiro-dohta",
+      "targetType": "hardware",
+      "targetSlug": "hardware-switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "PLATFORM_DIRECTION",
+      "relationshipLabelEs": "Dirección desde la perspectiva de software",
+      "period": "Desde alrededor de 2019",
+      "summaryEs": "Como director, aportó requisitos y experiencia de desarrollo de software al diseño del sistema.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    },
+    {
+      "id": "PHREL-NIN-SASAKI-SWITCH2-HARDWARE",
+      "personSlug": "tetsuya-sasaki",
+      "targetType": "hardware",
+      "targetSlug": "hardware-switch2",
+      "targetName": "Nintendo Switch 2",
+      "platformSlug": "switch2",
+      "relationshipType": "PLATFORM_TECHNICAL_DIRECTION",
+      "relationshipLabelEs": "Dirección técnica",
+      "period": "Desde alrededor de 2019",
+      "summaryEs": "Supervisa hardware, software de sistema y servicios de red de la plataforma.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PH-NIN-PEOPLE-SW2"
+    }
+  ],
+  "sources": [
+    {
+      "id": "PH-NIN-PEOPLE-DOSSIER",
+      "url": null,
+      "title": "Dossiers editoriales Region Atlas · Nintendo y sus plataformas",
+      "kind": "reference",
+      "reliability": "HIGH",
+      "language": "es",
+      "retrievedAt": "2026-09-15",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PH-NIN-PEOPLE-HISTORY",
+      "url": "https://www.nintendo.co.jp/corporate/en/history/index.html",
+      "title": "Nintendo Company History",
+      "kind": "official",
+      "reliability": "VERY_HIGH",
+      "language": "en",
+      "retrievedAt": "2026-09-15",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PH-NIN-PEOPLE-OFFICERS",
+      "url": "https://www.nintendo.co.jp/corporate/en/officer/index.html",
+      "title": "Directors and Executive Officers",
+      "kind": "official",
+      "reliability": "VERY_HIGH",
+      "language": "en",
+      "retrievedAt": "2026-09-15",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PH-NIN-PEOPLE-SW2",
+      "url": "https://www.nintendo.com/us/whatsnew/ask-the-developer-vol-16-nintendo-switch-2-part-1/",
+      "title": "Ask the Developer Vol. 16 · Nintendo Switch 2",
+      "kind": "interview",
+      "reliability": "VERY_HIGH",
+      "language": "en",
+      "retrievedAt": "2026-09-15",
+      "verifiedPrimary": true
+    }
+  ]
+}

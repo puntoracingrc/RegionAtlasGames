@@ -1,0 +1,114 @@
+{
+  "version":9,
+  "generatedAt":"2026-09-15T10:00:00.000Z",
+  "platforms":[
+    {
+      "platformSlug":"snes",
+      "title":"Super Famicom / Super Nintendo",
+      "lineage":{"branchLabelEs":"Línea doméstica","summaryEs":"Super Famicom y SNES son identidades regionales de la misma generación de 16 bits. Sus periféricos y chips auxiliares amplían el ecosistema sin crear generaciones nuevas.","links":[
+        {"platformSlug":"nes","platformName":"Famicom / Nintendo Entertainment System","relationship":"PREDECESSOR","summaryEs":"Continúa la línea doméstica iniciada con Famicom.","sourceIds":["PH-NIN-SNES-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"n64","platformName":"Nintendo 64","relationship":"SUCCESSOR","summaryEs":"La siguiente consola doméstica desplaza el foco hacia gráficos 3D y control analógico.","sourceIds":["PH-NIN-SNES-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"gameboy","platformName":"Game Boy / Game Boy Color","relationship":"PARALLEL_BRANCH","summaryEs":"Super Game Boy conecta la rama portátil con SNES mediante un periférico específico.","sourceIds":["PH-NIN-SNES-DOSSIER"]}
+      ]},
+      "dekEs":"La generación de 16 bits de Nintendo, marcada por Mode 7, chips auxiliares como Super FX, una biblioteca first y third party especialmente amplia y periféricos regionales como Satellaview y Super Game Boy.",
+      "summaryParagraphsEs":[
+        "Super Famicom se lanzó en Japón en 1990 y SNES llegó después a otros mercados. Nintendo registra 49,10 millones de consolas y 379,06 millones de juegos para la familia.",
+        "Mode 7 aplica transformaciones afines a fondos para crear rotación y escala; no es renderizado poligonal 3D. F-Zero, Pilotwings y Super Mario Kart muestran usos distintos de la técnica.",
+        "Super FX fue un coprocesador desarrollado con Argonaut Software para ampliar capacidades de cartuchos concretos. Star Fox es el ejemplo central, sin convertir a Argonaut en un estudio propiedad de Nintendo.",
+        "Satellaview fue un periférico y servicio japonés por satélite; Super Game Boy ejecutó cartuchos Game Boy a través de SNES. Ninguno debe publicarse como consola global independiente."
+      ],
+      "historyTitleEs":"16 bits, chips dentro del cartucho y socios externos",
+      "historyParagraphsEs":[
+        "Masayuki Uemura representa la continuidad de R&D2 desde Famicom. Los equipos creativos de Miyamoto, Tezuka, Kondo, Sakamoto y Yokoi trabajaron en obras distintas sin reducir la generación a una sola figura.",
+        "Los chips auxiliares permitieron que determinados cartuchos ampliaran el hardware base. Super FX se documenta como colaboración con Argonaut, mientras otros juegos usaron soluciones propias y no equivalentes.",
+        "Rare desarrolló Donkey Kong Country mediante gráficos pre-renderizados y siguió siendo una empresa independiente durante la etapa SNES. Su adquisición posterior por Microsoft no cambia retrospectivamente esa relación.",
+        "Square, Enix, Capcom, Konami y otros third parties construyeron una parte decisiva de la biblioteca; sus obras no pasan a ser first party por publicarse en la plataforma."
+      ],
+      "architectureTitleEs":"Mode 7, Super FX y soporte físico",
+      "architectureDekEs":"Funciones del sistema base y ampliaciones contenidas en cartuchos o periféricos.",
+      "figures":[
+        {"personSlug":"masayuki-uemura","personName":"Masayuki Uemura","roleLabelEs":"Diseño de hardware","contributionEs":"Lideró la continuidad doméstica de R&D2 desde Famicom hasta Super Famicom.","period":"Desarrollo de 16 bits","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Diseño y producción","contributionEs":"Figura creativa en Super Mario World, Zelda y otras obras first party.","period":"Etapa SNES","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"personSlug":"takashi-tezuka","personName":"Takashi Tezuka","roleLabelEs":"Diseño y dirección","contributionEs":"Continuidad creativa de Mario y Zelda durante la generación.","period":"Etapa SNES","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"personSlug":"koji-kondo","personName":"Koji Kondo","roleLabelEs":"Composición","contributionEs":"Continuó desarrollando la identidad musical de Mario y Zelda.","period":"Etapa SNES","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"personSlug":"yoshio-sakamoto","personName":"Yoshio Sakamoto","roleLabelEs":"Dirección y producción","contributionEs":"Figura creativa de R&D1 asociada a Super Metroid.","period":"1994","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"personSlug":"gunpei-yokoi","personName":"Gunpei Yokoi","roleLabelEs":"Producción y R&D1","contributionEs":"Contribuyó desde R&D1 sin apropiarse de la autoría colectiva de Super Metroid.","period":"Etapa SNES","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"personSlug":"shigesato-itoi","personName":"Shigesato Itoi","roleLabelEs":"Creación y escritura","contributionEs":"Figura creativa central de Mother 2 / EarthBound.","period":"1994-1995","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"personSlug":"dylan-cuthbert","personName":"Dylan Cuthbert","roleLabelEs":"Programación y tecnología","contributionEs":"Conecta Argonaut, Super FX y Star Fox dentro de una colaboración externa.","period":"Etapa Star Fox","sourceIds":["PH-NIN-SNES-DOSSIER"]}
+      ],
+      "architecture":[
+        {"id":"architecture-snes-mode7","name":"Mode 7","kind":"GRAPHICS","summaryEs":"Modo gráfico para transformar un fondo mediante escala y rotación afines; no genera geometría poligonal 3D por sí mismo.","features":["Rotación y escala de fondos","F-Zero y Pilotwings","Super Mario Kart"],"partners":[{"companySlug":"nintendo-rd2","companyName":"Nintendo R&D2","roleLabelEs":"Arquitectura del sistema"}],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"architecture-snes-superfx","name":"Super FX","kind":"GRAPHICS","summaryEs":"Coprocesador integrado en cartuchos concretos y desarrollado con Argonaut Software.","features":["Aceleración por cartucho","Star Fox / Starwing","No modifica todas las consolas SNES"],"partners":[{"companySlug":"argonaut-software","companyName":"Argonaut Software","roleLabelEs":"Socio tecnológico"},{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Integración y publicación"}],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"architecture-snes-cartridge","name":"Cartuchos con hardware auxiliar","kind":"GAME_MEDIA","summaryEs":"El formato permitió incorporar chips adicionales según las necesidades de cada juego.","features":["Capacidades variables por cartucho","Super FX como caso documentado","No todos los juegos comparten ampliaciones"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma"}],"sourceIds":["PH-NIN-SNES-DOSSIER"]}
+      ],
+      "companiesTitleEs":"Nintendo, Argonaut, Rare y el gran catálogo third party",
+      "companies":[
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"Etapa 16 bits","relationshipStart":"1990","relationshipEnd":null,"contributionEs":"Desarrolló la plataforma y una parte central de su catálogo.","relatedWorks":["Super Famicom","Super Mario World","The Legend of Zelda: A Link to the Past"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-SNES-DOSSIER"]},
+        {"companySlug":"nintendo-rd2","companyName":"Nintendo R&D2","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Hardware interno","period":"Desarrollo de SNES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Equipo vinculado a la arquitectura doméstica de 16 bits.","relatedWorks":["Super Famicom","SNES"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Equipo interno","period":"Etapa SNES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Equipo relacionado con Super Metroid y la continuidad portátil.","relatedWorks":["Super Metroid"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"companySlug":"argonaut-software","companyName":"Argonaut Software","relationshipType":"HARDWARE_PARTNER","relationshipLabelEs":"Socio tecnológico externo","period":"Super FX","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Colaboró en Super FX y Star Fox; no fue propiedad de Nintendo.","relatedWorks":["Super FX","Star Fox / Starwing"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"companySlug":"rare","companyName":"Rare","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa SNES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló Donkey Kong Country con gráficos pre-renderizados; seguía siendo independiente.","relatedWorks":["Donkey Kong Country"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"companySlug":"square","companyName":"Square","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Third party","period":"Etapa SNES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó RPG fundamentales como Final Fantasy VI y Chrono Trigger.","relatedWorks":["Final Fantasy VI","Chrono Trigger"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"companySlug":"enix","companyName":"Enix","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa Super Famicom","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Publisher externo de RPG japoneses.","relatedWorks":["Dragon Quest"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa SNES","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Publisher externo clave en lucha, acción y otras categorías.","relatedWorks":["Street Fighter II","Mega Man X"],"sourceIds":["PH-NIN-SNES-DOSSIER"]}
+      ],
+      "companyGroups":[
+        {"id":"snes-first-party","labelEs":"Desarrollo Nintendo","descriptionEs":"Fabricante y equipos internos mantienen responsabilidades distintas.","companySlugs":["nintendo","nintendo-rd2","nintendo-rd1"]},
+        {"id":"snes-special-partners","labelEs":"Socios tecnológicos y creativos","descriptionEs":"Argonaut y Rare permanecen externos durante esta etapa.","companySlugs":["argonaut-software","rare"]},
+        {"id":"snes-third-parties","labelEs":"Third parties","descriptionEs":"Editoriales y desarrolladoras independientes de la biblioteca.","companySlugs":["square","enix","capcom"]}
+      ],
+      "genealogies":[],
+      "gamesTitleEs":"16 bits propios, colaboradores y third parties",
+      "gameGroups":[
+        {"id":"snes-nintendo-games","labelEs":"Nintendo","descriptionEs":"Obras internas que exploran plataforma, aventura, carreras y acción.","games":[
+          {"title":"Super Mario World","catalogId":null,"year":1990,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+          {"title":"The Legend of Zelda: A Link to the Past","catalogId":null,"year":1991,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+          {"title":"Super Metroid","catalogId":null,"year":1994,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo R&D1","companySlugs":["nintendo","nintendo-rd1"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+          {"title":"F-Zero","catalogId":null,"year":1990,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo · Mode 7","companySlugs":["nintendo"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+          {"title":"Super Mario Kart","catalogId":null,"year":1992,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo · Mode 7","companySlugs":["nintendo"],"sourceIds":["PH-NIN-SNES-DOSSIER"]}
+        ]},
+        {"id":"snes-partner-games","labelEs":"Socios y third parties","descriptionEs":"Colaboraciones y software externo sin propiedad de Nintendo.","games":[
+          {"title":"Star Fox / Starwing","catalogId":null,"year":1993,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Nintendo / Argonaut · Super FX","companySlugs":["nintendo","argonaut-software"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+          {"title":"Donkey Kong Country","catalogId":null,"year":1994,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Rare / Nintendo","companySlugs":["rare","nintendo"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+          {"title":"EarthBound","catalogId":null,"year":1994,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"APE / HAL / Nintendo","companySlugs":["hal-laboratory","nintendo"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+          {"title":"Final Fantasy VI","catalogId":null,"year":1994,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Square","companySlugs":["square"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+          {"title":"Street Fighter II","catalogId":null,"year":1992,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Capcom","companySlugs":["capcom"],"sourceIds":["PH-NIN-SNES-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs":"Modelos, expansión y periféricos",
+      "hardware":[
+        {"id":"hardware-super-famicom","name":"Super Famicom","kind":"BASE_MODEL","yearLabel":"21 nov 1990","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Modelo japonés original de la familia de 16 bits.","features":["Cartuchos regionales","Mode 7","Mandos desmontables"],"relatedWorks":[],"relatedPersonSlugs":["masayuki-uemura"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-SNES-DOSSIER"]},
+        {"id":"hardware-snes-international","name":"Super Nintendo Entertainment System","kind":"REGIONAL_MODEL","yearLabel":"1991-1992","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Identidad internacional del mismo sistema base, con carcasas y cartuchos regionales.","features":["Diseño norteamericano propio","Versión PAL europea","Misma generación"],"relatedWorks":[],"relatedPersonSlugs":["masayuki-uemura"],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"hardware-snes-jr","name":"New-Style SNES / Super Famicom Jr.","kind":"REDESIGN","yearLabel":"1997-1998","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Rediseño compacto de la etapa final con diferencias regionales.","features":["Carcasa compacta","Misma biblioteca regional","Conectividad simplificada"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"hardware-satellaview","name":"Satellaview","kind":"HARDWARE_EXPANSION","yearLabel":"1995","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Periférico japonés para recepción de contenido por satélite mediante BS-X.","features":["Sólo Japón","Emisiones programadas","Contenido descargable temporal"],"relatedWorks":["BS-X"],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"hardware-super-gameboy-snes","name":"Super Game Boy","kind":"PERIPHERAL","yearLabel":"1994","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Adaptador en cartucho para ejecutar juegos Game Boy mediante SNES.","features":["Requiere SNES","Compatibilidad Game Boy","Marcos y paletas compatibles"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"hardware-snes-controller","name":"Mando de Super Famicom / SNES","kind":"CONTROLLER","yearLabel":"1990","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Amplió el control de 8 bits con cuatro botones frontales y botones superiores.","features":["Pad direccional","Cuatro botones de acción","Botones L y R"],"relatedWorks":[],"relatedPersonSlugs":["masayuki-uemura"],"sourceIds":["PH-NIN-SNES-DOSSIER"]}
+      ],
+      "services":[
+        {"id":"service-satellaview","name":"Servicio Satellaview / BS-X","kind":"NETWORK_SERVICE","launchedLabel":"1995","endedLabel":"2000","statusLabelEs":"Servicio histórico finalizado","parentServiceId":null,"summaryEs":"Distribución japonesa de contenidos mediante emisiones por satélite y el periférico Satellaview.","features":["Sólo Japón","Horarios de emisión","Contenido efímero y descargable"],"sourceIds":["PH-NIN-SNES-DOSSIER"]}
+      ],
+      "editorialSections":[
+        {"id":"chips-y-perifericos","titleEs":"Ampliaciones sin nuevas generaciones","dekEs":"El hardware auxiliar vive en cartuchos o periféricos concretos.","paragraphsEs":["Super FX amplía juegos compatibles desde el propio cartucho; no actualiza todas las consolas. Satellaview y Super Game Boy requieren hardware adicional conectado a SNES.","Estas capas explican la amplitud del ecosistema sin multiplicar plataformas artificiales en el catálogo."],"cards":[],"sourceIds":["PH-NIN-SNES-DOSSIER"]}
+      ],
+      "sectionOrder":["lineage","figures","architecture","editorial:chips-y-perifericos","companies","games","hardware","services","control","milestones","legacy"],
+      "milestones":[
+        {"id":"milestone-super-famicom","yearLabel":"1990","sortYear":1990,"title":"Super Famicom","summaryEs":"Nintendo inicia su generación doméstica de 16 bits en Japón.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-snes-regions","yearLabel":"1991-1992","sortYear":1991,"title":"SNES internacional","summaryEs":"La plataforma llega a Norteamérica y Europa con diseños regionales.","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"milestone-superfx","yearLabel":"1993","sortYear":1993,"title":"Super FX y Star Fox","summaryEs":"Nintendo y Argonaut amplían capacidades desde el cartucho.","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"milestone-supergameboy-dkc","yearLabel":"1994","sortYear":1994,"title":"Super Game Boy y Donkey Kong Country","summaryEs":"La generación conecta la rama portátil y consolida una colaboración independiente con Rare.","sourceIds":["PH-NIN-SNES-DOSSIER"]},
+        {"id":"milestone-satellaview","yearLabel":"1995","sortYear":1995,"title":"Satellaview","summaryEs":"Nintendo prueba distribución de contenido por satélite en Japón.","sourceIds":["PH-NIN-SNES-DOSSIER"]}
+      ],
+      "legacyEs":[
+        "SNES consolidó una biblioteca donde software first party, colaboraciones y third parties conservaron papeles diferenciados.",
+        "Mode 7 y Super FX ilustran dos formas distintas de ampliar el lenguaje visual: una función base y un coprocesador por cartucho.",
+        "Satellaview y Super Game Boy anticiparon distribución conectada y puentes entre líneas de hardware sin convertirse en consolas independientes."
+      ],
+      "sources":[
+        {"id":"PH-NIN-SNES-DOSSIER","title":"Dossier editorial Region Atlas · Super Famicom / SNES","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Mode 7, Super FX, socios, periféricos y QA","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Super Famicom y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Super Famicom / SNES · 49,10 M hardware; 379,06 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed":"2026-09-15"
+    }
+  ]
+}
