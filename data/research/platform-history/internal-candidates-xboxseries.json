@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T23:30:00.000Z",
+  "peopleCandidates": [
+    {"personSlug":"roanne-sones","personName":"Roanne Sones","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"La relación con Gaming Devices and Ecosystem y ROG Xbox Ally está documentada, pero falta una biografía editorial suficientemente completa."},
+    {"personSlug":"pierre-hintze","personName":"Pierre Hintze","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"El liderazgo de Halo Studios está identificado, pero la ficha personal requiere más fuentes independientes de trayectoria."},
+    {"personSlug":"matthew-ball-xbox","personName":"Matthew Ball","status":"NOT_CENTRAL_ENOUGH","reasonEs":"Figura en el liderazgo actual, pero el dossier pide no inflar Personas con todos los ejecutivos corporativos."},
+    {"personSlug":"craig-cincotta","personName":"Craig Cincotta","status":"NOT_CENTRAL_ENOUGH","reasonEs":"El cargo actual se conserva como contexto interno y no justifica por sí solo una ficha histórica pública."},
+    {"personSlug":"xavier-pokorzynski","personName":"Xavier Pokorzynski","status":"NOT_CENTRAL_ENOUGH","reasonEs":"El cargo financiero no se convierte automáticamente en una figura editorial central de videojuegos."}
+  ],
+  "companyCandidates": [
+    {"companySlug":"arkane-lyon","companyName":"Arkane Lyon","status":"IDENTITY_REVIEW","reasonEs":"La ficha usa Arkane Studios como identidad pública hasta resolver si el catálogo necesita una entidad separada para Lyon."},
+    {"companySlug":"activision-blizzard-king","companyName":"Activision Blizzard King","status":"GROUP_IDENTITY_ONLY","reasonEs":"La genealogía conserva la identidad del grupo, pero las relaciones públicas se muestran mediante Activision, Blizzard y King por separado."}
+  ],
+  "creditCandidates": [
+    {"title":"Project Helix · créditos personales","status":"ANNOUNCED_HARDWARE","reasonEs":"No convertir responsabilidades de plataforma en créditos de producto cerrados antes del lanzamiento."},
+    {"title":"Gears of War: E-Day y Fable","status":"ANNOUNCED_GAMES","reasonEs":"Permanecen como juegos anunciados sin año de lanzamiento confirmado en esta ficha."}
+  ],
+  "mediaReferences": [
+    {"personSlug":"sarah-bond","status":"PORTRAIT_FALLBACK","reasonEs":"Las fotografías oficiales sirven como referencia, pero no consta una licencia de reutilización explícita."},
+    {"personSlug":"asha-sharma","status":"PORTRAIT_FALLBACK","reasonEs":"La fotografía corporativa no se publica sin licencia de reutilización explícita."},
+    {"personSlug":"helen-chiang","status":"PORTRAIT_FALLBACK","reasonEs":"La fotografía corporativa no se publica sin licencia de reutilización explícita."},
+    {"personSlug":"jason-ronald","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro del alcance del dossier."},
+    {"personSlug":"andrew-goossen","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro del alcance del dossier."}
+  ]
+}
