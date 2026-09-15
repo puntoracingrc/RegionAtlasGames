@@ -2,6 +2,7 @@ import publicResearchData from "../../data/research/person-study/public.json";
 import playstationPeopleData from "../../data/research/platform-history/people-public.json";
 import playstation2PeopleData from "../../data/research/platform-history/people-ps2-public.json";
 import playstation3PeopleData from "../../data/research/platform-history/people-ps3-public.json";
+import playstation5PeopleData from "../../data/research/platform-history/people-ps5-public.json";
 import type {
   CompanyPersonLink,
   PersonCardData,
@@ -26,6 +27,7 @@ const baseData = publicResearchData as unknown as PersonPublicData;
 const playstationData = playstationPeopleData as unknown as PersonPublicOverlayData;
 const playstation2Data = playstation2PeopleData as unknown as PersonPublicOverlayData;
 const playstation3Data = playstation3PeopleData as unknown as PersonPublicOverlayData;
+const playstation5Data = playstation5PeopleData as unknown as PersonPublicOverlayData;
 
 function applyOverlay(
   current: PersonPublicData,
@@ -76,10 +78,13 @@ function applyOverlay(
 
 const data = applyOverlay(
   applyOverlay(
-    applyOverlay(baseData, playstationData),
-    playstation2Data,
+    applyOverlay(
+      applyOverlay(baseData, playstationData),
+      playstation2Data,
+    ),
+    playstation3Data,
   ),
-  playstation3Data,
+  playstation5Data,
 );
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));

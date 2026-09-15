@@ -33,13 +33,13 @@ export default async function CompanyPage({ params }: Props) {
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const catalogIds = view.games.map((game) => game.id);
-  const franchises = (await listPublicFranchisesForCatalogEntries(catalogIds)).map((item) => ({
+  const franchises = (catalogIds.length ? await listPublicFranchisesForCatalogEntries(catalogIds) : []).map((item) => ({
     slug: item.slug,
     name: item.name,
     catalogEntryCount: item.catalogEntryCount,
     matchedCatalogEntryCount: item.matchedCatalogEntryCount,
   }));
-  const series = (await listPublicSeriesForGames(catalogIds)).filter(
+  const series = (catalogIds.length ? await listPublicSeriesForGames(catalogIds) : []).filter(
     (entry) => !getLegacySeriesRedirect(entry.slug),
   ).map((item) => ({
     slug: item.slug,

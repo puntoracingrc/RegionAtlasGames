@@ -31,6 +31,7 @@ import {
 } from "./verified-company-relations";
 import type { CompanyPersonLink } from "./person-research-types";
 import {
+  getEditorialCompanyIdentity,
   getCompanyGenealogyRelations,
   getCompanyPlatformHistoryLinks,
 } from "./platform-history";
@@ -96,6 +97,7 @@ export type CompanyProfileView = {
   collaborators: CompanyCollaborator[];
   games: CatalogGame[];
   profilePending: boolean;
+  editorialOnly: boolean;
 };
 
 const profiles = companyProfilesData as Record<string, CompanyProfile>;
@@ -185,14 +187,43 @@ function buildCompanyProfileViewFromProfile(
   slug: string,
   stored: CompanyProfile | undefined,
 ): CompanyProfileView | undefined {
-  const entry = getCompany(slug);
-  if (!entry) return undefined;
+  const catalogEntry = getCompany(slug);
+  const editorialIdentity = getEditorialCompanyIdentity(slug);
+  if (!catalogEntry && !editorialIdentity) return undefined;
+  const entry: IndexEntry = catalogEntry ?? {
+    name: editorialIdentity!.name,
+    slug: editorialIdentity!.slug,
+    museumPath: `/museo/compania/${editorialIdentity!.slug}`,
+    gameIds: [],
+    byPlatform: {},
+    gameCount: 0,
+  };
 
   const entity = getCompanyEntity(entry.slug);
   const games = uniqueCatalogGames(gamesForIndex(entry).filter(isPublicCatalogGame));
   const gameIds = new Set(games.map((game) => game.id));
   const foundedYear = stored?.foundedYear ?? null;
-  const closedYear = stored?.closedYear ?? null;
+  const platformHistoryLinks = getCompanyPlatformHistoryLinks(entry.slug);
+  const historicalGenealogy = getCompanyGenealogyRelations(entry.slug);
+  const closure = historicalGenealogy.find(
+    (relation) =>
+      relation.sourceCompanySlug === entry.slug && relation.relationshipType === "CLOSED",
+  );
+  const acquisition = historicalGenealogy.find(
+    (relation) =>
+      relation.sourceCompanySlug === entry.slug && relation.relationshipType === "ACQUIRED_BY",
+  );
+  const renamedAs = historicalGenealogy.find(
+    (relation) =>
+      relation.sourceCompanySlug === entry.slug &&
+      (relation.relationshipType === "RENAMED_TO" || relation.relationshipType === "REORGANIZED_AS"),
+  );
+  const predecessor = historicalGenealogy.find(
+    (relation) =>
+      relation.targetCompanySlug === entry.slug &&
+      (relation.relationshipType === "RENAMED_TO" || relation.relationshipType === "REORGANIZED_AS"),
+  );
+  const closedYear = stored?.closedYear ?? closure?.year ?? null;
   const logo = resolveCompanyLogo(entry.slug, stored?.logoUrl);
   const usesGeneratedCatalogCopy =
     stored?.method === "template" || stored?.method === "wikidata";
@@ -228,13 +259,31 @@ function buildCompanyProfileViewFromProfile(
     wikidataId: stored?.wikidataId ?? entry.wikidataId ?? entity?.wikidataIds?.[0] ?? null,
     foundedYear,
     closedYear,
-    status: inferStatus(stored, closedYear),
+    status: stored?.status && stored.status !== "unknown"
+      ? stored.status
+      : closedYear != null
+        ? "defunct"
+        : acquisition
+          ? "subsidiary"
+          : inferStatus(stored, closedYear),
     isParentCompany: stored?.isParentCompany === true,
     parentCompany: stored?.parentCompany ?? null,
-    acquiredByCompany: stored?.acquiredByCompany ?? null,
+    acquiredByCompany: stored?.acquiredByCompany ?? (
+      acquisition?.targetCompanySlug && acquisition.targetCompanyName
+        ? { slug: acquisition.targetCompanySlug, name: acquisition.targetCompanyName }
+        : null
+    ),
     mergedWithCompany: stored?.mergedWithCompany ?? null,
-    predecessorCompany: stored?.predecessorCompany ?? null,
-    successorCompany: stored?.successorCompany ?? null,
+    predecessorCompany: stored?.predecessorCompany ?? (
+      predecessor
+        ? { slug: predecessor.sourceCompanySlug, name: predecessor.sourceCompanyName }
+        : null
+    ),
+    successorCompany: stored?.successorCompany ?? (
+      renamedAs?.targetCompanySlug && renamedAs.targetCompanyName
+        ? { slug: renamedAs.targetCompanySlug, name: renamedAs.targetCompanyName }
+        : null
+    ),
     verifiedRelations,
     logoUrl: logo.url,
     logoIsProvisional: logo.provisional,
@@ -245,25 +294,26 @@ function buildCompanyProfileViewFromProfile(
     researchSources: getPublicCompanyResearchSources(entry.slug),
     achievements: getPublicCompanyAchievements(entry.slug),
     people: getPublicPeopleForCompany(entry.slug),
-    platformHistoryLinks: getCompanyPlatformHistoryLinks(entry.slug),
-    historicalGenealogy: getCompanyGenealogyRelations(entry.slug),
+    platformHistoryLinks,
+    historicalGenealogy,
     platforms: groupGamesByPlatform(games),
     collaborators: collectCollaborators(entry, entry.slug).slice(0, 24),
     games,
-    profilePending: !stored?.history,
+    profilePending: !stored?.history && Boolean(catalogEntry),
+    editorialOnly: !catalogEntry,
   };
 }
 
 export function buildCompanyProfileView(slug: string): CompanyProfileView | undefined {
   const entry = getCompany(slug);
-  if (!entry) return undefined;
-  return buildCompanyProfileViewFromProfile(slug, getStoredCompanyProfile(entry.slug));
+  const canonicalSlug = entry?.slug ?? slug;
+  return buildCompanyProfileViewFromProfile(canonicalSlug, getStoredCompanyProfile(canonicalSlug));
 }
 
 export async function buildCompanyProfileViewWithOverlay(slug: string): Promise<CompanyProfileView | undefined> {
   const entry = getCompany(slug);
-  if (!entry) return undefined;
-  return buildCompanyProfileViewFromProfile(slug, await getStoredCompanyProfileWithOverlay(entry.slug));
+  const canonicalSlug = entry?.slug ?? slug;
+  return buildCompanyProfileViewFromProfile(canonicalSlug, await getStoredCompanyProfileWithOverlay(canonicalSlug));
 }
 
 export function companyGameHref(game: CatalogGame): string {
