@@ -12,6 +12,7 @@ import xboxSeriesPeopleData from "../../data/research/platform-history/people-xb
 import segaPeopleData from "../../data/research/platform-history/people-sega-public.json";
 import nintendoPeopleData from "../../data/research/platform-history/people-nintendo-public.json";
 import snkPeopleData from "../../data/research/platform-history/people-snk-public.json";
+import portraitPeopleData from "../../data/research/platform-history/people-portraits-public.json";
 import { getCatalogGame, getPlatform } from "./catalog";
 import { classifyPersonExpertiseTerms } from "./person-expertise";
 import { getPlatformHistory, getPlatformHistoryData } from "./platform-history";
@@ -48,6 +49,7 @@ const xboxSeriesData = xboxSeriesPeopleData as unknown as PersonPublicOverlayDat
 const segaData = segaPeopleData as unknown as PersonPublicOverlayData;
 const nintendoData = nintendoPeopleData as unknown as PersonPublicOverlayData;
 const snkData = snkPeopleData as unknown as PersonPublicOverlayData;
+const portraitData = portraitPeopleData as unknown as PersonPublicOverlayData;
 
 function applyOverlay(
   current: PersonPublicData,
@@ -110,6 +112,7 @@ const data = [
   segaData,
   nintendoData,
   snkData,
+  portraitData,
 ].reduce(applyOverlay, baseData);
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));
