@@ -103,6 +103,14 @@ test("North American retailer editions and reissues are not collapsed into Stand
   assert.equal(editionById("ac3-ps3-ubiworkshop-us").barcode, undefined);
 });
 
+test("Ubi the Best completes its formerly unknown JAN and release date", () => {
+  const ubiTheBest = editionById("ac3-ps3-ubi-the-best-jp") as RawEdition & { releaseDate?: string };
+  assert.equal(ubiTheBest.barcode, "4949244003377");
+  assert.equal(ubiTheBest.catalogNumber, "BLJM-61171");
+  assert.equal(ubiTheBest.releaseDate, "2014-03-20");
+  assert.notEqual(ubiTheBest.id, "ac3-ps3-standard-jp");
+});
+
 test("software languages never populate packaging languages", () => {
   const russian = editionById("ac3-ps3-standard-ru");
   assert.deepEqual(russian.softwareLanguages, ["pl", "ru", "cs", "hu"]);

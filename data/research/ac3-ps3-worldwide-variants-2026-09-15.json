@@ -17,6 +17,7 @@
     "russiaCee": "BLES-01669/RUS original y BLES-01669/E/RUS Essentials se separan. PL/RU/CS/HU son idiomas de software, no de caja.",
     "asia": "BLAS-50494 Standard, BLAS-50495 Chinese Version, BLAS-50583 Washington y BLAS-50615 PlayStation 3 the Best no se fusionan.",
     "ubiWorkshop": "Edición física confirmada; barcode exterior pendiente.",
+    "ubiTheBest": "La reedición japonesa se separa de Standard como 4949244003377 / BLJM-61171, con fecha 2014-03-20.",
     "hardwareBundle": "Se documenta como hardwareBundle y no incrementa PhysicalEdition standalone.",
     "digital": "Gold, Ultimate, Season Pass y DLC no se cuentan como PhysicalEdition."
   },

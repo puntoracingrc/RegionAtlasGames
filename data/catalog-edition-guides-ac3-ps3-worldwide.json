@@ -726,11 +726,13 @@
           "marketRegions": ["JP"],
           "ratingSystems": ["CERO Z"],
           "softwareFamilyCodes": ["BLJM-61171"],
+          "barcode": "4949244003377",
           "catalogNumber": "BLJM-61171",
+          "releaseDate": "2014-03-20",
           "physicalContents": ["Juego físico"],
           "catalogIds": ["ps3-japon-assassin%27s-creed-iii-ubi-the-best"],
           "confidence": "CONFIRMED",
-          "evidenceIds": ["ac3-kaitori-ubi-the-best", "ac3-serialstation"],
+          "evidenceIds": ["ac3-gamefaqs", "ac3-kaitori-ubi-the-best", "ac3-serialstation"],
           "notes": ["La reedición se mantiene separada de BLJM-60516."]
         },
         {
@@ -835,7 +837,7 @@
           "label": "GameFAQs · release data PS3",
           "url": "https://gamefaqs.gamespot.com/ps3/621796-assassins-creed-iii/data",
           "summary": "Tabla de lanzamientos físicos y digitales con región, producto, barcode, fecha y rating.",
-          "supports": ["BLUS-30991", "BLUS-31035", "BLJM-60516", "BLKS-20371", "BLAS-50494", "BLAS-50495", "BLAS-50583", "digital Gold Ultimate", "hardware bundle"]
+          "supports": ["BLUS-30991", "BLUS-31035", "BLJM-60516", "BLJM-61171", "JAN 4949244003377", "fecha 2014-03-20", "BLKS-20371", "BLAS-50494", "BLAS-50495", "BLAS-50583", "digital Gold Ultimate", "hardware bundle"]
         },
         {
           "id": "ac3-fnac-es-standard",
