@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-rogue-xbox360-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed Rogue en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Overlay data-only basado exclusivamente en el dossier Xbox 360. Conserva separadas Standard, Collector's Edition y Classics; Templar Legacy permanece como DLC/voucher y Black Flag + Rogue como compilación externa.",
+      "game": {
+        "title": "Assassin's Creed Rogue",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-rogue",
+        "canonicalGameId": "assassins-creed-rogue",
+        "platformReleaseId": "assassins-creed-rogue-xbox360"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-rogue",
+          "physicalEditionIds": [
+            "ac-rogue-xbox360-standard-es-3307215806463",
+            "ac-rogue-xbox360-standard-eu-3307215806326",
+            "ac-rogue-xbox360-standard-fr-3307215806401",
+            "ac-rogue-xbox360-standard-au-3307215806500",
+            "ac-rogue-xbox360-standard-us-887256000110"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "collector",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-rogue",
+          "physicalEditionIds": [
+            "ac-rogue-xbox360-collector-es-3307215815144",
+            "ac-rogue-xbox360-collector-fr-3307215815090",
+            "ac-rogue-xbox360-collector-eu-3307215815076",
+            "ac-rogue-xbox360-collector-au-pending-barcode"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "classics",
+          "label": "Classics",
+          "representativeCatalogId": "xbox360-assassin-s-creed-rogue",
+          "physicalEditionIds": ["ac-rogue-xbox360-classics-fr-3307215898055"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-rogue-xbox360-standard-es-3307215806463",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "softwareLanguages": ["ES", "EN", "FR", "DE", "IT"],
+          "productCodes": ["300068635"],
+          "barcode": "3307215806463",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["xbox360-assassin-s-creed-rogue"],
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac-rogue-retroloco-es", "ac-rogue-fnac-es"]
+        },
+        {
+          "id": "ac-rogue-xbox360-standard-eu-3307215806326",
+          "label": "Standard · Europa genérica · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "barcode": "3307215806326",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac-rogue-gamefaqs"],
+          "notes": ["No sustituye la Standard española ni la francesa y no demuestra un país único."]
+        },
+        {
+          "id": "ac-rogue-xbox360-standard-fr-3307215806401",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "barcode": "3307215806401",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac-rogue-fnac-fr"]
+        },
+        {
+          "id": "ac-rogue-xbox360-standard-au-3307215806500",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "barcode": "3307215806500",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac-rogue-gamefaqs"]
+        },
+        {
+          "id": "ac-rogue-xbox360-standard-us-887256000110",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "barcode": "887256000110",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac-rogue-gamefaqs"],
+          "notes": ["No se clona a Canadá sin UPC y packaging bilingüe propios."]
+        },
+        {
+          "id": "ac-rogue-xbox360-collector-es-3307215815144",
+          "label": "Collector's Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["ES"],
+          "productCodes": ["300068928"],
+          "barcode": "3307215815144",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico", "Contenido Collector's Edition"],
+          "evidenceIds": ["ac-rogue-fnac-collector-es"],
+          "notes": ["Retail español confirmado; packagingLanguages permanece vacío hasta revisar un scan."]
+        },
+        {
+          "id": "ac-rogue-xbox360-collector-fr-3307215815090",
+          "label": "Collector's Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["FR"],
+          "barcode": "3307215815090",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico", "Contenido Collector's Edition"],
+          "evidenceIds": ["ac-rogue-fnac-collector-fr"]
+        },
+        {
+          "id": "ac-rogue-xbox360-collector-eu-3307215815076",
+          "label": "Collector's Edition · Europa genérica · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215815076",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Collector's Edition"],
+          "evidenceIds": ["ac-rogue-gamefaqs"],
+          "notes": ["No se fusiona con las cajas española o francesa."]
+        },
+        {
+          "id": "ac-rogue-xbox360-collector-au-pending-barcode",
+          "label": "Collector's Edition · Australia · barcode pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["AU"],
+          "confidence": "PENDING_IDENTIFIER",
+          "physicalContents": ["Juego físico", "Contenido Collector's Edition"],
+          "evidenceIds": ["ac-rogue-gamefaqs"],
+          "notes": ["GameFAQs confirma release física australiana; el barcode no estaba visible en el bloque recuperado."]
+        },
+        {
+          "id": "ac-rogue-xbox360-classics-fr-3307215898055",
+          "label": "Classics · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["FR"],
+          "barcode": "3307215898055",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac-rogue-fnac-classics-fr", "ac-rogue-kieskeurig-classics-fr"],
+          "notes": ["La fuente secundaria la describe como versión francesa; no se reutiliza como Classics española."]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-rogue-retroloco-es",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "RetroLoco · Standard España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-rogue-esp-2/",
+          "supports": ["ac-rogue-xbox360-standard-es-3307215806463"]
+        },
+        {
+          "id": "ac-rogue-fnac-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Standard",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Rogue-Xbox-360-Videojuego-Xbox-360/a1064494",
+          "supports": ["ac-rogue-xbox360-standard-es-3307215806463"]
+        },
+        {
+          "id": "ac-rogue-fnac-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Standard",
+          "url": "https://www.fnac.com/a7616016/Assassin-s-Creed-Rogue-Xbox-360-Jeu-video-Retrogaming",
+          "supports": ["ac-rogue-xbox360-standard-fr-3307215806401"]
+        },
+        {
+          "id": "ac-rogue-fnac-collector-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Collector's Edition",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Rogue-Collector-Edition-Xbox-360-Videojuego-Xbox-360/a1054929",
+          "supports": ["ac-rogue-xbox360-collector-es-3307215815144"]
+        },
+        {
+          "id": "ac-rogue-fnac-collector-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Collector's Edition",
+          "url": "https://www.fnac.com/a7616018/Assassin-s-Creed-Rogue-Edition-Collector-Xbox-360-Jeu-video-Retrogaming",
+          "supports": ["ac-rogue-xbox360-collector-fr-3307215815090"]
+        },
+        {
+          "id": "ac-rogue-fnac-classics-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Classics",
+          "url": "https://www.fnac.com/a8644543/Assassin-s-Creed-Rogue-Xbox-360-Jeu-video-Retrogaming",
+          "supports": ["ac-rogue-xbox360-classics-fr-3307215898055"]
+        },
+        {
+          "id": "ac-rogue-kieskeurig-classics-fr",
+          "type": "UNKNOWN",
+          "label": "Kieskeurig · Classics descrita como French language version",
+          "supports": ["ac-rogue-xbox360-classics-fr-3307215898055"]
+        },
+        {
+          "id": "ac-rogue-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · Rogue Xbox 360 release data",
+          "url": "https://gamefaqs.gamespot.com/xbox360/826287-assassins-creed-rogue/",
+          "supports": ["EAN/UPC Xbox 360", "Europa", "Australia", "USA", "Collector's Edition"]
+        }
+      ],
+      "sources": [
+        {"label": "Dossier local Rogue Xbox 360 · 2026-09-15"},
+        {"label": "RetroLoco · Standard España", "url": "https://www.retroloco.es/producto/assassins-creed-rogue-esp-2/"},
+        {"label": "Fnac España · Standard", "url": "https://www.fnac.es/Assassin-s-Creed-Rogue-Xbox-360-Videojuego-Xbox-360/a1064494"},
+        {"label": "Fnac España · Collector's Edition", "url": "https://www.fnac.es/Assassin-s-Creed-Rogue-Collector-Edition-Xbox-360-Videojuego-Xbox-360/a1054929"},
+        {"label": "Fnac Francia · Standard", "url": "https://www.fnac.com/a7616016/Assassin-s-Creed-Rogue-Xbox-360-Jeu-video-Retrogaming"},
+        {"label": "Fnac Francia · Collector's Edition", "url": "https://www.fnac.com/a7616018/Assassin-s-Creed-Rogue-Edition-Collector-Xbox-360-Jeu-video-Retrogaming"},
+        {"label": "Fnac Francia · Classics", "url": "https://www.fnac.com/a8644543/Assassin-s-Creed-Rogue-Xbox-360-Jeu-video-Retrogaming"},
+        {"label": "GameFAQs · Xbox 360", "url": "https://gamefaqs.gamespot.com/xbox360/826287-assassins-creed-rogue/"}
+      ],
+      "evidenceNote": "No se realizó investigación web. Los datos se limitaron al dossier local y sus fuentes citadas; mercados sin caja o identificador inequívocos quedan en researchTasks.",
+      "researchTasks": [
+        {
+          "id": "ac-rogue-canada-standard",
+          "label": "UPC y packaging bilingüe de Canadá",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["CA"],
+          "notes": ["No clonar el UPC estadounidense 887256000110 sin scan canadiense."]
+        },
+        {
+          "id": "ac-rogue-collector-es-packaging",
+          "label": "Packaging de Collector's Edition España",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES"],
+          "notes": ["EAN y retail están confirmados; faltan scan frontal/dorso e idiomas exactos."]
+        },
+        {
+          "id": "ac-rogue-collector-eu-territory",
+          "label": "Territorio de Collector's Edition 3307215815076",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["DE", "IT", "GB", "AT", "CH"],
+          "notes": ["No fusionar con 3307215815144 España ni 3307215815090 Francia."]
+        },
+        {
+          "id": "ac-rogue-collector-au-barcode",
+          "label": "Barcode de Collector's Edition Australia",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["AU"],
+          "notes": ["La edición física está confirmada; falta su identificador de caja."]
+        },
+        {
+          "id": "ac-rogue-classics-es",
+          "label": "Caja Classics PAL España",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["ES"],
+          "notes": ["No reutilizar 3307215898055, documentado para Francia."]
+        },
+        {
+          "id": "ac-rogue-russia-cee",
+          "label": "Release física Rusia / Europa central y oriental",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["RU", "CZ", "SK", "PL"],
+          "notes": ["Exigir caja cirílica o regional, barcode, distribuidor y Media ID; no copiar códigos de PS3."]
+        },
+        {
+          "id": "ac-rogue-japan-korea",
+          "label": "Existencia retail Xbox 360 en Japón y Corea",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["JP", "KR"],
+          "notes": ["No crear variantes por analogía con PS3; distinguir retail físico de distribución digital."]
+        },
+        {
+          "id": "ac-rogue-media-families",
+          "label": "Media IDs / XeMID por familia regional",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "FR", "US", "AU"],
+          "notes": ["Comparar familias EU multilingüe, USA, Australia y cualquier otra sin inferir packaging desde el software."]
+        },
+        {
+          "id": "ac-rogue-templar-legacy-voucher",
+          "label": "Templar Legacy Pack como DLC o voucher incluido",
+          "status": "PENDING_REVIEW",
+          "notes": ["No crear una PhysicalEdition; relacionar sólo como contenido digital si una caja lo documenta."]
+        },
+        {
+          "id": "ac-rogue-black-flag-double-pack-compilation",
+          "label": "Relación con la compilación Black Flag + Rogue",
+          "status": "PENDING_REVIEW",
+          "notes": ["La integración central debe enlazar una entidad Compilation separada que contiene ambos juegos; nunca modelarla como edición de Rogue."]
+        }
+      ]
+    }
+  ]
+}
