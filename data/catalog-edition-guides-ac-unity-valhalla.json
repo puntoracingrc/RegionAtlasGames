@@ -1,0 +1,1323 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-unity-ps4-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed Unity en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Auditoría aditiva basada exclusivamente en el dossier mundial entregado. Se conserva un único juego canónico y se separan edición conceptual, variante física, mercado, packaging e identificadores.",
+      "game": {
+        "title": "Assassin's Creed Unity",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-unity"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-unity-ps4-standard-es",
+          "label": "Standard Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [
+            "ES"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "ES"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "note": "Portada, contraportada y lomo del mismo ejemplar precintado.",
+              "evidenceIds": [
+                "unity-owned-scan-es"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307215785942",
+          "serial": "CUSA-00605",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-assassins-creed-unity"
+          ],
+          "scanSetIds": [
+            "ps4-assassins-creed-unity"
+          ],
+          "evidenceIds": [
+            "unity-owned-scan-es",
+            "unity-fnac-es-pt",
+            "unity-playstation-eu-languages"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_PHYSICAL_COPY. El scan propio confirma EAN, CUSA, PEGI 18 y caja en español.",
+            "El mismo SKU español tuvo circulación comercial documentada en Portugal; no constituye packaging portugués ni crea una variante PT.",
+            "Idiomas de software documentados para CUSA-00605: audio DE/ES/FR/EN/IT; pantalla DE/ZH-Hant/KO/ES/FR/EN/IT/NL/PL. No se usan como idiomas de caja."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-fr-a",
+          "label": "Standard Edition · Francia A",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "FR"
+          ],
+          "packagingLanguages": [
+            "FR"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215785881",
+          "serial": "CUSA-00605",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-france-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. Revisar reverso físico para cerrar el alcance exacto del packaging.",
+            "Idiomas de software documentados para CUSA-00605: audio DE/ES/FR/EN/IT; pantalla DE/ZH-Hant/KO/ES/FR/EN/IT/NL/PL. No se usan como idiomas de caja."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-fr-b",
+          "label": "Standard Edition · Francia B / candidata a reimpresión",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "FR"
+          ],
+          "packagingLanguages": [
+            "FR"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215785966",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-france-reprint"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_PACKAGING_LANGUAGE. No se fusiona con 3307215785881; revisión/canal/disco exactos pendientes.",
+            "Idiomas de software documentados para CUSA-00605: audio DE/ES/FR/EN/IT; pantalla DE/ZH-Hant/KO/ES/FR/EN/IT/NL/PL. No se usan como idiomas de caja."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-de",
+          "label": "Standard Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "DE"
+          ],
+          "packagingLanguages": [
+            "DE"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "USK"
+          ],
+          "barcode": "3307215785911",
+          "serial": "CUSA-00605",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-germany-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. USK 16.",
+            "Idiomas de software documentados para CUSA-00605: audio DE/ES/FR/EN/IT; pantalla DE/ZH-Hant/KO/ES/FR/EN/IT/NL/PL. No se usan como idiomas de caja."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-it",
+          "label": "Standard Edition · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "IT"
+          ],
+          "packagingLanguages": [
+            "IT"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215785935",
+          "serial": "CUSA-00605",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-italy-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_PHYSICAL_PACKAGING.",
+            "Idiomas de software documentados para CUSA-00605: audio DE/ES/FR/EN/IT; pantalla DE/ZH-Hant/KO/ES/FR/EN/IT/NL/PL. No se usan como idiomas de caja."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-nordic",
+          "label": "Standard Edition · Nordic packaging",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215785904",
+          "serial": "CUSA-00605",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-nordic-cover"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_NORDIC_COVER. Idiomas nórdicos exactos pendientes; no se fuerza SE/DK/NO/FI ni se clasifica como Polonia.",
+            "Idiomas de software documentados para CUSA-00605: audio DE/ES/FR/EN/IT; pantalla DE/ZH-Hant/KO/ES/FR/EN/IT/NL/PL. No se usan como idiomas de caja."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-benelux-candidate",
+          "label": "Standard Edition · Benelux / internacional candidata",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215785874",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-benelux-candidate"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: HIGH. Circulación documentada en NL/BE e importaciones UE; packaging pendiente, sin forzar NL-only, EN-only o FR/NL.",
+            "Idiomas de software documentados para CUSA-00605: audio DE/ES/FR/EN/IT; pantalla DE/ZH-Hant/KO/ES/FR/EN/IT/NL/PL. No se usan como idiomas de caja."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-eu-en-fr",
+          "label": "Standard Edition · Europa genérica EN/FR",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215803400",
+          "serial": "CUSA-00605",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-eu-generic"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_EU_SKU. EN/FR son idiomas de software documentados; el idioma físico de caja continúa pendiente."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-eu-pending-3307215785928",
+          "label": "Standard Edition · Europa · mapeo pendiente 3307215785928",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215785928",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Estado: PENDING_MAPPING. País, packaging y revisión exacta no se publican sin evidencia adicional."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-eu-pending-3307215803448",
+          "label": "Standard Edition · Europa · mapeo pendiente 3307215803448",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215803448",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Estado: PENDING_MAPPING. País, packaging y revisión exacta no se publican sin evidencia adicional."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-eu-pending-3307215803462",
+          "label": "Standard Edition · Europa · mapeo pendiente 3307215803462",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215803462",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Estado: PENDING_MAPPING. País, packaging y revisión exacta no se publican sin evidencia adicional."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-eu-pending-3307215810989",
+          "label": "Standard Edition · Europa · mapeo pendiente 3307215810989",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215810989",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Estado: PENDING_MAPPING. País, packaging y revisión exacta no se publican sin evidencia adicional."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-au",
+          "label": "Standard Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "ACB MA15+"
+          ],
+          "serial": "CUSA-00605",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_RELEASE. Barcode pendiente; no se presume una caja compartida con Nueva Zelanda."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-na",
+          "label": "Standard Edition · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US",
+            "CA"
+          ],
+          "packagingLanguages": [
+            "EN"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "ESRB"
+          ],
+          "barcode": "887256301262",
+          "serial": "CUSA-00663",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-unity"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-na-standard"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. ESRB M. Circulación del mismo SKU también documentada en México.",
+            "UPC histórico 887256300333 permanece como LEGACY_RECORD_PENDING_MAPPING y no sustituye al Standard."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-jp",
+          "label": "Standard Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [
+            "JA"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "CERO"
+          ],
+          "barcode": "4949244003506",
+          "serial": "PLJM-84013",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-japan-retail"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. CERO Z; la familia digital CUSA-00476 se mantiene separada del código físico PLJM."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-kr",
+          "label": "Standard Edition · Corea",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "KR"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "GRAC 18"
+          ],
+          "serial": "PLKS-97003",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-korea-serial"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_PRODUCT_CODE. Barcode, reverso e idiomas físicos pendientes; no se mezcla con Asia English/Chinese."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-standard-asia-en-zh",
+          "label": "Standard Edition · Asia English/Chinese",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "ZH-HANT"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-asia-language"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_EXISTENCE_AND_LANGUAGE. Manual en chino tradicional; caja, barcode y product code pendientes.",
+            "Software documentado: EN y ZH-Hant. No se asigna PLKS-97003."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-special-es",
+          "label": "Special Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215803530",
+          "physicalContents": [
+            "Juego físico"
+          ],
+          "digitalContents": [
+            "Misión adicional Revolución Química"
+          ],
+          "catalogIds": [
+            "ps4-assassin%27s-creed-unity-special-edition"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-special-es"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. Se mantiene separada de la Standard española."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-special-eu",
+          "label": "Special Edition · EU genérica",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215786178",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data",
+            "unity-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Mercado/revisión interna pendiente; el barcode no se fusiona con otros Special."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-special-intl-en-a",
+          "label": "Special Edition · Internacional English A",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "EN"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215803523",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data",
+            "unity-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Mercado/revisión interna pendiente; el barcode no se fusiona con otros Special."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-special-intl-en-b",
+          "label": "Special Edition · Internacional English B",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "EN"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215803431",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data",
+            "unity-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Mercado/revisión interna pendiente; el barcode no se fusiona con otros Special."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-special-intl-en-c",
+          "label": "Special Edition · Internacional English C",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "EN"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215803561",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data",
+            "unity-eu-pending"
+          ],
+          "variants": [],
+          "notes": [
+            "Mercado/revisión interna pendiente; el barcode no se fusiona con otros Special."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-special-au",
+          "label": "Special Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Existencia física confirmada; barcode pendiente."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-bastille-es",
+          "label": "Bastille Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "ES"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215813164",
+          "physicalContents": [
+            "Juego",
+            "Caja metálica",
+            "Artbook",
+            "Banda sonora",
+            "2 litografías"
+          ],
+          "digitalContents": [
+            "2 misiones para un jugador"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-bastille-es"
+          ],
+          "variants": [],
+          "notes": [
+            "Variante regional de una única familia Bastille; no es una edición conceptual nueva por barcode."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-bastille-eu-a",
+          "label": "Bastille Edition · Europa A",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215792193",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data",
+            "unity-bastille-au"
+          ],
+          "variants": [],
+          "notes": [
+            "Variante regional de una única familia Bastille; no es una edición conceptual nueva por barcode."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-bastille-eu-b",
+          "label": "Bastille Edition · Europa B",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215792117",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data",
+            "unity-bastille-au"
+          ],
+          "variants": [],
+          "notes": [
+            "Variante regional de una única familia Bastille; no es una edición conceptual nueva por barcode."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-bastille-de",
+          "label": "Bastille Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "DE"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215792155",
+          "serial": "CUSA-00605",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data",
+            "unity-bastille-au"
+          ],
+          "variants": [],
+          "notes": [
+            "Variante regional de una única familia Bastille; no es una edición conceptual nueva por barcode."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-bastille-au",
+          "label": "Bastille Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215792148",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data",
+            "unity-bastille-au"
+          ],
+          "variants": [],
+          "notes": [
+            "Variante regional de una única familia Bastille; no es una edición conceptual nueva por barcode."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-notre-dame-eu-a",
+          "label": "Notre Dame Edition · Europa A",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215791967",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Mercado exacto dentro de Europa pendiente; no se fusiona con el otro EAN."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-notre-dame-eu-b",
+          "label": "Notre Dame Edition · Europa B",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215791912",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Mercado exacto dentro de Europa pendiente; no se fusiona con el otro EAN."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-notre-dame-au",
+          "label": "Notre Dame Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Existencia física confirmada; barcode pendiente."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-guillotine-eu",
+          "label": "Guillotine Edition · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_EXISTENCE. Barcode pendiente; no se inventa."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-amazon-exclusive-eu",
+          "label": "Amazon Exclusive · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED_EXISTENCE. Barcode pendiente; no se mezcla con Special Edition."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-limited-us",
+          "label": "Limited Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "887256300302",
+          "serial": "CUSA-00663",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-unity-limited-edition"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-limited-na"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. No se fusiona con Limited Canadá/México."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-limited-ca-mx",
+          "label": "Limited Edition · Canadá / México",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": [
+            "CA",
+            "MX"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "887256300340",
+          "catalogNumber": "UBP30500952-CVRT",
+          "serial": "CUSA-00663LEL",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. Identificadores CUSA-00663LEL y UBP30500952-CVRT preservados por separado."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-walmart-us",
+          "label": "Walmart Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "887256301286",
+          "serial": "CUSA-00663LEW",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-unity-walmart-edition"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-collector-us",
+          "label": "Collector's Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-unity-collector%27s-edition"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [
+            {
+              "id": "ac-unity-collector-us-upc-887256301309",
+              "label": "US Collector A",
+              "barcode": "887256301309",
+              "priceIdentity": "ac-unity-ps4-collector-us-887256301309",
+              "notes": [
+                "Mapeo final de caja/plataforma pendiente."
+              ],
+              "evidenceIds": [
+                "unity-gamefaqs-release-data"
+              ]
+            },
+            {
+              "id": "ac-unity-collector-us-upc-887256301323",
+              "label": "US Collector B",
+              "barcode": "887256301323",
+              "priceIdentity": "ac-unity-ps4-collector-us-887256301323",
+              "notes": [
+                "Necesita verificación física antes de afirmarlo como PS4."
+              ],
+              "evidenceIds": [
+                "unity-gamefaqs-release-data"
+              ]
+            }
+          ],
+          "notes": [
+            "Los dos UPC históricos permanecen separados y pendientes de mapeo; la ficha pública y su precio no se alteran."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-ubi-the-best-jp",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [
+            "JA"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "CERO"
+          ],
+          "barcode": "4949244003919",
+          "serial": "PLJM-84051",
+          "releaseDate": "2016-03-03",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-gamefaqs-release-data"
+          ],
+          "variants": [],
+          "notes": [
+            "Confianza: CONFIRMED. Reedición separada de PLJM-84013."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-playstation-hits-us",
+          "label": "PlayStation Hits · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [
+            "US"
+          ],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-unity-playstation-hits"
+          ],
+          "scanSetIds": [],
+          "evidenceIds": [],
+          "variants": [],
+          "notes": [
+            "Ficha pública, URL y portada existentes preservadas. El dossier entregado no aporta barcode/product code para esta reedición."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "unity-owned-scan-es",
+          "type": "REAL_SCAN",
+          "label": "Escaneos propios de la Standard PAL España",
+          "summary": "Portada, contraportada y lomo del ejemplar precintado confirman caja española, EAN 3307215785942, CUSA-00605 y PEGI 18.",
+          "supports": [
+            "Standard España",
+            "EAN",
+            "CUSA",
+            "packaging español",
+            "PEGI"
+          ]
+        },
+        {
+          "id": "unity-playstation-eu-languages",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "PlayStation España · idiomas del software europeo",
+          "url": "https://www.playstation.com/es-es/games/assassins-creed-unity/",
+          "summary": "Documenta audio DE/ES/FR/EN/IT y pantalla DE/ZH tradicional/KO/ES/FR/EN/IT/NL/PL para la familia europea.",
+          "supports": [
+            "softwareLanguages CUSA-00605"
+          ]
+        },
+        {
+          "id": "unity-fnac-es-pt",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España y Portugal · Standard española",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Unity-PS4-Videojuego-PS4/a1024411",
+          "summary": "Confirma EAN 3307215785942; Fnac Portugal comercializó el mismo SKU como español.",
+          "supports": [
+            "Standard España",
+            "circulación Portugal"
+          ]
+        },
+        {
+          "id": "unity-france-retail",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac/Auchan Francia · Standard A",
+          "url": "https://www.fnac.com/a7526550/Assassin-s-Creed-Unity-PS4-Jeu-video-PlayStation-4",
+          "summary": "Confirma el EAN francés 3307215785881.",
+          "supports": [
+            "France Standard A"
+          ]
+        },
+        {
+          "id": "unity-france-reprint",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Fnac/Consollection/listing físico · Standard B",
+          "url": "https://www.fnac.com/a7988786/Assassin-s-Creed-Unity-PS4-Jeu-video-PlayStation-4",
+          "summary": "Confirma EAN 3307215785966 y packaging francés; naturaleza exacta de la revisión pendiente.",
+          "supports": [
+            "France Standard B"
+          ]
+        },
+        {
+          "id": "unity-germany-retail",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Retroplace/Rebuy · Alemania",
+          "url": "https://www.retroplace.com/en/games/153987--assassins-creed-unity",
+          "summary": "Confirma Alemania, CUSA-00605, EAN 3307215785911, alemán y USK 16.",
+          "supports": [
+            "Standard Alemania"
+          ]
+        },
+        {
+          "id": "unity-italy-retail",
+          "type": "RETAILER_ASSET",
+          "label": "DB-Line/Gamelife · Italia",
+          "url": "https://www.dbline.it/it/products/online-catalog/detail/PS40495",
+          "summary": "Confirma EAN 3307215785935 y caja/manual en italiano.",
+          "supports": [
+            "Standard Italia"
+          ]
+        },
+        {
+          "id": "unity-nordic-cover",
+          "type": "REAL_PHOTO",
+          "label": "Proshop/listing con portada nórdica",
+          "url": "https://www.proshop.pl/Gry/Assassins-Creed-Unity-Sony-PlayStation-4-Akcja/2463816",
+          "summary": "Confirma EAN 3307215785904 y clasificación de packaging nórdico sin cerrar idiomas exactos.",
+          "supports": [
+            "Standard Nordic"
+          ]
+        },
+        {
+          "id": "unity-benelux-candidate",
+          "type": "RETAILER_ASSET",
+          "label": "Bol Netherlands · candidato Benelux/internacional",
+          "url": "https://www.bol.com/",
+          "summary": "El dossier vincula 3307215785874 a circulación NL/BE/import; identidad física exacta pendiente.",
+          "supports": [
+            "Benelux candidate"
+          ]
+        },
+        {
+          "id": "unity-eu-generic",
+          "type": "RETAILER_ASSET",
+          "label": "World of Games · SKU europeo genérico",
+          "url": "https://www.wog.ch/en/index.cfm/details/product/38115-Assassins-Creed-Unity-EN",
+          "summary": "Confirma EAN 3307215803400 y software EN/FR, sin cerrar packaging.",
+          "supports": [
+            "Europe EN/FR generic"
+          ]
+        },
+        {
+          "id": "unity-eu-pending",
+          "type": "RETAILER_ASSET",
+          "label": "Rebuy · referencias de importación europea",
+          "url": "https://www.rebuy.de/i%2C9234628/playstation-4/assassin-s-creed-unity-eu-import",
+          "summary": "Registra varios EAN europeos cuyos mercados y packaging siguen pendientes.",
+          "supports": [
+            "EU pending mappings",
+            "Special international mappings"
+          ]
+        },
+        {
+          "id": "unity-special-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Special Edition",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Unity-Edicion-Especial-PS4-Videojuego-PS4/a1025479",
+          "summary": "Confirma EAN 3307215803530 y la misión Revolución Química.",
+          "supports": [
+            "Special Edition España"
+          ]
+        },
+        {
+          "id": "unity-bastille-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Bastille Edition",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Unity-Edicion-Bastille-PS4-Videojuego-PS4/a1032597",
+          "summary": "Confirma EAN 3307215813164 y contenidos de Bastille España.",
+          "supports": [
+            "Bastille Edition España"
+          ]
+        },
+        {
+          "id": "unity-bastille-au",
+          "type": "RETAILER_ASSET",
+          "label": "Gamesmen Australia · Bastille Edition",
+          "url": "https://www.gamesmen.com.au/ps4-assassins-creed-5-unity-bastille-edition",
+          "summary": "Confirma la variante australiana y EAN 3307215792148.",
+          "supports": [
+            "Bastille Edition Australia"
+          ]
+        },
+        {
+          "id": "unity-gamefaqs-release-data",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos de lanzamiento suministrados",
+          "url": "https://gamefaqs.gamespot.com/ps4/772633-assassins-creed-unity/data",
+          "summary": "Fuente agregada del dossier para ediciones y códigos; los conflictos y huecos permanecen pendientes.",
+          "supports": [
+            "ediciones europeas",
+            "Australia",
+            "Norteamérica",
+            "Japón"
+          ]
+        },
+        {
+          "id": "unity-na-standard",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Best Buy/VGCollect · Standard Norteamérica",
+          "url": "https://www.bestbuy.com/product/assassins-creed-unity-standard-edition-playstation-4/J3ZY3J2G79",
+          "summary": "Confirma UPC 887256301262, CUSA-00663, caja inglesa y ESRB M.",
+          "supports": [
+            "Standard Norteamérica"
+          ]
+        },
+        {
+          "id": "unity-limited-na",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia · Limited Edition USA",
+          "url": "https://www.play-asia.com/en/assassins-creed-unity-limited-edition/13/70a38r",
+          "summary": "Confirma la Limited USA separada de Standard y de Canadá/México.",
+          "supports": [
+            "Limited Edition USA"
+          ]
+        },
+        {
+          "id": "unity-japan-retail",
+          "type": "RETAILER_ASSET",
+          "label": "MediaWorld Japón · Standard",
+          "url": "https://store.shopping.yahoo.co.jp/media-world/10440044001.html",
+          "summary": "Confirma JAN 4949244003506 y PLJM-84013.",
+          "supports": [
+            "Standard Japón"
+          ]
+        },
+        {
+          "id": "unity-korea-serial",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "SerialStation · código coreano",
+          "url": "https://serialstation.com/games/c8489e98-cbc1-4c11-b5ea-7fdc4e4f40f6",
+          "summary": "Confirma PLKS-97003 sin aportar barcode ni reverso.",
+          "supports": [
+            "Standard Corea"
+          ]
+        },
+        {
+          "id": "unity-asia-language",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia/YesAsia · English & Chinese",
+          "url": "https://www.play-asia.com/en/assassins-creed-unity-english-chinese/13/708035",
+          "summary": "Confirma existencia asiática y software EN/ZH-Hant; YesAsia declara manual chino.",
+          "supports": [
+            "Standard Asia English/Chinese"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Orden local: regionatlas_codex_ac_unity_worldwide_variants.md"
+        },
+        {
+          "label": "Escaneos propios registrados en RegionAtlas"
+        }
+      ],
+      "evidenceNote": "No se realizó investigación externa. Las afirmaciones proceden del documento entregado y de los escaneos propios ya registrados; todo conflicto de plataforma, país, barcode o packaging continúa marcado como pendiente.",
+      "editionFamilies": [
+        {
+          "id": "documented-worldwide-editions",
+          "label": "Ediciones físicas documentadas",
+          "representativeCatalogId": "ps4-assassins-creed-unity",
+          "physicalEditionIds": [
+            "ac-unity-ps4-standard-es",
+            "ac-unity-ps4-standard-fr-a",
+            "ac-unity-ps4-standard-fr-b",
+            "ac-unity-ps4-standard-de",
+            "ac-unity-ps4-standard-it",
+            "ac-unity-ps4-standard-nordic",
+            "ac-unity-ps4-standard-benelux-candidate",
+            "ac-unity-ps4-standard-eu-en-fr",
+            "ac-unity-ps4-standard-eu-pending-3307215785928",
+            "ac-unity-ps4-standard-eu-pending-3307215803448",
+            "ac-unity-ps4-standard-eu-pending-3307215803462",
+            "ac-unity-ps4-standard-eu-pending-3307215810989",
+            "ac-unity-ps4-standard-au",
+            "ac-unity-ps4-standard-na",
+            "ac-unity-ps4-standard-jp",
+            "ac-unity-ps4-standard-kr",
+            "ac-unity-ps4-standard-asia-en-zh",
+            "ac-unity-ps4-special-es",
+            "ac-unity-ps4-special-eu",
+            "ac-unity-ps4-special-intl-en-a",
+            "ac-unity-ps4-special-intl-en-b",
+            "ac-unity-ps4-special-intl-en-c",
+            "ac-unity-ps4-special-au",
+            "ac-unity-ps4-bastille-es",
+            "ac-unity-ps4-bastille-eu-a",
+            "ac-unity-ps4-bastille-eu-b",
+            "ac-unity-ps4-bastille-de",
+            "ac-unity-ps4-bastille-au",
+            "ac-unity-ps4-notre-dame-eu-a",
+            "ac-unity-ps4-notre-dame-eu-b",
+            "ac-unity-ps4-notre-dame-au",
+            "ac-unity-ps4-guillotine-eu",
+            "ac-unity-ps4-amazon-exclusive-eu",
+            "ac-unity-ps4-limited-us",
+            "ac-unity-ps4-limited-ca-mx",
+            "ac-unity-ps4-walmart-us",
+            "ac-unity-ps4-collector-us",
+            "ac-unity-ps4-ubi-the-best-jp",
+            "ac-unity-ps4-playstation-hits-us"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        }
+      ]
+    }
+  ]
+}
