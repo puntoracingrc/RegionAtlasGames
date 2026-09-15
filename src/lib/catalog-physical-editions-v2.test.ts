@@ -25,12 +25,14 @@ import {
   CATALOG_PHYSICAL_PRICE_CONDITION_VALUES,
   PHYSICAL_EDITION_TYPE_VALUES,
   PHYSICAL_EVIDENCE_TYPE_VALUES,
+  PHYSICAL_RELEASE_STATUS_VALUES,
   canEvidenceDefinePhysicalVariant,
   catalogEditionFamilyCountLabel,
   catalogEditionFamilyHasVariants,
   catalogMarketRegionToLegacyRegion,
   isCatalogMarketRegion,
   isStrongPhysicalEvidence,
+  isReleasedPhysicalEdition,
 } from "./catalog-edition-guide-types";
 import { filterCatalogGames, type CatalogFilterState } from "./catalog-filters";
 import { toCatalogListGame } from "./catalog-list-game";
@@ -145,15 +147,15 @@ test("optimized physical filters match the complete guide model", () => {
     const actual = catalogPhysicalFilterOptions(platformSlug);
     assert.deepEqual(
       actual.broadRegions.map((entry) => entry.value).sort(),
-      [...new Set(guides.flatMap((guide) => guide.physicalEditions.map((edition) => edition.broadRegion)))].sort(),
+      [...new Set(guides.flatMap((guide) => guide.physicalEditions.filter(isReleasedPhysicalEdition).map((edition) => edition.broadRegion)))].sort(),
     );
     assert.deepEqual(
       actual.editionTypes.map((entry) => entry.value).sort(),
-      [...new Set(guides.flatMap((guide) => guide.physicalEditions.map((edition) => edition.editionType)))].sort(),
+      [...new Set(guides.flatMap((guide) => guide.physicalEditions.filter(isReleasedPhysicalEdition).map((edition) => edition.editionType)))].sort(),
     );
     assert.deepEqual(
       actual.ratingSystems,
-      [...new Set(guides.flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.ratingSystems)))].sort(),
+      [...new Set(guides.flatMap((guide) => guide.physicalEditions.filter(isReleasedPhysicalEdition).flatMap((edition) => edition.ratingSystems)))].sort(),
     );
   }
 });
@@ -248,6 +250,7 @@ test("schema v2 keeps legacy guides readable and enumerations synchronized", () 
     ...CATALOG_PHYSICAL_PRICE_CONDITION_VALUES,
   ]);
   assert.deepEqual(schemaDocument.$defs.evidenceType.enum, [...PHYSICAL_EVIDENCE_TYPE_VALUES]);
+  assert.deepEqual(schemaDocument.$defs.releaseStatus.enum, [...PHYSICAL_RELEASE_STATUS_VALUES]);
 });
 
 test("V2 edition families declare their valid price states and Special excludes standard-only parts", () => {
@@ -692,6 +695,7 @@ test("documented guides use edition families while existing catalog IDs retain e
       "assassins-creed-valhalla-ps4-worldwide",
       "assassins-creed-valhalla-dawn-of-ragnarok-ps4",
       "assassins-creed-odyssey-ps4",
+      "assassins-creed-shadows-ps5-worldwide",
     ],
   );
 
@@ -737,8 +741,9 @@ test("sitewide V2 groups published regional pages and keeps their catalog collec
     const guide = getCatalogEditionGuide(game);
     assert.ok(guide, `missing V2 presentation for ${game.id}`);
     assert.equal(guide.schemaVersion, 2);
-    assert.ok(guide.currentEditionId);
-    assert.ok(guide.currentEditionFamilyId);
+    assert.ok(guide.currentEditionId || guide.currentBonusItemId);
+    if (guide.currentEditionId) assert.ok(guide.currentEditionFamilyId);
+    if (guide.currentBonusItemId) assert.equal(guide.currentEditionFamilyId, undefined);
   }
 
   const sekiroIds = [

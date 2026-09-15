@@ -9,6 +9,7 @@ import acSyndicatePs4GuideData from "../../data/catalog-edition-guides-ac-syndic
 import acEzioCollectionPs4GuideData from "../../data/catalog-edition-guides-ac-ezio-collection-ps4.json";
 import acUnityValhallaGuideData from "../../data/catalog-edition-guides-ac-unity-valhalla.json";
 import acOdysseyGuideData from "../../data/catalog-edition-guides-ac-odyssey.json";
+import acShadowsPs5GuideData from "../../data/catalog-edition-guides-ac-shadows-ps5.json";
 import { getCatalogGame, isPublicCatalogGame } from "./catalog";
 import { catalogGamePath } from "./catalog-path";
 import { getOwnedScanSetById } from "./catalog-owned-scans";
@@ -27,6 +28,8 @@ import {
   type CatalogEditionFamily,
   type CatalogEditionImage,
   type CatalogPhysicalEdition,
+  type CatalogPhysicalBonusItem,
+  type CatalogRelatedRelease,
   type CatalogPhysicalPriceCondition,
   type CatalogPhysicalEditionType,
   type CatalogPhysicalResearchStatus,
@@ -61,6 +64,8 @@ type PhysicalGuide = {
     title: string;
     platformSlug: string;
     canonicalCatalogId: string;
+    canonicalGameId?: string;
+    platformReleaseId?: string;
     aliases?: string[];
   };
   editionFamilies?: Array<{
@@ -75,6 +80,7 @@ type PhysicalGuide = {
     label: string;
     broadRegion: CatalogPhysicalEdition["broadRegion"];
     editionType: CatalogPhysicalEditionType;
+    releaseStatus?: CatalogPhysicalEdition["releaseStatus"];
     marketRegions?: string[];
     evidenceMarkets?: string[];
     distributionMarkets?: string[];
@@ -89,6 +95,7 @@ type PhysicalGuide = {
       evidenceIds?: string[];
     }>;
     ratingSystems?: string[];
+    softwareFamilyCodes?: string[];
     productCodes?: string[];
     confidence?: CatalogPhysicalVariantConfidence;
     barcode?: string;
@@ -120,6 +127,27 @@ type PhysicalGuide = {
       scanSetIds?: string[];
       priceIdentity: string;
     }>;
+    notes?: string[];
+  }>;
+  physicalBonusItems?: Array<{
+    id: string;
+    label: string;
+    relatedGameId: string;
+    type: CatalogPhysicalBonusItem["type"];
+    retailer?: string;
+    market: string;
+    upc?: string;
+    includesGame: false;
+    catalogIds?: string[];
+    evidenceIds?: string[];
+    notes?: string[];
+  }>;
+  relatedReleases?: Array<{
+    id: string;
+    label: string;
+    type: CatalogRelatedRelease["type"];
+    expansionOf: string;
+    evidenceIds?: string[];
     notes?: string[];
   }>;
   sharedDiscs?: Array<{
@@ -165,12 +193,20 @@ const rawGuideDocuments = [
   acEzioCollectionPs4GuideData,
   acUnityValhallaGuideData,
   acOdysseyGuideData,
+  acShadowsPs5GuideData,
 ] as unknown as RawGuideDocument[];
 let normalizedGuidesCache: CatalogEditionGuideModel[] | null = null;
 let derivedGuidesCache: ReturnType<typeof buildCatalogDerivedGuideIndex> | null = null;
 let documentedGuideByCatalogIdCache: Map<string, CatalogEditionGuideModel> | null = null;
 let documentedCatalogIdsCache: Set<string> | null = null;
 const lazyDerivedGuideByCatalogId = new Map<string, CatalogEditionGuideModel>();
+
+function catalogIdsOwnedByGuide(guide: CatalogEditionGuideModel): string[] {
+  return [
+    ...guide.physicalEditions.flatMap((edition) => edition.catalogIds),
+    ...guide.physicalBonusItems.flatMap((item) => item.catalogIds),
+  ];
+}
 
 function requiredCatalogGame(catalogId: string, platformSlug?: string): CatalogGame {
   const game = getCatalogGame(catalogId);
@@ -186,6 +222,7 @@ function requiredCatalogGame(catalogId: string, platformSlug?: string): CatalogG
 function legacyEditionType(label: string): CatalogPhysicalEditionType {
   const normalized = label.toLowerCase();
   if (normalized.includes("collector")) return "COLLECTOR";
+  if (normalized.includes("gold")) return "GOLD";
   if (normalized.includes("deluxe")) return "DELUXE";
   if (normalized.includes("limited")) return "LIMITED";
   if (normalized.includes("steelbook")) return "STEELBOOK";
@@ -219,6 +256,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       label: entry.label,
       broadRegion: catalogBroadRegionFromLegacyRegion(entry.identity.region),
       editionType: legacyEditionType(entry.label),
+      releaseStatus: "RELEASED",
       collectionIdentity: "catalog-entry",
       marketRegions: [target.region],
       evidenceMarkets: [],
@@ -227,6 +265,7 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
       softwareLanguages: [],
       componentLanguageEvidence: [],
       ratingSystems: [],
+      softwareFamilyCodes: [],
       productCodes: [],
       physicalContents: [],
       digitalContents: [],
@@ -270,6 +309,8 @@ function normalizeLegacyGuide(raw: LegacyGuide): CatalogEditionGuideModel {
     note: raw.note,
     game: { title: canonical.title, platformSlug: canonical.platformSlug, canonicalCatalogId: canonical.id },
     physicalEditions,
+    physicalBonusItems: [],
+    relatedReleases: [],
     editionFamilies,
     sharedDiscs: [],
     sources: raw.sources,
@@ -282,11 +323,18 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
   const evidenceById = new Map(raw.evidence.map((entry) => [entry.id, entry]));
   const imagesByKey = new Map((raw.images ?? []).map((entry) => [entry.key, entry]));
   const editionIds = raw.physicalEditions.map((entry) => entry.id);
+  const bonusItemIds = (raw.physicalBonusItems ?? []).map((entry) => entry.id);
+  const relatedReleaseIds = (raw.relatedReleases ?? []).map((entry) => entry.id);
   const sharedDiscIds = (raw.sharedDiscs ?? []).map((entry) => entry.id);
   const variantIds = raw.physicalEditions.flatMap((entry) => (entry.variants ?? []).map((variant) => variant.id));
   const priceIdentities = raw.physicalEditions.flatMap((entry) => (entry.variants ?? []).map((variant) => variant.priceIdentity));
-  const catalogIds = raw.physicalEditions.flatMap((entry) => entry.catalogIds ?? []);
+  const catalogIds = [
+    ...raw.physicalEditions.flatMap((entry) => entry.catalogIds ?? []),
+    ...(raw.physicalBonusItems ?? []).flatMap((entry) => entry.catalogIds ?? []),
+  ];
   ensureUnique(editionIds, `${raw.id} physical edition id`);
+  ensureUnique(bonusItemIds, `${raw.id} physical bonus item id`);
+  ensureUnique(relatedReleaseIds, `${raw.id} related release id`);
   ensureUnique(sharedDiscIds, `${raw.id} shared disc id`);
   ensureUnique(variantIds, `${raw.id} collectible variant id`);
   ensureUnique(priceIdentities, `${raw.id} collectible variant price identity`);
@@ -355,6 +403,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
       }
     }
     ensureUnique(entry.softwareLanguages ?? [], `${entry.id} software language`);
+    ensureUnique(entry.softwareFamilyCodes ?? [], `${entry.id} software family code`);
     ensureUnique(entry.productCodes ?? [], `${entry.id} product code`);
     const links = (entry.catalogIds ?? []).map((catalogId) => {
       const target = requiredCatalogGame(catalogId, raw.game.platformSlug);
@@ -372,6 +421,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     return {
       ...entry,
       collectionIdentity: "physical-variant",
+      releaseStatus: entry.releaseStatus ?? "RELEASED",
       marketRegions,
       evidenceMarkets: evidenceMarkets.filter(isCatalogMarketRegion),
       distributionMarkets: distributionMarkets.filter(isCatalogMarketRegion),
@@ -382,6 +432,7 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
         evidence: requireEvidence(languageEvidence.evidenceIds),
       })),
       ratingSystems: entry.ratingSystems ?? [],
+      softwareFamilyCodes: entry.softwareFamilyCodes ?? [],
       productCodes: entry.productCodes ?? [],
       physicalContents: entry.physicalContents ?? [],
       digitalContents: entry.digitalContents ?? [],
@@ -394,6 +445,39 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
       includesVariantIds: entry.includesVariantIds ?? [],
       containsCatalogIds: entry.containsCatalogIds ?? [],
       variants,
+      notes: entry.notes ?? [],
+    };
+  });
+  const physicalBonusItems = (raw.physicalBonusItems ?? []).map((entry): CatalogPhysicalBonusItem => {
+    if (!isCatalogMarketRegion(entry.market)) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} invalid bonus market: ${entry.market}`);
+    }
+    if (entry.includesGame !== false) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} physical bonus must not include the game`);
+    }
+    if (raw.game.canonicalGameId && entry.relatedGameId !== raw.game.canonicalGameId) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} bonus points to a different canonical game`);
+    }
+    const catalogLinks = (entry.catalogIds ?? []).map((catalogId) => {
+      const target = requiredCatalogGame(catalogId, raw.game.platformSlug);
+      return { catalogId, href: catalogGamePath(target), current: false, region: target.region };
+    });
+    return {
+      ...entry,
+      market: entry.market,
+      catalogIds: entry.catalogIds ?? [],
+      catalogLinks,
+      evidence: requireEvidence(entry.evidenceIds),
+      notes: entry.notes ?? [],
+    };
+  });
+  const relatedReleases = (raw.relatedReleases ?? []).map((entry): CatalogRelatedRelease => {
+    if (raw.game.canonicalGameId && entry.expansionOf !== raw.game.canonicalGameId) {
+      throw new Error(`[catalog-edition-guides] ${entry.id} points to a different canonical game`);
+    }
+    return {
+      ...entry,
+      evidence: requireEvidence(entry.evidenceIds),
       notes: entry.notes ?? [],
     };
   });
@@ -468,6 +552,8 @@ function normalizePhysicalGuide(raw: PhysicalGuide): CatalogEditionGuideModel {
     note: raw.note,
     game: raw.game,
     physicalEditions,
+    physicalBonusItems,
+    relatedReleases,
     editionFamilies,
     sharedDiscs,
     sources: raw.sources,
@@ -494,8 +580,8 @@ export function getCatalogEditionGuides(): CatalogEditionGuideModel[] {
 function documentedGuideByCatalogId(): Map<string, CatalogEditionGuideModel> {
   if (!documentedGuideByCatalogIdCache) {
     documentedGuideByCatalogIdCache = new Map(
-      getCatalogEditionGuides().flatMap((guide) => guide.physicalEditions.flatMap((edition) =>
-        edition.catalogIds.map((catalogId) => [catalogId, guide] as const))),
+      getCatalogEditionGuides().flatMap((guide) =>
+        catalogIdsOwnedByGuide(guide).map((catalogId) => [catalogId, guide] as const)),
     );
   }
   return documentedGuideByCatalogIdCache;
@@ -525,7 +611,7 @@ export function getGroupableCatalogEditionGuides(): CatalogEditionGuideModel[] {
 function catalogDerivedGuides() {
   if (!derivedGuidesCache) {
     const claimedCatalogIds = new Set(
-      getCatalogEditionGuides().flatMap((guide) => guide.physicalEditions.flatMap((edition) => edition.catalogIds)),
+      getCatalogEditionGuides().flatMap(catalogIdsOwnedByGuide),
     );
     derivedGuidesCache = buildCatalogDerivedGuideIndex(claimedCatalogIds);
   }
@@ -560,6 +646,7 @@ function withCurrentCatalogEdition(
   catalogId: string,
 ): CatalogEditionGuideModel {
   const currentEdition = guide.physicalEditions.find((edition) => edition.catalogIds.includes(catalogId));
+  const currentBonusItem = guide.physicalBonusItems.find((item) => item.catalogIds.includes(catalogId));
   const currentEditionFamily = guide.editionFamilies.find((family) =>
     currentEdition ? family.physicalEditionIds.includes(currentEdition.id) : false,
   );
@@ -568,9 +655,14 @@ function withCurrentCatalogEdition(
     currentCatalogId: catalogId,
     currentEditionId: currentEdition?.id,
     currentEditionFamilyId: currentEditionFamily?.id,
+    currentBonusItemId: currentBonusItem?.id,
     physicalEditions: guide.physicalEditions.map((edition) => ({
       ...edition,
       catalogLinks: edition.catalogLinks.map((link) => ({ ...link, current: link.catalogId === catalogId })),
+    })),
+    physicalBonusItems: guide.physicalBonusItems.map((item) => ({
+      ...item,
+      catalogLinks: item.catalogLinks.map((link) => ({ ...link, current: link.catalogId === catalogId })),
     })),
   };
 }
