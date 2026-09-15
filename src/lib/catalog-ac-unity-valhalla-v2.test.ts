@@ -138,7 +138,9 @@ test("Valhalla V2 keeps one canonical base game and the reviewed legacy redirect
   const guide = guideById("assassins-creed-valhalla-ps4-worldwide");
   assert.equal(guide.game.canonicalCatalogId, "ps4-assassins-creed-valhalla");
   assert.equal(canonicalCatalogId("ps4-assassin%27s-creed-valhalla"), "ps4-assassins-creed-valhalla");
-  assert.equal(guide.editionFamilies[0].physicalEditionIds.length, guide.physicalEditions.length);
+  const classifiedIds = guide.editionFamilies.flatMap((family) => family.physicalEditionIds);
+  assert.equal(classifiedIds.length, guide.physicalEditions.length);
+  assert.equal(new Set(classifiedIds).size, guide.physicalEditions.length);
   const game = getCatalogGame("ps4-assassins-creed-valhalla");
   assert.ok(game);
   assert.equal(getCatalogEditionGuide(game)?.id, guide.id);
