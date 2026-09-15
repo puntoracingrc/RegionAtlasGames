@@ -52,6 +52,12 @@ export function isPublicCatalogGame(game: CatalogGame): boolean {
 
 export const publicListedCatalog = listedCatalog.filter(isPublicCatalogGame);
 
+const publicCatalogPlatformSlugs = new Set(publicListedCatalog.map((game) => game.platformSlug));
+
+export function hasPublicCatalogGames(platformSlug: string): boolean {
+  return publicCatalogPlatformSlugs.has(platformSlug);
+}
+
 export function getCatalogGame(id: string): CatalogGame | undefined {
   return catalogById.get(canonicalCatalogId(id));
 }

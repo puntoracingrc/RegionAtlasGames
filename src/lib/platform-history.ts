@@ -63,6 +63,15 @@ export function getPlatformHistorySlugs(): string[] {
   return data.platforms.map((history) => history.platformSlug);
 }
 
+export function platformHistoryPath(
+  platformSlug: string,
+  options: { hardware?: PlatformHardwareGroupId; section?: string } = {},
+): string {
+  const query = options.hardware ? `?hardware=${encodeURIComponent(options.hardware)}` : "";
+  const fragment = options.section ? `#${encodeURIComponent(options.section)}` : "";
+  return `/historia-plataformas/${encodeURIComponent(platformSlug)}${query}${fragment}`;
+}
+
 export function getPlatformHardwareGroup(
   platformSlug: string,
   itemId: string,

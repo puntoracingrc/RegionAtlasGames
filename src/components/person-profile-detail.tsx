@@ -8,7 +8,7 @@ import {
   humanizePersonRole,
   personLifeLabel,
 } from "@/lib/person-public-research";
-import { getPlatformHardwareGroup } from "@/lib/platform-history";
+import { getPlatformHardwareGroup, platformHistoryPath } from "@/lib/platform-history";
 import type {
   PersonCompanyRelation,
   PersonPublicSource,
@@ -180,11 +180,14 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
                   ? getPlatformHardwareGroup(relation.platformSlug, relation.targetSlug)
                   : undefined;
                 const href = relation.targetType === "platform"
-                  ? `/plataforma/${relation.targetSlug}#historia`
+                  ? platformHistoryPath(relation.targetSlug)
                   : relation.targetType === "person"
                     ? `/persona/${relation.targetSlug}`
                     : relation.platformSlug
-                      ? `/plataforma/${relation.platformSlug}${hardwareGroup ? `?hardware=${hardwareGroup}` : ""}#${relation.targetSlug}`
+                      ? platformHistoryPath(relation.platformSlug, {
+                        hardware: hardwareGroup,
+                        section: relation.targetSlug,
+                      })
                       : null;
                 const content = (
                   <>

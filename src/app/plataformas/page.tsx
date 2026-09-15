@@ -1,7 +1,7 @@
 import { PlatformGrid } from "@/components/platform-card";
 import { SiteNav } from "@/components/site-nav";
 import { getUserCollectionViews } from "@/lib/collection-store";
-import { publicListedCatalog } from "@/lib/catalog";
+import { hasPublicCatalogGames, publicListedCatalog } from "@/lib/catalog";
 import { catalogReviewCounts } from "@/lib/catalog-review-policy";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { getCurrentUser } from "@/lib/users";
@@ -9,7 +9,9 @@ import { getCurrentUser } from "@/lib/users";
 export default async function PlatformsPage() {
   const user = await getCurrentUser();
   const ownedItems = user ? await getUserCollectionViews(user.id) : [];
-  const platforms = (await listAdminPlatforms()).filter((platform) => platform.active !== false);
+  const platforms = (await listAdminPlatforms()).filter(
+    (platform) => platform.active !== false && hasPublicCatalogGames(platform.slug),
+  );
   const reviewCounts = catalogReviewCounts(publicListedCatalog);
 
   return (

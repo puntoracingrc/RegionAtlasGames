@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { ArrowRight, History } from "lucide-react";
 import { buildPlatformMetadata } from "@/lib/catalog-seo";
 import { NewsStrip } from "@/components/news-strip";
 import { PlatformCatalogSection } from "@/components/platform-catalog-section";
-import { PlatformHistorySection } from "@/components/platform-history-section";
 import { BackLink } from "@/components/breadcrumbs";
 import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import { PlatformHeroArt } from "@/components/platform-card-art";
@@ -34,13 +34,35 @@ import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 import { catalogReviewCounts, isDefaultCatalogGame, isGroupedCatalogName, parsePendingEdition } from "@/lib/catalog-review-policy";
 import { catalogPhysicalFilterOptions, groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
-import { getPlatformHistory, parsePlatformHardwareGroup } from "@/lib/platform-history";
-import { getPublicPersonView } from "@/lib/person-public-research";
+import { getPlatformHistory, parsePlatformHardwareGroup, platformHistoryPath } from "@/lib/platform-history";
 
 type Props = {
   params: Promise<{ slug: string }>;
   searchParams?: Promise<{ q?: string; region?: string; genre?: string; subgenre?: string; facet?: string; includePending?: string; pendingEdition?: string; hardware?: string }>;
 };
+
+function PlatformHistoryLink({ title, href }: { title: string; href: string }) {
+  return (
+    <section id="historia" className="scroll-mt-24 border-y border-border/70 py-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase text-accent">
+            <History aria-hidden className="h-4 w-4" />
+            Archivo editorial
+          </div>
+          <h2 className="mt-1 text-lg font-semibold text-foreground">Historia de {title}</h2>
+        </div>
+        <Link
+          href={href}
+          className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-border bg-card px-3.5 text-sm font-semibold text-foreground transition hover:border-accent/40 hover:bg-card-hover"
+        >
+          Abrir en Industria
+          <ArrowRight aria-hidden className="h-4 w-4" />
+        </Link>
+      </div>
+    </section>
+  );
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -108,12 +130,10 @@ export default async function PlatformPage({ params, searchParams }: Props) {
     }));
   const platformNewsLabel = platformNewsTopic?.label ?? platform.shortName;
   const platformHistory = getPlatformHistory(platform.slug);
-  const figurePortraits = Object.fromEntries(
-    (platformHistory?.figures ?? []).map((figure) => [
-      figure.personSlug,
-      getPublicPersonView(figure.personSlug)?.profile.portrait?.path ?? null,
-    ]),
-  );
+  const initialHardwareGroup = parsePlatformHardwareGroup(query?.hardware);
+  const historyHref = platformHistory
+    ? platformHistoryPath(platform.slug, { hardware: initialHardwareGroup })
+    : null;
 
   return (
     <>
@@ -140,13 +160,9 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               <p className="font-medium text-foreground/80">Catálogo en construcción</p>
               <p className="text-sm text-muted">Aún no hay fichas catalogadas para esta plataforma.</p>
             </div>
-            {platformHistory ? (
+            {platformHistory && historyHref ? (
               <div className="mt-8">
-                <PlatformHistorySection
-                  history={platformHistory}
-                  figurePortraits={figurePortraits}
-                  initialHardwareGroup={parsePlatformHardwareGroup(query?.hardware)}
-                />
+                <PlatformHistoryLink title={platformHistory.title} href={historyHref} />
               </div>
             ) : null}
           </>
@@ -182,12 +198,8 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               initialIncludePending={includePending}
               initialPendingEdition={pendingEdition}
             >
-              {platformHistory ? (
-                <PlatformHistorySection
-                  history={platformHistory}
-                  figurePortraits={figurePortraits}
-                  initialHardwareGroup={parsePlatformHardwareGroup(query?.hardware)}
-                />
+              {platformHistory && historyHref ? (
+                <PlatformHistoryLink title={platformHistory.title} href={historyHref} />
               ) : null}
             </PlatformCatalogSection>
           </>

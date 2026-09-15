@@ -12,6 +12,7 @@ import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
 import { buildCompanyIntro } from "@/lib/company-seo";
 import type { CompanyProfileView } from "@/lib/company-profile";
+import { platformHistoryPath } from "@/lib/platform-history";
 
 export type CompanyRelatedCatalogGroup = {
   slug: string;
@@ -179,7 +180,7 @@ export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-accent">{relation.relationshipLabelEs}</p>
                         <h3 className="mt-1 font-bold">
-                          <Link href={`/plataforma/${relation.platformSlug}#historia-companias`} className="text-foreground hover:text-accent">
+                          <Link href={platformHistoryPath(relation.platformSlug, { section: "historia-companias" })} className="text-foreground hover:text-accent">
                             {relation.platformName}
                           </Link>
                         </h3>
@@ -215,7 +216,7 @@ export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds
                         {relation.summaryEs}
                         {relatedSlug && relatedName ? <>{" · "}<Link href={`/compania/${relatedSlug}`} className="font-semibold text-foreground hover:text-accent">{relatedName}</Link></> : null}
                       </p>
-                      <Link href={`/plataforma/${relation.platformSlug}#historia-companias`} className="text-xs font-semibold text-accent hover:underline">Ver contexto</Link>
+                      <Link href={platformHistoryPath(relation.platformSlug, { section: "historia-companias" })} className="text-xs font-semibold text-accent hover:underline">Ver contexto</Link>
                     </li>
                   );
                 })}
