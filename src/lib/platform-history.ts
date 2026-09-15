@@ -4,6 +4,7 @@ import playstation3HistoryData from "../../data/research/platform-history/platfo
 import playstation5HistoryData from "../../data/research/platform-history/platforms-ps5.json";
 import pspHistoryData from "../../data/research/platform-history/platforms-psp.json";
 import psVitaHistoryData from "../../data/research/platform-history/platforms-psvita.json";
+import xboxHistoryData from "../../data/research/platform-history/platforms-xbox.json";
 import type {
   CompanyPlatformHistoryLink,
   CompanyGenealogyLink,
@@ -19,9 +20,10 @@ const playstation3Data = playstation3HistoryData as PlatformHistoryData;
 const playstation5Data = playstation5HistoryData as PlatformHistoryData;
 const pspData = pspHistoryData as PlatformHistoryData;
 const psVitaData = psVitaHistoryData as PlatformHistoryData;
+const xboxData = xboxHistoryData as PlatformHistoryData;
 const data: PlatformHistoryData = {
-  version: Math.max(baseData.version, playstation2Data.version, playstation3Data.version, playstation5Data.version, pspData.version, psVitaData.version),
-  generatedAt: psVitaData.generatedAt,
+  version: Math.max(baseData.version, playstation2Data.version, playstation3Data.version, playstation5Data.version, pspData.version, psVitaData.version, xboxData.version),
+  generatedAt: xboxData.generatedAt,
   platforms: [
     ...new Map(
       [
@@ -31,6 +33,7 @@ const data: PlatformHistoryData = {
         ...playstation3Data.platforms,
         ...psVitaData.platforms,
         ...playstation5Data.platforms,
+        ...xboxData.platforms,
       ].map((history) => [history.platformSlug, history]),
     ).values(),
   ],
