@@ -1,0 +1,114 @@
+{
+  "version": 5,
+  "generatedAt": "2026-09-15T18:00:00.000Z",
+  "profiles": [
+    {
+      "slug": "john-koller",
+      "name": "John Koller",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "unknown",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": null,
+      "occupations": [{"qid":null,"name":"Ejecutivo de marketing"}],
+      "fieldsOfWork": [{"qid":null,"name":"Marketing de plataformas PlayStation"}],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "John Koller fue responsable de marketing de la línea portátil de PlayStation en Norteamérica. Las comunicaciones oficiales lo identifican como Senior Marketing Manager de PSP, Vice President de PlayStation Brand Marketing y, durante el lanzamiento de Vita, Senior Director de PlayStation Handhelds.",
+      "biographyClaims": [
+        {"text":"PlayStation.Blog identificó a John Koller como Vice President de PlayStation Brand Marketing al presentar PSP go y conmemorar el quinto aniversario de PSP.","sourceIds":["PH-PSP-GO-2009","PH-PSP-ANNIVERSARY-2010"]},
+        {"text":"Durante la preparación de PS Vita fue presentado como Senior Director de PlayStation Handhelds.","sourceIds":["PH-PSP-VITA-WELCOME"]}
+      ],
+      "careerSummaryEs": "Su perfil conecta la comunicación comercial de PSP, PSP go y la transición a PS Vita en Norteamérica.",
+      "industryImpactEs": "Aportó una voz ejecutiva documentada para explicar la evolución comercial y digital de las portátiles PlayStation.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {"identity":["PH-PSP-ANNIVERSARY-2010"],"occupations":["PH-PSP-GO-2009","PH-PSP-VITA-WELCOME"],"biographyEs":["PH-PSP-GO-2009","PH-PSP-ANNIVERSARY-2010","PH-PSP-VITA-WELCOME"],"careerSummaryEs":["PH-PSP-GO-2009","PH-PSP-VITA-WELCOME"],"industryImpactEs":["PH-PSP-ANNIVERSARY-2010"]},
+      "sourceIds": ["PH-PSP-GO-2009","PH-PSP-ANNIVERSARY-2010","PH-PSP-VITA-WELCOME"],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "hajime-tabata",
+      "name": "Hajime Tabata",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "unknown",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [{"qid":null,"name":"Director de videojuegos"},{"qid":null,"name":"Productor de videojuegos"}],
+      "fieldsOfWork": [{"qid":null,"name":"Dirección de RPG"}],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Hajime Tabata dirigió Crisis Core: Final Fantasy VII y The 3rd Birthday durante la etapa portátil de Square Enix. Su trabajo también se conecta con Final Fantasy Type-0, publicado originalmente para PSP en Japón.",
+      "biographyClaims": [
+        {"text":"El dossier documenta a Hajime Tabata como director de Crisis Core: Final Fantasy VII y figura central de la producción portátil de Square Enix.","sourceIds":["PH-PSP-DOSSIER"]},
+        {"text":"Square Enix lo acreditó como director de The 3rd Birthday en su comunicación oficial de lanzamiento para PSP.","sourceIds":["PH-PSP-TABATA-2011"]}
+      ],
+      "careerSummaryEs": "Su etapa PSP enlaza Crisis Core, The 3rd Birthday y Final Fantasy Type-0 dentro de la estrategia portátil de Square Enix.",
+      "industryImpactEs": "Contribuyó a que PSP recibiera RPG y producciones de gran escala asociadas a las principales series de Square Enix.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {"identity":["PH-PSP-TABATA-2011"],"originDisplay":["PH-PSP-DOSSIER"],"occupations":["PH-PSP-TABATA-2011"],"biographyEs":["PH-PSP-DOSSIER","PH-PSP-TABATA-2011"],"careerSummaryEs":["PH-PSP-DOSSIER"],"industryImpactEs":["PH-PSP-DOSSIER"]},
+      "sourceIds": ["PH-PSP-DOSSIER","PH-PSP-TABATA-2011"],
+      "lastChecked": "2026-09-15"
+    }
+  ],
+  "profilePatches": [],
+  "companyRelations": [
+    {"id":"PHR-PSP-KOLLER-SCEA","personSlug":"john-koller","companySlug":"sony-interactive-entertainment","companyName":"Sony Computer Entertainment America","role":"HANDHELD_MARKETING_LEADERSHIP","roleLabelEs":"Marketing de plataformas portátiles","start":"2008","end":"2012","pointInTime":null,"confidence":"VERY_HIGH","sourceId":"PH-PSP-VITA-WELCOME","relationOrigin":"PSP_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"},
+    {"id":"PHR-PSP-TABATA-SQUARE","personSlug":"hajime-tabata","companySlug":"square-enix","companyName":"Square Enix","role":"GAME_DIRECTOR","roleLabelEs":"Dirección de juegos para PSP","start":null,"end":null,"pointInTime":"2007-2011","confidence":"HIGH","sourceId":"PH-PSP-TABATA-2011","relationOrigin":"PSP_EDITORIAL_RESEARCH","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"}
+  ],
+  "positions": [
+    {"id":"PHPOS-PSP-KOLLER-VP","personSlug":"john-koller","name":"Vice President, PlayStation Brand Marketing, SCEA","start":null,"end":null,"pointInTime":"2009-2010","confidence":"VERY_HIGH","sourceId":"PH-PSP-ANNIVERSARY-2010"},
+    {"id":"PHPOS-PSP-KOLLER-HANDHELDS","personSlug":"john-koller","name":"Senior Director de PlayStation Handhelds","start":null,"end":null,"pointInTime":"2012","confidence":"VERY_HIGH","sourceId":"PH-PSP-VITA-WELCOME"}
+  ],
+  "exactCredits": [
+    {"id":"PHWORK-PSP-KOJIMA-PEACE-WALKER","personSlug":"hideo-kojima","workQid":null,"title":"Metal Gear Solid: Peace Walker","catalogId":"psp-metal-gear-solid-peace-walker","year":2010,"role":"DIRECCIÓN","relationshipPrecision":"EXACT_EDITORIAL_CREDIT","confidence":"HIGH","sourceId":"PH-PSP-DOSSIER"},
+    {"id":"PHWORK-PSP-TABATA-CRISIS-CORE","personSlug":"hajime-tabata","workQid":null,"title":"Crisis Core: Final Fantasy VII","catalogId":"psp-crisis-core-final-fantasy-vii","year":2007,"role":"DIRECCIÓN","relationshipPrecision":"EXACT_EDITORIAL_CREDIT","confidence":"HIGH","sourceId":"PH-PSP-DOSSIER"},
+    {"id":"PHWORK-PSP-TABATA-3RD-BIRTHDAY","personSlug":"hajime-tabata","workQid":null,"title":"The 3rd Birthday","catalogId":"psp-the-3rd-birthday","year":2011,"role":"DIRECCIÓN","relationshipPrecision":"EXACT_EDITORIAL_CREDIT","confidence":"VERY_HIGH","sourceId":"PH-PSP-TABATA-2011"}
+  ],
+  "relatedWorks": [
+    {"id":"PHWORK-PSP-TABATA-TYPE-0","personSlug":"hajime-tabata","workQid":null,"title":"Final Fantasy Type-0","catalogId":null,"year":2011,"role":"DIRECCIÓN","relationshipPrecision":"ASSOCIATION_NOT_EXACT_CREDIT","confidence":"HIGH","sourceId":"PH-PSP-DOSSIER"}
+  ],
+  "awards": [],
+  "curiosities": [],
+  "historicalRelations": [
+    {"id":"PHREL-PSP-KUTARAGI","personSlug":"ken-kutaragi","targetType":"platform","targetSlug":"psp","targetName":"PlayStation Portable","platformSlug":"psp","relationshipType":"PLATFORM_LEADERSHIP","relationshipLabelEs":"Liderazgo de plataforma","period":"Concepción-2006","summaryEs":"Dirigió SCE durante la concepción y el lanzamiento de PSP sin recibir una atribución exclusiva del diseño del hardware.","confidence":"HIGH","sourceId":"PH-PSP-SPECS-2004"},
+    {"id":"PHREL-PSP-HIRAI","personSlug":"kazuo-hirai","targetType":"platform","targetSlug":"psp","targetName":"PlayStation Portable","platformSlug":"psp","relationshipType":"REGIONAL_EXECUTIVE_LEADERSHIP","relationshipLabelEs":"Expansión norteamericana","period":"2005-2011","summaryEs":"Encabezó SCEA durante la expansión comercial de PSP antes de asumir el liderazgo global de SCE.","confidence":"HIGH","sourceId":"PH-PSP-ANNIVERSARY-2010"},
+    {"id":"PHREL-PSP-YOSHIDA","personSlug":"shuhei-yoshida","targetType":"platform","targetSlug":"psp","targetName":"PlayStation Portable","platformSlug":"psp","relationshipType":"FIRST_PARTY_LEADERSHIP","relationshipLabelEs":"Producción first party","period":"Etapa PSP","summaryEs":"Se relaciona con la coordinación de Worldwide Studios, no con créditos automáticos sobre sus juegos.","confidence":"HIGH","sourceId":"PH-PSP-DOSSIER"},
+    {"id":"PHREL-PSP-HARRISON","personSlug":"phil-harrison","targetType":"platform","targetSlug":"psp","targetName":"PlayStation Portable","platformSlug":"psp","relationshipType":"FIRST_PARTY_ECOSYSTEM","relationshipLabelEs":"Ecosistema de estudios","period":"2005-2008","summaryEs":"Participó en la expansión de Worldwide Studios durante los primeros años de PSP.","confidence":"HIGH","sourceId":"PH-PSP-DOSSIER"},
+    {"id":"PHREL-PSP-KOLLER","personSlug":"john-koller","targetType":"platform","targetSlug":"psp","targetName":"PlayStation Portable","platformSlug":"psp","relationshipType":"PLATFORM_MARKETING","relationshipLabelEs":"Marketing de plataforma","period":"2008-2012","summaryEs":"Comunicó la evolución comercial de PSP y PSP go desde SCEA.","confidence":"VERY_HIGH","sourceId":"PH-PSP-ANNIVERSARY-2010"},
+    {"id":"PHREL-PSP-KOJIMA","personSlug":"hideo-kojima","targetType":"platform","targetSlug":"psp","targetName":"PlayStation Portable","platformSlug":"psp","relationshipType":"THIRD_PARTY_GAME_DIRECTION","relationshipLabelEs":"Dirección creativa third party","period":"2010","summaryEs":"Dirigió Metal Gear Solid: Peace Walker dentro de Konami.","confidence":"HIGH","sourceId":"PH-PSP-DOSSIER"},
+    {"id":"PHREL-PSP-TABATA","personSlug":"hajime-tabata","targetType":"platform","targetSlug":"psp","targetName":"PlayStation Portable","platformSlug":"psp","relationshipType":"THIRD_PARTY_GAME_DIRECTION","relationshipLabelEs":"Dirección de RPG third party","period":"2007-2011","summaryEs":"Dirigió Crisis Core y The 3rd Birthday durante la etapa portátil de Square Enix.","confidence":"HIGH","sourceId":"PH-PSP-TABATA-2011"}
+  ],
+  "sources": [
+    {"id":"PH-PSP-DOSSIER","url":null,"title":"Dossier editorial Region Atlas · PSP: historia completa","kind":"reference","reliability":"HIGH","language":"es","retrievedAt":"2026-09-15","verifiedPrimary":false},
+    {"id":"PH-PSP-SPECS-2004","url":"https://sonyinteractive.com/en/press-releases/2004/sony-computer-entertainment-inc-announces-product-specifications-of-handheld-video-game-system-playstationportable-psp/","title":"Sony Computer Entertainment announces PSP product specifications","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-PSP-ANNIVERSARY-2010","url":"https://blog.playstation.com/2010/03/24/happy-5th-anniversary-psp/","title":"Happy 5th Anniversary PSP!","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-PSP-GO-2009","url":"https://blog.playstation.com/2009/10/01/pspgo-available-now/comment-page-2/","title":"PSPgo Available Now","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-PSP-TABATA-2011","url":"https://blog.playstation.com/?p=48673","title":"The 3rd Birthday launches on PSP","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-PSP-VITA-WELCOME","url":"https://blog.playstation.com/?p=69448","title":"Welcome to PlayStation Vita","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true}
+  ]
+}

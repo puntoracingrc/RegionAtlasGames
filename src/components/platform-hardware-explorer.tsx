@@ -11,9 +11,12 @@ import {
 } from "@/lib/platform-history-types";
 
 const hardwareLabels: Record<PlatformHardwareKind, string> = {
+  BASE_MODEL: "Modelo original",
   EARLY_REVISION: "Revisión temprana",
   REVISION: "Revisión técnica",
   REDESIGN: "Rediseño",
+  DIGITAL_ONLY_REDESIGN: "Rediseño solo digital",
+  MICROCONSOLE: "Microconsola",
   DEVELOPMENT_HARDWARE: "Hardware de desarrollo",
   HOBBYIST_HARDWARE: "Desarrollo aficionado",
   MULTIMEDIA_HYBRID: "Híbrido multimedia",
