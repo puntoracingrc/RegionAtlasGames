@@ -274,6 +274,10 @@ export function groupCatalogListGames(
         ...edition.ratingSystems,
         ...edition.variants.flatMap((variant) => [variant.label, variant.barcode, variant.boxCode, ...variant.stickers, ...variant.markings]),
       ]).filter((value): value is string => Boolean(value));
+      searchAdditions.push(
+        ...(guide.game.aliases ?? []),
+        ...(guide.game.regionalTitles ?? []).map((regionalTitle) => regionalTitle.title),
+      );
       if (grouping.family) searchAdditions.push(grouping.family.label);
       const grouped: CatalogListGame = {
         ...sharedFields,

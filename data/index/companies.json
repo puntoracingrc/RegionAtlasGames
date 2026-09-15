@@ -15517,7 +15517,6 @@
       "ps4-resident-evil-4-remake-steelbook",
       "ps4-resident-evil-4-gold-edition",
       "ps4-resident-evil-7-steelbook",
-      "ps4-resident-evil-8-village",
       "ps4-ghost-trick-phantom-detective",
       "ps1-ascii-resident-evil-pad",
       "ps1-breath-of-fire-iii",
@@ -15953,7 +15952,7 @@
       "ps1": 226,
       "ps2": 192,
       "ps3": 32,
-      "ps4": 192,
+      "ps4": 191,
       "ps5": 6,
       "saturn": 50,
       "snes": 25,
@@ -16352,7 +16351,6 @@
       "ps4-resident-evil-4-remake-steelbook",
       "ps4-resident-evil-4-gold-edition",
       "ps4-resident-evil-7-steelbook",
-      "ps4-resident-evil-8-village",
       "ps4-street-fighter-6-years-1-2-fighters-edition",
       "ps4-street-fighter-6-lenticular-edition",
       "ps4-ghost-trick-phantom-detective",
@@ -17465,7 +17463,7 @@
       "ps2-jp-slpm-65196",
       "ps2-jp-slpm-74410-playstation-2-the-best"
     ],
-    "gameCount": 1006,
+    "gameCount": 1005,
     "asPhysicalPublisherOrDistributor": [
       "ps4-dead-rising-4-frank%27s-big-package",
       "ps4-dead-rising-4-frank%27s-big-package-not-for-resale",
@@ -17479,7 +17477,7 @@
       "ps4-resident-evil-4-remake-steelbook",
       "ps4-resident-evil-4-gold-edition",
       "ps4-resident-evil-7-steelbook",
-      "ps4-resident-evil-8-village",
+      "ps4-resident-evil-village",
       "ps4-resident-evil-origins-collection",
       "ps4-street-fighter-6-lenticular-edition",
       "ps4-ghost-trick-phantom-detective"
