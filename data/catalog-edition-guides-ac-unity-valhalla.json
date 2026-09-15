@@ -1023,26 +1023,57 @@
           ]
         },
         {
-          "id": "ac-unity-ps4-playstation-hits-us",
-          "label": "PlayStation Hits · USA",
-          "broadRegion": "NORTH_AMERICA",
+          "id": "ac-unity-ps4-playstation-hits-europe-pending",
+          "label": "PlayStation Hits · Europa · identificadores pendientes",
+          "broadRegion": "EUROPE",
           "editionType": "BUDGET_REISSUE",
-          "marketRegions": [
-            "US"
-          ],
+          "marketRegions": [],
           "packagingLanguages": [],
           "componentLanguageEvidence": [],
-          "ratingSystems": [],
+          "ratingSystems": [
+            "PEGI 18"
+          ],
+          "confidence": "PENDING_IDENTIFIER",
           "physicalContents": [],
           "digitalContents": [],
           "catalogIds": [
             "ps4-usa-assassin%27s-creed-unity-playstation-hits"
           ],
           "scanSetIds": [],
-          "evidenceIds": [],
+          "evidenceIds": [
+            "unity-current-hits-asset"
+          ],
           "variants": [],
           "notes": [
-            "Ficha pública, URL y portada existentes preservadas. El dossier entregado no aporta barcode/product code para esta reedición."
+            "Ficha pública, URL, portada y precio existentes preservados; deja de representar una publicación física US.",
+            "El asset es sólo frontal: muestra PlayStation Hits y PEGI 18, sin ESRB ni texto chino visible. Barcode, product code, mercado nacional y packagingLanguages quedan pendientes."
+          ]
+        },
+        {
+          "id": "ac-unity-ps4-greatest-hits-asia-en-zh",
+          "label": "Greatest Hits · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [
+            "EN",
+            "ZH-Hant"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "confidence": "CONFIRMED",
+          "physicalContents": [],
+          "digitalContents": [],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "unity-greatest-hits-asia"
+          ],
+          "variants": [],
+          "notes": [
+            "Greatest Hits es la etiqueta regional; PlayStation Hits se conserva como alias conceptual y no crea una segunda edición.",
+            "Play-Asia confirma versión Asia con idioma inglés y subtítulos en chino tradicional. Barcode y product code siguen pendientes."
           ]
         }
       ],
@@ -1254,6 +1285,32 @@
           "supports": [
             "Standard Asia English/Chinese"
           ]
+        },
+        {
+          "id": "unity-current-hits-asset",
+          "type": "REAL_PHOTO",
+          "label": "Asset público actual de RegionAtlas · Unity PlayStation Hits",
+          "url": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/ps4/assassin-s-creed-unity-playstation-hits.jpg",
+          "summary": "Inspeccionado el 2026-09-15: foto frontal de caja roja PlayStation Hits con PEGI 18, sin ESRB ni texto chino visible; no incluye reverso, barcode ni product code.",
+          "supports": [
+            "PlayStation Hits Europe broad region",
+            "PEGI 18",
+            "no US asset evidence",
+            "identifiers pending"
+          ]
+        },
+        {
+          "id": "unity-greatest-hits-asia",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia · Unity Greatest Hits English & Chinese",
+          "url": "https://www.play-asia.com/en/assassins-creed-unity-greatest-hits-english-chinese/13/7090bv",
+          "summary": "La ficha histórica confirma una reedición Greatest Hits para Asia con idioma inglés y subtítulos en chino tradicional; no aporta barcode/product code verificables al cierre.",
+          "supports": [
+            "Greatest Hits Asia",
+            "software English",
+            "software subtitles Chinese Traditional",
+            "identifiers pending"
+          ]
         }
       ],
       "sources": [
@@ -1264,7 +1321,7 @@
           "label": "Escaneos propios registrados en RegionAtlas"
         }
       ],
-      "evidenceNote": "No se realizó investigación externa. Las afirmaciones proceden del documento entregado y de los escaneos propios ya registrados; todo conflicto de plataforma, país, barcode o packaging continúa marcado como pendiente.",
+      "evidenceNote": "Cierre residual contrastado con el asset público y la ficha histórica de Play-Asia. La ficha legacy PlayStation Hits deja de ser US: el frontal demuestra PEGI 18 y región europea amplia, pero mercado nacional, barcode, product code y reverso quedan pendientes. La Asian Greatest Hits existe como reedición separada con software EN/ZH-Hant y no se confunde con Ubi the Best Japón. Los demás conflictos previos continúan pendientes.",
       "editionFamilies": [
         {
           "id": "documented-worldwide-editions",
@@ -1309,7 +1366,8 @@
             "ac-unity-ps4-walmart-us",
             "ac-unity-ps4-collector-us",
             "ac-unity-ps4-ubi-the-best-jp",
-            "ac-unity-ps4-playstation-hits-us"
+            "ac-unity-ps4-playstation-hits-europe-pending",
+            "ac-unity-ps4-greatest-hits-asia-en-zh"
           ],
           "priceConditions": [
             "sealed",
@@ -2171,8 +2229,8 @@
           ]
         },
         {
-          "id": "ac-valhalla-ps4-collector-us-existing",
-          "label": "Collector's Edition · USA / ficha existente",
+          "id": "ac-valhalla-ps4-collector-na",
+          "label": "Collector's Edition · Norteamérica",
           "broadRegion": "NORTH_AMERICA",
           "editionType": "COLLECTOR",
           "marketRegions": [
@@ -2180,17 +2238,75 @@
           ],
           "packagingLanguages": [],
           "componentLanguageEvidence": [],
-          "ratingSystems": [],
-          "physicalContents": [],
-          "digitalContents": [],
+          "ratingSystems": [
+            "ESRB M"
+          ],
+          "confidence": "HIGH",
+          "barcode": "887256110024",
+          "physicalContents": [
+            "Juego en disco (1)",
+            "Caja de coleccionista",
+            "Figura de Eivor (mujer) y su drakkar de 30 cm",
+            "Estatuilla vikinga de Eivor (hombre) con cuervo y hacha danesa de 5 cm",
+            "Steelbook exclusivo",
+            "Banda sonora seleccionada",
+            "Certificado premium numerado de autenticidad",
+            "Set de 3 litografías"
+          ],
+          "digitalContents": [
+            "Season Pass",
+            "Ultimate Pack (Berserker Gear Pack, Berserker Settlement Pack, Berserker Longship Pack y set de runas)"
+          ],
           "catalogIds": [
             "ps4-usa-assassin%27s-creed-valhalla-collector%27s-editions"
           ],
           "scanSetIds": [],
-          "evidenceIds": [],
+          "evidenceIds": [
+            "valhalla-collector-pricecharting-na",
+            "valhalla-collector-current-asset",
+            "valhalla-collector-ubisoft-store"
+          ],
           "variants": [],
           "notes": [
-            "Ficha pública, URL, portada y precio existentes preservados. El dossier entregado no aporta identificadores físicos suficientes para ampliarla."
+            "Ficha pública, slug legacy en plural, portada y precio existentes preservados; la edición conceptual se normaliza al singular.",
+            "PackagingLanguages y CUSA quedan pendientes: el asset actual es un mockup promocional sin señal territorial ni reverso de la caja PS4."
+          ]
+        },
+        {
+          "id": "ac-valhalla-ps4-collector-eu",
+          "label": "Collector's Edition · Europa · identificadores pendientes",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "confidence": "CONFIRMED",
+          "physicalContents": [
+            "Juego en disco PS4",
+            "Caja de coleccionista",
+            "Figura de Eivor (mujer) y su drakkar de 30 cm",
+            "Estatuilla vikinga de Eivor (hombre) con cuervo y hacha danesa de 5 cm",
+            "Steelbook exclusivo",
+            "Banda sonora seleccionada",
+            "Certificado premium numerado de autenticidad",
+            "Set de 3 litografías"
+          ],
+          "digitalContents": [
+            "Season Pass",
+            "Ultimate Pack (Berserker Gear Pack, Berserker Settlement Pack, Berserker Longship Pack y set de runas)"
+          ],
+          "catalogIds": [],
+          "scanSetIds": [],
+          "evidenceIds": [
+            "valhalla-collector-current-asset",
+            "valhalla-collector-ubisoft-store",
+            "valhalla-collector-europe-ps4"
+          ],
+          "variants": [],
+          "notes": [
+            "Existencia europea confirmada; barcode, product code, CUSA, mercado nacional y packagingLanguages permanecen pendientes.",
+            "Collector's Edition incluye contenido de Ultimate, pero no es la misma PhysicalEdition que Ultimate Edition."
           ]
         }
       ],
@@ -2394,6 +2510,57 @@
           "supports": [
             "Ragnarök USA pending"
           ]
+        },
+        {
+          "id": "valhalla-collector-pricecharting-na",
+          "type": "UNKNOWN",
+          "label": "PriceCharting · Valhalla Collector's Editions PS4 Norteamérica",
+          "url": "https://www.pricecharting.com/game/playstation-4/assassin%27s-creed-valhalla-collector%27s-editions",
+          "summary": "Confirma fecha 2020-11-10, ESRB Mature, un disco de juego y UPC 887256110024 para la ficha PS4 norteamericana.",
+          "supports": [
+            "Collector's Edition North America",
+            "UPC 887256110024",
+            "ESRB M",
+            "1 game disc"
+          ]
+        },
+        {
+          "id": "valhalla-collector-current-asset",
+          "type": "PUBLISHER_MOCKUP",
+          "label": "Asset público actual de RegionAtlas · Valhalla Collector's Edition",
+          "url": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/ps4/assassin-s-creed-valhalla-collector-s-editions.jpg",
+          "summary": "Inspeccionado el 2026-09-15: mockup Ubisoft Store Exclusive sin señal territorial. Muestra caja de coleccionista, figura femenina de 30 cm, figura masculina de 5 cm, Steelbook, soundtrack, certificado, tres litografías, Season Pass y Ultimate Pack.",
+          "supports": [
+            "Collector's Edition contents",
+            "Ubisoft Store Exclusive",
+            "Season Pass",
+            "Ultimate Pack",
+            "no regional identifier"
+          ]
+        },
+        {
+          "id": "valhalla-collector-ubisoft-store",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Ubisoft Store · contenidos de Collector's Edition",
+          "url": "https://store.ubisoft.com/nl/assassins-creed-valhalla-contest.html",
+          "summary": "La documentación oficial enumera el juego, Season Pass, Ultimate Pack y los extras físicos de la Collector's Edition exclusiva de Ubisoft Store.",
+          "supports": [
+            "Collector's Edition contents",
+            "Collector differs from Ultimate",
+            "Ubisoft Store Exclusive"
+          ]
+        },
+        {
+          "id": "valhalla-collector-europe-ps4",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Yard's Games · Collector's Edition PS4 europea",
+          "url": "https://www.yardsgames.com/products/assassins-creed-valhalla-collectors-edition-ps4",
+          "summary": "Confirma una Collector's Edition completa de Ubisoft Store con disco PS4 en mercado británico/europeo; no publica barcode ni CUSA verificables.",
+          "supports": [
+            "Collector's Edition Europe existence",
+            "PS4 physical disc",
+            "identifiers pending"
+          ]
         }
       ],
       "sources": [
@@ -2404,7 +2571,7 @@
           "label": "Escaneos propios registrados en RegionAtlas"
         }
       ],
-      "evidenceNote": "No se realizó investigación externa. Retailer country no equivale a mercado físico; idiomas de software no equivalen a idiomas de caja. Los huecos de Portugal, Alemania, Nordic, Italia IT-only, Nueva Zelanda, México/LATAM, Brasil, Corea y Asia permanecen pendientes.",
+      "evidenceNote": "Cierre residual contrastado con PriceCharting, el asset público y documentación de Ubisoft Store. Collector's Edition queda como familia conceptual separada de Ultimate: Norteamérica usa UPC 887256110024 y Europa mantiene barcode/product code/CUSA/packaging pendientes. El mockup de contenidos no se usa para inferir región ni idiomas. Retailer country no equivale por sí solo a mercado físico; los huecos territoriales previos permanecen pendientes.",
       "editionFamilies": [
         {
           "id": "documented-worldwide-editions",
@@ -2440,8 +2607,21 @@
             "ac-valhalla-ps4-ragnarok-au",
             "ac-valhalla-ps4-ragnarok-jp",
             "ac-valhalla-ps4-ragnarok-pal-catalog-pending",
-            "ac-valhalla-ps4-ragnarok-us-platform-pending",
-            "ac-valhalla-ps4-collector-us-existing"
+            "ac-valhalla-ps4-ragnarok-us-platform-pending"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "collectors-edition",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-valhalla-collector%27s-editions",
+          "physicalEditionIds": [
+            "ac-valhalla-ps4-collector-na",
+            "ac-valhalla-ps4-collector-eu"
           ],
           "priceConditions": [
             "sealed",
