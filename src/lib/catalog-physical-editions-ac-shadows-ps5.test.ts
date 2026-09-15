@@ -158,9 +158,11 @@ test("Premium remains non-physical, Claws is an expansion, and unsupported marke
     expansionOf: "assassins-creed-shadows",
   }]);
   const pendingMarkets = new Set(guide().researchTasks.flatMap((entry) => entry.marketRegions));
-  for (const market of ["KR", "MX", "BR", "NZ"]) assert.ok(pendingMarkets.has(market));
+  const unsupportedMarkets = ["KR", "MX", "BR", "NZ"] as const;
+  for (const market of unsupportedMarkets) assert.ok(pendingMarkets.has(market));
+  const unsupportedMarketSet = new Set<string>(unsupportedMarkets);
   assert.equal(
-    guide().physicalEditions.some((entry) => entry.marketRegions.some((market) => ["KR", "MX", "BR", "NZ"].includes(market))),
+    guide().physicalEditions.some((entry) => entry.marketRegions.some((market) => unsupportedMarketSet.has(market))),
     false,
   );
 });

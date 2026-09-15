@@ -695,6 +695,7 @@ test("documented guides use edition families while existing catalog IDs retain e
       "assassins-creed-valhalla-ps4-worldwide",
       "assassins-creed-valhalla-dawn-of-ragnarok-ps4",
       "assassins-creed-odyssey-ps4",
+      "assassins-creed-shadows-ps5-worldwide",
     ],
   );
 
@@ -740,8 +741,9 @@ test("sitewide V2 groups published regional pages and keeps their catalog collec
     const guide = getCatalogEditionGuide(game);
     assert.ok(guide, `missing V2 presentation for ${game.id}`);
     assert.equal(guide.schemaVersion, 2);
-    assert.ok(guide.currentEditionId);
-    assert.ok(guide.currentEditionFamilyId);
+    assert.ok(guide.currentEditionId || guide.currentBonusItemId);
+    if (guide.currentEditionId) assert.ok(guide.currentEditionFamilyId);
+    if (guide.currentBonusItemId) assert.equal(guide.currentEditionFamilyId, undefined);
   }
 
   const sekiroIds = [
