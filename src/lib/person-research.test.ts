@@ -501,6 +501,7 @@ test("preserves catalog, company and prior research files byte for byte", () => 
       "owned-scans-2026-09-11-batch-1",
       "owned-scans-2026-09-11-batch-2",
       "absolum-v2-public-url-and-details-2026-09-13",
+      "resident-evil-ps4-dedup-20260915",
     ],
   );
 });

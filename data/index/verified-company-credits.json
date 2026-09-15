@@ -56608,6 +56608,52 @@
         }
       ]
     },
+    "ps4-resident-evil-village": {
+      "developer": null,
+      "publisher": null,
+      "fieldSources": {},
+      "fieldProvenance": {},
+      "companyCredits": [
+        {
+          "role": "developer",
+          "company": {
+            "name": "Capcom",
+            "slug": "capcom",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.residentevil.com/"
+            ],
+            "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: Capcom.",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        },
+        {
+          "role": "physicalPublisherOrDistributor",
+          "company": {
+            "name": "Capcom",
+            "slug": "capcom",
+            "museumPath": null,
+            "pcPath": null,
+            "source": "research"
+          },
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.residentevil.com/"
+            ],
+            "evidenceSummary": "Crédito verificado para la obra base y aplicado únicamente a esta edición: Capcom.",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        }
+      ]
+    },
     "ps4-resident-evil-village-collector%27s-edition": {
       "developer": {
         "name": "Capcom",

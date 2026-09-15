@@ -337,6 +337,19 @@
       "reason": "same_product",
       "reviewedAt": "2026-09-12",
       "reviewBatch": "assassins-apostrophe-dedup-20260912"
+    },
+    {
+      "sourceParams": [
+        "ps4-resident-evil-8-village",
+        "resident-evil-8-village",
+        "resident-evil-8-village-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-resident-evil-village",
+      "targetParam": "resident-evil-village-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-15",
+      "reviewBatch": "resident-evil-ps4-dedup-20260915"
     }
   ]
 }
