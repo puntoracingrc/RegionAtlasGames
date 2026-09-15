@@ -1,0 +1,107 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug":"gameboy",
+      "title":"Game Boy / Game Boy Color",
+      "lineage":{"branchLabelEs":"Línea portátil","summaryEs":"Game Boy transforma el aprendizaje de Game & Watch en una plataforma de cartuchos. Pocket y Light son revisiones; Game Boy Color es una sucesora compatible dentro de la misma familia comercial consolidada por Nintendo.","links":[
+        {"platformSlug":"gameandwatch","platformName":"Nintendo Arcade y Game & Watch","relationship":"PREDECESSOR","summaryEs":"R&D1 trasladó portabilidad, autonomía y control desde dispositivos de un solo juego a una consola de cartuchos.","sourceIds":["PH-NIN-GB-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"gba","platformName":"Game Boy Advance","relationship":"SUCCESSOR","summaryEs":"La rama portátil continúa con GBA y compatibilidad inicial con GB/GBC.","sourceIds":["PH-NIN-GB-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"snes","platformName":"Super Famicom / Super Nintendo","relationship":"PARALLEL_BRANCH","summaryEs":"Super Game Boy enlaza ambas ramas mediante un periférico de SNES, no mediante una fusión de plataformas.","sourceIds":["PH-NIN-GB-DOSSIER"]}
+      ]},
+      "dekEs":"La familia portátil que priorizó autonomía, precio y catálogo intercambiable, evolucionó desde la pantalla monocroma hasta Game Boy Color y recibió un segundo impulso decisivo con Tetris y Pokémon.",
+      "summaryParagraphsEs":[
+        "Game Boy se lanzó en 1989 como una consola portátil de cartuchos. Nintendo agrupa Game Boy y Game Boy Color en una cifra oficial de 118,69 millones de consolas y 501,11 millones de juegos.",
+        "Gunpei Yokoi y Satoru Okada representan un trabajo colectivo de R&D1 orientado a autonomía, coste y tecnología probada. No se atribuye toda la máquina a una sola persona.",
+        "Game Boy Pocket redujo tamaño y mejoró la pantalla; Game Boy Light añadió iluminación y se limitó a Japón. Game Boy Color, lanzada en 1998, añadió color, mantuvo compatibilidad con Game Boy y tuvo catálogo propio.",
+        "Tetris fue crucial en el lanzamiento occidental. Pokémon reactivó el ciclo comercial a finales de los noventa, pero sus juegos fueron desarrollados por Game Freak: Nintendo no se presenta como desarrolladora única."
+      ],
+      "historyTitleEs":"Autonomía, catálogo y una vida comercial extraordinaria",
+      "historyParagraphsEs":[
+        "La filosofía portátil de R&D1 favoreció una tecnología madura y una experiencia legible por encima de una carrera de especificaciones. El resultado combinó pilas AA, pantalla monocroma y cartuchos intercambiables.",
+        "La asociación de Tetris con el lanzamiento occidental conecta a Nintendo of America con Alexey Pajitnov y Henk Rogers, pero los detalles de derechos se mantienen fuera de la publicación hasta contar con relaciones documentales más precisas.",
+        "Pokémon Red y Green nacieron en Japón y construyeron un ecosistema entre Game Freak, Creatures, Nintendo y después The Pokémon Company. La relación societaria no convierte a ninguna de esas entidades en alias de otra.",
+        "Game Boy Color prolongó la familia con software propio y compatibilidad hacia atrás. Su posición es la de sucesora dentro de la familia, no una simple revisión cosmética."
+      ],
+      "architectureTitleEs":"Pantalla, cartucho y compatibilidad",
+      "architectureDekEs":"Las revisiones cambian pantalla y forma física sin borrar los límites entre modelos.",
+      "figures":[
+        {"personSlug":"gunpei-yokoi","personName":"Gunpei Yokoi","roleLabelEs":"Concepto y producción","contributionEs":"Figura principal de R&D1 asociada a la filosofía portátil, Game & Watch y Game Boy.","period":"Desarrollo y lanzamiento","sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"personSlug":"satoru-okada","personName":"Satoru Okada","roleLabelEs":"Ingeniería y diseño","contributionEs":"Figura esencial del trabajo de ingeniería de Game Boy dentro de R&D1.","period":"Etapa Game Boy","sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"personSlug":"hiroshi-yamauchi","personName":"Hiroshi Yamauchi","roleLabelEs":"Dirección empresarial","contributionEs":"Presidió Nintendo durante la creación, lanzamiento y expansión mundial de la familia.","period":"1989-2002","sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"personSlug":"minoru-arakawa","personName":"Minoru Arakawa","roleLabelEs":"Nintendo of America","contributionEs":"Participó en la estrategia occidental que vinculó Tetris al lanzamiento de Game Boy.","period":"Lanzamiento occidental","sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"personSlug":"howard-lincoln","personName":"Howard Lincoln","roleLabelEs":"Negocio y licencias","contributionEs":"Figura empresarial de Nintendo of America durante la expansión de Game Boy y Tetris.","period":"Etapa Game Boy","sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"personSlug":"satoshi-tajiri","personName":"Satoshi Tajiri","roleLabelEs":"Creación y desarrollo externo","contributionEs":"Figura de Game Freak ligada al origen de Pokémon; la relación no convierte a Nintendo en desarrolladora de los juegos.","period":"Etapa Pokémon en Game Boy","sourceIds":["PH-NIN-GB-DOSSIER"]}
+      ],
+      "architecture":[
+        {"id":"architecture-gameboy-display","name":"Pantalla monocroma y bajo consumo","kind":"DISPLAY","summaryEs":"La pantalla reflectiva y la electrónica de bajo consumo favorecieron autonomía y portabilidad.","features":["Pantalla monocroma en Game Boy","Autonomía como prioridad de diseño","Mejoras de contraste y tamaño en Pocket"],"partners":[{"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","roleLabelEs":"Diseño e integración"}],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"id":"architecture-gameboy-cartridge","name":"Game Pak portátil","kind":"GAME_MEDIA","summaryEs":"El cartucho intercambiable convirtió la experiencia portátil en una plataforma con catálogo compartido.","features":["Software intercambiable","Compatibilidad de Game Boy Color con Game Boy","Catálogo propio de Game Boy Color"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma y licencias"}],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"id":"architecture-gameboy-color","name":"Pantalla en color de Game Boy Color","kind":"DISPLAY","summaryEs":"La sucesora de 1998 añadió color manteniendo compatibilidad con gran parte de la biblioteca anterior.","features":["Pantalla en color","Compatibilidad hacia atrás","Software específico de Game Boy Color"],"partners":[{"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","roleLabelEs":"Evolución de hardware"}],"sourceIds":["PH-NIN-GB-DOSSIER"]}
+      ],
+      "companiesTitleEs":"R&D1, Pokémon y socios del catálogo portátil",
+      "companies":[
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"1989-ciclo Game Boy Color","relationshipStart":"1989","relationshipEnd":null,"contributionEs":"Fabricó la familia y publicó software propio y asociado.","relatedWorks":["Game Boy","Tetris","Super Mario Land","Pokémon"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GB-DOSSIER"]},
+        {"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Equipo interno","period":"Etapa Game Boy","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Equipo principal de hardware portátil y software relacionado.","relatedWorks":["Game Boy","Metroid II","Wario Land"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"companySlug":"game-freak","companyName":"Game Freak","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Desarrolladora independiente","period":"Pokémon en Game Boy","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló los juegos principales de Pokémon; no era un estudio interno de Nintendo.","relatedWorks":["Pokémon Red / Green / Blue / Yellow","Pokémon Gold / Silver / Crystal"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"companySlug":"creatures","companyName":"Creatures","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Socio de Pokémon","period":"Desde la etapa Game Boy","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Parte del entramado creativo y empresarial de Pokémon, con identidad propia.","relatedWorks":["Pokémon"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"companySlug":"the-pokemon-company","companyName":"The Pokémon Company","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Gestión conjunta de la IP","period":"Desde 1998","relationshipStart":"1998","relationshipEnd":null,"contributionEs":"Entidad relacionada con Nintendo, Game Freak y Creatures; no es una subsidiaria propiedad al 100 % de Nintendo.","relatedWorks":["Pokémon"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"companySlug":"hal-laboratory","companyName":"HAL Laboratory","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa Game Boy","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolladora cercana a Nintendo, pero no propiedad de Nintendo.","relatedWorks":["Kirby's Dream Land"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"companySlug":"rare","companyName":"Rare","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa Game Boy","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó software al catálogo portátil antes de su posterior adquisición por Microsoft.","relatedWorks":["Donkey Kong Land"],"sourceIds":["PH-NIN-GB-DOSSIER"]}
+      ],
+      "companyGroups":[
+        {"id":"gameboy-first-party","labelEs":"Plataforma Nintendo","descriptionEs":"Nintendo y R&D1 sostienen el hardware y parte del catálogo.","companySlugs":["nintendo","nintendo-rd1"]},
+        {"id":"gameboy-pokemon","labelEs":"Ecosistema Pokémon","descriptionEs":"Entidades relacionadas que conservan identidad y funciones propias.","companySlugs":["game-freak","creatures","the-pokemon-company"]},
+        {"id":"gameboy-partners","labelEs":"Otros socios independientes","descriptionEs":"Relaciones de desarrollo sin propiedad de Nintendo.","companySlugs":["hal-laboratory","rare"]}
+      ],
+      "genealogies":[],
+      "gamesTitleEs":"Tetris, Pokémon y el catálogo portátil",
+      "gameGroups":[
+        {"id":"gameboy-foundation-games","labelEs":"Primera etapa","descriptionEs":"Juegos que definieron el lanzamiento y la identidad monocroma.","games":[
+          {"title":"Tetris","catalogId":null,"year":1989,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Pack-in occidental · Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+          {"title":"Super Mario Land","catalogId":null,"year":1989,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo R&D1","companySlugs":["nintendo","nintendo-rd1"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+          {"title":"The Legend of Zelda: Link's Awakening","catalogId":null,"year":1993,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+          {"title":"Kirby's Dream Land","catalogId":null,"year":1992,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"HAL Laboratory / Nintendo","companySlugs":["hal-laboratory","nintendo"],"sourceIds":["PH-NIN-GB-DOSSIER"]}
+        ]},
+        {"id":"gameboy-pokemon-games","labelEs":"Pokémon y Game Boy Color","descriptionEs":"La segunda gran etapa comercial de la familia.","games":[
+          {"title":"Pokémon Red / Green / Blue / Yellow","catalogId":null,"year":1996,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Game Freak / Nintendo","companySlugs":["game-freak","nintendo"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+          {"title":"Pokémon Gold / Silver / Crystal","catalogId":null,"year":1999,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Game Freak / Nintendo","companySlugs":["game-freak","nintendo"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+          {"title":"The Legend of Zelda: Oracle of Ages / Seasons","catalogId":null,"year":2001,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Capcom / Nintendo","companySlugs":["capcom","nintendo"],"sourceIds":["PH-NIN-GB-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs":"Game Boy, revisiones y sucesora en color",
+      "hardware":[
+        {"id":"hardware-gameboy-dmg","name":"Game Boy","kind":"BASE_MODEL","yearLabel":"21 abr 1989","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["DMG-01"],"summaryEs":"Modelo original monocromo de cartuchos intercambiables.","features":["Pantalla monocroma","Cuatro pilas AA","Puerto Link"],"relatedWorks":["Tetris","Super Mario Land"],"relatedPersonSlugs":["gunpei-yokoi","satoru-okada"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GB-DOSSIER"]},
+        {"id":"hardware-gameboy-pocket","name":"Game Boy Pocket","kind":"REDESIGN","yearLabel":"1996","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["MGB-001"],"summaryEs":"Rediseño más pequeño con pantalla mejorada y alimentación mediante dos pilas AAA.","features":["Menor tamaño","Pantalla más clara","Dos pilas AAA"],"relatedWorks":[],"relatedPersonSlugs":["satoru-okada"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"id":"hardware-gameboy-light","name":"Game Boy Light","kind":"REGIONAL_MODEL","yearLabel":"1998","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["MGB-101"],"summaryEs":"Variante japonesa con iluminación integrada.","features":["Luz electroluminiscente","Sólo Japón","Compatible con Game Boy"],"relatedWorks":[],"relatedPersonSlugs":["satoru-okada"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"id":"hardware-gameboy-color","name":"Game Boy Color","kind":"SUCCESSOR_PLATFORM","yearLabel":"1998","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["CGB-001"],"summaryEs":"Sucesora en color dentro de la familia Game Boy, compatible con el catálogo anterior y con juegos propios.","features":["Pantalla en color","Compatibilidad Game Boy","Catálogo exclusivo y mejorado"],"relatedWorks":["Pokémon Gold / Silver / Crystal"],"relatedPersonSlugs":["satoru-okada","hiroshi-yamauchi"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"id":"hardware-super-gameboy","name":"Super Game Boy","kind":"PERIPHERAL","yearLabel":"1994","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Cartucho periférico de SNES que ejecuta software de Game Boy con marcos y mejoras compatibles.","features":["Requiere SNES","No es consola independiente","Mejoras específicas en algunos juegos"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GB-DOSSIER"]}
+      ],
+      "compatibilityLinks":[
+        {"id":"compat-gameboycolor-gameboy","sourcePlatformSlug":"gameboy","sourcePlatformName":"Game Boy Color","targetPlatformSlug":"gameboy","targetPlatformName":"Game Boy","labelEs":"Compatibilidad hacia atrás","summaryEs":"Game Boy Color mantiene compatibilidad con la biblioteca Game Boy, con excepciones ligadas a software y accesorios concretos.","features":["Cartuchos Game Boy en Game Boy Color","Software específico de Color no funciona en Game Boy monocroma"],"sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"id":"compat-supergameboy-snes","sourcePlatformSlug":"snes","sourcePlatformName":"Super Nintendo","targetPlatformSlug":"gameboy","targetPlatformName":"Game Boy","labelEs":"Compatibilidad mediante periférico","summaryEs":"Super Game Boy permite usar cartuchos Game Boy mediante hardware conectado a SNES; no existe compatibilidad física directa sin el accesorio.","features":["Requiere Super Game Boy","Salida de vídeo mediante SNES","Mejoras opcionales por juego"],"sourceIds":["PH-NIN-GB-DOSSIER"]}
+      ],
+      "editorialSections":[
+        {"id":"pokemon-ownership","titleEs":"Pokémon sin atribuciones falsas","dekEs":"Desarrollo, publicación y gestión de IP son relaciones distintas.","paragraphsEs":["Game Freak desarrolló los juegos principales. Creatures, Nintendo y The Pokémon Company ocupan papeles relacionados que deben conservarse por entidad y fecha.","La recuperación comercial de Game Boy con Pokémon no convierte a Nintendo en desarrolladora única ni a Game Freak en una filial propia."],"cards":[],"sourceIds":["PH-NIN-GB-DOSSIER"]}
+      ],
+      "sectionOrder":["lineage","figures","architecture","editorial:pokemon-ownership","companies","games","hardware","compatibility","milestones","legacy"],
+      "milestones":[
+        {"id":"milestone-gameboy-launch","yearLabel":"1989","sortYear":1989,"title":"Lanzamiento de Game Boy","summaryEs":"Nintendo convierte su experiencia portátil en una plataforma de cartuchos.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-gameboy-pocket","yearLabel":"1996","sortYear":1996,"title":"Game Boy Pocket y Pokémon","summaryEs":"El rediseño coincide con el comienzo japonés de Pokémon y una nueva etapa comercial.","sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"id":"milestone-gameboy-light-color","yearLabel":"1998","sortYear":1998,"title":"Game Boy Light y Game Boy Color","summaryEs":"La familia suma una variante japonesa iluminada y una sucesora en color.","sourceIds":["PH-NIN-GB-DOSSIER"]},
+        {"id":"milestone-gameboy-advance","yearLabel":"2001","sortYear":2001,"title":"Transición a Game Boy Advance","summaryEs":"La rama portátil continúa con una nueva arquitectura compatible en sus primeros modelos.","sourceIds":["PH-NIN-HISTORY"]}
+      ],
+      "legacyEs":[
+        "Game Boy consolidó la consola portátil de cartuchos como una línea paralela a las máquinas domésticas de Nintendo.",
+        "Su longevidad depende tanto del diseño de hardware como de software y asociaciones externas, especialmente Tetris y Pokémon.",
+        "Game Boy Color muestra cómo una sucesora compatible puede permanecer dentro de una familia comercial sin reducirse a una revisión estética."
+      ],
+      "sources":[
+        {"id":"PH-NIN-GB-DOSSIER","title":"Dossier editorial Region Atlas · Game Boy / Game Boy Color","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Familia, personas, Pokémon, modelos y QA","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Game Boy y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Game Boy / Game Boy Color · 118,69 M hardware; 501,11 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed":"2026-09-15"
+    }
+  ]
+}

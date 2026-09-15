@@ -8,6 +8,7 @@ import {
   humanizePersonRole,
   personLifeLabel,
 } from "@/lib/person-public-research";
+import { getPlatformHardwareGroup, platformHistoryPath } from "@/lib/platform-history";
 import type {
   PersonCompanyRelation,
   PersonPublicSource,
@@ -22,14 +23,21 @@ function relationPeriod(relation: PersonCompanyRelation): string | null {
 }
 
 function SourceLink({ source, compact = false }: { source: PersonPublicSource; compact?: boolean }) {
+  if (!source.url) {
+    return (
+      <span className={`${compact ? "flex flex-1" : "inline-flex"} min-w-0 max-w-full font-medium text-foreground/75`}>
+        <span className={compact ? "min-w-0 truncate" : ""}>{source.title}</span>
+      </span>
+    );
+  }
   return (
     <a
       href={source.url}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex min-w-0 items-center gap-1.5 font-medium text-accent hover:underline"
+      className={`${compact ? "flex flex-1" : "inline-flex"} min-w-0 max-w-full items-center gap-1.5 font-medium text-accent hover:underline`}
     >
-      <span className={compact ? "truncate" : ""}>{source.title}</span>
+      <span className={compact ? "min-w-0 truncate" : ""}>{source.title}</span>
       <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
     </a>
   );
@@ -110,9 +118,11 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
               </div>
             )}
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              <a href={`https://www.wikidata.org/wiki/${profile.qid}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline">
-                {profile.qid}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
+              {profile.qid && (
+                <a href={`https://www.wikidata.org/wiki/${profile.qid}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline">
+                  {profile.qid}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              )}
               {profile.officialWebsites.map((url) => (
                 <a key={url} href={url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-accent hover:underline">
                   Sitio oficial<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
@@ -161,6 +171,52 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
           </section>
         )}
 
+        {view.historicalRelations.length > 0 && (
+          <section className="border-b border-border py-8">
+            <SectionTitle detail={`${view.historicalRelations.length} conexiones`}>Plataformas y hardware</SectionTitle>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {view.historicalRelations.map((relation) => {
+                const hardwareGroup = relation.targetType === "hardware" && relation.platformSlug
+                  ? getPlatformHardwareGroup(relation.platformSlug, relation.targetSlug)
+                  : undefined;
+                const href = relation.targetType === "platform"
+                  ? platformHistoryPath(relation.targetSlug)
+                  : relation.targetType === "person"
+                    ? `/persona/${relation.targetSlug}`
+                    : relation.platformSlug
+                      ? platformHistoryPath(relation.platformSlug, {
+                        hardware: hardwareGroup,
+                        section: relation.targetSlug,
+                      })
+                      : null;
+                const content = (
+                  <>
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted">{relation.relationshipLabelEs}</p>
+                        <h3 className="mt-1 font-semibold text-foreground">{relation.targetName}</h3>
+                      </div>
+                      {relation.period && <span className="text-xs font-medium text-accent">{relation.period}</span>}
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/75">{relation.summaryEs}</p>
+                  </>
+                );
+                return (
+                  <li key={relation.id}>
+                    {href ? (
+                      <Link href={href} className="block h-full rounded-lg border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover">
+                        {content}
+                      </Link>
+                    ) : (
+                      <div className="h-full rounded-lg border border-border bg-card p-4">{content}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
         {view.timeline.length > 0 && (
           <section className="border-b border-border py-8">
             <SectionTitle detail={`${view.timeline.length} hitos`}>Cronología</SectionTitle>
@@ -191,7 +247,14 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
                   {view.exactCredits.map((work) => (
                     <li key={work.id} className="py-3">
                       <div className="flex items-start justify-between gap-3">
-                        <div><h3 className="font-semibold text-foreground">{work.title}</h3><p className="mt-1 text-sm text-muted">{humanizePersonRole(work.role)}</p></div>
+                        <div>
+                          {work.catalogId ? (
+                            <Link href={`/catalogo/${work.catalogId}`} className="font-semibold text-foreground hover:text-accent">{work.title}</Link>
+                          ) : (
+                            <h3 className="font-semibold text-foreground">{work.title}</h3>
+                          )}
+                          <p className="mt-1 text-sm text-muted">{humanizePersonRole(work.role)}</p>
+                        </div>
                         {work.year && <span className="text-xs font-medium text-muted">{work.year}</span>}
                       </div>
                     </li>
@@ -208,7 +271,11 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
                 <ul className="mt-3 divide-y divide-border border-y border-border">
                   {view.relatedWorks.map((work) => (
                     <li key={work.id} className="flex items-center justify-between gap-3 py-3 text-sm">
-                      <span className="font-medium text-foreground">{work.title}</span>
+                      {work.catalogId ? (
+                        <Link href={`/catalogo/${work.catalogId}`} className="font-medium text-foreground hover:text-accent">{work.title}</Link>
+                      ) : (
+                        <span className="font-medium text-foreground">{work.title}</span>
+                      )}
                       {work.year && <span className="text-xs text-muted">{work.year}</span>}
                     </li>
                   ))}
@@ -253,9 +320,9 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
           <SectionTitle detail={`Revisión: ${new Date(profile.lastChecked).toLocaleDateString("es-ES")}`}>Fuentes</SectionTitle>
           <ul className="mt-4 grid gap-x-8 gap-y-3 border-y border-border py-4 sm:grid-cols-2">
             {view.sources.map((source) => (
-              <li key={source.id} className="min-w-0 text-sm">
+              <li key={source.id} className="flex min-w-0 items-center gap-2 text-sm">
                 <SourceLink source={source} compact />
-                <span className="ml-2 text-[10px] uppercase tracking-wider text-muted">{source.reliability}</span>
+                <span className="shrink-0 text-[10px] uppercase tracking-wider text-muted">{source.reliability}</span>
               </li>
             ))}
           </ul>

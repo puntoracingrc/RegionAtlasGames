@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { CompanyExplorer } from "@/components/company-explorer";
 import { NewsStrip } from "@/components/news-strip";
 import { SiteNav } from "@/components/site-nav";
-import { companyListIntro, getCompanyExplorerData, getCompanyExplorerInitialData } from "@/lib/company-index";
+import { getCompanyBrowseData, getCompanyBrowseInitialData } from "@/lib/company-browse-index";
+import { companyListIntro } from "@/lib/company-explorer-filter";
 import { listNewsForSection } from "@/lib/news-cache";
 import { getSiteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-dynamic";
 
 export function buildCompaniesListMetadata(): Metadata {
-  const data = getCompanyExplorerData();
+  const data = getCompanyBrowseData();
   const description = `${companyListIntro(data.stats)}. Filtra por función, plataforma, género, tamaño, estado, periodo de actividad y cobertura de precios.`;
   const url = `${getSiteUrl()}/compania`;
 
@@ -30,8 +32,7 @@ export function buildCompaniesListMetadata(): Metadata {
 export const metadata = buildCompaniesListMetadata();
 
 export default async function CompaniesPage() {
-  const data = getCompanyExplorerInitialData();
-  const companyNews = await listNewsForSection({ section: "company", topic: "developers", limit: 9 });
+  const data = getCompanyBrowseInitialData();
 
   if (data.companies.length === 0) {
     return (
@@ -52,9 +53,16 @@ export default async function CompaniesPage() {
         <header className="mb-8 space-y-2">
           <h1 className="text-3xl font-bold text-foreground">Compañías</h1>
         </header>
-        <NewsStrip eyebrow="Industria" title="Actualidad de compañías y desarrolladoras" items={companyNews} />
-        <CompanyExplorer {...data} />
+        <Suspense fallback={<div className="mb-6 h-28 animate-pulse rounded-lg bg-card-hover" aria-hidden />}>
+          <CompanyNews />
+        </Suspense>
+        <CompanyExplorer {...data} deferInitialLoad />
       </main>
     </>
   );
+}
+
+async function CompanyNews() {
+  const companyNews = await listNewsForSection({ section: "company", topic: "developers", limit: 9 });
+  return <NewsStrip eyebrow="Industria" title="Actualidad de compañías y desarrolladoras" items={companyNews} />;
 }

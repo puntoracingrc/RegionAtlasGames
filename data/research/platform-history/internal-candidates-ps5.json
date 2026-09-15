@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T15:00:00.000Z",
+  "records": [
+    {"type":"PERSON_CANDIDATE","slug":"ilari-kuittinen","name":"Ilari Kuittinen","status":"NEEDS_RICHER_PUBLIC_PROFILE","reason":"La relación con Housemarque está documentada, pero el dossier no aporta material suficiente para una ficha pública sólida."},
+    {"type":"PERSON_CANDIDATE","slug":"harry-krueger","name":"Harry Krueger","status":"NEEDS_RICHER_PUBLIC_PROFILE","reason":"La relación creativa con Returnal y Housemarque requiere fuentes de identidad y trayectoria adicionales."},
+    {"type":"PERSON_CANDIDATE","slug":"harri-tikkanen","name":"Harri Tikkanen","status":"NEEDS_RICHER_PUBLIC_PROFILE","reason":"No se publica una ficha individual por simple mención en el bloque Housemarque."}
+  ],
+  "companyReferences": [
+    {"slug":"larian-studios","name":"Larian Studios","status":"CANONICAL_COMPANY_IDENTITY_REQUIRED","reason":"Baldur's Gate 3 se mantiene como hito editorial sin forzar un slug de compañía no comprobado en el índice actual.","sourceIds":["PH-PS5-DOSSIER"]},
+    {"slug":"cd-projekt-red","name":"CD Projekt Red","status":"CANONICAL_COMPANY_IDENTITY_REQUIRED","reason":"Cyberpunk 2077 se muestra sin crear una identidad corporativa nueva fuera del alcance de esta ampliación.","sourceIds":["PH-PS5-DOSSIER"]},
+    {"slug":"bandai-namco-studios","name":"Bandai Namco Studios","status":"CANONICAL_COMPANY_IDENTITY_REQUIRED","reason":"Tekken 8 se muestra sin resolver aquí la separación entre desarrollo y publicación del grupo Bandai Namco.","sourceIds":["PH-PS5-DOSSIER"]}
+  ],
+  "catalogReferences": [
+    {"title":"Astro's Playroom","status":"NO_STANDALONE_PHYSICAL_CATALOG_ENTRY","reason":"Juego digital preinstalado; no se fuerza un enlace a una ficha física inexistente."},
+    {"title":"Horizon Call of the Mountain","status":"NO_EXACT_CATALOG_ENTRY","reason":"Se documenta en PS VR2 sin inventar una ficha de catálogo."},
+    {"title":"Synapse","status":"NO_EXACT_CATALOG_ENTRY","reason":"Se conserva como referencia de software PS VR2 sin enlace físico forzado."},
+    {"title":"Beat Saber","status":"NO_EXACT_CATALOG_ENTRY","reason":"Se conserva como referencia de software PS VR2 sin enlace físico forzado."},
+    {"title":"The Last of Us Part I","status":"NO_UNAMBIGUOUS_CATALOG_ID_SELECTED","reason":"La asociación editorial con Naughty Dog se conserva sin elegir una edición física regional que no fue identificada por el dossier."},
+    {"title":"Fairgames","status":"UNRELEASED_OR_UNRESOLVED_CATALOG_ID","reason":"No se inventa fecha, estado de lanzamiento ni ficha física para el proyecto de Haven."}
+  ],
+  "mediaReferences": [
+    {"personSlug":"hideaki-nishino","status":"REFERENCE_ONLY","urls":["https://sonyinteractive.com/en/press-releases/2025/new-leadership-at-sony-interactive-entertainment/"],"reason":"La foto oficial identifica a la persona, pero no acredita una licencia abierta reutilizable."},
+    {"personSlug":"jim-ryan","status":"NO_LICENSED_PORTRAIT_FOUND","urls":["https://sonyinteractive.com/en/press-releases/2023/new-management-structure-of-sony-interactive-entertainment-2/"],"reason":"No se publica una imagen oficial sin licencia abierta confirmada."},
+    {"personSlug":"yujin-morisawa","status":"REFERENCE_ONLY","urls":["https://blog.playstation.com/2021/05/04/paul-george-playstation-back-together-with-the-pg-5-playstation-5-colorway/"],"reason":"La fuente confirma identidad y rol, no derechos de reutilización del retrato."},
+    {"personSlug":"alvin-daniel","status":"REFERENCE_ONLY","urls":["https://blog.playstation.com/2023/10/12/access-controller-for-ps5-interview-how-the-highly-customizable-kit-was-created/"],"reason":"La entrevista sirve como evidencia profesional, no como licencia de imagen."},
+    {"personSlug":"nicolas-doucet","status":"NO_LICENSED_PORTRAIT_FOUND","urls":["https://blog.playstation.com/2021/06/02/introducing-team-asobi-creators-of-the-astros-playroom-franchise/"],"reason":"Se mantiene fallback hasta localizar una fotografía con licencia reutilizable explícita."},
+    {"personSlug":"cory-barlog","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se promueve una imagen interna o de prensa sin revisar su licencia exacta."},
+    {"personSlug":"eric-williams","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se localizó una fotografía reutilizable validada en el lote."},
+    {"personSlug":"bryan-intihar","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se localizó una fotografía reutilizable validada en el lote."},
+    {"personSlug":"ryan-smith","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se localizó una fotografía reutilizable validada en el lote."},
+    {"personSlug":"mathijs-de-jonge","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se localizó una fotografía reutilizable validada en el lote."},
+    {"personSlug":"angie-smets","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se localizó una fotografía reutilizable validada en el lote."},
+    {"personSlug":"johan-pilestedt","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se localizó una fotografía reutilizable validada en el lote."},
+    {"personSlug":"kim-hyung-tae","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se localizó una fotografía reutilizable validada en el lote."},
+    {"personSlug":"fumihiko-yasuda","status":"NO_LICENSED_PORTRAIT_FOUND","urls":[],"reason":"No se localizó una fotografía reutilizable validada en el lote."}
+  ]
+}

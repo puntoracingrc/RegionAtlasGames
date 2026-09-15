@@ -1,0 +1,114 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "wii",
+      "title": "Wii",
+      "lineage": {"branchLabelEs":"Línea doméstica","summaryEs":"Wii sucede a GameCube y redirige el control doméstico hacia movimiento y puntero. Wii U continúa la línea con GamePad y alta definición.","links":[
+        {"platformSlug":"gamecube","platformName":"Nintendo GameCube","relationship":"PREDECESSOR","summaryEs":"Los primeros modelos Wii conservan discos, mandos y tarjetas de GameCube; revisiones posteriores reducen o eliminan ese soporte.","sourceIds":["PH-NIN-WII-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"wiiu","platformName":"Wii U","relationship":"SUCCESSOR","summaryEs":"Wii U conserva software y mandos Wii mediante un modo compatible, pero no discos GameCube.","sourceIds":["PH-NIN-WII-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"ds","platformName":"Nintendo DS / DSi","relationship":"PARALLEL_BRANCH","summaryEs":"Ambas plataformas comparten la estrategia de ampliación de público y Nintendo Wi-Fi Connection sin ser una sola línea de hardware.","sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ]},
+      "dekEs": "Control por movimiento y puntero, Wii Sports, canales y distribución digital llevaron la estrategia de ampliación de público al salón, con compatibilidad GameCube variable por revisión.",
+      "summaryParagraphsEs": [
+        "Wii se lanzó en 2006 tras su desarrollo bajo el nombre en clave Revolution. Nintendo registra 101,63 millones de consolas y 921,85 millones de juegos.",
+        "Wii Remote combina detección de movimiento, puntero mediante Sensor Bar, altavoz y vibración; Nunchuk añade control analógico. MotionPlus mejora precisión y no convierte al mando original en hardware idéntico.",
+        "Wii Sports fue una demostración central, aunque su condición de juego incluido varió por región. Wii Fit y Balance Board ampliaron el alcance hacia actividad física.",
+        "Wii Shop Channel, Virtual Console y WiiWare son servicios históricos cerrados. Virtual Console vendía juegos individualmente y no era una suscripción.",
+        "La Wii original ofrece compatibilidad GameCube; Family Edition y Wii mini eliminan parte o toda esa capacidad."
+      ],
+      "historyTitleEs": "Movimiento, canales y otra forma de ampliar el público",
+      "historyParagraphsEs": [
+        "La estrategia de Satoru Iwata y la filosofía de software de Shigeru Miyamoto se combinaron con el trabajo tecnológico de Genyo Takeda y equipos de hardware; no se atribuye la consola a una única figura.",
+        "El puntero depende de la interacción entre la cámara infrarroja del Wii Remote y las referencias luminosas de la Sensor Bar. La barra no rastrea por sí sola el mando.",
+        "Virtual Console recuperó catálogos de NES, SNES, N64, Mega Drive, PC Engine y Neo Geo según región. WiiWare ofreció software descargable original bajo un servicio separado.",
+        "Nintendo EAD, Retro Studios y Monolith Soft convivieron con socios independientes como Next Level Games y grandes third parties como Ubisoft, EA, Capcom y SEGA."
+      ],
+      "architectureTitleEs": "Control, conectividad y compatibilidad por revisión",
+      "architectureDekEs": "Movimiento, puntero y servicios forman capas diferentes del ecosistema.",
+      "figures": [
+        {"personSlug":"satoru-iwata","personName":"Satoru Iwata","roleLabelEs":"Presidencia y estrategia","contributionEs":"Dirigió la estrategia de ampliación de público que enmarca Wii.","period":"2006-2015","sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Diseño y producción","contributionEs":"Figura central del concepto de control y filosofía de software.","period":"Desarrollo y ciclo Wii","sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"personSlug":"genyo-takeda","personName":"Genyo Takeda","roleLabelEs":"Dirección tecnológica","contributionEs":"Lideró el contexto de hardware e integración tecnológica de la plataforma.","period":"Desarrollo de Wii","sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"personSlug":"katsuya-eguchi","personName":"Katsuya Eguchi","roleLabelEs":"Producción de software","contributionEs":"Figura de producción vinculada al software de lanzamiento y experiencias sociales.","period":"Etapa Wii","sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"personSlug":"yoshiaki-koizumi","personName":"Yoshiaki Koizumi","roleLabelEs":"Dirección y producción creativa","contributionEs":"Figura principal de Super Mario Galaxy.","period":"2007-2010","sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"personSlug":"reggie-fils-aime","personName":"Reggie Fils-Aimé","roleLabelEs":"Liderazgo regional","contributionEs":"Presidió Nintendo of America durante el lanzamiento y expansión de Wii.","period":"2006-2019","sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-wii-motion","name":"Movimiento y puntero infrarrojo","kind":"CONNECTIVITY","summaryEs":"Wii Remote combina sensores internos con referencias infrarrojas de la Sensor Bar.","features":["Movimiento","Puntero","Altavoz y vibración","Nunchuk externo"],"partners":[{"companySlug":"nintendo-ird","companyName":"Nintendo IRD","roleLabelEs":"Integración de hardware"}],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"architecture-wii-optical","name":"Disco óptico Wii","kind":"OPTICAL_MEDIA","summaryEs":"Soporte de juegos Wii y, en modelos originales, lectura de discos GameCube.","features":["Disco Wii","Compatibilidad GameCube por revisión","Sin reproducción DVD-Video oficial"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma"}],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"architecture-wii-network","name":"Canales y red Wii","kind":"SYSTEM_SOFTWARE","summaryEs":"Menú de canales, servicios informativos, tienda y juego online forman componentes separados.","features":["Mii Channel","News/Forecast/Photo Channels","Wii Shop Channel","Nintendo Wi-Fi Connection"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Sistema y servicios"}],"sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Nintendo, estudios integrados y socios independientes",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"2006-2013","relationshipStart":"2006","relationshipEnd":null,"contributionEs":"Fabricó la plataforma, operó servicios y publicó software.","relatedWorks":["Wii","Wii Sports","Wii Fit"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-WII-DOSSIER"]},
+        {"companySlug":"nintendo-ead","companyName":"Nintendo EAD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Desarrollo interno","period":"Etapa Wii","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló software central de Mario, Zelda, Wii y Mario Kart.","relatedWorks":["Wii Sports","Super Mario Galaxy","Mario Kart Wii"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"companySlug":"retro-studios","companyName":"Retro Studios","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Estudio de Nintendo","period":"Etapa Wii","relationshipStart":"2002","relationshipEnd":null,"contributionEs":"Desarrolló Metroid Prime 3 y Donkey Kong Country Returns.","relatedWorks":["Metroid Prime 3","Donkey Kong Country Returns"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"companySlug":"monolith-soft","companyName":"Monolith Soft","relationshipType":"FIRST_PARTY_ACQUISITION","relationshipLabelEs":"Estudio bajo control de Nintendo","period":"Desde 2007","relationshipStart":"2007","relationshipEnd":null,"contributionEs":"Se incorporó durante la generación y desarrolló Xenoblade Chronicles.","relatedWorks":["Xenoblade Chronicles"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"companySlug":"next-level-games","companyName":"Next Level Games","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa Wii","relationshipStart":null,"relationshipEnd":"2020","contributionEs":"Trabajó con Nintendo antes de su adquisición en 2021.","relatedWorks":["Mario Strikers Charged","Punch-Out!!"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"companySlug":"ubisoft","companyName":"Ubisoft","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa Wii","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó software de lanzamiento y la expansión posterior de Just Dance.","relatedWorks":["Red Steel","Just Dance"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"companySlug":"sega","companyName":"SEGA","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa Wii","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Publicó catálogo externo y colaboraciones olímpicas.","relatedWorks":["Sonic","Mario & Sonic"],"sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"wii-first-party","labelEs":"Nintendo y estudios integrados","descriptionEs":"Equipos internos y adquisiciones fechadas.","companySlugs":["nintendo","nintendo-ead","retro-studios","monolith-soft"]},
+        {"id":"wii-partners","labelEs":"Socios externos","descriptionEs":"Next Level antes de 2021 y publishers third party.","companySlugs":["next-level-games","ubisoft","sega"]}
+      ],
+      "genealogies": [
+        {"id":"PHG-NIN-WII-MONOLITH","sourceCompanySlug":"monolith-soft","sourceCompanyName":"Monolith Soft","relationshipType":"ACQUIRED_BY","targetCompanySlug":"nintendo","targetCompanyName":"Nintendo","year":2007,"summaryEs":"Nintendo adquirió el control de Monolith Soft en 2007; su trabajo previo conserva identidad externa.","sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "gamesTitleEs": "Movimiento, series tradicionales y expansión social",
+      "gameGroups": [
+        {"id":"wii-games","labelEs":"Juegos representativos","descriptionEs":"Pruebas de control, obras internas y colaboración externa.","games":[
+          {"title":"Wii Sports","catalogId":null,"year":2006,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+          {"title":"Wii Fit","catalogId":null,"year":2007,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+          {"title":"Super Mario Galaxy","catalogId":null,"year":2007,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+          {"title":"Mario Kart Wii","catalogId":null,"year":2008,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+          {"title":"Xenoblade Chronicles","catalogId":null,"year":2010,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Monolith Soft / Nintendo","companySlugs":["monolith-soft","nintendo"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+          {"title":"Donkey Kong Country Returns","catalogId":null,"year":2010,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Retro Studios / Nintendo","companySlugs":["retro-studios","nintendo"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+          {"title":"Just Dance","catalogId":null,"year":2009,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Ubisoft","companySlugs":["ubisoft"],"sourceIds":["PH-NIN-WII-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Modelos y control por movimiento",
+      "hardware": [
+        {"id":"hardware-wii-original","name":"Wii original","kind":"BASE_MODEL","yearLabel":"2006","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["RVL-001"],"summaryEs":"Modelo vertical original con puertos y compatibilidad GameCube.","features":["Discos GameCube","Puertos de mando GameCube","Tarjetas de memoria GameCube"],"relatedWorks":[],"relatedPersonSlugs":["genyo-takeda"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-WII-DOSSIER"]},
+        {"id":"hardware-wii-family-edition","name":"Wii Family Edition","kind":"REVISION","yearLabel":"2011","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["RVL-101"],"summaryEs":"Revisión horizontal que elimina compatibilidad física GameCube.","features":["Orientación horizontal","Sin puertos GameCube","Sin discos GameCube"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"hardware-wii-mini","name":"Wii mini","kind":"REGIONAL_MODEL","yearLabel":"2012-2013","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["RVL-201"],"summaryEs":"Rediseño económico con lanzamiento regional y funciones reducidas.","features":["Sin compatibilidad GameCube","Sin conectividad online","Distribución regional"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"hardware-wii-remote","name":"Wii Remote y Nunchuk","kind":"CONTROLLER","yearLabel":"2006","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["RVL-003","RVL-004"],"summaryEs":"Mando principal de movimiento y puntero con extensión analógica.","features":["Movimiento","Puntero infrarrojo","Altavoz y vibración","Nunchuk desmontable"],"relatedWorks":["Wii Sports"],"relatedPersonSlugs":["shigeru-miyamoto"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"hardware-wii-motionplus","name":"Wii MotionPlus / Wii Remote Plus","kind":"PERIPHERAL","yearLabel":"2009-2010","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":[],"summaryEs":"Mejora la precisión mediante un accesorio y después integración en el mando.","features":["Mayor precisión angular","Accesorio externo inicial","Integrado en Wii Remote Plus"],"relatedWorks":["Wii Sports Resort","Skyward Sword"],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"hardware-wii-balance-board","name":"Wii Balance Board","kind":"PERIPHERAL","yearLabel":"2007","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["RVL-021"],"summaryEs":"Plataforma de presión diseñada para Wii Fit y software compatible.","features":["Sensores de presión","Conexión inalámbrica","Software de fitness"],"relatedWorks":["Wii Fit"],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "services": [
+        {"id":"service-wii-shop","name":"Wii Shop Channel","kind":"STORE_SERVICE","launchedLabel":"2006","endedLabel":"2019","statusLabelEs":"Tienda histórica cerrada","parentServiceId":null,"summaryEs":"Tienda de Wii para Virtual Console, WiiWare y otros canales descargables.","features":["Virtual Console","WiiWare","Compras individuales"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"service-wii-virtual-console","name":"Virtual Console","kind":"STORE_SERVICE","launchedLabel":"2006","endedLabel":"2019","statusLabelEs":"Catálogo histórico cerrado","parentServiceId":"service-wii-shop","summaryEs":"Distribución digital de juegos clásicos por compra individual y disponibilidad regional.","features":["NES/SNES/N64","Mega Drive/PC Engine/Neo Geo según región","No era suscripción"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"service-wiiware","name":"WiiWare","kind":"STORE_SERVICE","launchedLabel":"2008","endedLabel":"2019","statusLabelEs":"Catálogo histórico cerrado","parentServiceId":"service-wii-shop","summaryEs":"Distribución de software descargable original para Wii.","features":["Software nativo descargable","Wii Shop Channel","No es Virtual Console"],"sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"service-nintendo-wifi-connection-wii","name":"Nintendo Wi-Fi Connection","kind":"NETWORK_SERVICE","launchedLabel":"2006 en Wii","endedLabel":"2014","statusLabelEs":"Servicio histórico finalizado","parentServiceId":null,"summaryEs":"Juego online para títulos compatibles de Wii y DS, distinto de Nintendo Switch Online.","features":["Friend Codes","Soporte por juego","Servicio compartido con DS"],"sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "compatibilityLinks": [
+        {"id":"compat-wii-gamecube","sourcePlatformSlug":"wii","sourcePlatformName":"Wii original","targetPlatformSlug":"gamecube","targetPlatformName":"Nintendo GameCube","labelEs":"Compatibilidad por revisión","summaryEs":"RVL-001 acepta discos, mandos y memorias GameCube; Family Edition y Wii mini eliminan ese soporte físico.","features":["RVL-001 compatible","RVL-101 sin GameCube","RVL-201 sin GameCube"],"sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"control-y-servicios","titleEs":"Movimiento, puntero y tienda son capas distintas","dekEs":"La precisión técnica evita simplificaciones frecuentes.","paragraphsEs":["La Sensor Bar aporta referencias luminosas; el Wii Remote detecta esas señales. MotionPlus añade una mejora posterior y no estaba contenido de forma equivalente en el mando original.","Virtual Console vendía títulos clásicos dentro de Wii Shop Channel. Nintendo Wi-Fi Connection cubría online por juego; ninguno equivale a una suscripción moderna."],"cards":[],"sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:control-y-servicios","companies","games","hardware","compatibility","services","control","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-wii-revolution","yearLabel":"Antes de 2006","sortYear":2005,"title":"Project Revolution","summaryEs":"El nombre en clave identifica el desarrollo, no una plataforma separada.","sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"milestone-wii-launch","yearLabel":"2006","sortYear":2006,"title":"Lanzamiento de Wii","summaryEs":"Wii Remote y Wii Sports presentan la estrategia de control y público.","sourceIds":["PH-NIN-HISTORY","PH-NIN-WII-DOSSIER"]},
+        {"id":"milestone-wii-fit","yearLabel":"2007","sortYear":2007,"title":"Wii Fit y Balance Board","summaryEs":"Hardware y software amplían la actividad física en el salón.","sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"milestone-wii-motionplus","yearLabel":"2009","sortYear":2009,"title":"Wii MotionPlus","summaryEs":"Un accesorio mejora la detección de movimiento.","sourceIds":["PH-NIN-WII-DOSSIER"]},
+        {"id":"milestone-wii-revisions","yearLabel":"2011-2012","sortYear":2011,"title":"Family Edition y Wii mini","summaryEs":"Las revisiones reducen compatibilidad y conectividad.","sourceIds":["PH-NIN-WII-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "Wii normalizó el control por movimiento y amplió el público de consola doméstica.",
+        "Wii Shop y Virtual Console son parte de la historia de distribución digital, con disponibilidad y cierres propios.",
+        "La compatibilidad GameCube depende del modelo y no debe inferirse para toda la familia."
+      ],
+      "sources": [
+        {"id":"PH-NIN-WII-DOSSIER","title":"Dossier editorial Region Atlas · Wii","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Control, servicios, modelos, compatibilidad, estudios y QA","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Wii y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Wii · 101,63 M hardware; 921,85 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

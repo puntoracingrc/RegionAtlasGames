@@ -9,8 +9,10 @@ import { CompanyProfileHeader } from "@/components/company-profile-header";
 import { PersonPortrait } from "@/components/person-portrait";
 import { SiteNav } from "@/components/site-nav";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
+import { groupCatalogListGames } from "@/lib/catalog-physical-edition-browse";
 import { buildCompanyIntro } from "@/lib/company-seo";
 import type { CompanyProfileView } from "@/lib/company-profile";
+import { platformHistoryPath } from "@/lib/platform-history";
 
 export type CompanyRelatedCatalogGroup = {
   slug: string;
@@ -30,7 +32,9 @@ type Props = {
 export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds, isLoggedIn }: Props) {
   const intro = buildCompanyIntro(view);
   const introParagraphs = intro.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
-  const games = view.games.map(toCatalogListGame);
+  const games = groupCatalogListGames(view.games.map(toCatalogListGame), {
+    scopePhysicalEditionsToInput: true,
+  });
 
   return (
     <>
@@ -160,29 +164,94 @@ export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds
           </section>
         )}
 
-        <div className="mb-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-          <CompanyPlatformGames platforms={view.platforms} />
-          <CompanyCollaborators collaborators={view.collaborators} selfName={view.name} />
-        </div>
+        {(view.platformHistoryLinks.length > 0 || view.historicalGenealogy.length > 0) && (
+          <section className="mb-10 border-y border-border py-5 md:py-6">
+            <div>
+              <h2 className="text-lg font-semibold text-foreground">Historia en plataformas</h2>
+              <p className="mt-1 text-sm text-foreground/75">
+                Relaciones editoriales documentadas dentro de la historia de cada generación.
+              </p>
+            </div>
+            {view.platformHistoryLinks.length > 0 && (
+              <ul className="mt-4 grid gap-3 md:grid-cols-2">
+                {view.platformHistoryLinks.map((relation) => (
+                  <li key={`${relation.platformSlug}:${relation.companySlug}`} className="h-full rounded-lg border border-border bg-card p-4">
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-accent">{relation.relationshipLabelEs}</p>
+                        <h3 className="mt-1 font-bold">
+                          <Link href={platformHistoryPath(relation.platformSlug, { section: "historia-companias" })} className="text-foreground hover:text-accent">
+                            {relation.platformName}
+                          </Link>
+                        </h3>
+                      </div>
+                      {relation.period && <span className="text-xs font-medium text-muted">{relation.period}</span>}
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-foreground/75">{relation.contributionEs}</p>
+                    {relation.relatedCatalogEntries && relation.relatedCatalogEntries.length > 0 ? (
+                      <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                        {relation.relatedCatalogEntries.map((game) => (
+                          <Link key={game.id} href={`/catalogo/${game.id}`} className="text-xs font-medium text-accent hover:underline">
+                            {game.title}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : relation.relatedWorks.length > 0 ? (
+                      <p className="mt-2 text-xs leading-5 text-muted">{relation.relatedWorks.join(" · ")}</p>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {view.historicalGenealogy.length > 0 && (
+              <ol className="mt-5 divide-y divide-border border-y border-border">
+                {view.historicalGenealogy.map((relation) => {
+                  const companyIsSource = relation.sourceCompanySlug === view.slug;
+                  const relatedSlug = companyIsSource ? relation.targetCompanySlug : relation.sourceCompanySlug;
+                  const relatedName = companyIsSource ? relation.targetCompanyName : relation.sourceCompanyName;
+                  return (
+                    <li key={`${relation.platformSlug}:${relation.id}`} className="grid gap-2 py-3 text-sm md:grid-cols-[7rem_minmax(0,1fr)_auto] md:items-start">
+                      <span className="font-bold text-accent">{relation.year ?? "Sin fecha"}</span>
+                      <p className="leading-6 text-foreground/80">
+                        {relation.summaryEs}
+                        {relatedSlug && relatedName ? <>{" · "}<Link href={`/compania/${relatedSlug}`} className="font-semibold text-foreground hover:text-accent">{relatedName}</Link></> : null}
+                      </p>
+                      <Link href={platformHistoryPath(relation.platformSlug, { section: "historia-companias" })} className="text-xs font-semibold text-accent hover:underline">Ver contexto</Link>
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
+          </section>
+        )}
 
-        <CompanyCatalogGroups companyName={view.name} groups={franchises} kind="franchise" />
-        <CompanyCatalogGroups companyName={view.name} groups={series} kind="series" />
+        {!view.editorialOnly && (
+          <>
+            <div className="mb-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
+              <CompanyPlatformGames platforms={view.platforms} />
+              <CompanyCollaborators collaborators={view.collaborators} selfName={view.name} />
+            </div>
 
-        <section className="space-y-4">
-          <div>
-            <h2 className="text-xl font-bold text-foreground">Catálogo completo · {view.name}</h2>
-            <p className="mt-1 text-sm text-foreground/75">
-              Explora y filtra todas las fichas atribuidas a {view.name} en Region Atlas.
-            </p>
-          </div>
-          <EntityBrowser
-            games={games}
-            title={view.name}
-            ownedCatalogIds={ownedCatalogIds}
-            isLoggedIn={isLoggedIn}
-            showPriceLegend={false}
-          />
-        </section>
+            <CompanyCatalogGroups companyName={view.name} groups={franchises} kind="franchise" />
+            <CompanyCatalogGroups companyName={view.name} groups={series} kind="series" />
+
+            <section className="space-y-4">
+              <div>
+                <h2 className="text-xl font-bold text-foreground">Catálogo completo · {view.name}</h2>
+                <p className="mt-1 text-sm text-foreground/75">
+                  Explora y filtra todas las fichas atribuidas a {view.name} en Region Atlas.
+                </p>
+              </div>
+              <EntityBrowser
+                games={games}
+                title={view.name}
+                ownedCatalogIds={ownedCatalogIds}
+                isLoggedIn={isLoggedIn}
+                showPriceLegend={false}
+              />
+            </section>
+          </>
+        )}
       </main>
     </>
   );

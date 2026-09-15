@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T22:00:00.000Z",
+  "peopleCandidates": [
+    {"personSlug":"kevin-bachus","personName":"Kevin Bachus","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"El papel en el núcleo inicial está respaldado por la historia oficial, pero falta una biografía pública suficientemente completa."},
+    {"personSlug":"otto-berkes","personName":"Otto Berkes","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"Se conserva como integrante del grupo inicial sin publicar todavía una ficha personal incompleta."},
+    {"personSlug":"ted-hase","personName":"Ted Hase","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"Se conserva como integrante del grupo inicial sin extrapolar créditos de diseño concretos."},
+    {"personSlug":"dan-greenawalt","personName":"Dan Greenawalt","status":"NEEDS_EXACT_ROLE_SOURCES","reasonEs":"Su relación con Forza se conserva como candidata hasta incorporar fuentes primarias específicas."}
+  ],
+  "companyCandidates": [],
+  "creditCandidates": [
+    {"title":"Jade Raymond · Splinter Cell","status":"EXPLICITLY_NOT_ASSIGNED","reasonEs":"No se crea relación con Xbox sin un crédito exacto de la entrega mostrada."}
+  ],
+  "mediaReferences": [
+    {"personSlug":"j-allard","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."},
+    {"personSlug":"robbie-bach","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."}
+  ]
+}

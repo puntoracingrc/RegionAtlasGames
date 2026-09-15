@@ -1,0 +1,110 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "wiiu",
+      "title": "Wii U",
+      "lineage": {"branchLabelEs":"Línea doméstica","summaryEs":"Wii U sucede a Wii con alta definición y una segunda pantalla dependiente de la consola. Sus aprendizajes y parte de su software alimentan la convergencia híbrida de Switch.","links":[
+        {"platformSlug":"wii","platformName":"Wii","relationship":"PREDECESSOR","summaryEs":"Wii U reproduce discos y mandos Wii mediante Wii Mode, pero no ofrece soporte nativo para discos GameCube.","sourceIds":["PH-NIN-WIIU-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"switch","platformName":"Nintendo Switch","relationship":"SUCCESSOR","summaryEs":"Switch reformula la idea de segunda pantalla en una unidad híbrida autónoma y recibe versiones posteriores de numerosos juegos Wii U.","sourceIds":["PH-NIN-WIIU-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"3ds","platformName":"Nintendo 3DS","relationship":"PARALLEL_BRANCH","summaryEs":"Wii U convivió con 3DS como rama doméstica separada antes de la convergencia en Switch.","sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ]},
+      "dekEs": "La primera consola doméstica HD de Nintendo combinó televisor y GamePad, Miiverse y retrocompatibilidad Wii; su software y sus lecciones desembocaron en Switch sin borrar el crédito original.",
+      "summaryParagraphsEs": [
+        "Wii U se lanzó en 2012. Nintendo registra 13,56 millones de consolas y 103,60 millones de juegos.",
+        "El GamePad integra una pantalla táctil de 6,2 pulgadas, controles, cámara, micrófono y sensores. Depende de una consola Wii U y no es una portátil autónoma.",
+        "Off-TV Play y el juego asimétrico exploran usos diferentes de televisor y GamePad. Miiverse añade publicaciones, dibujos e integración contextual con juegos.",
+        "Wii U reproduce discos y accesorios Wii mediante un modo específico; no tiene lectura nativa de discos GameCube. Su eShop y Virtual Console son servicios propios de esta generación.",
+        "Mario Kart 8, Super Mario 3D World, Pikmin 3 y otros títulos recibieron versiones posteriores en Switch, pero su origen Wii U se mantiene."
+      ],
+      "historyTitleEs": "Una segunda pantalla dependiente y una transición decisiva",
+      "historyParagraphsEs": [
+        "La estrategia de Satoru Iwata, el trabajo tecnológico asociado a Genyo Takeda y la producción de Katsuya Eguchi enmarcan un sistema colectivo, no una creación individual.",
+        "Miiverse permitió compartir texto y dibujos dentro de comunidades de software. Era un servicio social propio, cerrado después, no la identidad completa de Nintendo Network.",
+        "Splatoon introdujo una nueva IP importante. Monolith Soft ya era una compañía bajo control de Nintendo; PlatinumGames desarrolló Bayonetta 2 como socio externo.",
+        "Las ventas limitadas, la comunicación, los intervalos de software, el coste del GamePad y la arquitectura forman un contexto múltiple. Ningún factor se presenta como explicación única."
+      ],
+      "architectureTitleEs": "Alta definición, GamePad y Wii Mode",
+      "architectureDekEs": "La pantalla secundaria, el sistema base y los servicios conservan límites claros.",
+      "figures": [
+        {"personSlug":"satoru-iwata","personName":"Satoru Iwata","roleLabelEs":"Presidencia y estrategia","contributionEs":"Dirigió Nintendo durante la concepción, lanzamiento y primera etapa de Wii U.","period":"2012-2015","sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Supervisión creativa","contributionEs":"Participó en la orientación de hardware y software durante la generación.","period":"Etapa Wii U","sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"personSlug":"genyo-takeda","personName":"Genyo Takeda","roleLabelEs":"Dirección tecnológica","contributionEs":"Figura ejecutiva y técnica vinculada al hardware de Wii U.","period":"Desarrollo de Wii U","sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"personSlug":"katsuya-eguchi","personName":"Katsuya Eguchi","roleLabelEs":"Producción de hardware y software","contributionEs":"Figura principal relacionada con el concepto GamePad y Nintendo Land.","period":"Desarrollo y lanzamiento","sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"personSlug":"shinya-takahashi","personName":"Shinya Takahashi","roleLabelEs":"Gestión de desarrollo","contributionEs":"Representa la dirección de software en la transición organizativa hacia EPD.","period":"Etapa Wii U","sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"personSlug":"hisashi-nogami","personName":"Hisashi Nogami","roleLabelEs":"Producción creativa","contributionEs":"Figura asociada a Animal Crossing y al nacimiento de Splatoon.","period":"Etapa Splatoon","sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"personSlug":"tatsumi-kimishima","personName":"Tatsumi Kimishima","roleLabelEs":"Presidencia de transición","contributionEs":"Presidió Nintendo durante la etapa final de Wii U y la preparación del lanzamiento de Switch.","period":"2015-2018","sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-wiiu-gamepad","name":"GamePad y streaming local","kind":"DISPLAY","summaryEs":"La consola transmite imagen y datos al mando-pantalla para Off-TV Play y experiencias asimétricas.","features":["Pantalla táctil de 6,2 pulgadas","Off-TV Play","Juego asimétrico","No autónomo"],"partners":[{"companySlug":"nintendo-ird","companyName":"Nintendo IRD","roleLabelEs":"Integración de hardware"}],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"id":"architecture-wiiu-hd","name":"Primera consola doméstica HD de Nintendo","kind":"GRAPHICS","summaryEs":"Wii U adopta salida de alta definición con una arquitectura propia de la generación.","features":["Salida HD","CPU derivada de IBM","GPU AMD"],"partners":[{"companySlug":"ibm","companyName":"IBM","roleLabelEs":"Tecnología de CPU"},{"companySlug":"amd","companyName":"AMD","roleLabelEs":"Tecnología gráfica"}],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"id":"architecture-wiiu-wiimode","name":"Wii Mode","kind":"SYSTEM_SOFTWARE","summaryEs":"Entorno separado para compatibilidad con discos y accesorios Wii.","features":["Discos Wii","Mandos Wii","Sin discos GameCube"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Sistema"}],"sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Desarrollo interno, adquisiciones previas y socios",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"2012-2017","relationshipStart":"2012","relationshipEnd":null,"contributionEs":"Fabricó la plataforma, operó sus servicios y publicó software.","relatedWorks":["Wii U","Nintendo Land","Splatoon"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-WIIU-DOSSIER"]},
+        {"companySlug":"nintendo-ead","companyName":"Nintendo EAD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Desarrollo interno","period":"Hasta 2015","relationshipStart":null,"relationshipEnd":"2015","contributionEs":"Desarrolló Mario Kart 8, Super Mario 3D World y otros títulos.","relatedWorks":["Mario Kart 8","Super Mario 3D World","Splatoon"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"companySlug":"nintendo-epd","companyName":"Nintendo EPD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Desarrollo interno reorganizado","period":"Desde 2015","relationshipStart":"2015","relationshipEnd":null,"contributionEs":"Continúa las funciones integradas de desarrollo y producción.","relatedWorks":["The Legend of Zelda: Breath of the Wild"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"companySlug":"monolith-soft","companyName":"Monolith Soft","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Estudio de Nintendo","period":"Desde 2007","relationshipStart":"2007","relationshipEnd":null,"contributionEs":"Desarrolló Xenoblade Chronicles X como estudio bajo control de Nintendo.","relatedWorks":["Xenoblade Chronicles X"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"companySlug":"retro-studios","companyName":"Retro Studios","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Estudio de Nintendo","period":"Etapa Wii U","relationshipStart":"2002","relationshipEnd":null,"contributionEs":"Desarrolló Donkey Kong Country: Tropical Freeze.","relatedWorks":["Donkey Kong Country: Tropical Freeze"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"companySlug":"platinumgames","companyName":"PlatinumGames","relationshipType":"STRATEGIC_THIRD_PARTY","relationshipLabelEs":"Desarrolladora externa","period":"Etapa Wii U","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló Bayonetta 2 con publicación y apoyo de Nintendo; no era first party.","relatedWorks":["Bayonetta 2","The Wonderful 101"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"companySlug":"namco","companyName":"Bandai Namco Studios","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio externo","period":"Etapa Wii U","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Participó en el desarrollo de Super Smash Bros. for Wii U.","relatedWorks":["Super Smash Bros. for Wii U"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"wiiu-first-party","labelEs":"Nintendo y estudios propios","descriptionEs":"Equipos internos y adquisiciones anteriores con fecha conservada.","companySlugs":["nintendo","nintendo-ead","nintendo-epd","monolith-soft","retro-studios"]},
+        {"id":"wiiu-partners","labelEs":"Socios externos","descriptionEs":"PlatinumGames y Bandai Namco no se convierten en first party.","companySlugs":["platinumgames","namco"]}
+      ],
+      "genealogies": [
+        {"id":"PHG-NIN-WIIU-EAD-EPD","sourceCompanySlug":"nintendo-ead","sourceCompanyName":"Nintendo EAD","relationshipType":"REORGANIZED_AS","targetCompanySlug":"nintendo-epd","targetCompanyName":"Nintendo EPD","year":2015,"summaryEs":"La reorganización interna integra EAD y SPD en EPD durante la generación.","sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "gamesTitleEs": "El catálogo que anticipó y alimentó Switch",
+      "gameGroups": [
+        {"id":"wiiu-games","labelEs":"Juegos representativos","descriptionEs":"Orígenes Wii U conservados aunque existan versiones posteriores.","games":[
+          {"title":"Nintendo Land","catalogId":null,"year":2012,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+          {"title":"Super Mario 3D World","catalogId":null,"year":2013,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+          {"title":"Mario Kart 8","catalogId":null,"year":2014,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+          {"title":"Splatoon","catalogId":null,"year":2015,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+          {"title":"Xenoblade Chronicles X","catalogId":null,"year":2015,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Monolith Soft / Nintendo","companySlugs":["monolith-soft","nintendo"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+          {"title":"Bayonetta 2","catalogId":null,"year":2014,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"PlatinumGames / Nintendo","companySlugs":["platinumgames","nintendo"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+          {"title":"The Legend of Zelda: Breath of the Wild","catalogId":null,"year":2017,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo · lanzamiento cruzado Wii U/Switch","companySlugs":["nintendo","nintendo-epd"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Consola, GamePad y controles compatibles",
+      "hardware": [
+        {"id":"hardware-wiiu-console","name":"Wii U","kind":"BASE_MODEL","yearLabel":"2012","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["WUP-101"],"summaryEs":"Consola doméstica HD que procesa y transmite contenido al GamePad.","features":["Salida HD","Almacenamiento flash según modelo","Wii Mode"],"relatedWorks":[],"relatedPersonSlugs":["genyo-takeda","katsuya-eguchi"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-WIIU-DOSSIER"]},
+        {"id":"hardware-wiiu-gamepad","name":"Wii U GamePad","kind":"CONTROLLER","yearLabel":"2012","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["WUP-010"],"summaryEs":"Mando con pantalla que requiere una consola Wii U para funcionar como sistema de juego.","features":["Pantalla táctil de 6,2 pulgadas","Off-TV Play","Cámara y micrófono","No autónomo"],"relatedWorks":["Nintendo Land"],"relatedPersonSlugs":["katsuya-eguchi"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"id":"hardware-wiiu-pro-controller","name":"Wii U Pro Controller","kind":"PRO_CONTROLLER","yearLabel":"2012","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["WUP-005"],"summaryEs":"Mando tradicional inalámbrico para software compatible.","features":["Dos sticks","Batería integrada","Sin pantalla"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "services": [
+        {"id":"service-wiiu-miiverse","name":"Miiverse","kind":"SOCIAL_SERVICE","launchedLabel":"2012","endedLabel":"2017","statusLabelEs":"Servicio histórico finalizado","parentServiceId":null,"summaryEs":"Red de comunidades integrada con juegos y aplicaciones de Wii U y 3DS.","features":["Texto y dibujos","Comunidades por software","Integración contextual"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"id":"service-wiiu-eshop","name":"Nintendo eShop para Wii U","kind":"STORE_SERVICE","launchedLabel":"2012","endedLabel":"2023 para compras","statusLabelEs":"Compras cerradas","parentServiceId":null,"summaryEs":"Tienda digital de Wii U separada de Wii Shop y de eShop 3DS en su catálogo.","features":["Juegos digitales","DLC","Virtual Console"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"id":"service-wiiu-virtual-console","name":"Virtual Console para Wii U","kind":"STORE_SERVICE","launchedLabel":"2013","endedLabel":"2023 para compras","statusLabelEs":"Catálogo histórico cerrado","parentServiceId":"service-wiiu-eshop","summaryEs":"Venta individual de juegos clásicos dentro de eShop Wii U.","features":["Compra individual","Catálogo por sistema y región","No suscripción"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "compatibilityLinks": [
+        {"id":"compat-wiiu-wii","sourcePlatformSlug":"wiiu","sourcePlatformName":"Wii U","targetPlatformSlug":"wii","targetPlatformName":"Wii","labelEs":"Compatibilidad mediante Wii Mode","summaryEs":"Wii U acepta discos y numerosos mandos Wii en un entorno separado; no reproduce discos GameCube de forma nativa.","features":["Discos Wii","Mandos Wii compatibles","Sin discos GameCube"],"sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"gamepad-y-transicion","titleEs":"El GamePad no es una portátil autónoma","dekEs":"La transición a Switch parte de aprendizajes, no de una identidad retroactiva.","paragraphsEs":["El GamePad recibe procesamiento y datos de la consola Wii U. Off-TV Play reduce la dependencia del televisor, pero no convierte el mando en una consola independiente.","Las versiones Switch de juegos Wii U amplían su audiencia sin borrar plataforma, fecha, equipo o edición original."],"cards":[],"sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:gamepad-y-transicion","companies","games","hardware","compatibility","services","control","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-wiiu-launch","yearLabel":"2012","sortYear":2012,"title":"Lanzamiento de Wii U","summaryEs":"Nintendo lleva alta definición y GamePad a su línea doméstica.","sourceIds":["PH-NIN-HISTORY","PH-NIN-WIIU-DOSSIER"]},
+        {"id":"milestone-wiiu-mariokart","yearLabel":"2014","sortYear":2014,"title":"Mario Kart 8 y Bayonetta 2","summaryEs":"Software interno y colaboración externa muestran dos modelos de producción.","sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"id":"milestone-wiiu-splatoon","yearLabel":"2015","sortYear":2015,"title":"Splatoon y reorganización EPD","summaryEs":"Una nueva IP coincide con la integración de equipos internos.","sourceIds":["PH-NIN-WIIU-DOSSIER"]},
+        {"id":"milestone-wiiu-botw","yearLabel":"2017","sortYear":2017,"title":"Breath of the Wild y transición a Switch","summaryEs":"El lanzamiento cruzado cierra una generación y abre la siguiente.","sourceIds":["PH-NIN-WIIU-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "Wii U probó juego asimétrico y Off-TV Play mediante una pantalla dependiente de consola.",
+        "Miiverse dejó una historia social integrada directamente en las comunidades de cada juego.",
+        "Su catálogo y arquitectura aportaron aprendizajes visibles en Switch sin perder su identidad original."
+      ],
+      "sources": [
+        {"id":"PH-NIN-WIIU-DOSSIER","title":"Dossier editorial Region Atlas · Wii U","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"GamePad, servicios, compatibilidad, estudios, transición y QA","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Wii U y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Wii U · 13,56 M hardware; 103,60 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

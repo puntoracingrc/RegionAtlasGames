@@ -15,8 +15,9 @@ def main() -> None:
     details = json.loads((ROOT / "data" / "game-details.json").read_text(encoding="utf-8"))
 
     platform = next(item for item in platforms if item.get("slug") == PLATFORM_SLUG)
-    assert platform["active"] is True
-    assert platform["status"] == "open"
+    assert platform["active"] is False
+    assert platform["status"] == "announced"
+    assert platform["announcedReleaseDate"] == "2027-09-16"
     assert platform["estimatedCatalogSize"] == 20
     assert (ROOT / "public" / "platform-consoles" / f"{PLATFORM_SLUG}.png").exists()
 
@@ -39,13 +40,12 @@ def main() -> None:
         cover = ROOT / "public" / game["coverUrl"].removeprefix("/")
         assert cover.exists(), cover
         detail = details[game["id"]]
-        assert detail["year"] == 2026
         assert detail["support"] == "Cartucho"
         assert len(detail["description"]) > 180
         assert detail["descriptionMeta"]["referenceUsed"] is True
         assert "areajugones.sport.es" in detail["descriptionMeta"]["referenceUrl"]
 
-    print("OK: neogeo_aes_plus_catalog")
+    print("OK: neogeo_aes_plus_announced_records_preserved")
 
 
 if __name__ == "__main__":

@@ -24,6 +24,7 @@ const INDUSTRY_LINKS = [
   { href: "/persona", label: "Personas" },
   { href: "/premios", label: "Premios" },
   { href: "/franquicia", label: "Franquicias" },
+  { href: "/historia-plataformas", label: "Historia por plataforma" },
 ];
 
 function isIndustrySection(pathname: string, href: string) {
@@ -144,6 +145,7 @@ export function SiteNav({
   const pathname = usePathname();
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const industryTabsRef = useRef<HTMLUListElement>(null);
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -186,6 +188,16 @@ export function SiteNav({
     const timeout = window.setTimeout(() => searchInputRef.current?.focus(), 40);
     return () => window.clearTimeout(timeout);
   }, [searchOpen]);
+
+  useEffect(() => {
+    const list = industryTabsRef.current;
+    const current = list?.querySelector<HTMLElement>('[aria-current="page"]');
+    if (!list || !current) return;
+    list.scrollTo({
+      left: Math.max(0, current.offsetLeft - (list.clientWidth - current.clientWidth) / 2),
+      behavior: "auto",
+    });
+  }, [pathname]);
 
   useEffect(() => {
     if (!searchOpen || searchQuery.trim().length < 2) return;
@@ -236,7 +248,7 @@ export function SiteNav({
   return (
     <nav
       className={cn(
-        "z-50 border-b border-border bg-nav backdrop-blur-md",
+        "z-50 overflow-x-clip border-b border-border bg-nav backdrop-blur-md",
         sticky ? "sticky top-0" : "relative",
       )}
     >
@@ -310,8 +322,8 @@ export function SiteNav({
       </div>
 
       {INDUSTRY_LINKS.some(({ href }) => isIndustrySection(pathname, href)) && (
-        <nav aria-label="Secciones de Industria" className="border-t border-border/70">
-          <ul className="mx-auto flex max-w-[1600px] items-center gap-1 overflow-x-auto px-4 md:gap-4 md:px-6">
+        <nav aria-label="Secciones de Industria" className="min-w-0 overflow-x-hidden border-t border-border/70">
+          <ul ref={industryTabsRef} className="mx-auto flex max-w-[1600px] items-center gap-1 overflow-x-auto px-4 md:gap-4 md:px-6">
             {INDUSTRY_LINKS.map(({ href, label }) => {
               const selected = isIndustrySection(pathname, href);
               return (

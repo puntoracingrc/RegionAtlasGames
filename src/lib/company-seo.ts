@@ -15,7 +15,9 @@ export function buildCompanyMetadata(view: CompanyProfileView): Metadata {
   const url = `${base}/compania/${view.slug}`;
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
   const fallbackDescription = [
-    `${view.name}: ${view.uniqueWorkCount.toLocaleString("es-ES")} ${view.uniqueWorkCount === 1 ? "obra" : "obras"} en ${formatCatalogEntryCount(view.catalogEntryCount)} catalogadas, incluidas sus ediciones, en Region Atlas.`,
+    view.editorialOnly
+      ? `${view.name}: entidad documentada en la historia de las plataformas de Region Atlas.`
+      : `${view.name}: ${view.uniqueWorkCount.toLocaleString("es-ES")} ${view.uniqueWorkCount === 1 ? "obra" : "obras"} en ${formatCatalogEntryCount(view.catalogEntryCount)} catalogadas, incluidas sus ediciones, en Region Atlas.`,
     view.developerCatalogEntryCount > 0
       ? `${formatCatalogEntryCount(view.developerCatalogEntryCount)} como desarrolladora.`
       : null,
@@ -53,6 +55,15 @@ export function buildCompanyMetadata(view: CompanyProfileView): Metadata {
 
 export function buildCompanyIntro(view: CompanyProfileView): string {
   if (view.history) return view.history;
+  if (view.editorialOnly) {
+    const platforms = [...new Set(view.platformHistoryLinks.map((link) => link.platformName))];
+    const relationship = view.platformHistoryLinks[0]?.contributionEs;
+    return [
+      `${view.name} forma parte del archivo editorial de Region Atlas${platforms.length ? ` por su relación documentada con ${platforms.join(" y ")}` : ""}.`,
+      relationship ?? null,
+      `Estado: ${companyStatusLabel(view.status).toLowerCase()}.`,
+    ].filter(Boolean).join(" ");
+  }
   const parts = [
     `${view.name} aparece vinculada a ${view.uniqueWorkCount.toLocaleString("es-ES")} ${view.uniqueWorkCount === 1 ? "obra" : "obras"} mediante ${formatCatalogEntryCount(view.catalogEntryCount)} catalogadas, incluidas sus ediciones, en Region Atlas`,
   ];

@@ -10,6 +10,19 @@ import coreData from "../../data/research/person-study/core.json";
 import manifestData from "../../data/research/person-study/manifest.json";
 import mediaData from "../../data/research/person-study/media.json";
 import publicData from "../../data/research/person-study/public.json";
+import playstationPublicData from "../../data/research/platform-history/people-public.json";
+import playstation2PublicData from "../../data/research/platform-history/people-ps2-public.json";
+import playstation3PublicData from "../../data/research/platform-history/people-ps3-public.json";
+import playstation5PublicData from "../../data/research/platform-history/people-ps5-public.json";
+import pspPublicData from "../../data/research/platform-history/people-psp-public.json";
+import psVitaPublicData from "../../data/research/platform-history/people-psvita-public.json";
+import xboxPublicData from "../../data/research/platform-history/people-xbox-public.json";
+import xbox360PublicData from "../../data/research/platform-history/people-xbox360-public.json";
+import xboxOnePublicData from "../../data/research/platform-history/people-xboxone-public.json";
+import xboxSeriesPublicData from "../../data/research/platform-history/people-xboxseries-public.json";
+import segaPublicData from "../../data/research/platform-history/people-sega-public.json";
+import nintendoPublicData from "../../data/research/platform-history/people-nintendo-public.json";
+import snkPublicData from "../../data/research/platform-history/people-snk-public.json";
 import relationsData from "../../data/research/person-study/relations.json";
 import reviewData from "../../data/research/person-study/review.json";
 import sourcesData from "../../data/research/person-study/sources.json";
@@ -22,6 +35,7 @@ import {
 } from "./person-public-research";
 import type {
   PersonPublicData,
+  PersonPublicOverlayData,
   PersonResearchManifest,
 } from "./person-research-types";
 
@@ -110,6 +124,19 @@ const review = reviewData as {
 const companyResearch = (companyResearchData as { records: CompanyResearchRecord[] }).records;
 const manifest = manifestData as unknown as PersonResearchManifest;
 const publicResearch = publicData as unknown as PersonPublicData;
+const playstationPublic = playstationPublicData as unknown as PersonPublicData;
+const playstation2Public = playstation2PublicData as unknown as PersonPublicOverlayData;
+const playstation3Public = playstation3PublicData as unknown as PersonPublicOverlayData;
+const playstation5Public = playstation5PublicData as unknown as PersonPublicOverlayData;
+const pspPublic = pspPublicData as unknown as PersonPublicOverlayData;
+const psVitaPublic = psVitaPublicData as unknown as PersonPublicOverlayData;
+const xboxPublic = xboxPublicData as unknown as PersonPublicOverlayData;
+const xbox360Public = xbox360PublicData as unknown as PersonPublicOverlayData;
+const xboxOnePublic = xboxOnePublicData as unknown as PersonPublicOverlayData;
+const xboxSeriesPublic = xboxSeriesPublicData as unknown as PersonPublicOverlayData;
+const segaPublic = segaPublicData as unknown as PersonPublicOverlayData;
+const nintendoPublic = nintendoPublicData as unknown as PersonPublicOverlayData;
+const snkPublic = snkPublicData as unknown as PersonPublicOverlayData;
 const companies = companiesData as Record<string, unknown>;
 
 function sha256File(relativePath: string): string {
@@ -177,9 +204,58 @@ test("builds every public biography and fact source only from explicit editorial
 
 test("keeps every non-editorial identity out of public routes, sitemap and inverse links", async () => {
   const publicSlugs = new Set(getPublicPersonSlugs());
-  const nonPublic = core.filter((person) => person.visibility !== "published");
+  const auditedPlayStationSlugs = new Set(
+    [
+      ...playstationPublic.profiles.map((profile) => profile.slug),
+      ...(playstation2Public.profiles ?? []).map((profile) => profile.slug),
+      ...(playstation2Public.profilePatches ?? []).map((profile) => profile.slug),
+      ...(playstation3Public.profiles ?? []).map((profile) => profile.slug),
+      ...(playstation3Public.profilePatches ?? []).map((profile) => profile.slug),
+      ...(playstation5Public.profiles ?? []).map((profile) => profile.slug),
+      ...(playstation5Public.profilePatches ?? []).map((profile) => profile.slug),
+      ...(pspPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(pspPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(psVitaPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(psVitaPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(xboxPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(xboxPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(xbox360Public.profiles ?? []).map((profile) => profile.slug),
+      ...(xbox360Public.profilePatches ?? []).map((profile) => profile.slug),
+      ...(xboxOnePublic.profiles ?? []).map((profile) => profile.slug),
+      ...(xboxOnePublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(xboxSeriesPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(xboxSeriesPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(segaPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(segaPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(nintendoPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(nintendoPublic.profilePatches ?? []).map((profile) => profile.slug),
+      ...(snkPublic.profiles ?? []).map((profile) => profile.slug),
+      ...(snkPublic.profilePatches ?? []).map((profile) => profile.slug),
+    ],
+  );
+  const nonPublic = core.filter(
+    (person) =>
+      person.visibility !== "published" &&
+      !auditedPlayStationSlugs.has(person.slug),
+  );
 
-  assert.equal(publicSlugs.size, 25);
+  const expectedPublicSlugs = new Set([
+    ...publicResearch.profiles.map((profile) => profile.slug),
+    ...playstationPublic.profiles.map((profile) => profile.slug),
+    ...(playstation2Public.profiles ?? []).map((profile) => profile.slug),
+    ...(playstation3Public.profiles ?? []).map((profile) => profile.slug),
+    ...(playstation5Public.profiles ?? []).map((profile) => profile.slug),
+    ...(pspPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(psVitaPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(xboxPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(xbox360Public.profiles ?? []).map((profile) => profile.slug),
+    ...(xboxOnePublic.profiles ?? []).map((profile) => profile.slug),
+    ...(xboxSeriesPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(segaPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(nintendoPublic.profiles ?? []).map((profile) => profile.slug),
+    ...(snkPublic.profiles ?? []).map((profile) => profile.slug),
+  ]);
+  assert.deepEqual(sorted(publicSlugs), sorted(expectedPublicSlugs));
   for (const person of nonPublic) {
     assert.equal(publicSlugs.has(person.slug), false, person.slug);
     assert.equal(getPublicPersonView(person.slug), undefined, person.slug);

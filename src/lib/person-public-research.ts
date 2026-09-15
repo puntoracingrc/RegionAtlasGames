@@ -1,10 +1,27 @@
 import publicResearchData from "../../data/research/person-study/public.json";
+import playstationPeopleData from "../../data/research/platform-history/people-public.json";
+import playstation2PeopleData from "../../data/research/platform-history/people-ps2-public.json";
+import playstation3PeopleData from "../../data/research/platform-history/people-ps3-public.json";
+import playstation5PeopleData from "../../data/research/platform-history/people-ps5-public.json";
+import pspPeopleData from "../../data/research/platform-history/people-psp-public.json";
+import psVitaPeopleData from "../../data/research/platform-history/people-psvita-public.json";
+import xboxPeopleData from "../../data/research/platform-history/people-xbox-public.json";
+import xbox360PeopleData from "../../data/research/platform-history/people-xbox360-public.json";
+import xboxOnePeopleData from "../../data/research/platform-history/people-xboxone-public.json";
+import xboxSeriesPeopleData from "../../data/research/platform-history/people-xboxseries-public.json";
+import segaPeopleData from "../../data/research/platform-history/people-sega-public.json";
+import nintendoPeopleData from "../../data/research/platform-history/people-nintendo-public.json";
+import snkPeopleData from "../../data/research/platform-history/people-snk-public.json";
+import portraitPeopleData from "../../data/research/platform-history/people-portraits-public.json";
+import { getCatalogGame, getPlatform } from "./catalog";
+import { classifyPersonExpertiseTerms } from "./person-expertise";
+import { getPlatformHistory, getPlatformHistoryData } from "./platform-history";
 import type {
   CompanyPersonLink,
   PersonCardData,
   PersonCompanyRelation,
-  PersonExpertise,
   PersonPublicData,
+  PersonPublicOverlayData,
   PersonPublicProfile,
   PersonPublicSource,
   PersonPublicView,
@@ -12,9 +29,102 @@ import type {
   PersonWork,
 } from "./person-research-types";
 
-const data = publicResearchData as unknown as PersonPublicData;
+function mergeByKey<T>(base: T[], overlay: T[], key: (item: T) => string): T[] {
+  const merged = new Map(base.map((item) => [key(item), item]));
+  for (const item of overlay) merged.set(key(item), item);
+  return [...merged.values()];
+}
+
+const baseData = publicResearchData as unknown as PersonPublicData;
+const playstationData = playstationPeopleData as unknown as PersonPublicOverlayData;
+const playstation2Data = playstation2PeopleData as unknown as PersonPublicOverlayData;
+const playstation3Data = playstation3PeopleData as unknown as PersonPublicOverlayData;
+const playstation5Data = playstation5PeopleData as unknown as PersonPublicOverlayData;
+const pspData = pspPeopleData as unknown as PersonPublicOverlayData;
+const psVitaData = psVitaPeopleData as unknown as PersonPublicOverlayData;
+const xboxData = xboxPeopleData as unknown as PersonPublicOverlayData;
+const xbox360Data = xbox360PeopleData as unknown as PersonPublicOverlayData;
+const xboxOneData = xboxOnePeopleData as unknown as PersonPublicOverlayData;
+const xboxSeriesData = xboxSeriesPeopleData as unknown as PersonPublicOverlayData;
+const segaData = segaPeopleData as unknown as PersonPublicOverlayData;
+const nintendoData = nintendoPeopleData as unknown as PersonPublicOverlayData;
+const snkData = snkPeopleData as unknown as PersonPublicOverlayData;
+const portraitData = portraitPeopleData as unknown as PersonPublicOverlayData;
+
+function applyOverlay(
+  current: PersonPublicData,
+  overlay: PersonPublicOverlayData,
+): PersonPublicData {
+  const profiles = new Map(
+    mergeByKey(current.profiles, overlay.profiles ?? [], (item) => item.slug)
+      .map((profile) => [profile.slug, profile]),
+  );
+  for (const patch of overlay.profilePatches ?? []) {
+    const profile = profiles.get(patch.slug);
+    if (profile) profiles.set(patch.slug, { ...profile, ...patch });
+  }
+  return {
+    version: Math.max(current.version, overlay.version),
+    generatedAt: overlay.generatedAt,
+    profiles: [...profiles.values()],
+    companyRelations: mergeByKey(
+      current.companyRelations,
+      overlay.companyRelations ?? [],
+      (item) => item.id,
+    ),
+    positions: mergeByKey(current.positions, overlay.positions ?? [], (item) => item.id),
+    exactCredits: mergeByKey(
+      current.exactCredits,
+      overlay.exactCredits ?? [],
+      (item) => item.id,
+    ),
+    relatedWorks: mergeByKey(
+      current.relatedWorks,
+      overlay.relatedWorks ?? [],
+      (item) => item.id,
+    ),
+    awards: mergeByKey(current.awards, overlay.awards ?? [], (item) => item.id),
+    curiosities: mergeByKey(
+      current.curiosities,
+      overlay.curiosities ?? [],
+      (item) => item.id,
+    ),
+    historicalRelations: mergeByKey(
+      current.historicalRelations ?? [],
+      overlay.historicalRelations ?? [],
+      (item) => item.id,
+    ),
+    sources: mergeByKey(current.sources, overlay.sources ?? [], (item) => item.id),
+  };
+}
+
+const data = [
+  playstationData,
+  playstation2Data,
+  playstation3Data,
+  playstation5Data,
+  pspData,
+  psVitaData,
+  xboxData,
+  xbox360Data,
+  xboxOneData,
+  xboxSeriesData,
+  segaData,
+  nintendoData,
+  snkData,
+  portraitData,
+].reduce(applyOverlay, baseData);
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));
+const figurePlatformSlugsByPerson = new Map<string, Set<string>>();
+
+for (const history of getPlatformHistoryData().platforms) {
+  for (const figure of history.figures) {
+    const slugs = figurePlatformSlugsByPerson.get(figure.personSlug) ?? new Set<string>();
+    slugs.add(history.platformSlug);
+    figurePlatformSlugsByPerson.set(figure.personSlug, slugs);
+  }
+}
 
 function normalize(value: string): string {
   return value
@@ -37,32 +147,6 @@ function rowsFor<T extends { personSlug: string }>(rows: T[], personSlug: string
   return rows.filter((row) => row.personSlug === personSlug);
 }
 
-function expertiseFor(
-  profile: PersonPublicProfile,
-  relations: PersonCompanyRelation[],
-  credits: PersonWork[],
-): PersonExpertise[] {
-  const haystack = normalize(
-    [
-      ...profile.occupations.map((item) => item.name),
-      ...profile.fieldsOfWork.map((item) => item.name),
-      ...relations.flatMap((item) => [item.role, item.roleLabelEs]),
-      ...credits.map((item) => item.role),
-    ].join(" "),
-  );
-  const matches: [PersonExpertise, RegExp][] = [
-    ["design", /disen|design/],
-    ["programming", /program|ingenier|software|motor/],
-    ["direction", /direccion|director|directora/],
-    ["production", /produccion|productor|productora/],
-    ["music", /music|compositor|compositora|sonido/],
-    ["art", /arte|artist|ilustr|grafico|grafica/],
-    ["founder", /founder|fundador|fundadora/],
-    ["executive", /ejecutiv|president|liderazgo empresarial|ceo/],
-  ];
-  return matches.filter(([, pattern]) => pattern.test(haystack)).map(([value]) => value);
-}
-
 export function personLifeLabel(profile: PersonPublicProfile): string | null {
   const birth = profile.birthYear ?? profile.birthDate;
   const death = profile.deathYear ?? profile.deathDate;
@@ -76,6 +160,7 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
   const relations = rowsFor(data.companyRelations, profile.slug);
   const credits = rowsFor(data.exactCredits, profile.slug);
   const relatedWorks = rowsFor(data.relatedWorks, profile.slug);
+  const historicalRelations = rowsFor(data.historicalRelations ?? [], profile.slug);
   const companies = uniqueBy(
     relations.map((relation) => ({ slug: relation.companySlug, name: relation.companyName })),
     (company) => company.slug,
@@ -86,6 +171,18 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
   const occupations = uniqueBy(profile.occupations, (occupation) => occupation.name)
     .slice(0, 3)
     .map((occupation) => occupation.name);
+  const platformSlugs = [
+    ...historicalRelations.flatMap((relation) => {
+      if (relation.platformSlug) return [relation.platformSlug];
+      return relation.targetType === "platform" ? [relation.targetSlug] : [];
+    }),
+    ...(figurePlatformSlugsByPerson.get(profile.slug) ?? []),
+    ...[...credits, ...relatedWorks].flatMap((work) => {
+      if (!work.catalogId) return [];
+      const platformSlug = getCatalogGame(work.catalogId)?.platformSlug;
+      return platformSlug ? [platformSlug] : [];
+    }),
+  ].filter((slug, index, slugs) => slugs.indexOf(slug) === index);
   const searchHaystack = normalize(
     [
       profile.name,
@@ -98,6 +195,15 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
       ...profile.fieldsOfWork.map((item) => item.name),
       ...companies.map((company) => company.name),
       ...works,
+      ...platformSlugs.flatMap((platformSlug) => [
+        platformSlug,
+        getPlatformHistory(platformSlug)?.title ?? getPlatform(platformSlug)?.name ?? "",
+      ]),
+      ...historicalRelations.flatMap((relation) => [
+        relation.targetName,
+        relation.relationshipLabelEs,
+        relation.summaryEs,
+      ]),
     ].join(" "),
   );
   return {
@@ -110,7 +216,13 @@ function cardFor(profile: PersonPublicProfile): PersonCardData {
     occupations,
     companies: companies.slice(0, 3),
     works,
-    expertise: expertiseFor(profile, relations, credits),
+    expertise: classifyPersonExpertiseTerms([
+      ...profile.occupations.map((item) => item.name),
+      ...profile.fieldsOfWork.map((item) => item.name),
+      ...relations.flatMap((item) => [item.role, item.roleLabelEs]),
+      ...credits.map((item) => item.role),
+    ]),
+    platformSlugs,
     searchHaystack,
   };
 }
@@ -188,6 +300,17 @@ function timelineFor(view: Omit<PersonPublicView, "timeline">): PersonTimelineIt
       sourceId: award.sourceId,
     });
   }
+  for (const relation of view.historicalRelations) {
+    timeline.push({
+      id: relation.id,
+      dateLabel: relation.period ?? "Periodo no documentado",
+      sortYear: firstYear(relation.period),
+      title: relation.relationshipLabelEs,
+      detail: relation.targetName,
+      kind: "historical",
+      sourceId: relation.sourceId,
+    });
+  }
   if (profile.deathDate || profile.deathYear) {
     timeline.push({
       id: `${profile.slug}-death`,
@@ -236,6 +359,7 @@ export function getPublicPersonView(slug: string): PersonPublicView | undefined 
     relatedWorks: rowsFor(data.relatedWorks, slug),
     awards: rowsFor(data.awards, slug),
     curiosities: rowsFor(data.curiosities, slug),
+    historicalRelations: rowsFor(data.historicalRelations ?? [], slug),
     sources: [] as PersonPublicSource[],
   };
   const sourceIds = new Set([
@@ -247,6 +371,7 @@ export function getPublicPersonView(slug: string): PersonPublicView | undefined 
     ...partial.relatedWorks.map((row) => row.sourceId),
     ...partial.awards.map((row) => row.sourceId),
     ...partial.curiosities.map((row) => row.sourceId),
+    ...partial.historicalRelations.map((row) => row.sourceId),
   ].filter((sourceId): sourceId is string => Boolean(sourceId)));
   partial.sources = [...sourceIds]
     .map((sourceId) => sources.get(sourceId))

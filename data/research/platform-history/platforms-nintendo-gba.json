@@ -1,0 +1,97 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "gba",
+      "title": "Game Boy Advance / SP / Micro",
+      "lineage": {"branchLabelEs":"Línea portátil","summaryEs":"Game Boy Advance sucede a Game Boy y mantiene compatibilidad en sus dos primeros modelos. DS continúa la rama, mientras Game Boy Player crea un puente accesorio con GameCube.","links":[
+        {"platformSlug":"gameboy","platformName":"Game Boy / Game Boy Color","relationship":"PREDECESSOR","summaryEs":"GBA y GBA SP conservan la biblioteca GB/GBC; Micro rompe esa compatibilidad.","sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"platformSlug":"ds","platformName":"Nintendo DS","relationship":"SUCCESSOR","summaryEs":"Nintendo DS continúa la línea portátil y sus primeros modelos aceptan cartuchos GBA.","sourceIds":["PH-NIN-GBA-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"gamecube","platformName":"Nintendo GameCube","relationship":"PARALLEL_BRANCH","summaryEs":"Game Boy Player y el cable de conexión enlazan portátil y doméstica mediante periféricos y juegos compatibles.","sourceIds":["PH-NIN-GBA-DOSSIER"]}
+      ]},
+      "dekEs": "La portátil de 32 bits que evoluciona desde el formato horizontal hacia SP y Micro, preserva dos generaciones de compatibilidad en sus primeros modelos y dialoga con GameCube.",
+      "summaryParagraphsEs": [
+        "Game Boy Advance se lanzó en 2001. Nintendo registra 81,51 millones de consolas y 377,42 millones de juegos para la familia.",
+        "GBA SP transformó el diseño en formato plegable e incorporó iluminación frontal, seguida de revisiones con retroiluminación. Game Boy Micro fue un rediseño compacto de 2005.",
+        "GBA original y SP reproducen cartuchos Game Boy y Game Boy Color. Game Boy Micro sólo acepta juegos GBA; esta diferencia se conserva por modelo.",
+        "Game Boy Player es un periférico de GameCube. El cable GBA-GameCube ofreció segunda pantalla o funciones adicionales sólo en software compatible, no una capacidad universal."
+      ],
+      "historyTitleEs": "Continuidad portátil y puentes con GameCube",
+      "historyParagraphsEs": [
+        "Satoru Okada representa la continuidad técnica de R&D1. Gunpei Yokoi se conserva como antecedente histórico: había dejado Nintendo antes del desarrollo de GBA.",
+        "Metroid Fusion, Advance Wars, Fire Emblem, Golden Sun, Pokémon y WarioWare muestran cómo equipos internos y socios independientes sostuvieron la biblioteca.",
+        "La conexión con GameCube toma dos formas distintas: Game Boy Player ejecuta cartuchos en televisión y el cable de enlace activa funciones diseñadas juego a juego."
+      ],
+      "architectureTitleEs": "Cartucho, compatibilidad y conexión",
+      "architectureDekEs": "Las funciones cambian entre GBA, SP y Micro.",
+      "figures": [
+        {"personSlug":"satoru-okada","personName":"Satoru Okada","roleLabelEs":"Dirección de hardware","contributionEs":"Figura principal de la continuidad portátil y R&D1 en la familia GBA.","period":"Desarrollo de GBA","sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"personSlug":"hiroshi-yamauchi","personName":"Hiroshi Yamauchi","roleLabelEs":"Dirección empresarial","contributionEs":"Presidió Nintendo durante el lanzamiento original.","period":"2001-2002","sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"personSlug":"satoru-iwata","personName":"Satoru Iwata","roleLabelEs":"Presidencia y estrategia","contributionEs":"Presidió Nintendo desde 2002 durante SP, Micro y la transición a DS.","period":"2002-2005","sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"personSlug":"yoshio-sakamoto","personName":"Yoshio Sakamoto","roleLabelEs":"Producción creativa","contributionEs":"Figura vinculada a Metroid Fusion y Zero Mission dentro de la continuidad R&D1.","period":"Etapa GBA","sourceIds":["PH-NIN-GBA-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-gba-cartridge","name":"Game Pak de Game Boy Advance","kind":"GAME_MEDIA","summaryEs":"Formato propio más pequeño con detección física diferenciada respecto a GB/GBC.","features":["Cartuchos GBA","Biblioteca portátil de 32 bits","Compatibilidad anterior según modelo"],"partners":[{"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","roleLabelEs":"Diseño de plataforma"}],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"id":"architecture-gba-link","name":"Conexión GBA-GameCube","kind":"CONNECTIVITY","summaryEs":"Cable dedicado para funciones de segunda pantalla, datos o multijugador en títulos compatibles.","features":["Soporte por juego","No universal","Conecta ramas portátil y doméstica"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma"}],"sourceIds":["PH-NIN-GBA-DOSSIER"]}
+      ],
+      "companiesTitleEs": "R&D1 y una biblioteca de socios",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"2001-2006","relationshipStart":"2001","relationshipEnd":null,"contributionEs":"Fabricó la familia y publicó software propio y asociado.","relatedWorks":["Game Boy Advance","Metroid Fusion","WarioWare"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GBA-DOSSIER"]},
+        {"companySlug":"nintendo-rd1","companyName":"Nintendo R&D1","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Equipo interno","period":"Etapa GBA","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Continuidad portátil y software de Metroid y Wario.","relatedWorks":["Metroid Fusion","WarioWare"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"companySlug":"intelligent-systems","companyName":"Intelligent Systems","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa GBA","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló Advance Wars y Fire Emblem sin ser una subsidiaria de Nintendo.","relatedWorks":["Advance Wars","Fire Emblem"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"companySlug":"game-freak","companyName":"Game Freak","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa GBA","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló los juegos principales de Pokémon para la plataforma.","relatedWorks":["Pokémon Ruby / Sapphire / Emerald"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"companySlug":"camelot-software-planning","companyName":"Camelot Software Planning","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa GBA","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló Golden Sun para Nintendo.","relatedWorks":["Golden Sun"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Third party y colaborador","period":"Etapa GBA","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó catálogo propio y desarrolló The Minish Cap en colaboración con Nintendo.","relatedWorks":["The Legend of Zelda: The Minish Cap","Mega Man Zero"],"sourceIds":["PH-NIN-GBA-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"gba-first-party","labelEs":"Nintendo","descriptionEs":"Fabricante, publisher y R&D1.","companySlugs":["nintendo","nintendo-rd1"]},
+        {"id":"gba-partners","labelEs":"Socios independientes","descriptionEs":"Estudios externos con funciones diferenciadas.","companySlugs":["intelligent-systems","game-freak","camelot-software-planning","capcom"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "Renovación portátil de series y géneros",
+      "gameGroups": [
+        {"id":"gba-games","labelEs":"Juegos representativos","descriptionEs":"Software interno y de socios con atribución empresarial explícita.","games":[
+          {"title":"Metroid Fusion","catalogId":null,"year":2002,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo R&D1","companySlugs":["nintendo","nintendo-rd1"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+          {"title":"Advance Wars","catalogId":null,"year":2001,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Intelligent Systems / Nintendo","companySlugs":["intelligent-systems","nintendo"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+          {"title":"Fire Emblem","catalogId":null,"year":2003,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Intelligent Systems / Nintendo","companySlugs":["intelligent-systems","nintendo"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+          {"title":"Golden Sun","catalogId":null,"year":2001,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Camelot / Nintendo","companySlugs":["camelot-software-planning","nintendo"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+          {"title":"Pokémon Ruby / Sapphire / Emerald","catalogId":null,"year":2002,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Game Freak / Nintendo","companySlugs":["game-freak","nintendo"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+          {"title":"The Legend of Zelda: The Minish Cap","catalogId":null,"year":2004,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Capcom / Nintendo","companySlugs":["capcom","nintendo"],"sourceIds":["PH-NIN-GBA-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "Tres modelos y dos puentes con GameCube",
+      "hardware": [
+        {"id":"hardware-gba","name":"Game Boy Advance","kind":"BASE_MODEL","yearLabel":"2001","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["AGB-001"],"summaryEs":"Modelo horizontal original con compatibilidad Game Boy y Game Boy Color.","features":["Pantalla sin iluminación","GB/GBC compatible","Controles laterales"],"relatedWorks":[],"relatedPersonSlugs":["satoru-okada"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-GBA-DOSSIER"]},
+        {"id":"hardware-gba-sp","name":"Game Boy Advance SP","kind":"REDESIGN","yearLabel":"2003","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["AGS-001","AGS-101"],"summaryEs":"Rediseño plegable con batería recargable; pasó de iluminación frontal a retroiluminación en revisiones posteriores.","features":["Formato clamshell","Batería recargable","GB/GBC compatible"],"relatedWorks":[],"relatedPersonSlugs":["satoru-okada"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"id":"hardware-gameboy-micro","name":"Game Boy Micro","kind":"REDESIGN","yearLabel":"2005","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["OXY-001"],"summaryEs":"Rediseño compacto premium que sólo acepta software GBA.","features":["Pantalla retroiluminada","Carátulas intercambiables","Sin compatibilidad GB/GBC"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"id":"hardware-gameboy-player","name":"Game Boy Player","kind":"PERIPHERAL","yearLabel":"2003","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["DOL-017"],"summaryEs":"Base para GameCube que ejecuta cartuchos Game Boy, Game Boy Color y GBA mediante hardware dedicado.","features":["Requiere GameCube y disco de arranque","Salida mediante GameCube","No es consola independiente"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"id":"hardware-gba-gamecube-cable","name":"Cable Game Boy Advance–GameCube","kind":"PERIPHERAL","yearLabel":"2001","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["DOL-011"],"summaryEs":"Cable para funciones específicas en juegos compatibles.","features":["Segunda pantalla","Transferencia de datos","Compatibilidad por juego"],"relatedWorks":["Four Swords Adventures","Final Fantasy Crystal Chronicles"],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-GBA-DOSSIER"]}
+      ],
+      "compatibilityLinks": [
+        {"id":"compat-gba-gameboy","sourcePlatformSlug":"gba","sourcePlatformName":"Game Boy Advance / SP","targetPlatformSlug":"gameboy","targetPlatformName":"Game Boy / Game Boy Color","labelEs":"Compatibilidad según modelo","summaryEs":"GBA y SP aceptan cartuchos GB/GBC; Game Boy Micro limita la ranura a cartuchos GBA.","features":["GBA: GB/GBC","SP: GB/GBC","Micro: sólo GBA"],"sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"id":"compat-gba-gamecube","sourcePlatformSlug":"gba","sourcePlatformName":"Game Boy Advance","targetPlatformSlug":"gamecube","targetPlatformName":"Nintendo GameCube","labelEs":"Conexión mediante periféricos","summaryEs":"Game Boy Player y cable de enlace crean usos diferentes; ninguno implica compatibilidad universal entre ambos catálogos.","features":["Game Boy Player","Cable GBA-GameCube","Funciones por título"],"sourceIds":["PH-NIN-GBA-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"compatibilidad-por-modelo","titleEs":"La compatibilidad cambia con Micro","dekEs":"La familia comparte catálogo GBA, pero no todas sus ranuras son iguales.","paragraphsEs":["GBA original y SP incorporan el hardware necesario para GB/GBC. Micro elimina ese soporte y sólo ejecuta Game Boy Advance.","Game Boy Player pertenece al ecosistema GameCube como periférico, aunque aloje cartuchos de las tres familias portátiles."],"cards":[],"sourceIds":["PH-NIN-GBA-DOSSIER"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:compatibilidad-por-modelo","companies","games","hardware","compatibility","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-gba-launch","yearLabel":"2001","sortYear":2001,"title":"Game Boy Advance","summaryEs":"Nintendo abre la nueva generación portátil manteniendo compatibilidad con GB/GBC.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-gba-sp","yearLabel":"2003","sortYear":2003,"title":"GBA SP y Game Boy Player","summaryEs":"El formato plegable y la conexión doméstica amplían la familia.","sourceIds":["PH-NIN-GBA-DOSSIER"]},
+        {"id":"milestone-gba-micro","yearLabel":"2005","sortYear":2005,"title":"Game Boy Micro","summaryEs":"El rediseño compacto abandona la compatibilidad GB/GBC.","sourceIds":["PH-NIN-GBA-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "GBA prolongó la biblioteca portátil de Nintendo y dio nueva proyección internacional a Advance Wars y Fire Emblem.",
+        "SP convirtió el diseño plegable e iluminación integrada en rasgos centrales de la portátil moderna de Nintendo.",
+        "Game Boy Player y el cable de enlace anticiparon experiencias coordinadas entre hardware doméstico y portátil."
+      ],
+      "sources": [
+        {"id":"PH-NIN-GBA-DOSSIER","title":"Dossier editorial Region Atlas · Game Boy Advance","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Modelos, compatibilidad, Game Boy Player, juegos y estudios","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Lanzamiento y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"GBA · 81,51 M hardware; 377,42 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

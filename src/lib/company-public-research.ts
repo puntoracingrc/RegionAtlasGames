@@ -1,4 +1,7 @@
 import publicResearchData from "../../data/research/company-study/public.json";
+import segaResearchData from "../../data/research/platform-history/company-sega-public.json";
+import nintendoResearchData from "../../data/research/platform-history/company-nintendo-public.json";
+import snkResearchData from "../../data/research/platform-history/company-snk-public.json";
 import type {
   CompanyResearchAchievement,
   CompanyResearchPublicData,
@@ -7,7 +10,33 @@ import type {
 } from "./company-research-types";
 import type { CompanyProfile, CompanyProfileSources } from "./types";
 
-const publicData = publicResearchData as CompanyResearchPublicData;
+function mergeByKey<T>(base: T[], overlay: T[], key: (item: T) => string): T[] {
+  const merged = new Map(base.map((item) => [key(item), item]));
+  for (const item of overlay) merged.set(key(item), item);
+  return [...merged.values()];
+}
+
+const baseData = publicResearchData as CompanyResearchPublicData;
+const segaData = segaResearchData as CompanyResearchPublicData;
+const nintendoData = nintendoResearchData as CompanyResearchPublicData;
+const snkData = snkResearchData as CompanyResearchPublicData;
+const overlays = [segaData, nintendoData, snkData];
+const publicData: CompanyResearchPublicData = {
+  version: Math.max(baseData.version, ...overlays.map((overlay) => overlay.version)),
+  profiles: overlays.reduce(
+    (profiles, overlay) => mergeByKey(profiles, overlay.profiles, (item) => item.slug),
+    baseData.profiles,
+  ),
+  achievements: overlays.reduce(
+    (achievements, overlay) =>
+      mergeByKey(achievements, overlay.achievements, (item) => item.id),
+    baseData.achievements,
+  ),
+  sources: overlays.reduce(
+    (sources, overlay) => mergeByKey(sources, overlay.sources, (item) => item.id),
+    baseData.sources,
+  ),
+};
 const profiles = new Map(publicData.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(publicData.sources.map((source) => [source.id, source]));
 

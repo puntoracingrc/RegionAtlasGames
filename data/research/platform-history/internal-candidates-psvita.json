@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T20:00:00.000Z",
+  "peopleCandidates": [
+    {"personSlug":"yoshio-matsumoto","personName":"Yoshio Matsumoto","status":"NEEDS_IDENTITY_AND_ROLE_REVIEW","reasonEs":"El liderazgo técnico concreto del hardware Vita no queda suficientemente delimitado por las fuentes incorporadas."},
+    {"personSlug":"gavin-moore","personName":"Gavin Moore","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"El dossier no aporta todavía una relación con Vita suficientemente precisa para una ficha editorial pública."},
+    {"personSlug":"rex-crowle","personName":"Rex Crowle","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"La participación en Tearaway está documentada, pero se requiere una biografía profesional más completa antes de publicar una ficha personal."},
+    {"personSlug":"kenny-young","personName":"Kenny Young","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"El dossier lo menciona en el entorno creativo de Tearaway sin material biográfico suficiente para publicación."},
+    {"personSlug":"michelle-ducker","personName":"Michelle Ducker","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"La información disponible no basta para una ficha personal editorial completa."}
+  ],
+  "companyCandidates": [
+    {"companySlug":"comcept","companyName":"comcept","status":"NEEDS_CATALOG_IDENTITY","reasonEs":"La colaboración en Soul Sacrifice está documentada, pero la compañía aún no tiene una identidad canónica reutilizable en el índice público."},
+    {"companySlug":"vlambeer","companyName":"Vlambeer","status":"NEEDS_CATALOG_IDENTITY","reasonEs":"La relación con la etapa indie de Vita se conserva como contexto hasta disponer de una ficha canónica de compañía."}
+  ],
+  "creditCandidates": [
+    {"title":"Freedom Wars · créditos individuales","status":"NEEDS_EXACT_CREDIT_REVIEW","reasonEs":"Se publican las responsabilidades verificadas de Japan Studio, Shift y Dimps sin adjudicar roles individuales no comprobados."},
+    {"title":"LittleBigPlanet PS Vita · Media Molecule","status":"EXPLICITLY_NOT_PRIMARY_DEVELOPER","reasonEs":"Tarsier Studios y Double Eleven figuran como desarrolladoras; Media Molecule no recibe el desarrollo principal por asociación con la serie."}
+  ],
+  "mediaReferences": [
+    {"personSlug":"keiji-inafune","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."},
+    {"personSlug":"shahid-ahmad","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita dentro de las fuentes autorizadas."}
+  ]
+}

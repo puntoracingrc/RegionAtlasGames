@@ -1,0 +1,151 @@
+{
+  "version": 6,
+  "generatedAt": "2026-09-15T20:00:00.000Z",
+  "profiles": [
+    {
+      "slug": "keiichiro-toyama",
+      "name": "Keiichiro Toyama",
+      "qid": "Q3194686",
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": ["外山圭一郎"],
+      "birthDate": null,
+      "birthYear": 1970,
+      "birthPrecision": "YEAR",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [{"qid":"Q17","name":"Japón"}],
+      "originDisplay": "Japón",
+      "occupations": [{"qid":null,"name":"Director de videojuegos"},{"qid":null,"name":"Diseñador de videojuegos"}],
+      "fieldsOfWork": [{"qid":null,"name":"Dirección y diseño de videojuegos"}],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Keiichiro Toyama es un director y diseñador japonés de videojuegos. Durante su etapa en Japan Studio dirigió Gravity Rush, un proyecto trasladado de PlayStation 3 a PlayStation Vita para aprovechar la pantalla, los controles táctiles y el sensor de movimiento de la portátil.",
+      "biographyClaims": [
+        {"text":"Toyama explicó que Gravity Rush comenzó como proyecto para PlayStation 3 y pasó a Vita durante el desarrollo.","sourceIds":["PH-VITA-TOYAMA"]},
+        {"text":"La entrevista oficial lo identifica como director de Gravity Rush dentro de Japan Studio.","sourceIds":["PH-VITA-TOYAMA"]}
+      ],
+      "careerSummaryEs": "Su relación con Vita se documenta mediante la dirección exacta de Gravity Rush, no como crédito automático sobre el resto del catálogo de Japan Studio.",
+      "industryImpactEs": "Gravity Rush ayudó a definir una identidad propia para Vita mediante navegación gravitatoria y controles específicos del sistema.",
+      "publicReceptionEs": null,
+      "portrait": {"path":"/person-portraits/keiichiro-toyama.webp","sourceUrl":"https://commons.wikimedia.org/wiki/File:K-T-Photo.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0","artist":"Hamedbanaderi","credit":"Obra propia, publicada en Wikimedia Commons","attributionRequired":true,"sourceId":"PH-PORTRAIT-KEIICHIRO-TOYAMA"},
+      "fieldSources": {"identity":["PH-VITA-TOYAMA"],"nativeNames":["PH-VITA-DOSSIER"],"birthYear":["PH-VITA-DOSSIER"],"citizenships":["PH-VITA-DOSSIER"],"occupations":["PH-VITA-TOYAMA"],"biographyEs":["PH-VITA-TOYAMA"],"careerSummaryEs":["PH-VITA-TOYAMA"],"industryImpactEs":["PH-VITA-TOYAMA"],"portrait":["PH-PORTRAIT-KEIICHIRO-TOYAMA"]},
+      "sourceIds": ["PH-VITA-DOSSIER","PH-VITA-TOYAMA","PH-PORTRAIT-KEIICHIRO-TOYAMA"],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "keiji-inafune",
+      "name": "Keiji Inafune",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "UNKNOWN",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [{"qid":null,"name":"Diseñador de videojuegos"},{"qid":null,"name":"Productor de videojuegos"}],
+      "fieldsOfWork": [{"qid":null,"name":"Dirección creativa y producción"}],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Keiji Inafune lideró creativamente Soul Sacrifice desde comcept en colaboración con MarvelousAQL y PlayStation. Esa participación lo vincula con una obra concreta de PS Vita, pero no lo convierte en empleado de Sony ni autoriza créditos sobre otros juegos de la plataforma.",
+      "biographyClaims": [
+        {"text":"PlayStation presentó Soul Sacrifice como un proyecto de Inafune y su equipo de comcept para PS Vita.","sourceIds":["PH-VITA-INAFUNE"]},
+        {"text":"La producción se documenta como colaboración con MarvelousAQL y PlayStation, no como empleo de Inafune en Sony.","sourceIds":["PH-VITA-INAFUNE"]}
+      ],
+      "careerSummaryEs": "Su presencia pública en la historia de Vita queda limitada a Soul Sacrifice y a la colaboración externa documentada.",
+      "industryImpactEs": "Soul Sacrifice aportó una producción de acción cooperativa específicamente asociada con la etapa inicial de Vita.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {"identity":["PH-VITA-INAFUNE"],"originDisplay":["PH-VITA-DOSSIER"],"occupations":["PH-VITA-INAFUNE"],"biographyEs":["PH-VITA-INAFUNE"],"careerSummaryEs":["PH-VITA-INAFUNE"],"industryImpactEs":["PH-VITA-INAFUNE"]},
+      "sourceIds": ["PH-VITA-DOSSIER","PH-VITA-INAFUNE"],
+      "lastChecked": "2026-09-15"
+    },
+    {
+      "slug": "shahid-ahmad",
+      "name": "Shahid Ahmad",
+      "qid": null,
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": null,
+      "birthYear": null,
+      "birthPrecision": null,
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "UNKNOWN",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": null,
+      "occupations": [{"qid":null,"name":"Responsable de desarrollo de negocio"}],
+      "fieldsOfWork": [{"qid":null,"name":"Relaciones con desarrolladores independientes"}],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Shahid Ahmad trabajó en Strategic Content de Sony Computer Entertainment Europe y fue una de las voces públicas de la expansión independiente de PS Vita. En PlayStation.Blog presentó una amplia oleada de juegos para Vita, PS3 y PS4 y explicó el trabajo del equipo con desarrolladores pequeños.",
+      "biographyClaims": [
+        {"text":"PlayStation.Blog lo identificó como Senior Business Development Manager de Sony Computer Entertainment Europe.","sourceIds":["PH-VITA-SHAHID"]},
+        {"text":"Comunicó una selección de títulos independientes para Vita sin presentarlos en bloque como exclusivos.","sourceIds":["PH-VITA-SHAHID"]}
+      ],
+      "careerSummaryEs": "Su perfil enlaza la estrategia de contenido independiente de SCEE con la segunda etapa comercial de Vita.",
+      "industryImpactEs": "Contribuyó a abrir y visibilizar el acceso de estudios independientes al ecosistema PlayStation durante la generación Vita.",
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {"identity":["PH-VITA-SHAHID"],"occupations":["PH-VITA-SHAHID"],"biographyEs":["PH-VITA-SHAHID"],"careerSummaryEs":["PH-VITA-SHAHID"],"industryImpactEs":["PH-VITA-SHAHID"]},
+      "sourceIds": ["PH-VITA-SHAHID"],
+      "lastChecked": "2026-09-15"
+    }
+  ],
+  "profilePatches": [],
+  "companyRelations": [
+    {"id":"PHR-VITA-TOYAMA-JAPAN-STUDIO","personSlug":"keiichiro-toyama","companySlug":"japan-studio","companyName":"Japan Studio","role":"GAME_DIRECTOR","roleLabelEs":"Dirección de Gravity Rush","start":null,"end":null,"pointInTime":"2012","confidence":"VERY_HIGH","sourceId":"PH-VITA-TOYAMA","relationOrigin":"PSVITA_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"},
+    {"id":"PHR-VITA-SHAHID-SCEE","personSlug":"shahid-ahmad","companySlug":"sony-interactive-entertainment","companyName":"Sony Computer Entertainment Europe","role":"SENIOR_BUSINESS_DEVELOPMENT_MANAGER","roleLabelEs":"Strategic Content y relaciones con indies","start":null,"end":null,"pointInTime":"2013","confidence":"VERY_HIGH","sourceId":"PH-VITA-SHAHID","relationOrigin":"PSVITA_OFFICIAL_HISTORY","verificationStatus":"INDEPENDENT_SOURCE_VERIFIED"}
+  ],
+  "positions": [
+    {"id":"PHPOS-VITA-SHAHID-SCEE","personSlug":"shahid-ahmad","name":"Senior Business Development Manager, Sony Computer Entertainment Europe","start":null,"end":null,"pointInTime":"2013","confidence":"VERY_HIGH","sourceId":"PH-VITA-SHAHID"}
+  ],
+  "exactCredits": [
+    {"id":"PHWORK-VITA-TOYAMA-GRAVITY-RUSH","personSlug":"keiichiro-toyama","workQid":null,"title":"Gravity Rush","catalogId":"psvita-gravity-rush","year":2012,"role":"DIRECCIÓN","relationshipPrecision":"EXACT_EDITORIAL_CREDIT","confidence":"VERY_HIGH","sourceId":"PH-VITA-TOYAMA"},
+    {"id":"PHWORK-VITA-INAFUNE-SOUL-SACRIFICE","personSlug":"keiji-inafune","workQid":null,"title":"Soul Sacrifice","catalogId":"psvita-soul-sacrifice","year":2013,"role":"LIDERAZGO CREATIVO","relationshipPrecision":"EXACT_EDITORIAL_CREDIT","confidence":"VERY_HIGH","sourceId":"PH-VITA-INAFUNE"}
+  ],
+  "relatedWorks": [
+    {"id":"PHWORK-VITA-SHAHID-INDIE-PROGRAM","personSlug":"shahid-ahmad","workQid":null,"title":"Programa de contenido independiente de PS Vita","catalogId":null,"year":2013,"role":"DESARROLLO DE NEGOCIO","relationshipPrecision":"ASSOCIATION_NOT_EXACT_CREDIT","confidence":"VERY_HIGH","sourceId":"PH-VITA-SHAHID"}
+  ],
+  "awards": [],
+  "curiosities": [],
+  "historicalRelations": [
+    {"id":"PHREL-VITA-HIRAI","personSlug":"kazuo-hirai","targetType":"platform","targetSlug":"psvita","targetName":"PlayStation Vita","platformSlug":"psvita","relationshipType":"PLATFORM_PRESENTATION","relationshipLabelEs":"Presentación y transición ejecutiva","period":"2011","summaryEs":"Presentó el nombre y el precio de Vita durante la transición del liderazgo global de SCE.","confidence":"VERY_HIGH","sourceId":"PH-VITA-NAME-PRICE"},
+    {"id":"PHREL-VITA-HOUSE","personSlug":"andrew-house","targetType":"platform","targetSlug":"psvita","targetName":"PlayStation Vita","platformSlug":"psvita","relationshipType":"GLOBAL_EXECUTIVE_LEADERSHIP","relationshipLabelEs":"Lanzamiento internacional","period":"2011-2017","summaryEs":"Encabezó SCE durante el lanzamiento internacional y la transición del ecosistema Vita hacia PS4.","confidence":"HIGH","sourceId":"PH-VITA-LAUNCH-EU"},
+    {"id":"PHREL-VITA-YOSHIDA","personSlug":"shuhei-yoshida","targetType":"platform","targetSlug":"psvita","targetName":"PlayStation Vita","platformSlug":"psvita","relationshipType":"FIRST_PARTY_LEADERSHIP","relationshipLabelEs":"Worldwide Studios","period":"Etapa Vita","summaryEs":"Dirigió Worldwide Studios durante la producción first party de Vita sin recibir créditos creativos automáticos sobre sus juegos.","confidence":"HIGH","sourceId":"PH-VITA-DOSSIER"},
+    {"id":"PHREL-VITA-RYAN","personSlug":"jim-ryan","targetType":"platform","targetSlug":"psvita","targetName":"PlayStation Vita","platformSlug":"psvita","relationshipType":"REGIONAL_EXECUTIVE_LEADERSHIP","relationshipLabelEs":"Liderazgo europeo","period":"Etapa Vita","summaryEs":"Formó parte del liderazgo de SCEE durante el lanzamiento y la comercialización europea de Vita.","confidence":"HIGH","sourceId":"PH-VITA-LAUNCH-EU"},
+    {"id":"PHREL-VITA-KOLLER","personSlug":"john-koller","targetType":"platform","targetSlug":"psvita","targetName":"PlayStation Vita","platformSlug":"psvita","relationshipType":"PLATFORM_MARKETING","relationshipLabelEs":"Marketing de portátil","period":"2011-2012","summaryEs":"Comunicó el lanzamiento norteamericano de Vita como responsable sénior de la línea portátil.","confidence":"VERY_HIGH","sourceId":"PH-VITA-WELCOME"},
+    {"id":"PHREL-VITA-TOYAMA","personSlug":"keiichiro-toyama","targetType":"platform","targetSlug":"psvita","targetName":"PlayStation Vita","platformSlug":"psvita","relationshipType":"FIRST_PARTY_GAME_DIRECTION","relationshipLabelEs":"Dirección de Gravity Rush","period":"2012","summaryEs":"Dirigió Gravity Rush y documentó su adaptación a las capacidades de Vita.","confidence":"VERY_HIGH","sourceId":"PH-VITA-TOYAMA"},
+    {"id":"PHREL-VITA-INAFUNE","personSlug":"keiji-inafune","targetType":"platform","targetSlug":"psvita","targetName":"PlayStation Vita","platformSlug":"psvita","relationshipType":"INDEPENDENT_CREATIVE_LEADERSHIP","relationshipLabelEs":"Liderazgo creativo externo","period":"2012-2013","summaryEs":"Lideró Soul Sacrifice desde comcept como colaborador externo, no como empleado de Sony.","confidence":"VERY_HIGH","sourceId":"PH-VITA-INAFUNE"},
+    {"id":"PHREL-VITA-SHAHID","personSlug":"shahid-ahmad","targetType":"platform","targetSlug":"psvita","targetName":"PlayStation Vita","platformSlug":"psvita","relationshipType":"INDEPENDENT_ECOSYSTEM","relationshipLabelEs":"Strategic Content e indies","period":"2012-2015","summaryEs":"Trabajó con estudios independientes y comunicó nuevas incorporaciones para Vita desde SCEE.","confidence":"VERY_HIGH","sourceId":"PH-VITA-SHAHID"}
+  ],
+  "sources": [
+    {"id":"PH-VITA-DOSSIER","url":null,"title":"Dossier editorial Region Atlas · PlayStation Vita: historia completa","kind":"reference","reliability":"HIGH","language":"es","retrievedAt":"2026-09-15","verifiedPrimary":false},
+    {"id":"PH-VITA-NAME-PRICE","url":"https://sonyinteractive.com/en/press-releases/2011/sony-computer-entertainment-announces-playstationvita-as-the-official-name-for-next-generation-portable-entertainment-system-wi-fi-model-24980-yen-including-tax-249-and-249-3gwi-fi-model-29980-yen/","title":"PlayStation Vita announced as official name","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-VITA-LAUNCH-EU","url":"https://sonyinteractive.com/en/press-releases/playstationvita-launches--from-22-february-2012-in-europe/","title":"PlayStation Vita launches from 22 February 2012 in Europe","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-VITA-WELCOME","url":"https://blog.playstation.com/?p=69448","title":"Welcome to PlayStation Vita","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-VITA-TOYAMA","url":"https://blog.playstation.com/archive/2012/03/14/gravity-rushs-creators-reveal-the-games-origins","title":"Gravity Rush's creators reveal the game's origins","kind":"interview","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-VITA-INAFUNE","url":"https://blog.playstation.com/2012/06/01/soul-sacrifice-for-ps-vita-inafunes-next-game-is-coming-to-north-america/","title":"Soul Sacrifice for PS Vita: Inafune's next game","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-VITA-SHAHID","url":"https://blog.playstation.com/2013/08/20/gamescom-indie-avalanche-n-volume-hotline-miami-2/comment-page-2/","title":"Gamescom Indie Avalanche","kind":"official","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true},
+    {"id":"PH-PORTRAIT-KEIICHIRO-TOYAMA","url":"https://commons.wikimedia.org/wiki/File:K-T-Photo.jpg","title":"Retrato de Keiichiro Toyama","kind":"media","reliability":"VERY_HIGH","language":"en","retrievedAt":"2026-09-15","verifiedPrimary":true}
+  ]
+}

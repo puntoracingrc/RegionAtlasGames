@@ -61,6 +61,25 @@ function physicalComponentLabel(component: CatalogPhysicalComponent): string {
   return PHYSICAL_COMPONENT_LABELS[component];
 }
 
+function confidenceLabel(confidence: CatalogPhysicalEdition["confidence"]): string | null {
+  if (!confidence) return null;
+  return {
+    CONFIRMED_PHYSICAL_COPY: "Copia física confirmada",
+    CONFIRMED: "Confirmada",
+    HIGH: "Confianza alta",
+    PENDING_IDENTIFIER: "Identificador pendiente",
+    UNCONFIRMED: "Sin confirmar",
+  }[confidence];
+}
+
+function researchStatusLabel(status: CatalogEditionGuideModel["researchTasks"][number]["status"]): string {
+  return {
+    UNCONFIRMED: "Sin confirmar",
+    PENDING_REVIEW: "Revisión pendiente",
+    PHYSICAL_VARIANT_NOT_CONFIRMED: "Variante física no confirmada",
+  }[status];
+}
+
 export function CatalogEditionGuide({
   game,
   isLoggedIn = false,
@@ -199,9 +218,10 @@ function PhysicalEditionGuide({
   physicalVariantActionStates: NonNullable<CatalogEditionGuideProps["physicalVariantActionStates"]>;
 }) {
   const currentFamily = guide.editionFamilies.find((family) => family.id === guide.currentEditionFamilyId);
+  const currentBonusItem = guide.physicalBonusItems.find((item) => item.id === guide.currentBonusItemId);
   const visibleEditions = currentFamily
     ? guide.physicalEditions.filter((edition) => currentFamily.physicalEditionIds.includes(edition.id))
-    : guide.physicalEditions;
+    : currentBonusItem ? [] : guide.physicalEditions;
   const hasFamilyVariants = Boolean(currentFamily && catalogEditionFamilyHasVariants(visibleEditions.length));
   const regions = [...new Set(visibleEditions.map((edition) => edition.broadRegion))];
   const currentGame = guide.currentCatalogId ? getCatalogGame(guide.currentCatalogId) : undefined;
@@ -229,39 +249,70 @@ function PhysicalEditionGuide({
           </nav>
         ) : null}
 
-        <div className="mt-5 overflow-hidden rounded-md border border-border/80">
-          {regions.map((region) => {
-            const editions = visibleEditions.filter((edition) => edition.broadRegion === region);
-            return (
-              <section
-                key={region}
-                id={catalogPhysicalEditionBroadRegionAnchorId(region)}
-                data-broad-region={region}
-                className="catalog-region-surface relative scroll-mt-28 border-b border-border/80 px-5 py-6 outline-none transition-colors last:border-b-0 target:outline target:outline-2 target:outline-accent/50"
-              >
-                <RegionRail identity={region} />
-                <h3 className="mb-3 border-b border-border/60 pb-3 text-lg font-bold text-foreground">
-                  {catalogBroadRegionLabel(region)}
-                </h3>
-                <div className="divide-y divide-border/70">
-                  {editions.map((edition) => (
-                    <PhysicalEditionRow
-                      key={edition.id}
-                      edition={edition}
-                      guide={guide}
-                      family={currentFamily}
-                      terminology={hasFamilyVariants ? "variant" : "edition"}
-                      isLoggedIn={isLoggedIn}
-                      actionState={physicalVariantActionStates[edition.id]}
-                      currentGame={currentGame}
-                      currentGamePath={currentGamePath}
-                    />
-                  ))}
-                </div>
-              </section>
-            );
-          })}
-        </div>
+        {visibleEditions.length ? (
+          <div className="mt-5 overflow-hidden rounded-md border border-border/80">
+            {regions.map((region) => {
+              const editions = visibleEditions.filter((edition) => edition.broadRegion === region);
+              return (
+                <section
+                  key={region}
+                  id={catalogPhysicalEditionBroadRegionAnchorId(region)}
+                  data-broad-region={region}
+                  className="catalog-region-surface relative scroll-mt-28 border-b border-border/80 px-5 py-6 outline-none transition-colors last:border-b-0 target:outline target:outline-2 target:outline-accent/50"
+                >
+                  <RegionRail identity={region} />
+                  <h3 className="mb-3 border-b border-border/60 pb-3 text-lg font-bold text-foreground">
+                    {catalogBroadRegionLabel(region)}
+                  </h3>
+                  <div className="divide-y divide-border/70">
+                    {editions.map((edition) => (
+                      <PhysicalEditionRow
+                        key={edition.id}
+                        edition={edition}
+                        guide={guide}
+                        family={currentFamily}
+                        terminology={hasFamilyVariants ? "variant" : "edition"}
+                        isLoggedIn={isLoggedIn}
+                        actionState={physicalVariantActionStates[edition.id]}
+                        currentGame={currentGame}
+                        currentGamePath={currentGamePath}
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        ) : null}
+        {guide.physicalBonusItems.length ? (
+          <PhysicalBonusItems guide={guide} currentBonusItemId={guide.currentBonusItemId} />
+        ) : null}
+        {guide.relatedReleases.length ? <RelatedReleases guide={guide} /> : null}
+        {guide.researchTasks.length ? (
+          <section className="mt-5 border-t border-border pt-4" aria-label="Investigación regional pendiente">
+            <h3 className="text-sm font-semibold uppercase text-muted">Investigación regional pendiente</h3>
+            <ul className="mt-2 divide-y divide-border/70">
+              {guide.researchTasks.map((task) => (
+                <li key={task.id} className="py-3 first:pt-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="font-semibold text-foreground">{task.label}</p>
+                    <Badge tone="amber">{researchStatusLabel(task.status)}</Badge>
+                    {task.marketRegions.map((region) => (
+                      <RegionFlag
+                        key={region}
+                        region={catalogMarketRegionToLegacyRegion(region)}
+                        size="xs"
+                        showLabel
+                        labelMode="short"
+                      />
+                    ))}
+                  </div>
+                  {task.notes.map((note) => <p key={note} className="mt-1 text-xs leading-5 text-muted">{note}</p>)}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
       </section>
     </Panel>
   );
@@ -296,6 +347,7 @@ function PhysicalEditionRow({
     return game ? [game] : [];
   })[0];
   const priceRows = linkedCatalogGame
+    && edition.releaseStatus === "RELEASED"
     ? catalogConditionPriceRows(linkedCatalogGame).filter((row) => row.condition !== "loose")
     : [
         { condition: "sealed" as const, label: "Precintado" as const, price: null },
@@ -351,31 +403,51 @@ function PhysicalEditionRow({
         <Badge tone={edition.editionType === "STANDARD" ? undefined : "amber"}>
           {catalogPhysicalEditionTypeLabel(edition.editionType)}
         </Badge>
+        {confidenceLabel(edition.confidence) ? (
+          <Badge tone={edition.confidence === "PENDING_IDENTIFIER" || edition.confidence === "UNCONFIRMED" ? "amber" : "green"}>
+            {confidenceLabel(edition.confidence)}
+          </Badge>
+        ) : null}
+        {edition.releaseStatus === "CANCELED_PHYSICAL_RELEASE" ? (
+          <Badge tone="amber">CANCELLED / NO RETAIL RELEASE</Badge>
+        ) : null}
         {ownedCount ? <Badge tone="green">Tengo {ownedCount}</Badge> : null}
       </div>
 
       <div className="mt-3 grid gap-4 sm:grid-cols-[132px_minmax(0,1fr)]">
         <div className="min-w-0">
           <PhysicalEditionImageGallery images={galleryImages} title={edition.label} />
-          <dl className="mt-3 divide-y divide-border/60 border-y border-border/70 text-xs">
-            {priceRows.map((row) => (
-              <div
-                key={row.condition}
-                className="flex items-baseline justify-between gap-2 py-2 first:pt-0 last:pb-0"
-              >
-                <dt className="font-semibold text-foreground">{row.label}</dt>
-                <dd className="shrink-0 font-semibold text-muted">
-                  {row.price == null ? "Pendiente" : formatEur(row.price)}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          {edition.releaseStatus === "CANCELED_PHYSICAL_RELEASE" ? (
+            <p className="mt-3 border-y border-border/70 py-3 text-xs font-semibold text-amber-700 dark:text-amber-300">
+              Sin precio CIB/new: este lanzamiento físico fue cancelado.
+            </p>
+          ) : (
+            <dl className="mt-3 divide-y divide-border/60 border-y border-border/70 text-xs">
+              {priceRows.map((row) => (
+                <div
+                  key={row.condition}
+                  className="flex items-baseline justify-between gap-2 py-2 first:pt-0 last:pb-0"
+                >
+                  <dt className="font-semibold text-foreground">{row.label}</dt>
+                  <dd className="shrink-0 font-semibold text-muted">
+                    {row.price == null ? "Pendiente" : formatEur(row.price)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </div>
         <div className="min-w-0">
           <dl className="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2">
             {edition.barcode ? <Fact label="EAN / UPC / JAN" value={edition.barcode} mono /> : null}
             {edition.catalogNumber ? <Fact label="Referencia del soporte" value={edition.catalogNumber} mono /> : null}
+            {edition.softwareFamilyCodes.length ? <Fact label="Familias de software" value={edition.softwareFamilyCodes.join(" · ")} mono /> : null}
+            {edition.productCodes.length ? <Fact label="Códigos de producto" value={edition.productCodes.join(" · ")} mono /> : null}
             {edition.boxCode ? <Fact label="Código de caja" value={edition.boxCode} mono /> : null}
+            {edition.packagingLanguages.length ? <Fact label="Idiomas de la caja" value={edition.packagingLanguages.map((language) => language.toUpperCase()).join(" / ")} /> : null}
+            {edition.softwareLanguages.length ? <Fact label="Idiomas del software" value={edition.softwareLanguages.map((language) => language.toUpperCase()).join(" / ")} /> : null}
+            {edition.evidenceMarkets.length ? <Fact label="Mercados observados" value={edition.evidenceMarkets.join(" · ")} /> : null}
+            {edition.distributionMarkets.length ? <Fact label="Distribución documentada" value={edition.distributionMarkets.join(" · ")} /> : null}
             {edition.releaseDate ? <Fact label="Fecha de esta edición" value={formatEditionReleaseDate(edition.releaseDate)} /> : null}
             {edition.releaseDateContext ? <Fact label="Contexto de la fecha" value={edition.releaseDateContext} /> : null}
           </dl>
@@ -410,7 +482,7 @@ function PhysicalEditionRow({
             </p>
           ) : null}
 
-          {family && collectionCatalogId ? (
+          {family && collectionCatalogId && edition.releaseStatus === "RELEASED" ? (
             <div className="mt-4">
               <CollectionToggle
                 catalogId={collectionCatalogId}
@@ -504,6 +576,106 @@ function PhysicalEditionRow({
 
       {edition.notes.map((note) => <p key={note} className="mt-2 text-xs leading-5 text-muted">{note}</p>)}
     </article>
+  );
+}
+
+function PhysicalBonusItems({
+  guide,
+  currentBonusItemId,
+}: {
+  guide: CatalogEditionGuideModel;
+  currentBonusItemId?: string;
+}) {
+  return (
+    <section className="mt-5 border-t border-border pt-4" aria-label="Bonus físicos relacionados">
+      <h3 className="text-sm font-semibold uppercase text-muted">Bonus físicos relacionados</h3>
+      <div className="mt-2 divide-y divide-border/70">
+        {guide.physicalBonusItems.map((item) => {
+          const linkedGame = item.catalogIds.flatMap((id) => {
+            const game = getCatalogGame(id);
+            return game ? [game] : [];
+          })[0];
+          const cover = linkedGame ? getCoverSrc(linkedGame.coverUrl, linkedGame.id) : null;
+          const priceRows = linkedGame
+            ? catalogConditionPriceRows(linkedGame).filter((row) => row.condition === "complete" || row.condition === "sealed")
+            : [];
+          return (
+            <article
+              key={item.id}
+              id={item.id}
+              aria-current={item.id === currentBonusItemId ? "page" : undefined}
+              className={cn(
+                "scroll-mt-28 py-4 first:pt-2",
+                item.id === currentBonusItemId ? "rounded-md bg-accent/5 px-3 ring-1 ring-accent/50" : "",
+              )}
+            >
+              <div className="flex flex-wrap items-center gap-2">
+                <h4 className="font-semibold text-foreground">{item.label}</h4>
+                <Badge tone="amber">BONUS FÍSICO · SIN JUEGO</Badge>
+                <RegionFlag region={catalogMarketRegionToLegacyRegion(item.market)} size="xs" showLabel labelMode="short" />
+              </div>
+              <div className="mt-3 grid gap-4 sm:grid-cols-[132px_minmax(0,1fr)]">
+                <div>
+                  {cover ? (
+                    <Image
+                      unoptimized
+                      src={cover}
+                      width={600}
+                      height={800}
+                      alt={`Imagen del bonus ${item.label}`}
+                      sizes="132px"
+                      className="h-auto w-full rounded-sm border border-border/70 bg-background object-contain"
+                    />
+                  ) : null}
+                  {priceRows.length ? (
+                    <dl className="mt-3 divide-y divide-border/60 border-y border-border/70 text-xs">
+                      {priceRows.map((row) => (
+                        <div key={row.condition} className="flex items-baseline justify-between gap-2 py-2">
+                          <dt className="font-semibold text-foreground">{row.label}</dt>
+                          <dd className="font-semibold text-muted">{row.price == null ? "Pendiente" : formatEur(row.price)}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  ) : null}
+                </div>
+                <div className="min-w-0 text-sm">
+                  <dl className="grid gap-x-6 gap-y-3 sm:grid-cols-2">
+                    {item.upc ? <Fact label="UPC" value={item.upc} mono /> : null}
+                    {item.retailer ? <Fact label="Retailer" value={item.retailer} /> : null}
+                    <Fact label="Incluye juego" value="No" />
+                    <Fact label="Tipo" value="SteelBook case" />
+                  </dl>
+                  <p className="mt-3 text-xs leading-5 text-muted">
+                    Se conserva la ficha, portada y referencia de precio de la pieza; no cuenta como edición física del juego.
+                  </p>
+                  {item.notes.map((note) => <p key={note} className="mt-2 text-xs leading-5 text-muted">{note}</p>)}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function RelatedReleases({ guide }: { guide: CatalogEditionGuideModel }) {
+  return (
+    <section className="mt-5 border-t border-border pt-4" aria-label="Lanzamientos relacionados">
+      <h3 className="text-sm font-semibold uppercase text-muted">Lanzamientos relacionados</h3>
+      <ul className="mt-2 divide-y divide-border/70">
+        {guide.relatedReleases.map((release) => (
+          <li key={release.id} className="py-3 first:pt-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="font-semibold text-foreground">{release.label}</p>
+              <Badge>{release.type === "EXPANSION" ? "EXPANSIÓN" : release.type}</Badge>
+            </div>
+            <p className="mt-1 text-xs text-muted">Expansión de <span className="font-mono">{release.expansionOf}</span>.</p>
+            {release.notes.map((note) => <p key={note} className="mt-1 text-xs leading-5 text-muted">{note}</p>)}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 

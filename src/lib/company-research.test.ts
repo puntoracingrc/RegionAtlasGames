@@ -77,6 +77,7 @@ test("publishes only the authorized histories, achievements and QID corrections"
     "nintendo",
     "sega",
     "sims",
+    "snk",
   ]);
 });
 

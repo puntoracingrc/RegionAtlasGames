@@ -1,0 +1,736 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iv-black-flag-ps4",
+      "title": "Ediciones físicas de Assassin's Creed IV: Black Flag en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Guía territorial V2 limitada al dossier mundial facilitado y a los datos ya presentes en RegionAtlas. Distingue caja, disco y mercado de circulación; los candidatos y pendientes se mantienen explícitamente sin promoverlos a packaging nacional confirmado.",
+      "game": {
+        "title": "Assassin's Creed IV: Black Flag",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-4-black-flag"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-assassins-creed-4-black-flag",
+          "physicalEditionIds": [
+            "ac4-black-flag-ps4-europe-spain-standard",
+            "ac4-black-flag-ps4-europe-english-5715116",
+            "ac4-black-flag-ps4-europe-france-5715185",
+            "ac4-black-flag-ps4-europe-nordic-5715192",
+            "ac4-black-flag-ps4-europe-germany-5717721",
+            "ac4-black-flag-ps4-europe-benelux-candidate-5715444",
+            "ac4-black-flag-ps4-europe-english-international-5717639",
+            "ac4-black-flag-ps4-europe-poland-candidate-5717790",
+            "ac4-black-flag-ps4-oceania-australia-5717851",
+            "ac4-black-flag-ps4-north-america-standard",
+            "ac4-black-flag-ps4-asia-japan-standard",
+            "ac4-black-flag-ps4-asia-korea-identifier-pending",
+            "ac4-black-flag-ps4-asia-standard",
+            "ac4-black-flag-ps4-latin-america-brazil-identifier-pending"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "special-and-collector",
+          "label": "Special / Collector Editions",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-iv-black-flag-special-edition",
+          "physicalEditionIds": [
+            "ac4-black-flag-ps4-europe-special-5715239",
+            "ac4-black-flag-ps4-europe-poland-special-5715260",
+            "ac4-black-flag-ps4-europe-germany-exklusive-5715208",
+            "ac4-black-flag-ps4-europe-germany-exklusive-5715215",
+            "ac4-black-flag-ps4-europe-skull-5715574",
+            "ac4-black-flag-ps4-europe-jackdaw-uk-5771310",
+            "ac4-black-flag-ps4-europe-jackdaw-germany-5771358",
+            "ac4-black-flag-ps4-north-america-special"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "budget-reissues",
+          "label": "Budget Reissues",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-iv-black-flag-playstation-hits",
+          "physicalEditionIds": [
+            "ac4-black-flag-ps4-europe-playstation-hits-6076957",
+            "ac4-black-flag-ps4-oceania-australia-playstation-hits-6077008",
+            "ac4-black-flag-ps4-north-america-playstation-hits",
+            "ac4-black-flag-ps4-asia-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "loose"
+          ]
+        },
+        {
+          "id": "gamestop",
+          "label": "GameStop Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-iv-black-flag-gamestop-edition",
+          "physicalEditionIds": [
+            "ac4-black-flag-ps4-north-america-gamestop"
+          ],
+          "priceConditions": ["sealed", "complete", "loose"]
+        },
+        {
+          "id": "limited",
+          "label": "Limited Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-iv-black-flag-limited-edition",
+          "physicalEditionIds": [
+            "ac4-black-flag-ps4-north-america-limited"
+          ],
+          "priceConditions": ["sealed", "complete"]
+        },
+        {
+          "id": "signature",
+          "label": "Signature Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-iv-black-flag-signature-edition",
+          "physicalEditionIds": [
+            "ac4-black-flag-ps4-north-america-signature"
+          ],
+          "priceConditions": ["sealed", "complete", "loose"]
+        },
+        {
+          "id": "target",
+          "label": "Target Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-iv-black-flag-target-edition",
+          "physicalEditionIds": [
+            "ac4-black-flag-ps4-north-america-target"
+          ],
+          "priceConditions": ["sealed", "complete", "loose"]
+        },
+        {
+          "id": "walmart",
+          "label": "Walmart Edition",
+          "representativeCatalogId": "ps4-usa-assassin%27s-creed-iv-black-flag-walmart-edition",
+          "physicalEditionIds": [
+            "ac4-black-flag-ps4-north-america-walmart"
+          ],
+          "priceConditions": ["sealed", "complete", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac4-black-flag-ps4-europe-spain-standard",
+          "label": "Standard · España · scan propio",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["ES"],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "note": "Portada, lomo y contraportada observados en el mismo ejemplar precintado; el frontal y el reverso declaran castellano.",
+              "evidenceIds": ["ac4-black-flag-spain-own-scan"]
+            }
+          ],
+          "ratingSystems": ["PEGI 18"],
+          "barcode": "3307215717769",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "catalogIds": ["ps4-assassins-creed-4-black-flag"],
+          "scanSetIds": ["ps4-assassins-creed-4-black-flag"],
+          "evidenceIds": [
+            "ac4-black-flag-spain-own-scan",
+            "ac4-black-flag-fnac-portugal"
+          ],
+          "notes": [
+            "CONFIRMED_PHYSICAL_COPY: EAN, CUSA, PEGI y packaging castellano leídos directamente del scan propio.",
+            "El mismo EAN también circuló en Portugal; esa venta se conserva como evidencia de circulación y no crea una caja PT ni un mercado PT para esta variante."
+          ]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-english-5715116",
+          "label": "Standard · inglés · evidencia UK",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["GB"],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "Rebuy la describe como UK Import en inglés; no se interpreta como exclusividad territorial.",
+              "evidenceIds": ["ac4-black-flag-rebuy-uk"]
+            }
+          ],
+          "barcode": "3307215715116",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-rebuy-uk", "ac4-black-flag-vgcollect-europe"],
+          "notes": ["HIGH: caja inglesa con evidencia de mercado UK; no se afirma que fuese exclusiva de Reino Unido."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-france-5715185",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "packagingLanguages": [],
+          "barcode": "3307215715185",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-eleclerc-france"],
+          "notes": ["CONFIRMED_MARKET: packaging exacto pendiente de frontal y reverso; no se copian idiomas del software."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-nordic-5715192",
+          "label": "Standard · Nordic",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DK", "FI", "NO", "SE"],
+          "packagingLanguages": [],
+          "barcode": "3307215715192",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-rfgeneration-nordic"],
+          "notes": ["CONFIRMED: mercados DK/FI/NO/SE; idiomas del packaging pendientes de fotos del reverso."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-germany-5717721",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "ratingSystems": ["USK"],
+          "barcode": "3307215717721",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-rebuy-germany"],
+          "notes": ["CONFIRMED_MARKET: Rebuy declara alemán, pero se mantiene packaging pendiente hasta comprobar reverso."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-benelux-candidate-5715444",
+          "label": "Candidato Standard · Benelux",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["NL", "BE"],
+          "packagingLanguages": [],
+          "barcode": "3307215715444",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-bol-benelux"],
+          "notes": ["CANDIDATE/HIGH: circulación NL/BE documentada; packaging exacto pendiente. Los idiomas del retailer no se trasladan a la caja."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-english-international-5717639",
+          "label": "Standard · inglés internacional",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": ["EN"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["EN"],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "La evidencia comercial la identifica como producto físico en inglés; su venta en Italia no la convierte en caja italiana.",
+              "evidenceIds": ["ac4-black-flag-bol-benelux"]
+            }
+          ],
+          "barcode": "3307215717639",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-bol-benelux"],
+          "notes": ["HIGH: packaging inglés; mercado nacional exacto no fijado."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-poland-candidate-5717790",
+          "label": "Candidato Standard · Polonia / reimpresión",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "barcode": "3307215717790",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-ultima-poland"],
+          "notes": ["CANDIDATE: evidencia de retail PL y circulación posterior NL; edición/reimpresión y packaging pendientes. No se publica como PL-only."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-oceania-australia-5717851",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "packagingLanguages": [],
+          "ratingSystems": ["AU MA"],
+          "barcode": "3307215717851",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["CONFIRMED: edición australiana. No se añade Nueva Zelanda sin SKU o packaging compartido demostrado."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-standard",
+          "label": "Standard · USA / Canadá",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US", "CA"],
+          "packagingLanguages": [],
+          "ratingSystems": ["ESRB M"],
+          "barcode": "008888358114",
+          "catalogNumber": "CUSA-00010",
+          "sharedDiscId": "ac4-black-flag-ps4-north-america-disc",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag"],
+          "evidenceIds": ["ac4-black-flag-vgcollect-north-america"],
+          "notes": ["CONFIRMED: caja compartida US/CA según el dossier; packaging pendiente de reverso físico."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-asia-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "packagingLanguages": [],
+          "ratingSystems": ["CERO Z"],
+          "barcode": "4949244003223",
+          "catalogNumber": "PLJM-80005",
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["CONFIRMED: se conserva PLJM-80005 como código físico japonés y no se sustituye por el CUSA interno asiático."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-asia-korea-identifier-pending",
+          "label": "Standard · Corea · identificadores pendientes",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "packagingLanguages": [],
+          "ratingSystems": ["Korea 18"],
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["PHYSICAL_RELEASE_CONFIRMED: barcode, product code y packaging pendientes; no se reutiliza automáticamente PLAS-05012."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-asia-standard",
+          "label": "Standard · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "barcode": "4895094019894",
+          "catalogNumber": "PLAS-05012",
+          "sharedDiscId": "ac4-black-flag-ps4-asia-disc",
+          "evidenceIds": ["ac4-black-flag-gamefaqs", "ac4-black-flag-serialstation", "ac4-black-flag-redump"],
+          "notes": [
+            "CONFIRMED: release físico Asia; Hong Kong, Taiwán y Singapur no se infieren como mercados individuales.",
+            "Idiomas de software documentados en la familia: EN, JA, ZH y KO. No son packagingLanguages. SerialStation registra CUSA-00206 como ID interno, no como sustituto de PLAS-05012."
+          ]
+        },
+        {
+          "id": "ac4-black-flag-ps4-latin-america-brazil-identifier-pending",
+          "label": "Standard · Brasil · identificador pendiente",
+          "broadRegion": "LATIN_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["BR"],
+          "packagingLanguages": [],
+          "evidenceIds": ["ac4-black-flag-vgcollect-north-america"],
+          "notes": ["CONFIRMED_EXISTENCE / IDENTIFIER_PENDING: barcode, clasificación local y packaging portugués pendientes."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-special-5715239",
+          "label": "Special Edition · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "barcode": "3307215715239",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["Edición distinta de Standard; packaging nacional y contenido exacto no se infieren."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-poland-special-5715260",
+          "label": "Special Edition · Polonia",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["PL"],
+          "packagingLanguages": ["PL"],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": ["PL"],
+              "basis": "DECLARED",
+              "exhaustive": true,
+              "note": "Gamefinity declara explícitamente «Okładka: Polski».",
+              "evidenceIds": ["ac4-black-flag-gamefinity-poland"]
+            }
+          ],
+          "barcode": "3307215715260",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-gamefinity-poland"],
+          "notes": ["CONFIRMED: packaging polaco documentado; se conserva separada de Standard."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-germany-exklusive-5715208",
+          "label": "PS4 Exklusive Edition · Alemania · EAN 5715208",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "barcode": "3307215715208",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-rebuy-germany"],
+          "notes": ["PS4 Exklusive Edition; no se mezcla con Standard 3307215717721 ni con el segundo EAN exclusivo."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-germany-exklusive-5715215",
+          "label": "PS4 Exklusive Edition · Alemania · EAN 5715215",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "barcode": "3307215715215",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-rebuy-germany"],
+          "notes": ["PS4 Exklusive Edition; relación de contenido con EAN 3307215715208 pendiente, por lo que no se colapsan."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-skull-5715574",
+          "label": "Skull Edition · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "barcode": "3307215715574",
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["Edición física distinta; mercado y packaging pendientes de mapeo."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-jackdaw-uk-5771310",
+          "label": "Jackdaw Edition · Reino Unido",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["GB"],
+          "packagingLanguages": [],
+          "barcode": "3307215771310",
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["Jackdaw Edition UK; se conserva separada de la tirada alemana."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-jackdaw-germany-5771358",
+          "label": "Jackdaw Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE"],
+          "packagingLanguages": [],
+          "barcode": "3307215771358",
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["Jackdaw Edition DE; se conserva separada de la tirada británica."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-special",
+          "label": "Special Edition · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "catalogNumber": "CUSA-00010",
+          "sharedDiscId": "ac4-black-flag-ps4-north-america-disc",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-special-edition"],
+          "evidenceIds": ["ac4-black-flag-existing-catalog"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-europe-playstation-hits-6076957",
+          "label": "PlayStation Hits · Europa",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "barcode": "3307216076957",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["Reimpresión europea confirmada; los demás EAN regionales Hits siguen pendientes de mapping."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-oceania-australia-playstation-hits-6077008",
+          "label": "PlayStation Hits · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["AU"],
+          "packagingLanguages": [],
+          "barcode": "3307216077008",
+          "catalogNumber": "CUSA-00009",
+          "sharedDiscId": "ac4-black-flag-ps4-europe-australia-disc",
+          "releaseDate": "2018-07-18",
+          "releaseDateContext": "Fecha de la edición PlayStation Hits documentada por Gamesmen Australia",
+          "evidenceIds": ["ac4-black-flag-gamesmen-australia"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-playstation-hits",
+          "label": "PlayStation Hits · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "catalogNumber": "CUSA-00010",
+          "sharedDiscId": "ac4-black-flag-ps4-north-america-disc",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-playstation-hits"],
+          "evidenceIds": ["ac4-black-flag-existing-catalog"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-asia-japan-ubi-the-best",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "packagingLanguages": [],
+          "ratingSystems": ["CERO Z"],
+          "barcode": "4949244003599",
+          "catalogNumber": "PLJM-80081",
+          "releaseDate": "2015-06-25",
+          "releaseDateContext": "Fecha de lanzamiento japonesa indicada en el dossier",
+          "evidenceIds": ["ac4-black-flag-gamefaqs"],
+          "notes": ["Reimpresión japonesa distinta de PLJM-80005; no se enlaza a una ficha japonesa inexistente."]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-gamestop",
+          "label": "GameStop Edition · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "barcode": "008888358770",
+          "catalogNumber": "CUSA-00010GS",
+          "boxCode": "358770-CVR",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-gamestop-edition"],
+          "evidenceIds": ["ac4-black-flag-existing-catalog"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-limited",
+          "label": "Limited Edition · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "barcode": "008888398363",
+          "catalogNumber": "CUSA-00010",
+          "sharedDiscId": "ac4-black-flag-ps4-north-america-disc",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-limited-edition"],
+          "evidenceIds": ["ac4-black-flag-existing-catalog"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-signature",
+          "label": "Signature Edition · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "catalogNumber": "CUSA-00010",
+          "sharedDiscId": "ac4-black-flag-ps4-north-america-disc",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-signature-edition"],
+          "evidenceIds": ["ac4-black-flag-existing-catalog"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-target",
+          "label": "Target Edition · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "catalogNumber": "CUSA-00010",
+          "sharedDiscId": "ac4-black-flag-ps4-north-america-disc",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-target-edition"],
+          "evidenceIds": ["ac4-black-flag-existing-catalog"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-walmart",
+          "label": "Walmart Edition · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "packagingLanguages": [],
+          "catalogNumber": "CUSA-00010",
+          "sharedDiscId": "ac4-black-flag-ps4-north-america-disc",
+          "catalogIds": ["ps4-usa-assassin%27s-creed-iv-black-flag-walmart-edition"],
+          "evidenceIds": ["ac4-black-flag-existing-catalog"]
+        }
+      ],
+      "sharedDiscs": [
+        {
+          "id": "ac4-black-flag-ps4-europe-australia-disc",
+          "label": "Familia de disco Europa / Australia",
+          "technicalRegion": "EUROPE",
+          "serial": "CUSA-00009",
+          "evidenceIds": ["ac4-black-flag-redump"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-north-america-disc",
+          "label": "Familia de disco Norteamérica",
+          "technicalRegion": "NORTH_AMERICA",
+          "serial": "CUSA-00010",
+          "ratingSystems": ["ESRB"],
+          "evidenceIds": ["ac4-black-flag-vgcollect-north-america"]
+        },
+        {
+          "id": "ac4-black-flag-ps4-asia-disc",
+          "label": "Familia de software Asia",
+          "technicalRegion": "ASIA",
+          "serial": "CUSA-00206",
+          "evidenceIds": ["ac4-black-flag-serialstation", "ac4-black-flag-redump"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac4-black-flag-spain-own-scan",
+          "type": "REAL_SCAN",
+          "label": "Escaneo propio RegionAtlas del ejemplar PS4 PAL España",
+          "summary": "Portada, contraportada y lomo del mismo ejemplar precintado: textos castellanos, PEGI 18, EAN 3307215717769 y CUSA-00009.",
+          "supports": ["packaging ES", "EAN 3307215717769", "CUSA-00009", "PEGI 18", "scan propio"]
+        },
+        {
+          "id": "ac4-black-flag-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · release data de Black Flag PS4",
+          "url": "https://gamefaqs.gamespot.com/ps4/706181-assassins-creed-iv-black-flag/data",
+          "summary": "Fuente del dossier para fechas, mercados y referencias de Australia, Japón, Asia y PlayStation Hits.",
+          "supports": ["releases territoriales", "ratings", "barcodes", "reimpresiones"]
+        },
+        {
+          "id": "ac4-black-flag-redump",
+          "type": "UNKNOWN",
+          "label": "Redump · datos de disco PS4",
+          "url": "https://redump.info/discs?sort=language&system=PS4",
+          "summary": "Documenta las familias de disco y sus idiomas de software; no acredita idiomas impresos de una caja concreta.",
+          "supports": ["CUSA-00009", "familia Japan/Asia", "idiomas de software"]
+        },
+        {
+          "id": "ac4-black-flag-vgcollect-europe",
+          "type": "UNKNOWN",
+          "label": "VGCollect · edición europea",
+          "url": "https://www.vgcollect.com/item/53551",
+          "supports": ["EAN 3307215715116", "mercado europeo"]
+        },
+        {
+          "id": "ac4-black-flag-vgcollect-north-america",
+          "type": "UNKNOWN",
+          "label": "VGCollect · edición norteamericana",
+          "url": "https://vgcollect.com/item/48655",
+          "supports": ["UPC 008888358114", "US/CA", "ESRB M", "release físico Brasil"]
+        },
+        {
+          "id": "ac4-black-flag-fnac-portugal",
+          "type": "UNKNOWN",
+          "label": "Fnac Portugal · circulación del EAN español",
+          "url": "https://www.fnac.pt/Assassin-s-Creed-IV-Black-Flag-PS4-Videojogo-PlayStation-4/a853735",
+          "summary": "Documenta venta en Portugal del EAN 3307215717769; no acredita packaging portugués.",
+          "supports": ["circulación PT del EAN 3307215717769", "no inferir caja PT"]
+        },
+        {
+          "id": "ac4-black-flag-eleclerc-france",
+          "type": "UNKNOWN",
+          "label": "E.Leclerc France · EAN francés",
+          "url": "https://www.e.leclerc/fp/assassin-s-creed-iv-black-flag-ps4-3307215715185",
+          "supports": ["EAN 3307215715185", "mercado FR"]
+        },
+        {
+          "id": "ac4-black-flag-rebuy-uk",
+          "type": "UNKNOWN",
+          "label": "Rebuy · UK Import",
+          "url": "https://www.rebuy.de/i%2C11045360/playstation-4/assassin-s-creed-iv-black-flag-uk-import",
+          "supports": ["EAN 3307215715116", "packaging inglés", "evidencia UK"]
+        },
+        {
+          "id": "ac4-black-flag-rebuy-germany",
+          "type": "UNKNOWN",
+          "label": "Rebuy · edición alemana",
+          "url": "https://www.rebuy.de/i%2C7899952/playstation-4/assassin-s-creed-iv-black-flag",
+          "supports": ["EAN 3307215717721", "mercado DE", "PS4 Exklusive Edition"]
+        },
+        {
+          "id": "ac4-black-flag-rfgeneration-nordic",
+          "type": "UNKNOWN",
+          "label": "RF Generation · edición Nordic",
+          "url": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-215-S-00010-A",
+          "supports": ["EAN 3307215715192", "DK/FI/NO/SE"]
+        },
+        {
+          "id": "ac4-black-flag-bol-benelux",
+          "type": "UNKNOWN",
+          "label": "Bol NL/BE · circulación y datos lingüísticos",
+          "url": "https://www.bol.com/nl/nl/p/assassin-s-creed-4-black-flag-ben-ps4/1004004013582672/",
+          "summary": "Evidencia comercial para Benelux y variantes inglesas; los idiomas de retailer no se tratan como observación física del reverso.",
+          "supports": ["EAN 3307215715444", "NL/BE", "EAN 3307215717639", "producto inglés"]
+        },
+        {
+          "id": "ac4-black-flag-ultima-poland",
+          "type": "UNKNOWN",
+          "label": "ULTiMA Poland · candidato Standard",
+          "url": "https://ultima.pl/ct/playstation-4/gry/akcja/assassins-creed-iv-black-flag-2",
+          "supports": ["EAN 3307215717790", "retail PL", "subtítulos polacos"]
+        },
+        {
+          "id": "ac4-black-flag-gamefinity-poland",
+          "type": "UNKNOWN",
+          "label": "Gamefinity · Special Edition polaca",
+          "url": "https://gamefinity.pl/produkt/assassins-creed-iv-black-flag-edycja-specjalna-pl-ps4",
+          "supports": ["EAN 3307215715260", "Special Edition", "packaging PL"]
+        },
+        {
+          "id": "ac4-black-flag-gamesmen-australia",
+          "type": "UNKNOWN",
+          "label": "Gamesmen Australia · PlayStation Hits",
+          "url": "https://www.gamesmen.com.au/assassin-s-creed-iv-black-flag",
+          "supports": ["EAN 3307216077008", "PlayStation Hits AU", "fecha 2018-07-18"]
+        },
+        {
+          "id": "ac4-black-flag-serialstation",
+          "type": "UNKNOWN",
+          "label": "SerialStation · edición Asia",
+          "url": "https://www.serialstation.com/games/d4a7d7a2-ccc6-4ba7-8bb3-674cb681db74",
+          "supports": ["PLAS-05012", "CUSA-00206 interno"]
+        },
+        {
+          "id": "ac4-black-flag-existing-catalog",
+          "type": "UNKNOWN",
+          "label": "Fichas y precios legacy ya presentes en RegionAtlas",
+          "summary": "Conserva las identidades públicas y precios existentes de Standard, PlayStation Hits, GameStop, Limited, Signature, Special, Target y Walmart sin promediar ni sobrescribir.",
+          "supports": ["catalogIds legacy", "identidades de precio", "ediciones retailer"]
+        }
+      ],
+      "sources": [
+        {"label": "GameFAQs · Black Flag PS4 release data", "url": "https://gamefaqs.gamespot.com/ps4/706181-assassins-creed-iv-black-flag/data"},
+        {"label": "Redump · PS4 disc data", "url": "https://redump.info/discs?sort=language&system=PS4"},
+        {"label": "VGCollect · Europe", "url": "https://www.vgcollect.com/item/53551"},
+        {"label": "VGCollect · North America", "url": "https://vgcollect.com/item/48655"},
+        {"label": "Fnac Portugal", "url": "https://www.fnac.pt/Assassin-s-Creed-IV-Black-Flag-PS4-Videojogo-PlayStation-4/a853735"},
+        {"label": "E.Leclerc France", "url": "https://www.e.leclerc/fp/assassin-s-creed-iv-black-flag-ps4-3307215715185"},
+        {"label": "Rebuy · UK Import", "url": "https://www.rebuy.de/i%2C11045360/playstation-4/assassin-s-creed-iv-black-flag-uk-import"},
+        {"label": "Rebuy · Germany", "url": "https://www.rebuy.de/i%2C7899952/playstation-4/assassin-s-creed-iv-black-flag"},
+        {"label": "RF Generation · Nordic", "url": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-215-S-00010-A"},
+        {"label": "Bol NL/BE", "url": "https://www.bol.com/nl/nl/p/assassin-s-creed-4-black-flag-ben-ps4/1004004013582672/"},
+        {"label": "ULTiMA Poland", "url": "https://ultima.pl/ct/playstation-4/gry/akcja/assassins-creed-iv-black-flag-2"},
+        {"label": "Gamefinity · Special PL", "url": "https://gamefinity.pl/produkt/assassins-creed-iv-black-flag-edycja-specjalna-pl-ps4"},
+        {"label": "Gamesmen Australia · PlayStation Hits", "url": "https://www.gamesmen.com.au/assassin-s-creed-iv-black-flag"},
+        {"label": "SerialStation · Asia", "url": "https://www.serialstation.com/games/d4a7d7a2-ccc6-4ba7-8bb3-674cb681db74"}
+      ],
+      "evidenceNote": "Confirmado por scan propio: ES 3307215717769 / CUSA-00009 / packaging ES. Pendientes sin promover: packaging dedicado Portugal e Italia; SKU físico Nueva Zelanda; barcode/product code Corea; barcode Brasil; edición exacta Mexico/LATAM para UPC 008888358121; Buccaneer y Black Chest; EAN Jackdaw 3307215771495/3307215771501; EAN europeos adicionales 3307215715123/5717691/5717714/5717820/5771457/5984444; mapping regional PlayStation Hits 3307216076872/6076889/6076919/6076926/6076964. El catálogo legacy excluido se conserva sin borrado y sus datos de usuario no se modifican."
+    }
+  ]
+}

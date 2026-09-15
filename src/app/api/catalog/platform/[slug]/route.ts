@@ -41,7 +41,7 @@ const PUBLIC_CACHE_HEADERS = {
 };
 const platformBrowseCache = new Map<string, PlatformBrowseCacheEntry>();
 const platformQuickSearchCache = new Map<string, PlatformSearchCacheEntry>();
-const platformSearchCache = new Map<string, PlatformSearchCacheEntry>();
+const platformEditorialSearchCache = new Map<string, PlatformSearchCacheEntry>();
 
 async function getPlatformBrowseData(slug: string): Promise<PlatformBrowseData> {
   const revision = await getCatalogOverlayRevision();
@@ -69,21 +69,30 @@ async function getPlatformBrowseData(slug: string): Promise<PlatformBrowseData> 
   }
 }
 
-async function getPlatformSearchData(slug: string): Promise<CatalogListGame[]> {
+async function getPlatformEditorialSearchData(
+  slug: string,
+  includeSearchText: boolean,
+): Promise<CatalogListGame[]> {
+  const cacheKey = `${slug}:${includeSearchText ? "search" : "filter"}`;
   const revision = await getCatalogOverlayRevision();
-  const cached = platformSearchCache.get(slug);
+  const cached = platformEditorialSearchCache.get(cacheKey);
   const entry = cached?.revision === revision
     ? cached
     : {
       revision,
-      games: Promise.all([getCatalogByPlatformWithOverlay(slug), import("@/lib/catalog-list-game")])
-        .then(([catalog, { toCatalogListGame }]) => groupCatalogListGames(catalog.map(toCatalogListGame))),
+      games: Promise.all([getCatalogByPlatformWithOverlay(slug), import("@/lib/catalog-editorial-filter-index")])
+        .then(([catalog, editorialIndex]) => groupCatalogListGames(
+          catalog.map(includeSearchText
+            ? editorialIndex.toCatalogEditorialListGame
+            : editorialIndex.toCatalogEditorialFilterGame),
+          { mergeSearchText: includeSearchText },
+        )),
       };
-  if (entry !== cached) platformSearchCache.set(slug, entry);
+  if (entry !== cached) platformEditorialSearchCache.set(cacheKey, entry);
   try {
     return await entry.games;
   } catch (error) {
-    if (platformSearchCache.get(slug) === entry) platformSearchCache.delete(slug);
+    if (platformEditorialSearchCache.get(cacheKey) === entry) platformEditorialSearchCache.delete(cacheKey);
     throw error;
   }
 }
@@ -139,16 +148,18 @@ export async function GET(
     : "all";
   const page = Math.max(1, Number.parseInt(url.searchParams.get("page") ?? "1", 10) || 1);
 
-  const needsFullIndex = Boolean(company.trim() || genre !== "all" || subgenre !== "all" || facet !== "all") ||
+  const needsEditorialIndex = Boolean(company.trim() || genre !== "all" || subgenre !== "all" || facet !== "all") ||
     sort.startsWith("year-") ||
     sort.startsWith("reference-") ||
     sort.startsWith("genre-");
-  const usesQuickIndex = !needsFullIndex && Boolean(q.trim());
-  const browseData = needsFullIndex || usesQuickIndex ? null : await getPlatformBrowseData(slug);
-  let usesFullIndex = needsFullIndex;
+  const usesQuickIndex = !needsEditorialIndex && Boolean(q.trim());
+  const browseData = needsEditorialIndex || usesQuickIndex ? null : await getPlatformBrowseData(slug);
+  let usesEditorialIndex = needsEditorialIndex;
   let games = browseData
     ? includePending ? browseData.reviewGames : browseData.games
-    : usesQuickIndex ? await getPlatformQuickSearchData(slug) : await getPlatformSearchData(slug);
+    : usesQuickIndex
+      ? await getPlatformQuickSearchData(slug)
+      : await getPlatformEditorialSearchData(slug, Boolean(q.trim()));
   const filters = { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game" as const, includePending, pendingEdition, broadRegion, ratingSystem, physicalEditionType };
   let filtered = filterCatalogGames(
     games,
@@ -156,8 +167,8 @@ export async function GET(
     { regions: true, platforms: false },
   );
   if (usesQuickIndex && filtered.total === 0) {
-    games = await getPlatformSearchData(slug);
-    usesFullIndex = true;
+    games = await getPlatformEditorialSearchData(slug, true);
+    usesEditorialIndex = true;
     filtered = filterCatalogGames(games, filters, { regions: true, platforms: false });
   }
   const start = (page - 1) * CATALOG_PAGE_SIZE;
@@ -173,7 +184,7 @@ export async function GET(
     }
     : filtered.reviewCounts;
   return NextResponse.json({
-    items: usesFullIndex ? pageItems.map(toCatalogCardGame) : await enrichCatalogCards(pageItems),
+    items: usesEditorialIndex ? pageItems.map(toCatalogCardGame) : await enrichCatalogCards(pageItems),
     total: filtered.total,
     reviewCounts,
   }, { headers: PUBLIC_CACHE_HEADERS });

@@ -247,7 +247,7 @@ export type CompanyProfile = {
   method?: "ai" | "template" | "wikidata" | "research" | null;
 };
 
-export type PlatformStatus = "closed" | "semi-closed" | "open";
+export type PlatformStatus = "announced" | "closed" | "semi-closed" | "open";
 
 export type Platform = {
   slug: string;
@@ -257,7 +257,9 @@ export type Platform = {
   status: PlatformStatus;
   estimatedCatalogSize: number;
   sortOrder: number;
+  releaseYear?: number;
   spainReleaseYear?: number;
+  announcedReleaseDate?: string;
   description: string;
   active?: boolean;
   newsEnabled?: boolean;
@@ -622,6 +624,9 @@ export type CollectionView = CollectionItem & {
   availableCatalogId?: string | null;
   physicalVariantLabel?: string;
   editionFamilyLabel?: string;
+  /** Identidad V2 usada solo para agrupar la presentación; no se persiste en la colección. */
+  physicalEditionId?: string;
+  physicalEditionGroup?: CatalogPhysicalEditionGroupSummary;
 };
 
 export type CollectionSort =

@@ -1,0 +1,361 @@
+{
+  "version": 8,
+  "generatedAt": "2026-09-15T12:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "neogeo",
+      "title": "Neo Geo MVS y AES",
+      "dekEs": "Un mismo ecosistema técnico sostuvo dos experiencias comerciales distintas: MVS llevó varios juegos a un mueble arcade y AES trasladó ese software al hogar mediante una consola de precio premium.",
+      "summaryParagraphsEs": [
+        "SNK presentó en 1990 el ecosistema Neo Geo alrededor del Multi Video System. Su principal ventaja para los operadores era alojar varios cartuchos en un mismo mueble y permitir que el público eligiera el juego.",
+        "La variante doméstica, conocida como AES, compartía estrechamente arquitectura y software con MVS, pero no era el mismo producto comercial. Primero se ofreció mediante alquiler y llegó a la venta general en Japón en 1991.",
+        "La Memory Card tendió un puente entre salón recreativo y hogar en los títulos compatibles. Compartir software no significa que todos los cartuchos, configuraciones regionales o formatos físicos fueran intercambiables sin matices.",
+        "SNK mantuvo software nuevo para Neo Geo hasta 2004. La propia compañía cifra ese recorrido en catorce años y atribuye a The King of Fighters 2003 un tamaño de 716 megabits."
+      ],
+      "historyTitleEs": "Arcade y hogar como dos caras del mismo sistema",
+      "historyParagraphsEs": [
+        "MVS reducía el coste y la logística del salón recreativo frente a las placas dedicadas: el operador podía sustituir cartuchos y, según el modelo, ofrecer hasta seis juegos desde un único mueble.",
+        "AES conservó el planteamiento arcade en casa con cartuchos de gran capacidad, mandos tipo arcade y un precio muy superior al de las consolas generalistas. Esa cercanía técnica fue el argumento central del sistema, no una identidad comercial única.",
+        "Art of Fighting abrió en 1992 la etapa promocional 100 Mega Shock al superar los cien megabits de ROM. La unidad correcta es megabit, no megabyte.",
+        "El catálogo no fue exclusivamente de SNK. ADK, Nazca, Data East, Visco, Video System y Saurus, entre otros, aportaron juegos propios o desarrollos asociados al ecosistema."
+      ],
+      "figures": [
+        {
+          "personSlug": "eikichi-kawasaki",
+          "personName": "Eikichi Kawasaki",
+          "roleLabelEs": "Fundación y liderazgo",
+          "contributionEs": "Fundó la SNK original y encabezó la etapa empresarial en la que nació Neo Geo.",
+          "period": "Etapa clásica de SNK",
+          "sourceIds": ["PH-SNK-HISTORY", "PH-SNK-DOSSIER"]
+        },
+        {
+          "personSlug": "takashi-nishiyama",
+          "personName": "Takashi Nishiyama",
+          "roleLabelEs": "Jefatura de desarrollo",
+          "contributionEs": "Recordó que su primer gran proyecto en SNK fue el hardware Neo Geo; la relación se atribuye a su testimonio y no como autoría individual del sistema.",
+          "period": "Finales de los 80 y años 90",
+          "sourceIds": ["PH-SNK-NISHIYAMA-INTERVIEW"]
+        },
+        {
+          "personSlug": "hiroshi-matsumoto",
+          "personName": "Hiroshi Matsumoto",
+          "roleLabelEs": "Diseño y producción",
+          "contributionEs": "Participó en juegos de lucha fundamentales de la etapa Neo Geo, con créditos que deben leerse título a título.",
+          "period": "Años 90",
+          "sourceIds": ["PH-SNK-DOSSIER"]
+        },
+        {
+          "personSlug": "shinkiro",
+          "personName": "Shinkiro",
+          "roleLabelEs": "Identidad visual",
+          "contributionEs": "Su ilustración promocional y de portadas dio una identidad reconocible a Fatal Fury, Art of Fighting y The King of Fighters.",
+          "period": "Etapa clásica de SNK",
+          "sourceIds": ["PH-SNK-KOF-ILLUSTRATORS", "PH-SNK-DOSSIER"]
+        },
+        {
+          "personSlug": "yasuyuki-oda",
+          "personName": "Yasuyuki Oda",
+          "roleLabelEs": "Desarrollo de software",
+          "contributionEs": "Trabajó en SNK entre 1993 y 2000 y quedó vinculado a varios títulos del tramo medio y final del sistema.",
+          "period": "1993-2000",
+          "sourceIds": ["PH-SNK-DOSSIER"]
+        }
+      ],
+      "architectureTitleEs": "Arquitectura compartida, usos distintos",
+      "architectureDekEs": "Se documenta la función histórica de cada elemento sin completar especificaciones técnicas no verificadas.",
+      "architecture": [
+        {
+          "id": "architecture-neogeo-shared",
+          "name": "Base de software MVS/AES",
+          "kind": "SYSTEM_SOFTWARE",
+          "summaryEs": "MVS y AES compartían una base técnica y un software muy próximo, pensados para ofrecer una experiencia arcade comparable en el salón y en casa.",
+          "features": ["Ecosistema común", "Especialización en gráficos 2D", "Configuraciones comerciales separadas"],
+          "partners": [{"companySlug": "snk", "companyName": "SNK", "roleLabelEs": "Diseño y plataforma"}],
+          "sourceIds": ["PH-NEOGEO-MUSEUM", "PH-SNK-HISTORY"]
+        },
+        {
+          "id": "architecture-neogeo-cartridges",
+          "name": "Cartuchos ROM de gran capacidad",
+          "kind": "GAME_MEDIA",
+          "summaryEs": "El soporte en cartucho sostuvo una carga inmediata y permitió aumentar la capacidad del software durante una vida comercial excepcionalmente larga.",
+          "features": ["100 Mega Shock desde Art of Fighting", "KOF 2003: 716 megabits según SNK", "Megabits, no megabytes"],
+          "partners": [{"companySlug": "snk", "companyName": "SNK", "roleLabelEs": "Plataforma y publicación"}],
+          "sourceIds": ["PH-SNK-HISTORY"]
+        },
+        {
+          "id": "architecture-neogeo-memory-card",
+          "name": "Memory Card entre arcade y hogar",
+          "kind": "STORAGE_IO",
+          "summaryEs": "Los juegos compatibles podían conservar progreso en una tarjeta utilizada entre equipos MVS preparados para ello y AES.",
+          "features": ["Progreso transportable", "Compatibilidad dependiente del juego y del equipo"],
+          "partners": [{"companySlug": "snk", "companyName": "SNK", "roleLabelEs": "Diseño del ecosistema"}],
+          "sourceIds": ["PH-NEOGEO-MUSEUM"]
+        }
+      ],
+      "companiesTitleEs": "SNK y los estudios del ecosistema",
+      "companies": [
+        {
+          "companySlug": "snk",
+          "companyName": "SNK",
+          "relationshipType": "FIRST_PARTY",
+          "relationshipLabelEs": "Fabricante y estudio principal",
+          "period": "1990-2004",
+          "contributionEs": "Diseñó la plataforma y publicó o desarrolló buena parte de sus series centrales, sin ser responsable de todo el catálogo.",
+          "relatedWorks": ["Fatal Fury", "Art of Fighting", "Samurai Shodown", "The King of Fighters"],
+          "relatedCatalogEntries": [
+            {"id": "neogeo-fatal-fury", "title": "Fatal Fury"},
+            {"id": "neogeo-samurai-shodown", "title": "Samurai Shodown"},
+            {"id": "neogeo-king-of-fighters-94", "title": "The King of Fighters '94"}
+          ],
+          "sourceIds": ["PH-SNK-HISTORY", "PH-NEOGEO-CATALOGUE"]
+        },
+        {
+          "companySlug": "adk",
+          "companyName": "ADK",
+          "relationshipType": "KEY_DEVELOPER",
+          "relationshipLabelEs": "Desarrolladora externa clave",
+          "period": "Etapa Neo Geo",
+          "contributionEs": "Alpha Denshi, después ADK, aportó una biblioteca propia importante y no se presenta como una división automática de SNK.",
+          "relatedWorks": ["Magician Lord", "Ninja Combat", "World Heroes", "Twinkle Star Sprites"],
+          "sourceIds": ["PH-NEOGEO-CATALOGUE"]
+        },
+        {
+          "companySlug": "nazca",
+          "companyName": "Nazca",
+          "relationshipType": "KEY_DEVELOPER",
+          "relationshipLabelEs": "Desarrolladora asociada",
+          "period": "Años 90",
+          "contributionEs": "Su trabajo se relaciona con Neo Turf Masters y Metal Slug; la atribución se limita a esos títulos documentados.",
+          "relatedWorks": ["Neo Turf Masters", "Metal Slug"],
+          "relatedCatalogEntries": [{"id": "neogeo-metal-slug", "title": "Metal Slug"}],
+          "sourceIds": ["PH-SNK-DOSSIER", "PH-NEOGEO-CATALOGUE"]
+        },
+        {
+          "companySlug": "data-east",
+          "companyName": "Data East",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Third party",
+          "period": "Etapa Neo Geo",
+          "contributionEs": "Publicó juegos propios en la plataforma, entre ellos Windjammers, Spin Master, Street Hoop y Magical Drop.",
+          "relatedWorks": ["Windjammers", "Spin Master", "Street Hoop", "Magical Drop"],
+          "relatedCatalogEntries": [{"id": "neogeo-magical-drop-2", "title": "Magical Drop 2"}],
+          "sourceIds": ["PH-NEOGEO-CATALOGUE"]
+        },
+        {
+          "companySlug": "visco",
+          "companyName": "Visco Corporation",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Third party",
+          "period": "Etapa Neo Geo",
+          "contributionEs": "Aportó software propio al catálogo MVS/AES; la relación no implica propiedad por parte de SNK.",
+          "relatedWorks": [],
+          "sourceIds": ["PH-SNK-DOSSIER"]
+        },
+        {
+          "companySlug": "video-system",
+          "companyName": "Video System",
+          "relationshipType": "STRATEGIC_THIRD_PARTY",
+          "relationshipLabelEs": "Third party",
+          "period": "Etapa Neo Geo",
+          "contributionEs": "Participó con títulos publicados para el ecosistema, diferenciados de la producción interna de SNK.",
+          "relatedWorks": ["Aero Fighters 2", "Aero Fighters 3"],
+          "sourceIds": ["PH-NEOGEO-CATALOGUE"]
+        },
+        {
+          "companySlug": "saurus",
+          "companyName": "Saurus",
+          "relationshipType": "KEY_DEVELOPER",
+          "relationshipLabelEs": "Desarrolladora asociada",
+          "period": "Etapa Neo Geo",
+          "contributionEs": "Formó parte de la red de equipos que mantuvo el flujo de software del sistema.",
+          "relatedWorks": [],
+          "sourceIds": ["PH-SNK-DOSSIER"]
+        },
+        {
+          "companySlug": "plaion-replai",
+          "companyName": "PLAION REPLAI",
+          "relationshipType": "HARDWARE_PARTNER",
+          "relationshipLabelEs": "Socio del hardware anunciado",
+          "period": "2026-2027",
+          "contributionEs": "Comercializa junto a SNK la futura NEOGEO AES+, que permanece documentada como hardware anunciado.",
+          "relatedWorks": ["NEOGEO AES+"],
+          "sourceIds": ["PH-AES-PLUS-PLAION"]
+        }
+      ],
+      "companyGroups": [
+        {
+          "id": "neogeo-platform-holder",
+          "labelEs": "Responsable de la plataforma",
+          "descriptionEs": "SNK diseñó el ecosistema y sostuvo sus series propias.",
+          "companySlugs": ["snk"]
+        },
+        {
+          "id": "neogeo-external-studios",
+          "labelEs": "Estudios y third parties",
+          "descriptionEs": "Compañías distintas de SNK que aportaron software al catálogo.",
+          "companySlugs": ["adk", "nazca", "data-east", "visco", "video-system", "saurus"]
+        },
+        {
+          "id": "neogeo-future-partner",
+          "labelEs": "Continuidad anunciada",
+          "descriptionEs": "Relación contemporánea separada de la vida original del sistema.",
+          "companySlugs": ["plaion-replai"]
+        }
+      ],
+      "genealogies": [
+        {
+          "id": "PHG-SNK-ORIGINAL-CLOSED",
+          "sourceCompanySlug": "snk-original",
+          "sourceCompanyName": "SNK (1978-2001)",
+          "relationshipType": "CLOSED",
+          "targetCompanySlug": null,
+          "targetCompanyName": null,
+          "year": 2001,
+          "summaryEs": "La sociedad original desapareció en 2001; no se identifica jurídicamente con la compañía actual.",
+          "sourceIds": ["PH-SNK-HISTORY", "PH-SNK-COMPANY"]
+        },
+        {
+          "id": "PHG-SNK-IP-PLAYMORE",
+          "sourceCompanySlug": "snk-original",
+          "sourceCompanyName": "SNK (1978-2001)",
+          "relationshipType": "IP_SUCCEEDED_BY",
+          "targetCompanySlug": "playmore",
+          "targetCompanyName": "Playmore",
+          "year": 2001,
+          "summaryEs": "Playmore sucedió a la SNK original en sus derechos de propiedad intelectual; no fue un simple cambio de nombre entre dos personas jurídicas idénticas.",
+          "sourceIds": ["PH-SNK-HISTORY"]
+        },
+        {
+          "id": "PHG-PLAYMORE-SNK-PLAYMORE",
+          "sourceCompanySlug": "playmore",
+          "sourceCompanyName": "Playmore",
+          "relationshipType": "RENAMED_TO",
+          "targetCompanySlug": "snk-playmore",
+          "targetCompanyName": "SNK Playmore",
+          "year": 2003,
+          "summaryEs": "La sociedad fundada en 2001 adoptó el nombre SNK Playmore en julio de 2003.",
+          "sourceIds": ["PH-SNK-HISTORY", "PH-SNK-COMPANY"]
+        },
+        {
+          "id": "PHG-SNK-PLAYMORE-SNK",
+          "sourceCompanySlug": "snk-playmore",
+          "sourceCompanyName": "SNK Playmore",
+          "relationshipType": "RENAMED_TO",
+          "targetCompanySlug": "snk",
+          "targetCompanyName": "SNK",
+          "year": 2016,
+          "summaryEs": "Tras recuperar el logotipo SNK en abril, la compañía cambió su nombre corporativo a SNK en diciembre de 2016.",
+          "sourceIds": ["PH-SNK-COMPANY"]
+        }
+      ],
+      "gamesTitleEs": "Juegos representativos, no un ranking",
+      "gameGroups": [
+        {
+          "id": "neogeo-foundation",
+          "labelEs": "Primeros años y consolidación",
+          "descriptionEs": "Títulos que explican el paso desde el lanzamiento a las grandes series de lucha.",
+          "games": [
+            {"title": "NAM-1975", "catalogId": null, "year": 1990, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "Lanzamiento", "companySlugs": ["snk"], "sourceIds": ["PH-NEOGEO-CATALOGUE"]},
+            {"title": "Magician Lord", "catalogId": null, "year": 1990, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "ADK", "companySlugs": ["adk"], "sourceIds": ["PH-NEOGEO-CATALOGUE"]},
+            {"title": "Fatal Fury", "catalogId": "neogeo-fatal-fury", "year": 1991, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "SNK", "companySlugs": ["snk"], "sourceIds": ["PH-NEOGEO-CATALOGUE"]},
+            {"title": "Art of Fighting", "catalogId": null, "year": 1992, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "100 Mega Shock", "companySlugs": ["snk"], "sourceIds": ["PH-SNK-HISTORY"]},
+            {"title": "Samurai Shodown", "catalogId": "neogeo-samurai-shodown", "year": 1993, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "SNK", "companySlugs": ["snk"], "sourceIds": ["PH-NEOGEO-CATALOGUE"]},
+            {"title": "The King of Fighters '94", "catalogId": "neogeo-king-of-fighters-94", "year": 1994, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "SNK", "companySlugs": ["snk"], "sourceIds": ["PH-NEOGEO-CATALOGUE"]}
+          ]
+        },
+        {
+          "id": "neogeo-range-longevity",
+          "labelEs": "Amplitud y longevidad",
+          "descriptionEs": "El ecosistema combinó producción interna y third parties hasta su cierre de software en 2004.",
+          "games": [
+            {"title": "Windjammers", "catalogId": null, "year": 1994, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "Data East", "companySlugs": ["data-east"], "sourceIds": ["PH-NEOGEO-CATALOGUE"]},
+            {"title": "Metal Slug", "catalogId": "neogeo-metal-slug", "year": 1996, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Nazca", "companySlugs": ["nazca", "snk"], "sourceIds": ["PH-NEOGEO-CATALOGUE", "PH-SNK-DOSSIER"]},
+            {"title": "Twinkle Star Sprites", "catalogId": "neogeo-twinkle-star-sprites", "year": 1996, "relationshipType": "THIRD_PARTY", "relationshipLabelEs": "ADK", "companySlugs": ["adk"], "sourceIds": ["PH-NEOGEO-CATALOGUE"]},
+            {"title": "Garou: Mark of the Wolves", "catalogId": "neogeo-garou-mark-of-the-wolves", "year": 1999, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "SNK", "companySlugs": ["snk"], "sourceIds": ["PH-NEOGEO-CATALOGUE"]},
+            {"title": "The King of Fighters 2003", "catalogId": "neogeo-king-of-fighters-2003", "year": 2003, "relationshipType": "FIRST_PARTY", "relationshipLabelEs": "SNK Playmore", "companySlugs": ["snk-playmore"], "sourceIds": ["PH-SNK-HISTORY", "PH-NEOGEO-CATALOGUE"]},
+            {"title": "Samurai Shodown V Special", "catalogId": "neogeo-samurai-shodown-v-special", "year": 2004, "relationshipType": "INDEPENDENT_PARTNER", "relationshipLabelEs": "Último lanzamiento AES", "companySlugs": ["snk-playmore"], "sourceIds": ["PH-SNK-HISTORY", "PH-NEOGEO-CATALOGUE"]}
+          ]
+        }
+      ],
+      "hardwareTitleEs": "MVS, AES y el puente entre ambos",
+      "hardware": [
+        {"id":"hardware-neogeo-mvs-1-slot","name":"Neo Geo MVS · 1 slot","kind":"BASE_MODEL","yearLabel":"1990","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Configuración arcade para un cartucho, dentro del sistema modular MVS.","features":["Uso arcade","Cartucho sustituible por el operador"],"relatedWorks":[],"relatedPersonSlugs":["takashi-nishiyama"],"sourceIds":["PH-SNK-HISTORY","PH-NEOGEO-MUSEUM"]},
+        {"id":"hardware-neogeo-mvs-2-slot","name":"Neo Geo MVS · 2 slots","kind":"REVISION","yearLabel":"Años 90","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Configuración que permitía seleccionar entre dos juegos instalados.","features":["Dos cartuchos","Selección de juego"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SNK-HISTORY"]},
+        {"id":"hardware-neogeo-mvs-4-slot","name":"Neo Geo MVS · 4 slots","kind":"REVISION","yearLabel":"Años 90","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Configuración multijuego para cuatro cartuchos en un mismo mueble.","features":["Cuatro cartuchos","Operación modular"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SNK-HISTORY"]},
+        {"id":"hardware-neogeo-mvs-6-slot","name":"Neo Geo MVS · 6 slots","kind":"REVISION","yearLabel":"Años 90","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"La configuración de mayor capacidad citada por la historia oficial de SNK.","features":["Hasta seis cartuchos","Selección de juego"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-SNK-HISTORY"]},
+        {"id":"hardware-neogeo-aes","name":"Neo Geo AES","kind":"BASE_MODEL","yearLabel":"Venta general desde 1991","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Implementación doméstica de precio premium, ofrecida primero mediante alquiler y después en venta general.","features":["Uso doméstico","Cartuchos ROM","Mando tipo arcade"],"relatedWorks":[],"relatedPersonSlugs":["eikichi-kawasaki"],"sourceIds":["PH-NEOGEO-MUSEUM"]},
+        {"id":"hardware-neogeo-memory-card","name":"Neo Geo Memory Card","kind":"PERIPHERAL","yearLabel":"Años 90","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Tarjeta de memoria concebida para trasladar datos entre experiencias arcade y domésticas compatibles.","features":["Guardado portátil","Puente MVS/AES sujeto a compatibilidad"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NEOGEO-MUSEUM"]},
+        {"id":"hardware-neogeo-aes-plus","name":"NEOGEO AES+","kind":"ANNOUNCED_HARDWARE","yearLabel":"Prevista para 16 sep 2027","manufacturerCompanySlug":"snk","manufacturerCompanyName":"SNK","modelNumbers":[],"summaryEs":"Reimplementación moderna anunciada por SNK y PLAION REPLAI. Sigue en prepedido y no se trata como plataforma ya lanzada.","features":["Estado: anunciada","Compatibilidad declarada con cartuchos AES originales y nuevos","Lanzamiento y envíos previstos para 16 de septiembre de 2027"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-AES-PLUS-PLAION"]}
+      ],
+      "compatibilityLinks": [
+        {
+          "id": "compat-aes-plus-aes",
+          "sourcePlatformSlug": "neogeo-aes-plus",
+          "sourcePlatformName": "NEOGEO AES+",
+          "targetPlatformSlug": "neogeo",
+          "targetPlatformName": "Neo Geo AES",
+          "labelEs": "Compatibilidad anunciada",
+          "summaryEs": "PLAION REPLAI declara compatibilidad con cartuchos originales de Neo Geo AES y con los nuevos cartuchos AES+.",
+          "features": ["Producto aún no lanzado", "La compatibilidad procede de la ficha comercial oficial"],
+          "sourceIds": ["PH-AES-PLUS-PLAION"]
+        }
+      ],
+      "editorialSections": [
+        {
+          "id": "mvs-vs-aes",
+          "titleEs": "MVS frente a AES",
+          "dekEs": "Dos mercados, una arquitectura estrechamente compartida.",
+          "paragraphsEs": ["MVS era una plataforma para operadores y salones recreativos; AES era una consola doméstica premium.", "La afinidad del software no elimina las diferencias de formato físico, región, BIOS o distribución."],
+          "cards": [
+            {"id":"mvs-role","eyebrowEs":"Arcade","titleEs":"MVS","summaryEs":"Sistema modular para uno o varios juegos por mueble.","detailsEs":["Cartuchos intercambiables por el operador","Modelos de 1, 2, 4 y 6 slots"],"sourceIds":["PH-SNK-HISTORY"]},
+            {"id":"aes-role","eyebrowEs":"Hogar","titleEs":"AES","summaryEs":"Versión doméstica con software de raíz arcade y precio premium.","detailsEs":["Alquiler inicial","Venta general desde 1991"],"sourceIds":["PH-NEOGEO-MUSEUM"]}
+          ],
+          "sourceIds": ["PH-SNK-HISTORY", "PH-NEOGEO-MUSEUM"]
+        },
+        {
+          "id": "hundred-mega-shock",
+          "titleEs": "100 Mega Shock",
+          "dekEs": "Un lema promocional ligado al crecimiento de las ROM.",
+          "paragraphsEs": ["SNK sitúa en Art of Fighting el salto por encima de cien megabits y la adopción del lema.", "La cifra expresa megabits: convertirla en megabytes alteraría el dato histórico."],
+          "cards": [],
+          "sourceIds": ["PH-SNK-HISTORY"]
+        },
+        {
+          "id": "arcade-culture",
+          "titleEs": "Esaka y la cultura arcade",
+          "dekEs": "Neo Geo también fue una red social física alrededor de los salones.",
+          "paragraphsEs": ["La historia corporativa recuerda los locales Neo Geo Land cercanos a la antigua sede de Esaka como puntos de encuentro, pruebas de ubicación y competición.", "The King of Fighters reforzó un ritmo anual que conectaba novedades, torneos y comunidad."],
+          "cards": [],
+          "sourceIds": ["PH-SNK-HISTORY"]
+        }
+      ],
+      "sectionOrder": ["editorial:mvs-vs-aes", "figures", "architecture", "hardware", "editorial:hundred-mega-shock", "companies", "games", "editorial:arcade-culture", "compatibility", "milestones", "legacy"],
+      "milestones": [
+        {"id":"milestone-neogeo-1990","yearLabel":"1990","sortYear":1990,"title":"Nacimiento de MVS y Neo Geo","summaryEs":"SNK introduce el sistema multijuego arcade y su propuesta doméstica estrechamente relacionada.","sourceIds":["PH-SNK-HISTORY"]},
+        {"id":"milestone-neogeo-1991","yearLabel":"1991","sortYear":1991,"title":"AES pasa a venta general","summaryEs":"Tras la etapa inicial de alquiler, la consola doméstica se ofrece al público.","sourceIds":["PH-NEOGEO-MUSEUM"]},
+        {"id":"milestone-neogeo-1992","yearLabel":"1992","sortYear":1992,"title":"100 Mega Shock","summaryEs":"Art of Fighting abre la etapa de cartuchos promocionados por superar los cien megabits.","sourceIds":["PH-SNK-HISTORY"]},
+        {"id":"milestone-neogeo-1994","yearLabel":"1994","sortYear":1994,"title":"The King of Fighters","summaryEs":"La serie inicia su recorrido anual reuniendo personajes de distintas propiedades de SNK.","sourceIds":["PH-SNK-HISTORY","PH-NEOGEO-CATALOGUE"]},
+        {"id":"milestone-neogeo-2001","yearLabel":"2001","sortYear":2001,"title":"Crisis y sucesión de IP","summaryEs":"La SNK original desaparece y Playmore sucede sus derechos de propiedad intelectual.","sourceIds":["PH-SNK-HISTORY"]},
+        {"id":"milestone-neogeo-2004","yearLabel":"2004","sortYear":2004,"title":"Último software original","summaryEs":"Samurai Shodown V Special cierra el suministro de software AES tras catorce años según SNK.","sourceIds":["PH-SNK-HISTORY","PH-NEOGEO-CATALOGUE"]},
+        {"id":"milestone-neogeo-2027","yearLabel":"2027 · previsto","sortYear":2027,"title":"NEOGEO AES+ permanece anunciada","summaryEs":"PLAION REPLAI sitúa el inicio de lanzamiento y envíos el 16 de septiembre de 2027.","sourceIds":["PH-AES-PLUS-PLAION"]}
+      ],
+      "legacyEs": [
+        "MVS convirtió un mueble arcade en una plataforma modular; AES convirtió esa misma ambición técnica en un producto doméstico de lujo.",
+        "Su biblioteca consolidó varias de las sagas de lucha y acción más reconocibles de SNK, junto a una aportación sustancial de estudios externos.",
+        "La longevidad del software hasta 2004 explica por qué Neo Geo debe leerse como ecosistema y no sólo como una consola de principios de los noventa.",
+        "AES+ se documenta como continuidad anunciada y no cambia retrospectivamente el estado cerrado del hardware original."
+      ],
+      "sources": [
+        {"id":"PH-SNK-DOSSIER","title":"Dossier editorial Region Atlas · SNK y Neo Geo","publication":"Region Atlas","publisher":"Archivo de investigación","kind":"reference","language":"es","citation":"Análisis respaldado, septiembre de 2026","url":null},
+        {"id":"PH-SNK-HISTORY","title":"SNK History 1978-2024","publication":"SNK History","publisher":"SNK Corporation","kind":"official","language":"ja","citation":"Cronología corporativa y de hardware","url":"https://www.snk-corp.co.jp/snk-history/history/"},
+        {"id":"PH-SNK-COMPANY","title":"Company · Corporate history","publication":"SNK Corporation","publisher":"SNK Corporation","kind":"official","language":"en","citation":"Ficha y cronología de la sociedad actual","url":"https://www.snk-corp.co.jp/us/company/"},
+        {"id":"PH-NEOGEO-MUSEUM","title":"What's Neo Geo?","publication":"NEOGEO Museum","publisher":"SNK Corporation","kind":"official","language":"en","citation":"MVS, AES y Memory Card","url":"https://neogeomuseum.snk-corp.co.jp/english/whats/index.php"},
+        {"id":"PH-NEOGEO-CATALOGUE","title":"Title Catalogue","publication":"NEOGEO Museum","publisher":"SNK Corporation","kind":"official","language":"en","citation":"Fechas y editores del software","url":"https://neogeomuseum.snk-corp.co.jp/english/catalogue/index.php"},
+        {"id":"PH-SNK-NISHIYAMA-INTERVIEW","title":"Takashi Nishiyama interview","publication":"1UP interview archive","publisher":"Archivo Cultura Neo Geo","kind":"interview","language":"en","citation":"Testimonio sobre su etapa en SNK y Neo Geo","url":"https://www.culturaneogeo.com/imagenes/entrevistas/streeteng.htm"},
+        {"id":"PH-SNK-KOF-ILLUSTRATORS","title":"The King of Fighters 30th · Illustrators","publication":"KOF 30th Anniversary","publisher":"SNK Corporation","kind":"official","language":"en","citation":"Ilustradores históricos de SNK","url":"https://www.snk-corp.co.jp/kof30th/en/Illust/"},
+        {"id":"PH-AES-PLUS-PLAION","title":"NEOGEO AES+","publication":"PLAION REPLAI","publisher":"PLAION REPLAI","kind":"official","language":"en","citation":"Prepedido y fecha prevista de lanzamiento/envíos","url":"https://plaionreplai.com/en-gb/products/neogeo-aes?country=GB"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

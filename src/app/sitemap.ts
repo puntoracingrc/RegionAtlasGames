@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { platforms } from "@/lib/catalog";
+import { hasPublicCatalogGames, platforms } from "@/lib/catalog";
 import {
   catalogGamePath,
   getListedGamesWithEsPrice,
@@ -10,6 +10,7 @@ import { listPublicSeriesIndexEntries } from "@/lib/admin-series-manager";
 import { listPublicFranchiseIndexEntries } from "@/lib/admin-franchise-manager";
 import { getLegacySeriesRedirect } from "@/lib/franchise-system";
 import { getAwardSitemapEntries } from "@/lib/award-public-research";
+import { getPlatformHistoryData, platformHistoryPath } from "@/lib/platform-history";
 
 export const dynamic = "force-dynamic";
 
@@ -26,16 +27,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/genero`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/franquicia`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/saga`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${base}/historia-plataformas`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 
   const platformRoutes: MetadataRoute.Sitemap = platforms
-    .filter((p) => p.active !== false)
+    .filter((p) => p.active !== false && hasPublicCatalogGames(p.slug))
     .map((p) => ({
       url: `${base}/plataforma/${p.slug}`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     }));
+
+  const platformHistoryRoutes: MetadataRoute.Sitemap = getPlatformHistoryData().platforms.map((history) => ({
+    url: `${base}${platformHistoryPath(history.platformSlug)}`,
+    lastModified: new Date(history.lastReviewed),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  }));
 
   const gameRoutes: MetadataRoute.Sitemap = getListedGamesWithEsPrice().map((game) => ({
     url: `${base}${catalogGamePath(game)}`,
@@ -71,6 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...getAwardSitemapEntries().map(path => ({ url: `${base}${path}`, changeFrequency: "monthly" as const, priority: 0.6 })),
     ...staticRoutes,
     ...platformRoutes,
+    ...platformHistoryRoutes,
     ...franchiseRoutes,
     ...seriesRoutes,
     ...personRoutes,

@@ -79,6 +79,7 @@ export const PHYSICAL_EDITION_TYPE_VALUES = [
   "SPECIAL",
   "COLLECTOR",
   "DELUXE",
+  "GOLD",
   "LIMITED",
   "STEELBOOK",
   "OTHER",
@@ -96,6 +97,50 @@ export const CATALOG_PHYSICAL_PRICE_CONDITION_VALUES = [
 
 export type CatalogPhysicalPriceCondition =
   (typeof CATALOG_PHYSICAL_PRICE_CONDITION_VALUES)[number];
+
+export const PHYSICAL_VARIANT_CONFIDENCE_VALUES = [
+  "CONFIRMED_PHYSICAL_COPY",
+  "CONFIRMED",
+  "HIGH",
+  "PENDING_IDENTIFIER",
+  "UNCONFIRMED",
+] as const;
+
+export type CatalogPhysicalVariantConfidence =
+  (typeof PHYSICAL_VARIANT_CONFIDENCE_VALUES)[number];
+
+export const PHYSICAL_RELEASE_STATUS_VALUES = [
+  "RELEASED",
+  "CANCELED_PHYSICAL_RELEASE",
+] as const;
+
+export type CatalogPhysicalReleaseStatus =
+  (typeof PHYSICAL_RELEASE_STATUS_VALUES)[number];
+
+export const PHYSICAL_BONUS_ITEM_TYPE_VALUES = ["STEELBOOK_CASE"] as const;
+export type CatalogPhysicalBonusItemType =
+  (typeof PHYSICAL_BONUS_ITEM_TYPE_VALUES)[number];
+
+export const RELATED_RELEASE_TYPE_VALUES = ["EXPANSION"] as const;
+export type CatalogRelatedReleaseType =
+  (typeof RELATED_RELEASE_TYPE_VALUES)[number];
+
+export const PHYSICAL_PRODUCT_TYPE_VALUES = [
+  "NATIVE_GAME_DISC",
+  "PREVIOUS_GEN_DISC_WITH_UPGRADE",
+  "DOWNLOAD_CODE_IN_BOX",
+] as const;
+
+export type CatalogPhysicalProductType = (typeof PHYSICAL_PRODUCT_TYPE_VALUES)[number];
+
+export const PHYSICAL_RESEARCH_STATUS_VALUES = [
+  "UNCONFIRMED",
+  "PENDING_REVIEW",
+  "PHYSICAL_VARIANT_NOT_CONFIRMED",
+] as const;
+
+export type CatalogPhysicalResearchStatus =
+  (typeof PHYSICAL_RESEARCH_STATUS_VALUES)[number];
 
 export const PHYSICAL_EVIDENCE_TYPE_VALUES = [
   "REAL_SCAN",
@@ -230,6 +275,8 @@ export type CatalogPhysicalEdition = {
   label: string;
   broadRegion: CatalogBroadRegion;
   editionType: CatalogPhysicalEditionType;
+  /** Planned physical releases may remain documented without counting as released editions. */
+  releaseStatus: CatalogPhysicalReleaseStatus;
   /**
    * Las guías documentales pueden distinguir varias cajas bajo un mismo
    * catalogId. Las relaciones derivadas conservan el catalogId regional como
@@ -238,9 +285,31 @@ export type CatalogPhysicalEdition = {
   collectionIdentity: "physical-variant" | "catalog-entry";
   /** Mercados geográficos documentados; V2 usa códigos de país y nunca los deduce del packaging. */
   marketRegions: string[];
+  /** Países donde las fuentes prueban circulación, aunque la caja pertenezca a otro mercado. */
+  evidenceMarkets: CatalogMarketRegion[];
+  /** Mercados de distribución declarados de forma explícita por fabricante o distribuidor. */
+  distributionMarkets: CatalogMarketRegion[];
   packagingLanguages: string[];
+  /** Idiomas del software; nunca se reutilizan para completar los idiomas del packaging. */
+  softwareLanguages: string[];
   componentLanguageEvidence: CatalogComponentLanguageEvidence[];
   ratingSystems: string[];
+  /** Digital/software family identifiers such as PPSA; never treated as packaging identifiers. */
+  softwareFamilyCodes: string[];
+  productCodes: string[];
+  /** Tipo de soporte incluido; evita contar una caja con código o un disco de otra generación como disco nativo. */
+  physicalProductType?: CatalogPhysicalProductType;
+  /** Plataforma impresa/prensada en el soporte físico, no la consola compatible mediante actualización. */
+  nativePhysicalPlatform?: string;
+  compatiblePlatforms: string[];
+  containsDisc?: boolean;
+  countsAsNativePhysicalRelease?: boolean;
+  upgradeToPS5?: boolean;
+  upgradePath?: string;
+  redeems?: string;
+  requiresBaseGame?: boolean;
+  expansionOf?: string;
+  confidence?: CatalogPhysicalVariantConfidence;
   barcode?: string;
   catalogNumber?: string;
   serial?: string;
@@ -263,6 +332,38 @@ export type CatalogPhysicalEdition = {
   notes: string[];
 };
 
+export type CatalogPhysicalBonusItem = {
+  id: string;
+  label: string;
+  relatedGameId: string;
+  type: CatalogPhysicalBonusItemType;
+  retailer?: string;
+  market: CatalogMarketRegion;
+  upc?: string;
+  includesGame: false;
+  catalogIds: string[];
+  catalogLinks: CatalogEditionCatalogLink[];
+  evidence: CatalogPhysicalEvidence[];
+  notes: string[];
+};
+
+export type CatalogRelatedRelease = {
+  id: string;
+  label: string;
+  type: CatalogRelatedReleaseType;
+  expansionOf: string;
+  evidence: CatalogPhysicalEvidence[];
+  notes: string[];
+};
+
+export type CatalogPhysicalResearchTask = {
+  id: string;
+  label: string;
+  status: CatalogPhysicalResearchStatus;
+  marketRegions: CatalogMarketRegion[];
+  notes: string[];
+};
+
 export type CatalogEditionGuideModel = {
   schemaVersion: 1 | 2;
   origin: "documented-guide" | "catalog-derived";
@@ -274,16 +375,28 @@ export type CatalogEditionGuideModel = {
     title: string;
     platformSlug: string;
     canonicalCatalogId: string;
+    canonicalGameId?: string;
+    platformReleaseId?: string;
+    /** Títulos históricos que deben seguir encontrando la obra canónica. */
+    aliases?: string[];
   };
   physicalEditions: CatalogPhysicalEdition[];
+  physicalBonusItems: CatalogPhysicalBonusItem[];
+  relatedReleases: CatalogRelatedRelease[];
   editionFamilies: CatalogEditionFamily[];
   sharedDiscs: CatalogSharedDisc[];
   sources: CatalogEditionSource[];
   evidenceNote: string;
+  researchTasks: CatalogPhysicalResearchTask[];
   currentCatalogId?: string;
   currentEditionId?: string;
   currentEditionFamilyId?: string;
+  currentBonusItemId?: string;
 };
+
+export function isReleasedPhysicalEdition(edition: CatalogPhysicalEdition): boolean {
+  return edition.releaseStatus === "RELEASED" && edition.countsAsNativePhysicalRelease !== false;
+}
 
 export type CatalogPriceRange = {
   min: number;
@@ -423,6 +536,7 @@ const EDITION_TYPE_LABELS: Record<CatalogPhysicalEditionType, string> = {
   SPECIAL: "Special Edition",
   COLLECTOR: "Collector's Edition",
   DELUXE: "Deluxe Edition",
+  GOLD: "Gold Edition",
   LIMITED: "Limited Edition",
   STEELBOOK: "Steelbook",
   OTHER: "Otra edición",

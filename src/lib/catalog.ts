@@ -52,6 +52,12 @@ export function isPublicCatalogGame(game: CatalogGame): boolean {
 
 export const publicListedCatalog = listedCatalog.filter(isPublicCatalogGame);
 
+const publicCatalogPlatformSlugs = new Set(publicListedCatalog.map((game) => game.platformSlug));
+
+export function hasPublicCatalogGames(platformSlug: string): boolean {
+  return publicCatalogPlatformSlugs.has(platformSlug);
+}
+
 export function getCatalogGame(id: string): CatalogGame | undefined {
   return catalogById.get(canonicalCatalogId(id));
 }
@@ -175,6 +181,7 @@ export function formatDelta(value: number | null | undefined): string {
 }
 
 export function statusLabel(status: Platform["status"]): string {
+  if (status === "announced") return "Anunciada";
   if (status === "open") return "Abierta";
   return status === "semi-closed" ? "Semi-cerrada" : "Cerrada";
 }

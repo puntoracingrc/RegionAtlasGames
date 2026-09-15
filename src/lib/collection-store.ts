@@ -24,6 +24,7 @@ import { deleteCollectionPhotoFile } from "./collection-photo-storage";
 import {
   collectionItemMatchesPhysicalVariant,
   collectionPhysicalIdentityKey,
+  resolveCatalogEditionMembership,
   resolveCatalogPhysicalVariant,
   withResolvedCollectionPhysicalVariant,
 } from "./catalog-physical-variant";
@@ -97,6 +98,24 @@ export async function getUserCollectionItemsForCatalog(
   return file.items
     .filter((item) => item.catalogId === catalogId)
     .map((item) => withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)));
+}
+
+export async function getUserCollectionItemsForEditionFamily(
+  userId: string,
+  guideId: string,
+  editionFamilyId: string,
+): Promise<CollectionView[]> {
+  const file = await readUserCollection(userId);
+  return file.items.flatMap((item) => {
+    const membership = resolveCatalogEditionMembership(item.catalogId, item.physicalVariantId);
+    if (
+      membership?.guide.id !== guideId ||
+      membership.family.id !== editionFamilyId
+    ) {
+      return [];
+    }
+    return [withResolvedCollectionPhysicalVariant(enrichCollectionItem(item))];
+  });
 }
 
 function collectionTitleKey(item: CollectionItem): string {

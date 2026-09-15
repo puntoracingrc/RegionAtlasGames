@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T12:00:00.000Z",
+  "records": [],
+  "companyReferences": [
+    {
+      "slug": "ibm",
+      "name": "IBM",
+      "status": "CANONICAL_COMPANY_IDENTITY_REQUIRED",
+      "reason": "IBM está documentada como codesarrolladora de Cell, pero no existe una ficha canónica inequívoca de la compañía en el índice actual. La relación pública se muestra como texto hasta crear esa identidad.",
+      "sourceIds": ["PH-PS3-CELL-2005", "PH-PS3-CELL-DETAILS"]
+    },
+    {
+      "slug": "toshiba",
+      "name": "Toshiba",
+      "status": "CANONICAL_COMPANY_IDENTITY_REQUIRED",
+      "reason": "Toshiba está documentada como codesarrolladora de Cell. No se reutiliza Toshiba-EMI porque es una entidad distinta.",
+      "sourceIds": ["PH-PS3-CELL-2005", "PH-PS3-CELL-DETAILS"]
+    },
+    {
+      "slug": "nvidia",
+      "name": "NVIDIA",
+      "status": "CANONICAL_COMPANY_IDENTITY_REQUIRED",
+      "reason": "NVIDIA está documentada como codesarrolladora de RSX, pero no existe una ficha canónica inequívoca de la compañía. No se reutiliza la entrada de tecnología PhysX como si fuera la empresa.",
+      "sourceIds": ["PH-PS3-LAUNCH-SPECS"]
+    }
+  ],
+  "catalogReferences": [
+    {
+      "title": "Flower",
+      "status": "NO_STANDALONE_PHYSICAL_CATALOG_ENTRY",
+      "reason": "La obra digital se muestra en la historia sin forzar un enlace a una ficha física distinta o a una recopilación no equivalente."
+    },
+    {
+      "title": "flOw",
+      "status": "NO_STANDALONE_PHYSICAL_CATALOG_ENTRY",
+      "reason": "La obra digital se mantiene como contexto histórico sin inventar una ficha física independiente."
+    },
+    {
+      "title": "Journey",
+      "status": "PHYSICAL_COLLECTION_LINK_USED",
+      "reason": "El enlace navegable disponible corresponde a Journey Collector's Edition; la historia no afirma que exista una caja estándar independiente en el catálogo."
+    }
+  ],
+  "mediaReferences": [
+    {
+      "personSlug": "david-reeves",
+      "status": "NO_LICENSED_PORTRAIT_FOUND",
+      "urls": ["https://sonyinteractive.com/en/press-releases/2006/sce-announces-new-management-team/"],
+      "reason": "La identidad y el cargo están documentados, pero no se publica un retrato sin licencia abierta confirmada."
+    },
+    {
+      "personSlug": "akira-sato",
+      "status": "NO_LICENSED_PORTRAIT_FOUND",
+      "urls": ["https://sonyinteractive.com/en/press-releases/2006/sce-announces-new-management-team/"],
+      "reason": "Se conserva el fallback visual hasta disponer de un archivo reutilizable con atribución y licencia explícitas."
+    },
+    {
+      "personSlug": "masaru-kato",
+      "status": "NO_LICENSED_PORTRAIT_FOUND",
+      "urls": ["https://sonyinteractive.com/en/press-releases/2006/sce-announces-new-management-team/"],
+      "reason": "Se conserva el fallback visual hasta disponer de un archivo reutilizable con atribución y licencia explícitas."
+    },
+    {
+      "personSlug": "evan-wells",
+      "status": "NO_LICENSED_PORTRAIT_FOUND",
+      "urls": ["https://www.naughtydog.com/blog/a_message_from_president_evan_wells"],
+      "reason": "La fuente oficial respalda el contexto profesional, pero sus imágenes no se reutilizan sin una licencia compatible explícita."
+    },
+    {
+      "personSlug": "stig-asmussen",
+      "status": "NO_LICENSED_PORTRAIT_FOUND",
+      "urls": ["https://blog.playstation.com/2010/03/12/god-of-war-iii-stig-asmussen-your-questions-answered/"],
+      "reason": "La imagen editorial de la fuente no se publica sin una licencia de reutilización confirmada."
+    }
+  ]
+}

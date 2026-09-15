@@ -1,4 +1,5 @@
 import type { ResearchConfidence } from "./research-types";
+import type { PersonExpertise } from "./person-expertise";
 
 export type PersonPublicationLevel = "editorial";
 
@@ -8,7 +9,7 @@ export type PersonBiographyClaim = {
 };
 
 export type PersonResearchTerm = {
-  qid: string;
+  qid: string | null;
   name: string;
   source_urls?: string[];
 };
@@ -27,7 +28,7 @@ export type PersonPortrait = {
 export type PersonPublicProfile = {
   slug: string;
   name: string;
-  qid: string;
+  qid: string | null;
   publicationLevel: PersonPublicationLevel;
   aliases: string[];
   nativeNames: string[];
@@ -79,6 +80,7 @@ export type PersonWork = {
   personSlug: string;
   workQid: string | null;
   title: string;
+  catalogId?: string | null;
   year: string | number | null;
   role: string;
   relationshipPrecision: "EXACT_EDITORIAL_CREDIT" | "ASSOCIATION_NOT_EXACT_CREDIT";
@@ -116,13 +118,28 @@ export type PersonCuriosity = {
 
 export type PersonPublicSource = {
   id: string;
-  url: string;
+  url: string | null;
   title: string;
   kind: string;
   reliability: string;
   language: string | null;
   retrievedAt: string | null;
   verifiedPrimary: boolean;
+};
+
+export type PersonHistoricalRelation = {
+  id: string;
+  personSlug: string;
+  targetType: "platform" | "hardware" | "person";
+  targetSlug: string;
+  targetName: string;
+  platformSlug: string | null;
+  relationshipType: string;
+  relationshipLabelEs: string;
+  period: string | null;
+  summaryEs: string;
+  confidence: ResearchConfidence;
+  sourceId: string;
 };
 
 export type PersonPublicData = {
@@ -135,18 +152,28 @@ export type PersonPublicData = {
   relatedWorks: PersonWork[];
   awards: PersonAward[];
   curiosities: PersonCuriosity[];
+  historicalRelations?: PersonHistoricalRelation[];
   sources: PersonPublicSource[];
 };
 
-export type PersonExpertise =
-  | "design"
-  | "programming"
-  | "direction"
-  | "production"
-  | "music"
-  | "art"
-  | "founder"
-  | "executive";
+export type PersonPublicProfilePatch = {
+  slug: string;
+} & Partial<Omit<PersonPublicProfile, "slug">>;
+
+export type PersonPublicOverlayData = {
+  version: number;
+  generatedAt: string;
+  profiles?: PersonPublicProfile[];
+  profilePatches?: PersonPublicProfilePatch[];
+  companyRelations?: PersonCompanyRelation[];
+  positions?: PersonPosition[];
+  exactCredits?: PersonWork[];
+  relatedWorks?: PersonWork[];
+  awards?: PersonAward[];
+  curiosities?: PersonCuriosity[];
+  historicalRelations?: PersonHistoricalRelation[];
+  sources?: PersonPublicSource[];
+};
 
 export type PersonCardData = {
   slug: string;
@@ -159,6 +186,7 @@ export type PersonCardData = {
   companies: { slug: string; name: string }[];
   works: string[];
   expertise: PersonExpertise[];
+  platformSlugs: string[];
   searchHaystack: string;
 };
 
@@ -168,7 +196,7 @@ export type PersonTimelineItem = {
   sortYear: number | null;
   title: string;
   detail: string | null;
-  kind: "life" | "company" | "position" | "work" | "award";
+  kind: "life" | "company" | "position" | "work" | "award" | "historical";
   sourceId: string | null;
 };
 
@@ -180,6 +208,7 @@ export type PersonPublicView = {
   relatedWorks: PersonWork[];
   awards: PersonAward[];
   curiosities: PersonCuriosity[];
+  historicalRelations: PersonHistoricalRelation[];
   sources: PersonPublicSource[];
   timeline: PersonTimelineItem[];
 };

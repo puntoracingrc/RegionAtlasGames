@@ -207,11 +207,18 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
   const currentPhysicalEdition = editionGuide?.physicalEditions.find(
     (edition) => edition.id === editionGuide.currentEditionId,
   );
+  const currentBonusItem = editionGuide?.physicalBonusItems.find(
+    (item) => item.id === editionGuide.currentBonusItemId,
+  );
+  const isCanceledPhysicalRelease = currentPhysicalEdition?.releaseStatus === "CANCELED_PHYSICAL_RELEASE";
   const currentEditionFamily = editionGuide?.editionFamilies.find(
     (family) => family.id === editionGuide.currentEditionFamilyId,
   );
   const headerPhysicalEditions = currentEditionFamily
-    ? editionGuide?.physicalEditions.filter((edition) => currentEditionFamily.physicalEditionIds.includes(edition.id)) ?? []
+    ? editionGuide?.physicalEditions.filter(
+        (edition) => currentEditionFamily.physicalEditionIds.includes(edition.id)
+          && edition.releaseStatus === "RELEASED",
+      ) ?? []
     : currentPhysicalEdition
       ? [currentPhysicalEdition]
       : [];
@@ -385,10 +392,13 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
     : {};
   const physicalEditionPriceOptions: PhysicalEditionPriceOption[] =
     editionGuide?.schemaVersion === 2 && currentEditionFamily
-      ? await Promise.all(currentEditionFamily.physicalEditionIds.flatMap((editionId) => {
+      ? await Promise.all(currentEditionFamily.physicalEditionIds
+        .flatMap((editionId) => {
           const edition = editionGuide.physicalEditions.find((candidate) => candidate.id === editionId);
           return edition ? [edition] : [];
-        }).map(async (edition) => {
+        })
+        .filter((edition) => edition.releaseStatus === "RELEASED")
+        .map(async (edition) => {
           const linkedCatalogId = edition.catalogIds[0];
           const linkedGame = linkedCatalogId
             ? linkedCatalogId === game.id
@@ -472,11 +482,13 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
               />
             )}
 
-            <CatalogMarketplacePanel
-              catalogId={game.id}
-              ebayRegionOptions={ebayRegionOptions}
-              initialEbayRegion={initialEbayRegion?.value}
-            />
+            {!isCanceledPhysicalRelease ? (
+              <CatalogMarketplacePanel
+                catalogId={game.id}
+                ebayRegionOptions={ebayRegionOptions}
+                initialEbayRegion={initialEbayRegion?.value}
+              />
+            ) : null}
           </div>
 
           <div className="min-w-0 space-y-5">
@@ -486,7 +498,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
                 {headerRegionLinks.length
                   ? headerRegionLinks.map(({ region, targetId }) => (
                     <a
-                      key={region}
+                      key={`${region}:${targetId}`}
                       href={`#${targetId}`}
                       aria-label={`Ir a ${getRegionDisplay(region).label}`}
                       className="rounded-md outline-none transition hover:brightness-110 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -501,21 +513,25 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
                       <RegionFlag region={region} size="sm" showLabel labelMode="short" />
                     </Badge>
                   ))}
-                <Badge
-                  tone={
-                    priceStatus === "verified"
-                      ? "amber"
-                      : priceStatus === "unverified"
+                {isCanceledPhysicalRelease ? (
+                  <Badge tone="amber">CANCELLED / NO RETAIL RELEASE</Badge>
+                ) : (
+                  <Badge
+                    tone={
+                      priceStatus === "verified"
                         ? "amber"
-                        : "rose"
-                  }
-                >
-                  {priceStatus === "verified"
-                    ? "Precio verificado"
-                    : priceStatus === "unverified"
-                      ? "Precio orientativo"
-                      : "Precio pendiente"}
-                </Badge>
+                        : priceStatus === "unverified"
+                          ? "amber"
+                          : "rose"
+                    }
+                  >
+                    {priceStatus === "verified"
+                      ? "Precio verificado"
+                      : priceStatus === "unverified"
+                        ? "Precio orientativo"
+                        : "Precio pendiente"}
+                  </Badge>
+                )}
                 {owned && (
                   <Badge tone="green">
                     {ownedCount > 1 ? `${ownedCount} copias en tu colección` : "En tu colección"}
@@ -527,9 +543,13 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
               <h1 className="text-2xl font-bold leading-tight text-foreground sm:text-3xl">
                 {game.title}
                 <span className="mt-1 block text-lg font-normal text-muted sm:text-xl">
-                  {currentPhysicalEdition && editionGuide?.schemaVersion === 2
-                    ? `${platform?.shortName} · ${currentPhysicalEdition.label}`
-                    : `Precio ${platform?.shortName} · ${regionLabel}`}
+                  {isCanceledPhysicalRelease
+                    ? `${platform?.shortName} · Gold Edition · lanzamiento físico cancelado`
+                    : currentBonusItem
+                      ? `${platform?.shortName} · bonus físico sin juego`
+                      : currentPhysicalEdition && editionGuide?.schemaVersion === 2
+                        ? `${platform?.shortName} · ${currentPhysicalEdition.label}`
+                        : `Precio ${platform?.shortName} · ${regionLabel}`}
                 </span>
               </h1>
               {game.titlePc && game.titlePc !== game.title && (
@@ -539,7 +559,14 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
 
             {pendingPs1 ? <div id="ps1-edition-details" className="scroll-mt-24"><Ps1EditionPanel game={game} details={details} /></div> : null}
 
-            {physicalEditionPriceOptions.length ? (
+            {isCanceledPhysicalRelease ? (
+              <Panel>
+                <PanelTitle>Lanzamiento físico cancelado</PanelTitle>
+                <p className="text-sm leading-6 text-muted">
+                  Esta Gold Edition no llegó a publicarse en formato físico. No se muestran precios CIB/new ni se contabiliza como edición retail lanzada.
+                </p>
+              </Panel>
+            ) : physicalEditionPriceOptions.length ? (
               <PhysicalEditionPriceSwitcher
                 key={`${editionGuide?.id}:${currentEditionFamily?.id}:${currentPhysicalEdition?.id}`}
                 options={physicalEditionPriceOptions}

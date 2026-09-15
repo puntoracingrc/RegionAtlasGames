@@ -36,7 +36,8 @@ const LOGOS: Record<
 
 const LOGO_CLASS: Record<LogoManufacturer, string> = {
   nintendo: "h-3.5 w-auto max-w-[76px] object-contain object-left opacity-95",
-  sony: "h-3.5 w-auto max-w-[56px] object-contain object-left opacity-80 brightness-0 invert",
+  sony:
+    "h-3.5 w-auto max-w-[56px] object-contain object-left opacity-80 brightness-0 dark:invert",
   sega: "h-3.5 w-auto max-w-[52px] object-contain object-left",
   snk: "h-3.5 w-auto max-w-[46px] object-contain object-left",
 };

@@ -1,0 +1,105 @@
+{
+  "version": 9,
+  "generatedAt": "2026-09-15T10:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "ds",
+      "title": "Nintendo DS / DSi",
+      "lineage": {"branchLabelEs":"Línea portátil","summaryEs":"Nintendo DS sucede a GBA con dos pantallas, tacto y conexión inalámbrica. DSi amplía la familia con cámaras y tienda digital; 3DS es su sucesora compatible.","links":[
+        {"platformSlug":"gba","platformName":"Game Boy Advance / SP / Micro","relationship":"PREDECESSOR","summaryEs":"DS y DS Lite mantienen una ranura GBA; DSi y DSi XL la eliminan.","sourceIds":["PH-NIN-DS-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"3ds","platformName":"Nintendo 3DS","relationship":"SUCCESSOR","summaryEs":"3DS conserva las dos pantallas y compatibilidad con software DS.","sourceIds":["PH-NIN-DS-DOSSIER","PH-NIN-HISTORY"]},
+        {"platformSlug":"gameandwatch","platformName":"Nintendo Arcade y Game & Watch","relationship":"INFLUENCE","summaryEs":"Las Game & Watch de doble pantalla son un antecedente de formato, no una compatibilidad técnica.","sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ]},
+      "dekEs": "Dos pantallas, stylus, micrófono y comunicación inalámbrica abrieron nuevas formas de juego y ampliaron el público; DSi añadió cámaras, SD y una tienda propia sin convertirse en 3DS.",
+      "summaryParagraphsEs": [
+        "Nintendo DS se lanzó en 2004. Nintendo registra 154,02 millones de consolas y 948,76 millones de juegos para toda la familia.",
+        "La pantalla táctil inferior, el stylus, el micrófono y la comunicación local transformaron interfaces y juego social. Nintendogs y Brain Age fueron piezas clave de la expansión de público.",
+        "DS Lite redujo tamaño y mejoró pantallas. DSi añadió cámaras, ranura SD y DSiWare, pero eliminó la ranura GBA; DSi XL amplió el tamaño de pantalla.",
+        "Nintendo Wi-Fi Connection y DSi Shop son servicios históricos finalizados. No se confunden con Nintendo eShop de 3DS ni con Nintendo Switch Online."
+      ],
+      "historyTitleEs": "Tacto, comunicación y expansión de público",
+      "historyParagraphsEs": [
+        "La estrategia de Satoru Iwata buscó ampliar la población jugadora mediante experiencias accesibles y formas de interacción distintas. Ese contexto no convierte a una sola persona en autora del hardware.",
+        "Mario Kart DS, Animal Crossing: Wild World y Pokémon usaron Nintendo Wi-Fi Connection, mientras el multijugador local siguió siendo una capacidad distinta.",
+        "DSiWare abrió una biblioteca descargable propia de DSi. Su identidad y cierre se mantienen separados de eShop y de las suscripciones posteriores."
+      ],
+      "architectureTitleEs": "Dos pantallas y comunicación inalámbrica",
+      "architectureDekEs": "Las revisiones conservan la generación, pero alteran compatibilidad y servicios.",
+      "figures": [
+        {"personSlug":"satoru-iwata","personName":"Satoru Iwata","roleLabelEs":"Presidencia y estrategia","contributionEs":"Dirigió la estrategia de ampliación de público durante DS.","period":"2004-2011","sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"personSlug":"shigeru-miyamoto","personName":"Shigeru Miyamoto","roleLabelEs":"Filosofía de software","contributionEs":"Participó en la orientación creativa de software accesible y nuevas interfaces.","period":"Etapa DS","sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"personSlug":"hideki-konno","personName":"Hideki Konno","roleLabelEs":"Producción y dirección","contributionEs":"Figura vinculada a Nintendogs y Mario Kart DS.","period":"Etapa DS","sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"personSlug":"yoshio-sakamoto","personName":"Yoshio Sakamoto","roleLabelEs":"Producción creativa","contributionEs":"Conectó R&D1/SPD y WarioWare con las capacidades de DS.","period":"Etapa DS","sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"personSlug":"ryuta-kawashima","personName":"Ryuta Kawashima","roleLabelEs":"Colaborador científico y cultural","contributionEs":"Su investigación y presencia pública se vinculan a Brain Age, sin convertirlo en diseñador de la consola.","period":"Etapa Brain Age","sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"personSlug":"katsuya-eguchi","personName":"Katsuya Eguchi","roleLabelEs":"Producción creativa","contributionEs":"Figura asociada a Animal Crossing: Wild World.","period":"Etapa DS","sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ],
+      "architecture": [
+        {"id":"architecture-ds-dual-screen","name":"Dos pantallas y panel táctil","kind":"DISPLAY","summaryEs":"Pantalla superior convencional y pantalla táctil inferior con stylus.","features":["Dos pantallas","Tacto resistivo","Stylus y micrófono"],"partners":[{"companySlug":"nintendo-red","companyName":"Nintendo RED","roleLabelEs":"Desarrollo de hardware portátil"}],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"id":"architecture-ds-wireless","name":"Comunicación local y Wi-Fi","kind":"CONNECTIVITY","summaryEs":"Red local entre consolas y acceso online mediante Nintendo Wi-Fi Connection en juegos compatibles.","features":["Descarga DS local","Multijugador local","Online por juego"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma y servicio"}],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"id":"architecture-dsi-storage","name":"SD y almacenamiento DSi","kind":"STORAGE_IO","summaryEs":"DSi incorpora memoria, ranura SD y distribución digital propia.","features":["Ranura SD","DSiWare","Sin ranura GBA"],"partners":[{"companySlug":"nintendo","companyName":"Nintendo","roleLabelEs":"Plataforma"}],"sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ],
+      "companiesTitleEs": "Equipos internos y socios de una biblioteca amplia",
+      "companies": [
+        {"companySlug":"nintendo","companyName":"Nintendo","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Fabricante y publisher","period":"2004-2013","relationshipStart":"2004","relationshipEnd":null,"contributionEs":"Fabricó la familia, operó sus servicios y publicó software propio y asociado.","relatedWorks":["Nintendo DS","Nintendogs","Brain Age"],"sourceIds":["PH-NIN-HISTORY","PH-NIN-DS-DOSSIER"]},
+        {"companySlug":"nintendo-ead","companyName":"Nintendo EAD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Desarrollo interno","period":"Etapa DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló y produjo software central de la plataforma.","relatedWorks":["Nintendogs","Mario Kart DS","Animal Crossing: Wild World"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"companySlug":"nintendo-spd","companyName":"Nintendo SPD","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Producción interna","period":"Etapa DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Participó en producción y coordinación de software interno y externo.","relatedWorks":["WarioWare"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"companySlug":"game-freak","companyName":"Game Freak","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló las entregas principales de Pokémon sin ser propiedad de Nintendo.","relatedWorks":["Pokémon Diamond / Pearl","Pokémon Black / White"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"companySlug":"intelligent-systems","companyName":"Intelligent Systems","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"Etapa DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Aportó estrategia y otros desarrollos como compañía independiente.","relatedWorks":["Advance Wars: Dual Strike","Fire Emblem"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"companySlug":"level-5","companyName":"Level-5","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Third party","period":"Etapa DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Desarrolló y publicó títulos destacados según región.","relatedWorks":["Professor Layton"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Third party","period":"Etapa DS","relationshipStart":null,"relationshipEnd":null,"contributionEs":"Publicó franquicias propias en la plataforma.","relatedWorks":["Ace Attorney"],"sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"ds-nintendo","labelEs":"Nintendo","descriptionEs":"Fabricante y equipos internos con funciones diferenciadas.","companySlugs":["nintendo","nintendo-ead","nintendo-spd"]},
+        {"id":"ds-partners","labelEs":"Socios y third parties","descriptionEs":"Compañías externas sin propiedad de Nintendo.","companySlugs":["game-freak","intelligent-systems","level-5","capcom"]}
+      ],
+      "genealogies": [],
+      "gamesTitleEs": "Nuevas audiencias y sagas consolidadas",
+      "gameGroups": [
+        {"id":"ds-games","labelEs":"Juegos representativos","descriptionEs":"Tacto, comunicación, juego cotidiano y series tradicionales.","games":[
+          {"title":"Nintendogs","catalogId":null,"year":2005,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+          {"title":"Brain Age","catalogId":null,"year":2005,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo","companySlugs":["nintendo"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+          {"title":"Mario Kart DS","catalogId":null,"year":2005,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+          {"title":"Animal Crossing: Wild World","catalogId":null,"year":2005,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Nintendo EAD","companySlugs":["nintendo","nintendo-ead"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+          {"title":"Pokémon Diamond / Pearl","catalogId":null,"year":2006,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Game Freak / Nintendo","companySlugs":["game-freak","nintendo"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+          {"title":"Professor Layton","catalogId":null,"year":2007,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Level-5","companySlugs":["level-5"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+          {"title":"Ace Attorney","catalogId":null,"year":2005,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Capcom","companySlugs":["capcom"],"sourceIds":["PH-NIN-DS-DOSSIER"]}
+        ]}
+      ],
+      "hardwareTitleEs": "DS, Lite y la rama DSi",
+      "hardware": [
+        {"id":"hardware-nintendo-ds","name":"Nintendo DS","kind":"BASE_MODEL","yearLabel":"2004","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["NTR-001"],"summaryEs":"Modelo original de dos pantallas con ranuras DS y GBA.","features":["Pantalla táctil","Ranura GBA","Wi-Fi local"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-HISTORY","PH-NIN-DS-DOSSIER"]},
+        {"id":"hardware-nintendo-ds-lite","name":"Nintendo DS Lite","kind":"REDESIGN","yearLabel":"2006","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["USG-001"],"summaryEs":"Rediseño más pequeño y luminoso que mantiene la ranura GBA.","features":["Pantallas más brillantes","Menor tamaño","Ranura GBA"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"id":"hardware-nintendo-dsi","name":"Nintendo DSi","kind":"REVISION","yearLabel":"2008","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["TWL-001"],"summaryEs":"Revisión con cámaras, SD y tienda digital que elimina la ranura GBA.","features":["Dos cámaras","Ranura SD","DSi Shop","Sin ranura GBA"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"id":"hardware-nintendo-dsi-xl","name":"Nintendo DSi XL","kind":"REDESIGN","yearLabel":"2009","manufacturerCompanySlug":"nintendo","manufacturerCompanyName":"Nintendo","modelNumbers":["UTL-001"],"summaryEs":"Versión DSi con pantallas de mayor tamaño.","features":["Pantallas más grandes","Funciones DSi","Sin ranura GBA"],"relatedWorks":[],"relatedPersonSlugs":[],"sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ],
+      "services": [
+        {"id":"service-nintendo-wifi-connection-ds","name":"Nintendo Wi-Fi Connection","kind":"NETWORK_SERVICE","launchedLabel":"2005","endedLabel":"2014","statusLabelEs":"Servicio histórico finalizado","parentServiceId":null,"summaryEs":"Infraestructura online por juego para DS y Wii, distinta de los servicios modernos.","features":["Juego online compatible","Friend Codes","Servicio compartido con Wii"],"sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"id":"service-dsi-shop","name":"Nintendo DSi Shop / DSiWare","kind":"STORE_SERVICE","launchedLabel":"2008","endedLabel":"2017","statusLabelEs":"Tienda histórica cerrada","parentServiceId":null,"summaryEs":"Distribución digital propia de DSi, separada de Nintendo eShop de 3DS.","features":["DSiWare","Descargas a memoria o SD según función","No es 3DS eShop"],"sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ],
+      "compatibilityLinks": [
+        {"id":"compat-ds-gba","sourcePlatformSlug":"ds","sourcePlatformName":"Nintendo DS / DS Lite","targetPlatformSlug":"gba","targetPlatformName":"Game Boy Advance","labelEs":"Compatibilidad según modelo","summaryEs":"DS original y DS Lite aceptan cartuchos GBA. DSi y DSi XL eliminan físicamente la ranura.","features":["DS/DS Lite: cartuchos GBA","DSi/DSi XL: sin ranura GBA","Sin soporte GB/GBC directo"],"sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ],
+      "editorialSections": [
+        {"id":"servicios-y-compatibilidad","titleEs":"Servicios y ranuras cambian dentro de la familia","dekEs":"DSi amplía funciones y elimina otras.","paragraphsEs":["Nintendo Wi-Fi Connection presta juego online a títulos compatibles; DSi Shop distribuye DSiWare. Ninguno equivale a eShop o Nintendo Switch Online.","La etiqueta familia DS no implica compatibilidad idéntica: DSi y DSi XL ya no aceptan cartuchos GBA."],"cards":[],"sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ],
+      "sectionOrder": ["lineage","figures","architecture","editorial:servicios-y-compatibilidad","companies","games","hardware","compatibility","services","milestones","legacy"],
+      "milestones": [
+        {"id":"milestone-ds-launch","yearLabel":"2004","sortYear":2004,"title":"Nintendo DS","summaryEs":"Nintendo inicia la generación de dos pantallas y tacto.","sourceIds":["PH-NIN-HISTORY"]},
+        {"id":"milestone-ds-wifi","yearLabel":"2005","sortYear":2005,"title":"Nintendo Wi-Fi Connection","summaryEs":"El juego online llega a títulos compatibles de DS.","sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"id":"milestone-ds-lite","yearLabel":"2006","sortYear":2006,"title":"DS Lite","summaryEs":"El rediseño refina tamaño y pantalla manteniendo GBA.","sourceIds":["PH-NIN-DS-DOSSIER"]},
+        {"id":"milestone-dsi","yearLabel":"2008-2009","sortYear":2008,"title":"DSi y DSi XL","summaryEs":"Cámaras, SD y DSiWare llegan a una rama sin ranura GBA.","sourceIds":["PH-NIN-DS-DOSSIER"]}
+      ],
+      "legacyEs": [
+        "DS convirtió el tacto, las dos pantallas y el juego inalámbrico en herramientas de diseño masivas.",
+        "Nintendogs y Brain Age ampliaron el público sin sustituir la continuidad de Mario, Pokémon, Zelda o Animal Crossing.",
+        "DSi anticipó distribución digital y funciones de cámara, pero permanece dentro de la familia DS."
+      ],
+      "sources": [
+        {"id":"PH-NIN-DS-DOSSIER","title":"Dossier editorial Region Atlas · Nintendo DS","publication":"Region Atlas","publisher":"Dossier aportado para implementación","kind":"reference","language":"es","citation":"Personas, modelos, servicios, software y QA","url":null},
+        {"id":"PH-NIN-HISTORY","title":"Company History","publication":"Nintendo Corporate Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"Nintendo DS y cronología corporativa","url":"https://www.nintendo.co.jp/corporate/en/history/index.html"},
+        {"id":"PH-NIN-SALES","title":"Dedicated Video Game Sales Units","publication":"Nintendo IR Information","publisher":"Nintendo Co., Ltd.","kind":"official","language":"en","citation":"DS · 154,02 M hardware; 948,76 M software","url":"https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

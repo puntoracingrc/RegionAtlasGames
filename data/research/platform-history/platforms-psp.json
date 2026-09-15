@@ -1,0 +1,158 @@
+{
+  "version": 5,
+  "generatedAt": "2026-09-15T18:00:00.000Z",
+  "platforms": [
+    {
+      "platformSlug": "psp",
+      "title": "PlayStation Portable",
+      "dekEs": "La primera portátil propia de PlayStation trasladó juegos 3D, reproducción multimedia y conectividad inalámbrica a un sistema de bolsillo. UMD, Memory Stick Duo, PSP go y sus vínculos con PS3 convierten a PSP en una plataforma completa entre PS2 y PS3, no en un accesorio.",
+      "summaryParagraphsEs": [
+        "PSP llegó a Japón el 12 de diciembre de 2004 según la nota comercial de Sony Computer Entertainment, a Norteamérica el 24 de marzo de 2005 y a Europa el 1 de septiembre de 2005. La cronología actual de PlayStation muestra el 11 de diciembre para Japón; Region Atlas conserva esa discrepancia de fuente y prioriza el anuncio de lanzamiento para la fecha comercial.",
+        "Su pantalla panorámica, el formato UMD, el almacenamiento extraíble y el Wi-Fi permitieron combinar juegos, películas, música y funciones de red. PlayStation cifra su recorrido mundial en más de 80 millones de unidades sin publicar aquí una precisión mayor no consolidada.",
+        "La familia evolucionó desde PSP-1000 a los rediseños PSP-2000 y PSP-3000. PSP go eliminó UMD y puso la descarga digital en el centro; PSP Street cerró el ciclo europeo con un modelo económico sin Wi-Fi.",
+        "El catálogo reunió estudios propios, socios independientes y editoras externas. Bend Studio, Japan Studio y Polyphony Digital convivieron con Ready at Dawn, Capcom, Square Enix, Konami, Rockstar y Atlus sin convertir a estas últimas en first party."
+      ],
+      "historyParagraphsEs": [
+        "Sony presentó PSP como un sistema portátil de entretenimiento capaz de acercar la escala audiovisual de PS2 a un dispositivo personal. El planteamiento incluía desde el inicio juegos, vídeo, audio, conectividad USB y red inalámbrica.",
+        "UMD hizo posible distribuir juegos completos y vídeo en un disco óptico compacto, mientras Memory Stick Duo guardaba partidas y contenido personal. La combinación convirtió a PSP en un experimento multimedia de una época anterior al dominio del smartphone.",
+        "Ad Hoc facilitó partidas locales entre consolas e Infrastructure permitió funciones online en títulos compatibles. Remote Play con PS3 fue limitado, pero estableció una relación histórica que Vita desarrollaría con mucha más profundidad.",
+        "PSP go cambió el equilibrio de la familia en 2009: sustituyó UMD por memoria interna y descargas, conservándose como un modelo PSP y no como una sucesora. La apuesta anticipó posteriores variantes de hardware sin lector.",
+        "PSP dejó una biblioteca propia y un puente técnico entre las generaciones domésticas. Su sucesora, PS Vita, abandonó UMD, adoptó tarjetas de juego y profundizó en PSN, las funciones cruzadas y Remote Play."
+      ],
+      "historyTitleEs": "La primera PlayStation que salió del salón",
+      "architectureTitleEs": "UMD, memoria y multimedia",
+      "architectureDekEs": "Los soportes y capacidades que definieron la identidad técnica de PSP.",
+      "companiesTitleEs": "Estudios y compañías clave",
+      "gamesTitleEs": "Juegos que definieron PSP",
+      "hardwareTitleEs": "Modelos PSP",
+      "servicesTitleEs": "Conectividad y distribución digital",
+      "servicesDekEs": "Funciones disponibles sólo en modelos, territorios y juegos compatibles; no se presentan como compatibilidad universal.",
+      "figures": [
+        {"personSlug":"ken-kutaragi","personName":"Ken Kutaragi","roleLabelEs":"Liderazgo de plataforma","contributionEs":"Dirigió Sony Computer Entertainment durante la concepción y el lanzamiento de PSP; la relación no le atribuye en exclusiva el diseño del hardware.","period":"Concepción-2006","sourceIds":["PH-PSP-DOSSIER","PH-PSP-SPECS-2004"]},
+        {"personSlug":"kazuo-hirai","personName":"Kaz Hirai","roleLabelEs":"Expansión norteamericana","contributionEs":"Encabezó SCEA durante la expansión comercial de PSP en Norteamérica y después asumió el liderazgo global de SCE.","period":"2005-2011","sourceIds":["PH-PSP-DOSSIER","PH-PSP-ANNIVERSARY-2010"]},
+        {"personSlug":"shuhei-yoshida","personName":"Shuhei Yoshida","roleLabelEs":"Producción first party","contributionEs":"Su trayectoria en Worldwide Studios se conecta con el desarrollo y la coordinación del catálogo propio de la etapa PSP, sin convertir su cargo en crédito creativo.","period":"Etapa PSP","sourceIds":["PH-PSP-DOSSIER"]},
+        {"personSlug":"phil-harrison","personName":"Phil Harrison","roleLabelEs":"Ecosistema de estudios","contributionEs":"Se relaciona con la expansión de Worldwide Studios y el ecosistema portátil durante los primeros años de PSP.","period":"2005-2008","sourceIds":["PH-PSP-DOSSIER"]},
+        {"personSlug":"john-koller","personName":"John Koller","roleLabelEs":"Marketing de portátil","contributionEs":"Fue Senior Marketing Manager de PSP y después Vice President de PlayStation Brand Marketing en SCEA; firmó retrospectivas y comunicaciones oficiales de la plataforma.","period":"2008-2012","sourceIds":["PH-PSP-ANNIVERSARY-2010","PH-PSP-GO-2009","PH-PSP-VITA-WELCOME"]},
+        {"personSlug":"hideo-kojima","personName":"Hideo Kojima","roleLabelEs":"Dirección creativa third party","contributionEs":"Dirigió Metal Gear Solid: Peace Walker dentro de Konami; Portable Ops no recibe aquí un crédito exacto no verificado.","period":"2010","sourceIds":["PH-PSP-DOSSIER"]},
+        {"personSlug":"hajime-tabata","personName":"Hajime Tabata","roleLabelEs":"Dirección de juego third party","contributionEs":"Dirigió Crisis Core: Final Fantasy VII y otras producciones portátiles de Square Enix; su relación no convierte a la compañía en first party.","period":"2007-2011","sourceIds":["PH-PSP-DOSSIER","PH-PSP-TABATA-2011"]}
+      ],
+      "architecture": [
+        {"id":"architecture-psp-display","name":"Pantalla TFT panorámica","kind":"MULTIMEDIA","summaryEs":"El modelo original emplea una pantalla TFT 16:9 de 480 × 272 píxeles y 16,77 millones de colores, concebida tanto para juegos como para vídeo.","features":["Resolución 480 × 272","Formato 16:9","16,77 millones de colores","Audio estéreo integrado"],"partners":[{"companySlug":"sony-interactive-entertainment","companyName":"Sony Computer Entertainment","roleLabelEs":"Diseño e integración"}],"sourceIds":["PH-PSP-SPECS-2004"]},
+        {"id":"architecture-psp-umd","name":"Universal Media Disc (UMD)","kind":"OPTICAL_MEDIA","summaryEs":"Soporte óptico propio de PSP para juegos y UMD Video. Su uso se limita a la familia PSP y no se traslada a PS Vita.","features":["Hasta 1,8 GB según PlayStation History","Distribución de juegos completos","Catálogo de películas en UMD Video","Ausente en PSP go"],"partners":[{"companySlug":"sony-interactive-entertainment","companyName":"Sony Computer Entertainment","roleLabelEs":"Formato de la plataforma"}],"sourceIds":["PH-PSP-HISTORY","PH-PSP-SPECS-2004","PH-PSP-GO-2009"]},
+        {"id":"architecture-psp-memory-stick","name":"Memory Stick Duo","kind":"STORAGE_IO","summaryEs":"Almacenamiento extraíble para partidas, descargas y archivos multimedia. PSP go incorporó 16 GB de memoria interna y usó Memory Stick Micro M2.","features":["Partidas guardadas","Juegos y demos descargables","Música, fotos y vídeo","No equivale a la tarjeta propietaria de PS Vita"],"partners":[{"companySlug":"sony","companyName":"Sony","roleLabelEs":"Familia de almacenamiento"}],"sourceIds":["PH-PSP-SPECS-2004","PH-PSP-GO-2009","PH-PSP-DOSSIER"]}
+      ],
+      "companies": [
+        {"companySlug":"sony-interactive-entertainment","companyName":"Sony Computer Entertainment","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Propietaria de la plataforma","period":"2004-2014","contributionEs":"Diseñó, fabricó y operó PSP, sus modelos y su integración con PlayStation Network.","relatedWorks":["PlayStation Portable","PlayStation Store","Remote Play"],"sourceIds":["PH-PSP-SPECS-2004","PH-PSP-HISTORY"]},
+        {"companySlug":"japan-studio","companyName":"Japan Studio","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Estudio first party","period":"Etapa PSP","contributionEs":"Impulsó nuevas identidades portátiles como LocoRoco y Patapon, además de entregas de Ape Escape y Everybody's Golf.","relatedWorks":[],"relatedCatalogEntries":[{"id":"psp-locoroco","title":"LocoRoco"},{"id":"psp-patapon","title":"Patapon"}],"sourceIds":["PH-PSP-HISTORY","PH-PSP-DOSSIER"]},
+        {"companySlug":"bend-studio","companyName":"Bend Studio","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Estudio first party","period":"Etapa PSP","contributionEs":"Desarrolló Syphon Filter: Dark Mirror, Logan's Shadow y Resistance: Retribution para la portátil.","relatedWorks":["Syphon Filter: Logan's Shadow","Resistance: Retribution"],"relatedCatalogEntries":[{"id":"psp-syphon-filter-dark-mirror","title":"Syphon Filter: Dark Mirror"}],"sourceIds":["PH-PSP-HISTORY","PH-PSP-DOSSIER"]},
+        {"companySlug":"polyphony-digital","companyName":"Polyphony Digital","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Estudio first party","period":"2009","contributionEs":"Adaptó Gran Turismo a PSP dentro de la estructura propia de PlayStation.","relatedWorks":[],"relatedCatalogEntries":[{"id":"psp-gran-turismo","title":"Gran Turismo"}],"sourceIds":["PH-PSP-ANNIVERSARY-2010","PH-PSP-DOSSIER"]},
+        {"companySlug":"guerrilla-games","companyName":"Guerrilla Games","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Estudio first party","period":"2006","contributionEs":"Desarrolló Killzone: Liberation como entrega específica para PSP.","relatedWorks":[],"relatedCatalogEntries":[{"id":"psp-killzone-liberation","title":"Killzone: Liberation"}],"sourceIds":["PH-PSP-DOSSIER"]},
+        {"companySlug":"sce-cambridge-studio","companyName":"SCE Cambridge Studio","relationshipType":"FIRST_PARTY","relationshipLabelEs":"Estudio first party","period":"2009","contributionEs":"Desarrolló LittleBigPlanet para PSP con colaboración y supervisión de la franquicia; no se reasigna automáticamente el desarrollo principal a Media Molecule.","relatedWorks":[],"relatedCatalogEntries":[{"id":"psp-littlebigplanet","title":"LittleBigPlanet"}],"sourceIds":["PH-PSP-DOSSIER"]},
+        {"companySlug":"ready-at-dawn","companyName":"Ready at Dawn","relationshipType":"KEY_DEVELOPER","relationshipLabelEs":"Socio independiente","period":"2006-2010","contributionEs":"Desarrolló Daxter y las dos entregas de God of War para PSP como estudio externo, no first party.","relatedWorks":[],"relatedCatalogEntries":[{"id":"psp-daxter","title":"Daxter"},{"id":"psp-god-of-war-chains-of-olympus","title":"God of War: Chains of Olympus"},{"id":"psp-god-of-war-ghost-of-sparta","title":"God of War: Ghost of Sparta"}],"sourceIds":["PH-PSP-DOSSIER","PH-PSP-ANNIVERSARY-2010"]},
+        {"companySlug":"capcom","companyName":"Capcom","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Editora third party","period":"Etapa PSP","contributionEs":"Monster Hunter Portable y Freedom fueron decisivos para la identidad y la adopción de PSP en Japón.","relatedWorks":[],"relatedCatalogEntries":[{"id":"psp-monster-hunter-freedom-unite","title":"Monster Hunter Freedom Unite"}],"sourceIds":["PH-PSP-DOSSIER"]},
+        {"companySlug":"square-enix","companyName":"Square Enix","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Editora third party","period":"Etapa PSP","contributionEs":"Publicó RPG propios para la portátil, entre ellos Crisis Core, Dissidia y Kingdom Hearts: Birth by Sleep.","relatedWorks":["Final Fantasy Type-0"],"relatedCatalogEntries":[{"id":"psp-crisis-core-final-fantasy-vii","title":"Crisis Core: Final Fantasy VII"},{"id":"psp-dissidia-final-fantasy","title":"Dissidia Final Fantasy"}],"sourceIds":["PH-PSP-DOSSIER","PH-PSP-TABATA-2011"]},
+        {"companySlug":"konami","companyName":"Konami","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Editora third party","period":"Etapa PSP","contributionEs":"Llevó Metal Gear a PSP con Portable Ops y Peace Walker.","relatedWorks":["Metal Gear Solid: Portable Ops"],"relatedCatalogEntries":[{"id":"psp-metal-gear-solid-peace-walker","title":"Metal Gear Solid: Peace Walker"}],"sourceIds":["PH-PSP-DOSSIER"]},
+        {"companySlug":"rockstar-games","companyName":"Rockstar Games","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Editora third party","period":"2005-2006","contributionEs":"Publicó Liberty City Stories y Vice City Stories como entregas portátiles propias de Grand Theft Auto.","relatedWorks":[],"relatedCatalogEntries":[{"id":"psp-grand-theft-auto-liberty-city-stories","title":"Grand Theft Auto Liberty City Stories"},{"id":"psp-grand-theft-auto-vice-city-stories","title":"Grand Theft Auto: Vice City Stories"}],"sourceIds":["PH-PSP-DOSSIER"]},
+        {"companySlug":"atlus","companyName":"Atlus","relationshipType":"KEY_PUBLISHER","relationshipLabelEs":"Editora third party","period":"2009","contributionEs":"Persona 3 Portable mostró la capacidad de PSP para albergar reinterpretaciones extensas de RPG domésticos.","relatedWorks":[],"relatedCatalogEntries":[{"id":"psp-shin-megami-tensei-persona-3-portable","title":"Shin Megami Tensei: Persona 3 Portable"}],"sourceIds":["PH-PSP-DOSSIER"]}
+      ],
+      "companyGroups": [
+        {"id":"psp-playstation-studios","labelEs":"Estudios PlayStation","descriptionEs":"Equipos propios durante el periodo indicado; la pertenencia se presenta en su contexto histórico.","companySlugs":["japan-studio","bend-studio","polyphony-digital","guerrilla-games","sce-cambridge-studio"]},
+        {"id":"psp-external-partners","labelEs":"Socios y editoras externas","descriptionEs":"Compañías independientes o third party que definieron partes distintas del catálogo PSP.","companySlugs":["ready-at-dawn","capcom","square-enix","konami","rockstar-games","atlus"]}
+      ],
+      "genealogies": [],
+      "gameGroups": [
+        {
+          "id":"psp-playstation-catalog",
+          "labelEs":"PlayStation y socios de producción",
+          "descriptionEs":"Obras propias o publicadas con socios; la etiqueta distingue al estudio independiente cuando corresponde.",
+          "games":[
+            {"title":"Wipeout Pure","catalogId":"psp-wipeout-pure","year":2005,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"PlayStation","companySlugs":["sony-interactive-entertainment"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Daxter","catalogId":"psp-daxter","year":2006,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Socio independiente","companySlugs":["ready-at-dawn"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"LocoRoco","catalogId":"psp-locoroco","year":2006,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Japan Studio","companySlugs":["japan-studio"],"sourceIds":["PH-PSP-HISTORY"]},
+            {"title":"Patapon","catalogId":"psp-patapon","year":2007,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Japan Studio","companySlugs":["japan-studio"],"sourceIds":["PH-PSP-HISTORY"]},
+            {"title":"God of War: Chains of Olympus","catalogId":"psp-god-of-war-chains-of-olympus","year":2008,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Ready at Dawn","companySlugs":["ready-at-dawn"],"sourceIds":["PH-PSP-HISTORY","PH-PSP-DOSSIER"]},
+            {"title":"Gran Turismo","catalogId":"psp-gran-turismo","year":2009,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Polyphony Digital","companySlugs":["polyphony-digital"],"sourceIds":["PH-PSP-ANNIVERSARY-2010"]},
+            {"title":"God of War: Ghost of Sparta","catalogId":"psp-god-of-war-ghost-of-sparta","year":2010,"relationshipType":"INDEPENDENT_PARTNER","relationshipLabelEs":"Ready at Dawn","companySlugs":["ready-at-dawn"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Syphon Filter: Dark Mirror","catalogId":"psp-syphon-filter-dark-mirror","year":2006,"relationshipType":"FIRST_PARTY","relationshipLabelEs":"Bend Studio","companySlugs":["bend-studio"],"sourceIds":["PH-PSP-HISTORY"]}
+          ]
+        },
+        {
+          "id":"psp-third-party-catalog",
+          "labelEs":"Third parties",
+          "descriptionEs":"Selección editorial sin jerarquía absoluta y sin convertir presencia de catálogo en exclusividad.",
+          "games":[
+            {"title":"Lumines","catalogId":"psp-lumines","year":2004,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Third party","companySlugs":[],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Ridge Racer","catalogId":"psp-ridge-racer","year":2004,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Third party","companySlugs":[],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Monster Hunter Freedom Unite","catalogId":"psp-monster-hunter-freedom-unite","year":2008,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Capcom","companySlugs":["capcom"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Crisis Core: Final Fantasy VII","catalogId":"psp-crisis-core-final-fantasy-vii","year":2007,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Square Enix","companySlugs":["square-enix"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Metal Gear Solid: Peace Walker","catalogId":"psp-metal-gear-solid-peace-walker","year":2010,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Konami","companySlugs":["konami"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Grand Theft Auto Liberty City Stories","catalogId":"psp-grand-theft-auto-liberty-city-stories","year":2005,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Rockstar Games","companySlugs":["rockstar-games"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Dissidia Final Fantasy","catalogId":"psp-dissidia-final-fantasy","year":2008,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Square Enix","companySlugs":["square-enix"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Persona 3 Portable","catalogId":"psp-shin-megami-tensei-persona-3-portable","year":2009,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Atlus","companySlugs":["atlus"],"sourceIds":["PH-PSP-DOSSIER"]},
+            {"title":"Kingdom Hearts: Birth by Sleep","catalogId":"psp-usa-kingdom-hearts-birth-by-sleep","year":2010,"relationshipType":"THIRD_PARTY","relationshipLabelEs":"Square Enix","companySlugs":["square-enix"],"sourceIds":["PH-PSP-DOSSIER"]}
+          ]
+        }
+      ],
+      "hardware": [
+        {"id":"hardware-psp-1000","name":"PSP-1000","kind":"BASE_MODEL","yearLabel":"2004","manufacturerCompanySlug":"sony-interactive-entertainment","manufacturerCompanyName":"Sony Computer Entertainment","modelNumbers":["PSP-1000"],"summaryEs":"Modelo original de la familia, lanzado primero en Japón y diseñado como sistema portátil de juegos y multimedia.","features":["Pantalla TFT 16:9 de 480 × 272","Wi-Fi IEEE 802.11b","Unidad UMD","Memory Stick Duo","Peso aproximado de 260 g"],"relatedWorks":[],"relatedCatalogEntries":[],"relatedPersonSlugs":["ken-kutaragi"],"sourceIds":["PH-PSP-SPECS-2004","PH-PSP-LAUNCH-JP"]},
+        {"id":"hardware-psp-2000","name":"PSP-2000 · Slim & Lite","kind":"REDESIGN","yearLabel":"2007","manufacturerCompanySlug":"sony-interactive-entertainment","manufacturerCompanyName":"Sony Computer Entertainment","modelNumbers":["PSP-2000"],"summaryEs":"Primer rediseño del sistema, más fino y ligero, con cambios internos y salida de vídeo.","features":["Cuerpo más fino y ligero","Memoria de sistema ampliada","Salida de vídeo","Mantiene UMD y Wi-Fi"],"relatedWorks":[],"relatedCatalogEntries":[],"relatedPersonSlugs":[],"sourceIds":["PH-PSP-DOSSIER","PH-PSP-GO-2009"]},
+        {"id":"hardware-psp-3000","name":"PSP-3000","kind":"REDESIGN","yearLabel":"2008","manufacturerCompanySlug":"sony-interactive-entertainment","manufacturerCompanyName":"Sony Computer Entertainment","modelNumbers":["PSP-3000"],"summaryEs":"Revisión con pantalla actualizada, micrófono integrado y ajustes de diseño dentro de la misma familia PSP.","features":["Pantalla revisada","Micrófono integrado","Mantiene UMD","Mantiene conectividad Wi-Fi"],"relatedWorks":[],"relatedCatalogEntries":[],"relatedPersonSlugs":[],"sourceIds":["PH-PSP-DOSSIER","PH-PSP-GO-2009"]},
+        {"id":"hardware-psp-go","name":"PSP go","kind":"DIGITAL_ONLY_REDESIGN","yearLabel":"2009","manufacturerCompanySlug":"sony-interactive-entertainment","manufacturerCompanyName":"Sony Computer Entertainment","modelNumbers":["PSP-N1000"],"summaryEs":"Modelo PSP de formato deslizante que eliminó UMD y convirtió la descarga digital en su vía principal. No es una sucesora de PSP.","features":["Sin unidad UMD","16 GB de memoria flash interna","Pantalla deslizante","Memory Stick Micro M2","Distribución mediante PlayStation Store"],"relatedWorks":[],"relatedCatalogEntries":[],"relatedPersonSlugs":["john-koller"],"sourceIds":["PH-PSP-GO-2009"]},
+        {"id":"hardware-psp-street","name":"PSP Street","kind":"REDESIGN","yearLabel":"2011","manufacturerCompanySlug":"sony-interactive-entertainment","manufacturerCompanyName":"Sony Computer Entertainment","modelNumbers":["E1000"],"summaryEs":"Modelo económico para Europa al final del ciclo comercial de PSP, conservando UMD pero eliminando la conectividad Wi-Fi.","features":["Lanzamiento europeo","Sin Wi-Fi","Unidad UMD","Diseño simplificado"],"relatedWorks":[],"relatedCatalogEntries":[],"relatedPersonSlugs":[],"sourceIds":["PH-PSP-DOSSIER"]}
+      ],
+      "services": [
+        {"id":"service-psp-adhoc","name":"Modo Ad Hoc","kind":"NETWORK_SERVICE","launchedLabel":"2004","endedLabel":null,"statusLabelEs":"Función local del sistema","parentServiceId":null,"successorServiceId":null,"summaryEs":"Conexión inalámbrica directa entre sistemas PSP para multijugador local en títulos compatibles.","features":["No requiere un servicio online central","Disponibilidad dependiente del juego"],"sourceIds":["PH-PSP-SPECS-2004","PH-PSP-HISTORY"]},
+        {"id":"service-psp-infrastructure","name":"Modo Infrastructure","kind":"NETWORK_SERVICE","launchedLabel":"2004","endedLabel":null,"statusLabelEs":"Soporte histórico dependiente del juego","parentServiceId":null,"successorServiceId":null,"summaryEs":"Acceso a red y juego online cuando el título y sus servidores lo permitían.","features":["Usa Wi-Fi","PSP Street no dispone de Wi-Fi","No equivale a compatibilidad online universal"],"sourceIds":["PH-PSP-HISTORY","PH-PSP-DOSSIER"]},
+        {"id":"service-psp-store","name":"PlayStation Store en PSP","kind":"STORE_SERVICE","launchedLabel":"Etapa PSP","endedLabel":null,"statusLabelEs":"Servicio histórico","parentServiceId":null,"successorServiceId":null,"summaryEs":"Distribuyó demos, juegos, clásicos, Minis y contenido multimedia; en PSP go pasó de complemento a vía principal de software.","features":["Descargas directas o mediante PS3/Media Go según etapa","Juegos completos y PS one Classics","Minis y demos"],"sourceIds":["PH-PSP-HISTORY","PH-PSP-ANNIVERSARY-2010","PH-PSP-GO-2009"]},
+        {"id":"service-psp-remote-play","name":"Remote Play con PS3","kind":"NETWORK_SERVICE","launchedLabel":"Etapa PS3","endedLabel":null,"statusLabelEs":"Primera iteración, soporte limitado","parentServiceId":null,"successorServiceId":null,"summaryEs":"PSP pudo acceder de forma remota a determinadas funciones y contenidos de PS3. La relación fue más limitada que la posterior integración de Vita con PS4.","features":["Relación PSP ↔ PS3","Disponibilidad dependiente de función y contenido","Antecedente de Remote Play en Vita"],"sourceIds":["PH-PSP-REMOTE-PLAY-2008","PH-PSP-DOSSIER"]}
+      ],
+      "compatibilityByHardwareRevision": [],
+      "compatibilityLinks": [],
+      "editorialSections": [
+        {
+          "id":"platform-links",
+          "titleEs":"Un puente entre generaciones",
+          "dekEs":"PSP se entiende mejor dentro de la continuidad de hardware y servicios de PlayStation.",
+          "paragraphsEs":["PS2 aportó el contexto audiovisual y de catálogo; PS3 amplió PSN y ensayó Remote Play con PSP. Vita heredó la idea de una PlayStation portátil conectada, pero cambió UMD y Memory Stick por tarjetas propias.","PSP go pertenece a la familia PSP. Su diseño solo digital anticipa variantes posteriores sin lector, pero no crea una generación independiente."],
+          "cards":[
+            {"id":"psp-link-ps2","eyebrowEs":"Contexto","titleEs":"De PS2 a PSP","summaryEs":"La portátil trasladó al uso personal juegos 3D, multimedia y parte del ecosistema de franquicias domésticas.","detailsEs":[],"link":{"labelEs":"Historia de PlayStation 2","href":"/plataforma/ps2"},"sourceIds":["PH-PSP-HISTORY"]},
+            {"id":"psp-link-ps3","eyebrowEs":"Conectividad","titleEs":"PSP y PS3","summaryEs":"PSN, PlayStation Store y Remote Play conectaron la portátil con la primera gran etapa online de PlayStation.","detailsEs":[],"link":{"labelEs":"Historia de PlayStation 3","href":"/plataforma/ps3"},"sourceIds":["PH-PSP-HISTORY","PH-PSP-REMOTE-PLAY-2008"]},
+            {"id":"psp-link-vita","eyebrowEs":"Sucesión","titleEs":"De PSP a PS Vita","summaryEs":"Vita profundizó la conectividad portátil y sustituyó los soportes físicos y de memoria de PSP.","detailsEs":[],"link":{"labelEs":"Ver PlayStation Vita","href":"/plataforma/psvita"},"sourceIds":["PH-PSP-DOSSIER"]}
+          ],
+          "sourceIds":["PH-PSP-HISTORY","PH-PSP-DOSSIER"]
+        }
+      ],
+      "sectionOrder": ["figures","hardware","architecture","services","companies","games","editorial:platform-links","milestones","legacy"],
+      "milestones": [
+        {"id":"psp-2004-specs","yearLabel":"Mayo de 2004","sortYear":2004,"title":"Especificaciones públicas","summaryEs":"Sony Computer Entertainment detalla pantalla, UMD, Memory Stick Duo, Wi-Fi y conexiones del sistema.","sourceIds":["PH-PSP-SPECS-2004"]},
+        {"id":"psp-2004-japan","yearLabel":"12 dic 2004","sortYear":2004,"title":"Lanzamiento en Japón","summaryEs":"La nota comercial de SCE fija el estreno japonés el 12 de diciembre; la cronología web actual muestra el día 11.","sourceIds":["PH-PSP-LAUNCH-JP","PH-PSP-HISTORY"]},
+        {"id":"psp-2005-na","yearLabel":"24 mar 2005","sortYear":2005,"title":"Lanzamiento en Norteamérica","summaryEs":"PSP debuta en Norteamérica y amplía la marca PlayStation al mercado portátil.","sourceIds":["PH-PSP-ANNIVERSARY-2010"]},
+        {"id":"psp-2005-eu","yearLabel":"1 sep 2005","sortYear":2005,"title":"Lanzamiento en Europa","summaryEs":"La portátil completa su primera expansión occidental.","sourceIds":["PH-PSP-HISTORY"]},
+        {"id":"psp-2006-locoroco","yearLabel":"2006","sortYear":2006,"title":"LocoRoco","summaryEs":"Japan Studio estrena una identidad diseñada alrededor del juego portátil.","sourceIds":["PH-PSP-HISTORY"]},
+        {"id":"psp-2007-slim","yearLabel":"2007","sortYear":2007,"title":"PSP-2000","summaryEs":"Slim & Lite reduce tamaño y peso y revisa el hardware sin romper la familia.","sourceIds":["PH-PSP-DOSSIER"]},
+        {"id":"psp-2008-3000","yearLabel":"2008","sortYear":2008,"title":"PSP-3000","summaryEs":"La revisión incorpora pantalla actualizada y micrófono integrado.","sourceIds":["PH-PSP-DOSSIER","PH-PSP-GO-2009"]},
+        {"id":"psp-2009-go","yearLabel":"1 oct 2009","sortYear":2009,"title":"PSP go","summaryEs":"El modelo deslizante elimina UMD y centra la adquisición de juegos en PlayStation Store.","sourceIds":["PH-PSP-GO-2009"]},
+        {"id":"psp-2010-peace-walker","yearLabel":"2010","sortYear":2010,"title":"Peace Walker y Ghost of Sparta","summaryEs":"Dos producciones de gran escala refuerzan el catálogo tardío de la plataforma.","sourceIds":["PH-PSP-DOSSIER"]},
+        {"id":"psp-2011-street","yearLabel":"2011","sortYear":2011,"title":"PSP Street y transición a Vita","summaryEs":"El modelo E1000 cierra el ciclo europeo mientras PlayStation prepara su segunda portátil.","sourceIds":["PH-PSP-DOSSIER"]},
+        {"id":"psp-sales","yearLabel":"Balance histórico","sortYear":2015,"title":"Más de 80 millones","summaryEs":"PlayStation sitúa las ventas mundiales de PSP por encima de 80 millones de unidades.","sourceIds":["PH-PSP-HISTORY"]}
+      ],
+      "legacyEs": [
+        "PSP demostró que PlayStation podía sostener una plataforma portátil con catálogo, hardware y servicios propios. UMD no continuó, pero la convivencia entre juegos físicos, descargas y contenido multimedia anticipó decisiones posteriores.",
+        "Ad Hoc, Infrastructure, PlayStation Store y el Remote Play inicial con PS3 formaron un laboratorio de conectividad. Vita amplió esas ideas con dos sticks, PSN más maduro y una relación mucho más profunda con PS4.",
+        "PSP go queda como antecedente de variantes solo digitales dentro de una misma generación. PSP Street representa el extremo opuesto: un cierre de ciclo económico que sacrificó Wi-Fi pero mantuvo UMD."
+      ],
+      "sources": [
+        {"id":"PH-PSP-DOSSIER","title":"Dossier editorial Region Atlas · PSP: historia completa","publication":"Informe de investigación entregado","publisher":"Region Atlas","kind":"reference","language":"es","citation":null,"url":null},
+        {"id":"PH-PSP-HISTORY","title":"2000 PlayStation 2 - PSP PlayStation Portable","publication":"Historia de PlayStation","publisher":"PlayStation","kind":"official","language":"es","citation":null,"url":"https://www.playstation.com/es-es/playstation-history/2000-ps2-psp/"},
+        {"id":"PH-PSP-SPECS-2004","title":"Sony Computer Entertainment announces PSP product specifications","publication":"Press release","publisher":"Sony Computer Entertainment","kind":"official","language":"en","citation":"12 mayo 2004","url":"https://sonyinteractive.com/en/press-releases/2004/sony-computer-entertainment-inc-announces-product-specifications-of-handheld-video-game-system-playstationportable-psp/"},
+        {"id":"PH-PSP-LAUNCH-JP","title":"PSP enters the market on December 12, 2004","publication":"Press release","publisher":"Sony Computer Entertainment","kind":"official","language":"en","citation":"27 octubre 2004","url":"https://sonyinteractive.com/en/press-releases/2004/psp-enters-the-market-on-december-12-2004-at-19800-yen-in-japan/"},
+        {"id":"PH-PSP-ANNIVERSARY-2010","title":"Happy 5th Anniversary PSP!","publication":"PlayStation.Blog","publisher":"Sony Computer Entertainment America","kind":"official","language":"en","citation":"24 marzo 2010","url":"https://blog.playstation.com/2010/03/24/happy-5th-anniversary-psp/"},
+        {"id":"PH-PSP-GO-2009","title":"PSPgo Available Now","publication":"PlayStation.Blog","publisher":"Sony Computer Entertainment America","kind":"official","language":"en","citation":"1 octubre 2009","url":"https://blog.playstation.com/2009/10/01/pspgo-available-now/comment-page-2/"},
+        {"id":"PH-PSP-REMOTE-PLAY-2008","title":"Happy Birthday, PS3!","publication":"PlayStation.Blog","publisher":"Sony Computer Entertainment America","kind":"official","language":"en","citation":"17 noviembre 2008","url":"https://blog.playstation.com/2008/11/17/happy-birthday-ps3/comment-page-4/"},
+        {"id":"PH-PSP-TABATA-2011","title":"The 3rd Birthday launches on PSP","publication":"PlayStation.Blog","publisher":"Square Enix","kind":"official","language":"en","citation":"29 marzo 2011","url":"https://blog.playstation.com/?p=48673"},
+        {"id":"PH-PSP-VITA-WELCOME","title":"Welcome to PlayStation Vita","publication":"PlayStation.Blog","publisher":"Sony Computer Entertainment America","kind":"official","language":"en","citation":"10 febrero 2012","url":"https://blog.playstation.com/?p=69448"}
+      ],
+      "lastReviewed": "2026-09-15"
+    }
+  ]
+}

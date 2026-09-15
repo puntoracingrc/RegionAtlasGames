@@ -1,0 +1,750 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iii-remastered-ps4",
+      "title": "Variantes físicas mundiales de Assassin's Creed III Remastered en PlayStation 4",
+      "reviewedAt": "2026-09-15",
+      "note": "Una única obra canónica reúne las cajas regionales documentadas. El país del retailer se conserva como evidencia de circulación y no se convierte automáticamente en mercado físico de la caja.",
+      "game": {
+        "title": "Assassin's Creed III Remastered",
+        "platformSlug": "ps4",
+        "canonicalCatalogId": "ps4-assassins-creed-3-remastered",
+        "aliases": [
+          "Assassin's Creed 3 Remastered"
+        ]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps4-assassins-creed-3-remastered",
+          "physicalEditionIds": [
+            "ac3-remastered-ps4-europe-es",
+            "ac3-remastered-ps4-europe-de",
+            "ac3-remastered-ps4-europe-dfi",
+            "ac3-remastered-ps4-europe-en-3307216111597",
+            "ac3-remastered-ps4-europe-en-3307216111603",
+            "ac3-remastered-ps4-europe-fr-3307216111610",
+            "ac3-remastered-ps4-europe-pl",
+            "ac3-remastered-ps4-europe-en-3307216111665",
+            "ac3-remastered-ps4-europe-fr-nl",
+            "ac3-remastered-ps4-oceania-au",
+            "ac3-remastered-ps4-north-america-us-ca",
+            "ac3-remastered-ps4-asia-jp",
+            "ac3-remastered-ps4-asia-kr",
+            "ac3-remastered-ps4-asia-zh-en",
+            "ac3-remastered-ps4-latin-america-spanish-cover"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac3-remastered-ps4-europe-es",
+          "label": "Standard · caja española",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "ES"
+          ],
+          "evidenceMarkets": [
+            "ES",
+            "PT"
+          ],
+          "distributionMarkets": [],
+          "packagingLanguages": [
+            "es"
+          ],
+          "softwareLanguages": [
+            "es"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "FRONT",
+              "languages": [
+                "es"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": [
+                "ac3-remastered-es-own-scan"
+              ]
+            },
+            {
+              "component": "BACK",
+              "languages": [
+                "es"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": [
+                "ac3-remastered-es-own-scan"
+              ]
+            },
+            {
+              "component": "SPINE",
+              "languages": [
+                "es"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": [
+                "ac3-remastered-es-own-scan"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "CONFIRMED_PHYSICAL_COPY",
+          "barcode": "3307216111672",
+          "catalogNumber": "CUSA-11560",
+          "catalogIds": [
+            "ps4-assassins-creed-3-remastered"
+          ],
+          "scanSetIds": [
+            "ps4-assassins-creed-3-remastered"
+          ],
+          "evidenceIds": [
+            "ac3-remastered-es-own-scan",
+            "ac3-remastered-es-sold-in-portugal"
+          ],
+          "notes": [
+            "El EAN español también se comercializó en Portugal; sigue siendo la misma caja 100 % española y no demuestra una variante portuguesa."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-europe-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "DE"
+          ],
+          "packagingLanguages": [
+            "de"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "de"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac3-remastered-de"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "USK"
+          ],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216111627",
+          "evidenceIds": [
+            "ac3-remastered-de"
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-europe-dfi",
+          "label": "Standard · caja D/F/I",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "de",
+            "fr",
+            "it"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "de",
+                "fr",
+                "it"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": [
+                "ac3-remastered-dfi"
+              ]
+            }
+          ],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216111634",
+          "evidenceIds": [
+            "ac3-remastered-dfi"
+          ],
+          "notes": [
+            "La caja multilingüe está confirmada; no se le asigna un país único sin evidencia adicional."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-europe-en-3307216111597",
+          "label": "Standard · caja inglesa · 3307216111597",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "evidenceMarkets": [
+            "GB"
+          ],
+          "packagingLanguages": [
+            "en"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "en"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac3-remastered-en-3307216111597"
+              ]
+            }
+          ],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "HIGH",
+          "barcode": "3307216111597",
+          "evidenceIds": [
+            "ac3-remastered-en-3307216111597"
+          ],
+          "notes": [
+            "El packaging inglés está respaldado; Reino Unido permanece como mercado candidato, no como identidad física definitiva."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-europe-en-3307216111603",
+          "label": "Standard · caja inglesa internacional · 3307216111603",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "en"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "en"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac3-remastered-en-3307216111603"
+              ]
+            }
+          ],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "HIGH",
+          "barcode": "3307216111603",
+          "evidenceIds": [
+            "ac3-remastered-en-3307216111603"
+          ],
+          "notes": [
+            "Circuló como importación en varios países europeos; el país del retailer no crea una variante nacional."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-europe-fr-3307216111610",
+          "label": "Standard · Francia · packaging pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "FR"
+          ],
+          "packagingLanguages": [],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "HIGH",
+          "barcode": "3307216111610",
+          "evidenceIds": [
+            "ac3-remastered-fr-3307216111610"
+          ],
+          "notes": [
+            "El SKU francés está respaldado, pero los idiomas exactos requieren verificar físicamente la contraportada."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-europe-pl",
+          "label": "Standard · Polonia · packaging pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "PL"
+          ],
+          "packagingLanguages": [],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "HIGH",
+          "barcode": "3307216111658",
+          "evidenceIds": [
+            "ac3-remastered-pl"
+          ],
+          "notes": [
+            "No se deduce el idioma de la caja a partir de los idiomas del juego."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-europe-en-3307216111665",
+          "label": "Standard · caja inglesa · 3307216111665",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "en"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "en"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": [
+                "ac3-remastered-en-3307216111665"
+              ]
+            }
+          ],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216111665",
+          "evidenceIds": [
+            "ac3-remastered-en-3307216111665"
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-europe-fr-nl",
+          "label": "Standard · caja francesa/neerlandesa",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "FR",
+            "NL"
+          ],
+          "packagingLanguages": [
+            "fr",
+            "nl"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "fr",
+                "nl"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": [
+                "ac3-remastered-fr-nl"
+              ]
+            }
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216120445",
+          "evidenceIds": [
+            "ac3-remastered-fr-nl"
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-oceania-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "AU"
+          ],
+          "packagingLanguages": [],
+          "ratingSystems": [
+            "Australian Classification"
+          ],
+          "productCodes": [
+            "CUSA-11560"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "3307216111573",
+          "evidenceIds": [
+            "ac3-remastered-au"
+          ],
+          "notes": [
+            "No se añade Nueva Zelanda sin evidencia física ANZ."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-north-america-us-ca",
+          "label": "Standard · Estados Unidos/Canadá",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "US",
+            "CA"
+          ],
+          "packagingLanguages": [
+            "en",
+            "fr"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "en",
+                "fr"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": [
+                "ac3-remastered-us-ca"
+              ]
+            }
+          ],
+          "productCodes": [
+            "CUSA-11711"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "887256039387",
+          "catalogNumber": "CUSA-11711",
+          "catalogIds": [
+            "ps4-usa-assassin%27s-creed-iii-remastered"
+          ],
+          "evidenceIds": [
+            "ac3-remastered-us-ca"
+          ],
+          "notes": [
+            "Una sola caja compartida; Canadá no se separa sin otro UPC o carátula."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-asia-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "JP"
+          ],
+          "packagingLanguages": [
+            "ja"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "ja"
+              ],
+              "basis": "OBSERVED",
+              "exhaustive": true,
+              "evidenceIds": [
+                "ac3-remastered-jp"
+              ]
+            }
+          ],
+          "ratingSystems": [
+            "CERO Z"
+          ],
+          "productCodes": [
+            "PLJM-16388"
+          ],
+          "confidence": "CONFIRMED",
+          "barcode": "4949244005333",
+          "catalogNumber": "PLJM-16388",
+          "evidenceIds": [
+            "ac3-remastered-jp"
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-asia-kr",
+          "label": "Standard · Corea · packaging pendiente",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [
+            "KR"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [
+            "ko",
+            "ja",
+            "zh",
+            "en"
+          ],
+          "productCodes": [
+            "PLKS-10200"
+          ],
+          "confidence": "CONFIRMED",
+          "catalogNumber": "PLKS-10200",
+          "evidenceIds": [
+            "ac3-remastered-kr"
+          ],
+          "notes": [
+            "El código de producto está confirmado; barcode y packaging quedan pendientes. CUSA-11718 no se publica porque no estaba verificado en el repositorio."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-asia-zh-en",
+          "label": "Standard · Asia chino/inglés · identificador pendiente",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [
+            "zh",
+            "en"
+          ],
+          "componentLanguageEvidence": [
+            {
+              "component": "BOX",
+              "languages": [
+                "zh",
+                "en"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "evidenceIds": [
+                "ac3-remastered-asia-zh-en"
+              ]
+            }
+          ],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": [
+            "ac3-remastered-asia-zh-en"
+          ],
+          "notes": [
+            "La existencia de una caja asiática chino/inglés está respaldada; no se inventa EAN ni product code."
+          ]
+        },
+        {
+          "id": "ac3-remastered-ps4-latin-america-spanish-cover",
+          "label": "Standard · Latinoamérica Spanish Cover · identificador pendiente",
+          "broadRegion": "LATIN_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "packagingLanguages": [],
+          "componentLanguageEvidence": [
+            {
+              "component": "FRONT",
+              "languages": [
+                "es"
+              ],
+              "basis": "DECLARED",
+              "exhaustive": false,
+              "note": "La denominación Spanish Cover respalda el frontal, no todo el packaging.",
+              "evidenceIds": [
+                "ac3-remastered-latam-spanish-cover"
+              ]
+            }
+          ],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": [
+            "ac3-remastered-latam-spanish-cover"
+          ],
+          "notes": [
+            "No se fusiona con la caja norteamericana EN/FR y no se publica un UPC pendiente."
+          ]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "ac3-remastered-es-own-scan",
+          "type": "REAL_SCAN",
+          "label": "Escaneo propio de la copia española",
+          "summary": "Portada, lomo y contraportada del mismo ejemplar precintado; EAN 3307216111672 y CUSA-11560.",
+          "supports": [
+            "ac3-remastered-ps4-europe-es"
+          ]
+        },
+        {
+          "id": "ac3-remastered-es-sold-in-portugal",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Circulación portuguesa del SKU español",
+          "summary": "El EAN español se comercializó en Portugal; esta evidencia se registra como circulación y no como caja portuguesa.",
+          "supports": [
+            "ac3-remastered-ps4-europe-es"
+          ]
+        },
+        {
+          "id": "ac3-remastered-de",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Caja alemana 3307216111627",
+          "supports": [
+            "ac3-remastered-ps4-europe-de"
+          ]
+        },
+        {
+          "id": "ac3-remastered-dfi",
+          "type": "REAL_PHOTO",
+          "label": "Caja multilingüe D/F/I 3307216111634",
+          "supports": [
+            "ac3-remastered-ps4-europe-dfi"
+          ]
+        },
+        {
+          "id": "ac3-remastered-en-3307216111597",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Caja inglesa 3307216111597",
+          "supports": [
+            "ac3-remastered-ps4-europe-en-3307216111597"
+          ]
+        },
+        {
+          "id": "ac3-remastered-en-3307216111603",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Caja inglesa internacional 3307216111603",
+          "supports": [
+            "ac3-remastered-ps4-europe-en-3307216111603"
+          ]
+        },
+        {
+          "id": "ac3-remastered-fr-3307216111610",
+          "type": "RETAILER_ASSET",
+          "label": "SKU francés 3307216111610",
+          "supports": [
+            "ac3-remastered-ps4-europe-fr-3307216111610"
+          ]
+        },
+        {
+          "id": "ac3-remastered-pl",
+          "type": "RETAILER_ASSET",
+          "label": "SKU polaco 3307216111658",
+          "supports": [
+            "ac3-remastered-ps4-europe-pl"
+          ]
+        },
+        {
+          "id": "ac3-remastered-en-3307216111665",
+          "type": "REAL_PHOTO",
+          "label": "Caja inglesa 3307216111665",
+          "supports": [
+            "ac3-remastered-ps4-europe-en-3307216111665"
+          ]
+        },
+        {
+          "id": "ac3-remastered-fr-nl",
+          "type": "REAL_PHOTO",
+          "label": "Caja francesa/neerlandesa 3307216120445",
+          "supports": [
+            "ac3-remastered-ps4-europe-fr-nl"
+          ]
+        },
+        {
+          "id": "ac3-remastered-au",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Caja australiana 3307216111573",
+          "supports": [
+            "ac3-remastered-ps4-oceania-au"
+          ]
+        },
+        {
+          "id": "ac3-remastered-us-ca",
+          "type": "REAL_PHOTO",
+          "label": "Caja norteamericana 887256039387",
+          "supports": [
+            "ac3-remastered-ps4-north-america-us-ca"
+          ]
+        },
+        {
+          "id": "ac3-remastered-jp",
+          "type": "REAL_PHOTO",
+          "label": "Caja japonesa 4949244005333 / PLJM-16388",
+          "supports": [
+            "ac3-remastered-ps4-asia-jp"
+          ]
+        },
+        {
+          "id": "ac3-remastered-kr",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Release coreana PLKS-10200",
+          "supports": [
+            "ac3-remastered-ps4-asia-kr"
+          ]
+        },
+        {
+          "id": "ac3-remastered-asia-zh-en",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Existencia de caja asiática chino/inglés",
+          "supports": [
+            "ac3-remastered-ps4-asia-zh-en"
+          ]
+        },
+        {
+          "id": "ac3-remastered-latam-spanish-cover",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Existencia de tirada latinoamericana Spanish Cover",
+          "supports": [
+            "ac3-remastered-ps4-latin-america-spanish-cover"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Orden documental AC III Remastered mundial, respaldada por análisis aportado por el usuario"
+        },
+        {
+          "label": "Escaneos propios conservados por RegionAtlas"
+        }
+      ],
+      "evidenceNote": "Los idiomas de packaging sólo se publican cuando la evidencia distingue la caja del software. Los países de retailer se registran como circulación y no generan cajas nacionales.",
+      "researchTasks": [
+        {
+          "id": "ac3-remastered-portugal-dedicated-packaging",
+          "label": "Caja física dedicada de Portugal",
+          "status": "UNCONFIRMED",
+          "marketRegions": [
+            "PT"
+          ],
+          "notes": [
+            "Buscar EAN propio y fotos frontal/dorso. El SKU español vendido en Portugal no demuestra packaging portugués ni ES/PT."
+          ]
+        },
+        {
+          "id": "ac3-remastered-italy-dedicated-packaging",
+          "label": "Caja física IT-only",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "IT"
+          ],
+          "notes": [
+            "La caja D/F/I está confirmada; una tirada íntegramente italiana requiere EAN y evidencia física propios."
+          ]
+        },
+        {
+          "id": "ac3-remastered-brazil-physical-variant",
+          "label": "Caja física dedicada de Brasil",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [
+            "BR"
+          ],
+          "notes": [
+            "La localización digital brasileña no demuestra una caja física propia."
+          ]
+        }
+      ]
+    }
+  ]
+}

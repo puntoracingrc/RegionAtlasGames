@@ -18,6 +18,7 @@ import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import {
   enrichCollectionItem,
   getCatalogGame,
+  hasPublicCatalogGames,
   meta,
   publicListedCatalog,
 } from "@/lib/catalog";
@@ -296,7 +297,9 @@ async function HomeActivityPanel({
 
 async function PublicHome() {
   const [platforms, homeNews] = await Promise.all([
-    listAdminPlatforms().then((items) => items.filter((platform) => platform.active !== false)),
+    listAdminPlatforms().then((items) =>
+      items.filter((platform) => platform.active !== false && hasPublicCatalogGames(platform.slug)),
+    ),
     listNewsForSection({ section: "home", topic: "general", limit: 6 }),
   ]);
   const indexes = indexStats();
