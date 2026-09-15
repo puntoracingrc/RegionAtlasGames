@@ -7,6 +7,7 @@ import pspPeopleData from "../../data/research/platform-history/people-psp-publi
 import psVitaPeopleData from "../../data/research/platform-history/people-psvita-public.json";
 import xboxPeopleData from "../../data/research/platform-history/people-xbox-public.json";
 import xbox360PeopleData from "../../data/research/platform-history/people-xbox360-public.json";
+import xboxOnePeopleData from "../../data/research/platform-history/people-xboxone-public.json";
 import type {
   CompanyPersonLink,
   PersonCardData,
@@ -36,6 +37,7 @@ const pspData = pspPeopleData as unknown as PersonPublicOverlayData;
 const psVitaData = psVitaPeopleData as unknown as PersonPublicOverlayData;
 const xboxData = xboxPeopleData as unknown as PersonPublicOverlayData;
 const xbox360Data = xbox360PeopleData as unknown as PersonPublicOverlayData;
+const xboxOneData = xboxOnePeopleData as unknown as PersonPublicOverlayData;
 
 function applyOverlay(
   current: PersonPublicData,
@@ -93,6 +95,7 @@ const data = [
   psVitaData,
   xboxData,
   xbox360Data,
+  xboxOneData,
 ].reduce(applyOverlay, baseData);
 const profiles = new Map(data.profiles.map((profile) => [profile.slug, profile]));
 const sources = new Map(data.sources.map((source) => [source.id, source]));

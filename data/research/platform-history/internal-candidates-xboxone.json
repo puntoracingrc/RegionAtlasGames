@@ -1,0 +1,19 @@
+{
+  "version":1,
+  "generatedAt":"2026-09-15T23:00:00.000Z",
+  "peopleCandidates":[
+    {"personSlug":"yusuf-mehdi","personName":"Yusuf Mehdi","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"La participación en el reveal está documentada, pero falta una ficha biográfica editorial suficientemente completa."},
+    {"personSlug":"marc-whitten","personName":"Marc Whitten","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"El papel de producto se conserva como candidato hasta completar fuentes de trayectoria."},
+    {"personSlug":"shannon-loftis","personName":"Shannon Loftis","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"El liderazgo editorial está identificado, pero la biografía pública requiere más respaldo."},
+    {"personSlug":"gabi-michel","personName":"Gabi Michel","status":"NEEDS_MORE_BIOGRAPHICAL_EVIDENCE","reasonEs":"La relación con Adaptive Controller está respaldada, pero falta una biografía profesional de amplitud suficiente."}
+  ],
+  "companyCandidates":[],
+  "creditCandidates":[
+    {"title":"Killer Instinct · reparto de desarrollo","status":"NEEDS_EXACT_CREDIT_REVIEW","reasonEs":"Double Helix e Iron Galaxy deben asignarse por entrega y periodo, no como una sola autoría heredada."}
+  ],
+  "mediaReferences":[
+    {"personSlug":"matt-booty","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita."},
+    {"personSlug":"larry-hryb","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita."},
+    {"personSlug":"bonnie-ross","status":"PORTRAIT_FALLBACK","reasonEs":"No se localizó una imagen reutilizable con licencia explícita."}
+  ]
+}
