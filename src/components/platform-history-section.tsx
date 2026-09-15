@@ -154,7 +154,7 @@ function CompaniesSection({ history }: { history: PlatformHistory }) {
       {ungrouped.length > 0 && <CompanyCards companies={ungrouped} />}
       {history.genealogies.length > 0 && (
         <div className="mt-7 border-l-2 border-accent/50 pl-4">
-          <div className="flex items-center gap-2"><Network className="h-4 w-4 text-accent" aria-hidden="true" /><h4 className="font-bold text-foreground">Adquisiciones, reorganizaciones y cierres</h4></div>
+          <div className="flex items-center gap-2"><Network className="h-4 w-4 text-accent" aria-hidden="true" /><h4 className="font-bold text-foreground">Cambios corporativos documentados</h4></div>
           <ol className="mt-3 divide-y divide-border">
             {history.genealogies.map((relation) => (
               <li key={relation.id} className="grid gap-1 py-3 text-sm md:grid-cols-[7rem_minmax(0,1fr)]">

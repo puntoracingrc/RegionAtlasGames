@@ -34,6 +34,8 @@ export type PlatformHistoryCompany = {
   relationshipType: PlatformCompanyRelationship;
   relationshipLabelEs: string;
   period: string | null;
+  relationshipStart?: string | null;
+  relationshipEnd?: string | null;
   contributionEs: string;
   relatedWorks: string[];
   relatedCatalogEntries?: { id: string; title: string }[];
@@ -57,7 +59,11 @@ export type CompanyGenealogyRelation = {
     | "REORGANIZED_AS"
     | "MERGED_INTO"
     | "CLOSED"
-    | "INVESTMENT_FROM";
+    | "INVESTMENT_FROM"
+    | "BECAME_INDEPENDENT"
+    | "TRANSFERRED_TO"
+    | "PENDING_TRANSFER"
+    | "CONSULTATION_STARTED";
   targetCompanySlug: string | null;
   targetCompanyName: string | null;
   year: number | null;
