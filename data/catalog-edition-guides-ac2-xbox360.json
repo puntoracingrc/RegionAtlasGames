@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-ii-xbox360-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed II en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Normalización Xbox 360 que separa Standard, Black, White, Master Assassin, Complete, Classics y paquetes físicos. Los identificadores contaminados o sin prueba Xbox permanecen fuera de las ediciones publicables.",
+      "game": {
+        "title": "Assassin's Creed II",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-ii",
+        "canonicalGameId": "assassins-creed-ii",
+        "platformReleaseId": "assassins-creed-ii-xbox360"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac2-xbox360-standard-es",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["es"],
+          "softwareLanguages": ["es", "en", "fr", "de", "it"],
+          "productCodes": ["300020858"],
+          "barcode": "3307211666658",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["xbox360-assassin-s-creed-ii"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac2-retroloco-es", "ac2-fnac-es"]
+        },
+        {
+          "id": "ac2-xbox360-standard-us",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "productCodes": ["525349-CVR"],
+          "barcode": "008888525349",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac2-gamefaqs"]
+        },
+        {
+          "id": "ac2-xbox360-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "barcode": "3307211666627",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac2-gamefaqs"]
+        },
+        {
+          "id": "ac2-xbox360-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "productCodes": ["JES1-00010"],
+          "barcode": "4949244001816",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac2-gamefaqs"]
+        },
+        {
+          "id": "ac2-xbox360-black-eu",
+          "label": "Black Edition · Europa · identificador pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "physicalContents": ["Juego físico", "Contenido Black Edition; detalle pendiente de evidencia física"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac2-gamefaqs"],
+          "notes": ["Existencia física Xbox 360 europea confirmada; no se publica barcode ni país sin caja Xbox específica."]
+        },
+        {
+          "id": "ac2-xbox360-black-au",
+          "label": "Black Edition · Australia · identificador pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["AU"],
+          "physicalContents": ["Juego físico", "Contenido Black Edition; detalle pendiente de evidencia física"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac2-gamefaqs"],
+          "notes": ["Existencia física Xbox 360 australiana confirmada; el EAN candidato permanece sólo en investigación."]
+        },
+        {
+          "id": "ac2-xbox360-white-eu",
+          "label": "White Edition · Europa · identificador pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "physicalContents": ["Juego físico", "Contenido White Edition; detalle pendiente de evidencia física"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac2-gamefaqs"],
+          "notes": ["Existencia física Xbox 360 europea confirmada; barcode y cajas nacionales pendientes."]
+        },
+        {
+          "id": "ac2-xbox360-white-au",
+          "label": "White Edition · Australia · identificador pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["AU"],
+          "productCodes": ["300025504"],
+          "physicalContents": ["Juego físico", "Contenido White Edition; detalle pendiente de evidencia física"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac2-gamefaqs"],
+          "notes": ["Código de producto Xbox 360 documentado; barcode exterior pendiente."]
+        },
+        {
+          "id": "ac2-xbox360-master-assassin-us",
+          "label": "Master Assassin's Edition · USA · identificador pendiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "physicalContents": ["Juego físico", "Contenido Master Assassin; detalle pendiente de evidencia física"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac2-gamefaqs"],
+          "notes": ["La edición física Xbox 360 existe; UPC, cover code y contenido exacto quedan pendientes."]
+        },
+        {
+          "id": "ac2-xbox360-complete-es-retail",
+          "label": "Complete Edition · España · packaging pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["ES"],
+          "productCodes": ["300030649"],
+          "barcode": "3307217923595",
+          "physicalContents": ["Juego físico", "Secuencias adicionales", "Templar lairs"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac2-fnac-complete"],
+          "notes": ["Retail español confirmado; packaging español exacto pendiente de scan."]
+        },
+        {
+          "id": "ac2-xbox360-classics-eu",
+          "label": "Classics / Game of the Year · Europa · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "barcode": "3307217934737",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac2-gamefaqs"],
+          "notes": ["País y packaging exactos pendientes; no se asigna una caja nacional."]
+        },
+        {
+          "id": "ac2-xbox360-classics-au",
+          "label": "Classics Best Sellers · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["AU"],
+          "productCodes": ["3000-31881"],
+          "barcode": "3307217934812",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac2-gamefaqs"]
+        },
+        {
+          "id": "ac2-xbox360-lineage-es",
+          "label": "Assassin's Creed II + DVD Lineage · España",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["ES"],
+          "productCodes": ["300027048"],
+          "barcode": "3307212315128",
+          "physicalContents": ["Juego físico Assassin's Creed II", "DVD Lineage"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac2-fnac-lineage"],
+          "notes": ["Paquete físico oficial del juego con DVD; Lineage no se modela como juego independiente."]
+        },
+        {
+          "id": "ac2-xbox360-special-platinum-jp",
+          "label": "Special Edition / Platinum Collection · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "productCodes": ["JES1-00071"],
+          "barcode": "4949244002028",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac2-gamefaqs"]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "ac2-retroloco-es",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "RetroLoco · Standard PAL España Xbox 360",
+          "url": "https://www.retroloco.es/producto/assassins-creed-ii-esp/",
+          "supports": ["EAN 3307211666658", "packaging ES", "software ES/EN/FR/DE/IT"]
+        },
+        {
+          "id": "ac2-fnac-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Standard Xbox 360",
+          "url": "https://www.fnac.es/Assassins-Creed-2-Xbox-360-Videojuego-Xbox-360/a345352",
+          "supports": ["Xbox 360", "EAN 3307211666658", "SKU 300020858"]
+        },
+        {
+          "id": "ac2-fnac-complete",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Complete Edition Xbox 360",
+          "url": "https://www.fnac.es/Assassin-s-Creed-2-Complete-Edition-Xbox-Videojuego-Xbox-360/a401879",
+          "supports": ["Xbox 360", "EAN 3307217923595", "SKU 300030649", "contenido Complete"]
+        },
+        {
+          "id": "ac2-fnac-lineage",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Assassin's Creed II + DVD Lineage",
+          "url": "https://www.fnac.es/Assassins-Creed-II-DVD-Lineage-Xbox-360-Videojuego-Xbox-360/a368994",
+          "supports": ["Xbox 360", "EAN 3307212315128", "SKU 300027048", "paquete juego + DVD"]
+        },
+        {
+          "id": "ac2-fnac-compilation",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Assassin's Creed I + II",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Assassin-s-Creed-II-Xbox-360-Videojuego-Xbox-360/a709141",
+          "supports": ["Xbox 360", "EAN 3307215624517", "SKU 300044162", "compilación independiente"]
+        },
+        {
+          "id": "ac2-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · Assassin's Creed II Xbox 360 release data",
+          "url": "https://gamefaqs.gamespot.com/xbox360/956858-assassins-creed-ii/data",
+          "supports": ["UPC/EAN/JAN Xbox 360", "códigos de producto Xbox 360", "existencia de Black, White y Master Assassin"]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac2_xbox360_worldwide_variants.md"},
+        {"label": "RetroLoco España", "url": "https://www.retroloco.es/producto/assassins-creed-ii-esp/"},
+        {"label": "Fnac España Standard", "url": "https://www.fnac.es/Assassins-Creed-2-Xbox-360-Videojuego-Xbox-360/a345352"},
+        {"label": "Fnac España Complete", "url": "https://www.fnac.es/Assassin-s-Creed-2-Complete-Edition-Xbox-Videojuego-Xbox-360/a401879"},
+        {"label": "Fnac España Lineage", "url": "https://www.fnac.es/Assassins-Creed-II-DVD-Lineage-Xbox-360-Videojuego-Xbox-360/a368994"},
+        {"label": "Fnac España compilación I + II", "url": "https://www.fnac.es/Assassin-s-Creed-Assassin-s-Creed-II-Xbox-360-Videojuego-Xbox-360/a709141"},
+        {"label": "GameFAQs Xbox 360", "url": "https://gamefaqs.gamespot.com/xbox360/956858-assassins-creed-ii/data"}
+      ],
+      "evidenceNote": "Las cajas Black/White/Master Assassin se mantienen separadas por evidencia Xbox 360, pero sin identificadores no demostrados. La compilación I + II queda fuera de physicalEditions de ACII.",
+      "researchTasks": [
+        {
+          "id": "ac2-xbox360-black-au-barcode",
+          "label": "Black Edition Australia · barcode Xbox pendiente",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["AU"],
+          "notes": ["Candidato 3307211669727: la página agregada lo muestra en un bloque contaminado; exigir foto física Xbox 360 antes de incorporarlo."]
+        },
+        {
+          "id": "ac2-xbox360-black-white-national-boxes",
+          "label": "Black / White Edition · cajas nacionales Xbox pendientes",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "FR", "DE", "GB", "IT", "AU"],
+          "notes": ["Localizar EAN exterior, código de producto y packaging específico de Xbox 360."]
+        },
+        {
+          "id": "ac2-xbox360-compilation-ac1-ac2",
+          "label": "Assassin's Creed I + II · compilación física independiente",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES"],
+          "notes": ["EAN 3307215624517, SKU 300044162. Requiere identidad canónica propia de compilación; está excluida deliberadamente de las ediciones de ACII."]
+        },
+        {
+          "id": "ac2-xbox360-korea-asia",
+          "label": "Corea / Asia · identificadores físicos Xbox pendientes",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["KR", "HK", "TW"],
+          "notes": ["No crear variantes hasta disponer de barcode, código de producto y caja inequívocamente Xbox 360."]
+        },
+        {
+          "id": "ac2-xbox360-media-ids",
+          "label": "Identificadores de medio por región",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "US", "AU", "JP"],
+          "notes": ["Buscar XeMID y Media ID Xbox 360 verificables por release."]
+        }
+      ]
+    }
+  ]
+}
