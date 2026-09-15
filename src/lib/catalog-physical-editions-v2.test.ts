@@ -539,7 +539,7 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
     const market = catalogMarketRegionToLegacyRegion(marketCode);
     assert.ok(ps5RegionOptions.includes(market), `missing PS5 region filter: ${market}`);
   }
-  assert.equal(ps5RegionOptions.includes(catalogMarketRegionToLegacyRegion("PT")), false);
+  assert.equal(ps5RegionOptions.includes(catalogMarketRegionToLegacyRegion("PT")), true);
 });
 
 test("V2 overview regions link to the matching regional block or exact physical edition", () => {
@@ -686,6 +686,7 @@ test("documented guides use edition families while existing catalog IDs retain e
       "assassins-creed-origins-ps4",
       "assassins-creed-rogue-remastered-ps4",
       "assassins-creed-mirage-ps4",
+      "assassins-creed-mirage-ps5",
       "assassins-creed-syndicate-ps4",
       "assassins-creed-the-ezio-collection-ps4",
       "assassins-creed-unity-ps4-worldwide",
