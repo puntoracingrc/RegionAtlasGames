@@ -270,7 +270,14 @@ export type ResearchRouterPlan = {
   selectedPlaybook: ResearchPlaybook;
   sourcePlan: ResearchSourcePlanItem[];
   directUrlPlan: Array<{ url: string; sourceId: string; reason: string }>;
-  queryPlan: Array<{ query: string; sourceId: string | null; purpose: ResearchTargetField }>;
+  queryPlan: Array<{
+    query: string;
+    sourceId: string | null;
+    purpose: ResearchTargetField;
+    strategy: "EXACT_IDENTIFIER" | "SOURCE_SPECIFIC" | "GENERIC";
+    identifierType?: string;
+    identifierValue?: string;
+  }>;
   imagePlan: Array<{ component: ResearchComponent; fields: ResearchTargetField[]; reason: string }>;
   deterministicChecks: string[];
   escalationRules: string[];
@@ -461,6 +468,9 @@ export type ResearchVisionResult = {
   publisherText: string[];
   distributorText: string[];
   downloadStatements: string[];
+  physicalContentAssessment: "NO_DOWNLOAD_STATEMENT" | "DOWNLOAD_REQUIRED" | "CODE_IN_BOX" | "PARTIAL_DOWNLOAD" | "UNREADABLE";
+  barcodeBinding: "OUTER_COLLECTOR_PACKAGE" | "INNER_GAME_CASE" | "RETAILER_STICKER" | "UNKNOWN";
+  barcodeProductRole: "OUTER_PRODUCT" | "INNER_GAME" | "ANOTHER_PRODUCT" | "UNREADABLE";
   stickerDetected: boolean;
   imageQuality: "GOOD" | "LIMITED" | "UNREADABLE";
   confidenceByField: Record<string, number>;
@@ -497,7 +507,22 @@ export type ResearchLlmProvider = {
 
 export type ResearchVisionProvider = {
   name: string;
-  inspect(input: { imageUrl: string; componentHint?: ResearchComponent | null; requestedFields: ResearchTargetField[] }): Promise<{ result: ResearchVisionResult; usage: ResearchModelUsage }>;
+  inspect(input: {
+    imageUrl: string;
+    componentHint?: ResearchComponent | null;
+    requestedFields: ResearchTargetField[];
+    expected?: {
+      title: string;
+      platform: string;
+      edition: string;
+      region: string | null;
+    };
+    sourceContext?: {
+      pageTitle: string | null;
+      pageUrl: string | null;
+      imageLabel: string | null;
+    };
+  }): Promise<{ result: ResearchVisionResult; usage: ResearchModelUsage }>;
 };
 
 export type ResearchBudgetLimits = {

@@ -4,10 +4,10 @@
     "BARCODE": ["\"{BARCODE}\"", "\"{BARCODE}\" \"{PLATFORM}\"", "\"{BARCODE}\" \"{TITLE}\"", "\"{BARCODE}\" barcode", "\"{BARCODE}\" \"back cover\"", "site:{HOST} \"{BARCODE}\""],
     "SERIAL": ["\"{SERIAL}\"", "\"{SERIAL}\" \"{TITLE}\"", "\"{SERIAL}\" \"{PLATFORM}\"", "\"{SERIAL}\" EAN", "\"{SERIAL}\" barcode"],
     "EDITION": ["\"{TITLE}\" \"{EDITION}\" \"{PLATFORM}\"", "\"{TITLE}\" \"{EDITION}\" barcode", "\"{TITLE}\" \"{EDITION}\" \"back cover\"", "\"{TITLE}\" \"{EDITION}\" unboxing"],
-    "BOX_CODE": ["\"{TITLE}\" \"{PLATFORM}\" \"box code\"", "\"{TITLE}\" \"{EDITION}\" box flap", "\"{BARCODE}\" \"box code\""],
-    "PRODUCT_CODE": ["\"{TITLE}\" \"{PLATFORM}\" cartridge code", "\"{TITLE}\" \"{EDITION}\" cartridge label", "\"{BARCODE}\" product code"],
+    "BOX_CODE": ["\"{TITLE}\" \"{PLATFORM}\" \"box code\"", "\"{TITLE}\" \"{EDITION}\" box flap", "\"{BARCODE}\" \"box code\"", "\"{BOX_CODE}\" \"{PLATFORM}\"", "\"{BOX_CODE}\" \"{TITLE}\""],
+    "PRODUCT_CODE": ["\"{TITLE}\" \"{PLATFORM}\" cartridge code", "\"{TITLE}\" \"{EDITION}\" cartridge label", "\"{BARCODE}\" product code", "\"{PRODUCT_CODE}\" \"{PLATFORM}\"", "\"{PRODUCT_CODE}\" \"{TITLE}\""],
     "NO_IDENTIFIERS": ["\"{TITLE}\" \"{PLATFORM}\" physical edition", "\"{TITLE}\" \"{PLATFORM}\" product code", "\"{TITLE}\" \"{PLATFORM}\" barcode"],
     "PACKAGING_LANGUAGES": ["\"{TITLE}\" \"{EDITION}\" \"back cover\"", "\"{BARCODE}\" packaging", "\"{PRODUCT_CODE}\" box scan"],
-    "PHYSICAL_PRODUCT_TYPE": ["\"{TITLE}\" \"{EDITION}\" unboxing", "\"{TITLE}\" \"{EDITION}\" download required", "\"{TITLE}\" \"{EDITION}\" code in box"]
+    "PHYSICAL_PRODUCT_TYPE": ["\"{TITLE}\" \"{PLATFORM}\" \"back cover\"", "\"{TITLE}\" \"{PLATFORM}\" unboxing", "\"{TITLE}\" \"{PLATFORM}\" \"download required\"", "\"{TITLE}\" \"{PLATFORM}\" \"game card included\"", "\"{TITLE}\" \"{PLATFORM}\" \"code in box\""]
   }
 }

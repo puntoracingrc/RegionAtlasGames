@@ -90,6 +90,9 @@
       "fieldCapabilities": {
         "PHYSICAL_EXISTENCE": 60,
         "BARCODE": 68,
+        "PRODUCT_CODE": 45,
+        "PHYSICAL_PRODUCT_TYPE": 55,
+        "OUTER_INNER_RELATION": 48,
         "PACKAGING_LANGUAGES": 72,
         "COLLECTOR_CONTENTS": 70,
         "MARKET_REGION": 20
@@ -143,14 +146,14 @@
     {
       "id": "dbox",
       "hosts": ["dbox.tools", "dbox.space"],
-      "platforms": ["ds", "wiiu", "switch"],
+      "platforms": ["ds", "wiiu", "switch", "xbox360"],
       "countries": ["*"],
       "roles": ["SPECIALIZED_DATABASE", "PHYSICAL_SPECIMEN_DISCOVERY"],
       "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"],
-      "fieldCapabilities": { "BARCODE": 82, "BOX_CODE": 90, "PRODUCT_CODE": 88, "PACKAGING_LANGUAGES": 76 },
+      "fieldCapabilities": { "BARCODE": 82, "BOX_CODE": 90, "PRODUCT_CODE": 88, "OUTER_INNER_RELATION": 88, "CANONICAL_IDENTITY": 70, "PACKAGING_LANGUAGES": 76 },
       "defaultReliability": 76,
       "knownRisks": ["Bind every code to the photographed component and exact regional variant."],
-      "queryTemplates": ["site:dbox.tools \"{TITLE}\" {PLATFORM}", "site:dbox.space \"{PRODUCT_CODE}\""]
+      "queryTemplates": ["site:dbox.tools \"{BARCODE}\"", "site:dbox.space \"{BARCODE}\"", "site:dbox.tools \"{TITLE}\" {PLATFORM}", "site:dbox.space \"{PRODUCT_CODE}\""]
     },
     {
       "id": "doesitplay",
@@ -162,7 +165,7 @@
       "fieldCapabilities": { "PHYSICAL_PRODUCT_TYPE": 90, "MEDIA_REVISION": 82, "RELEASE_STATUS": 80 },
       "defaultReliability": 82,
       "knownRisks": ["Technical installability does not by itself establish regional packaging identity."],
-      "queryTemplates": ["site:doesitplay.org \"{TITLE}\" {PLATFORM}"]
+      "queryTemplates": ["site:doesitplay.org \"{TITLE}\" \"{PLATFORM}\"", "site:doesitplay.org \"{TITLE}\" \"download required\""]
     },
     {
       "id": "ogdb",
@@ -207,10 +210,34 @@
       "countries": ["*"],
       "roles": ["DISCOVERY_ONLY", "RELEASE_IDENTITY"],
       "accessModes": ["DOMAIN_SEARCH", "BROWSER"],
-      "fieldCapabilities": { "CANONICAL_IDENTITY": 58, "RELEASE_STATUS": 55, "PRODUCT_CODE": 45 },
+      "fieldCapabilities": { "CANONICAL_IDENTITY": 58, "RELEASE_STATUS": 55 },
       "defaultReliability": 52,
-      "knownRisks": ["Discovery only: never confirm a physical identifier without stronger component-bound evidence."],
+      "knownRisks": ["Discovery only: walkthrough counters and ASCII art are not product identifiers; never confirm a physical identifier from this source."],
       "queryTemplates": ["site:gamefaqs.gamespot.com \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "launchbox-images",
+      "hosts": ["gamesdb.launchbox-app.com"],
+      "platforms": ["*"],
+      "countries": ["*"],
+      "roles": ["PHYSICAL_SPECIMEN_DISCOVERY", "COVER_GALLERY"],
+      "accessModes": ["SEARCH_ENGINE", "BROWSER", "IMAGE_SEARCH"],
+      "fieldCapabilities": { "BARCODE": 65, "BOX_CODE": 60, "PRODUCT_CODE": 55, "PHYSICAL_PRODUCT_TYPE": 60, "PACKAGING_LANGUAGES": 62 },
+      "defaultReliability": 55,
+      "knownRisks": ["Community cover galleries can mix regions; only exact readable component photos are eligible."],
+      "queryTemplates": ["site:gamesdb.launchbox-app.com \"{TITLE}\" {PLATFORM} back"]
+    },
+    {
+      "id": "yambalu",
+      "hosts": ["yambalu.com", "www.yambalu.com"],
+      "platforms": ["*"],
+      "countries": ["ES"],
+      "roles": ["RETAILER_AGGREGATOR", "RELEASE_IDENTITY"],
+      "accessModes": ["SEARCH_ENGINE", "DIRECT_FETCH", "BROWSER"],
+      "fieldCapabilities": { "CANONICAL_IDENTITY": 76, "PHYSICAL_EXISTENCE": 68, "BUNDLE_CONTENTS": 62, "OUTER_INNER_RELATION": 30 },
+      "defaultReliability": 58,
+      "knownRisks": ["Product naming can be localized; identifiers and component relationships require stronger corroboration."],
+      "queryTemplates": ["site:yambalu.com \"{TITLE}\" {PLATFORM}", "site:yambalu.com \"{BARCODE}\""]
     }
   ]
 }

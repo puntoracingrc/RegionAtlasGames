@@ -5,8 +5,9 @@ import { crossAttributionConflicts } from "./conflict-engine";
 import { researchExtractionSchema, researchVisionSchema } from "./openai-provider";
 import { HttpResearchPageFetcher } from "./page-fetcher";
 import { isPrivateResearchAddress, assertSafeResearchUrl, ResearchUrlSecurityError } from "./url-security";
-import { equivalentBarcodes, validateBarcode, validateIdentifierForPlatform } from "./validators";
-import type { ResearchCatalogContext, ResearchEvidenceRecord } from "./v2-types";
+import { validateClaimDeterministically, equivalentBarcodes, validateBarcode, validateIdentifierForPlatform } from "./validators";
+import { claimsFromVision } from "./worker";
+import type { DurableResearchTask, ResearchCatalogContext, ResearchEvidenceRecord, ResearchState, ResearchVisionResult } from "./v2-types";
 
 const context = {
   title: "Exact Game",
@@ -81,9 +82,61 @@ test("structured-output schemas force component classification and field-scoped 
   assert.ok(vision.required.includes("component"));
   assert.ok(vision.required.includes("barcodeCandidates"));
   assert.ok(vision.required.includes("packagingLanguagesObserved"));
+  assert.ok(vision.required.includes("physicalContentAssessment"));
+  assert.ok(vision.required.includes("barcodeBinding"));
+  assert.ok(vision.required.includes("barcodeProductRole"));
   const extraction = researchExtractionSchema(["ACCEPT_EVIDENCE", "REPLAN"]) as { properties: Record<string, { enum?: string[] }>; required: string[] };
   assert.ok(extraction.required.includes("claims"));
   assert.deepEqual(extraction.properties.nextAction.enum, ["ACCEPT_EVIDENCE", "REPLAN"]);
+});
+
+test("Nintendo component validation separates box, cart and invalid prose digits", () => {
+  const ds = { ...context, platformSlug: "ds" } as ResearchCatalogContext;
+  assert.ok(validateClaimDeterministically({ field: "BOX_CODE", value: "TWL-TEST-EUR", component: "CART_FRONT" }, ds).includes("BOX_CODE_WRONG_COMPONENT"));
+  assert.ok(validateClaimDeterministically({ field: "PRODUCT_CODE", value: "22222222", component: "CART_FRONT" }, ds).includes("PRODUCT_CODE_PATTERN_REQUIRED"));
+  assert.ok(validateClaimDeterministically({ field: "PRODUCT_CODE", value: "TWL-TEST-EUR", component: "BOX_BACK" }, ds).includes("PRODUCT_CODE_WRONG_COMPONENT"));
+  assert.deepEqual(validateClaimDeterministically({ field: "PRODUCT_CODE", value: "TWL-TEST-EUR", component: "CART_FRONT" }, ds), []);
+});
+
+test("physical product type is closed to the canonical taxonomy", () => {
+  assert.ok(validateClaimDeterministically({ field: "PHYSICAL_PRODUCT_TYPE", value: "software", component: "BACK" }, context).includes("PHYSICAL_PRODUCT_TYPE_TAXONOMY"));
+  assert.deepEqual(validateClaimDeterministically({ field: "PHYSICAL_PRODUCT_TYPE", value: "PHYSICAL_DOWNLOAD_REQUIRED", component: "BACK" }, context), []);
+});
+
+test("vision claims preserve Switch download classification and Xbox outer binding", () => {
+  const baseVision: ResearchVisionResult = {
+    component: "OUTER_BOX",
+    titleCandidate: "Exact Game",
+    platformCandidate: "Xbox 360",
+    editionCandidate: "Skull Edition",
+    barcodeCandidates: ["4006381333931"],
+    printedCodes: [],
+    packagingLanguagesObserved: [],
+    ratingMarks: [],
+    publisherText: [],
+    distributorText: [],
+    downloadStatements: ["additional download required"],
+    physicalContentAssessment: "PARTIAL_DOWNLOAD",
+    barcodeBinding: "OUTER_COLLECTOR_PACKAGE",
+    barcodeProductRole: "OUTER_PRODUCT",
+    stickerDetected: false,
+    imageQuality: "GOOD",
+    confidenceByField: { PHYSICAL_PRODUCT_TYPE: 0.9, OUTER_INNER_RELATION: 0.9 },
+  };
+  const task = { id: "task", targetField: "PHYSICAL_PRODUCT_TYPE" } as DurableResearchTask;
+  const state = { runId: "run" } as ResearchState;
+  const evidence = { id: "ev", sourceId: "photo", sourceUrl: "https://example.com/photo" } as ResearchEvidenceRecord;
+  const physical = claimsFromVision({ state, task, context, evidence, result: baseVision });
+  assert.equal(physical[0]?.value, "PHYSICAL_DOWNLOAD_REQUIRED");
+
+  const outer = claimsFromVision({ state, task: { ...task, targetField: "OUTER_INNER_RELATION" }, context, evidence, result: baseVision });
+  assert.deepEqual(outer[0]?.value, {
+    identifier: "4006381333931",
+    productRole: "OUTER_PRODUCT",
+    barcodeBinding: "OUTER_COLLECTOR_PACKAGE",
+    observedTitle: "Exact Game",
+  });
+  assert.deepEqual(outer[0]?.validationErrors, []);
 });
 
 test("evidence binding rejects wrong edition and emits a critical cross-attribution conflict", () => {

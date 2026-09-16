@@ -88,6 +88,29 @@ export function validateClaimDeterministically(
   if (["SERIAL", "PRODUCT_CODE", "MEDIA_ID"].includes(claim.field) && text) {
     errors.push(...validateIdentifierForPlatform(context.platformSlug, text));
   }
+  if (claim.field === "PRODUCT_CODE" && ["ds", "wiiu", "switch", "switch2"].includes(context.platformSlug)) {
+    const matchingProductCode = classifyIdentifier(text).some((match) => match.type === "PRODUCT_CODE" && match.platforms.includes(context.platformSlug));
+    if (!matchingProductCode) errors.push("PRODUCT_CODE_PATTERN_REQUIRED");
+  }
+  if (claim.field === "BOX_CODE" && ["CART_FRONT", "CART_BACK", "DISC", "MANUAL"].includes(claim.component ?? "")) {
+    errors.push("BOX_CODE_WRONG_COMPONENT");
+  }
+  if (claim.field === "PRODUCT_CODE" && ["BACK", "BOX_BACK", "BOX_FRONT", "BOX_FLAPS", "OUTER_BOX", "MANUAL"].includes(claim.component ?? "")) {
+    errors.push("PRODUCT_CODE_WRONG_COMPONENT");
+  }
+  if (claim.field === "PHYSICAL_PRODUCT_TYPE") {
+    const allowed = new Set([
+      "PHYSICAL_FULL_GAME", "PHYSICAL_DOWNLOAD_REQUIRED", "GAME_KEY_CARD", "CODE_IN_BOX",
+      "CLOUD_REQUIRED", "DIGITAL_ONLY", "DELISTED_DIGITAL", "PHYSICAL_UNKNOWN",
+    ]);
+    if (!allowed.has(text)) errors.push("PHYSICAL_PRODUCT_TYPE_TAXONOMY");
+  }
+  if (claim.field === "OUTER_INNER_RELATION") {
+    const relation = claim.value && typeof claim.value === "object" ? claim.value as Record<string, unknown> : null;
+    if (!relation || typeof relation.identifier !== "string" || !["OUTER_PRODUCT", "INNER_GAME"].includes(String(relation.productRole))) {
+      errors.push("OUTER_INNER_BINDING_REQUIRED");
+    }
+  }
   if (claim.field === "MARKET_REGION" && /^\d{3,}/.test(text)) errors.push("BARCODE_PREFIX_NOT_MARKET");
   if (claim.field === "PACKAGING_LANGUAGES" && claim.component === "DISC") errors.push("PACKAGING_LANGUAGE_WRONG_COMPONENT");
   if (claim.field === "SOFTWARE_LANGUAGES" && ["BACK", "BOX_BACK", "BOX_FRONT", "MANUAL"].includes(claim.component ?? "")) {

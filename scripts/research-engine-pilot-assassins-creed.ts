@@ -24,6 +24,7 @@ type PilotCase = {
   targetFields: ResearchTargetField[];
   objective: string;
 };
+type PilotVersion = "v2" | "v3";
 
 const PILOT_CASES: PilotCase[] = [
   {
@@ -167,17 +168,25 @@ function numericEnv(name: string, fallback: number): number {
   return Number.isFinite(value) && value >= 0 ? value : fallback;
 }
 
-function parseArgs(argv: string[]): { cases: PilotCase[]; reportOnly: boolean } {
-  if (argv.includes("--report")) return { cases: [], reportOnly: true };
-  if (argv.includes("--all")) return { cases: PILOT_CASES, reportOnly: false };
+function parseArgs(argv: string[]): { cases: PilotCase[]; reportOnly: boolean; version: PilotVersion } {
+  const versionIndex = argv.indexOf("--version");
+  const versionValue = versionIndex >= 0 ? argv[versionIndex + 1] : "v2";
+  if (!['v2', 'v3'].includes(versionValue ?? "")) throw new Error("PILOT_VERSION_MUST_BE_V2_OR_V3");
+  const version = versionValue as PilotVersion;
+  if (argv.includes("--report")) return { cases: [], reportOnly: true, version };
+  if (argv.includes("--all")) return { cases: PILOT_CASES, reportOnly: false, version };
   const caseIndex = argv.indexOf("--case");
   if (caseIndex >= 0) {
     const number = Number.parseInt(argv[caseIndex + 1] ?? "", 10);
     const selected = PILOT_CASES.find((candidate) => candidate.number === number);
     if (!selected) throw new Error("PILOT_CASE_MUST_BE_1_TO_5");
-    return { cases: [selected], reportOnly: false };
+    return { cases: [selected], reportOnly: false, version };
   }
   throw new Error("Usage: npm run research:pilot:assassins-creed -- --case <1-5> | --all | --report");
+}
+
+function caseDirectory(pilotRoot: string, definition: PilotCase, version: PilotVersion): string {
+  return path.join(pilotRoot, version === "v3" ? `case-${definition.number}` : definition.id);
 }
 
 async function writeJson(filename: string, value: unknown): Promise<void> {
@@ -185,9 +194,9 @@ async function writeJson(filename: string, value: unknown): Promise<void> {
   await writeFile(filename, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
-function taskFor(definition: PilotCase, subject: ResearchSubject, field: ResearchTargetField) {
+function taskFor(definition: PilotCase, subject: ResearchSubject, field: ResearchTargetField, version: PilotVersion) {
   return durableTask({
-    id: `pilot:${definition.id}:${field.toLowerCase()}`,
+    id: `pilot:${version}:${definition.id}:${field.toLowerCase()}`,
     subjectId: subject.id,
     targetField: field,
     question: `${definition.objective} Target field: ${field}.`,
@@ -255,7 +264,7 @@ function overallStatus(completed: CompletedTarget[], failures: Array<{ targetFie
   return statuses.length ? "PARTIAL" : "FAILED";
 }
 
-async function runPreflight(pilotRoot: string, store: ResearchRunStore) {
+async function runPreflight(pilotRoot: string, store: ResearchRunStore, version: PilotVersion) {
   const dependencies = createResearchWorkerDependencies(store);
   const capabilities = researchRuntimeCapabilities();
   const checks: Record<string, { ok: boolean; detail: string }> = {};
@@ -311,8 +320,8 @@ async function runPreflight(pilotRoot: string, store: ResearchRunStore) {
   }
   try {
     const marker = { checkedAt: new Date().toISOString(), mode: "RESEARCH_ONLY" };
-    await store.writeArtifact("pilot-v2-preflight", "storage-check.json", marker);
-    const readback = await store.readArtifact("pilot-v2-preflight", "storage-check.json", () => null as typeof marker | null);
+    await store.writeArtifact(`pilot-${version}-preflight`, "storage-check.json", marker);
+    const readback = await store.readArtifact(`pilot-${version}-preflight`, "storage-check.json", () => null as typeof marker | null);
     checks.localStorage = { ok: readback?.mode === "RESEARCH_ONLY", detail: "Research artifact write/read succeeded." };
   } catch (error) {
     checks.localStorage = { ok: false, detail: error instanceof Error ? error.message.slice(0, 300) : "STORAGE_PREFLIGHT_FAILED" };
@@ -332,10 +341,10 @@ async function runPreflight(pilotRoot: string, store: ResearchRunStore) {
   return result;
 }
 
-async function runCase(definition: PilotCase, pilotRoot: string, store: ResearchRunStore, pilotBudget: PilotBudget): Promise<void> {
-  const directory = path.join(pilotRoot, definition.id);
+async function runCase(definition: PilotCase, pilotRoot: string, store: ResearchRunStore, pilotBudget: PilotBudget, version: PilotVersion): Promise<void> {
+  const directory = caseDirectory(pilotRoot, definition, version);
   const subject = resolveSubject(definition);
-  const tasks = definition.targetFields.map((field) => taskFor(definition, subject, field));
+  const tasks = definition.targetFields.map((field) => taskFor(definition, subject, field, version));
   await store.upsertTasks(tasks);
   const completed: CompletedTarget[] = [];
   const failures: FailedTarget[] = [];
@@ -347,7 +356,7 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
       failures.push({ targetField: task.targetField, error: "GLOBAL_PILOT_BUDGET_EXHAUSTED", usage: { ...EMPTY_USAGE } });
       continue;
     }
-    const runId = `${definition.id}-${task.targetField.toLowerCase()}-${randomUUID()}`;
+    const runId = `${version}-${definition.id}-${task.targetField.toLowerCase()}-${randomUUID()}`;
     const state = createResearchState({
       runId,
       taskId: task.id,
@@ -387,7 +396,20 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
     }
   }
 
-  const queryRows = completed.flatMap((item) => item.result.state.queriesAttempted.map((query) => ({ targetField: item.targetField, query })));
+  const queryRows = completed.flatMap((item) => {
+    const planned = new Map(item.result.routerPlans.flatMap((plan) => plan.queryPlan).map((row) => [normalize(row.query), row]));
+    return item.result.state.queriesAttempted.map((query) => {
+      const match = planned.get(normalize(query));
+      return {
+        targetField: item.targetField,
+        query,
+        strategy: match?.strategy ?? "IMAGE",
+        sourceId: match?.sourceId ?? null,
+        identifierType: match?.identifierType ?? null,
+        identifierValue: match?.identifierValue ?? null,
+      };
+    });
+  });
   const providerUsage = completed.reduce<Record<string, number>>((totals, item) => {
     for (const [provider, calls] of Object.entries(item.result.providerUsage)) totals[provider] = (totals[provider] ?? 0) + calls;
     return totals;
@@ -445,6 +467,7 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
     writeJson(path.join(directory, "router-plan.json"), completed.map((item) => ({ targetField: item.targetField, history: item.result.routerPlans }))),
     writeJson(path.join(directory, "source-ranking.json"), completed.map((item) => ({ targetField: item.targetField, sources: item.result.routerPlans.at(-1)?.sourcePlan ?? [] }))),
     writeJson(path.join(directory, "queries.json"), queryRows),
+    writeJson(path.join(directory, "query-strategies.json"), queryRows),
     writeJson(path.join(directory, "search-results.json"), completed.flatMap((item) => item.result.searchResults.map((result) => ({ targetField: item.targetField, ...result })))),
     writeJson(path.join(directory, "pages.json"), completed.flatMap((item) => item.result.pages.map((page) => ({ targetField: item.targetField, ...page })))),
     writeJson(path.join(directory, "images.json"), completed.flatMap((item) => item.result.images.map((image) => ({ targetField: item.targetField, ...image })))),
@@ -461,8 +484,15 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
     writeJson(path.join(directory, "technical-failures.json"), completed.flatMap((item) => item.result.technicalFailures.map((row) => ({ targetField: item.targetField, ...row })))),
     writeJson(path.join(directory, "retrieval-funnel.json"), completed.map((item) => ({ targetField: item.targetField, ...item.result.funnel }))),
     writeJson(path.join(directory, "catalog-immutability.json"), { identical: catalogMutations.length === 0, changed: [...new Set(catalogMutations)] }),
+    writeJson(path.join(directory, "evidence-gaps.json"), completed.filter((item) => item.result.resolution.status !== "CONFIRMED").map((item) => ({
+      field: item.targetField,
+      candidateValue: item.result.resolution.value,
+      missingProof: item.result.state.nextEvidenceNeeded.length ? item.result.state.nextEvidenceNeeded : ["EXACT_SUBJECT_BINDING", "COMPONENT_SPECIFIC_EVIDENCE"],
+      recommendedNextEvidence: item.result.state.conflicts.flatMap((conflict) => conflict.nextEvidenceNeeded),
+      recommendedSourceTypes: item.result.routerPlans.at(-1)?.sourcePlan.filter((source) => source.capabilityScore > 0).slice(0, 5).map((source) => source.sourceId) ?? [],
+    }))),
     writeJson(path.join(directory, "evidence-timeline.json"), evidenceTimeline),
-    writeJson(path.join(directory, "repro.json"), { command: `npm run research:pilot:assassins-creed:v2 -- --case ${definition.number}`, researchOnly: true, sequential: true, targetFields: definition.targetFields }),
+    writeJson(path.join(directory, "repro.json"), { command: `npm run research:pilot:assassins-creed:v2 -- --version ${version} --case ${definition.number}`, researchOnly: true, sequential: true, freshSemanticRun: version === "v3", targetFields: definition.targetFields }),
     writeFile(path.join(directory, "citations.md"), `# Citations\n\n${citationLines.length ? citationLines.join("\n") : "No citation-bearing evidence was accepted."}\n`, "utf8"),
   ]);
   const summary = [
@@ -497,14 +527,25 @@ async function readJsonOrNull(filename: string): Promise<Record<string, unknown>
   }
 }
 
-async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>> {
+async function writeClosure(pilotRoot: string, version: PilotVersion): Promise<Record<string, unknown>> {
+  const preflight = await readJsonOrNull(path.join(pilotRoot, "preflight.json"));
   const rows = await Promise.all(PILOT_CASES.map(async (definition) => {
-    const resolution = await readJsonOrNull(path.join(pilotRoot, definition.id, "resolution.json"));
-    const cost = await readJsonOrNull(path.join(pilotRoot, definition.id, "cost.json"));
-    const claims = await readJsonOrNull(path.join(pilotRoot, definition.id, "claims.json")) as unknown as Array<Record<string, unknown>> | null;
-    const conflicts = await readJsonOrNull(path.join(pilotRoot, definition.id, "conflicts.json")) as unknown as Array<Record<string, unknown>> | null;
-    const technicalFailures = await readJsonOrNull(path.join(pilotRoot, definition.id, "technical-failures.json")) as unknown as Array<Record<string, unknown>> | null;
-    return { definition, resolution, cost, claims: Array.isArray(claims) ? claims : [], conflicts: Array.isArray(conflicts) ? conflicts : [], technicalFailures: Array.isArray(technicalFailures) ? technicalFailures : [] };
+    const directory = caseDirectory(pilotRoot, definition, version);
+    const resolution = await readJsonOrNull(path.join(directory, "resolution.json"));
+    const cost = await readJsonOrNull(path.join(directory, "cost.json"));
+    const claims = await readJsonOrNull(path.join(directory, "claims.json")) as unknown as Array<Record<string, unknown>> | null;
+    const conflicts = await readJsonOrNull(path.join(directory, "conflicts.json")) as unknown as Array<Record<string, unknown>> | null;
+    const technicalFailures = await readJsonOrNull(path.join(directory, "technical-failures.json")) as unknown as Array<Record<string, unknown>> | null;
+    const queries = await readJsonOrNull(path.join(directory, "query-strategies.json")) as unknown as Array<Record<string, unknown>> | null;
+    const evidence = await readJsonOrNull(path.join(directory, "evidence.json")) as unknown as Array<Record<string, unknown>> | null;
+    return {
+      definition, resolution, cost,
+      claims: Array.isArray(claims) ? claims : [],
+      conflicts: Array.isArray(conflicts) ? conflicts : [],
+      technicalFailures: Array.isArray(technicalFailures) ? technicalFailures : [],
+      queries: Array.isArray(queries) ? queries : [],
+      evidence: Array.isArray(evidence) ? evidence : [],
+    };
   }));
   const statuses = rows.map((row) => String(row.resolution?.status ?? "NOT_RUN"));
   const number = (value: unknown) => typeof value === "number" && Number.isFinite(value) ? value : 0;
@@ -521,9 +562,18 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
   const unsafeFalsePositives = rows.flatMap((row) => row.claims).filter((claim) => claim.status === "VALIDATED" && Array.isArray(claim.validationErrors) && claim.validationErrors.length > 0).length;
   const crossAttributionErrors = rows.flatMap((row) => row.conflicts).filter((conflict) => String(conflict.reason).includes("CROSS_ATTRIBUTION") && String(conflict.severity) === "CRITICAL").length;
   const platformContaminationErrors = rows.flatMap((row) => row.claims).filter((claim) => claim.status === "VALIDATED" && Array.isArray(claim.validationErrors) && claim.validationErrors.some((error) => String(error).includes("PLATFORM"))).length;
-  const catalogMutationDocuments = await Promise.all(PILOT_CASES.map((definition) => readJsonOrNull(path.join(pilotRoot, definition.id, "catalog-immutability.json"))));
+  const catalogMutationDocuments = await Promise.all(PILOT_CASES.map((definition) => readJsonOrNull(path.join(caseDirectory(pilotRoot, definition, version), "catalog-immutability.json"))));
   const catalogMutations = catalogMutationDocuments.reduce((sum, document) => sum + (Array.isArray(document?.changed) ? document.changed.length : 0), 0);
+  const recoveredTechnicalFailures = rows.flatMap((row) => row.technicalFailures).filter((failure) => failure.recovered === true).length;
   const unrecoveredTechnicalFailures = rows.flatMap((row) => row.technicalFailures).filter((failure) => failure.recovered !== true).length;
+  const queryStrategies = rows.flatMap((row) => row.queries).reduce<Record<string, number>>((counts, query) => {
+    const strategy = String(query.strategy ?? "UNKNOWN");
+    counts[strategy] = (counts[strategy] ?? 0) + 1;
+    return counts;
+  }, {});
+  const usefulPages = new Set(rows.flatMap((row) => row.evidence.map((evidence) => String(evidence.sourceUrl ?? "")).filter(Boolean))).size;
+  const caseCostUsd = totalCost.estimatedTotalCostUsd;
+  const preflightCostUsd = number(preflight?.estimatedBraveCostUsd);
   const summary = {
     cases: PILOT_CASES.length,
     completedCases: statuses.filter((status) => status !== "NOT_RUN").length,
@@ -537,8 +587,17 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
     crossAttributionErrors,
     platformContaminationErrors,
     ...totalCost,
+    caseCostUsd,
+    preflightCostUsd,
+    estimatedTotalCostUsd: roundUsd(caseCostUsd + preflightCostUsd),
     catalogMutations,
+    recoveredTechnicalFailures,
     unrecoveredTechnicalFailures,
+    genericQueries: queryStrategies.GENERIC ?? 0,
+    identifierQueries: queryStrategies.EXACT_IDENTIFIER ?? 0,
+    sourceSpecificQueries: queryStrategies.SOURCE_SPECIFIC ?? 0,
+    imageQueries: queryStrategies.IMAGE ?? 0,
+    usefulPages,
   };
   const retrievalPass = summary.completedCases === 5 && summary.failed === 0 && summary.blockedInfrastructure === 0 && summary.unrecoveredTechnicalFailures === 0;
   const functionalValidated = summary.failed === 0 && (summary.confirmed >= 2 || (summary.confirmed >= 1 && summary.partial >= 3));
@@ -559,6 +618,10 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
     `- Cross-attribution errors accepted: ${summary.crossAttributionErrors}`,
     `- Platform contamination errors accepted: ${summary.platformContaminationErrors}`,
     `- Search calls: ${summary.searchCalls}`,
+    `- Generic queries: ${summary.genericQueries}`,
+    `- Exact-identifier queries: ${summary.identifierQueries}`,
+    `- Source-specific queries: ${summary.sourceSpecificQueries}`,
+    `- Image queries: ${summary.imageQueries}`,
     `- Brave web calls: ${summary.braveWebCalls}`,
     `- Brave image calls: ${summary.braveImageCalls}`,
     `- Pages: ${summary.pagesOpened}`,
@@ -569,7 +632,11 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
     `- Output tokens: ${summary.outputTokens}`,
     `- Estimated OpenAI cost: $${summary.estimatedOpenAiCostUsd.toFixed(6)}`,
     `- Estimated Brave cost: $${summary.estimatedBraveCostUsd.toFixed(6)}`,
+    `- Preflight cost: $${summary.preflightCostUsd.toFixed(6)}`,
+    `- Case cost: $${summary.caseCostUsd.toFixed(6)}`,
     `- Estimated total cost: $${summary.estimatedTotalCostUsd.toFixed(6)}`,
+    `- Technical failures recovered: ${summary.recoveredTechnicalFailures}`,
+    `- Technical failures unrecovered: ${summary.unrecoveredTechnicalFailures}`,
     `- Duration: ${summary.durationMs} ms`,
     `- Catalog mutations: ${summary.catalogMutations}`,
   ].join("\n");
@@ -577,7 +644,7 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
   await writeFile(path.join(pilotRoot, "closure.md"), `${markdown}\n`, "utf8");
   await writeJson(path.join(pilotRoot, "before-after-comparison.json"), {
     pilot1: { confirmed: 0, partial: 0, unresolved: 1, failed: 4, searches: 52, pages: 13, images: 4, estimatedCostUsd: 0.019041 },
-    pilot2: summary,
+    [version === "v3" ? "pilot3" : "pilot2"]: summary,
     retrievalPass,
     functionalValidated,
   });
@@ -604,11 +671,72 @@ async function writePilotBaseline(pilotRoot: string): Promise<void> {
   });
 }
 
+async function caseComparisonMetrics(root: string, definition: PilotCase, version: PilotVersion) {
+  const directory = caseDirectory(root, definition, version);
+  const resolution = await readJsonOrNull(path.join(directory, "resolution.json"));
+  const cost = await readJsonOrNull(path.join(directory, "cost.json"));
+  const rawQueries = await readJsonOrNull(path.join(directory, version === "v3" ? "query-strategies.json" : "queries.json")) as unknown as Array<Record<string, unknown>> | null;
+  const pages = await readJsonOrNull(path.join(directory, "pages.json")) as unknown as Array<Record<string, unknown>> | null;
+  const evidence = await readJsonOrNull(path.join(directory, "evidence.json")) as unknown as Array<Record<string, unknown>> | null;
+  const vision = await readJsonOrNull(path.join(directory, "vision-results.json")) as unknown as Array<Record<string, unknown>> | null;
+  const claims = await readJsonOrNull(path.join(directory, "claims.json")) as unknown as Array<Record<string, unknown>> | null;
+  const queries = Array.isArray(rawQueries) ? rawQueries : [];
+  const exact = queries.filter((row) => row.strategy === "EXACT_IDENTIFIER" || /(?:^|[\s\"])(?:\d{12,13}|(?:NTR|TWL|WUP|HAC|TSA-HAC|LA-H)-[A-Z0-9-]+)(?:$|[\s\"])/i.test(String(row.query ?? ""))).length;
+  const sourceSpecific = queries.filter((row) => row.strategy === "SOURCE_SPECIFIC"
+    || (version === "v2" && !/(?:^|[\s\"])(?:\d{12,13}|(?:NTR|TWL|WUP|HAC|TSA-HAC|LA-H)-[A-Z0-9-]+)(?:$|[\s\"])/i.test(String(row.query ?? "")) && /^site:/i.test(String(row.query ?? "")))).length;
+  const image = Number(cost?.braveImageCalls ?? 0);
+  const generic = version === "v3"
+    ? queries.filter((row) => row.strategy === "GENERIC").length
+    : Math.max(0, queries.length - exact - sourceSpecific - image);
+  const evidenceRows = Array.isArray(evidence) ? evidence : [];
+  const claimRows = Array.isArray(claims) ? claims : [];
+  return {
+    status: String(resolution?.status ?? "NOT_RUN"),
+    generic,
+    exact,
+    sourceSpecific,
+    image,
+    pages: Array.isArray(pages) ? pages.length : 0,
+    usefulPages: new Set(evidenceRows.map((row) => String(row.sourceUrl ?? "")).filter(Boolean)).size,
+    imagesInspected: Array.isArray(vision) ? vision.length : 0,
+    confirmedClaims: claimRows.filter((row) => row.status === "VALIDATED").length,
+    candidateClaims: claimRows.filter((row) => row.status === "CANDIDATE").length,
+    cost: Number(cost?.estimatedTotalCostUsd ?? cost?.estimatedCostUsd ?? 0),
+  };
+}
+
+async function writePilot3Comparison(pilot3Root: string): Promise<void> {
+  const pilot2Root = path.join(researchArtifactRoot(), "pilot-assassins-creed-v2");
+  const rows = await Promise.all(PILOT_CASES.map(async (definition) => ({
+    definition,
+    pilot2: await caseComparisonMetrics(pilot2Root, definition, "v2"),
+    pilot3: await caseComparisonMetrics(pilot3Root, definition, "v3"),
+  })));
+  const header = "| Case | Pilot 2 | Pilot 3 | Generic P2→P3 | Identifier P2→P3 | Source P2→P3 | Image P2→P3 | Pages P2→P3 | Useful pages P2→P3 | Images inspected P2→P3 | Confirmed claims P2→P3 | Candidate claims P2→P3 | Cost P2→P3 | Reason for change |";
+  const divider = "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|";
+  const lines = rows.map(({ definition, pilot2, pilot3 }) => {
+    const reason = pilot2.status === pilot3.status
+      ? "Status unchanged; compare evidence gaps for the remaining barrier."
+      : `Routing/evidence changed status from ${pilot2.status} to ${pilot3.status}.`;
+    return `| ${definition.number}. ${definition.title} | ${pilot2.status} | ${pilot3.status} | ${pilot2.generic}→${pilot3.generic} | ${pilot2.exact}→${pilot3.exact} | ${pilot2.sourceSpecific}→${pilot3.sourceSpecific} | ${pilot2.image}→${pilot3.image} | ${pilot2.pages}→${pilot3.pages} | ${pilot2.usefulPages}→${pilot3.usefulPages} | ${pilot2.imagesInspected}→${pilot3.imagesInspected} | ${pilot2.confirmedClaims}→${pilot3.confirmedClaims} | ${pilot2.candidateClaims}→${pilot3.candidateClaims} | $${pilot2.cost.toFixed(6)}→$${pilot3.cost.toFixed(6)} | ${reason} |`;
+  });
+  await writeFile(path.join(pilot3Root, "comparison-pilot2-vs-pilot3.md"), [
+    "# Pilot 2 vs Pilot 3",
+    "",
+    header,
+    divider,
+    ...lines,
+    "",
+    "Pilot 3 is a fresh semantic run. Pilot 1/2 artifacts were used only for root-cause analysis and comparison, never as an answer source.",
+    "",
+  ].join("\n"), "utf8");
+}
+
 async function main(): Promise<void> {
   await loadResearchEnvironment();
   const args = parseArgs(process.argv.slice(2));
-  const pilotRoot = path.join(researchArtifactRoot(), "pilot-assassins-creed-v2");
-  await writePilotBaseline(pilotRoot);
+  const pilotRoot = path.join(researchArtifactRoot(), `pilot-assassins-creed-${args.version}`);
+  if (args.version === "v2") await writePilotBaseline(pilotRoot);
   if (!args.reportOnly) {
     assertResearchEngineEnabled();
     const capabilities = researchRuntimeCapabilities();
@@ -643,7 +771,7 @@ async function main(): Promise<void> {
       return;
     }
     const store = new ResearchRunStore();
-    const preflight = await runPreflight(pilotRoot, store);
+    const preflight = await runPreflight(pilotRoot, store, args.version);
     if (preflight.status !== "READY") {
       await writeFile(path.join(pilotRoot, "closure.md"), "# Assassin's Creed research pilot 2\n\n- Status: PRECHECK BLOCKED\n- Blocker: Brave, browser, vision or storage preflight is not READY.\n- Google Custom Search: non-blocking\n- SerpAPI: non-blocking\n- Pilot cases started: 0\n- Catalog mutations: 0\n- Retrieval pass: not achieved\n- Functional validation: not run\n", "utf8");
       await writeJson(path.join(pilotRoot, "before-after-comparison.json"), {
@@ -668,10 +796,12 @@ async function main(): Promise<void> {
         remainingTokens: numericEnv("RESEARCH_PILOT_MAX_TOKENS", 60_000),
         remainingUsd: numericEnv("RESEARCH_PILOT_MAX_COST_USD", 0.20),
       };
-      await runCase(definition, pilotRoot, store, pilotBudget);
+      await runCase(definition, pilotRoot, store, pilotBudget, args.version);
     }
   }
-  console.log(JSON.stringify(await writeClosure(pilotRoot), null, 2));
+  const closure = await writeClosure(pilotRoot, args.version);
+  if (args.version === "v3") await writePilot3Comparison(pilotRoot);
+  console.log(JSON.stringify(closure, null, 2));
 }
 
 void main().catch((error) => {

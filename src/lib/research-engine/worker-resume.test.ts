@@ -51,7 +51,7 @@ class SearchMock implements ResearchSearchProviderV2 {
     this.requests.push(request.query);
     this.calls += 1;
     return [{
-      title: "Exact N64 box record",
+      title: "Test Adventure exact N64 box record",
       url: `https://www.nintendo64ever.com/${this.prefix}-${this.calls}`,
       snippet: "Component codes for Test Adventure",
       host: "www.nintendo64ever.com",
@@ -92,10 +92,10 @@ const llmProvider: ResearchLlmProvider = {
   async extract() {
     return {
       claims: [{ field: "BOX_CODE" as const, value: "NUS-P-TEST-EUR", confidence: 0.9, excerpt: "Box code NUS-P-TEST-EUR", component: "BOX_FLAPS" as const }],
-      identifiers: [{ type: "PRODUCT_CODE", value: "NUS-TEST-EUR", component: "CART_FRONT" as const }],
+      identifiers: [],
       observedSubject: { title: "Test Adventure", platform: "n64", edition: "Standard", variant: null },
       nextAction: "REPLAN",
-      reasoningSummary: "A cartridge identifier enables the component-specific N64 playbook.",
+      reasoningSummary: "A candidate box-code claim must become an exact-identifier verification route.",
       usage: modelUsage,
     };
   },
@@ -105,7 +105,7 @@ const llmProvider: ResearchLlmProvider = {
   },
 };
 
-test("worker dynamically replans after a new identifier and resume skips prior queries", async () => {
+test("worker turns a candidate identifier claim into exact verification and resume skips prior queries", async () => {
   const directory = await mkdtemp(path.join(tmpdir(), "regionatlas-worker-resume-"));
   try {
     const store = new ResearchRunStore(directory);
@@ -133,7 +133,7 @@ test("worker dynamically replans after a new identifier and resume skips prior q
       resumeState: state,
     });
     assert.equal(firstSearch.requests.length, 1);
-    assert.ok(first.state.identifiersSeen.some((identifier) => identifier.type === "PRODUCT_CODE" && identifier.value === "NUS-TEST-EUR"));
+    assert.ok(first.state.identifiersSeen.some((identifier) => identifier.type === "BOX_CODE" && identifier.value === "NUS-P-TEST-EUR"));
     assert.ok(first.routerPlans.length >= 1);
     assert.ok(first.state.normalizedQueries.length === 1);
     assert.equal(first.pages.length, 1);
@@ -147,11 +147,11 @@ test("worker dynamically replans after a new identifier and resume skips prior q
       resumeState: first.state,
     });
     assert.equal(resumedSearch.requests.length, 1);
-    assert.ok(resumedSearch.requests[0].includes("NUS-TEST-EUR"));
+    assert.ok(resumedSearch.requests[0].includes("NUS-P-TEST-EUR"));
     assert.equal(resumed.state.normalizedQueries.length, 2);
     assert.equal(new Set(resumed.state.normalizedQueries).size, 2);
     assert.equal(resumed.pages.length, 2);
-    assert.ok(resumed.routerPlans.some((plan) => plan.selectedPlaybook.id === "N64_CART_KNOWN_BOX_UNKNOWN"));
+    assert.ok(resumed.routerPlans.some((plan) => plan.queryPlan[0]?.strategy === "EXACT_IDENTIFIER"));
     assert.equal(resumed.providerUsage["mock-search"], 2);
     assert.ok((await store.readState("resume-test-run"))?.queriesAttempted.length === 2);
     assert.ok(await store.readArtifact("resume-test-run", "catalog-context.json", () => null));

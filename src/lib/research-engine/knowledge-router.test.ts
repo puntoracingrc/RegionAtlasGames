@@ -126,11 +126,63 @@ test("router keeps component-code research available after a barcode is discover
   const boxPlan = routeResearch(withBarcode);
   assert.equal(boxPlan.selectedPlaybook.id, "MISSING_BOX_CODE");
   assert.ok(boxPlan.queryPlan.some((query) => query.query.includes("3307211667372")));
-  assert.notEqual(boxPlan.queryPlan[0]?.sourceId, null);
+  assert.equal(boxPlan.queryPlan[0]?.strategy, "EXACT_IDENTIFIER");
+  assert.equal(boxPlan.queryPlan[0]?.identifierValue, "3307211667372");
 
   const productPlan = routeResearch(routerInput(knowledge, context, "PRODUCT_CODE"));
   assert.equal(productPlan.selectedPlaybook.id, "MISSING_PRODUCT_CODE");
   assert.ok(productPlan.imagePlan.some((row) => row.component === "CART_FRONT"));
+});
+
+test("router chases every candidate identifier before generic discovery", async () => {
+  const knowledge = await loadResearchKnowledge({ platformSlug: "xbox360" });
+  const context = {
+    ...buildResearchCatalogContext(subject("xbox360")),
+    title: "Assassin's Creed Brotherhood + Revelations Double Pack",
+    edition: "Double Pack",
+  };
+  const input = routerInput(knowledge, context, "OUTER_INNER_RELATION");
+  input.knownIdentifiers = ["1111111111116", "2222222222222", "3333333333338", "4444444444444"]
+    .map((value) => ({ type: "BARCODE", value }));
+  const plan = routeResearch(input);
+  assert.equal(plan.selectedPlaybook.id, "DOUBLE_PACK_COMPONENTS");
+  assert.deepEqual(plan.queryPlan.slice(0, 4).map((row) => row.identifierValue), input.knownIdentifiers.map((row) => row.value));
+  assert.ok(plan.queryPlan.slice(0, 8).every((row) => row.strategy === "EXACT_IDENTIFIER"));
+  assert.equal(plan.sourcePlan[0]?.sourceId, "dbox");
+});
+
+test("collector routing removes pending placeholders and searches the exact edition first", async () => {
+  const knowledge = await loadResearchKnowledge({ platformSlug: "wiiu" });
+  const context = {
+    ...buildResearchCatalogContext(subject("wiiu")),
+    title: "Assassin's Creed IV: Black Flag",
+    edition: "Skull Edition · España · barcode pendiente",
+  };
+  const plan = routeResearch(routerInput(knowledge, context, "BARCODE"));
+  assert.equal(plan.selectedPlaybook.id, "COLLECTOR_EDITION_FIRST");
+  assert.match(plan.queryPlan[0]?.query ?? "", /Skull Edition/);
+  assert.ok(plan.queryPlan.every((row) => !/barcode pendiente/i.test(row.query)));
+});
+
+test("target capabilities keep guarded prose away from Nintendo product-code proof", async () => {
+  const knowledge = await loadResearchKnowledge({ platformSlug: "ds" });
+  const plan = routeResearch(routerInput(knowledge, buildResearchCatalogContext(subject("ds")), "PRODUCT_CODE"));
+  assert.equal(plan.sourcePlan.find((source) => source.sourceId === "gamefaqs-guarded")?.capabilityScore, 0);
+  assert.equal(plan.sourcePlan.find((source) => source.sourceId === "dbox")?.capabilityScore, 88);
+});
+
+test("runtime knowledge does not contain pilot answer values", async () => {
+  const files = [
+    "data/research-engine/knowledge/franchises/assassins-creed.json",
+    "data/research-engine/knowledge/sources.json",
+    "data/research-engine/knowledge/source-capabilities.json",
+    "data/research-engine/knowledge/query-templates.json",
+    "data/research-engine/knowledge/playbooks/general.json",
+  ];
+  const text = (await Promise.all(files.map((file) => readFile(file, "utf8")))).join("\n");
+  for (const forbidden of ["3307211667426", "3307215706091", "3307215689271", "3307215689165", "3307215693865", "3307215673393"]) {
+    assert.equal(text.includes(forbidden), false, `${forbidden} leaked into runtime knowledge`);
+  }
 });
 
 test("router selects serial and own-scan paths deterministically", async () => {
