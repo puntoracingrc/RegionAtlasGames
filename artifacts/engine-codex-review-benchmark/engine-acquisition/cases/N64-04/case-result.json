@@ -1,0 +1,324 @@
+{
+  "caseId": "N64-04",
+  "platform": "n64",
+  "subjectTitle": "Shadow Man",
+  "sourcePhotos": 1,
+  "preservedPhotos": 1,
+  "originalResolutionPhotos": 1,
+  "photosClassified": 4,
+  "photosInspectedHighDetail": 3,
+  "subjectAcceptedImages": 3,
+  "componentClassifiedImages": 3,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": false,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": true,
+      "CARTRIDGE_BACK": false,
+      "DISC": false,
+      "MANUAL_FRONT": true,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1,
+      1,
+      1
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": [
+      1
+    ]
+  },
+  "componentsFound": [
+    "CARTRIDGE_FRONT",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CARTRIDGE_BACK",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 1,
+  "marketBoundObservations": 1,
+  "diagnosis": "MARKET_BINDING_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 1,
+  "marketFollowupCalls": 1,
+  "openAiCalls": 3,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 3062,
+      "completion_tokens": 235,
+      "total_tokens": 3297,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 37001,
+      "completion_tokens": 140,
+      "total_tokens": 37141,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 37011,
+      "completion_tokens": 108,
+      "total_tokens": 37119,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.0118509,
+  "item": {
+    "id": "listing-evidence-v2-n64-04",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "n64",
+    "targetRegion": "PAL Europa",
+    "detectedRegion": null,
+    "catalogId": "n64-shadow-man",
+    "candidateCatalogId": "n64-shadow-man",
+    "listingTitle": "Shadow Man,Nintendo 64.Completo!!",
+    "priceEur": 96.75,
+    "condition": "complete",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T18:56:33Z",
+    "evidence": {
+      "externalId": "v1|326822603505|0",
+      "url": "https://www.ebay.es/itm/326822603505",
+      "description": "MIRAR FOTOS Y ESTADO AL LADO DE ELLAS,O CONSULTAR DUDAS. ACEPTABLE: artículo con signos evidentes de uso pero que sigue funcionando. La caja de la cinta VHS o del DVD puede tener agujeros o estar rajada.",
+      "imageUrl": "https://i.ebayimg.com/images/g/1tcAAeSwjK9o8pPP/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/1tcAAeSwjK9o8pPP/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|326822603505|0",
+        "legacyItemId": "326822603505",
+        "capturedAt": "2026-09-16T18:56:33Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "Shadow Man,Nintendo 64.Completo!!",
+          "shortDescription": "MIRAR FOTOS Y ESTADO AL LADO DE ELLAS,O CONSULTAR DUDAS. ACEPTABLE: artículo con signos evidentes de uso pero que sigue funcionando. La caja de la cinta VHS o del DVD puede tener agujeros o estar rajada.",
+          "description": "<div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1663248510\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{3}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun Highlight SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; outline: transparent solid 1px; font-variant: normal; color: rgb(95, 20, 103); background-color: rgb(255, 255, 0); font-size: 14pt; line-height: 25.575px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">-MIRAR FOTOS Y ESTADO AL LADO DE ELLAS,O CONSULTAR DUDAS.&nbsp;</span></span></p><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1663248510\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{3}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun Highlight SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; outline: transparent solid 1px; font-variant: normal; color: rgb(95, 20, 103); background-color: rgb(255, 255, 0); font-size: 14pt; line-height: 25.575px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">-INCLUYE:&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">COMO</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;EN FOTO/S.</span></span></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"363137586\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{6}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><br></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"776070288\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{8}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; color: rgb(95, 20, 103); font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">*</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">ATENCION!</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;COMO NORMA&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">GENERAL, EN</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;ARTICULOS DE HASTA 20&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">EUROS, SE</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;ACEPTA LA OPCION DE ENVIO&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">ORDINARIO, NO</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;OBSTANTE, ESTA OPCION NO LLEVA SEGUIMIENTO NI SEGURO DE NINGUN TIPO Y CORRE BAJO LA RESPONSABILIDAD DEL&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">COMPRADOR. PARA</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;MAYOR SEGURIDAD ELEGIR OPCION CERTIFICADO A LA HORA DEL PAGO O PONERSE EN CONTACTO.&nbsp;</span></span></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1954054586\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{10}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><br></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"2056169616\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{12}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; color: rgb(95, 20, 103); font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">A CONTINUACION SE DETALLA LA DEFINICION DE&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">EBAY, CORRESPONDIENTE</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;A LOS ARTICULOS DE ESTADO&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">ACEPTABLE,&nbsp;A</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;TENER EN CUENTA PARA LA COMPRA DE DICHOS ARTICULOS.</span></span><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\">&nbsp;</span><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; font-style: italic; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\">ACEPTABLE:</span><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; font-style: italic; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\">&nbsp;</span><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">artículo con signos evidentes de uso pero que sigue funcionando. La caja de la cinta VHS o del DVD puede tener agujeros o estar rajada.&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">Es posible que no se incluyan ni la caja ni las instrucciones del videojuego.</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;Consulta el anuncio del vendedor para obtener más información y la descripción de cualquier posible imperfección.</span></span></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1938773500\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{14}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><br></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1565748665\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{16}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">¡¡VISITA TAMBIEN NUESTRA WEB PARTICULAR!!</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;</span></span><a class=\"Hyperlink SCXW170946640 BCX0\" href=\"https://www.consolacoleccion.es/\" target=\"_blank\" rel=\"noreferrer noopener\" style=\"cursor: pointer; -webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; text-decoration: none;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun Underlined SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; color: rgb(119, 32, 109); font-size: 12pt; text-decoration: underline; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" data-ccp-charstyle=\"Hyperlink\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">www.consolacoleccion.es</span></span></a></p></div>",
+          "condition": "En buen estado",
+          "conditionId": "5000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/326822603505",
+          "itemLocation": {
+            "city": "alicante",
+            "stateOrProvince": "Comunidad Valenciana",
+            "postalCode": "03***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "consolacoleccion2013",
+            "feedbackPercentage": "99.1",
+            "feedbackScore": 1083
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "Nombre del videojuego": [
+              "Shadow Man"
+            ],
+            "Plataforma": [
+              "Nintendo 64"
+            ],
+            "Editor": [
+              "Nintendo"
+            ],
+            "País de origen": [
+              "Japón"
+            ]
+          },
+          "price": {
+            "value": 96.75,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: cartas certificadas",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "8.65",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-25T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "8.50",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 0,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": null,
+          "brand": null,
+          "mpn": null,
+          "epid": null
+        },
+        "imagesAvailableFromSource": 1,
+        "imagesPreserved": 1,
+        "images": [
+          {
+            "listingId": "v1|326822603505|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/1tcAAeSwjK9o8pPP/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/1tcAAeSwjK9o8pPP/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/1tcAAeSwjK9o8pPP/s-l1600.jpg",
+            "contentHash": "56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a",
+            "width": 1600,
+            "height": 1088,
+            "byteLength": 324790,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/N64-04/56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-b89f5fb915fdbc27",
+          "listingId": "v1|326822603505|0",
+          "imageIndex": 1,
+          "contentHash": "56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a",
+          "component": "UNKNOWN_COMPONENT",
+          "subject": "UNKNOWN",
+          "title": "SHADOW MAN",
+          "platform": "N64",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [
+            "Acclaim"
+          ],
+          "publisherLegalText": [],
+          "visibleText": [
+            "INSTRUCTION BOOKLET",
+            "AKLAIM",
+            "NINTENDO 64",
+            "SHADOW MAN",
+            "PAL VERSION",
+            "ACCLAIM",
+            "Instruction Booklet"
+          ],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "unknown_component",
+          "textSnippets": [
+            "INSTRUCTION BOOKLET",
+            "AKLAIM",
+            "NINTENDO 64",
+            "SHADOW MAN",
+            "PAL VERSION",
+            "ACCLAIM",
+            "Instruction Booklet"
+          ]
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": [
+          "required visible media and package components present"
+        ]
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "n64-shadow-man",
+      "catalogTitle": "Shadow Man",
+      "matchAlternatives": [
+        {
+          "catalogId": "n64-shadow-man",
+          "region": "PAL Europa",
+          "title": "Shadow Man",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "n64-usa-shadow-man",
+          "region": "USA",
+          "title": "Shadow Man",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": true
+    }
+  }
+}

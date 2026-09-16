@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS5-04",
+  "game": "Hogwarts Legacy",
+  "platform": "ps5",
+  "listingId": "v1|195420885212|0",
+  "reviewedEngineResultHash": "4e114b987ed6f820f8ff9b3dca166bb68f937251beba5c0658d419c2d32b8dc0",
+  "engineFileHashAtReview": "9afa97e89a5793a59fac64ac1a1727acd3e26233beb5f178341bc6a0f501fcd3",
+  "codexDecision": "DEFER",
+  "codexConfidence": 1,
+  "resolvedCatalogId": null,
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-3833d060e7e223ff",
+      "claim": {
+        "text": [],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|195420885212|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-9c9e83b9eb886ff94b4fedd7",
+      "claim": "PLATAFORMA: Nintendo Switch Playstation 4 Playstation 5 Xbox One Xbox Series X",
+      "source": "national-retailer",
+      "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-b441710f6c153ae1385cc203",
+      "claim": "Hogwarts Legacy Standard. PLAYSTATION 5: GAME.es Tiendas GAME",
+      "source": "national-retailer",
+      "sourceUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-d04c67fd84643fb29596feb5",
+      "claim": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+      "source": "candidate:play-e.com",
+      "sourceUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "engineAlreadyKnew": [
+    "listing-obs-3833d060e7e223ff",
+    "ev-9c9e83b9eb886ff94b4fedd7",
+    "ev-b441710f6c153ae1385cc203",
+    "ev-d04c67fd84643fb29596feb5"
+  ],
+  "codexNewEvidence": [],
+  "codexNewSources": [],
+  "codexNewIdentifiers": [],
+  "codexNewImages": [],
+  "codexNewRelationships": [],
+  "queriesExecuted": [],
+  "repeatedEngineRoutes": [],
+  "remainingEvidenceGaps": [
+    "NO_EXACT_IDENTIFIER",
+    "LISTING_BOUND_MARKET_PROOF",
+    "LISTING_BOUND_SEAL_PROOF",
+    "BACK_OR_DISC_PHOTO"
+  ],
+  "reason": "The selected listing exposes no exact EAN/PPSA and only a front image. Seller claims of PAL Spain and sealed condition cannot safely bind market or condition.",
+  "whatChangedTheDecision": "No non-repeated exact route was available after the Engine handoff; the original gaps remain.",
+  "discoveryAttribution": "UNRESOLVED",
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0,
+    "pricingBasis": "Codex integrated web/reasoning was not billed to the repository's Brave or OpenAI API accounts."
+  },
+  "frozenAt": "2026-09-16T19:09:56.136Z",
+  "codexResultImmutable": true,
+  "codexResultHash": "e5a51e3dd7b3471ab432180401b078cd3595bd0a9b44e5d24123f3ad17046817"
+}

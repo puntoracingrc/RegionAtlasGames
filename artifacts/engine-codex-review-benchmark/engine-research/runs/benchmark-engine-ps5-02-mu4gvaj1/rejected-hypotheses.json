@@ -1,0 +1,22 @@
+[
+  {
+    "value": "https://www.ebay.es/itm/336641149498",
+    "reason": "Error RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.ebay.com/shop/dogma-2?_nkw=dogma+2",
+    "reason": "RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.ebay.com/itm/387433111624",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/itm/193340838641",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/itm/116074151536",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  }
+]

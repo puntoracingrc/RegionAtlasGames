@@ -1,0 +1,29 @@
+[
+  {
+    "listingId": "v1|257009348037|0",
+    "imageIndex": 1,
+    "contentHash": "98c22fccf8a4efa337aecd57925369fe7dc5e082977391c96317fa3d9327c2a1",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front cover of the game packaging."
+  },
+  {
+    "listingId": "v1|257009348037|0",
+    "imageIndex": 2,
+    "contentHash": "d3564e7869534c4025cfdabf709e93e5696d3353315c35ae37fb1765137d8363",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot, not related to the physical item."
+  },
+  {
+    "listingId": "v1|257009348037|0",
+    "imageIndex": 3,
+    "contentHash": "9392abae50d9851021146b36f8997d6796bfb318f29580b3fa38dbe643302cf6",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot, not related to the physical item."
+  }
+]

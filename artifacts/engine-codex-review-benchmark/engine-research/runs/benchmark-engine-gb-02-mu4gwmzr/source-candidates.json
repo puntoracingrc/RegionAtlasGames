@@ -1,0 +1,22 @@
+[
+  {
+    "host": "www.retroplace.com",
+    "sampleUrls": [
+      "https://www.retroplace.com/es/juegos/32987--nail-n-scale"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "www.icollecteverything.com",
+    "sampleUrls": [
+      "https://www.icollecteverything.com/db/items/videogame/2118/"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

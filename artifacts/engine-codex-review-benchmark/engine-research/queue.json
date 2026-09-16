@@ -1,0 +1,138 @@
+[
+  {
+    "id": "benchmark-engine-3ea328c0e7b2ee1f0e4dff9f",
+    "subjectId": "benchmark:listing-evidence-v2-ps4-02",
+    "targetField": "MARKET_REGION",
+    "question": "Resolve MARKET_REGION for the exact ps4 standard physical product Soul Hackers 2; compare regional siblings and do not infer a country from language, rating or seller location.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T19:00:29.393Z",
+    "updatedAt": "2026-09-16T19:00:41.700Z"
+  },
+  {
+    "id": "benchmark-engine-ef84a0bfd565ecd90c248fd6",
+    "subjectId": "benchmark:listing-evidence-v2-ps4-04",
+    "targetField": "MARKET_REGION",
+    "question": "Resolve MARKET_REGION for the exact ps4 standard physical product Code Vein; compare regional siblings and do not infer a country from language, rating or seller location.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T19:00:29.393Z",
+    "updatedAt": "2026-09-16T19:00:57.283Z"
+  },
+  {
+    "id": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-01",
+    "targetField": "MARKET_REGION",
+    "question": "Resolve MARKET_REGION for the exact ps5 standard physical product Demon's Souls; compare regional siblings and do not infer a country from language, rating or seller location.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T19:00:29.393Z",
+    "updatedAt": "2026-09-16T19:01:18.711Z"
+  },
+  {
+    "id": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-02",
+    "targetField": "MARKET_REGION",
+    "question": "Resolve MARKET_REGION for the exact ps5 standard physical product Dragon's Dogma 2; compare regional siblings and do not infer a country from language, rating or seller location.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T19:00:29.393Z",
+    "updatedAt": "2026-09-16T19:01:35.457Z"
+  },
+  {
+    "id": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-03",
+    "targetField": "MARKET_REGION",
+    "question": "Resolve MARKET_REGION for the exact ps5 standard physical product Final Fantasy XVI; compare regional siblings and do not infer a country from language, rating or seller location.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T19:00:29.393Z",
+    "updatedAt": "2026-09-16T19:01:50.916Z"
+  },
+  {
+    "id": "benchmark-engine-65423cc4df0f8ce75b68623d",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-04",
+    "targetField": "MARKET_REGION",
+    "question": "Resolve MARKET_REGION for the exact ps5 standard physical product Hogwarts Legacy; compare regional siblings and do not infer a country from language, rating or seller location.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T19:00:29.393Z",
+    "updatedAt": "2026-09-16T19:02:08.269Z"
+  },
+  {
+    "id": "benchmark-engine-d8fc4b19573afb4f51a95ecd",
+    "subjectId": "benchmark:listing-evidence-v2-gb-01",
+    "targetField": "MARKET_REGION",
+    "question": "Research the exact physical family for Lock 'n' Chase; preserve box, cartridge and manual codes separately and identify regional-title relationships.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T19:00:29.393Z",
+    "updatedAt": "2026-09-16T19:02:21.529Z"
+  },
+  {
+    "id": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+    "subjectId": "benchmark:listing-evidence-v2-gb-02",
+    "targetField": "MARKET_REGION",
+    "question": "Research the exact physical family for Nail 'n' Scale; preserve box, cartridge and manual codes separately and identify regional-title relationships.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T19:00:29.393Z",
+    "updatedAt": "2026-09-16T19:02:38.386Z"
+  }
+]

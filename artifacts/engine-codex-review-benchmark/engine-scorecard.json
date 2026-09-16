@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "gitSha": "cc46b050b07e7ad3522ba8b233a8e7f9b4154752",
+  "selectionFreezeHash": "ed83fda90b810f014523b86055b2617a072eff78e51be579baa8f7232ea57454",
+  "totalSelectedGames": 16,
+  "usableCases": 9,
+  "unavailableCases": 7,
+  "engineDecided": 1,
+  "reviewRequired": 8,
+  "decisions": {
+    "ACCEPT_EXISTING": 0,
+    "REROUTE_EXISTING": 0,
+    "REJECT": 1,
+    "PROPOSE_NEW_VARIANT": 0,
+    "REVIEW_REQUIRED": 8
+  },
+  "costs": {
+    "acquisitionAiUsd": 0.11892284999999998,
+    "retrievalUsd": 0.36,
+    "researchAiUsd": 0.005358000000000006,
+    "totalUsd": 0.48428085
+  },
+  "mutations": {
+    "catalog": 0,
+    "prices": 0,
+    "authoritativeQueue": 0,
+    "publicAssets": 0
+  },
+  "cases": [
+    {
+      "caseId": "PS4-01",
+      "game": "Fobia: St. Dinfna Hotel",
+      "platform": "ps4",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "engineDecision": null,
+      "engineResultHash": null,
+      "cost": null
+    },
+    {
+      "caseId": "PS4-02",
+      "game": "Soul Hackers 2",
+      "platform": "ps4",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResultHash": "96ce12fd15bd9b9c9fe89f38cc3211d88c097e44ca89d65884ba7ca535d96c89",
+      "cost": {
+        "retrievalUsd": 0.04,
+        "aiUsd": 0.0053668499999999985,
+        "totalUsd": 0.04536685,
+        "braveWeb": 8,
+        "braveImages": 0,
+        "acquisitionAiCalls": 2,
+        "researchAiCalls": 1
+      }
+    },
+    {
+      "caseId": "PS4-03",
+      "game": "Atelier Firis: The Alchemist and the Mysterious Journey",
+      "platform": "ps4",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "engineDecision": null,
+      "engineResultHash": null,
+      "cost": null
+    },
+    {
+      "caseId": "PS4-04",
+      "game": "Code Vein",
+      "platform": "ps4",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResultHash": "61255a9b913e446f7aadf76ac5ef814f6f1de57582119a128215f222274a721a",
+      "cost": {
+        "retrievalUsd": 0.05,
+        "aiUsd": 0.005140550000000001,
+        "totalUsd": 0.05514055,
+        "braveWeb": 10,
+        "braveImages": 0,
+        "acquisitionAiCalls": 2,
+        "researchAiCalls": 3
+      }
+    },
+    {
+      "caseId": "PS5-01",
+      "game": "Demon's Souls",
+      "platform": "ps5",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResultHash": "5bc8577ef9e7f71246c62df3d780fd592d1893d057a939be64869c42ef1b566a",
+      "cost": {
+        "retrievalUsd": 0.04,
+        "aiUsd": 0.00550155,
+        "totalUsd": 0.04550155,
+        "braveWeb": 8,
+        "braveImages": 0,
+        "acquisitionAiCalls": 2,
+        "researchAiCalls": 4
+      }
+    },
+    {
+      "caseId": "PS5-02",
+      "game": "Dragon's Dogma 2",
+      "platform": "ps5",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResultHash": "77eaabd2e86641d6a527214dd8e34107c018abfe4d34ab6088b98be4551a4f88",
+      "cost": {
+        "retrievalUsd": 0.04,
+        "aiUsd": 0.0050868499999999995,
+        "totalUsd": 0.04508685,
+        "braveWeb": 8,
+        "braveImages": 0,
+        "acquisitionAiCalls": 2,
+        "researchAiCalls": 3
+      }
+    },
+    {
+      "caseId": "PS5-03",
+      "game": "Final Fantasy XVI",
+      "platform": "ps5",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResultHash": "9152cf8ff5e189cc813bd7f97c2776b2c00537c5bcd8d9604d757c18236a955c",
+      "cost": {
+        "retrievalUsd": 0.04,
+        "aiUsd": 0.0052153500000000005,
+        "totalUsd": 0.04521535,
+        "braveWeb": 8,
+        "braveImages": 0,
+        "acquisitionAiCalls": 2,
+        "researchAiCalls": 3
+      }
+    },
+    {
+      "caseId": "PS5-04",
+      "game": "Hogwarts Legacy",
+      "platform": "ps5",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResultHash": "4e114b987ed6f820f8ff9b3dca166bb68f937251beba5c0658d419c2d32b8dc0",
+      "cost": {
+        "retrievalUsd": 0.04,
+        "aiUsd": 0.00558065,
+        "totalUsd": 0.04558065,
+        "braveWeb": 8,
+        "braveImages": 0,
+        "acquisitionAiCalls": 2,
+        "researchAiCalls": 4
+      }
+    },
+    {
+      "caseId": "N64-01",
+      "game": "Holy Magic Century",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_USABLE_LISTING",
+      "engineDecision": null,
+      "engineResultHash": null,
+      "cost": null
+    },
+    {
+      "caseId": "N64-02",
+      "game": "Aidyn Chronicles",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "engineDecision": null,
+      "engineResultHash": null,
+      "cost": null
+    },
+    {
+      "caseId": "N64-03",
+      "game": "Hybrid Heaven",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "engineDecision": null,
+      "engineResultHash": null,
+      "cost": null
+    },
+    {
+      "caseId": "N64-04",
+      "game": "Shadow Man",
+      "platform": "n64",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REJECT",
+      "engineResultHash": "ce31e9329536c98413766b38153384d9d8cc5de101106248c1fdb967e77a65f2",
+      "cost": {
+        "retrievalUsd": 0,
+        "aiUsd": 0.0118509,
+        "totalUsd": 0.0118509,
+        "braveWeb": 0,
+        "braveImages": 0,
+        "acquisitionAiCalls": 3,
+        "researchAiCalls": 0
+      }
+    },
+    {
+      "caseId": "GB-01",
+      "game": "Lock 'n' Chase",
+      "platform": "gameboy",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResultHash": "41c71127a38af6681e349476284ce51dd38a5120fd048b170a535da7b8fe5dbf",
+      "cost": {
+        "retrievalUsd": 0.05,
+        "aiUsd": 0.04626055,
+        "totalUsd": 0.09626055,
+        "braveWeb": 10,
+        "braveImages": 0,
+        "acquisitionAiCalls": 4,
+        "researchAiCalls": 1
+      }
+    },
+    {
+      "caseId": "GB-02",
+      "game": "Nail 'n' Scale",
+      "platform": "gameboy",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResultHash": "ff716394009f4204e74f0acd150b912593e0c7a50055f8cfb5520cb4d69768e4",
+      "cost": {
+        "retrievalUsd": 0.06,
+        "aiUsd": 0.0342776,
+        "totalUsd": 0.09427759999999999,
+        "braveWeb": 12,
+        "braveImages": 0,
+        "acquisitionAiCalls": 3,
+        "researchAiCalls": 2
+      }
+    },
+    {
+      "caseId": "GB-03",
+      "game": "Tumble Pop",
+      "platform": "gameboy",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "engineDecision": null,
+      "engineResultHash": null,
+      "cost": null
+    },
+    {
+      "caseId": "GB-04",
+      "game": "BurgerTime Deluxe",
+      "platform": "gameboy",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "engineDecision": null,
+      "engineResultHash": null,
+      "cost": null
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+    "code": "INTERNAL_ERROR",
+    "detail": "Error RESEARCH_PAGE_TOO_LARGE",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.atlantictraders.es/consolas/25579-consola-sony-ps5-ssd-825gb--final-fantasy-xvi-711719569350.html",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_PAGE_HTTP_404",
+    "recovered": true
+  }
+]

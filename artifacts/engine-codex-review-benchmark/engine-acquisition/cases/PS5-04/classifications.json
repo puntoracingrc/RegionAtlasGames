@@ -1,0 +1,11 @@
+[
+  {
+    "listingId": "v1|195420885212|0",
+    "imageIndex": 1,
+    "contentHash": "dd31b7718fed48291f4cf17a34ebfbb7a9a347986d2849b73640b89c75eb2e9d",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front cover of the game packaging."
+  }
+]

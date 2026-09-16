@@ -1,0 +1,17 @@
+{
+  "id": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+  "subjectId": "benchmark:listing-evidence-v2-ps5-03",
+  "targetField": "MARKET_REGION",
+  "question": "Resolve MARKET_REGION for the exact ps5 standard physical product Final Fantasy XVI; compare regional siblings and do not infer a country from language, rating or seller location.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T19:00:29.393Z",
+  "updatedAt": "2026-09-16T19:00:29.393Z"
+}

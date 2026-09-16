@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS4-02",
+  "game": "Soul Hackers 2",
+  "platform": "ps4",
+  "listingId": "v1|257009348037|0",
+  "reviewedEngineResultHash": "96ce12fd15bd9b9c9fe89f38cc3211d88c097e44ca89d65884ba7ca535d96c89",
+  "engineFileHashAtReview": "a49dde1eb0d3227537d831cca1f676d4e9d8f2118113798db451f81379ad6759",
+  "codexDecision": "DEFER",
+  "codexConfidence": 0.99,
+  "resolvedCatalogId": null,
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-9559750f959daf80",
+      "claim": {
+        "text": [
+          "PS4",
+          "SOUL HACKERS 2",
+          "16",
+          "PS5 Upgrade Available"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/257009348037?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8NsMEbpmBixfJZggIT%2BO7aTJkdw%2BcIfGI0OcP3Rid%2FCZHQ9q8I9mclAjPd9GeDLthcmXE5gau7JZUeKwW7F%2FZTZZKP9vaD09cRE%2BT1TsJcNd2TbFGRhpi42u%2FMJUMwLXccdJJ8n%2B%2B%2Fc%2FgwaBcKgiPLg6bqRwzOkT3mVWTVrbWMoSuOtHRzdM%2BVZDDyQ4KT1Sc%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|257009348037|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps4-02-videooca-ean",
+      "claim": "A Spanish retailer product record maps EAN 5055277046874 to Soul Hackers 2 for PS4; it does not prove the selected listing specimen's packaging market or visible condition.",
+      "source": "videooca",
+      "sourceUrl": "https://tienda.videooca.com/playstation-5/294251-soul-hackers-2-ps4-5055277046874.html",
+      "query": "\"5055277046874\" CUSA Soul Hackers 2 PS4",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:5055277046874"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    }
+  ],
+  "engineAlreadyKnew": [
+    "listing-obs-9559750f959daf80"
+  ],
+  "codexNewEvidence": [
+    "codex-ps4-02-videooca-ean"
+  ],
+  "codexNewSources": [
+    "videooca"
+  ],
+  "codexNewIdentifiers": [
+    "EAN:5055277046874"
+  ],
+  "codexNewImages": [],
+  "codexNewRelationships": [
+    "EAN 5055277046874 -> Soul Hackers 2 PS4 retail product record"
+  ],
+  "queriesExecuted": [
+    "\"5055277046874\" CUSA Soul Hackers 2 PS4"
+  ],
+  "repeatedEngineRoutes": [],
+  "remainingEvidenceGaps": [
+    "LISTING_BOUND_MARKET_PROOF",
+    "LISTING_BOUND_CONDITION_PROOF",
+    "BACK_OR_DISC_PHOTO"
+  ],
+  "reason": "The exact EAN improves product-family identity, but the selected listing still lacks listing-bound back, disc, or seal evidence. Seller country/title is not market or condition proof.",
+  "whatChangedTheDecision": "Nothing safely closed the handoff gaps; exact-identifier research narrowed the family but could not bind market and condition to this specimen.",
+  "discoveryAttribution": "UNRESOLVED",
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0,
+    "pricingBasis": "Codex integrated web/reasoning was not billed to the repository's Brave or OpenAI API accounts."
+  },
+  "frozenAt": "2026-09-16T19:09:56.120Z",
+  "codexResultImmutable": true,
+  "codexResultHash": "b9dbd47ba867a56248dcffb1db1532a3e5f1c47dffbf6e9d57f790e643d89c44"
+}

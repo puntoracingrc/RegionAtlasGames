@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-8a313a5d6d4b5155cfb23147",
+    "runId": "benchmark-engine-gb-01-mu4gwcrt",
+    "taskId": "benchmark-engine-d8fc4b19573afb4f51a95ecd",
+    "sourceId": "candidate:bitlabelz.com",
+    "sourceUrl": "https://bitlabelz.com/en/game-boy-labels/93-lock-n-chase-game-boy-label-dmg-lca-.html",
+    "canonicalUrl": "https://bitlabelz.com/en/game-boy-labels/93-lock-n-chase-game-boy-label-dmg-lca-.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "bitlabelz.com",
+    "fetchedAt": "2026-09-16T19:02:12.249Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "This version is specifically marked for PAL Europa distribution.",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "c2fb3f7a45016d0b4f15c54bb558d7ae887b3747898d98d49c5ce981be382f7d",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

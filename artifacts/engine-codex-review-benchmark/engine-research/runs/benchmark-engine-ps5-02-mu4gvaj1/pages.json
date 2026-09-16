@@ -1,0 +1,1399 @@
+[
+  {
+    "requestedUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+    "canonicalUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+    "status": 200,
+    "title": "Dragon's Dogma 2",
+    "language": "es",
+    "contentType": "text/html",
+    "bytes": 601809,
+    "fetchedAt": "2026-09-16T19:01:26.317Z",
+    "textHash": "d4f4ffcc5895d454ddeeb66bd703bbcbcecceb6c4eeceff6121a58543de43713",
+    "excerpt": "Dragon's Dogma 2 Tienda Tienda Comprar juegos Suscribirse a PS Plus PS5 PS5 Consola Reproductor remoto PlayStation Portal Juegos Controles Audio Juegos Juegos PS5 PS4 PS VR2 PC PS Plus PS Plus PS Plus Suscríbete Novedades Todos los juegos Accesorios Accesorios Controles de PS5 Reproductor remoto PlayStation Portal PS VR2 Audio Todos los accesorios Noticias Noticias PS Blog Este mes en PlayStation Asistencia Asistencia Asistencia Estado del servicio Buscar Más reciente Colecciones Ofertas Suscripciones Explorar Dragon's Dogma 2 Capcom U.S.A., Inc. PS5 Standard Edition Mejorado para PS5 Pro Calificación promedio: 4.07 estrellas de cinco estrellas en un total de 44 mil calificaciones 4.07 44 mil calificaciones US$39.99 Agregar al carrito Agregar al carrito Compras dentro del juego opcionales Juego online opcional 1 jugador 1 jugador online Compatible con el Uso a distancia Versión para PS5 Compatible con la función de vibración y el efecto de gatillo (control inalámbrico DualSense) Mejorado para PS5 Pro Compatible con Ayuda de juego Ver todos Derramamiento de sangre, Lenguaje, Temas sexuales, Violencia Compras dentro del juego, Los usuarios interactúan Compras dentro del juego opcionales Juego online opcional 1 jugador 1 jugador online Compatible con el Uso a distancia Versión para PS5 Compatible con la función de vibración y el efecto de gatillo (control inalámbrico DualSense) Mejorado para PS5 Pro Compatible con Ayuda de juego Ver todos Ediciones: Standard Edition Standard Edition Dragon's Dogma 2 US$39.99 Agregar al carrito Agregar al carrito Dark Arisen Dark Arisen Dragon's Dogma 2 Dark Arisen Expansion Equipo para acampar de explorador Sonidos personaliz. de Dragon's Dogma Set de moda de Norgan US$49.99 Reservar Reservar Dragon's Dogma 2 Creación y almacenamiento de personajes Dragon's Dogma 2 Creación y almacenamiento de personajes Gratuito Demo Agregar a la biblioteca Agregar a la biblioteca Complementos Dragon's Dogma 2: Colección de música y sonidos de Dragon'",
+    "linkCount": 57,
+    "imageCount": 83,
+    "imageCandidates": [
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png?thumb=true&w=54",
+        "alt": "ESRB Mature 17+",
+        "caption": null,
+        "galleryLabel": "ESRB Mature 17+",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png",
+        "thumbnailUrl": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png",
+        "canonicalUrl": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png",
+        "alt": "ESRB Mature 17+",
+        "caption": null,
+        "galleryLabel": "ESRB Mature 17+",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg?thumb=true&w=54",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg",
+        "alt": "Dragon",
+        "caption": null,
+        "galleryLabel": "Dragon",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg?thumb=true&w=54",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg?thumb=true&w=54",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png?thumb=true&w=54",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png?thumb=true&w=54",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png?thumb=true&w=54",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png?w=54&thumb=true",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png?w=54&thumb=true",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png?w=54&thumb=true",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png?thumb=true&w=54",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png",
+        "thumbnailUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202311/0203/37bd2f7293cecbc4045d33578d487127ccaa1840eb15eeb5.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/0203/37bd2f7293cecbc4045d33578d487127ccaa1840eb15eeb5.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/0203/37bd2f7293cecbc4045d33578d487127ccaa1840eb15eeb5.png",
+        "alt": "JSON-LD image",
+        "caption": null,
+        "galleryLabel": "JSON-LD image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "json-ld.image",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/5d8055a4ebfd744c03016fc2bb6371ee65d11b6cb532930e.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/5d8055a4ebfd744c03016fc2bb6371ee65d11b6cb532930e.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/5d8055a4ebfd744c03016fc2bb6371ee65d11b6cb532930e.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/2fff756fa904befe46b838dd6f27fa49f6b53d9f3dbbb776.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/2fff756fa904befe46b838dd6f27fa49f6b53d9f3dbbb776.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/2fff756fa904befe46b838dd6f27fa49f6b53d9f3dbbb776.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/9330b03c5196678111759838c9f40ecff6c42653b16c40f9.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/9330b03c5196678111759838c9f40ecff6c42653b16c40f9.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/9330b03c5196678111759838c9f40ecff6c42653b16c40f9.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/41d4bf7a1cbfb99afe0cd2b65aa1d75c11af566a8a3b9017.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/41d4bf7a1cbfb99afe0cd2b65aa1d75c11af566a8a3b9017.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/41d4bf7a1cbfb99afe0cd2b65aa1d75c11af566a8a3b9017.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/916b7de8938fa4ff658296086312a6cc386e5fb8c9d17275.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/916b7de8938fa4ff658296086312a6cc386e5fb8c9d17275.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/916b7de8938fa4ff658296086312a6cc386e5fb8c9d17275.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2205/1976a8c1da9bc0f7d6a68ae24895d256a3d21dfa4d29cbd2.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2205/1976a8c1da9bc0f7d6a68ae24895d256a3d21dfa4d29cbd2.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2205/1976a8c1da9bc0f7d6a68ae24895d256a3d21dfa4d29cbd2.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2706/1050db22334fa0bd770595ffc4c3e40a68de6ffc987211ea.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2706/1050db22334fa0bd770595ffc4c3e40a68de6ffc987211ea.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2706/1050db22334fa0bd770595ffc4c3e40a68de6ffc987211ea.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2205/129b4ad689d30a82328259b88d236e4da139ca3051fe64a1.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2205/129b4ad689d30a82328259b88d236e4da139ca3051fe64a1.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2205/129b4ad689d30a82328259b88d236e4da139ca3051fe64a1.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/c6a449138b48be5e88ec2c7bf483df7b62e063ca22067762.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/c6a449138b48be5e88ec2c7bf483df7b62e063ca22067762.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/c6a449138b48be5e88ec2c7bf483df7b62e063ca22067762.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/3c7a28a8978fdc904105b0684e44eab839281c2992b51aff.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/3c7a28a8978fdc904105b0684e44eab839281c2992b51aff.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/3c7a28a8978fdc904105b0684e44eab839281c2992b51aff.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/ca6f0345d060fe1b624f9697911fc5b9e7854bf9ebb86e32.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/ca6f0345d060fe1b624f9697911fc5b9e7854bf9ebb86e32.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/ca6f0345d060fe1b624f9697911fc5b9e7854bf9ebb86e32.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/d9778a43af00c8b7ce2d6470af1f4dd530f946b738e5ab86.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/d9778a43af00c8b7ce2d6470af1f4dd530f946b738e5ab86.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/d9778a43af00c8b7ce2d6470af1f4dd530f946b738e5ab86.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/da0e17387b186a1f4a9b259b3297c96a2ab4939c44d63042.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/da0e17387b186a1f4a9b259b3297c96a2ab4939c44d63042.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/0700/da0e17387b186a1f4a9b259b3297c96a2ab4939c44d63042.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/312bb1e85fdfb523608cb76b67bf16d7cd601b45cc3b4fc9.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/312bb1e85fdfb523608cb76b67bf16d7cd601b45cc3b4fc9.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/312bb1e85fdfb523608cb76b67bf16d7cd601b45cc3b4fc9.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/bda29a4dc7a570619be6201ba50060a5ee61a5eef2e2498a.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/bda29a4dc7a570619be6201ba50060a5ee61a5eef2e2498a.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/bda29a4dc7a570619be6201ba50060a5ee61a5eef2e2498a.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/716d8ac23dc5d7aef7bdb100303713c490fa29e8c0770684.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/716d8ac23dc5d7aef7bdb100303713c490fa29e8c0770684.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/716d8ac23dc5d7aef7bdb100303713c490fa29e8c0770684.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/e94ba31b2d073d2d8c131b2f132a5835175156b651cc33c5.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/e94ba31b2d073d2d8c131b2f132a5835175156b651cc33c5.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/e94ba31b2d073d2d8c131b2f132a5835175156b651cc33c5.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/511887fe57884453861fcb189d91b4c3cec3a62770642d50.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/511887fe57884453861fcb189d91b4c3cec3a62770642d50.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/511887fe57884453861fcb189d91b4c3cec3a62770642d50.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4b8322371fe28f21f8af734613ea1b4d65c0b0285d3443f0.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4b8322371fe28f21f8af734613ea1b4d65c0b0285d3443f0.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4b8322371fe28f21f8af734613ea1b4d65c0b0285d3443f0.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/2a0b4062ceb638943301e853cbcaeda55c964a810c18262b.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/2a0b4062ceb638943301e853cbcaeda55c964a810c18262b.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/2a0b4062ceb638943301e853cbcaeda55c964a810c18262b.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4ea4b3380b6e57b7e03209189ab11a62963921822b94f4c2.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4ea4b3380b6e57b7e03209189ab11a62963921822b94f4c2.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4ea4b3380b6e57b7e03209189ab11a62963921822b94f4c2.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/d2eff81754f678cc5d0b739350591e6a6905f3dfef827c37.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/d2eff81754f678cc5d0b739350591e6a6905f3dfef827c37.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/d2eff81754f678cc5d0b739350591e6a6905f3dfef827c37.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/5dfba155c5019a0de2edf4cdc44fdb25dc719abf1c010d24.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/5dfba155c5019a0de2edf4cdc44fdb25dc719abf1c010d24.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/5dfba155c5019a0de2edf4cdc44fdb25dc719abf1c010d24.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/a98807e61094aa47a3b2e132cde3c47d0e89ab8f377edb9f.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/a98807e61094aa47a3b2e132cde3c47d0e89ab8f377edb9f.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/a98807e61094aa47a3b2e132cde3c47d0e89ab8f377edb9f.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4b21ace1bbf911cb9c810c6c3006bfa08f5bc754340ab871.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4b21ace1bbf911cb9c810c6c3006bfa08f5bc754340ab871.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/4b21ace1bbf911cb9c810c6c3006bfa08f5bc754340ab871.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/cb828b388e6e3822774cfde4636f7153fc9dd68bbc271057.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/cb828b388e6e3822774cfde4636f7153fc9dd68bbc271057.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/cb828b388e6e3822774cfde4636f7153fc9dd68bbc271057.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/9ae3afc10b8cc1057a3a0e435e534288dcbe96f901ee853b.jpg",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/9ae3afc10b8cc1057a3a0e435e534288dcbe96f901ee853b.jpg",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/9ae3afc10b8cc1057a3a0e435e534288dcbe96f901ee853b.jpg",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/2f72b83944616f297926b77b592b7edd51e2e4954b7a3755.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/2f72b83944616f297926b77b592b7edd51e2e4954b7a3755.png",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/2f72b83944616f297926b77b592b7edd51e2e4954b7a3755.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0502/12dabb58b4695750dc0b2dae2ef962ce7d2a50433c7d9518.png?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/2105/2c1fba13cb71cfe9da928b69912707648e0b46d87fecd3bc.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/b35255499bb8926e5c54b13b04294904be270a980c35142d.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/baabfbfef43c16ce321cc4a3a4754e0e29dfc4b30b7ecbf7.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/287c15a1820492dcedfe1a2116252163bc99d0eb31484103.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/0c9fa7a3b5e6507dd6fddc8b693e8fe97334c9e01b09b62a.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/d13d40d5f1578ccc7ef86982d2ae55a402b87fde7054cd8b.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/15f65967b2092372c3df484a11b5eca9a804cfe09fe62d9f.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/9ae0fab2d46a982bad11ae7e164cd4d164366a1c610f7760.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/148ce7f84bba1dfdf67e65bacfbb58fa7709553779b224dd.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/3007/4dc881e9781552141ab281414f3ede8757af38e864c2dc83.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/grc/images/ratings/4k/esrb/m17.png?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1309/11cc96ad365cb9644d52030ae69d615a651170647ec10bdd.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/35df608fd4184d62fd1f0a87fdc8d619c613ac6cea1f3083.jpg?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2006/e5a810c5d91bc3326480c4d2268cb49fd3e895686f8bccab.png?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202403/1104/02ac6df87e046e7cfeef49d3c03188138d98183b3d8a5b1a.png?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1204/074a49805c6f5cf17758fe6031a1a02cba6fce21218cef41.png?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png?w=54&amp;thumb=true\\",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png?w=54&amp;thumb=true\\",
+        "canonicalUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202402/2708/96477e0b87deb62b148032fbb7696e2c9d09a58012224bc0.png?amp%3Bthumb=true%5C&w=54",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      }
+    ],
+    "mode": "DIRECT_FETCH"
+  },
+  {
+    "requestedUrl": "https://store.playstation.com/en-us/product/UP0102-PPSA09663_00-DELUXEEDITION000",
+    "canonicalUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+    "status": 200,
+    "title": "",
+    "language": "en",
+    "contentType": "text/html",
+    "bytes": 66424,
+    "fetchedAt": "2026-09-16T19:01:29.112Z",
+    "textHash": "2b0785dfb70cfb6f22b8c3b5995c2fd2f15406b7a427a11abd51553abf6367e4",
+    "excerpt": "Store Store Explore hardware Buy consoles Buy accessories Buy games Subscribe to PS Plus Buy merchandise PS5 PS5 PS5 PS5 Pro PlayStation Portal Remote Player Games Controllers Audio Games Games PS5 PS4 PS VR2 PC PS Plus PS Plus PS Plus Subscribe What's New All Games Accessories Accessories PS5 controllers PlayStation Portal Remote Player PS VR2 Audio All accessories News News PS Blog This Month on PlayStation Support Support Support Service Status Search Latest Collections Deals Subscriptions Browse Country / Region: United States Country / Region: United States Support Privacy Policy Do Not Share My Personal Information Website Terms of Use Sitemap PlayStation Studios Legal About SIE PlayStation Terms of Service PS Store Cancellation Policy Health Warnings About Ratings Facebook X YouTube Instagram Android App iOS App © 2026 Sony Interactive Entertainment LLC",
+    "linkCount": 55,
+    "imageCount": 1,
+    "imageCandidates": [
+      {
+        "url": "https://www.esrb.org/wp-content/uploads/2019/08/privacy_certified_globe_registered.svg",
+        "thumbnailUrl": "https://www.esrb.org/wp-content/uploads/2019/08/privacy_certified_globe_registered.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://www.esrb.org/wp-content/uploads/2019/08/privacy_certified_globe_registered.svg",
+        "canonicalUrl": "https://www.esrb.org/wp-content/uploads/2019/08/privacy_certified_globe_registered.svg",
+        "alt": "ESRB",
+        "caption": null,
+        "galleryLabel": "ESRB",
+        "sourcePageUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      }
+    ],
+    "mode": "DIRECT_FETCH"
+  }
+]

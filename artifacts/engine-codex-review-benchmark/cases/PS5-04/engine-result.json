@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS5-04",
+  "game": "Hogwarts Legacy",
+  "platform": "ps5",
+  "listingId": "v1|195420885212|0",
+  "listingUrl": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+  "inputHash": "9135ca885a3e9d0a9edb1d440df6ebec1b7e63455ebc354c2160fcf1fa6bb4d0",
+  "galleryHash": "c85409ab7b1c4f518edbd7e8b62e6ab1c00586902f61f12fdfba96d47d90690f",
+  "knowledgePackHash": "d71cef0865d1e24c4f3b745b0795d90e5b72adf12358c5044ac60fbed4dc3c4c",
+  "evidenceHash": "e3d500f3e4cfb515a10412442eb0723c27482a89c24d2c085be17c94d412f95b",
+  "initialEngineDecision": "REVIEW_REQUIRED",
+  "engineDecision": "REVIEW_REQUIRED",
+  "engineConfidence": 0.5,
+  "searchedCatalogId": "ps5-hogwarts-legacy-standard",
+  "candidateCatalogId": "ps5-hogwarts-legacy-standard",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "unknown",
+    "confidence": 0,
+    "evidence": [],
+    "manualExpected": false,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate"
+  ],
+  "uncertainClaims": [
+    "market_region",
+    "condition"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-3833d060e7e223ff",
+      "claim": {
+        "text": [],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|195420885212|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-9c9e83b9eb886ff94b4fedd7",
+      "claim": "PLATAFORMA: Nintendo Switch Playstation 4 Playstation 5 Xbox One Xbox Series X",
+      "source": "national-retailer",
+      "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-b441710f6c153ae1385cc203",
+      "claim": "Hogwarts Legacy Standard. PLAYSTATION 5: GAME.es Tiendas GAME",
+      "source": "national-retailer",
+      "sourceUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-d04c67fd84643fb29596feb5",
+      "claim": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+      "source": "candidate:play-e.com",
+      "sourceUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "sourcesConsulted": [
+    "national-retailer",
+    "candidate:play-e.com"
+  ],
+  "queriesExecuted": [
+    "site:game.es \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "\"Hogwarts Legacy Standard\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Hogwarts Legacy Standard\" PlayStation 5",
+    "site:ebay.es \"Hogwarts Legacy Standard\" PlayStation 5"
+  ],
+  "listingImagesUsed": [
+    1
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-3833d060e7e223ff",
+      "imageIndex": 1,
+      "component": "OUTER_PACKAGE_FRONT",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_front",
+      "textSnippets": [],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [
+        "PEGI 16"
+      ],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|195420885212|0",
+      "contentHash": "dd31b7718fed48291f4cf17a34ebfbb7a9a347986d2849b73640b89c75eb2e9d"
+    }
+  ],
+  "identifiersFound": [],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF",
+    "MISSING_COMPONENT_PHOTO"
+  ],
+  "reasonForReview": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+  "research": {
+    "targetField": "MARKET_REGION",
+    "status": "PARTIAL",
+    "resolution": {
+      "field": "MARKET_REGION",
+      "status": "PARTIAL",
+      "value": "PAL España",
+      "score": 1.14,
+      "claimIds": [
+        "cl-39ecd93e735d226b0503dd37",
+        "cl-e9e9ce61b77b434cb7d43ff7"
+      ],
+      "sourceIds": [
+        "national-retailer"
+      ],
+      "reason": "A plausible value exists but confirmation threshold is not met."
+    },
+    "error": null,
+    "technicalFailures": [
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "DIRECT_FETCH",
+        "target": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "code": "INTERNAL_ERROR",
+        "detail": "Error RESEARCH_PAGE_TOO_LARGE",
+        "recovered": true
+      },
+      {
+        "operation": "DIRECT_FETCH",
+        "target": "https://www.game.es/hogwarts-legacy-standard-playstation-5-183236",
+        "code": "INTERNAL_ERROR",
+        "detail": "Error RESEARCH_PAGE_TOO_LARGE",
+        "recovered": true
+      }
+    ],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0.04,
+    "aiUsd": 0.00558065,
+    "totalUsd": 0.04558065,
+    "braveWeb": 8,
+    "braveImages": 0,
+    "acquisitionAiCalls": 2,
+    "researchAiCalls": 4
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [
+      "data/research/company-credit-ps4-pal-batch-1-report.json"
+    ],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/company-role-backfill-report.json",
+      "data/game-details.json",
+      "data/index/verified-company-credits.json",
+      "data/provisional-price-seeds/ps4-pal-es-pages-24-26-2026-08-31.json",
+      "data/research/company-credit-ps4-pal-batch-1-report.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:02:08.270Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "4e114b987ed6f820f8ff9b3dca166bb68f937251beba5c0658d419c2d32b8dc0"
+}

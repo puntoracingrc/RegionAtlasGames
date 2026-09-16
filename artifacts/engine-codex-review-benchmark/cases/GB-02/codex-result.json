@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "GB-02",
+  "game": "Nail 'n' Scale",
+  "platform": "gameboy",
+  "listingId": "v1|157686535662|0",
+  "reviewedEngineResultHash": "ff716394009f4204e74f0acd150b912593e0c7a50055f8cfb5520cb4d69768e4",
+  "engineFileHashAtReview": "2a253764b14aaa95a34587ef82babd260ede488b302221f8d9265007b6fa5d89",
+  "codexDecision": "REROUTE_EXISTING",
+  "codexConfidence": 0.99,
+  "resolvedCatalogId": "gameboy-nail-n-scale",
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-3f5968bc7158299b",
+      "claim": {
+        "text": [
+          "Nail 'n' Scale",
+          "GAME BOY",
+          "DATA EAST"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-b4063f81bd2a475b",
+      "claim": {
+        "text": [
+          "TOUGH AS NAILS!",
+          "Nail 'n' Scale",
+          "DATA EAST",
+          "NAIL 'N' SCALE",
+          "This game pak for use with the Game Boy Compact Video Game System and",
+          "1 or 2-player action.",
+          "Official Nintendo Seal of Quality",
+          "MADE IN JAPAN"
+        ],
+        "productCodes": [
+          "DMG-P-DR"
+        ],
+        "serials": [],
+        "barcodes": [
+          "013252002548"
+        ],
+        "languages": [],
+        "distributors": [
+          "DATA EAST USA, INC."
+        ],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "OUTER_PACKAGE_BACK",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 2,
+      "identifier": [
+        "013252002548",
+        "DMG-P-DR"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-b9636ffcd0f6afc5",
+      "claim": {
+        "text": [],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "OUTER_PACKAGE_SPINE",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 3,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "listing-obs-da6e14beb811557c",
+      "claim": {
+        "text": [
+          "Nail 'n' Scale",
+          "INSTRUCTION BOOKLET",
+          "DATA EAST"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "MANUAL_FRONT",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 4,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-b5c1fec11cae5ba9",
+      "claim": {
+        "text": [
+          "Nail 'n' Scale",
+          "GAME BOY"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "CARTRIDGE_FRONT",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 5,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-ce39192636a04f08528ca6b8",
+      "claim": "Country version: Estados Unidos",
+      "source": "candidate:www.retroplace.com",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-fea6b2ff35b68464d2381886",
+      "claim": "Nail ’n Scale",
+      "source": "candidate:www.icollecteverything.com",
+      "sourceUrl": "https://www.icollecteverything.com/db/items/videogame/2118/",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "engineAlreadyKnew": [
+    "listing-obs-3f5968bc7158299b",
+    "listing-obs-b4063f81bd2a475b",
+    "listing-obs-b9636ffcd0f6afc5",
+    "listing-obs-da6e14beb811557c",
+    "listing-obs-b5c1fec11cae5ba9",
+    "ev-ce39192636a04f08528ca6b8",
+    "ev-fea6b2ff35b68464d2381886"
+  ],
+  "codexNewEvidence": [],
+  "codexNewSources": [],
+  "codexNewIdentifiers": [],
+  "codexNewImages": [],
+  "codexNewRelationships": [
+    "The catalog's USA Nail 'n' Scale entry is the regional sibling matching the USA-distributed outer package."
+  ],
+  "queriesExecuted": [],
+  "repeatedEngineRoutes": [],
+  "remainingEvidenceGaps": [],
+  "reason": "The visible box, cartridge, and manual support complete condition. The box back binds UPC 013252002548 to Data East USA, Inc.; the OCR-only DMG-P-DR reading is not used. The PAL candidate must be rerouted to the existing USA entry.",
+  "whatChangedTheDecision": "No new external evidence was needed. Codex adjudicated the market from the Engine's component-bound box evidence.",
+  "discoveryAttribution": "ENGINE_DISCOVERED_CODEX_ADJUDICATED",
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0,
+    "pricingBasis": "Codex integrated web/reasoning was not billed to the repository's Brave or OpenAI API accounts."
+  },
+  "frozenAt": "2026-09-16T19:09:56.138Z",
+  "codexResultImmutable": true,
+  "codexResultHash": "f7c88b9fbe5091632bc24966723d8705480f080dbdca15ade427665e3a93be14"
+}

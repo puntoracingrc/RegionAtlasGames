@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 2,
+  "runId": "benchmark-engine-gb-02-mu4gwmzr",
+  "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+  "subjectId": "benchmark:listing-evidence-v2-gb-02",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 2,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"013252002548\"",
+    "\"013252002548\" \"Nail 'n' Scale\"",
+    "\"DMG-P-DR\"",
+    "\"DMG-P-DR\" \"Nail 'n' Scale\"",
+    "site:game.es \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "site:todocoleccion.net \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "site:ebay.com \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "site:regionatlas.games \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "site:mobygames.com \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "\"Nail 'n' Scale\" \"gameboy\" \"standard\" back cover distributor legal text",
+    "\"013252002548\" gameboy",
+    "\"DMG-P-DR\" gameboy"
+  ],
+  "normalizedQueries": [
+    "\"013252002548\"",
+    "\"013252002548\" \"nail 'n' scale\"",
+    "\"dmg-p-dr\"",
+    "\"dmg-p-dr\" \"nail 'n' scale\"",
+    "site:game.es \"nail 'n' scale\" \"gameboy\" \"standard\"",
+    "site:todocoleccion.net \"nail 'n' scale\" \"gameboy\" \"standard\"",
+    "site:ebay.com \"nail 'n' scale\" \"gameboy\" \"standard\"",
+    "site:regionatlas.games \"nail 'n' scale\" \"gameboy\" \"standard\"",
+    "site:mobygames.com \"nail 'n' scale\" \"gameboy\" \"standard\"",
+    "\"nail 'n' scale\" \"gameboy\" \"standard\" back cover distributor legal text",
+    "\"013252002548\" gameboy",
+    "\"dmg-p-dr\" gameboy"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+    "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+    "https://www.icollecteverything.com/db/items/videogame/2118/",
+    "https://www.ebay.com/itm/396629112283"
+  ],
+  "domainsVisited": [
+    "www.retroplace.com",
+    "www.icollecteverything.com",
+    "www.ebay.com"
+  ],
+  "identifiersSeen": [
+    {
+      "type": "BARCODE",
+      "value": "013252002548",
+      "component": "UNKNOWN"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-ce39192636a04f08528ca6b8",
+      "runId": "benchmark-engine-gb-02-mu4gwmzr",
+      "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+      "sourceId": "candidate:www.retroplace.com",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+      "canonicalUrl": "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.retroplace.com",
+      "fetchedAt": "2026-09-16T19:02:24.288Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Country version: Estados Unidos",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "07427511f64760fce474b0bcfdcaa0c975982f36ad34b1c02f1b91b3970ae91c",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-fea6b2ff35b68464d2381886",
+      "runId": "benchmark-engine-gb-02-mu4gwmzr",
+      "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+      "sourceId": "candidate:www.icollecteverything.com",
+      "sourceUrl": "https://www.icollecteverything.com/db/items/videogame/2118/",
+      "canonicalUrl": "https://www.icollecteverything.com/db/items/videogame/2118/",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.icollecteverything.com",
+      "fetchedAt": "2026-09-16T19:02:26.762Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Nail ’n Scale",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "5053b594562415259d570055d8221a4bccfb2caaaae8ce722c4e882ce3faac6b",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-bd267571d76bc5c1ecc2df0e",
+      "runId": "benchmark-engine-gb-02-mu4gwmzr",
+      "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+      "subjectId": "benchmark:listing-evidence-v2-gb-02",
+      "gameId": "gameboy-pal-nail-n-scale",
+      "platformSlug": "gameboy",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "candidate:www.retroplace.com",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+      "evidenceId": "ev-ce39192636a04f08528ca6b8",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:02:26.066Z"
+    },
+    {
+      "id": "cl-972c8d485b2fcbb5f96ed14e",
+      "runId": "benchmark-engine-gb-02-mu4gwmzr",
+      "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+      "subjectId": "benchmark:listing-evidence-v2-gb-02",
+      "gameId": "gameboy-pal-nail-n-scale",
+      "platformSlug": "gameboy",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "candidate:www.icollecteverything.com",
+      "sourceUrl": "https://www.icollecteverything.com/db/items/videogame/2118/",
+      "evidenceId": "ev-fea6b2ff35b68464d2381886",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:02:28.364Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/396629112283",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 12,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 12,
+    "pages": 2,
+    "images": 0,
+    "agentTurns": 2,
+    "browserSessions": 2,
+    "inputTokens": 4143,
+    "outputTokens": 217,
+    "estimatedCostUsd": 0.000752
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The game Nail 'n Scale is specified with the barcode, and it is associated with the PAL Europa market region.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T19:02:35.589Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "no-intro",
+        "datomatic"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T19:02:21.647Z",
+  "updatedAt": "2026-09-16T19:02:35.589Z"
+}

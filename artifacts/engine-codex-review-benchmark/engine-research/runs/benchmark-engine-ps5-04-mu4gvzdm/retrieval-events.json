@@ -1,0 +1,66 @@
+[
+  {
+    "at": "2026-09-16T19:02:00.050Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "6 results"
+  },
+  {
+    "at": "2026-09-16T19:02:02.711Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "at": "2026-09-16T19:02:03.225Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "4 results"
+  },
+  {
+    "at": "2026-09-16T19:02:03.532Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "at": "2026-09-16T19:02:03.942Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "at": "2026-09-16T19:02:04.555Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "6 results"
+  },
+  {
+    "at": "2026-09-16T19:02:07.462Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "at": "2026-09-16T19:02:07.936Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "2 results"
+  }
+]

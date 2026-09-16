@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS5-02",
+  "game": "Dragon's Dogma 2",
+  "platform": "ps5",
+  "listingId": "v1|336641149498|0",
+  "listingUrl": "https://www.ebay.es/itm/336641149498",
+  "inputHash": "0d2a195fa5562b71d351793a944292fcf929bb979c8518c1e900f1919e2fe0e3",
+  "galleryHash": "f41fd2fe40df63b869b9cc1aadf851a68b0cfc55208fff917b193709fe679062",
+  "knowledgePackHash": "70290e57469f3d0ec26939407288a4c3787a5e917ffb855e4e8d1d833d5dfb60",
+  "evidenceHash": "d61f142f2297541301e1a7741a188e866dd2935ac158e4c2baa3d542f103fed7",
+  "initialEngineDecision": "REVIEW_REQUIRED",
+  "engineDecision": "REVIEW_REQUIRED",
+  "engineConfidence": 0.5,
+  "searchedCatalogId": "ps5-usa-dragon-s-dogma-2",
+  "candidateCatalogId": "ps5-usa-dragon-s-dogma-2",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "unknown",
+    "confidence": 0,
+    "evidence": [],
+    "manualExpected": false,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate"
+  ],
+  "uncertainClaims": [
+    "market_region",
+    "condition"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-4cd5ed7b3ba447d3",
+      "claim": {
+        "text": [],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/336641149498",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|336641149498|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-7fa326461ad122253a94f502",
+      "claim": "Capcom U.S.A., Inc. PS5 Standard Edition",
+      "source": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-8f70a73abcd50235b57df48c",
+      "claim": "Country / Region: United States",
+      "source": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "sourcesConsulted": [
+    "platform-holder-official"
+  ],
+  "queriesExecuted": [
+    "site:game.es \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "\"Dragon's Dogma 2\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Dragon's Dogma 2\" PlayStation 5",
+    "site:ebay.es \"Dragon's Dogma 2\" PlayStation 5"
+  ],
+  "listingImagesUsed": [
+    1
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-4cd5ed7b3ba447d3",
+      "imageIndex": 1,
+      "component": "OUTER_PACKAGE_FRONT",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_front",
+      "textSnippets": [],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [
+        "18"
+      ],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|336641149498|0",
+      "contentHash": "49055ea5da4f586f400059b8d897c2a482e255d89be9624d141da256ce09d666"
+    }
+  ],
+  "identifiersFound": [],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF",
+    "MISSING_COMPONENT_PHOTO"
+  ],
+  "reasonForReview": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+  "research": {
+    "targetField": "MARKET_REGION",
+    "status": "UNRESOLVED",
+    "resolution": {
+      "field": "MARKET_REGION",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    },
+    "error": null,
+    "technicalFailures": [
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.es/itm/336641149498",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.com/shop/dogma-2?_nkw=dogma+2",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      }
+    ],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0.04,
+    "aiUsd": 0.0050868499999999995,
+    "totalUsd": 0.04508685,
+    "braveWeb": 8,
+    "braveImages": 0,
+    "acquisitionAiCalls": 2,
+    "researchAiCalls": 3
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:01:35.459Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "77eaabd2e86641d6a527214dd8e34107c018abfe4d34ab6088b98be4551a4f88"
+}

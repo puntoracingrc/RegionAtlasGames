@@ -1,0 +1,30 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/128074767475",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.co.uk/itm/326390667570",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.aliexpress.com/s/wiki-ssr/article/code-veins-collector-s-edition-ps4",
+    "code": "INTERNAL_ERROR",
+    "detail": "Error RESEARCH_PAGE_HTTP_410",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://thevideogamecavern.com/products/coder-vein-playstation-4",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_PAGE_HTTP_404",
+    "recovered": true
+  }
+]

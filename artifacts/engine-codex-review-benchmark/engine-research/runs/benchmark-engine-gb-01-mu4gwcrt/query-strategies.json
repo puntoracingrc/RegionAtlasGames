@@ -1,0 +1,72 @@
+[
+  {
+    "query": "\"DMG-LCA\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"DMG-LCA\" \"Lock 'n' Chase\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:game.es \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:regionatlas.games \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "regionatlas-own-scan",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:mobygames.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "mobygames",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Lock 'n' Chase\" \"gameboy\" \"standard\" back cover distributor legal text",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"DMG-LCA\" gameboy",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "DMG-LCA"
+  },
+  {
+    "query": "site:game.es \"DMG-LCA\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": "national-retailer",
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "DMG-LCA"
+  }
+]

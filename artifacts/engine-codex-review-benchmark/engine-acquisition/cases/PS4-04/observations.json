@@ -1,0 +1,29 @@
+[
+  {
+    "id": "listing-obs-7600dae20fde14db",
+    "listingId": "v1|128074767475|0",
+    "imageIndex": 1,
+    "contentHash": "d893cf0fde0934ef3440f4a10ec20b38fa7e5f56200ae9206b8fd3512d10fc4f",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Code Vein",
+    "platform": "ps4",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 16"
+    ],
+    "languages": [],
+    "distributors": [
+      "BANDAI NAMCO Entertainment"
+    ],
+    "publisherLegalText": [],
+    "visibleText": [
+      "PROVISIONAL"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

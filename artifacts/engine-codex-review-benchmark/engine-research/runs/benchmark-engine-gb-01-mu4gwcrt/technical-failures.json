@@ -1,0 +1,23 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/394924065359",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.etsy.com/listing/1547307167/lock-n-chase-rokkuncheisu-replacement",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  }
+]

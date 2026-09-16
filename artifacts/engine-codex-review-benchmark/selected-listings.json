@@ -1,0 +1,1444 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "selectionPolicy": "FIRST_ELIGIBLE_BROWSE_RESULT_BEFORE_RESEARCH",
+  "selectedAt": "2026-09-16T18:54:15Z",
+  "cases": [
+    {
+      "caseId": "PS4-01",
+      "game": "Fobia: St. Dinfna Hotel",
+      "platform": "ps4",
+      "initialCatalogId": "ps4-usa-fobia-st-dinfna-hotel",
+      "editionConstraint": null,
+      "selectionQuery": "\"Fobia: St. Dinfna Hotel\" PS4",
+      "status": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "selectionBackend": "browse-active-token",
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "PS4-02",
+      "game": "Soul Hackers 2",
+      "platform": "ps4",
+      "initialCatalogId": "ps4-soul-hackers-2",
+      "editionConstraint": null,
+      "selectionQuery": "\"Soul Hackers 2\" PS4",
+      "listingId": "v1|257009348037|0",
+      "legacyListingId": "257009348037",
+      "listingUrl": "https://www.ebay.es/itm/257009348037?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8NsMEbpmBixfJZggIT%2BO7aTJkdw%2BcIfGI0OcP3Rid%2FCZHQ9q8I9mclAjPd9GeDLthcmXE5gau7JZUeKwW7F%2FZTZZKP9vaD09cRE%2BT1TsJcNd2TbFGRhpi42u%2FMJUMwLXccdJJ8n%2B%2B%2Fc%2FgwaBcKgiPLg6bqRwzOkT3mVWTVrbWMoSuOtHRzdM%2BVZDDyQ4KT1Sc%3D",
+      "listingTitle": "Soul Hackers 2 PS4 (SP) [155040]",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/X2YAAeSw38FqQ2fv/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 900,
+          "height": 900
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/aoUAAeSw1yNqQ2fv/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1112,
+          "height": 628
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/ZD8AAeSwJ91qQ2fv/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 900,
+          "height": 506
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "3ea207c3c887f44546b852cc4ddceba25f6ca2281e793b1fa0f3c49739bdccc9",
+      "galleryHash": "c982c0be20bc63013f77db698d518c5b788e4782dd008dc8d1064b7d7f057cf6",
+      "galleryImages": 3,
+      "hydrated": {
+        "itemId": "v1|257009348037|0",
+        "legacyItemId": "257009348037",
+        "title": "Soul Hackers 2 PS4 (SP) [155040]",
+        "shortDescription": "A su vez, los Invocadores de Demonios aprovechan el poder de los “Demonios”. Reúne demonios y desbloquea diferentes fusiones para crear nuevos aliados demoniacos aún más fuertes, y usa sus habilidades para atacar a tus enemigos.",
+        "description": "<div style=\"font-family:sans-serif,Arial,Verdana; font-size:13px;\"><div style=\"height:57px;background-color:#0056da;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_logo.png\" width=\"314\" height=\"51\" style=\"float:left;\"></div><div style=\"clear:both\"><br></div><div style=\"text-align:center;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_2.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_1.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_4.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_3.jpg\" height=\"100\" style=\"margin:6 10;\"></div><div style=\"clear:both\"></div></div><br><p>En medio del brillo de las luces de ne&oacute;n y el avance tecnol&oacute;gico, ha hecho que los humanos sean consumidos por la comodidad comercial. Mientras, en las sombras, se esta gestando una guerra entre los Yatagarasuy la Sociedad Fantasma. A su vez, los Invocadores de Demonios aprovechan el poder de los &ldquo;Demonios&rdquo;.</p> <p>En el mar secreto de los datos de la humanidad, existe un cerebro digitalque ha evolucionado hasta tener consciencia:Aion. Mientras observa ala humanidad, Aion prev&eacute; un inminente desastre mundial y crea dos agentes para combatirlo: Ringo y Figue.</p> <p>Juntos, estos agentes de Aiondeben investigar y evitar el efectomariposa que llevar&aacute; al fin del mundo.</p> <p><span style=\"color: #0056da;\"><strong>CARACTER&Iacute;STICAS</strong></span></p> <p>1.Con la reserva te llevas 5 tarjetas del arte del juego.</p> <p>2.Investiga el fin del mundo como Ringo, un agente de Aione ncargado de salvar a la humanidad del apocalipsis.</p> <p>3.Explora un RPG sobrenatural con un gran dise&ntilde;o de invocadores y oscuros peligros que acechan bajo las luces de ne&oacute;n de un Jap&oacute;n ciberpunk.</p> <p>4.Re&uacute;ne demonios y desbloquea diferentes fusiones para crear nuevos aliados demoniacos a&uacute;n m&aacute;s fuertes, y usa sus habilidades para atacar a tus enemigos.</p> <p>5.Mejora las relaciones con tus compa&ntilde;eros para as&iacute; profundizar en su alma, revivir sus &uacute;ltimas aventuras e ir descubriendo la verdad de sushistorias y la tuya.</p>",
+        "condition": "Nuevo",
+        "conditionId": "1000",
+        "conditionDescription": null,
+        "itemWebUrl": "https://www.ebay.es/itm/257009348037?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8NsMEbpmBixfJZggIT%2BO7aTJkdw%2BcIfGI0OcP3Rid%2FCZHQ9q8I9mclAjPd9GeDLthcmXE5gau7JZUeKwW7F%2FZTZZKP9vaD09cRE%2BT1TsJcNd2TbFGRhpi42u%2FMJUMwLXccdJJ8n%2B%2B%2Fc%2FgwaBcKgiPLg6bqRwzOkT3mVWTVrbWMoSuOtHRzdM%2BVZDDyQ4KT1Sc%3D",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/X2YAAeSw38FqQ2fv/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 900,
+            "height": 900
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/aoUAAeSw1yNqQ2fv/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1112,
+            "height": 628
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/ZD8AAeSwJ91qQ2fv/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 900,
+            "height": 506
+          }
+        ],
+        "itemLocation": {
+          "city": "Galicia",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "todoconsolassl",
+          "feedbackPercentage": "99.1",
+          "feedbackScore": 21219
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "Plataforma": [
+            "Sony PlayStation 4"
+          ],
+          "Nombre del videojuego": [
+            "Soul Hackers 2 PS4 (SP) [155040]"
+          ],
+          "EAN": [
+            "5055277046874"
+          ]
+        },
+        "price": {
+          "value": 20.4,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Otro envío en 48 horas",
+            "shippingCarrierCode": "Other",
+            "type": "Envío estándar",
+            "shippingCost": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-18T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "availabilityThresholdType": "MORE_THAN",
+            "availabilityThreshold": 10,
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedSoldQuantity": 0,
+            "estimatedRemainingQuantity": 19
+          }
+        ],
+        "gtin": "5055277046874",
+        "brand": null,
+        "mpn": null,
+        "epid": null
+      },
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "PS4-03",
+      "game": "Atelier Firis: The Alchemist and the Mysterious Journey",
+      "platform": "ps4",
+      "initialCatalogId": "ps4-atelier-firis-the-alchemist-and-the-mysterious-journey",
+      "editionConstraint": null,
+      "selectionQuery": "\"Atelier Firis: The Alchemist and the Mysterious Journey\" PS4",
+      "status": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "selectionBackend": "browse-active-token",
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "PS4-04",
+      "game": "Code Vein",
+      "platform": "ps4",
+      "initialCatalogId": "ps4-code-vein",
+      "editionConstraint": null,
+      "selectionQuery": "\"Code Vein\" PS4",
+      "listingId": "v1|128074767475|0",
+      "legacyListingId": "128074767475",
+      "listingUrl": "https://www.ebay.es/itm/128074767475",
+      "listingTitle": "JUEGO PS4 CODE VEIN PS4 20315634",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/z4AAAeSwgQNqpJa-/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 786,
+          "height": 587
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "56640edca3725a0b34703ecec0f4032151afc72b358ac667bbe60d553aec98e6",
+      "galleryHash": "0895d13feec3da2c10f405de6aaf483bc82f5b37099a08811dfc555638c6b7ea",
+      "galleryImages": 1,
+      "hydrated": {
+        "itemId": "v1|128074767475|0",
+        "legacyItemId": "128074767475",
+        "title": "JUEGO PS4 CODE VEIN PS4 20315634",
+        "shortDescription": "14 días de. Estamos para ayudarte. Disponibilidad: En existencia. CAJA ORIGINALSI.",
+        "description": "<!DOCTYPE html><html lang=\"es-ES\"><head><title>Cash Converters</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\" /><meta charset=\"UTF-8\" /><meta name=\"description\" content=\"Características del artículo\" /><meta name=\"author\" content=\"Cash Converters\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/bootstrap.min.css\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/normalize.css\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/font-faces.css\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/style.css\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/responsive.css\" /><link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,700\" rel=\"stylesheet\" /><link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700\" rel=\"stylesheet\"  rel=\"stylesheet\" type=\"text/css\" /></head><body><div class=\"row\" style=\"margin: 0;\"><div class=\"col-xs-12 col-sm-3 col-md-3 col-lg-2\"><div class=\"column-left\"><nav><img id=\"logo-cash\" width=\"166\" src=\"https://www.cashconverters.es/static/ebay/images/logocash.png\" alt=\"logoCash\" title=\"logo cash\"><img id=\"logo-cash-responsive\" width=\"200\" src=\"https://www.cashconverters.es/static/ebay/images/logo-cash-responsive.png\" alt=\"logoCashResponsive\" title=\"logo cash responsive\"><input class=\"input-btn-menu-responsive\" type=\"checkbox\" id=\"nav\" /><label class=\"btn-menu-responsive\" for=\"nav\"></label><ul class=\"menu-left\"><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006190010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_telefonia_over_01.png\"></span><span class=\"menu-text\">Telefonía</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006189010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_videojuegos_over_02.png\"></span><span class=\"menu-text\">Consolas y Videojuegos</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006193010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_informatica_over_03.png\"></span><span class=\"menu-text\">Informática</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006191010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_tv_over_04.png\"></span><span class=\"menu-text\">TV y Video</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006192010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_fotografia_over_05.png\"></span><span class=\"menu-text\">Fotografía</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006194010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_joyeria_over_07.png\"></span><span class=\"menu-text\">Joyería</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006924010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_relojesygafas_over_14.png\"></span><span class=\"menu-text\">Relojes</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006922010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_instrumentos_over_09.png\"></span><span class=\"menu-text\">Instrumentos</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006188010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_deportes_over_06.png\"></span><span class=\"menu-text\">Deportes</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006923010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_musicaprof_over_13.png\"></span><span class=\"menu-text\">Música profesional</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006918010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_bricolaje_over_17.png\"></span><span class=\"menu-text\">Bricolaje</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006921010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_sonido_over_12.png\"></span><span class=\"menu-text\">Sonido</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006992010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_electrodomesticos_over_08.png\"></span><span class=\"menu-text\">Electrodomésticos</span></a></li></ul></nav></div></div><div class=\"col-xs-12 col-sm-9 col-md-9 col-lg-10\"><div class=\"row color-article\"><div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\"><form><div class=\"slider\"><ul class=\"thumb-article\"><li><input id=\"input1\" class=\"slider-radio\" type=\"radio\" name=\"selected\" checked /><label class=\"slider-radio-label\" for=\"input1\" style=\"background-image: url('https://images.cashconverters.es/productslive/juego-ps4/code-vein-ps4_CC042_E750785-0_0.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat;\"></label><div class=\"img-container\"><div class=\"img-big\" style=\"background-image: url('https://images.cashconverters.es/productslive/juego-ps4/code-vein-ps4_CC042_E750785-0_0.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat;\"></div></div></li></ul><div class=\"show-img\"></div></div></form><div class=\"info\"><p class=\"info-contact-top\">Verifica que las fotos del producto se corresponden con la idea que tienes sobre él.</p><p id=\"info-warning\">No realizamos envíos a las Islas Canarias, Ceuta y Melilla.</p><p class=\"info-contact\">Estamos para ayudarte. Consulta tus dudas en <a target=\"_blank\" href=\"mailto:ayudaebay@cash-converters.es\">ayudaebay@cash-converters.es</a>.<br />Todos nuestros artículos tienen 3 años de garantía.</p></div></div><div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 right-col\"><div class=\"desc\"><h1 id=\"desc-title\">JUEGO PS4 CODE VEIN PS4 20315634</h1><p id=\"desc-info\" vocab=\"http://schema.org/\" typeof=\"Product\"><span property=\"description\"></span></p><table class=\"caracteristicas\"><tr><th>TITULO</th><td>CODE VEIN PS4</td></tr><tr><th>GENERO</th><td>ACCION</td></tr><tr><th>CAJA ORIGINAL</th><td>SI</td></tr><tr><th>VOLUMEN</th><td>NORMAL</td></tr><tr><th>EAN</th><td>3391891995962</td></tr><tr><th>INFORMACION ADICIONAL</th><td>IMAGEN NO CONTRACTUAL</td></tr><tr><th>Código</th><td>CC042_E750785_0</td></tr></table></div><div class=\"row price\"><div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\"><div class=\"price-left\"><span>ESTADO:</span><p>USADO</p></div></div><div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\"><div class=\"price-right\"><!-- <p id=\"price\">14.95€</p> --><span>Disponibilidad: En existencia</span></div></div></div><div class=\"row buttons\"><!--<div class=\"col-xs-12 col-sm-5 col-md-12 col-lg-5 buttons-col\"><a target=\"_blank\" href=\"http://cart.payments.ebay.es/sc/add?item=iid:{EbayItemID},qty:1&ssPageName=CART:ATC\" target=\"_blank\" class=\"append\">Añadir a cesta</a></div><div class=\"col-xs-12 col-sm-7 col-md-12 col-lg-7 buttons-col\"><a target=\"_blank\" href=\"http://offer.ebay.es/ws/eBayISAPI.dll?BinConfirm&item={EbayItemID}&fb=1\" target=\"_blank\" class=\"buy\">Comprar ahora</a></div>--></div><div class=\"info-responsive\"><p id=\"info-warning\">No realizamos envíos a las Islas Canarias, Ceuta y Melilla.</p><p class=\"info-contact\">Estamos para ayudarte. Consulta tus dudas en <a target=\"_blank\" href=\"mailto:ayudaebay@cash-converters.es\">ayudaebay@cash-converters.es</a>.<br />Todos nuestros artículos tienen 3 años de garantía.</p></div></div></div><div class=\"row banners\"><div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-3 banners-col\"><div class=\"yellow-banner\"><div class=\"shadow-box\"></div><p class=\"banner-text\">Envío<br />gratuito</p><img src=\"https://www.cashconverters.es/static/ebay/images/01_foto_banner.png\"></div></div><div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-3 banners-col\"><div class=\"green-banner\"><div class=\"shadow-box\"></div><p class=\"banner-text\">3 años de<br />garantía</p><img src=\"https://www.cashconverters.es/static/ebay/images/02_foto_banner.png\"></div></div><div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-3 banners-col\"><div class=\"grey-banner\"><div class=\"shadow-box\"></div><p class=\"banner-text\">14 días de<br />satisfacción</p><img src=\"https://www.cashconverters.es/static/ebay/images/03_foto_banner.png\"></div></div><div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-3 banners-col\"><div class=\"blue-banner\"><div class=\"shadow-box\"></div><p class=\"banner-text\">Atención<br />al cliente</p><img src=\"https://www.cashconverters.es/static/ebay/images/04_foto_banner.png\"></div></div></div><div class=\"footer\"></div></div></div></body></html>",
+        "condition": "Aceptable",
+        "conditionId": "6000",
+        "conditionDescription": null,
+        "itemWebUrl": "https://www.ebay.es/itm/128074767475",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/z4AAAeSwgQNqpJa-/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 786,
+            "height": 587
+          }
+        ],
+        "itemLocation": {
+          "city": "MADRID",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "cashconverters_es",
+          "feedbackPercentage": "97.3",
+          "feedbackScore": 177949
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "ESTADO": [
+            "USADO"
+          ],
+          "CAJA ORIGINAL": [
+            "SI"
+          ],
+          "VOLUMEN": [
+            "NORMAL"
+          ],
+          "EAN": [
+            "3391891995962"
+          ],
+          "Nombre del videojuego": [
+            "CODE VEIN PS4"
+          ],
+          "Editor": [
+            "NO APLICABLE"
+          ],
+          "Año de lanzamiento": [
+            "NO APLICABLE"
+          ],
+          "Género": [
+            "ACCION"
+          ],
+          "Clasificación": [
+            "NO APLICABLE"
+          ],
+          "Plataforma": [
+            "NO APLICABLE"
+          ]
+        },
+        "price": {
+          "value": 14.95,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Correos: Paq Estándar",
+            "shippingCarrierCode": "Correos",
+            "type": "Envío Económico",
+            "shippingCost": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-24T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedAvailableQuantity": 1,
+            "estimatedSoldQuantity": 0,
+            "estimatedRemainingQuantity": 1
+          }
+        ],
+        "gtin": null,
+        "brand": null,
+        "mpn": null,
+        "epid": null
+      },
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "PS5-01",
+      "game": "Demon's Souls",
+      "platform": "ps5",
+      "initialCatalogId": "ps5-usa-demon-s-souls",
+      "editionConstraint": "STANDARD",
+      "selectionQuery": "\"Demon's Souls\" PS5",
+      "listingId": "v1|363231498889|0",
+      "legacyListingId": "363231498889",
+      "listingUrl": "https://www.ebay.es/itm/363231498889",
+      "listingTitle": "JUEGO PS5 - DEMON'S SOULS - NUEVO PRECINTADO - ESPAÑOL - DEMONS",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/U0QAAOSwHVVf4ybB/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 864,
+          "height": 1080
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "cc67bc0e057dd140eadc00bbfad2f86cedade5595a849fa01fc9005eb0345e46",
+      "galleryHash": "880d0c071826ac88b8fda809a3f94a9cb1a12af6512d5f5f30926262f5e02dc7",
+      "galleryImages": 1,
+      "hydrated": {
+        "itemId": "v1|363231498889|0",
+        "legacyItemId": "363231498889",
+        "title": "JUEGO PS5 - DEMON'S SOULS - NUEVO PRECINTADO - ESPAÑOL - DEMONS",
+        "shortDescription": "EL JUEGO ES NUEVO Y PRECINTADO. -JUEGO EN ESPAÑOL. CONDICIONES GENERALES. -Tiempo de llegada de 2 a 5 días laborables aprox. a partir de la fecha del envío. -Envío gratuito certificado a toda la península.",
+        "description": "<font rwr=\"1\" style=\"\"><div style=\"\"><div style=\"box-sizing: border-box; padding: 8px; border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.15);\"><div style=\"font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14pt; color: rgb(51, 51, 51);\"><b style=\"\"><font color=\"#000000\" style=\"\" size=\"5\">TÍTULO</font></b></div><div style=\"font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: large; color: rgb(51, 51, 51);\"><b><br></b></div><div style=\"\"><font style=\"font-family: Arial; font-size: 14pt;\"><font face=\"Monaco, Menlo, Consolas, Courier New, monospace\" style=\"\"><font face=\"Arial\" style=\"\"><span style=\"font-size: 14pt; color: rgb(51, 51, 51);\">-JUEGO PARA PS5 -<b>&nbsp;</b></span></font></font></font><font style=\"\"><font style=\"\"><font face=\"Arial\" style=\"\"><font style=\"\"><font size=\"6\" color=\"#416aad\"><b>DEMON'S SOULS</b></font><b style=\"color: rgb(0, 44, 253); font-family: Arial; font-size: 14pt;\">&nbsp;</b></font></font></font></font><font style=\"font-family: Arial; font-size: 14pt;\"><b style=\"color: rgb(0, 66, 154); font-size: 14pt;\">-</b><b style=\"font-size: 14pt; color: rgb(0, 66, 154);\">&nbsp;</b></font><font face=\"Arial\" style=\"font-family: Arial; font-size: large; color: rgb(51, 51, 51);\"><span style=\"font-size: 14pt;\">&nbsp;NUEVO PRECINTADO</span></font></div><div style=\"font-family: Arial; font-size: 14pt;\"><div style=\"font-size: 14pt;\"><br></div></div><div style=\"font-family: Arial; font-size: 14pt;\"><font face=\"Arial\" style=\"font-family: Arial; font-size: large; color: rgb(51, 51, 51);\"><span style=\"font-size: 14pt;\"><br></span></font></div></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Arial; font-size: 14pt; box-sizing: border-box; padding: 8px; border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.15);\"><div style=\"font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14pt; color: rgb(51, 51, 51);\"><font style=\"\" size=\"5\"><b style=\"\">DESCRIPCIÓN ARTÍCULO</b></font></div><div style=\"\"><div style=\"color: rgb(0, 0, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14pt;\"><span style=\"color: rgb(51, 51, 51); font-size: large;\"><br></span></div><div style=\"color: rgb(0, 0, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14pt;\"><span style=\"color: rgb(51, 51, 51); font-size: large;\">-VERSIÓN PAL ESPAÑA</span></div><div style=\"color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: large;\"><font color=\"#333333\"><br></font></div><div style=\"color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: large;\"><div><font color=\"#333333\">-JUEGO</font><font color=\"#fb0034\">&nbsp;</font><font color=\"#fb0034\">EN ESPAÑOL .&nbsp;</font></div><div><br></div></div><div style=\"color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: large;\">-EL JUEGO ES NUEVO Y PRECINTADO.</div></div><div style=\"font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: large; color: rgb(51, 51, 51);\"><br></div></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14pt; box-sizing: border-box; padding: 8px; border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.15);\"><div style=\"color: rgb(51, 51, 51); font-size: 14pt; font-weight: bold;\"><font style=\"\" size=\"5\">MÉTODOS DE PAGO</font></div><div style=\"color: rgb(51, 51, 51); font-size: 14pt; font-weight: bold;\"><font style=\"\" size=\"5\"><br></font></div><div style=\"\"><font style=\"\"><font size=\"4\" style=\"color: rgb(51, 51, 51);\">-</font><font size=\"5\" style=\"\"><b style=\"\"><i><font color=\"#00429a\">Pay</font><font color=\"#00b8ef\">Pal</font></i></b></font><font size=\"4\" style=\"color: rgb(51, 51, 51);\"><i> </i>(Tarjeta Visa) y transferencias/ingresos bancarios (para transferencia/ingresos en cuenta preguntar antes).</font></font></div><div style=\"color: rgb(51, 51, 51); font-size: large;\"><font style=\"\">-No se acepta contra reembolso.</font></div><div style=\"color: rgb(51, 51, 51); font-size: large;\"><font style=\"\">-El plazo para efectuar el pago del artículo es de 3 días, a los 3 días se anulará la compra .</font></div><div style=\"color: rgb(51, 51, 51); font-size: large;\"><font style=\"\"><br></font></div></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14pt; box-sizing: border-box; padding: 8px; border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.15);\"><div style=\"color: rgb(51, 51, 51);\"><font style=\"\" size=\"5\"><b style=\"\">ENVÍOS</b></font></div><div style=\"color: rgb(51, 51, 51);\"><font style=\"\" size=\"5\"><b style=\"\"><br></b></font></div><div style=\"color: rgb(51, 51, 51); font-size: large;\"><font style=\"\">-Envío gratuito certificado a toda la península .</font></div><div style=\"color: rgb(51, 51, 51); font-size: large;\"><font style=\"\">-El envío se realiza en un plazo máximo de 72 horas después de haber recibido el pago.</font></div><div style=\"color: rgb(51, 51, 51); font-size: large;\"><font style=\"\">-Tiempo de llegada de 2 a 5 días laborables aprox. a partir de la fecha del envío.</font></div><div style=\"font-size: large;\"><font style=\"\"><font color=\"#333333\">-</font><b style=\"\"><font color=\"#ff0010\">NO SE HACEN ENVÍOS A CANARIAS, CEUTA Y MELILLA.</font></b></font></div><div style=\"font-size: large;\"><font style=\"\"><b style=\"\"><font color=\"#ff0010\"><br></font></b></font></div></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14pt; box-sizing: border-box; padding: 8px; color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.15);\"><div style=\"\"><b style=\"\"><font style=\"\" size=\"5\">CONDICIONES GENERALES</font></b></div><div style=\"\"><b style=\"\"><font style=\"\" size=\"5\"><br></font></b></div><div style=\"font-size: large;\"><div><div>-Se aceptan devoluciones en un plazo máximo de 14 días naturales siempre y cuando el artículo esté en las mismas condiciones en las que se recibió.</div><div>- Nos reservamos el derecho de enviar los artículos directamente desde nuestros distribuidores en función del stock sin ningún coste adicional. En caso de error en la descripción del artículo, actualizaciones de stock o precio incorrecto se contactará con el comprador y se reintegrará el pago de forma inmediata.</div></div><div style=\"color: rgb(0, 0, 0);\"><b><font color=\"#ff0010\"><br></font></b></div></div></div><div style=\"font-family: Arial; font-size: large;\"><br></div><div style=\"font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14pt; box-sizing: border-box; padding: 8px; color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.15);\"><div style=\"\"><b style=\"\"><font style=\"\" size=\"5\">CONTACTO</font></b></div><div style=\"\"><b style=\"\"><font style=\"\" size=\"5\"><br></font></b></div><div style=\"font-size: large;\"><font style=\"\">-Puede contactar con nosotros a través de mensajería de eBay. Se responderá en un plazo máximo de 24 horas.</font></div><div style=\"font-size: large;\"><font style=\"\"><br></font></div></div><div style=\"font-family: Arial; font-size: large;\"><br></div></div></font>",
+        "condition": "Nuevo",
+        "conditionId": "1000",
+        "conditionDescription": null,
+        "itemWebUrl": "https://www.ebay.es/itm/363231498889",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/U0QAAOSwHVVf4ybB/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 864,
+            "height": 1080
+          }
+        ],
+        "itemLocation": {
+          "city": "ciudad real",
+          "postalCode": "13***",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "gen-exis",
+          "feedbackPercentage": "100.0",
+          "feedbackScore": 2030
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "Plataforma": [
+            "PLAYSTATION 5 - PS5"
+          ],
+          "Nombre del videojuego": [
+            "DEMON'S SOULS"
+          ],
+          "Género": [
+            "Acción, aventura"
+          ],
+          "Año de lanzamiento": [
+            "2020"
+          ],
+          "Código de región": [
+            "PAL"
+          ],
+          "Clasificación": [
+            "PEGI 18"
+          ],
+          "Garantía del fabricante": [
+            "2 años"
+          ],
+          "Formato": [
+            "PAL ESPAÑA"
+          ],
+          "EAN": [
+            "0711719812920"
+          ]
+        },
+        "price": {
+          "value": 56.9,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Otro envío en 48 horas",
+            "shippingCarrierCode": "Other",
+            "type": "Envío estándar",
+            "shippingCost": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-18T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedAvailableQuantity": 1,
+            "estimatedSoldQuantity": 9,
+            "estimatedRemainingQuantity": 1
+          }
+        ],
+        "gtin": "0711719812920",
+        "brand": null,
+        "mpn": null,
+        "epid": null
+      },
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "PS5-02",
+      "game": "Dragon's Dogma 2",
+      "platform": "ps5",
+      "initialCatalogId": "ps5-usa-dragon-s-dogma-2",
+      "editionConstraint": "STANDARD",
+      "selectionQuery": "\"Dragon's Dogma 2\" PS5",
+      "listingId": "v1|336641149498|0",
+      "legacyListingId": "336641149498",
+      "listingUrl": "https://www.ebay.es/itm/336641149498",
+      "listingTitle": "Dragon`S Dogma 2 Juego para Consola Sony PlayStation 5, PS5",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/dI8AAeSwZKtqMIs2/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 1135,
+          "height": 1440
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "0d2a195fa5562b71d351793a944292fcf929bb979c8518c1e900f1919e2fe0e3",
+      "galleryHash": "f41fd2fe40df63b869b9cc1aadf851a68b0cfc55208fff917b193709fe679062",
+      "galleryImages": 1,
+      "hydrated": {
+        "itemId": "v1|336641149498|0",
+        "legacyItemId": "336641149498",
+        "title": "Dragon`S Dogma 2 Juego para Consola Sony PlayStation 5, PS5",
+        "shortDescription": "Descubre la Aventura Épica en Dragon's Dogma 2 para PlayStation 5. Sumérgete en el vibrante mundo deDragon's Dogma 2, un juego de rol desarrollado porCapcom exclusivo paraPlayStation 5. Características Destacadas de Dragon's Dogma 2.",
+        "description": "Dragon`S Dogma 2 Juego para Consola Sony PlayStation 5, PS5 /  1245784 / 5055060954133<pre><code class=\"language-html\"><div class=\"description\" style=\"word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;\">  <h2>Descubre la Aventura Épica en Dragon's Dogma 2 para PlayStation 5</h2>  <p>    Sumérgete en el vibrante mundo de <strong>Dragon's Dogma 2</strong>, un juego de rol desarrollado por <strong>Capcom</strong> exclusivo para <strong>PlayStation 5</strong>. Este esperado título combina una narrativa envolvente con gráficos de última generación, ofreciendo una experiencia de juego inigualable para los aficionados de los <strong>RPG</strong>.  </p>  <h3>Características Destacadas de Dragon's Dogma 2</h3>  <p>    Experimenta una jugabilidad dinámica y envolvente con <strong>Dragon's Dogma 2</strong>. Desde su innovador sistema de combate hasta su vasto mundo abierto, cada detalle está diseñado para brindarte una experiencia inolvidable.  </p>  <h4>Detalles Técnicos y Compatibilidad</h4>  <p>    Este título, con el EAN <strong>5055060954133</strong>, garantiza calidad y durabilidad al ser un producto <strong>nuevo</strong>. Compatible exclusivamente con <strong>PlayStation 5</strong>, <strong>Dragon's Dogma 2</strong> se presenta en formato <strong>físico</strong>, permitiéndote disfrutar del juego de inmediato sin necesidad de descargas adicionales.  </p>  <h2>Características del Producto</h2>  <ul>    <li>️ <strong>Garantía del fabricante:</strong> 36 Meses</li>    <li> <strong>Tipo:</strong> Físico</li>    <li> <strong>Formato:</strong> Físico</li>    <li> <strong>Marca:</strong> Sony</li>    <li> <strong>Género:</strong> PlayStation 5 - Games - Capcom - RPG - Standard</li>    <li> <strong>Pegi:</strong> 18+</li>    <li>️ <strong>Plataforma:</strong> PlayStation 5</li>    <li️> <strong>Idioma en Contraportada:</strong> Finnish, Swedish, Norwegian, English, Danish</li>    <li> <strong>Idioma en el Juego (Audio):</strong> English, Japanese</li>    <li> <strong>Idioma en el Juego (Subtítulos):</strong> English, German, Spanish, French, Italian, Russian, Brazilian, Japanese, Arabic</li>    <li> <strong>Fecha de Lanzamiento:</strong> 2024-03-22</li>    <li> <strong>Editor:</strong> CapCom</li>    <li> <strong>Equivalente USK Alemania:</strong> USK ab 18 Jahren</li>    <li> <strong>Precintado de Fábrica:</strong> Sí</li>    <li> <strong>Detalles Idiomas:</strong> Idioma en Subtítulos: English, French, Italian, German, Spanish, Russian, Brazilian, Arabic, Japanese; Idioma en Audio: English, Japanese; Idioma en Contraportada: Danish, Swedish, Norwegian, Finnish</li>  </ul>  <h2>¿Qué Significa que Dragon's Dogma 2 sea un Producto Físico?</h2>  <p>    Al adquirir <strong>Dragon's Dogma 2</strong> en formato <strong>físico</strong>, recibirás una copia tangible del juego, presentada en una elegante caja con todos los manuales y contenido incluido. Este formato permite una experiencia inmediata sin necesidad de descargar el juego, simplemente inserta el disco en tu <strong>PlayStation 5</strong> y comienza a jugar.  </p>  <h2>Información Adicional</h2>  <p>    Ten en cuenta que en juegos calificados por <strong>ESRB</strong> que incluyen códigos de descarga para addons o DLC, el código puede no funcionar si la cuenta del cliente está registrada en otra región. Por ejemplo, para juegos con calificación <strong>PEGI</strong>, los códigos no funcionarán si el cliente no tiene una cuenta europea, y para juegos con calificación <strong>ESRB</strong>, el código no funcionará si el cliente no tiene una cuenta de EE.UU. Sin embargo, podría funcionar si el cliente añade a la consola una cuenta registrada en la región correspondiente.  </p>  <p>    Las fotografías proporcionadas por el editor son de carácter promocional y podrían no representar el producto final. Por ejemplo, es posible que en la portada frontal aparezca una advertencia indicando que el juego descargará contenido adicional desde la web, u otra notificación que el editor estime relevante para el cliente.  </p>  <h2>Preguntas Frecuentes sobre Dragon's Dogma 2</h2>  <ul>    <li>      <strong>¿Cuándo se lanzará Dragon's Dogma 2?</strong>            <strong>Dragon's Dogma 2</strong> está programado para su lanzamiento el <strong>22 de marzo de 2024</strong>.    </li>    <li>      <strong>¿En qué plataformas estará disponible Dragon's Dogma 2?</strong>            Actualmente, <strong>Dragon's Dogma 2</strong> estará disponible exclusivamente para <strong>PlayStation 5</strong>.    </li>    <li>      <strong>¿Qué idiomas están disponibles en el juego?</strong>            El juego ofrece múltiples opciones de idioma, incluyendo <strong>English</strong> y <strong>Japanese</strong> para audio, y <strong>English</strong>, <strong>German</strong>, <strong>Spanish</strong>, <strong>French</strong>, <strong>Italian</strong>, <strong>Russian</strong>, <strong>Brazilian</strong>, <strong>Japanese</strong>, y <strong>Arabic</strong> para subtítulos.    </li>    <li>      <strong>¿Dragon's Dogma 2 es compatible con contenido descargable (DLC)?</strong>            Sí, <strong>Dragon's Dogma 2</strong> soporta contenido descargable que puede ampliar la experiencia del juego con nuevas misiones, personajes y elementos.    </li>    <li>      <strong>¿Qué significa que el juego esté precintado de fábrica?</strong>            Un juego <strong>precintado de fábrica</strong> garantiza que el producto no ha sido abierto ni usado previamente, asegurando su condición <strong>nueva</strong>.    </li>    <li>      <strong>¿Cuál es la garantía del fabricante para Dragon's Dogma 2?</strong>            <strong>Dragon's Dogma 2</strong> incluye una garantía del fabricante de <strong>36 meses</strong>.    </li>    <li>      <strong>¿Qué ocurre si el código de descarga no funciona?</strong>            Si el código de descarga presenta problemas, puede deberse a restricciones de región. Intenta agregar una cuenta a la consola registrada en la región correspondiente para solucionar el inconveniente.    </li>    <li>      <strong>¿Dragon's Dogma 2 tiene clasificación por edades?</strong>            Sí, el juego está clasificado para mayores de <strong>18 años</strong> según <strong>Pegi</strong> y <strong>USK</strong>.    </li>    <li>      <strong>¿Puedo devolver Dragon's Dogma 2 si lo abro?</strong>            No, si el producto ha sido abierto, no puede ser devuelto ni reembolsado.    </li>    <li>      <strong>¿Quién es el editor de Dragon's Dogma 2?</strong>            El editor de <strong>Dragon's Dogma 2</strong> es <strong>CapCom</strong>.    </li>  </ul>  <p>    La información sobre <strong>Dragon's Dogma 2</strong> es informativa y no contractual. Aunque nos esforzamos por proporcionar información precisa, algunos detalles pueden estar ausentes o ser incorrectos.  </p></div></code></pre>",
+        "condition": "Nuevo",
+        "conditionId": "1000",
+        "conditionDescription": null,
+        "itemWebUrl": "https://www.ebay.es/itm/336641149498",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/dI8AAeSwZKtqMIs2/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 1135,
+            "height": 1440
+          }
+        ],
+        "itemLocation": {
+          "city": "Gandia",
+          "stateOrProvince": "Comunidad Valenciana",
+          "postalCode": "46***",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "arreglatelo",
+          "feedbackPercentage": "98.1",
+          "feedbackScore": 27745
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "Plataforma": [
+            "PlayStation 5"
+          ],
+          "Nombre del videojuego": [
+            "1245784"
+          ],
+          "Editor": [
+            "CapCom"
+          ],
+          "Género": [
+            "Acción y Aventura"
+          ],
+          "Clasificación": [
+            "18+"
+          ],
+          "Cantidad de unidades": [
+            "1"
+          ],
+          "Tipo de unidad": [
+            "Unidad"
+          ],
+          "Garantía del fabricante": [
+            "3 años"
+          ],
+          "Características": [
+            "PlayStation 5 - Games - Capcom - RPG - Standard"
+          ],
+          "MPN": [
+            "1245784"
+          ],
+          "Equivalente USK": [
+            "USK ab 18 Jahren"
+          ],
+          "Precintado de Fabrica": [
+            "Si"
+          ],
+          "EAN": [
+            "5055060954133"
+          ]
+        },
+        "price": {
+          "value": 25.73,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Correos: Paq Estándar",
+            "shippingCarrierCode": "Correos",
+            "type": "Envío Económico",
+            "shippingCost": {
+              "value": "4.50",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-29T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-30T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedAvailableQuantity": 1,
+            "estimatedSoldQuantity": 1,
+            "estimatedRemainingQuantity": 1
+          }
+        ],
+        "gtin": "5055060954133",
+        "brand": null,
+        "mpn": "1245784",
+        "epid": null
+      },
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "PS5-03",
+      "game": "Final Fantasy XVI",
+      "platform": "ps5",
+      "initialCatalogId": "ps5-final-fantasy-xvi",
+      "editionConstraint": "STANDARD",
+      "selectionQuery": "\"Final Fantasy XVI\" PS5",
+      "listingId": "v1|267695458509|0",
+      "legacyListingId": "267695458509",
+      "listingUrl": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+      "listingTitle": "Final Fantasy XVI PS5 (SP) [PO158858]",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/91QAAeSwGClqqU79/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 756,
+          "height": 874
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "e6d59513de430f42388463876bd807ca9af3ca7d12df9060082c5bed3b3ad67f",
+      "galleryHash": "1a806d19ee254b28f8af253a54470cab918688902f015501981377ce548f05c5",
+      "galleryImages": 1,
+      "hydrated": {
+        "itemId": "v1|267695458509|0",
+        "legacyItemId": "267695458509",
+        "title": "Final Fantasy XVI PS5 (SP) [PO158858]",
+        "shortDescription": "Reserva antes de la fecha de lanzamiento para llevar 6 parches representando las naciones del mundo de Valisthea. Unidades Limitadas, consultar disponibilidad. Explora el reino de Valisthea-Un mundo asombroso sumido en el conflicto por naciones en guerra entre sí.",
+        "description": "<div style=\"font-family:sans-serif,Arial,Verdana; font-size:13px;\"><div style=\"height:57px;background-color:#0056da;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_logo.png\" width=\"314\" height=\"51\" style=\"float:left;\"></div><div style=\"clear:both\"><br></div><div style=\"text-align:center;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_2.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_1.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_4.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_3.jpg\" height=\"100\" style=\"margin:6 10;\"></div><div style=\"clear:both\"></div></div><br><p><strong><span style=\"color: #0056da;\">Reserva antes de la fecha de lanzamiento para llevar 6 parches representando las naciones del mundo de Valisthea. Unidades Limitadas, consultar disponibilidad.</span></strong></p> <p>Un mundo &eacute;pico de fantas&iacute;a oscura donde el destino de la tierra lo deciden los poderosos Eikonsy los Dominantes que los empu&ntilde;an. Esta es la historia de Clive Rosfield, un guerrero al que se le ha concedido el t&iacute;tulo de \"Primer Escudo de Rosaria\" y que ha jurado proteger a su hermano menor Joshua, el dominador del F&eacute;nix. En poco tiempo, Clive se ver&aacute; envuelto en una gran tragedia y jurar&aacute; vengarse del EikonOscuro Ifrit, una misteriosa entidad que trae la calamidad a su paso.</p> <p><strong>CARACTER&Iacute;STICAS:</strong></p> <p>1.Choques tit&aacute;nicos: cuando los Dominantes rivales se enfrentan, &iexcl;se desatan batallas &eacute;picas entre sus Eikons!</p> <p>2.Acci&oacute;n Eik&oacute;nica-Clive utiliza los poderes de m&uacute;ltiples Eikonsen una batalla vertiginosa para ofrecer un combate de acci&oacute;n din&aacute;mico.</p> <p>3.Una aut&eacute;ntica fantas&iacute;a oscura: descubre una narrativa descarnada y madura impregnada de realismo.</p> <p>4.Explora el reino de Valisthea-Un mundo asombroso sumido en el conflicto por naciones en guerra entre s&iacute;.</p> <p>&nbsp;</p>",
+        "condition": "Aceptable",
+        "conditionId": "6000",
+        "conditionDescription": "Es posible que nuestros juegos de segunda mano no contengan material adicional como copias digitales, pases online o contenido promocional descargable (DLC). <p><b>Las imágenes son sólo para fines ilustrativos, no son fotografías reales del producto.</b></p>",
+        "itemWebUrl": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/91QAAeSwGClqqU79/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 756,
+            "height": 874
+          }
+        ],
+        "itemLocation": {
+          "city": "Galicia",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "todoconsolassl",
+          "feedbackPercentage": "99.1",
+          "feedbackScore": 21219
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "Plataforma": [
+            "Sony PlayStation 5"
+          ],
+          "Nombre del videojuego": [
+            "Final Fantasy XVI PS5 (SP) [PO158858]"
+          ],
+          "EAN": [
+            "5021290096851"
+          ]
+        },
+        "price": {
+          "value": 26.95,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Otro envío en 48 horas",
+            "shippingCarrierCode": "Other",
+            "type": "Envío estándar",
+            "shippingCost": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-18T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedAvailableQuantity": 4,
+            "estimatedSoldQuantity": 0,
+            "estimatedRemainingQuantity": 4
+          }
+        ],
+        "gtin": "5021290096851",
+        "brand": null,
+        "mpn": null,
+        "epid": null
+      },
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "PS5-04",
+      "game": "Hogwarts Legacy",
+      "platform": "ps5",
+      "initialCatalogId": "ps5-hogwarts-legacy-standard",
+      "editionConstraint": "STANDARD",
+      "selectionQuery": "\"Hogwarts Legacy\" PS5",
+      "listingId": "v1|195420885212|0",
+      "legacyListingId": "195420885212",
+      "listingUrl": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+      "listingTitle": "HOGWARTS LEGACY PS5  PAL ESPAÑA NUEVO FISICO ESPAÑOL PRECINTADO",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/0HUAAOSwZdljTsG1/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 1200,
+          "height": 1200
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "9135ca885a3e9d0a9edb1d440df6ebec1b7e63455ebc354c2160fcf1fa6bb4d0",
+      "galleryHash": "c85409ab7b1c4f518edbd7e8b62e6ab1c00586902f61f12fdfba96d47d90690f",
+      "galleryImages": 1,
+      "hydrated": {
+        "itemId": "v1|195420885212|0",
+        "legacyItemId": "195420885212",
+        "title": "HOGWARTS LEGACY PS5  PAL ESPAÑA NUEVO FISICO ESPAÑOL PRECINTADO",
+        "shortDescription": "PAL ESPAÑA.",
+        "description": "<font rwr=\"1\" style=\"\"><font rwr=\"1\" style=\"\"><font rwr=\"1\" style=\"\"><font rwr=\"1\" style=\"\"><font rwr=\"1\" style=\"\"><font rwr=\"1\" style=\"\"><h1 class=\"parseasinTitle\" style=\"text-align: center; margin-top: 0px; margin-bottom: 0px;\"><font face=\"Arial\" size=\"7\">HOGWARTS LEGACY PS5&nbsp; PAL ESPAÑA NUEVO FISICO ESPAÑOL PRECINTADO CASTELLANO</font></h1></font></font></font><h1 class=\"parseasinTitle\" style=\"margin-bottom: 0px; margin-top: 0px;\"><div style=\"\"><div style=\"text-align: center;\"><font color=\"#008a00\" face=\"Arial, sans-serif\"><span style=\"font-size: 17px; font-weight: 400;\"><br></span></font></div><span style=\"font-family: Arial, sans-serif; font-size: 17px; color: rgb(0, 138, 0); font-weight: normal; line-height: 21.335px; text-align: start; background-color: rgb(255, 255, 255);\"><div style=\"text-align: center;\"><br></div></span></div></h1><h1 class=\"parseasinTitle\" style=\"margin-bottom: 0px; margin-top: 0px;\"><div style=\"text-align: center; font-family: Arial; font-size: 14pt;\"><span style=\"color: rgb(0, 138, 0); font-family: Arial, sans-serif; font-size: 17px; font-weight: normal; line-height: 21.335px; text-align: start; background-color: rgb(255, 255, 255);\"><p style=\"text-align: center; box-sizing: inherit; margin: 0px; padding: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 15px; line-height: inherit; vertical-align: baseline; font-family: Poppins-Regular; color: rgb(47, 55, 58);\"></p></span></div></h1></font><h1 class=\"parseasinTitle\" style=\"font-family: Arial; font-size: 14pt; text-align: center; margin-top: 0px; margin-bottom: 0px;\"><font rwr=\"1\" style=\"\"></font><div><font rwr=\"1\" style=\"\"><font rwr=\"1\"><font rwr=\"1\"><font rwr=\"1\"><font rwr=\"1\"><font rwr=\"1\"><div style=\"text-align: center;\"><div></div><div style=\"text-align: center; font-family: Arial; font-size: 14pt;\"><font face=\"Arial\" size=\"7\"><br></font></div><div style=\"text-align: center; font-family: Arial;\"><font size=\"7\">PAL ESPAÑA</font></div><div style=\"text-align: center; font-family: Arial;\"><font size=\"7\">JUEGO EN CASTELLANO</font></div><div style=\"text-align: center; font-family: Arial;\"><font size=\"7\">CAJA EN CASTELLANO</font></div></div></font></font></font></font></font></font></div></h1><h2 id=\"nombreProductoFicha\" style=\"font-family: Arial; font-size: 14pt; margin: 0px; padding: 0px 15px; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); background-position: 0% 0%; background-repeat: repeat;\"><div style=\"font-weight: normal;\"><div style=\"text-align: center; font-size: medium; font-family: verdana, arial, helvetica, sans-serif;\"><font class=\"Apple-style-span\" size=\"5\"><br></font></div></div></h2><h1 class=\"parseasinTitle\" style=\"font-family: Arial; font-size: 14pt; margin-top: 0px; margin-bottom: 0px;\"><div style=\"text-align: center; font-size: medium; font-weight: normal;\"><font size=\"6\" face=\"Courier\"><span class=\"Apple-style-span\" style=\"color: rgb(255, 0, 16);\"><b>PREGUNTAR SI HAY STOCK ANTES DE HACER LA COMPRA</b></span></font></div><div style=\"text-align: center;\"><font class=\"Apple-style-span\" color=\"#ff0010\" size=\"6\" face=\"Courier\"><br></font></div></h1><h2 style=\"font-family: Arial; font-size: 14pt; margin: 0px; padding: 0px 15px; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); background-position: 0% 0%; background-repeat: repeat;\"><div style=\"font-size: medium; font-weight: normal;\"><div><span style=\"display: block;\"></span></div><div><p align=\"center\" style=\"text-align: center;\"><font size=\"6\" face=\"Courier\"><strong>NUEVO-PRECINTADO&nbsp;</strong></font></p><p align=\"center\" style=\"text-align: center;\"><font size=\"6\" face=\"Courier\"><strong>ENTREGA ENTRE 1-3 DIAS LABORABLES APROX.</strong></font></p><p align=\"center\" style=\"text-align: center;\"><font class=\"Apple-style-span\" color=\"#fb0034\" face=\"Courier\"><b><br></b></font></p><p align=\"center\" style=\"text-align: center;\"><font class=\"Apple-style-span\" color=\"#fb0034\" face=\"Courier\"><b>ACEPTAMOS PAGO PAYPAL O MEDIANTE TRANSFERENCIA O INGRESO EN CUENTA</b></font></p></div></div></h2><h1 class=\"it-ttl\" itemprop=\"name\" style=\"font-family: Times; font-size: 14pt; text-align: start; margin: 0px; padding: 0px; border: 0px; line-height: normal; display: inline;\"><div style=\"text-align: center;\"><div></div></div></h1><h1 class=\"parseasinTitle\" style=\"font-family: Arial; font-size: 14pt; text-align: center; margin-top: 0px; margin-bottom: 0px;\"><div><font rwr=\"1\"><div></div></font></div></h1><h1 class=\"parseasinTitle\" style=\"text-align: center; font-family: Arial; font-size: 14pt; margin-top: 0px; margin-bottom: 0px;\"><span class=\"Apple-style-span\" style=\"font-family: Courier; color: rgb(251, 0, 52); font-size: medium; font-weight: normal;\"><b>MÁXIMA SERIEDAD COMO SE PUEDEN VER EN LOS VOTOS POSITIVO</b></span></h1>\n<p style=\"font-family: Arial; font-size: 14pt;\"></p></font></font>",
+        "condition": "Nuevo",
+        "conditionId": "1000",
+        "conditionDescription": null,
+        "itemWebUrl": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/0HUAAOSwZdljTsG1/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 1200,
+            "height": 1200
+          }
+        ],
+        "itemLocation": {
+          "city": "Valencia",
+          "stateOrProvince": "Comunidad Valenciana",
+          "postalCode": "46***",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "josetutabla",
+          "feedbackPercentage": "100.0",
+          "feedbackScore": 20483
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "País de origen": [
+            "España"
+          ],
+          "Nombre del videojuego": [
+            "HOGWARTS LEGACY"
+          ],
+          "Plataforma": [
+            "Sony PlayStation 5"
+          ],
+          "Año de lanzamiento": [
+            "2023"
+          ],
+          "Género": [
+            "Acción y Aventura"
+          ],
+          "Serie de videojuegos": [
+            "HOGWARTS LEGACY"
+          ],
+          "MPN": [
+            "HOGWARTS LEGACY"
+          ],
+          "Código de región": [
+            "PAL"
+          ],
+          "Editor": [
+            "Warner Bros."
+          ],
+          "Clasificación": [
+            "PEGI 16"
+          ]
+        },
+        "price": {
+          "value": 39.0,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Otro envío en 48 horas",
+            "shippingCarrierCode": "Other",
+            "type": "Envío estándar",
+            "shippingCost": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-18T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedAvailableQuantity": 1,
+            "estimatedSoldQuantity": 8,
+            "estimatedRemainingQuantity": 1
+          }
+        ],
+        "gtin": null,
+        "brand": null,
+        "mpn": "HOGWARTS LEGACY",
+        "epid": null
+      },
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "N64-01",
+      "game": "Holy Magic Century",
+      "platform": "n64",
+      "initialCatalogId": "n64-holy-magic-century",
+      "editionConstraint": null,
+      "selectionQuery": "\"Holy Magic Century\" Nintendo 64",
+      "status": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_USABLE_LISTING",
+      "selectionBackend": "browse-active-token",
+      "rejectedBeforeSelection": [
+        {
+          "listingId": "v1|143579000500|0",
+          "reason": "OBVIOUS_NON_GAME_PRODUCT"
+        },
+        {
+          "listingId": "v1|143773685303|0",
+          "reason": "OBVIOUS_NON_GAME_PRODUCT"
+        }
+      ]
+    },
+    {
+      "caseId": "N64-02",
+      "game": "Aidyn Chronicles",
+      "platform": "n64",
+      "initialCatalogId": "n64-aidyn-chronicles",
+      "editionConstraint": null,
+      "selectionQuery": "\"Aidyn Chronicles\" Nintendo 64",
+      "status": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "selectionBackend": "browse-active-token",
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "N64-03",
+      "game": "Hybrid Heaven",
+      "platform": "n64",
+      "initialCatalogId": "n64-pal-hybrid-heaven",
+      "editionConstraint": null,
+      "selectionQuery": "\"Hybrid Heaven\" Nintendo 64",
+      "status": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "selectionBackend": "browse-active-token",
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "N64-04",
+      "game": "Shadow Man",
+      "platform": "n64",
+      "initialCatalogId": "n64-shadow-man",
+      "editionConstraint": null,
+      "selectionQuery": "\"Shadow Man\" Nintendo 64",
+      "listingId": "v1|326822603505|0",
+      "legacyListingId": "326822603505",
+      "listingUrl": "https://www.ebay.es/itm/326822603505",
+      "listingTitle": "Shadow Man,Nintendo 64.Completo!!",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/1tcAAeSwjK9o8pPP/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 1600,
+          "height": 1088
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "c96ebc6a6c0e64e182df02564cc0054e75f09c56a8990fbf65330258be542e86",
+      "galleryHash": "5a4a40e69811162c470374d037bac2f801413174bb6e694e739b37a27d2f0a07",
+      "galleryImages": 1,
+      "hydrated": {
+        "itemId": "v1|326822603505|0",
+        "legacyItemId": "326822603505",
+        "title": "Shadow Man,Nintendo 64.Completo!!",
+        "shortDescription": "MIRAR FOTOS Y ESTADO AL LADO DE ELLAS,O CONSULTAR DUDAS. ACEPTABLE: artículo con signos evidentes de uso pero que sigue funcionando. La caja de la cinta VHS o del DVD puede tener agujeros o estar rajada.",
+        "description": "<div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1663248510\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{3}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun Highlight SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; outline: transparent solid 1px; font-variant: normal; color: rgb(95, 20, 103); background-color: rgb(255, 255, 0); font-size: 14pt; line-height: 25.575px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">-MIRAR FOTOS Y ESTADO AL LADO DE ELLAS,O CONSULTAR DUDAS.&nbsp;</span></span></p><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1663248510\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{3}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun Highlight SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; outline: transparent solid 1px; font-variant: normal; color: rgb(95, 20, 103); background-color: rgb(255, 255, 0); font-size: 14pt; line-height: 25.575px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">-INCLUYE:&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">COMO</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;EN FOTO/S.</span></span></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"363137586\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{6}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><br></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"776070288\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{8}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; color: rgb(95, 20, 103); font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">*</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">ATENCION!</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;COMO NORMA&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">GENERAL, EN</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;ARTICULOS DE HASTA 20&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">EUROS, SE</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;ACEPTA LA OPCION DE ENVIO&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">ORDINARIO, NO</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;OBSTANTE, ESTA OPCION NO LLEVA SEGUIMIENTO NI SEGURO DE NINGUN TIPO Y CORRE BAJO LA RESPONSABILIDAD DEL&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">COMPRADOR. PARA</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;MAYOR SEGURIDAD ELEGIR OPCION CERTIFICADO A LA HORA DEL PAGO O PONERSE EN CONTACTO.&nbsp;</span></span></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1954054586\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{10}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><br></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"2056169616\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{12}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; color: rgb(95, 20, 103); font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">A CONTINUACION SE DETALLA LA DEFINICION DE&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">EBAY, CORRESPONDIENTE</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;A LOS ARTICULOS DE ESTADO&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">ACEPTABLE,&nbsp;A</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;TENER EN CUENTA PARA LA COMPRA DE DICHOS ARTICULOS.</span></span><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\">&nbsp;</span><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; font-style: italic; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif; font-weight: bold;\">ACEPTABLE:</span><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; font-style: italic; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\">&nbsp;</span><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">artículo con signos evidentes de uso pero que sigue funcionando. La caja de la cinta VHS o del DVD puede tener agujeros o estar rajada.&nbsp;</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">Es posible que no se incluyan ni la caja ni las instrucciones del videojuego.</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;Consulta el anuncio del vendedor para obtener más información y la descripción de cualquier posible imperfección.</span></span></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1938773500\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{14}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><br></p></div><div class=\"OutlineElement Ltr SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; clear: both; cursor: text; overflow: visible; position: relative; direction: ltr; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, Arial, Verdana, sans-serif; font-size: 12px;\"><p class=\"Paragraph SCXW170946640 BCX0\" paraid=\"1565748665\" paraeid=\"{5387a0dd-26e4-4d16-adda-c29d076761eb}{16}\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; overflow-wrap: break-word; vertical-align: baseline; font-kerning: none; background-color: transparent; color: windowtext;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; font-size: 12pt; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">¡¡VISITA TAMBIEN NUESTRA WEB PARTICULAR!!</span><span class=\"NormalTextRun SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">&nbsp;</span></span><a class=\"Hyperlink SCXW170946640 BCX0\" href=\"https://www.consolacoleccion.es/\" target=\"_blank\" rel=\"noreferrer noopener\" style=\"cursor: pointer; -webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; text-decoration: none;\"><span data-contrast=\"none\" xml:lang=\"ES-ES\" lang=\"ES-ES\" class=\"TextRun Underlined SCXW170946640 BCX0\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text; font-variant: normal; color: rgb(119, 32, 109); font-size: 12pt; text-decoration: underline; line-height: 20.925px; font-family: Arial, Arial_EmbeddedFont, Arial_MSFontService, sans-serif;\"><span class=\"NormalTextRun SCXW170946640 BCX0\" data-ccp-charstyle=\"Hyperlink\" style=\"-webkit-user-drag: none; -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-select: text;\">www.consolacoleccion.es</span></span></a></p></div>",
+        "condition": "En buen estado",
+        "conditionId": "5000",
+        "conditionDescription": null,
+        "itemWebUrl": "https://www.ebay.es/itm/326822603505",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/1tcAAeSwjK9o8pPP/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 1600,
+            "height": 1088
+          }
+        ],
+        "itemLocation": {
+          "city": "alicante",
+          "stateOrProvince": "Comunidad Valenciana",
+          "postalCode": "03***",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "consolacoleccion2013",
+          "feedbackPercentage": "99.1",
+          "feedbackScore": 1083
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "Nombre del videojuego": [
+            "Shadow Man"
+          ],
+          "Plataforma": [
+            "Nintendo 64"
+          ],
+          "Editor": [
+            "Nintendo"
+          ],
+          "País de origen": [
+            "Japón"
+          ]
+        },
+        "price": {
+          "value": 96.75,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Correos: cartas certificadas",
+            "shippingCarrierCode": "Correos",
+            "type": "Envío Económico",
+            "shippingCost": {
+              "value": "8.65",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-25T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "8.50",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedAvailableQuantity": 1,
+            "estimatedSoldQuantity": 0,
+            "estimatedRemainingQuantity": 1
+          }
+        ],
+        "gtin": null,
+        "brand": null,
+        "mpn": null,
+        "epid": null
+      },
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "GB-01",
+      "game": "Lock 'n' Chase",
+      "platform": "gameboy",
+      "initialCatalogId": "gameboy-pal-lock-n-chase",
+      "editionConstraint": null,
+      "selectionQuery": "\"Lock 'n' Chase\" Game Boy",
+      "listingId": "v1|377464390784|0",
+      "legacyListingId": "377464390784",
+      "listingUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "listingTitle": "Nintendo Game Boy Lock'n Chase Japan CIB Complete Boxed Manual NTSC-J Original",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 1204,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1204,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1204,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1204,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1204,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1204,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1204,
+          "height": 1600
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "34a7d163cb09777acd5e60006cad75c7731c882caa332af4b458b2b3347fd485",
+      "galleryHash": "b05f3133c089ec2d2f52518beb76a4ab1d0aec1ed916276625f81aff617a79c7",
+      "galleryImages": 7,
+      "hydrated": {
+        "itemId": "v1|377464390784|0",
+        "legacyItemId": "377464390784",
+        "title": "Nintendo Game Boy Lock'n Chase Japan CIB Complete Boxed Manual NTSC-J Original",
+        "shortDescription": "Juego Lock'n Chase original japonés para Nintendo Game Boy, versión NTSC-J, completo en caja con manual. El cartucho funciona correctamente. Incluye caja original japonesa y manual, ideal para coleccionistas de Game Boy, Nintendo retro o material japonés. Estado estético acorde a los años, ver fotos para valorar el estado exacto de caja, cartucho y manual. Artículo cada vez más interesante para colección, especialmente en formato completo (CIB – Complete in Box).",
+        "description": "<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Juego Lock'n Chase original japon&#233;s para Nintendo Game Boy, versi&#243;n NTSC-J, completo en caja con manual.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">El cartucho funciona correctamente. Incluye caja original japonesa y manual, ideal para coleccionistas de Game Boy, Nintendo retro o material japon&#233;s.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Estado est&#233;tico acorde a los a&#241;os, ver fotos para valorar el estado exacto de caja, cartucho y manual.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Art&#237;culo cada vez m&#225;s interesante para colecci&#243;n, especialmente en formato completo (CIB &#8211; Complete in Box).</p>",
+        "condition": "En buen estado",
+        "conditionId": "5000",
+        "conditionDescription": null,
+        "itemWebUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 1204,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1204,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1204,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1204,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1204,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1204,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1204,
+            "height": 1600
+          }
+        ],
+        "itemLocation": {
+          "city": "Zaragoza",
+          "postalCode": "50***",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "noagames",
+          "feedbackPercentage": "100.0",
+          "feedbackScore": 8
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "Nombre del videojuego": [
+            "Lock n chase"
+          ],
+          "Cantidad de unidades": [
+            "1"
+          ],
+          "Plataforma": [
+            "Nintendo Game Boy"
+          ],
+          "Año de lanzamiento": [
+            "1990"
+          ],
+          "Género": [
+            "Acción y Aventura, Rompecabezas"
+          ],
+          "Tipo de unidad": [
+            "Unidad"
+          ],
+          "Editor": [
+            "Data East"
+          ],
+          "Clasificación": [
+            "PEGI 3"
+          ]
+        },
+        "price": {
+          "value": 69.0,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Correos: cartas certificadas",
+            "shippingCarrierCode": "Correos",
+            "type": "Envío Económico",
+            "shippingCost": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedAvailableQuantity": 1,
+            "estimatedSoldQuantity": 0,
+            "estimatedRemainingQuantity": 1
+          }
+        ],
+        "gtin": null,
+        "brand": null,
+        "mpn": null,
+        "epid": null
+      },
+      "rejectedBeforeSelection": [
+        {
+          "listingId": "v1|133666498386|0",
+          "reason": "OBVIOUS_NON_GAME_PRODUCT"
+        }
+      ]
+    },
+    {
+      "caseId": "GB-02",
+      "game": "Nail 'n' Scale",
+      "platform": "gameboy",
+      "initialCatalogId": "gameboy-pal-nail-n-scale",
+      "editionConstraint": null,
+      "selectionQuery": "\"Nail 'n' Scale\" Game Boy",
+      "listingId": "v1|157686535662|0",
+      "legacyListingId": "157686535662",
+      "listingUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "listingTitle": "Nail 'N Scale Nintendo Game Boy — Verificado",
+      "gallery": [
+        {
+          "url": "https://i.ebayimg.com/images/g/ChEAAeSwBAhpk1Fa/s-l1600.jpg",
+          "kind": "PRIMARY",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/C54AAeSwzl1pk1Fm/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/rxwAAeSwLbVpk1Fy/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/EjUAAeSwkj1pk1F-/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "url": "https://i.ebayimg.com/images/g/1mwAAeSw5Alpk1GK/s-l1600.jpg",
+          "kind": "ADDITIONAL",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "status": "SELECTED",
+      "availabilityReason": null,
+      "selectionBackend": "browse-active-token",
+      "inputHash": "191fb705240eb273c517fd60d6da180f060df56a746ddd1485cb54ff78e7637b",
+      "galleryHash": "ed36f548d5f4c6d899cd1870f60318fa66626ee0d4a75985c5119e1801615a59",
+      "galleryImages": 5,
+      "hydrated": {
+        "itemId": "v1|157686535662|0",
+        "legacyItemId": "157686535662",
+        "title": "Nail 'N Scale Nintendo Game Boy — Verificado",
+        "shortDescription": "Un juego diferente, creativo y entretenido, ideal para renovar tu colección con tecnología garantizada a un precio más accesible y con calidad verificada. Su estilo clásico y jugabilidad dinámica lo convierten en una joya imprescindible para amantes del catálogo portátil de Nintendo.",
+        "description": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">\n\n<style type=\"text/css\">\n\n/* \nTemplate: SecondBest plantilla 2\nDescription: \nVersion: 1.2\n*/\n/* user colors */\n#wpl_store_header .hotline {\n    color: #FFFFFF;\n    background-color: #FFA500;\n    display: block;\n    float: right;\n}\n\n#wpl_wrapper .wpl_description h2 {\n    color: #000000;\n}\n\n#wpl_wrapper h3.bar {\n    color: #FFFFFF;\n    background-color: #FD0A77;\n    background-image: -webkit-gradient(linear, left top, left bottom, from(#FD0A77), to(#FC0062));\n    background-image: -webkit-linear-gradient(top, #FD0A77, #FC0062);\n    background-image:    -moz-linear-gradient(top, #FD0A77, #FC0062);\n    background-image:     -ms-linear-gradient(top, #FD0A77, #FC0062);\n    background-image:      -o-linear-gradient(top, #FD0A77, #FC0062);\n    background-image:         linear-gradient(to bottom, #FD0A77, #FC0062);\n}\n\n/* layout */\n#wpl_wrapper {\n    width: 90%;\n    margin-right: auto;\n    margin-left: auto;\n    margin-top: 30px;\n    margin-bottom: 20px;\n    font-size: 14px;\n    font-family:Arial,Helvetica,sans-serif;\n}\n\n#wpl_wrapper h2 {\n    font-size: 24px;\n    line-height: 30px;\n}\n\n#wpl_wrapper h3.bar {\n    margin-top: 30px;\n    margin-bottom: 20px;\n    padding-left: 10px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    font-family: Helvetica, Arial, sans-serif;\n    -webkit-border-radius: 5px;\n    -moz-border-radius: 5px;\n    border-radius: 5px;\n}\n\n#wpl_store_header {\n    width:100%;\n    overflow: hidden;\n}\n\n#wpl_store_header .logo {\n    float: left;\n}\n#wpl_store_header .hotline {\n    height: 40px;\n    font-size: 16px;\n    line-height: 40px;\n    font-weight: bold;\n    padding-right: 20px;\n    padding-left: 20px;\n    margin-top: 7px;\n    -webkit-border-radius: 5px;\n    -moz-border-radius: 5px;\n    border-radius: 5px;\n    text-decoration: none;\n    text-shadow: 2px 2px 4px #713803;\n    filter: dropshadow(color=#713803, offx=0, offy=1);\n}\n\n#wpl_wrapper .clearfix {\n    clear:both;\n}\n\n#wpl_list_images a {\n    border: 1px solid #ccc;\n    display: block;\n    float: left;\n    height: 75px;\n    margin-bottom: 20px;\n    margin-left: 10px;\n    margin-right: 10px;\n    padding: 12px;\n    width: 75px;\n}\n\n#wpl_wrapper .alignleft {\n    float: left;\n}\n#wpl_wrapper .alignright {\n    float: right;\n}\n\n#wpl_wrapper .section p {\n    padding-left: 10px;\n    padding-right: 10px;\n    /* fix for firefox: */\n    line-height: 1.2em;\n    margin: 1em 0;\n}\n\n#wpl_wrapper .section big {\n    font-size: 18px;\n    font-weight: bold;\n}\n\n.primary_image, .wpl_product_image {\n    width: 100%;\n}\n\n#gallery a {\n    text-decoration: none;\n}\n\n/* these only apply in preview to override default styles from wp-admin */\nbody.wp-admin #wpl_wrapper ul {\n    list-style: disc inside none;\n}\nbody.wp-admin #wpl_wrapper ul li {\n    padding-left: 2em;\n}\n\n/** Media queries **/\n@media (min-width: 320px) {\n    #wpl_wrapper {\n        width: 95%;\n    }\n\n    #wpl_store_header .hotline {\n        float: left;\n    }\n\n    #gallery {\n        width: 100%;\n    }\n\n    #wpl_list_images {\n        display: none;\n    }\n}\n@media (min-width: 481px) {\n    #wpl_wrapper {\n        width: 95%;\n    }\n\n    #wpl_store_header .hotline {\n        float: right;\n        display: inline-block;\n    }\n\n    #gallery {\n        display: block;\n        width: 48%;\n        float: left;\n    }\n\n    #description {\n        width: 48%;\n        float: right;\n    }\n\n    #gallery #wpl_main_image {\n        max-width: 220px;\n        max-height: 225px;\n    }\n\n    #wpl_list_images {\n        display: block;\n    }\n\n    #wpl_list_images a {\n        width: 80px;\n        height: 80px;\n    }\n\n    #wpl_list_images a img.wpl_thumb {\n        width: 100%;\n    }\n}\n@media (min-width: 641px) {\n    #wpl_wrapper {\n        width: 95%;\n    }\n\n    #wpl_store_header .hotline {\n        float: right;\n    }\n\n    #gallery {\n        display: block;\n        width: 45%;\n        float: left;\n    }\n\n    #description {\n        width: 48%;\n        float: right;\n    }\n\n    #gallery #wpl_main_image {\n        width: 100%;\n        height: 100%;\n        max-height: 370px;\n        max-width: 370px;\n    }\n\n    #wpl_list_images {\n        display: block;\n    }\n\n    #gallery #wpl_list_images a {\n        width: 80px;\n        height: 80px;\n    }\n\n    #wpl_list_images a img.wpl_thumb {\n        width: 80px;\n    }\n}</style>\n\n<div id=\"wpl_wrapper\">\n<div id=\"wpl_store_header\"><br />\n<p>&nbsp;</p>\n</div>\n<div class=\"main_section\">\n<h3 class=\"bar\">Nail &#039;N Scale Nintendo Game Boy &mdash; Verificado</h3>\n<div id=\"gallery\">\n<div id=\"wpl_main_image\"><img class=\"wpl_product_image\" src=\"https://secondbest.es/wp-content/uploads/2026/02/IMG20260216144502-scaled.webp\" alt=\"Nail &#039;N Scale Nintendo Game Boy — Verificado\" /></div>\n</div>\n<div id=\"description\">\n<h2>Nail &#039;N Scale Nintendo Game Boy &mdash; Verificado</h2>\n<div class=\"long_desc\"><p data-start=\"39\" data-end=\"333\">Si te apasionan los desafíos originales y los títulos retro con personalidad propia, <em data-start=\"124\" data-end=\"139\">Nail &#8216;N Scale</em> para Game Boy es una apuesta segura. Un juego diferente, creativo y entretenido, ideal para renovar tu colección con tecnología garantizada a un precio más accesible y con calidad verificada.</p>\n<p data-start=\"335\" data-end=\"654\">Perfecto para jugadores que buscan algo fuera de lo convencional, combina acción y rompecabezas con una mecánica única basada en el uso estratégico de clavos para avanzar por los niveles. Su estilo clásico y jugabilidad dinámica lo convierten en una joya imprescindible para amantes del catálogo portátil de Nintendo.</p>\n<p data-start=\"656\" data-end=\"687\">🌟 Características destacadas</p>\n<div class=\"TyagGW_tableContainer\">\n<div class=\"group TyagGW_tableWrapper flex flex-col-reverse w-fit\">\n<table class=\"w-fit min-w-(--thread-content-width)\" data-start=\"689\" data-end=\"1070\">\n<thead data-start=\"689\" data-end=\"729\">\n<tr data-start=\"689\" data-end=\"729\">\n<th class=\"\" data-start=\"689\" data-end=\"708\" data-col-size=\"sm\">✨ Característica</th>\n<th class=\"\" data-start=\"708\" data-end=\"729\" data-col-size=\"sm\">📋 Especificación</th>\n</tr>\n</thead>\n<tbody data-start=\"770\" data-end=\"1070\">\n<tr data-start=\"770\" data-end=\"816\">\n<td data-start=\"770\" data-end=\"795\" data-col-size=\"sm\">🎮 Plataforma portátil</td>\n<td data-col-size=\"sm\" data-start=\"795\" data-end=\"816\">Nintendo Game Boy</td>\n</tr>\n<tr data-start=\"817\" data-end=\"877\">\n<td data-start=\"817\" data-end=\"837\" data-col-size=\"sm\">🧩 Mecánica única</td>\n<td data-col-size=\"sm\" data-start=\"837\" data-end=\"877\">Uso de clavos para escalar y avanzar</td>\n</tr>\n<tr data-start=\"878\" data-end=\"911\">\n<td data-start=\"878\" data-end=\"897\" data-col-size=\"sm\">👤 Modo de juego</td>\n<td data-col-size=\"sm\" data-start=\"897\" data-end=\"911\">Un jugador</td>\n</tr>\n<tr data-start=\"912\" data-end=\"950\">\n<td data-start=\"912\" data-end=\"925\" data-col-size=\"sm\">🕹️ Género</td>\n<td data-col-size=\"sm\" data-start=\"925\" data-end=\"950\">Acción y rompecabezas</td>\n</tr>\n<tr data-start=\"951\" data-end=\"1016\">\n<td data-start=\"951\" data-end=\"973\" data-col-size=\"sm\">💾 Formato original</td>\n<td data-col-size=\"sm\" data-start=\"973\" data-end=\"1016\">Cartucho físico compatible con Game Boy</td>\n</tr>\n<tr data-start=\"1017\" data-end=\"1044\">\n<td data-start=\"1017\" data-end=\"1036\" data-col-size=\"sm\">🏢 Desarrollador</td>\n<td data-col-size=\"sm\" data-start=\"1036\" data-end=\"1044\">TOSE</td>\n</tr>\n<tr data-start=\"1045\" data-end=\"1070\">\n<td data-start=\"1045\" data-end=\"1062\" data-col-size=\"sm\">📅 Lanzamiento</td>\n<td data-col-size=\"sm\" data-start=\"1062\" data-end=\"1070\">1990</td>\n</tr>\n</tbody>\n</table>\n</div>\n</div>\n<p data-start=\"1072\" data-end=\"1243\" data-is-last-node=\"\" data-is-only-node=\"\">Una opción ideal para ampliar tu colección retro con un título original, divertido y con todo el encanto clásico que buscas. Excelente compra para disfrutar donde quieras.</p>\n</div>\n<div> </div>\n<div> </div>\n</div>\n</div>\n<div> </div>\n<div class=\"clearfix\"> </div>\n<div class=\"section\">\n<h3> </h3>\n<h3> </h3>\n<h3> </h3>\n<h3> </h3>\n<h3 class=\"bar\">Envíos</h3>\n<p><strong>Gastos de envío:</strong><br /><i>Gratis en toda la península y baleares</i></p>\n<p><strong>Tiempo de Envío:</strong><br /><i>Todos los envíos son 24h siempre que la compra sea antes de las 14:00h</i></p>\n<p><strong>No enviamos a Ceuta y Melilla</strong></p>\n<p><strong>Para envíos a UK necesitamos el nº de pasaporte del comprador para poder pasar aduanas</strong></p>\n</div>\n<div class=\"section\">\n<h3 class=\"bar\">Metodos de pago</h3>\n<p>Métodos de pago</p>\n<ul>\n<li>PayPal</li>\n<li>tarjeta de crédito</li>\n</ul>\n</div>\n<div class=\"section\">\n<h3 class=\"bar\">Garantía</h3>\n<p>En SecondBest dispones de 1 año de garantía (hasta 2 años en productos nuevos, según fabricante) en cualquiera de nuestros productos siempre y cuando se cumplan una de las siguientes circunstancias:</p>\n<p><strong>En caso de producto defectuoso:</strong> Cubrimos cualquier mal funcionamiento siempre que no sea ocasionado por daños externos (líquidos, golpes, presión, mal uso, etc..), en tal caso se tramita con el servicio técnico oficial de la marca y de no ser posible con nuestro propio servicio técnico. En caso de que el producto no tenga reparación y entre en garantía mandamos un mensajero para la recogida del producto defectuoso y entrega del nuevo, en caso de no tener mas stock se hace un reembolso completo.</p>\n<p><strong>En caso de problemas en el transporte: </strong>Si una vez recibido el paquete detectas golpes en la caja, notifícalo en las primeras 24 horas desde la entrega. Una vez notificado si el producto no funciona correctamente enviaremos un mensajero para cambiarte el articulo o proceder al reembolso.</p>\n<p>Condiciones para devolución:</p>\n<ul>\n<li>Entregar producto completo con cualquier accesorio que incluya.</li>\n<li>El producto debe estar tal y como se envió sin ningún golpe ni desperfecto.</li>\n</ul>\n<p>Si el producto es nuevo precintado solo puedes devolverlo por cambio de opinión si no lo has abierto, una vez abierto solo cubre la garantía si algo falla!</p>\n<p><strong>Los productos que se devuelvan por cambio de opinión los gastos de envío corren a cuenta del comprador!</strong></p>\n</div>\n<div class=\"section\">\n<p>Condiciones para devolución:</p>\n<p>Entregar producto completo con cualquier accesorio que incluya.<br />El producto debe estar tal y como se envió sin ningún golpe ni desperfecto.</p>\n<p>Nuestros productos están sujetos la ley REBU por lo que el IVA es del 0%</p>\n</div>\n<div class=\"section\">\n<p>SecondBest.es</p>\n</div>\n<div class=\"section\">\n<h3 class=\"bar\">Información sobre nosotros</h3>\n<p>Somos una cadena de 7 tiendas repartidas por Barcelona y cercanías. Disponemos mayormente de electrónica ( Smartphone , ordenador portátil , consolas ) de las principales marcas como Samsung , Apple , Huawei , etc..</p>\n<p>Tenemos tanto productos de segunda mano como nuevos, todos comprobados y con su garantía por si algo se nos escapa!</p>\n</div>\n</div>\n<p>&nbsp;</p>\n\n",
+        "condition": "En buen estado",
+        "conditionId": "5000",
+        "conditionDescription": "En buen estado general. 100% original. Ligeros desperfectos en la caja apreciables en las fotos.",
+        "itemWebUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+        "itemAffiliateWebUrl": null,
+        "images": [
+          {
+            "url": "https://i.ebayimg.com/images/g/ChEAAeSwBAhpk1Fa/s-l1600.jpg",
+            "kind": "PRIMARY",
+            "width": 1200,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/C54AAeSwzl1pk1Fm/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1200,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/rxwAAeSwLbVpk1Fy/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1200,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/EjUAAeSwkj1pk1F-/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1200,
+            "height": 1600
+          },
+          {
+            "url": "https://i.ebayimg.com/images/g/1mwAAeSw5Alpk1GK/s-l1600.jpg",
+            "kind": "ADDITIONAL",
+            "width": 1200,
+            "height": 1600
+          }
+        ],
+        "itemLocation": {
+          "city": "Granollers",
+          "postalCode": "08***",
+          "country": "ES"
+        },
+        "seller": {
+          "username": "secondbestweb",
+          "feedbackPercentage": "99.4",
+          "feedbackScore": 7415
+        },
+        "category": "Consolas y videojuegos|Videojuegos",
+        "categoryId": "139973",
+        "aspects": {
+          "Plataforma": [
+            "Nintendo Game Boy"
+          ],
+          "Nombre del videojuego": [
+            "Nail 'N Scale"
+          ],
+          "Editor": [
+            "Data East"
+          ],
+          "Año de lanzamiento": [
+            "1990"
+          ],
+          "Género": [
+            "Acción"
+          ],
+          "Clasificación": [
+            "E (Everyone)"
+          ],
+          "MPN": [
+            "DMG-NS-USA"
+          ],
+          "Cantidad de unidades": [
+            "1"
+          ],
+          "Tipo de unidad": [
+            "Unidad"
+          ],
+          "Serie de videojuegos": [
+            "Nail 'N Scale"
+          ],
+          "Código de región": [
+            "NTSC-U/C"
+          ],
+          "País de origen": [
+            "Japón"
+          ],
+          "Características": [
+            "Cartucho original, juego para un jugador, compatible con Game Boy clásica"
+          ],
+          "Subgénero": [
+            "Plataformas / Puzzle"
+          ],
+          "Garantía del fabricante": [
+            "No"
+          ],
+          "EAN": [
+            "0013252002548"
+          ]
+        },
+        "price": {
+          "value": 129.99,
+          "currency": "EUR"
+        },
+        "shippingOptions": [
+          {
+            "shippingServiceCode": "Otro envío en 24 horas",
+            "shippingCarrierCode": "Other",
+            "type": "Express",
+            "shippingCost": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-09-18T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-09-18T10:00:00.000Z",
+            "shipToLocationUsedForEstimate": {
+              "postalCode": "28001",
+              "country": "ES"
+            },
+            "additionalShippingCostPerUnit": {
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingCostType": "FIXED"
+          }
+        ],
+        "buyingOptions": [
+          "FIXED_PRICE",
+          "BEST_OFFER"
+        ],
+        "itemEndDate": null,
+        "estimatedAvailabilities": [
+          {
+            "deliveryOptions": [
+              "SHIP_TO_HOME"
+            ],
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedAvailableQuantity": 1,
+            "estimatedSoldQuantity": 0,
+            "estimatedRemainingQuantity": 1
+          }
+        ],
+        "gtin": "0013252002548",
+        "brand": null,
+        "mpn": "DMG-NS-USA",
+        "epid": null
+      },
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "GB-03",
+      "game": "Tumble Pop",
+      "platform": "gameboy",
+      "initialCatalogId": "gameboy-pal-tumble-pop",
+      "editionConstraint": null,
+      "selectionQuery": "\"Tumble Pop\" Game Boy",
+      "status": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "selectionBackend": "browse-active-token",
+      "rejectedBeforeSelection": []
+    },
+    {
+      "caseId": "GB-04",
+      "game": "BurgerTime Deluxe",
+      "platform": "gameboy",
+      "initialCatalogId": "gameboy-burgertime-deluxe",
+      "editionConstraint": null,
+      "selectionQuery": "\"BurgerTime Deluxe\" Game Boy",
+      "status": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "selectionBackend": "browse-active-token",
+      "rejectedBeforeSelection": []
+    }
+  ],
+  "freezeHash": "ed83fda90b810f014523b86055b2617a072eff78e51be579baa8f7232ea57454"
+}

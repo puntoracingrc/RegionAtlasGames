@@ -1,0 +1,47 @@
+[
+  {
+    "listingId": "v1|157686535662|0",
+    "imageIndex": 1,
+    "contentHash": "3ebf0fd22151f2651520694bd13dc0b01447167cadbf8c73d36efb7b34280ecc",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front of the game box."
+  },
+  {
+    "listingId": "v1|157686535662|0",
+    "imageIndex": 2,
+    "contentHash": "702e406d83455fe9b193bea6f75fa40b52d65e99a5fd0a2b2a081527cc915311",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 1.0,
+    "reason": "Visible back of the game box."
+  },
+  {
+    "listingId": "v1|157686535662|0",
+    "imageIndex": 3,
+    "contentHash": "c2dd8a586088f3a402c836133430eb5eb52d4e97f1db76b81b8dc67134e970d8",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_SPINE",
+    "confidence": 0.8,
+    "reason": "Partially visible spine of the game box."
+  },
+  {
+    "listingId": "v1|157686535662|0",
+    "imageIndex": 4,
+    "contentHash": "c852ea5c5d6de3191bfe0843ec020b5273a1a8e661d2f3ed7bd495e1fc1274b5",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front of the instruction booklet."
+  },
+  {
+    "listingId": "v1|157686535662|0",
+    "imageIndex": 5,
+    "contentHash": "32c18431d7b086d80529cccc68381f78b393cdca0cd0bb48233cd487c01711c5",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front of the game cartridge."
+  }
+]

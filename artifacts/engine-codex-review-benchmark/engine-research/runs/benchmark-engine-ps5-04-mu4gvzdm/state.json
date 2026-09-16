@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 2,
+  "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+  "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+  "subjectId": "benchmark:listing-evidence-v2-ps5-04",
+  "priority": "P2",
+  "status": "PARTIAL",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS5_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+    "\"Hogwarts Legacy Standard\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Hogwarts Legacy Standard\" PlayStation 5",
+    "site:ebay.es \"Hogwarts Legacy Standard\" PlayStation 5"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"hogwarts legacy standard\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"hogwarts legacy standard\" \"ps5\" \"standard\"",
+    "site:ebay.com \"hogwarts legacy standard\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"hogwarts legacy standard\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"hogwarts legacy standard\" \"ps5\" \"standard\"",
+    "\"hogwarts legacy standard\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"hogwarts legacy standard\" playstation 5",
+    "site:ebay.es \"hogwarts legacy standard\" playstation 5"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+    "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+    "https://www.game.es/hogwarts-legacy-standard-playstation-5-183236",
+    "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+    "https://www.ebay.com/itm/404632407266",
+    "https://www.ebay.com/p/16063769994",
+    "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+    "https://www.ebay.es/p/9056773607",
+    "https://www.ebay.es/p/24056771971"
+  ],
+  "domainsVisited": [
+    "www.game.es",
+    "www.ebay.com",
+    "play-e.com",
+    "www.ebay.es"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-9c9e83b9eb886ff94b4fedd7",
+      "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+      "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+      "sourceId": "national-retailer",
+      "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+      "canonicalUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+      "sourceType": "RETAILER",
+      "host": "www.game.es",
+      "fetchedAt": "2026-09-16T19:01:56.815Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PLATAFORMA: Nintendo Switch Playstation 4 Playstation 5 Xbox One Xbox Series X",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "76a578d0faa26f08263bd37f7506f2f75212ec0cc4fa29d549addca7b5d3de37",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 60,
+      "component": null
+    },
+    {
+      "id": "ev-b441710f6c153ae1385cc203",
+      "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+      "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+      "sourceId": "national-retailer",
+      "sourceUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+      "canonicalUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+      "sourceType": "RETAILER",
+      "host": "www.game.es",
+      "fetchedAt": "2026-09-16T19:02:00.804Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Hogwarts Legacy Standard. PLAYSTATION 5: GAME.es Tiendas GAME",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "cc11e857b3903b3782cdb94c6e84f9e33219f8472375ce2f9ee46956b88c3ef3",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 60,
+      "component": null
+    },
+    {
+      "id": "ev-d04c67fd84643fb29596feb5",
+      "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+      "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+      "sourceId": "candidate:play-e.com",
+      "sourceUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+      "canonicalUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "play-e.com",
+      "fetchedAt": "2026-09-16T19:02:04.952Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "c8436a00565184ba5f4aa216a58550c48d683797342941d08d9d1168f1cd1381",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-39ecd93e735d226b0503dd37",
+      "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+      "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-04",
+      "gameId": "ps5-hogwarts-legacy-standard",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "national-retailer",
+      "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+      "evidenceId": "ev-9c9e83b9eb886ff94b4fedd7",
+      "confidence": 0.9,
+      "status": "VALIDATED",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T19:01:58.975Z"
+    },
+    {
+      "id": "cl-e9e9ce61b77b434cb7d43ff7",
+      "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+      "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-04",
+      "gameId": "ps5-hogwarts-legacy-standard",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "national-retailer",
+      "sourceUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+      "evidenceId": "ev-b441710f6c153ae1385cc203",
+      "confidence": 1,
+      "status": "VALIDATED",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T19:02:02.305Z"
+    },
+    {
+      "id": "cl-bc5db8ee9af5bed00fee4057",
+      "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+      "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-04",
+      "gameId": "ps5-hogwarts-legacy-standard",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:play-e.com",
+      "sourceUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+      "evidenceId": "ev-d04c67fd84643fb29596feb5",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:02:07.139Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.game.es/hogwarts-legacy-standard-playstation-5-183236",
+      "reason": "RESEARCH_PAGE_TOO_LARGE"
+    },
+    {
+      "value": "https://www.ebay.com/itm/404632407266",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.com/p/16063769994",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/p/9056773607",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/p/24056771971",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 3,
+    "images": 0,
+    "agentTurns": 4,
+    "browserSessions": 2,
+    "inputTokens": 6246,
+    "outputTokens": 347,
+    "estimatedCostUsd": 0.001145
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page explicitly mentions the product as 'Hogwarts Legacy Standard Edition (EU)', indicating a European market focus, and the context suggests it is marked for PAL España.",
+  "decisionSummary": "A plausible value exists but confirmation threshold is not met.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T19:02:07.949Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": "PAL España",
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T19:01:51.040Z",
+  "updatedAt": "2026-09-16T19:02:07.949Z"
+}

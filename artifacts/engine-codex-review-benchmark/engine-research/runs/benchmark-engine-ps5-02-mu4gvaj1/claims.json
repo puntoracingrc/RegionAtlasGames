@@ -1,0 +1,46 @@
+[
+  {
+    "id": "cl-f6698aa463c09c0085bd6236",
+    "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+    "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-02",
+    "gameId": "ps5-usa-dragon-s-dogma-2",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "USA",
+    "sourceId": "platform-holder-official",
+    "sourceUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+    "evidenceId": "ev-7fa326461ad122253a94f502",
+    "confidence": 0.95,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:01:27.912Z"
+  },
+  {
+    "id": "cl-33fec1283d2a9e1dda3d5f67",
+    "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+    "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-02",
+    "gameId": "ps5-usa-dragon-s-dogma-2",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "USA",
+    "sourceId": "platform-holder-official",
+    "sourceUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+    "evidenceId": "ev-8f70a73abcd50235b57df48c",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:01:30.857Z"
+  }
+]

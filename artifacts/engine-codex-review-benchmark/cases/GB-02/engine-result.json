@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "GB-02",
+  "game": "Nail 'n' Scale",
+  "platform": "gameboy",
+  "listingId": "v1|157686535662|0",
+  "listingUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+  "inputHash": "191fb705240eb273c517fd60d6da180f060df56a746ddd1485cb54ff78e7637b",
+  "galleryHash": "ed36f548d5f4c6d899cd1870f60318fa66626ee0d4a75985c5119e1801615a59",
+  "knowledgePackHash": "3358b15f45a454e5fde6b46dfed16075d712dbeb254fabf5724b6a9ca67a01d3",
+  "evidenceHash": "08a0e1f51e8edcaf4b49f389a77e6faace32b593b754a2e2199a8cff432eb00d",
+  "initialEngineDecision": "REVIEW_REQUIRED",
+  "engineDecision": "REVIEW_REQUIRED",
+  "engineConfidence": 0.5,
+  "searchedCatalogId": "gameboy-pal-nail-n-scale",
+  "candidateCatalogId": "gameboy-pal-nail-n-scale",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "complete",
+    "confidence": 1,
+    "evidence": [
+      "required visible media and package components present"
+    ],
+    "manualExpected": true,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate",
+    "condition"
+  ],
+  "uncertainClaims": [
+    "market_region"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-3f5968bc7158299b",
+      "claim": {
+        "text": [
+          "Nail 'n' Scale",
+          "GAME BOY",
+          "DATA EAST"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-b4063f81bd2a475b",
+      "claim": {
+        "text": [
+          "TOUGH AS NAILS!",
+          "Nail 'n' Scale",
+          "DATA EAST",
+          "NAIL 'N' SCALE",
+          "This game pak for use with the Game Boy Compact Video Game System and",
+          "1 or 2-player action.",
+          "Official Nintendo Seal of Quality",
+          "MADE IN JAPAN"
+        ],
+        "productCodes": [
+          "DMG-P-DR"
+        ],
+        "serials": [],
+        "barcodes": [
+          "013252002548"
+        ],
+        "languages": [],
+        "distributors": [
+          "DATA EAST USA, INC."
+        ],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "OUTER_PACKAGE_BACK",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 2,
+      "identifier": [
+        "013252002548",
+        "DMG-P-DR"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-b9636ffcd0f6afc5",
+      "claim": {
+        "text": [],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "OUTER_PACKAGE_SPINE",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 3,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-da6e14beb811557c",
+      "claim": {
+        "text": [
+          "Nail 'n' Scale",
+          "INSTRUCTION BOOKLET",
+          "DATA EAST"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "MANUAL_FRONT",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 4,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-b5c1fec11cae5ba9",
+      "claim": {
+        "text": [
+          "Nail 'n' Scale",
+          "GAME BOY"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "component": "CARTRIDGE_FRONT",
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 5,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-ce39192636a04f08528ca6b8",
+      "claim": "Country version: Estados Unidos",
+      "source": "candidate:www.retroplace.com",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-fea6b2ff35b68464d2381886",
+      "claim": "Nail ’n Scale",
+      "source": "candidate:www.icollecteverything.com",
+      "sourceUrl": "https://www.icollecteverything.com/db/items/videogame/2118/",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "sourcesConsulted": [
+    "candidate:www.retroplace.com",
+    "candidate:www.icollecteverything.com"
+  ],
+  "queriesExecuted": [
+    "\"013252002548\"",
+    "\"013252002548\" \"Nail 'n' Scale\"",
+    "\"DMG-P-DR\"",
+    "\"DMG-P-DR\" \"Nail 'n' Scale\"",
+    "site:game.es \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "site:todocoleccion.net \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "site:ebay.com \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "site:regionatlas.games \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "site:mobygames.com \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+    "\"Nail 'n' Scale\" \"gameboy\" \"standard\" back cover distributor legal text",
+    "\"013252002548\" gameboy",
+    "\"DMG-P-DR\" gameboy"
+  ],
+  "listingImagesUsed": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-3f5968bc7158299b",
+      "imageIndex": 1,
+      "component": "OUTER_PACKAGE_FRONT",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_front",
+      "textSnippets": [
+        "Nail 'n' Scale",
+        "GAME BOY",
+        "DATA EAST"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|157686535662|0",
+      "contentHash": "3ebf0fd22151f2651520694bd13dc0b01447167cadbf8c73d36efb7b34280ecc"
+    },
+    {
+      "id": "listing-obs-b4063f81bd2a475b",
+      "imageIndex": 2,
+      "component": "OUTER_PACKAGE_BACK",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_back",
+      "textSnippets": [
+        "TOUGH AS NAILS!",
+        "Nail 'n' Scale",
+        "DATA EAST",
+        "NAIL 'N' SCALE",
+        "This game pak for use with the Game Boy Compact Video Game System and",
+        "1 or 2-player action.",
+        "Official Nintendo Seal of Quality",
+        "MADE IN JAPAN"
+      ],
+      "productCodes": [
+        "DMG-P-DR"
+      ],
+      "barcodes": [
+        "013252002548"
+      ],
+      "languages": [],
+      "ratingSystems": [
+        "DMG P"
+      ],
+      "distributors": [
+        "DATA EAST USA, INC."
+      ],
+      "editionMarkers": [],
+      "listingId": "v1|157686535662|0",
+      "contentHash": "702e406d83455fe9b193bea6f75fa40b52d65e99a5fd0a2b2a081527cc915311"
+    },
+    {
+      "id": "listing-obs-b9636ffcd0f6afc5",
+      "imageIndex": 3,
+      "component": "OUTER_PACKAGE_SPINE",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_spine",
+      "textSnippets": [],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|157686535662|0",
+      "contentHash": "c2dd8a586088f3a402c836133430eb5eb52d4e97f1db76b81b8dc67134e970d8"
+    },
+    {
+      "id": "listing-obs-da6e14beb811557c",
+      "imageIndex": 4,
+      "component": "MANUAL_FRONT",
+      "productNodeType": "DOCUMENT",
+      "role": "manual_front",
+      "textSnippets": [
+        "Nail 'n' Scale",
+        "INSTRUCTION BOOKLET",
+        "DATA EAST"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|157686535662|0",
+      "contentHash": "c852ea5c5d6de3191bfe0843ec020b5273a1a8e661d2f3ed7bd495e1fc1274b5"
+    },
+    {
+      "id": "listing-obs-b5c1fec11cae5ba9",
+      "imageIndex": 5,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeType": "MEDIA",
+      "role": "cartridge_front",
+      "textSnippets": [
+        "Nail 'n' Scale",
+        "GAME BOY"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|157686535662|0",
+      "contentHash": "32c18431d7b086d80529cccc68381f78b393cdca0cd0bb48233cd487c01711c5"
+    }
+  ],
+  "identifiersFound": [
+    "EAN_UPC:013252002548:OUTER_PACKAGE_BACK",
+    "PRODUCT_CODE:DMG-P-DR:OUTER_PACKAGE_BACK",
+    "BARCODE:013252002548:UNKNOWN"
+  ],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF"
+  ],
+  "reasonForReview": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+  "research": {
+    "targetField": "MARKET_REGION",
+    "status": "UNRESOLVED",
+    "resolution": {
+      "field": "MARKET_REGION",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    },
+    "error": null,
+    "technicalFailures": [
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.com/itm/396629112283",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      }
+    ],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0.06,
+    "aiUsd": 0.0342776,
+    "totalUsd": 0.09427759999999999,
+    "braveWeb": 12,
+    "braveImages": 0,
+    "acquisitionAiCalls": 3,
+    "researchAiCalls": 2
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/company-role-backfill-report.json",
+      "data/ebay-regional-campaigns/review-queue.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:02:38.387Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "ff716394009f4204e74f0acd150b912593e0c7a50055f8cfb5520cb4d69768e4"
+}

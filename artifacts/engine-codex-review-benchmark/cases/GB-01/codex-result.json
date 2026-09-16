@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "GB-01",
+  "game": "Lock 'n' Chase",
+  "platform": "gameboy",
+  "listingId": "v1|377464390784|0",
+  "reviewedEngineResultHash": "41c71127a38af6681e349476284ce51dd38a5120fd048b170a535da7b8fe5dbf",
+  "engineFileHashAtReview": "aac75cdad520351075b156c9236e895c4c3c94a7f9118f656357e8ed0276ca13",
+  "codexDecision": "REROUTE_EXISTING",
+  "codexConfidence": 0.99,
+  "resolvedCatalogId": "gameboy-japon-lock-n-chase",
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-09ba161c48ad67d1",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "GAME BOY",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 1,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-279dd38ca4ce14cf",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [
+          "DATA EAST CORP"
+        ],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "CARTRIDGE_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 2,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-c44185268bc10db2",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "CARTRIDGE_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 3,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "listing-obs-abb4d9aa28091df5",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "CARTRIDGE_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 4,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "listing-obs-82f8b858a2c89559",
+      "claim": {
+        "text": [],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "CARTRIDGE_BACK",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 5,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "listing-obs-d8ca962a71aecbcf",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "MANUAL_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 6,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-d703ab790f95d464",
+      "claim": {
+        "text": [
+          "使用上の注意",
+          "FOR SALE AND USE IN JAPAN ONLY"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "MANUAL_BACK",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 7,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-8a313a5d6d4b5155cfb23147",
+      "claim": "This version is specifically marked for PAL Europa distribution.",
+      "source": "candidate:bitlabelz.com",
+      "sourceUrl": "https://bitlabelz.com/en/game-boy-labels/93-lock-n-chase-game-boy-label-dmg-lca-.html",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "engineAlreadyKnew": [
+    "listing-obs-09ba161c48ad67d1",
+    "listing-obs-279dd38ca4ce14cf",
+    "listing-obs-c44185268bc10db2",
+    "listing-obs-abb4d9aa28091df5",
+    "listing-obs-82f8b858a2c89559",
+    "listing-obs-d8ca962a71aecbcf",
+    "listing-obs-d703ab790f95d464",
+    "ev-8a313a5d6d4b5155cfb23147"
+  ],
+  "codexNewEvidence": [],
+  "codexNewSources": [],
+  "codexNewIdentifiers": [],
+  "codexNewImages": [],
+  "codexNewRelationships": [
+    "The catalog's Japanese Lock N' Chase entry is the regional sibling matching the specimen marked for Japan only."
+  ],
+  "queriesExecuted": [],
+  "repeatedEngineRoutes": [],
+  "remainingEvidenceGaps": [],
+  "reason": "Box, cartridge, and manual are visibly present; the shared DMG-LCA family code binds the components and the manual states 'FOR SALE AND USE IN JAPAN ONLY'. The current PAL candidate must be rerouted to the existing Japanese catalog entry.",
+  "whatChangedTheDecision": "No new external evidence was needed. Codex applied the existing catalog sibling relationship to evidence already discovered by the Engine.",
+  "discoveryAttribution": "ENGINE_DISCOVERED_CODEX_ADJUDICATED",
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0,
+    "pricingBasis": "Codex integrated web/reasoning was not billed to the repository's Brave or OpenAI API accounts."
+  },
+  "frozenAt": "2026-09-16T19:09:56.136Z",
+  "codexResultImmutable": true,
+  "codexResultHash": "c267659f9211efadbe2c0b70947859122a9aac51f5cc516d35f2d1d02c396cbe"
+}

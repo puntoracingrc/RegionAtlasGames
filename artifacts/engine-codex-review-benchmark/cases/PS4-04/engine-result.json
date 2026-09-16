@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS4-04",
+  "game": "Code Vein",
+  "platform": "ps4",
+  "listingId": "v1|128074767475|0",
+  "listingUrl": "https://www.ebay.es/itm/128074767475",
+  "inputHash": "56640edca3725a0b34703ecec0f4032151afc72b358ac667bbe60d553aec98e6",
+  "galleryHash": "0895d13feec3da2c10f405de6aaf483bc82f5b37099a08811dfc555638c6b7ea",
+  "knowledgePackHash": "e91e3151c3b89db2a42cc5ff911e7f15f3e947dd6d08756db8b141feaa67892d",
+  "evidenceHash": "433b18e0298400c2c32cde2b9236c3e817003606aae048af3b23e715824879ed",
+  "initialEngineDecision": "REVIEW_REQUIRED",
+  "engineDecision": "REVIEW_REQUIRED",
+  "engineConfidence": 0.5,
+  "searchedCatalogId": "ps4-code-vein",
+  "candidateCatalogId": "ps4-code-vein",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "unknown",
+    "confidence": 0,
+    "evidence": [],
+    "manualExpected": false,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate"
+  ],
+  "uncertainClaims": [
+    "market_region",
+    "condition"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-7600dae20fde14db",
+      "claim": {
+        "text": [
+          "PROVISIONAL"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [
+          "BANDAI NAMCO Entertainment"
+        ],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/128074767475",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|128074767475|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-e69226d0eed0a73c2357bcf4",
+      "claim": "expected market region is PAL España.",
+      "source": "candidate:www.worldofbooks.com",
+      "sourceUrl": "https://www.worldofbooks.com/en-gb/products/code-vein-ps4-video-game-3391891995931",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-5d12b5531c4c57fae8a53448",
+      "claim": "PAL España",
+      "source": "candidate:www.rarewaves.com",
+      "sourceUrl": "https://www.rarewaves.com/products/3391891995931-code-vein",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "sourcesConsulted": [
+    "candidate:www.worldofbooks.com",
+    "candidate:www.rarewaves.com"
+  ],
+  "queriesExecuted": [
+    "\"3391891995931\"",
+    "\"3391891995931\" \"Code Vein\"",
+    "site:game.es \"Code Vein\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"Code Vein\" \"ps4\" \"standard\"",
+    "site:ebay.com \"Code Vein\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"Code Vein\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"Code Vein\" \"ps4\" \"standard\"",
+    "\"Code Vein\" \"ps4\" \"standard\" back cover distributor legal text",
+    "\"3391891995931\" \"PlayStation 4\"",
+    "site:game.es \"3391891995931\""
+  ],
+  "listingImagesUsed": [
+    1
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-7600dae20fde14db",
+      "imageIndex": 1,
+      "component": "OUTER_PACKAGE_FRONT",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_front",
+      "textSnippets": [
+        "PROVISIONAL"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [
+        "PEGI 16"
+      ],
+      "distributors": [
+        "BANDAI NAMCO Entertainment"
+      ],
+      "editionMarkers": [],
+      "listingId": "v1|128074767475|0",
+      "contentHash": "d893cf0fde0934ef3440f4a10ec20b38fa7e5f56200ae9206b8fd3512d10fc4f"
+    }
+  ],
+  "identifiersFound": [],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF",
+    "MISSING_COMPONENT_PHOTO"
+  ],
+  "reasonForReview": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+  "research": {
+    "targetField": "MARKET_REGION",
+    "status": "UNRESOLVED",
+    "resolution": {
+      "field": "MARKET_REGION",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    },
+    "error": null,
+    "technicalFailures": [
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.es/itm/128074767475",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.co.uk/itm/326390667570",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "DIRECT_FETCH",
+        "target": "https://www.aliexpress.com/s/wiki-ssr/article/code-veins-collector-s-edition-ps4",
+        "code": "INTERNAL_ERROR",
+        "detail": "Error RESEARCH_PAGE_HTTP_410",
+        "recovered": true
+      },
+      {
+        "operation": "DIRECT_FETCH",
+        "target": "https://thevideogamecavern.com/products/coder-vein-playstation-4",
+        "code": "SOURCE_NOT_FOUND",
+        "detail": "Error RESEARCH_PAGE_HTTP_404",
+        "recovered": true
+      }
+    ],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0.05,
+    "aiUsd": 0.005140550000000001,
+    "totalUsd": 0.05514055,
+    "braveWeb": 10,
+    "braveImages": 0,
+    "acquisitionAiCalls": 2,
+    "researchAiCalls": 3
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/provisional-price-seeds/ps4-pal-es-page-10-2026-08-31.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:00:57.285Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "61255a9b913e446f7aadf76ac5ef814f6f1de57582119a128215f222274a721a"
+}

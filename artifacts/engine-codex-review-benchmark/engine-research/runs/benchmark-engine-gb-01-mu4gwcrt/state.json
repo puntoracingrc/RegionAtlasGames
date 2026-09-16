@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 2,
+  "runId": "benchmark-engine-gb-01-mu4gwcrt",
+  "taskId": "benchmark-engine-d8fc4b19573afb4f51a95ecd",
+  "subjectId": "benchmark:listing-evidence-v2-gb-01",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"DMG-LCA\"",
+    "\"DMG-LCA\" \"Lock 'n' Chase\"",
+    "site:game.es \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "site:todocoleccion.net \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "site:ebay.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "site:regionatlas.games \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "site:mobygames.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "\"Lock 'n' Chase\" \"gameboy\" \"standard\" back cover distributor legal text",
+    "\"DMG-LCA\" gameboy",
+    "site:game.es \"DMG-LCA\""
+  ],
+  "normalizedQueries": [
+    "\"dmg-lca\"",
+    "\"dmg-lca\" \"lock 'n' chase\"",
+    "site:game.es \"lock 'n' chase\" \"gameboy\" \"standard\"",
+    "site:todocoleccion.net \"lock 'n' chase\" \"gameboy\" \"standard\"",
+    "site:ebay.com \"lock 'n' chase\" \"gameboy\" \"standard\"",
+    "site:regionatlas.games \"lock 'n' chase\" \"gameboy\" \"standard\"",
+    "site:mobygames.com \"lock 'n' chase\" \"gameboy\" \"standard\"",
+    "\"lock 'n' chase\" \"gameboy\" \"standard\" back cover distributor legal text",
+    "\"dmg-lca\" gameboy",
+    "site:game.es \"dmg-lca\""
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+    "https://www.ebay.com/itm/394924065359",
+    "https://www.etsy.com/listing/1547307167/lock-n-chase-rokkuncheisu-replacement",
+    "https://bitlabelz.com/en/game-boy-labels/93-lock-n-chase-game-boy-label-dmg-lca-.html",
+    "https://www.ebay.com/itm/265777157185"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "www.etsy.com",
+    "bitlabelz.com"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-8a313a5d6d4b5155cfb23147",
+      "runId": "benchmark-engine-gb-01-mu4gwcrt",
+      "taskId": "benchmark-engine-d8fc4b19573afb4f51a95ecd",
+      "sourceId": "candidate:bitlabelz.com",
+      "sourceUrl": "https://bitlabelz.com/en/game-boy-labels/93-lock-n-chase-game-boy-label-dmg-lca-.html",
+      "canonicalUrl": "https://bitlabelz.com/en/game-boy-labels/93-lock-n-chase-game-boy-label-dmg-lca-.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "bitlabelz.com",
+      "fetchedAt": "2026-09-16T19:02:12.249Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "This version is specifically marked for PAL Europa distribution.",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "c2fb3f7a45016d0b4f15c54bb558d7ae887b3747898d98d49c5ce981be382f7d",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-824ca23f0f038044e7cecb20",
+      "runId": "benchmark-engine-gb-01-mu4gwcrt",
+      "taskId": "benchmark-engine-d8fc4b19573afb4f51a95ecd",
+      "subjectId": "benchmark:listing-evidence-v2-gb-01",
+      "gameId": "gameboy-pal-lock-n-chase",
+      "platformSlug": "gameboy",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "candidate:bitlabelz.com",
+      "sourceUrl": "https://bitlabelz.com/en/game-boy-labels/93-lock-n-chase-game-boy-label-dmg-lca-.html",
+      "evidenceId": "ev-8a313a5d6d4b5155cfb23147",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:02:13.837Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/394924065359",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.etsy.com/listing/1547307167/lock-n-chase-rokkuncheisu-replacement",
+      "reason": "RESEARCH_PAGE_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/265777157185",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 10,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 1,
+    "browserSessions": 2,
+    "inputTokens": 1148,
+    "outputTokens": 100,
+    "estimatedCostUsd": 0.000232
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The evidence directly cites 'PAL Europa' as the market region for the game.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T19:02:17.851Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "no-intro",
+        "datomatic"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T19:02:08.395Z",
+  "updatedAt": "2026-09-16T19:02:17.851Z"
+}

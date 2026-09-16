@@ -1,0 +1,29 @@
+[
+  {
+    "id": "listing-obs-3833d060e7e223ff",
+    "listingId": "v1|195420885212|0",
+    "imageIndex": 1,
+    "contentHash": "dd31b7718fed48291f4cf17a34ebfbb7a9a347986d2849b73640b89c75eb2e9d",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Hogwarts Legacy",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 16"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "PORTKEY GAMES",
+      "AVALANCHE",
+      "WARNER BROS."
+    ],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

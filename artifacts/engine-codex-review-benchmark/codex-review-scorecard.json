@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "createdAfterEngineFreeze": true,
+  "reviewed": 8,
+  "resolved": 2,
+  "deferred": 6,
+  "decisions": {
+    "ACCEPT_EXISTING": 0,
+    "REROUTE_EXISTING": 2,
+    "REJECT": 0,
+    "PROPOSE_NEW_VARIANT": 0,
+    "DEFER": 6
+  },
+  "repeatedEngineRoutes": 0,
+  "newEvidenceItems": 9,
+  "costs": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0
+  },
+  "cases": [
+    {
+      "caseId": "PS4-02",
+      "codexDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "discoveryAttribution": "UNRESOLVED",
+      "codexResultHash": "b9dbd47ba867a56248dcffb1db1532a3e5f1c47dffbf6e9d57f790e643d89c44",
+      "newEvidenceCount": 1,
+      "repeatedEngineRoutes": 0
+    },
+    {
+      "caseId": "PS4-04",
+      "codexDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "discoveryAttribution": "UNRESOLVED",
+      "codexResultHash": "7e26bf5a1d90248fdcb868360f78043d2fb9eb020677e70c637320f57742eacb",
+      "newEvidenceCount": 2,
+      "repeatedEngineRoutes": 0
+    },
+    {
+      "caseId": "PS5-01",
+      "codexDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "discoveryAttribution": "UNRESOLVED",
+      "codexResultHash": "7c52bfb9008dc54984bdbfd0796aee07be7f1f4e14653efe1bf72070ef3fc21b",
+      "newEvidenceCount": 2,
+      "repeatedEngineRoutes": 0
+    },
+    {
+      "caseId": "PS5-02",
+      "codexDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "discoveryAttribution": "UNRESOLVED",
+      "codexResultHash": "4e54aff42c06b6b01977f8fea8ea30cee2cd3edd20921c3ee6a6a275e128102d",
+      "newEvidenceCount": 2,
+      "repeatedEngineRoutes": 0
+    },
+    {
+      "caseId": "PS5-03",
+      "codexDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "discoveryAttribution": "UNRESOLVED",
+      "codexResultHash": "e6629a2867e75ac5921264b9fd31d1150b6d46f4f19c57311866d295215c7f57",
+      "newEvidenceCount": 2,
+      "repeatedEngineRoutes": 0
+    },
+    {
+      "caseId": "PS5-04",
+      "codexDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "discoveryAttribution": "UNRESOLVED",
+      "codexResultHash": "e5a51e3dd7b3471ab432180401b078cd3595bd0a9b44e5d24123f3ad17046817",
+      "newEvidenceCount": 0,
+      "repeatedEngineRoutes": 0
+    },
+    {
+      "caseId": "GB-01",
+      "codexDecision": "REROUTE_EXISTING",
+      "resolvedCatalogId": "gameboy-japon-lock-n-chase",
+      "discoveryAttribution": "ENGINE_DISCOVERED_CODEX_ADJUDICATED",
+      "codexResultHash": "c267659f9211efadbe2c0b70947859122a9aac51f5cc516d35f2d1d02c396cbe",
+      "newEvidenceCount": 0,
+      "repeatedEngineRoutes": 0
+    },
+    {
+      "caseId": "GB-02",
+      "codexDecision": "REROUTE_EXISTING",
+      "resolvedCatalogId": "gameboy-nail-n-scale",
+      "discoveryAttribution": "ENGINE_DISCOVERED_CODEX_ADJUDICATED",
+      "codexResultHash": "f7c88b9fbe5091632bc24966723d8705480f080dbdca15ade427665e3a93be14",
+      "newEvidenceCount": 0,
+      "repeatedEngineRoutes": 0
+    }
+  ]
+}

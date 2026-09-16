@@ -1,0 +1,66 @@
+[
+  {
+    "id": "cl-3fe43975e03072d97b65b7cf",
+    "runId": "benchmark-engine-ps5-01-mu4gutzw",
+    "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-01",
+    "gameId": "ps5-usa-demon-s-souls",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "USA",
+    "sourceId": "ebay",
+    "sourceUrl": "https://www.ebay.com/p/28045277245",
+    "evidenceId": "ev-a0a64b2cc969f8025bf3937c",
+    "confidence": 0.9,
+    "status": "CANDIDATE",
+    "validationErrors": [],
+    "createdAt": "2026-09-16T19:01:10.838Z"
+  },
+  {
+    "id": "cl-2a9fd35e0ab5942958706425",
+    "runId": "benchmark-engine-ps5-01-mu4gutzw",
+    "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-01",
+    "gameId": "ps5-usa-demon-s-souls",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "USA",
+    "sourceId": "candidate:www.resetera.com",
+    "sourceUrl": "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+    "evidenceId": "ev-3950a7ffccd2f4479926949b",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:01:14.795Z"
+  },
+  {
+    "id": "cl-7098a28723a01f64e4e50c64",
+    "runId": "benchmark-engine-ps5-01-mu4gutzw",
+    "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-01",
+    "gameId": "ps5-usa-demon-s-souls",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "USA",
+    "sourceId": "candidate:es.aliexpress.com",
+    "sourceUrl": "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp",
+    "evidenceId": "ev-f74daecbba91ef8491378538",
+    "confidence": 0.8,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:01:16.633Z"
+  }
+]

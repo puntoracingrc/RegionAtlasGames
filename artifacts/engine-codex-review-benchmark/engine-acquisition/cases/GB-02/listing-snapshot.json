@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "listingId": "v1|157686535662|0",
+  "legacyItemId": "157686535662",
+  "capturedAt": "2026-09-16T18:57:02Z",
+  "sourceMarketplace": "ebay",
+  "metadata": {
+    "title": "Nail 'N Scale Nintendo Game Boy — Verificado",
+    "shortDescription": "Un juego diferente, creativo y entretenido, ideal para renovar tu colección con tecnología garantizada a un precio más accesible y con calidad verificada. Su estilo clásico y jugabilidad dinámica lo convierten en una joya imprescindible para amantes del catálogo portátil de Nintendo.",
+    "description": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">\n\n<style type=\"text/css\">\n\n/* \nTemplate: SecondBest plantilla 2\nDescription: \nVersion: 1.2\n*/\n/* user colors */\n#wpl_store_header .hotline {\n    color: #FFFFFF;\n    background-color: #FFA500;\n    display: block;\n    float: right;\n}\n\n#wpl_wrapper .wpl_description h2 {\n    color: #000000;\n}\n\n#wpl_wrapper h3.bar {\n    color: #FFFFFF;\n    background-color: #FD0A77;\n    background-image: -webkit-gradient(linear, left top, left bottom, from(#FD0A77), to(#FC0062));\n    background-image: -webkit-linear-gradient(top, #FD0A77, #FC0062);\n    background-image:    -moz-linear-gradient(top, #FD0A77, #FC0062);\n    background-image:     -ms-linear-gradient(top, #FD0A77, #FC0062);\n    background-image:      -o-linear-gradient(top, #FD0A77, #FC0062);\n    background-image:         linear-gradient(to bottom, #FD0A77, #FC0062);\n}\n\n/* layout */\n#wpl_wrapper {\n    width: 90%;\n    margin-right: auto;\n    margin-left: auto;\n    margin-top: 30px;\n    margin-bottom: 20px;\n    font-size: 14px;\n    font-family:Arial,Helvetica,sans-serif;\n}\n\n#wpl_wrapper h2 {\n    font-size: 24px;\n    line-height: 30px;\n}\n\n#wpl_wrapper h3.bar {\n    margin-top: 30px;\n    margin-bottom: 20px;\n    padding-left: 10px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    font-family: Helvetica, Arial, sans-serif;\n    -webkit-border-radius: 5px;\n    -moz-border-radius: 5px;\n    border-radius: 5px;\n}\n\n#wpl_store_header {\n    width:100%;\n    overflow: hidden;\n}\n\n#wpl_store_header .logo {\n    float: left;\n}\n#wpl_store_header .hotline {\n    height: 40px;\n    font-size: 16px;\n    line-height: 40px;\n    font-weight: bold;\n    padding-right: 20px;\n    padding-left: 20px;\n    margin-top: 7px;\n    -webkit-border-radius: 5px;\n    -moz-border-radius: 5px;\n    border-radius: 5px;\n    text-decoration: none;\n    text-shadow: 2px 2px 4px #713803;\n    filter: dropshadow(color=#713803, offx=0, offy=1);\n}\n\n#wpl_wrapper .clearfix {\n    clear:both;\n}\n\n#wpl_list_images a {\n    border: 1px solid #ccc;\n    display: block;\n    float: left;\n    height: 75px;\n    margin-bottom: 20px;\n    margin-left: 10px;\n    margin-right: 10px;\n    padding: 12px;\n    width: 75px;\n}\n\n#wpl_wrapper .alignleft {\n    float: left;\n}\n#wpl_wrapper .alignright {\n    float: right;\n}\n\n#wpl_wrapper .section p {\n    padding-left: 10px;\n    padding-right: 10px;\n    /* fix for firefox: */\n    line-height: 1.2em;\n    margin: 1em 0;\n}\n\n#wpl_wrapper .section big {\n    font-size: 18px;\n    font-weight: bold;\n}\n\n.primary_image, .wpl_product_image {\n    width: 100%;\n}\n\n#gallery a {\n    text-decoration: none;\n}\n\n/* these only apply in preview to override default styles from wp-admin */\nbody.wp-admin #wpl_wrapper ul {\n    list-style: disc inside none;\n}\nbody.wp-admin #wpl_wrapper ul li {\n    padding-left: 2em;\n}\n\n/** Media queries **/\n@media (min-width: 320px) {\n    #wpl_wrapper {\n        width: 95%;\n    }\n\n    #wpl_store_header .hotline {\n        float: left;\n    }\n\n    #gallery {\n        width: 100%;\n    }\n\n    #wpl_list_images {\n        display: none;\n    }\n}\n@media (min-width: 481px) {\n    #wpl_wrapper {\n        width: 95%;\n    }\n\n    #wpl_store_header .hotline {\n        float: right;\n        display: inline-block;\n    }\n\n    #gallery {\n        display: block;\n        width: 48%;\n        float: left;\n    }\n\n    #description {\n        width: 48%;\n        float: right;\n    }\n\n    #gallery #wpl_main_image {\n        max-width: 220px;\n        max-height: 225px;\n    }\n\n    #wpl_list_images {\n        display: block;\n    }\n\n    #wpl_list_images a {\n        width: 80px;\n        height: 80px;\n    }\n\n    #wpl_list_images a img.wpl_thumb {\n        width: 100%;\n    }\n}\n@media (min-width: 641px) {\n    #wpl_wrapper {\n        width: 95%;\n    }\n\n    #wpl_store_header .hotline {\n        float: right;\n    }\n\n    #gallery {\n        display: block;\n        width: 45%;\n        float: left;\n    }\n\n    #description {\n        width: 48%;\n        float: right;\n    }\n\n    #gallery #wpl_main_image {\n        width: 100%;\n        height: 100%;\n        max-height: 370px;\n        max-width: 370px;\n    }\n\n    #wpl_list_images {\n        display: block;\n    }\n\n    #gallery #wpl_list_images a {\n        width: 80px;\n        height: 80px;\n    }\n\n    #wpl_list_images a img.wpl_thumb {\n        width: 80px;\n    }\n}</style>\n\n<div id=\"wpl_wrapper\">\n<div id=\"wpl_store_header\"><br />\n<p>&nbsp;</p>\n</div>\n<div class=\"main_section\">\n<h3 class=\"bar\">Nail &#039;N Scale Nintendo Game Boy &mdash; Verificado</h3>\n<div id=\"gallery\">\n<div id=\"wpl_main_image\"><img class=\"wpl_product_image\" src=\"https://secondbest.es/wp-content/uploads/2026/02/IMG20260216144502-scaled.webp\" alt=\"Nail &#039;N Scale Nintendo Game Boy — Verificado\" /></div>\n</div>\n<div id=\"description\">\n<h2>Nail &#039;N Scale Nintendo Game Boy &mdash; Verificado</h2>\n<div class=\"long_desc\"><p data-start=\"39\" data-end=\"333\">Si te apasionan los desafíos originales y los títulos retro con personalidad propia, <em data-start=\"124\" data-end=\"139\">Nail &#8216;N Scale</em> para Game Boy es una apuesta segura. Un juego diferente, creativo y entretenido, ideal para renovar tu colección con tecnología garantizada a un precio más accesible y con calidad verificada.</p>\n<p data-start=\"335\" data-end=\"654\">Perfecto para jugadores que buscan algo fuera de lo convencional, combina acción y rompecabezas con una mecánica única basada en el uso estratégico de clavos para avanzar por los niveles. Su estilo clásico y jugabilidad dinámica lo convierten en una joya imprescindible para amantes del catálogo portátil de Nintendo.</p>\n<p data-start=\"656\" data-end=\"687\">🌟 Características destacadas</p>\n<div class=\"TyagGW_tableContainer\">\n<div class=\"group TyagGW_tableWrapper flex flex-col-reverse w-fit\">\n<table class=\"w-fit min-w-(--thread-content-width)\" data-start=\"689\" data-end=\"1070\">\n<thead data-start=\"689\" data-end=\"729\">\n<tr data-start=\"689\" data-end=\"729\">\n<th class=\"\" data-start=\"689\" data-end=\"708\" data-col-size=\"sm\">✨ Característica</th>\n<th class=\"\" data-start=\"708\" data-end=\"729\" data-col-size=\"sm\">📋 Especificación</th>\n</tr>\n</thead>\n<tbody data-start=\"770\" data-end=\"1070\">\n<tr data-start=\"770\" data-end=\"816\">\n<td data-start=\"770\" data-end=\"795\" data-col-size=\"sm\">🎮 Plataforma portátil</td>\n<td data-col-size=\"sm\" data-start=\"795\" data-end=\"816\">Nintendo Game Boy</td>\n</tr>\n<tr data-start=\"817\" data-end=\"877\">\n<td data-start=\"817\" data-end=\"837\" data-col-size=\"sm\">🧩 Mecánica única</td>\n<td data-col-size=\"sm\" data-start=\"837\" data-end=\"877\">Uso de clavos para escalar y avanzar</td>\n</tr>\n<tr data-start=\"878\" data-end=\"911\">\n<td data-start=\"878\" data-end=\"897\" data-col-size=\"sm\">👤 Modo de juego</td>\n<td data-col-size=\"sm\" data-start=\"897\" data-end=\"911\">Un jugador</td>\n</tr>\n<tr data-start=\"912\" data-end=\"950\">\n<td data-start=\"912\" data-end=\"925\" data-col-size=\"sm\">🕹️ Género</td>\n<td data-col-size=\"sm\" data-start=\"925\" data-end=\"950\">Acción y rompecabezas</td>\n</tr>\n<tr data-start=\"951\" data-end=\"1016\">\n<td data-start=\"951\" data-end=\"973\" data-col-size=\"sm\">💾 Formato original</td>\n<td data-col-size=\"sm\" data-start=\"973\" data-end=\"1016\">Cartucho físico compatible con Game Boy</td>\n</tr>\n<tr data-start=\"1017\" data-end=\"1044\">\n<td data-start=\"1017\" data-end=\"1036\" data-col-size=\"sm\">🏢 Desarrollador</td>\n<td data-col-size=\"sm\" data-start=\"1036\" data-end=\"1044\">TOSE</td>\n</tr>\n<tr data-start=\"1045\" data-end=\"1070\">\n<td data-start=\"1045\" data-end=\"1062\" data-col-size=\"sm\">📅 Lanzamiento</td>\n<td data-col-size=\"sm\" data-start=\"1062\" data-end=\"1070\">1990</td>\n</tr>\n</tbody>\n</table>\n</div>\n</div>\n<p data-start=\"1072\" data-end=\"1243\" data-is-last-node=\"\" data-is-only-node=\"\">Una opción ideal para ampliar tu colección retro con un título original, divertido y con todo el encanto clásico que buscas. Excelente compra para disfrutar donde quieras.</p>\n</div>\n<div> </div>\n<div> </div>\n</div>\n</div>\n<div> </div>\n<div class=\"clearfix\"> </div>\n<div class=\"section\">\n<h3> </h3>\n<h3> </h3>\n<h3> </h3>\n<h3> </h3>\n<h3 class=\"bar\">Envíos</h3>\n<p><strong>Gastos de envío:</strong><br /><i>Gratis en toda la península y baleares</i></p>\n<p><strong>Tiempo de Envío:</strong><br /><i>Todos los envíos son 24h siempre que la compra sea antes de las 14:00h</i></p>\n<p><strong>No enviamos a Ceuta y Melilla</strong></p>\n<p><strong>Para envíos a UK necesitamos el nº de pasaporte del comprador para poder pasar aduanas</strong></p>\n</div>\n<div class=\"section\">\n<h3 class=\"bar\">Metodos de pago</h3>\n<p>Métodos de pago</p>\n<ul>\n<li>PayPal</li>\n<li>tarjeta de crédito</li>\n</ul>\n</div>\n<div class=\"section\">\n<h3 class=\"bar\">Garantía</h3>\n<p>En SecondBest dispones de 1 año de garantía (hasta 2 años en productos nuevos, según fabricante) en cualquiera de nuestros productos siempre y cuando se cumplan una de las siguientes circunstancias:</p>\n<p><strong>En caso de producto defectuoso:</strong> Cubrimos cualquier mal funcionamiento siempre que no sea ocasionado por daños externos (líquidos, golpes, presión, mal uso, etc..), en tal caso se tramita con el servicio técnico oficial de la marca y de no ser posible con nuestro propio servicio técnico. En caso de que el producto no tenga reparación y entre en garantía mandamos un mensajero para la recogida del producto defectuoso y entrega del nuevo, en caso de no tener mas stock se hace un reembolso completo.</p>\n<p><strong>En caso de problemas en el transporte: </strong>Si una vez recibido el paquete detectas golpes en la caja, notifícalo en las primeras 24 horas desde la entrega. Una vez notificado si el producto no funciona correctamente enviaremos un mensajero para cambiarte el articulo o proceder al reembolso.</p>\n<p>Condiciones para devolución:</p>\n<ul>\n<li>Entregar producto completo con cualquier accesorio que incluya.</li>\n<li>El producto debe estar tal y como se envió sin ningún golpe ni desperfecto.</li>\n</ul>\n<p>Si el producto es nuevo precintado solo puedes devolverlo por cambio de opinión si no lo has abierto, una vez abierto solo cubre la garantía si algo falla!</p>\n<p><strong>Los productos que se devuelvan por cambio de opinión los gastos de envío corren a cuenta del comprador!</strong></p>\n</div>\n<div class=\"section\">\n<p>Condiciones para devolución:</p>\n<p>Entregar producto completo con cualquier accesorio que incluya.<br />El producto debe estar tal y como se envió sin ningún golpe ni desperfecto.</p>\n<p>Nuestros productos están sujetos la ley REBU por lo que el IVA es del 0%</p>\n</div>\n<div class=\"section\">\n<p>SecondBest.es</p>\n</div>\n<div class=\"section\">\n<h3 class=\"bar\">Información sobre nosotros</h3>\n<p>Somos una cadena de 7 tiendas repartidas por Barcelona y cercanías. Disponemos mayormente de electrónica ( Smartphone , ordenador portátil , consolas ) de las principales marcas como Samsung , Apple , Huawei , etc..</p>\n<p>Tenemos tanto productos de segunda mano como nuevos, todos comprobados y con su garantía por si algo se nos escapa!</p>\n</div>\n</div>\n<p>&nbsp;</p>\n\n",
+    "condition": "En buen estado",
+    "conditionId": "5000",
+    "conditionDescription": "En buen estado general. 100% original. Ligeros desperfectos en la caja apreciables en las fotos.",
+    "itemWebUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+    "itemLocation": {
+      "city": "Granollers",
+      "postalCode": "08***",
+      "country": "ES"
+    },
+    "seller": {
+      "username": "secondbestweb",
+      "feedbackPercentage": "99.4",
+      "feedbackScore": 7415
+    },
+    "category": "Consolas y videojuegos|Videojuegos",
+    "categoryId": "139973",
+    "aspects": {
+      "Plataforma": [
+        "Nintendo Game Boy"
+      ],
+      "Nombre del videojuego": [
+        "Nail 'N Scale"
+      ],
+      "Editor": [
+        "Data East"
+      ],
+      "Año de lanzamiento": [
+        "1990"
+      ],
+      "Género": [
+        "Acción"
+      ],
+      "Clasificación": [
+        "E (Everyone)"
+      ],
+      "MPN": [
+        "DMG-NS-USA"
+      ],
+      "Cantidad de unidades": [
+        "1"
+      ],
+      "Tipo de unidad": [
+        "Unidad"
+      ],
+      "Serie de videojuegos": [
+        "Nail 'N Scale"
+      ],
+      "Código de región": [
+        "NTSC-U/C"
+      ],
+      "País de origen": [
+        "Japón"
+      ],
+      "Características": [
+        "Cartucho original, juego para un jugador, compatible con Game Boy clásica"
+      ],
+      "Subgénero": [
+        "Plataformas / Puzzle"
+      ],
+      "Garantía del fabricante": [
+        "No"
+      ],
+      "EAN": [
+        "0013252002548"
+      ]
+    },
+    "price": {
+      "value": 129.99,
+      "currency": "EUR"
+    },
+    "shippingOptions": [
+      {
+        "shippingServiceCode": "Otro envío en 24 horas",
+        "shippingCarrierCode": "Other",
+        "type": "Express",
+        "shippingCost": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "quantityUsedForEstimate": 1,
+        "minEstimatedDeliveryDate": "2026-09-18T10:00:00.000Z",
+        "maxEstimatedDeliveryDate": "2026-09-18T10:00:00.000Z",
+        "shipToLocationUsedForEstimate": {
+          "postalCode": "28001",
+          "country": "ES"
+        },
+        "additionalShippingCostPerUnit": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "shippingCostType": "FIXED"
+      }
+    ],
+    "buyingOptions": [
+      "FIXED_PRICE",
+      "BEST_OFFER"
+    ],
+    "itemEndDate": null,
+    "estimatedAvailabilities": [
+      {
+        "deliveryOptions": [
+          "SHIP_TO_HOME"
+        ],
+        "estimatedAvailabilityStatus": "IN_STOCK",
+        "estimatedAvailableQuantity": 1,
+        "estimatedSoldQuantity": 0,
+        "estimatedRemainingQuantity": 1
+      }
+    ],
+    "gtin": "0013252002548",
+    "brand": null,
+    "mpn": "DMG-NS-USA",
+    "epid": null
+  },
+  "imagesAvailableFromSource": 5,
+  "imagesPreserved": 5,
+  "images": [
+    {
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 1,
+      "sourceIndex": 1,
+      "sourceUrl": "https://i.ebayimg.com/images/g/ChEAAeSwBAhpk1Fa/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/ChEAAeSwBAhpk1Fa/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/ChEAAeSwBAhpk1Fa/s-l1600.jpg",
+      "contentHash": "3ebf0fd22151f2651520694bd13dc0b01447167cadbf8c73d36efb7b34280ecc",
+      "width": 1200,
+      "height": 1600,
+      "byteLength": 384135,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-02/3ebf0fd22151f2651520694bd13dc0b01447167cadbf8c73d36efb7b34280ecc.img",
+      "sourceKind": "PRIMARY",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 2,
+      "sourceIndex": 2,
+      "sourceUrl": "https://i.ebayimg.com/images/g/C54AAeSwzl1pk1Fm/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/C54AAeSwzl1pk1Fm/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/C54AAeSwzl1pk1Fm/s-l1600.jpg",
+      "contentHash": "702e406d83455fe9b193bea6f75fa40b52d65e99a5fd0a2b2a081527cc915311",
+      "width": 1200,
+      "height": 1600,
+      "byteLength": 412829,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-02/702e406d83455fe9b193bea6f75fa40b52d65e99a5fd0a2b2a081527cc915311.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 3,
+      "sourceIndex": 3,
+      "sourceUrl": "https://i.ebayimg.com/images/g/rxwAAeSwLbVpk1Fy/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/rxwAAeSwLbVpk1Fy/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/rxwAAeSwLbVpk1Fy/s-l1600.jpg",
+      "contentHash": "c2dd8a586088f3a402c836133430eb5eb52d4e97f1db76b81b8dc67134e970d8",
+      "width": 1200,
+      "height": 1600,
+      "byteLength": 302762,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-02/c2dd8a586088f3a402c836133430eb5eb52d4e97f1db76b81b8dc67134e970d8.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 4,
+      "sourceIndex": 4,
+      "sourceUrl": "https://i.ebayimg.com/images/g/EjUAAeSwkj1pk1F-/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/EjUAAeSwkj1pk1F-/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/EjUAAeSwkj1pk1F-/s-l1600.jpg",
+      "contentHash": "c852ea5c5d6de3191bfe0843ec020b5273a1a8e661d2f3ed7bd495e1fc1274b5",
+      "width": 1200,
+      "height": 1600,
+      "byteLength": 347473,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-02/c852ea5c5d6de3191bfe0843ec020b5273a1a8e661d2f3ed7bd495e1fc1274b5.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|157686535662|0",
+      "imageIndex": 5,
+      "sourceIndex": 5,
+      "sourceUrl": "https://i.ebayimg.com/images/g/1mwAAeSw5Alpk1GK/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/1mwAAeSw5Alpk1GK/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/1mwAAeSw5Alpk1GK/s-l1600.jpg",
+      "contentHash": "32c18431d7b086d80529cccc68381f78b393cdca0cd0bb48233cd487c01711c5",
+      "width": 1200,
+      "height": 1600,
+      "byteLength": 217507,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-02/32c18431d7b086d80529cccc68381f78b393cdca0cd0bb48233cd487c01711c5.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    }
+  ],
+  "failures": [],
+  "rights": {
+    "classification": "INTERNAL_EVIDENCE_REFERENCE",
+    "publishAsRegionAtlasAsset": false
+  }
+}

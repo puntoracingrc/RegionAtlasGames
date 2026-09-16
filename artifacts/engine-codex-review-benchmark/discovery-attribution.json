@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "denominator": 9,
+  "categories": {
+    "ENGINE_DISCOVERED_ENGINE_RESOLVED": {
+      "count": 0,
+      "pct": 0
+    },
+    "ENGINE_DISCOVERED_CODEX_ADJUDICATED": {
+      "count": 2,
+      "pct": 22.2
+    },
+    "JOINT_DISCOVERY": {
+      "count": 0,
+      "pct": 0
+    },
+    "CODEX_DISCOVERED": {
+      "count": 0,
+      "pct": 0
+    },
+    "UNRESOLVED": {
+      "count": 7,
+      "pct": 77.8
+    }
+  },
+  "amongCorrectFinalResolutions": {
+    "denominator": 2,
+    "categories": {
+      "ENGINE_DISCOVERED_ENGINE_RESOLVED": {
+        "count": 0,
+        "pct": 0
+      },
+      "ENGINE_DISCOVERED_CODEX_ADJUDICATED": {
+        "count": 2,
+        "pct": 100
+      },
+      "JOINT_DISCOVERY": {
+        "count": 0,
+        "pct": 0
+      },
+      "CODEX_DISCOVERED": {
+        "count": 0,
+        "pct": 0
+      }
+    }
+  },
+  "decisiveEvidenceOrigin": {
+    "engine": 2,
+    "joint": 0,
+    "codex": 0,
+    "engineSharePct": 100
+  },
+  "cases": [
+    {
+      "caseId": "PS4-02",
+      "owner": "UNRESOLVED",
+      "finalCorrect": null
+    },
+    {
+      "caseId": "PS4-04",
+      "owner": "UNRESOLVED",
+      "finalCorrect": null
+    },
+    {
+      "caseId": "PS5-01",
+      "owner": "UNRESOLVED",
+      "finalCorrect": null
+    },
+    {
+      "caseId": "PS5-02",
+      "owner": "UNRESOLVED",
+      "finalCorrect": null
+    },
+    {
+      "caseId": "PS5-03",
+      "owner": "UNRESOLVED",
+      "finalCorrect": null
+    },
+    {
+      "caseId": "PS5-04",
+      "owner": "UNRESOLVED",
+      "finalCorrect": null
+    },
+    {
+      "caseId": "N64-04",
+      "owner": "UNRESOLVED",
+      "finalCorrect": false
+    },
+    {
+      "caseId": "GB-01",
+      "owner": "ENGINE_DISCOVERED_CODEX_ADJUDICATED",
+      "finalCorrect": true
+    },
+    {
+      "caseId": "GB-02",
+      "owner": "ENGINE_DISCOVERED_CODEX_ADJUDICATED",
+      "finalCorrect": true
+    }
+  ]
+}

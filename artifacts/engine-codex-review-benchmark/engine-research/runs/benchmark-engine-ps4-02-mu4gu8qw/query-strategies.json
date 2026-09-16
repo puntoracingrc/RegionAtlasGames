@@ -1,0 +1,58 @@
+[
+  {
+    "query": "site:game.es \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.com \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:regionatlas.games \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "regionatlas-own-scan",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:mobygames.com \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "mobygames",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Soul Hackers 2\" \"ps4\" \"standard\" back cover distributor legal text",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Soul Hackers 2\" PlayStation 4",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.es \"Soul Hackers 2\" PlayStation 4",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

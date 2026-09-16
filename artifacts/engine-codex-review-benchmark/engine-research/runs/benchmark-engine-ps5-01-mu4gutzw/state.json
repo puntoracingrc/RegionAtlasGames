@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 2,
+  "runId": "benchmark-engine-ps5-01-mu4gutzw",
+  "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+  "subjectId": "benchmark:listing-evidence-v2-ps5-01",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS5_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Demon's Souls\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Demon's Souls\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Demon's Souls\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Demon's Souls\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Demon's Souls\" \"ps5\" \"standard\"",
+    "\"Demon's Souls\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Demon's Souls\" PlayStation 5",
+    "site:ebay.es \"Demon's Souls\" PlayStation 5"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"demon's souls\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"demon's souls\" \"ps5\" \"standard\"",
+    "site:ebay.com \"demon's souls\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"demon's souls\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"demon's souls\" \"ps5\" \"standard\"",
+    "\"demon's souls\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"demon's souls\" playstation 5",
+    "site:ebay.es \"demon's souls\" playstation 5"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/363231498889",
+    "https://www.ebay.com/p/28045277245",
+    "https://www.ebay.com/itm/284943335787",
+    "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+    "https://www.aliexpress.com/item/1005001822545666.html",
+    "https://www.ebay.es/p/20041796022?iid=186897589581",
+    "https://www.ebay.es/b/Demon-souls/139973/bn_7005618472"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "www.resetera.com",
+    "www.aliexpress.com",
+    "www.ebay.es"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-a0a64b2cc969f8025bf3937c",
+      "runId": "benchmark-engine-ps5-01-mu4gutzw",
+      "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.com/p/28045277245",
+      "canonicalUrl": "https://www.ebay.com/p/28045277245",
+      "sourceType": "MARKETPLACE",
+      "host": "www.ebay.com",
+      "fetchedAt": "2026-09-16T19:01:06.168Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Country/Region of Manufacture United States",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "7621436aca99a1e4a2f1cbc7964312f3f517fd3a391041ceb86e5c7b79068023",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 35,
+      "component": null
+    },
+    {
+      "id": "ev-3950a7ffccd2f4479926949b",
+      "runId": "benchmark-engine-ps5-01-mu4gutzw",
+      "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+      "sourceId": "candidate:www.resetera.com",
+      "sourceUrl": "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+      "canonicalUrl": "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.resetera.com",
+      "fetchedAt": "2026-09-16T19:01:13.181Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "the original US cover art",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "4d71e5b989e2a8dd5547aff7e55a6b85c16979b5bb479ed08b4183fce9da097e",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-f74daecbba91ef8491378538",
+      "runId": "benchmark-engine-ps5-01-mu4gutzw",
+      "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+      "sourceId": "candidate:es.aliexpress.com",
+      "sourceUrl": "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp",
+      "canonicalUrl": "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "es.aliexpress.com",
+      "fetchedAt": "2026-09-16T19:01:15.216Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Ayuda Atención al cliente ... Información para consumidores de la UE ...",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "528b98414dfab5c0732950e184678a2c24df37b566c410a5a15227dbd4196520",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-3fe43975e03072d97b65b7cf",
+      "runId": "benchmark-engine-ps5-01-mu4gutzw",
+      "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-01",
+      "gameId": "ps5-usa-demon-s-souls",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "USA",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.com/p/28045277245",
+      "evidenceId": "ev-a0a64b2cc969f8025bf3937c",
+      "confidence": 0.9,
+      "status": "CANDIDATE",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T19:01:10.838Z"
+    },
+    {
+      "id": "cl-2a9fd35e0ab5942958706425",
+      "runId": "benchmark-engine-ps5-01-mu4gutzw",
+      "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-01",
+      "gameId": "ps5-usa-demon-s-souls",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "USA",
+      "sourceId": "candidate:www.resetera.com",
+      "sourceUrl": "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+      "evidenceId": "ev-3950a7ffccd2f4479926949b",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:01:14.795Z"
+    },
+    {
+      "id": "cl-7098a28723a01f64e4e50c64",
+      "runId": "benchmark-engine-ps5-01-mu4gutzw",
+      "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-01",
+      "gameId": "ps5-usa-demon-s-souls",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "USA",
+      "sourceId": "candidate:es.aliexpress.com",
+      "sourceUrl": "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp",
+      "evidenceId": "ev-f74daecbba91ef8491378538",
+      "confidence": 0.8,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:01:16.633Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/363231498889",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/284943335787",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/p/20041796022?iid=186897589581",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/b/Demon-souls/139973/bn_7005618472",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 3,
+    "images": 0,
+    "agentTurns": 4,
+    "browserSessions": 2,
+    "inputTokens": 5849,
+    "outputTokens": 314,
+    "estimatedCostUsd": 0.001065
+  },
+  "lastDecision": "REPLAN",
+  "reasoningSummary": "Insufficient evidence to confirm market region explicitly related to the USA.",
+  "decisionSummary": "Evidence remains too weak.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T19:01:17.668Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T19:00:57.425Z",
+  "updatedAt": "2026-09-16T19:01:17.668Z"
+}

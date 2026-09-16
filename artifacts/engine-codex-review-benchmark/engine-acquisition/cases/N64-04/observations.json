@@ -1,0 +1,33 @@
+[
+  {
+    "id": "listing-obs-b89f5fb915fdbc27",
+    "listingId": "v1|326822603505|0",
+    "imageIndex": 1,
+    "contentHash": "56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a",
+    "component": "UNKNOWN_COMPONENT",
+    "subject": "UNKNOWN",
+    "title": "SHADOW MAN",
+    "platform": "N64",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [
+      "Acclaim"
+    ],
+    "publisherLegalText": [],
+    "visibleText": [
+      "INSTRUCTION BOOKLET",
+      "AKLAIM",
+      "NINTENDO 64",
+      "SHADOW MAN",
+      "PAL VERSION",
+      "ACCLAIM",
+      "Instruction Booklet"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

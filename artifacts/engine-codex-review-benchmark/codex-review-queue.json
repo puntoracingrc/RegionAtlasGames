@@ -1,0 +1,669 @@
+{
+  "schemaVersion": 1,
+  "createdAfterEngineFreeze": true,
+  "entries": [
+    {
+      "caseId": "PS4-02",
+      "engineResultHash": "96ce12fd15bd9b9c9fe89f38cc3211d88c097e44ca89d65884ba7ca535d96c89",
+      "engineResultPath": "cases/PS4-02/engine-result.json",
+      "confirmedClaims": [
+        "identity",
+        "platform_candidate"
+      ],
+      "rejectedClaims": [],
+      "identifiers": [],
+      "images": [
+        {
+          "id": "listing-obs-9559750f959daf80",
+          "imageIndex": 1,
+          "component": "OUTER_PACKAGE_FRONT",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_front",
+          "textSnippets": [
+            "PS4",
+            "SOUL HACKERS 2",
+            "16",
+            "PS5 Upgrade Available"
+          ],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|257009348037|0",
+          "contentHash": "98c22fccf8a4efa337aecd57925369fe7dc5e082977391c96317fa3d9327c2a1"
+        }
+      ],
+      "sourcesConsulted": [],
+      "queriesAlreadyPerformed": [
+        "site:game.es \"Soul Hackers 2\" \"ps4\" \"standard\"",
+        "site:todocoleccion.net \"Soul Hackers 2\" \"ps4\" \"standard\"",
+        "site:ebay.com \"Soul Hackers 2\" \"ps4\" \"standard\"",
+        "site:regionatlas.games \"Soul Hackers 2\" \"ps4\" \"standard\"",
+        "site:mobygames.com \"Soul Hackers 2\" \"ps4\" \"standard\"",
+        "\"Soul Hackers 2\" \"ps4\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Soul Hackers 2\" PlayStation 4",
+        "site:ebay.es \"Soul Hackers 2\" PlayStation 4"
+      ],
+      "sourcesExhausted": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ]
+    },
+    {
+      "caseId": "PS4-04",
+      "engineResultHash": "61255a9b913e446f7aadf76ac5ef814f6f1de57582119a128215f222274a721a",
+      "engineResultPath": "cases/PS4-04/engine-result.json",
+      "confirmedClaims": [
+        "identity",
+        "platform_candidate"
+      ],
+      "rejectedClaims": [],
+      "identifiers": [],
+      "images": [
+        {
+          "id": "listing-obs-7600dae20fde14db",
+          "imageIndex": 1,
+          "component": "OUTER_PACKAGE_FRONT",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_front",
+          "textSnippets": [
+            "PROVISIONAL"
+          ],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "distributors": [
+            "BANDAI NAMCO Entertainment"
+          ],
+          "editionMarkers": [],
+          "listingId": "v1|128074767475|0",
+          "contentHash": "d893cf0fde0934ef3440f4a10ec20b38fa7e5f56200ae9206b8fd3512d10fc4f"
+        }
+      ],
+      "sourcesConsulted": [
+        "candidate:www.worldofbooks.com",
+        "candidate:www.rarewaves.com"
+      ],
+      "queriesAlreadyPerformed": [
+        "\"3391891995931\"",
+        "\"3391891995931\" \"Code Vein\"",
+        "site:game.es \"Code Vein\" \"ps4\" \"standard\"",
+        "site:todocoleccion.net \"Code Vein\" \"ps4\" \"standard\"",
+        "site:ebay.com \"Code Vein\" \"ps4\" \"standard\"",
+        "site:regionatlas.games \"Code Vein\" \"ps4\" \"standard\"",
+        "site:mobygames.com \"Code Vein\" \"ps4\" \"standard\"",
+        "\"Code Vein\" \"ps4\" \"standard\" back cover distributor legal text",
+        "\"3391891995931\" \"PlayStation 4\"",
+        "site:game.es \"3391891995931\""
+      ],
+      "sourcesExhausted": [
+        "candidate:www.worldofbooks.com",
+        "candidate:www.rarewaves.com"
+      ],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ]
+    },
+    {
+      "caseId": "PS5-01",
+      "engineResultHash": "5bc8577ef9e7f71246c62df3d780fd592d1893d057a939be64869c42ef1b566a",
+      "engineResultPath": "cases/PS5-01/engine-result.json",
+      "confirmedClaims": [
+        "identity",
+        "platform_candidate"
+      ],
+      "rejectedClaims": [],
+      "identifiers": [],
+      "images": [
+        {
+          "id": "listing-obs-b8a0edc5f4823b56",
+          "imageIndex": 1,
+          "component": "OUTER_PACKAGE_FRONT",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_front",
+          "textSnippets": [
+            "Demon's Souls",
+            "PS5",
+            "18",
+            "www.pegi.info"
+          ],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [
+            "PEGI 18"
+          ],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|363231498889|0",
+          "contentHash": "8569dd30ba439ebf2062410944647510d99ca1a927874e4c76dacb3d2ac5cac3"
+        }
+      ],
+      "sourcesConsulted": [
+        "ebay",
+        "candidate:www.resetera.com",
+        "candidate:es.aliexpress.com"
+      ],
+      "queriesAlreadyPerformed": [
+        "site:game.es \"Demon's Souls\" \"ps5\" \"standard\"",
+        "site:todocoleccion.net \"Demon's Souls\" \"ps5\" \"standard\"",
+        "site:ebay.com \"Demon's Souls\" \"ps5\" \"standard\"",
+        "site:regionatlas.games \"Demon's Souls\" \"ps5\" \"standard\"",
+        "site:mobygames.com \"Demon's Souls\" \"ps5\" \"standard\"",
+        "\"Demon's Souls\" \"ps5\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Demon's Souls\" PlayStation 5",
+        "site:ebay.es \"Demon's Souls\" PlayStation 5"
+      ],
+      "sourcesExhausted": [
+        "ebay",
+        "candidate:www.resetera.com",
+        "candidate:es.aliexpress.com"
+      ],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ]
+    },
+    {
+      "caseId": "PS5-02",
+      "engineResultHash": "77eaabd2e86641d6a527214dd8e34107c018abfe4d34ab6088b98be4551a4f88",
+      "engineResultPath": "cases/PS5-02/engine-result.json",
+      "confirmedClaims": [
+        "identity",
+        "platform_candidate"
+      ],
+      "rejectedClaims": [],
+      "identifiers": [],
+      "images": [
+        {
+          "id": "listing-obs-4cd5ed7b3ba447d3",
+          "imageIndex": 1,
+          "component": "OUTER_PACKAGE_FRONT",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_front",
+          "textSnippets": [],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [
+            "18"
+          ],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|336641149498|0",
+          "contentHash": "49055ea5da4f586f400059b8d897c2a482e255d89be9624d141da256ce09d666"
+        }
+      ],
+      "sourcesConsulted": [
+        "platform-holder-official"
+      ],
+      "queriesAlreadyPerformed": [
+        "site:game.es \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+        "site:todocoleccion.net \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+        "site:ebay.com \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+        "site:regionatlas.games \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+        "site:mobygames.com \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+        "\"Dragon's Dogma 2\" \"ps5\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Dragon's Dogma 2\" PlayStation 5",
+        "site:ebay.es \"Dragon's Dogma 2\" PlayStation 5"
+      ],
+      "sourcesExhausted": [
+        "platform-holder-official"
+      ],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ]
+    },
+    {
+      "caseId": "PS5-03",
+      "engineResultHash": "9152cf8ff5e189cc813bd7f97c2776b2c00537c5bcd8d9604d757c18236a955c",
+      "engineResultPath": "cases/PS5-03/engine-result.json",
+      "confirmedClaims": [
+        "identity",
+        "platform_candidate"
+      ],
+      "rejectedClaims": [],
+      "identifiers": [],
+      "images": [
+        {
+          "id": "listing-obs-58acd82275b858cf",
+          "imageIndex": 1,
+          "component": "OUTER_PACKAGE_FRONT",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_front",
+          "textSnippets": [
+            "www.pegi.info"
+          ],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [
+            "PEGI 18"
+          ],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|267695458509|0",
+          "contentHash": "091cd8e51932d2394043628acd89e779b9883a7b805daeff69570eccfd98056b"
+        }
+      ],
+      "sourcesConsulted": [
+        "national-retailer",
+        "platform-holder-official"
+      ],
+      "queriesAlreadyPerformed": [
+        "site:game.es \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "site:todocoleccion.net \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "site:ebay.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "site:regionatlas.games \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "site:mobygames.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "\"Final Fantasy XVI\" \"ps5\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Final Fantasy XVI\" PlayStation 5",
+        "site:ebay.es \"Final Fantasy XVI\" PlayStation 5"
+      ],
+      "sourcesExhausted": [
+        "national-retailer",
+        "platform-holder-official"
+      ],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ]
+    },
+    {
+      "caseId": "PS5-04",
+      "engineResultHash": "4e114b987ed6f820f8ff9b3dca166bb68f937251beba5c0658d419c2d32b8dc0",
+      "engineResultPath": "cases/PS5-04/engine-result.json",
+      "confirmedClaims": [
+        "identity",
+        "platform_candidate"
+      ],
+      "rejectedClaims": [],
+      "identifiers": [],
+      "images": [
+        {
+          "id": "listing-obs-3833d060e7e223ff",
+          "imageIndex": 1,
+          "component": "OUTER_PACKAGE_FRONT",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_front",
+          "textSnippets": [],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|195420885212|0",
+          "contentHash": "dd31b7718fed48291f4cf17a34ebfbb7a9a347986d2849b73640b89c75eb2e9d"
+        }
+      ],
+      "sourcesConsulted": [
+        "national-retailer",
+        "candidate:play-e.com"
+      ],
+      "queriesAlreadyPerformed": [
+        "site:game.es \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+        "site:todocoleccion.net \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+        "site:ebay.com \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+        "site:regionatlas.games \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+        "site:mobygames.com \"Hogwarts Legacy Standard\" \"ps5\" \"standard\"",
+        "\"Hogwarts Legacy Standard\" \"ps5\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Hogwarts Legacy Standard\" PlayStation 5",
+        "site:ebay.es \"Hogwarts Legacy Standard\" PlayStation 5"
+      ],
+      "sourcesExhausted": [
+        "national-retailer",
+        "candidate:play-e.com"
+      ],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ]
+    },
+    {
+      "caseId": "GB-01",
+      "engineResultHash": "41c71127a38af6681e349476284ce51dd38a5120fd048b170a535da7b8fe5dbf",
+      "engineResultPath": "cases/GB-01/engine-result.json",
+      "confirmedClaims": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "rejectedClaims": [],
+      "identifiers": [
+        "PRODUCT_CODE:DMG-LCA:OUTER_PACKAGE_FRONT",
+        "PRODUCT_CODE:DMG-LCA:CARTRIDGE_FRONT",
+        "PRODUCT_CODE:DMG-LCA:MANUAL_FRONT"
+      ],
+      "images": [
+        {
+          "id": "listing-obs-09ba161c48ad67d1",
+          "imageIndex": 1,
+          "component": "OUTER_PACKAGE_FRONT",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "GAME BOY",
+            "DECO"
+          ],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|377464390784|0",
+          "contentHash": "dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9"
+        },
+        {
+          "id": "listing-obs-279dd38ca4ce14cf",
+          "imageIndex": 2,
+          "component": "CARTRIDGE_FRONT",
+          "productNodeType": "MEDIA",
+          "role": "cartridge_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "DECO"
+          ],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [
+            "DATA EAST CORP"
+          ],
+          "editionMarkers": [],
+          "listingId": "v1|377464390784|0",
+          "contentHash": "4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4"
+        },
+        {
+          "id": "listing-obs-c44185268bc10db2",
+          "imageIndex": 3,
+          "component": "CARTRIDGE_FRONT",
+          "productNodeType": "MEDIA",
+          "role": "cartridge_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "DECO"
+          ],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|377464390784|0",
+          "contentHash": "d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e"
+        },
+        {
+          "id": "listing-obs-abb4d9aa28091df5",
+          "imageIndex": 4,
+          "component": "CARTRIDGE_FRONT",
+          "productNodeType": "MEDIA",
+          "role": "cartridge_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "DECO"
+          ],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|377464390784|0",
+          "contentHash": "ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e"
+        },
+        {
+          "id": "listing-obs-82f8b858a2c89559",
+          "imageIndex": 5,
+          "component": "CARTRIDGE_BACK",
+          "productNodeType": "MEDIA",
+          "role": "cartridge_back",
+          "textSnippets": [],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|377464390784|0",
+          "contentHash": "d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5"
+        },
+        {
+          "id": "listing-obs-d8ca962a71aecbcf",
+          "imageIndex": 6,
+          "component": "MANUAL_FRONT",
+          "productNodeType": "DOCUMENT",
+          "role": "manual_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "DECO"
+          ],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|377464390784|0",
+          "contentHash": "bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca"
+        },
+        {
+          "id": "listing-obs-d703ab790f95d464",
+          "imageIndex": 7,
+          "component": "MANUAL_BACK",
+          "productNodeType": "DOCUMENT",
+          "role": "manual_back",
+          "textSnippets": [
+            "使用上の注意",
+            "FOR SALE AND USE IN JAPAN ONLY"
+          ],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|377464390784|0",
+          "contentHash": "6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674"
+        }
+      ],
+      "sourcesConsulted": [
+        "candidate:bitlabelz.com"
+      ],
+      "queriesAlreadyPerformed": [
+        "\"DMG-LCA\"",
+        "\"DMG-LCA\" \"Lock 'n' Chase\"",
+        "site:game.es \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "site:todocoleccion.net \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "site:ebay.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "site:regionatlas.games \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "site:mobygames.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "\"Lock 'n' Chase\" \"gameboy\" \"standard\" back cover distributor legal text",
+        "\"DMG-LCA\" gameboy",
+        "site:game.es \"DMG-LCA\""
+      ],
+      "sourcesExhausted": [
+        "candidate:bitlabelz.com"
+      ],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF"
+      ]
+    },
+    {
+      "caseId": "GB-02",
+      "engineResultHash": "ff716394009f4204e74f0acd150b912593e0c7a50055f8cfb5520cb4d69768e4",
+      "engineResultPath": "cases/GB-02/engine-result.json",
+      "confirmedClaims": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "rejectedClaims": [],
+      "identifiers": [
+        "EAN_UPC:013252002548:OUTER_PACKAGE_BACK",
+        "PRODUCT_CODE:DMG-P-DR:OUTER_PACKAGE_BACK",
+        "BARCODE:013252002548:UNKNOWN"
+      ],
+      "images": [
+        {
+          "id": "listing-obs-3f5968bc7158299b",
+          "imageIndex": 1,
+          "component": "OUTER_PACKAGE_FRONT",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_front",
+          "textSnippets": [
+            "Nail 'n' Scale",
+            "GAME BOY",
+            "DATA EAST"
+          ],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|157686535662|0",
+          "contentHash": "3ebf0fd22151f2651520694bd13dc0b01447167cadbf8c73d36efb7b34280ecc"
+        },
+        {
+          "id": "listing-obs-b4063f81bd2a475b",
+          "imageIndex": 2,
+          "component": "OUTER_PACKAGE_BACK",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_back",
+          "textSnippets": [
+            "TOUGH AS NAILS!",
+            "Nail 'n' Scale",
+            "DATA EAST",
+            "NAIL 'N' SCALE",
+            "This game pak for use with the Game Boy Compact Video Game System and",
+            "1 or 2-player action.",
+            "Official Nintendo Seal of Quality",
+            "MADE IN JAPAN"
+          ],
+          "productCodes": [
+            "DMG-P-DR"
+          ],
+          "barcodes": [
+            "013252002548"
+          ],
+          "languages": [],
+          "ratingSystems": [
+            "DMG P"
+          ],
+          "distributors": [
+            "DATA EAST USA, INC."
+          ],
+          "editionMarkers": [],
+          "listingId": "v1|157686535662|0",
+          "contentHash": "702e406d83455fe9b193bea6f75fa40b52d65e99a5fd0a2b2a081527cc915311"
+        },
+        {
+          "id": "listing-obs-b9636ffcd0f6afc5",
+          "imageIndex": 3,
+          "component": "OUTER_PACKAGE_SPINE",
+          "productNodeType": "OUTER_PACKAGE",
+          "role": "outer_package_spine",
+          "textSnippets": [],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|157686535662|0",
+          "contentHash": "c2dd8a586088f3a402c836133430eb5eb52d4e97f1db76b81b8dc67134e970d8"
+        },
+        {
+          "id": "listing-obs-da6e14beb811557c",
+          "imageIndex": 4,
+          "component": "MANUAL_FRONT",
+          "productNodeType": "DOCUMENT",
+          "role": "manual_front",
+          "textSnippets": [
+            "Nail 'n' Scale",
+            "INSTRUCTION BOOKLET",
+            "DATA EAST"
+          ],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|157686535662|0",
+          "contentHash": "c852ea5c5d6de3191bfe0843ec020b5273a1a8e661d2f3ed7bd495e1fc1274b5"
+        },
+        {
+          "id": "listing-obs-b5c1fec11cae5ba9",
+          "imageIndex": 5,
+          "component": "CARTRIDGE_FRONT",
+          "productNodeType": "MEDIA",
+          "role": "cartridge_front",
+          "textSnippets": [
+            "Nail 'n' Scale",
+            "GAME BOY"
+          ],
+          "productCodes": [],
+          "barcodes": [],
+          "languages": [],
+          "ratingSystems": [],
+          "distributors": [],
+          "editionMarkers": [],
+          "listingId": "v1|157686535662|0",
+          "contentHash": "32c18431d7b086d80529cccc68381f78b393cdca0cd0bb48233cd487c01711c5"
+        }
+      ],
+      "sourcesConsulted": [
+        "candidate:www.retroplace.com",
+        "candidate:www.icollecteverything.com"
+      ],
+      "queriesAlreadyPerformed": [
+        "\"013252002548\"",
+        "\"013252002548\" \"Nail 'n' Scale\"",
+        "\"DMG-P-DR\"",
+        "\"DMG-P-DR\" \"Nail 'n' Scale\"",
+        "site:game.es \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+        "site:todocoleccion.net \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+        "site:ebay.com \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+        "site:regionatlas.games \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+        "site:mobygames.com \"Nail 'n' Scale\" \"gameboy\" \"standard\"",
+        "\"Nail 'n' Scale\" \"gameboy\" \"standard\" back cover distributor legal text",
+        "\"013252002548\" gameboy",
+        "\"DMG-P-DR\" gameboy"
+      ],
+      "sourcesExhausted": [
+        "candidate:www.retroplace.com",
+        "candidate:www.icollecteverything.com"
+      ],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF"
+      ]
+    }
+  ]
+}

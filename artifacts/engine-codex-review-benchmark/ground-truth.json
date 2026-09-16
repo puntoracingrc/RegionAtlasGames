@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "selectionFreezeHash": "ed83fda90b810f014523b86055b2617a072eff78e51be579baa8f7232ea57454",
+  "auditOrder": "AFTER_ENGINE_AND_CODEX_FREEZE",
+  "evaluatorIsolation": {
+    "decisionFilesReadByGenerator": false,
+    "evidenceInputs": [
+      "selected-listings.json",
+      "engine-acquisition case evidence",
+      "catalog entries"
+    ],
+    "blinding": "PROCEDURAL_ONLY_SAME_AGENT",
+    "limitation": "The generator does not read Engine or Codex decisions, but the benchmark was executed by one Codex task, so human-level perfect blinding is not claimed."
+  },
+  "evaluableCases": 9,
+  "unavailableCases": 7,
+  "cases": [
+    {
+      "caseId": "PS4-01",
+      "game": "Fobia: St. Dinfna Hotel",
+      "platform": "ps4",
+      "availability": "CASE_UNAVAILABLE",
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "reason": "No eligible active fixed-price physical listing was available at the selection freeze; the case is excluded from decision precision.",
+      "groundTruthHash": "4ba46f5c83a2008daafe451617260bb214653bfbc23c2518caa27f9732285bb8"
+    },
+    {
+      "caseId": "PS4-02",
+      "game": "Soul Hackers 2",
+      "platform": "ps4",
+      "listingId": "v1|257009348037|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [
+        "Soul Hackers 2 PS4 identity is visible",
+        "EAN 5055277046874 is listing metadata, not a visible component identifier"
+      ],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "NO_MARKET_LEGAL_TEXT"
+      ],
+      "reason": "The selected listing does not physically bind market, exact package variant, or new/sealed condition. A correct product-family EAN does not replace specimen evidence.",
+      "groundTruthHash": "8fca1945e54fdeffb9a8748bc21e5eb607cf2d907eebde3423ca7a315bc57024"
+    },
+    {
+      "caseId": "PS4-03",
+      "game": "Atelier Firis: The Alchemist and the Mysterious Journey",
+      "platform": "ps4",
+      "availability": "CASE_UNAVAILABLE",
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "reason": "No eligible active fixed-price physical listing was available at the selection freeze; the case is excluded from decision precision.",
+      "groundTruthHash": "c6f1e81b1585e5967ee268a2eaf2e7a2f78da63ba797d06c76837149b75dc0c4"
+    },
+    {
+      "caseId": "PS4-04",
+      "game": "Code Vein",
+      "platform": "ps4",
+      "listingId": "v1|128074767475|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [
+        "Code Vein PS4 identity is visible",
+        "EAN 3391891995962 is seller metadata",
+        "The seller labels its image non-contractual"
+      ],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_ACTUAL_LISTING_SPECIMEN_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_CONDITION_PROOF"
+      ],
+      "reason": "The product family can be researched, but the selected unit cannot be accepted or rerouted safely from a non-contractual image.",
+      "groundTruthHash": "0cb22bcbc4d0dac191c5402a0b2b41534a452170839179e6adc0a3ce2cebe791"
+    },
+    {
+      "caseId": "PS5-01",
+      "game": "Demon's Souls",
+      "platform": "ps5",
+      "listingId": "v1|363231498889|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [
+        "Demon's Souls PS5 identity is visible",
+        "EAN 0711719812920 is listing metadata"
+      ],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "EXACT_MARKET_SET_UNBOUND"
+      ],
+      "reason": "Only the front is visible. The title's Spanish/sealed claims and seller location cannot certify the specimen's market set or seal.",
+      "groundTruthHash": "7581f45e7ceabaab1e0e4e0493f03c0dd016d371733a8548ed844d7764c62c03"
+    },
+    {
+      "caseId": "PS5-02",
+      "game": "Dragon's Dogma 2",
+      "platform": "ps5",
+      "listingId": "v1|336641149498|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [
+        "Dragon's Dogma 2 PS5 identity is visible",
+        "EAN 5055060954133 and MPN 1245784 are listing metadata"
+      ],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "EXACT_MARKET_SET_UNBOUND"
+      ],
+      "reason": "Only the front is visible. The selected unit cannot be bound to a national or shared-European package, and the claimed factory seal is not visible.",
+      "groundTruthHash": "b3f3da5898cf228e689eb42a6be94fdff268bbadb31e4eedf8be05c90775e115"
+    },
+    {
+      "caseId": "PS5-03",
+      "game": "Final Fantasy XVI",
+      "platform": "ps5",
+      "listingId": "v1|267695458509|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [
+        "Final Fantasy XVI PS5 standard identity is visible",
+        "EAN 5021290096851 is listing metadata",
+        "Seller explicitly says the image is illustrative"
+      ],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_ACTUAL_LISTING_SPECIMEN_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_CONDITION_PROOF"
+      ],
+      "reason": "The exact used item is not pictured, so neither its package variant nor its condition can be certified.",
+      "groundTruthHash": "8ab9192dc59e6abed596197e0636ce84ad868a4a28c3434443406801c4981295"
+    },
+    {
+      "caseId": "PS5-04",
+      "game": "Hogwarts Legacy",
+      "platform": "ps5",
+      "listingId": "v1|195420885212|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "DEFER",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [
+        "Hogwarts Legacy standard PS5 front identity is visible"
+      ],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_EXACT_IDENTIFIER",
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "NO_MARKET_LEGAL_TEXT"
+      ],
+      "reason": "No exact EAN/PPSA is exposed and only the front is visible; seller claims alone do not bind market or condition.",
+      "groundTruthHash": "ed65625792ddb38ae39ca7354f1096dcca21aa1c95cd63403213b4043d117fc8"
+    },
+    {
+      "caseId": "N64-01",
+      "game": "Holy Magic Century",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_USABLE_LISTING"
+      ],
+      "reason": "No eligible active fixed-price physical listing was available at the selection freeze; the case is excluded from decision precision.",
+      "groundTruthHash": "424cc0709bc8700cb6ba043fef4482cc6054ce19538db72eeb7140c9c713ce03"
+    },
+    {
+      "caseId": "N64-02",
+      "game": "Aidyn Chronicles",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "reason": "No eligible active fixed-price physical listing was available at the selection freeze; the case is excluded from decision precision.",
+      "groundTruthHash": "0dcdf882805d094f73a61cfa8e31873c2913e74f2320267924ef2dc6af61d70f"
+    },
+    {
+      "caseId": "N64-03",
+      "game": "Hybrid Heaven",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "reason": "No eligible active fixed-price physical listing was available at the selection freeze; the case is excluded from decision precision.",
+      "groundTruthHash": "e0fb55d12e0a999704570b6958868e8b0cc4892cd469219a3b10490c6307e745"
+    },
+    {
+      "caseId": "N64-04",
+      "game": "Shadow Man",
+      "platform": "n64",
+      "listingId": "v1|326822603505|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "ACCEPT_EXISTING",
+      "resolvedCatalogId": "n64-shadow-man",
+      "confidence": 0.98,
+      "exactFacts": [
+        "The single listing photo visibly contains the PAL-version box front, cartridge, and instruction booklet",
+        "The catalog candidate is the generic PAL Europe Shadow Man entry"
+      ],
+      "decisiveEvidence": [
+        {
+          "source": "engine-acquisition/cases/N64-04/classifications.json",
+          "claim": "The photo contains OUTER_PACKAGE_FRONT, CARTRIDGE_FRONT, and MANUAL_FRONT for Shadow Man.",
+          "component": "MULTI_COMPONENT",
+          "listingId": "v1|326822603505|0",
+          "imageIndex": 1
+        },
+        {
+          "source": "engine-acquisition/cases/N64-04/observations.json",
+          "claim": "Visible text includes SHADOW MAN, NINTENDO 64, PAL VERSION, and Instruction Booklet.",
+          "component": "MULTI_COMPONENT",
+          "listingId": "v1|326822603505|0",
+          "imageIndex": 1
+        }
+      ],
+      "unresolvedGaps": [
+        "PAL_SUBMARKET_NOT_PROVEN"
+      ],
+      "reason": "The listing is a complete PAL Shadow Man specimen and safely matches the existing generic PAL Europe entry. It must not be promoted to Spain or another PAL submarket.",
+      "groundTruthHash": "cf4a6ea3a7e0c76c64180eaddf81e52495ff2d87bece6d96ccac6cd1ea9d15fd"
+    },
+    {
+      "caseId": "GB-01",
+      "game": "Lock 'n' Chase",
+      "platform": "gameboy",
+      "listingId": "v1|377464390784|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "REROUTE_EXISTING",
+      "resolvedCatalogId": "gameboy-japon-lock-n-chase",
+      "confidence": 0.99,
+      "exactFacts": [
+        "Box, cartridge, and manual are visible",
+        "DMG-LCA appears on the physical family",
+        "The manual states FOR SALE AND USE IN JAPAN ONLY"
+      ],
+      "decisiveEvidence": [
+        {
+          "source": "engine-acquisition/cases/GB-01/observations.json",
+          "claim": "The component set includes box, cartridge, and manual with DMG-LCA; manual back explicitly limits sale/use to Japan.",
+          "component": "BOX+CARTRIDGE+MANUAL",
+          "listingId": "v1|377464390784|0",
+          "imageIndex": 7
+        }
+      ],
+      "unresolvedGaps": [],
+      "reason": "The selected specimen is the Japanese regional sibling and must be rerouted from the PAL candidate to the existing Japanese catalog entry.",
+      "groundTruthHash": "d47792752160b2d4eb7c7b671f63fb0f5cbd3a1742e8d379488e0ae223c2cac2"
+    },
+    {
+      "caseId": "GB-02",
+      "game": "Nail 'n' Scale",
+      "platform": "gameboy",
+      "listingId": "v1|157686535662|0",
+      "availability": "USABLE",
+      "groundTruthDecision": "REROUTE_EXISTING",
+      "resolvedCatalogId": "gameboy-nail-n-scale",
+      "confidence": 0.99,
+      "exactFacts": [
+        "Box, cartridge, and manual are visible",
+        "UPC 013252002548 is visible on the box back",
+        "The box names DATA EAST USA, INC."
+      ],
+      "decisiveEvidence": [
+        {
+          "source": "engine-acquisition/cases/GB-02/observations.json",
+          "claim": "The outer-package back visibly binds UPC 013252002548 and DATA EAST USA, INC. to this specimen.",
+          "component": "OUTER_PACKAGE_BACK",
+          "listingId": "v1|157686535662|0",
+          "imageIndex": 2
+        }
+      ],
+      "unresolvedGaps": [],
+      "reason": "The selected specimen is the USA regional sibling and must be rerouted from the PAL candidate to the existing USA catalog entry. The uncertain OCR string DMG-P-DR is not used.",
+      "groundTruthHash": "4ecb868dd2049148cd5fbbc5cc7d40a79223120d2c6ee314a6cfac3504c65d32"
+    },
+    {
+      "caseId": "GB-03",
+      "game": "Tumble Pop",
+      "platform": "gameboy",
+      "availability": "CASE_UNAVAILABLE",
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "reason": "No eligible active fixed-price physical listing was available at the selection freeze; the case is excluded from decision precision.",
+      "groundTruthHash": "b30fe7182644f561417380d782e7d749e127d94b441bb54673a41a9607c94efc"
+    },
+    {
+      "caseId": "GB-04",
+      "game": "BurgerTime Deluxe",
+      "platform": "gameboy",
+      "availability": "CASE_UNAVAILABLE",
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "resolvedCatalogId": null,
+      "confidence": 1,
+      "exactFacts": [],
+      "decisiveEvidence": [],
+      "unresolvedGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "reason": "No eligible active fixed-price physical listing was available at the selection freeze; the case is excluded from decision precision.",
+      "groundTruthHash": "7955f06b4ca9515e59ba9dfe9a43aa47d818018cc416bf595708f27db9ee4745"
+    }
+  ],
+  "frozenAt": "2026-09-16T19:11:25.088Z"
+}

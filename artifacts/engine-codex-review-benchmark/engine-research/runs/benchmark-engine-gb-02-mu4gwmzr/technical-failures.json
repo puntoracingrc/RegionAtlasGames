@@ -1,0 +1,16 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/396629112283",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]
