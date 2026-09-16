@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: codex/japan-game-awards-2026
 
       - name: Set up Node.js
@@ -30,172 +30,149 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Apply official Japan Game Awards 2026 results
+      - name: Add reviewed 2026 results to deterministic award source
         run: |
           node <<'NODE'
           const fs = require('node:fs');
-          const crypto = require('node:crypto');
 
-          const researchPath = 'data/research/award-study/research.json';
-          const approvalsPath = 'data/research/award-editorial-approvals.json';
-          const data = JSON.parse(fs.readFileSync(researchPath, 'utf8'));
-          const approvals = JSON.parse(fs.readFileSync(approvalsPath, 'utf8'));
+          const seedPath = 'data/research/award-study/backfill-v1.json';
+          const metadataPath = 'data/research/award-study/series-metadata.json';
+          const preparePath = 'scripts/prepare-awards-v1.ts';
 
-          const resultSourceId = 'AW-SRC-6373f4a332e5';
-          const resultSource = {
-            id: resultSourceId,
-            url: 'https://awards.cesa.or.jp/year/prize/index.html',
-            title: 'Japan Game Awards 2026: Games of the Year awarded works',
-            retrievedAt: '2026-09-16',
-            verifiedPrimary: true,
-            evidenceSummary: 'Official CESA 2026 Games of the Year results: Grand Award, Game Designers Award, Awards for Excellence, Breakthrough Award, Movement Award and Special Award.'
-          };
-
-          const upsert = (rows, row) => {
-            const i = rows.findIndex(x => x.id === row.id);
-            if (i >= 0) rows[i] = row;
-            else rows.push(row);
-          };
-          const uniq = values => [...new Set(values)];
-
-          data.reviewedAt = '2026-09-16';
-          upsert(data.sources, resultSource);
-
-          const edition = data.editions.find(e => e.id === 'japan-game-awards:2026');
-          if (!edition) throw new Error('Missing Japan Game Awards 2026 edition');
-          edition.ceremonyDate = '2026-09-15';
-          edition.venue = 'Hulic Hall Tokyo';
-          edition.city = 'Tokio';
-          edition.status = 'completed';
-          edition.officialUrl = 'https://awards.cesa.or.jp/overview/';
-          edition.sourceIds = uniq([...(edition.sourceIds || []), resultSourceId]);
-
-          const categories = [
+          const seed = JSON.parse(fs.readFileSync(seedPath, 'utf8'));
+          seed.currentResults = [
             {
-              id: 'japan-game-awards:award-for-excellence',
-              seriesSlug: 'japan-game-awards',
-              slug: 'award-for-excellence',
-              canonicalName: 'Award for Excellence',
-              displayName: 'Award for Excellence',
-              categoryType: 'other',
-              prestigeGroup: 'category_award',
-              activeFrom: null,
-              activeTo: null,
-              previousNames: [],
-              successorCategoryId: null,
-              sourceIds: [resultSourceId]
+              series: 'japan-game-awards', year: 2026, title: 'Pokémon Pokopia',
+              categorySlug: 'grand-award', categoryName: 'Grand Award', categoryType: 'top_game', resultType: 'winner',
+              url: 'https://awards.cesa.or.jp/en/year/prize/01.html', recipientType: 'game', retrievedAt: '2026-09-16'
             },
             {
-              id: 'japan-game-awards:game-designers-award',
-              seriesSlug: 'japan-game-awards',
-              slug: 'game-designers-award',
-              canonicalName: 'Game Designers Award',
-              displayName: 'Game Designers Award',
-              categoryType: 'game_design',
-              prestigeGroup: 'category_award',
-              activeFrom: 2010,
-              activeTo: null,
-              previousNames: [],
-              successorCategoryId: null,
-              sourceIds: [resultSourceId]
+              series: 'japan-game-awards', year: 2026, title: '文字遊戯',
+              categorySlug: 'game-designers-award', categoryName: 'Game Designers Award', categoryType: 'game_design', resultType: 'winner',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
             },
             {
-              id: 'japan-game-awards:breakthrough-award',
-              seriesSlug: 'japan-game-awards',
-              slug: 'breakthrough-award',
-              canonicalName: 'Breakthrough Award',
-              displayName: 'Breakthrough Award',
-              categoryType: 'innovation',
-              prestigeGroup: 'category_award',
-              activeFrom: 2024,
-              activeTo: null,
-              previousNames: [],
-              successorCategoryId: null,
-              sourceIds: [resultSourceId]
+              series: 'japan-game-awards', year: 2026, title: 'イナズマイレブン 英雄たちのヴィクトリーロード',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
             },
             {
-              id: 'japan-game-awards:movement-award',
-              seriesSlug: 'japan-game-awards',
-              slug: 'movement-award',
-              canonicalName: 'Movement Award',
-              displayName: 'Movement Award',
-              categoryType: 'special',
-              prestigeGroup: 'category_award',
-              activeFrom: 2024,
-              activeTo: null,
-              previousNames: [],
-              successorCategoryId: null,
-              sourceIds: [resultSourceId]
+              series: 'japan-game-awards', year: 2026, title: 'カービィのエアライダー',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
             },
             {
-              id: 'japan-game-awards:special-award',
-              seriesSlug: 'japan-game-awards',
-              slug: 'special-award',
-              canonicalName: 'Special Award',
-              displayName: 'Special Award',
-              categoryType: 'special',
-              prestigeGroup: 'category_award',
-              activeFrom: null,
-              activeTo: null,
-              previousNames: [],
-              successorCategoryId: null,
-              sourceIds: [resultSourceId]
+              series: 'japan-game-awards', year: 2026, title: 'Ghost of Yōtei',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'SILENT HILL f',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'デジモンストーリー タイムストレンジャー',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'DEATH STRANDING 2: ON THE BEACH',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'ドンキーコング バナンザ',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'バイオハザード レクイエム',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'パラノマサイト FILE38 伊勢人魚物語',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'PRAGMATA',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'Pokémon Pokopia',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/en/year/prize/01.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: '魔法少女ノ魔女裁判',
+              categorySlug: 'award-for-excellence', categoryName: 'Award for Excellence', categoryType: 'other', resultType: 'recipient',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'PRAGMATA',
+              categorySlug: 'breakthrough-award', categoryName: 'Breakthrough Award', categoryType: 'innovation', resultType: 'winner',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'めっちゃカメレオン',
+              categorySlug: 'movement-award', categoryName: 'Movement Award', categoryType: 'special', resultType: 'winner',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'game', retrievedAt: '2026-09-16'
+            },
+            {
+              series: 'japan-game-awards', year: 2026, title: 'ザ・スーパーマリオギャラクシー・ムービー',
+              categorySlug: 'special-award', categoryName: 'Special Award', categoryType: 'special', resultType: 'special_recognition',
+              url: 'https://awards.cesa.or.jp/year/prize/index.html', recipientType: 'other', recipientKey: 'the-super-mario-galaxy-movie', retrievedAt: '2026-09-16'
             }
           ];
-          for (const category of categories) upsert(data.categories, category);
+          fs.writeFileSync(seedPath, JSON.stringify(seed, null, 2) + '\n');
 
-          const gameRecipient = displayName => ({ type: 'game', workKey: null, displayName });
-          const baseResult = (id, categoryId, resultType, officialLabel, recipient) => ({
-            id,
-            editionId: 'japan-game-awards:2026',
-            seriesSlug: 'japan-game-awards',
-            categoryId,
-            resultType,
-            officialLabel,
-            shared: false,
-            recipients: [recipient],
-            sourceIds: [resultSourceId],
-            confidence: 'HIGH',
-            verificationStatus: 'VERIFIED',
-            publicationStatus: 'published'
-          });
+          const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+          const edition = metadata.editions.find(e => e.seriesSlug === 'japan-game-awards' && e.year === 2026);
+          if (!edition) throw new Error('Missing japan-game-awards 2026 metadata edition');
+          edition.date = '2026-09-15';
+          edition.status = 'completed';
+          edition.venue = 'Hulic Hall Tokyo';
+          edition.city = 'Tokio';
+          edition.url = 'https://awards.cesa.or.jp/overview/';
+          fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2) + '\n');
 
-          const results = [
-            baseResult('japan-game-awards:2026:grand-award:pokemon-pokopia', 'japan-game-awards:grand-award', 'winner', 'Grand Award', gameRecipient('Pokémon Pokopia')),
-            baseResult('japan-game-awards:2026:game-designers-award:mojiyugi', 'japan-game-awards:game-designers-award', 'winner', 'Game Designers Award', gameRecipient('文字遊戯')),
+          let prepare = fs.readFileSync(preparePath, 'utf8');
 
-            baseResult('japan-game-awards:2026:award-for-excellence:inazuma-eleven-victory-road', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('イナズマイレブン 英雄たちのヴィクトリーロード')),
-            baseResult('japan-game-awards:2026:award-for-excellence:kirby-air-riders', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('カービィのエアライダー')),
-            baseResult('japan-game-awards:2026:award-for-excellence:ghost-of-yotei', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('Ghost of Yōtei')),
-            baseResult('japan-game-awards:2026:award-for-excellence:silent-hill-f', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('SILENT HILL f')),
-            baseResult('japan-game-awards:2026:award-for-excellence:digimon-story-time-stranger', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('デジモンストーリー タイムストレンジャー')),
-            baseResult('japan-game-awards:2026:award-for-excellence:death-stranding-2', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('DEATH STRANDING 2: ON THE BEACH')),
-            baseResult('japan-game-awards:2026:award-for-excellence:donkey-kong-bananza', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('ドンキーコング バナンザ')),
-            baseResult('japan-game-awards:2026:award-for-excellence:resident-evil-requiem', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('バイオハザード レクイエム')),
-            baseResult('japan-game-awards:2026:award-for-excellence:paranormasight-file38', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('パラノマサイト FILE38 伊勢人魚物語')),
-            baseResult('japan-game-awards:2026:award-for-excellence:pragmata', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('PRAGMATA')),
-            baseResult('japan-game-awards:2026:award-for-excellence:pokemon-pokopia', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('Pokémon Pokopia')),
-            baseResult('japan-game-awards:2026:award-for-excellence:maho-shojo-no-majo-saiban', 'japan-game-awards:award-for-excellence', 'recipient', 'Award for Excellence', gameRecipient('魔法少女ノ魔女裁判')),
+          const aliasNeedle = 'type CompanyDecision = { title: string; companySlug: string; role: "developer" | "publisher"; catalogId: string; url: string; note: string };';
+          const aliasReplacement = aliasNeedle + '\n' +
+            'type CurrentResultDecision = { series: string; year: number; title: string; categorySlug: string; categoryName: string; categoryType: AwardCategoryType; resultType: AwardResultType; url: string; recipientType: "game" | "other"; recipientKey?: string; retrievedAt: string; };';
+          if (!prepare.includes(aliasNeedle)) throw new Error('Could not locate CompanyDecision type');
+          prepare = prepare.replace(aliasNeedle, aliasReplacement);
 
-            baseResult('japan-game-awards:2026:breakthrough-award:pragmata', 'japan-game-awards:breakthrough-award', 'winner', 'Breakthrough Award', gameRecipient('PRAGMATA')),
-            baseResult('japan-game-awards:2026:movement-award:meccha-chameleon', 'japan-game-awards:movement-award', 'winner', 'Movement Award', gameRecipient('めっちゃカメレオン')),
-            baseResult('japan-game-awards:2026:special-award:super-mario-galaxy-movie', 'japan-game-awards:special-award', 'special_recognition', 'Special Award', { type: 'other', key: 'the-super-mario-galaxy-movie', displayName: 'ザ・スーパーマリオギャラクシー・ムービー' })
-          ];
-          for (const result of results) upsert(data.results, result);
+          const seedNeedle = '  legacyPersonalResults: [string,string,number,string,string,string][];\n  otherResults: [string,number,string,string,string,AwardCategoryType,AwardResultType,string][];\n  generalLegacyIds: string[];';
+          const seedReplacement = '  legacyPersonalResults: [string,string,number,string,string,string][];\n  otherResults: [string,number,string,string,string,AwardCategoryType,AwardResultType,string][];\n  currentResults?: CurrentResultDecision[];\n  generalLegacyIds: string[];';
+          if (!prepare.includes(seedNeedle)) throw new Error('Could not locate seed result types');
+          prepare = prepare.replace(seedNeedle, seedReplacement);
 
-          fs.writeFileSync(researchPath, JSON.stringify(data, null, 2) + '\n');
+          const sourceNeedle = 'const source = (url: string, title: string, summary: string) => {';
+          const sourceReplacement = 'const source = (url: string, title: string, summary: string, retrievedAt = seed.reviewedAt) => {';
+          if (!prepare.includes(sourceNeedle)) throw new Error('Could not locate source helper');
+          prepare = prepare.replace(sourceNeedle, sourceReplacement);
+          prepare = prepare.replace(
+            'if (!existing) research.sources.push({ id, url, title, retrievedAt: seed.reviewedAt, verifiedPrimary: true, evidenceSummary: summary });',
+            'if (!existing) research.sources.push({ id, url, title, retrievedAt, verifiedPrimary: true, evidenceSummary: summary });'
+          );
 
-          const researchHash = crypto.createHash('sha256').update(fs.readFileSync(researchPath)).digest('hex');
-          approvals.researchHash = researchHash;
-          const newApprovals = [
-            ...categories.map(c => `category:${c.id}`),
-            ...results.map(r => `result:${r.id}`)
-          ];
-          approvals.approved = uniq([...(approvals.approved || []), ...newApprovals]).sort();
-          fs.writeFileSync(approvalsPath, JSON.stringify(approvals, null, 2) + '\n');
+          const insertNeedle = 'for (const row of metadata.editions) {';
+          const currentLoop = `for (const row of seed.currentResults ?? []) {\n  const series = research.series.find(s => s.slug === row.series)!; assert.ok(series);\n  const sourceId = source(row.url, \`${'${series.shortName}'} \${row.year}: \${row.categoryName}\`, \`Resultado oficial: \${row.title} — \${row.categoryName}.\`, row.retrievedAt);\n  const editionId = edition(row.series,row.year,sourceId,row.url);\n  const categoryId = \`${'${row.series}'}:\${row.categorySlug}\`;\n  if (!research.categories.some(c => c.id === categoryId)) research.categories.push({id:categoryId,seriesSlug:row.series,slug:row.categorySlug,canonicalName:row.categoryName,displayName:row.categoryName,categoryType:row.categoryType,prestigeGroup:"category_award",activeFrom:null,activeTo:null,previousNames:[],successorCategoryId:null,sourceIds:[sourceId]});\n  const id = \`${'${editionId}'}:\${row.categorySlug}:\${createHash("sha256").update(row.title).digest("hex").slice(0,10)}\`;\n  const recipient = row.recipientType === "other"\n    ? {type:"other" as const,key:row.recipientKey ?? row.title,displayName:row.title}\n    : {type:"game" as const,workKey:keys.get(row.title) ?? null,displayName:row.title};\n  research.results.push({id,editionId,seriesSlug:row.series,categoryId,resultType:row.resultType,officialLabel:row.categoryName,shared:false,recipients:[recipient],sourceIds:[sourceId],confidence:"HIGH",verificationStatus:"VERIFIED",publicationStatus:"published"});\n  approve("category",categoryId); approve("result",id);\n}\n`;
+          if (!prepare.includes(insertNeedle)) throw new Error('Could not locate metadata editions loop');
+          prepare = prepare.replace(insertNeedle, currentLoop + insertNeedle);
+
+          fs.writeFileSync(preparePath, prepare);
           NODE
 
-      - name: Generate award public artifacts
+      - name: Regenerate deterministic award research and approvals
+        run: npx tsx scripts/prepare-awards-v1.ts --write
+
+      - name: Generate public award artifacts
         run: npm run awards:build
 
       - name: Verify reproducibility
