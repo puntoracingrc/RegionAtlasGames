@@ -3,6 +3,8 @@ import { readAdminCompanyProfilesOverlay } from "./admin-entity-catalog";
 import { catalogGamePath } from "./catalog-url";
 import { getPlatform, isPublicCatalogGame } from "./catalog";
 import { getCatalogWorkKey } from "./catalog-work";
+import { toCatalogListGame } from "./catalog-list-game";
+import { groupCatalogListGames } from "./catalog-physical-edition-browse";
 import {
   formatCompanyAliases,
   getCompanyEntity,
@@ -39,7 +41,7 @@ import type {
   CompanyGenealogyLink,
   CompanyPlatformHistoryLink,
 } from "./platform-history-types";
-import type { CatalogGame, CompanyProfile, IndexEntry } from "./types";
+import type { CatalogGame, CatalogListGame, CompanyProfile, IndexEntry } from "./types";
 
 export type CompanyCollaborator = {
   slug: string;
@@ -52,7 +54,7 @@ export type CompanyPlatformGames = {
   platformSlug: string;
   platformName: string;
   catalogEntryCount: number;
-  games: CatalogGame[];
+  games: CatalogListGame[];
 };
 
 export type CompanyVerifiedRelation = {
@@ -170,12 +172,18 @@ function groupGamesByPlatform(games: CatalogGame[]): CompanyPlatformGames[] {
   }
 
   return [...buckets.entries()]
-    .map(([platformSlug, platformGames]) => ({
-      platformSlug,
-      platformName: getPlatform(platformSlug)?.shortName ?? platformSlug,
-      catalogEntryCount: platformGames.length,
-      games: [...platformGames].sort((a, b) => a.title.localeCompare(b.title, "es")),
-    }))
+    .map(([platformSlug, platformGames]) => {
+      const groupedGames = groupCatalogListGames(platformGames.map(toCatalogListGame), {
+        scopePhysicalEditionsToInput: true,
+      });
+      return {
+        platformSlug,
+        platformName: getPlatform(platformSlug)?.shortName ?? platformSlug,
+        catalogEntryCount: platformGames.length,
+        games: groupedGames.sort((a, b) =>
+          a.title.localeCompare(b.title, "es", { numeric: true }) || a.id.localeCompare(b.id, "es")),
+      };
+    })
     .sort(
       (a, b) =>
         b.catalogEntryCount - a.catalogEntryCount ||
@@ -324,7 +332,9 @@ export async function buildCompanyProfileViewWithOverlay(slug: string): Promise<
   return buildCompanyProfileViewFromProfile(canonicalSlug, await getStoredCompanyProfileWithOverlay(canonicalSlug));
 }
 
-export function companyGameHref(game: CatalogGame): string {
+export function companyGameHref(
+  game: Pick<CatalogGame, "slug" | "platformSlug" | "region" | "canonicalSeoSlug">,
+): string {
   return catalogGamePath(game);
 }
 

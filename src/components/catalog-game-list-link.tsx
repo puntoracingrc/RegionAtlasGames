@@ -2,10 +2,13 @@ import Link from "next/link";
 import { RegionFlag } from "@/components/region-flag";
 import { cn } from "@/lib/cn";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import type { CatalogGame } from "@/lib/types";
+import type { CatalogGame, CatalogListGame } from "@/lib/types";
+
+type ListLinkGame = Pick<CatalogGame, "title" | "region"> &
+  Pick<Partial<CatalogListGame>, "physicalEditionGroup">;
 
 type Props = {
-  game: Pick<CatalogGame, "title" | "region">;
+  game: ListLinkGame;
   href: string;
   className?: string;
   /** En listas inline (referentes); por defecto fila con bandera a la derecha. */
@@ -14,14 +17,26 @@ type Props = {
 
 export function CatalogGameListLink({ game, href, className, layout = "row" }: Props) {
   const title = decodeHtmlEntities(game.title);
+  const regions = game.physicalEditionGroup?.overviewRegions.length
+    ? game.physicalEditionGroup.overviewRegions
+    : [game.region];
   const region = (
-    <RegionFlag
-      region={game.region}
-      size="xs"
-      showLabel
-      labelMode="short"
-      className={layout === "inline" ? "ml-1 align-middle" : "shrink-0"}
-    />
+    <span
+      className={cn(
+        "inline-flex flex-wrap items-center gap-x-2 gap-y-1",
+        layout === "inline" ? "ml-1 align-middle" : "ml-auto max-w-[72%] justify-end",
+      )}
+    >
+      {regions.map((regionName) => (
+        <RegionFlag
+          key={regionName}
+          region={regionName}
+          size="xs"
+          showLabel
+          labelMode="short"
+        />
+      ))}
+    </span>
   );
 
   if (layout === "inline") {

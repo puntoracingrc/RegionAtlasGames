@@ -60,6 +60,35 @@ test("company profiles expose each catalog identity once across roles", () => {
   }
 });
 
+test("company platform summaries group regional releases like the catalog", () => {
+  const view = buildCompanyProfileView("rockstar-games");
+  assert.ok(view);
+  const ps2 = view.platforms.find((platform) => platform.platformSlug === "ps2");
+  assert.ok(ps2);
+  assert.ok(ps2.games.length < ps2.catalogEntryCount);
+
+  const bully = ps2.games.find((game) =>
+    game.physicalEditionGroup?.catalogIds.includes("ps2-usa-bully"),
+  );
+  assert.ok(bully?.physicalEditionGroup);
+  assert.ok(bully.physicalEditionGroup.catalogIds.includes("ps2-canis-canem-edit"));
+  assert.ok(bully.physicalEditionGroup.catalogIds.includes("ps2-japon-bully"));
+  assert.ok(bully.physicalEditionGroup.overviewRegions.length > 1);
+
+  const viceCity = ps2.games.find((game) =>
+    game.physicalEditionGroup?.catalogIds.includes("ps2-au-sles-51316"),
+  );
+  assert.ok(viceCity?.physicalEditionGroup);
+  assert.ok(viceCity.physicalEditionGroup.catalogIds.includes("ps2-eu-sles-51061"));
+  assert.equal(
+    ps2.games.filter((game) =>
+      game.physicalEditionGroup?.catalogIds.some((catalogId) =>
+        ["ps2-canis-canem-edit", "ps2-usa-bully", "ps2-japon-bully"].includes(catalogId)),
+    ).length,
+    1,
+  );
+});
+
 test("uses alphabetical order by default", () => {
   const result = filterCompanies(
     [company({ name: "Zeta" }), company({ name: "Ábaco" }), company({ name: "Beta" })],
