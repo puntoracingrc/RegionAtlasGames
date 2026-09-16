@@ -1,0 +1,14 @@
+[
+  {
+    "identifierType": "BARCODE",
+    "value": "3 307211 667402",
+    "productNodeId": "36d26eb7319ff95c585d",
+    "componentNodeId": "c5cc5e31287b61883389",
+    "component": "OUTER_PACKAGE_BACK",
+    "state": "PRODUCT_BOUND",
+    "sourceEvidenceIds": [
+      "ev-8577c0e94fe9a759a5a14265"
+    ],
+    "rejectionReason": null
+  }
+]

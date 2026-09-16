@@ -1,0 +1,38 @@
+[
+  {
+    "host": "bitjumpgames.com",
+    "sampleUrls": [
+      "https://bitjumpgames.com/products/assassins-creed-ii-discovery-nintendo-ds"
+    ],
+    "fieldsObserved": [
+      "BARCODE"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "bitjumpgames.com",
+    "sampleUrls": [
+      "https://bitjumpgames.com/products/assassins-creed-ii-discovery-nintendo-ds"
+    ],
+    "fieldsObserved": [
+      "BOX_CODE"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "pixel-retro.com",
+    "sampleUrls": [
+      "https://pixel-retro.com/en/products/nintendo-ds-assassins-creed-ii-discovery"
+    ],
+    "fieldsObserved": [],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "bitjumpgames.com",
+    "sampleUrls": [
+      "https://bitjumpgames.com/products/assassins-creed-ii-discovery-nintendo-ds"
+    ],
+    "fieldsObserved": [],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

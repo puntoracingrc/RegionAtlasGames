@@ -1,0 +1,66 @@
+[
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:08:00.934Z",
+    "evidenceId": "ev-f7b9d3f2ce1b2a8068e7ee65",
+    "sourceId": "retroplace",
+    "sourceUrl": "https://www.retroplace.com/fr/jeux/126339--assassins-creed-ii-discovery",
+    "evidenceType": "PAGE_TEXT"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:08:03.590Z",
+    "evidenceId": "ev-3ccd7c7220d7c74f711ba77f",
+    "sourceId": "candidate:bitjumpgames.com",
+    "sourceUrl": "https://bitjumpgames.com/products/assassins-creed-ii-discovery-nintendo-ds",
+    "evidenceType": "PAGE_TEXT"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:08:14.636Z",
+    "evidenceId": "ev-8577c0e94fe9a759a5a14265",
+    "sourceId": "launchbox-images",
+    "sourceUrl": "https://gamesdb.launchbox-app.com/games/images/10783-assassins-creed-ii-discovery",
+    "evidenceType": "EXACT_PHYSICAL_PHOTO"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:15.872Z",
+    "evidenceId": "ev-599a0fb3ecca89365d2085ee",
+    "sourceId": "candidate:bitjumpgames.com",
+    "sourceUrl": "https://bitjumpgames.com/products/assassins-creed-ii-discovery-nintendo-ds",
+    "evidenceType": "PAGE_TEXT"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:20.437Z",
+    "evidenceId": "ev-62e266d45b792472ea87bdab",
+    "sourceId": "retroplace",
+    "sourceUrl": "https://www.retroplace.com/fr/jeux/126339--assassins-creed-ii-discovery",
+    "evidenceType": "PAGE_TEXT"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:34.063Z",
+    "evidenceId": "ev-7646612a31bf29b1c9af2200",
+    "sourceId": "candidate:pixel-retro.com",
+    "sourceUrl": "https://pixel-retro.com/en/products/nintendo-ds-assassins-creed-ii-discovery",
+    "evidenceType": "EXACT_PHYSICAL_PHOTO"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T13:08:35.394Z",
+    "evidenceId": "ev-3ea5724e007f1d092660f8f9",
+    "sourceId": "candidate:bitjumpgames.com",
+    "sourceUrl": "https://bitjumpgames.com/products/assassins-creed-ii-discovery-nintendo-ds",
+    "evidenceType": "PAGE_TEXT"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T13:08:41.388Z",
+    "evidenceId": "ev-5bdc17f4c4a10fbb3bf1d1d0",
+    "sourceId": "retroplace",
+    "sourceUrl": "https://www.retroplace.com/fr/jeux/126339--assassins-creed-ii-discovery",
+    "evidenceType": "PAGE_TEXT"
+  }
+]

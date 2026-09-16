@@ -1,0 +1,502 @@
+{
+  "subject": {
+    "id": "edition:assassins-creed-ii-discovery-ds-worldwide:ac2-discovery-ds-standard-es-pending",
+    "kind": "physical-edition",
+    "catalogId": "ds-assassin%27s-creed-ii-discovery",
+    "guideId": "assassins-creed-ii-discovery-ds-worldwide",
+    "physicalEditionId": "ac2-discovery-ds-standard-es-pending",
+    "title": "Assassin's Creed II: Discovery",
+    "platformSlug": "ds",
+    "edition": "Standard · España · identificadores pendientes",
+    "region": "EUROPE",
+    "barcode": null,
+    "productCodes": [],
+    "serials": [],
+    "marketRegions": [
+      "ES"
+    ],
+    "evidenceMarkets": [],
+    "packagingLanguages": [],
+    "softwareLanguages": [
+      "es",
+      "en"
+    ],
+    "releaseStatus": "RELEASED",
+    "physicalProductType": null,
+    "containsDisc": null,
+    "countsAsNativePhysicalRelease": null,
+    "confidence": "PENDING_IDENTIFIER",
+    "evidenceCount": 3,
+    "sourceCount": 5,
+    "notes": [
+      "Textos en español y voces en inglés están documentados como software; barcode, código físico e idiomas de caja requieren scan PAL España."
+    ]
+  },
+  "contexts": [
+    {
+      "targetField": "BARCODE",
+      "context": {
+        "subjectId": "edition:assassins-creed-ii-discovery-ds-worldwide:ac2-discovery-ds-standard-es-pending",
+        "subjectKind": "physical-edition",
+        "catalogId": "ds-assassin%27s-creed-ii-discovery",
+        "canonicalGameId": "assassins-creed-ii-discovery",
+        "workId": null,
+        "platformReleaseId": "assassins-creed-ii-discovery-ds",
+        "guideId": "assassins-creed-ii-discovery-ds-worldwide",
+        "physicalEditionId": "ac2-discovery-ds-standard-es-pending",
+        "title": "Assassin's Creed II: Discovery",
+        "aliases": [
+          "Assassin's Creed II: Discovery"
+        ],
+        "titlePc": "Assassin's Creed II: Discovery",
+        "slug": "assassin%27s-creed-ii-discovery",
+        "platformSlug": "ds",
+        "edition": "Standard · España · identificadores pendientes",
+        "physicalVariant": null,
+        "region": "PAL España",
+        "regionFamily": null,
+        "marketRegion": null,
+        "regionalStatus": null,
+        "languages": [],
+        "regionalPackaging": [],
+        "canonicalSerials": [],
+        "sourceSerials": [],
+        "resolutionSerials": [],
+        "publisher": null,
+        "developer": null,
+        "companyCredits": [],
+        "physicalPublisherOrDistributor": null,
+        "regionalPublisher": null,
+        "releaseDate": "November 17, 2009",
+        "year": 2009,
+        "ean": null,
+        "barcode": null,
+        "productCodes": [],
+        "softwareFamilyCodes": [],
+        "serial": null,
+        "catalogNumber": null,
+        "boxCode": null,
+        "ratingSystems": [],
+        "packagingLanguages": [],
+        "softwareLanguages": [
+          "es",
+          "en"
+        ],
+        "componentLanguageEvidence": [],
+        "broadRegion": "EUROPE",
+        "marketRegions": [
+          "ES"
+        ],
+        "evidenceMarkets": [],
+        "distributionMarkets": [],
+        "physicalProductType": null,
+        "nativePhysicalPlatform": null,
+        "compatiblePlatforms": [
+          "ds"
+        ],
+        "containsDisc": null,
+        "countsAsNativePhysicalRelease": null,
+        "physicalContents": [],
+        "digitalContents": [],
+        "releaseStatus": "RELEASED",
+        "confidence": "PENDING_IDENTIFIER",
+        "sharedDiscId": null,
+        "scanSetIds": [],
+        "ownedScans": [],
+        "coverUrl": "/covers/ds/assassin-39-s-creed-ii-discovery.jpg",
+        "editionImages": [],
+        "existingEvidence": [
+          {
+            "id": "discovery-ds-game-es",
+            "type": "UNKNOWN",
+            "label": "GAME España · ficha Nintendo DS",
+            "url": "https://www.game.es/assassins-creed-ii-discovery-nintendo-ds-094335",
+            "summary": null,
+            "supports": [
+              "lanzamiento comercial español confirmado"
+            ]
+          },
+          {
+            "id": "discovery-ds-vandal",
+            "type": "UNKNOWN",
+            "label": "Vandal · lanzamiento y software español",
+            "url": "https://vandal.elespanol.com/juegos/nds/assassins-creed-2-discovery/11153",
+            "summary": null,
+            "supports": [
+              "lanzamiento español",
+              "textos en español",
+              "voces en inglés"
+            ]
+          },
+          {
+            "id": "discovery-ds-todocoleccion",
+            "type": "UNKNOWN",
+            "label": "TodoColeccion · copia PAL España",
+            "url": "https://www.todocoleccion.net/videojuegos-consola-nintendo-ds/assassins-creed-ii-discovery-nintendo-pal-espana~x639709769",
+            "summary": null,
+            "supports": [
+              "existencia de copia PAL España"
+            ]
+          }
+        ],
+        "existingResearchTasks": [
+          {
+            "id": "discovery-ds-spain-physical-scan",
+            "label": "Leer barcode, código físico e idiomas de caja PAL España",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES"
+            ],
+            "notes": [
+              "No elegir entre 3307211667396 y 3307211667457 sin scan inequívoco."
+            ]
+          },
+          {
+            "id": "discovery-ds-unresolved-european-packaging",
+            "label": "Resolver Benelux, Portugal, Austria/Suiza y países nórdicos",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "BE",
+              "NL",
+              "PT",
+              "AT",
+              "CH",
+              "DK",
+              "SE",
+              "NO",
+              "FI"
+            ],
+            "notes": [
+              "Buscar códigos impresos HOL, FAH, NOE, EUR, ESP, UKV o FRA sin presuponerlos."
+            ]
+          }
+        ],
+        "gameRetailer": null,
+        "priceCharting": {
+          "productId": 50859,
+          "path": "/game/pal-nintendo-ds/assassin%27s-creed-ii-discovery"
+        },
+        "museumPath": null,
+        "legacySources": [
+          "https://gamefaqs.gamespot.com/ds/974818-assassins-creed-ii-discovery/data",
+          "https://www.game.es/assassins-creed-ii-discovery-nintendo-ds-094335",
+          "https://vandal.elespanol.com/juegos/nds/assassins-creed-2-discovery/11153",
+          "https://www.todocoleccion.net/videojuegos-consola-nintendo-ds/assassins-creed-ii-discovery-nintendo-pal-espana~x639709769",
+          "https://gameshop-twente.nl/assassin-s-creed-ii-discovery-standaard-nds-gebruikt.html"
+        ],
+        "fieldProvenance": {},
+        "officialSourceCandidates": []
+      }
+    },
+    {
+      "targetField": "BOX_CODE",
+      "context": {
+        "subjectId": "edition:assassins-creed-ii-discovery-ds-worldwide:ac2-discovery-ds-standard-es-pending",
+        "subjectKind": "physical-edition",
+        "catalogId": "ds-assassin%27s-creed-ii-discovery",
+        "canonicalGameId": "assassins-creed-ii-discovery",
+        "workId": null,
+        "platformReleaseId": "assassins-creed-ii-discovery-ds",
+        "guideId": "assassins-creed-ii-discovery-ds-worldwide",
+        "physicalEditionId": "ac2-discovery-ds-standard-es-pending",
+        "title": "Assassin's Creed II: Discovery",
+        "aliases": [
+          "Assassin's Creed II: Discovery"
+        ],
+        "titlePc": "Assassin's Creed II: Discovery",
+        "slug": "assassin%27s-creed-ii-discovery",
+        "platformSlug": "ds",
+        "edition": "Standard · España · identificadores pendientes",
+        "physicalVariant": null,
+        "region": "PAL España",
+        "regionFamily": null,
+        "marketRegion": null,
+        "regionalStatus": null,
+        "languages": [],
+        "regionalPackaging": [],
+        "canonicalSerials": [],
+        "sourceSerials": [],
+        "resolutionSerials": [],
+        "publisher": null,
+        "developer": null,
+        "companyCredits": [],
+        "physicalPublisherOrDistributor": null,
+        "regionalPublisher": null,
+        "releaseDate": "November 17, 2009",
+        "year": 2009,
+        "ean": null,
+        "barcode": null,
+        "productCodes": [],
+        "softwareFamilyCodes": [],
+        "serial": null,
+        "catalogNumber": null,
+        "boxCode": null,
+        "ratingSystems": [],
+        "packagingLanguages": [],
+        "softwareLanguages": [
+          "es",
+          "en"
+        ],
+        "componentLanguageEvidence": [],
+        "broadRegion": "EUROPE",
+        "marketRegions": [
+          "ES"
+        ],
+        "evidenceMarkets": [],
+        "distributionMarkets": [],
+        "physicalProductType": null,
+        "nativePhysicalPlatform": null,
+        "compatiblePlatforms": [
+          "ds"
+        ],
+        "containsDisc": null,
+        "countsAsNativePhysicalRelease": null,
+        "physicalContents": [],
+        "digitalContents": [],
+        "releaseStatus": "RELEASED",
+        "confidence": "PENDING_IDENTIFIER",
+        "sharedDiscId": null,
+        "scanSetIds": [],
+        "ownedScans": [],
+        "coverUrl": "/covers/ds/assassin-39-s-creed-ii-discovery.jpg",
+        "editionImages": [],
+        "existingEvidence": [
+          {
+            "id": "discovery-ds-game-es",
+            "type": "UNKNOWN",
+            "label": "GAME España · ficha Nintendo DS",
+            "url": "https://www.game.es/assassins-creed-ii-discovery-nintendo-ds-094335",
+            "summary": null,
+            "supports": [
+              "lanzamiento comercial español confirmado"
+            ]
+          },
+          {
+            "id": "discovery-ds-vandal",
+            "type": "UNKNOWN",
+            "label": "Vandal · lanzamiento y software español",
+            "url": "https://vandal.elespanol.com/juegos/nds/assassins-creed-2-discovery/11153",
+            "summary": null,
+            "supports": [
+              "lanzamiento español",
+              "textos en español",
+              "voces en inglés"
+            ]
+          },
+          {
+            "id": "discovery-ds-todocoleccion",
+            "type": "UNKNOWN",
+            "label": "TodoColeccion · copia PAL España",
+            "url": "https://www.todocoleccion.net/videojuegos-consola-nintendo-ds/assassins-creed-ii-discovery-nintendo-pal-espana~x639709769",
+            "summary": null,
+            "supports": [
+              "existencia de copia PAL España"
+            ]
+          }
+        ],
+        "existingResearchTasks": [
+          {
+            "id": "discovery-ds-spain-physical-scan",
+            "label": "Leer barcode, código físico e idiomas de caja PAL España",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES"
+            ],
+            "notes": [
+              "No elegir entre 3307211667396 y 3307211667457 sin scan inequívoco."
+            ]
+          },
+          {
+            "id": "discovery-ds-unresolved-european-packaging",
+            "label": "Resolver Benelux, Portugal, Austria/Suiza y países nórdicos",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "BE",
+              "NL",
+              "PT",
+              "AT",
+              "CH",
+              "DK",
+              "SE",
+              "NO",
+              "FI"
+            ],
+            "notes": [
+              "Buscar códigos impresos HOL, FAH, NOE, EUR, ESP, UKV o FRA sin presuponerlos."
+            ]
+          }
+        ],
+        "gameRetailer": null,
+        "priceCharting": {
+          "productId": 50859,
+          "path": "/game/pal-nintendo-ds/assassin%27s-creed-ii-discovery"
+        },
+        "museumPath": null,
+        "legacySources": [
+          "https://gamefaqs.gamespot.com/ds/974818-assassins-creed-ii-discovery/data",
+          "https://www.game.es/assassins-creed-ii-discovery-nintendo-ds-094335",
+          "https://vandal.elespanol.com/juegos/nds/assassins-creed-2-discovery/11153",
+          "https://www.todocoleccion.net/videojuegos-consola-nintendo-ds/assassins-creed-ii-discovery-nintendo-pal-espana~x639709769",
+          "https://gameshop-twente.nl/assassin-s-creed-ii-discovery-standaard-nds-gebruikt.html"
+        ],
+        "fieldProvenance": {},
+        "officialSourceCandidates": []
+      }
+    },
+    {
+      "targetField": "PRODUCT_CODE",
+      "context": {
+        "subjectId": "edition:assassins-creed-ii-discovery-ds-worldwide:ac2-discovery-ds-standard-es-pending",
+        "subjectKind": "physical-edition",
+        "catalogId": "ds-assassin%27s-creed-ii-discovery",
+        "canonicalGameId": "assassins-creed-ii-discovery",
+        "workId": null,
+        "platformReleaseId": "assassins-creed-ii-discovery-ds",
+        "guideId": "assassins-creed-ii-discovery-ds-worldwide",
+        "physicalEditionId": "ac2-discovery-ds-standard-es-pending",
+        "title": "Assassin's Creed II: Discovery",
+        "aliases": [
+          "Assassin's Creed II: Discovery"
+        ],
+        "titlePc": "Assassin's Creed II: Discovery",
+        "slug": "assassin%27s-creed-ii-discovery",
+        "platformSlug": "ds",
+        "edition": "Standard · España · identificadores pendientes",
+        "physicalVariant": null,
+        "region": "PAL España",
+        "regionFamily": null,
+        "marketRegion": null,
+        "regionalStatus": null,
+        "languages": [],
+        "regionalPackaging": [],
+        "canonicalSerials": [],
+        "sourceSerials": [],
+        "resolutionSerials": [],
+        "publisher": null,
+        "developer": null,
+        "companyCredits": [],
+        "physicalPublisherOrDistributor": null,
+        "regionalPublisher": null,
+        "releaseDate": "November 17, 2009",
+        "year": 2009,
+        "ean": null,
+        "barcode": null,
+        "productCodes": [],
+        "softwareFamilyCodes": [],
+        "serial": null,
+        "catalogNumber": null,
+        "boxCode": null,
+        "ratingSystems": [],
+        "packagingLanguages": [],
+        "softwareLanguages": [
+          "es",
+          "en"
+        ],
+        "componentLanguageEvidence": [],
+        "broadRegion": "EUROPE",
+        "marketRegions": [
+          "ES"
+        ],
+        "evidenceMarkets": [],
+        "distributionMarkets": [],
+        "physicalProductType": null,
+        "nativePhysicalPlatform": null,
+        "compatiblePlatforms": [
+          "ds"
+        ],
+        "containsDisc": null,
+        "countsAsNativePhysicalRelease": null,
+        "physicalContents": [],
+        "digitalContents": [],
+        "releaseStatus": "RELEASED",
+        "confidence": "PENDING_IDENTIFIER",
+        "sharedDiscId": null,
+        "scanSetIds": [],
+        "ownedScans": [],
+        "coverUrl": "/covers/ds/assassin-39-s-creed-ii-discovery.jpg",
+        "editionImages": [],
+        "existingEvidence": [
+          {
+            "id": "discovery-ds-game-es",
+            "type": "UNKNOWN",
+            "label": "GAME España · ficha Nintendo DS",
+            "url": "https://www.game.es/assassins-creed-ii-discovery-nintendo-ds-094335",
+            "summary": null,
+            "supports": [
+              "lanzamiento comercial español confirmado"
+            ]
+          },
+          {
+            "id": "discovery-ds-vandal",
+            "type": "UNKNOWN",
+            "label": "Vandal · lanzamiento y software español",
+            "url": "https://vandal.elespanol.com/juegos/nds/assassins-creed-2-discovery/11153",
+            "summary": null,
+            "supports": [
+              "lanzamiento español",
+              "textos en español",
+              "voces en inglés"
+            ]
+          },
+          {
+            "id": "discovery-ds-todocoleccion",
+            "type": "UNKNOWN",
+            "label": "TodoColeccion · copia PAL España",
+            "url": "https://www.todocoleccion.net/videojuegos-consola-nintendo-ds/assassins-creed-ii-discovery-nintendo-pal-espana~x639709769",
+            "summary": null,
+            "supports": [
+              "existencia de copia PAL España"
+            ]
+          }
+        ],
+        "existingResearchTasks": [
+          {
+            "id": "discovery-ds-spain-physical-scan",
+            "label": "Leer barcode, código físico e idiomas de caja PAL España",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES"
+            ],
+            "notes": [
+              "No elegir entre 3307211667396 y 3307211667457 sin scan inequívoco."
+            ]
+          },
+          {
+            "id": "discovery-ds-unresolved-european-packaging",
+            "label": "Resolver Benelux, Portugal, Austria/Suiza y países nórdicos",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "BE",
+              "NL",
+              "PT",
+              "AT",
+              "CH",
+              "DK",
+              "SE",
+              "NO",
+              "FI"
+            ],
+            "notes": [
+              "Buscar códigos impresos HOL, FAH, NOE, EUR, ESP, UKV o FRA sin presuponerlos."
+            ]
+          }
+        ],
+        "gameRetailer": null,
+        "priceCharting": {
+          "productId": 50859,
+          "path": "/game/pal-nintendo-ds/assassin%27s-creed-ii-discovery"
+        },
+        "museumPath": null,
+        "legacySources": [
+          "https://gamefaqs.gamespot.com/ds/974818-assassins-creed-ii-discovery/data",
+          "https://www.game.es/assassins-creed-ii-discovery-nintendo-ds-094335",
+          "https://vandal.elespanol.com/juegos/nds/assassins-creed-2-discovery/11153",
+          "https://www.todocoleccion.net/videojuegos-consola-nintendo-ds/assassins-creed-ii-discovery-nintendo-pal-espana~x639709769",
+          "https://gameshop-twente.nl/assassin-s-creed-ii-discovery-standaard-nds-gebruikt.html"
+        ],
+        "fieldProvenance": {},
+        "officialSourceCandidates": []
+      }
+    }
+  ]
+}

@@ -104,6 +104,8 @@ ResearchRunStore
 
 Search uses Brave Search and Brave Images as the validated primary providers; the existing fallback adapters remain available when explicitly configured. Direct fetches are bounded and SSRF-protected. Playwright is used only as a permitted fallback. OpenAI text and vision models are configurable and must return strict structured output.
 
+Set `RESEARCH_DISABLE_SERPAPI=1` when a retained SerpAPI credential is intentionally unavailable or invalid. Authentication failures are classified separately, open that provider's circuit immediately and never trigger technical retries.
+
 The catalog/domain layer must not know which provider is used.
 
 The loop is:
