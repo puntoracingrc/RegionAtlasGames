@@ -1,0 +1,858 @@
+{
+  "current": {
+    "targetField": "MARKET_REGION",
+    "factsUsed": [
+      "target=MARKET_REGION",
+      "platform=ps5",
+      "title=Final Fantasy XVI",
+      "edition=standard",
+      "knowledgePack=knowledge-pack-4008a66aecbb30966464ce37",
+      "knownVariants=3",
+      "knownDirectUrls=2",
+      "playbook=PS5_MARKET"
+    ],
+    "selectedPlaybook": {
+      "id": "PS5_MARKET",
+      "targets": [
+        "MARKET_REGION"
+      ],
+      "triggers": [
+        "TARGET=MARKET_REGION"
+      ],
+      "sourceRoles": [],
+      "queryTemplateGroups": [],
+      "deterministicChecks": [
+        "SUBJECT_BINDING",
+        "PLATFORM_MATCH",
+        "COMPONENT_BINDING"
+      ],
+      "steps": [
+        "owned specimen",
+        "exact package",
+        "distributor",
+        "retailer plus specimen",
+        "independent specimen"
+      ],
+      "stopWhen": null,
+      "stopRule": "Do not collapse ES, ES/PT, ES/IT, FR/UK/ES, DACH and unknown Europe.",
+      "sourceIds": [
+        "regionatlas-own-scan",
+        "national-retailer",
+        "todocoleccion",
+        "ebay"
+      ],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es",
+          "www.game.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 60,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "MARKETPLACE_SPECIMEN"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "DOMAIN_SEARCH"
+        ],
+        "capabilityScore": 45,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 45."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk",
+          "www.ebay.es"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "MARKETPLACE_SPECIMEN"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "DOMAIN_SEARCH"
+        ],
+        "capabilityScore": 35,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 35."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 65,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+      },
+      {
+        "sourceId": "serialstation",
+        "hosts": [
+          "serialstation.com",
+          "www.serialstation.com"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "COMPONENT_IDENTIFIER",
+          "TECHNICAL_IDENTIFIER_DATABASE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 20,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+      },
+      {
+        "sourceId": "redump",
+        "hosts": [
+          "redump.org",
+          "redump.info"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "MEDIA_IDENTIFIER",
+          "TECHNICAL_DISC_DATABASE"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 10,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "doesitplay",
+        "hosts": [
+          "doesitplay.org",
+          "www.doesitplay.org"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "TECHNICAL_PHYSICAL_STATUS"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "SPECIALIST_DATABASE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 80."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "DOMAIN_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 68."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      },
+      {
+        "sourceId": "gamefaqs-guarded",
+        "hosts": [
+          "gamefaqs.gamespot.com"
+        ],
+        "roles": [
+          "DISCOVERY_ONLY",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 52."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+        "sourceId": "ebay-es",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      },
+      {
+        "url": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+        "sourceId": "national-retailer",
+        "reason": "Exact retailer URL already bound to the catalog subject."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "site:game.es \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:regionatlas.games \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "sourceId": "regionatlas-own-scan",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Final Fantasy XVI\" \"ps5\" \"standard\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Final Fantasy XVI\" PlayStation 5",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.es \"Final Fantasy XVI\" PlayStation 5",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Final Fantasy XVI\" PlayStation 5",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:serialstation.com \"Final Fantasy XVI\" PlayStation 5",
+        "sourceId": "serialstation",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:redump.org \"Final Fantasy XVI\" PlayStation 5",
+        "sourceId": "redump",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:news.ubisoft.com \"Final Fantasy XVI\" PlayStation 5",
+        "sourceId": "ubisoft-official",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Final Fantasy XVI\" PlayStation 5 back cover distributor",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "GENERIC"
+      },
+      {
+        "query": "\"Final Fantasy XVI\" \"ps5\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [],
+    "deterministicChecks": [
+      "SUBJECT_BINDING",
+      "PLATFORM_MATCH",
+      "COMPONENT_BINDING"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "4d303d2e54396edf0f961affdaf3a6ce60e8cd85fdf79146ff985018de057672"
+  },
+  "history": [
+    {
+      "targetField": "MARKET_REGION",
+      "factsUsed": [
+        "target=MARKET_REGION",
+        "platform=ps5",
+        "title=Final Fantasy XVI",
+        "edition=standard",
+        "knowledgePack=knowledge-pack-4008a66aecbb30966464ce37",
+        "knownVariants=3",
+        "knownDirectUrls=2",
+        "playbook=PS5_MARKET"
+      ],
+      "selectedPlaybook": {
+        "id": "PS5_MARKET",
+        "targets": [
+          "MARKET_REGION"
+        ],
+        "triggers": [
+          "TARGET=MARKET_REGION"
+        ],
+        "sourceRoles": [],
+        "queryTemplateGroups": [],
+        "deterministicChecks": [
+          "SUBJECT_BINDING",
+          "PLATFORM_MATCH",
+          "COMPONENT_BINDING"
+        ],
+        "steps": [
+          "owned specimen",
+          "exact package",
+          "distributor",
+          "retailer plus specimen",
+          "independent specimen"
+        ],
+        "stopWhen": null,
+        "stopRule": "Do not collapse ES, ES/PT, ES/IT, FR/UK/ES, DACH and unknown Europe.",
+        "sourceIds": [
+          "regionatlas-own-scan",
+          "national-retailer",
+          "todocoleccion",
+          "ebay"
+        ],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es",
+            "www.game.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 60,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "MARKETPLACE_SPECIMEN"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "DOMAIN_SEARCH"
+          ],
+          "capabilityScore": 45,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 45."
+        },
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk",
+            "www.ebay.es"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "MARKETPLACE_SPECIMEN"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "DOMAIN_SEARCH"
+          ],
+          "capabilityScore": 35,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 35."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 65,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+        },
+        {
+          "sourceId": "serialstation",
+          "hosts": [
+            "serialstation.com",
+            "www.serialstation.com"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "COMPONENT_IDENTIFIER",
+            "TECHNICAL_IDENTIFIER_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 20,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+        },
+        {
+          "sourceId": "redump",
+          "hosts": [
+            "redump.org",
+            "redump.info"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "MEDIA_IDENTIFIER",
+            "TECHNICAL_DISC_DATABASE"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 10,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "doesitplay",
+          "hosts": [
+            "doesitplay.org",
+            "www.doesitplay.org"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "TECHNICAL_PHYSICAL_STATUS"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 90."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "SPECIALIST_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 80."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "DOMAIN_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 68."
+        },
+        {
+          "sourceId": "yambalu",
+          "hosts": [
+            "yambalu.com",
+            "www.yambalu.com"
+          ],
+          "roles": [
+            "RETAILER_AGGREGATOR",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 58."
+        },
+        {
+          "sourceId": "gamefaqs-guarded",
+          "hosts": [
+            "gamefaqs.gamespot.com"
+          ],
+          "roles": [
+            "DISCOVERY_ONLY",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 52."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+          "sourceId": "ebay-es",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        },
+        {
+          "url": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+          "sourceId": "national-retailer",
+          "reason": "Exact retailer URL already bound to the catalog subject."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "site:game.es \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:regionatlas.games \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+          "sourceId": "regionatlas-own-scan",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Final Fantasy XVI\" \"ps5\" \"standard\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Final Fantasy XVI\" PlayStation 5",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.es \"Final Fantasy XVI\" PlayStation 5",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Final Fantasy XVI\" PlayStation 5",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:serialstation.com \"Final Fantasy XVI\" PlayStation 5",
+          "sourceId": "serialstation",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:redump.org \"Final Fantasy XVI\" PlayStation 5",
+          "sourceId": "redump",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:news.ubisoft.com \"Final Fantasy XVI\" PlayStation 5",
+          "sourceId": "ubisoft-official",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Final Fantasy XVI\" PlayStation 5 back cover distributor",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "GENERIC"
+        },
+        {
+          "query": "\"Final Fantasy XVI\" \"ps5\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [],
+      "deterministicChecks": [
+        "SUBJECT_BINDING",
+        "PLATFORM_MATCH",
+        "COMPONENT_BINDING"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "4d303d2e54396edf0f961affdaf3a6ce60e8cd85fdf79146ff985018de057672"
+    }
+  ]
+}

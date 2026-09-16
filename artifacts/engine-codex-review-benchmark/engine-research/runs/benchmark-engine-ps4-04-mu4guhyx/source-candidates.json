@@ -1,0 +1,22 @@
+[
+  {
+    "host": "www.worldofbooks.com",
+    "sampleUrls": [
+      "https://www.worldofbooks.com/en-gb/products/code-vein-ps4-video-game-3391891995931"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "www.rarewaves.com",
+    "sampleUrls": [
+      "https://www.rarewaves.com/products/3391891995931-code-vein"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

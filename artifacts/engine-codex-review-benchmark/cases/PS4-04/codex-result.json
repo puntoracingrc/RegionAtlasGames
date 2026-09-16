@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS4-04",
+  "game": "Code Vein",
+  "platform": "ps4",
+  "listingId": "v1|128074767475|0",
+  "reviewedEngineResultHash": "61255a9b913e446f7aadf76ac5ef814f6f1de57582119a128215f222274a721a",
+  "engineFileHashAtReview": "41cc58c2e3d792a06f664ec9537cdb7950680b93e8c4c8dd31c6d59aa0a80f94",
+  "codexDecision": "DEFER",
+  "codexConfidence": 0.99,
+  "resolvedCatalogId": null,
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-7600dae20fde14db",
+      "claim": {
+        "text": [
+          "PROVISIONAL"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [
+          "BANDAI NAMCO Entertainment"
+        ],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/128074767475",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|128074767475|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-e69226d0eed0a73c2357bcf4",
+      "claim": "expected market region is PAL España.",
+      "source": "candidate:www.worldofbooks.com",
+      "sourceUrl": "https://www.worldofbooks.com/en-gb/products/code-vein-ps4-video-game-3391891995931",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-5d12b5531c4c57fae8a53448",
+      "claim": "PAL España",
+      "source": "candidate:www.rarewaves.com",
+      "sourceUrl": "https://www.rarewaves.com/products/3391891995931-code-vein",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps4-04-retroloco-ean-cusa",
+      "claim": "A photographed Spanish specimen record maps EAN 3391891995962 to CUSA-10246, PAL Spain, with Spanish/Portuguese cover and manual.",
+      "source": "retroloco",
+      "sourceUrl": "https://www.retroloco.es/producto/code-vein-esp/",
+      "query": "\"3391891995962\" Code Vein PS4",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:3391891995962",
+        "CUSA:CUSA-10246"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps4-04-pccomponentes-ean",
+      "claim": "A second Spanish retailer maps product number 3391891995962 to Code Vein for PS4.",
+      "source": "pccomponentes",
+      "sourceUrl": "https://www.pccomponentes.com/code-vein-ps4",
+      "query": "\"3391891995962\" Code Vein PS4",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:3391891995962"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    }
+  ],
+  "engineAlreadyKnew": [
+    "listing-obs-7600dae20fde14db",
+    "ev-e69226d0eed0a73c2357bcf4",
+    "ev-5d12b5531c4c57fae8a53448"
+  ],
+  "codexNewEvidence": [
+    "codex-ps4-04-retroloco-ean-cusa",
+    "codex-ps4-04-pccomponentes-ean"
+  ],
+  "codexNewSources": [
+    "retroloco",
+    "pccomponentes"
+  ],
+  "codexNewIdentifiers": [
+    "EAN:3391891995962",
+    "CUSA:CUSA-10246"
+  ],
+  "codexNewImages": [],
+  "codexNewRelationships": [
+    "EAN 3391891995962 <-> CUSA-10246 <-> PAL Spain specimen"
+  ],
+  "queriesExecuted": [
+    "\"3391891995962\" Code Vein PS4"
+  ],
+  "repeatedEngineRoutes": [],
+  "remainingEvidenceGaps": [
+    "LISTING_BOUND_CONDITION_PROOF",
+    "ACTUAL_LISTING_IMAGE_NOT_CONTRACTUAL",
+    "DISC_OR_CONTENTS_PHOTO"
+  ],
+  "reason": "Codex corrected the Engine's OCR candidate and established the Spanish product family, but the selected Cash Converters image is non-contractual and cannot prove this unit's condition or contents.",
+  "whatChangedTheDecision": "The regional product identity became much clearer, but the final decision remains DEFER because evidence from a different specimen cannot certify the selected unit.",
+  "discoveryAttribution": "UNRESOLVED",
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0,
+    "pricingBasis": "Codex integrated web/reasoning was not billed to the repository's Brave or OpenAI API accounts."
+  },
+  "frozenAt": "2026-09-16T19:09:56.129Z",
+  "codexResultImmutable": true,
+  "codexResultHash": "7e26bf5a1d90248fdcb868360f78043d2fb9eb020677e70c637320f57742eacb"
+}

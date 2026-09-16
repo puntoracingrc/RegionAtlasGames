@@ -1,0 +1,38 @@
+[
+  {
+    "listingId": "v1|326822603505|0",
+    "imageIndex": 1,
+    "contentHash": "56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "The image shows the front of the game box for Shadow Man."
+  },
+  {
+    "listingId": "v1|326822603505|0",
+    "imageIndex": 1,
+    "contentHash": "56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 1.0,
+    "reason": "The image includes the game cartridge for Shadow Man."
+  },
+  {
+    "listingId": "v1|326822603505|0",
+    "imageIndex": 1,
+    "contentHash": "56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "The image shows the front of the manual for Shadow Man."
+  },
+  {
+    "listingId": "v1|326822603505|0",
+    "imageIndex": 1,
+    "contentHash": "56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.5,
+    "reason": "Other items visible but not identifiable."
+  }
+]

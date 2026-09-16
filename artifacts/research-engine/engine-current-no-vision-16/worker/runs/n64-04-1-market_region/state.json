@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 2,
+  "runId": "n64-04-1-market_region",
+  "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+  "subjectId": "catalog:n64-pal-body-harvest",
+  "priority": "P1",
+  "status": "CONFIRMED",
+  "round": 0,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"5013658086871\"",
+    "\"5013658086871\" n64",
+    "site:ogdb.eu \"5013658086871\"",
+    "\"5013658086871\" \"Body Harvest\"",
+    "\"5013658086871\" \"PAL Europa\"",
+    "site:foro.spinecard.com \"5013658086871\"",
+    "site:ogdb.eu \"Body Harvest\" n64"
+  ],
+  "normalizedQueries": [
+    "\"5013658086871\"",
+    "\"5013658086871\" n64",
+    "site:ogdb.eu \"5013658086871\"",
+    "\"5013658086871\" \"body harvest\"",
+    "\"5013658086871\" \"pal europa\"",
+    "site:foro.spinecard.com \"5013658086871\"",
+    "site:ogdb.eu \"body harvest\" n64"
+  ],
+  "urlsVisited": [
+    "https://www.uvlist.net/game-98689-Body+Harvest",
+    "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+    "https://ogdb.eu/index.php?gameid=1453&section=game"
+  ],
+  "domainsVisited": [
+    "www.uvlist.net",
+    "www.nintendo64ever.com",
+    "ogdb.eu"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-789b05f4161d2c973565d20a",
+      "runId": "n64-04-1-market_region",
+      "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+      "sourceId": "nintendo64ever",
+      "sourceUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "canonicalUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "sourceType": "SPECIALIZED_N64_DATABASE",
+      "host": "www.nintendo64ever.com",
+      "fetchedAt": "2026-09-16T20:12:35.205Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Body Harvest (Europe) : Data sheet",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "0c6268890b3c5df5b9ce43b537dec11c7410e8fb78eb9395d3ed5266fd6d50d1",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 85,
+      "component": null
+    },
+    {
+      "id": "ev-d2f2eb6f59ea098c9c04a94c",
+      "runId": "n64-04-1-market_region",
+      "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+      "sourceId": "ogdb",
+      "sourceUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "canonicalUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "sourceType": "SPECIALIZED_DATABASE",
+      "host": "ogdb.eu",
+      "fetchedAt": "2026-09-16T20:12:40.622Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Allgemeine Informationen: System: Nintendo 64 Region: Deutschland Erschienen: 1998",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "99848be2306302a524bcaecad74cf104c07c7d9f3279faf33284f4f590241fbb",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 85,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-e52277946300f64cd79d0e72",
+      "runId": "n64-04-1-market_region",
+      "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+      "subjectId": "catalog:n64-pal-body-harvest",
+      "gameId": "n64-pal-body-harvest",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN_COMPONENT",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "nintendo64ever",
+      "sourceUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "evidenceId": "ev-789b05f4161d2c973565d20a",
+      "confidence": 0.9,
+      "status": "VALIDATED",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T20:12:36.965Z"
+    },
+    {
+      "id": "cl-c66a6e6d1f66d092286bc3fc",
+      "runId": "n64-04-1-market_region",
+      "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+      "subjectId": "catalog:n64-pal-body-harvest",
+      "gameId": "n64-pal-body-harvest",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "ogdb",
+      "sourceUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "evidenceId": "ev-d2f2eb6f59ea098c9c04a94c",
+      "confidence": 1,
+      "status": "VALIDATED",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T20:12:42.392Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "YES",
+      "reason": "Failed closed-choice rule test-barcode-shared."
+    },
+    {
+      "value": "https://www.uvlist.net/game-98689-Body+Harvest",
+      "reason": "page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.uvlist.net/game-98689-Body+Harvest\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    }
+  ],
+  "budget": {
+    "maxSearches": 12,
+    "maxPages": 20,
+    "maxImages": 12,
+    "maxAgentTurns": 8,
+    "maxTokens": 80000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 4
+  },
+  "usage": {
+    "searches": 7,
+    "pages": 2,
+    "images": 0,
+    "agentTurns": 3,
+    "browserSessions": 1,
+    "inputTokens": 4380,
+    "outputTokens": 227,
+    "estimatedCostUsd": 0.000793
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The game 'Body Harvest' for the Nintendo 64 is confirmed in the PAL Europa market based on the specific details regarding the system and region mentioned.",
+  "decisionSummary": "Independent sources corroborate the field.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "TARGET_CONFIRMED",
+  "riskCodes": [
+    "GENERIC_REGION"
+  ],
+  "researchMode": "STANDARD",
+  "modeTransitions": [],
+  "evidenceGaps": [],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 0,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T20:12:02.097Z",
+  "updatedAt": "2026-09-16T20:12:42.393Z"
+}

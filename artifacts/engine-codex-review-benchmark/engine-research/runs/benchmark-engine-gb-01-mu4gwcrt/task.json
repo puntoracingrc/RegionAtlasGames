@@ -1,0 +1,17 @@
+{
+  "id": "benchmark-engine-d8fc4b19573afb4f51a95ecd",
+  "subjectId": "benchmark:listing-evidence-v2-gb-01",
+  "targetField": "MARKET_REGION",
+  "question": "Research the exact physical family for Lock 'n' Chase; preserve box, cartridge and manual codes separately and identify regional-title relationships.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T19:00:29.393Z",
+  "updatedAt": "2026-09-16T19:00:29.393Z"
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "query": "\"Dr. Mario\" \"gameboy\" physical edition",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Dr. Mario\" \"gameboy\" product code",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Dr. Mario\" \"gameboy\" barcode",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:www.ebay.es \"Dr. Mario\" gameboy packaging distributor \"legal text\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:gbhwdb.gekkio.fi \"Dr. Mario\" gameboy packaging distributor \"legal text\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "legacy:gameboy-documentary-v3-legado:hardware",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:www.game-boy-database.com \"Dr. Mario\" gameboy packaging distributor \"legal text\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "legacy:gameboy-documentary-v3-legado:flintstones",
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

@@ -1,0 +1,197 @@
+[
+  {
+    "id": "listing-obs-09ba161c48ad67d1",
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 1,
+    "contentHash": "dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Lock 'n' Chase",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "DMG-LCA"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "©1990 DATA EAST CORP.",
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [
+      "LOCK'N CHASE",
+      "GAME BOY",
+      "DECO"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-279dd38ca4ce14cf",
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 2,
+    "contentHash": "4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Lock 'n' Chase",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "DMG-LCA"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [
+      "DATA EAST CORP"
+    ],
+    "publisherLegalText": [
+      "©1990 DATA EAST CORP.",
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [
+      "LOCK'N CHASE",
+      "DECO"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-c44185268bc10db2",
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 3,
+    "contentHash": "d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Lock 'n' Chase",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "DMG-LCA"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "©1990 DATA EAST CORP.",
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [
+      "LOCK'N CHASE",
+      "DECO"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-abb4d9aa28091df5",
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 4,
+    "contentHash": "ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Lock 'n' Chase",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "DMG-LCA"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "©1990 DATA EAST CORP.",
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [
+      "LOCK'N CHASE",
+      "DECO"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-82f8b858a2c89559",
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 5,
+    "contentHash": "d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5",
+    "component": "CARTRIDGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "MADE IN JAPAN",
+      "PAT. PEND."
+    ],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-d8ca962a71aecbcf",
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 6,
+    "contentHash": "bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca",
+    "component": "MANUAL_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Lock 'n' Chase",
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "DMG-LCA"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "LOCK'N CHASE",
+      "DECO"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-d703ab790f95d464",
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 7,
+    "contentHash": "6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674",
+    "component": "MANUAL_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "©1990 DATA EAST CORP."
+    ],
+    "visibleText": [
+      "使用上の注意",
+      "FOR SALE AND USE IN JAPAN ONLY"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

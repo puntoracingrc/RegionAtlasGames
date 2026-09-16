@@ -1,0 +1,13 @@
+{
+  "field": "MARKET_REGION",
+  "status": "UNRESOLVED",
+  "value": null,
+  "score": 0.54,
+  "claimIds": [
+    "cl-5a922fcbf6adb8dce6dfa3ee"
+  ],
+  "sourceIds": [
+    "national-retailer"
+  ],
+  "reason": "Evidence remains too weak."
+}

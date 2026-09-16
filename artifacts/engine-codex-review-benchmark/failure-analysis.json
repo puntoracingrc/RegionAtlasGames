@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "criticalErrors": {
+    "FALSE_ACCEPT": 0,
+    "WRONG_REROUTE": 0,
+    "WRONG_REJECT": 1,
+    "WRONG_NEW_VARIANT": 0,
+    "WRONG_GAME": 0,
+    "WRONG_PLATFORM": 0,
+    "WRONG_EDITION": 0,
+    "WRONG_MARKET": 0,
+    "CROSS_COMPONENT_ATTRIBUTION": 0,
+    "CROSS_LISTING_ATTRIBUTION": 0,
+    "FABRICATED_IDENTIFIER": 0
+  },
+  "engineErrors": [
+    {
+      "caseId": "N64-04",
+      "type": "WRONG_REJECT",
+      "observed": "The resolver matched generic seller condition boilerplate containing the word VHS and classified a photographed box+cartridge+manual video-game listing as non_game_product.",
+      "groundTruth": "ACCEPT_EXISTING n64-shadow-man at generic PAL Europe; no PAL submarket promotion.",
+      "rootCause": "rejectionReason scans the entire listing description for merchandise tokens without separating generic eBay condition boilerplate from product-specific text.",
+      "safetyImpact": "False negative only; no catalog or price mutation occurred."
+    }
+  ],
+  "unresolvedCases": [
+    {
+      "caseId": "PS4-02",
+      "game": "Soul Hackers 2",
+      "reason": "The selected listing does not physically bind market, exact package variant, or new/sealed condition. A correct product-family EAN does not replace specimen evidence.",
+      "gaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "NO_MARKET_LEGAL_TEXT"
+      ]
+    },
+    {
+      "caseId": "PS4-04",
+      "game": "Code Vein",
+      "reason": "The product family can be researched, but the selected unit cannot be accepted or rerouted safely from a non-contractual image.",
+      "gaps": [
+        "NO_ACTUAL_LISTING_SPECIMEN_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_CONDITION_PROOF"
+      ]
+    },
+    {
+      "caseId": "PS5-01",
+      "game": "Demon's Souls",
+      "reason": "Only the front is visible. The title's Spanish/sealed claims and seller location cannot certify the specimen's market set or seal.",
+      "gaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "EXACT_MARKET_SET_UNBOUND"
+      ]
+    },
+    {
+      "caseId": "PS5-02",
+      "game": "Dragon's Dogma 2",
+      "reason": "Only the front is visible. The selected unit cannot be bound to a national or shared-European package, and the claimed factory seal is not visible.",
+      "gaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "EXACT_MARKET_SET_UNBOUND"
+      ]
+    },
+    {
+      "caseId": "PS5-03",
+      "game": "Final Fantasy XVI",
+      "reason": "The exact used item is not pictured, so neither its package variant nor its condition can be certified.",
+      "gaps": [
+        "NO_ACTUAL_LISTING_SPECIMEN_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_CONDITION_PROOF"
+      ]
+    },
+    {
+      "caseId": "PS5-04",
+      "game": "Hogwarts Legacy",
+      "reason": "No exact EAN/PPSA is exposed and only the front is visible; seller claims alone do not bind market or condition.",
+      "gaps": [
+        "NO_EXACT_IDENTIFIER",
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "NO_MARKET_LEGAL_TEXT"
+      ]
+    }
+  ],
+  "unavailableCases": [
+    {
+      "caseId": "PS4-01",
+      "game": "Fobia: St. Dinfna Hotel",
+      "reason": "NO_ACTIVE_PHYSICAL_LISTING"
+    },
+    {
+      "caseId": "PS4-03",
+      "game": "Atelier Firis: The Alchemist and the Mysterious Journey",
+      "reason": "NO_ACTIVE_PHYSICAL_LISTING"
+    },
+    {
+      "caseId": "N64-01",
+      "game": "Holy Magic Century",
+      "reason": "NO_USABLE_LISTING"
+    },
+    {
+      "caseId": "N64-02",
+      "game": "Aidyn Chronicles",
+      "reason": "NO_ACTIVE_PHYSICAL_LISTING"
+    },
+    {
+      "caseId": "N64-03",
+      "game": "Hybrid Heaven",
+      "reason": "NO_ACTIVE_PHYSICAL_LISTING"
+    },
+    {
+      "caseId": "GB-03",
+      "game": "Tumble Pop",
+      "reason": "NO_ACTIVE_PHYSICAL_LISTING"
+    },
+    {
+      "caseId": "GB-04",
+      "game": "BurgerTime Deluxe",
+      "reason": "NO_ACTIVE_PHYSICAL_LISTING"
+    }
+  ],
+  "safety": {
+    "falseAccept": 0,
+    "wrongReroute": 0,
+    "unsupportedMarketPromotion": 0,
+    "crossComponentAttribution": 0,
+    "crossListingAttribution": 0,
+    "fabricatedIdentifier": 0,
+    "catalogMutations": 0,
+    "priceMutations": 0,
+    "authoritativeQueueMutations": 0,
+    "publicAssetMutations": 0
+  }
+}

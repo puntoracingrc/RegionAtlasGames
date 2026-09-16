@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS4-02",
+  "game": "Soul Hackers 2",
+  "platform": "ps4",
+  "listingId": "v1|257009348037|0",
+  "listingUrl": "https://www.ebay.es/itm/257009348037?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8NsMEbpmBixfJZggIT%2BO7aTJkdw%2BcIfGI0OcP3Rid%2FCZHQ9q8I9mclAjPd9GeDLthcmXE5gau7JZUeKwW7F%2FZTZZKP9vaD09cRE%2BT1TsJcNd2TbFGRhpi42u%2FMJUMwLXccdJJ8n%2B%2B%2Fc%2FgwaBcKgiPLg6bqRwzOkT3mVWTVrbWMoSuOtHRzdM%2BVZDDyQ4KT1Sc%3D",
+  "inputHash": "3ea207c3c887f44546b852cc4ddceba25f6ca2281e793b1fa0f3c49739bdccc9",
+  "galleryHash": "c982c0be20bc63013f77db698d518c5b788e4782dd008dc8d1064b7d7f057cf6",
+  "knowledgePackHash": "0c633db4ed035b5e55d6394f7e8a8c6021b1a2b012f1b4332d739d632cd39b9a",
+  "evidenceHash": "ac56db8e2255d3f437fbb02718d9a6a6c2258a4a39b72b8e77117e6c35a7532c",
+  "initialEngineDecision": "REVIEW_REQUIRED",
+  "engineDecision": "REVIEW_REQUIRED",
+  "engineConfidence": 0.5,
+  "searchedCatalogId": "ps4-soul-hackers-2",
+  "candidateCatalogId": "ps4-soul-hackers-2",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "unknown",
+    "confidence": 0,
+    "evidence": [],
+    "manualExpected": false,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate"
+  ],
+  "uncertainClaims": [
+    "market_region",
+    "condition"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-9559750f959daf80",
+      "claim": {
+        "text": [
+          "PS4",
+          "SOUL HACKERS 2",
+          "16",
+          "PS5 Upgrade Available"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/257009348037?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8NsMEbpmBixfJZggIT%2BO7aTJkdw%2BcIfGI0OcP3Rid%2FCZHQ9q8I9mclAjPd9GeDLthcmXE5gau7JZUeKwW7F%2FZTZZKP9vaD09cRE%2BT1TsJcNd2TbFGRhpi42u%2FMJUMwLXccdJJ8n%2B%2B%2Fc%2FgwaBcKgiPLg6bqRwzOkT3mVWTVrbWMoSuOtHRzdM%2BVZDDyQ4KT1Sc%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|257009348037|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    }
+  ],
+  "sourcesConsulted": [],
+  "queriesExecuted": [
+    "site:game.es \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "site:ebay.com \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"Soul Hackers 2\" \"ps4\" \"standard\"",
+    "\"Soul Hackers 2\" \"ps4\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Soul Hackers 2\" PlayStation 4",
+    "site:ebay.es \"Soul Hackers 2\" PlayStation 4"
+  ],
+  "listingImagesUsed": [
+    1
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-9559750f959daf80",
+      "imageIndex": 1,
+      "component": "OUTER_PACKAGE_FRONT",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_front",
+      "textSnippets": [
+        "PS4",
+        "SOUL HACKERS 2",
+        "16",
+        "PS5 Upgrade Available"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [
+        "PEGI 16"
+      ],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|257009348037|0",
+      "contentHash": "98c22fccf8a4efa337aecd57925369fe7dc5e082977391c96317fa3d9327c2a1"
+    }
+  ],
+  "identifiersFound": [],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF",
+    "MISSING_COMPONENT_PHOTO"
+  ],
+  "reasonForReview": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+  "research": {
+    "targetField": "MARKET_REGION",
+    "status": "UNRESOLVED",
+    "resolution": {
+      "field": "MARKET_REGION",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    },
+    "error": null,
+    "technicalFailures": [
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.es/itm/257009348037?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8NsMEbpmBixfJZggIT%2BO7aTJkdw%2BcIfGI0OcP3Rid%2FCZHQ9q8I9mclAjPd9GeDLthcmXE5gau7JZUeKwW7F%2FZTZZKP9vaD09cRE%2BT1TsJcNd2TbFGRhpi42u%2FMJUMwLXccdJJ8n%2B%2B%2Fc%2FgwaBcKgiPLg6bqRwzOkT3mVWTVrbWMoSuOtHRzdM%2BVZDDyQ4KT1Sc%3D",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.com/itm/405353584622",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      }
+    ],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0.04,
+    "aiUsd": 0.0053668499999999985,
+    "totalUsd": 0.04536685,
+    "braveWeb": 8,
+    "braveImages": 0,
+    "acquisitionAiCalls": 2,
+    "researchAiCalls": 1
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/collection.json",
+      "data/games.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:00:41.702Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "96ce12fd15bd9b9c9fe89f38cc3211d88c097e44ca89d65884ba7ca535d96c89"
+}

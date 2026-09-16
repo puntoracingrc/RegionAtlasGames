@@ -1,0 +1,87 @@
+[
+  {
+    "id": "ev-9c9e83b9eb886ff94b4fedd7",
+    "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+    "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+    "sourceId": "national-retailer",
+    "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+    "canonicalUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+    "sourceType": "RETAILER",
+    "host": "www.game.es",
+    "fetchedAt": "2026-09-16T19:01:56.815Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PLATAFORMA: Nintendo Switch Playstation 4 Playstation 5 Xbox One Xbox Series X",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "76a578d0faa26f08263bd37f7506f2f75212ec0cc4fa29d549addca7b5d3de37",
+    "capabilities": [
+      "MARKET_REGION"
+    ],
+    "reliability": 60,
+    "component": null
+  },
+  {
+    "id": "ev-b441710f6c153ae1385cc203",
+    "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+    "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+    "sourceId": "national-retailer",
+    "sourceUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+    "canonicalUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+    "sourceType": "RETAILER",
+    "host": "www.game.es",
+    "fetchedAt": "2026-09-16T19:02:00.804Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Hogwarts Legacy Standard. PLAYSTATION 5: GAME.es Tiendas GAME",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "cc11e857b3903b3782cdb94c6e84f9e33219f8472375ce2f9ee46956b88c3ef3",
+    "capabilities": [
+      "MARKET_REGION"
+    ],
+    "reliability": 60,
+    "component": null
+  },
+  {
+    "id": "ev-d04c67fd84643fb29596feb5",
+    "runId": "benchmark-engine-ps5-04-mu4gvzdm",
+    "taskId": "benchmark-engine-65423cc4df0f8ce75b68623d",
+    "sourceId": "candidate:play-e.com",
+    "sourceUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+    "canonicalUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "play-e.com",
+    "fetchedAt": "2026-09-16T19:02:04.952Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "c8436a00565184ba5f4aa216a58550c48d683797342941d08d9d1168f1cd1381",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

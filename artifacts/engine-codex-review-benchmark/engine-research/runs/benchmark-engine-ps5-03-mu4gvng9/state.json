@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 2,
+  "runId": "benchmark-engine-ps5-03-mu4gvng9",
+  "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+  "subjectId": "benchmark:listing-evidence-v2-ps5-03",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS5_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "\"Final Fantasy XVI\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Final Fantasy XVI\" PlayStation 5",
+    "site:ebay.es \"Final Fantasy XVI\" PlayStation 5"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"final fantasy xvi\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"final fantasy xvi\" \"ps5\" \"standard\"",
+    "site:ebay.com \"final fantasy xvi\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"final fantasy xvi\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"final fantasy xvi\" \"ps5\" \"standard\"",
+    "\"final fantasy xvi\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"final fantasy xvi\" playstation 5",
+    "site:ebay.es \"final fantasy xvi\" playstation 5"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+    "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+    "https://www.ebay.com/itm/226531013165",
+    "https://www.ebay.com/itm/276306535872",
+    "https://store.playstation.com/es-mx/concept/10002100",
+    "https://www.atlantictraders.es/consolas/25579-consola-sony-ps5-ssd-825gb--final-fantasy-xvi-711719569350.html",
+    "https://www.todocoleccion.net/videojuegos-y-consolas/final-fantasy-xvi-ps5-usado~x445985287",
+    "https://www.ebay.es/itm/134668483055",
+    "https://www.ebay.es/itm/266454255913"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "store.playstation.com",
+    "www.atlantictraders.es",
+    "www.todocoleccion.net",
+    "www.ebay.es"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-564d949afac8d2c044020733",
+      "runId": "benchmark-engine-ps5-03-mu4gvng9",
+      "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+      "sourceId": "national-retailer",
+      "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+      "canonicalUrl": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+      "sourceType": "RETAILER",
+      "host": "www.game.es",
+      "fetchedAt": "2026-09-16T19:01:41.219Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "...final Fantasy XVI edición Deluxe para PlayStation 5...",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "926aacacda475d84bead58f8d46134d5908662623662a3c836696791a82d0e65",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 60,
+      "component": null
+    },
+    {
+      "id": "ev-6edee87a71899ac80e159ebf",
+      "runId": "benchmark-engine-ps5-03-mu4gvng9",
+      "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+      "sourceId": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/es-mx/concept/10002100",
+      "canonicalUrl": "https://store.playstation.com/es-mx/concept/10002100",
+      "sourceType": "PLATFORM_HOLDER",
+      "host": "store.playstation.com",
+      "fetchedAt": "2026-09-16T19:01:47.449Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "...PS5 Standard Edition... 861.21 MXN... Suscribirse a PlayStation Plus Extra para acceder a este juego...",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "d278859bec2c9ac6906f3dc968c3bf5b99243250496432ef2beb469a90dbde22",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-5a922fcbf6adb8dce6dfa3ee",
+      "runId": "benchmark-engine-ps5-03-mu4gvng9",
+      "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-03",
+      "gameId": "ps5-final-fantasy-xvi",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "national-retailer",
+      "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+      "evidenceId": "ev-564d949afac8d2c044020733",
+      "confidence": 0.9,
+      "status": "CANDIDATE",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T19:01:42.910Z"
+    },
+    {
+      "id": "cl-cb0b606b11e2702523b9d3d4",
+      "runId": "benchmark-engine-ps5-03-mu4gvng9",
+      "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-03",
+      "gameId": "ps5-final-fantasy-xvi",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/es-mx/concept/10002100",
+      "evidenceId": "ev-6edee87a71899ac80e159ebf",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:01:49.218Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/226531013165",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.com/itm/276306535872",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.atlantictraders.es/consolas/25579-consola-sony-ps5-ssd-825gb--final-fantasy-xvi-711719569350.html",
+      "reason": "RESEARCH_PAGE_HTTP_404"
+    },
+    {
+      "value": "https://www.todocoleccion.net/videojuegos-y-consolas/final-fantasy-xvi-ps5-usado~x445985287",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/itm/134668483055",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/itm/266454255913",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 2,
+    "images": 0,
+    "agentTurns": 3,
+    "browserSessions": 2,
+    "inputTokens": 4288,
+    "outputTokens": 236,
+    "estimatedCostUsd": 0.000786
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page explicitly mentions the game Final Fantasy XVI for PS5 in the PAL España region.",
+  "decisionSummary": "Evidence remains too weak.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T19:01:50.638Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T19:01:35.597Z",
+  "updatedAt": "2026-09-16T19:01:50.638Z"
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 1,
+    "contentHash": "dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible outer package with game title."
+  },
+  {
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 2,
+    "contentHash": "4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front of the game cartridge."
+  },
+  {
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 3,
+    "contentHash": "d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front of the game cartridge."
+  },
+  {
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 4,
+    "contentHash": "ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front of the game cartridge."
+  },
+  {
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 5,
+    "contentHash": "d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 1.0,
+    "reason": "Visible back of the game cartridge."
+  },
+  {
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 6,
+    "contentHash": "bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front of the game manual."
+  },
+  {
+    "listingId": "v1|377464390784|0",
+    "imageIndex": 7,
+    "contentHash": "6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_BACK",
+    "confidence": 1.0,
+    "reason": "Visible back of the game manual."
+  }
+]

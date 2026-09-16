@@ -1,0 +1,46 @@
+[
+  {
+    "id": "cl-0e8c570ada8a7a944aecf267",
+    "runId": "benchmark-engine-ps4-04-mu4guhyx",
+    "taskId": "benchmark-engine-ef84a0bfd565ecd90c248fd6",
+    "subjectId": "benchmark:listing-evidence-v2-ps4-04",
+    "gameId": "ps4-code-vein",
+    "platformSlug": "ps4",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.worldofbooks.com",
+    "sourceUrl": "https://www.worldofbooks.com/en-gb/products/code-vein-ps4-video-game-3391891995931",
+    "evidenceId": "ev-e69226d0eed0a73c2357bcf4",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:00:47.128Z"
+  },
+  {
+    "id": "cl-dc6c62c8ef85037c775d0027",
+    "runId": "benchmark-engine-ps4-04-mu4guhyx",
+    "taskId": "benchmark-engine-ef84a0bfd565ecd90c248fd6",
+    "subjectId": "benchmark:listing-evidence-v2-ps4-04",
+    "gameId": "ps4-code-vein",
+    "platformSlug": "ps4",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.rarewaves.com",
+    "sourceUrl": "https://www.rarewaves.com/products/3391891995931-code-vein",
+    "evidenceId": "ev-5d12b5531c4c57fae8a53448",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:00:49.668Z"
+  }
+]

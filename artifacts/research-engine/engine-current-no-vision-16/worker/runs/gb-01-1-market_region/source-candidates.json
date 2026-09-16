@@ -1,0 +1,32 @@
+[
+  {
+    "host": "www.amazon.es",
+    "sampleUrls": [
+      "https://www.amazon.es/Dr-Mario/dp/B00002ST3E"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "www.retroplace.com",
+    "sampleUrls": [
+      "https://www.retroplace.com/es/juegos/32971--dr-mario"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "nostalgicvideogames.com",
+    "sampleUrls": [
+      "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "field": "MARKET_REGION",
+  "status": "CONFIRMED",
+  "value": "PAL Europa",
+  "score": 1.615,
+  "claimIds": [
+    "cl-e52277946300f64cd79d0e72",
+    "cl-c66a6e6d1f66d092286bc3fc"
+  ],
+  "sourceIds": [
+    "nintendo64ever",
+    "ogdb"
+  ],
+  "reason": "Independent sources corroborate the field."
+}

@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "N64-04",
+  "game": "Shadow Man",
+  "platform": "n64",
+  "listingId": "v1|326822603505|0",
+  "listingUrl": "https://www.ebay.es/itm/326822603505",
+  "inputHash": "c96ebc6a6c0e64e182df02564cc0054e75f09c56a8990fbf65330258be542e86",
+  "galleryHash": "5a4a40e69811162c470374d037bac2f801413174bb6e694e739b37a27d2f0a07",
+  "knowledgePackHash": "27ec8719e14b44f83b7ecc2b8d0ff8e00341f8c7a239ee3f8f1ea5b12374b5c9",
+  "evidenceHash": "8b7860ac9817d6bdbfd826ed9a0d86c1e8429c92b944434f975d15ecc32671dc",
+  "initialEngineDecision": "REJECT",
+  "engineDecision": "REJECT",
+  "engineConfidence": 0.99,
+  "searchedCatalogId": "n64-shadow-man",
+  "candidateCatalogId": "n64-shadow-man",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "complete",
+    "confidence": 0,
+    "evidence": [
+      "required visible media and package components present"
+    ],
+    "manualExpected": true,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate",
+    "condition"
+  ],
+  "uncertainClaims": [
+    "market_region"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-b89f5fb915fdbc27",
+      "claim": {
+        "text": [
+          "INSTRUCTION BOOKLET",
+          "AKLAIM",
+          "NINTENDO 64",
+          "SHADOW MAN",
+          "PAL VERSION",
+          "ACCLAIM",
+          "Instruction Booklet"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [
+          "Acclaim"
+        ],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/326822603505",
+      "component": "UNKNOWN_COMPONENT",
+      "listingId": "v1|326822603505|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    }
+  ],
+  "sourcesConsulted": [],
+  "queriesExecuted": [],
+  "listingImagesUsed": [
+    1
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-b89f5fb915fdbc27",
+      "imageIndex": 1,
+      "component": "UNKNOWN_COMPONENT",
+      "productNodeType": "PHYSICAL_PRODUCT",
+      "role": "unknown_component",
+      "textSnippets": [
+        "INSTRUCTION BOOKLET",
+        "AKLAIM",
+        "NINTENDO 64",
+        "SHADOW MAN",
+        "PAL VERSION",
+        "ACCLAIM",
+        "Instruction Booklet"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [
+        "Acclaim"
+      ],
+      "editionMarkers": [],
+      "listingId": "v1|326822603505|0",
+      "contentHash": "56ab2d1c82327b73ceb32de251c922caf40e1bb7955163d9f36f1a86642f7b9a"
+    }
+  ],
+  "identifiersFound": [],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF"
+  ],
+  "reasonForReview": null,
+  "research": {
+    "targetField": null,
+    "status": "NOT_NEEDED",
+    "resolution": null,
+    "error": null,
+    "technicalFailures": [],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0.0118509,
+    "totalUsd": 0.0118509,
+    "braveWeb": 0,
+    "braveImages": 0,
+    "acquisitionAiCalls": 3,
+    "researchAiCalls": 0
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:02:08.285Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "ce31e9329536c98413766b38153384d9d8cc5de101106248c1fdb967e77a65f2"
+}

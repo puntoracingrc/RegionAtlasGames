@@ -1,0 +1,26 @@
+[
+  {
+    "value": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+    "reason": "Error RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.game.es/hogwarts-legacy-standard-playstation-5-183236",
+    "reason": "RESEARCH_PAGE_TOO_LARGE"
+  },
+  {
+    "value": "https://www.ebay.com/itm/404632407266",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.com/p/16063769994",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/p/9056773607",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/p/24056771971",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  }
+]

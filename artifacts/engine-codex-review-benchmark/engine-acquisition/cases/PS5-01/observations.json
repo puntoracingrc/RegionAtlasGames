@@ -1,0 +1,30 @@
+[
+  {
+    "id": "listing-obs-b8a0edc5f4823b56",
+    "listingId": "v1|363231498889|0",
+    "imageIndex": 1,
+    "contentHash": "8569dd30ba439ebf2062410944647510d99ca1a927874e4c76dacb3d2ac5cac3",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Demon's Souls",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 18"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "Demon's Souls",
+      "PS5",
+      "18",
+      "www.pegi.info"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

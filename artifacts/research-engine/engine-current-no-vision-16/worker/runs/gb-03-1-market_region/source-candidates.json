@@ -1,0 +1,23 @@
+[
+  {
+    "host": "www.retroplace.com",
+    "sampleUrls": [
+      "https://www.retroplace.com/en/games/33772--mole-mania",
+      "https://www.retroplace.com/es/juegos/33773--mole-mania"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "www.videogamesage.com",
+    "sampleUrls": [
+      "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

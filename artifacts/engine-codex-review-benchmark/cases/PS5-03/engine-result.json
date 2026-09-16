@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS5-03",
+  "game": "Final Fantasy XVI",
+  "platform": "ps5",
+  "listingId": "v1|267695458509|0",
+  "listingUrl": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+  "inputHash": "e6d59513de430f42388463876bd807ca9af3ca7d12df9060082c5bed3b3ad67f",
+  "galleryHash": "1a806d19ee254b28f8af253a54470cab918688902f015501981377ce548f05c5",
+  "knowledgePackHash": "b7087ccacfd1dbe9ee5966663dc81da0a2bdb8bbb665da400d3c22dfc5a97790",
+  "evidenceHash": "49962a243ed832ea39b9d8f58deae73c14f3f26773d107f301cc65e9c89b6176",
+  "initialEngineDecision": "REVIEW_REQUIRED",
+  "engineDecision": "REVIEW_REQUIRED",
+  "engineConfidence": 0.5,
+  "searchedCatalogId": "ps5-final-fantasy-xvi",
+  "candidateCatalogId": "ps5-final-fantasy-xvi",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "unknown",
+    "confidence": 0,
+    "evidence": [],
+    "manualExpected": false,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate"
+  ],
+  "uncertainClaims": [
+    "market_region",
+    "condition"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-58acd82275b858cf",
+      "claim": {
+        "text": [
+          "www.pegi.info"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|267695458509|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-564d949afac8d2c044020733",
+      "claim": "...final Fantasy XVI edición Deluxe para PlayStation 5...",
+      "source": "national-retailer",
+      "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-6edee87a71899ac80e159ebf",
+      "claim": "...PS5 Standard Edition... 861.21 MXN... Suscribirse a PlayStation Plus Extra para acceder a este juego...",
+      "source": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/es-mx/concept/10002100",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "sourcesConsulted": [
+    "national-retailer",
+    "platform-holder-official"
+  ],
+  "queriesExecuted": [
+    "site:game.es \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Final Fantasy XVI\" \"ps5\" \"standard\"",
+    "\"Final Fantasy XVI\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Final Fantasy XVI\" PlayStation 5",
+    "site:ebay.es \"Final Fantasy XVI\" PlayStation 5"
+  ],
+  "listingImagesUsed": [
+    1
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-58acd82275b858cf",
+      "imageIndex": 1,
+      "component": "OUTER_PACKAGE_FRONT",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_front",
+      "textSnippets": [
+        "www.pegi.info"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [
+        "PEGI 18"
+      ],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|267695458509|0",
+      "contentHash": "091cd8e51932d2394043628acd89e779b9883a7b805daeff69570eccfd98056b"
+    }
+  ],
+  "identifiersFound": [],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF",
+    "MISSING_COMPONENT_PHOTO"
+  ],
+  "reasonForReview": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+  "research": {
+    "targetField": "MARKET_REGION",
+    "status": "UNRESOLVED",
+    "resolution": {
+      "field": "MARKET_REGION",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0.54,
+      "claimIds": [
+        "cl-5a922fcbf6adb8dce6dfa3ee"
+      ],
+      "sourceIds": [
+        "national-retailer"
+      ],
+      "reason": "Evidence remains too weak."
+    },
+    "error": null,
+    "technicalFailures": [
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "DIRECT_FETCH",
+        "target": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+        "code": "INTERNAL_ERROR",
+        "detail": "Error RESEARCH_PAGE_TOO_LARGE",
+        "recovered": true
+      },
+      {
+        "operation": "DIRECT_FETCH",
+        "target": "https://www.atlantictraders.es/consolas/25579-consola-sony-ps5-ssd-825gb--final-fantasy-xvi-711719569350.html",
+        "code": "SOURCE_NOT_FOUND",
+        "detail": "Error RESEARCH_PAGE_HTTP_404",
+        "recovered": true
+      }
+    ],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0.04,
+    "aiUsd": 0.0052153500000000005,
+    "totalUsd": 0.04521535,
+    "braveWeb": 8,
+    "braveImages": 0,
+    "acquisitionAiCalls": 2,
+    "researchAiCalls": 3
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [
+      "data/research/platform-history/platforms-ps5.json"
+    ],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/collection.json",
+      "data/games.json",
+      "data/research/platform-history/platforms-ps5.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:01:50.917Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "9152cf8ff5e189cc813bd7f97c2776b2c00537c5bcd8d9604d757c18236a955c"
+}

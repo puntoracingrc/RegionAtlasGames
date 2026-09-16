@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "listingId": "v1|377464390784|0",
+  "legacyItemId": "377464390784",
+  "capturedAt": "2026-09-16T18:56:43Z",
+  "sourceMarketplace": "ebay",
+  "metadata": {
+    "title": "Nintendo Game Boy Lock'n Chase Japan CIB Complete Boxed Manual NTSC-J Original",
+    "shortDescription": "Juego Lock'n Chase original japonés para Nintendo Game Boy, versión NTSC-J, completo en caja con manual. El cartucho funciona correctamente. Incluye caja original japonesa y manual, ideal para coleccionistas de Game Boy, Nintendo retro o material japonés. Estado estético acorde a los años, ver fotos para valorar el estado exacto de caja, cartucho y manual. Artículo cada vez más interesante para colección, especialmente en formato completo (CIB – Complete in Box).",
+    "description": "<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Juego Lock'n Chase original japon&#233;s para Nintendo Game Boy, versi&#243;n NTSC-J, completo en caja con manual.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">El cartucho funciona correctamente. Incluye caja original japonesa y manual, ideal para coleccionistas de Game Boy, Nintendo retro o material japon&#233;s.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Estado est&#233;tico acorde a los a&#241;os, ver fotos para valorar el estado exacto de caja, cartucho y manual.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Art&#237;culo cada vez m&#225;s interesante para colecci&#243;n, especialmente en formato completo (CIB &#8211; Complete in Box).</p>",
+    "condition": "En buen estado",
+    "conditionId": "5000",
+    "conditionDescription": null,
+    "itemWebUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+    "itemLocation": {
+      "city": "Zaragoza",
+      "postalCode": "50***",
+      "country": "ES"
+    },
+    "seller": {
+      "username": "noagames",
+      "feedbackPercentage": "100.0",
+      "feedbackScore": 8
+    },
+    "category": "Consolas y videojuegos|Videojuegos",
+    "categoryId": "139973",
+    "aspects": {
+      "Nombre del videojuego": [
+        "Lock n chase"
+      ],
+      "Cantidad de unidades": [
+        "1"
+      ],
+      "Plataforma": [
+        "Nintendo Game Boy"
+      ],
+      "Año de lanzamiento": [
+        "1990"
+      ],
+      "Género": [
+        "Acción y Aventura, Rompecabezas"
+      ],
+      "Tipo de unidad": [
+        "Unidad"
+      ],
+      "Editor": [
+        "Data East"
+      ],
+      "Clasificación": [
+        "PEGI 3"
+      ]
+    },
+    "price": {
+      "value": 69.0,
+      "currency": "EUR"
+    },
+    "shippingOptions": [
+      {
+        "shippingServiceCode": "Correos: cartas certificadas",
+        "shippingCarrierCode": "Correos",
+        "type": "Envío Económico",
+        "shippingCost": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "quantityUsedForEstimate": 1,
+        "minEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+        "maxEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+        "shipToLocationUsedForEstimate": {
+          "postalCode": "28001",
+          "country": "ES"
+        },
+        "additionalShippingCostPerUnit": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "shippingCostType": "FIXED"
+      }
+    ],
+    "buyingOptions": [
+      "FIXED_PRICE"
+    ],
+    "itemEndDate": null,
+    "estimatedAvailabilities": [
+      {
+        "deliveryOptions": [
+          "SHIP_TO_HOME"
+        ],
+        "estimatedAvailabilityStatus": "IN_STOCK",
+        "estimatedAvailableQuantity": 1,
+        "estimatedSoldQuantity": 0,
+        "estimatedRemainingQuantity": 1
+      }
+    ],
+    "gtin": null,
+    "brand": null,
+    "mpn": null,
+    "epid": null
+  },
+  "imagesAvailableFromSource": 7,
+  "imagesPreserved": 7,
+  "images": [
+    {
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 1,
+      "sourceIndex": 1,
+      "sourceUrl": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+      "contentHash": "dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9",
+      "width": 1204,
+      "height": 1600,
+      "byteLength": 184436,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9.img",
+      "sourceKind": "PRIMARY",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 2,
+      "sourceIndex": 2,
+      "sourceUrl": "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+      "contentHash": "4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4",
+      "width": 1204,
+      "height": 1600,
+      "byteLength": 253117,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 3,
+      "sourceIndex": 3,
+      "sourceUrl": "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+      "contentHash": "d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e",
+      "width": 1204,
+      "height": 1600,
+      "byteLength": 192182,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 4,
+      "sourceIndex": 4,
+      "sourceUrl": "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+      "contentHash": "ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e",
+      "width": 1204,
+      "height": 1600,
+      "byteLength": 169200,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 5,
+      "sourceIndex": 5,
+      "sourceUrl": "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+      "contentHash": "d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5",
+      "width": 1204,
+      "height": 1600,
+      "byteLength": 154492,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 6,
+      "sourceIndex": 6,
+      "sourceUrl": "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+      "contentHash": "bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca",
+      "width": 1204,
+      "height": 1600,
+      "byteLength": 254078,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 7,
+      "sourceIndex": 7,
+      "sourceUrl": "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg",
+      "contentHash": "6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674",
+      "width": 1204,
+      "height": 1600,
+      "byteLength": 229462,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    }
+  ],
+  "failures": [],
+  "rights": {
+    "classification": "INTERNAL_EVIDENCE_REFERENCE",
+    "publishAsRegionAtlasAsset": false
+  }
+}

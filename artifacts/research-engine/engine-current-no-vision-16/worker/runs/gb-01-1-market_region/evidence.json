@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ev-838c8cb1ad8f545a97cddf26",
+    "runId": "gb-01-1-market_region",
+    "taskId": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+    "sourceId": "candidate:www.amazon.es",
+    "sourceUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+    "canonicalUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.amazon.es",
+    "fetchedAt": "2026-09-16T20:12:44.691Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "GameBoy - Dr. Mario : Amazon.es: Videojuegos",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "8bf8cb4bffb1ec6278c6429538211b702fac0bea40d3a7a085d0c4e99dd43a5c",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-8b70eb4bb57ada5d96b00462",
+    "runId": "gb-01-1-market_region",
+    "taskId": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+    "sourceUrl": "https://www.ebay.es/p/1444700809",
+    "canonicalUrl": "https://www.ebay.es/p/1444700809",
+    "sourceType": "LEGACY_SCANNER_DOCUMENTARY",
+    "host": "www.ebay.es",
+    "fetchedAt": "2026-09-16T20:12:47.023Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Código de región PAL",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "7aff208bafb8a75f948aeb943236062103af4849942715481a1c0b5dda12bde5",
+    "capabilities": [
+      "MARKET_REGION"
+    ],
+    "reliability": 62,
+    "component": null
+  },
+  {
+    "id": "ev-406842fb805dbb03fc767243",
+    "runId": "gb-01-1-market_region",
+    "taskId": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+    "sourceId": "candidate:www.retroplace.com",
+    "sourceUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+    "canonicalUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.retroplace.com",
+    "fetchedAt": "2026-09-16T20:12:58.194Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Country version: Alemania",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "90dd66d94ef74070f8044760cdc092514bb00058ed73c8da41403ae31373ea41",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-6690b47d61fe433d081d1b5c",
+    "runId": "gb-01-1-market_region",
+    "taskId": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+    "sourceId": "candidate:nostalgicvideogames.com",
+    "sourceUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+    "canonicalUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "nostalgicvideogames.com",
+    "fetchedAt": "2026-09-16T20:13:01.284Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Dr. Mario | (LS) (GameBoy)",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "78701fe93332e685a854b9c05bd0fc5ee2ad2fa9fdb41c848a8463c86bd7faf7",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

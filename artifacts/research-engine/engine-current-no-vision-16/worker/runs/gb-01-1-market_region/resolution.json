@@ -1,0 +1,13 @@
+{
+  "field": "MARKET_REGION",
+  "status": "PARTIAL",
+  "value": "PAL España",
+  "score": 0.62,
+  "claimIds": [
+    "cl-22f7c5b1dd8b84904d32b2ca"
+  ],
+  "sourceIds": [
+    "legacy:gameboy-visual-reviewed-20260908:800612078639"
+  ],
+  "reason": "A plausible value exists but confirmation threshold is not met."
+}

@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "GB-01",
+  "game": "Lock 'n' Chase",
+  "platform": "gameboy",
+  "listingId": "v1|377464390784|0",
+  "listingUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+  "inputHash": "34a7d163cb09777acd5e60006cad75c7731c882caa332af4b458b2b3347fd485",
+  "galleryHash": "b05f3133c089ec2d2f52518beb76a4ab1d0aec1ed916276625f81aff617a79c7",
+  "knowledgePackHash": "21c26b4abbbde6734deb7e4575f07d6f04409665559ddeceda8d398894aa28b8",
+  "evidenceHash": "94ca7c15451f03545b7660ecf01917542edc4194825bf093f1ae4d86871b03c4",
+  "initialEngineDecision": "REVIEW_REQUIRED",
+  "engineDecision": "REVIEW_REQUIRED",
+  "engineConfidence": 0.5,
+  "searchedCatalogId": "gameboy-pal-lock-n-chase",
+  "candidateCatalogId": "gameboy-pal-lock-n-chase",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "complete",
+    "confidence": 0,
+    "evidence": [
+      "required visible media and package components present"
+    ],
+    "manualExpected": true,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate",
+    "condition"
+  ],
+  "uncertainClaims": [
+    "market_region"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-09ba161c48ad67d1",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "GAME BOY",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 1,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-279dd38ca4ce14cf",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [
+          "DATA EAST CORP"
+        ],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "CARTRIDGE_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 2,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-c44185268bc10db2",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "CARTRIDGE_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 3,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-abb4d9aa28091df5",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "CARTRIDGE_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 4,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-82f8b858a2c89559",
+      "claim": {
+        "text": [],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "CARTRIDGE_BACK",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 5,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-d8ca962a71aecbcf",
+      "claim": {
+        "text": [
+          "LOCK'N CHASE",
+          "DECO"
+        ],
+        "productCodes": [
+          "DMG-LCA"
+        ],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "MANUAL_FRONT",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 6,
+      "identifier": [
+        "DMG-LCA"
+      ],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "listing-obs-d703ab790f95d464",
+      "claim": {
+        "text": [
+          "使用上の注意",
+          "FOR SALE AND USE IN JAPAN ONLY"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "component": "MANUAL_BACK",
+      "listingId": "v1|377464390784|0",
+      "imageIndex": 7,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-8a313a5d6d4b5155cfb23147",
+      "claim": "This version is specifically marked for PAL Europa distribution.",
+      "source": "candidate:bitlabelz.com",
+      "sourceUrl": "https://bitlabelz.com/en/game-boy-labels/93-lock-n-chase-game-boy-label-dmg-lca-.html",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "sourcesConsulted": [
+    "candidate:bitlabelz.com"
+  ],
+  "queriesExecuted": [
+    "\"DMG-LCA\"",
+    "\"DMG-LCA\" \"Lock 'n' Chase\"",
+    "site:game.es \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "site:todocoleccion.net \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "site:ebay.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "site:regionatlas.games \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "site:mobygames.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+    "\"Lock 'n' Chase\" \"gameboy\" \"standard\" back cover distributor legal text",
+    "\"DMG-LCA\" gameboy",
+    "site:game.es \"DMG-LCA\""
+  ],
+  "listingImagesUsed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-09ba161c48ad67d1",
+      "imageIndex": 1,
+      "component": "OUTER_PACKAGE_FRONT",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_front",
+      "textSnippets": [
+        "LOCK'N CHASE",
+        "GAME BOY",
+        "DECO"
+      ],
+      "productCodes": [
+        "DMG-LCA"
+      ],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|377464390784|0",
+      "contentHash": "dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9"
+    },
+    {
+      "id": "listing-obs-279dd38ca4ce14cf",
+      "imageIndex": 2,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeType": "MEDIA",
+      "role": "cartridge_front",
+      "textSnippets": [
+        "LOCK'N CHASE",
+        "DECO"
+      ],
+      "productCodes": [
+        "DMG-LCA"
+      ],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [
+        "DATA EAST CORP"
+      ],
+      "editionMarkers": [],
+      "listingId": "v1|377464390784|0",
+      "contentHash": "4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4"
+    },
+    {
+      "id": "listing-obs-c44185268bc10db2",
+      "imageIndex": 3,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeType": "MEDIA",
+      "role": "cartridge_front",
+      "textSnippets": [
+        "LOCK'N CHASE",
+        "DECO"
+      ],
+      "productCodes": [
+        "DMG-LCA"
+      ],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|377464390784|0",
+      "contentHash": "d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e"
+    },
+    {
+      "id": "listing-obs-abb4d9aa28091df5",
+      "imageIndex": 4,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeType": "MEDIA",
+      "role": "cartridge_front",
+      "textSnippets": [
+        "LOCK'N CHASE",
+        "DECO"
+      ],
+      "productCodes": [
+        "DMG-LCA"
+      ],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|377464390784|0",
+      "contentHash": "ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e"
+    },
+    {
+      "id": "listing-obs-82f8b858a2c89559",
+      "imageIndex": 5,
+      "component": "CARTRIDGE_BACK",
+      "productNodeType": "MEDIA",
+      "role": "cartridge_back",
+      "textSnippets": [],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|377464390784|0",
+      "contentHash": "d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5"
+    },
+    {
+      "id": "listing-obs-d8ca962a71aecbcf",
+      "imageIndex": 6,
+      "component": "MANUAL_FRONT",
+      "productNodeType": "DOCUMENT",
+      "role": "manual_front",
+      "textSnippets": [
+        "LOCK'N CHASE",
+        "DECO"
+      ],
+      "productCodes": [
+        "DMG-LCA"
+      ],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|377464390784|0",
+      "contentHash": "bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca"
+    },
+    {
+      "id": "listing-obs-d703ab790f95d464",
+      "imageIndex": 7,
+      "component": "MANUAL_BACK",
+      "productNodeType": "DOCUMENT",
+      "role": "manual_back",
+      "textSnippets": [
+        "使用上の注意",
+        "FOR SALE AND USE IN JAPAN ONLY"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|377464390784|0",
+      "contentHash": "6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674"
+    }
+  ],
+  "identifiersFound": [
+    "PRODUCT_CODE:DMG-LCA:OUTER_PACKAGE_FRONT",
+    "PRODUCT_CODE:DMG-LCA:CARTRIDGE_FRONT",
+    "PRODUCT_CODE:DMG-LCA:MANUAL_FRONT"
+  ],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF"
+  ],
+  "reasonForReview": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+  "research": {
+    "targetField": "MARKET_REGION",
+    "status": "UNRESOLVED",
+    "resolution": {
+      "field": "MARKET_REGION",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    },
+    "error": null,
+    "technicalFailures": [
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.com/itm/394924065359",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      },
+      {
+        "operation": "DIRECT_FETCH",
+        "target": "https://www.etsy.com/listing/1547307167/lock-n-chase-rokkuncheisu-replacement",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_PAGE_HTTP_403",
+        "recovered": true
+      }
+    ],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0.05,
+    "aiUsd": 0.04626055,
+    "totalUsd": 0.09626055,
+    "braveWeb": 10,
+    "braveImages": 0,
+    "acquisitionAiCalls": 4,
+    "researchAiCalls": 1
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/ebay-regional-campaigns/review-queue.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:02:21.530Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "41c71127a38af6681e349476284ce51dd38a5120fd048b170a535da7b8fe5dbf"
+}

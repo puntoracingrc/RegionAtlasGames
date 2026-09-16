@@ -1,0 +1,187 @@
+{
+  "PS4-01": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/games.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "PS4-02": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/collection.json",
+      "data/games.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "PS4-03": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/provisional-price-seeds/ps4-pal-es-page-05-2026-08-31.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "PS4-04": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/provisional-price-seeds/ps4-pal-es-page-10-2026-08-31.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "PS5-01": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [
+      "data/research/person-editorial-approvals.json",
+      "data/research/person-study/core.json",
+      "data/research/person-study/public.json",
+      "data/research/person-study/works.json",
+      "data/research/platform-history/people-ps3-public.json",
+      "data/research/platform-history/platforms-ps3.json",
+      "data/research/platform-history/platforms-ps5.json"
+    ],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/company-role-backfill-report.json",
+      "data/research/person-editorial-approvals.json",
+      "data/research/person-study/core.json",
+      "data/research/person-study/public.json",
+      "data/research/person-study/works.json",
+      "data/research/platform-history/people-ps3-public.json",
+      "data/research/platform-history/platforms-ps3.json",
+      "data/research/platform-history/platforms-ps5.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "PS5-02": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "PS5-03": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [
+      "data/research/platform-history/platforms-ps5.json"
+    ],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/collection.json",
+      "data/games.json",
+      "data/research/platform-history/platforms-ps5.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "PS5-04": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [
+      "data/research/company-credit-ps4-pal-batch-1-report.json"
+    ],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/company-role-backfill-report.json",
+      "data/game-details.json",
+      "data/index/verified-company-credits.json",
+      "data/provisional-price-seeds/ps4-pal-es-pages-24-26-2026-08-31.json",
+      "data/research/company-credit-ps4-pal-batch-1-report.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "N64-01": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "N64-02": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/museum-seed-report.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "N64-03": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "N64-04": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "GB-01": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/ebay-regional-campaigns/review-queue.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "GB-02": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/company-role-backfill-report.json",
+      "data/ebay-regional-campaigns/review-queue.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "GB-03": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/company-role-backfill-report.json",
+      "data/ebay-regional-campaigns/review-queue.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "GB-04": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/company-role-backfill-report.json",
+      "data/ebay-regional-campaigns/review-queue.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  }
+}

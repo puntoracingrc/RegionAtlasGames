@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 2,
+  "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+  "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+  "subjectId": "benchmark:listing-evidence-v2-ps5-02",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS5_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Dragon's Dogma 2\" \"ps5\" \"standard\"",
+    "\"Dragon's Dogma 2\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Dragon's Dogma 2\" PlayStation 5",
+    "site:ebay.es \"Dragon's Dogma 2\" PlayStation 5"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"dragon's dogma 2\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"dragon's dogma 2\" \"ps5\" \"standard\"",
+    "site:ebay.com \"dragon's dogma 2\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"dragon's dogma 2\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"dragon's dogma 2\" \"ps5\" \"standard\"",
+    "\"dragon's dogma 2\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"dragon's dogma 2\" playstation 5",
+    "site:ebay.es \"dragon's dogma 2\" playstation 5"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/336641149498",
+    "https://www.ebay.com/shop/dogma-2?_nkw=dogma+2",
+    "https://www.ebay.com/itm/387433111624",
+    "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+    "https://store.playstation.com/en-us/product/UP0102-PPSA09663_00-DELUXEEDITION000",
+    "https://www.ebay.es/itm/193340838641",
+    "https://www.ebay.es/itm/116074151536"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "store.playstation.com",
+    "www.ebay.es"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-7fa326461ad122253a94f502",
+      "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+      "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+      "sourceId": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+      "canonicalUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+      "sourceType": "PLATFORM_HOLDER",
+      "host": "store.playstation.com",
+      "fetchedAt": "2026-09-16T19:01:26.317Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Capcom U.S.A., Inc. PS5 Standard Edition",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "d4f4ffcc5895d454ddeeb66bd703bbcbcecceb6c4eeceff6121a58543de43713",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-8f70a73abcd50235b57df48c",
+      "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+      "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+      "sourceId": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+      "canonicalUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+      "sourceType": "PLATFORM_HOLDER",
+      "host": "store.playstation.com",
+      "fetchedAt": "2026-09-16T19:01:29.112Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Country / Region: United States",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "2b0785dfb70cfb6f22b8c3b5995c2fd2f15406b7a427a11abd51553abf6367e4",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-f6698aa463c09c0085bd6236",
+      "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+      "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-02",
+      "gameId": "ps5-usa-dragon-s-dogma-2",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "USA",
+      "sourceId": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+      "evidenceId": "ev-7fa326461ad122253a94f502",
+      "confidence": 0.95,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:01:27.912Z"
+    },
+    {
+      "id": "cl-33fec1283d2a9e1dda3d5f67",
+      "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+      "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+      "subjectId": "benchmark:listing-evidence-v2-ps5-02",
+      "gameId": "ps5-usa-dragon-s-dogma-2",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "USA",
+      "sourceId": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+      "evidenceId": "ev-8f70a73abcd50235b57df48c",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:01:30.857Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/336641149498",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/shop/dogma-2?_nkw=dogma+2",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/387433111624",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/itm/193340838641",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/itm/116074151536",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 2,
+    "images": 0,
+    "agentTurns": 3,
+    "browserSessions": 2,
+    "inputTokens": 3523,
+    "outputTokens": 217,
+    "estimatedCostUsd": 0.000659
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page explicitly states 'Country / Region: United States', confirming the market region.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T19:01:32.513Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T19:01:18.830Z",
+  "updatedAt": "2026-09-16T19:01:32.513Z"
+}

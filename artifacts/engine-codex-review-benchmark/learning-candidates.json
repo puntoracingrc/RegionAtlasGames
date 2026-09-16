@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "appliedDuringBenchmark": false,
+  "candidates": [
+    {
+      "id": "LC-001",
+      "type": "LISTING_TEXT_PROVENANCE",
+      "affectedCases": [
+        "N64-04"
+      ],
+      "observation": "Generic condition boilerplate containing VHS/DVD triggered non_game_product despite target-game box, cartridge, and manual being visible.",
+      "proposedLearning": "Classify description spans as product-specific versus marketplace boilerplate before applying reject tokens; require a product-specific conflict or visual conflict for non-game rejection."
+    },
+    {
+      "id": "LC-002",
+      "type": "MULTI_COMPONENT_OBSERVATION",
+      "affectedCases": [
+        "N64-04"
+      ],
+      "observation": "High-detail classification found box, cartridge, and manual in one image, but the normalized observation collapsed to UNKNOWN_COMPONENT.",
+      "proposedLearning": "Preserve one component-bound observation per confidently classified component even when multiple components share an image."
+    },
+    {
+      "id": "LC-003",
+      "type": "LISTING_METADATA_IDENTIFIER_ROUTE",
+      "affectedCases": [
+        "PS4-02",
+        "PS4-04",
+        "PS5-01",
+        "PS5-02",
+        "PS5-03"
+      ],
+      "observation": "Exact EAN/MPN values existed in the frozen Browse API payload but did not reach the Engine bundle, causing generic-title searches.",
+      "proposedLearning": "Pass normalized API EAN/UPC/MPN into the Knowledge Pack as explicitly low-trust LISTING_METADATA identifiers and immediately route exact verification without promoting them to physical evidence."
+    },
+    {
+      "id": "LC-004",
+      "type": "REGIONAL_SIBLING_ADJUDICATION",
+      "affectedCases": [
+        "GB-01",
+        "GB-02"
+      ],
+      "observation": "The Engine captured all decisive component-bound evidence but did not map it to existing Japan/USA sibling entries.",
+      "proposedLearning": "Expose all same-work regional siblings in catalog alternatives and add deterministic market-text rules for explicit Japan-only legal text and distributor-bound USA box evidence."
+    },
+    {
+      "id": "LC-005",
+      "type": "SPECIMEN_BOUND_STOP_RULE",
+      "affectedCases": [
+        "PS4-02",
+        "PS4-04",
+        "PS5-01",
+        "PS5-02",
+        "PS5-03",
+        "PS5-04"
+      ],
+      "observation": "External sources can solve product-family identifiers but cannot manufacture listing-bound condition, seal, disc, or package evidence absent from the selected listing.",
+      "proposedLearning": "After exact product-family mapping, stop and DEFER when the remaining gap is specimen-bound and the original listing has no eligible component photo."
+    }
+  ]
+}

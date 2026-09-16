@@ -1,0 +1,44 @@
+[
+  {
+    "id": "cl-5a922fcbf6adb8dce6dfa3ee",
+    "runId": "benchmark-engine-ps5-03-mu4gvng9",
+    "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-03",
+    "gameId": "ps5-final-fantasy-xvi",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "national-retailer",
+    "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+    "evidenceId": "ev-564d949afac8d2c044020733",
+    "confidence": 0.9,
+    "status": "CANDIDATE",
+    "validationErrors": [],
+    "createdAt": "2026-09-16T19:01:42.910Z"
+  },
+  {
+    "id": "cl-cb0b606b11e2702523b9d3d4",
+    "runId": "benchmark-engine-ps5-03-mu4gvng9",
+    "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+    "subjectId": "benchmark:listing-evidence-v2-ps5-03",
+    "gameId": "ps5-final-fantasy-xvi",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "platform-holder-official",
+    "sourceUrl": "https://store.playstation.com/es-mx/concept/10002100",
+    "evidenceId": "ev-6edee87a71899ac80e159ebf",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:01:49.218Z"
+  }
+]

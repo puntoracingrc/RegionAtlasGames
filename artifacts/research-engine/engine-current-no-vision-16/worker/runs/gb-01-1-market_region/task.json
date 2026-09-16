@@ -1,0 +1,18 @@
+{
+  "id": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+  "subjectId": "catalog:gameboy-pal-dr-mario",
+  "targetField": "MARKET_REGION",
+  "question": "¿Qué mercado o mercados corresponden a esta caja física concreta?",
+  "priority": "P1",
+  "evidenceNeeded": [
+    "PHYSICAL_SCAN",
+    "RETAILER",
+    "COLLECTOR_DATABASE"
+  ],
+  "riskCodes": [
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T20:12:42.584Z",
+  "updatedAt": "2026-09-16T20:12:42.584Z"
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "listing-obs-58acd82275b858cf",
+    "listingId": "v1|267695458509|0",
+    "imageIndex": 1,
+    "contentHash": "091cd8e51932d2394043628acd89e779b9883a7b805daeff69570eccfd98056b",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "FINAL FANTASY XVI",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 18"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "SQUARE ENIX"
+    ],
+    "visibleText": [
+      "www.pegi.info"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

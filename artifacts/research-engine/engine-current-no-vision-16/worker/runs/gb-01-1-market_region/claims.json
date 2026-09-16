@@ -1,0 +1,88 @@
+[
+  {
+    "id": "cl-7e9648847d207076600d7a8f",
+    "runId": "gb-01-1-market_region",
+    "taskId": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+    "subjectId": "catalog:gameboy-pal-dr-mario",
+    "gameId": "gameboy-pal-dr-mario",
+    "platformSlug": "gameboy",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL Europa",
+    "sourceId": "candidate:www.amazon.es",
+    "sourceUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+    "evidenceId": "ev-838c8cb1ad8f545a97cddf26",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T20:12:46.199Z"
+  },
+  {
+    "id": "cl-22f7c5b1dd8b84904d32b2ca",
+    "runId": "gb-01-1-market_region",
+    "taskId": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+    "subjectId": "catalog:gameboy-pal-dr-mario",
+    "gameId": "gameboy-pal-dr-mario",
+    "platformSlug": "gameboy",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+    "sourceUrl": "https://www.ebay.es/p/1444700809",
+    "evidenceId": "ev-8b70eb4bb57ada5d96b00462",
+    "confidence": 1,
+    "status": "VALIDATED",
+    "validationErrors": [],
+    "createdAt": "2026-09-16T20:12:48.343Z"
+  },
+  {
+    "id": "cl-cdb071db0ccaf49ab44bbb45",
+    "runId": "gb-01-1-market_region",
+    "taskId": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+    "subjectId": "catalog:gameboy-pal-dr-mario",
+    "gameId": "gameboy-pal-dr-mario",
+    "platformSlug": "gameboy",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_BACK",
+    "field": "MARKET_REGION",
+    "value": "PAL Europa",
+    "sourceId": "candidate:www.retroplace.com",
+    "sourceUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+    "evidenceId": "ev-406842fb805dbb03fc767243",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T20:12:59.707Z"
+  },
+  {
+    "id": "cl-d6e074e7e34a40d382202ef8",
+    "runId": "gb-01-1-market_region",
+    "taskId": "catalog:gameboy-pal-dr-mario:resolve_market:1",
+    "subjectId": "catalog:gameboy-pal-dr-mario",
+    "gameId": "gameboy-pal-dr-mario",
+    "platformSlug": "gameboy",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "PAL Europa",
+    "sourceId": "candidate:nostalgicvideogames.com",
+    "sourceUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+    "evidenceId": "ev-6690b47d61fe433d081d1b5c",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T20:13:02.589Z"
+  }
+]

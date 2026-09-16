@@ -1,0 +1,72 @@
+[
+  {
+    "query": "\"Mole Mania\" \"gameboy\" physical edition",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Mole Mania\" \"gameboy\" product code",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"DMG-AMOP-EUR\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "DMG-AMOP-EUR"
+  },
+  {
+    "query": "\"DMG-AMOP-EUR\" gameboy",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "DMG-AMOP-EUR"
+  },
+  {
+    "query": "site:www.ebay.es \"DMG-AMOP-EUR\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "DMG-AMOP-EUR"
+  },
+  {
+    "query": "\"DMG-AMOP-EUR\" \"Mole Mania\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "DMG-AMOP-EUR"
+  },
+  {
+    "query": "\"DMG-AMOP-EUR\" \"PAL Europa\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "DMG-AMOP-EUR"
+  },
+  {
+    "query": "site:www.ebay.es \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:gbhwdb.gekkio.fi \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "legacy:gameboy-documentary-v3-legado:hardware",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:www.game-boy-database.com \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "legacy:gameboy-documentary-v3-legado:flintstones",
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

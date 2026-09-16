@@ -1,0 +1,1876 @@
+[
+  {
+    "requestedUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+    "canonicalUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+    "status": 200,
+    "title": "Hogwarts Legacy Standard. Playstation 5: GAME.es",
+    "language": null,
+    "contentType": "text/html; rendered=browser",
+    "bytes": 218669,
+    "fetchedAt": "2026-09-16T19:01:56.815Z",
+    "textHash": "76a578d0faa26f08263bd37f7506f2f75212ec0cc4fa29d549addca7b5d3de37",
+    "excerpt": "Consentimiento Detalles Acerca de las cookies Esta página web usa cookies Utilizamos cookies propias y de terceros que nos ayudan a optimizar nuestro sitio web para fines analíticos y para mostrarte publicidad personalizada. Para poder usar estos servicios, necesitamos recabar su consentimiento. Puedes aceptar todas las cookies voluntariamente pulsando el botón \"Aceptar\" o configurarlas pulsando el botón \"Configurar\", o bien denegar su uso pulsando \"Rechazar todo\". Puedes encontrar más información de las cookies utilizadas en nuestra web en la Política de cookies Con su consentimiento, nosotros y nuestros socios usamos cookies o tecnologías similares para almacenar, acceder y procesar datos personales como su visita en este sitio web. Almacenamiento y acceso a información de geolocalización, almacenamiento y acceso a información de dispositivos, sistema operativo para analizar el rendimiento de nuestro sitio web. Analizar activamente las características del dispositivo para su identificación. Extraer reporte de analítica online de navegación y grupos de interés para realizar perfiles de clientes. Crear un perfil para recomendación de contenidos, crear un perfil publicitario personalizado, desarrollar y mejorar productos, enriquecer el perfil con información de su navegación, medir el rendimiento de las distintas secciones de la página, medir el rendimiento del contenido, medir el rendimiento de las diferentes páginas de aterrizaje de nuestras web, utilizar datos de localización geográfica para proponerle la tienda más cercana, utilizar los datos de analítica online para llevar a cabo diferentes estudios de mercado y de intereses. Denegar Configurar Aceptar Tiendas Atención al cliente GAME Videojuegos PC gaming Tarjetas Regalo Informática Promociones Seminuevos Merchandising Cine y cómics Electrónica Estás en: Inicio Videojuegos Hogwarts Legacy Standard HOGWARTS LEGACY STANDARD IMÁGENES Y VÍDEOS Código de producto: 183236 ESTADO: Nuevo 29,99 € Seminuevo 19,99 € PLATA",
+    "linkCount": 163,
+    "imageCount": 58,
+    "imageCandidates": [
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+        "alt": "Videojuegos",
+        "caption": null,
+        "galleryLabel": "Videojuegos",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+        "alt": "PC gaming",
+        "caption": null,
+        "galleryLabel": "PC gaming",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+        "alt": "Tarjetas Regalo",
+        "caption": null,
+        "galleryLabel": "Tarjetas Regalo",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+        "alt": "Informática",
+        "caption": null,
+        "galleryLabel": "Informática",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+        "alt": "Promociones",
+        "caption": null,
+        "galleryLabel": "Promociones",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+        "alt": "Seminuevos",
+        "caption": null,
+        "galleryLabel": "Seminuevos",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+        "alt": "Merchandising",
+        "caption": null,
+        "galleryLabel": "Merchandising",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+        "alt": "Cine y cómics",
+        "caption": null,
+        "galleryLabel": "Cine y cómics",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+        "alt": "Electrónica",
+        "caption": null,
+        "galleryLabel": "Electrónica",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/183/183236.png",
+        "thumbnailUrl": null,
+        "originalUrl": "https://media.game.es/COVERV2/3D_L/183/183236.png",
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/183/183236.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/183/183236.png",
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-meta-image"
+        ]
+      },
+      {
+        "url": "https://www.game.es/Content/img/product/imagenes.svg",
+        "thumbnailUrl": "https://www.game.es/Content/img/product/imagenes.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://www.game.es/Content/img/product/imagenes.svg",
+        "canonicalUrl": "https://www.game.es/Content/img/product/imagenes.svg",
+        "alt": "Ir a imágenes",
+        "caption": null,
+        "galleryLabel": "Ir a imágenes",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://www.game.es/Content/img/product/video.svg",
+        "thumbnailUrl": "https://www.game.es/Content/img/product/video.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://www.game.es/Content/img/product/video.svg",
+        "canonicalUrl": "https://www.game.es/Content/img/product/video.svg",
+        "alt": "Ver vídeos",
+        "caption": null,
+        "galleryLabel": "Ver vídeos",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/pegi-12.jpg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/pegi-12.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/pegi-12.jpg",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/pegi-12.jpg",
+        "alt": "PEGI edad recomendada: 12 años",
+        "caption": "PEGI edad recomendada: 12 años",
+        "galleryLabel": "PEGI edad recomendada: 12 años",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/201/201389.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/201/201389.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/201/201389.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/201/201389.png",
+        "alt": "Grand Theft Auto V",
+        "caption": null,
+        "galleryLabel": "Grand Theft Auto V",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/219/219366.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/219/219366.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/219/219366.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/219/219366.png",
+        "alt": "Prince of Persia The Lost Crown",
+        "caption": null,
+        "galleryLabel": "Prince of Persia The Lost Crown",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/208/208430.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/208/208430.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/208/208430.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/208/208430.png",
+        "alt": "WRC Generations",
+        "caption": null,
+        "galleryLabel": "WRC Generations",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/241/241517.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/241/241517.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/241/241517.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/241/241517.png",
+        "alt": "Cargador Rápido Dual mandos PS5 PDP Metavolt Blanco",
+        "caption": null,
+        "galleryLabel": "Cargador Rápido Dual mandos PS5 PDP Metavolt Blanco",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/267/267783.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/267/267783.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/267/267783.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/267/267783.png",
+        "alt": "Atelier Karia: El Reino de la Noche y La Guía de los Recuerdos",
+        "caption": null,
+        "galleryLabel": "Atelier Karia: El Reino de la Noche y La Guía de los Recuerdos",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/263/263105.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263105.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263105.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263105.png",
+        "alt": "Final Fantasy VII Revelation Magic Card Edition",
+        "caption": null,
+        "galleryLabel": "Final Fantasy VII Revelation Magic Card Edition",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/248/248004.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/248/248004.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/248/248004.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/248/248004.png",
+        "alt": "The Blood of Dawnwalker Day One Edition",
+        "caption": null,
+        "galleryLabel": "The Blood of Dawnwalker Day One Edition",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+        "alt": "Este producto incluye regalo",
+        "caption": null,
+        "galleryLabel": "Este producto incluye regalo",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/263/263169.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263169.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263169.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263169.png",
+        "alt": "Final Fantasy Resonance",
+        "caption": null,
+        "galleryLabel": "Final Fantasy Resonance",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/267/267872.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/267/267872.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/267/267872.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/267/267872.png",
+        "alt": "Eternal Anima Limited Edition",
+        "caption": null,
+        "galleryLabel": "Eternal Anima Limited Edition",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/263/263156.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263156.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263156.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263156.png",
+        "alt": "Kingdom Hearts Collection I-III",
+        "caption": null,
+        "galleryLabel": "Kingdom Hearts Collection I-III",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/263/263162.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263162.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263162.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263162.png",
+        "alt": "Persona 4 Revival Steelbook Edition",
+        "caption": null,
+        "galleryLabel": "Persona 4 Revival Steelbook Edition",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/251/251783.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/251/251783.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/251/251783.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/251/251783.png",
+        "alt": "Crimson Desert Day 1 Edition",
+        "caption": null,
+        "galleryLabel": "Crimson Desert Day 1 Edition",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/ScreenShootsV2/183/183236/00_xxl.jpg",
+        "thumbnailUrl": "https://media.game.es/ScreenShootsV2/183/183236/00_xxl.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/ScreenShootsV2/183/183236/00_xxl.jpg",
+        "canonicalUrl": "https://media.game.es/ScreenShootsV2/183/183236/00_xxl.jpg",
+        "alt": "Hogwarts Legacy Standard-0",
+        "caption": "Hogwarts Legacy Standard-0",
+        "galleryLabel": "Hogwarts Legacy Standard-0",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/ScreenShootsV2/183/183236/01_xxl.jpg",
+        "thumbnailUrl": "https://media.game.es/ScreenShootsV2/183/183236/01_xxl.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/ScreenShootsV2/183/183236/01_xxl.jpg",
+        "canonicalUrl": "https://media.game.es/ScreenShootsV2/183/183236/01_xxl.jpg",
+        "alt": "Hogwarts Legacy Standard-1",
+        "caption": "Hogwarts Legacy Standard-1",
+        "galleryLabel": "Hogwarts Legacy Standard-1",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/ScreenShootsV2/183/183236/02_xxl.jpg",
+        "thumbnailUrl": "https://media.game.es/ScreenShootsV2/183/183236/02_xxl.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/ScreenShootsV2/183/183236/02_xxl.jpg",
+        "canonicalUrl": "https://media.game.es/ScreenShootsV2/183/183236/02_xxl.jpg",
+        "alt": "Hogwarts Legacy Standard-2",
+        "caption": "Hogwarts Legacy Standard-2",
+        "galleryLabel": "Hogwarts Legacy Standard-2",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/ScreenShootsV2/183/183236/03_xxl.jpg",
+        "thumbnailUrl": "https://media.game.es/ScreenShootsV2/183/183236/03_xxl.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/ScreenShootsV2/183/183236/03_xxl.jpg",
+        "canonicalUrl": "https://media.game.es/ScreenShootsV2/183/183236/03_xxl.jpg",
+        "alt": "Hogwarts Legacy Standard-3",
+        "caption": "Hogwarts Legacy Standard-3",
+        "galleryLabel": "Hogwarts Legacy Standard-3",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/ScreenShootsV2/183/183236/04_xxl.jpg",
+        "thumbnailUrl": "https://media.game.es/ScreenShootsV2/183/183236/04_xxl.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/ScreenShootsV2/183/183236/04_xxl.jpg",
+        "canonicalUrl": "https://media.game.es/ScreenShootsV2/183/183236/04_xxl.jpg",
+        "alt": "Hogwarts Legacy Standard-4",
+        "caption": "Hogwarts Legacy Standard-4",
+        "galleryLabel": "Hogwarts Legacy Standard-4",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/img-tienda-click-recoger.jpg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/img-tienda-click-recoger.jpg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/img-tienda-click-recoger.jpg",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/img-tienda-click-recoger.jpg",
+        "alt": "Encuentra tu tienda más cercana y reserva tu producto",
+        "caption": "Encuentra tu tienda más cercana y reserva tu producto",
+        "galleryLabel": "Encuentra tu tienda más cercana y reserva tu producto",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://www.game.es/Content/img/img-statics/load-auto-search.gif",
+        "thumbnailUrl": "https://www.game.es/Content/img/img-statics/load-auto-search.gif",
+        "originalUrl": null,
+        "resolvedUrl": "https://www.game.es/Content/img/img-statics/load-auto-search.gif",
+        "canonicalUrl": "https://www.game.es/Content/img/img-statics/load-auto-search.gif",
+        "alt": "Cargando",
+        "caption": "Cargando",
+        "galleryLabel": "Cargando",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/load-auto-search.gif",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/load-auto-search.gif",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/load-auto-search.gif",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/load-auto-search.gif",
+        "alt": "Cargando",
+        "caption": "Cargando",
+        "galleryLabel": "Cargando",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger.png",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger.png",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger.png",
+        "alt": "Producto disponible",
+        "caption": "producto disponible",
+        "galleryLabel": "producto disponible",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger-tienda.png",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger-tienda.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger-tienda.png",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger-tienda.png",
+        "alt": "Producto disponible envío a tienda",
+        "caption": "Comprar y recoger en tienda",
+        "galleryLabel": "Comprar y recoger en tienda",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/img-no-disponible-click-recoger.png",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/img-no-disponible-click-recoger.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/img-no-disponible-click-recoger.png",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/img-no-disponible-click-recoger.png",
+        "alt": "Producto no disponible",
+        "caption": "Producto no disponible",
+        "galleryLabel": "Producto no disponible",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+        "alt": "Cargando",
+        "caption": "Cargando",
+        "galleryLabel": "Cargando",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+        "alt": "Ecommerce",
+        "caption": null,
+        "galleryLabel": "Ecommerce",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+        "alt": "Omnichannel",
+        "caption": null,
+        "galleryLabel": "Omnichannel",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+        "alt": "Visítanos en X",
+        "caption": null,
+        "galleryLabel": "Visítanos en X",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+        "alt": "Visítanos en X SAC",
+        "caption": null,
+        "galleryLabel": "Visítanos en X SAC",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+        "alt": "Visítanos en Instagram",
+        "caption": null,
+        "galleryLabel": "Visítanos en Instagram",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+        "alt": "Visítanos en Facebook",
+        "caption": null,
+        "galleryLabel": "Visítanos en Facebook",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+        "alt": "Visítanos en Youtube",
+        "caption": null,
+        "galleryLabel": "Visítanos en Youtube",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+        "alt": "Visítanos en Tik Tok",
+        "caption": null,
+        "galleryLabel": "Visítanos en Tik Tok",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+        "alt": "Visítanos en Telegram",
+        "caption": null,
+        "galleryLabel": "Visítanos en Telegram",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+        "alt": "Visítanos en Blog GAME+",
+        "caption": null,
+        "galleryLabel": "Visítanos en Blog GAME+",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+        "alt": "Visítanos en Blog GAME+",
+        "caption": null,
+        "galleryLabel": "Visítanos en Blog GAME+",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+        "alt": "Tarjeta bancaria",
+        "caption": null,
+        "galleryLabel": "Tarjeta bancaria",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+        "alt": "Bizum",
+        "caption": null,
+        "galleryLabel": "Bizum",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+        "alt": "Pepper",
+        "caption": null,
+        "galleryLabel": "Pepper",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+        "alt": "SeQura",
+        "caption": null,
+        "galleryLabel": "SeQura",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+        "alt": "Visítanos en Facebook",
+        "caption": null,
+        "galleryLabel": "Visítanos en Facebook",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+        "alt": "Puntos socio",
+        "caption": null,
+        "galleryLabel": "Puntos socio",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+        "alt": "Tarjeta regalo",
+        "caption": null,
+        "galleryLabel": "Tarjeta regalo",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+        "alt": "password",
+        "caption": null,
+        "galleryLabel": "password",
+        "sourcePageUrl": "https://www.game.es/videojuegos/rol/playstation-5/hogwarts-legacy-standard/183236",
+        "sourceRecordId": null,
+        "listingId": "183236",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      }
+    ],
+    "mode": "BROWSER"
+  },
+  {
+    "requestedUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+    "canonicalUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+    "status": 200,
+    "title": "Playstation 5 Lector + 2 Dualsense + Hogwarts Legacy Standard. PLAYSTATION 5: GAME.es",
+    "language": "es",
+    "contentType": "text/html",
+    "bytes": 197343,
+    "fetchedAt": "2026-09-16T19:02:00.804Z",
+    "textHash": "cc11e857b3903b3782cdb94c6e84f9e33219f8472375ce2f9ee46956b88c3ef3",
+    "excerpt": "Playstation 5 Lector + 2 Dualsense + Hogwarts Legacy Standard. PLAYSTATION 5: GAME.es Tiendas GAME App Atención al cliente GAME Bienvenido Zona de socios Cerrar sesión Iniciar sesión Productos a&ntilde;adidos a tu cesta Ver cesta Ver todo Consolas Playstation 5 Nintendo Switch 2 Nintendo Switch XBOX Playstation 4 Accesorios PS5 Accesorios Switch 2 Accesorios XBOX PC PC Digital Retro Videojuegos Ver todo PC sobremesa gaming Portátiles gaming PC Handhelds Monitores Sillas gaming Periféricos gaming Auriculares Teclados Ratones Alfombrillas Gamepads Iluminación gaming Simulación Espacio Streaming Volantes gaming PC gaming Ver todo Monedero Game Tarjetas Playstation Nintendo E-Shop Xbox Digital Fortnite Google Play Tiktok Dazn Roblox Netflix Disney Movistar Tarjetas Regalo Ver todo Portátiles Accesorios informática Sobremesas / AIO Monitores Tablets Almacenamiento Redes y conectividad Impresoras Informática Promociones Ver todo Reacondicionados Smartphones Tablets Relojes Playstation 5 Xbox Series X Playstation 4 Xbox One Nintendo Switch Nintendo 3DS-2DS PC Playstation 3 Xbox 360 WII U WII Playstation 2 Peliculas Seminuevos Ver todo Juguetes LEGO Cartas TCG Hogar y decoración Juegos de mesa Cromos coleccionables Figuras POP Figuras Ropa Álbumes de cromos Reacondicionados Star Wars Merchandising Ver todo Películas y series Ediciones Steelbooks Cómics y libros Comic Manga Guías de videojuegos Novelas Revistas Libros de arte Cine y cómics Ver todo Smartphones Televisores Relojes y pulseras Auriculares Electrónica Estás en: Inicio Playstation 5 Lector + 2 Dualsense + Hogwarts Legacy Standard Playstation 5 Lector + 2 Dualsense + Hogwarts Legacy Standard IMÁGENES Y VÍDEOS Código de producto: P04624 Plataforma: Playstation 5 Valoración: Sin valoraci&oacute;n 0 Valoraciones Producto no disponible PRODUCTOS RELACIONADOS Atelier Karia: El Reino de la Noche y La Guía de los Recuerdos 71 '99 &euro; Final Fantasy VII Revelation Magic Card Edition 81 '99 &euro; The Blood of Dawnwalker",
+    "linkCount": 145,
+    "imageCount": 41,
+    "imageCandidates": [
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+        "alt": "Videojuegos",
+        "caption": null,
+        "galleryLabel": "Videojuegos",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+        "alt": "PC gaming",
+        "caption": null,
+        "galleryLabel": "PC gaming",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+        "alt": "Tarjetas Regalo",
+        "caption": null,
+        "galleryLabel": "Tarjetas Regalo",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+        "alt": "Informática",
+        "caption": null,
+        "galleryLabel": "Informática",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+        "alt": "Promociones",
+        "caption": null,
+        "galleryLabel": "Promociones",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+        "alt": "Seminuevos",
+        "caption": null,
+        "galleryLabel": "Seminuevos",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+        "alt": "Merchandising",
+        "caption": null,
+        "galleryLabel": "Merchandising",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+        "alt": "Cine y cómics",
+        "caption": null,
+        "galleryLabel": "Cine y cómics",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+        "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+        "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+        "alt": "Electrónica",
+        "caption": null,
+        "galleryLabel": "Electrónica",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/P04/P04624.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/P04/P04624.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/P04/P04624.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/P04/P04624.png",
+        "alt": "Playstation 5 Lector + 2 Dualsense + Hogwarts Legacy Standard",
+        "caption": "Playstation 5 Lector + 2 Dualsense + Hogwarts Legacy Standard",
+        "galleryLabel": "Playstation 5 Lector + 2 Dualsense + Hogwarts Legacy Standard",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "og:image",
+          "json-ld.image",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/267/267783.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/267/267783.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/267/267783.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/267/267783.png",
+        "alt": "Atelier Karia: El Reino de la Noche y La Guía de los Recuerdos",
+        "caption": null,
+        "galleryLabel": "Atelier Karia: El Reino de la Noche y La Guía de los Recuerdos",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/263/263105.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263105.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263105.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263105.png",
+        "alt": "Final Fantasy VII Revelation Magic Card Edition",
+        "caption": null,
+        "galleryLabel": "Final Fantasy VII Revelation Magic Card Edition",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/248/248004.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/248/248004.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/248/248004.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/248/248004.png",
+        "alt": "The Blood of Dawnwalker Day One Edition",
+        "caption": null,
+        "galleryLabel": "The Blood of Dawnwalker Day One Edition",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+        "alt": "Este producto incluye regalo",
+        "caption": null,
+        "galleryLabel": "Este producto incluye regalo",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/263/263169.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263169.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263169.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263169.png",
+        "alt": "Final Fantasy Resonance",
+        "caption": null,
+        "galleryLabel": "Final Fantasy Resonance",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/267/267872.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/267/267872.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/267/267872.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/267/267872.png",
+        "alt": "Eternal Anima Limited Edition",
+        "caption": null,
+        "galleryLabel": "Eternal Anima Limited Edition",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/263/263156.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263156.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263156.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263156.png",
+        "alt": "Kingdom Hearts Collection I-III",
+        "caption": null,
+        "galleryLabel": "Kingdom Hearts Collection I-III",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/263/263162.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263162.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263162.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263162.png",
+        "alt": "Persona 4 Revival Steelbook Edition",
+        "caption": null,
+        "galleryLabel": "Persona 4 Revival Steelbook Edition",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/COVERV2/3D_L/251/251783.png",
+        "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/251/251783.png",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/COVERV2/3D_L/251/251783.png",
+        "canonicalUrl": "https://media.game.es/COVERV2/3D_L/251/251783.png",
+        "alt": "Crimson Desert Day 1 Edition",
+        "caption": null,
+        "galleryLabel": "Crimson Desert Day 1 Edition",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+        "alt": "Cargando",
+        "caption": "Cargando",
+        "galleryLabel": "Cargando",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+        "alt": "Ecommerce",
+        "caption": null,
+        "galleryLabel": "Ecommerce",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+        "alt": "Omnichannel",
+        "caption": null,
+        "galleryLabel": "Omnichannel",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+        "alt": "Visítanos en X",
+        "caption": null,
+        "galleryLabel": "Visítanos en X",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+        "alt": "Visítanos en X SAC",
+        "caption": null,
+        "galleryLabel": "Visítanos en X SAC",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+        "alt": "Visítanos en Instagram",
+        "caption": null,
+        "galleryLabel": "Visítanos en Instagram",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+        "alt": "Visítanos en Facebook",
+        "caption": null,
+        "galleryLabel": "Visítanos en Facebook",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+        "alt": "Visítanos en Youtube",
+        "caption": null,
+        "galleryLabel": "Visítanos en Youtube",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+        "alt": "Visítanos en Tik Tok",
+        "caption": null,
+        "galleryLabel": "Visítanos en Tik Tok",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+        "alt": "Visítanos en Telegram",
+        "caption": null,
+        "galleryLabel": "Visítanos en Telegram",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+        "alt": "Visítanos en Blog GAME+",
+        "caption": null,
+        "galleryLabel": "Visítanos en Blog GAME+",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+        "alt": "Visítanos en Blog GAME+",
+        "caption": null,
+        "galleryLabel": "Visítanos en Blog GAME+",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+        "alt": "Tarjeta bancaria",
+        "caption": null,
+        "galleryLabel": "Tarjeta bancaria",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+        "alt": "Bizum",
+        "caption": null,
+        "galleryLabel": "Bizum",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+        "alt": "Pepper",
+        "caption": null,
+        "galleryLabel": "Pepper",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+        "alt": "SeQura",
+        "caption": null,
+        "galleryLabel": "SeQura",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+        "alt": "Visítanos en Facebook",
+        "caption": null,
+        "galleryLabel": "Visítanos en Facebook",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+        "alt": "Puntos socio",
+        "caption": null,
+        "galleryLabel": "Puntos socio",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+        "alt": "Tarjeta regalo",
+        "caption": null,
+        "galleryLabel": "Tarjeta regalo",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+        "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+        "alt": "password",
+        "caption": null,
+        "galleryLabel": "password",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://media.game.es/Img-statics/img-statics/logo.png",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "https://media.game.es/Img-statics/img-statics/logo.png",
+        "canonicalUrl": "https://media.game.es/Img-statics/img-statics/logo.png",
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "sourcePageUrl": "https://www.game.es/playstation-5-lector-2-dualsense-hogwarts-legacy-standard-pack-ofertas-p04624",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      }
+    ],
+    "mode": "DIRECT_FETCH"
+  },
+  {
+    "requestedUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+    "canonicalUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+    "status": 200,
+    "title": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover) | PLAYe",
+    "language": "en",
+    "contentType": "text/html",
+    "bytes": 119289,
+    "fetchedAt": "2026-09-16T19:02:04.952Z",
+    "textHash": "c8436a00565184ba5f4aa216a58550c48d683797342941d08d9d1168f1cd1381",
+    "excerpt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover) | PLAYe My Account Shopping Cart Checkout 0 $0.00 No products in the cart. Pre-Order Console Playstation 4 XBOX ONE Nintendo Switch Others Games Playstation 4 XBOX ONE Nintendo Switch PC Toys Amiibo Figurine Soft Toys Model Kits Statue Funko Pop Tomica Gashapon Ichiban Kuji Video Game Merchandise Other Toys Gadgets Consoles & Accessories PlayStation PS5 Console PS5 Accessories PS4 Console PS4 Accessories PS3 Accessories XBOX XBox Series Console XBox Series Accessories XBOX One Console XBOX One Accessories Xbox 360 Accessories Nintendo Nintendo Switch Console Nintendo Switch Accessories Nintendo Switch 2 Console Nintendo Switch 2 Accessories PC Accessories Others Games PlayStation PS5 PS4 PS3 XBOX XBOX ONE XBOX 360 XBox Series Nintendo Switch Nintendo Switch Nintendo Switch 2 Nintendo 3DS PC Games Digital Games Others Toys Amiibo Figurine Marvel DC Disney Pokemon Star Wars One Piece Dragon Ball Transformers Miku Sword Art Online Demon Slayer Japan Anime Movie Video Game Sports Others Soft Toys Marvel DC Disney Pokemon Star Wars Sanrio Hello Kitty Doraemon Miku Japan Anime Movie Video Game Sports Others Model Kit Gundam Tamiya Others Statue XM Studios Sideshow Others Designer Toys Be@rbrick Might Jaxx Kid Robot Tokidoki Others Tomica Re-Ment JEKCA Funko POP Ichiban Kuji Gashapon Puzzle Video Game Merchandise Other toys Gadgets Drone Peripherals Speakers Blu-Ray Lifestyle & Apparels Apparels Home Decor Accessories Trading Card Games Trading Card Accessories Pokemon TCG BuddyFight TCG Yu Gi Oh TCG Vanguard TCG Magic The Gathering TCG Weiss Schwarz TCG Dragon Ball TCG Duel Master TCG Digimon TCG ONE PIECE TCG Other TCG Clearance Sale Video Games Toys Trading Cards Stores New Arrival Ps5 hogwarts legacy standard edition (eu) (italian cover) Home PS5 PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover) PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover) Sale PS5 Hogwarts Legacy Standard Edition (EU) (Ital",
+    "linkCount": 160,
+    "imageCount": 14,
+    "imageCandidates": [
+      {
+        "url": "https://play-e.com/cdn/shop/t/11/assets/logo.png?v=125901391145559170351502160635",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/t/11/assets/logo.png?v=125901391145559170351502160635",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/t/11/assets/logo.png?v=125901391145559170351502160635",
+        "canonicalUrl": "https://play-e.com/cdn/shop/t/11/assets/logo.png?v=125901391145559170351502160635",
+        "alt": "PLAYe",
+        "caption": "PLAYe",
+        "galleryLabel": "PLAYe",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/t/11/assets/icon-cart-hover.png?v=136188610118800306251502097947",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-cart-hover.png?v=136188610118800306251502097947",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-cart-hover.png?v=136188610118800306251502097947",
+        "canonicalUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-cart-hover.png?v=136188610118800306251502097947",
+        "alt": "",
+        "caption": null,
+        "galleryLabel": "",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/t/11/assets/icon-cart.png?v=136188610118800306251502097947",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-cart.png?v=136188610118800306251502097947",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-cart.png?v=136188610118800306251502097947",
+        "canonicalUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-cart.png?v=136188610118800306251502097947",
+        "alt": "",
+        "caption": null,
+        "galleryLabel": "",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_small.png?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_small.png?v=1701411451",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_small.png?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_small.png?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4.jpg?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4_small.jpg?v=1701411451",
+        "originalUrl": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4.jpg?v=1701411451",
+        "resolvedUrl": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4.jpg?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4.jpg?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "ancestor-a.href",
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37.jpg?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37_small.jpg?v=1701411451",
+        "originalUrl": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37.jpg?v=1701411451",
+        "resolvedUrl": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37.jpg?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37.jpg?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "ancestor-a.href",
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b.jpg?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b_small.jpg?v=1701411451",
+        "originalUrl": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b.jpg?v=1701411451",
+        "resolvedUrl": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b.jpg?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b.jpg?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "ancestor-a.href",
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview.png?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_large.png?v=1701411451",
+        "originalUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview.png?v=1701411451",
+        "resolvedUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview.png?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview.png?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "ancestor-a.href",
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_large.png?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_large.png?v=1701411451",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_large.png?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_large.png?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": null,
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4_large.jpg?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4_large.jpg?v=1701411451",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4_large.jpg?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/products/Background_1_6_d8401953-0d6c-4036-a630-e07cd073adf4_large.jpg?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": null,
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37_large.jpg?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37_large.jpg?v=1701411451",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37_large.jpg?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/products/Background_1_7_5b61d678-1d88-4aef-9b9e-2f6427d13e37_large.jpg?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": null,
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b_large.jpg?v=1701411451",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b_large.jpg?v=1701411451",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b_large.jpg?v=1701411451",
+        "canonicalUrl": "https://play-e.com/cdn/shop/products/Background_1_8_d64f5be5-3e95-42e5-8a8a-04d87071190b_large.jpg?v=1701411451",
+        "alt": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "caption": null,
+        "galleryLabel": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "https://play-e.com/cdn/shop/t/11/assets/icon-ask.png?v=157202729062921256241502097947",
+        "thumbnailUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-ask.png?v=157202729062921256241502097947",
+        "originalUrl": null,
+        "resolvedUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-ask.png?v=157202729062921256241502097947",
+        "canonicalUrl": "https://play-e.com/cdn/shop/t/11/assets/icon-ask.png?v=157202729062921256241502097947",
+        "alt": "Ask about this product",
+        "caption": null,
+        "galleryLabel": "Ask about this product",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      {
+        "url": "http://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_grande.png?v=1701411451",
+        "thumbnailUrl": null,
+        "originalUrl": null,
+        "resolvedUrl": "http://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_grande.png?v=1701411451",
+        "canonicalUrl": "http://play-e.com/cdn/shop/files/Background_1_7_c306ae8f-2a88-4b35-92d2-0e8788714f64-removebg-preview_grande.png?v=1701411451",
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "sourcePageUrl": "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu",
+        "sourceRecordId": null,
+        "listingId": null,
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      }
+    ],
+    "mode": "DIRECT_FETCH"
+  }
+]

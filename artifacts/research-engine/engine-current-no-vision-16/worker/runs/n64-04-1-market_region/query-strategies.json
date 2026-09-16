@@ -1,0 +1,51 @@
+[
+  {
+    "query": "\"5013658086871\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "5013658086871"
+  },
+  {
+    "query": "\"5013658086871\" n64",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "5013658086871"
+  },
+  {
+    "query": "site:ogdb.eu \"5013658086871\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": "ogdb",
+    "identifierType": "BARCODE",
+    "identifierValue": "5013658086871"
+  },
+  {
+    "query": "\"5013658086871\" \"Body Harvest\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "5013658086871"
+  },
+  {
+    "query": "\"5013658086871\" \"PAL Europa\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "5013658086871"
+  },
+  {
+    "query": "site:foro.spinecard.com \"5013658086871\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": "spinecard",
+    "identifierType": "BARCODE",
+    "identifierValue": "5013658086871"
+  },
+  {
+    "query": "site:ogdb.eu \"Body Harvest\" n64",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

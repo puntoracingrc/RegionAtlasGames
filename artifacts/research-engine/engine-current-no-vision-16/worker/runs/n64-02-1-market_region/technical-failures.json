@@ -1,0 +1,44 @@
+[
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/21284/mystical-ninja-starring-goemon/credits/n64/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.mobygames.com/game/21284/mystical-ninja-starring-goemon/credits/n64/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/21284/mystical-ninja-starring-goemon/screenshots/n64/169600/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.mobygames.com/game/21284/mystical-ninja-starring-goemon/screenshots/n64/169600/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/116508358537",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://videojuegos.fandom.com/es/wiki/Mystical_Ninja_Starring_Goemon_(N64)",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  }
+]

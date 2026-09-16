@@ -1,0 +1,1654 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "cases": [
+    {
+      "caseId": "PS4-01",
+      "game": "Fobia: St. Dinfna Hotel",
+      "platform": "ps4",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "preflight": null,
+      "engineDecision": null,
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": false,
+      "codexDecision": null,
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "groundTruthCatalogId": null,
+      "finalDecision": "CASE_UNAVAILABLE",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 0,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0,
+      "codexCostUsd": 0,
+      "engineResultHash": null,
+      "codexResultHash": null,
+      "groundTruthHash": "4ba46f5c83a2008daafe451617260bb214653bfbc23c2518caa27f9732285bb8",
+      "knownBeforeEngine": {
+        "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING"
+      },
+      "engineFound": [],
+      "engineFailedToFind": [],
+      "codexFound": [],
+      "finalDecisiveFacts": [],
+      "remainingGroundTruthGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "work": {
+        "engineQueries": 0,
+        "engineSources": 0,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": []
+      }
+    },
+    {
+      "caseId": "PS4-02",
+      "game": "Soul Hackers 2",
+      "platform": "ps4",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|257009348037|0",
+      "listingUrl": "https://www.ebay.es/itm/257009348037?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8NsMEbpmBixfJZggIT%2BO7aTJkdw%2BcIfGI0OcP3Rid%2FCZHQ9q8I9mclAjPd9GeDLthcmXE5gau7JZUeKwW7F%2FZTZZKP9vaD09cRE%2BT1TsJcNd2TbFGRhpi42u%2FMJUMwLXccdJJ8n%2B%2B%2Fc%2FgwaBcKgiPLg6bqRwzOkT3mVWTVrbWMoSuOtHRzdM%2BVZDDyQ4KT1Sc%3D",
+      "inputHash": "3ea207c3c887f44546b852cc4ddceba25f6ca2281e793b1fa0f3c49739bdccc9",
+      "galleryHash": "c982c0be20bc63013f77db698d518c5b788e4782dd008dc8d1064b7d7f057cf6",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": true,
+      "codexDecision": "DEFER",
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "DEFER",
+      "groundTruthCatalogId": null,
+      "finalDecision": "DEFER",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 1,
+      "codexNewEvidenceCount": 1,
+      "engineCostUsd": 0.04536685,
+      "codexCostUsd": 0,
+      "engineResultHash": "96ce12fd15bd9b9c9fe89f38cc3211d88c097e44ca89d65884ba7ca535d96c89",
+      "codexResultHash": "b9dbd47ba867a56248dcffb1db1532a3e5f1c47dffbf6e9d57f790e643d89c44",
+      "groundTruthHash": "8fca1945e54fdeffb9a8748bc21e5eb607cf2d907eebde3423ca7a315bc57024",
+      "knownBeforeEngine": {
+        "initialCatalogId": "ps4-soul-hackers-2",
+        "listingTitle": "Soul Hackers 2 PS4 (SP) [155040]",
+        "galleryImages": 3,
+        "listingMetadataIdentifiers": [
+          "5055277046874",
+          "Sony PlayStation 4",
+          "Soul Hackers 2 PS4 (SP) [155040]"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate"
+        ],
+        "identifiers": [],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-9559750f959daf80",
+            "claim": {
+              "text": [
+                "PS4",
+                "SOUL HACKERS 2",
+                "16",
+                "PS5 Upgrade Available"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_FRONT",
+            "decisive": true
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ],
+      "codexFound": [
+        {
+          "evidenceId": "codex-ps4-02-videooca-ean",
+          "claim": "A Spanish retailer product record maps EAN 5055277046874 to Soul Hackers 2 for PS4; it does not prove the selected listing specimen's packaging market or visible condition.",
+          "source": "videooca",
+          "sourceUrl": "https://tienda.videooca.com/playstation-5/294251-soul-hackers-2-ps4-5055277046874.html",
+          "query": "\"5055277046874\" CUSA Soul Hackers 2 PS4",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:5055277046874"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        }
+      ],
+      "finalDecisiveFacts": [
+        "Soul Hackers 2 PS4 identity is visible",
+        "EAN 5055277046874 is listing metadata, not a visible component identifier"
+      ],
+      "remainingGroundTruthGaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "NO_MARKET_LEGAL_TEXT"
+      ],
+      "work": {
+        "engineQueries": 8,
+        "engineSources": 0,
+        "codexQueries": 1,
+        "codexSources": 1,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO"
+        ]
+      }
+    },
+    {
+      "caseId": "PS4-03",
+      "game": "Atelier Firis: The Alchemist and the Mysterious Journey",
+      "platform": "ps4",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "preflight": null,
+      "engineDecision": null,
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": false,
+      "codexDecision": null,
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "groundTruthCatalogId": null,
+      "finalDecision": "CASE_UNAVAILABLE",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 0,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0,
+      "codexCostUsd": 0,
+      "engineResultHash": null,
+      "codexResultHash": null,
+      "groundTruthHash": "c6f1e81b1585e5967ee268a2eaf2e7a2f78da63ba797d06c76837149b75dc0c4",
+      "knownBeforeEngine": {
+        "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING"
+      },
+      "engineFound": [],
+      "engineFailedToFind": [],
+      "codexFound": [],
+      "finalDecisiveFacts": [],
+      "remainingGroundTruthGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "work": {
+        "engineQueries": 0,
+        "engineSources": 0,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": []
+      }
+    },
+    {
+      "caseId": "PS4-04",
+      "game": "Code Vein",
+      "platform": "ps4",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|128074767475|0",
+      "listingUrl": "https://www.ebay.es/itm/128074767475",
+      "inputHash": "56640edca3725a0b34703ecec0f4032151afc72b358ac667bbe60d553aec98e6",
+      "galleryHash": "0895d13feec3da2c10f405de6aaf483bc82f5b37099a08811dfc555638c6b7ea",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": true,
+      "codexDecision": "DEFER",
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "DEFER",
+      "groundTruthCatalogId": null,
+      "finalDecision": "DEFER",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 3,
+      "codexNewEvidenceCount": 2,
+      "engineCostUsd": 0.05514055,
+      "codexCostUsd": 0,
+      "engineResultHash": "61255a9b913e446f7aadf76ac5ef814f6f1de57582119a128215f222274a721a",
+      "codexResultHash": "7e26bf5a1d90248fdcb868360f78043d2fb9eb020677e70c637320f57742eacb",
+      "groundTruthHash": "0cb22bcbc4d0dac191c5402a0b2b41534a452170839179e6adc0a3ce2cebe791",
+      "knownBeforeEngine": {
+        "initialCatalogId": "ps4-code-vein",
+        "listingTitle": "JUEGO PS4 CODE VEIN PS4 20315634",
+        "galleryImages": 1,
+        "listingMetadataIdentifiers": [
+          "3391891995962",
+          "CODE VEIN PS4"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate"
+        ],
+        "identifiers": [],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-7600dae20fde14db",
+            "claim": {
+              "text": [
+                "PROVISIONAL"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [
+                "BANDAI NAMCO Entertainment"
+              ],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "ev-e69226d0eed0a73c2357bcf4",
+            "claim": "expected market region is PAL España.",
+            "source": "candidate:www.worldofbooks.com",
+            "component": null,
+            "decisive": false
+          },
+          {
+            "evidenceId": "ev-5d12b5531c4c57fae8a53448",
+            "claim": "PAL España",
+            "source": "candidate:www.rarewaves.com",
+            "component": null,
+            "decisive": false
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ],
+      "codexFound": [
+        {
+          "evidenceId": "codex-ps4-04-retroloco-ean-cusa",
+          "claim": "A photographed Spanish specimen record maps EAN 3391891995962 to CUSA-10246, PAL Spain, with Spanish/Portuguese cover and manual.",
+          "source": "retroloco",
+          "sourceUrl": "https://www.retroloco.es/producto/code-vein-esp/",
+          "query": "\"3391891995962\" Code Vein PS4",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:3391891995962",
+            "CUSA:CUSA-10246"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        },
+        {
+          "evidenceId": "codex-ps4-04-pccomponentes-ean",
+          "claim": "A second Spanish retailer maps product number 3391891995962 to Code Vein for PS4.",
+          "source": "pccomponentes",
+          "sourceUrl": "https://www.pccomponentes.com/code-vein-ps4",
+          "query": "\"3391891995962\" Code Vein PS4",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:3391891995962"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        }
+      ],
+      "finalDecisiveFacts": [
+        "Code Vein PS4 identity is visible",
+        "EAN 3391891995962 is seller metadata",
+        "The seller labels its image non-contractual"
+      ],
+      "remainingGroundTruthGaps": [
+        "NO_ACTUAL_LISTING_SPECIMEN_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_CONDITION_PROOF"
+      ],
+      "work": {
+        "engineQueries": 10,
+        "engineSources": 2,
+        "codexQueries": 1,
+        "codexSources": 2,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO"
+        ]
+      }
+    },
+    {
+      "caseId": "PS5-01",
+      "game": "Demon's Souls",
+      "platform": "ps5",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|363231498889|0",
+      "listingUrl": "https://www.ebay.es/itm/363231498889",
+      "inputHash": "cc67bc0e057dd140eadc00bbfad2f86cedade5595a849fa01fc9005eb0345e46",
+      "galleryHash": "880d0c071826ac88b8fda809a3f94a9cb1a12af6512d5f5f30926262f5e02dc7",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": true,
+      "codexDecision": "DEFER",
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "DEFER",
+      "groundTruthCatalogId": null,
+      "finalDecision": "DEFER",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 4,
+      "codexNewEvidenceCount": 2,
+      "engineCostUsd": 0.04550155,
+      "codexCostUsd": 0,
+      "engineResultHash": "5bc8577ef9e7f71246c62df3d780fd592d1893d057a939be64869c42ef1b566a",
+      "codexResultHash": "7c52bfb9008dc54984bdbfd0796aee07be7f1f4e14653efe1bf72070ef3fc21b",
+      "groundTruthHash": "7581f45e7ceabaab1e0e4e0493f03c0dd016d371733a8548ed844d7764c62c03",
+      "knownBeforeEngine": {
+        "initialCatalogId": "ps5-usa-demon-s-souls",
+        "listingTitle": "JUEGO PS5 - DEMON'S SOULS - NUEVO PRECINTADO - ESPAÑOL - DEMONS",
+        "galleryImages": 1,
+        "listingMetadataIdentifiers": [
+          "0711719812920",
+          "PLAYSTATION 5 - PS5",
+          "2020",
+          "PEGI 18",
+          "2 años"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate"
+        ],
+        "identifiers": [],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-b8a0edc5f4823b56",
+            "claim": {
+              "text": [
+                "Demon's Souls",
+                "PS5",
+                "18",
+                "www.pegi.info"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "ev-a0a64b2cc969f8025bf3937c",
+            "claim": "Country/Region of Manufacture United States",
+            "source": "ebay",
+            "component": null,
+            "decisive": false
+          },
+          {
+            "evidenceId": "ev-3950a7ffccd2f4479926949b",
+            "claim": "the original US cover art",
+            "source": "candidate:www.resetera.com",
+            "component": null,
+            "decisive": false
+          },
+          {
+            "evidenceId": "ev-f74daecbba91ef8491378538",
+            "claim": "Ayuda Atención al cliente ... Información para consumidores de la UE ...",
+            "source": "candidate:es.aliexpress.com",
+            "component": null,
+            "decisive": false
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ],
+      "codexFound": [
+        {
+          "evidenceId": "codex-ps5-01-lamee-ean",
+          "claim": "A Spanish specialist retailer maps EAN 0711719812920 to Demon's Souls PS5 and states Spanish box language.",
+          "source": "lamee-software",
+          "sourceUrl": "https://www.lameesoftware.com/demon-s-souls-ps5sdsr.html",
+          "query": "\"0711719812920\" PPSA Demon's Souls PS5",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:0711719812920"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        },
+        {
+          "evidenceId": "codex-ps5-01-elcorteingles-ean",
+          "claim": "El Corte Inglés maps EAN 0711719812920 and model 9812920 to the standard PS5 release.",
+          "source": "el-corte-ingles",
+          "sourceUrl": "https://www.elcorteingles.es/videojuegos/A37286384-demons-souls-remake-ps5/",
+          "query": "\"0711719812920\" Demon's Souls PS5",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:0711719812920",
+            "MODEL:9812920"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        }
+      ],
+      "finalDecisiveFacts": [
+        "Demon's Souls PS5 identity is visible",
+        "EAN 0711719812920 is listing metadata"
+      ],
+      "remainingGroundTruthGaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "EXACT_MARKET_SET_UNBOUND"
+      ],
+      "work": {
+        "engineQueries": 8,
+        "engineSources": 3,
+        "codexQueries": 2,
+        "codexSources": 2,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO"
+        ]
+      }
+    },
+    {
+      "caseId": "PS5-02",
+      "game": "Dragon's Dogma 2",
+      "platform": "ps5",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|336641149498|0",
+      "listingUrl": "https://www.ebay.es/itm/336641149498",
+      "inputHash": "0d2a195fa5562b71d351793a944292fcf929bb979c8518c1e900f1919e2fe0e3",
+      "galleryHash": "f41fd2fe40df63b869b9cc1aadf851a68b0cfc55208fff917b193709fe679062",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": true,
+      "codexDecision": "DEFER",
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "DEFER",
+      "groundTruthCatalogId": null,
+      "finalDecision": "DEFER",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 3,
+      "codexNewEvidenceCount": 2,
+      "engineCostUsd": 0.04508685,
+      "codexCostUsd": 0,
+      "engineResultHash": "77eaabd2e86641d6a527214dd8e34107c018abfe4d34ab6088b98be4551a4f88",
+      "codexResultHash": "4e54aff42c06b6b01977f8fea8ea30cee2cd3edd20921c3ee6a6a275e128102d",
+      "groundTruthHash": "b3f3da5898cf228e689eb42a6be94fdff268bbadb31e4eedf8be05c90775e115",
+      "knownBeforeEngine": {
+        "initialCatalogId": "ps5-usa-dragon-s-dogma-2",
+        "listingTitle": "Dragon`S Dogma 2 Juego para Consola Sony PlayStation 5, PS5",
+        "galleryImages": 1,
+        "listingMetadataIdentifiers": [
+          "5055060954133",
+          "1245784",
+          "PlayStation 5",
+          "18+",
+          "1",
+          "3 años",
+          "PlayStation 5 - Games - Capcom - RPG - Standard",
+          "USK ab 18 Jahren"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate"
+        ],
+        "identifiers": [],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-4cd5ed7b3ba447d3",
+            "claim": {
+              "text": [],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "ev-7fa326461ad122253a94f502",
+            "claim": "Capcom U.S.A., Inc. PS5 Standard Edition",
+            "source": "platform-holder-official",
+            "component": null,
+            "decisive": false
+          },
+          {
+            "evidenceId": "ev-8f70a73abcd50235b57df48c",
+            "claim": "Country / Region: United States",
+            "source": "platform-holder-official",
+            "component": null,
+            "decisive": false
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ],
+      "codexFound": [
+        {
+          "evidenceId": "codex-ps5-02-rfg-ean-ppsa",
+          "claim": "RF Generation maps EAN 5055060954133 and PPSA-09664 to a Nordic DK/FI/NO/SE PS5 release.",
+          "source": "rf-generation",
+          "sourceUrl": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-240-S-01100-A",
+          "query": "\"5055060954133\" \"PPSA-09664\"",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:5055060954133",
+            "PPSA:PPSA-09664"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        },
+        {
+          "evidenceId": "codex-ps5-02-eroski-ean",
+          "claim": "A Spanish retailer uses the same EAN 5055060954133 for Dragon's Dogma 2 PS5, showing that seller/retailer locale alone cannot identify the packaging market.",
+          "source": "eroski",
+          "sourceUrl": "https://supermercado.eroski.es/es/productdetail/mp139442-juego-dragons-dogma-2-para-playstation-5--ps5/",
+          "query": "\"5055060954133\" Dragon's Dogma 2 PS5",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:5055060954133"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        }
+      ],
+      "finalDecisiveFacts": [
+        "Dragon's Dogma 2 PS5 identity is visible",
+        "EAN 5055060954133 and MPN 1245784 are listing metadata"
+      ],
+      "remainingGroundTruthGaps": [
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "EXACT_MARKET_SET_UNBOUND"
+      ],
+      "work": {
+        "engineQueries": 8,
+        "engineSources": 1,
+        "codexQueries": 2,
+        "codexSources": 2,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO"
+        ]
+      }
+    },
+    {
+      "caseId": "PS5-03",
+      "game": "Final Fantasy XVI",
+      "platform": "ps5",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|267695458509|0",
+      "listingUrl": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+      "inputHash": "e6d59513de430f42388463876bd807ca9af3ca7d12df9060082c5bed3b3ad67f",
+      "galleryHash": "1a806d19ee254b28f8af253a54470cab918688902f015501981377ce548f05c5",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": true,
+      "codexDecision": "DEFER",
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "DEFER",
+      "groundTruthCatalogId": null,
+      "finalDecision": "DEFER",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 3,
+      "codexNewEvidenceCount": 2,
+      "engineCostUsd": 0.04521535,
+      "codexCostUsd": 0,
+      "engineResultHash": "9152cf8ff5e189cc813bd7f97c2776b2c00537c5bcd8d9604d757c18236a955c",
+      "codexResultHash": "e6629a2867e75ac5921264b9fd31d1150b6d46f4f19c57311866d295215c7f57",
+      "groundTruthHash": "8ab9192dc59e6abed596197e0636ce84ad868a4a28c3434443406801c4981295",
+      "knownBeforeEngine": {
+        "initialCatalogId": "ps5-final-fantasy-xvi",
+        "listingTitle": "Final Fantasy XVI PS5 (SP) [PO158858]",
+        "galleryImages": 1,
+        "listingMetadataIdentifiers": [
+          "5021290096851",
+          "Sony PlayStation 5",
+          "Final Fantasy XVI PS5 (SP) [PO158858]"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate"
+        ],
+        "identifiers": [],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-58acd82275b858cf",
+            "claim": {
+              "text": [
+                "www.pegi.info"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "ev-564d949afac8d2c044020733",
+            "claim": "...final Fantasy XVI edición Deluxe para PlayStation 5...",
+            "source": "national-retailer",
+            "component": null,
+            "decisive": false
+          },
+          {
+            "evidenceId": "ev-6edee87a71899ac80e159ebf",
+            "claim": "...PS5 Standard Edition... 861.21 MXN... Suscribirse a PlayStation Plus Extra para acceder a este juego...",
+            "source": "platform-holder-official",
+            "component": null,
+            "decisive": false
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ],
+      "codexFound": [
+        {
+          "evidenceId": "codex-ps5-03-retroloco-ean-ppsa",
+          "claim": "A photographed Spanish specimen record maps EAN 5021290096851 to PPSA-10665, standard PAL Spain Final Fantasy XVI.",
+          "source": "retroloco",
+          "sourceUrl": "https://www.retroloco.es/producto/final-fantasy-xvi-esp-precintado/",
+          "query": "\"5021290096851\" Final Fantasy XVI PS5",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:5021290096851",
+            "PPSA:PPSA-10665"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        },
+        {
+          "evidenceId": "codex-ps5-03-gamefaqs-ean",
+          "claim": "GameFAQs release data independently maps EAN 5021290096851 to the Spanish EU standard release and PPSA-10665.",
+          "source": "gamefaqs",
+          "sourceUrl": "https://gamefaqs.gamespot.com/ps5/300958-final-fantasy-xvi/data",
+          "query": "\"5021290096851\" Final Fantasy XVI PS5",
+          "component": "OUTER_PACKAGE",
+          "listingId": null,
+          "imageIndex": null,
+          "identifier": [
+            "EAN:5021290096851",
+            "PPSA:PPSA-10665"
+          ],
+          "origin": "CODEX",
+          "decisive": false
+        }
+      ],
+      "finalDecisiveFacts": [
+        "Final Fantasy XVI PS5 standard identity is visible",
+        "EAN 5021290096851 is listing metadata",
+        "Seller explicitly says the image is illustrative"
+      ],
+      "remainingGroundTruthGaps": [
+        "NO_ACTUAL_LISTING_SPECIMEN_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_CONDITION_PROOF"
+      ],
+      "work": {
+        "engineQueries": 8,
+        "engineSources": 2,
+        "codexQueries": 1,
+        "codexSources": 2,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO"
+        ]
+      }
+    },
+    {
+      "caseId": "PS5-04",
+      "game": "Hogwarts Legacy",
+      "platform": "ps5",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|195420885212|0",
+      "listingUrl": "https://www.ebay.es/itm/195420885212?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Bh%2Bdd9U0SsNKTBeDBbAkX4epP7Iv4VgFPAiqiFdBPpUfMD18lGVJNEoavrTz7mzc5LusY7DMd8is3NSH1k8yXoFeJxBqATKuZgvHCnbGc7vtzLw%2F6XvSgbNEbxFyyRPeN9Kmc%2Bf9kRG5QyvFjdRcAVVmJbg4g1Gzepd%2F56uCN5FGZkv9n1gp7m8BhTxGuvNwE%3D",
+      "inputHash": "9135ca885a3e9d0a9edb1d440df6ebec1b7e63455ebc354c2160fcf1fa6bb4d0",
+      "galleryHash": "c85409ab7b1c4f518edbd7e8b62e6ab1c00586902f61f12fdfba96d47d90690f",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": true,
+      "codexDecision": "DEFER",
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "DEFER",
+      "groundTruthCatalogId": null,
+      "finalDecision": "DEFER",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 4,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0.04558065,
+      "codexCostUsd": 0,
+      "engineResultHash": "4e114b987ed6f820f8ff9b3dca166bb68f937251beba5c0658d419c2d32b8dc0",
+      "codexResultHash": "e5a51e3dd7b3471ab432180401b078cd3595bd0a9b44e5d24123f3ad17046817",
+      "groundTruthHash": "ed65625792ddb38ae39ca7354f1096dcca21aa1c95cd63403213b4043d117fc8",
+      "knownBeforeEngine": {
+        "initialCatalogId": "ps5-hogwarts-legacy-standard",
+        "listingTitle": "HOGWARTS LEGACY PS5  PAL ESPAÑA NUEVO FISICO ESPAÑOL PRECINTADO",
+        "galleryImages": 1,
+        "listingMetadataIdentifiers": [
+          "Sony PlayStation 5",
+          "2023",
+          "PEGI 16"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate"
+        ],
+        "identifiers": [],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-3833d060e7e223ff",
+            "claim": {
+              "text": [],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "ev-9c9e83b9eb886ff94b4fedd7",
+            "claim": "PLATAFORMA: Nintendo Switch Playstation 4 Playstation 5 Xbox One Xbox Series X",
+            "source": "national-retailer",
+            "component": null,
+            "decisive": false
+          },
+          {
+            "evidenceId": "ev-b441710f6c153ae1385cc203",
+            "claim": "Hogwarts Legacy Standard. PLAYSTATION 5: GAME.es Tiendas GAME",
+            "source": "national-retailer",
+            "component": null,
+            "decisive": false
+          },
+          {
+            "evidenceId": "ev-d04c67fd84643fb29596feb5",
+            "claim": "PS5 Hogwarts Legacy Standard Edition (EU) (Italian cover)",
+            "source": "candidate:play-e.com",
+            "component": null,
+            "decisive": false
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO"
+      ],
+      "codexFound": [],
+      "finalDecisiveFacts": [
+        "Hogwarts Legacy standard PS5 front identity is visible"
+      ],
+      "remainingGroundTruthGaps": [
+        "NO_EXACT_IDENTIFIER",
+        "NO_LISTING_BOUND_BACK_PHOTO",
+        "NO_DISC_PHOTO",
+        "NO_VISIBLE_SEAL",
+        "NO_MARKET_LEGAL_TEXT"
+      ],
+      "work": {
+        "engineQueries": 8,
+        "engineSources": 2,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO"
+        ]
+      }
+    },
+    {
+      "caseId": "N64-01",
+      "game": "Holy Magic Century",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_USABLE_LISTING",
+      "preflight": null,
+      "engineDecision": null,
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": false,
+      "codexDecision": null,
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "groundTruthCatalogId": null,
+      "finalDecision": "CASE_UNAVAILABLE",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 0,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0,
+      "codexCostUsd": 0,
+      "engineResultHash": null,
+      "codexResultHash": null,
+      "groundTruthHash": "424cc0709bc8700cb6ba043fef4482cc6054ce19538db72eeb7140c9c713ce03",
+      "knownBeforeEngine": {
+        "availabilityReason": "NO_USABLE_LISTING"
+      },
+      "engineFound": [],
+      "engineFailedToFind": [],
+      "codexFound": [],
+      "finalDecisiveFacts": [],
+      "remainingGroundTruthGaps": [
+        "NO_USABLE_LISTING"
+      ],
+      "work": {
+        "engineQueries": 0,
+        "engineSources": 0,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": []
+      }
+    },
+    {
+      "caseId": "N64-02",
+      "game": "Aidyn Chronicles",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "preflight": null,
+      "engineDecision": null,
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": false,
+      "codexDecision": null,
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "groundTruthCatalogId": null,
+      "finalDecision": "CASE_UNAVAILABLE",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 0,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0,
+      "codexCostUsd": 0,
+      "engineResultHash": null,
+      "codexResultHash": null,
+      "groundTruthHash": "0dcdf882805d094f73a61cfa8e31873c2913e74f2320267924ef2dc6af61d70f",
+      "knownBeforeEngine": {
+        "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING"
+      },
+      "engineFound": [],
+      "engineFailedToFind": [],
+      "codexFound": [],
+      "finalDecisiveFacts": [],
+      "remainingGroundTruthGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "work": {
+        "engineQueries": 0,
+        "engineSources": 0,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": []
+      }
+    },
+    {
+      "caseId": "N64-03",
+      "game": "Hybrid Heaven",
+      "platform": "n64",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "preflight": null,
+      "engineDecision": null,
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": false,
+      "codexDecision": null,
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "groundTruthCatalogId": null,
+      "finalDecision": "CASE_UNAVAILABLE",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 0,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0,
+      "codexCostUsd": 0,
+      "engineResultHash": null,
+      "codexResultHash": null,
+      "groundTruthHash": "e0fb55d12e0a999704570b6958868e8b0cc4892cd469219a3b10490c6307e745",
+      "knownBeforeEngine": {
+        "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING"
+      },
+      "engineFound": [],
+      "engineFailedToFind": [],
+      "codexFound": [],
+      "finalDecisiveFacts": [],
+      "remainingGroundTruthGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "work": {
+        "engineQueries": 0,
+        "engineSources": 0,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": []
+      }
+    },
+    {
+      "caseId": "N64-04",
+      "game": "Shadow Man",
+      "platform": "n64",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|326822603505|0",
+      "listingUrl": "https://www.ebay.es/itm/326822603505",
+      "inputHash": "c96ebc6a6c0e64e182df02564cc0054e75f09c56a8990fbf65330258be542e86",
+      "galleryHash": "5a4a40e69811162c470374d037bac2f801413174bb6e694e739b37a27d2f0a07",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REJECT",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": false,
+      "reviewRequired": false,
+      "codexDecision": null,
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "ACCEPT_EXISTING",
+      "groundTruthCatalogId": "n64-shadow-man",
+      "finalDecision": "REJECT",
+      "finalCatalogId": null,
+      "finalResolved": true,
+      "finalCorrect": false,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 1,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0.0118509,
+      "codexCostUsd": 0,
+      "engineResultHash": "ce31e9329536c98413766b38153384d9d8cc5de101106248c1fdb967e77a65f2",
+      "codexResultHash": null,
+      "groundTruthHash": "cf4a6ea3a7e0c76c64180eaddf81e52495ff2d87bece6d96ccac6cd1ea9d15fd",
+      "knownBeforeEngine": {
+        "initialCatalogId": "n64-shadow-man",
+        "listingTitle": "Shadow Man,Nintendo 64.Completo!!",
+        "galleryImages": 1,
+        "listingMetadataIdentifiers": [
+          "Nintendo 64"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate",
+          "condition"
+        ],
+        "identifiers": [],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-b89f5fb915fdbc27",
+            "claim": {
+              "text": [
+                "INSTRUCTION BOOKLET",
+                "AKLAIM",
+                "NINTENDO 64",
+                "SHADOW MAN",
+                "PAL VERSION",
+                "ACCLAIM",
+                "Instruction Booklet"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [
+                "Acclaim"
+              ],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "UNKNOWN_COMPONENT",
+            "decisive": true
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF"
+      ],
+      "codexFound": [],
+      "finalDecisiveFacts": [
+        "The single listing photo visibly contains the PAL-version box front, cartridge, and instruction booklet",
+        "The catalog candidate is the generic PAL Europe Shadow Man entry"
+      ],
+      "remainingGroundTruthGaps": [
+        "PAL_SUBMARKET_NOT_PROVEN"
+      ],
+      "work": {
+        "engineQueries": 0,
+        "engineSources": 0,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF"
+        ]
+      }
+    },
+    {
+      "caseId": "GB-01",
+      "game": "Lock 'n' Chase",
+      "platform": "gameboy",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|377464390784|0",
+      "listingUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "inputHash": "34a7d163cb09777acd5e60006cad75c7731c882caa332af4b458b2b3347fd485",
+      "galleryHash": "b05f3133c089ec2d2f52518beb76a4ab1d0aec1ed916276625f81aff617a79c7",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": true,
+      "codexDecision": "REROUTE_EXISTING",
+      "codexResolvedCatalogId": "gameboy-japon-lock-n-chase",
+      "codexCorrect": true,
+      "groundTruthDecision": "REROUTE_EXISTING",
+      "groundTruthCatalogId": "gameboy-japon-lock-n-chase",
+      "finalDecision": "REROUTE_EXISTING",
+      "finalCatalogId": "gameboy-japon-lock-n-chase",
+      "finalResolved": true,
+      "finalCorrect": true,
+      "discoveryOwner": "ENGINE_DISCOVERED_CODEX_ADJUDICATED",
+      "engineEvidenceCount": 8,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0.09626055,
+      "codexCostUsd": 0,
+      "engineResultHash": "41c71127a38af6681e349476284ce51dd38a5120fd048b170a535da7b8fe5dbf",
+      "codexResultHash": "c267659f9211efadbe2c0b70947859122a9aac51f5cc516d35f2d1d02c396cbe",
+      "groundTruthHash": "d47792752160b2d4eb7c7b671f63fb0f5cbd3a1742e8d379488e0ae223c2cac2",
+      "knownBeforeEngine": {
+        "initialCatalogId": "gameboy-pal-lock-n-chase",
+        "listingTitle": "Nintendo Game Boy Lock'n Chase Japan CIB Complete Boxed Manual NTSC-J Original",
+        "galleryImages": 7,
+        "listingMetadataIdentifiers": [
+          "1",
+          "1990",
+          "PEGI 3"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate",
+          "condition"
+        ],
+        "identifiers": [
+          "PRODUCT_CODE:DMG-LCA:OUTER_PACKAGE_FRONT",
+          "PRODUCT_CODE:DMG-LCA:CARTRIDGE_FRONT",
+          "PRODUCT_CODE:DMG-LCA:MANUAL_FRONT"
+        ],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-09ba161c48ad67d1",
+            "claim": {
+              "text": [
+                "LOCK'N CHASE",
+                "GAME BOY",
+                "DECO"
+              ],
+              "productCodes": [
+                "DMG-LCA"
+              ],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-279dd38ca4ce14cf",
+            "claim": {
+              "text": [
+                "LOCK'N CHASE",
+                "DECO"
+              ],
+              "productCodes": [
+                "DMG-LCA"
+              ],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [
+                "DATA EAST CORP"
+              ],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "CARTRIDGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-c44185268bc10db2",
+            "claim": {
+              "text": [
+                "LOCK'N CHASE",
+                "DECO"
+              ],
+              "productCodes": [
+                "DMG-LCA"
+              ],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "CARTRIDGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-abb4d9aa28091df5",
+            "claim": {
+              "text": [
+                "LOCK'N CHASE",
+                "DECO"
+              ],
+              "productCodes": [
+                "DMG-LCA"
+              ],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "CARTRIDGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-82f8b858a2c89559",
+            "claim": {
+              "text": [],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "CARTRIDGE_BACK",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-d8ca962a71aecbcf",
+            "claim": {
+              "text": [
+                "LOCK'N CHASE",
+                "DECO"
+              ],
+              "productCodes": [
+                "DMG-LCA"
+              ],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "MANUAL_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-d703ab790f95d464",
+            "claim": {
+              "text": [
+                "使用上の注意",
+                "FOR SALE AND USE IN JAPAN ONLY"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "MANUAL_BACK",
+            "decisive": true
+          },
+          {
+            "evidenceId": "ev-8a313a5d6d4b5155cfb23147",
+            "claim": "This version is specifically marked for PAL Europa distribution.",
+            "source": "candidate:bitlabelz.com",
+            "component": null,
+            "decisive": false
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF"
+      ],
+      "codexFound": [],
+      "finalDecisiveFacts": [
+        "Box, cartridge, and manual are visible",
+        "DMG-LCA appears on the physical family",
+        "The manual states FOR SALE AND USE IN JAPAN ONLY"
+      ],
+      "remainingGroundTruthGaps": [],
+      "work": {
+        "engineQueries": 10,
+        "engineSources": 1,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF"
+        ]
+      }
+    },
+    {
+      "caseId": "GB-02",
+      "game": "Nail 'n' Scale",
+      "platform": "gameboy",
+      "availability": "USABLE",
+      "availabilityReason": null,
+      "listingId": "v1|157686535662|0",
+      "listingUrl": "https://www.ebay.es/itm/157686535662?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde9i07aKm2ldBfRfgnzkskKgajMxew8bQuE8LWSCFVyPUdWeojw1xzKUMwq%2BTlYtWgs7jh9Koe5p2RhZdGkFRfe8ZjomFWKA3Q2KIPKpBgjHWw%2FvePjig%2BtUgsHQ5ueUvZApBQZij82OnotEfu6sFas0BBF4ZThzZ2XSDWmpixKXNGVj04TsEKz4B%2BPv862Jm%2Bk%3D",
+      "inputHash": "191fb705240eb273c517fd60d6da180f060df56a746ddd1485cb54ff78e7637b",
+      "galleryHash": "ed36f548d5f4c6d899cd1870f60318fa66626ee0d4a75985c5119e1801615a59",
+      "preflight": "NOT_DEEPLY_ANALYZED",
+      "engineDecision": "REVIEW_REQUIRED",
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": true,
+      "codexDecision": "REROUTE_EXISTING",
+      "codexResolvedCatalogId": "gameboy-nail-n-scale",
+      "codexCorrect": true,
+      "groundTruthDecision": "REROUTE_EXISTING",
+      "groundTruthCatalogId": "gameboy-nail-n-scale",
+      "finalDecision": "REROUTE_EXISTING",
+      "finalCatalogId": "gameboy-nail-n-scale",
+      "finalResolved": true,
+      "finalCorrect": true,
+      "discoveryOwner": "ENGINE_DISCOVERED_CODEX_ADJUDICATED",
+      "engineEvidenceCount": 7,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0.09427759999999999,
+      "codexCostUsd": 0,
+      "engineResultHash": "ff716394009f4204e74f0acd150b912593e0c7a50055f8cfb5520cb4d69768e4",
+      "codexResultHash": "f7c88b9fbe5091632bc24966723d8705480f080dbdca15ade427665e3a93be14",
+      "groundTruthHash": "4ecb868dd2049148cd5fbbc5cc7d40a79223120d2c6ee314a6cfac3504c65d32",
+      "knownBeforeEngine": {
+        "initialCatalogId": "gameboy-pal-nail-n-scale",
+        "listingTitle": "Nail 'N Scale Nintendo Game Boy — Verificado",
+        "galleryImages": 5,
+        "listingMetadataIdentifiers": [
+          "0013252002548",
+          "DMG-NS-USA",
+          "1990",
+          "1"
+        ]
+      },
+      "engineFound": {
+        "confirmedClaims": [
+          "identity",
+          "platform_candidate",
+          "condition"
+        ],
+        "identifiers": [
+          "EAN_UPC:013252002548:OUTER_PACKAGE_BACK",
+          "PRODUCT_CODE:DMG-P-DR:OUTER_PACKAGE_BACK",
+          "BARCODE:013252002548:UNKNOWN"
+        ],
+        "evidence": [
+          {
+            "evidenceId": "listing-obs-3f5968bc7158299b",
+            "claim": {
+              "text": [
+                "Nail 'n' Scale",
+                "GAME BOY",
+                "DATA EAST"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-b4063f81bd2a475b",
+            "claim": {
+              "text": [
+                "TOUGH AS NAILS!",
+                "Nail 'n' Scale",
+                "DATA EAST",
+                "NAIL 'N' SCALE",
+                "This game pak for use with the Game Boy Compact Video Game System and",
+                "1 or 2-player action.",
+                "Official Nintendo Seal of Quality",
+                "MADE IN JAPAN"
+              ],
+              "productCodes": [
+                "DMG-P-DR"
+              ],
+              "serials": [],
+              "barcodes": [
+                "013252002548"
+              ],
+              "languages": [],
+              "distributors": [
+                "DATA EAST USA, INC."
+              ],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_BACK",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-b9636ffcd0f6afc5",
+            "claim": {
+              "text": [],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "OUTER_PACKAGE_SPINE",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-da6e14beb811557c",
+            "claim": {
+              "text": [
+                "Nail 'n' Scale",
+                "INSTRUCTION BOOKLET",
+                "DATA EAST"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "MANUAL_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "listing-obs-b5c1fec11cae5ba9",
+            "claim": {
+              "text": [
+                "Nail 'n' Scale",
+                "GAME BOY"
+              ],
+              "productCodes": [],
+              "serials": [],
+              "barcodes": [],
+              "languages": [],
+              "distributors": [],
+              "editionMarkers": []
+            },
+            "source": "ebay-es",
+            "component": "CARTRIDGE_FRONT",
+            "decisive": true
+          },
+          {
+            "evidenceId": "ev-ce39192636a04f08528ca6b8",
+            "claim": "Country version: Estados Unidos",
+            "source": "candidate:www.retroplace.com",
+            "component": null,
+            "decisive": false
+          },
+          {
+            "evidenceId": "ev-fea6b2ff35b68464d2381886",
+            "claim": "Nail ’n Scale",
+            "source": "candidate:www.icollecteverything.com",
+            "component": null,
+            "decisive": false
+          }
+        ]
+      },
+      "engineFailedToFind": [
+        "MISSING_MARKET_PROOF"
+      ],
+      "codexFound": [],
+      "finalDecisiveFacts": [
+        "Box, cartridge, and manual are visible",
+        "UPC 013252002548 is visible on the box back",
+        "The box names DATA EAST USA, INC."
+      ],
+      "remainingGroundTruthGaps": [],
+      "work": {
+        "engineQueries": 12,
+        "engineSources": 2,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": [
+          "MISSING_MARKET_PROOF"
+        ]
+      }
+    },
+    {
+      "caseId": "GB-03",
+      "game": "Tumble Pop",
+      "platform": "gameboy",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "preflight": null,
+      "engineDecision": null,
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": false,
+      "codexDecision": null,
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "groundTruthCatalogId": null,
+      "finalDecision": "CASE_UNAVAILABLE",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 0,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0,
+      "codexCostUsd": 0,
+      "engineResultHash": null,
+      "codexResultHash": null,
+      "groundTruthHash": "b30fe7182644f561417380d782e7d749e127d94b441bb54673a41a9607c94efc",
+      "knownBeforeEngine": {
+        "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING"
+      },
+      "engineFound": [],
+      "engineFailedToFind": [],
+      "codexFound": [],
+      "finalDecisiveFacts": [],
+      "remainingGroundTruthGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "work": {
+        "engineQueries": 0,
+        "engineSources": 0,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": []
+      }
+    },
+    {
+      "caseId": "GB-04",
+      "game": "BurgerTime Deluxe",
+      "platform": "gameboy",
+      "availability": "CASE_UNAVAILABLE",
+      "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING",
+      "preflight": null,
+      "engineDecision": null,
+      "engineResolvedCatalogId": null,
+      "engineCorrect": null,
+      "reviewRequired": false,
+      "codexDecision": null,
+      "codexResolvedCatalogId": null,
+      "codexCorrect": null,
+      "groundTruthDecision": "CASE_UNAVAILABLE",
+      "groundTruthCatalogId": null,
+      "finalDecision": "CASE_UNAVAILABLE",
+      "finalCatalogId": null,
+      "finalResolved": false,
+      "finalCorrect": null,
+      "discoveryOwner": "UNRESOLVED",
+      "engineEvidenceCount": 0,
+      "codexNewEvidenceCount": 0,
+      "engineCostUsd": 0,
+      "codexCostUsd": 0,
+      "engineResultHash": null,
+      "codexResultHash": null,
+      "groundTruthHash": "7955f06b4ca9515e59ba9dfe9a43aa47d818018cc416bf595708f27db9ee4745",
+      "knownBeforeEngine": {
+        "availabilityReason": "NO_ACTIVE_PHYSICAL_LISTING"
+      },
+      "engineFound": [],
+      "engineFailedToFind": [],
+      "codexFound": [],
+      "finalDecisiveFacts": [],
+      "remainingGroundTruthGaps": [
+        "NO_ACTIVE_PHYSICAL_LISTING"
+      ],
+      "work": {
+        "engineQueries": 0,
+        "engineSources": 0,
+        "codexQueries": 0,
+        "codexSources": 0,
+        "repeatedRoutes": 0,
+        "evidenceGapsAtHandoff": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "caseId": "PS4-04",
+  "platform": "ps4",
+  "subjectTitle": "Code Vein",
+  "sourcePhotos": 1,
+  "preservedPhotos": 1,
+  "originalResolutionPhotos": 0,
+  "photosClassified": 1,
+  "photosInspectedHighDetail": 1,
+  "subjectAcceptedImages": 1,
+  "componentClassifiedImages": 1,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": false,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": false,
+      "CARTRIDGE_BACK": false,
+      "DISC": false,
+      "MANUAL_FRONT": false,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": []
+  },
+  "componentsFound": [
+    "OUTER_PACKAGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 1,
+  "marketBoundObservations": 1,
+  "diagnosis": "IMAGE_QUALITY_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 1,
+  "marketFollowupCalls": 0,
+  "openAiCalls": 2,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 3063,
+      "completion_tokens": 76,
+      "total_tokens": 3139,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 25670,
+      "completion_tokens": 140,
+      "total_tokens": 25810,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.0044395500000000004,
+  "item": {
+    "id": "listing-evidence-v2-ps4-04",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "ps4",
+    "targetRegion": "PAL España",
+    "detectedRegion": null,
+    "catalogId": "ps4-code-vein",
+    "candidateCatalogId": "ps4-code-vein",
+    "listingTitle": "JUEGO PS4 CODE VEIN PS4 20315634",
+    "priceEur": 14.95,
+    "condition": "unknown",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T18:56:11Z",
+    "evidence": {
+      "externalId": "v1|128074767475|0",
+      "url": "https://www.ebay.es/itm/128074767475",
+      "description": "14 días de. Estamos para ayudarte. Disponibilidad: En existencia. CAJA ORIGINALSI.",
+      "imageUrl": "https://i.ebayimg.com/images/g/z4AAAeSwgQNqpJa-/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/z4AAAeSwgQNqpJa-/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|128074767475|0",
+        "legacyItemId": "128074767475",
+        "capturedAt": "2026-09-16T18:56:11Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "JUEGO PS4 CODE VEIN PS4 20315634",
+          "shortDescription": "14 días de. Estamos para ayudarte. Disponibilidad: En existencia. CAJA ORIGINALSI.",
+          "description": "<!DOCTYPE html><html lang=\"es-ES\"><head><title>Cash Converters</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\" /><meta charset=\"UTF-8\" /><meta name=\"description\" content=\"Características del artículo\" /><meta name=\"author\" content=\"Cash Converters\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/bootstrap.min.css\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/normalize.css\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/font-faces.css\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/style.css\" /><link rel=\"stylesheet\" href=\"https://www.cashconverters.es/static/ebay/css/responsive.css\" /><link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,700\" rel=\"stylesheet\" /><link href=\"https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700\" rel=\"stylesheet\"  rel=\"stylesheet\" type=\"text/css\" /></head><body><div class=\"row\" style=\"margin: 0;\"><div class=\"col-xs-12 col-sm-3 col-md-3 col-lg-2\"><div class=\"column-left\"><nav><img id=\"logo-cash\" width=\"166\" src=\"https://www.cashconverters.es/static/ebay/images/logocash.png\" alt=\"logoCash\" title=\"logo cash\"><img id=\"logo-cash-responsive\" width=\"200\" src=\"https://www.cashconverters.es/static/ebay/images/logo-cash-responsive.png\" alt=\"logoCashResponsive\" title=\"logo cash responsive\"><input class=\"input-btn-menu-responsive\" type=\"checkbox\" id=\"nav\" /><label class=\"btn-menu-responsive\" for=\"nav\"></label><ul class=\"menu-left\"><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006190010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_telefonia_over_01.png\"></span><span class=\"menu-text\">Telefonía</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006189010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_videojuegos_over_02.png\"></span><span class=\"menu-text\">Consolas y Videojuegos</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006193010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_informatica_over_03.png\"></span><span class=\"menu-text\">Informática</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006191010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_tv_over_04.png\"></span><span class=\"menu-text\">TV y Video</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006192010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_fotografia_over_05.png\"></span><span class=\"menu-text\">Fotografía</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&store_cat=17006194010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_joyeria_over_07.png\"></span><span class=\"menu-text\">Joyería</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006924010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_relojesygafas_over_14.png\"></span><span class=\"menu-text\">Relojes</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006922010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_instrumentos_over_09.png\"></span><span class=\"menu-text\">Instrumentos</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006188010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_deportes_over_06.png\"></span><span class=\"menu-text\">Deportes</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006923010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_musicaprof_over_13.png\"></span><span class=\"menu-text\">Música profesional</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006918010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_bricolaje_over_17.png\"></span><span class=\"menu-text\">Bricolaje</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006921010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_sonido_over_12.png\"></span><span class=\"menu-text\">Sonido</span></a></li><li><a target=\"_blank\" href=\"https://www.ebay.es/sch/i.html?_ssn=cashconverters_es&store_name=cashconvertersespana&_oac=1&store_cat=17006992010\"><span class=\"menu-img\"><img src=\"https://www.cashconverters.es/static/ebay/images/2x_menu_electrodomesticos_over_08.png\"></span><span class=\"menu-text\">Electrodomésticos</span></a></li></ul></nav></div></div><div class=\"col-xs-12 col-sm-9 col-md-9 col-lg-10\"><div class=\"row color-article\"><div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\"><form><div class=\"slider\"><ul class=\"thumb-article\"><li><input id=\"input1\" class=\"slider-radio\" type=\"radio\" name=\"selected\" checked /><label class=\"slider-radio-label\" for=\"input1\" style=\"background-image: url('https://images.cashconverters.es/productslive/juego-ps4/code-vein-ps4_CC042_E750785-0_0.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat;\"></label><div class=\"img-container\"><div class=\"img-big\" style=\"background-image: url('https://images.cashconverters.es/productslive/juego-ps4/code-vein-ps4_CC042_E750785-0_0.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat;\"></div></div></li></ul><div class=\"show-img\"></div></div></form><div class=\"info\"><p class=\"info-contact-top\">Verifica que las fotos del producto se corresponden con la idea que tienes sobre él.</p><p id=\"info-warning\">No realizamos envíos a las Islas Canarias, Ceuta y Melilla.</p><p class=\"info-contact\">Estamos para ayudarte. Consulta tus dudas en <a target=\"_blank\" href=\"mailto:ayudaebay@cash-converters.es\">ayudaebay@cash-converters.es</a>.<br />Todos nuestros artículos tienen 3 años de garantía.</p></div></div><div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 right-col\"><div class=\"desc\"><h1 id=\"desc-title\">JUEGO PS4 CODE VEIN PS4 20315634</h1><p id=\"desc-info\" vocab=\"http://schema.org/\" typeof=\"Product\"><span property=\"description\"></span></p><table class=\"caracteristicas\"><tr><th>TITULO</th><td>CODE VEIN PS4</td></tr><tr><th>GENERO</th><td>ACCION</td></tr><tr><th>CAJA ORIGINAL</th><td>SI</td></tr><tr><th>VOLUMEN</th><td>NORMAL</td></tr><tr><th>EAN</th><td>3391891995962</td></tr><tr><th>INFORMACION ADICIONAL</th><td>IMAGEN NO CONTRACTUAL</td></tr><tr><th>Código</th><td>CC042_E750785_0</td></tr></table></div><div class=\"row price\"><div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\"><div class=\"price-left\"><span>ESTADO:</span><p>USADO</p></div></div><div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\"><div class=\"price-right\"><!-- <p id=\"price\">14.95€</p> --><span>Disponibilidad: En existencia</span></div></div></div><div class=\"row buttons\"><!--<div class=\"col-xs-12 col-sm-5 col-md-12 col-lg-5 buttons-col\"><a target=\"_blank\" href=\"http://cart.payments.ebay.es/sc/add?item=iid:{EbayItemID},qty:1&ssPageName=CART:ATC\" target=\"_blank\" class=\"append\">Añadir a cesta</a></div><div class=\"col-xs-12 col-sm-7 col-md-12 col-lg-7 buttons-col\"><a target=\"_blank\" href=\"http://offer.ebay.es/ws/eBayISAPI.dll?BinConfirm&item={EbayItemID}&fb=1\" target=\"_blank\" class=\"buy\">Comprar ahora</a></div>--></div><div class=\"info-responsive\"><p id=\"info-warning\">No realizamos envíos a las Islas Canarias, Ceuta y Melilla.</p><p class=\"info-contact\">Estamos para ayudarte. Consulta tus dudas en <a target=\"_blank\" href=\"mailto:ayudaebay@cash-converters.es\">ayudaebay@cash-converters.es</a>.<br />Todos nuestros artículos tienen 3 años de garantía.</p></div></div></div><div class=\"row banners\"><div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-3 banners-col\"><div class=\"yellow-banner\"><div class=\"shadow-box\"></div><p class=\"banner-text\">Envío<br />gratuito</p><img src=\"https://www.cashconverters.es/static/ebay/images/01_foto_banner.png\"></div></div><div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-3 banners-col\"><div class=\"green-banner\"><div class=\"shadow-box\"></div><p class=\"banner-text\">3 años de<br />garantía</p><img src=\"https://www.cashconverters.es/static/ebay/images/02_foto_banner.png\"></div></div><div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-3 banners-col\"><div class=\"grey-banner\"><div class=\"shadow-box\"></div><p class=\"banner-text\">14 días de<br />satisfacción</p><img src=\"https://www.cashconverters.es/static/ebay/images/03_foto_banner.png\"></div></div><div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-3 banners-col\"><div class=\"blue-banner\"><div class=\"shadow-box\"></div><p class=\"banner-text\">Atención<br />al cliente</p><img src=\"https://www.cashconverters.es/static/ebay/images/04_foto_banner.png\"></div></div></div><div class=\"footer\"></div></div></div></body></html>",
+          "condition": "Aceptable",
+          "conditionId": "6000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/128074767475",
+          "itemLocation": {
+            "city": "MADRID",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "cashconverters_es",
+            "feedbackPercentage": "97.3",
+            "feedbackScore": 177949
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "ESTADO": [
+              "USADO"
+            ],
+            "CAJA ORIGINAL": [
+              "SI"
+            ],
+            "VOLUMEN": [
+              "NORMAL"
+            ],
+            "EAN": [
+              "3391891995962"
+            ],
+            "Nombre del videojuego": [
+              "CODE VEIN PS4"
+            ],
+            "Editor": [
+              "NO APLICABLE"
+            ],
+            "Año de lanzamiento": [
+              "NO APLICABLE"
+            ],
+            "Género": [
+              "ACCION"
+            ],
+            "Clasificación": [
+              "NO APLICABLE"
+            ],
+            "Plataforma": [
+              "NO APLICABLE"
+            ]
+          },
+          "price": {
+            "value": 14.95,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: Paq Estándar",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-24T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 0,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": null,
+          "brand": null,
+          "mpn": null,
+          "epid": null
+        },
+        "imagesAvailableFromSource": 1,
+        "imagesPreserved": 1,
+        "images": [
+          {
+            "listingId": "v1|128074767475|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/z4AAAeSwgQNqpJa-/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/z4AAAeSwgQNqpJa-/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/z4AAAeSwgQNqpJa-/s-l1600.jpg",
+            "contentHash": "d893cf0fde0934ef3440f4a10ec20b38fa7e5f56200ae9206b8fd3512d10fc4f",
+            "width": 786,
+            "height": 587,
+            "byteLength": 140796,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/PS4-04/d893cf0fde0934ef3440f4a10ec20b38fa7e5f56200ae9206b8fd3512d10fc4f.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-7600dae20fde14db",
+          "listingId": "v1|128074767475|0",
+          "imageIndex": 1,
+          "contentHash": "d893cf0fde0934ef3440f4a10ec20b38fa7e5f56200ae9206b8fd3512d10fc4f",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Code Vein",
+          "platform": "ps4",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "languages": [],
+          "distributors": [
+            "BANDAI NAMCO Entertainment"
+          ],
+          "publisherLegalText": [],
+          "visibleText": [
+            "PROVISIONAL"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": [
+            "PROVISIONAL"
+          ]
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": []
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "ps4-code-vein",
+      "catalogTitle": "Code Vein",
+      "matchAlternatives": [
+        {
+          "catalogId": "ps4-code-vein",
+          "region": "PAL España",
+          "title": "Code Vein",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "ps4-usa-code-vein",
+          "region": "USA",
+          "title": "Code Vein",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": false
+    }
+  }
+}

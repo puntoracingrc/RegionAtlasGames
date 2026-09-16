@@ -1,0 +1,97 @@
+{
+  "subjectId": "benchmark:listing-evidence-v2-ps4-02",
+  "subjectKind": "catalog-entry",
+  "catalogId": "ps4-soul-hackers-2",
+  "canonicalGameId": null,
+  "workId": null,
+  "platformReleaseId": null,
+  "guideId": null,
+  "physicalEditionId": null,
+  "title": "Soul Hackers 2",
+  "aliases": [
+    "Soul Hackers 2"
+  ],
+  "titlePc": "Soul Hackers 2",
+  "slug": "soul-hackers-2",
+  "platformSlug": "ps4",
+  "edition": "standard",
+  "physicalVariant": null,
+  "region": "PAL España",
+  "regionFamily": null,
+  "marketRegion": null,
+  "regionalStatus": null,
+  "languages": [],
+  "regionalPackaging": [],
+  "canonicalSerials": [],
+  "sourceSerials": [],
+  "resolutionSerials": [],
+  "publisher": null,
+  "developer": "Atlus Co Ltd.",
+  "companyCredits": [
+    {
+      "role": "developer",
+      "name": "Atlus Co Ltd.",
+      "slug": "atlus",
+      "websiteUrl": null,
+      "sourceCandidateHost": null
+    }
+  ],
+  "physicalPublisherOrDistributor": null,
+  "regionalPublisher": null,
+  "releaseDate": "August 26, 2022",
+  "year": 2022,
+  "ean": null,
+  "barcode": null,
+  "productCodes": [],
+  "softwareFamilyCodes": [],
+  "serial": null,
+  "catalogNumber": null,
+  "boxCode": null,
+  "ratingSystems": [],
+  "packagingLanguages": [],
+  "softwareLanguages": [],
+  "componentLanguageEvidence": [],
+  "broadRegion": null,
+  "marketRegions": [
+    "PAL España"
+  ],
+  "evidenceMarkets": [],
+  "distributionMarkets": [],
+  "physicalProductType": "PHYSICAL_FULL_GAME",
+  "nativePhysicalPlatform": null,
+  "compatiblePlatforms": [],
+  "containsDisc": true,
+  "countsAsNativePhysicalRelease": true,
+  "physicalContents": [],
+  "digitalContents": [],
+  "releaseStatus": null,
+  "confidence": null,
+  "sharedDiscId": null,
+  "scanSetIds": [],
+  "ownedScans": [],
+  "coverUrl": "/covers/ps4/soul-hackers-2.jpg",
+  "editionImages": [],
+  "existingEvidence": [],
+  "existingResearchTasks": [],
+  "gameRetailer": null,
+  "priceCharting": {
+    "productId": 4016255,
+    "path": "/game/pal-playstation-4/soul-hackers-2"
+  },
+  "museumPath": null,
+  "legacySources": [],
+  "fieldProvenance": {
+    "developer": {
+      "source": "official",
+      "evidenceUrls": [
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+        "https://store.steampowered.com/app/1777620",
+        "https://gamesdb.launchbox-app.com/games/details/473902"
+      ],
+      "evidenceSummary": "La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "reviewedAt": "2026-09-05",
+      "reviewBatch": "company-credit-ps4-pal-high-additions-1"
+    }
+  },
+  "officialSourceCandidates": []
+}

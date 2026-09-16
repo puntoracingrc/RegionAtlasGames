@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ev-7fa326461ad122253a94f502",
+    "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+    "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+    "sourceId": "platform-holder-official",
+    "sourceUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+    "canonicalUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+    "sourceType": "PLATFORM_HOLDER",
+    "host": "store.playstation.com",
+    "fetchedAt": "2026-09-16T19:01:26.317Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Capcom U.S.A., Inc. PS5 Standard Edition",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "d4f4ffcc5895d454ddeeb66bd703bbcbcecceb6c4eeceff6121a58543de43713",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-8f70a73abcd50235b57df48c",
+    "runId": "benchmark-engine-ps5-02-mu4gvaj1",
+    "taskId": "benchmark-engine-89b3565d03bf2c2e6bebb552",
+    "sourceId": "platform-holder-official",
+    "sourceUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+    "canonicalUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+    "sourceType": "PLATFORM_HOLDER",
+    "host": "store.playstation.com",
+    "fetchedAt": "2026-09-16T19:01:29.112Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Country / Region: United States",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "2b0785dfb70cfb6f22b8c3b5995c2fd2f15406b7a427a11abd51553abf6367e4",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

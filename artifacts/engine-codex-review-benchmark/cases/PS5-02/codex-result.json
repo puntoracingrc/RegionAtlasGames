@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS5-02",
+  "game": "Dragon's Dogma 2",
+  "platform": "ps5",
+  "listingId": "v1|336641149498|0",
+  "reviewedEngineResultHash": "77eaabd2e86641d6a527214dd8e34107c018abfe4d34ab6088b98be4551a4f88",
+  "engineFileHashAtReview": "34aa10180cc3b1587acf5edcebeac5980b616c4cf477573062b38d1c6baf1887",
+  "codexDecision": "DEFER",
+  "codexConfidence": 0.99,
+  "resolvedCatalogId": null,
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-4cd5ed7b3ba447d3",
+      "claim": {
+        "text": [],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/336641149498",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|336641149498|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-7fa326461ad122253a94f502",
+      "claim": "Capcom U.S.A., Inc. PS5 Standard Edition",
+      "source": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/es-py/product/UP0102-PPSA09663_00-DD2GAME000000000",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-8f70a73abcd50235b57df48c",
+      "claim": "Country / Region: United States",
+      "source": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/en-us/error?productId=UP0102-PPSA09663_00-DELUXEEDITION000&widgetErrorType=emptyRequiredBatarang&widgetRoute=game-title&widgetStatusCode=204",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps5-02-rfg-ean-ppsa",
+      "claim": "RF Generation maps EAN 5055060954133 and PPSA-09664 to a Nordic DK/FI/NO/SE PS5 release.",
+      "source": "rf-generation",
+      "sourceUrl": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-240-S-01100-A",
+      "query": "\"5055060954133\" \"PPSA-09664\"",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:5055060954133",
+        "PPSA:PPSA-09664"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps5-02-eroski-ean",
+      "claim": "A Spanish retailer uses the same EAN 5055060954133 for Dragon's Dogma 2 PS5, showing that seller/retailer locale alone cannot identify the packaging market.",
+      "source": "eroski",
+      "sourceUrl": "https://supermercado.eroski.es/es/productdetail/mp139442-juego-dragons-dogma-2-para-playstation-5--ps5/",
+      "query": "\"5055060954133\" Dragon's Dogma 2 PS5",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:5055060954133"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    }
+  ],
+  "engineAlreadyKnew": [
+    "listing-obs-4cd5ed7b3ba447d3",
+    "ev-7fa326461ad122253a94f502",
+    "ev-8f70a73abcd50235b57df48c"
+  ],
+  "codexNewEvidence": [
+    "codex-ps5-02-rfg-ean-ppsa",
+    "codex-ps5-02-eroski-ean"
+  ],
+  "codexNewSources": [
+    "rf-generation",
+    "eroski"
+  ],
+  "codexNewIdentifiers": [
+    "EAN:5055060954133",
+    "PPSA:PPSA-09664"
+  ],
+  "codexNewImages": [],
+  "codexNewRelationships": [
+    "EAN 5055060954133 <-> PPSA-09664; Nordic database record conflicts with Spanish-marketplace assumptions"
+  ],
+  "queriesExecuted": [
+    "\"5055060954133\" \"PPSA-09664\"",
+    "\"5055060954133\" Dragon's Dogma 2 PS5"
+  ],
+  "repeatedEngineRoutes": [],
+  "remainingEvidenceGaps": [
+    "LISTING_BOUND_BACK_PHOTO",
+    "EXACT_MARKET_SET",
+    "LISTING_BOUND_SEAL_PROOF"
+  ],
+  "reason": "The exact EAN is real, but available sources do not safely bind the selected specimen to Spain; one specialist record assigns a Nordic market set. The listing also lacks physical seal/back proof.",
+  "whatChangedTheDecision": "Codex exposed a regional conflict rather than closing it, so DEFER is the only safe outcome.",
+  "discoveryAttribution": "UNRESOLVED",
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0,
+    "pricingBasis": "Codex integrated web/reasoning was not billed to the repository's Brave or OpenAI API accounts."
+  },
+  "frozenAt": "2026-09-16T19:09:56.135Z",
+  "codexResultImmutable": true,
+  "codexResultHash": "4e54aff42c06b6b01977f8fea8ea30cee2cd3edd20921c3ee6a6a275e128102d"
+}

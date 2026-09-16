@@ -1,0 +1,32 @@
+[
+  {
+    "id": "listing-obs-9559750f959daf80",
+    "listingId": "v1|257009348037|0",
+    "imageIndex": 1,
+    "contentHash": "98c22fccf8a4efa337aecd57925369fe7dc5e082977391c96317fa3d9327c2a1",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Soul Hackers 2",
+    "platform": "ps4",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 16"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "ATLUS"
+    ],
+    "visibleText": [
+      "PS4",
+      "SOUL HACKERS 2",
+      "16",
+      "PS5 Upgrade Available"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

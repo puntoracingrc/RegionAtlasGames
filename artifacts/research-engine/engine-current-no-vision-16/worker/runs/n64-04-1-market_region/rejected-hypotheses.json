@@ -1,0 +1,10 @@
+[
+  {
+    "value": "YES",
+    "reason": "Failed closed-choice rule test-barcode-shared."
+  },
+  {
+    "value": "https://www.uvlist.net/game-98689-Body+Harvest",
+    "reason": "page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.uvlist.net/game-98689-Body+Harvest\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  }
+]

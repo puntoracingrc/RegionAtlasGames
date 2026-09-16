@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ev-ce39192636a04f08528ca6b8",
+    "runId": "benchmark-engine-gb-02-mu4gwmzr",
+    "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+    "sourceId": "candidate:www.retroplace.com",
+    "sourceUrl": "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+    "canonicalUrl": "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.retroplace.com",
+    "fetchedAt": "2026-09-16T19:02:24.288Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Country version: Estados Unidos",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "07427511f64760fce474b0bcfdcaa0c975982f36ad34b1c02f1b91b3970ae91c",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-fea6b2ff35b68464d2381886",
+    "runId": "benchmark-engine-gb-02-mu4gwmzr",
+    "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+    "sourceId": "candidate:www.icollecteverything.com",
+    "sourceUrl": "https://www.icollecteverything.com/db/items/videogame/2118/",
+    "canonicalUrl": "https://www.icollecteverything.com/db/items/videogame/2118/",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.icollecteverything.com",
+    "fetchedAt": "2026-09-16T19:02:26.762Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Nail ’n Scale",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "5053b594562415259d570055d8221a4bccfb2caaaae8ce722c4e882ce3faac6b",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "id": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+  "subjectId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon",
+  "targetField": "MARKET_REGION",
+  "question": "¿Qué mercado o mercados corresponden a esta caja física concreta?",
+  "priority": "P1",
+  "evidenceNeeded": [
+    "PHYSICAL_SCAN",
+    "RETAILER",
+    "COLLECTOR_DATABASE"
+  ],
+  "riskCodes": [
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T20:11:03.744Z",
+  "updatedAt": "2026-09-16T20:11:03.744Z"
+}

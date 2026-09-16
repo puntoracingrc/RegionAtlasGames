@@ -1,0 +1,1226 @@
+{
+  "current": {
+    "targetField": "MARKET_REGION",
+    "factsUsed": [
+      "target=MARKET_REGION",
+      "platform=gameboy",
+      "title=Lock 'n' Chase",
+      "edition=standard",
+      "PRODUCT_CODE=DMG-LCA",
+      "legacyScannerReviewed=13",
+      "legacyScannerCandidates=0",
+      "knowledgePack=knowledge-pack-58421d2aad52786b3ce4a115",
+      "knownVariants=2",
+      "knownDirectUrls=1",
+      "playbook=BARCODE_KNOWN_MARKET_UNKNOWN"
+    ],
+    "selectedPlaybook": {
+      "id": "BARCODE_KNOWN_MARKET_UNKNOWN",
+      "targets": [
+        "MARKET_REGION",
+        "PACKAGING_LANGUAGES"
+      ],
+      "triggers": [
+        "BARCODE_KNOWN"
+      ],
+      "sourceRoles": [
+        "OWN_SCAN",
+        "PHYSICAL_SPECIMEN",
+        "SPECIALIZED_DATABASE",
+        "RETAILER"
+      ],
+      "queryTemplateGroups": [
+        "BARCODE",
+        "PACKAGING_LANGUAGES"
+      ],
+      "deterministicChecks": [
+        "BARCODE_CHECKSUM",
+        "SUBJECT_BINDING",
+        "PACKAGING_NOT_SOFTWARE"
+      ],
+      "steps": [],
+      "stopWhen": null,
+      "stopRule": null,
+      "sourceIds": [],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 60,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 20,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 65,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+      },
+      {
+        "sourceId": "no-intro",
+        "hosts": [
+          "no-intro.org",
+          "wiki.no-intro.org"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "CARTRIDGE_IDENTIFIER"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 10,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+      },
+      {
+        "sourceId": "datomatic",
+        "hosts": [
+          "datomatic.no-intro.org"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "CARTRIDGE_IDENTIFIER"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 10,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+      },
+      {
+        "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+        "hosts": [
+          "www.ebay.es"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-visual-reviewed-20260908:335866722818",
+        "hosts": [
+          "www.ebay.es"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-visual-reviewed-20260908:297478441978",
+        "hosts": [
+          "www.ebay.es"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-visual-reviewed-20260908:326091056529",
+        "hosts": [
+          "www.ebay.es"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:hardware",
+        "hosts": [
+          "gbhwdb.gekkio.fi"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:flintstones",
+        "hosts": [
+          "www.game-boy-database.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:asterix",
+        "hosts": [
+          "gbhwdb.gekkio.fi"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:addams",
+        "hosts": [
+          "gbhwdb.gekkio.fi"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:revisions",
+        "hosts": [
+          "www.game-boy-database.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:pokemon-red-nesp",
+        "hosts": [
+          "www.game-boy-database.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:wario-neai",
+        "hosts": [
+          "www.game-boy-database.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:zelda-esp2",
+        "hosts": [
+          "www.game-boy-database.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:gameboy-documentary-v3-legado:legado-esp-list",
+        "hosts": [
+          "www.legadodelpixel.es"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 76."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+        "sourceId": "ebay-es",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "\"DMG-LCA\"",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER"
+      },
+      {
+        "query": "\"DMG-LCA\" \"Lock 'n' Chase\"",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER"
+      },
+      {
+        "query": "site:game.es \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:regionatlas.games \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "sourceId": "regionatlas-own-scan",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Lock 'n' Chase\" \"gameboy\" \"standard\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "DMG-LCA",
+        "query": "\"DMG-LCA\" gameboy"
+      },
+      {
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "DMG-LCA",
+        "query": "site:game.es \"DMG-LCA\""
+      },
+      {
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "DMG-LCA",
+        "query": "\"DMG-LCA\" \"PAL Europa\""
+      },
+      {
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "DMG-LCA",
+        "query": "site:ebay.com \"DMG-LCA\""
+      },
+      {
+        "query": "site:todocoleccion.net \"Lock 'n' Chase\" gameboy",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.es \"Lock 'n' Chase\" gameboy",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Lock 'n' Chase\" gameboy",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:wiki.no-intro.org \"DMG-LCA\"",
+        "sourceId": "no-intro",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:datomatic.no-intro.org \"DMG-LCA\"",
+        "sourceId": "datomatic",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:no-intro.org \"Lock 'n' Chase\" gameboy",
+        "sourceId": "no-intro",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:datomatic.no-intro.org \"Lock 'n' Chase\" gameboy",
+        "sourceId": "datomatic",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Lock 'n' Chase\" \"gameboy\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [],
+    "deterministicChecks": [
+      "BARCODE_CHECKSUM",
+      "SUBJECT_BINDING",
+      "PACKAGING_NOT_SOFTWARE"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "b74c6d97b63b02eade7ddb46d16f43b257ddac482b2c6b25ae76555c39106df7"
+  },
+  "history": [
+    {
+      "targetField": "MARKET_REGION",
+      "factsUsed": [
+        "target=MARKET_REGION",
+        "platform=gameboy",
+        "title=Lock 'n' Chase",
+        "edition=standard",
+        "PRODUCT_CODE=DMG-LCA",
+        "legacyScannerReviewed=13",
+        "legacyScannerCandidates=0",
+        "knowledgePack=knowledge-pack-58421d2aad52786b3ce4a115",
+        "knownVariants=2",
+        "knownDirectUrls=1",
+        "playbook=BARCODE_KNOWN_MARKET_UNKNOWN"
+      ],
+      "selectedPlaybook": {
+        "id": "BARCODE_KNOWN_MARKET_UNKNOWN",
+        "targets": [
+          "MARKET_REGION",
+          "PACKAGING_LANGUAGES"
+        ],
+        "triggers": [
+          "BARCODE_KNOWN"
+        ],
+        "sourceRoles": [
+          "OWN_SCAN",
+          "PHYSICAL_SPECIMEN",
+          "SPECIALIZED_DATABASE",
+          "RETAILER"
+        ],
+        "queryTemplateGroups": [
+          "BARCODE",
+          "PACKAGING_LANGUAGES"
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "SUBJECT_BINDING",
+          "PACKAGING_NOT_SOFTWARE"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": null,
+        "sourceIds": [],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 60,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+        },
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 20,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 65,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+        },
+        {
+          "sourceId": "no-intro",
+          "hosts": [
+            "no-intro.org",
+            "wiki.no-intro.org"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "CARTRIDGE_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 10,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+        },
+        {
+          "sourceId": "datomatic",
+          "hosts": [
+            "datomatic.no-intro.org"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "CARTRIDGE_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 10,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+        },
+        {
+          "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+          "hosts": [
+            "www.ebay.es"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-visual-reviewed-20260908:335866722818",
+          "hosts": [
+            "www.ebay.es"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-visual-reviewed-20260908:297478441978",
+          "hosts": [
+            "www.ebay.es"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-visual-reviewed-20260908:326091056529",
+          "hosts": [
+            "www.ebay.es"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:hardware",
+          "hosts": [
+            "gbhwdb.gekkio.fi"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:flintstones",
+          "hosts": [
+            "www.game-boy-database.com"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:asterix",
+          "hosts": [
+            "gbhwdb.gekkio.fi"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:addams",
+          "hosts": [
+            "gbhwdb.gekkio.fi"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:revisions",
+          "hosts": [
+            "www.game-boy-database.com"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:pokemon-red-nesp",
+          "hosts": [
+            "www.game-boy-database.com"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:wario-neai",
+          "hosts": [
+            "www.game-boy-database.com"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:zelda-esp2",
+          "hosts": [
+            "www.game-boy-database.com"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "legacy:gameboy-documentary-v3-legado:legado-esp-list",
+          "hosts": [
+            "www.legadodelpixel.es"
+          ],
+          "roles": [
+            "LEGACY_SCANNER_DOCUMENTARY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 62,
+          "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 76."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 90."
+        },
+        {
+          "sourceId": "yambalu",
+          "hosts": [
+            "yambalu.com",
+            "www.yambalu.com"
+          ],
+          "roles": [
+            "RETAILER_AGGREGATOR",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 58."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+          "sourceId": "ebay-es",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "\"DMG-LCA\"",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER"
+        },
+        {
+          "query": "\"DMG-LCA\" \"Lock 'n' Chase\"",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER"
+        },
+        {
+          "query": "site:game.es \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:regionatlas.games \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+          "sourceId": "regionatlas-own-scan",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Lock 'n' Chase\" \"gameboy\" \"standard\"",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Lock 'n' Chase\" \"gameboy\" \"standard\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "DMG-LCA",
+          "query": "\"DMG-LCA\" gameboy"
+        },
+        {
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "DMG-LCA",
+          "query": "site:game.es \"DMG-LCA\""
+        },
+        {
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "DMG-LCA",
+          "query": "\"DMG-LCA\" \"PAL Europa\""
+        },
+        {
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "DMG-LCA",
+          "query": "site:ebay.com \"DMG-LCA\""
+        },
+        {
+          "query": "site:todocoleccion.net \"Lock 'n' Chase\" gameboy",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.es \"Lock 'n' Chase\" gameboy",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Lock 'n' Chase\" gameboy",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:wiki.no-intro.org \"DMG-LCA\"",
+          "sourceId": "no-intro",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"DMG-LCA\"",
+          "sourceId": "datomatic",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:no-intro.org \"Lock 'n' Chase\" gameboy",
+          "sourceId": "no-intro",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"Lock 'n' Chase\" gameboy",
+          "sourceId": "datomatic",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Lock 'n' Chase\" \"gameboy\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [],
+      "deterministicChecks": [
+        "BARCODE_CHECKSUM",
+        "SUBJECT_BINDING",
+        "PACKAGING_NOT_SOFTWARE"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "b74c6d97b63b02eade7ddb46d16f43b257ddac482b2c6b25ae76555c39106df7"
+    }
+  ]
+}

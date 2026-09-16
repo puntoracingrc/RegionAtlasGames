@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS5-03",
+  "game": "Final Fantasy XVI",
+  "platform": "ps5",
+  "listingId": "v1|267695458509|0",
+  "reviewedEngineResultHash": "9152cf8ff5e189cc813bd7f97c2776b2c00537c5bcd8d9604d757c18236a955c",
+  "engineFileHashAtReview": "a98c5a7a5b1bbcdac81cc8938e9428119130d1803e91d936e4c78d84aba8f838",
+  "codexDecision": "DEFER",
+  "codexConfidence": 1,
+  "resolvedCatalogId": null,
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-58acd82275b858cf",
+      "claim": {
+        "text": [
+          "www.pegi.info"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/267695458509?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fjgb1VRnnemmDllXdOVLowFs3KdkCo8DXyj1zE0Prtj0JSPF6gupn32W4vaazv%2FaJkhJDdDfdM5GJN0zxvKGfLO4xZoaqMCGME5r%2FSIH4Bs%2B9UigHr8vcbO%2BHuLIOlAblvQsqyepQLiDcsdtf2dHJa1tb9ZYedw8RcD86pSTLON1Hv4NmZ95Y9m9NvOSzl6Bg%3D",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|267695458509|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-564d949afac8d2c044020733",
+      "claim": "...final Fantasy XVI edición Deluxe para PlayStation 5...",
+      "source": "national-retailer",
+      "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-6edee87a71899ac80e159ebf",
+      "claim": "...PS5 Standard Edition... 861.21 MXN... Suscribirse a PlayStation Plus Extra para acceder a este juego...",
+      "source": "platform-holder-official",
+      "sourceUrl": "https://store.playstation.com/es-mx/concept/10002100",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps5-03-retroloco-ean-ppsa",
+      "claim": "A photographed Spanish specimen record maps EAN 5021290096851 to PPSA-10665, standard PAL Spain Final Fantasy XVI.",
+      "source": "retroloco",
+      "sourceUrl": "https://www.retroloco.es/producto/final-fantasy-xvi-esp-precintado/",
+      "query": "\"5021290096851\" Final Fantasy XVI PS5",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:5021290096851",
+        "PPSA:PPSA-10665"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps5-03-gamefaqs-ean",
+      "claim": "GameFAQs release data independently maps EAN 5021290096851 to the Spanish EU standard release and PPSA-10665.",
+      "source": "gamefaqs",
+      "sourceUrl": "https://gamefaqs.gamespot.com/ps5/300958-final-fantasy-xvi/data",
+      "query": "\"5021290096851\" Final Fantasy XVI PS5",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:5021290096851",
+        "PPSA:PPSA-10665"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    }
+  ],
+  "engineAlreadyKnew": [
+    "listing-obs-58acd82275b858cf",
+    "ev-564d949afac8d2c044020733",
+    "ev-6edee87a71899ac80e159ebf"
+  ],
+  "codexNewEvidence": [
+    "codex-ps5-03-retroloco-ean-ppsa",
+    "codex-ps5-03-gamefaqs-ean"
+  ],
+  "codexNewSources": [
+    "retroloco",
+    "gamefaqs"
+  ],
+  "codexNewIdentifiers": [
+    "EAN:5021290096851",
+    "PPSA:PPSA-10665"
+  ],
+  "codexNewImages": [],
+  "codexNewRelationships": [
+    "EAN 5021290096851 <-> PPSA-10665 <-> Spanish standard release"
+  ],
+  "queriesExecuted": [
+    "\"5021290096851\" Final Fantasy XVI PS5"
+  ],
+  "repeatedEngineRoutes": [],
+  "remainingEvidenceGaps": [
+    "NO_ACTUAL_LISTING_PHOTO",
+    "LISTING_BOUND_CONDITION_PROOF",
+    "DISC_OR_CONTENTS_PHOTO"
+  ],
+  "reason": "The product family is well mapped, but the seller explicitly says its image is illustrative and not the actual product. The exact used unit cannot be certified.",
+  "whatChangedTheDecision": "Codex resolved the product-family mapping but could not turn a stock image into specimen evidence.",
+  "discoveryAttribution": "UNRESOLVED",
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0,
+    "pricingBasis": "Codex integrated web/reasoning was not billed to the repository's Brave or OpenAI API accounts."
+  },
+  "frozenAt": "2026-09-16T19:09:56.136Z",
+  "codexResultImmutable": true,
+  "codexResultHash": "e6629a2867e75ac5921264b9fd31d1150b6d46f4f19c57311866d295215c7f57"
+}

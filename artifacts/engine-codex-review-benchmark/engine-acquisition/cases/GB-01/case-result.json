@@ -1,0 +1,647 @@
+{
+  "caseId": "GB-01",
+  "platform": "gameboy",
+  "subjectTitle": "Lock 'n' Chase",
+  "sourcePhotos": 7,
+  "preservedPhotos": 7,
+  "originalResolutionPhotos": 7,
+  "photosClassified": 7,
+  "photosInspectedHighDetail": 7,
+  "subjectAcceptedImages": 7,
+  "componentClassifiedImages": 7,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": false,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": true,
+      "CARTRIDGE_BACK": true,
+      "DISC": false,
+      "MANUAL_FRONT": true,
+      "MANUAL_BACK": true,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": []
+  },
+  "componentsFound": [
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 7,
+  "marketBoundObservations": 7,
+  "diagnosis": "MARKET_BINDING_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 2,
+  "marketFollowupCalls": 1,
+  "openAiCalls": 4,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 20087,
+      "completion_tokens": 392,
+      "total_tokens": 20479,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 153236,
+      "completion_tokens": 778,
+      "total_tokens": 154014,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 25671,
+      "completion_tokens": 139,
+      "total_tokens": 25810,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 102219,
+      "completion_tokens": 102,
+      "total_tokens": 102321,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.046028549999999994,
+  "item": {
+    "id": "listing-evidence-v2-gb-01",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "gameboy",
+    "targetRegion": "PAL Europa",
+    "detectedRegion": null,
+    "catalogId": "gameboy-pal-lock-n-chase",
+    "candidateCatalogId": "gameboy-pal-lock-n-chase",
+    "listingTitle": "Nintendo Game Boy Lock'n Chase Japan CIB Complete Boxed Manual NTSC-J Original",
+    "priceEur": 69.0,
+    "condition": "complete",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T18:56:43Z",
+    "evidence": {
+      "externalId": "v1|377464390784|0",
+      "url": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+      "description": "Juego Lock'n Chase original japonés para Nintendo Game Boy, versión NTSC-J, completo en caja con manual. El cartucho funciona correctamente. Incluye caja original japonesa y manual, ideal para coleccionistas de Game Boy, Nintendo retro o material japonés. Estado estético acorde a los años, ver fotos para valorar el estado exacto de caja, cartucho y manual. Artículo cada vez más interesante para colección, especialmente en formato completo (CIB – Complete in Box).",
+      "imageUrl": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|377464390784|0",
+        "legacyItemId": "377464390784",
+        "capturedAt": "2026-09-16T18:56:43Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "Nintendo Game Boy Lock'n Chase Japan CIB Complete Boxed Manual NTSC-J Original",
+          "shortDescription": "Juego Lock'n Chase original japonés para Nintendo Game Boy, versión NTSC-J, completo en caja con manual. El cartucho funciona correctamente. Incluye caja original japonesa y manual, ideal para coleccionistas de Game Boy, Nintendo retro o material japonés. Estado estético acorde a los años, ver fotos para valorar el estado exacto de caja, cartucho y manual. Artículo cada vez más interesante para colección, especialmente en formato completo (CIB – Complete in Box).",
+          "description": "<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Juego Lock'n Chase original japon&#233;s para Nintendo Game Boy, versi&#243;n NTSC-J, completo en caja con manual.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">El cartucho funciona correctamente. Incluye caja original japonesa y manual, ideal para coleccionistas de Game Boy, Nintendo retro o material japon&#233;s.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Estado est&#233;tico acorde a los a&#241;os, ver fotos para valorar el estado exacto de caja, cartucho y manual.</p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\">Art&#237;culo cada vez m&#225;s interesante para colecci&#243;n, especialmente en formato completo (CIB &#8211; Complete in Box).</p>",
+          "condition": "En buen estado",
+          "conditionId": "5000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/377464390784?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8e%2FZneaaQzx4aPrvNUeO46j4uDXb0rDe7mhg1vPAchvhOlKCrJNSXjupSWgWsC1gsOV%2FVzmd05Ij%2FHTyBhQ7SOyc2BqxSciGPOGIJ7XlDIei4ICXj0PuBOITQ38CMODjTuXkPnvHF6qRyO4V4WOLO87P5UdetH029lEE8IKHE3dWMf%2BKU9WIxzksGfPvxwRnU%3D",
+          "itemLocation": {
+            "city": "Zaragoza",
+            "postalCode": "50***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "noagames",
+            "feedbackPercentage": "100.0",
+            "feedbackScore": 8
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "Nombre del videojuego": [
+              "Lock n chase"
+            ],
+            "Cantidad de unidades": [
+              "1"
+            ],
+            "Plataforma": [
+              "Nintendo Game Boy"
+            ],
+            "Año de lanzamiento": [
+              "1990"
+            ],
+            "Género": [
+              "Acción y Aventura, Rompecabezas"
+            ],
+            "Tipo de unidad": [
+              "Unidad"
+            ],
+            "Editor": [
+              "Data East"
+            ],
+            "Clasificación": [
+              "PEGI 3"
+            ]
+          },
+          "price": {
+            "value": 69.0,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: cartas certificadas",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 0,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": null,
+          "brand": null,
+          "mpn": null,
+          "epid": null
+        },
+        "imagesAvailableFromSource": 7,
+        "imagesPreserved": 7,
+        "images": [
+          {
+            "listingId": "v1|377464390784|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/hA4AAeSwh5lqF8vY/s-l1600.jpg",
+            "contentHash": "dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9",
+            "width": 1204,
+            "height": 1600,
+            "byteLength": 184436,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|377464390784|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/KewAAeSwLDNqF8vY/s-l1600.jpg",
+            "contentHash": "4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4",
+            "width": 1204,
+            "height": 1600,
+            "byteLength": 253117,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|377464390784|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/kP8AAeSwM4hqF8vZ/s-l1600.jpg",
+            "contentHash": "d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e",
+            "width": 1204,
+            "height": 1600,
+            "byteLength": 192182,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|377464390784|0",
+            "imageIndex": 4,
+            "sourceIndex": 4,
+            "sourceUrl": "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/BdoAAeSwQIpqF8vZ/s-l1600.jpg",
+            "contentHash": "ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e",
+            "width": 1204,
+            "height": 1600,
+            "byteLength": 169200,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|377464390784|0",
+            "imageIndex": 5,
+            "sourceIndex": 5,
+            "sourceUrl": "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/82sAAeSwAU9qF8va/s-l1600.jpg",
+            "contentHash": "d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5",
+            "width": 1204,
+            "height": 1600,
+            "byteLength": 154492,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|377464390784|0",
+            "imageIndex": 6,
+            "sourceIndex": 6,
+            "sourceUrl": "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/-CUAAeSw5D5qF8va/s-l1600.jpg",
+            "contentHash": "bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca",
+            "width": 1204,
+            "height": 1600,
+            "byteLength": 254078,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|377464390784|0",
+            "imageIndex": 7,
+            "sourceIndex": 7,
+            "sourceUrl": "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/y2AAAeSwG3xqF8vb/s-l1600.jpg",
+            "contentHash": "6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674",
+            "width": 1204,
+            "height": 1600,
+            "byteLength": 229462,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/engine-codex-benchmark/GB-01/6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-09ba161c48ad67d1",
+          "listingId": "v1|377464390784|0",
+          "imageIndex": 1,
+          "contentHash": "dd57bc78b11c14787433016a217b4a2f8b97e7d5554aeed450322f386f7411e9",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Lock 'n' Chase",
+          "platform": "Game Boy",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "©1990 DATA EAST CORP.",
+            "MADE IN JAPAN"
+          ],
+          "visibleText": [
+            "LOCK'N CHASE",
+            "GAME BOY",
+            "DECO"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "GAME BOY",
+            "DECO"
+          ]
+        },
+        {
+          "id": "listing-obs-279dd38ca4ce14cf",
+          "listingId": "v1|377464390784|0",
+          "imageIndex": 2,
+          "contentHash": "4cf46265b3e05970a0f1debcd33c24e2b343ca285bb109b4e5ee6555c7eef9e4",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Lock 'n' Chase",
+          "platform": "Game Boy",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [
+            "DATA EAST CORP"
+          ],
+          "publisherLegalText": [
+            "©1990 DATA EAST CORP.",
+            "MADE IN JAPAN"
+          ],
+          "visibleText": [
+            "LOCK'N CHASE",
+            "DECO"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "DECO"
+          ]
+        },
+        {
+          "id": "listing-obs-c44185268bc10db2",
+          "listingId": "v1|377464390784|0",
+          "imageIndex": 3,
+          "contentHash": "d3d841ef8dbfb0741cc9ac7ae46e0f223edb5a808caaff7ce590efeffe04788e",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Lock 'n' Chase",
+          "platform": "Game Boy",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "©1990 DATA EAST CORP.",
+            "MADE IN JAPAN"
+          ],
+          "visibleText": [
+            "LOCK'N CHASE",
+            "DECO"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "DECO"
+          ]
+        },
+        {
+          "id": "listing-obs-abb4d9aa28091df5",
+          "listingId": "v1|377464390784|0",
+          "imageIndex": 4,
+          "contentHash": "ee67e9271a2b4e9529350e06238cdcd779fc6458028070c4dbdf7e6f29c8ad8e",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Lock 'n' Chase",
+          "platform": "Game Boy",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "©1990 DATA EAST CORP.",
+            "MADE IN JAPAN"
+          ],
+          "visibleText": [
+            "LOCK'N CHASE",
+            "DECO"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "DECO"
+          ]
+        },
+        {
+          "id": "listing-obs-82f8b858a2c89559",
+          "listingId": "v1|377464390784|0",
+          "imageIndex": 5,
+          "contentHash": "d06dbbd348ee3b244839dc453f907e6bfbde081c6874d2761754bf885da2b3c5",
+          "component": "CARTRIDGE_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "MADE IN JAPAN",
+            "PAT. PEND."
+          ],
+          "visibleText": [],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "cartridge_back",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-d8ca962a71aecbcf",
+          "listingId": "v1|377464390784|0",
+          "imageIndex": 6,
+          "contentHash": "bd96c3bd179380ff56cc29a1072375ed0fcd838f10ae21f7a8870d700e95e5ca",
+          "component": "MANUAL_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Lock 'n' Chase",
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "DMG-LCA"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "LOCK'N CHASE",
+            "DECO"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "manual_front",
+          "textSnippets": [
+            "LOCK'N CHASE",
+            "DECO"
+          ]
+        },
+        {
+          "id": "listing-obs-d703ab790f95d464",
+          "listingId": "v1|377464390784|0",
+          "imageIndex": 7,
+          "contentHash": "6b1bd11949ff126b446fdaffa130c4b69d026afd6ae25dfd8d086a687e2ee674",
+          "component": "MANUAL_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "©1990 DATA EAST CORP."
+          ],
+          "visibleText": [
+            "使用上の注意",
+            "FOR SALE AND USE IN JAPAN ONLY"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "manual_back",
+          "textSnippets": [
+            "使用上の注意",
+            "FOR SALE AND USE IN JAPAN ONLY"
+          ]
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": [
+          "required visible media and package components present"
+        ]
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "gameboy-pal-lock-n-chase",
+      "catalogTitle": "Lock 'n' Chase",
+      "matchAlternatives": [
+        {
+          "catalogId": "gameboy-lock-n-chase",
+          "region": "USA",
+          "title": "Lock 'n' Chase",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-pal-lock-n-chase",
+          "region": "PAL Europa",
+          "title": "Lock 'n' Chase",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-japon-lock-n-chase",
+          "region": "Japón",
+          "title": "Lock N' Chase",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "currency": "USD",
+  "engine": {
+    "retrieval": 0.36,
+    "ai": 0.124281,
+    "total": 0.484281
+  },
+  "codex": {
+    "retrieval": 0,
+    "ai": 0,
+    "total": 0,
+    "accountingNote": "Integrated Codex web/reasoning was not billed to the repository's Brave or OpenAI API accounts; subscription opportunity cost is not observable here."
+  },
+  "total": 0.484281,
+  "unitEconomics": {
+    "costPerEngineAutonomousCorrectResolution": null,
+    "costPerAdditionalCodexCorrectResolution": 0,
+    "totalCostPerFinalCorrectResolution": 0.24214
+  },
+  "calls": {
+    "engineBraveWeb": 72,
+    "engineBraveImages": 0,
+    "engineAcquisitionAi": 22,
+    "engineResearchAi": 21,
+    "codexQueries": 7
+  }
+}

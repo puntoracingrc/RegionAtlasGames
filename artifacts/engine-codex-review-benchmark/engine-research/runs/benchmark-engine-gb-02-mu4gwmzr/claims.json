@@ -1,0 +1,46 @@
+[
+  {
+    "id": "cl-bd267571d76bc5c1ecc2df0e",
+    "runId": "benchmark-engine-gb-02-mu4gwmzr",
+    "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+    "subjectId": "benchmark:listing-evidence-v2-gb-02",
+    "gameId": "gameboy-pal-nail-n-scale",
+    "platformSlug": "gameboy",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL Europa",
+    "sourceId": "candidate:www.retroplace.com",
+    "sourceUrl": "https://www.retroplace.com/es/juegos/32987--nail-n-scale",
+    "evidenceId": "ev-ce39192636a04f08528ca6b8",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:02:26.066Z"
+  },
+  {
+    "id": "cl-972c8d485b2fcbb5f96ed14e",
+    "runId": "benchmark-engine-gb-02-mu4gwmzr",
+    "taskId": "benchmark-engine-3e8a094ccb6e90c85fd5580b",
+    "subjectId": "benchmark:listing-evidence-v2-gb-02",
+    "gameId": "gameboy-pal-nail-n-scale",
+    "platformSlug": "gameboy",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL Europa",
+    "sourceId": "candidate:www.icollecteverything.com",
+    "sourceUrl": "https://www.icollecteverything.com/db/items/videogame/2118/",
+    "evidenceId": "ev-fea6b2ff35b68464d2381886",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T19:02:28.364Z"
+  }
+]

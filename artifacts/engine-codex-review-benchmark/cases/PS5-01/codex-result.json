@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS5-01",
+  "game": "Demon's Souls",
+  "platform": "ps5",
+  "listingId": "v1|363231498889|0",
+  "reviewedEngineResultHash": "5bc8577ef9e7f71246c62df3d780fd592d1893d057a939be64869c42ef1b566a",
+  "engineFileHashAtReview": "a88262237ba68d16feff647ba316602c59c14a9f7046647c708706c2eb4408de",
+  "codexDecision": "DEFER",
+  "codexConfidence": 0.99,
+  "resolvedCatalogId": null,
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-b8a0edc5f4823b56",
+      "claim": {
+        "text": [
+          "Demon's Souls",
+          "PS5",
+          "18",
+          "www.pegi.info"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/363231498889",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|363231498889|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-a0a64b2cc969f8025bf3937c",
+      "claim": "Country/Region of Manufacture United States",
+      "source": "ebay",
+      "sourceUrl": "https://www.ebay.com/p/28045277245",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-3950a7ffccd2f4479926949b",
+      "claim": "the original US cover art",
+      "source": "candidate:www.resetera.com",
+      "sourceUrl": "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-f74daecbba91ef8491378538",
+      "claim": "Ayuda Atención al cliente ... Información para consumidores de la UE ...",
+      "source": "candidate:es.aliexpress.com",
+      "sourceUrl": "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps5-01-lamee-ean",
+      "claim": "A Spanish specialist retailer maps EAN 0711719812920 to Demon's Souls PS5 and states Spanish box language.",
+      "source": "lamee-software",
+      "sourceUrl": "https://www.lameesoftware.com/demon-s-souls-ps5sdsr.html",
+      "query": "\"0711719812920\" PPSA Demon's Souls PS5",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:0711719812920"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    },
+    {
+      "evidenceId": "codex-ps5-01-elcorteingles-ean",
+      "claim": "El Corte Inglés maps EAN 0711719812920 and model 9812920 to the standard PS5 release.",
+      "source": "el-corte-ingles",
+      "sourceUrl": "https://www.elcorteingles.es/videojuegos/A37286384-demons-souls-remake-ps5/",
+      "query": "\"0711719812920\" Demon's Souls PS5",
+      "component": "OUTER_PACKAGE",
+      "listingId": null,
+      "imageIndex": null,
+      "identifier": [
+        "EAN:0711719812920",
+        "MODEL:9812920"
+      ],
+      "origin": "CODEX",
+      "decisive": false
+    }
+  ],
+  "engineAlreadyKnew": [
+    "listing-obs-b8a0edc5f4823b56",
+    "ev-a0a64b2cc969f8025bf3937c",
+    "ev-3950a7ffccd2f4479926949b",
+    "ev-f74daecbba91ef8491378538"
+  ],
+  "codexNewEvidence": [
+    "codex-ps5-01-lamee-ean",
+    "codex-ps5-01-elcorteingles-ean"
+  ],
+  "codexNewSources": [
+    "lamee-software",
+    "el-corte-ingles"
+  ],
+  "codexNewIdentifiers": [
+    "EAN:0711719812920",
+    "MODEL:9812920"
+  ],
+  "codexNewImages": [],
+  "codexNewRelationships": [
+    "EAN 0711719812920 -> Spanish-box Demon's Souls PS5 retail family"
+  ],
+  "queriesExecuted": [
+    "\"0711719812920\" PPSA Demon's Souls PS5",
+    "\"0711719812920\" Demon's Souls PS5"
+  ],
+  "repeatedEngineRoutes": [],
+  "remainingEvidenceGaps": [
+    "LISTING_BOUND_SEAL_PROOF",
+    "LISTING_BOUND_BACK_OR_DISC_PHOTO",
+    "EXACT_MARKET_SET"
+  ],
+  "reason": "The EAN is corroborated for a Spanish-box retail family, but the selected listing has only a front image and no visible seal, back, or disc. A seller's 'nuevo precintado' claim is not physical condition proof.",
+  "whatChangedTheDecision": "Exact EAN research improved regional identity but did not close listing-bound condition and component gaps.",
+  "discoveryAttribution": "UNRESOLVED",
+  "cost": {
+    "retrievalUsd": 0,
+    "aiUsd": 0,
+    "totalUsd": 0,
+    "pricingBasis": "Codex integrated web/reasoning was not billed to the repository's Brave or OpenAI API accounts."
+  },
+  "frozenAt": "2026-09-16T19:09:56.134Z",
+  "codexResultImmutable": true,
+  "codexResultHash": "7c52bfb9008dc54984bdbfd0796aee07be7f1f4e14653efe1bf72070ef3fc21b"
+}

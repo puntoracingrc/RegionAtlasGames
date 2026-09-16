@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "PILOT_16",
+  "caseId": "PS5-01",
+  "game": "Demon's Souls",
+  "platform": "ps5",
+  "listingId": "v1|363231498889|0",
+  "listingUrl": "https://www.ebay.es/itm/363231498889",
+  "inputHash": "cc67bc0e057dd140eadc00bbfad2f86cedade5595a849fa01fc9005eb0345e46",
+  "galleryHash": "880d0c071826ac88b8fda809a3f94a9cb1a12af6512d5f5f30926262f5e02dc7",
+  "knowledgePackHash": "b8e334cb1f4d6abd4372919d806be37d970e80c58d7b698683ba5a194f079d45",
+  "evidenceHash": "d9b1ba0896c62da3f9a5bac4f30ed354b9d0a1f06bded80117bd8eb02a7190cb",
+  "initialEngineDecision": "REVIEW_REQUIRED",
+  "engineDecision": "REVIEW_REQUIRED",
+  "engineConfidence": 0.5,
+  "searchedCatalogId": "ps5-usa-demon-s-souls",
+  "candidateCatalogId": "ps5-usa-demon-s-souls",
+  "resolvedCatalogId": null,
+  "variantBinding": "PRODUCT_BOUND",
+  "marketBinding": "UNBOUND",
+  "detectedMarket": null,
+  "condition": {
+    "bucket": "unknown",
+    "confidence": 0,
+    "evidence": [],
+    "manualExpected": false,
+    "originalContentsExpected": []
+  },
+  "confirmedClaims": [
+    "identity",
+    "platform_candidate"
+  ],
+  "uncertainClaims": [
+    "market_region",
+    "condition"
+  ],
+  "rejectedClaims": [],
+  "evidenceUsed": [
+    {
+      "evidenceId": "listing-obs-b8a0edc5f4823b56",
+      "claim": {
+        "text": [
+          "Demon's Souls",
+          "PS5",
+          "18",
+          "www.pegi.info"
+        ],
+        "productCodes": [],
+        "serials": [],
+        "barcodes": [],
+        "languages": [],
+        "distributors": [],
+        "editionMarkers": []
+      },
+      "source": "ebay-es",
+      "sourceUrl": "https://www.ebay.es/itm/363231498889",
+      "component": "OUTER_PACKAGE_FRONT",
+      "listingId": "v1|363231498889|0",
+      "imageIndex": 1,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": true
+    },
+    {
+      "evidenceId": "ev-a0a64b2cc969f8025bf3937c",
+      "claim": "Country/Region of Manufacture United States",
+      "source": "ebay",
+      "sourceUrl": "https://www.ebay.com/p/28045277245",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-3950a7ffccd2f4479926949b",
+      "claim": "the original US cover art",
+      "source": "candidate:www.resetera.com",
+      "sourceUrl": "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    },
+    {
+      "evidenceId": "ev-f74daecbba91ef8491378538",
+      "claim": "Ayuda Atención al cliente ... Información para consumidores de la UE ...",
+      "source": "candidate:es.aliexpress.com",
+      "sourceUrl": "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp",
+      "component": null,
+      "imageIndex": null,
+      "identifier": [],
+      "origin": "ENGINE",
+      "decisive": false
+    }
+  ],
+  "sourcesConsulted": [
+    "ebay",
+    "candidate:www.resetera.com",
+    "candidate:es.aliexpress.com"
+  ],
+  "queriesExecuted": [
+    "site:game.es \"Demon's Souls\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Demon's Souls\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Demon's Souls\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Demon's Souls\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Demon's Souls\" \"ps5\" \"standard\"",
+    "\"Demon's Souls\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Demon's Souls\" PlayStation 5",
+    "site:ebay.es \"Demon's Souls\" PlayStation 5"
+  ],
+  "listingImagesUsed": [
+    1
+  ],
+  "componentObservations": [
+    {
+      "id": "listing-obs-b8a0edc5f4823b56",
+      "imageIndex": 1,
+      "component": "OUTER_PACKAGE_FRONT",
+      "productNodeType": "OUTER_PACKAGE",
+      "role": "outer_package_front",
+      "textSnippets": [
+        "Demon's Souls",
+        "PS5",
+        "18",
+        "www.pegi.info"
+      ],
+      "productCodes": [],
+      "barcodes": [],
+      "languages": [],
+      "ratingSystems": [
+        "PEGI 18"
+      ],
+      "distributors": [],
+      "editionMarkers": [],
+      "listingId": "v1|363231498889|0",
+      "contentHash": "8569dd30ba439ebf2062410944647510d99ca1a927874e4c76dacb3d2ac5cac3"
+    }
+  ],
+  "identifiersFound": [],
+  "remainingEvidenceGaps": [
+    "MISSING_MARKET_PROOF",
+    "MISSING_COMPONENT_PHOTO"
+  ],
+  "reasonForReview": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+  "research": {
+    "targetField": "MARKET_REGION",
+    "status": "UNRESOLVED",
+    "resolution": {
+      "field": "MARKET_REGION",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0.315,
+      "claimIds": [
+        "cl-3fe43975e03072d97b65b7cf"
+      ],
+      "sourceIds": [
+        "ebay"
+      ],
+      "reason": "Evidence remains too weak."
+    },
+    "error": null,
+    "technicalFailures": [
+      {
+        "operation": "BROWSER",
+        "target": "https://www.ebay.es/itm/363231498889",
+        "code": "SOURCE_BLOCKED",
+        "detail": "Error RESEARCH_BROWSER_HTTP_403",
+        "recovered": true
+      }
+    ],
+    "imagesInspected": 0
+  },
+  "cost": {
+    "retrievalUsd": 0.04,
+    "aiUsd": 0.00550155,
+    "totalUsd": 0.04550155,
+    "braveWeb": 8,
+    "braveImages": 0,
+    "acquisitionAiCalls": 2,
+    "researchAiCalls": 4
+  },
+  "preflight": {
+    "status": "NOT_DEEPLY_ANALYZED",
+    "ownedScanMatches": [],
+    "regionalResearchMatches": [
+      "data/research/person-editorial-approvals.json",
+      "data/research/person-study/core.json",
+      "data/research/person-study/public.json",
+      "data/research/person-study/works.json",
+      "data/research/platform-history/people-ps3-public.json",
+      "data/research/platform-history/platforms-ps3.json",
+      "data/research/platform-history/platforms-ps5.json"
+    ],
+    "guideMatches": [
+      "data/catalog.json",
+      "data/company-role-backfill-report.json",
+      "data/research/person-editorial-approvals.json",
+      "data/research/person-study/core.json",
+      "data/research/person-study/public.json",
+      "data/research/person-study/works.json",
+      "data/research/platform-history/people-ps3-public.json",
+      "data/research/platform-history/platforms-ps3.json",
+      "data/research/platform-history/platforms-ps5.json"
+    ],
+    "reason": "No complete owned-scan + regional-guide + component/market mapping set was found."
+  },
+  "frozenAt": "2026-09-16T19:01:18.712Z",
+  "engineResultImmutable": true,
+  "engineResultHash": "5bc8577ef9e7f71246c62df3d780fd592d1893d057a939be64869c42ef1b566a"
+}

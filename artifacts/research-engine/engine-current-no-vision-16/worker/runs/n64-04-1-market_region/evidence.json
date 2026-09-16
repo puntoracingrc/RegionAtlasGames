@@ -1,0 +1,60 @@
+[
+  {
+    "id": "ev-789b05f4161d2c973565d20a",
+    "runId": "n64-04-1-market_region",
+    "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+    "sourceId": "nintendo64ever",
+    "sourceUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+    "canonicalUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+    "sourceType": "SPECIALIZED_N64_DATABASE",
+    "host": "www.nintendo64ever.com",
+    "fetchedAt": "2026-09-16T20:12:35.205Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Body Harvest (Europe) : Data sheet",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "0c6268890b3c5df5b9ce43b537dec11c7410e8fb78eb9395d3ed5266fd6d50d1",
+    "capabilities": [
+      "MARKET_REGION"
+    ],
+    "reliability": 85,
+    "component": null
+  },
+  {
+    "id": "ev-d2f2eb6f59ea098c9c04a94c",
+    "runId": "n64-04-1-market_region",
+    "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+    "sourceId": "ogdb",
+    "sourceUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+    "canonicalUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+    "sourceType": "SPECIALIZED_DATABASE",
+    "host": "ogdb.eu",
+    "fetchedAt": "2026-09-16T20:12:40.622Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Allgemeine Informationen: System: Nintendo 64 Region: Deutschland Erschienen: 1998",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "99848be2306302a524bcaecad74cf104c07c7d9f3279faf33284f4f590241fbb",
+    "capabilities": [
+      "MARKET_REGION"
+    ],
+    "reliability": 85,
+    "component": null
+  }
+]

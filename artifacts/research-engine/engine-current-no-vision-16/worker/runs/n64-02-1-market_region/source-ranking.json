@@ -1,0 +1,425 @@
+[
+  {
+    "sourceId": "nintendo64ever",
+    "hosts": [
+      "www.nintendo64ever.com"
+    ],
+    "roles": [
+      "SPECIALIZED_N64_DATABASE"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 85,
+    "reason": "Ordered by N64_CART_KNOWN_BOX_UNKNOWN; target capability 85."
+  },
+  {
+    "sourceId": "rfgeneration",
+    "hosts": [
+      "www.rfgeneration.com"
+    ],
+    "roles": [
+      "COLLECTOR_RELEASE_DATABASE"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 89,
+    "reason": "Ordered by N64_CART_KNOWN_BOX_UNKNOWN; target capability 89."
+  },
+  {
+    "sourceId": "nesworld",
+    "hosts": [
+      "www.nesworld.com"
+    ],
+    "roles": [
+      "SPECIALIZED_NINTENDO_DATABASE"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Ordered by N64_CART_KNOWN_BOX_UNKNOWN; target capability not declared."
+  },
+  {
+    "sourceId": "ogdb",
+    "hosts": [
+      "ogdb.eu"
+    ],
+    "roles": [
+      "SPECIALIZED_DATABASE",
+      "PHYSICAL_SPECIMEN_DISCOVERY",
+      "EUROPEAN_RELEASE_DATABASE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "IMAGE_SEARCH",
+      "SEARCH_ENGINE"
+    ],
+    "capabilityScore": 85,
+    "reason": "Ordered by N64_CART_KNOWN_BOX_UNKNOWN; target capability 85."
+  },
+  {
+    "sourceId": "spinecard",
+    "hosts": [
+      "foro.spinecard.com"
+    ],
+    "roles": [
+      "COMMUNITY_DOCUMENTED_SPECIMEN"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 94,
+    "reason": "Ordered by N64_CART_KNOWN_BOX_UNKNOWN; target capability 94."
+  },
+  {
+    "sourceId": "retroloco",
+    "hosts": [
+      "www.retroloco.es"
+    ],
+    "roles": [
+      "SPANISH_RETRO_RETAILER_SPECIMEN"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 72,
+    "reason": "Field capability 72; default reliability 72."
+  },
+  {
+    "sourceId": "mobygames",
+    "hosts": [
+      "mobygames.com",
+      "www.mobygames.com"
+    ],
+    "roles": [
+      "SPECIALIZED_DATABASE",
+      "RELEASE_IDENTITY",
+      "RELEASE_AND_COVER_DATABASE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "SEARCH_ENGINE"
+    ],
+    "capabilityScore": 65,
+    "reason": "Field capability 65; default reliability 78."
+  },
+  {
+    "sourceId": "national-retailer",
+    "hosts": [
+      "game.es",
+      "fnac.es",
+      "mediamarkt.es"
+    ],
+    "roles": [
+      "RETAILER"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "SEARCH_ENGINE",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "ARCHIVE"
+    ],
+    "capabilityScore": 60,
+    "reason": "Field capability 60; default reliability 72."
+  },
+  {
+    "sourceId": "retroplace",
+    "hosts": [
+      "retroplace.com",
+      "www.retroplace.com"
+    ],
+    "roles": [
+      "SPECIALIZED_DATABASE",
+      "PHYSICAL_SPECIMEN_DISCOVERY",
+      "COLLECTOR_PRODUCT_DATABASE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "IMAGE_SEARCH",
+      "SEARCH_ENGINE"
+    ],
+    "capabilityScore": 0,
+    "reason": "Ordered by N64_CART_KNOWN_BOX_UNKNOWN; target capability not declared."
+  },
+  {
+    "sourceId": "gamefaqs",
+    "hosts": [
+      "gamefaqs.gamespot.com"
+    ],
+    "roles": [
+      "RELEASE_DISCOVERY_DATABASE"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 48,
+    "reason": "Field capability 48; default reliability 65."
+  },
+  {
+    "sourceId": "ebay",
+    "hosts": [
+      "ebay.com",
+      "ebay.es",
+      "ebay.co.uk",
+      "www.ebay.com"
+    ],
+    "roles": [
+      "MARKETPLACE",
+      "PHYSICAL_SPECIMEN_DISCOVERY"
+    ],
+    "accessModes": [
+      "MARKETPLACE_API",
+      "SEARCH_ENGINE",
+      "BROWSER",
+      "IMAGE_SEARCH",
+      "API"
+    ],
+    "capabilityScore": 30,
+    "reason": "Field capability 30; default reliability 55."
+  },
+  {
+    "sourceId": "no-intro",
+    "hosts": [
+      "no-intro.org",
+      "wiki.no-intro.org"
+    ],
+    "roles": [
+      "TECHNICAL_DATABASE",
+      "CARTRIDGE_IDENTIFIER",
+      "TECHNICAL_ROM_DATABASE"
+    ],
+    "accessModes": [
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH"
+    ],
+    "capabilityScore": 10,
+    "reason": "Field capability 10; default reliability 95."
+  },
+  {
+    "sourceId": "datomatic",
+    "hosts": [
+      "datomatic.no-intro.org"
+    ],
+    "roles": [
+      "TECHNICAL_DATABASE",
+      "CARTRIDGE_IDENTIFIER"
+    ],
+    "accessModes": [
+      "DOMAIN_SEARCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 10,
+    "reason": "Field capability 10; default reliability 90."
+  },
+  {
+    "sourceId": "publisher-official",
+    "hosts": [],
+    "roles": [
+      "PUBLISHER",
+      "OFFICIAL_SOURCE_CANDIDATE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "SEARCH_ENGINE",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "ARCHIVE"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 92."
+  },
+  {
+    "sourceId": "ubisoft-official",
+    "hosts": [
+      "ubisoft.com",
+      "news.ubisoft.com",
+      "store.ubisoft.com"
+    ],
+    "roles": [
+      "PUBLISHER",
+      "OFFICIAL_SOURCE_CANDIDATE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "ARCHIVE"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 92."
+  },
+  {
+    "sourceId": "platform-holder-official",
+    "hosts": [
+      "nintendo.com",
+      "playstation.com",
+      "xbox.com"
+    ],
+    "roles": [
+      "PLATFORM_HOLDER",
+      "OFFICIAL_SOURCE_CANDIDATE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "SEARCH_ENGINE",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "ARCHIVE"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 90."
+  },
+  {
+    "sourceId": "64scener",
+    "hosts": [
+      "64scener.com"
+    ],
+    "roles": [
+      "SPECIALIZED_N64_WORLDWIDE_LIST"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 90."
+  },
+  {
+    "sourceId": "bulbapedia",
+    "hosts": [
+      "bulbapedia.bulbagarden.net"
+    ],
+    "roles": [
+      "FRANCHISE_SPECIALIZED_REFERENCE"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 86."
+  },
+  {
+    "sourceId": "crimson-ceremony",
+    "hosts": [
+      "crimson-ceremony.net"
+    ],
+    "roles": [
+      "FRANCHISE_SPECIALIZED_REFERENCE"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 82."
+  },
+  {
+    "sourceId": "emulation64",
+    "hosts": [
+      "www.emulation64.fr"
+    ],
+    "roles": [
+      "MANUAL_SCAN_ARCHIVE"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 74."
+  },
+  {
+    "sourceId": "vgcollect",
+    "hosts": [
+      "vgcollect.com"
+    ],
+    "roles": [
+      "COLLECTOR_VARIANT_DATABASE"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 68."
+  },
+  {
+    "sourceId": "micro64",
+    "hosts": [
+      "micro-64.com"
+    ],
+    "roles": [
+      "N64_MASTER_LIST"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 64."
+  },
+  {
+    "sourceId": "pricecharting",
+    "hosts": [
+      "www.pricecharting.com"
+    ],
+    "roles": [
+      "PRODUCT_AND_UPC_DISCOVERY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 62."
+  },
+  {
+    "sourceId": "todocoleccion",
+    "hosts": [
+      "todocoleccion.net",
+      "www.todocoleccion.net"
+    ],
+    "roles": [
+      "MARKETPLACE",
+      "PHYSICAL_SPECIMEN_DISCOVERY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "BROWSER",
+      "IMAGE_SEARCH"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 58."
+  }
+]

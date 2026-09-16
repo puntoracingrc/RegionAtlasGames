@@ -1,0 +1,22 @@
+[
+  {
+    "host": "www.resetera.com",
+    "sampleUrls": [
+      "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "es.aliexpress.com",
+    "sampleUrls": [
+      "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

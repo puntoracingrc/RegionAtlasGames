@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "caseId": "N64-01",
+  "game": "1080° Snowboarding",
+  "platform": "n64",
+  "benchmarkGitSha": "afb90285994c57010a31fabb843b888402332476",
+  "initialContext": {
+    "exactCatalogRecords": [
+      {
+        "id": "n64-1080-snowboarding",
+        "title": "1080 Snowboarding",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "excluded",
+        "excludeReason": "not-in-museum-pal",
+        "matchConfidence": "SEED_PC",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      }
+    ],
+    "scannerSubjects": [],
+    "scannerGeneratedTaskCount": 0
+  },
+  "sourcesPlanned": [],
+  "sourcesUsed": [],
+  "directUrlsUsed": [],
+  "queriesExecuted": [],
+  "identifiersFound": [],
+  "variantsRegionsDiscovered": [],
+  "confirmedFacts": [],
+  "conflicts": [],
+  "unresolvedFields": [],
+  "imageUrls": [],
+  "imagePolicy": "NO_IMAGE_URL_FOUND",
+  "onlyRemainingEvidenceRequiresImageAnalysis": false,
+  "engineTasks": [],
+  "decision": "REJECT",
+  "decisionReason": "All exact current catalog records are excluded: not-in-museum-pal.",
+  "reasonForReview": null,
+  "cost": {
+    "openAiUsd": 0,
+    "braveUsd": 0,
+    "totalUsd": 0
+  },
+  "mutations": {
+    "catalog": 0,
+    "prices": 0,
+    "authoritativeQueue": 0,
+    "publicAssets": 0
+  },
+  "frozenAt": "2026-09-16T20:11:03.735Z",
+  "resultHash": "749b416ecbd4f616ba00644a5634e3a1a86b9711b63bbca7f18150a3b36349e2"
+}

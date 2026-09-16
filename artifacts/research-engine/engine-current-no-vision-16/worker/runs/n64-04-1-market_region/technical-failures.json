@@ -1,0 +1,16 @@
+[
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.uvlist.net/game-98689-Body+Harvest",
+    "code": "INTERNAL_ERROR",
+    "detail": "TypeError fetch failed",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.uvlist.net/game-98689-Body+Harvest",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.uvlist.net/game-98689-Body+Harvest\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "recovered": true
+  }
+]

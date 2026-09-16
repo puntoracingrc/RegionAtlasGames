@@ -1,0 +1,85 @@
+[
+  {
+    "id": "ev-a0a64b2cc969f8025bf3937c",
+    "runId": "benchmark-engine-ps5-01-mu4gutzw",
+    "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+    "sourceId": "ebay",
+    "sourceUrl": "https://www.ebay.com/p/28045277245",
+    "canonicalUrl": "https://www.ebay.com/p/28045277245",
+    "sourceType": "MARKETPLACE",
+    "host": "www.ebay.com",
+    "fetchedAt": "2026-09-16T19:01:06.168Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Country/Region of Manufacture United States",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "7621436aca99a1e4a2f1cbc7964312f3f517fd3a391041ceb86e5c7b79068023",
+    "capabilities": [
+      "MARKET_REGION"
+    ],
+    "reliability": 35,
+    "component": null
+  },
+  {
+    "id": "ev-3950a7ffccd2f4479926949b",
+    "runId": "benchmark-engine-ps5-01-mu4gutzw",
+    "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+    "sourceId": "candidate:www.resetera.com",
+    "sourceUrl": "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+    "canonicalUrl": "https://www.resetera.com/threads/demons-souls-has-an-reversible-cover-much-better-then-the-standard.323872/",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.resetera.com",
+    "fetchedAt": "2026-09-16T19:01:13.181Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "the original US cover art",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "4d71e5b989e2a8dd5547aff7e55a6b85c16979b5bb479ed08b4183fce9da097e",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-f74daecbba91ef8491378538",
+    "runId": "benchmark-engine-ps5-01-mu4gutzw",
+    "taskId": "benchmark-engine-23d16d3ac9dd14b03cc53dca",
+    "sourceId": "candidate:es.aliexpress.com",
+    "sourceUrl": "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp",
+    "canonicalUrl": "https://es.aliexpress.com/item/1005001822545666.html?gatewayAdapt=glo2esp",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "es.aliexpress.com",
+    "fetchedAt": "2026-09-16T19:01:15.216Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Ayuda Atención al cliente ... Información para consumidores de la UE ...",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "528b98414dfab5c0732950e184678a2c24df37b566c410a5a15227dbd4196520",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

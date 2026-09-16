@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ev-564d949afac8d2c044020733",
+    "runId": "benchmark-engine-ps5-03-mu4gvng9",
+    "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+    "sourceId": "national-retailer",
+    "sourceUrl": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+    "canonicalUrl": "https://www.game.es/videojuegos/rol/playstation-5/final-fantasy-xvi/183238",
+    "sourceType": "RETAILER",
+    "host": "www.game.es",
+    "fetchedAt": "2026-09-16T19:01:41.219Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "...final Fantasy XVI edición Deluxe para PlayStation 5...",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "926aacacda475d84bead58f8d46134d5908662623662a3c836696791a82d0e65",
+    "capabilities": [
+      "MARKET_REGION"
+    ],
+    "reliability": 60,
+    "component": null
+  },
+  {
+    "id": "ev-6edee87a71899ac80e159ebf",
+    "runId": "benchmark-engine-ps5-03-mu4gvng9",
+    "taskId": "benchmark-engine-4470d24cb00c1754bdeeb3d4",
+    "sourceId": "platform-holder-official",
+    "sourceUrl": "https://store.playstation.com/es-mx/concept/10002100",
+    "canonicalUrl": "https://store.playstation.com/es-mx/concept/10002100",
+    "sourceType": "PLATFORM_HOLDER",
+    "host": "store.playstation.com",
+    "fetchedAt": "2026-09-16T19:01:47.449Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "...PS5 Standard Edition... 861.21 MXN... Suscribirse a PlayStation Plus Extra para acceder a este juego...",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "d278859bec2c9ac6906f3dc968c3bf5b99243250496432ef2beb469a90dbde22",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 2,
+  "runId": "benchmark-engine-ps4-04-mu4guhyx",
+  "taskId": "benchmark-engine-ef84a0bfd565ecd90c248fd6",
+  "subjectId": "benchmark:listing-evidence-v2-ps4-04",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"3391891995931\"",
+    "\"3391891995931\" \"Code Vein\"",
+    "site:game.es \"Code Vein\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"Code Vein\" \"ps4\" \"standard\"",
+    "site:ebay.com \"Code Vein\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"Code Vein\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"Code Vein\" \"ps4\" \"standard\"",
+    "\"Code Vein\" \"ps4\" \"standard\" back cover distributor legal text",
+    "\"3391891995931\" \"PlayStation 4\"",
+    "site:game.es \"3391891995931\""
+  ],
+  "normalizedQueries": [
+    "\"3391891995931\"",
+    "\"3391891995931\" \"code vein\"",
+    "site:game.es \"code vein\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"code vein\" \"ps4\" \"standard\"",
+    "site:ebay.com \"code vein\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"code vein\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"code vein\" \"ps4\" \"standard\"",
+    "\"code vein\" \"ps4\" \"standard\" back cover distributor legal text",
+    "\"3391891995931\" \"playstation 4\"",
+    "site:game.es \"3391891995931\""
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/128074767475",
+    "https://www.worldofbooks.com/products/code-vein-ps4-video-game-3391891995931",
+    "https://www.rarewaves.com/products/3391891995931-code-vein",
+    "https://www.ebay.co.uk/itm/326390667570",
+    "https://www.ebay.co.uk/itm/226239998051",
+    "https://www.ebay.com/itm/117259846571",
+    "https://www.ebay.com/itm/387446675201",
+    "https://www.aliexpress.com/s/wiki-ssr/article/code-veins-collector-s-edition-ps4",
+    "https://www.ebay.com/itm/175020043374",
+    "https://www.ebay.co.uk/itm/257658264880",
+    "https://thevideogamecavern.com/products/coder-vein-playstation-4"
+  ],
+  "domainsVisited": [
+    "www.worldofbooks.com",
+    "www.rarewaves.com",
+    "www.ebay.co.uk",
+    "www.ebay.com",
+    "www.aliexpress.com",
+    "thevideogamecavern.com"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-e69226d0eed0a73c2357bcf4",
+      "runId": "benchmark-engine-ps4-04-mu4guhyx",
+      "taskId": "benchmark-engine-ef84a0bfd565ecd90c248fd6",
+      "sourceId": "candidate:www.worldofbooks.com",
+      "sourceUrl": "https://www.worldofbooks.com/en-gb/products/code-vein-ps4-video-game-3391891995931",
+      "canonicalUrl": "https://www.worldofbooks.com/en-gb/products/code-vein-ps4-video-game-3391891995931",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.worldofbooks.com",
+      "fetchedAt": "2026-09-16T19:00:45.859Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "expected market region is PAL España.",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "a548726607b451dda2c1cc498d7d9741bbf1bbab3b9fc1801adf58c8bad2f5f6",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-5d12b5531c4c57fae8a53448",
+      "runId": "benchmark-engine-ps4-04-mu4guhyx",
+      "taskId": "benchmark-engine-ef84a0bfd565ecd90c248fd6",
+      "sourceId": "candidate:www.rarewaves.com",
+      "sourceUrl": "https://www.rarewaves.com/products/3391891995931-code-vein",
+      "canonicalUrl": "https://www.rarewaves.com/products/3391891995931-code-vein",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.rarewaves.com",
+      "fetchedAt": "2026-09-16T19:00:47.951Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PAL España",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "598bca2a8284893569cfdb4c552553bb1b7cffe99b68ae346c97d615b9ebda96",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-0e8c570ada8a7a944aecf267",
+      "runId": "benchmark-engine-ps4-04-mu4guhyx",
+      "taskId": "benchmark-engine-ef84a0bfd565ecd90c248fd6",
+      "subjectId": "benchmark:listing-evidence-v2-ps4-04",
+      "gameId": "ps4-code-vein",
+      "platformSlug": "ps4",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.worldofbooks.com",
+      "sourceUrl": "https://www.worldofbooks.com/en-gb/products/code-vein-ps4-video-game-3391891995931",
+      "evidenceId": "ev-e69226d0eed0a73c2357bcf4",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:00:47.128Z"
+    },
+    {
+      "id": "cl-dc6c62c8ef85037c775d0027",
+      "runId": "benchmark-engine-ps4-04-mu4guhyx",
+      "taskId": "benchmark-engine-ef84a0bfd565ecd90c248fd6",
+      "subjectId": "benchmark:listing-evidence-v2-ps4-04",
+      "gameId": "ps4-code-vein",
+      "platformSlug": "ps4",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.rarewaves.com",
+      "sourceUrl": "https://www.rarewaves.com/products/3391891995931-code-vein",
+      "evidenceId": "ev-5d12b5531c4c57fae8a53448",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T19:00:49.668Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/128074767475",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.co.uk/itm/326390667570",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.co.uk/itm/226239998051",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.com/itm/117259846571",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.com/itm/387446675201",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.aliexpress.com/s/wiki-ssr/article/code-veins-collector-s-edition-ps4",
+      "reason": "RESEARCH_PAGE_HTTP_410"
+    },
+    {
+      "value": "https://www.ebay.com/itm/175020043374",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.co.uk/itm/257658264880",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://thevideogamecavern.com/products/coder-vein-playstation-4",
+      "reason": "RESEARCH_PAGE_HTTP_404"
+    }
+  ],
+  "budget": {
+    "maxSearches": 10,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 2,
+    "images": 0,
+    "agentTurns": 3,
+    "browserSessions": 2,
+    "inputTokens": 3915,
+    "outputTokens": 188,
+    "estimatedCostUsd": 0.000701
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page clearly states the market region as \"PAL España\".",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T19:00:56.105Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T19:00:41.820Z",
+  "updatedAt": "2026-09-16T19:00:56.105Z"
+}

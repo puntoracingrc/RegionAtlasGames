@@ -1,0 +1,12 @@
+[
+  {
+    "host": "play-e.com",
+    "sampleUrls": [
+      "https://play-e.com/products/ps5-hogwarts-legacy-standard-edition-eu"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

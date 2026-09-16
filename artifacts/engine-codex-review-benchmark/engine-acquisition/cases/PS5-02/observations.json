@@ -1,0 +1,27 @@
+[
+  {
+    "id": "listing-obs-4cd5ed7b3ba447d3",
+    "listingId": "v1|336641149498|0",
+    "imageIndex": 1,
+    "contentHash": "49055ea5da4f586f400059b8d897c2a482e255d89be9624d141da256ce09d666",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "DRAGON'S DOGMA II",
+    "platform": "PS5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "18"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "CAPCOM"
+    ],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]
