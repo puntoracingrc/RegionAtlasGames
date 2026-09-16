@@ -12,6 +12,10 @@
     "data/meta.json": {
       "beforeSha256": "0f6b90cc3d545fabc6387726a87d3d51df0cdf6813ec88d06eab5cf0bbb8668e",
       "afterSha256": "aeca1aafaab52fd4009217a96c5f79e94f53435895c4f926ee1ec9c182a7e7ec"
+    },
+    "data/curation-report.json": {
+      "beforeSha256": "859a5e3832d0ae47d5dec3fa094d4c1e701dab9cac593e171cdfe4a98669938c",
+      "afterSha256": "7dd36dc85e3ab1148d7f9f47a9a266b9e70f21e313d70874e1508e21293c68a9"
     }
   }
 }
