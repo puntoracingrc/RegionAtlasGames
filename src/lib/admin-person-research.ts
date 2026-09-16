@@ -56,6 +56,7 @@ function gateFor(person: InternalPerson): PersonAdminRecord["gate"] {
 function matchesFilter(record: PersonAdminRecord, filter: PersonAdminFilter): boolean {
   if (filter === "all") return true;
   if (filter === "published") return record.gate === "editorial";
+  if (filter === "missing-portrait") return record.gate === "editorial" && !record.portrait;
   return record.gate === filter;
 }
 
@@ -70,7 +71,7 @@ const exactCreditCounts = works.reduce((counts, row) => {
   return counts;
 }, new Map<string, number>());
 
-function toAdminRecord(person: InternalPerson): PersonAdminRecord {
+function toAdminRecord(person: InternalPerson, portraitSlugs: ReadonlySet<string>): PersonAdminRecord {
   return {
     slug: person.slug,
     name: person.name,
@@ -84,7 +85,7 @@ function toAdminRecord(person: InternalPerson): PersonAdminRecord {
     relations: relationCounts.get(person.slug) ?? 0,
     exactCredits: exactCreditCounts.get(person.slug) ?? 0,
     sources: person.source_ids.length,
-    portrait: Boolean(person.portrait),
+    portrait: Boolean(person.portrait) || portraitSlugs.has(person.slug),
   };
 }
 
@@ -93,13 +94,15 @@ export function getAdminPersonResearchOverview(input?: {
   filter?: PersonAdminFilter;
   page?: number;
   pageSize?: number;
+  portraitSlugs?: ReadonlySet<string>;
 }): PersonAdminOverview {
   const query = input?.query?.trim() ?? "";
   const normalizedQuery = normalize(query);
   const filter = input?.filter ?? "all";
+  const portraitSlugs = input?.portraitSlugs ?? new Set<string>();
   const pageSize = Math.min(100, Math.max(20, input?.pageSize ?? 50));
   const allRecords = people
-    .map(toAdminRecord)
+    .map((person) => toAdminRecord(person, portraitSlugs))
     .filter((record) => matchesFilter(record, filter))
     .filter((record) => {
       if (!normalizedQuery) return true;

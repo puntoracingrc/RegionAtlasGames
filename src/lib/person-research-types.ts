@@ -283,7 +283,7 @@ export type PersonAdminRecord = {
   portrait: boolean;
 };
 
-export type PersonAdminFilter = "all" | "published" | "editorial" | "structured" | "staging";
+export type PersonAdminFilter = "all" | "published" | "editorial" | "structured" | "staging" | "missing-portrait";
 
 export type PersonAdminOverview = {
   manifest: PersonResearchManifest;

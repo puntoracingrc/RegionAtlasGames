@@ -1,19 +1,19 @@
 {
   "version": 1,
   "generatedAt": "2026-09-06",
-  "researchHash": "21b0a1607262a96a6f96c745a814c56500236875e5e700452242844608fff2c8",
+  "researchHash": "501ca08c7d6ca4561192ba22b4c336d0986618389743729e1306a13f95e75b9b",
   "counts": {
     "series": 7,
     "editions": 188,
-    "categories": 20,
-    "publishedResults": 221,
+    "categories": 25,
+    "publishedResults": 238,
     "internalResults": 0,
-    "gameRecipients": 201,
+    "gameRecipients": 217,
     "personRecipients": 20,
     "companyRecipients": 0,
     "workLinks": 17,
     "personWorkLinks": 2,
-    "sources": 119,
+    "sources": 121,
     "unresolved": 0
   },
   "policies": {

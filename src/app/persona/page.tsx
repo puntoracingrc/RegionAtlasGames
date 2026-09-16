@@ -5,6 +5,7 @@ import { SiteNav } from "@/components/site-nav";
 import { getAvailablePersonExpertiseFilters } from "@/lib/person-expertise";
 import { getPersonPlatformFilterGroups } from "@/lib/person-platform-filters";
 import { getPersonCards } from "@/lib/person-public-research";
+import { readAdminPersonPortraitsSafely } from "@/lib/person-portrait-storage";
 import { getSiteUrl } from "@/lib/site-url";
 
 const people = getPersonCards();
@@ -23,9 +24,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PeoplePage() {
-  const editorial = people.filter((person) => person.publicationLevel === "editorial").length;
-  const portraits = people.filter((person) => person.portraitPath).length;
+export default async function PeoplePage() {
+  const uploadedPortraits = await readAdminPersonPortraitsSafely();
+  const displayPeople = people.map((person) => ({
+    ...person,
+    portraitPath: uploadedPortraits[person.slug]?.path ?? person.portraitPath,
+  }));
+  const editorial = displayPeople.filter((person) => person.publicationLevel === "editorial").length;
+  const portraits = displayPeople.filter((person) => person.portraitPath).length;
   return (
     <>
       <SiteNav />
@@ -34,9 +40,9 @@ export default function PeoplePage() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Industria</p>
           <h1 className="mt-2 text-3xl font-black text-foreground">Personas</h1>
           <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted">
-            <span><strong className="text-foreground">{people.length}</strong> perfiles publicados</span>
+            <span><strong className="text-foreground">{displayPeople.length}</strong> perfiles publicados</span>
             <span><strong className="text-foreground">{editorial}</strong> con revisión editorial</span>
-            <span><strong className="text-foreground">{portraits}</strong> retratos acreditados</span>
+            <span><strong className="text-foreground">{portraits}</strong> retratos visibles</span>
           </div>
         </header>
         <Suspense
@@ -47,7 +53,7 @@ export default function PeoplePage() {
           )}
         >
           <PersonExplorer
-            people={people}
+            people={displayPeople}
             platformGroups={platformGroups}
             expertiseOptions={expertiseOptions}
           />

@@ -14,6 +14,7 @@ import type {
   PersonPublicSource,
   PersonPublicView,
 } from "@/lib/person-research-types";
+import type { AdminPersonPortraitRecord } from "@/lib/person-portrait-storage";
 
 function relationPeriod(relation: PersonCompanyRelation): string | null {
   if (relation.start && relation.end) return `${relation.start}-${relation.end}`;
@@ -52,8 +53,15 @@ function SectionTitle({ children, detail }: { children: React.ReactNode; detail?
   );
 }
 
-export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
+export function PersonProfileDetail({
+  view,
+  uploadedPortrait = null,
+}: {
+  view: PersonPublicView;
+  uploadedPortrait?: AdminPersonPortraitRecord | null;
+}) {
   const { profile } = view;
+  const portraitPath = uploadedPortrait?.path ?? profile.portrait?.path ?? null;
   const life = personLifeLabel(profile);
   const founded = view.companyRelations.filter((relation) => relation.role === "FOUNDER");
   const directSources = new Map(view.sources.map((source) => [source.id, source]));
@@ -73,13 +81,18 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
         <header className="mt-5 grid gap-6 border-b border-border pb-8 md:grid-cols-[15rem_minmax(0,1fr)] md:items-start">
           <figure className="min-w-0">
             <PersonPortrait
-              src={profile.portrait?.path ?? null}
+              src={portraitPath}
               name={profile.name}
               sizes="240px"
               priority
               className="aspect-[4/5] w-full rounded-lg border border-border"
             />
-            {profile.portrait && (
+            {uploadedPortrait ? (
+              <figcaption className="mt-2 text-[11px] leading-4 text-muted">
+                Retrato aportado desde el panel de administración el{" "}
+                {new Intl.DateTimeFormat("es-ES", { dateStyle: "medium" }).format(new Date(uploadedPortrait.uploadedAt))}.
+              </figcaption>
+            ) : profile.portrait ? (
               <figcaption className="mt-2 text-[11px] leading-4 text-muted">
                 Retrato: {profile.portrait.artist ?? profile.portrait.credit ?? "autor indicado en la fuente"}.{" "}
                 <a href={profile.portrait.sourceUrl} target="_blank" rel="noreferrer" className="font-medium text-accent hover:underline">
@@ -94,7 +107,7 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
                   </>
                 ) : ` · ${profile.portrait.license}`}
               </figcaption>
-            )}
+            ) : null}
           </figure>
 
           <div className="min-w-0 pt-1">
