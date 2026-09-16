@@ -73,6 +73,13 @@ export type ResearchWorkerResult = {
 
 type TechnicalFailure = ResearchWorkerResult["technicalFailures"][number];
 
+const LLM_TOKEN_RESERVE = 6_000;
+const VISION_TOKEN_RESERVE = 10_000;
+
+function hasTokenReserve(state: ResearchState, reserve: number): boolean {
+  return state.usage.inputTokens + state.usage.outputTokens + reserve <= state.budget.maxTokens;
+}
+
 function now(): string {
   return new Date().toISOString();
 }
@@ -85,6 +92,60 @@ function absoluteOwnedScanUrl(value: string): string {
 
 function normalizedQuery(query: string): string {
   return query.toLowerCase().replace(/[“”]/g, "\"").replace(/\s+/g, " ").trim();
+}
+
+function comparableText(value: string): string {
+  return value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function searchResultLooksRelevant(hit: ResearchSearchResult, context: ResearchCatalogContext, targetField: ResearchTargetField, plan: ResearchRouterPlan): boolean {
+  const haystack = comparableText(`${hit.title} ${hit.snippet} ${hit.url}`);
+  const titleTokens = [...new Set(comparableText(context.title).split(" ").filter((token) => token.length >= 3 && !["the", "and", "edition"].includes(token)))];
+  const matchingTokens = titleTokens.filter((token) => haystack.includes(token)).length;
+  if (matchingTokens < Math.min(2, titleTokens.length)) return false;
+  const platformAliases: Record<string, string[]> = {
+    ds: ["nintendo ds", " nds ", " ds "],
+    "3ds": ["nintendo 3ds", " 3ds "],
+    switch: ["nintendo switch", " switch "],
+    wiiu: ["wii u", " wiiu "],
+    ps3: ["playstation 3", " ps3 "],
+    ps4: ["playstation 4", " ps4 "],
+    ps5: ["playstation 5", " ps5 "],
+    xbox360: ["xbox 360", " xbox360 "],
+  };
+  const padded = ` ${haystack} `;
+  const expectedAliases = platformAliases[context.platformSlug] ?? [` ${comparableText(context.platformSlug)} `];
+  const expectedPlatformPresent = expectedAliases.some((alias) => padded.includes(alias));
+  const otherPlatformPresent = Object.entries(platformAliases)
+    .some(([platform, aliases]) => platform !== context.platformSlug && aliases.some((alias) => padded.includes(alias)));
+  if (otherPlatformPresent && !expectedPlatformPresent) return false;
+  if (["BARCODE", "BOX_CODE", "PRODUCT_CODE", "SERIAL"].includes(targetField)) {
+    const sourceBound = plan.sourcePlan.some((source) => source.hosts.some((host) => hostMatches(hit.host, host)));
+    const identifierCue = /\bbarcode\b|\bean\b|\bupc\b|product code|box code|cartridge code|back cover|contraportada|trasera|scan/i.test(`${hit.title} ${hit.snippet} ${hit.url}`);
+    if (!sourceBound && !identifierCue) return false;
+  }
+  return true;
+}
+
+function imageResultLooksRelevant(hit: ResearchImageSearchResult, context: ResearchCatalogContext): boolean {
+  const haystack = comparableText(`${hit.title} ${hit.sourcePageUrl} ${hit.imageUrl}`);
+  const distinctiveTitleTokens = [...new Set(comparableText(context.title).split(" ")
+    .filter((token) => token.length >= 4 && !["assassin", "creed", "edition"].includes(token)))];
+  return distinctiveTitleTokens.length === 0 || distinctiveTitleTokens.some((token) => haystack.includes(token));
+}
+
+function recoverSourceAttempt(failures: TechnicalFailure[], target: string): void {
+  for (const failure of failures.filter((row) => row.target === target)) failure.recovered = true;
+}
+
+function packagingImageScore(candidate: ResearchPage["imageCandidates"][number]): number {
+  const text = `${candidate.alt ?? ""} ${candidate.caption ?? ""} ${candidate.url}`.toLowerCase();
+  if (/facebook\.com\/tr|\.svg(?:[?#]|$)|favicon|sprite|logo|icon|appstore|googleplay|tracking|pixel/i.test(text)) return -100;
+  let score = 0;
+  if (/\bback\b|\brear\b|\bbarcode\b|contraportada|trasera/i.test(text)) score += 8;
+  if (/\bbox\b|\bcover\b|caratula|\bcart\b|cartridge|\bdisc\b|package|packaging|product/i.test(text)) score += 4;
+  if (/\bfront\b|portada/i.test(text)) score += 1;
+  return score;
 }
 
 function hostMatches(host: string, candidate: string): boolean {
@@ -368,7 +429,7 @@ async function inspectOwnedScans(input: {
     if (!input.visionProvider || !input.plan.imagePlan.length) continue;
     for (const image of scan.images) {
       const imageUrl = absoluteOwnedScanUrl(image.url);
-      if (!budgetAllows(input.state.budget, input.state.usage, "images") || input.state.urlsVisited.includes(imageUrl)) return false;
+      if (!budgetAllows(input.state.budget, input.state.usage, "images") || !hasTokenReserve(input.state, VISION_TOKEN_RESERVE) || input.state.urlsVisited.includes(imageUrl)) return false;
       const requested = input.plan.imagePlan.flatMap((row) => row.fields);
       updateState(input.state, { status: "INSPECTING_IMAGES", urlsVisited: [...input.state.urlsVisited, imageUrl] });
       const inspected = await input.visionProvider.inspect({ imageUrl, requestedFields: requested });
@@ -467,7 +528,7 @@ async function processPage(input: {
 }): Promise<boolean> {
   const evidence = pageEvidence({ state: input.state, page: input.page, task: input.task, source: input.source });
   addUniqueEvidence(input.state, evidence);
-  if (!input.llmProvider || !budgetAllows(input.state.budget, input.state.usage, "agentTurns")) {
+  if (!input.llmProvider || !budgetAllows(input.state.budget, input.state.usage, "agentTurns") || !hasTokenReserve(input.state, LLM_TOKEN_RESERVE)) {
     await persist(input.store, input.state);
     return false;
   }
@@ -536,10 +597,15 @@ async function inspectDiscoveredImages(input: {
   technicalFailures: TechnicalFailure[];
 }): Promise<void> {
   if (!input.imageSearchProvider || !input.visionProvider || !input.plan.imagePlan.length) return;
-  if (!budgetAllows(input.state.budget, input.state.usage, "searches") || !budgetAllows(input.state.budget, input.state.usage, "images")) return;
-  const query = input.plan.queryPlan.find((candidate) => !input.state.normalizedQueries.includes(normalizedQuery(`${candidate.query} images`)))?.query;
-  if (!query) return;
-  const imageQuery = `${query} images`;
+  if (!budgetAllows(input.state.budget, input.state.usage, "searches") || !budgetAllows(input.state.budget, input.state.usage, "images") || !hasTokenReserve(input.state, VISION_TOKEN_RESERVE)) return;
+  const component = input.plan.imagePlan[0]?.component ?? "UNKNOWN";
+  const visualCue = component === "BACK" ? '"back cover" barcode'
+    : component === "BOX_FLAPS" ? '"box code" packaging'
+      : component === "CART_FRONT" ? 'cartridge label "product code"'
+        : "physical packaging";
+  const platformLabel: Record<string, string> = { ds: "Nintendo DS", "3ds": "Nintendo 3DS", wiiu: "Wii U", switch: "Nintendo Switch", ps3: "PlayStation 3", ps4: "PlayStation 4", ps5: "PlayStation 5", xbox360: "Xbox 360" };
+  const region = input.context.marketRegions.join(" ") || input.context.region || input.context.edition;
+  const imageQuery = `"${input.context.title}" "${platformLabel[input.context.platformSlug] ?? input.context.platformSlug}" ${region ? `"${region}" ` : ""}${visualCue}`;
   input.state.usage = recordBudgetUse(input.state.usage, "searches");
   input.state.queriesAttempted.push(imageQuery);
   input.state.normalizedQueries.push(normalizedQuery(imageQuery));
@@ -555,32 +621,38 @@ async function inspectDiscoveredImages(input: {
     await persist(input.store, input.state);
     return;
   }
-  input.images.push(...found);
-  for (const image of found.slice(0, 2)) {
-    if (!image.sourcePageUrl || input.state.urlsVisited.includes(image.imageUrl) || !budgetAllows(input.state.budget, input.state.usage, "images")) continue;
+  const relevant = found.filter((image) => imageResultLooksRelevant(image, input.context));
+  input.images.push(...relevant);
+  for (const image of relevant.slice(0, 2)) {
+    if (!image.sourcePageUrl || input.state.urlsVisited.includes(image.imageUrl) || !budgetAllows(input.state.budget, input.state.usage, "images") || !hasTokenReserve(input.state, VISION_TOKEN_RESERVE)) continue;
     const source = sourceForUrl(image.sourcePageUrl, input.plan);
     updateState(input.state, { status: "INSPECTING_IMAGES", urlsVisited: [...input.state.urlsVisited, image.imageUrl] });
-    const inspected = await input.visionProvider.inspect({
-      imageUrl: image.imageUrl,
-      componentHint: input.plan.imagePlan[0]?.component,
-      requestedFields: input.plan.imagePlan.flatMap((row) => row.fields),
-    });
-    input.state.usage = recordBudgetUse(input.state.usage, "images");
-    recordUsage(input.state, inspected.usage);
-    input.modelUsages.push(inspected.usage);
-    input.visionResults.push({ imageUrl: image.imageUrl, result: inspected.result });
-    const evidence = imageEvidence({
-      state: input.state,
-      task: input.task,
-      context: input.context,
-      source,
-      imageUrl: image.imageUrl,
-      sourcePageUrl: image.sourcePageUrl,
-      result: inspected.result,
-      ownScan: false,
-    });
-    addUniqueEvidence(input.state, evidence);
-    addUniqueClaims(input.state, claimsFromVision({ state: input.state, task: input.task, context: input.context, evidence, result: inspected.result }));
+    try {
+      const inspectionUrl = image.thumbnailUrl ?? image.imageUrl;
+      const inspected = await input.visionProvider.inspect({
+        imageUrl: inspectionUrl,
+        componentHint: input.plan.imagePlan[0]?.component,
+        requestedFields: input.plan.imagePlan.flatMap((row) => row.fields),
+      });
+      input.state.usage = recordBudgetUse(input.state.usage, "images");
+      recordUsage(input.state, inspected.usage);
+      input.modelUsages.push(inspected.usage);
+      input.visionResults.push({ imageUrl: inspectionUrl, result: inspected.result });
+      const evidence = imageEvidence({
+        state: input.state,
+        task: input.task,
+        context: input.context,
+        source,
+        imageUrl: image.imageUrl,
+        sourcePageUrl: image.sourcePageUrl,
+        result: inspected.result,
+        ownScan: false,
+      });
+      addUniqueEvidence(input.state, evidence);
+      addUniqueClaims(input.state, claimsFromVision({ state: input.state, task: input.task, context: input.context, evidence, result: inspected.result }));
+    } catch (error) {
+      input.technicalFailures.push({ operation: "IMAGE_INSPECTION", target: image.imageUrl, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
+    }
     await persist(input.store, input.state);
   }
 }
@@ -600,12 +672,16 @@ async function inspectPageImages(input: {
   technicalFailures: TechnicalFailure[];
 }): Promise<void> {
   if (!input.visionProvider || !input.plan.imagePlan.length) return;
+  const requiredScore = input.plan.imagePlan.some((row) => row.component === "BACK") ? 8 : 4;
   const ranked = input.page.imageCandidates
     .filter((candidate) => /^https?:\/\//i.test(candidate.url))
-    .sort((a, b) => Number(/back|rear|barcode|box|cover|cart|disc/i.test(`${b.alt ?? ""} ${b.caption ?? ""} ${b.url}`)) - Number(/back|rear|barcode|box|cover|cart|disc/i.test(`${a.alt ?? ""} ${a.caption ?? ""} ${a.url}`)))
+    .map((candidate) => ({ candidate, score: packagingImageScore(candidate) }))
+    .filter((row) => row.score >= requiredScore)
+    .sort((a, b) => b.score - a.score)
+    .map((row) => row.candidate)
     .slice(0, 3);
   for (const [index, candidate] of ranked.entries()) {
-    if (input.state.urlsVisited.includes(candidate.url) || !budgetAllows(input.state.budget, input.state.usage, "images")) continue;
+    if (input.state.urlsVisited.includes(candidate.url) || !budgetAllows(input.state.budget, input.state.usage, "images") || !hasTokenReserve(input.state, VISION_TOKEN_RESERVE)) continue;
     input.images.push({ imageUrl: candidate.url, thumbnailUrl: null, sourcePageUrl: input.page.canonicalUrl, title: candidate.alt ?? candidate.caption ?? input.page.title, host: new URL(input.page.canonicalUrl).hostname, rank: index + 1 });
     updateState(input.state, { status: "INSPECTING_IMAGES", urlsVisited: [...input.state.urlsVisited, candidate.url] });
     try {
@@ -834,7 +910,7 @@ export async function runResearchTaskV2(input: {
       }
 
       const tests = applicableDecisionTests(routeInput);
-      if (input.dependencies.llmProvider && tests[0] && budgetAllows(state.budget, state.usage, "agentTurns")) {
+      if (input.dependencies.llmProvider && tests[0] && budgetAllows(state.budget, state.usage, "agentTurns") && hasTokenReserve(state, LLM_TOKEN_RESERVE)) {
         const decision = await input.dependencies.llmProvider.decide({
           question: tests[0].question,
           options: tests[0].options,
@@ -870,6 +946,8 @@ export async function runResearchTaskV2(input: {
           await inspectPageImages({ task: input.task, context, state, plan, page: fetched.page, source: directSource, visionProvider: input.dependencies.visionProvider ?? null, store, images, visionResults, modelUsages, technicalFailures });
         } catch (error) {
           state.rejectedHypotheses.push({ value: direct.url, reason: safeRetrievalDetail(error) });
+          // Search-provider fallback has now taken ownership of the retrieval.
+          if (input.dependencies.searchProvider) recoverSourceAttempt(technicalFailures, direct.url);
         }
         if (replan) break;
       }
@@ -878,6 +956,14 @@ export async function runResearchTaskV2(input: {
           const normalized = normalizedQuery(planned.query);
           if (state.normalizedQueries.includes(normalized)) continue;
           if (!budgetAllows(state.budget, state.usage, "searches")) break;
+          const shouldReserveImageSearch = Boolean(
+            input.dependencies.imageSearchProvider
+            && input.dependencies.visionProvider
+            && plan.imagePlan.length
+            && budgetAllows(state.budget, state.usage, "images")
+            && hasTokenReserve(state, VISION_TOKEN_RESERVE),
+          );
+          if (shouldReserveImageSearch && state.usage.searches >= Math.max(0, state.budget.maxSearches - 1)) break;
           const source = planned.sourceId ? plan.sourcePlan.find((row) => row.sourceId === planned.sourceId) ?? null : null;
           state.usage = recordBudgetUse(state.usage, "searches");
           state.queriesAttempted.push(planned.query);
@@ -901,9 +987,10 @@ export async function runResearchTaskV2(input: {
             continue;
           }
           searchResults.push(...found);
-          progressed ||= found.length > 0;
+          const shortlisted = found.filter((hit) => searchResultLooksRelevant(hit, context, input.task.targetField, plan));
+          progressed ||= shortlisted.length > 0;
           await persist(store, state);
-          for (const hit of found.slice(0, 2)) {
+          for (const hit of shortlisted.slice(0, 2)) {
             if (state.urlsVisited.includes(hit.url) || !budgetAllows(state.budget, state.usage, "pages")) continue;
             const resolvedSource = sourceForUrl(hit.url, plan);
             updateState(state, { status: "READING", urlsVisited: [...state.urlsVisited, hit.url], domainsVisited: [...new Set([...state.domainsVisited, hit.host])] });
@@ -963,6 +1050,9 @@ export async function runResearchTaskV2(input: {
                 value: hit.url,
                 reason: error instanceof Error ? error.message.slice(0, 300) : "PAGE_FETCH_FAILED",
               });
+              // This source failed closed, but the search loop continues with
+              // the next independent result instead of failing the target.
+              recoverSourceAttempt(technicalFailures, hit.url);
               await persist(store, state);
             }
           }

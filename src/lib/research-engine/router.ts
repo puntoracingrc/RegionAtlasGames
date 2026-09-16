@@ -184,9 +184,14 @@ function templateValues(input: ResearchRouterInput, source: ResearchSourcePlanIt
   const context = input.catalogContext;
   const known = knownIdentifiersForRouter(input);
   const first = (type: string) => known.find((identifier) => identifier.type === type)?.value ?? "";
+  const edition = context.edition
+    .split(/[·|]/)
+    .map((value) => value.trim())
+    .filter((value) => value && !/^(?:standard|unknown|pending)|(?:identificadores?|identifiers?).*(?:pendientes?|pending)$/i.test(value))
+    .join(" ");
   return {
     TITLE: context.title,
-    EDITION: context.edition,
+    EDITION: edition || context.marketRegions.join(" ") || context.region || "",
     PLATFORM: context.platformSlug,
     BARCODE: first("BARCODE"),
     SERIAL: first("SERIAL"),
@@ -223,23 +228,36 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
     ? platformRaw.queryTemplates.filter((item): item is string => typeof item === "string")
     : [];
   const genericTemplates = groups.flatMap((group) => input.queryTemplates[group] ?? []);
-  const templates = [...inlineTemplates, ...genericTemplates];
   const queries: Array<{ query: string; sourceId: string | null; purpose: ResearchTargetField }> = [];
   const queryableSources = sourcePlan.filter((source) => source.accessModes.some((mode) => mode === "SEARCH_ENGINE" || mode === "DOMAIN_SEARCH"));
-  const sources = queryableSources.length ? queryableSources.slice(0, 8) : [null];
-  for (const source of sources) {
+  const globalValues = templateValues(input, null);
+  // Platform-specific playbook queries encode the strongest identifier rules
+  // and must remain ahead of general source discovery (for example N64 codes).
+  for (const template of inlineTemplates) {
+    const rendered = renderTemplate(template, globalValues);
+    if (rendered) queries.push({ query: rendered, sourceId: null, purpose: input.targetField });
+  }
+  // Ask the highest-ranked technical/physical sources first. Broad discovery is
+  // still available afterwards, but cannot consume the whole case budget before
+  // source-bound queries have had a chance to produce auditable evidence.
+  for (const source of queryableSources.slice(0, 8)) {
     const values = templateValues(input, source);
-    for (const template of templates) {
-      const rendered = renderTemplate(template, values);
-      if (!rendered) continue;
-      queries.push({ query: rendered, sourceId: source?.sourceId ?? null, purpose: input.targetField });
-    }
-    for (const template of source?.hosts.length ? input.sourceKnowledge.find((item) => item.id === source.sourceId)?.queryTemplates ?? [] : []) {
+    for (const template of input.sourceKnowledge.find((item) => item.id === source.sourceId)?.queryTemplates ?? []) {
       const rendered = renderTemplate(template, values);
       if (rendered) queries.push({ query: rendered, sourceId: source?.sourceId ?? null, purpose: input.targetField });
     }
   }
-  return [...new Map(queries.map((query) => [normalizedQuery(query.query), query])).values()].slice(0, 24);
+  for (const template of genericTemplates) {
+    const rendered = renderTemplate(template, globalValues);
+    if (rendered) queries.push({ query: rendered, sourceId: null, purpose: input.targetField });
+  }
+  const seen = new Set<string>();
+  return queries.filter((query) => {
+    const key = normalizedQuery(query.query);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 24);
 }
 
 function imagePlanFor(target: ResearchTargetField): ResearchRouterPlan["imagePlan"] {

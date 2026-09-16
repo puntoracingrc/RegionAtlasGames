@@ -11,6 +11,7 @@ import { boundedBackoff, classifyRetrievalFailure, isRetryableRetrievalFailure, 
 
 const USER_AGENT = "RegionAtlasResearchEngine/2.0 (+https://www.regionatlas.games/)";
 const DEFAULT_TIMEOUT_MS = 12_000;
+export const BRAVE_SEARCH_COST_USD_PER_CALL = 0.005;
 
 type ProviderOptions = {
   fetchImpl?: typeof fetch;
@@ -39,13 +40,17 @@ function configuredGoogle(): boolean {
   return Boolean(process.env.GOOGLE_SEARCH_API_KEY?.trim() && process.env.GOOGLE_SEARCH_CX?.trim());
 }
 
+function braveSearchKey(): string {
+  return process.env.BRAVE_SEARCH_API_KEY?.trim() ?? "";
+}
+
 function serpApiKey(): string {
   return process.env.SERPAPI_KEY?.trim() || process.env.SERPAPI_API_KEY?.trim() || "";
 }
 
 function queryWithDomains(request: ResearchSearchRequest): string {
   const terms = [request.query.trim()];
-  if (request.domains?.length) terms.push(`(${request.domains.map((domain) => `site:${domain}`).join(" OR ")})`);
+  if (request.domains?.length && !/(?:^|\s)site:/i.test(request.query)) terms.push(`(${request.domains.map((domain) => `site:${domain}`).join(" OR ")})`);
   for (const domain of request.excludeDomains ?? []) terms.push(`-site:${domain}`);
   return terms.filter(Boolean).join(" ");
 }
@@ -62,6 +67,112 @@ function safeResultUrl(value: string | null | undefined): URL | null {
 
 function providerTimeout(value: number | undefined): number {
   return Math.max(1_000, Math.min(60_000, value ?? DEFAULT_TIMEOUT_MS));
+}
+
+function braveCountry(value: string | undefined): string {
+  const country = value?.trim().toUpperCase();
+  return country && /^[A-Z]{2}$/.test(country) ? country : "ALL";
+}
+
+function braveLanguage(value: string | undefined): string {
+  const language = value?.trim().toLowerCase();
+  return language && /^[a-z]{2,3}$/.test(language) ? language : "es";
+}
+
+function braveFreshness(days: number | undefined): string | null {
+  if (!days || !Number.isFinite(days) || days <= 0) return null;
+  if (days <= 1) return "pd";
+  if (days <= 7) return "pw";
+  if (days <= 31) return "pm";
+  if (days <= 365) return "py";
+  return null;
+}
+
+async function braveHttpError(response: Response, prefix: "BRAVE_SEARCH" | "BRAVE_IMAGE"): Promise<ResearchSearchProviderError> {
+  const payload = await response.json().catch(() => ({})) as {
+    error?: { detail?: unknown; code?: unknown } | string;
+    message?: unknown;
+  };
+  const detail = typeof payload.error === "object" && payload.error
+    ? safeProviderMessage(payload.error.detail) ?? safeProviderMessage(payload.error.code)
+    : safeProviderMessage(payload.error) ?? safeProviderMessage(payload.message);
+  const suffix = response.status === 401 || response.status === 403 ? "AUTH_ERROR" : `HTTP_${response.status}`;
+  return new ResearchSearchProviderError(`${prefix}_${suffix}`, detail);
+}
+
+function resultKey(url: URL): string {
+  const normalized = new URL(url);
+  normalized.hash = "";
+  return normalized.toString();
+}
+
+export class BraveResearchSearchProvider implements ResearchSearchProviderV2 {
+  readonly name = "brave-search";
+  private calls = 0;
+  private readonly fetchImpl: typeof fetch;
+  private readonly timeoutMs: number;
+  private readonly moreResults = new Map<string, boolean>();
+
+  constructor(options: ProviderOptions = {}) {
+    this.fetchImpl = options.fetchImpl ?? fetch;
+    this.timeoutMs = providerTimeout(options.timeoutMs);
+  }
+
+  async search(request: ResearchSearchRequest): Promise<ResearchSearchResult[]> {
+    const key = braveSearchKey();
+    if (!key) throw new ResearchSearchProviderError("BRAVE_SEARCH_NOT_CONFIGURED");
+    const query = queryWithDomains(request);
+    const paginationKey = JSON.stringify({ query, country: braveCountry(request.country), language: braveLanguage(request.language) });
+    const offset = Math.max(0, Math.min(9, Math.floor(request.offset ?? 0)));
+    if (offset > 0 && this.moreResults.get(paginationKey) === false) return [];
+    const params = new URLSearchParams({
+      q: query,
+      country: braveCountry(request.country),
+      search_lang: braveLanguage(request.language),
+      count: String(Math.max(1, Math.min(20, request.maxResults ?? 8))),
+      offset: String(offset),
+      safesearch: "strict",
+    });
+    const freshness = braveFreshness(request.recencyDays);
+    if (freshness) params.set("freshness", freshness);
+    this.calls += 1;
+    const response = await this.fetchImpl(`https://api.search.brave.com/res/v1/web/search?${params}`, {
+      headers: {
+        Accept: "application/json",
+        "X-Subscription-Token": key,
+        "User-Agent": USER_AGENT,
+      },
+      signal: AbortSignal.timeout(this.timeoutMs),
+      cache: "no-store",
+    });
+    if (!response.ok) throw await braveHttpError(response, "BRAVE_SEARCH");
+    const payload = await response.json() as {
+      query?: { more_results_available?: boolean };
+      web?: { results?: Array<{ title?: string; url?: string; description?: string; age?: string; page_age?: string }> };
+    };
+    this.moreResults.set(paginationKey, payload.query?.more_results_available === true);
+    const seen = new Set<string>();
+    return (payload.web?.results ?? []).flatMap((item) => {
+      const url = safeResultUrl(item.url);
+      if (!url) return [];
+      const key = resultKey(url);
+      if (seen.has(key)) return [];
+      seen.add(key);
+      return [{
+        title: item.title?.trim() ?? "",
+        url: key,
+        snippet: item.description?.trim() ?? "",
+        host: url.hostname.toLowerCase(),
+        rank: seen.size,
+        publishedAt: item.page_age ?? item.age ?? null,
+        provider: this.name,
+      }];
+    });
+  }
+
+  getUsage(): Record<string, number> {
+    return { [this.name]: this.calls };
+  }
 }
 
 export class GoogleCustomResearchSearchProvider implements ResearchSearchProviderV2 {
@@ -217,18 +328,17 @@ export class FallbackResearchSearchProvider implements ResearchSearchProviderV2 
   }
 
   async preflight(): Promise<ResearchProviderHealth[]> {
-    for (const provider of this.providers) {
-      if (this.health.get(provider.name)?.state === "OPEN_CIRCUIT") continue;
-      try {
-        await provider.search({ query: "RegionAtlas", maxResults: 1, country: "ES", language: "es" });
-        this.setHealth(provider.name, "HEALTHY", null, null);
-        this.event(provider.name, "SUCCESS", null, "Preflight request completed", "PREFLIGHT");
-      } catch (error) {
-        const code = classifyRetrievalFailure(error);
-        const open = code === "PROVIDER_QUOTA_EXHAUSTED";
-        this.setHealth(provider.name, open ? "OPEN_CIRCUIT" : "DEGRADED", code, safeRetrievalDetail(error));
-        this.event(provider.name, open ? "OPEN_CIRCUIT" : "FAILURE", code, safeRetrievalDetail(error), "PREFLIGHT");
-      }
+    const provider = this.providers[0];
+    if (!provider || this.health.get(provider.name)?.state === "OPEN_CIRCUIT") return this.getHealth();
+    try {
+      await provider.search({ query: "RegionAtlas", maxResults: 1, country: "ES", language: "es" });
+      this.setHealth(provider.name, "HEALTHY", null, null);
+      this.event(provider.name, "SUCCESS", null, "Preflight request completed", "PREFLIGHT");
+    } catch (error) {
+      const code = classifyRetrievalFailure(error);
+      const open = code === "PROVIDER_QUOTA_EXHAUSTED" || code === "SOURCE_RATE_LIMITED";
+      this.setHealth(provider.name, open ? "OPEN_CIRCUIT" : "DEGRADED", code, safeRetrievalDetail(error));
+      this.event(provider.name, open ? "OPEN_CIRCUIT" : "FAILURE", code, safeRetrievalDetail(error), "PREFLIGHT");
     }
     return this.getHealth();
   }
@@ -265,7 +375,9 @@ export class FallbackResearchSearchProvider implements ResearchSearchProviderV2 
           errors.push(error);
           const code = classifyRetrievalFailure(error);
           const detail = safeRetrievalDetail(error);
-          if (code === "PROVIDER_QUOTA_EXHAUSTED") {
+          const opensImmediately = code === "PROVIDER_QUOTA_EXHAUSTED";
+          const opensAfterRetry = code === "SOURCE_RATE_LIMITED" && attempt >= this.maxTechnicalRetries;
+          if (opensImmediately || opensAfterRetry) {
             this.setHealth(provider.name, "OPEN_CIRCUIT", code, detail);
             this.event(provider.name, "OPEN_CIRCUIT", code, detail);
             break;
@@ -297,9 +409,77 @@ export class FallbackResearchSearchProvider implements ResearchSearchProviderV2 
 
 export function createConfiguredResearchSearchProvider(options: ProviderOptions = {}): ResearchSearchProviderV2 | null {
   const providers: ResearchSearchProviderV2[] = [];
+  if (braveSearchKey()) providers.push(new BraveResearchSearchProvider(options));
   if (configuredGoogle()) providers.push(new GoogleCustomResearchSearchProvider(options));
   if (serpApiKey()) providers.push(new SerpApiResearchSearchProvider(options));
   return providers.length ? new FallbackResearchSearchProvider(providers, options) : null;
+}
+
+export class BraveResearchImageSearchProvider implements ResearchImageSearchProvider {
+  readonly name = "brave-images";
+  private calls = 0;
+  private readonly fetchImpl: typeof fetch;
+  private readonly timeoutMs: number;
+
+  constructor(options: ProviderOptions = {}) {
+    this.fetchImpl = options.fetchImpl ?? fetch;
+    this.timeoutMs = providerTimeout(options.timeoutMs);
+  }
+
+  async search(request: ResearchSearchRequest): Promise<ResearchImageSearchResult[]> {
+    const key = braveSearchKey();
+    if (!key) throw new ResearchSearchProviderError("BRAVE_IMAGE_NOT_CONFIGURED");
+    const params = new URLSearchParams({
+      q: queryWithDomains(request),
+      country: braveCountry(request.country),
+      search_lang: braveLanguage(request.language),
+      count: String(Math.max(1, Math.min(200, request.maxResults ?? 8))),
+      safesearch: "strict",
+      spellcheck: "true",
+    });
+    this.calls += 1;
+    const response = await this.fetchImpl(`https://api.search.brave.com/res/v1/images/search?${params}`, {
+      headers: {
+        Accept: "application/json",
+        "X-Subscription-Token": key,
+        "User-Agent": USER_AGENT,
+      },
+      signal: AbortSignal.timeout(this.timeoutMs),
+      cache: "no-store",
+    });
+    if (!response.ok) throw await braveHttpError(response, "BRAVE_IMAGE");
+    const payload = await response.json() as {
+      results?: Array<{
+        title?: string | null;
+        url?: string | null;
+        source?: string | null;
+        thumbnail?: { src?: string | null } | null;
+        properties?: { url?: string | null } | null;
+        meta_url?: { hostname?: string | null } | null;
+      }>;
+    };
+    const seen = new Set<string>();
+    return (payload.results ?? []).flatMap((item) => {
+      const image = safeResultUrl(item.properties?.url);
+      if (!image) return [];
+      const imageKey = resultKey(image);
+      if (seen.has(imageKey)) return [];
+      seen.add(imageKey);
+      const sourcePage = safeResultUrl(item.url);
+      return [{
+        imageUrl: imageKey,
+        thumbnailUrl: safeResultUrl(item.thumbnail?.src)?.toString() ?? null,
+        sourcePageUrl: sourcePage?.toString() ?? null,
+        title: item.title?.trim() ?? "",
+        host: sourcePage?.hostname.toLowerCase() ?? item.meta_url?.hostname?.trim().toLowerCase() ?? item.source?.trim().toLowerCase() ?? "",
+        rank: seen.size,
+      }];
+    });
+  }
+
+  getUsage(): Record<string, number> {
+    return { [this.name]: this.calls };
+  }
 }
 
 export class SerpApiResearchImageSearchProvider implements ResearchImageSearchProvider {
@@ -426,23 +606,78 @@ export class GoogleCustomResearchImageSearchProvider implements ResearchImageSea
 
 export class FallbackResearchImageSearchProvider implements ResearchImageSearchProvider {
   readonly name: string;
+  private readonly health = new Map<string, ResearchProviderHealth>();
+  private readonly events: ResearchRetrievalEvent[] = [];
+  private readonly cache = new Map<string, ResearchImageSearchResult[]>();
+  private readonly maxTechnicalRetries: number;
 
-  constructor(private readonly providers: ResearchImageSearchProvider[]) {
+  constructor(private readonly providers: ResearchImageSearchProvider[], options: ProviderOptions = {}) {
     if (!providers.length) throw new Error("NO_IMAGE_SEARCH_PROVIDERS");
     this.name = providers.map((provider) => provider.name).join("+");
+    this.maxTechnicalRetries = Math.max(0, Math.min(3, options.maxTechnicalRetries ?? Number(process.env.RESEARCH_MAX_TECHNICAL_RETRIES ?? 1)));
+    for (const provider of providers) this.setHealth(provider.name, "DEGRADED", null, "Preflight pending");
+  }
+
+  private setHealth(provider: string, state: ResearchProviderHealth["state"], failureCode: ResearchProviderHealth["failureCode"], detail: string | null): void {
+    this.health.set(provider, { provider, state, checkedAt: new Date().toISOString(), failureCode, detail });
+  }
+
+  private event(provider: string, outcome: ResearchRetrievalEvent["outcome"], failureCode: ResearchRetrievalEvent["failureCode"], detail: string | null): void {
+    this.events.push({ at: new Date().toISOString(), operation: "IMAGE_SEARCH", provider, outcome, failureCode, detail });
+  }
+
+  getHealth(): ResearchProviderHealth[] {
+    return [...this.health.values()];
+  }
+
+  getEvents(): ResearchRetrievalEvent[] {
+    return [...this.events];
   }
 
   async search(request: ResearchSearchRequest): Promise<ResearchImageSearchResult[]> {
+    const cacheKey = JSON.stringify({ ...request, query: request.query.toLowerCase().replace(/\s+/g, " ").trim(), domains: [...(request.domains ?? [])].sort() });
+    const cached = this.cache.get(cacheKey);
+    if (cached) {
+      this.event(this.name, "CACHE_HIT", null, `${cached.length} cached results`);
+      return cached;
+    }
     const errors: unknown[] = [];
     for (const provider of this.providers) {
-      try {
-        const results = await provider.search(request);
-        if (results.length) return results;
-      } catch (error) {
-        errors.push(error);
+      if (this.health.get(provider.name)?.state === "OPEN_CIRCUIT") continue;
+      for (let attempt = 0; attempt <= this.maxTechnicalRetries; attempt += 1) {
+        try {
+          const results = await provider.search(request);
+          this.setHealth(provider.name, "HEALTHY", null, null);
+          this.event(provider.name, results.length ? "SUCCESS" : "EMPTY", null, `${results.length} results`);
+          if (results.length) {
+            this.cache.set(cacheKey, results);
+            return results;
+          }
+          break;
+        } catch (error) {
+          errors.push(error);
+          const code = classifyRetrievalFailure(error);
+          const detail = safeRetrievalDetail(error);
+          const opensImmediately = code === "PROVIDER_QUOTA_EXHAUSTED";
+          const opensAfterRetry = code === "SOURCE_RATE_LIMITED" && attempt >= this.maxTechnicalRetries;
+          if (opensImmediately || opensAfterRetry) {
+            this.setHealth(provider.name, "OPEN_CIRCUIT", code, detail);
+            this.event(provider.name, "OPEN_CIRCUIT", code, detail);
+            break;
+          }
+          if (attempt < this.maxTechnicalRetries && isRetryableRetrievalFailure(code)) {
+            this.setHealth(provider.name, "DEGRADED", code, detail);
+            this.event(provider.name, "RETRY", code, detail);
+            await boundedBackoff(attempt + 1);
+            continue;
+          }
+          this.setHealth(provider.name, "DEGRADED", code, detail);
+          this.event(provider.name, "FAILOVER", code, detail);
+          break;
+        }
       }
     }
-    if (errors.length === this.providers.length) throw errors[0];
+    if (errors.length && this.providers.every((provider) => this.health.get(provider.name)?.state !== "HEALTHY")) throw errors.at(-1);
     return [];
   }
 
@@ -457,9 +692,10 @@ export class FallbackResearchImageSearchProvider implements ResearchImageSearchP
 
 export function createConfiguredResearchImageSearchProvider(options: ProviderOptions = {}): ResearchImageSearchProvider | null {
   const providers: ResearchImageSearchProvider[] = [];
+  if (braveSearchKey()) providers.push(new BraveResearchImageSearchProvider(options));
   if (configuredGoogle()) providers.push(new GoogleCustomResearchImageSearchProvider(options));
   if (serpApiKey()) providers.push(new SerpApiResearchImageSearchProvider(options));
-  return providers.length ? new FallbackResearchImageSearchProvider(providers) : null;
+  return providers.length ? new FallbackResearchImageSearchProvider(providers, options) : null;
 }
 
 export async function searchResearchWeb(query: string, options: ProviderOptions = {}): Promise<ResearchSearchResult[]> {

@@ -1,10 +1,18 @@
 {
-  "status": "PRECHECK_BLOCKED",
-  "checkedAt": "2026-09-16T04:13:46.547Z",
+  "status": "READY",
+  "checkedAt": "2026-09-16T07:32:07.306Z",
   "checks": {
-    "generalProvider": {
-      "ok": false,
-      "detail": "serpapi-google:OPEN_CIRCUIT:PROVIDER_QUOTA_EXHAUSTED"
+    "brave": {
+      "ok": true,
+      "detail": "HEALTHY"
+    },
+    "google": {
+      "ok": true,
+      "detail": "NOT_CONFIGURED"
+    },
+    "serpApi": {
+      "ok": true,
+      "detail": "NOT_CONFIGURED"
     },
     "browser": {
       "ok": true,
@@ -21,11 +29,30 @@
   },
   "providerHealth": [
     {
+      "provider": "brave-search",
+      "state": "HEALTHY",
+      "checkedAt": "2026-09-16T07:31:59.974Z",
+      "failureCode": null,
+      "detail": null
+    },
+    {
+      "provider": "google-custom-search",
+      "state": "NOT_CONFIGURED",
+      "checkedAt": "2026-09-16T07:31:59.974Z",
+      "failureCode": null,
+      "detail": "Credential not configured."
+    },
+    {
       "provider": "serpapi-google",
-      "state": "OPEN_CIRCUIT",
-      "checkedAt": "2026-09-16T04:13:38.936Z",
-      "failureCode": "PROVIDER_QUOTA_EXHAUSTED",
-      "detail": "ResearchSearchProviderError SERPAPI_QUOTA_EXHAUSTED: Your account has run out of searches."
+      "state": "NOT_CONFIGURED",
+      "checkedAt": "2026-09-16T07:31:59.974Z",
+      "failureCode": null,
+      "detail": "Credential not configured."
     }
-  ]
+  ],
+  "providerUsage": {
+    "brave-search": 1
+  },
+  "braveSearchCalls": 1,
+  "estimatedBraveCostUsd": 0.005
 }

@@ -100,6 +100,39 @@ test("router uses known catalog barcode and deduplicates rendered queries", asyn
   assert.ok(plan.deterministicChecks.includes("SUBJECT_BINDING"));
 });
 
+test("router keeps broad queries broad and removes pending-edition placeholders", async () => {
+  const knowledge = await loadResearchKnowledge({ platformSlug: "ds" });
+  const context = {
+    ...buildResearchCatalogContext(subject("ds")),
+    title: "Assassin's Creed II: Discovery",
+    edition: "Standard · España · identificadores pendientes",
+    marketRegions: ["ES"],
+  };
+  const plan = routeResearch(routerInput(knowledge, context, "BARCODE"));
+  assert.ok(plan.queryPlan.some((query) => query.sourceId === null && query.query.includes("España")));
+  assert.ok(plan.queryPlan.every((query) => !/identificadores pendientes/i.test(query.query)));
+});
+
+test("router keeps component-code research available after a barcode is discovered", async () => {
+  const knowledge = await loadResearchKnowledge({ platformSlug: "ds" });
+  const context = {
+    ...buildResearchCatalogContext(subject("ds")),
+    title: "Assassin's Creed II: Discovery",
+    edition: "Spain physical release",
+    marketRegions: ["ES"],
+  };
+  const withBarcode = routerInput(knowledge, context, "BOX_CODE");
+  withBarcode.knownIdentifiers = [{ type: "BARCODE", value: "3307211667372" }];
+  const boxPlan = routeResearch(withBarcode);
+  assert.equal(boxPlan.selectedPlaybook.id, "MISSING_BOX_CODE");
+  assert.ok(boxPlan.queryPlan.some((query) => query.query.includes("3307211667372")));
+  assert.notEqual(boxPlan.queryPlan[0]?.sourceId, null);
+
+  const productPlan = routeResearch(routerInput(knowledge, context, "PRODUCT_CODE"));
+  assert.equal(productPlan.selectedPlaybook.id, "MISSING_PRODUCT_CODE");
+  assert.ok(productPlan.imagePlan.some((row) => row.component === "CART_FRONT"));
+});
+
 test("router selects serial and own-scan paths deterministically", async () => {
   const knowledge = await loadResearchKnowledge({ platformSlug: "ds" });
   const serialContext = { ...buildResearchCatalogContext(subject("ds")), serial: "NTR-ABCD-EUR" };

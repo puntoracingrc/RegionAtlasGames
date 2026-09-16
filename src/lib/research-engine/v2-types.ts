@@ -346,6 +346,8 @@ export type ResearchSearchRequest = {
   language?: string;
   recencyDays?: number;
   maxResults?: number;
+  /** Zero-based result-page offset for providers that support pagination. */
+  offset?: number;
 };
 
 export type ResearchSearchResult = {

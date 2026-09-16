@@ -13,7 +13,7 @@ async function main(): Promise<void> {
   assertResearchEngineEnabled();
   const capabilities = researchRuntimeCapabilities();
   if (!capabilities.openai) throw new Error("OPENAI_NOT_CONFIGURED");
-  if (!capabilities.googleSearch && !capabilities.serpApi) throw new Error("RESEARCH_SEARCH_NOT_CONFIGURED");
+  if (!capabilities.braveSearch && !capabilities.googleSearch && !capabilities.serpApi) throw new Error("RESEARCH_SEARCH_NOT_CONFIGURED");
   const store = new ResearchRunStore();
   const runId = runIdFromArgs(process.argv.slice(2));
   const state = await store.readState(runId);

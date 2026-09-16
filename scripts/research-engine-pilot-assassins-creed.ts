@@ -6,10 +6,10 @@ import { findResearchSubjects, getResearchSubjectById } from "../src/lib/researc
 import { assertResearchEngineEnabled, loadResearchEnvironment, researchRuntimeCapabilities } from "../src/lib/research-engine/env";
 import { ResearchOpenAIError } from "../src/lib/research-engine/openai-provider";
 import { createResearchWorkerDependencies, runDurableResearchTask } from "../src/lib/research-engine/runtime";
-import { ResearchSearchProviderError } from "../src/lib/research-engine/search-provider";
+import { BRAVE_SEARCH_COST_USD_PER_CALL, ResearchSearchProviderError } from "../src/lib/research-engine/search-provider";
 import { createResearchState, durableTask, researchArtifactRoot, ResearchRunStore } from "../src/lib/research-engine/state-store";
 import type { ResearchSubject } from "../src/lib/research-engine/types";
-import type { ResearchBudgetUsage, ResearchProviderHealth, ResearchTargetField } from "../src/lib/research-engine/v2-types";
+import type { ResearchBudgetUsage, ResearchProviderHealth, ResearchState, ResearchTargetField } from "../src/lib/research-engine/v2-types";
 
 type PilotCase = {
   number: number;
@@ -198,7 +198,15 @@ function taskFor(definition: PilotCase, subject: ResearchSubject, field: Researc
 
 type CompletedTarget = { targetField: ResearchTargetField; durationMs: number; result: Awaited<ReturnType<typeof runDurableResearchTask>> };
 type FailedTarget = { targetField: ResearchTargetField; error: string; usage: ResearchBudgetUsage };
-type PilotBudget = { remainingUsd: number };
+type PilotBudget = {
+  remainingSearches: number;
+  remainingPages: number;
+  remainingImages: number;
+  remainingAgentTurns: number;
+  remainingBrowserSessions: number;
+  remainingTokens: number;
+  remainingUsd: number;
+};
 
 const EMPTY_USAGE: ResearchBudgetUsage = {
   searches: 0,
@@ -213,6 +221,21 @@ const EMPTY_USAGE: ResearchBudgetUsage = {
 
 function roundUsd(value: number): number {
   return Math.round(Math.max(0, value) * 1_000_000) / 1_000_000;
+}
+
+function braveCost(providerUsage: Record<string, number>): number {
+  const calls = (providerUsage["brave-search"] ?? 0) + (providerUsage["brave-images"] ?? 0);
+  return roundUsd(calls * BRAVE_SEARCH_COST_USD_PER_CALL);
+}
+
+function consumePilotBudget(budget: PilotBudget, usage: ResearchBudgetUsage, providerUsage: Record<string, number> = {}): void {
+  budget.remainingSearches = Math.max(0, budget.remainingSearches - usage.searches);
+  budget.remainingPages = Math.max(0, budget.remainingPages - usage.pages);
+  budget.remainingImages = Math.max(0, budget.remainingImages - usage.images);
+  budget.remainingAgentTurns = Math.max(0, budget.remainingAgentTurns - usage.agentTurns);
+  budget.remainingBrowserSessions = Math.max(0, budget.remainingBrowserSessions - usage.browserSessions);
+  budget.remainingTokens = Math.max(0, budget.remainingTokens - usage.inputTokens - usage.outputTokens);
+  budget.remainingUsd = roundUsd(budget.remainingUsd - usage.estimatedCostUsd - braveCost(providerUsage));
 }
 
 function isFatalProviderError(error: unknown): boolean {
@@ -234,14 +257,40 @@ function overallStatus(completed: CompletedTarget[], failures: Array<{ targetFie
 
 async function runPreflight(pilotRoot: string, store: ResearchRunStore) {
   const dependencies = createResearchWorkerDependencies(store);
+  const capabilities = researchRuntimeCapabilities();
   const checks: Record<string, { ok: boolean; detail: string }> = {};
   let providerHealth: ResearchProviderHealth[] = [];
   try {
     providerHealth = await dependencies.searchProvider?.preflight?.() ?? [];
-    checks.generalProvider = { ok: providerHealth.some((row) => row.state === "HEALTHY"), detail: providerHealth.map((row) => `${row.provider}:${row.state}:${row.failureCode ?? "OK"}`).join(", ") || "No configured provider" };
   } catch (error) {
-    checks.generalProvider = { ok: false, detail: error instanceof Error ? error.message.slice(0, 300) : "PROVIDER_PREFLIGHT_FAILED" };
+    checks.brave = { ok: false, detail: error instanceof Error ? error.message.slice(0, 300) : "PROVIDER_PREFLIGHT_FAILED" };
   }
+  const checkedAt = new Date().toISOString();
+  const configuredProviders = [
+    { provider: "brave-search", configured: capabilities.braveSearch },
+    { provider: "google-custom-search", configured: capabilities.googleSearch },
+    { provider: "serpapi-google", configured: capabilities.serpApi },
+  ];
+  for (const candidate of configuredProviders) {
+    if (!providerHealth.some((row) => row.provider === candidate.provider)) {
+      providerHealth.push({
+        provider: candidate.provider,
+        state: candidate.configured ? "DEGRADED" : "NOT_CONFIGURED",
+        checkedAt,
+        failureCode: null,
+        detail: candidate.configured ? "Fallback not probed because the primary preflight is authoritative." : "Credential not configured.",
+      });
+    }
+  }
+  providerHealth.sort((left, right) => configuredProviders.findIndex((row) => row.provider === left.provider) - configuredProviders.findIndex((row) => row.provider === right.provider));
+  const healthDetail = (provider: string) => {
+    const health = providerHealth.find((row) => row.provider === provider);
+    return health ? `${health.state}${health.failureCode ? ` / ${health.failureCode}` : ""}` : "NOT_CONFIGURED";
+  };
+  const braveHealth = providerHealth.find((row) => row.provider === "brave-search");
+  checks.brave = { ok: braveHealth?.state === "HEALTHY", detail: healthDetail("brave-search") };
+  checks.google = { ok: true, detail: healthDetail("google-custom-search") };
+  checks.serpApi = { ok: true, detail: healthDetail("serpapi-google") };
   try {
     await dependencies.browserProvider?.browse(process.env.REGION_ATLAS_BASE_URL?.trim() || "https://www.regionatlas.games/");
     checks.browser = { ok: true, detail: dependencies.browserProvider?.name ?? "browser" };
@@ -268,7 +317,17 @@ async function runPreflight(pilotRoot: string, store: ResearchRunStore) {
   } catch (error) {
     checks.localStorage = { ok: false, detail: error instanceof Error ? error.message.slice(0, 300) : "STORAGE_PREFLIGHT_FAILED" };
   }
-  const result = { status: Object.values(checks).every((check) => check.ok) ? "READY" : "PRECHECK_BLOCKED", checkedAt: new Date().toISOString(), checks, providerHealth };
+  const providerUsage = dependencies.searchProvider?.getUsage?.() ?? {};
+  const braveSearchCalls = providerUsage["brave-search"] ?? 0;
+  const result = {
+    status: checks.brave.ok && checks.browser.ok && checks.vision.ok && checks.localStorage.ok ? "READY" : "PRECHECK_BLOCKED",
+    checkedAt: new Date().toISOString(),
+    checks,
+    providerHealth,
+    providerUsage,
+    braveSearchCalls,
+    estimatedBraveCostUsd: roundUsd(braveSearchCalls * BRAVE_SEARCH_COST_USD_PER_CALL),
+  };
   await writeJson(path.join(pilotRoot, "preflight.json"), result);
   return result;
 }
@@ -280,11 +339,12 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
   await store.upsertTasks(tasks);
   const completed: CompletedTarget[] = [];
   const failures: FailedTarget[] = [];
+  let sharedIdentifiers: ResearchState["identifiersSeen"] = definition.identifiers.map((identifier) => ({ ...identifier, component: null }));
   let fatalError: unknown = null;
 
-  for (const task of tasks) {
-    if (pilotBudget.remainingUsd <= 0) {
-      failures.push({ targetField: task.targetField, error: "GLOBAL_PILOT_COST_BUDGET_EXHAUSTED", usage: { ...EMPTY_USAGE } });
+  for (const [taskIndex, task] of tasks.entries()) {
+    if (pilotBudget.remainingUsd <= 0 || pilotBudget.remainingSearches <= 0 || pilotBudget.remainingPages <= 0 || pilotBudget.remainingAgentTurns <= 0 || pilotBudget.remainingTokens <= 0) {
+      failures.push({ targetField: task.targetField, error: "GLOBAL_PILOT_BUDGET_EXHAUSTED", usage: { ...EMPTY_USAGE } });
       continue;
     }
     const runId = `${definition.id}-${task.targetField.toLowerCase()}-${randomUUID()}`;
@@ -296,26 +356,29 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
       priority: task.priority,
       riskCodes: task.riskCodes,
     });
-    state.identifiersSeen = definition.identifiers.map((identifier) => ({ ...identifier, component: null }));
+    state.identifiersSeen = sharedIdentifiers;
+    const targetsRemaining = tasks.length - taskIndex;
+    const fairShare = (remaining: number) => Math.max(0, Math.ceil(remaining / targetsRemaining));
     state.budget = {
       ...state.budget,
-      maxSearches: numericEnv("RESEARCH_PILOT_MAX_SEARCHES", 25),
-      maxPages: numericEnv("RESEARCH_PILOT_MAX_PAGES", 30),
-      maxImages: numericEnv("RESEARCH_PILOT_MAX_IMAGES", 20),
-      maxAgentTurns: numericEnv("RESEARCH_PILOT_MAX_AGENT_TURNS", 12),
-      maxBrowserSessions: numericEnv("RESEARCH_PILOT_MAX_BROWSER_SESSIONS", 8),
-      maxTokens: numericEnv("RESEARCH_PILOT_MAX_TOKENS", Math.min(40_000, state.budget.maxTokens)),
-      maxCostUsd: Math.min(numericEnv("RESEARCH_PILOT_MAX_COST_USD", state.budget.maxCostUsd), pilotBudget.remainingUsd),
+      maxSearches: fairShare(pilotBudget.remainingSearches),
+      maxPages: fairShare(pilotBudget.remainingPages),
+      maxImages: fairShare(pilotBudget.remainingImages),
+      maxAgentTurns: fairShare(pilotBudget.remainingAgentTurns),
+      maxBrowserSessions: fairShare(pilotBudget.remainingBrowserSessions),
+      maxTokens: fairShare(pilotBudget.remainingTokens),
+      maxCostUsd: pilotBudget.remainingUsd / targetsRemaining,
     };
     const started = Date.now();
     try {
       const result = await runDurableResearchTask({ task, subject, store, resumeState: state, franchiseId: "assassins-creed" });
       completed.push({ targetField: task.targetField, durationMs: Date.now() - started, result });
-      pilotBudget.remainingUsd = roundUsd(pilotBudget.remainingUsd - result.state.usage.estimatedCostUsd);
+      sharedIdentifiers = [...new Map([...sharedIdentifiers, ...result.state.identifiersSeen].map((identifier) => [`${identifier.type}:${identifier.value}`, identifier])).values()];
+      consumePilotBudget(pilotBudget, result.state.usage, result.providerUsage);
     } catch (error) {
       const failedState = await store.readState(runId);
       const usage = failedState?.usage ?? { ...EMPTY_USAGE };
-      pilotBudget.remainingUsd = roundUsd(pilotBudget.remainingUsd - usage.estimatedCostUsd);
+      consumePilotBudget(pilotBudget, usage);
       failures.push({ targetField: task.targetField, error: error instanceof Error ? error.message : "UNKNOWN_PILOT_FAILURE", usage });
       if (isFatalProviderError(error)) {
         fatalError = error;
@@ -342,8 +405,15 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
   const visionCalls = completed.reduce((sum, item) => sum + item.result.visionResults.length, 0);
   const status = overallStatus(completed, failures);
   const resolutions = completed.map((item) => ({ targetField: item.targetField, ...item.result.resolution }));
+  const braveWebCalls = providerUsage["brave-search"] ?? 0;
+  const braveImageCalls = providerUsage["brave-images"] ?? 0;
+  const braveSearchCalls = braveWebCalls + braveImageCalls;
+  const estimatedBraveCostUsd = roundUsd(braveSearchCalls * BRAVE_SEARCH_COST_USD_PER_CALL);
   const costs = {
     searchCalls: usage.searches,
+    braveSearchCalls,
+    braveWebCalls,
+    braveImageCalls,
     googleCalls: Object.entries(providerUsage).filter(([provider]) => provider.startsWith("google-custom")).reduce((sum, [, calls]) => sum + calls, 0),
     serpApiCalls: Object.entries(providerUsage).filter(([provider]) => provider.startsWith("serpapi")).reduce((sum, [, calls]) => sum + calls, 0),
     ebayApiCalls: 0,
@@ -354,6 +424,10 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
     visionCalls,
     inputTokens: usage.inputTokens,
     outputTokens: usage.outputTokens,
+    estimatedOpenAiCostUsd: usage.estimatedCostUsd,
+    estimatedBraveCostUsd,
+    estimatedTotalCostUsd: roundUsd(usage.estimatedCostUsd + estimatedBraveCostUsd),
+    // Kept for compatibility with Pilot 1; this is OpenAI cost only.
     estimatedCostUsd: usage.estimatedCostUsd,
     durationMs: completed.reduce((sum, item) => sum + item.durationMs, 0),
     providerCalls: providerUsage,
@@ -435,12 +509,15 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
   const statuses = rows.map((row) => String(row.resolution?.status ?? "NOT_RUN"));
   const number = (value: unknown) => typeof value === "number" && Number.isFinite(value) ? value : 0;
   const totalCost = rows.reduce((total, row) => {
-    for (const key of ["searchCalls", "pagesOpened", "imagesInspected", "llmCalls", "visionCalls", "inputTokens", "outputTokens", "estimatedCostUsd", "durationMs"] as const) {
+    for (const key of ["searchCalls", "braveSearchCalls", "braveWebCalls", "braveImageCalls", "pagesOpened", "imagesInspected", "llmCalls", "visionCalls", "inputTokens", "outputTokens", "estimatedOpenAiCostUsd", "estimatedBraveCostUsd", "estimatedTotalCostUsd", "estimatedCostUsd", "durationMs"] as const) {
       total[key] += number(row.cost?.[key]);
     }
     return total;
-  }, { searchCalls: 0, pagesOpened: 0, imagesInspected: 0, llmCalls: 0, visionCalls: 0, inputTokens: 0, outputTokens: 0, estimatedCostUsd: 0, durationMs: 0 });
+  }, { searchCalls: 0, braveSearchCalls: 0, braveWebCalls: 0, braveImageCalls: 0, pagesOpened: 0, imagesInspected: 0, llmCalls: 0, visionCalls: 0, inputTokens: 0, outputTokens: 0, estimatedOpenAiCostUsd: 0, estimatedBraveCostUsd: 0, estimatedTotalCostUsd: 0, estimatedCostUsd: 0, durationMs: 0 });
   totalCost.estimatedCostUsd = Math.round(totalCost.estimatedCostUsd * 1_000_000) / 1_000_000;
+  totalCost.estimatedOpenAiCostUsd = Math.round(totalCost.estimatedOpenAiCostUsd * 1_000_000) / 1_000_000;
+  totalCost.estimatedBraveCostUsd = Math.round(totalCost.estimatedBraveCostUsd * 1_000_000) / 1_000_000;
+  totalCost.estimatedTotalCostUsd = Math.round(totalCost.estimatedTotalCostUsd * 1_000_000) / 1_000_000;
   const unsafeFalsePositives = rows.flatMap((row) => row.claims).filter((claim) => claim.status === "VALIDATED" && Array.isArray(claim.validationErrors) && claim.validationErrors.length > 0).length;
   const crossAttributionErrors = rows.flatMap((row) => row.conflicts).filter((conflict) => String(conflict.reason).includes("CROSS_ATTRIBUTION") && String(conflict.severity) === "CRITICAL").length;
   const platformContaminationErrors = rows.flatMap((row) => row.claims).filter((claim) => claim.status === "VALIDATED" && Array.isArray(claim.validationErrors) && claim.validationErrors.some((error) => String(error).includes("PLATFORM"))).length;
@@ -482,13 +559,17 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
     `- Cross-attribution errors accepted: ${summary.crossAttributionErrors}`,
     `- Platform contamination errors accepted: ${summary.platformContaminationErrors}`,
     `- Search calls: ${summary.searchCalls}`,
+    `- Brave web calls: ${summary.braveWebCalls}`,
+    `- Brave image calls: ${summary.braveImageCalls}`,
     `- Pages: ${summary.pagesOpened}`,
     `- Images: ${summary.imagesInspected}`,
     `- LLM calls: ${summary.llmCalls}`,
     `- Vision calls: ${summary.visionCalls}`,
     `- Input tokens: ${summary.inputTokens}`,
     `- Output tokens: ${summary.outputTokens}`,
-    `- Estimated cost: $${summary.estimatedCostUsd.toFixed(6)}`,
+    `- Estimated OpenAI cost: $${summary.estimatedOpenAiCostUsd.toFixed(6)}`,
+    `- Estimated Brave cost: $${summary.estimatedBraveCostUsd.toFixed(6)}`,
+    `- Estimated total cost: $${summary.estimatedTotalCostUsd.toFixed(6)}`,
     `- Duration: ${summary.durationMs} ms`,
     `- Catalog mutations: ${summary.catalogMutations}`,
   ].join("\n");
@@ -532,11 +613,39 @@ async function main(): Promise<void> {
     assertResearchEngineEnabled();
     const capabilities = researchRuntimeCapabilities();
     if (!capabilities.openai) throw new Error("OPENAI_NOT_CONFIGURED");
-    if (!capabilities.googleSearch && !capabilities.serpApi) throw new Error("RESEARCH_SEARCH_NOT_CONFIGURED");
+    if (!capabilities.braveSearch) {
+      const checkedAt = new Date().toISOString();
+      const preflight = {
+        status: "PRECHECK_BLOCKED",
+        checkedAt,
+        checks: {
+          brave: { ok: false, detail: "NOT_CONFIGURED" },
+          google: { ok: true, detail: capabilities.googleSearch ? "CONFIGURED / NOT_PROBED" : "NOT_CONFIGURED" },
+          serpApi: { ok: true, detail: capabilities.serpApi ? "CONFIGURED / NOT_PROBED" : "NOT_CONFIGURED" },
+          browser: { ok: false, detail: "NOT_RUN" },
+          vision: { ok: false, detail: "NOT_RUN" },
+          localStorage: { ok: false, detail: "NOT_RUN" },
+        },
+        providerHealth: [{ provider: "brave-search", state: "NOT_CONFIGURED", checkedAt, failureCode: null, detail: "BRAVE_SEARCH_API_KEY is missing." }],
+        providerUsage: {},
+        braveSearchCalls: 0,
+        estimatedBraveCostUsd: 0,
+      } satisfies Record<string, unknown>;
+      await writeJson(path.join(pilotRoot, "preflight.json"), preflight);
+      await writeFile(path.join(pilotRoot, "closure.md"), "# Assassin's Creed research pilot 2\n\n- Status: PRECHECK BLOCKED\n- Blocker: BRAVE_SEARCH_API_KEY is not configured.\n- Pilot cases started: 0\n- Brave calls: 0\n- Catalog mutations: 0\n- Retrieval pass: not achieved\n- Functional validation: not run\n", "utf8");
+      await writeJson(path.join(pilotRoot, "before-after-comparison.json"), {
+        pilot1: { confirmed: 0, partial: 0, unresolved: 1, failed: 4, searches: 52, pages: 13, images: 4, estimatedCostUsd: 0.019041 },
+        pilot2: { status: "PRECHECK_BLOCKED", blocker: "BRAVE_SEARCH_NOT_CONFIGURED", casesStarted: 0, braveSearchCalls: 0, catalogMutations: 0 },
+        retrievalPass: false,
+        functionalValidated: false,
+      });
+      console.log(JSON.stringify(preflight, null, 2));
+      return;
+    }
     const store = new ResearchRunStore();
     const preflight = await runPreflight(pilotRoot, store);
     if (preflight.status !== "READY") {
-      await writeFile(path.join(pilotRoot, "closure.md"), "# Assassin's Creed research pilot 2\n\n- Status: PRECHECK BLOCKED\n- Blocker: no healthy general search provider; SerpAPI quota circuit is open.\n- Browser: healthy\n- Vision: healthy\n- Local artifact storage: healthy\n- Pilot cases started: 0\n- Catalog mutations: 0\n- Retrieval pass: not achieved\n- Functional validation: not run\n", "utf8");
+      await writeFile(path.join(pilotRoot, "closure.md"), "# Assassin's Creed research pilot 2\n\n- Status: PRECHECK BLOCKED\n- Blocker: Brave, browser, vision or storage preflight is not READY.\n- Google Custom Search: non-blocking\n- SerpAPI: non-blocking\n- Pilot cases started: 0\n- Catalog mutations: 0\n- Retrieval pass: not achieved\n- Functional validation: not run\n", "utf8");
       await writeJson(path.join(pilotRoot, "before-after-comparison.json"), {
         pilot1: { confirmed: 0, partial: 0, unresolved: 1, failed: 4, searches: 52, pages: 13, images: 4, estimatedCostUsd: 0.019041 },
         pilot2: { status: "PRECHECK_BLOCKED", casesStarted: 0, catalogMutations: 0 },
@@ -546,9 +655,19 @@ async function main(): Promise<void> {
       console.log(JSON.stringify(preflight, null, 2));
       return;
     }
-    const pilotBudget: PilotBudget = { remainingUsd: numericEnv("RESEARCH_MAX_COST_USD", 1) };
     for (const definition of args.cases) {
-      if (pilotBudget.remainingUsd <= 0) break;
+      // The documented Pilot 2 ceilings are case-wide: targets within one case
+      // share them, while --all gives each of the five independent cases the
+      // same bounded opportunity to resolve.
+      const pilotBudget: PilotBudget = {
+        remainingSearches: numericEnv("RESEARCH_PILOT_MAX_SEARCHES", 20),
+        remainingPages: numericEnv("RESEARCH_PILOT_MAX_PAGES", 25),
+        remainingImages: numericEnv("RESEARCH_PILOT_MAX_IMAGES", 15),
+        remainingAgentTurns: numericEnv("RESEARCH_PILOT_MAX_AGENT_TURNS", 10),
+        remainingBrowserSessions: numericEnv("RESEARCH_PILOT_MAX_BROWSER_SESSIONS", 5),
+        remainingTokens: numericEnv("RESEARCH_PILOT_MAX_TOKENS", 60_000),
+        remainingUsd: numericEnv("RESEARCH_PILOT_MAX_COST_USD", 0.20),
+      };
       await runCase(definition, pilotRoot, store, pilotBudget);
     }
   }

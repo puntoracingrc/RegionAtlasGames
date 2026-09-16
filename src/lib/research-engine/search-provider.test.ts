@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  BraveResearchImageSearchProvider,
+  BraveResearchSearchProvider,
   FallbackResearchSearchProvider,
   GoogleCustomResearchImageSearchProvider,
   GoogleCustomResearchSearchProvider,
@@ -42,6 +44,176 @@ test("Google search applies domain routing and returns normalized HTTP results",
     assert.equal(results.length, 1);
     assert.equal(results[0].host, "example.com");
     assert.deepEqual(provider.getUsage(), { "google-custom-search": 1 });
+  });
+});
+
+test("Brave normalizes web results and preserves source metadata", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key" }, async () => {
+    const provider = new BraveResearchSearchProvider({
+      fetchImpl: (async () => Response.json({
+        query: { more_results_available: true },
+        web: { results: [{ title: " Exact item ", url: "https://example.com/item", description: " Barcode visible ", page_age: "2026-09-15T00:00:00Z" }] },
+      })) as typeof fetch,
+    });
+    assert.deepEqual(await provider.search({ query: "Test Game" }), [{
+      title: "Exact item",
+      url: "https://example.com/item",
+      snippet: "Barcode visible",
+      host: "example.com",
+      rank: 1,
+      publishedAt: "2026-09-15T00:00:00Z",
+      provider: "brave-search",
+    }]);
+    assert.deepEqual(provider.getUsage(), { "brave-search": 1 });
+  });
+});
+
+test("Brave preflight becomes healthy after one real-shaped request", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key" }, async () => {
+    let calls = 0;
+    const brave = new BraveResearchSearchProvider({
+      fetchImpl: (async () => {
+        calls += 1;
+        return Response.json({ web: { results: [] } });
+      }) as typeof fetch,
+    });
+    const pool = new FallbackResearchSearchProvider([brave]);
+    const health = await pool.preflight();
+    assert.equal(calls, 1);
+    assert.equal(health[0]?.state, "HEALTHY");
+    assert.ok(pool.getEvents().some((event) => event.operation === "PREFLIGHT" && event.outcome === "SUCCESS"));
+  });
+});
+
+test("Brave without a key is NOT_CONFIGURED rather than an HTTP failure", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: undefined }, async () => {
+    const provider = new BraveResearchSearchProvider();
+    await assert.rejects(
+      provider.search({ query: "barcode" }),
+      (error: unknown) => error instanceof ResearchSearchProviderError && error.code === "BRAVE_SEARCH_NOT_CONFIGURED",
+    );
+    assert.deepEqual(provider.getUsage(), { "brave-search": 0 });
+  });
+});
+
+test("Brave 429 retries once and then opens its circuit", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key", RESEARCH_RETRY_BASE_MS: "0" }, async () => {
+    let calls = 0;
+    const brave = new BraveResearchSearchProvider({
+      fetchImpl: (async () => {
+        calls += 1;
+        return Response.json({ error: { detail: "rate limited" } }, { status: 429 });
+      }) as typeof fetch,
+    });
+    const pool = new FallbackResearchSearchProvider([brave], { maxTechnicalRetries: 1 });
+    await assert.rejects(pool.search({ query: "barcode" }));
+    assert.equal(calls, 2);
+    assert.equal(pool.getHealth()[0]?.state, "OPEN_CIRCUIT");
+    assert.deepEqual(await pool.search({ query: "different query" }), []);
+    assert.equal(calls, 2);
+  });
+});
+
+test("Brave timeout falls back without failing the research case", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key" }, async () => {
+    const brave = new BraveResearchSearchProvider({
+      fetchImpl: (async () => { throw new Error("request timed out"); }) as typeof fetch,
+    });
+    const fallback: ResearchSearchProviderV2 = {
+      name: "fallback",
+      async search() {
+        return [{ title: "Recovered", url: "https://example.test/item", snippet: "", host: "example.test", rank: 1, publishedAt: null, provider: "fallback" }];
+      },
+    };
+    const pool = new FallbackResearchSearchProvider([brave, fallback], { maxTechnicalRetries: 0 });
+    assert.equal((await pool.search({ query: "barcode" }))[0]?.provider, "fallback");
+    assert.ok(pool.getEvents().some((event) => event.provider === "brave-search" && event.outcome === "FAILOVER"));
+  });
+});
+
+test("Brave maps country and search language without restricting global requests", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key" }, async () => {
+    const requested: URL[] = [];
+    const provider = new BraveResearchSearchProvider({
+      fetchImpl: (async (input) => {
+        requested.push(new URL(String(input)));
+        return Response.json({ web: { results: [] } });
+      }) as typeof fetch,
+    });
+    await provider.search({ query: "Spanish release", country: "es", language: "ES" });
+    await provider.search({ query: "technical source" });
+    assert.equal(requested[0]?.searchParams.get("country"), "ES");
+    assert.equal(requested[0]?.searchParams.get("search_lang"), "es");
+    assert.equal(requested[1]?.searchParams.get("country"), "ALL");
+  });
+});
+
+test("Brave preserves an explicit site operator without widening it to sibling hosts", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key" }, async () => {
+    let requested = "";
+    const provider = new BraveResearchSearchProvider({
+      fetchImpl: (async (input) => {
+        requested = String(input);
+        return Response.json({ web: { results: [] } });
+      }) as typeof fetch,
+    });
+    await provider.search({ query: 'site:game.es "Assassin Discovery"', domains: ["game.es", "fnac.es"] });
+    const query = new URL(requested).searchParams.get("q") ?? "";
+    assert.equal(query, 'site:game.es "Assassin Discovery"');
+    assert.ok(!query.includes("fnac.es"));
+  });
+});
+
+test("Brave pagination does not request another page when none is available", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key" }, async () => {
+    let calls = 0;
+    const provider = new BraveResearchSearchProvider({
+      fetchImpl: (async () => {
+        calls += 1;
+        return Response.json({ query: { more_results_available: false }, web: { results: [] } });
+      }) as typeof fetch,
+    });
+    await provider.search({ query: "barcode", offset: 0 });
+    assert.deepEqual(await provider.search({ query: "barcode", offset: 1 }), []);
+    assert.equal(calls, 1);
+  });
+});
+
+test("Brave deduplicates equivalent result URLs", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key" }, async () => {
+    const provider = new BraveResearchSearchProvider({
+      fetchImpl: (async () => Response.json({ web: { results: [
+        { title: "One", url: "https://example.com/item#details", description: "first" },
+        { title: "Duplicate", url: "https://example.com/item", description: "second" },
+      ] } })) as typeof fetch,
+    });
+    const results = await provider.search({ query: "barcode" });
+    assert.equal(results.length, 1);
+    assert.equal(results[0]?.url, "https://example.com/item");
+  });
+});
+
+test("Brave image normalization binds the original image to its source page", async () => {
+  await withEnv({ BRAVE_SEARCH_API_KEY: "brave-key" }, async () => {
+    const provider = new BraveResearchImageSearchProvider({
+      fetchImpl: (async () => Response.json({ results: [{
+        title: " Back cover ",
+        url: "https://example.com/listing",
+        source: "Example",
+        thumbnail: { src: "https://imgs.search.brave.com/thumb.jpg" },
+        properties: { url: "https://cdn.example.com/back.jpg" },
+        meta_url: { hostname: "example.com" },
+      }] })) as typeof fetch,
+    });
+    assert.deepEqual(await provider.search({ query: "back cover", country: "ES", language: "es" }), [{
+      imageUrl: "https://cdn.example.com/back.jpg",
+      thumbnailUrl: "https://imgs.search.brave.com/thumb.jpg",
+      sourcePageUrl: "https://example.com/listing",
+      title: "Back cover",
+      host: "example.com",
+      rank: 1,
+    }]);
+    assert.deepEqual(provider.getUsage(), { "brave-images": 1 });
   });
 });
 
