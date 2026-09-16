@@ -44,6 +44,7 @@ export function assertResearchEngineEnabled(): void {
 
 export function researchRuntimeCapabilities(): {
   openai: boolean;
+  braveSearch: boolean;
   googleSearch: boolean;
   serpApi: boolean;
   textModel: string;
@@ -52,6 +53,7 @@ export function researchRuntimeCapabilities(): {
   const textModel = process.env.RESEARCH_LLM_MODEL?.trim() || "gpt-4o-mini";
   return {
     openai: Boolean(process.env.OPENAI_API_KEY?.trim()),
+    braveSearch: Boolean(process.env.BRAVE_SEARCH_API_KEY?.trim()),
     googleSearch: Boolean(process.env.GOOGLE_SEARCH_API_KEY?.trim() && process.env.GOOGLE_SEARCH_CX?.trim()),
     serpApi: Boolean(process.env.SERPAPI_KEY?.trim() || process.env.SERPAPI_API_KEY?.trim()),
     textModel,

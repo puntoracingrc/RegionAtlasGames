@@ -12,6 +12,13 @@ import type {
 
 const quote = (value: string) => value.includes(" ") ? `"${value}"` : value;
 
+function platformSearchLabel(platformSlug: string): string {
+  return ({
+    ds: "Nintendo DS", "3ds": "Nintendo 3DS", wiiu: "Wii U", switch: "Nintendo Switch",
+    ps3: "PlayStation 3", ps4: "PlayStation 4", ps5: "PlayStation 5", xbox360: "Xbox 360",
+  } as Record<string, string>)[platformSlug] ?? platformSlug;
+}
+
 function identifiersByType(input: ResearchRouterInput, type: string): string[] {
   return [...new Set(knownIdentifiersForRouter(input).filter((identifier) => identifier.type === type).map((identifier) => identifier.value))];
 }
@@ -55,6 +62,8 @@ function triggerSet(input: ResearchRouterInput): Set<string> {
   }
   if (["PHYSICAL_EXISTENCE", "PHYSICAL_PRODUCT_TYPE", "RELEASE_STATUS"].includes(input.targetField)) set.add("PHYSICAL_STATUS_CONFLICT");
   if (["OUTER_INNER_RELATION", "BUNDLE_CONTENTS", "COLLECTOR_CONTENTS"].includes(input.targetField)) set.add("OUTER_INNER_RELATION_UNKNOWN");
+  if (/\b(?:skull|buccaneer|black chest|collector|special)\b/i.test(input.catalogContext.edition)) set.add("COLLECTOR_EDITION");
+  if (/\b(?:double pack|compilation|bundle)\b/i.test(input.catalogContext.edition)) set.add("BUNDLE_PRODUCT");
   set.add(`TARGET=${input.targetField}`);
   for (const identifier of known) {
     const suffix = identifier.value.toUpperCase().match(/-([A-Z0-9]{2,5})(?:-\d+)?$/)?.[1];
@@ -98,6 +107,13 @@ function sourceRoleMatches(source: ResearchSourceDefinition, roles: string[]): b
 
 function rankSources(input: ResearchRouterInput, playbook: ResearchPlaybook): ResearchSourcePlanItem[] {
   const explicit = new Map(playbook.sourceIds.map((id, index) => [id, playbook.sourceIds.length - index]));
+  const franchisePriority = input.franchiseKnowledge
+    .find((rule) => rule.startsWith("Preferred franchise sources:"))
+    ?.replace(/^Preferred franchise sources:\s*/, "")
+    .replace(/\.$/, "")
+    .split(",")
+    .map((value) => value.trim()) ?? [];
+  const franchiseBoost = new Map(franchisePriority.map((id, index) => [id, franchisePriority.length - index]));
   const rows = input.sourceKnowledge
     .filter((source) => sourceSupportsPlatform(source, input.catalogContext.platformSlug))
     .filter((source) => source.id !== "regionatlas-own-scan" || input.catalogContext.ownedScans.length > 0)
@@ -105,7 +121,7 @@ function rankSources(input: ResearchRouterInput, playbook: ResearchPlaybook): Re
       const capability = source.fieldCapabilities[input.targetField] ?? 0;
       const explicitBoost = (explicit.get(source.id) ?? 0) * 100;
       const roleBoost = sourceRoleMatches(source, playbook.sourceRoles) ? 25 : 0;
-      const score = explicitBoost + capability * 2 + source.defaultReliability + roleBoost;
+      const score = explicitBoost + (franchiseBoost.get(source.id) ?? 0) * 8 + capability * 2 + source.defaultReliability + roleBoost;
       return {
         score,
         item: {
@@ -177,17 +193,25 @@ function templateValues(input: ResearchRouterInput, source: ResearchSourcePlanIt
   const context = input.catalogContext;
   const known = knownIdentifiersForRouter(input);
   const first = (type: string) => known.find((identifier) => identifier.type === type)?.value ?? "";
+  const edition = cleanEdition(context.edition);
+  const sourceHost = (() => {
+    if (!source) return "";
+    if (/^(?:ps|playstation)/.test(context.platformSlug)) return source.hosts.find((host) => host.includes("playstation")) ?? source.hosts[0] ?? "";
+    if (/^(?:xbox)/.test(context.platformSlug)) return source.hosts.find((host) => host.includes("xbox")) ?? source.hosts[0] ?? "";
+    if (["ds", "3ds", "wiiu", "switch", "switch2"].includes(context.platformSlug)) return source.hosts.find((host) => host.includes("nintendo")) ?? source.hosts[0] ?? "";
+    return source.hosts[0] ?? "";
+  })();
   return {
     TITLE: context.title,
-    EDITION: context.edition,
-    PLATFORM: context.platformSlug,
+    EDITION: edition,
+    PLATFORM: platformSearchLabel(context.platformSlug),
     BARCODE: first("BARCODE"),
     SERIAL: first("SERIAL"),
     PRODUCT_CODE: first("PRODUCT_CODE"),
     BOX_CODE: first("BOX_CODE"),
     CART_CODE: first("PRODUCT_CODE"),
-    SOURCE_HOST: source?.hosts[0] ?? "",
-    HOST: source?.hosts[0] ?? "",
+    SOURCE_HOST: sourceHost,
+    HOST: sourceHost,
   };
 }
 
@@ -205,6 +229,59 @@ function normalizedQuery(query: string): string {
   return query.toLowerCase().replace(/[“”]/g, "\"").replace(/\s+/g, " ").trim();
 }
 
+function cleanEdition(value: string): string {
+  return value
+    .split(/[·|]/)
+    .map((part) => part.trim())
+    .filter((part) => part
+      && !/^(?:standard|unknown|pending)$/i.test(part)
+      && !/(?:edition|product identity|identity|edici[oó]n|identidad).*(?:pendiente|pending)/i.test(part)
+      && !/(?:identificadores?|identifiers?|barcodes?|c[oó]digos?|codes?).*(?:pendientes?|pending)/i.test(part)
+      && !/(?:pendientes?|pending).*(?:identificadores?|identifiers?|barcodes?|c[oó]digos?|codes?)/i.test(part))
+    .join(" ");
+}
+
+function exactIdentifierQueries(input: ResearchRouterInput, sourcePlan: ResearchSourcePlanItem[]): ResearchRouterPlan["queryPlan"] {
+  const context = input.catalogContext;
+  const region = context.marketRegions.join(" ") || context.marketRegion || context.region || "";
+  const platform = platformSearchLabel(context.platformSlug);
+  const identifiers = knownIdentifiersForRouter(input);
+  const specialized = sourcePlan.filter((source) => source.capabilityScore > 0
+    && source.accessModes.some((mode) => mode === "SEARCH_ENGINE" || mode === "DOMAIN_SEARCH"))
+    .slice(0, 4);
+  const rows: ResearchRouterPlan["queryPlan"] = [];
+  const exactQuote = (value: string) => `"${value.replace(/"/g, "").trim()}"`;
+  const baseFor = (identifier: (typeof identifiers)[number]) => ({
+    sourceId: null,
+    purpose: input.targetField,
+    strategy: "EXACT_IDENTIFIER" as const,
+    identifierType: identifier.type,
+    identifierValue: identifier.value,
+  });
+  for (const identifier of identifiers) {
+    const exact = exactQuote(identifier.value);
+    rows.push({ ...baseFor(identifier), query: exact });
+  }
+  for (const identifier of identifiers) {
+    rows.push({ ...baseFor(identifier), query: `${exactQuote(identifier.value)} ${quote(platform)}` });
+  }
+  for (const identifier of identifiers) {
+    const source = specialized[0];
+    if (source?.hosts[0]) rows.push({ ...baseFor(identifier), query: `site:${source.hosts[0]} ${exactQuote(identifier.value)}`, sourceId: source.sourceId });
+  }
+  for (const identifier of identifiers) {
+    rows.push({ ...baseFor(identifier), query: `${exactQuote(identifier.value)} ${quote(context.title)}` });
+  }
+  if (region) {
+    for (const identifier of identifiers) rows.push({ ...baseFor(identifier), query: `${exactQuote(identifier.value)} ${quote(region)}` });
+  }
+  for (const identifier of identifiers) {
+    const source = specialized[1];
+    if (source?.hosts[0]) rows.push({ ...baseFor(identifier), query: `site:${source.hosts[0]} ${exactQuote(identifier.value)}`, sourceId: source.sourceId });
+  }
+  return rows;
+}
+
 function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, sourcePlan: ResearchSourcePlanItem[]) {
   const groups = playbook.queryTemplateGroups.length
     ? playbook.queryTemplateGroups
@@ -216,23 +293,62 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
     ? platformRaw.queryTemplates.filter((item): item is string => typeof item === "string")
     : [];
   const genericTemplates = groups.flatMap((group) => input.queryTemplates[group] ?? []);
-  const templates = [...inlineTemplates, ...genericTemplates];
-  const queries: Array<{ query: string; sourceId: string | null; purpose: ResearchTargetField }> = [];
+  const queries: ResearchRouterPlan["queryPlan"] = [];
   const queryableSources = sourcePlan.filter((source) => source.accessModes.some((mode) => mode === "SEARCH_ENGINE" || mode === "DOMAIN_SEARCH"));
-  const sources = queryableSources.length ? queryableSources.slice(0, 8) : [null];
-  for (const source of sources) {
+  const globalValues = templateValues(input, null);
+  // A newly discovered identifier changes the research question from discovery
+  // to verification. Every candidate is chased before title-led discovery.
+  queries.push(...exactIdentifierQueries(input, sourcePlan).slice(0, 8));
+  const identifierVerification = queries.length > 0;
+  const edition = cleanEdition(input.catalogContext.edition);
+  const collectorEdition = /\b(?:skull|buccaneer|black chest|collector|special|double pack)\b/i.test(edition);
+  if (collectorEdition) {
+    const editionName = edition.replace(/\b(?:spain|españa|espana|europe|europa)\b/gi, "").replace(/\s+/g, " ").trim();
+    const platform = platformSearchLabel(input.catalogContext.platformSlug);
+    queries.push(
+      { query: `${quote(input.catalogContext.title)} ${quote(editionName)} ${quote(platform)}`, sourceId: null, purpose: input.targetField, strategy: "GENERIC" },
+      { query: `${quote(editionName)} ${quote(platform)} barcode`, sourceId: null, purpose: input.targetField, strategy: "GENERIC" },
+      { query: `${quote(input.catalogContext.title)} ${quote(editionName)} "back cover"`, sourceId: null, purpose: input.targetField, strategy: "GENERIC" },
+    );
+  }
+  // Platform-specific playbook queries encode the strongest identifier rules
+  // and must remain ahead of general source discovery (for example N64 codes).
+  for (const template of inlineTemplates) {
+    const rendered = renderTemplate(template, globalValues);
+    if (rendered) queries.push({ query: rendered, sourceId: null, purpose: input.targetField, strategy: "GENERIC" });
+  }
+  // Ask the highest-ranked technical/physical sources first. Broad discovery is
+  // still available afterwards, but cannot consume the whole case budget before
+  // source-bound queries have had a chance to produce auditable evidence.
+  const sourceQueries = queryableSources.slice(0, 8).map((source) => {
     const values = templateValues(input, source);
-    for (const template of templates) {
-      const rendered = renderTemplate(template, values);
-      if (!rendered) continue;
-      queries.push({ query: rendered, sourceId: source?.sourceId ?? null, purpose: input.targetField });
-    }
-    for (const template of source?.hosts.length ? input.sourceKnowledge.find((item) => item.id === source.sourceId)?.queryTemplates ?? [] : []) {
-      const rendered = renderTemplate(template, values);
-      if (rendered) queries.push({ query: rendered, sourceId: source?.sourceId ?? null, purpose: input.targetField });
+    return {
+      source,
+      rendered: (input.sourceKnowledge.find((item) => item.id === source.sourceId)?.queryTemplates ?? [])
+        .map((template) => renderTemplate(template, values))
+        .filter((query): query is string => Boolean(query)),
+    };
+  });
+  const sourceDepth = Math.max(0, ...sourceQueries.map((row) => row.rendered.length));
+  for (let depth = 0; depth < sourceDepth; depth += 1) {
+    for (const { source, rendered } of sourceQueries) {
+      const query = rendered[depth];
+      if (query) queries.push({ query, sourceId: source.sourceId, purpose: input.targetField, strategy: "SOURCE_SPECIFIC" });
     }
   }
-  return [...new Map(queries.map((query) => [normalizedQuery(query.query), query])).values()].slice(0, 24);
+  if (!identifierVerification) {
+    for (const template of genericTemplates) {
+      const rendered = renderTemplate(template, globalValues);
+      if (rendered) queries.push({ query: rendered, sourceId: null, purpose: input.targetField, strategy: "GENERIC" });
+    }
+  }
+  const seen = new Set<string>();
+  return queries.filter((query) => {
+    const key = normalizedQuery(query.query);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 24);
 }
 
 function imagePlanFor(target: ResearchTargetField): ResearchRouterPlan["imagePlan"] {
@@ -247,10 +363,28 @@ function imagePlanFor(target: ResearchTargetField): ResearchRouterPlan["imagePla
     ],
     BUNDLE_CONTENTS: [{ component: "OUTER_BOX", fields: ["BUNDLE_CONTENTS", "PHYSICAL_PRODUCT_TYPE"], reason: "The exact bundle contents must be visible or documented." }],
     COLLECTOR_CONTENTS: [{ component: "OUTER_BOX", fields: ["COLLECTOR_CONTENTS", "PHYSICAL_PRODUCT_TYPE"], reason: "Collector packaging does not prove game media is included." }],
+    PHYSICAL_PRODUCT_TYPE: [{ component: "BACK", fields: ["PHYSICAL_PRODUCT_TYPE"], reason: "Back-cover download/code statements or an exact unboxing must distinguish on-media content from required downloads." }],
     PRODUCT_CODE: [{ component: "CART_FRONT", fields: ["PRODUCT_CODE"], reason: "Read the code from the exact physical medium." }],
     ROM_REVISION: [{ component: "CART_FRONT", fields: ["ROM_REVISION"], reason: "Label evidence is only a clue; technical evidence remains required." }],
   };
   return rows[target] ?? [];
+}
+
+function directUrlPlan(input: ResearchRouterInput, sourcePlan: ResearchSourcePlanItem[]): ResearchRouterPlan["directUrlPlan"] {
+  const candidates: ResearchRouterPlan["directUrlPlan"] = [];
+  if (input.catalogContext.gameRetailer?.url) {
+    candidates.push({ url: input.catalogContext.gameRetailer.url, sourceId: "national-retailer", reason: "Exact retailer URL already bound to the catalog subject." });
+  }
+  for (const url of input.catalogContext.officialSourceCandidates) {
+    try {
+      const host = new URL(url).hostname;
+      const source = sourcePlan.find((row) => row.hosts.some((candidate) => host === candidate || host.endsWith(`.${candidate}`)));
+      candidates.push({ url, sourceId: source?.sourceId ?? `company-official:${host}`, reason: "Known official URL from current catalog context." });
+    } catch {
+      // Invalid context URLs never become retrieval work.
+    }
+  }
+  return [...new Map(candidates.map((candidate) => [candidate.url, candidate])).values()].slice(0, 8);
 }
 
 function factsUsed(input: ResearchRouterInput, playbook: ResearchPlaybook): string[] {
@@ -274,6 +408,7 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
   const triggers = triggerSet(input);
   const selectedPlaybook = selectPlaybook(input, triggers);
   const sourcePlan = rankSources(input, selectedPlaybook);
+  const directUrls = directUrlPlan(input, sourcePlan);
   const queryPlan = buildQueries(input, selectedPlaybook, sourcePlan);
   const deterministicChecks = [...new Set([
     ...selectedPlaybook.deterministicChecks,
@@ -293,6 +428,7 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
     playbook: selectedPlaybook.id,
     identifiers: knownIdentifiersForRouter(input),
     sources: sourcePlan.map((source) => source.sourceId),
+    directUrls: directUrls.map((row) => row.url),
     queries: queryPlan.map((query) => query.query),
   });
   return {
@@ -300,6 +436,7 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
     factsUsed: factsUsed(input, selectedPlaybook),
     selectedPlaybook,
     sourcePlan,
+    directUrlPlan: directUrls,
     queryPlan,
     imagePlan: imagePlanFor(input.targetField),
     deterministicChecks,

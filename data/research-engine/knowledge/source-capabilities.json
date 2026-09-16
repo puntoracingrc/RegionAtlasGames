@@ -10,6 +10,24 @@
       { "evidenceType": "MARKETPLACE_METADATA", "score": 62 },
       { "evidenceType": "SEARCH_RESULT", "score": 30 }
     ],
+    "PRODUCT_CODE": [
+      { "evidenceType": "OWN_SCAN_EXACT_COMPONENT", "score": 100 },
+      { "evidenceType": "EXACT_CARTRIDGE_OR_DISC_PHOTO", "score": 98 },
+      { "evidenceType": "TECHNICAL_DATABASE_EXACT_VARIANT", "score": 94 },
+      { "evidenceType": "MARKETPLACE_DESCRIPTION", "score": 20 }
+    ],
+    "OUTER_INNER_RELATION": [
+      { "evidenceType": "EXACT_OUTER_AND_INNER_PHOTOS", "score": 100 },
+      { "evidenceType": "UNBOXING_WITH_VISIBLE_COMPONENTS", "score": 95 },
+      { "evidenceType": "UNBOUND_BARCODE", "score": 0 }
+    ],
+    "PHYSICAL_PRODUCT_TYPE": [
+      { "evidenceType": "EXACT_BACK_COVER_STATEMENT", "score": 100 },
+      { "evidenceType": "PHYSICAL_UNBOXING", "score": 98 },
+      { "evidenceType": "DOESITPLAY_EXACT_PLATFORM", "score": 92 },
+      { "evidenceType": "OFFICIAL_PHYSICAL_PRODUCT_PAGE", "score": 88 },
+      { "evidenceType": "RETAILER_TEXT", "score": 45 }
+    ],
     "PACKAGING_LANGUAGES": [
       { "evidenceType": "OWN_SCAN", "score": 100 },
       { "evidenceType": "EXACT_PHYSICAL_PHOTO", "score": 98 },

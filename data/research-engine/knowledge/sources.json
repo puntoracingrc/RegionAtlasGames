@@ -90,6 +90,9 @@
       "fieldCapabilities": {
         "PHYSICAL_EXISTENCE": 60,
         "BARCODE": 68,
+        "PRODUCT_CODE": 45,
+        "PHYSICAL_PRODUCT_TYPE": 55,
+        "OUTER_INNER_RELATION": 48,
         "PACKAGING_LANGUAGES": 72,
         "COLLECTOR_CONTENTS": 70,
         "MARKET_REGION": 20
@@ -115,6 +118,126 @@
       "defaultReliability": 55,
       "knownRisks": ["Seller descriptions are weak; exact listing photos can be strong component evidence."],
       "queryTemplates": ["site:todocoleccion.net \"{BARCODE}\"", "site:todocoleccion.net \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "ubisoft-official",
+      "hosts": ["ubisoft.com", "news.ubisoft.com", "store.ubisoft.com"],
+      "platforms": ["*"],
+      "countries": ["*"],
+      "roles": ["PUBLISHER", "OFFICIAL_SOURCE_CANDIDATE"],
+      "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER", "ARCHIVE"],
+      "fieldCapabilities": { "CANONICAL_IDENTITY": 94, "PHYSICAL_EXISTENCE": 90, "PHYSICAL_PRODUCT_TYPE": 86, "BUNDLE_CONTENTS": 88, "COLLECTOR_CONTENTS": 90, "RELEASE_STATUS": 92 },
+      "defaultReliability": 92,
+      "knownRisks": ["Official marketing may omit regional packaging identifiers and can describe digital editions."],
+      "queryTemplates": ["site:ubisoft.com \"{TITLE}\" \"{EDITION}\" {PLATFORM}", "site:news.ubisoft.com \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "nintendo-official",
+      "hosts": ["nintendo.es", "nintendo-europe.com", "nintendo.com"],
+      "platforms": ["ds", "wiiu", "switch"],
+      "countries": ["ES", "EU"],
+      "roles": ["PLATFORM_HOLDER", "OFFICIAL_SOURCE_CANDIDATE"],
+      "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER", "ARCHIVE"],
+      "fieldCapabilities": { "CANONICAL_IDENTITY": 88, "PRODUCT_CODE": 90, "PHYSICAL_PRODUCT_TYPE": 86, "SOFTWARE_LANGUAGES": 82, "RELEASE_STATUS": 88 },
+      "defaultReliability": 90,
+      "knownRisks": ["Digital store entries do not establish a physical SKU or outer packaging."],
+      "queryTemplates": ["site:nintendo.es \"{TITLE}\" {PLATFORM} {PRODUCT_CODE}", "site:nintendo-europe.com \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "dbox",
+      "hosts": ["dbox.tools", "dbox.space"],
+      "platforms": ["ds", "wiiu", "switch", "xbox360"],
+      "countries": ["*"],
+      "roles": ["SPECIALIZED_DATABASE", "PHYSICAL_SPECIMEN_DISCOVERY"],
+      "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"],
+      "fieldCapabilities": { "BARCODE": 82, "BOX_CODE": 90, "PRODUCT_CODE": 88, "OUTER_INNER_RELATION": 88, "CANONICAL_IDENTITY": 70, "PACKAGING_LANGUAGES": 76 },
+      "defaultReliability": 76,
+      "knownRisks": ["Bind every code to the photographed component and exact regional variant."],
+      "queryTemplates": ["site:dbox.tools \"{BARCODE}\"", "site:dbox.space \"{BARCODE}\"", "site:dbox.tools \"{TITLE}\" {PLATFORM}", "site:dbox.space \"{PRODUCT_CODE}\""]
+    },
+    {
+      "id": "doesitplay",
+      "hosts": ["doesitplay.org"],
+      "platforms": ["ps5", "switch", "xbox-series"],
+      "countries": ["*"],
+      "roles": ["SPECIALIZED_DATABASE", "TECHNICAL_PHYSICAL_STATUS"],
+      "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER"],
+      "fieldCapabilities": { "PHYSICAL_PRODUCT_TYPE": 90, "MEDIA_REVISION": 82, "RELEASE_STATUS": 80 },
+      "defaultReliability": 82,
+      "knownRisks": ["Technical installability does not by itself establish regional packaging identity."],
+      "queryTemplates": ["site:doesitplay.org \"{TITLE}\" \"{PLATFORM}\"", "site:doesitplay.org \"{TITLE}\" \"download required\""]
+    },
+    {
+      "id": "ogdb",
+      "hosts": ["ogdb.eu"],
+      "platforms": ["*"],
+      "countries": ["EU"],
+      "roles": ["SPECIALIZED_DATABASE", "PHYSICAL_SPECIMEN_DISCOVERY"],
+      "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"],
+      "fieldCapabilities": { "BARCODE": 82, "PRODUCT_CODE": 84, "BOX_CODE": 78, "CANONICAL_IDENTITY": 76, "PACKAGING_LANGUAGES": 66 },
+      "defaultReliability": 76,
+      "knownRisks": ["Database records can aggregate editions; verify exact images and region."],
+      "queryTemplates": ["site:ogdb.eu \"{TITLE}\" {PLATFORM}", "site:ogdb.eu \"{BARCODE}\""]
+    },
+    {
+      "id": "retroplace",
+      "hosts": ["retroplace.com"],
+      "platforms": ["ds", "wiiu", "xbox360"],
+      "countries": ["EU"],
+      "roles": ["SPECIALIZED_DATABASE", "PHYSICAL_SPECIMEN_DISCOVERY"],
+      "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"],
+      "fieldCapabilities": { "BARCODE": 76, "BOX_CODE": 78, "PRODUCT_CODE": 78, "CANONICAL_IDENTITY": 72 },
+      "defaultReliability": 70,
+      "knownRisks": ["Community records require exact subject and component validation."],
+      "queryTemplates": ["site:retroplace.com \"{TITLE}\" {PLATFORM}", "site:retroplace.com \"{BARCODE}\""]
+    },
+    {
+      "id": "mobygames",
+      "hosts": ["mobygames.com"],
+      "platforms": ["*"],
+      "countries": ["*"],
+      "roles": ["SPECIALIZED_DATABASE", "RELEASE_IDENTITY"],
+      "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER"],
+      "fieldCapabilities": { "CANONICAL_IDENTITY": 76, "RELEASE_STATUS": 72, "MARKET_REGION": 65 },
+      "defaultReliability": 72,
+      "knownRisks": ["Release groups and cover galleries may combine regional variants."],
+      "queryTemplates": ["site:mobygames.com \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "gamefaqs-guarded",
+      "hosts": ["gamefaqs.gamespot.com"],
+      "platforms": ["ds", "wiiu", "switch", "xbox360", "ps5"],
+      "countries": ["*"],
+      "roles": ["DISCOVERY_ONLY", "RELEASE_IDENTITY"],
+      "accessModes": ["DOMAIN_SEARCH", "BROWSER"],
+      "fieldCapabilities": { "CANONICAL_IDENTITY": 58, "RELEASE_STATUS": 55 },
+      "defaultReliability": 52,
+      "knownRisks": ["Discovery only: walkthrough counters and ASCII art are not product identifiers; never confirm a physical identifier from this source."],
+      "queryTemplates": ["site:gamefaqs.gamespot.com \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "launchbox-images",
+      "hosts": ["gamesdb.launchbox-app.com"],
+      "platforms": ["*"],
+      "countries": ["*"],
+      "roles": ["PHYSICAL_SPECIMEN_DISCOVERY", "COVER_GALLERY"],
+      "accessModes": ["SEARCH_ENGINE", "BROWSER", "IMAGE_SEARCH"],
+      "fieldCapabilities": { "BARCODE": 65, "BOX_CODE": 60, "PRODUCT_CODE": 55, "PHYSICAL_PRODUCT_TYPE": 60, "PACKAGING_LANGUAGES": 62 },
+      "defaultReliability": 55,
+      "knownRisks": ["Community cover galleries can mix regions; only exact readable component photos are eligible."],
+      "queryTemplates": ["site:gamesdb.launchbox-app.com \"{TITLE}\" {PLATFORM} back"]
+    },
+    {
+      "id": "yambalu",
+      "hosts": ["yambalu.com", "www.yambalu.com"],
+      "platforms": ["*"],
+      "countries": ["ES"],
+      "roles": ["RETAILER_AGGREGATOR", "RELEASE_IDENTITY"],
+      "accessModes": ["SEARCH_ENGINE", "DIRECT_FETCH", "BROWSER"],
+      "fieldCapabilities": { "CANONICAL_IDENTITY": 76, "PHYSICAL_EXISTENCE": 68, "BUNDLE_CONTENTS": 62, "OUTER_INNER_RELATION": 30 },
+      "defaultReliability": 58,
+      "knownRisks": ["Product naming can be localized; identifiers and component relationships require stronger corroboration."],
+      "queryTemplates": ["site:yambalu.com \"{TITLE}\" {PLATFORM}", "site:yambalu.com \"{BARCODE}\""]
     }
   ]
 }

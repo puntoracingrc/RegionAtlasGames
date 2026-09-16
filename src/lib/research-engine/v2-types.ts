@@ -269,7 +269,15 @@ export type ResearchRouterPlan = {
   factsUsed: string[];
   selectedPlaybook: ResearchPlaybook;
   sourcePlan: ResearchSourcePlanItem[];
-  queryPlan: Array<{ query: string; sourceId: string | null; purpose: ResearchTargetField }>;
+  directUrlPlan: Array<{ url: string; sourceId: string; reason: string }>;
+  queryPlan: Array<{
+    query: string;
+    sourceId: string | null;
+    purpose: ResearchTargetField;
+    strategy: "EXACT_IDENTIFIER" | "SOURCE_SPECIFIC" | "GENERIC";
+    identifierType?: string;
+    identifierValue?: string;
+  }>;
   imagePlan: Array<{ component: ResearchComponent; fields: ResearchTargetField[]; reason: string }>;
   deterministicChecks: string[];
   escalationRules: string[];
@@ -345,6 +353,8 @@ export type ResearchSearchRequest = {
   language?: string;
   recencyDays?: number;
   maxResults?: number;
+  /** Zero-based result-page offset for providers that support pagination. */
+  offset?: number;
 };
 
 export type ResearchSearchResult = {
@@ -357,10 +367,41 @@ export type ResearchSearchResult = {
   provider: string;
 };
 
+export type ResearchRetrievalFailureCode =
+  | "SOURCE_TIMEOUT"
+  | "SOURCE_BLOCKED"
+  | "SOURCE_NOT_FOUND"
+  | "SOURCE_RATE_LIMITED"
+  | "PROVIDER_QUOTA_EXHAUSTED"
+  | "PROVIDER_TEMPORARILY_UNAVAILABLE"
+  | "BROWSER_REQUIRED"
+  | "IMAGE_UNAVAILABLE"
+  | "INTERNAL_ERROR";
+
+export type ResearchProviderHealth = {
+  provider: string;
+  state: "HEALTHY" | "DEGRADED" | "OPEN_CIRCUIT" | "NOT_CONFIGURED";
+  checkedAt: string;
+  failureCode: ResearchRetrievalFailureCode | null;
+  detail: string | null;
+};
+
+export type ResearchRetrievalEvent = {
+  at: string;
+  operation: "PREFLIGHT" | "SEARCH" | "IMAGE_SEARCH" | "DIRECT_FETCH" | "BROWSER";
+  provider: string;
+  outcome: "SUCCESS" | "EMPTY" | "RETRY" | "FAILOVER" | "OPEN_CIRCUIT" | "CACHE_HIT" | "FAILURE";
+  failureCode: ResearchRetrievalFailureCode | null;
+  detail: string | null;
+};
+
 export type ResearchSearchProviderV2 = {
   name: string;
   search(request: ResearchSearchRequest): Promise<ResearchSearchResult[]>;
   getUsage?(): Record<string, number>;
+  preflight?(): Promise<ResearchProviderHealth[]>;
+  getHealth?(): ResearchProviderHealth[];
+  getEvents?(): ResearchRetrievalEvent[];
 };
 
 export type ResearchPage = {
@@ -410,6 +451,9 @@ export type ResearchImageSearchProvider = {
   name: string;
   search(request: ResearchSearchRequest): Promise<ResearchImageSearchResult[]>;
   getUsage?(): Record<string, number>;
+  preflight?(): Promise<ResearchProviderHealth[]>;
+  getHealth?(): ResearchProviderHealth[];
+  getEvents?(): ResearchRetrievalEvent[];
 };
 
 export type ResearchVisionResult = {
@@ -424,6 +468,9 @@ export type ResearchVisionResult = {
   publisherText: string[];
   distributorText: string[];
   downloadStatements: string[];
+  physicalContentAssessment: "NO_DOWNLOAD_STATEMENT" | "DOWNLOAD_REQUIRED" | "CODE_IN_BOX" | "PARTIAL_DOWNLOAD" | "UNREADABLE";
+  barcodeBinding: "OUTER_COLLECTOR_PACKAGE" | "INNER_GAME_CASE" | "RETAILER_STICKER" | "UNKNOWN";
+  barcodeProductRole: "OUTER_PRODUCT" | "INNER_GAME" | "ANOTHER_PRODUCT" | "UNREADABLE";
   stickerDetected: boolean;
   imageQuality: "GOOD" | "LIMITED" | "UNREADABLE";
   confidenceByField: Record<string, number>;
@@ -460,7 +507,22 @@ export type ResearchLlmProvider = {
 
 export type ResearchVisionProvider = {
   name: string;
-  inspect(input: { imageUrl: string; componentHint?: ResearchComponent | null; requestedFields: ResearchTargetField[] }): Promise<{ result: ResearchVisionResult; usage: ResearchModelUsage }>;
+  inspect(input: {
+    imageUrl: string;
+    componentHint?: ResearchComponent | null;
+    requestedFields: ResearchTargetField[];
+    expected?: {
+      title: string;
+      platform: string;
+      edition: string;
+      region: string | null;
+    };
+    sourceContext?: {
+      pageTitle: string | null;
+      pageUrl: string | null;
+      imageLabel: string | null;
+    };
+  }): Promise<{ result: ResearchVisionResult; usage: ResearchModelUsage }>;
 };
 
 export type ResearchBudgetLimits = {
@@ -493,6 +555,7 @@ export type ResearchRunStatus =
   | "CONFIRMED"
   | "PARTIAL"
   | "UNRESOLVED"
+  | "BLOCKED_INFRASTRUCTURE"
   | "BLOCKED"
   | "FAILED";
 

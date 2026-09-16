@@ -77,15 +77,19 @@ export class PlaywrightResearchBrowserProvider implements ResearchBrowserProvide
         title: document.title,
         text: document.body?.innerText ?? "",
         links: Array.from(document.querySelectorAll("a[href]"), (element) => (element as HTMLAnchorElement).href),
-        images: Array.from(document.querySelectorAll("img[src]"), (element) => {
+        images: Array.from(document.querySelectorAll("img"), (element) => {
           const image = element as HTMLImageElement;
           const figure = image.closest("figure");
           return {
-            url: image.currentSrc || image.src,
+            url: image.currentSrc || image.src || image.dataset.src || image.dataset.original || "",
             alt: image.alt || null,
             caption: figure?.querySelector("figcaption")?.textContent?.trim() || image.title || null,
           };
-        }),
+        }).concat(Array.from(document.querySelectorAll('meta[property="og:image"],meta[property="og:image:url"],meta[name="twitter:image"],meta[name="twitter:image:src"]'), (element) => ({
+          url: (element as HTMLMetaElement).content,
+          alt: element.getAttribute("property") || element.getAttribute("name"),
+          caption: null,
+        }))),
       }));
       const links = [...new Set(output.links.filter((link) => /^https?:\/\//i.test(link)))].slice(0, 500);
       const images = [...new Map(output.images.filter((image) => /^https?:\/\//i.test(image.url)).map((image) => [image.url, image])).values()].slice(0, 250);

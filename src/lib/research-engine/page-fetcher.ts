@@ -72,12 +72,42 @@ function linksFromHtml(html: string, base: string): string[] {
   return [...new Set(links)].slice(0, 400);
 }
 
-function imagesFromHtml(html: string, base: string): ResearchPage["imageCandidates"] {
+function srcsetUrls(value: string | null): string[] {
+  if (!value) return [];
+  return value.split(",").map((candidate) => candidate.trim().split(/\s+/)[0]).filter(Boolean);
+}
+
+function jsonLdImageUrls(value: unknown): string[] {
+  if (typeof value === "string") return [value];
+  if (Array.isArray(value)) return value.flatMap(jsonLdImageUrls);
+  if (!value || typeof value !== "object") return [];
+  const row = value as Record<string, unknown>;
+  return [row.url, row.contentUrl, row.image, row.thumbnailUrl, row["@graph"]].flatMap(jsonLdImageUrls);
+}
+
+function imagesFromHtml(html: string, base: string, structuredData: unknown[]): ResearchPage["imageCandidates"] {
   const images = (html.match(/<img\b[^>]*>/gi) ?? []).flatMap((tag) => {
-    const value = safeResolvedUrl(attribute(tag, "src") ?? attribute(tag, "data-src"), base);
-    if (!value) return [];
-    return [{ url: value, alt: attribute(tag, "alt"), caption: attribute(tag, "title") }];
+    const candidates = [
+      attribute(tag, "src"),
+      attribute(tag, "data-src"),
+      attribute(tag, "data-original"),
+      ...srcsetUrls(attribute(tag, "srcset") ?? attribute(tag, "data-srcset")),
+    ].flatMap((candidate) => {
+      const value = safeResolvedUrl(candidate, base);
+      return value ? [{ url: value, alt: attribute(tag, "alt"), caption: attribute(tag, "title") }] : [];
+    });
+    return candidates;
   });
+  for (const tag of html.match(/<meta\b[^>]*>/gi) ?? []) {
+    const property = (attribute(tag, "property") ?? attribute(tag, "name"))?.toLowerCase();
+    if (!["og:image", "og:image:url", "twitter:image", "twitter:image:src"].includes(property ?? "")) continue;
+    const value = safeResolvedUrl(attribute(tag, "content"), base);
+    if (value) images.push({ url: value, alt: property ?? null, caption: null });
+  }
+  for (const candidate of structuredData.flatMap(jsonLdImageUrls)) {
+    const value = safeResolvedUrl(candidate, base);
+    if (value) images.push({ url: value, alt: "JSON-LD image", caption: null });
+  }
   return [...new Map(images.map((image) => [image.url, image])).values()].slice(0, 200);
 }
 
@@ -187,6 +217,7 @@ export class HttpResearchPageFetcher implements ResearchPageFetcher {
     const canonicalUrl = await assertSafeResearchUrl(declaredCanonical, this.resolver)
       .then((url) => url.toString())
       .catch(() => finalUrl);
+    const structuredData = isHtml ? structuredDataFromHtml(raw) : [];
     return {
       requestedUrl: requested.toString(),
       canonicalUrl,
@@ -194,9 +225,9 @@ export class HttpResearchPageFetcher implements ResearchPageFetcher {
       title: isHtml ? titleFromHtml(raw) : "",
       text: text.slice(0, 300_000),
       language: isHtml ? languageFromHtml(raw, text) : null,
-      structuredData: isHtml ? structuredDataFromHtml(raw) : [],
+      structuredData,
       links: isHtml ? linksFromHtml(raw, finalUrl) : [],
-      imageCandidates: isHtml ? imagesFromHtml(raw, finalUrl) : [],
+      imageCandidates: isHtml ? imagesFromHtml(raw, finalUrl, structuredData) : [],
       fetchedAt: new Date().toISOString(),
       contentType,
       bytes: bytes.byteLength,
