@@ -1,0 +1,1533 @@
+{
+  "schemaVersion": 1,
+  "knowledgeId": "regionatlas-n64-physical-research-v1",
+  "platformSlug": "n64",
+  "reviewedAt": "2026-09-16",
+  "status": "FROZEN_V1",
+  "mode": "research_guidance_not_automatic_catalog_acceptance",
+  "purpose": "Knowledge base for a low-cost AI research worker. The worker should follow deterministic routing, closed-choice decision rules, source capabilities, and evidence requirements before using open-ended model reasoning.",
+  "coreModel": {
+    "entities": [
+      "CANONICAL_GAME",
+      "REGIONAL_SOFTWARE_VARIANT",
+      "REGIONAL_PACKAGING_VARIANT",
+      "PRINT_REVISION",
+      "MEDIA_REVISION",
+      "OUTER_PRODUCT_OR_BUNDLE",
+      "PHYSICAL_COMPONENT"
+    ],
+    "physicalComponents": [
+      "BOX_FRONT",
+      "BOX_BACK",
+      "BOX_SPINE",
+      "BOX_FLAPS",
+      "MANUAL",
+      "CARTRIDGE_FRONT",
+      "CARTRIDGE_BACK",
+      "INSERT",
+      "STICKER",
+      "OUTER_BOX",
+      "ACCESSORY"
+    ],
+    "principles": [
+      "Box, manual, cartridge, barcode, ROM revision and print revision are separate dimensions.",
+      "A cartridge suffix does not automatically define a national packaging market.",
+      "A barcode can be shared by several regional packages or markets.",
+      "A regional package can contain more than one cartridge/software variant.",
+      "A print revision is not a new videogame.",
+      "A label suffix such as -1 does not by itself prove ROM revision 1.1.",
+      "Current RegionAtlas region is a search hint, never proof.",
+      "Observed suffixes such as EUR and EUU are identity/search clues, not universal country maps."
+    ]
+  },
+  "sources": {
+    "regionatlas-own-scan": {
+      "baseUrl": "internal://regionatlas-owned-scans",
+      "kind": "first_party_owned_scan",
+      "priority": 100,
+      "accessModes": [
+        "INTERNAL"
+      ],
+      "notes": "Highest-priority evidence for the exact owned specimen."
+    },
+    "nintendo64ever": {
+      "baseUrl": "https://www.nintendo64ever.com/",
+      "kind": "specialized_n64_database",
+      "priority": 94,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "versions inventory",
+        "box serial",
+        "manual serial",
+        "cartridge serial",
+        "known cartridge stamp codes",
+        "ROM version",
+        "barcode",
+        "component languages",
+        "release date",
+        "publisher",
+        "scans"
+      ],
+      "cautions": [
+        "Individual barcode/transcription errors have been observed.",
+        "A Europe entry can hide multiple physical packaging variants; inspect Versions.",
+        "High priority does not remove checksum/corroboration requirements."
+      ],
+      "exampleUrls": [
+        "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet%2C1546%2CGlover.html"
+      ]
+    },
+    "nesworld": {
+      "baseUrl": "https://www.nesworld.com/",
+      "kind": "specialized_nintendo_database",
+      "priority": 92,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "GamePak IDs",
+        "box IDs",
+        "manual IDs",
+        "ROM revisions",
+        "worldwide cartridge list",
+        "demo/NFR list",
+        "component relationships"
+      ],
+      "cautions": [
+        "Some entries are incomplete.",
+        "Do not infer national packaging from GamePak identity alone."
+      ],
+      "exampleUrls": [
+        "https://www.nesworld.com/content.php?data=gamelists"
+      ]
+    },
+    "no-intro": {
+      "baseUrl": "https://wiki.no-intro.org/",
+      "kind": "technical_rom_database",
+      "priority": 95,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER"
+      ],
+      "strengths": [
+        "ROM identity",
+        "revision evidence",
+        "dump status",
+        "label-vs-ROM revision conflicts",
+        "technical cartridge research"
+      ],
+      "cautions": [
+        "Technical ROM evidence is not national packaging evidence.",
+        "Undumped/not-confirmed pages must not be treated as released-package inventories."
+      ],
+      "exampleUrls": [
+        "https://wiki.no-intro.org/index.php?title=Nintendo_-_Nintendo_64_Europe_undumped"
+      ]
+    },
+    "64scener": {
+      "baseUrl": "https://64scener.com/",
+      "kind": "specialized_n64_worldwide_list",
+      "priority": 90,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "worldwide GamePak variants",
+        "regional cartridge codes",
+        "publishers",
+        "demo/NFR cartridges",
+        "variant discovery"
+      ],
+      "cautions": [
+        "Entries can aggregate multiple box variants under one Game ID.",
+        "Use primarily for cartridge/worldwide discovery, not exact package certification."
+      ],
+      "exampleUrls": [
+        "https://64scener.com/index.php?page=nintendo64-world-wide-cartridge-release-list",
+        "https://www.64scener.com/index.php?page=nintendo64-demo-cartridge-list"
+      ]
+    },
+    "rfgeneration": {
+      "baseUrl": "https://www.rfgeneration.com/",
+      "kind": "collector_release_database",
+      "priority": 88,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "regional packaging variants",
+        "barcodes",
+        "part numbers",
+        "country groupings",
+        "scans/manuals"
+      ],
+      "cautions": [
+        "Corroborate country grouping when the package itself is not visible.",
+        "Community-maintained data should remain field-scoped."
+      ]
+    },
+    "ogdb": {
+      "baseUrl": "https://ogdb.eu/",
+      "kind": "european_release_database",
+      "priority": 88,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "European variants",
+        "EAN/UPC/JAN",
+        "box/cart/manual codes",
+        "packaging languages",
+        "software languages",
+        "contents",
+        "ratings"
+      ],
+      "cautions": [
+        "Generic Europe records may merge or misbind packaging subvariants.",
+        "Conflicting component codes must be retained as conflicts until scan corroboration."
+      ]
+    },
+    "retroplace": {
+      "baseUrl": "https://www.retroplace.com/",
+      "kind": "collector_product_database",
+      "priority": 82,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "barcode discovery",
+        "regional products",
+        "product codes",
+        "variant discovery",
+        "item images"
+      ],
+      "cautions": [
+        "Publisher/territory metadata can be less reliable than barcode/product-code data.",
+        "Do not use a correct barcode to validate unrelated fields automatically."
+      ]
+    },
+    "mobygames": {
+      "baseUrl": "https://www.mobygames.com/",
+      "kind": "release_and_cover_database",
+      "priority": 78,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "cover scans",
+        "release grouping",
+        "country releases",
+        "companies"
+      ],
+      "cautions": [
+        "Use scans as stronger evidence than release metadata when they disagree."
+      ]
+    },
+    "gamefaqs": {
+      "baseUrl": "https://gamefaqs.gamespot.com/",
+      "kind": "release_discovery_database",
+      "priority": 65,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER"
+      ],
+      "strengths": [
+        "release discovery",
+        "candidate identifiers",
+        "regional release discovery"
+      ],
+      "cautions": [
+        "Platform contamination and cross-binding of barcode/code between variants has been observed.",
+        "Every identifier must pass platform/component validation before acceptance.",
+        "Treat as discovery unless independently corroborated."
+      ]
+    },
+    "vgcollect": {
+      "baseUrl": "https://vgcollect.com/",
+      "kind": "collector_variant_database",
+      "priority": 68,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "variation discovery",
+        "box art",
+        "item numbers",
+        "reissues"
+      ],
+      "cautions": [
+        "Secondary corroboration; inspect source images where available."
+      ]
+    },
+    "pricecharting": {
+      "baseUrl": "https://www.pricecharting.com/",
+      "kind": "product_and_upc_discovery",
+      "priority": 62,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER"
+      ],
+      "strengths": [
+        "UPC/EAN discovery",
+        "product discovery",
+        "US-oriented variants"
+      ],
+      "cautions": [
+        "Do not infer European market or packaging language.",
+        "Useful for discovery, not national-package certification."
+      ]
+    },
+    "spinecard": {
+      "baseUrl": "https://foro.spinecard.com/",
+      "kind": "community_documented_specimen",
+      "priority": 90,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "Spanish specimen research",
+        "box flaps",
+        "box/manual codes",
+        "print revisions",
+        "stickers",
+        "distribution/legal text",
+        "physical comparisons"
+      ],
+      "cautions": [
+        "A referenced specimen is comparison evidence, not proof of the current item.",
+        "Community terminology can mislabel a box/product code as a 'barcode'; parse by format."
+      ]
+    },
+    "emulation64": {
+      "baseUrl": "https://www.emulation64.fr/",
+      "kind": "manual_scan_archive",
+      "priority": 74,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER"
+      ],
+      "strengths": [
+        "manual scans",
+        "manual codes",
+        "manual languages"
+      ],
+      "cautions": [
+        "Manual evidence cannot prove box barcode or cartridge code unless visible."
+      ]
+    },
+    "retroloco": {
+      "baseUrl": "https://www.retroloco.es/",
+      "kind": "spanish_retro_retailer_specimen",
+      "priority": 72,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "Spanish circulation",
+        "serial/EAN candidates",
+        "photos of real items"
+      ],
+      "cautions": [
+        "Language metadata should be visually corroborated."
+      ]
+    },
+    "micro64": {
+      "baseUrl": "https://micro-64.com/",
+      "kind": "n64_master_list",
+      "priority": 64,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER"
+      ],
+      "strengths": [
+        "worldwide title/release discovery",
+        "high-level NUS families",
+        "developer",
+        "publisher",
+        "release dates",
+        "ratings"
+      ],
+      "cautions": [
+        "Not sufficient for national packaging, barcode or print revision."
+      ]
+    },
+    "ebay": {
+      "baseUrl": "https://www.ebay.com/",
+      "kind": "marketplace",
+      "priority": 55,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "API",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "real listing photos",
+        "box/cart/manual specimens",
+        "rare variants"
+      ],
+      "cautions": [
+        "Aggregated product pages can mix regional identifiers.",
+        "Specific listing + real photos is stronger than product-page metadata.",
+        "Seller-selected region/title is weak evidence."
+      ]
+    },
+    "todocoleccion": {
+      "baseUrl": "https://www.todocoleccion.net/",
+      "kind": "marketplace",
+      "priority": 58,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "Spanish old-release photos",
+        "rear covers",
+        "manuals",
+        "barcodes",
+        "outer boxes"
+      ],
+      "cautions": [
+        "Seller descriptions are weak; photos can be strong."
+      ]
+    },
+    "internet-archive": {
+      "baseUrl": "https://archive.org/",
+      "kind": "historical_archive",
+      "priority": 50,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER"
+      ],
+      "strengths": [
+        "manuals",
+        "catalogues",
+        "historic material"
+      ],
+      "cautions": [
+        "Historical evidence must be dated and cannot be treated as current availability."
+      ]
+    },
+    "wayback": {
+      "baseUrl": "https://web.archive.org/",
+      "kind": "historical_web_archive",
+      "priority": 50,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "BROWSER"
+      ],
+      "strengths": [
+        "dead retailer pages",
+        "publisher archives",
+        "historic catalogues"
+      ],
+      "cautions": [
+        "Snapshot date/context must be preserved."
+      ]
+    },
+    "bulbapedia": {
+      "baseUrl": "https://bulbapedia.bulbagarden.net/",
+      "kind": "franchise_specialized_reference",
+      "priority": 86,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER"
+      ],
+      "strengths": [
+        "Pokémon canonical identity",
+        "regional title lineage",
+        "release relationships"
+      ],
+      "cautions": [
+        "Franchise-specific; do not generalize to other publishers."
+      ]
+    },
+    "crimson-ceremony": {
+      "baseUrl": "https://crimson-ceremony.net/lostreleases/",
+      "kind": "franchise_specialized_reference",
+      "priority": 82,
+      "accessModes": [
+        "SEARCH_ENGINE",
+        "DIRECT_FETCH",
+        "BROWSER",
+        "IMAGE"
+      ],
+      "strengths": [
+        "Resident Evil regional releases",
+        "special/rental variants",
+        "historical packaging leads"
+      ],
+      "cautions": [
+        "Franchise-specific; corroborate catalog-critical identifiers."
+      ]
+    }
+  },
+  "sourceCapabilities": {
+    "BOX_CODE": [
+      [
+        "regionatlas-own-scan",
+        100
+      ],
+      [
+        "nintendo64ever",
+        95
+      ],
+      [
+        "nesworld",
+        94
+      ],
+      [
+        "rfgeneration",
+        90
+      ],
+      [
+        "ogdb",
+        89
+      ],
+      [
+        "spinecard",
+        88
+      ],
+      [
+        "retroplace",
+        82
+      ]
+    ],
+    "MANUAL_CODE": [
+      [
+        "regionatlas-own-scan",
+        100
+      ],
+      [
+        "nintendo64ever",
+        95
+      ],
+      [
+        "nesworld",
+        93
+      ],
+      [
+        "emulation64",
+        90
+      ],
+      [
+        "spinecard",
+        88
+      ],
+      [
+        "ogdb",
+        86
+      ]
+    ],
+    "CARTRIDGE_CODE": [
+      [
+        "regionatlas-own-scan",
+        100
+      ],
+      [
+        "no-intro",
+        98
+      ],
+      [
+        "nesworld",
+        96
+      ],
+      [
+        "nintendo64ever",
+        95
+      ],
+      [
+        "64scener",
+        94
+      ],
+      [
+        "ogdb",
+        83
+      ]
+    ],
+    "ROM_REVISION": [
+      [
+        "no-intro",
+        100
+      ],
+      [
+        "nesworld",
+        96
+      ],
+      [
+        "nintendo64ever",
+        92
+      ],
+      [
+        "64scener",
+        88
+      ]
+    ],
+    "BARCODE": [
+      [
+        "regionatlas-own-scan",
+        100
+      ],
+      [
+        "rfgeneration",
+        93
+      ],
+      [
+        "ogdb",
+        92
+      ],
+      [
+        "nintendo64ever",
+        91
+      ],
+      [
+        "retroplace",
+        87
+      ],
+      [
+        "spinecard",
+        84
+      ],
+      [
+        "retroloco",
+        80
+      ],
+      [
+        "pricecharting",
+        72
+      ],
+      [
+        "gamefaqs",
+        50
+      ]
+    ],
+    "PACKAGING_LANGUAGES": [
+      [
+        "regionatlas-own-scan",
+        100
+      ],
+      [
+        "spinecard",
+        96
+      ],
+      [
+        "rfgeneration",
+        92
+      ],
+      [
+        "nintendo64ever",
+        91
+      ],
+      [
+        "ogdb",
+        90
+      ],
+      [
+        "mobygames",
+        88
+      ],
+      [
+        "retroloco",
+        78
+      ]
+    ],
+    "SOFTWARE_LANGUAGES": [
+      [
+        "no-intro",
+        100
+      ],
+      [
+        "nesworld",
+        94
+      ],
+      [
+        "nintendo64ever",
+        92
+      ],
+      [
+        "ogdb",
+        90
+      ]
+    ],
+    "MARKET_REGION": [
+      [
+        "regionatlas-own-scan",
+        100
+      ],
+      [
+        "spinecard",
+        94
+      ],
+      [
+        "rfgeneration",
+        89
+      ],
+      [
+        "nintendo64ever",
+        85
+      ],
+      [
+        "ogdb",
+        85
+      ],
+      [
+        "retroloco",
+        72
+      ],
+      [
+        "gamefaqs",
+        48
+      ],
+      [
+        "ebay",
+        30
+      ]
+    ],
+    "PRINT_REVISION": [
+      [
+        "regionatlas-own-scan",
+        100
+      ],
+      [
+        "spinecard",
+        96
+      ],
+      [
+        "nintendo64ever",
+        93
+      ],
+      [
+        "nesworld",
+        90
+      ],
+      [
+        "rfgeneration",
+        82
+      ]
+    ],
+    "NFR_DEMO": [
+      [
+        "64scener",
+        98
+      ],
+      [
+        "nesworld",
+        95
+      ],
+      [
+        "nintendo64ever",
+        90
+      ],
+      [
+        "regionatlas-own-scan",
+        100
+      ]
+    ],
+    "CANONICAL_GAME_IDENTITY": [
+      [
+        "bulbapedia",
+        96
+      ],
+      [
+        "micro64",
+        75
+      ],
+      [
+        "mobygames",
+        78
+      ],
+      [
+        "gamefaqs",
+        65
+      ]
+    ]
+  },
+  "identifierRules": [
+    {
+      "id": "n64-components-independent",
+      "trigger": "platform=n64",
+      "rule": "BOX_CODE, MANUAL_CODE, CARTRIDGE_CODE, BARCODE, PRINT_REVISION and ROM_REVISION are independent fields.",
+      "forbiddenConclusions": [
+        "COPY_ONE_COMPONENT_CODE_TO_ALL_COMPONENTS"
+      ]
+    },
+    {
+      "id": "n64-eur-not-national-package",
+      "trigger": "CARTRIDGE_CODE contains -EUR",
+      "allowedConclusions": [
+        "EUROPEAN_CARTRIDGE_FAMILY"
+      ],
+      "forbiddenConclusions": [
+        "GENERIC_EUROPE_BOX",
+        "ALL_EU_MARKETS",
+        "ENGLISH_PACKAGING"
+      ],
+      "nextEvidence": [
+        "BOX_CODE",
+        "BOX_BACK",
+        "PACKAGING_LANGUAGES",
+        "BARCODE"
+      ]
+    },
+    {
+      "id": "n64-euu-not-country-map",
+      "trigger": "observed component suffix=EUU",
+      "allowedConclusions": [
+        "OBSERVED_EUROPEAN_VARIANT_SUFFIX"
+      ],
+      "forbiddenConclusions": [
+        "EUU_EQUALS_FR_DE",
+        "EUU_EQUALS_UK_NORDICS"
+      ],
+      "nextEvidence": [
+        "PACKAGING_LANGUAGES",
+        "BOX_CODE",
+        "BARCODE",
+        "EXACT_SPECIMEN"
+      ]
+    },
+    {
+      "id": "n64-neai-not-universal",
+      "trigger": "observed suffix=NEAI",
+      "allowedConclusions": [
+        "OBSERVED_PACKAGING_SUFFIX"
+      ],
+      "forbiddenConclusions": [
+        "NEAI_ALWAYS_SPAIN"
+      ],
+      "nextEvidence": [
+        "EXACT_GAME_SPECIMEN",
+        "PACKAGING_LANGUAGES",
+        "DISTRIBUTOR_TEXT"
+      ]
+    },
+    {
+      "id": "n64-fah-not-universal",
+      "trigger": "observed suffix=FAH or NFAH",
+      "allowedConclusions": [
+        "OBSERVED_PACKAGING_SUFFIX"
+      ],
+      "forbiddenConclusions": [
+        "FAH_ALWAYS_FR_NL"
+      ],
+      "nextEvidence": [
+        "EXACT_GAME_SPECIMEN",
+        "PACKAGING_LANGUAGES",
+        "LEGAL_TEXT"
+      ]
+    },
+    {
+      "id": "n64-barcode-shared",
+      "trigger": "same barcode appears in multiple market/package claims",
+      "rule": "Do not merge variants. Use box/product code and physical scans to determine package identity."
+    },
+    {
+      "id": "n64-upc-ean-leading-zero",
+      "trigger": "12-digit UPC and 13-digit candidate differ only by leading zero",
+      "rule": "Normalize as equivalent barcode representations after checksum validation; do not create two products."
+    },
+    {
+      "id": "n64-barcode-checksum",
+      "trigger": "numeric UPC/EAN candidate",
+      "rule": "Validate UPC-A/EAN-13 checksum before accepting. Failed checksum remains transcription/OCR candidate only."
+    },
+    {
+      "id": "n64-barcode-prefix-not-market",
+      "trigger": "barcode numerical prefix",
+      "rule": "GS1/JAN prefix may guide search but cannot set marketRegion."
+    },
+    {
+      "id": "n64-label-minus-one-not-rom-rev",
+      "trigger": "cartridge/front label ends in -1/-2/etc.",
+      "allowedConclusions": [
+        "LABEL_OR_PRINT_VARIANT"
+      ],
+      "forbiddenConclusions": [
+        "ROM_REVISION_FROM_LABEL_SUFFIX"
+      ],
+      "nextEvidence": [
+        "NO_INTRO",
+        "ROM_DUMP",
+        "NESWORLD_ROM_REVISION"
+      ]
+    },
+    {
+      "id": "n64-player-choice-not-rom-rev",
+      "trigger": "edition/reissue=Players Choice",
+      "forbiddenConclusions": [
+        "ASSUME_ROM_REVISION_CHANGED"
+      ],
+      "nextEvidence": [
+        "CARTRIDGE_CODE",
+        "ROM_REVISION",
+        "BOX_CODE",
+        "BARCODE"
+      ]
+    },
+    {
+      "id": "n64-nfr",
+      "trigger": "code matches DIS-NUS-* or evidence says Not For Resale/demo",
+      "allowedConclusions": [
+        "SPECIAL_NON_RETAIL_PRODUCT"
+      ],
+      "forbiddenConclusions": [
+        "COUNT_AS_STANDARD_RETAIL_RELEASE"
+      ]
+    },
+    {
+      "id": "n64-bundle-same-inner-game",
+      "trigger": "outer barcode changes while inner cartridge code remains identical",
+      "allowedConclusions": [
+        "OUTER_BUNDLE_OR_ACCESSORY_PRODUCT_CANDIDATE"
+      ],
+      "forbiddenConclusions": [
+        "AUTOMATIC_NEW_CANONICAL_GAME"
+      ]
+    },
+    {
+      "id": "n64-hardware-bundle",
+      "trigger": "product includes console hardware",
+      "allowedConclusions": [
+        "HARDWARE_BUNDLE"
+      ],
+      "forbiddenConclusions": [
+        "PHYSICAL_EDITION_OF_GAME_ONLY"
+      ]
+    },
+    {
+      "id": "n64-title-not-identity",
+      "trigger": "regional titles match or differ",
+      "rule": "Canonical game identity requires lineage/release/product-code/content checks; title alone is insufficient."
+    },
+    {
+      "id": "n64-current-region-hint",
+      "trigger": "RegionAtlas has legacy/current region",
+      "allowedConclusions": [
+        "SEARCH_PRIORITY_HINT"
+      ],
+      "forbiddenConclusions": [
+        "REGION_PROVEN"
+      ]
+    },
+    {
+      "id": "n64-import-not-national-variant",
+      "trigger": "copy/listing observed in a country with no proven official national release",
+      "allowedConclusions": [
+        "EVIDENCE_MARKET_OR_IMPORT_CIRCULATION"
+      ],
+      "forbiddenConclusions": [
+        "CREATE_NATIONAL_PACKAGING_VARIANT"
+      ]
+    },
+    {
+      "id": "n64-community-field-type",
+      "trigger": "source labels NUS code as barcode",
+      "rule": "Infer identifier type from format. NUS-* is a component/product code, not numeric UPC/EAN."
+    },
+    {
+      "id": "n64-software-packaging-languages",
+      "trigger": "software and package language data coexist",
+      "rule": "Never copy software languages into packaging languages or vice versa."
+    },
+    {
+      "id": "n64-sticker-vs-printed",
+      "trigger": "barcode/label appears on sticker",
+      "rule": "Store sticker identifier separately from printed package identifier; do not overwrite original."
+    }
+  ],
+  "decisionTests": [
+    {
+      "id": "test-euu-country",
+      "question": "Observed suffix EUU. Can market countries be filled automatically?",
+      "options": [
+        "YES_FR_DE",
+        "YES_UK_NORDICS",
+        "NO",
+        "ONLY_IF_KONAMI"
+      ],
+      "correct": "NO",
+      "action": "Preserve EUU; inspect package languages, exact specimen, box code and barcode."
+    },
+    {
+      "id": "test-eur-cart",
+      "question": "Cart code is NUS-XXXX-EUR. What is proven?",
+      "options": [
+        "GENERIC_EU_BOX",
+        "ALL_EU_COUNTRIES",
+        "EUROPEAN_CART_FAMILY",
+        "ENGLISH_PACKAGE"
+      ],
+      "correct": "EUROPEAN_CART_FAMILY",
+      "action": "Route to packaging identification."
+    },
+    {
+      "id": "test-barcode-shared",
+      "question": "Same barcode appears on two different box codes. Merge packages?",
+      "options": [
+        "YES",
+        "NO"
+      ],
+      "correct": "NO",
+      "action": "Keep package candidates separate; seek box scans/languages/legal text."
+    },
+    {
+      "id": "test-label-minus-one",
+      "question": "Cart label ends -1. Set ROM revision 1.1?",
+      "options": [
+        "YES",
+        "NO",
+        "ONLY_IF_NO_INTRO_OR_DUMP_CONFIRMS"
+      ],
+      "correct": "ONLY_IF_NO_INTRO_OR_DUMP_CONFIRMS",
+      "action": "Store label revision separately."
+    },
+    {
+      "id": "test-player-choice",
+      "question": "Product is Player's Choice. What ROM revision?",
+      "options": [
+        "V1.0",
+        "V1.1",
+        "UNKNOWN_UNTIL_MEDIA_EVIDENCE"
+      ],
+      "correct": "UNKNOWN_UNTIL_MEDIA_EVIDENCE"
+    },
+    {
+      "id": "test-country-listing",
+      "question": "A German seller lists a EUR copy. Create German variant?",
+      "options": [
+        "YES",
+        "NO"
+      ],
+      "correct": "NO",
+      "action": "Treat seller country as circulation evidence only."
+    },
+    {
+      "id": "test-box-vs-cart",
+      "question": "Box suffix and cart suffix differ. Which one defines packaging market?",
+      "options": [
+        "CART",
+        "BOX_AND_PHYSICAL_PACKAGE_EVIDENCE",
+        "BARCODE_ONLY"
+      ],
+      "correct": "BOX_AND_PHYSICAL_PACKAGE_EVIDENCE"
+    },
+    {
+      "id": "test-invalid-barcode",
+      "question": "Source barcode fails checksum; second source has valid corroborated barcode. What next?",
+      "options": [
+        "ACCEPT_FIRST",
+        "ACCEPT_SECOND_AS_STRONGER_AND_FLAG_FIRST_TYPO",
+        "AVERAGE_VALUES"
+      ],
+      "correct": "ACCEPT_SECOND_AS_STRONGER_AND_FLAG_FIRST_TYPO"
+    },
+    {
+      "id": "test-nus-called-barcode",
+      "question": "Community source calls NUS-P-NZLP-NEAI a barcode. What type is it?",
+      "options": [
+        "EAN",
+        "UPC",
+        "BOX_PRODUCT_CODE",
+        "UNKNOWN"
+      ],
+      "correct": "BOX_PRODUCT_CODE"
+    },
+    {
+      "id": "test-bundle-barcode",
+      "question": "Outer product barcode differs, inner cart code is identical. New canonical game?",
+      "options": [
+        "YES",
+        "NO_BUNDLE_CANDIDATE"
+      ],
+      "correct": "NO_BUNDLE_CANDIDATE"
+    },
+    {
+      "id": "test-console-included",
+      "question": "Bundle includes console + game + accessory.",
+      "options": [
+        "GAME_EDITION",
+        "HARDWARE_BUNDLE",
+        "NFR"
+      ],
+      "correct": "HARDWARE_BUNDLE"
+    },
+    {
+      "id": "test-regional-title",
+      "question": "Japanese title and western title are identical/similar. Same canonical game?",
+      "options": [
+        "ALWAYS",
+        "NEVER",
+        "CHECK_LINEAGE_CODES_CONTENT"
+      ],
+      "correct": "CHECK_LINEAGE_CODES_CONTENT"
+    },
+    {
+      "id": "test-nfr",
+      "question": "Code is DIS-NUS-NGEE-USA.",
+      "options": [
+        "STANDARD_RETAIL",
+        "SPECIAL_NFR_DEMO",
+        "PLAYER_CHOICE"
+      ],
+      "correct": "SPECIAL_NFR_DEMO"
+    },
+    {
+      "id": "test-software-language",
+      "question": "No-Intro says ROM languages EN/FR. Set packagingLanguages EN/FR?",
+      "options": [
+        "YES",
+        "NO"
+      ],
+      "correct": "NO"
+    },
+    {
+      "id": "test-ebay-aggregate",
+      "question": "Aggregated eBay product page contains EU EAN and US UPC together. Can either be bound to exact variant?",
+      "options": [
+        "YES",
+        "NO_NEED_SPECIFIC_LISTING_OR_OTHER_SOURCE"
+      ],
+      "correct": "NO_NEED_SPECIFIC_LISTING_OR_OTHER_SOURCE"
+    }
+  ],
+  "playbooks": {
+    "N64_OWN_SCAN_FIRST": {
+      "trigger": [
+        "OWN_SCAN_AVAILABLE"
+      ],
+      "steps": [
+        "Classify each image component.",
+        "Extract box/manual/cart codes, barcode, package languages, ratings, distributor/legal text.",
+        "Validate barcode checksum.",
+        "Bind every extracted field to the physical component.",
+        "If target field is resolved, stop before web search."
+      ]
+    },
+    "N64_NO_IDENTIFIERS": {
+      "trigger": [
+        "NO_BARCODE",
+        "NO_COMPONENT_CODE"
+      ],
+      "sourceOrder": [
+        "nintendo64ever",
+        "nesworld",
+        "64scener",
+        "micro64",
+        "mobygames",
+        "rfgeneration",
+        "ogdb",
+        "retroplace"
+      ],
+      "queryTemplates": [
+        "\"{TITLE}\" Nintendo 64 NUS",
+        "\"{TITLE}\" N64 box serial",
+        "\"{TITLE}\" N64 barcode",
+        "\"{TITLE}\" N64 manual code"
+      ]
+    },
+    "N64_CART_KNOWN_BOX_UNKNOWN": {
+      "trigger": [
+        "CARTRIDGE_CODE_KNOWN",
+        "BOX_CODE_UNKNOWN"
+      ],
+      "sourceOrder": [
+        "nintendo64ever",
+        "nesworld",
+        "rfgeneration",
+        "ogdb",
+        "spinecard",
+        "retroplace"
+      ],
+      "queryTemplates": [
+        "\"{CART_CODE}\"",
+        "\"{CART_CODE}\" box",
+        "\"{CART_CODE}\" manual",
+        "\"{CART_CODE}\" barcode",
+        "\"{CART_CODE}\" \"{TITLE}\""
+      ],
+      "stopRule": "Do not set national market from cart suffix alone."
+    },
+    "N64_BARCODE_KNOWN_VARIANT_UNKNOWN": {
+      "trigger": [
+        "BARCODE_KNOWN",
+        "PACKAGE_VARIANT_UNKNOWN"
+      ],
+      "sourceOrder": [
+        "rfgeneration",
+        "ogdb",
+        "nintendo64ever",
+        "retroplace",
+        "spinecard",
+        "ebay",
+        "todocoleccion"
+      ],
+      "queryTemplates": [
+        "\"{BARCODE}\"",
+        "\"{BARCODE}\" Nintendo 64",
+        "\"{BARCODE}\" \"{TITLE}\"",
+        "\"{BARCODE}\" back cover",
+        "site:{SOURCE_HOST} \"{BARCODE}\""
+      ],
+      "stopRule": "Barcode alone cannot close market if multiple package codes share it."
+    },
+    "N64_PACKAGING_MARKET": {
+      "trigger": [
+        "TARGET=MARKET_REGION",
+        "TARGET=PACKAGING_LANGUAGES"
+      ],
+      "sourceOrder": [
+        "regionatlas-own-scan",
+        "spinecard",
+        "rfgeneration",
+        "ogdb",
+        "nintendo64ever",
+        "mobygames",
+        "retroloco",
+        "ebay",
+        "todocoleccion"
+      ],
+      "requiredEvidencePreference": [
+        "BOX_BACK",
+        "BOX_FLAPS",
+        "BOX_CODE",
+        "PACKAGING_LANGUAGES",
+        "DISTRIBUTOR_TEXT",
+        "BARCODE"
+      ]
+    },
+    "N64_ROM_REVISION": {
+      "trigger": [
+        "TARGET=ROM_REVISION",
+        "LABEL_REVISION_CONFLICT"
+      ],
+      "sourceOrder": [
+        "no-intro",
+        "nesworld",
+        "nintendo64ever",
+        "64scener"
+      ],
+      "stopRule": "Label -1/-2 is not sufficient without ROM/dump evidence."
+    },
+    "N64_EUR_EUU": {
+      "trigger": [
+        "SUFFIX=EUR",
+        "SUFFIX=EUU"
+      ],
+      "steps": [
+        "Preserve observed suffix literally.",
+        "Do not map suffix to countries.",
+        "Find exact box/manual/cart combination.",
+        "Find packaging languages and barcode.",
+        "Compare exact title variants only."
+      ]
+    },
+    "N64_PRINT_REVISION": {
+      "trigger": [
+        "BOX_CODE_ENDS_REVISION",
+        "MULTIPLE_PRINTS"
+      ],
+      "steps": [
+        "Keep canonical game constant.",
+        "Store print revision separately.",
+        "Compare box code, flaps, manuals, inserts, barcode and cart.",
+        "Do not infer ROM change from box-print change."
+      ]
+    },
+    "N64_BUNDLE": {
+      "trigger": [
+        "ACCESSORY_INCLUDED",
+        "CONSOLE_INCLUDED",
+        "OUTER_BARCODE_DIFFERS"
+      ],
+      "steps": [
+        "Identify outer product.",
+        "Identify inner game cartridge code.",
+        "If console is included classify HARDWARE_BUNDLE.",
+        "If same inner game plus accessory classify GAME_ACCESSORY_BUNDLE candidate.",
+        "Do not create a new canonical videogame solely from outer SKU."
+      ]
+    },
+    "N64_NFR_DEMO": {
+      "trigger": [
+        "DIS_NUS_CODE",
+        "NFR_TEXT",
+        "DEMO_CART"
+      ],
+      "sourceOrder": [
+        "64scener",
+        "nesworld",
+        "nintendo64ever"
+      ],
+      "stopRule": "Preserve as special non-retail product; exclude from standard retail count."
+    },
+    "N64_CANONICAL_IDENTITY": {
+      "trigger": [
+        "REGIONAL_TITLE_DIFFERENCE",
+        "SEQUEL_NUMBER_DIFFERENCE",
+        "TITLE_COLLISION"
+      ],
+      "sourceOrder": [
+        "franchise_specialized",
+        "mobygames",
+        "micro64",
+        "gamefaqs"
+      ],
+      "steps": [
+        "Compare release lineage and dates.",
+        "Compare product codes.",
+        "Compare game contents/features.",
+        "Do not merge on title alone."
+      ]
+    },
+    "N64_IMPORT_MARKET": {
+      "trigger": [
+        "LISTING_COUNTRY_WITHOUT_OFFICIAL_RELEASE"
+      ],
+      "steps": [
+        "Check official/release sources for national launch.",
+        "Identify actual box code and package languages.",
+        "If imported, store evidenceMarket/circulation only.",
+        "Do not create national packaging variant."
+      ]
+    }
+  },
+  "knownTraps": [
+    {
+      "id": "trap-n64ever-typo",
+      "pattern": "High-quality source contains an invalid barcode/checksum or isolated transcription error.",
+      "response": "Checksum + independent corroboration; flag source claim as probable typo rather than downgrading entire source."
+    },
+    {
+      "id": "trap-gamefaqs-crossbind",
+      "pattern": "Generic regional page binds barcode from one physical variant to another code/platform/packaging variant.",
+      "response": "Discovery only until component/platform validation and corroboration."
+    },
+    {
+      "id": "trap-retroplace-field-mixed-quality",
+      "pattern": "Barcode/code correct but publisher/territory metadata questionable.",
+      "response": "Use claim-level capabilities; never trust all fields because one field is correct."
+    },
+    {
+      "id": "trap-ebay-aggregated-product",
+      "pattern": "Aggregated product page combines identifiers from multiple regional variants.",
+      "response": "Do not bind exact variant; prefer specific listing with photos."
+    },
+    {
+      "id": "trap-community-terminology",
+      "pattern": "Community post calls NUS component code a barcode/serial generically.",
+      "response": "Classify identifier by format before storing."
+    },
+    {
+      "id": "trap-eur-package",
+      "pattern": "EUR cart is interpreted as one generic European package.",
+      "response": "Seek national/multilingual box variant; do not collapse."
+    },
+    {
+      "id": "trap-euu-country-map",
+      "pattern": "EUU is mapped to fixed countries.",
+      "response": "Forbidden. Determine countries/languages per exact title/product."
+    },
+    {
+      "id": "trap-label-rev-rom-rev",
+      "pattern": "Cart label -1 is interpreted as ROM Rev.1.",
+      "response": "Forbidden until dump/technical evidence confirms."
+    },
+    {
+      "id": "trap-barcode-market",
+      "pattern": "Shared EAN/UPC is used as unique national variant identity.",
+      "response": "Use box code/scans and package evidence."
+    }
+  ],
+  "caseLearnings": [
+    {
+      "case": "Resident Evil 2 / BioHazard 2",
+      "lessons": [
+        "At least two European packaging families can share a EUR cartridge family.",
+        "Packaging languages and software languages differ.",
+        "USA can have media revisions under same UPC.",
+        "Japan title differs; Australia/Brazil/rental cases require separate evidence."
+      ]
+    },
+    {
+      "case": "Glover",
+      "lessons": [
+        "Same EUR cart and same barcode can appear in different national boxes.",
+        "Spain box NEAI can exist while cart remains EUR.",
+        "NUS-NGVP-EUR-1 label does not prove ROM Rev.1."
+      ],
+      "evidenceUrl": "https://wiki.no-intro.org/index.php?title=Nintendo_-_Nintendo_64_Europe_undumped"
+    },
+    {
+      "case": "Gex 64 / Gex 3",
+      "lessons": [
+        "EUR and EUU may be simultaneous European variants.",
+        "EUU has no universal country mapping.",
+        "GameFAQs-style generic Europe records can cross-bind barcodes/codes."
+      ]
+    },
+    {
+      "case": "International Superstar Soccer 98",
+      "lessons": [
+        "EUR and EUU variants can share the same barcode.",
+        "USA and Asia variants can also share barcode.",
+        "Barcode is not package identity."
+      ]
+    },
+    {
+      "case": "Turok 2",
+      "lessons": [
+        "Same packaging territory can be paired with different cartridge/software variants.",
+        "Localized software can diverge from shared European cartridge families.",
+        "NFR product is separate from retail."
+      ]
+    },
+    {
+      "case": "Ocarina of Time",
+      "lessons": [
+        "Checksum caught a probable source typo.",
+        "Spanish box print revisions exist without implying new game.",
+        "Community terminology may call a NUS box code a barcode."
+      ]
+    },
+    {
+      "case": "Mystical Ninja Starring Goemon",
+      "lessons": [
+        "EUU represented different market/language groups from other EUU games.",
+        "Aggregated eBay pages can mix EU and US identifiers."
+      ]
+    },
+    {
+      "case": "GoldenEye 007",
+      "lessons": [
+        "Many print/reissue variants can exist under same canonical release family.",
+        "Player's Choice changes packaging family but cart may remain EUR.",
+        "No official German release means German listings can be imports, not German package variants.",
+        "NFR/demo products require separate non-retail classification."
+      ]
+    },
+    {
+      "case": "Pokémon Stadium",
+      "lessons": [
+        "Regional title equivalence can be deceptive: Japanese Pokémon Stadium and western Pokémon Stadium are not the same canonical game.",
+        "Outer bundle with Transfer Pak can have different barcode while inner game stays same."
+      ]
+    },
+    {
+      "case": "Perfect Dark",
+      "lessons": [
+        "Game + Expansion Pak is an accessory bundle candidate.",
+        "Console + game + accessory is a hardware bundle, not a game edition."
+      ]
+    },
+    {
+      "case": "Mario Kart 64",
+      "lessons": [
+        "Player's Choice does not automatically determine ROM revision.",
+        "Same barcode may span regional products; print and media revisions stay separate."
+      ]
+    },
+    {
+      "case": "Conker's Bad Fur Day",
+      "lessons": [
+        "USA and Australia can share barcode while remaining territorial products.",
+        "Brazilian/other variants should remain candidates until exact physical evidence exists."
+      ]
+    }
+  ],
+  "workerPolicy": {
+    "preferredInteractionStyle": "closed_choice_and_structured_extraction",
+    "modelRole": [
+      "classify image component",
+      "extract only requested fields",
+      "read page for requested fields",
+      "choose among router-provided next actions",
+      "summarize conflicts",
+      "return UNRESOLVED when evidence is insufficient"
+    ],
+    "modelMustNot": [
+      "invent missing digits",
+      "infer country from EUR/EUU alone",
+      "infer market from seller country",
+      "infer packaging language from software language",
+      "infer ROM revision from label suffix",
+      "merge packages because barcode matches",
+      "treat all fields from a source as equally reliable"
+    ],
+    "visionTasks": {
+      "BOX_BACK": [
+        "BARCODE",
+        "BOX_CODE",
+        "PACKAGING_LANGUAGES",
+        "RATING",
+        "PUBLISHER",
+        "DISTRIBUTOR",
+        "STICKER"
+      ],
+      "BOX_FLAPS": [
+        "BOX_CODE",
+        "PRINT_REVISION",
+        "SUFFIX"
+      ],
+      "CARTRIDGE_FRONT": [
+        "CARTRIDGE_CODE",
+        "LABEL_REVISION",
+        "TITLE",
+        "REGION_SUFFIX"
+      ],
+      "CARTRIDGE_BACK": [
+        "STAMP_CODE",
+        "MOLD_MARKS",
+        "STICKER"
+      ],
+      "MANUAL": [
+        "MANUAL_CODE",
+        "LANGUAGES",
+        "PRINT_REVISION"
+      ]
+    }
+  },
+  "integrationNotes": {
+    "legacyScannerCompatibility": "The old scanner already uses per-platform documentary guidance and source references. A future n64.json can expose selected rules through inspectionRules while this richer document feeds the Research Router.",
+    "doNotAutoImportCaseAnswers": "Case learnings are methodology examples. Exact case conclusions used for evaluation should be kept out of pilot prompts when they are ground truth rather than current RegionAtlas knowledge."
+  }
+}

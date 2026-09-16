@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "templates": {
+    "BARCODE": ["\"{BARCODE}\"", "\"{BARCODE}\" \"{PLATFORM}\"", "\"{BARCODE}\" \"{TITLE}\"", "\"{BARCODE}\" barcode", "\"{BARCODE}\" \"back cover\"", "site:{HOST} \"{BARCODE}\""],
+    "SERIAL": ["\"{SERIAL}\"", "\"{SERIAL}\" \"{TITLE}\"", "\"{SERIAL}\" \"{PLATFORM}\"", "\"{SERIAL}\" EAN", "\"{SERIAL}\" barcode"],
+    "EDITION": ["\"{TITLE}\" \"{EDITION}\" \"{PLATFORM}\"", "\"{TITLE}\" \"{EDITION}\" barcode", "\"{TITLE}\" \"{EDITION}\" \"back cover\"", "\"{TITLE}\" \"{EDITION}\" unboxing"],
+    "NO_IDENTIFIERS": ["\"{TITLE}\" \"{PLATFORM}\" physical edition", "\"{TITLE}\" \"{PLATFORM}\" product code", "\"{TITLE}\" \"{PLATFORM}\" barcode"],
+    "PACKAGING_LANGUAGES": ["\"{TITLE}\" \"{EDITION}\" \"back cover\"", "\"{BARCODE}\" packaging", "\"{PRODUCT_CODE}\" box scan"],
+    "PHYSICAL_PRODUCT_TYPE": ["\"{TITLE}\" \"{EDITION}\" unboxing", "\"{TITLE}\" \"{EDITION}\" download required", "\"{TITLE}\" \"{EDITION}\" code in box"]
+  }
+}

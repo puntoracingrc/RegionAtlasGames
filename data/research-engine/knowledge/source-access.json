@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "allowedModes": ["INTERNAL", "DIRECT_FETCH", "SEARCH_ENGINE", "DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH", "API", "ARCHIVE", "MARKETPLACE_API"],
+    "neverBypass": ["CAPTCHA", "AUTHENTICATION", "PAYWALL", "ROBOTS_DENIAL"],
+    "directFetchFallbackOrder": ["SEARCH_ENGINE", "DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH", "ARCHIVE"],
+    "httpProtocols": ["http:", "https:"],
+    "blockedNetworkTargets": ["localhost", "loopback", "private_network", "link_local", "metadata_endpoint"]
+  }
+}

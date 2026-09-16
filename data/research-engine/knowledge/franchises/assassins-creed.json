@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "franchiseId": "assassins-creed",
+  "mode": "methodology_not_runtime_ground_truth",
+  "rules": [
+    "Gold, Deluxe and Ultimate labels do not prove a physical SKU.",
+    "A SteelBook can be a bonus item without a game.",
+    "Collector packaging does not prove that physical game media is included.",
+    "Preorder pages, store IDs and mockups do not prove a released physical product.",
+    "Code-in-box, Game-Key Card, download-required media and full physical game are distinct products.",
+    "Compilation components can mix physical media and vouchers.",
+    "Retailer bundles are not automatically publisher editions.",
+    "Outer product identifiers must remain separate from inner game identifiers.",
+    "A platform identifier incompatible with the target platform is a blocking conflict."
+  ],
+  "pilotQueryHints": ["exact barcode", "exact serial", "back cover", "unboxing", "physical contents"],
+  "forbiddenRuntimeInputs": ["manual final answers", "audit closure verdicts"]
+}

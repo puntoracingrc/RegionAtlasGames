@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "traps": [
+    { "id": "edition-name-is-not-physical", "response": "Require media or exact contents evidence." },
+    { "id": "steelbook-is-not-edition", "response": "Determine whether the game is included." },
+    { "id": "collector-may-exclude-game", "response": "Inspect exact outer and inner contents." },
+    { "id": "preorder-is-not-release", "response": "Require evidence that the product reached retail." },
+    { "id": "retailer-country-is-not-package-country", "response": "Store evidenceMarket and continue packaging research." },
+    { "id": "seller-country-is-not-market", "response": "Treat as circulation only." },
+    { "id": "outer-barcode-is-not-inner-barcode", "response": "Bind identifiers to their physical component." },
+    { "id": "software-language-is-not-packaging-language", "response": "Preserve the two fields independently." },
+    { "id": "platform-code-must-match", "response": "Reject or quarantine platform-contaminated claims." }
+  ]
+}
