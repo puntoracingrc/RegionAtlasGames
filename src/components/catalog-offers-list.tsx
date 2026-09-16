@@ -18,6 +18,10 @@ import {
 } from "@/lib/affiliate-offer-presentation";
 import type { AffiliateFallbackCta, AffiliateOffer } from "@/lib/affiliate-offers";
 import {
+  AMAZON_MARKETPLACE_OPTIONS,
+  type AmazonMarketplaceCode,
+} from "@/lib/affiliate/amazon-marketplaces";
+import {
   offerDistanceKm,
   sortCatalogOffers,
   type CatalogOfferSortMode,
@@ -57,11 +61,18 @@ type Props = {
 type AffiliateOffersResponse = {
   enabled: boolean;
   ebayPriorityCountry?: string | null;
+  amazonMarketplace: {
+    code: AmazonMarketplaceCode;
+    label: string;
+    domain: string;
+  };
   offers: AffiliateOffer[];
   fallbackCta: AffiliateFallbackCta | null;
   fallbackCtas?: AffiliateFallbackCta[];
   ebayImpressionPixelUrl: string | null;
 };
+
+const AMAZON_MARKETPLACE_STORAGE_KEY = "regionatlas-amazon-marketplace";
 
 type AffiliateState =
   | { status: "loading" }
@@ -135,14 +146,41 @@ export function CatalogOffersList({
   const [locationStatus, setLocationStatus] = useState<"idle" | "loading" | "denied">("idle");
   const [showAllOnSmallScreens, setShowAllOnSmallScreens] = useState(false);
   const [selectedEbayRegion, setSelectedEbayRegion] = useState(defaultEbayRegion);
+  const [selectedAmazonMarketplace, setSelectedAmazonMarketplace] =
+    useState<AmazonMarketplaceCode | null>(null);
+  const [amazonPreferenceLoaded, setAmazonPreferenceLoaded] = useState(false);
   const selectedEbayRegionOption = ebayRegionOptions.find(
     (option) => option.value === selectedEbayRegion,
   );
 
   useEffect(() => {
+    try {
+      const storedMarketplace = window.localStorage.getItem(
+        AMAZON_MARKETPLACE_STORAGE_KEY,
+      );
+      if (
+        AMAZON_MARKETPLACE_OPTIONS.some(
+          (option) => option.code === storedMarketplace,
+        )
+      ) {
+        setSelectedAmazonMarketplace(
+          storedMarketplace as AmazonMarketplaceCode,
+        );
+      }
+    } finally {
+      setAmazonPreferenceLoaded(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!amazonPreferenceLoaded) return;
+
     const controller = new AbortController();
     const query = new URLSearchParams();
     if (selectedEbayRegion) query.set(CATALOG_EBAY_REGION_PARAM, selectedEbayRegion);
+    if (selectedAmazonMarketplace) {
+      query.set("amazonCountry", selectedAmazonMarketplace);
+    }
     const suffix = query.size ? `?${query.toString()}` : "";
     fetch(`/api/catalog/offers/${encodeURIComponent(catalogId)}${suffix}`, {
       signal: controller.signal,
@@ -157,7 +195,7 @@ export function CatalogOffersList({
         if (!controller.signal.aborted) setAffiliateState({ status: "error" });
       });
     return () => controller.abort();
-  }, [catalogId, selectedEbayRegion]);
+  }, [amazonPreferenceLoaded, catalogId, selectedAmazonMarketplace, selectedEbayRegion]);
 
   const affiliateOffers = useMemo(
     () => (affiliateState.status === "ready" ? affiliateState.data.offers : []),
@@ -231,6 +269,16 @@ export function CatalogOffersList({
       "",
       `${url.pathname}${url.search}${url.hash}`,
     );
+  }
+
+  function selectAmazonMarketplace(marketplace: AmazonMarketplaceCode) {
+    setAffiliateState({ status: "loading" });
+    setSelectedAmazonMarketplace(marketplace);
+    try {
+      window.localStorage.setItem(AMAZON_MARKETPLACE_STORAGE_KEY, marketplace);
+    } catch {
+      // The selector still works for this page when storage is unavailable.
+    }
   }
 
   return (
@@ -377,25 +425,54 @@ export function CatalogOffersList({
         {unifiedOffers.length === 0 && affiliateState.status !== "loading" ? (
           <li className="px-3 py-5 text-sm text-muted">No hay anuncios disponibles ahora mismo.</li>
         ) : null}
-        {fallbackCtas.map((fallback) => (
-          <li key={fallback.id} className="px-3 py-3">
-              <div className="flex justify-center">
-              <a
-                href={fallback.url}
-                target="_blank"
-                rel="sponsored nofollow noopener noreferrer"
-                className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-center text-sm font-bold transition sm:w-auto ${
-                  fallback.provider === "amazon"
-                    ? "bg-amber-400 text-slate-950 shadow-sm shadow-amber-950/15 hover:bg-amber-300"
-                    : "bg-accent text-accent-fg hover:opacity-90"
-                }`}
-              >
-                <span>{fallback.label || `Buscar en ${providerLabel(fallback.provider)}`}</span>
-                <ExternalLink size={16} className="shrink-0" aria-hidden="true" />
-              </a>
-            </div>
-          </li>
-        ))}
+        {fallbackCtas.map((fallback) => {
+          const isAmazonFallback = fallback.provider === "amazon";
+          const activeAmazonMarketplace =
+            affiliateState.status === "ready"
+              ? affiliateState.data.amazonMarketplace.code
+              : selectedAmazonMarketplace;
+
+          return (
+            <li key={fallback.id} className="px-3 py-3">
+              <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-3">
+                {isAmazonFallback ? (
+                  <label className="flex w-full flex-col gap-1.5 text-xs font-semibold text-foreground sm:w-auto sm:flex-row sm:items-center sm:justify-center sm:gap-3">
+                    <span>Tienda de Amazon</span>
+                    <select
+                      aria-label="Seleccionar tienda de Amazon"
+                      value={activeAmazonMarketplace ?? "ES"}
+                      onChange={(event) =>
+                        selectAmazonMarketplace(
+                          event.target.value as AmazonMarketplaceCode,
+                        )
+                      }
+                      className="h-11 min-w-0 rounded-lg border border-border bg-input px-3 text-sm font-semibold text-foreground outline-none ring-accent/25 focus:border-accent/50 focus:ring-2"
+                    >
+                      {AMAZON_MARKETPLACE_OPTIONS.map((option) => (
+                        <option key={option.code} value={option.code}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                ) : null}
+                <a
+                  href={fallback.url}
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
+                  className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-center text-sm font-bold transition sm:w-auto ${
+                    isAmazonFallback
+                      ? "bg-amber-400 text-slate-950 shadow-sm shadow-amber-950/15 hover:bg-amber-300"
+                      : "bg-accent text-accent-fg hover:opacity-90"
+                  }`}
+                >
+                  <span>{fallback.label || `Buscar en ${providerLabel(fallback.provider)}`}</span>
+                  <ExternalLink size={16} className="shrink-0" aria-hidden="true" />
+                </a>
+              </div>
+            </li>
+          );
+        })}
       </ul>
 
       {affiliateState.status === "error" ? (
