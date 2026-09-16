@@ -17,6 +17,8 @@
     "research:pilot:assassins-creed:v3": "tsx scripts/research-engine-pilot-assassins-creed.ts --version v3",
     "research:pilot:assassins-creed:v4": "tsx scripts/research-engine-pilot-assassins-creed.ts --version v4",
     "research:golden": "tsx scripts/research-engine-golden.ts",
+    "review:curator": "tsx scripts/review-curator.ts",
+    "test:review-curator": "python3 scripts/test_review_curator_bridge.py && tsx --test src/lib/review-curator.test.ts",
     "research:benchmark": "tsx scripts/research-engine-benchmark.ts",
     "test:research-engine": "tsx --test src/lib/research-engine/*.test.ts",
     "test:scanner": "tsx --test src/lib/game-scanner.test.ts src/lib/scanner-engine.test.ts src/lib/scanner-knowledge.test.ts src/lib/ps1-scanner-knowledge.test.ts src/lib/scanner-upload.test.ts src/lib/scanner-camera-client.test.ts",

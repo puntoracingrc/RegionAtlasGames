@@ -1,0 +1,48 @@
+{
+  "id": "contract-review-1",
+  "status": "pending",
+  "source": "ebay-es",
+  "platformSlug": "ps4",
+  "targetRegion": "PAL España",
+  "detectedRegion": "PAL España",
+  "catalogId": "ps4-contract-game",
+  "candidateCatalogId": "ps4-contract-game",
+  "listingTitle": "Contract Game PS4",
+  "priceEur": 25,
+  "condition": "loose",
+  "reason": "regional_confirmation_missing",
+  "updatedAt": "2026-09-16T00:00:00Z",
+  "evidence": {
+    "aiConfidence": 0.95,
+    "externalId": "contract-123",
+    "url": "https://example.test/contract-123",
+    "regionEvidence": [
+      "distributor_regional"
+    ],
+    "coverVision": {
+      "isTargetGame": true
+    },
+    "visualObservations": [
+      {
+        "imageIndex": 1,
+        "component": "game",
+        "role": "disc",
+        "textSnippets": [
+          "PS4"
+        ],
+        "productCodes": [
+          "CUSA-12345"
+        ],
+        "barcodes": [],
+        "languages": [],
+        "ratingSystems": [
+          "PEGI"
+        ],
+        "distributors": [
+          "Ubisoft España"
+        ],
+        "editionMarkers": []
+      }
+    ]
+  }
+}

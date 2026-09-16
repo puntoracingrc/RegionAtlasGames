@@ -1,0 +1,762 @@
+{
+  "schemaVersion": 1,
+  "runId": "curator-mu467zfo",
+  "mode": "holdout",
+  "generatedAt": "2026-09-16T14:03:15.121Z",
+  "queueFile": "data/ebay-regional-campaigns/review-queue.json",
+  "queueVersion": "2026-09-09T17:51:46Z",
+  "gitSha": "b5c09a2182718c339831c0d38933195ca36ba3b3",
+  "cases": 11,
+  "counts": {
+    "ACCEPT_EXISTING": 0,
+    "REROUTE_EXISTING": 0,
+    "REJECT": 3,
+    "DEFER": 8,
+    "PROPOSE_NEW_VARIANT": 0,
+    "NEEDS_HUMAN": 0
+  },
+  "braveRequests": 0,
+  "openAiCalls": 0,
+  "totalCostUsd": 0,
+  "catalogMutations": 0,
+  "priceMutations": 0,
+  "authoritativeQueueMutations": 0,
+  "holdout": {
+    "cases": 11,
+    "reconstructablePreDecisionEvidence": false,
+    "limitation": "Historical rows retain post-review catalog fields; decisions and human notes were blinded, but a true pre-decision snapshot is unavailable.",
+    "correct": 3,
+    "accuracyIncludingDefers": 0.2727272727272727,
+    "acceptPrecision": null,
+    "reroutePrecision": null,
+    "rejectPrecision": 1,
+    "deferRate": 0.7272727272727273,
+    "criticalFalseAccepts": 0,
+    "comparisons": [
+      {
+        "id": "76231edf85c2a7beca2e",
+        "expected": "REJECT",
+        "predicted": "REJECT"
+      },
+      {
+        "id": "4bf4e0b7299441413507",
+        "expected": "REJECT",
+        "predicted": "REJECT"
+      },
+      {
+        "id": "2a6afc6eda62de70cc2e",
+        "expected": "ACCEPT_EXISTING",
+        "predicted": "DEFER"
+      },
+      {
+        "id": "6c35ef46ae7b1c1a62ae",
+        "expected": "ACCEPT_EXISTING",
+        "predicted": "DEFER"
+      },
+      {
+        "id": "74f1b486ba2398b1d771",
+        "expected": "REJECT",
+        "predicted": "REJECT"
+      },
+      {
+        "id": "015abdf8d0b2447508d4",
+        "expected": "REROUTE_EXISTING",
+        "predicted": "DEFER"
+      },
+      {
+        "id": "d7f572a1f0c11eea4e20",
+        "expected": "REROUTE_EXISTING",
+        "predicted": "DEFER"
+      },
+      {
+        "id": "994405522fc7b76a0a33",
+        "expected": "REROUTE_EXISTING",
+        "predicted": "DEFER"
+      },
+      {
+        "id": "2e7645bc3a0305d6661c",
+        "expected": "REROUTE_EXISTING",
+        "predicted": "DEFER"
+      },
+      {
+        "id": "3e5cf57f4a78743f4a89",
+        "expected": "REROUTE_EXISTING",
+        "predicted": "DEFER"
+      },
+      {
+        "id": "2a15931917249023d109",
+        "expected": "REROUTE_EXISTING",
+        "predicted": "DEFER"
+      }
+    ]
+  },
+  "apply": null,
+  "casesDetail": [
+    {
+      "reviewItemId": "76231edf85c2a7beca2e",
+      "listing": "MONSTER MAX NINTENDO GAME BOY FRIDGE MAGNET IMAN NEVERA",
+      "platform": "gameboy",
+      "originalReason": "estado_desconocido",
+      "decision": "REJECT",
+      "originalCatalogId": "gameboy-monster-max",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "4bf4e0b7299441413507",
+      "listing": "Manual Super Mario Land 2 6 Golden Coins Nintendo Gameboy Game Boy Dmg-Mq-Fah-1",
+      "platform": "gameboy",
+      "originalReason": "non_game",
+      "decision": "REJECT",
+      "originalCatalogId": "gameboy-es-super-mario-land-2",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "game_manual",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "2a6afc6eda62de70cc2e",
+      "listing": "GAME BOY Super Hunchback. Starring Quasimodo. PAL UKV. Como Nuevo",
+      "platform": "gameboy",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "gameboy-uk-super-hunchback",
+      "resolvedCatalogId": null,
+      "region": "PAL UK/ENG",
+      "edition": null,
+      "condition": "complete",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL UK/ENG",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "6c35ef46ae7b1c1a62ae",
+      "listing": "Nintendo Game Boy Tetris Attack DMG-AYLP-EUR España",
+      "platform": "gameboy",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "gameboy-pal-tetris-attack",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "loose",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "74f1b486ba2398b1d771",
+      "listing": "Waterworld Kevin Costner - VHS Cinta Tape Español T2",
+      "platform": "gameboy",
+      "originalReason": "estado_desconocido",
+      "decision": "REJECT",
+      "originalCatalogId": "gameboy-es-waterworld",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "015abdf8d0b2447508d4",
+      "listing": "★ Nintendo Game Boy Quarth ★ PAL",
+      "platform": "gameboy",
+      "originalReason": "regional_confirmation_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "gameboy-es-quarth",
+      "resolvedCatalogId": null,
+      "region": "USA",
+      "edition": null,
+      "condition": "loose",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "USA",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "d7f572a1f0c11eea4e20",
+      "listing": "Snoopy’s Magic Show  Gameboy",
+      "platform": "gameboy",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "gameboy-es-snoopy-s-magic-show",
+      "resolvedCatalogId": null,
+      "region": "PAL Alemania",
+      "edition": null,
+      "condition": "complete",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Alemania",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "994405522fc7b76a0a33",
+      "listing": "GAMEBOY -  SUPER MARIO  LAND 2 , PAL ESPAÑOL , SOLO CARTUCHO , ORIGINAL",
+      "platform": "gameboy",
+      "originalReason": "regional_confirmation_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "gameboy-es-super-mario-land",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "loose",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "2e7645bc3a0305d6661c",
+      "listing": "TETRIS GIOCO NINTENDO GAME BOY PAL ITALIANO CIB SUPER COMPLETO RARO GIG ITA",
+      "platform": "gameboy",
+      "originalReason": "regional_signal_conflict",
+      "decision": "DEFER",
+      "originalCatalogId": "gameboy-es-tetris",
+      "resolvedCatalogId": null,
+      "region": "PAL Italia",
+      "edition": null,
+      "condition": "complete",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Italia",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "3e5cf57f4a78743f4a89",
+      "listing": "TARA Pegatina: Wario Land: Super Mario Land 3 GB (SP) [PO247047]",
+      "platform": "gameboy",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "gameboy-es-wario-land-super-mario-land-3",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "loose",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "2a15931917249023d109",
+      "listing": "Legend of Zelda Link's Awakening Nintendo Game boy PAL  - original!",
+      "platform": "gameboy",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "gameboy-es-zelda-link-s-awakening",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "loose",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    }
+  ]
+}

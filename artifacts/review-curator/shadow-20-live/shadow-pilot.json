@@ -1,0 +1,1424 @@
+{
+  "schemaVersion": 1,
+  "runId": "curator-mu46810y",
+  "mode": "shadow",
+  "generatedAt": "2026-09-16T14:03:17.176Z",
+  "queueFile": "authoritative-worker",
+  "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+  "gitSha": "b5c09a2182718c339831c0d38933195ca36ba3b3",
+  "cases": 20,
+  "counts": {
+    "ACCEPT_EXISTING": 0,
+    "REROUTE_EXISTING": 0,
+    "REJECT": 7,
+    "DEFER": 13,
+    "PROPOSE_NEW_VARIANT": 0,
+    "NEEDS_HUMAN": 0
+  },
+  "braveRequests": 0,
+  "openAiCalls": 0,
+  "totalCostUsd": 0,
+  "catalogMutations": 0,
+  "priceMutations": 0,
+  "authoritativeQueueMutations": 0,
+  "holdout": null,
+  "apply": null,
+  "casesDetail": [
+    {
+      "reviewItemId": "00f149364083176e98b3",
+      "listing": "Dave Mirra BMX Challenge Wii Nintendo Wii PAL Alemania Español EMBALAJE ORIGINAL Completo",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-dave-mirra-bmx-challenge",
+      "resolvedCatalogId": null,
+      "region": "PAL Alemania",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Alemania",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "01637866b794ae795eb9",
+      "listing": "DREAMWORKS SUPERSTAR KARTZ . Pal España . Envio Certificado",
+      "platform": "wii",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-dreamworks-super-star-kartz",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "02783fe9a5b9c43eb6e0",
+      "listing": "FIFA 10 PS3 (IT) [PO247230]",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "REJECT",
+      "originalCatalogId": "wii-fifa-10",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "02d2a44bf900bcc26dcf",
+      "listing": "Fast Food Panic para Nintendo Wii Pal España Completo en excelente estado",
+      "platform": "wii",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-fast-food-panic",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "032bea07f22dddcb7414",
+      "listing": "FIFA 11 PS2 (SP) [PO3061]",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "REJECT",
+      "originalCatalogId": "wii-fifa-11",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "0355d4fc2206c9f5e241",
+      "listing": "DIABOLIK THE ORIGINAL SIN PS2 NUEVO PRECINTADO NEW SEALED PAL ESPAÑA RARO MINT",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "REJECT",
+      "originalCatalogId": "wii-diabolik-the-original-sin",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "04a5a691752b7c689b9b",
+      "listing": "Fishing Master (selects) Juego Nintendo Wii",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-fishing-master",
+      "resolvedCatalogId": null,
+      "region": "USA",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate",
+        "market_region"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "054df8e1147efbc38b49",
+      "listing": "No incluye Motion Plus➡️Grand Slam Tennis Nintendo Wii PAL España COMPLETO/LEE👇",
+      "platform": "wii",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-grand-slam-tennis",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "0560743eaf0bc388c28c",
+      "listing": "GORMITI THE LORDS OF NATURE! + FIGURA .  Pal España.. Envio Certificado..Paypal",
+      "platform": "wii",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-gormiti-the-lords-of-nature",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "0568c4a9117a9d000b0e",
+      "listing": "HOT WHEELS - TRACK ATTACK - NINTENDO WII - PAL - COMPLETO - VERY GOOD - WIIU",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-hot-wheels-track-attack",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "05793ce0cdc3a69a85d7",
+      "listing": "Guitar Hero 5 Juego Sony Playstation 2 PS2",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "REJECT",
+      "originalCatalogId": "wii-guitar-hero-5",
+      "resolvedCatalogId": null,
+      "region": "USA",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate",
+        "market_region"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "061f8b43601c71726400",
+      "listing": "Driver San Francisco",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-driver-san-francisco",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "0653feb8d8bc2db37e97",
+      "listing": "Inazuma Eleven Strikers Wii Nintendo Wii PAL España Español Completo Caja 2011",
+      "platform": "wii",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-inazuma-eleven-strikers",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "07aac5ae7dc1b2ef39f3",
+      "listing": "Family Trainer Treasure Adv.+ Extreme Challenge Juego para Nintendo Wii [PAL ES]",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-family-trainer-treasure-adventure",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "08601b7427e830b4446d",
+      "listing": "Hot Wheels Beat That! Xbox 360 PAL España",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "REJECT",
+      "originalCatalogId": "wii-hot-wheels-beat-that",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "08b70515182237c17235",
+      "listing": "Family Ski & Snowboard (Balance Board) Version PAL NINTENDO Wii / Wii U RAREZA!!",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-family-ski",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "08c36b11259b67a93113",
+      "listing": "De Blob 2 PS4 (SP) [PO175225]",
+      "platform": "wii",
+      "originalReason": "regional_variant_missing",
+      "decision": "REJECT",
+      "originalCatalogId": "wii-de-blob-2",
+      "resolvedCatalogId": null,
+      "region": "PAL Europa",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "092f1008dbbd2bab3054",
+      "listing": "DRIVER:Parallel Lines Pc/Ordenador Nuevo y Sellado totalmente en español",
+      "platform": "wii",
+      "originalReason": "estado_desconocido",
+      "decision": "REJECT",
+      "originalCatalogId": "wii-driver-parallel-lines",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.99,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "0a3ac4ca518f4220b2ba",
+      "listing": "DONKEY KONG JET RACE - NINTENDO WII - PAL ESPAÑA",
+      "platform": "wii",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-donkey-kong-jet-race",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    },
+    {
+      "reviewItemId": "0b9827473683ab13e354",
+      "listing": "Ghost Squad Wii Pal España",
+      "platform": "wii",
+      "originalReason": "estado_desconocido",
+      "decision": "DEFER",
+      "originalCatalogId": "wii-ghost-squad",
+      "resolvedCatalogId": null,
+      "region": "PAL España",
+      "edition": null,
+      "condition": "unknown",
+      "reusedEvidence": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "newEvidence": [],
+      "braveRequests": 0,
+      "visionRequests": 0,
+      "costUsd": 0,
+      "confidence": 0.5,
+      "remainingGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "researchTasks": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL España",
+          "missingProof": "No market-bound physical or distributor evidence.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO",
+            "DISTRIBUTOR"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "BUNDLE_CONTENTS",
+          "type": "MISSING_SECOND_SOURCE",
+          "candidateValue": null,
+          "missingProof": "Visible contents do not support a condition bucket.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "EXACT_PHYSICAL_PHOTO"
+          ],
+          "exhaustedActions": []
+        },
+        {
+          "field": "CANONICAL_IDENTITY",
+          "type": "MISSING_COMPONENT_BINDING",
+          "candidateValue": null,
+          "missingProof": "No component-level observations reached the queue.",
+          "recommendedActions": [
+            "OPEN_EXISTING_GALLERIES",
+            "SEARCH_SECOND_INDEPENDENT_SOURCE"
+          ],
+          "recommendedSourceTypes": [
+            "LISTING_IMAGES"
+          ],
+          "exhaustedActions": []
+        }
+      ]
+    }
+  ]
+}

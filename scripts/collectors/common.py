@@ -323,6 +323,7 @@ def to_ingest_listing(
     verified = _verified
     vision_condition: str | None = None
     vision_notes: list[str] = []
+    vision_result: dict[str, Any] = {}
     if platform_slug:
         from collectors.listing_region_enrich import (
             enrich_listing_region_from_cover,
@@ -356,6 +357,7 @@ def to_ingest_listing(
                     manual_expected=collector_context.get("manualExpected"),
                     original_contents_expected=collector_context.get("originalContentsExpected"),
                     regional_packaging=collector_context.get("regionalPackagingExpected"),
+                    vision_result=vision_result,
                 )
             )
         else:
@@ -401,6 +403,9 @@ def to_ingest_listing(
         row["imageUrl"] = image_scratch.get("imageUrl")
     elif image_url:
         row["imageUrl"] = image_url
+    if vision_result:
+        row["coverVision"] = vision_result
+        row["visualObservations"] = vision_result.get("observations") or []
     try:
         parsed_shipping = float(shipping_eur) if shipping_eur is not None else None
     except (TypeError, ValueError):

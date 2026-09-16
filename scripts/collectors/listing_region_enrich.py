@@ -77,6 +77,7 @@ def enrich_listing_region_from_cover(
     manual_expected: bool | None = None,
     original_contents_expected: list[str] | None = None,
     regional_packaging: list[dict[str, Any]] | None = None,
+    vision_result: dict[str, Any] | None = None,
 ) -> tuple[str, list[str], float, bool, str | None, list[str]]:
     """
     Texto/reglas primero. Solo si faltan pruebas y hay fotos + API → visión en el mismo paso.
@@ -134,6 +135,7 @@ def enrich_listing_region_from_cover(
         manual_expected=manual_expected,
         original_contents_expected=original_contents_expected,
         regional_packaging=regional_packaging,
+        result_sink=vision_result,
     )
 
     if force_weak_evidence and "cover_vision" not in evidence:
@@ -202,6 +204,7 @@ def apply_region_enrichment_to_row(
     if product:
         attach_image_urls(image_scratch, product, source)
 
+    vision_result: dict[str, Any] = {}
     listing_region, evidence, ai_conf, region_verified, vision_condition, vision_notes = (
         enrich_listing_region_from_cover(
             platform_slug=platform_slug,
@@ -238,6 +241,7 @@ def apply_region_enrichment_to_row(
                 if isinstance(row.get("regionalPackagingExpected"), list)
                 else None
             ),
+            vision_result=vision_result,
         )
     )
 
@@ -245,6 +249,9 @@ def apply_region_enrichment_to_row(
     row["regionEvidence"] = evidence
     row["aiConfidence"] = ai_conf
     row["regionVerified"] = region_verified
+    if vision_result:
+        row["coverVision"] = vision_result
+        row["visualObservations"] = vision_result.get("observations") or []
 
     if vision_condition in DISPLAY_BUCKETS:
         row["condition"] = vision_condition

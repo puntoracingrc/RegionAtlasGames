@@ -22,7 +22,7 @@ export function validateReviewDocument(value: unknown): asserts value is {
   const ids = new Set<string>();
   for (const item of doc.items) {
     if (!item || typeof item.id !== "string" || !item.id || ids.has(item.id)
-      || typeof item.listingTitle !== "string" || !["pending", "accepted", "rejected"].includes(item.status)) {
+      || typeof item.listingTitle !== "string" || !["pending", "accepted", "rerouted", "rejected", "deferred", "proposed_variant"].includes(item.status)) {
       throw new Error("Cola con elementos inválidos o IDs duplicados. No se sobrescribe.");
     }
     ids.add(item.id);

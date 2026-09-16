@@ -1,0 +1,1249 @@
+[
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "76231edf85c2a7beca2e",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "974c8b029bb8e16302f19d33439398d17f9608e64d5f76f08103a597c5ca4484",
+    "evidenceHash": "c1c5250262cc308ad9527832775189d79625e35bebecff25bb7a79bd8612cb6a",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|143915168489|0",
+      "url": "https://www.ebay.es/itm/143915168489?_skw=Monster+Max&hash=item21820332e9:g:x4gAAOSwGB1f~DO2",
+      "title": "MONSTER MAX NINTENDO GAME BOY FRIDGE MAGNET IMAN NEVERA",
+      "description": null,
+      "searchQuery": "Monster Max"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-monster-max",
+      "candidateCatalogId": "gameboy-monster-max",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "MONSTER MAX NINTENDO GAME BOY FRIDGE MAGNET IMAN NEVERA",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL Europa",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 3.9,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "4bf4e0b7299441413507",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "acf849459293b59446ed44abd9f6001a4518f4ec88cd766238ee974d188f8e5c",
+    "evidenceHash": "b7d70c18552f6cdc408e490a1073ad79cc2b1a839bafd779059fc8b2ec557e2d",
+    "source": "ebay-es",
+    "capturedAt": null,
+    "reason": "non_game",
+    "triageBucket": null,
+    "listing": {
+      "id": "v1|297478441978|0",
+      "url": "https://www.ebay.es/itm/297478441978?_skw=Super+Mario+Land+2&hash=item454318cbfa:g:l58AAeSwoNBoeoug&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZm2gFUM7QRsL2jgMyHb7nBMhkETnlQ%2FfB6YQ8hegOB4i9pjCpyW5EzIsmgBJ36HQCAkROnx53mTl4hBEoyWWXJs%2F11NwWXD%2BcwjqDevcIpw7N1X4bF397citHkjxX52sFzHHVP3oYHf5Hh2lBkpQ%2FnTdh2cwhPUtNAUMS%2FdbMpkKuVvLdFWazKhFr%2FandhRkPK4tEMspzmNkY1PDSh8Null7Y5EOmB1WJw4yByoJ%2FmI9esOXpG5pkuiiH74dagoKmHybM9c2hCMTT8Ql%2Fl%2FfQ%2BYDxOT18hvStraenMvt%2BIog%3D%3D",
+      "title": "Manual Super Mario Land 2 6 Golden Coins Nintendo Gameboy Game Boy Dmg-Mq-Fah-1",
+      "description": null,
+      "searchQuery": null
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-es-super-mario-land-2",
+      "candidateCatalogId": "gameboy-es-super-mario-land-2",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Manual Super Mario Land 2 6 Golden Coins Nintendo Gameboy Game Boy Dmg-Mq-Fah-1",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/l58AAeSwoNBoeoug/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/l58AAeSwoNBoeoug/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/l58AAeSwoNBoeoug/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/l58AAeSwoNBoeoug/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "game_manual",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": null,
+      "originalContentsExpected": []
+    },
+    "price": {
+      "amount": 12,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": null,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "2a6afc6eda62de70cc2e",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "322112081955b012631a94aff776c757e71898df14786e95a613c3d68310a1f2",
+    "evidenceHash": "34f9b648d5618b0b554c11a7f37c4482744ae32bb810a74a0ce611f6d8a7000c",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|407058967122|0",
+      "url": "https://www.ebay.es/itm/407058967122?_skw=Super+Hunchback&hash=item5ec69aea52:g:ZdgAAeSwBRxqToPw",
+      "title": "GAME BOY Super Hunchback. Starring Quasimodo. PAL UKV. Como Nuevo",
+      "description": null,
+      "searchQuery": "Super Hunchback"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-uk-super-hunchback",
+      "candidateCatalogId": "gameboy-uk-super-hunchback",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "GAME BOY Super Hunchback. Starring Quasimodo. PAL UKV. Como Nuevo",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l1600.webp",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/xZ4AAeSw7EJqToPX/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/xZ4AAeSw7EJqToPX/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l1600.webp",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/xZ4AAeSw7EJqToPX/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/xZ4AAeSw7EJqToPX/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL Europa",
+      "detectedRegion": "PAL UK/ENG",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "complete",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 245,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "6c35ef46ae7b1c1a62ae",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "2aefdfe33ac270b76f57534d6e8724cf9d791e8d5172a82f7ec6493b711adb79",
+    "evidenceHash": "418f1969983e697a4eaa22601afef88e50548a2a7895ebf4151ac969fda3245d",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|305715721792|0",
+      "url": "https://www.ebay.es/itm/305715721792?_skw=Tetris+Attack&hash=item472e13b640:g:430AAOSw4dJms016&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYv6NvHVaBLohMHMe8iaO9H5as%2FesUX7zRVpT8lSV9WgmBsscsW%2FmVb3OpgBCUk9zEkNlQ78xJULxVlfXexh5MWOz%2BSQQn3YcKt0NQxZMmZwEthAWTWKr2SLldo1RJtT2NaPKR5tUHxqziOqWxNRmXA%2FzoojXL31MoTAWKQt%2Fxfk1G%2BPlZTM3D%2FXG1usCXUByu8qWZhRQg7SDVC533oTrNLIndHLTYr4et7SNz8YXphNL4OUr%2ByZwBaCqZ5yOggxpMTHRH4Z6fIop0knq%2BcC0A4UCyzrQtLzAUpfRyKWnZw0Q%3D%3D",
+      "title": "Nintendo Game Boy Tetris Attack DMG-AYLP-EUR España",
+      "description": null,
+      "searchQuery": "Tetris Attack"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-pal-tetris-attack",
+      "candidateCatalogId": "gameboy-pal-tetris-attack",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Nintendo Game Boy Tetris Attack DMG-AYLP-EUR España",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l1600.webp",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/~xkAAOSwShBms05g/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/~xkAAOSwShBms05g/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l1600.webp",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/~xkAAOSwShBms05g/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/~xkAAOSwShBms05g/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "loose",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 45,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.88,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "74f1b486ba2398b1d771",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "6321bb2d19ae371b035d42212b34ba40dd5bec9831cab509e6bcb9407de1c120",
+    "evidenceHash": "dcc5f98c84154719ff0ba93afdfd7087acefc08d9bd80c209a858494a5a6f4de",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|275605922422|0",
+      "url": "https://www.ebay.es/itm/275605922422?_skw=Waterworld&hash=item402b64a276:g:K6QAAOSwp31jtn18&amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGacEFzqOwu1AMwenfbNraP2WVPwLPO0rhZCA2dZyjXzvOez86gA8AzGd9m93hID4Dc3ZGzE8LYs9AArvksxk4TxZqRg5156WBoNvrrEUSvHc9jVdLgc%2Bi2qlZwXecZcvE%2FU4l2JIkqTU4Dg%2FtmT7wwNYXqGbjT3N8rQgVsJyimoqE9R5Nf5SaoPfmMFNe9o3%2BWA10C00wi5LaQ9XvFWSxC%2BsudtfikaK%2Bv7tYNCns2XTX0aiq90a4LTQEpUSTajMf8lrcZqzGwTzdiLEuyrOiXx",
+      "title": "Waterworld Kevin Costner - VHS Cinta Tape Español T2",
+      "description": null,
+      "searchQuery": "Waterworld"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-es-waterworld",
+      "candidateCatalogId": "gameboy-es-waterworld",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Waterworld Kevin Costner - VHS Cinta Tape Español T2",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l300.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l300.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l300.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l300.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 17.9,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.88,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "015abdf8d0b2447508d4",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "392d8375e9596f8e7a0eb6c52173ee215e956ad7697b28c8e897bdc6f4fdb57a",
+    "evidenceHash": "66ab7c8dfd966eb8dc3ed50d474852f8bd6a40735cfe22aba6e198fd98bad2af",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "regional_confirmation_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|127861119657|0",
+      "url": "https://www.ebay.es/itm/127861119657?_skw=Quarth&hash=item1dc51ddaa9:g:70cAAeSwFbNqA0aQ",
+      "title": "★ Nintendo Game Boy Quarth ★ PAL",
+      "description": null,
+      "searchQuery": "Quarth"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-es-quarth",
+      "candidateCatalogId": "gameboy-usa-quarth",
+      "alternatives": [
+        {
+          "catalogId": "gameboy-pal-quarth",
+          "title": "Quarth",
+          "region": "PAL Europa",
+          "score": 1
+        }
+      ]
+    },
+    "subject": {
+      "identity": "★ Nintendo Game Boy Quarth ★ PAL",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "USA",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "loose",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 9.99,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.87,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "d7f572a1f0c11eea4e20",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "0e46bd2253292f6029b0d81989f3abe93b265a7aacb40ef14ce8653d55b14066",
+    "evidenceHash": "c9c0a600b1ed23cb654b3a4dc18574dd09b6549a700f407a4b024e1ea96e911c",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|146943102104|0",
+      "url": "https://www.ebay.es/itm/146943102104?_skw=Snoopy%27s+Magic+Show&hash=item22367dcc98:g:RQkAAeSwNaJpC74M",
+      "title": "Snoopy’s Magic Show  Gameboy",
+      "description": null,
+      "searchQuery": "Snoopy's Magic Show"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-es-snoopy-s-magic-show",
+      "candidateCatalogId": "gameboy-de-snoopys-magic-show",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Snoopy’s Magic Show  Gameboy",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.webp",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.webp",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.webp",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.webp",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Alemania",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "complete",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 65,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "994405522fc7b76a0a33",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "7c94c2c50b7097b837f5e6e9e71f12b75015bd64c40ad4bd6f5e44812b13feb4",
+    "evidenceHash": "7688cb9322a981063e499cf433a7f9e5d9264f192bbe3ad9a27f0ec150af3e71",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "regional_confirmation_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|800612078639|0",
+      "url": "https://www.ebay.es/itm/800612078639?_skw=Super+Mario+Land&hash=itemba6832d42f:g:k-sAAeSwcShqgZ3H",
+      "title": "GAMEBOY -  SUPER MARIO  LAND 2 , PAL ESPAÑOL , SOLO CARTUCHO , ORIGINAL",
+      "description": null,
+      "searchQuery": "Super Mario Land"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-es-super-mario-land",
+      "candidateCatalogId": "gameboy-es-super-mario-land-2",
+      "alternatives": [
+        {
+          "catalogId": "gameboy-super-mario-land",
+          "title": "Super Mario Land",
+          "region": "PAL Europa",
+          "score": 1
+        }
+      ]
+    },
+    "subject": {
+      "identity": "GAMEBOY -  SUPER MARIO  LAND 2 , PAL ESPAÑOL , SOLO CARTUCHO , ORIGINAL",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "loose",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 25,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "2e7645bc3a0305d6661c",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "5c8bb14595c16a3094d181b2c10e5437727b931270fbf2643e2ff755c6d48d9a",
+    "evidenceHash": "458a24a2e636769215ecaa66a62c9472cb1221d8b55d7b5355bd4a32aea6b3e7",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "regional_signal_conflict",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|137429610296|0",
+      "url": "https://www.ebay.es/itm/137429610296?_skw=Tetris&hash=item1fff716f38:g:594AAeSw9AZqM~zs&amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGa3vipTZ8qmrA0pNEBV8ns2xpaNMpoy5vYXQA6WqYO5bByr4%2FhU6iKDCGmWtBNvxvpAehEdpTv5mBfgJOzTJdWRAt29wWZMr0hIGUXnEI3WpU1AFUYxoT3wwQi8kBvAiTWj1DzazgD3AJRjCytLFlQL%2FwSS9kfA58huDnAY2pXpF9wG4XbjtAxjuJdZBtgmpqbEzogDEVp5RU6ZfQZOnT3SD%2FK9d3b5hoVsCdOvzJOe9QTeZyX%2BXsBsPW%2F2MtYkWuU8DqAH6iNQOdErmtHcijE3",
+      "title": "TETRIS GIOCO NINTENDO GAME BOY PAL ITALIANO CIB SUPER COMPLETO RARO GIG ITA",
+      "description": null,
+      "searchQuery": "Tetris"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-es-tetris",
+      "candidateCatalogId": "gameboy-it-tetris",
+      "alternatives": [
+        {
+          "catalogId": "gameboy-tetris",
+          "title": "Tetris",
+          "region": "PAL Europa",
+          "score": 1
+        }
+      ]
+    },
+    "subject": {
+      "identity": "TETRIS GIOCO NINTENDO GAME BOY PAL ITALIANO CIB SUPER COMPLETO RARO GIG ITA",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Italia",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "complete",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 349.95,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "3e5cf57f4a78743f4a89",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "5aa882fd93b1ddda01652aab84caa8d142e18839b17b6f497f69797623fedacc",
+    "evidenceHash": "cbd9d8473554b28d7ed8e6966afef3808cecb7565e296c08f67267c7cc330739",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|267775480937|0",
+      "url": "https://www.ebay.es/itm/267775480937?_skw=Wario+Land+Super+Mario+Land+3&hash=item3e58a99469:g:XHAAAeSweY5qmhvT&amdata=enc%3AAQALAAABAACCtXRWQnOEpyOqnQQ8KGYQQ%2FS1trglqj44wwrS2eQnsmKs2I2Y5C8%2FDDSEJreVlUA69Fxzf4mQ3LGyto7zgoFIiIbHjCohvD6nrms7rNqvbT3MvyOI7Ojib4dRiVn2dC1KyHWgZOQYcNvM1456GU2wxjZyMs8Z%2Fmv7hlNi9u0AeOTrrdaRLQ4FWGRSLwrA3JQXBEFHZuVfj3mccW8Y14MYU00u%2FPY3G%2FzJhgXMBAfDfOp8PAL%2FzLrGkkJILNoIAlfSOxm6E9BEd4iKghW7xbGeGXs%2BF44rZto6j7eyEpStvuCk7GtdLrfELIs8RHBjofZgLSBEAtKicdiXsTS%2Bqcw%3D",
+      "title": "TARA Pegatina: Wario Land: Super Mario Land 3 GB (SP) [PO247047]",
+      "description": null,
+      "searchQuery": "Wario Land Super Mario Land 3"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-es-wario-land-super-mario-land-3",
+      "candidateCatalogId": "gameboy-pal-super-mario-land-3-wario-land",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "TARA Pegatina: Wario Land: Super Mario Land 3 GB (SP) [PO247047]",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "loose",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 16.95,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "2a15931917249023d109",
+    "queueVersion": "2026-09-09T17:51:46Z",
+    "inputHash": "998ea19dd33871908ec9c612dd9f1480201b0b60950f275e5e90e2dfb9048c5a",
+    "evidenceHash": "5ae104ecb7b86e40671b497dc287d40ec1b36b7e96b7593f41b948905f1dc7aa",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-07T21:36:07Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|800220276200|0",
+      "url": "https://www.ebay.es/itm/800220276200?_skw=Zelda+Link%27s+Awakening&hash=itemba50d865e8:g:9IQAAeSw1nlplbyV",
+      "title": "Legend of Zelda Link's Awakening Nintendo Game boy PAL  - original!",
+      "description": null,
+      "searchQuery": "Zelda Link's Awakening"
+    },
+    "catalog": {
+      "searchedCatalogId": "gameboy-es-zelda-link-s-awakening",
+      "candidateCatalogId": "gameboy-legend-zelda-links-awakening",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Legend of Zelda Link's Awakening Nintendo Game boy PAL  - original!",
+      "platform": "gameboy",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l1600.webp",
+        "originalUrl": "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l1600.webp",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "loose",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": null,
+      "originalContentsExpected": []
+    },
+    "price": {
+      "amount": 79.9,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": null,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate",
+      "condition"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  }
+]

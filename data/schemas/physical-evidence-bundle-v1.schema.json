@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://regionatlas.example/schemas/physical-evidence-bundle-v1.schema.json",
+  "title": "PhysicalEvidenceBundleV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "reviewItemId", "queueVersion", "inputHash", "evidenceHash",
+    "source", "listing", "catalog", "subject", "images", "productGraph",
+    "observations", "identifiers", "regional", "condition", "price",
+    "confidence", "conflicts", "confirmed", "rejected", "uncertain", "evidenceGaps"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "reviewItemId": { "type": "string", "minLength": 1 },
+    "queueVersion": { "type": "string", "minLength": 1 },
+    "inputHash": { "$ref": "#/$defs/hash" },
+    "evidenceHash": { "$ref": "#/$defs/hash" },
+    "source": { "type": "string", "minLength": 1 },
+    "capturedAt": { "type": ["string", "null"] },
+    "reason": { "type": ["string", "null"] },
+    "triageBucket": { "type": ["string", "null"] },
+    "listing": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "url", "title", "description", "searchQuery"],
+      "properties": {
+        "id": { "type": ["string", "null"] }, "url": { "type": ["string", "null"] },
+        "title": { "type": "string" }, "description": { "type": ["string", "null"] },
+        "searchQuery": { "type": ["string", "null"] }
+      }
+    },
+    "catalog": {
+      "type": "object", "additionalProperties": false,
+      "required": ["searchedCatalogId", "candidateCatalogId", "alternatives"],
+      "properties": {
+        "searchedCatalogId": { "type": ["string", "null"] },
+        "candidateCatalogId": { "type": ["string", "null"] },
+        "alternatives": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "subject": {
+      "type": "object", "additionalProperties": false,
+      "required": ["identity", "platform", "edition", "physicalVariant"],
+      "properties": {
+        "identity": { "type": ["string", "null"] }, "platform": { "type": ["string", "null"] },
+        "edition": { "type": ["string", "null"] }, "physicalVariant": { "type": ["string", "null"] }
+      }
+    },
+    "images": { "type": "array", "items": { "$ref": "#/$defs/image" } },
+    "originalImages": { "type": "array", "items": { "$ref": "#/$defs/image" } },
+    "productGraph": {
+      "type": "object", "additionalProperties": false, "required": ["nodes", "relations"],
+      "properties": {
+        "nodes": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+        "relations": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "observations": { "type": "array", "items": { "$ref": "#/$defs/observation" } },
+    "identifiers": { "type": "array", "items": { "$ref": "#/$defs/identifier" } },
+    "regional": {
+      "type": "object", "additionalProperties": false,
+      "required": ["targetRegion", "detectedRegion", "marketBinding", "evidence", "packagingLanguages", "distributors", "ratingSystems"],
+      "properties": {
+        "targetRegion": { "type": ["string", "null"] }, "detectedRegion": { "type": ["string", "null"] },
+        "marketBinding": { "enum": ["UNBOUND", "MARKET_BOUND", "LANGUAGE_ONLY", "CONFLICTING", "REJECTED"] },
+        "evidence": { "type": "array", "items": { "type": "string" } },
+        "packagingLanguages": { "type": "array", "items": { "type": "string" } },
+        "distributors": { "type": "array", "items": { "type": "string" } },
+        "ratingSystems": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "condition": {
+      "type": "object", "additionalProperties": false,
+      "required": ["bucket", "confidence", "evidence", "manualExpected", "originalContentsExpected"],
+      "properties": {
+        "bucket": { "enum": ["loose", "game_manual", "complete", "sealed", "unknown"] },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "evidence": { "type": "array", "items": { "type": "string" } },
+        "manualExpected": { "type": ["boolean", "null"] },
+        "originalContentsExpected": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "price": {
+      "type": "object", "additionalProperties": false,
+      "required": ["amount", "shipping", "currency", "estimatedTotalToSpain"],
+      "properties": {
+        "amount": { "type": ["number", "null"] }, "shipping": { "type": ["number", "null"] },
+        "currency": { "type": ["string", "null"] }, "estimatedTotalToSpain": { "type": ["number", "null"] }
+      }
+    },
+    "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "conflicts": { "type": "array", "items": { "type": "string" } },
+    "confirmed": { "type": "array", "items": { "type": "string" } },
+    "rejected": { "type": "array", "items": { "type": "string" } },
+    "uncertain": { "type": "array", "items": { "type": "string" } },
+    "evidenceGaps": { "type": "array", "items": { "$ref": "#/$defs/gap" } }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "image": {
+      "type": "object", "additionalProperties": false, "required": ["index", "url", "originalUrl", "hash"],
+      "properties": { "index": { "type": "integer", "minimum": 1 }, "url": { "type": "string" }, "originalUrl": { "type": ["string", "null"] }, "hash": { "type": ["string", "null"] } }
+    },
+    "node": {
+      "type": "object", "additionalProperties": false, "required": ["id", "type", "component", "label"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "enum": ["PHYSICAL_PRODUCT", "OUTER_PACKAGE", "INNER_PRODUCT", "MEDIA", "DOCUMENT", "STICKER", "ACCESSORY"] },
+        "component": { "type": ["string", "null"] }, "label": { "type": "string" }
+      }
+    },
+    "observation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "imageIndex", "component", "productNodeType", "role", "textSnippets", "productCodes", "barcodes", "languages", "ratingSystems", "distributors", "editionMarkers"],
+      "properties": {
+        "id": { "type": "string" }, "imageIndex": { "type": "integer", "minimum": 1 },
+        "component": { "type": "string" },
+        "productNodeType": { "enum": ["PHYSICAL_PRODUCT", "OUTER_PACKAGE", "INNER_PRODUCT", "MEDIA", "DOCUMENT", "STICKER", "ACCESSORY"] },
+        "role": { "type": "string" },
+        "textSnippets": { "type": "array", "items": { "type": "string" } },
+        "productCodes": { "type": "array", "items": { "type": "string" } },
+        "barcodes": { "type": "array", "items": { "type": "string" } },
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "ratingSystems": { "type": "array", "items": { "type": "string" } },
+        "distributors": { "type": "array", "items": { "type": "string" } },
+        "editionMarkers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "identifier": {
+      "type": "object", "additionalProperties": false, "required": ["type", "value", "component", "observationId"],
+      "properties": {
+        "type": { "enum": ["EAN_UPC", "PRODUCT_CODE", "SERIAL"] }, "value": { "type": "string" },
+        "component": { "type": "string" }, "observationId": { "type": "string" }
+      }
+    },
+    "gap": {
+      "type": "object", "additionalProperties": false, "required": ["field", "code", "missingProof", "recommendedSourceTypes"],
+      "properties": {
+        "field": { "type": "string" }, "code": { "type": "string" }, "missingProof": { "type": "string" },
+        "recommendedSourceTypes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
