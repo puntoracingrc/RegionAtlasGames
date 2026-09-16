@@ -7,6 +7,7 @@ const links = [
   { href: "/admin", label: "Resumen", icon: "⌁" },
   { href: "/admin/cola", label: "Revisión", icon: "✓" },
   { href: "/admin/gestion", label: "Gestión", icon: "▦" },
+  { href: "/admin/entidades/personas/retratos", label: "Personas", icon: "◉" },
   { href: "/admin/higiene", label: "Higiene", icon: "⌁" },
   { href: "/admin/ia", label: "IA", icon: "✦" },
   { href: "/admin/noticias", label: "Noticias", icon: "◫" },
@@ -33,13 +34,15 @@ export function AdminNav({
         const active =
           link.href === "/admin"
             ? pathname === "/admin"
-            : link.href === "/admin/gestion"
+            : link.href === "/admin/entidades/personas/retratos"
+              ? pathname.startsWith("/admin/entidades/personas")
+              : link.href === "/admin/gestion"
               ? pathname === "/admin/gestion" ||
                 pathname.startsWith("/admin/juegos") ||
                 pathname.startsWith("/admin/acciones") ||
                 pathname.startsWith("/admin/facetas") ||
                 pathname.startsWith("/admin/colaboradores") ||
-                pathname.startsWith("/admin/entidades") ||
+                (pathname.startsWith("/admin/entidades") && !pathname.startsWith("/admin/entidades/personas")) ||
                 pathname.startsWith("/admin/taxonomia")
             : link.href === "/admin/higiene"
               ? pathname === "/admin/higiene"

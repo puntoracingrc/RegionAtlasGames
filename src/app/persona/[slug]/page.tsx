@@ -6,6 +6,7 @@ import {
   getPublicPersonView,
   personLifeLabel,
 } from "@/lib/person-public-research";
+import { readAdminPersonPortraitsSafely } from "@/lib/person-portrait-storage";
 import { getSiteUrl } from "@/lib/site-url";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -24,6 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const view = getPublicPersonView(slug);
   if (!view) return { title: "Persona no encontrada" };
   const { profile } = view;
+  const uploadedPortrait = (await readAdminPersonPortraitsSafely())[slug];
+  const portraitPath = uploadedPortrait?.path ?? profile.portrait?.path ?? null;
   const url = `${getSiteUrl()}/persona/${profile.slug}`;
   const description = clip(profile.biographyEs);
   const title = `${profile.name}${personLifeLabel(profile) ? ` · ${personLifeLabel(profile)}` : ""}`;
@@ -36,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       type: "profile",
-      images: profile.portrait ? [{ url: profile.portrait.path, alt: `Retrato de ${profile.name}` }] : undefined,
+      images: portraitPath ? [{ url: portraitPath, alt: `Retrato de ${profile.name}` }] : undefined,
     },
   };
 }
@@ -45,5 +48,6 @@ export default async function PersonPage({ params }: Props) {
   const { slug } = await params;
   const view = getPublicPersonView(slug);
   if (!view) notFound();
-  return <PersonProfileDetail view={view} />;
+  const uploadedPortrait = (await readAdminPersonPortraitsSafely())[slug] ?? null;
+  return <PersonProfileDetail view={view} uploadedPortrait={uploadedPortrait} />;
 }

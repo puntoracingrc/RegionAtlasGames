@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, ImageIcon, LockKeyhole, Search, ShieldCheck, UserRoundCheck, UsersRound, X } from "lucide-react";
+import { AdminPersonPortraitUploader } from "@/components/admin/admin-person-portrait-uploader";
 import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { getAdminPersonResearchOverview } from "@/lib/admin-person-research";
+import { getPersonCards } from "@/lib/person-public-research";
+import { readAdminPersonPortraitsSafely } from "@/lib/person-portrait-storage";
 import type { PersonAdminFilter } from "@/lib/person-research-types";
 
 export const metadata: Metadata = {
@@ -21,6 +24,7 @@ const filters: { value: PersonAdminFilter; label: string }[] = [
   { value: "editorial", label: "Editoriales públicas" },
   { value: "structured", label: "Estructurados internos" },
   { value: "staging", label: "Bloqueados" },
+  { value: "missing-portrait", label: "Sin retrato" },
 ];
 
 function validFilter(value: string | undefined): PersonAdminFilter {
@@ -45,10 +49,21 @@ function gateBadge(gate: "editorial" | "structured" | "staging") {
 export default async function AdminPeopleResearchPage({ searchParams }: Props) {
   const params = await searchParams;
   const requestedPage = Number.parseInt(params.pagina ?? "1", 10);
+  const uploadedPortraits = await readAdminPersonPortraitsSafely();
+  const portraitPaths = new Map(
+    getPersonCards().map((person) => [
+      person.slug,
+      uploadedPortraits[person.slug]?.path ?? person.portraitPath,
+    ]),
+  );
+  const portraitSlugs = new Set(
+    [...portraitPaths.entries()].filter(([, portraitPath]) => Boolean(portraitPath)).map(([slug]) => slug),
+  );
   const overview = getAdminPersonResearchOverview({
     query: params.q,
     filter: validFilter(params.estado),
     page: Number.isFinite(requestedPage) ? requestedPage : 1,
+    portraitSlugs,
   });
   const counts = overview.manifest.counts;
   const first = overview.total === 0 ? 0 : (overview.page - 1) * overview.pageSize + 1;
@@ -65,6 +80,9 @@ export default async function AdminPeopleResearchPage({ searchParams }: Props) {
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
+          <Link href="/admin/entidades/personas/retratos" className="btn-primary">
+            Gestionar retratos
+          </Link>
           <Link href="/persona" target="_blank" rel="noreferrer" className="btn-secondary gap-2">
             Ver índice público<ExternalLink className="h-4 w-4" aria-hidden="true" />
           </Link>
@@ -78,13 +96,18 @@ export default async function AdminPeopleResearchPage({ searchParams }: Props) {
           <div className="p-3 sm:first:pl-0"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><UsersRound className="h-4 w-4" aria-hidden="true" /> Identidades</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.totalPeople}</dd></div>
           <div className="p-3"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><UserRoundCheck className="h-4 w-4" aria-hidden="true" /> Editoriales públicas</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.publishedPeople}</dd><p className="mt-1 text-xs text-muted">Únicas con ruta, sitemap y SEO</p></div>
           <div className="p-3"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><LockKeyhole className="h-4 w-4" aria-hidden="true" /> Solo Admin</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.structuredPeople + counts.stagingPeople}</dd><p className="mt-1 text-xs text-muted">{counts.structuredPeople} estructuradas · {counts.stagingPeople} bloqueadas</p></div>
-          <div className="p-3 sm:last:pr-0"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><ImageIcon className="h-4 w-4" aria-hidden="true" /> Retratos conservados</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.retainedPortraits}</dd><p className="mt-1 text-xs text-muted">{counts.publicPortraits} visibles · licencias intactas</p></div>
+          <div className="p-3 sm:last:pr-0"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><ImageIcon className="h-4 w-4" aria-hidden="true" /> Retratos visibles</dt><dd className="mt-2 text-2xl font-black text-foreground">{portraitSlugs.size}</dd><p className="mt-1 text-xs text-muted">Incluye cargas administrativas persistentes</p></div>
         </dl>
       </Panel>
 
       <AdminNotice tone="status">
         <strong className="text-foreground">Barrera pública activa.</strong>{" "}
         Los {counts.structuredPeople} perfiles estructurados y los {counts.stagingPeople} bloqueados quedan fuera de rutas públicas, sitemap y SEO. Sus relaciones documentales permanecen en revisión dentro de Admin; compartir nombre no fusiona identidades.
+      </AdminNotice>
+
+      <AdminNotice tone="media">
+        <strong className="text-foreground">Carga directa activada.</strong>{" "}
+        Arrastra una imagen sobre cualquier perfil editorial público o pulsa su recuadro. El archivo se normaliza a WebP y sustituye el retrato visible sin modificar su identidad ni sus datos históricos.
       </AdminNotice>
 
       <Panel className={adminToneClass("edit")}>
@@ -119,9 +142,16 @@ export default async function AdminPeopleResearchPage({ searchParams }: Props) {
                 <p>{[record.birthYear, record.origin].filter(Boolean).join(" · ") || "Sin cronología básica"}</p>
                 <p className="truncate">{record.occupations.join(" · ") || "Sin ocupación documentada"}</p>
               </div>
-              <div className="text-xs text-muted lg:text-right">
+              <div className="space-y-2 text-xs text-muted lg:text-right">
                 <p>{record.relations} relaciones documentales en revisión · {record.exactCredits} créditos · {record.sources} fuentes</p>
                 {record.reasons.length > 0 && <p className="mt-1 max-w-xl text-amber-700 dark:text-amber-300">{record.reasons.join(" · ")}</p>}
+                {record.gate === "editorial" && (
+                  <AdminPersonPortraitUploader
+                    slug={record.slug}
+                    name={record.name}
+                    initialPortraitPath={portraitPaths.get(record.slug) ?? null}
+                  />
+                )}
               </div>
             </li>
           ))}
