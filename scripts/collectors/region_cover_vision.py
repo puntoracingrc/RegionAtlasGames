@@ -113,6 +113,9 @@ class RegionCoverVisionResult:
     observations: list[dict[str, Any]]
     game_confidence: float = 0.0
     condition_assessed: bool = False
+    identity: dict[str, Any] | None = None
+    region_confidence: float = 0.0
+    condition_confidence: float = 0.0
 
 
 def region_cover_vision_available() -> bool:
@@ -280,6 +283,9 @@ def classify_region_from_cover(
                 observations=normalize_visual_observations(cached.get("observations")),
                 game_confidence=_confidence(cached.get("gameConfidence")),
                 condition_assessed=cached.get("conditionAssessed") is True,
+                identity=cached.get("identity") if isinstance(cached.get("identity"), dict) else None,
+                region_confidence=_confidence(cached.get("regionConfidence")),
+                condition_confidence=_confidence(cached.get("conditionConfidence")),
             )
 
     if not region_cover_vision_available():
@@ -472,6 +478,9 @@ def classify_region_from_cover(
         observations=observations,
         game_confidence=game_confidence,
         condition_assessed=True,
+        identity=parsed.get("identity") if isinstance(parsed.get("identity"), dict) else None,
+        region_confidence=_confidence(parsed.get("regionConfidence")),
+        condition_confidence=_confidence(parsed.get("conditionConfidence")),
     )
 
     _save_json(
@@ -528,6 +537,7 @@ def apply_region_cover_vision(
     manual_expected: bool | None = None,
     original_contents_expected: list[str] | None = None,
     regional_packaging: list[dict[str, Any]] | None = None,
+    result_sink: dict[str, Any] | None = None,
 ) -> tuple[str, list[str], float, bool, str | None]:
     """
     Si el anuncio ya está verificado por texto/reglas, no hace nada.
@@ -565,6 +575,25 @@ def apply_region_cover_vision(
         original_contents_expected=original_contents_expected,
         regional_packaging=regional_packaging,
     )
+    if vision and result_sink is not None:
+        result_sink.update({
+            "analysisVersion": 1,
+            "visionPolicy": REGION_COVER_VISION_POLICY,
+            "listingRegion": vision.listing_region,
+            "regionMatchesCatalog": vision.region_matches_catalog,
+            "regionEvidence": vision.evidence,
+            "confidence": vision.confidence,
+            "condition": vision.condition,
+            "reason": vision.reason,
+            "isTargetGame": vision.is_target_game,
+            "gameConfidence": vision.game_confidence,
+            "conditionAssessed": vision.condition_assessed,
+            "identity": vision.identity,
+            "regionConfidence": vision.region_confidence,
+            "conditionConfidence": vision.condition_confidence,
+            "observations": vision.observations,
+            "images": image_urls,
+        })
     if vision and not vision.is_target_game and vision.game_confidence >= MIN_CONFIDENCE:
         return vision.listing_region or listing_region, [*vision.evidence, "cover_vision"], vision.game_confidence, False, None
     if not vision or not vision.is_target_game or vision.confidence < MIN_CONFIDENCE:

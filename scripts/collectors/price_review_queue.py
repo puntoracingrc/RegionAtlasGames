@@ -10,6 +10,7 @@ from typing import Any
 from collectors.common import ROOT, load_json, now_iso, save_json
 from collectors.tcns_match import infer_tcns_region, tcns_listing_metadata
 from collectors.tcns_policy import POLICY_VERSION
+from collectors.physical_evidence_bundle import build_physical_evidence_bundle
 
 QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
 REVIEW_KEYS = (
@@ -106,7 +107,7 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
         suffix_evidence = f"tcns_suffix_{str(source_region_code).lower()}"
         if suffix_evidence not in region_evidence:
             region_evidence.insert(0, suffix_evidence)
-    return {
+    item = {
         "id": _item_id(row, source, platform_slug),
         "status": "pending",
         "source": source,
@@ -158,12 +159,26 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "gameKeyCard": row.get("gameKeyCard") if row.get("gameKeyCard") is not None else tcns_metadata.get("gameKeyCard"),
             "fullySpanishVersion": row.get("fullySpanishVersion") if row.get("fullySpanishVersion") is not None else tcns_metadata.get("fullySpanishVersion"),
             "searchQuery": row.get("searchQuery"),
+            "shippingEur": row.get("shippingEur"),
+            "estimatedTotalToSpainEur": row.get("estimatedTotalToSpainEur"),
+            "originalCurrency": row.get("originalCurrency"),
+            "detectedPhysicalEdition": row.get("detectedPhysicalEdition"),
+            "targetPhysicalEdition": row.get("targetPhysicalEdition"),
+            "platformObserved": row.get("platformObserved"),
+            "visualObservations": row.get("visualObservations") or (row.get("coverVision") or {}).get("observations") or [],
+            "coverVision": row.get("coverVision"),
         },
         "jobId": ingest.get("jobId"),
         "collectedAt": row.get("collectedAt") or ingest.get("collectedAt") or now_iso(),
         "createdAt": now_iso(),
         "updatedAt": now_iso(),
     }
+    item["physicalEvidenceBundle"] = build_physical_evidence_bundle(
+        item,
+        queue_version=str(ingest.get("updatedAt") or ingest.get("collectedAt") or item["updatedAt"]),
+        row=row,
+    )
+    return item
 
 
 def load_price_review_queue() -> dict[str, Any]:
@@ -171,7 +186,7 @@ def load_price_review_queue() -> dict[str, Any]:
     if not isinstance(data, dict):
         data = {}
     return {
-        "schemaVersion": 1,
+        "schemaVersion": max(1, int(data.get("schemaVersion") or 1)),
         "updatedAt": data.get("updatedAt") or now_iso(),
         "items": data.get("items") if isinstance(data.get("items"), list) else [],
         "decisions": data.get("decisions") if isinstance(data.get("decisions"), list) else [],
@@ -189,7 +204,7 @@ def merge_price_review_queue_documents(existing: dict[str, Any], incoming: dict[
             continue
         item_id = str(item["id"])
         previous = existing_items.get(item_id)
-        if previous and previous.get("status") in {"accepted", "rejected"}:
+        if previous and previous.get("status") in {"accepted", "rerouted", "rejected", "deferred", "proposed_variant"}:
             continue
         if previous and previous.get("adminEditedAt") != item.get("adminEditedAt") and previous.get("adminEditedAt"):
             # The PC may have started before a human changed the pending match.
@@ -213,7 +228,7 @@ def merge_price_review_queue_documents(existing: dict[str, Any], incoming: dict[
         seen_decisions.add(key)
         decisions.append(decision)
     return {
-        "schemaVersion": 1,
+        "schemaVersion": max(1, int(existing.get("schemaVersion") or 1), int(incoming.get("schemaVersion") or 1)),
         "updatedAt": now_iso(),
         "items": sorted(
             existing_items.values(),
@@ -230,7 +245,7 @@ def record_price_review_candidates(ingest: dict[str, Any], platform_slug: str) -
     decided = {
         str(item.get("id"))
         for item in queue["items"]
-        if isinstance(item, dict) and item.get("status") in {"accepted", "rejected"}
+        if isinstance(item, dict) and item.get("status") in {"accepted", "rerouted", "rejected", "deferred", "proposed_variant"}
     }
     added = 0
     updated = 0

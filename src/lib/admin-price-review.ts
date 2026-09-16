@@ -29,7 +29,7 @@ const REVIEW_FILE =
     ? path.join(appDataDir(), "price-review-queue.json")
     : path.join(process.cwd(), "data", "admin", "price-review-queue.json"));
 
-export type PriceReviewStatus = "pending" | "accepted" | "rejected";
+export type PriceReviewStatus = "pending" | "accepted" | "rerouted" | "rejected" | "deferred" | "proposed_variant";
 export type PriceReviewCondition = "loose" | "game_manual" | "complete" | "sealed" | "unknown";
 export type PriceReviewTriageBucket =
   | "safe_exact"
@@ -93,7 +93,19 @@ export type PriceReviewItem = {
     gameKeyCard?: boolean | null;
     fullySpanishVersion?: boolean | null;
     searchQuery?: string | null;
+    shippingEur?: number | null;
+    estimatedTotalToSpainEur?: number | null;
+    originalCurrency?: string | null;
+    detectedPhysicalEdition?: string | null;
+    targetPhysicalEdition?: string | null;
+    platformObserved?: string | null;
+    visualObservations?: Array<Record<string, unknown>>;
   };
+  physicalEvidenceBundle?: Record<string, unknown> | null;
+  curatorResolution?: Record<string, unknown> | null;
+  attemptCount?: number;
+  lastAttemptAt?: string | null;
+  nextEligibleAt?: string | null;
   catalogPreview?: {
     id: string;
     title: string;

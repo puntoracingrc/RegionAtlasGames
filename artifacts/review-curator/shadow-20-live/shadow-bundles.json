@@ -1,0 +1,2799 @@
+[
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "00f149364083176e98b3",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "781d0c7ec3983da2d20d4e7dd140ec913779420da5f4ab88e392d51f446fb7e1",
+    "evidenceHash": "a31ae31ee6bdeaf6390566d314229d2acbb5103a0f46e11295343e5318a256ca",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|377370832247|0",
+      "url": "https://www.ebay.es/itm/377370832247?_skw=Dave+Mirra+BMX+Challenge&hash=item57dd0ded77:g:IpQAAeSwqn9qjtNW",
+      "title": "Dave Mirra BMX Challenge Wii Nintendo Wii PAL Alemania Español EMBALAJE ORIGINAL Completo",
+      "description": null,
+      "searchQuery": "Dave Mirra BMX Challenge"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-dave-mirra-bmx-challenge",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Dave Mirra BMX Challenge Wii Nintendo Wii PAL Alemania Español EMBALAJE ORIGINAL Completo",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/o5AAAeSw0DZqjtNW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/o5AAAeSw0DZqjtNW/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 4,
+        "url": "https://i.ebayimg.com/images/g/kKMAAeSw0zlqjtNW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/kKMAAeSw0zlqjtNW/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/o5AAAeSw0DZqjtNW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/o5AAAeSw0DZqjtNW/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 4,
+        "url": "https://i.ebayimg.com/images/g/kKMAAeSw0zlqjtNW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/kKMAAeSw0zlqjtNW/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Alemania",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": null,
+      "originalContentsExpected": []
+    },
+    "price": {
+      "amount": 6.99,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": null,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "01637866b794ae795eb9",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "c71b45349cca07aa71fb048e130effd7ea3d7c37d50e3f7a0a4708ec94f1779c",
+    "evidenceHash": "18fa394de66bb6cf01453696d9adc1f5bac270c2b67769c9bcf16db75990286f",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|225877051908|0",
+      "url": "https://www.ebay.es/itm/225877051908?_skw=DreamWorks+Super+Star+Kartz&hash=item3497524a04:g:6AUAAOSwx-ZlWNgc",
+      "title": "DREAMWORKS SUPERSTAR KARTZ . Pal España . Envio Certificado",
+      "description": null,
+      "searchQuery": "DreamWorks Super Star Kartz"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-dreamworks-super-star-kartz",
+      "candidateCatalogId": "wii-dreamworks-super-star-kartz",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "DREAMWORKS SUPERSTAR KARTZ . Pal España . Envio Certificado",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/hl8AAOSwWZNlWNgf/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/hl8AAOSwWZNlWNgf/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/hl8AAOSwWZNlWNgf/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/hl8AAOSwWZNlWNgf/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "listing_title_region",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "back_cover_language",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 26.9,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "02783fe9a5b9c43eb6e0",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "5283fa56d51bd0d4a428e419adc21172b61dad7d9ab1869c7ee91966c86cad67",
+    "evidenceHash": "bc73c06f5a43736998c8f9ed951bac5092ae74620d05bbce92a05ef4b266a956",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|267774616389|0",
+      "url": "https://www.ebay.es/itm/267774616389?_skw=FIFA+10&hash=item3e589c6345:g:By8AAeSwPdNqmMlM",
+      "title": "FIFA 10 PS3 (IT) [PO247230]",
+      "description": null,
+      "searchQuery": "FIFA 10"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-fifa-10",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "FIFA 10 PS3 (IT) [PO247230]",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/By8AAeSwPdNqmMlM/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/By8AAeSwPdNqmMlM/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/By8AAeSwPdNqmMlM/s-l1200.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/By8AAeSwPdNqmMlM/s-l1200.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/JwcAAeSwW8NqmMlN/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/JwcAAeSwW8NqmMlN/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/By8AAeSwPdNqmMlM/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/By8AAeSwPdNqmMlM/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/By8AAeSwPdNqmMlM/s-l1200.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/By8AAeSwPdNqmMlM/s-l1200.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/JwcAAeSwW8NqmMlN/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/JwcAAeSwW8NqmMlN/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [
+        "cover_pal_eu",
+        "photo_region_mark",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 5.95,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "02d2a44bf900bcc26dcf",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "9cd7eb15e95ff554bdd9f52b7fa92762c0f98919eccfa1ad0c282b1de4b18ad0",
+    "evidenceHash": "50ffa13a23335dc07139715cb86e6936da7380bbfd3ca725bf95dd9dfd8081b7",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|125379744212|0",
+      "url": "https://www.ebay.es/itm/125379744212?_skw=Fast+Food+Panic&hash=item1d313711d4:g:qU0AAOSw4JxisZ83",
+      "title": "Fast Food Panic para Nintendo Wii Pal España Completo en excelente estado",
+      "description": null,
+      "searchQuery": "Fast Food Panic"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-fast-food-panic",
+      "candidateCatalogId": "wii-fast-food-panic",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Fast Food Panic para Nintendo Wii Pal España Completo en excelente estado",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l960.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l960.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/eBwAAOSwAZJisZ8s/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/eBwAAOSwAZJisZ8s/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l960.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l960.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/eBwAAOSwAZJisZ8s/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/eBwAAOSwAZJisZ8s/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "listing_title_region",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "back_cover_language",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 7.9,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "032bea07f22dddcb7414",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "3e674b170e9967c538f91ea8c25b47ddb23edef07e95cf22ab6a30e0cc980180",
+    "evidenceHash": "3a2b6b6c18254b7776c98ea4b0d7a0888af1e3f4d93c5cb3612b9446a2a87eb0",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|267333337421|0",
+      "url": "https://www.ebay.es/itm/267333337421?_skw=FIFA+11&hash=item3e3e4f014d:g:eZYAAeSwg25qoY03",
+      "title": "FIFA 11 PS2 (SP) [PO3061]",
+      "description": null,
+      "searchQuery": "FIFA 11"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-fifa-11",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "FIFA 11 PS2 (SP) [PO3061]",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/eZYAAeSwg25qoY03/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/eZYAAeSwg25qoY03/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/eZYAAeSwg25qoY03/s-l400.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/eZYAAeSwg25qoY03/s-l400.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/eZYAAeSwg25qoY03/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/eZYAAeSwg25qoY03/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/eZYAAeSwg25qoY03/s-l400.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/eZYAAeSwg25qoY03/s-l400.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [
+        "cover_pal_eu",
+        "photo_region_mark",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 13.95,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "0355d4fc2206c9f5e241",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "7a8cfb1a0e51a92e8c084f30c6db02572e50a3df2e604656a7a11884f89958d5",
+    "evidenceHash": "30678b47f93af0a307502fa0616b834652ab8611647844382b5f6fc6561e8348",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|158247111697|0",
+      "url": "https://www.ebay.es/itm/158247111697?_skw=Diabolik+The+Original+Sin&hash=item24d8434c11:g:pxcAAOSw671nPis5",
+      "title": "DIABOLIK THE ORIGINAL SIN PS2 NUEVO PRECINTADO NEW SEALED PAL ESPAÑA RARO MINT",
+      "description": null,
+      "searchQuery": "Diabolik The Original Sin"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-diabolik-the-original-sin",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "DIABOLIK THE ORIGINAL SIN PS2 NUEVO PRECINTADO NEW SEALED PAL ESPAÑA RARO MINT",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/pxcAAOSw671nPis5/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/pxcAAOSw671nPis5/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/pxcAAOSw671nPis5/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/pxcAAOSw671nPis5/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/NlwAAOSwCAFnPitH/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/NlwAAOSwCAFnPitH/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/pxcAAOSw671nPis5/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/pxcAAOSw671nPis5/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/pxcAAOSw671nPis5/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/pxcAAOSw671nPis5/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/NlwAAOSwCAFnPitH/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/NlwAAOSwCAFnPitH/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "photo_region_mark",
+        "cover_pal_eu",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 89,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "04a5a691752b7c689b9b",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "f276e3dfb53083b2ee8bb0ac0507a1e2fc8365772d7bcfb3f1e4629eab647aaf",
+    "evidenceHash": "8d03b33156f81b6502ca3421cb81132ce578bc1039ed7898c907d3e59c57d635",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|127748927580|0",
+      "url": "https://www.ebay.es/itm/127748927580?_skw=Fishing+Master&hash=item1dbe6df05c:g:7tgAAeSwD7RpuDY9",
+      "title": "Fishing Master (selects) Juego Nintendo Wii",
+      "description": null,
+      "searchQuery": "Fishing Master"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-fishing-master",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Fishing Master (selects) Juego Nintendo Wii",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l640.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l640.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l640.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l640.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "USA",
+      "marketBinding": "MARKET_BOUND",
+      "evidence": [
+        "listing_title_region",
+        "seller_states_region",
+        "cover_usa",
+        "photo_region_mark",
+        "sku_regional",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 23.87,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate",
+      "market_region"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "054df8e1147efbc38b49",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "7a53205d7c92c3302aaa98942eebe3f3576eda7cb5751a47fe5e3af2b9298b6f",
+    "evidenceHash": "d2fe2008ad76b98a37c4c4debddd828fff47d4f2b29e1ff822be003e93ff7e55",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|195097511021|0",
+      "url": "https://www.ebay.es/itm/195097511021?_skw=Grand+Slam+Tennis&hash=item2d6cb7c46d:g:vzgAAOSwpgdile4t&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGbYZKe%2B%2Bmp3%2BYn0kD3eqchOiYWqmbfaWvlKCOnEzWmcfJIVHhKbFcT0jR%2BROqdOt4ad8RpMZuGN1w6uCLsw6fbgPRlaZuFHqUqP7oPmfm2W4x4qYSBCL%2F8eg4aEfzVk2kb9PFXQPyXJp7EXeiQ602ODwtn9kFnLUhBTPtfc4NFmx%2ByLnaYqsUe4MPdsr33Tl7w10aUrW8FHM126KNH3SKfIZzSz7A4xAYUWD%2BFGpNt0Q0RK8OLVBjhK8koRqljVenv7ozP%2BJUkrYsENkWd7P5k5WjT7Se0iiQKGv1NsnQjKUQ%3D%3D",
+      "title": "No incluye Motion Plus➡️Grand Slam Tennis Nintendo Wii PAL España COMPLETO/LEE👇",
+      "description": null,
+      "searchQuery": "Grand Slam Tennis"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-grand-slam-tennis",
+      "candidateCatalogId": "wii-grand-slam-tennis",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "No incluye Motion Plus➡️Grand Slam Tennis Nintendo Wii PAL España COMPLETO/LEE👇",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/IowAAOSw2Ppile4z/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/IowAAOSw2Ppile4z/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/IowAAOSw2Ppile4z/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/IowAAOSw2Ppile4z/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "listing_title_region",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "back_cover_language",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 13.9,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "0560743eaf0bc388c28c",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "cfdcdee1f096972c15246e9b95b021bb102f761098c45e144cf417624376af6d",
+    "evidenceHash": "0dd0e6e9996f96422b92d9f7a70d76d36b1a74dd9a91871a14b7fe617d8d31f0",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|331989403702|0",
+      "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+      "title": "GORMITI THE LORDS OF NATURE! + FIGURA .  Pal España.. Envio Certificado..Paypal",
+      "description": null,
+      "searchQuery": "Gormiti The Lords of Nature"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-gormiti-the-lords-of-nature",
+      "candidateCatalogId": "wii-gormiti-the-lords-of-nature",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "GORMITI THE LORDS OF NATURE! + FIGURA .  Pal España.. Envio Certificado..Paypal",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/hqYAAOSwzaJX8p0H/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/hqYAAOSwzaJX8p0H/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/hqYAAOSwzaJX8p0H/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/hqYAAOSwzaJX8p0H/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "listing_title_region",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "back_cover_language",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 44.9,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "0568c4a9117a9d000b0e",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "3568db3252368b51d903734985b3d63591d6067c5cb293d188d7b1ac00e88f68",
+    "evidenceHash": "b51f1786db499ee0ec9c6a84281e039315fa1047ab3fa7be73b5ac2cdafa0c98",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|185413966546|0",
+      "url": "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+      "title": "HOT WHEELS - TRACK ATTACK - NINTENDO WII - PAL - COMPLETO - VERY GOOD - WIIU",
+      "description": null,
+      "searchQuery": "Hot Wheels Track Attack"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-hot-wheels-track-attack",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "HOT WHEELS - TRACK ATTACK - NINTENDO WII - PAL - COMPLETO - VERY GOOD - WIIU",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l1200.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l1200.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/1H0AAeSw2FtpCxVV/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/1H0AAeSw2FtpCxVV/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 4,
+        "url": "https://i.ebayimg.com/images/g/bk0AAeSwr6FpCxVW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/bk0AAeSwr6FpCxVW/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 5,
+        "url": "https://i.ebayimg.com/images/g/U2sAAeSw6-lpCxVW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/U2sAAeSw6-lpCxVW/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 6,
+        "url": "https://i.ebayimg.com/images/g/CCAAAeSwZilpCxVX/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/CCAAAeSwZilpCxVX/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l1200.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l1200.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/1H0AAeSw2FtpCxVV/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/1H0AAeSw2FtpCxVV/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 4,
+        "url": "https://i.ebayimg.com/images/g/bk0AAeSwr6FpCxVW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/bk0AAeSwr6FpCxVW/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 5,
+        "url": "https://i.ebayimg.com/images/g/U2sAAeSw6-lpCxVW/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/U2sAAeSw6-lpCxVW/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 6,
+        "url": "https://i.ebayimg.com/images/g/CCAAAeSwZilpCxVX/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/CCAAAeSwZilpCxVX/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": null,
+      "originalContentsExpected": []
+    },
+    "price": {
+      "amount": 14.95,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": null,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "05793ce0cdc3a69a85d7",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "66d92d39f1f976be9f9a7158fce43d62c50882dbbcc413cde6b91362073cb934",
+    "evidenceHash": "30ea718fb8e06080b374055b7761b9ada0bba3482e9b5029cbed58146c7d467c",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|127748922133|0",
+      "url": "https://www.ebay.es/itm/127748922133?_skw=Guitar+Hero+5&hash=item1dbe6ddb15:g:sO0AAeSw7mppuDWg",
+      "title": "Guitar Hero 5 Juego Sony Playstation 2 PS2",
+      "description": null,
+      "searchQuery": "Guitar Hero 5"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-guitar-hero-5",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Guitar Hero 5 Juego Sony Playstation 2 PS2",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/sO0AAeSw7mppuDWg/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/sO0AAeSw7mppuDWg/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/sO0AAeSw7mppuDWg/s-l640.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/sO0AAeSw7mppuDWg/s-l640.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/sO0AAeSw7mppuDWg/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/sO0AAeSw7mppuDWg/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/sO0AAeSw7mppuDWg/s-l640.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/sO0AAeSw7mppuDWg/s-l640.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "USA",
+      "marketBinding": "MARKET_BOUND",
+      "evidence": [
+        "cover_usa",
+        "photo_region_mark",
+        "sku_regional",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 23.15,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate",
+      "market_region"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "061f8b43601c71726400",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "2768c7404f79a1972b194070bba62e2afda040050d63d9dec08450371728afc6",
+    "evidenceHash": "b203dfe54bc0a3140f9c70106c807c1131a13a0511f5eb467fc95954d87911eb",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|127600533900|0",
+      "url": "https://www.ebay.es/itm/127600533900?_skw=Driver+San+Francisco&hash=item1db595a18c:g:YdYAAeSwDUFpWFud",
+      "title": "Driver San Francisco",
+      "description": null,
+      "searchQuery": "Driver San Francisco"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-driver-san-francisco",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Driver San Francisco",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l960.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l960.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l960.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l960.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [
+        "listing_title_region",
+        "seller_states_region",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 16.66,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "0653feb8d8bc2db37e97",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "77c1787bb3033af9ad5bc5ca404c42cdccc9bff449e32c3c2a2c22231edbaf0d",
+    "evidenceHash": "ac45bdee534520033eedc11b1258c28661245c5085c92e0a95d3ae8acbb4f745",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|377370832448|0",
+      "url": "https://www.ebay.es/itm/377370832448?_skw=Inazuma+Eleven+Strikers&hash=item57dd0dee40:g:zb0AAeSwau1qjtRX&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZj98RtiezjmIA0btTTrmFtJhb7y9%2FFR9lf3c3GMixFOclPG%2BLpTAPncMg%2BKjfAE9Snzy%2BzDdvqvEYZ9VjWW6p7q1klE%2FO%2BvR%2BgHl4iV6pG2WBTEEAkplIi6B4gsXIxZerlxMbQw7K5GSIMutlNKARNNrAhwRWxAVODd4ImHtHYKc%2B0xCudnh%2FedAPQyIVKAtKRjh01K%2BOWdB%2FEh%2F7q%2FNzXxtCJ9xD2%2Fqv932zI6ktj30Oq6H6Yruzh%2Fes1Vyhlhn%2BqaYNaOOFd73Fy6C%2BjHs9OVCjMUa5eJdvwQz707%2BPKdw%3D%3D",
+      "title": "Inazuma Eleven Strikers Wii Nintendo Wii PAL España Español Completo Caja 2011",
+      "description": null,
+      "searchQuery": "Inazuma Eleven Strikers"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-inazuma-eleven-strikers",
+      "candidateCatalogId": "wii-inazuma-eleven-strikers",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Inazuma Eleven Strikers Wii Nintendo Wii PAL España Español Completo Caja 2011",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/ZzMAAeSw04tqjtRX/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/ZzMAAeSw04tqjtRX/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/ZzMAAeSw04tqjtRX/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/ZzMAAeSw04tqjtRX/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "listing_title_region",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "back_cover_language",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 28.99,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "07aac5ae7dc1b2ef39f3",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "6bfeef570368e357ab3a3ebe36ea7455e84bb9179fde47fb8fced0328af3ec99",
+    "evidenceHash": "39ddabec41efec997bbf562cf39afcadf24ca546eb4d72c2ddbc89936b88078d",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|336494606882|0",
+      "url": "https://www.ebay.es/itm/336494606882?_skw=Family+Trainer+Treasure+Adventure&hash=item4e58a43a22:g:VaIAAeSw87ZpWwib",
+      "title": "Family Trainer Treasure Adv.+ Extreme Challenge Juego para Nintendo Wii [PAL ES]",
+      "description": null,
+      "searchQuery": "Family Trainer Treasure Adventure"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-family-trainer-treasure-adventure",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Family Trainer Treasure Adv.+ Extreme Challenge Juego para Nintendo Wii [PAL ES]",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l640.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l640.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l640.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l640.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "listing_title_region",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 75.21,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "08601b7427e830b4446d",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "11087f6d0c715b617de7eff9cad9cc7ecdcc3367b2853102ac7b37f76681b30a",
+    "evidenceHash": "d74b25129073366633d6c1bca2401ee19feeffb0a251465ec4734d1327d821b3",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|287023035869|0",
+      "url": "https://www.ebay.es/itm/287023035869?_skw=Hot+Wheels+Beat+That&hash=item42d3e7f5dd:g:9FkAAeSwHb5pRt6z",
+      "title": "Hot Wheels Beat That! Xbox 360 PAL España",
+      "description": null,
+      "searchQuery": "Hot Wheels Beat That"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-hot-wheels-beat-that",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Hot Wheels Beat That! Xbox 360 PAL España",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/9FkAAeSwHb5pRt6z/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/9FkAAeSwHb5pRt6z/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/9FkAAeSwHb5pRt6z/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/9FkAAeSwHb5pRt6z/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/UxQAAeSwabBpRt6z/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/UxQAAeSwabBpRt6z/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/9FkAAeSwHb5pRt6z/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/9FkAAeSwHb5pRt6z/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/9FkAAeSwHb5pRt6z/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/9FkAAeSwHb5pRt6z/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/UxQAAeSwabBpRt6z/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/UxQAAeSwabBpRt6z/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [
+        "cover_pal_eu",
+        "photo_region_mark",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 70,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "08b70515182237c17235",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "2f7cd0c212b5f86d90910bf202f5dd762c995d588b5685ba76f12ad14ed59482",
+    "evidenceHash": "3ae1f8efb25db8655d1a5827a25597c13064cfe38b36d6c48adc7c439c3cbba9",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|133380001737|0",
+      "url": "https://www.ebay.es/itm/133380001737?_skw=Family+Ski&hash=item1f0e114fc9:g:hIwAAOSwlw1dr0s2",
+      "title": "Family Ski & Snowboard (Balance Board) Version PAL NINTENDO Wii / Wii U RAREZA!!",
+      "description": null,
+      "searchQuery": "Family Ski"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-family-ski",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Family Ski & Snowboard (Balance Board) Version PAL NINTENDO Wii / Wii U RAREZA!!",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/PsIAAOSwGzNdr0s6/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/PsIAAOSwGzNdr0s6/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/PsIAAOSwGzNdr0s6/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/PsIAAOSwGzNdr0s6/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": null,
+      "originalContentsExpected": []
+    },
+    "price": {
+      "amount": 99,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": null,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "08c36b11259b67a93113",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "446fd1f5938b45c182a5948e7fe2477cedd54df133c2f0cb4ebd5bba3a5cc788",
+    "evidenceHash": "d04978f2deb0f9e0dadc9cc6439778bbde7893b070abd3668be7a1b63419ba25",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "regional_variant_missing",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|267763076473|0",
+      "url": "https://www.ebay.es/itm/267763076473?_skw=De+Blob+2&hash=item3e57ec4d79:g:5wgAAeSwe-pqjBT5&amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGbuwpBhVdknsw%2FL%2BwTplkKNshqTeygX%2BAE5ZmN0E0bbJO8HSGtWQO7V1PkOOPP0uuM%2BOec%2F9O18XvgR1DUyv3KFIFcom3t7ZyGGPbJT4Sra2UEcLmjny1AQcN79Q3AY1DA%2Bls1eBULgVq1Q%2F9SSddCnQw8KmPyOGikzd4EjYhakGkUiYZ3W%2B8bPvjtSh0TbNuLYqWMeerno2s85GqyZmihvSUzUNChCw16JH3w5YV%2FAw1wI5n2lLyCPCW7EvzY%2BOvJ%2BdWfnnSwzWJRhaJAFBVmE",
+      "title": "De Blob 2 PS4 (SP) [PO175225]",
+      "description": null,
+      "searchQuery": "De Blob 2"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-de-blob-2",
+      "candidateCatalogId": null,
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "De Blob 2 PS4 (SP) [PO175225]",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/5wgAAeSwe-pqjBT5/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/5wgAAeSwe-pqjBT5/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/5wgAAeSwe-pqjBT5/s-l1200.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/5wgAAeSwe-pqjBT5/s-l1200.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/5wgAAeSwe-pqjBT5/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/5wgAAeSwe-pqjBT5/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/5wgAAeSwe-pqjBT5/s-l1200.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/5wgAAeSwe-pqjBT5/s-l1200.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL Europa",
+      "marketBinding": "UNBOUND",
+      "evidence": [
+        "cover_usa",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 13.95,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "092f1008dbbd2bab3054",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "c421de8af41b1f9aa5819d4d3ba4c0ed403c75d0e9fab4442c711425d31e379d",
+    "evidenceHash": "61c9b4684f0a5286db67f22d6be26aaec5eaae76c1ce6fa5dcece31cc0a269d0",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|192601872593|0",
+      "url": "https://www.ebay.es/itm/192601872593?_skw=Driver+Parallel+Lines&hash=item2cd7f758d1:g:c6cAAOSwdoJbTvpy",
+      "title": "DRIVER:Parallel Lines Pc/Ordenador Nuevo y Sellado totalmente en español",
+      "description": null,
+      "searchQuery": "Driver Parallel Lines"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-driver-parallel-lines",
+      "candidateCatalogId": "wii-driver-parallel-lines",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "DRIVER:Parallel Lines Pc/Ordenador Nuevo y Sellado totalmente en español",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/c6cAAOSwdoJbTvpy/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/c6cAAOSwdoJbTvpy/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/c6cAAOSwdoJbTvpy/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/c6cAAOSwdoJbTvpy/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/lUwAAOSwfPFbTvp7/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/lUwAAOSwfPFbTvp7/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/c6cAAOSwdoJbTvpy/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/c6cAAOSwdoJbTvpy/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/c6cAAOSwdoJbTvpy/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/c6cAAOSwdoJbTvpy/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/lUwAAOSwfPFbTvp7/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/lUwAAOSwfPFbTvp7/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 25,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.88,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "0a3ac4ca518f4220b2ba",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "b12cde86424afa1262dd5415e4c65a12c193c6a2a813ced9ef2704545451a804",
+    "evidenceHash": "a904f4a76bc93c7bd17f8bd7d3855b62d7a0f4ea42008dd67a31d4c23538390c",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|389162726108|0",
+      "url": "https://www.ebay.es/itm/389162726108?_skw=Donkey+Kong+Jet+Race&hash=item5a9be7f2dc:g:wyYAAeSwXp5pAxsG",
+      "title": "DONKEY KONG JET RACE - NINTENDO WII - PAL ESPAÑA",
+      "description": null,
+      "searchQuery": "Donkey Kong Jet Race"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-donkey-kong-jet-race",
+      "candidateCatalogId": "wii-donkey-kong-jet-race",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "DONKEY KONG JET RACE - NINTENDO WII - PAL ESPAÑA",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/lYAAAeSwUTtpAxsG/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/lYAAAeSwUTtpAxsG/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/lYAAAeSwUTtpAxsG/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/lYAAAeSwUTtpAxsG/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "listing_title_region",
+        "photo_region_mark",
+        "cover_pal_eu",
+        "back_cover_language",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 25,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 1,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "reviewItemId": "0b9827473683ab13e354",
+    "queueVersion": "79212e336b82bb62efa2456a76e12bf05fd2a5b14dbb5bade72fc980e2c7fde0",
+    "inputHash": "362d2bf64593b2cd23e5583ac80297e5055bddaf984dd2b1b9c988ca67cba452",
+    "evidenceHash": "e302b6db13c1b4ce0a423dc437bb48bb3dea31b83f2cc6b9b20001d5fe7f4a55",
+    "source": "ebay-es",
+    "capturedAt": "2026-09-09T16:45:29Z",
+    "reason": "estado_desconocido",
+    "triageBucket": "manual_match",
+    "listing": {
+      "id": "v1|389161090498|0",
+      "url": "https://www.ebay.es/itm/389161090498?_skw=Ghost+Squad&hash=item5a9bcefdc2:g:LU4AAeSwVzhpApdQ",
+      "title": "Ghost Squad Wii Pal España",
+      "description": null,
+      "searchQuery": "Ghost Squad"
+    },
+    "catalog": {
+      "searchedCatalogId": "wii-ghost-squad",
+      "candidateCatalogId": "wii-ghost-squad",
+      "alternatives": []
+    },
+    "subject": {
+      "identity": "Ghost Squad Wii Pal España",
+      "platform": "wii",
+      "edition": null,
+      "physicalVariant": null
+    },
+    "images": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/YA8AAeSw4bdpApdQ/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/YA8AAeSw4bdpApdQ/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "originalImages": [
+      {
+        "index": 1,
+        "url": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l225.jpg",
+        "hash": null
+      },
+      {
+        "index": 2,
+        "url": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l1600.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l1600.jpg",
+        "hash": null
+      },
+      {
+        "index": 3,
+        "url": "https://i.ebayimg.com/images/g/YA8AAeSw4bdpApdQ/s-l225.jpg",
+        "originalUrl": "https://i.ebayimg.com/images/g/YA8AAeSw4bdpApdQ/s-l225.jpg",
+        "hash": null
+      }
+    ],
+    "productGraph": {
+      "nodes": [],
+      "relations": []
+    },
+    "observations": [],
+    "identifiers": [],
+    "regional": {
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "marketBinding": "LANGUAGE_ONLY",
+      "evidence": [
+        "cover_spain",
+        "listing_title_region",
+        "cover_pal_eu",
+        "photo_region_mark",
+        "back_cover_language",
+        "cover_vision"
+      ],
+      "packagingLanguages": [],
+      "distributors": [],
+      "ratingSystems": []
+    },
+    "condition": {
+      "bucket": "unknown",
+      "confidence": null,
+      "evidence": [],
+      "manualExpected": true,
+      "originalContentsExpected": [
+        "manual"
+      ]
+    },
+    "price": {
+      "amount": 15,
+      "shipping": null,
+      "currency": "EUR",
+      "estimatedTotalToSpain": null
+    },
+    "confidence": 0.9,
+    "conflicts": [],
+    "confirmed": [
+      "candidate_identity",
+      "platform_candidate"
+    ],
+    "rejected": [],
+    "uncertain": [
+      "identity",
+      "market_region",
+      "condition"
+    ],
+    "evidenceGaps": [
+      {
+        "field": "MARKET_REGION",
+        "code": "MISSING_MARKET_PROOF",
+        "missingProof": "No market-bound physical or distributor evidence.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO",
+          "DISTRIBUTOR"
+        ]
+      },
+      {
+        "field": "CONDITION",
+        "code": "MISSING_COMPONENT_PHOTO",
+        "missingProof": "Visible contents do not support a condition bucket.",
+        "recommendedSourceTypes": [
+          "EXACT_PHYSICAL_PHOTO"
+        ]
+      },
+      {
+        "field": "CANONICAL_IDENTITY",
+        "code": "MISSING_COMPONENT_BINDING",
+        "missingProof": "No component-level observations reached the queue.",
+        "recommendedSourceTypes": [
+          "LISTING_IMAGES"
+        ]
+      }
+    ]
+  }
+]
