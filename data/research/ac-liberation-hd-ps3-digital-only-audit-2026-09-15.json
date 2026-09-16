@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "auditId": "assassins-creed-liberation-hd-ps3-digital-only",
+  "reviewedAt": "2026-09-15",
+  "title": "Assassin's Creed Liberation HD · PlayStation 3 · cierre de falso físico",
+  "platformRelease": {
+    "canonicalGameId": "assassins-creed-liberation-hd",
+    "platformReleaseId": "assassins-creed-liberation-hd-ps3",
+    "platformSlug": "ps3",
+    "releaseType": "DIGITAL",
+    "physicalStandaloneRelease": false,
+    "regionalStoreReleases": [
+      {
+        "marketRegions": ["US"],
+        "storeProductCode": "NPUB-31244"
+      },
+      {
+        "marketRegions": ["EU", "AU"],
+        "storeProductCode": "NPEB-01386"
+      },
+      {
+        "marketRegions": ["JP"],
+        "storeProductCode": "NPJB-00562",
+        "localTitle": "Assassin's Creed III: Lady Liberty HD"
+      }
+    ]
+  },
+  "physicalRelationshipPolicy": {
+    "catalogPhysicalEditionCreationAllowed": false,
+    "allowedOnlyAsCompilationContent": true,
+    "relationOwnerGuideId": "assassins-creed-american-saga-ps3",
+    "relationImplementationInThisSlice": false,
+    "notes": [
+      "La presencia dentro de Assassin's Creed: Birth of a New World / The Americas Collection sólo crea una relación de contenido con la compilación.",
+      "Esta entrega no modifica data/catalog-edition-guides-ac-ps3.json ni crea un catalogId físico para Liberation HD.",
+      "Assassin's Creed III: Liberation de PS Vita es otro platformRelease y conserva sus cajas físicas propias."
+    ]
+  },
+  "source": {
+    "label": "GameFAQs · Assassin's Creed Liberation HD PS3 data",
+    "url": "https://gamefaqs.gamespot.com/ps3/730735-assassins-creed-liberation-hd/data",
+    "supports": [
+      "NPUB-31244 · PlayStation Store US",
+      "NPEB-01386 · PlayStation Store EU/AU",
+      "NPJB-00562 · PlayStation Store Japan"
+    ]
+  }
+}

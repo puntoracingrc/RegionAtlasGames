@@ -1,0 +1,713 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iv-black-flag-ps3",
+      "title": "Ediciones físicas de Assassin's Creed IV: Black Flag en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Overlay mundial data-only. Conserva las identidades legacy y separa las cajas respaldadas de las promociones, bundles y candidatos que aún requieren inspección física.",
+      "game": {
+        "title": "Assassin's Creed IV: Black Flag",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-iv-black-flag",
+        "aliases": [
+          "Assassin's Creed 4 Black Flag",
+          "Assassin's Creed IV Black Flag"
+        ]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iv-black-flag",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-europe-standard",
+            "assassins-creed-iv-black-flag-ps3-europe-germany-standard",
+            "assassins-creed-iv-black-flag-ps3-europe-at-ch-standard",
+            "assassins-creed-iv-black-flag-ps3-europe-be-fr-nl-standard",
+            "assassins-creed-iv-black-flag-ps3-europe-bles-01884-standard",
+            "assassins-creed-iv-black-flag-ps3-north-america-standard",
+            "assassins-creed-iv-black-flag-ps3-asia-standard",
+            "assassins-creed-iv-black-flag-ps3-asia-chinese-version",
+            "assassins-creed-iv-black-flag-ps3-korea-standard",
+            "assassins-creed-iv-black-flag-ps3-japan-standard"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iv-black-flag-special-edition",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-spain-special",
+            "assassins-creed-iv-black-flag-ps3-australia-special",
+            "assassins-creed-iv-black-flag-ps3-russia-special"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "skull",
+          "label": "Skull Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iv-black-flag-skull-edition",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-spain-skull",
+            "assassins-creed-iv-black-flag-ps3-france-skull"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "buccaneer",
+          "label": "Buccaneer Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iv-black-flag-buccaneer-edition",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-europe-buccaneer",
+            "assassins-creed-iv-black-flag-ps3-australia-buccaneer"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "black-chest",
+          "label": "Black Chest Edition",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iv-black-flag-black-chest-edition",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-europe-black-chest"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete"
+          ]
+        },
+        {
+          "id": "limited",
+          "label": "Limited Edition",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-iv-black-flag-limited-edition",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-usa-limited"
+          ],
+          "priceConditions": [
+            "sealed",
+            "complete"
+          ]
+        },
+        {
+          "id": "signature",
+          "label": "Signature Edition",
+          "representativeCatalogId": "ps3-usa-assassin-s-creed-iv-black-flag-signature-edition",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-usa-signature"
+          ],
+          "priceConditions": [
+            "sealed",
+            "complete",
+            "loose"
+          ]
+        },
+        {
+          "id": "essentials",
+          "label": "Essentials",
+          "representativeCatalogId": "ps3-assassin%27s-creed-iv-black-flag-essentials",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-spain-essentials",
+            "assassins-creed-iv-black-flag-ps3-germany-essentials",
+            "assassins-creed-iv-black-flag-ps3-europe-essentials-pending"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        },
+        {
+          "id": "ubi-the-best",
+          "label": "Ubi the Best",
+          "representativeCatalogId": "ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best",
+          "physicalEditionIds": [
+            "assassins-creed-iv-black-flag-ps3-japan-ubi-the-best"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-standard",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "softwareLanguages": ["ES", "EN", "FR", "DE", "IT"],
+          "ratingSystems": ["PEGI"],
+          "barcode": "3307215704974",
+          "serial": "BLES-01882",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-assassin%27s-creed-iv-black-flag"],
+          "evidenceIds": ["ac4-bf-ps3-retroloco-standard-es", "ac-ps3-regional-o094"],
+          "notes": [
+            "La denominación comercial Edición Bonus de Fnac comparte este EAN y no crea una edición física separada sin outer packaging distinto."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-germany-standard",
+          "label": "Standard / PS3 Exclusive · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DE"],
+          "barcode": "3307215704943",
+          "serial": "BLES-01882",
+          "confidence": "HIGH",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-retroplace-de"],
+          "notes": [
+            "La forma física exacta de la mención PS3 Exklusive Edition —impresión, sticker o naming comercial— queda pendiente de scan."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-at-ch-standard",
+          "label": "Standard / PS3 Exclusive · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["AT", "CH"],
+          "barcode": "3307215704950",
+          "serial": "BLES-01882",
+          "confidence": "HIGH",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-retroplace-at-ch"],
+          "notes": [
+            "No se fusiona con la caja alemana; idiomas exactos pendientes de scan."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-be-fr-nl-standard",
+          "label": "Standard · Bélgica / Francia / Países Bajos",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["BE", "FR", "NL"],
+          "barcode": "3307215704998",
+          "serial": "BLES-01882",
+          "confidence": "HIGH",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-retroplace-be-fr-nl"],
+          "notes": [
+            "La caja se mantiene compartida entre los tres mercados; packagingLanguages queda pendiente."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-bles-01884-standard",
+          "label": "Candidato Standard · Europa · BLES-01884",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "barcode": "3307215704936",
+          "serial": "BLES-01884",
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"],
+          "notes": [
+            "País y packaging pendientes; no se publica como UK, Nordic o Italia por inferencia."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-north-america-standard",
+          "label": "Standard · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB"],
+          "barcode": "008888348115",
+          "serial": "BLUS-31193",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-usa-assassin-s-creed-iv-black-flag"],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-asia-standard",
+          "label": "Standard · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "barcode": "4895094019757",
+          "serial": "BLAS-50643",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"],
+          "notes": [
+            "Hong Kong, Singapur y Taiwán no se asignan individualmente sin evidencia de caja."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-asia-chinese-version",
+          "label": "Chinese Version · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "barcode": "4895094019740",
+          "serial": "BLAS-50660",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"],
+          "notes": [
+            "Se mantiene separada de BLAS-50643; Chinese Version no se convierte por sí sola en un mercado nacional ni en packagingLanguages."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-korea-standard",
+          "label": "Standard · Corea",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "ratingSystems": ["GRB 18"],
+          "barcode": "8809182562489",
+          "serial": "BLKS-20430",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs", "ac4-bf-ps3-serialstation"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-japan-standard",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "ratingSystems": ["CERO Z"],
+          "barcode": "4949244003025",
+          "serial": "BLJM-61056",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-iv-black-flag"],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs", "ac4-bf-ps3-serialstation"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-spain-special",
+          "label": "Special Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "ratingSystems": ["PEGI"],
+          "barcode": "3307215705162",
+          "serial": "BLES-01882",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-assassin%27s-creed-iv-black-flag-special-edition"],
+          "evidenceIds": ["ac4-bf-ps3-retroloco-special-es"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-australia-special",
+          "label": "Special Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["AU"],
+          "barcode": "3307215705247",
+          "serial": "BLES-01884",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-russia-special",
+          "label": "Special Edition · Rusia · barcode pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["RU"],
+          "serial": "BLES-01883/RUS",
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-serialstation"],
+          "notes": [
+            "Barcode y packaging cirílico pendientes; no se reutiliza un EAN occidental."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-spain-skull",
+          "label": "Skull Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["ES"],
+          "barcode": "3307215705322",
+          "confidence": "CONFIRMED",
+          "physicalContents": [
+            "Caja metálica / SteelBook",
+            "Artbook",
+            "Banda sonora",
+            "2 litografías"
+          ],
+          "catalogIds": ["ps3-assassin%27s-creed-iv-black-flag-skull-edition"],
+          "evidenceIds": ["ac4-bf-ps3-fnac-skull-es"],
+          "notes": [
+            "PackagingLanguages pendiente de scan físico."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-france-skull",
+          "label": "Skull Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["FR"],
+          "barcode": "3307215705278",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-leclerc-skull-fr"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-buccaneer",
+          "label": "Buccaneer Edition · Europa · barcode pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "confidence": "HIGH",
+          "physicalContents": [
+            "Figura de Edward Kenway de aproximadamente 45 cm",
+            "Caja de coleccionista",
+            "Artbook",
+            "Banda sonora",
+            "2 litografías"
+          ],
+          "catalogIds": ["ps3-assassin%27s-creed-iv-black-flag-buccaneer-edition"],
+          "evidenceIds": ["ac4-bf-ps3-vandal-editions"],
+          "notes": [
+            "La ficha legacy se conserva como identidad de precio y ruta; no convierte la edición en caja española.",
+            "Los barcodes nacionales europeos siguen pendientes."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-australia-buccaneer",
+          "label": "Buccaneer Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["AU"],
+          "barcode": "3307215705520",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-black-chest",
+          "label": "Black Chest Edition · Uplay Europa / UK · barcode pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "evidenceMarkets": ["GB"],
+          "confidence": "HIGH",
+          "physicalContents": [
+            "Diorama de aproximadamente 55 cm",
+            "SteelBook",
+            "Artbook",
+            "Banda sonora",
+            "Mapa",
+            "Litografías",
+            "Bandera",
+            "Canvas prints"
+          ],
+          "catalogIds": ["ps3-assassin%27s-creed-iv-black-flag-black-chest-edition"],
+          "evidenceIds": ["ac4-bf-ps3-collectorsedition-black-chest"],
+          "notes": [
+            "No se asigna barcode exterior hasta identificar la caja de expedición o el SKU Uplay.",
+            "La ficha legacy se conserva sin convertir PAL España en mercado V2 demostrado."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-usa-limited",
+          "label": "Limited Edition · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB"],
+          "barcode": "008888398110",
+          "serial": "BLUS-41035L",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-usa-assassin-s-creed-iv-black-flag-limited-edition"],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-usa-signature",
+          "label": "Signature Edition · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB"],
+          "barcode": "008888348429",
+          "boxCode": "BLUS-31193SEB",
+          "serial": "BLUS-31193",
+          "confidence": "HIGH",
+          "catalogIds": ["ps3-usa-assassin-s-creed-iv-black-flag-signature-edition"],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"],
+          "notes": [
+            "BLUS-31193SEB se conserva como código de producto/caja; el disco base se modela como BLUS-31193 hasta inspección física."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-spain-essentials",
+          "label": "Essentials · España",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "ratingSystems": ["PEGI"],
+          "barcode": "3307215846285",
+          "serial": "BLES-01882/E",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-assassin%27s-creed-iv-black-flag-essentials"],
+          "evidenceIds": ["ac4-bf-ps3-retroloco-essentials-es", "ac4-bf-ps3-fnac-essentials-es"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-germany-essentials",
+          "label": "Essentials · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["DE"],
+          "barcode": "3307215846254",
+          "serial": "BLES-01882/E",
+          "confidence": "CONFIRMED",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-retroplace-essentials-de"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-europe-essentials-pending",
+          "label": "Candidato Essentials · Europa · mercado pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "barcode": "3307215846216",
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": [],
+          "evidenceIds": ["ac4-bf-ps3-gamefaqs"],
+          "notes": [
+            "No se fusiona con España o Alemania y no recibe país sin scan."
+          ]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ps3-japan-ubi-the-best",
+          "label": "Ubi the Best · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "barcode": "4949244003575",
+          "catalogNumber": "BLJM-61273",
+          "releaseDate": "2015-06-25",
+          "releaseDateContext": "Reedición japonesa Ubi the Best",
+          "confidence": "CONFIRMED",
+          "catalogIds": ["ps3-japon-assassin%27s-creed-iv-black-flag-ubi-the-best"],
+          "evidenceIds": ["assassins-creed-iv-black-flag-ubi-the-best-commerce", "ac4-bf-ps3-serialstation"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac4-bf-ps3-retroloco-standard-es",
+          "type": "RETAILER_ASSET",
+          "label": "RetroLoco · Standard PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-iv-black-flag-esp/",
+          "summary": "Documenta la copia PAL España, carátula y manual en español, EAN 3307215704974 y BLES-01882.",
+          "supports": ["mercado ES", "packaging ES", "EAN 3307215704974", "BLES-01882"]
+        },
+        {
+          "id": "ac-ps3-regional-o094",
+          "type": "RETAILER_ASSET",
+          "label": "O094 · referencia PAL España de Black Flag",
+          "url": "https://www.todoconsolas.com/juegos-ps3/2651-assassin_s_creed_iv_black_flag_ps3_sp_po24602-3307215704974.html",
+          "summary": "Evidencia V2 previa conservada para la identidad Standard española.",
+          "supports": ["mercado ES", "EAN 3307215704974"]
+        },
+        {
+          "id": "ac4-bf-ps3-fnac-bonus-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · denominación Edición Bonus",
+          "url": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Edicion-Bonus-PS3-Videojuego-PlayStation-3/a898626",
+          "summary": "Usa el mismo EAN 3307215704974 que Standard España; no demuestra una caja física separada.",
+          "supports": ["mismo EAN que Standard ES", "promoción por resolver"]
+        },
+        {
+          "id": "ac4-bf-ps3-retroloco-special-es",
+          "type": "RETAILER_ASSET",
+          "label": "RetroLoco · Special Edition PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-iv-black-flag-edicion-especial-esp/",
+          "summary": "Documenta Special Edition PAL España con carátula/manual español.",
+          "supports": ["mercado ES", "packaging ES", "EAN 3307215705162", "BLES-01882"]
+        },
+        {
+          "id": "ac4-bf-ps3-fnac-skull-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Skull Edition",
+          "url": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Skull-Edition-PS3-Videojuego-PlayStation-3/a898623",
+          "summary": "Documenta la edición y su contenido comercial en PS3 España.",
+          "supports": ["mercado ES", "EAN 3307215705322", "Skull Edition"]
+        },
+        {
+          "id": "ac4-bf-ps3-leclerc-skull-fr",
+          "type": "RETAILER_ASSET",
+          "label": "E.Leclerc · Skull Edition Francia",
+          "url": "https://www.e.leclerc/fp/3307215705278",
+          "supports": ["mercado FR", "EAN 3307215705278", "Skull Edition"]
+        },
+        {
+          "id": "ac4-bf-ps3-retroplace-de",
+          "type": "RETAILER_ASSET",
+          "label": "Retroplace · Standard / PS3 Exklusive Alemania",
+          "url": "https://www.retroplace.com/en/games/136755--assassins-creed-iv-black-flag",
+          "supports": ["mercado DE", "EAN 3307215704943", "BLES-01882"]
+        },
+        {
+          "id": "ac4-bf-ps3-retroplace-at-ch",
+          "type": "RETAILER_ASSET",
+          "label": "Retroplace · Standard Austria / Suiza",
+          "url": "https://www.retroplace.com/en/games/137194--assassins-creed-iv-black-flag",
+          "supports": ["mercados AT/CH", "EAN 3307215704950", "BLES-01882"]
+        },
+        {
+          "id": "ac4-bf-ps3-retroplace-be-fr-nl",
+          "type": "RETAILER_ASSET",
+          "label": "Retroplace · Standard Bélgica / Francia / Países Bajos",
+          "url": "https://www.retroplace.com/en/games/216797--assassins-creed-iv-black-flag",
+          "supports": ["mercados BE/FR/NL", "EAN 3307215704998", "BLES-01882"]
+        },
+        {
+          "id": "ac4-bf-ps3-retroplace-essentials-de",
+          "type": "RETAILER_ASSET",
+          "label": "Retroplace · Essentials Alemania",
+          "url": "https://www.retroplace.com/en/games/172636--assassins-creed-iv-black-flag",
+          "supports": ["mercado DE", "EAN 3307215846254", "Essentials"]
+        },
+        {
+          "id": "ac4-bf-ps3-retroloco-essentials-es",
+          "type": "RETAILER_ASSET",
+          "label": "RetroLoco · Essentials PAL España",
+          "url": "https://www.retroloco.es/producto/assassins-creed-iv-black-flag-esp-essentials/",
+          "supports": ["mercado ES", "packaging ES", "EAN 3307215846285", "BLES-01882/E"]
+        },
+        {
+          "id": "ac4-bf-ps3-fnac-essentials-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Essentials",
+          "url": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Essentials-PS3-Videojuego-PlayStation-3/a1096888",
+          "supports": ["mercado ES", "EAN 3307215846285", "Essentials"]
+        },
+        {
+          "id": "ac4-bf-ps3-vandal-editions",
+          "type": "UNKNOWN",
+          "label": "Vandal · ediciones físicas PS3",
+          "url": "https://vandal.elespanol.com/ediciones/ps3/assassins-creed-iv-black-flag/20556",
+          "supports": ["Buccaneer Edition PS3", "contenido físico Buccaneer"]
+        },
+        {
+          "id": "ac4-bf-ps3-collectorsedition-black-chest",
+          "type": "UNKNOWN",
+          "label": "CollectorsEdition.org · Black Chest PS3",
+          "url": "https://collectorsedition.org/game-db/assassins-creed-iv-black-flag-black-chest-edition-ps3-2",
+          "supports": ["Black Chest física PS3", "Uplay UK/Europe", "contenido físico"]
+        },
+        {
+          "id": "ac4-bf-ps3-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · release data PS3",
+          "url": "https://gamefaqs.gamespot.com/ps3/705970-assassins-creed-iv-black-flag/data",
+          "supports": ["barcodes regionales PS3", "seriales PS3", "ediciones PS3"]
+        },
+        {
+          "id": "ac4-bf-ps3-serialstation",
+          "type": "UNKNOWN",
+          "label": "SerialStation · familias de serial PS3",
+          "url": "https://www.serialstation.com/games/d4a7d7a2-ccc6-4ba7-8bb3-674cb681db74",
+          "supports": ["familias BLES/BLUS/BLJM/BLKS/BLAS"]
+        },
+        {
+          "id": "assassins-creed-iv-black-flag-ubi-the-best-commerce",
+          "type": "RETAILER_ASSET",
+          "label": "Yamada · Black Flag Ubi the Best",
+          "url": "https://www.yamada-denkiweb.com/2813165013/",
+          "summary": "Evidencia V2 previa conservada para la reedición japonesa.",
+          "supports": ["mercado JP", "BLJM-61273", "JAN 4949244003575", "fecha 2015-06-25"]
+        }
+      ],
+      "sources": [
+        {"label": "RetroLoco · Standard ES", "url": "https://www.retroloco.es/producto/assassins-creed-iv-black-flag-esp/"},
+        {"label": "RetroLoco · Special ES", "url": "https://www.retroloco.es/producto/assassins-creed-iv-black-flag-edicion-especial-esp/"},
+        {"label": "RetroLoco · Essentials ES", "url": "https://www.retroloco.es/producto/assassins-creed-iv-black-flag-esp-essentials/"},
+        {"label": "Fnac · Bonus ES", "url": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Edicion-Bonus-PS3-Videojuego-PlayStation-3/a898626"},
+        {"label": "Fnac · Skull ES", "url": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Skull-Edition-PS3-Videojuego-PlayStation-3/a898623"},
+        {"label": "GameFAQs · Black Flag PS3", "url": "https://gamefaqs.gamespot.com/ps3/705970-assassins-creed-iv-black-flag/data"},
+        {"label": "SerialStation · Black Flag PS3", "url": "https://www.serialstation.com/games/d4a7d7a2-ccc6-4ba7-8bb3-674cb681db74"},
+        {"label": "CollectorsEdition.org · Black Chest", "url": "https://collectorsedition.org/game-db/assassins-creed-iv-black-flag-black-chest-edition-ps3-2"}
+      ],
+      "evidenceNote": "Los datos proceden de la orden mundial revisada el 15 de septiembre de 2026 y de las decisiones V2 ya fusionadas. No se transfieren códigos de otras plataformas ni se deducen mercados a partir de idiomas o tiendas.",
+      "images": [],
+      "researchTasks": [
+        {
+          "id": "ac4-bf-ps3-bonus-es-packaging",
+          "label": "Resolver el soporte físico de la denominación Bonus España",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["ES"],
+          "notes": [
+            "EAN 3307215704974 compartido con Standard; sólo crear variante si aparece outer packaging, sticker o insert físicamente diferenciable.",
+            "Fuente conservada: ac4-bf-ps3-fnac-bonus-es."
+          ]
+        },
+        {
+          "id": "ac4-bf-ps3-skull-regional-map",
+          "label": "Completar el mapa regional de Skull Edition",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["DE", "AT", "CH", "GB", "IT", "BE", "NL", "AU"],
+          "notes": ["No reutilizar EAN de otras plataformas ni barcodes españoles/franceses para otras cajas."]
+        },
+        {
+          "id": "ac4-bf-ps3-buccaneer-europe-map",
+          "label": "Resolver barcodes nacionales de Buccaneer Europa",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "FR", "DE", "GB", "IT", "BE", "NL", "AT", "CH"]
+        },
+        {
+          "id": "ac4-bf-ps3-black-chest-outer-barcode",
+          "label": "Localizar barcode exterior y alcance de caja Black Chest",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["GB"],
+          "notes": ["No completar barcode hasta inspeccionar la caja exterior o un SKU Uplay inequívoco."]
+        },
+        {
+          "id": "ac4-bf-ps3-russia-packaging",
+          "label": "Cerrar barcode y packaging de BLES-01883/RUS",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["RU"]
+        },
+        {
+          "id": "ac4-bf-ps3-canada-latam",
+          "label": "Resolver Canadá, LATAM y UPC alternos",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["CA", "MX", "BR", "AR", "CL", "CO", "PE"]
+        },
+        {
+          "id": "ac4-bf-ps3-legacy-promotional-identities",
+          "label": "Inspeccionar identidades legacy promocionales y NFR no reclamadas",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["US"],
+          "notes": [
+            "GameStop, Target, Walmart, Special Walmart, Steelbook y Not For Resale conservan sus fichas legacy fuera de este overlay hasta demostrar su configuración física exacta."
+          ]
+        }
+      ]
+    }
+  ]
+}

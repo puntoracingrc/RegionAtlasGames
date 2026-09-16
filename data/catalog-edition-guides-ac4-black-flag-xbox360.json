@@ -1,0 +1,477 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iv-black-flag-xbox360-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed IV: Black Flag en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Overlay data-only basado exclusivamente en el dossier Xbox 360. Separa Standard, Special, Skull, Buccaneer, Black Chest, Limited, Signature y reediciones; los territorios no demostrados conservan marketRegions vacío y una tarea de revisión.",
+      "game": {
+        "title": "Assassin's Creed IV: Black Flag",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+        "canonicalGameId": "assassins-creed-iv-black-flag",
+        "platformReleaseId": "assassins-creed-iv-black-flag-xbox360"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag",
+          "physicalEditionIds": [
+            "ac4-xbox360-standard-es-pending-barcode",
+            "ac4-xbox360-standard-eu-3307215705605",
+            "ac4-xbox360-standard-de-3307215705698",
+            "ac4-xbox360-standard-ch-3307215705704",
+            "ac4-xbox360-standard-it-3307215705711",
+            "ac4-xbox360-standard-us-008888528128",
+            "ac4-xbox360-standard-asia-4895094019795",
+            "ac4-xbox360-standard-asia-chinese-4895094019788",
+            "ac4-xbox360-standard-jp-4949244002981",
+            "ac4-xbox360-standard-kr-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-special-edition",
+          "physicalEditionIds": [
+            "ac4-xbox360-special-fr-3307215705902",
+            "ac4-xbox360-special-pal-3307215705919",
+            "ac4-xbox360-special-3307215705926",
+            "ac4-xbox360-special-au-3307215706046"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "skull",
+          "label": "Skull Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-skull-edition",
+          "physicalEditionIds": [
+            "ac4-xbox360-skull-3307215706053",
+            "ac4-xbox360-skull-3307215706084",
+            "ac4-xbox360-skull-3307215706091",
+            "ac4-xbox360-skull-3307215706107"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "buccaneer",
+          "label": "Buccaneer Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-buccaneer-edition",
+          "physicalEditionIds": ["ac4-xbox360-buccaneer-3307215706237"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "black-chest",
+          "label": "Black Chest Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-black-chest-edition",
+          "physicalEditionIds": ["ac4-xbox360-black-chest-3307215706343"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "limited",
+          "label": "Limited Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-limited-edition",
+          "physicalEditionIds": ["ac4-xbox360-limited-us-008888528111"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "signature",
+          "label": "Signature Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-signature-edition",
+          "physicalEditionIds": ["ac4-xbox360-signature-us-008888528449"],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "classics",
+          "label": "Classics",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-classics",
+          "physicalEditionIds": [
+            "ac4-xbox360-classics-es-3307215847404",
+            "ac4-xbox360-classics-fr-circulation-3307215791813",
+            "ac4-xbox360-classics-3307215791820",
+            "ac4-xbox360-classics-3307215791837"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "bestseller",
+          "label": "Bestseller / budget reprint",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iv-black-flag-bestseller",
+          "physicalEditionIds": ["ac4-xbox360-bestseller-3307215758854"],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac4-xbox360-standard-es-pending-barcode",
+          "label": "Standard · España · barcode pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag"],
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-spain-dossier"],
+          "notes": ["La existencia PAL España está confirmada; el dossier no cierra un EAN Standard español con evidencia fuerte."]
+        },
+        {
+          "id": "ac4-xbox360-standard-eu-3307215705605",
+          "label": "Standard · Europa genérica · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "barcode": "3307215705605",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-gamefaqs"],
+          "notes": ["No sustituye cajas nacionales ni demuestra un país único."]
+        },
+        {
+          "id": "ac4-xbox360-standard-de-3307215705698",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DE"],
+          "productCodes": ["300054827", "300056358"],
+          "barcode": "3307215705698",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-retroplace-de", "ac4-gameworld-de"]
+        },
+        {
+          "id": "ac4-xbox360-standard-ch-3307215705704",
+          "label": "Standard · Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["CH"],
+          "barcode": "3307215705704",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-retroplace-ch"]
+        },
+        {
+          "id": "ac4-xbox360-standard-it-3307215705711",
+          "label": "Standard · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["IT"],
+          "packagingLanguages": ["IT"],
+          "softwareLanguages": ["IT"],
+          "barcode": "3307215705711",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-gamelife-it"],
+          "notes": ["Su reventa en España no la convierte en caja española."]
+        },
+        {
+          "id": "ac4-xbox360-standard-us-008888528128",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "barcode": "008888528128",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-standard-asia-4895094019795",
+          "label": "Standard · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "productCodes": ["300-548188"],
+          "barcode": "4895094019795",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-gamefaqs"]
+        },
+        {
+          "id": "ac4-xbox360-standard-asia-chinese-4895094019788",
+          "label": "Chinese Version · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "productCodes": ["3000-5481888"],
+          "barcode": "4895094019788",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-gamefaqs"],
+          "notes": ["No se fusiona con la Standard Asia."]
+        },
+        {
+          "id": "ac4-xbox360-standard-jp-4949244002981",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "productCodes": ["JES1-00330"],
+          "barcode": "4949244002981",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-gamefaqs", "ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-standard-kr-pending",
+          "label": "Standard · Corea · barcode pendiente",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "confidence": "PENDING_IDENTIFIER",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-korea-dossier"],
+          "notes": ["Release físico confirmado en el dossier; no se reutiliza el barcode de PS3."]
+        },
+        {
+          "id": "ac4-xbox360-special-fr-3307215705902",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-special-edition"],
+          "label": "Special Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["FR"],
+          "barcode": "3307215705902",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico", "Contenido Special"],
+          "evidenceIds": ["ac4-fnac-special-fr"]
+        },
+        {
+          "id": "ac4-xbox360-special-pal-3307215705919",
+          "label": "Special Edition · PAL · territorio pendiente · 3307215705919",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "barcode": "3307215705919",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Special"],
+          "evidenceIds": ["ac4-pricecharting-skull-special"]
+        },
+        {
+          "id": "ac4-xbox360-special-3307215705926",
+          "label": "Special Edition · territorio pendiente · 3307215705926",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "barcode": "3307215705926",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Special"],
+          "evidenceIds": ["ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-special-au-3307215706046",
+          "label": "Special Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["AU"],
+          "barcode": "3307215706046",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico", "Contenido Special"],
+          "evidenceIds": ["ac4-gamefaqs"]
+        },
+        {
+          "id": "ac4-xbox360-skull-3307215706053",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-skull-edition"],
+          "label": "Skull Edition · territorio pendiente · 3307215706053",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215706053",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Skull Edition"],
+          "evidenceIds": ["ac4-pricecharting-skull-special"]
+        },
+        {
+          "id": "ac4-xbox360-skull-3307215706084",
+          "label": "Skull Edition · territorio pendiente · 3307215706084",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215706084",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Skull Edition"],
+          "evidenceIds": ["ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-skull-3307215706091",
+          "label": "Skull Edition · territorio pendiente · 3307215706091",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215706091",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Skull Edition"],
+          "evidenceIds": ["ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-skull-3307215706107",
+          "label": "Skull Edition · territorio pendiente · 3307215706107",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215706107",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Skull Edition"],
+          "evidenceIds": ["ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-buccaneer-3307215706237",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-buccaneer-edition"],
+          "label": "Buccaneer Edition · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215706237",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Buccaneer Edition"],
+          "evidenceIds": ["ac4-geedie", "ac4-gamefaqs"],
+          "notes": ["GameFAQs confirma una Buccaneer australiana, pero el dossier no prueba que este EAN sea AU."]
+        },
+        {
+          "id": "ac4-xbox360-black-chest-3307215706343",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-black-chest-edition"],
+          "label": "Black Chest Edition · Europa / UPLAY · país pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215706343",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Caja exterior Black Chest", "Contenido de coleccionista"],
+          "evidenceIds": ["ac4-geedie-black-chest"],
+          "notes": ["No se asigna a un país único ni se asume que cada país tenga caja exterior propia."]
+        },
+        {
+          "id": "ac4-xbox360-limited-us-008888528111",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-limited-edition"],
+          "label": "Limited Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": ["US"],
+          "barcode": "008888528111",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico", "Contenido Limited Edition"],
+          "evidenceIds": ["ac4-gamefaqs", "ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-signature-us-008888528449",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-signature-edition"],
+          "label": "Signature Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "boxCode": "528449-CVRB1",
+          "barcode": "008888528449",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico", "Contenido Signature Edition"],
+          "evidenceIds": ["ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-classics-es-3307215847404",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-classics"],
+          "label": "Classics · España",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["ES"],
+          "softwareLanguages": ["ES", "EN", "FR", "DE", "IT"],
+          "barcode": "3307215847404",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-retroloco-classics-es"]
+        },
+        {
+          "id": "ac4-xbox360-classics-fr-circulation-3307215791813",
+          "label": "Classics · circulación Francia · 3307215791813",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "evidenceMarkets": ["FR"],
+          "barcode": "3307215791813",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-fnac-classics-fr"],
+          "notes": ["Fnac Francia documenta el EAN, pero el packaging nacional aún debe resolverse."]
+        },
+        {
+          "id": "ac4-xbox360-classics-3307215791820",
+          "label": "Classics · territorio pendiente · 3307215791820",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "barcode": "3307215791820",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-classics-3307215791837",
+          "label": "Classics · territorio pendiente · 3307215791837",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "barcode": "3307215791837",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-geedie"]
+        },
+        {
+          "id": "ac4-xbox360-bestseller-3307215758854",
+          "catalogIds": ["xbox360-assassin-s-creed-iv-black-flag-bestseller"],
+          "label": "Bestseller · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "productCodes": ["3000-61801"],
+          "barcode": "3307215758854",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac4-retroplace-bestseller", "ac4-geedie"],
+          "notes": ["No se fusiona con Classics ni se asigna Alemania sin caja."]
+        }
+      ],
+      "evidence": [
+        {"id": "ac4-spain-dossier", "type": "UNKNOWN", "label": "Dossier local · release Standard Xbox 360 en España", "supports": ["ac4-xbox360-standard-es-pending-barcode"]},
+        {"id": "ac4-gamefaqs", "type": "UNKNOWN", "label": "GameFAQs · Black Flag Xbox 360 release data", "url": "https://gamefaqs.gamespot.com/xbox360/705969-assassins-creed-iv-black-flag/data", "supports": ["EAN/UPC Xbox 360", "Australia", "Asia", "Japón", "Limited USA"]},
+        {"id": "ac4-geedie", "type": "UNKNOWN", "label": "Geedie · Black Flag Xbox 360", "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-iv-black-flag", "supports": ["EAN europeos", "USA", "Special", "Skull", "Buccaneer", "Classics"]},
+        {"id": "ac4-geedie-black-chest", "type": "UNKNOWN", "label": "Geedie · Black Chest Edition Xbox 360", "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-iv-black-flag-9", "supports": ["ac4-xbox360-black-chest-3307215706343"]},
+        {"id": "ac4-retroplace-de", "type": "RETAILER_ASSET", "label": "Retroplace · Standard Alemania", "url": "https://www.retroplace.com/en/games/106323--assassins-creed-iv-black-flag", "supports": ["ac4-xbox360-standard-de-3307215705698"]},
+        {"id": "ac4-gameworld-de", "type": "RETAILER_ASSET", "label": "GameWorld · Standard Alemania", "url": "https://www.gameworld.de/assassin-s-creed-iv-black-flag_528936_35887", "supports": ["ac4-xbox360-standard-de-3307215705698"]},
+        {"id": "ac4-retroplace-ch", "type": "RETAILER_ASSET", "label": "Retroplace · Standard Suiza", "url": "https://www.retroplace.com/en/games/195969--assassins-creed-iv-black-flag", "supports": ["ac4-xbox360-standard-ch-3307215705704"]},
+        {"id": "ac4-gamelife-it", "type": "RETAILER_ASSET", "label": "Gamelife · Standard Italia", "url": "https://www.gamelife.it/swx31119-assassin-s-creed-4-black-flag", "supports": ["ac4-xbox360-standard-it-3307215705711"]},
+        {"id": "ac4-fnac-special-fr", "type": "RETAILER_ASSET", "label": "Fnac Francia · Special Edition", "url": "https://www.fnac.com/a6000752/Assassin-s-Creed-4-Black-Flag-Xbox-360-Edition-Speciale-Fnac-Jeu-video-Retrogaming", "supports": ["ac4-xbox360-special-fr-3307215705902"]},
+        {"id": "ac4-pricecharting-skull-special", "type": "UNKNOWN", "label": "PriceCharting · ediciones PAL Xbox 360", "url": "https://www.pricecharting.com/game/pal-xbox-360/assassin%27s-creed-iv-black-flag-skull-edition", "supports": ["Skull 3307215706053", "Special 3307215705919"]},
+        {"id": "ac4-retroloco-classics-es", "type": "RETAILER_PHOTO_CONFIRMED", "label": "RetroLoco · Classics España", "url": "https://www.retroloco.es/producto/assassins-creed-iv-black-flag-esp-classics/", "supports": ["ac4-xbox360-classics-es-3307215847404"]},
+        {"id": "ac4-fnac-classics-fr", "type": "RETAILER_ASSET", "label": "Fnac Francia · Classics citada por el dossier", "supports": ["ac4-xbox360-classics-fr-circulation-3307215791813"]},
+        {"id": "ac4-retroplace-bestseller", "type": "RETAILER_ASSET", "label": "Retroplace · variante Bestseller citada por el dossier", "supports": ["ac4-xbox360-bestseller-3307215758854"]},
+        {"id": "ac4-korea-dossier", "type": "UNKNOWN", "label": "Dossier local · release física coreana", "supports": ["ac4-xbox360-standard-kr-pending"]}
+      ],
+      "sources": [
+        {"label": "Dossier local Black Flag Xbox 360 · 2026-09-15"},
+        {"label": "GameFAQs · Xbox 360", "url": "https://gamefaqs.gamespot.com/xbox360/705969-assassins-creed-iv-black-flag/data"},
+        {"label": "Geedie · Xbox 360", "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-iv-black-flag"},
+        {"label": "Geedie · Black Chest", "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-iv-black-flag-9"},
+        {"label": "Retroplace · Alemania", "url": "https://www.retroplace.com/en/games/106323--assassins-creed-iv-black-flag"},
+        {"label": "Retroplace · Suiza", "url": "https://www.retroplace.com/en/games/195969--assassins-creed-iv-black-flag"},
+        {"label": "Gamelife · Italia", "url": "https://www.gamelife.it/swx31119-assassin-s-creed-4-black-flag"},
+        {"label": "RetroLoco · Classics España", "url": "https://www.retroloco.es/producto/assassins-creed-iv-black-flag-esp-classics/"},
+        {"label": "Fnac Francia · Special", "url": "https://www.fnac.com/a6000752/Assassin-s-Creed-4-Black-Flag-Xbox-360-Edition-Speciale-Fnac-Jeu-video-Retrogaming"}
+      ],
+      "evidenceNote": "No se realizó investigación web. Los datos proceden del dossier local; una venta en otro país se conserva como evidenceMarkets o nota y no redefine la caja.",
+      "researchTasks": [
+        {"id": "ac4-standard-es-barcode", "label": "EAN y packaging de la Standard española", "status": "PENDING_REVIEW", "marketRegions": ["ES"], "notes": ["No usar los EAN confirmados de Italia, Alemania o Suiza."]},
+        {"id": "ac4-standard-other-europe-map", "label": "Mapa de EAN Standard y reimpresiones europeas sin clasificar", "status": "PENDING_REVIEW", "marketRegions": ["ES", "FR", "DE", "IT", "GB"], "notes": ["Resolver 3307215847305, 3307215847350 y 3307216074342 sin mezclarlos con Special, Classics o Bestseller."]},
+        {"id": "ac4-special-territory-map", "label": "Mapa territorial Special", "status": "PENDING_REVIEW", "marketRegions": ["ES", "FR", "DE", "IT", "GB", "AU"], "notes": ["Mantener separados 3307215705902, 3307215705919, 3307215705926 y 3307215706046."]},
+        {"id": "ac4-skull-territory-map", "label": "Mapa territorial Skull Edition", "status": "PENDING_REVIEW", "marketRegions": ["ES", "FR", "DE", "IT", "GB", "AT", "CH", "AU"], "notes": ["No etiquetar 3307215706053 como España sólo por ventas PAL España."]},
+        {"id": "ac4-buccaneer-territory-map", "label": "Territorio de Buccaneer 3307215706237", "status": "PENDING_REVIEW", "marketRegions": ["ES", "FR", "DE", "IT", "GB", "AU"], "notes": ["La existencia australiana no identifica por sí sola este EAN."]},
+        {"id": "ac4-black-chest-outer-box-map", "label": "Alcance paneuropeo de Black Chest 3307215706343", "status": "PENDING_REVIEW", "marketRegions": ["ES", "FR", "DE", "IT", "GB"], "notes": ["Comparar caja exterior UPLAY y posible juego interior por mercado."]},
+        {"id": "ac4-classics-territory-map", "label": "Mapa territorial Classics", "status": "PENDING_REVIEW", "marketRegions": ["ES", "FR", "DE", "IT", "GB"], "notes": ["No fusionar 3307215847404, 3307215791813, 3307215791820 y 3307215791837."]},
+        {"id": "ac4-bestseller-identity", "label": "Identidad y territorio de Bestseller", "status": "PENDING_REVIEW", "marketRegions": ["DE"], "notes": ["Comprobar si 3307215758854 es Bestseller alemana u otra reedición; no mezclar con Classics."]},
+        {"id": "ac4-korea-identifiers", "label": "Barcode y product code de Corea", "status": "PENDING_REVIEW", "marketRegions": ["KR"], "notes": ["No reutilizar identificadores de PS3."]},
+        {"id": "ac4-not-for-resale-bundle", "label": "Not for Resale / bundle copy", "status": "PENDING_REVIEW", "notes": ["Sólo crear variante promocional si un scan confirma caja o marcaje; no cuenta como retail edition."]},
+        {"id": "ac4-two-disc-media-map", "label": "Media IDs y familias de los dos discos", "status": "PENDING_REVIEW", "marketRegions": ["US", "GB", "AU", "JP", "KR", "PL", "RU", "CZ", "HU"], "notes": ["Mantener familias USA/Europa multilingüe, UK/AU, PL/RU/CS/HU y JP/KR separadas hasta obtener XeMID/Media ID."]}
+      ]
+    }
+  ]
+}

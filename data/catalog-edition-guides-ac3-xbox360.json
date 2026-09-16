@@ -1,0 +1,609 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-iii-xbox360-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed III en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Normalización data-only del dossier Xbox 360. Conserva separadas las cajas, ediciones y reediciones documentadas; los territorios, identificadores y familias de disco no resueltos permanecen pendientes.",
+      "game": {
+        "title": "Assassin's Creed III",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-iii",
+        "canonicalGameId": "assassins-creed-iii",
+        "platformReleaseId": "assassins-creed-iii-xbox360"
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii",
+          "physicalEditionIds": [
+            "ac3-xbox360-standard-es-pending-barcode",
+            "ac3-xbox360-standard-fr-3307215637715",
+            "ac3-xbox360-standard-us-008888527237",
+            "ac3-xbox360-standard-jp-4949244002677",
+            "ac3-xbox360-standard-asia-3000-469468",
+            "ac3-xbox360-standard-asia-chinese-3000-4694681",
+            "ac3-xbox360-standard-kr-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "special",
+          "label": "Special Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-special-edition",
+          "physicalEditionIds": [
+            "ac3-xbox360-special-3307215643082",
+            "ac3-xbox360-special-3307215643129",
+            "ac3-xbox360-special-3307215643136"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "join-or-die",
+          "label": "Join or Die Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-join-or-die-edition",
+          "physicalEditionIds": [
+            "ac3-xbox360-join-or-die-fr-3307215637746",
+            "ac3-xbox360-join-or-die-3307215637456",
+            "ac3-xbox360-join-or-die-3307215637494"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "freedom",
+          "label": "Freedom Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-freedom-edition",
+          "physicalEditionIds": [
+            "ac3-xbox360-freedom-3307215637395",
+            "ac3-xbox360-freedom-3307215637371",
+            "ac3-xbox360-freedom-3307215637111"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "washington",
+          "label": "Washington Edition",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-washington-edition",
+          "physicalEditionIds": [
+            "ac3-xbox360-washington-fr-3307215692721",
+            "ac3-xbox360-washington-3307215692745",
+            "ac3-xbox360-washington-3307215692752",
+            "ac3-xbox360-washington-asia-4895094019443"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "classics",
+          "label": "Classics",
+          "representativeCatalogId": "xbox360-assassin-s-creed-iii-classics",
+          "physicalEditionIds": [
+            "ac3-xbox360-classics-pal-3307215714287",
+            "ac3-xbox360-classics-fr-circulation-3307215770238",
+            "ac3-xbox360-classics-pt-circulation-3307215770344",
+            "ac3-xbox360-classics-de-4012160021548",
+            "ac3-xbox360-classics-3307215770252",
+            "ac3-xbox360-classics-3307215714317",
+            "ac3-xbox360-classics-3307215714331",
+            "ac3-xbox360-classics-3307215714348"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac3-xbox360-standard-es-pending-barcode",
+          "label": "Standard · España · barcode pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "confidence": "PENDING_IDENTIFIER",
+          "catalogIds": ["xbox360-assassin-s-creed-iii"],
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-fnac-spain-dossier"],
+          "notes": ["La salida física española está confirmada, pero el dossier no cierra un EAN PAL España inequívoco."]
+        },
+        {
+          "id": "ac3-xbox360-standard-fr-3307215637715",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "productCodes": ["300049048", "300049049"],
+          "barcode": "3307215637715",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-retroplace-fr", "ac3-fnac-fr"]
+        },
+        {
+          "id": "ac3-xbox360-standard-us-008888527237",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "barcode": "008888527237",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico; composición exacta de los dos discos pendiente por región"],
+          "evidenceIds": ["ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-standard-jp-4949244002677",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "productCodes": ["JES1-00262"],
+          "barcode": "4949244002677",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-gamefaqs", "ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-standard-asia-3000-469468",
+          "label": "Standard · Asia · barcode pendiente",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "productCodes": ["3000-469468"],
+          "confidence": "PENDING_IDENTIFIER",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-gamefaqs"],
+          "notes": ["No se asignan HK, SG o TW sin caja y barcode físicos."]
+        },
+        {
+          "id": "ac3-xbox360-standard-asia-chinese-3000-4694681",
+          "label": "Chinese Version · Asia · barcode pendiente",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": [],
+          "productCodes": ["3000-4694681"],
+          "confidence": "PENDING_IDENTIFIER",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-gamefaqs"],
+          "notes": ["Se conserva separada de Standard Asia; no se reutilizan barcodes de PS3."]
+        },
+        {
+          "id": "ac3-xbox360-standard-kr-pending",
+          "label": "Standard · Corea · identificadores pendientes",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "confidence": "PENDING_IDENTIFIER",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-korea-dossier"],
+          "notes": ["Release física confirmada en el dossier; barcode, product code, packaging y Media ID pendientes."]
+        },
+        {
+          "id": "ac3-xbox360-special-3307215643082",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-special-edition"],
+          "label": "Special Edition · territorio pendiente · 3307215643082",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "barcode": "3307215643082",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Special pendiente de comprobación por caja"],
+          "evidenceIds": ["ac3-geedie"],
+          "notes": ["EAN físico documentado; territorio y packaging no resueltos."]
+        },
+        {
+          "id": "ac3-xbox360-special-3307215643129",
+          "label": "Special Edition · territorio pendiente · 3307215643129",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "barcode": "3307215643129",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Special pendiente de comprobación por caja"],
+          "evidenceIds": ["ac3-geedie"],
+          "notes": ["EAN físico documentado; territorio y packaging no resueltos."]
+        },
+        {
+          "id": "ac3-xbox360-special-3307215643136",
+          "label": "Special Edition · territorio pendiente · 3307215643136",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "barcode": "3307215643136",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Special pendiente de comprobación por caja"],
+          "evidenceIds": ["ac3-geedie", "ac3-gamefaqs"],
+          "notes": ["GameFAQs confirma Special Edition australiana, pero el dossier no demuestra qué EAN le corresponde."]
+        },
+        {
+          "id": "ac3-xbox360-join-or-die-fr-3307215637746",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-join-or-die-edition"],
+          "label": "Join or Die Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["FR"],
+          "barcode": "3307215637746",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico", "Medallón", "Cuaderno de George Washington", "Caja de coleccionista"],
+          "evidenceIds": ["ac3-fnac-join-or-die-fr"]
+        },
+        {
+          "id": "ac3-xbox360-join-or-die-3307215637456",
+          "label": "Join or Die Edition · territorio pendiente · 3307215637456",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215637456",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Join or Die"],
+          "evidenceIds": ["ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-join-or-die-3307215637494",
+          "label": "Join or Die Edition · territorio pendiente · 3307215637494",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215637494",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Contenido Join or Die"],
+          "evidenceIds": ["ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-freedom-3307215637395",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-freedom-edition"],
+          "label": "Freedom Edition · territorio pendiente · 3307215637395",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215637395",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Figura de Connor", "SteelBook", "Cuaderno de George Washington", "Litografía"],
+          "digitalContents": ["Misiones y contenido descargable incluidos según edición"],
+          "evidenceIds": ["ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-freedom-3307215637371",
+          "label": "Freedom Edition · territorio pendiente · 3307215637371",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215637371",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Figura de Connor", "SteelBook", "Cuaderno de George Washington", "Litografía"],
+          "digitalContents": ["Misiones y contenido descargable incluidos según edición"],
+          "evidenceIds": ["ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-freedom-3307215637111",
+          "label": "Freedom Edition · territorio pendiente · 3307215637111",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": [],
+          "barcode": "3307215637111",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico", "Figura de Connor", "SteelBook", "Cuaderno de George Washington", "Litografía"],
+          "digitalContents": ["Misiones y contenido descargable incluidos según edición"],
+          "evidenceIds": ["ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-washington-fr-3307215692721",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-washington-edition"],
+          "label": "Washington Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["FR"],
+          "barcode": "3307215692721",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "digitalContents": ["La tiranía del rey Washington"],
+          "evidenceIds": ["ac3-fnac-washington-fr"]
+        },
+        {
+          "id": "ac3-xbox360-washington-3307215692745",
+          "label": "Washington Edition · territorio pendiente · 3307215692745",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "productCodes": ["3000-52906"],
+          "barcode": "3307215692745",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "digitalContents": ["La tiranía del rey Washington"],
+          "evidenceIds": ["ac3-geedie", "ac3-pricecharting-washington"]
+        },
+        {
+          "id": "ac3-xbox360-washington-3307215692752",
+          "label": "Washington Edition · territorio pendiente · 3307215692752",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "productCodes": ["300052907"],
+          "barcode": "3307215692752",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "digitalContents": ["La tiranía del rey Washington"],
+          "evidenceIds": ["ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-washington-asia-4895094019443",
+          "label": "Washington Edition · Asia",
+          "broadRegion": "ASIA",
+          "editionType": "SPECIAL",
+          "marketRegions": [],
+          "productCodes": ["3000-529028"],
+          "barcode": "4895094019443",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "digitalContents": ["La tiranía del rey Washington"],
+          "evidenceIds": ["ac3-geedie"]
+        },
+        {
+          "id": "ac3-xbox360-classics-pal-3307215714287",
+          "catalogIds": ["xbox360-assassin-s-creed-iii-classics"],
+          "label": "Classics · PAL · territorio pendiente · 3307215714287",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "softwareLanguages": ["DE", "EN", "ES", "FR", "IT"],
+          "barcode": "3307215714287",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-classics-dossier"],
+          "notes": ["Los idiomas documentados no se trasladan a packagingLanguages."]
+        },
+        {
+          "id": "ac3-xbox360-classics-fr-circulation-3307215770238",
+          "label": "Classics · circulación Francia · 3307215770238",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "evidenceMarkets": ["FR"],
+          "barcode": "3307215770238",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-classics-dossier"],
+          "notes": ["La circulación francesa no basta para cerrar el mercado de la caja."]
+        },
+        {
+          "id": "ac3-xbox360-classics-pt-circulation-3307215770344",
+          "label": "Classics · circulación Portugal · caja inglesa · 3307215770344",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "evidenceMarkets": ["PT"],
+          "packagingLanguages": ["EN"],
+          "barcode": "3307215770344",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-classics-dossier"],
+          "notes": ["Venta en Fnac Portugal; no crea una caja portuguesa."]
+        },
+        {
+          "id": "ac3-xbox360-classics-de-4012160021548",
+          "label": "Classics · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["DE"],
+          "barcode": "4012160021548",
+          "confidence": "CONFIRMED",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-bol-classics-de"]
+        },
+        {
+          "id": "ac3-xbox360-classics-3307215770252",
+          "label": "Classics · territorio pendiente · 3307215770252",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "barcode": "3307215770252",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-classics-dossier"]
+        },
+        {
+          "id": "ac3-xbox360-classics-3307215714317",
+          "label": "Classics · territorio pendiente · 3307215714317",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "barcode": "3307215714317",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-classics-dossier"]
+        },
+        {
+          "id": "ac3-xbox360-classics-3307215714331",
+          "label": "Classics · territorio pendiente · 3307215714331",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "barcode": "3307215714331",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-classics-dossier"]
+        },
+        {
+          "id": "ac3-xbox360-classics-3307215714348",
+          "label": "Classics · territorio pendiente · 3307215714348",
+          "broadRegion": "EUROPE",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": [],
+          "barcode": "3307215714348",
+          "confidence": "HIGH",
+          "physicalContents": ["Juego físico"],
+          "evidenceIds": ["ac3-classics-dossier"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac3-fnac-spain-dossier",
+          "type": "UNKNOWN",
+          "label": "Dossier local · release Standard Xbox 360 en España",
+          "summary": "El dossier confirma retail oficial español, pero no aporta un EAN PAL España inequívoco.",
+          "supports": ["ac3-xbox360-standard-es-pending-barcode"]
+        },
+        {
+          "id": "ac3-retroplace-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Retroplace · Assassin's Creed III Xbox 360 Francia",
+          "url": "https://www.retroplace.com/en/games/135813--assassins-creed-iii",
+          "supports": ["ac3-xbox360-standard-fr-3307215637715"]
+        },
+        {
+          "id": "ac3-fnac-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Standard Xbox 360",
+          "url": "https://www.fnac.com/a4324372/Assassin-s-Creed-III-Jeu-video-Retrogaming",
+          "supports": ["ac3-xbox360-standard-fr-3307215637715"]
+        },
+        {
+          "id": "ac3-geedie",
+          "type": "UNKNOWN",
+          "label": "Geedie · Assassin's Creed III Xbox 360",
+          "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-iii-15",
+          "supports": ["EAN y UPC Xbox 360", "ediciones Special, Join or Die, Freedom y Washington", "referencia japonesa"]
+        },
+        {
+          "id": "ac3-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos Xbox 360 citados por el dossier",
+          "supports": ["product codes Xbox 360", "Special Australia", "Japón y Asia"]
+        },
+        {
+          "id": "ac3-korea-dossier",
+          "type": "UNKNOWN",
+          "label": "Dossier local · release física coreana",
+          "supports": ["ac3-xbox360-standard-kr-pending"]
+        },
+        {
+          "id": "ac3-fnac-join-or-die-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Join or Die Edition",
+          "url": "https://www.fnac.com/a4105723/Assassin-s-Creed-III-Edition-Join-or-Die-Jeu-video-Retrogaming",
+          "supports": ["ac3-xbox360-join-or-die-fr-3307215637746"]
+        },
+        {
+          "id": "ac3-fnac-washington-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Washington Edition",
+          "url": "https://www.fnac.com/a5279207/Assassin-s-Creed-III-La-Tyrannie-du-Roi-Washington-Jeu-video-Retrogaming",
+          "supports": ["ac3-xbox360-washington-fr-3307215692721"]
+        },
+        {
+          "id": "ac3-pricecharting-washington",
+          "type": "UNKNOWN",
+          "label": "PriceCharting · Washington Edition PAL Xbox 360",
+          "url": "https://www.pricecharting.com/game/pal-xbox-360/assassin%27s-creed-3-washington-edition",
+          "supports": ["ac3-xbox360-washington-3307215692745"]
+        },
+        {
+          "id": "ac3-mobygames-washington",
+          "type": "UNKNOWN",
+          "label": "MobyGames · Washington Edition Xbox 360 releases",
+          "url": "https://www.mobygames.com/game/223423/assassins-creed-iii-washington-edition/releases/",
+          "supports": ["release física en Chequia y Eslovaquia; EAN pendiente"]
+        },
+        {
+          "id": "ac3-bol-classics-de",
+          "type": "RETAILER_ASSET",
+          "label": "Bol · Classics alemana",
+          "url": "https://www.bol.com/nl/nl/p/assassin-s-creed-iii-classics-duits-gebruikt/9300000095354543/",
+          "supports": ["ac3-xbox360-classics-de-4012160021548"]
+        },
+        {
+          "id": "ac3-classics-dossier",
+          "type": "UNKNOWN",
+          "label": "Dossier local · mapa multi-EAN de Classics",
+          "supports": ["ocho EAN Xbox 360 Classics", "circulación Francia y Portugal", "idiomas de software separados del packaging"]
+        }
+      ],
+      "sources": [
+        {"label": "Dossier local ACIII Xbox 360 · 2026-09-15"},
+        {"label": "Geedie · ACIII Xbox 360", "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-iii-15"},
+        {"label": "Retroplace · Standard Francia", "url": "https://www.retroplace.com/en/games/135813--assassins-creed-iii"},
+        {"label": "Fnac Francia · Standard", "url": "https://www.fnac.com/a4324372/Assassin-s-Creed-III-Jeu-video-Retrogaming"},
+        {"label": "Fnac Francia · Join or Die", "url": "https://www.fnac.com/a4105723/Assassin-s-Creed-III-Edition-Join-or-Die-Jeu-video-Retrogaming"},
+        {"label": "Fnac Francia · Washington", "url": "https://www.fnac.com/a5279207/Assassin-s-Creed-III-La-Tyrannie-du-Roi-Washington-Jeu-video-Retrogaming"},
+        {"label": "PriceCharting · Washington", "url": "https://www.pricecharting.com/game/pal-xbox-360/assassin%27s-creed-3-washington-edition"},
+        {"label": "MobyGames · Washington releases", "url": "https://www.mobygames.com/game/223423/assassins-creed-iii-washington-edition/releases/"}
+      ],
+      "evidenceNote": "Sólo se transcribe la evidencia contenida en el dossier local. Los EAN sin país se conservan como cajas físicas documentadas con marketRegions vacío; no se han consultado fuentes nuevas.",
+      "researchTasks": [
+        {
+          "id": "ac3-standard-es-barcode",
+          "label": "EAN, packaging y códigos de la Standard española",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES"],
+          "notes": ["No asignar 3307215637715: el dossier lo vincula a Francia."]
+        },
+        {
+          "id": "ac3-standard-de-original",
+          "label": "Standard original alemana frente a Classics",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["DE"],
+          "notes": ["4012160021548 pertenece a Classics; comprobar si 3307215634905 u otro EAN corresponde a la Standard original."]
+        },
+        {
+          "id": "ac3-na-alternate-008888527374",
+          "label": "Identidad del UPC norteamericano alternativo 008888527374",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US", "CA"],
+          "notes": ["No decidir si es Canadá bilingüe, Signature, GameStop, retailer o reimpresión sin packaging."]
+        },
+        {
+          "id": "ac3-asia-korea-identifiers",
+          "label": "Barcodes y packaging de Asia y Corea",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["KR", "HK", "TW", "SG"],
+          "notes": ["No copiar los EAN de PS3 citados como contaminación en el dossier."]
+        },
+        {
+          "id": "ac3-special-territory-map",
+          "label": "Mapa territorial de los tres EAN Special",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "FR", "DE", "GB", "AU"],
+          "notes": ["Resolver 3307215643082, 3307215643129 y 3307215643136 por caja; no inferir cuál es Australia."]
+        },
+        {
+          "id": "ac3-join-or-die-territory-map",
+          "label": "Mapa territorial Join or Die y EAN español",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "FR", "DE", "GB"],
+          "notes": ["Mapear 3307215637456 y 3307215637494; no reutilizar el EAN de la edición PS3 citado en el dossier."]
+        },
+        {
+          "id": "ac3-freedom-territory-map",
+          "label": "Mapa territorial Freedom Edition",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "FR", "DE", "GB", "AT", "CH"],
+          "notes": ["Mantener separados 3307215637395, 3307215637371 y 3307215637111 hasta comparar cajas."]
+        },
+        {
+          "id": "ac3-washington-territory-map",
+          "label": "Mapa territorial Washington Edition",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["CZ", "SK", "FR"],
+          "notes": ["Resolver 3307215692745 y 3307215692752; no fusionarlos con Francia ni Asia."]
+        },
+        {
+          "id": "ac3-classics-territory-map",
+          "label": "Mapa de cajas nacionales Classics",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "PT", "FR", "DE", "GB", "IT"],
+          "notes": ["No crear una única Classics Europe ni convertir circulación retail en identidad nacional."]
+        },
+        {
+          "id": "ac3-na-retailer-editions",
+          "label": "GameStop, Signature y Limited norteamericanas",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US", "CA"],
+          "notes": ["Exigir UPC, sticker o box code que demuestre una caja distinta y no sólo un código promocional."]
+        },
+        {
+          "id": "ac3-two-disc-media-map",
+          "label": "Media IDs y composición de los dos discos por región",
+          "status": "PENDING_REVIEW",
+          "notes": ["Registrar ambos medios cuando haya evidencia; nunca modelar el disco 2 como una edición DLC."]
+        }
+      ]
+    }
+  ]
+}

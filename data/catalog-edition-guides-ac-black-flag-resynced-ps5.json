@@ -1,0 +1,748 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-black-flag-resynced-ps5-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed Black Flag Resynced en PlayStation 5",
+      "reviewedAt": "2026-09-15",
+      "note": "Una única obra canónica PS5 con tres familias físicas oficiales: Standard, Launch y Collector's Edition. Deluxe es digital-only; SteelBooks promocionales, packs Xtralife y bundles de consola no incrementan el contador de ediciones físicas.",
+      "game": {
+        "title": "Assassin's Creed Black Flag Resynced",
+        "platformSlug": "ps5",
+        "canonicalCatalogId": "ps5-assassin-s-creed-black-flag-resynced-standard-edition",
+        "canonicalGameId": "assassins-creed-black-flag-resynced",
+        "platformReleaseId": "assassins-creed-black-flag-resynced-ps5",
+        "aliases": [
+          "Assassin's Creed IV: Black Flag Resynced",
+          "Assassin's Creed IV Black Flag Resynced",
+          "Assassin's Creed Black Flag RE: Sync"
+        ]
+      },
+      "editionFamilies": [
+        {
+          "id": "standard",
+          "label": "Standard Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-black-flag-resynced-standard-edition",
+          "physicalEditionIds": [
+            "ac-black-flag-resynced-ps5-standard-au-nz",
+            "ac-black-flag-resynced-ps5-standard-de",
+            "ac-black-flag-resynced-ps5-standard-benelux",
+            "ac-black-flag-resynced-ps5-standard-fr",
+            "ac-black-flag-resynced-ps5-standard-dfi",
+            "ac-black-flag-resynced-ps5-standard-it",
+            "ac-black-flag-resynced-ps5-standard-pl-cz-cee",
+            "ac-black-flag-resynced-ps5-standard-es",
+            "ac-black-flag-resynced-ps5-standard-gb-a",
+            "ac-black-flag-resynced-ps5-standard-en-eu-b",
+            "ac-black-flag-resynced-ps5-standard-us",
+            "ac-black-flag-resynced-ps5-standard-jp"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete", "gameManual", "loose"]
+        },
+        {
+          "id": "launch",
+          "label": "Launch Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-black-flag-resynced-launch-edition",
+          "physicalEditionIds": [
+            "ac-black-flag-resynced-ps5-launch-fr",
+            "ac-black-flag-resynced-ps5-launch-dfi",
+            "ac-black-flag-resynced-ps5-launch-it",
+            "ac-black-flag-resynced-ps5-launch-cz-sk-cee",
+            "ac-black-flag-resynced-ps5-launch-pt",
+            "ac-black-flag-resynced-ps5-launch-candidate-a",
+            "ac-black-flag-resynced-ps5-launch-candidate-b",
+            "ac-black-flag-resynced-ps5-launch-es-game",
+            "ac-black-flag-resynced-ps5-launch-us-walmart",
+            "ac-black-flag-resynced-ps5-launch-ca-pending",
+            "ac-black-flag-resynced-ps5-launch-au-nz-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        },
+        {
+          "id": "collectors",
+          "label": "Collector's Edition",
+          "representativeCatalogId": "ps5-assassin-s-creed-black-flag-resynced-collector-s-edition",
+          "physicalEditionIds": [
+            "ac-black-flag-resynced-ps5-collectors-eu-shared",
+            "ac-black-flag-resynced-ps5-collectors-es-pending",
+            "ac-black-flag-resynced-ps5-collectors-us",
+            "ac-black-flag-resynced-ps5-collectors-ca-pending",
+            "ac-black-flag-resynced-ps5-collectors-au-nz-pending",
+            "ac-black-flag-resynced-ps5-collectors-mx-pending"
+          ],
+          "priceConditions": ["sealed", "newRetail", "complete"]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-au-nz",
+          "label": "Standard · circulación Australia / Nueva Zelanda",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "evidenceMarkets": ["AU", "NZ"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308812",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-au-nz-retail"],
+          "notes": ["Una sola variante mientras no aparezcan cajas físicas distintas; packaging pendiente de scan."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-de",
+          "label": "Standard · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["DE"],
+          "ratingSystems": ["USK 16"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308829",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-gamefaqs"],
+          "notes": ["USK identifica la variante alemana; idiomas exactos de caja pendientes."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-benelux",
+          "label": "Standard · Benelux FR/NL",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "evidenceMarkets": ["BE", "NL", "LU"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308836",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-mediamarkt-nl", "resynced-fnac-be"],
+          "notes": ["FR/NL es la etiqueta retail; packagingLanguages queda pendiente de scan físico."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-fr",
+          "label": "Standard · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["FR"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308843",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-innelec-fr"],
+          "notes": ["Variante VF documentada por distribuidor; packaging exacto pendiente."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-dfi",
+          "label": "Standard · D/F/I",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "packagingLanguages": ["de", "fr", "it"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308850",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["resynced-cede-dfi"],
+          "notes": ["No se reclasifica como Launch por nomenclatura de retailer.", "La posible relación de caja interior con Launch 3307216309598 sigue pendiente de scan."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-it",
+          "label": "Standard · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["IT"],
+          "packagingLanguages": ["it"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308867",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["resynced-gamelife-it"],
+          "notes": ["Packaging italiano basado en descripción retail; pendiente de scan propio."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-pl-cz-cee",
+          "label": "Standard · circulación Polonia / Chequia / CEE",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "evidenceMarkets": ["PL", "CZ"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308874",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-gamefinity-pl"],
+          "notes": ["El SteelBook polaco de reserva es un bonus sin juego y no otra edición física."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-es",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308881",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps5-assassin-s-creed-black-flag-resynced-standard-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-fnac-es", "resynced-carrefour-es", "resynced-local-catalog"],
+          "notes": ["Reutiliza la ficha española existente. No hay scan propio documentado en el dossier para afirmar packaging español."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-gb-a",
+          "label": "Standard · Reino Unido / English retail A",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["GB"],
+          "evidenceMarkets": ["GB"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308898",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-playpixels-gb"],
+          "notes": ["No se fusiona con 3307216308904 sin comparación física."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-en-eu-b",
+          "label": "Standard · English / EU alternate B",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216308904",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["resynced-wog-en-eu"],
+          "notes": ["Territorio y packaging exactos pendientes; no se etiqueta definitivamente como UK ni se fusiona con 3307216308898."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-us",
+          "label": "Standard · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "evidenceMarkets": ["US"],
+          "ratingSystems": ["ESRB M"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "887256117177",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["ps5-usa-assassin-s-creed-black-flag-resynced"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-gamestop-us-standard", "resynced-local-catalog"],
+          "notes": ["La circulación de importación no crea por sí sola una caja CA, MX o LATAM."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "packagingLanguages": ["ja"],
+          "ratingSystems": ["CERO Z"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "4949244013697",
+          "catalogNumber": "ELJM-30874",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-gamefaqs", "resynced-hobbysearch-jp"]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-fr",
+          "label": "Launch Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["FR"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216309581",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-fnac-fr-launch", "resynced-ubisoft-official"]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-dfi",
+          "label": "Launch Edition · D/F/I",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "packagingLanguages": ["de", "fr", "it"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216309598",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-wog-dfi-launch", "resynced-ubisoft-official"],
+          "notes": ["Outer Launch confirmado. No se declara que contenga la caja Standard 3307216308850 hasta ver el interior."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-it",
+          "label": "Launch Edition · Italia",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["IT"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216309604",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-gamelife-it-launch", "resynced-ubisoft-official"]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-cz-sk-cee",
+          "label": "Launch Edition · Chequia / Eslovaquia / CEE",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["CZ", "SK"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216309611",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-datart-cz-launch", "resynced-ubisoft-official"]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-pt",
+          "label": "Launch Edition · Portugal",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["PT"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216309628",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-fnac-pt-launch", "resynced-ubisoft-official"]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-candidate-a",
+          "label": "Launch Edition · English candidate A",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216309635",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "confidence": "HIGH",
+          "evidenceIds": ["resynced-audit-dossier"],
+          "notes": ["Territorio, canal y packaging provisionales; no se fusiona con 3307216309642."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-candidate-b",
+          "label": "Launch Edition · UK/PAL candidate B",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216309642",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "confidence": "HIGH",
+          "evidenceIds": ["resynced-audit-dossier"],
+          "notes": ["Territorio, canal y packaging provisionales; no se fusiona con 3307216309635."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-es-game",
+          "label": "Launch Edition · España · exclusiva GAME",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["ES"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "catalogNumber": "GAME-260679",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "catalogIds": ["ps5-assassin-s-creed-black-flag-resynced-launch-edition"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["resynced-game-es-launch", "resynced-local-catalog", "resynced-ubisoft-official"],
+          "notes": ["Barcode exterior pendiente; no se inventa a partir de la secuencia europea."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-us-walmart",
+          "label": "Launch Edition · Estados Unidos · Walmart",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB M"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "887256117191",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Disco del juego", "Libro de arte de 34 páginas", "Póster/mapa", "Blackbeard's Crimson Pack"],
+          "catalogIds": ["ps5-usa-assassin-s-creed-black-flag-resynced-launch-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-walmart-us-launch", "resynced-local-catalog", "resynced-ubisoft-official"]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-ca-pending",
+          "label": "Launch Edition · Canadá · identificador pendiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["CA"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico", "Contenido Launch"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["resynced-audit-dossier"],
+          "notes": ["Release física documentada; no hereda 887256117191 por proximidad regional."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-launch-au-nz-pending",
+          "label": "Launch Edition · Australia / Nueva Zelanda · identificador pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "SPECIAL",
+          "evidenceMarkets": ["AU", "NZ"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Juego físico", "Contenido Launch"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["resynced-audit-dossier"],
+          "notes": ["Release física retail documentada; EAN exterior pendiente y no derivado por secuencia."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-collectors-eu-shared",
+          "label": "Collector's Edition · Europa compartida",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "evidenceMarkets": ["FR", "GB", "PL", "CH"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "3307216309178",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Copia física del juego", "Figura de Edward Kenway", "Logbook", "Broche metálico", "SteelBook", "Mapa de tela", "Partitura de sea shanty"],
+          "digitalContents": ["Contenido Deluxe", "Blackbeard's Crimson Pack", "Master Assassin Character Pack", "Master Assassin Naval Pack"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-fnac-fr-collector", "resynced-ubisoft-official"],
+          "notes": ["Un solo SKU mientras EAN y outer box coincidan; España no se incorpora sin barcode o caja física."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-collectors-es-pending",
+          "label": "Collector's Edition · España · identidad física pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["ES"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Copia física del juego", "Contenido Collector"],
+          "catalogIds": ["ps5-assassin-s-creed-black-flag-resynced-collector-s-edition"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["resynced-local-catalog", "resynced-ubisoft-official"],
+          "notes": ["La ficha legacy se preserva separada. No se añade ES al EAN paneuropeo 3307216309178 sin prueba de barcode/caja."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-collectors-us",
+          "label": "Collector's Edition · Estados Unidos",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "ratingSystems": ["ESRB M"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "barcode": "887256117207",
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Copia física del juego", "Figura de Edward Kenway", "Logbook", "Broche metálico", "SteelBook", "Mapa de tela", "Partitura de sea shanty"],
+          "digitalContents": ["Contenido Deluxe", "Blackbeard's Crimson Pack", "Master Assassin Character Pack", "Master Assassin Naval Pack"],
+          "catalogIds": ["ps5-usa-assassin-s-creed-black-flag-resynced-collector-s-edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["resynced-gamestop-us-collector", "resynced-local-catalog", "resynced-ubisoft-official"],
+          "notes": ["No se fusiona con la Collector paneuropea."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-collectors-ca-pending",
+          "label": "Collector's Edition · Canadá · identificador pendiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["CA"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Copia física del juego", "Contenido Collector"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["resynced-ubisoft-official", "resynced-audit-dossier"],
+          "notes": ["No hereda el UPC estadounidense sin scan o ficha física inequívoca."]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-collectors-au-nz-pending",
+          "label": "Collector's Edition · Australia / Nueva Zelanda · identificador pendiente",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "evidenceMarkets": ["AU", "NZ"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Copia física del juego", "Contenido Collector"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["resynced-ubisoft-official", "resynced-audit-dossier"]
+        },
+        {
+          "id": "ac-black-flag-resynced-ps5-collectors-mx-pending",
+          "label": "Collector's Edition · México · identificador pendiente",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["MX"],
+          "softwareFamilyCodes": ["PPSA-28183"],
+          "releaseDate": "2026-07-09",
+          "physicalContents": ["Copia física del juego", "Contenido Collector"],
+          "confidence": "PENDING_IDENTIFIER",
+          "evidenceIds": ["resynced-ubisoft-official", "resynced-audit-dossier"],
+          "notes": ["No se reutiliza el UPC estadounidense."]
+        }
+      ],
+      "physicalBonusItems": [
+        {
+          "id": "ac-black-flag-resynced-ps5-polish-preorder-steelbook",
+          "label": "SteelBook promocional de reserva · Polonia",
+          "relatedGameId": "assassins-creed-black-flag-resynced",
+          "type": "STEELBOOK_CASE",
+          "retailer": "Gamefinity",
+          "market": "PL",
+          "includesGame": false,
+          "evidenceIds": ["resynced-gamefinity-pl"],
+          "notes": ["PREORDER_BONUS asociado al Standard 3307216308874; no es PhysicalEdition."]
+        }
+      ],
+      "relatedReleases": [],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "resynced-audit-dossier",
+          "type": "UNKNOWN",
+          "label": "Dossier local · Black Flag Resynced PS5 worldwide",
+          "summary": "Orden cerrada de normalización territorial, ediciones, bonuses, bundles y pendientes.",
+          "supports": ["alcance mundial PS5", "pares de EAN separados", "pendientes sin identificador", "exclusiones de conteo"]
+        },
+        {
+          "id": "resynced-ubisoft-official",
+          "type": "PUBLISHER_DOCUMENTATION",
+          "label": "Ubisoft · ediciones y contenido oficial",
+          "url": "https://www.ubisoft.com/es-es/game/assassins-creed/news/3pdOduSqqhRaxjaGYP4QP7/assassins-creed-black-flag-resynced-llega-el-9-de-julio-todo-lo-que-necesitas-saber",
+          "supports": ["fecha 2026-07-09", "Standard física", "Launch física", "Collector física", "Deluxe digital-only", "contenido oficial"]
+        },
+        {
+          "id": "resynced-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · datos de lanzamiento PS5",
+          "url": "https://gamefaqs.gamespot.com/ps5/628236-assassins-creed-black-flag-resynced/data",
+          "supports": ["EAN UPC JAN", "PPSA-28183", "ELJM-30874", "mercados de lanzamiento"]
+        },
+        {
+          "id": "resynced-au-nz-retail",
+          "type": "RETAILER_ASSET",
+          "label": "Joyce Mayne / The Warehouse · Standard AU/NZ",
+          "url": "https://www.joycemayne.com.au/assassin-s-creed-black-flag-resynced-ps5.html",
+          "supports": ["EAN 3307216308812", "circulación AU/NZ"]
+        },
+        {
+          "id": "resynced-mediamarkt-nl",
+          "type": "RETAILER_ASSET",
+          "label": "MediaMarkt Países Bajos · Standard",
+          "url": "https://www.mediamarkt.nl/nl/product/_assassins-creed-black-flag-resynced-ps5-1903588.html",
+          "supports": ["EAN 3307216308836", "circulación NL"]
+        },
+        {
+          "id": "resynced-fnac-be",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Bélgica · Standard FR/NL",
+          "url": "https://www.fr.fnac.be/a23005592/Assassins-Creed-Black-Flag-Resynced-PS5-FR-NL-Jeu-video-Playstation-5",
+          "supports": ["EAN 3307216308836", "circulación BE", "etiqueta FR/NL"]
+        },
+        {
+          "id": "resynced-innelec-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Innelec · Standard VF",
+          "url": "https://www.innelec.com/en_GB/product/78909000012-assassin-s-black-flag-resynced-std-ed-p5-vf",
+          "supports": ["EAN 3307216308843", "variante Francia"]
+        },
+        {
+          "id": "resynced-cede-dfi",
+          "type": "RETAILER_ASSET",
+          "label": "CeDe · Standard D/F/I",
+          "url": "https://www.cede.ch/en/games/assassin-s-creed-black-flag-resynced-19332765",
+          "supports": ["EAN 3307216308850", "packaging DE/FR/IT", "nomenclatura retail ambigua"]
+        },
+        {
+          "id": "resynced-gamelife-it",
+          "type": "RETAILER_ASSET",
+          "label": "Gamelife Italia · Standard",
+          "url": "https://www.gamelife.it/en/swp52056-assassin-s-creed-black-flag-resynced",
+          "supports": ["EAN 3307216308867", "retail Italia", "packaging italiano declarado"]
+        },
+        {
+          "id": "resynced-gamefinity-pl",
+          "type": "RETAILER_ASSET",
+          "label": "Gamefinity Polonia · Standard y SteelBook bonus",
+          "url": "https://gamefinity.pl/produkt/assassins-creed-black-flag-resynced-ps5",
+          "supports": ["EAN 3307216308874", "circulación PL/CZ", "SteelBook preorder sin juego"]
+        },
+        {
+          "id": "resynced-fnac-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Standard",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Black-Flag-Resynced-PS5-Videojuego-PS5/a13086278",
+          "supports": ["EAN 3307216308881", "mercado España"]
+        },
+        {
+          "id": "resynced-carrefour-es",
+          "type": "RETAILER_ASSET",
+          "label": "Carrefour España · Standard",
+          "url": "https://www.carrefour.es/assassins-creed-black-flag-resynced-para-ps5/VC4A-33577059/p",
+          "supports": ["EAN 3307216308881", "mercado España"]
+        },
+        {
+          "id": "resynced-playpixels-gb",
+          "type": "RETAILER_ASSET",
+          "label": "PlayPixels · Standard UK",
+          "url": "https://www.playpixels.co.uk/products/assassins-creed-black-flag-resynced-playstation-5",
+          "supports": ["EAN 3307216308898", "retail GB"]
+        },
+        {
+          "id": "resynced-wog-en-eu",
+          "type": "RETAILER_ASSET",
+          "label": "World of Games · Standard English alternate",
+          "url": "https://www.wog.ch/en/index.cfm/details/product/253652-Assassins-Creed-Black-Flag-Resynced",
+          "supports": ["EAN 3307216308904", "SKU separado de 3307216308898"]
+        },
+        {
+          "id": "resynced-gamestop-us-standard",
+          "type": "RETAILER_ASSET",
+          "label": "GameStop USA · Standard",
+          "url": "https://www.gamestop.com/video-games/playstation-5/products/assassins-creed-black-flag-resynced----playstation-5/445519.html",
+          "supports": ["UPC 887256117177", "mercado USA"]
+        },
+        {
+          "id": "resynced-hobbysearch-jp",
+          "type": "RETAILER_ASSET",
+          "label": "HobbySearch Japón · Standard",
+          "url": "https://www.1999.co.jp/eng/11379749",
+          "supports": ["JAN 4949244013697", "ELJM-30874", "packaging japonés", "CERO Z"]
+        },
+        {
+          "id": "resynced-fnac-fr-launch",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Launch Edition",
+          "url": "https://www.fnac.com/a15941806/Assassin-s-Creed-Black-Flag-Resynced-PS5-Jeu-video-Playstation-5?CtoPid=197596",
+          "supports": ["EAN 3307216309581", "Launch Francia"]
+        },
+        {
+          "id": "resynced-wog-dfi-launch",
+          "type": "RETAILER_ASSET",
+          "label": "World of Games · Launch D/F/I",
+          "url": "https://www.wog.ch/en/index.cfm/details/product/247047-Assassins-Creed-Black-Flag-Resynced-Launch-Edition",
+          "supports": ["EAN 3307216309598", "packaging DE/FR/IT", "outer Launch"]
+        },
+        {
+          "id": "resynced-gamelife-it-launch",
+          "type": "RETAILER_ASSET",
+          "label": "Gamelife Italia · Launch Edition",
+          "url": "https://www.gamelife.it/swp51995-assassin-s-creed-iv-black-flag-resynced-launch-edition",
+          "supports": ["EAN 3307216309604", "Launch Italia"]
+        },
+        {
+          "id": "resynced-datart-cz-launch",
+          "type": "RETAILER_ASSET",
+          "label": "DATART · Launch Edition CEE",
+          "url": "https://www.datart.cz/hra-ubisoft-playstation-5-assassin-s-creed-black-flag-resynced-launch-edition-3307216309611",
+          "supports": ["EAN 3307216309611", "circulación CZ/SK/CEE"]
+        },
+        {
+          "id": "resynced-fnac-pt-launch",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Portugal · Launch Edition",
+          "url": "https://www.fnac.pt/Assassin-s-Creed-Black-Flag-Resynced-Launch-Edition-PS5-Videojogo-PlayStation-5/a14213371",
+          "supports": ["EAN 3307216309628", "Launch Portugal"]
+        },
+        {
+          "id": "resynced-game-es-launch",
+          "type": "RETAILER_ASSET",
+          "label": "GAME España · Launch Edition exclusiva",
+          "url": "https://www.game.es/assassins-creed-black-flag-resynced-launch-edition-playstation-5-260679",
+          "supports": ["producto GAME 260679", "Launch física España", "barcode pendiente"]
+        },
+        {
+          "id": "resynced-walmart-us-launch",
+          "type": "RETAILER_ASSET",
+          "label": "Walmart USA · Launch Edition",
+          "url": "https://www.walmart.com/ip/20076821711",
+          "supports": ["UPC 887256117191", "Launch Walmart USA"]
+        },
+        {
+          "id": "resynced-fnac-fr-collector",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Collector's Edition",
+          "url": "https://www.fnac.com/a23004421/Assassin-s-Creed-Black-Flag-Resynced-Collector-Edition-PS5-Jeu-video-Playstation-5",
+          "supports": ["EAN 3307216309178", "Collector Europa compartida"]
+        },
+        {
+          "id": "resynced-gamestop-us-collector",
+          "type": "RETAILER_ASSET",
+          "label": "GameStop USA · Collector's Edition",
+          "url": "https://www.gamestop.com/video-games/playstation-5/products/assassins-creed-black-flag-resynced-collectors-edition---playstation-5/445513.html",
+          "supports": ["UPC 887256117207", "Collector USA", "copia física"]
+        },
+        {
+          "id": "resynced-local-catalog",
+          "type": "UNKNOWN",
+          "label": "Fichas legacy de RegionAtlas",
+          "summary": "Las seis fichas PS5 existentes se conservan sin modificar: IDs, slugs, rutas, portadas, PriceCharting, precios, rareza y provenance.",
+          "supports": ["preservación de catálogo español", "preservación de catálogo USA", "preservación de rutas y activos"]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac_black_flag_resynced_ps5_worldwide_variants.md"},
+        {"label": "Ubisoft oficial", "url": "https://www.ubisoft.com/es-es/game/assassins-creed/news/3pdOduSqqhRaxjaGYP4QP7/assassins-creed-black-flag-resynced-llega-el-9-de-julio-todo-lo-que-necesitas-saber"},
+        {"label": "GameFAQs PS5", "url": "https://gamefaqs.gamespot.com/ps5/628236-assassins-creed-black-flag-resynced/data"},
+        {"label": "Retailers territoriales enumerados en evidence"},
+        {"label": "Catálogo local RegionAtlas"}
+      ],
+      "evidenceNote": "Los EAN/UPC/JAN identifican variantes físicas; PPSA-28183 se conserva sólo como familia de software. Los pares 3307216308898/3307216308904, 3307216309635/3307216309642 y la posible relación inner/outer 3307216308850/3307216309598 permanecen separados o pendientes. Packaging no se deriva de idiomas de software ni del país del retailer.",
+      "researchTasks": [
+        {
+          "id": "resynced-ps5-standard-gb-vs-en-eu",
+          "label": "Standard 3307216308898 vs 3307216308904",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["GB"],
+          "notes": ["Comparar frontal, reverso, spine, PEGI, distribuidor y texto legal; no fusionar antes."]
+        },
+        {
+          "id": "resynced-ps5-launch-candidates-a-b",
+          "label": "Launch 3307216309635 vs 3307216309642",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["GB"],
+          "notes": ["Resolver UK/English-EU, packaging, canal o relación inner/outer; no fusionar antes."]
+        },
+        {
+          "id": "resynced-ps5-standard-launch-inner-outer",
+          "label": "Standard 3307216308850 vs Launch 3307216309598",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["CH"],
+          "notes": ["Comprobar si 8850 es la caja interior de la Launch outer 9598. No se declara relación sin scan."]
+        },
+        {
+          "id": "resynced-ps5-launch-es-barcode",
+          "label": "Launch España GAME 260679 · barcode exterior",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES"],
+          "notes": ["Obtener barcode del outer físico; no inferir por secuencia."]
+        },
+        {
+          "id": "resynced-ps5-collector-es-eu-shared",
+          "label": "Collector España vs EAN paneuropeo",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES"],
+          "notes": ["Sólo añadir ES al EAN 3307216309178 si barcode o caja física lo demuestran."]
+        },
+        {
+          "id": "resynced-ps5-asia-hk-standard",
+          "label": "Standard Asia / Hong Kong · identidad física",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["HK"],
+          "notes": ["Buscar barcode, rating y packaging. No reutilizar JP, US ni EU; idiomas de software no prueban caja."]
+        },
+        {
+          "id": "resynced-ps5-collector-jp-asia",
+          "label": "Collector Japón / Asia",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": ["JP", "HK"],
+          "notes": ["No crear variante sin retailer oficial, barcode, foto física o product code."]
+        }
+      ]
+    }
+  ]
+}

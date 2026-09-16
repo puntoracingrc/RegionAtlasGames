@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-brotherhood-revelations-double-pack-ps3",
+      "title": "Ediciones físicas de Assassin’s Creed Brotherhood + Revelations Double Pack en PlayStation 3",
+      "reviewedAt": "2026-09-15",
+      "note": "Compilación física de Brotherhood y Revelations. Mantiene una identidad propia, separada de Ezio Trilogy y del medio incluido en Anthology.",
+      "game": {
+        "title": "Assassin’s Creed Brotherhood + Assassin’s Creed Revelations",
+        "platformSlug": "ps3",
+        "canonicalCatalogId": "ps3-assassin%27s-creed-brotherhood-&#43;-assassin%27s-creed-revelations"
+      },
+      "editionFamilies": [
+        {
+          "id": "brotherhood-revelations-double-pack",
+          "label": "Brotherhood + Revelations Double Pack",
+          "representativeCatalogId": "ps3-assassin%27s-creed-brotherhood-&#43;-assassin%27s-creed-revelations",
+          "physicalEditionIds": [
+            "assassins-creed-brotherhood-revelations-ps3-europe-generic",
+            "assassins-creed-brotherhood-revelations-ps3-nordic",
+            "assassins-creed-brotherhood-revelations-ps3-netherlands-candidate"
+          ],
+          "priceConditions": [
+            "sealed",
+            "newRetail",
+            "complete",
+            "gameManual",
+            "loose"
+          ]
+        }
+      ],
+      "physicalEditions": [
+        {
+          "id": "assassins-creed-brotherhood-revelations-ps3-europe-generic",
+          "label": "Double Pack Brotherhood + Revelations · Europa genérica",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [
+            "EN",
+            "FR",
+            "DE",
+            "ES",
+            "IT",
+            "NL",
+            "PT",
+            "SV",
+            "NO",
+            "DA"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215689165",
+          "serial": "BLES-01772",
+          "releaseDate": "2013-01-18",
+          "releaseDateContext": "Fecha publicada por Play-Asia para la versión europea",
+          "physicalContents": [
+            "Medio combinado propio con Assassin’s Creed Brotherhood y Assassin’s Creed Revelations"
+          ],
+          "digitalContents": [],
+          "catalogIds": [
+            "ps3-assassin%27s-creed-brotherhood-&#43;-assassin%27s-creed-revelations"
+          ],
+          "evidenceIds": [
+            "ac-br-double-pack-play-asia-europe",
+            "ac-br-double-pack-redump-bles-01772"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-brotherhood",
+            "ps3-assassin%27s-creed-revelations"
+          ],
+          "notes": [
+            "Territorio nacional y packagingLanguages pendientes de scan; Europa genérica no se convierte en una lista de países por inferencia."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-revelations-ps3-nordic",
+          "label": "Double Pack Brotherhood + Revelations · Nordic",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": [
+            "DK",
+            "FI",
+            "NO",
+            "SE"
+          ],
+          "evidenceMarkets": [
+            "DK",
+            "FI",
+            "NO",
+            "SE"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [
+            "EN",
+            "FR",
+            "DE",
+            "ES",
+            "IT",
+            "NL",
+            "PT",
+            "SV",
+            "NO",
+            "DA"
+          ],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [
+            "PEGI"
+          ],
+          "barcode": "3307215689202",
+          "serial": "BLES-01772",
+          "physicalContents": [
+            "Medio combinado propio con Assassin’s Creed Brotherhood y Assassin’s Creed Revelations"
+          ],
+          "digitalContents": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-br-double-pack-vgcollect-nordic",
+            "ac-br-double-pack-redump-bles-01772"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-brotherhood",
+            "ps3-assassin%27s-creed-revelations"
+          ],
+          "notes": [
+            "VGCollect identifica explícitamente DK/FI/NO/SE; packagingLanguages permanece vacío hasta leer la caja."
+          ]
+        },
+        {
+          "id": "assassins-creed-brotherhood-revelations-ps3-netherlands-candidate",
+          "label": "Double Pack Brotherhood + Revelations · retail neerlandés",
+          "broadRegion": "EUROPE",
+          "editionType": "COMPILATION",
+          "marketRegions": [],
+          "evidenceMarkets": [
+            "NL"
+          ],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "componentLanguageEvidence": [],
+          "ratingSystems": [],
+          "barcode": "3307215689219",
+          "confidence": "PENDING_IDENTIFIER",
+          "physicalContents": [
+            "Compilación física con Assassin’s Creed Brotherhood y Assassin’s Creed Revelations"
+          ],
+          "digitalContents": [],
+          "catalogIds": [],
+          "evidenceIds": [
+            "ac-br-double-pack-reway-netherlands",
+            "ac-br-double-pack-yellowbello-netherlands"
+          ],
+          "imageKeys": [],
+          "containsCatalogIds": [
+            "ps3-assassin%27s-creed-brotherhood",
+            "ps3-assassin%27s-creed-revelations"
+          ],
+          "notes": [
+            "Dos comercios neerlandeses vinculan el EAN a PS3, pero el mercado de packaging, el serial y el idioma de la caja requieren scan.",
+            "NL se conserva como evidenceMarket, no como mercado de origen probado."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac-br-double-pack-play-asia-europe",
+          "type": "RETAILER_ASSET",
+          "label": "Play-Asia · versión europea",
+          "url": "https://www.play-asia.com/de/assassins-creed-brotherhood-assassins-creed-revelations/13/706iej",
+          "summary": "La ficha identifica la compilación PS3 europea, el EAN, el serial y la fecha comercial.",
+          "supports": [
+            "EAN 3307215689165",
+            "serial BLES-01772",
+            "versión Europe",
+            "publicación: 2013-01-18"
+          ]
+        },
+        {
+          "id": "ac-br-double-pack-vgcollect-nordic",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "VGCollect · edición Nordic",
+          "url": "https://vgcollect.com/item/111045",
+          "summary": "La entrada muestra box art y vincula PS3 EU, PEGI 18, BLES-01772 y barcode a DK/FI/NO/SE.",
+          "supports": [
+            "EAN 3307215689202",
+            "serial BLES-01772",
+            "mercados DK / FI / NO / SE",
+            "PEGI 18"
+          ]
+        },
+        {
+          "id": "ac-br-double-pack-reway-netherlands",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Reway · copia retail neerlandesa",
+          "url": "https://www.reway.nl/products/assassins-creed-brotherhood-assassins-creed-revelations-playstation-3",
+          "summary": "La ficha de segunda mano identifica PS3, artwork original y EAN; no prueba el origen nacional del packaging.",
+          "supports": [
+            "EAN 3307215689219",
+            "plataforma PS3",
+            "circulación documentada en NL"
+          ]
+        },
+        {
+          "id": "ac-br-double-pack-yellowbello-netherlands",
+          "type": "RETAILER_ASSET",
+          "label": "YellowBello / Nedgame · retail neerlandés",
+          "url": "https://www.yellowbello.nl/store/nedgame-leiden/product/assassins-creed-brotherhood-revelations-double-pack-1145352469",
+          "summary": "La ficha identifica la variante PS3, ambos juegos y el mismo EAN en un comercio neerlandés.",
+          "supports": [
+            "EAN 3307215689219",
+            "plataforma PS3",
+            "circulación documentada en NL"
+          ]
+        },
+        {
+          "id": "ac-br-double-pack-redump-bles-01772",
+          "type": "UNKNOWN",
+          "label": "Redump · medio BLES-01772",
+          "url": "https://redump.info/",
+          "summary": "La base de preservación documenta el serial del medio y sus idiomas de software; no prueba packagingLanguages.",
+          "supports": [
+            "serial BLES-01772",
+            "software EN / FR / DE / ES / IT / NL / PT / SV / NO / DA"
+          ]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {
+          "label": "Play-Asia · Europe generic",
+          "url": "https://www.play-asia.com/de/assassins-creed-brotherhood-assassins-creed-revelations/13/706iej"
+        },
+        {
+          "label": "VGCollect · Nordic",
+          "url": "https://vgcollect.com/item/111045"
+        },
+        {
+          "label": "Reway · retail neerlandés",
+          "url": "https://www.reway.nl/products/assassins-creed-brotherhood-assassins-creed-revelations-playstation-3"
+        },
+        {
+          "label": "YellowBello / Nedgame · retail neerlandés",
+          "url": "https://www.yellowbello.nl/store/nedgame-leiden/product/assassins-creed-brotherhood-revelations-double-pack-1145352469"
+        },
+        {
+          "label": "SerialStation · contexto de serial",
+          "url": "https://www.serialstation.com/titles/BLES/01772"
+        },
+        {
+          "label": "Redump · composición del medio",
+          "url": "https://redump.info/"
+        }
+      ],
+      "evidenceNote": "Tres EAN se conservan como cajas separadas. Sólo Nordic tiene mercados de packaging explícitos; NL sigue como mercado de evidencia hasta inspeccionar la caja.",
+      "researchTasks": [
+        {
+          "id": "ac-br-double-pack-europe-countries",
+          "label": "Resolver España, Francia, Alemania, Italia y Reino Unido",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "ES",
+            "FR",
+            "DE",
+            "IT",
+            "GB"
+          ],
+          "notes": [
+            "Determinar si 3307215689165 es una caja paneuropea compartida o si existen barcodes nacionales propios."
+          ]
+        },
+        {
+          "id": "ac-br-double-pack-netherlands-packaging",
+          "label": "Cerrar packaging de 3307215689219",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "NL"
+          ],
+          "notes": [
+            "Conseguir scan de portada, reverso, lomo y barcode para decidir mercado de packaging, serial e idiomas."
+          ]
+        },
+        {
+          "id": "ac-br-double-pack-platform-conflict",
+          "label": "Resolver conflicto de plataforma 3307215689325",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "marketRegions": [],
+          "notes": [
+            "Bol termina señalando Xbox 360; no crear variante PS3 sin foto inequívoca de caja PS3."
+          ]
+        },
+        {
+          "id": "ac-br-double-pack-anthology-context",
+          "label": "Separar standalone y Anthology",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [],
+          "notes": [
+            "BLES-01772 y BLES-01772/ANTHO# comparten familia de software, pero su contexto físico y provenance son distintos."
+          ]
+        },
+        {
+          "id": "ac-br-double-pack-packaging-languages",
+          "label": "Extraer packagingLanguages por scan",
+          "status": "PENDING_REVIEW",
+          "marketRegions": [
+            "DK",
+            "FI",
+            "NO",
+            "SE"
+          ],
+          "notes": [
+            "No convertir la lista de idiomas de software ni el nombre Nordic en idiomas de caja."
+          ]
+        }
+      ]
+    }
+  ]
+}

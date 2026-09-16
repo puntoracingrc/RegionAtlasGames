@@ -1,0 +1,381 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-brotherhood-xbox360-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed: Brotherhood en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Normalización Xbox 360 de Standard, Collector, Codex, Special, Auditore, Da Vinci, Alhambra y reediciones. Los EAN sin caja nacional resuelta permanecen sin país o en investigación.",
+      "game": {
+        "title": "Assassin's Creed: Brotherhood",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed-brotherhood",
+        "canonicalGameId": "assassins-creed-brotherhood",
+        "platformReleaseId": "assassins-creed-brotherhood-xbox360"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac-brotherhood-xbox360-standard-es",
+          "label": "Standard · España",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["es"],
+          "softwareLanguages": ["es", "en", "fr", "de", "it"],
+          "productCodes": ["300031111"],
+          "barcode": "3307217927234",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["xbox360-assassin-s-creed-brotherhood"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-retroloco-es", "brotherhood-fnac-es"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-standard-eu-3307217927173",
+          "label": "Standard · Europa · territorio pendiente · 3307217927173",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "barcode": "3307217927173",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["brotherhood-geedie"],
+          "notes": ["País y packaging exactos pendientes de scan."]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-standard-eu-3307217927159",
+          "label": "Standard · Europa · territorio pendiente · 3307217927159",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "productCodes": ["300034430"],
+          "barcode": "3307217927159",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["brotherhood-geedie"],
+          "notes": ["País y packaging exactos pendientes de scan."]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-standard-eu-3307217927203",
+          "label": "Standard · Europa · territorio pendiente · 3307217927203",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "barcode": "3307217927203",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["brotherhood-geedie"],
+          "notes": ["País y packaging exactos pendientes de scan."]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-standard-eu-3307217927210",
+          "label": "Standard · Europa · territorio pendiente · 3307217927210",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "barcode": "3307217927210",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["brotherhood-geedie"],
+          "notes": ["País y packaging exactos pendientes de scan."]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-standard-eu-3307215673379",
+          "label": "Standard · Europa · territorio pendiente · 3307215673379",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "barcode": "3307215673379",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["brotherhood-geedie"],
+          "notes": ["País y packaging exactos pendientes de scan."]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "barcode": "3307217927180",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-gamefaqs"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-standard-us",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "barcode": "008888526254",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-gamefaqs"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-collector-us",
+          "label": "Collector's Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["US"],
+          "barcode": "008888226253",
+          "physicalContents": ["Juego físico", "Contenido de coleccionista; detalle pendiente de evidencia física"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-gamefaqs"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-codex-es",
+          "label": "Codex Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["ES"],
+          "packagingLanguages": ["es"],
+          "softwareLanguages": ["es"],
+          "barcode": "3307217934249",
+          "physicalContents": ["Juego físico", "Contenido Codex Edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-microcabin-codex-es"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-codex-de",
+          "label": "Codex Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["DE"],
+          "productCodes": ["300034509"],
+          "barcode": "3307217934218",
+          "physicalContents": ["Juego físico", "Contenido Codex Edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-ogdb-codex-de"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-codex-fr",
+          "label": "Codex Edition · Francia",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["FR"],
+          "barcode": "3307217934232",
+          "physicalContents": ["Juego físico", "Contenido Codex Edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-fnac-codex-fr"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-special-pal",
+          "label": "Special Edition · PAL · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "productCodes": ["300034549"],
+          "barcode": "3307219904080",
+          "physicalContents": ["Juego físico", "Contenido Special Edition"],
+          "confidence": "HIGH",
+          "evidenceIds": ["brotherhood-geedie"],
+          "notes": ["Release Xbox 360 PAL confirmada; país y packaging exactos pendientes."]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-special-at-ch",
+          "label": "Special Edition · Austria / Suiza",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["AT", "CH"],
+          "barcode": "3307219904097",
+          "physicalContents": ["Juego físico", "Contenido Special Edition"],
+          "confidence": "HIGH",
+          "evidenceIds": ["brotherhood-geedie"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-auditore-au",
+          "label": "Auditore Edition · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "COLLECTOR",
+          "marketRegions": ["AU"],
+          "barcode": "3307219903106",
+          "physicalContents": ["Juego físico", "Contenido Auditore Edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-gamefaqs"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-da-vinci-de",
+          "label": "Da Vinci Edition · Alemania",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["DE"],
+          "barcode": "3307219942792",
+          "physicalContents": ["Juego físico", "The Da Vinci Disappearance", "Contenido descargable", "Slip/card packaging"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-ogdb-da-vinci-de", "brotherhood-geedie"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-alhambra-es",
+          "label": "Alhambra Edition · España",
+          "broadRegion": "EUROPE",
+          "editionType": "SPECIAL",
+          "marketRegions": ["ES"],
+          "productCodes": ["300037064"],
+          "barcode": "3307219942815",
+          "physicalContents": ["Juego físico", "The Da Vinci Disappearance", "Animus Project 1 y 2", "Mapa multijugador Alhambra", "Personajes y modos adicionales"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-fnac-alhambra-es"],
+          "notes": ["Identidad física española propia; no se fusiona ni renombra como Da Vinci Edition."]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-classics-au",
+          "label": "Classics · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["AU"],
+          "productCodes": ["3000-38356"],
+          "barcode": "3307219951442",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-gamefaqs"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-platinum-hits-na",
+          "label": "Platinum Hits · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "evidenceMarkets": ["US", "CA"],
+          "barcode": "008888526254",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["brotherhood-gamefaqs"],
+          "notes": ["Reedición distinta de Standard aunque comparta UPC; packaging canadiense pendiente de foto física."]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "productCodes": ["JES1-00109"],
+          "barcode": "4949244002127",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-gamefaqs"]
+        },
+        {
+          "id": "ac-brotherhood-xbox360-special-jp",
+          "label": "Special Edition · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "SPECIAL",
+          "marketRegions": ["JP"],
+          "productCodes": ["JES1-00164"],
+          "barcode": "4949244002486",
+          "physicalContents": ["Juego físico", "Contenido Special Edition"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["brotherhood-gamefaqs"]
+        }
+      ],
+      "sharedDiscs": [],
+      "evidence": [
+        {
+          "id": "brotherhood-retroloco-es",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "RetroLoco · Brotherhood PAL España Xbox 360",
+          "url": "https://www.retroloco.es/producto/assassins-creed-la-hermandad-esp-2/",
+          "supports": ["EAN 3307217927234", "packaging ES", "software ES/EN/FR/DE/IT"]
+        },
+        {
+          "id": "brotherhood-fnac-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Brotherhood Standard Xbox 360",
+          "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-Xbox-360-Videojuego-Xbox-360/a392472",
+          "supports": ["Xbox 360", "EAN 3307217927234", "SKU 300031111"]
+        },
+        {
+          "id": "brotherhood-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · Brotherhood Xbox 360 release data",
+          "url": "https://gamefaqs.gamespot.com/xbox360/996093-assassins-creed-brotherhood/data",
+          "supports": ["UPC/EAN/JAN Xbox 360", "códigos de producto Xbox 360", "familias Standard, Collector, Classics y Japan Special"]
+        },
+        {
+          "id": "brotherhood-geedie",
+          "type": "UNKNOWN",
+          "label": "Geedie · Brotherhood Xbox 360",
+          "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-brotherhood-13",
+          "supports": ["EAN europeos Xbox 360", "Special, Auditore y Da Vinci"]
+        },
+        {
+          "id": "brotherhood-microcabin-codex-es",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "Microcabin · Codex Edition España Xbox 360",
+          "url": "https://microcabin.net/xbox-360/1721-assassins-creed-la-hermandad-edicion-codex.html",
+          "supports": ["EAN 3307217934249", "caja y manual ES", "audio y textos ES"]
+        },
+        {
+          "id": "brotherhood-ogdb-codex-de",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "OGDB · Codex Edition Alemania Xbox 360",
+          "url": "https://ogdb.eu/index.php?gameid=39286&section=game",
+          "supports": ["Xbox 360", "market DE", "EAN 3307217934218", "product code 300034509"]
+        },
+        {
+          "id": "brotherhood-fnac-codex-fr",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac Francia · Codex Edition Xbox 360",
+          "url": "https://www.fnac.com/a2899598/Assassin-s-Creed-Brotherhood-Codex-Edition-Jeu-video-Retrogaming",
+          "supports": ["Xbox 360", "market FR", "EAN 3307217934232"]
+        },
+        {
+          "id": "brotherhood-ogdb-da-vinci-de",
+          "type": "RETAILER_PHOTO_CONFIRMED",
+          "label": "OGDB · Da Vinci Edition Alemania Xbox 360",
+          "url": "https://ogdb.eu/index.php?gameid=50149&section=game",
+          "supports": ["Xbox 360", "market DE", "EAN 3307219942792", "contenido Da Vinci"]
+        },
+        {
+          "id": "brotherhood-fnac-alhambra-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Alhambra Edition Xbox 360",
+          "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-Alhambra-Xbox-360-Juego-Xbox-360/a426258",
+          "supports": ["Xbox 360", "market ES", "EAN 3307219942815", "SKU 300037064", "contenido Alhambra"]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac_brotherhood_xbox360_worldwide_variants.md"},
+        {"label": "RetroLoco España", "url": "https://www.retroloco.es/producto/assassins-creed-la-hermandad-esp-2/"},
+        {"label": "Fnac España Standard", "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-Xbox-360-Videojuego-Xbox-360/a392472"},
+        {"label": "GameFAQs Xbox 360", "url": "https://gamefaqs.gamespot.com/xbox360/996093-assassins-creed-brotherhood/data"},
+        {"label": "Geedie", "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-brotherhood-13"},
+        {"label": "Microcabin Codex ES", "url": "https://microcabin.net/xbox-360/1721-assassins-creed-la-hermandad-edicion-codex.html"},
+        {"label": "OGDB Codex DE", "url": "https://ogdb.eu/index.php?gameid=39286&section=game"},
+        {"label": "Fnac Codex FR", "url": "https://www.fnac.com/a2899598/Assassin-s-Creed-Brotherhood-Codex-Edition-Jeu-video-Retrogaming"},
+        {"label": "OGDB Da Vinci DE", "url": "https://ogdb.eu/index.php?gameid=50149&section=game"},
+        {"label": "Fnac Alhambra ES", "url": "https://www.fnac.es/Assassin-s-Creed-La-Hermandad-Alhambra-Xbox-360-Juego-Xbox-360/a426258"}
+      ],
+      "evidenceNote": "Las variantes nacionales sólo llevan marketRegions cuando la fuente identifica la caja Xbox 360. Alhambra ES y Da Vinci DE son identidades físicas independientes.",
+      "researchTasks": [
+        {
+          "id": "brotherhood-xbox360-codex-it",
+          "label": "Codex Edition Italia · scan pendiente",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["IT"],
+          "notes": ["EAN candidato 3307217934256; confirmar plataforma, caja y mercado por scan antes de publicarlo."]
+        },
+        {
+          "id": "brotherhood-xbox360-special-classics-overlap",
+          "label": "Special / Classics · EAN europeos por clasificar",
+          "status": "PENDING_REVIEW",
+          "notes": ["Resolver 4012160021005, 3307219951350 y 3307219951367 por packaging; los dos últimos aparecen asociados tanto a Special como a Classics."]
+        },
+        {
+          "id": "brotherhood-xbox360-auditore-europe",
+          "label": "Auditore Edition · cajas europeas pendientes",
+          "status": "PENDING_REVIEW",
+          "notes": ["Resolver 3307219903311 y 3307219903335 por foto de caja antes de asignar país."]
+        },
+        {
+          "id": "brotherhood-xbox360-double-pack",
+          "label": "Brotherhood + Revelations Double Pack · compilación independiente",
+          "status": "PENDING_REVIEW",
+          "notes": ["Requiere identidad canónica y barcode propios; no forma parte de physicalEditions de Brotherhood."]
+        },
+        {
+          "id": "brotherhood-xbox360-platinum-ca",
+          "label": "Platinum Hits Canadá · packaging pendiente",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["CA"],
+          "notes": ["No crear variante canadiense sólo por compartir UPC con USA; exigir packaging bilingüe o cover code específico."]
+        }
+      ]
+    }
+  ]
+}

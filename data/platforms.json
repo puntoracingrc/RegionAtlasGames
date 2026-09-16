@@ -343,12 +343,12 @@
     "shortName": "Wii U",
     "manufacturer": "nintendo",
     "status": "semi-closed",
-    "estimatedCatalogSize": 0,
+    "estimatedCatalogSize": 2,
     "sortOrder": 28,
     "spainReleaseYear": 2012,
-    "active": false,
+    "active": true,
     "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "description": "Consola doméstica de Nintendo lanzada en Europa en 2012."
   },
   {
     "slug": "gba",

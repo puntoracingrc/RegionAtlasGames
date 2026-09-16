@@ -1,5 +1,6 @@
 import {
   catalogMarketRegionToLegacyRegion,
+  isReleasedPhysicalEdition,
   isCatalogMarketRegion,
   type CatalogMarketRegion,
   type CatalogPhysicalEdition,
@@ -23,7 +24,7 @@ const marketNames = new Intl.DisplayNames(["es"], { type: "region" });
 export function catalogEbayRegionOptions(
   editions: CatalogPhysicalEdition[],
 ): CatalogEbayRegionOption[] {
-  const releasedEditions = editions.filter((edition) => edition.releaseStatus === "RELEASED");
+  const releasedEditions = editions.filter(isReleasedPhysicalEdition);
   const seen = new Set<CatalogMarketRegion>();
   const options = releasedEditions.flatMap((edition) => edition.marketRegions.flatMap((marketRegion) => {
     if (!isCatalogMarketRegion(marketRegion) || seen.has(marketRegion)) return [];

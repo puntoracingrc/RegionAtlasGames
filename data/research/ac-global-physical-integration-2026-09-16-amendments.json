@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "batchId": "assassins-creed-global-physical-integration-20260916",
+  "reviewedAt": "2026-09-16",
+  "beforeCommit": "cd639496a593fca791b28235289d6d0ee410faa0",
+  "reason": "Integracion auditada de variantes fisicas de Assassin's Creed para PS3, PSP, PS Vita, Nintendo DS, Xbox 360, Wii U, Switch y Switch 2. Conserva identidades existentes y excluye del recuento fisico nativo los productos digitales, code-in-box, Game-Key Card, cancelados, promocionales y bundles sin juego.",
+  "files": {
+    "data/catalog.json": {
+      "beforeSha256": "6b0b0ca73871cb2bac1f571a55f9124a4336c721c0f1c3debbbe5dd04c754dfb",
+      "afterSha256": "623be7727426895c4634ca88a6d0bbdb2b29b74c9cde2d2a301026fd33dcf54b"
+    },
+    "data/meta.json": {
+      "beforeSha256": "0f6b90cc3d545fabc6387726a87d3d51df0cdf6813ec88d06eab5cf0bbb8668e",
+      "afterSha256": "aeca1aafaab52fd4009217a96c5f79e94f53435895c4f926ee1ec9c182a7e7ec"
+    },
+    "data/curation-report.json": {
+      "beforeSha256": "859a5e3832d0ae47d5dec3fa094d4c1e701dab9cac593e171cdfe4a98669938c",
+      "afterSha256": "7dd36dc85e3ab1148d7f9f47a9a266b9e70f21e313d70874e1508e21293c68a9"
+    }
+  }
+}

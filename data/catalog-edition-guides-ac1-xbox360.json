@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 2,
+  "guides": [
+    {
+      "schemaVersion": 2,
+      "id": "assassins-creed-xbox360-worldwide",
+      "title": "Ediciones físicas mundiales de Assassin's Creed en Xbox 360",
+      "reviewedAt": "2026-09-15",
+      "note": "Normalización Xbox 360 basada en EAN/UPC, códigos de producto y evidencia de medio. Los territorios no demostrados permanecen sin país o en investigación.",
+      "game": {
+        "title": "Assassin's Creed",
+        "platformSlug": "xbox360",
+        "canonicalCatalogId": "xbox360-assassin-s-creed",
+        "canonicalGameId": "assassins-creed",
+        "platformReleaseId": "assassins-creed-xbox360"
+      },
+      "physicalEditions": [
+        {
+          "id": "ac1-xbox360-standard-es-retail",
+          "label": "Standard · España · packaging pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "evidenceMarkets": ["ES"],
+          "productCodes": ["300005779"],
+          "barcode": "3307210263421",
+          "physicalContents": ["Juego físico"],
+          "catalogIds": ["xbox360-assassin-s-creed"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-fnac-es"],
+          "notes": ["Retail Xbox 360 español confirmado; idiomas de caja, manual y código impreso pendientes de scan."]
+        },
+        {
+          "id": "ac1-xbox360-standard-eu-3307210244215",
+          "label": "Standard · Europa · territorio pendiente · 3307210244215",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "productCodes": ["300008392"],
+          "barcode": "3307210244215",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-geedie"],
+          "notes": ["Caja Xbox 360 documentada; país y packaging exactos pendientes."]
+        },
+        {
+          "id": "ac1-xbox360-standard-eu-3307210236753",
+          "label": "Standard · Europa · territorio pendiente · 3307210236753",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "productCodes": ["300008394"],
+          "barcode": "3307210236753",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-geedie"],
+          "notes": ["Caja Xbox 360 documentada; país y packaging exactos pendientes."]
+        },
+        {
+          "id": "ac1-xbox360-standard-eu-3307210263438",
+          "label": "Standard · Europa · territorio pendiente · 3307210263438",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "barcode": "3307210263438",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-geedie"],
+          "notes": ["Caja Xbox 360 documentada; país y packaging exactos pendientes."]
+        },
+        {
+          "id": "ac1-xbox360-standard-eu-3307210263445",
+          "label": "Standard · Europa · territorio pendiente · 3307210263445",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "barcode": "3307210263445",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-geedie"],
+          "notes": ["Caja Xbox 360 documentada; país y packaging exactos pendientes."]
+        },
+        {
+          "id": "ac1-xbox360-standard-eu-4012160020138",
+          "label": "Standard · Europa · territorio pendiente · 4012160020138",
+          "broadRegion": "EUROPE",
+          "editionType": "STANDARD",
+          "productCodes": ["15C1FA47"],
+          "barcode": "4012160020138",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-geedie"],
+          "notes": ["Caja Xbox 360 documentada; país y packaging exactos pendientes."]
+        },
+        {
+          "id": "ac1-xbox360-collector-eu",
+          "label": "Collector's Edition · Europa · territorio pendiente",
+          "broadRegion": "EUROPE",
+          "editionType": "COLLECTOR",
+          "barcode": "3307210334787",
+          "physicalContents": ["Juego físico", "Contenido de coleccionista; detalle pendiente de evidencia física"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-geedie"],
+          "notes": ["La edición europea está documentada; no se asigna España ni otro país sin scan."]
+        },
+        {
+          "id": "ac1-xbox360-standard-us",
+          "label": "Standard · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "STANDARD",
+          "marketRegions": ["US"],
+          "productCodes": ["523390-CVR"],
+          "barcode": "008888523390",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac1-gamefaqs", "ac1-dbox"]
+        },
+        {
+          "id": "ac1-xbox360-limited-us",
+          "label": "Limited Edition · USA",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "LIMITED",
+          "marketRegions": ["US"],
+          "productCodes": ["593393-OSLV"],
+          "barcode": "008888593393",
+          "physicalContents": ["Juego físico", "Caja metálica", "Figura de Altaïr", "Material adicional"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac1-gamefaqs", "ac1-geedie"]
+        },
+        {
+          "id": "ac1-xbox360-platinum-hits-na",
+          "label": "Platinum Hits · Norteamérica",
+          "broadRegion": "NORTH_AMERICA",
+          "editionType": "BUDGET_REISSUE",
+          "evidenceMarkets": ["US", "CA"],
+          "productCodes": ["523390-CVR2", "523390-DVD2"],
+          "barcode": "008888523390",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-gamefaqs"],
+          "notes": ["Reedición distinta de Standard aunque comparta la familia UPC; la caja canadiense requiere foto bilingüe específica."]
+        },
+        {
+          "id": "ac1-xbox360-standard-au",
+          "label": "Standard · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["AU"],
+          "barcode": "3307210263452",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac1-gamefaqs"]
+        },
+        {
+          "id": "ac1-xbox360-classics-au",
+          "label": "Classics · Australia",
+          "broadRegion": "OCEANIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["AU"],
+          "productCodes": ["300-013198"],
+          "barcode": "3307210451422",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac1-gamefaqs"]
+        },
+        {
+          "id": "ac1-xbox360-classics-best-sellers-au",
+          "label": "Classics Best Sellers · Australia · circulación española",
+          "broadRegion": "OCEANIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["AU"],
+          "evidenceMarkets": ["ES"],
+          "productCodes": ["3000-25817", "300025806"],
+          "barcode": "3307212283250",
+          "physicalContents": ["Juego físico"],
+          "confidence": "HIGH",
+          "evidenceIds": ["ac1-gamefaqs", "ac1-fnac-classics"],
+          "notes": ["La venta en Fnac España no convierte esta caja documentada como AU en una variante española."]
+        },
+        {
+          "id": "ac1-xbox360-standard-jp",
+          "label": "Standard · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["JP"],
+          "productCodes": ["UKA-00003"],
+          "barcode": "4988648572058",
+          "sharedDiscId": "ac1-xbox360-japan-disc",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac1-gamefaqs", "ac1-dbox"]
+        },
+        {
+          "id": "ac1-xbox360-platinum-jp",
+          "label": "Platinum Collection · Japón",
+          "broadRegion": "ASIA",
+          "editionType": "BUDGET_REISSUE",
+          "marketRegions": ["JP"],
+          "productCodes": ["UKA-00004"],
+          "barcode": "4988648631335",
+          "sharedDiscId": "ac1-xbox360-japan-disc",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac1-gamefaqs", "ac1-dbox"]
+        },
+        {
+          "id": "ac1-xbox360-standard-kr",
+          "label": "Standard · Corea",
+          "broadRegion": "ASIA",
+          "editionType": "STANDARD",
+          "marketRegions": ["KR"],
+          "barcode": "8809182563066",
+          "physicalContents": ["Juego físico"],
+          "confidence": "CONFIRMED",
+          "evidenceIds": ["ac1-gamefaqs"],
+          "notes": ["Código de producto, packaging y Media ID pendientes."]
+        }
+      ],
+      "sharedDiscs": [
+        {
+          "id": "ac1-xbox360-japan-disc",
+          "label": "Disco japonés compartido por Standard y Platinum Collection",
+          "technicalRegion": "ASIA",
+          "xemid": "US200406J0X11",
+          "mediaId": "795CE63E",
+          "evidenceIds": ["ac1-dbox"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ac1-fnac-es",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Standard Xbox 360",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Xbox-360-Videojuego-Xbox-360/a284462",
+          "supports": ["Xbox 360", "EAN 3307210263421", "SKU 300005779", "circulación ES"]
+        },
+        {
+          "id": "ac1-fnac-classics",
+          "type": "RETAILER_ASSET",
+          "label": "Fnac España · Classics Xbox 360",
+          "url": "https://www.fnac.es/Assassin-s-Creed-Classic-Xbox-360-Videojuego-Xbox-360/a366216",
+          "supports": ["Xbox 360", "EAN 3307212283250", "SKU 300025806", "circulación ES"]
+        },
+        {
+          "id": "ac1-gamefaqs",
+          "type": "UNKNOWN",
+          "label": "GameFAQs · Assassin's Creed Xbox 360 release data",
+          "url": "https://gamefaqs.gamespot.com/xbox360/930278-assassins-creed/data",
+          "supports": ["UPC/EAN/JAN Xbox 360", "códigos de producto Xbox 360", "familias Standard, Limited, Classics y Platinum"]
+        },
+        {
+          "id": "ac1-geedie",
+          "type": "UNKNOWN",
+          "label": "Geedie · Assassin's Creed Xbox 360",
+          "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-13",
+          "supports": ["EAN europeos Xbox 360", "Collector europea", "Limited USA"]
+        },
+        {
+          "id": "ac1-dbox",
+          "type": "UNKNOWN",
+          "label": "DBox · disco Assassin's Creed Xbox 360",
+          "url": "https://dbox.tools/discs/xbox360/2591/",
+          "supports": ["XeMID US200406J0X11", "Media ID 795CE63E", "familia de disco japonesa"]
+        }
+      ],
+      "images": [],
+      "sources": [
+        {"label": "Dossier local regionatlas_codex_ac1_xbox360_worldwide_variants.md"},
+        {"label": "Fnac España Standard", "url": "https://www.fnac.es/Assassin-s-Creed-Xbox-360-Videojuego-Xbox-360/a284462"},
+        {"label": "Fnac España Classics", "url": "https://www.fnac.es/Assassin-s-Creed-Classic-Xbox-360-Videojuego-Xbox-360/a366216"},
+        {"label": "GameFAQs Xbox 360", "url": "https://gamefaqs.gamespot.com/xbox360/930278-assassins-creed/data"},
+        {"label": "Geedie", "url": "https://geedie.com/en/microsoft-xbox-360-assassin-s-creed-13"},
+        {"label": "DBox", "url": "https://dbox.tools/discs/xbox360/2591/"}
+      ],
+      "evidenceNote": "Los EAN europeos se conservan sin país cuando la fuente sólo acredita la caja Xbox 360. El XeMID y Media ID se limitan al disco japonés documentado.",
+      "researchTasks": [
+        {
+          "id": "ac1-xbox360-european-box-map",
+          "label": "Mapear cajas nacionales europeas y Classics",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["FR", "DE", "GB", "IT", "BE", "NL", "AT", "CH", "DK", "SE", "NO", "FI"],
+          "notes": ["Resolver packaging físico de 3307212283281, 3307210451408, 3307210451385, 3307210451378, 3307210451392, 3307212283175, 3307212283182 y 3307212283236 antes de publicarlos como variantes territoriales."]
+        },
+        {
+          "id": "ac1-xbox360-platinum-hits-alt-upc",
+          "label": "Resolver UPC alternativo de Platinum Hits",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["US", "CA"],
+          "notes": ["008888528715 puede ser otra tirada, UPC de distribuidor o miscatalogación; no sustituir el UPC verificado sin scan."]
+        },
+        {
+          "id": "ac1-xbox360-regional-media",
+          "label": "Localizar identificadores de medio fuera de Japón",
+          "status": "PENDING_REVIEW",
+          "marketRegions": ["ES", "US", "AU", "KR"],
+          "notes": ["No reutilizar el XeMID ni Media ID japonés para otras regiones."]
+        },
+        {
+          "id": "ac1-xbox360-directors-cut",
+          "label": "Director's Cut física Xbox 360",
+          "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+          "notes": ["No existe evidencia inequívoca de una caja Xbox 360; la edición conocida corresponde a PC."]
+        }
+      ]
+    }
+  ]
+}
