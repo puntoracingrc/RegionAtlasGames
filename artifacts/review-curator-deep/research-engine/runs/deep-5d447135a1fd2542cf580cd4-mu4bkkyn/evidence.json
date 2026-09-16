@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ev-d75920240eecc5b1b888f6db",
+    "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+    "taskId": "deep-5d447135a1fd2542cf580cd4",
+    "sourceId": "candidate:thegameworld.co.uk",
+    "sourceUrl": "https://thegameworld.co.uk/family-ski-wii",
+    "canonicalUrl": "https://thegameworld.co.uk/family-ski-wii",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "thegameworld.co.uk",
+    "fetchedAt": "2026-09-16T16:33:07.144Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PAL España",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "639c4fe687cb5741b8bf649fcd28777ef9953b9563f6fe81f104b1e1b08713bd",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-1687993cdc971ef3328e3d9e",
+    "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+    "taskId": "deep-5d447135a1fd2542cf580cd4",
+    "sourceId": "candidate:bordersdown.net",
+    "sourceUrl": "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii",
+    "canonicalUrl": "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "bordersdown.net",
+    "fetchedAt": "2026-09-16T16:33:10.984Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PAL España",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "3b8b99419fac5c14a359cd3175c0640923de07545dc1e5d32a008644a1c0d6f2",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

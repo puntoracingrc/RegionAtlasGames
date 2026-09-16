@@ -242,6 +242,54 @@
       "defaultReliability": 58,
       "knownRisks": ["Product naming can be localized; identifiers and component relationships require stronger corroboration."],
       "queryTemplates": ["site:yambalu.com \"{TITLE}\" {PLATFORM}", "site:yambalu.com \"{BARCODE}\""]
+    },
+    {
+      "id": "serialstation",
+      "hosts": ["serialstation.com", "www.serialstation.com"],
+      "platforms": ["ps1", "ps2", "ps3", "ps4", "psp", "psvita"],
+      "countries": ["*"],
+      "roles": ["TECHNICAL_DATABASE", "COMPONENT_IDENTIFIER"],
+      "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER"],
+      "fieldCapabilities": { "PRODUCT_CODE": 94, "SERIAL": 96, "MEDIA_ID": 88, "CANONICAL_IDENTITY": 82, "MARKET_REGION": 20 },
+      "defaultReliability": 88,
+      "knownRisks": ["Technical identifier families establish platform/technical region, not a national distribution market.", "Bind a serial to the photographed disc or package component."],
+      "queryTemplates": ["site:serialstation.com \"{SERIAL}\"", "site:serialstation.com \"{PRODUCT_CODE}\"", "site:serialstation.com \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "redump",
+      "hosts": ["redump.org", "redump.info"],
+      "platforms": ["ps1", "ps2", "ps3", "ps4", "ps5", "psp", "xbox", "xbox360", "xboxone", "xboxseries", "gamecube", "wii", "wiiu", "saturn", "dreamcast", "neogeocd"],
+      "countries": ["*"],
+      "roles": ["TECHNICAL_DATABASE", "MEDIA_IDENTIFIER"],
+      "accessModes": ["DOMAIN_SEARCH", "BROWSER"],
+      "fieldCapabilities": { "PRODUCT_CODE": 88, "SERIAL": 90, "MEDIA_ID": 96, "MEDIA_REVISION": 92, "CANONICAL_IDENTITY": 78, "MARKET_REGION": 10, "PACKAGING_LANGUAGES": 0 },
+      "defaultReliability": 90,
+      "knownRisks": ["Disc/dump identity is not national packaging or distribution proof.", "Coverage varies by platform and title; absence is not evidence of absence."],
+      "queryTemplates": ["site:redump.org \"{SERIAL}\"", "site:redump.org \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "no-intro",
+      "hosts": ["no-intro.org", "wiki.no-intro.org"],
+      "platforms": ["nes", "snes", "n64", "gameboy", "gbc", "gba", "ds", "3ds", "switch", "mastersystem", "megadrive", "gamegear", "neogeo", "neogeopocket"],
+      "countries": ["*"],
+      "roles": ["TECHNICAL_DATABASE", "CARTRIDGE_IDENTIFIER"],
+      "accessModes": ["DOMAIN_SEARCH", "BROWSER"],
+      "fieldCapabilities": { "PRODUCT_CODE": 92, "ROM_REVISION": 96, "CANONICAL_IDENTITY": 82, "MARKET_REGION": 10, "BOX_CODE": 0, "PACKAGING_LANGUAGES": 0 },
+      "defaultReliability": 90,
+      "knownRisks": ["ROM/cartridge evidence does not prove box, manual or national packaging.", "Undumped and discovery records are not released-package inventories."],
+      "queryTemplates": ["site:wiki.no-intro.org \"{PRODUCT_CODE}\"", "site:no-intro.org \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "datomatic",
+      "hosts": ["datomatic.no-intro.org"],
+      "platforms": ["nes", "snes", "n64", "gameboy", "gbc", "gba", "ds", "3ds", "switch", "mastersystem", "megadrive", "gamegear", "neogeo", "neogeopocket"],
+      "countries": ["*"],
+      "roles": ["TECHNICAL_DATABASE", "CARTRIDGE_IDENTIFIER"],
+      "accessModes": ["DOMAIN_SEARCH", "BROWSER"],
+      "fieldCapabilities": { "PRODUCT_CODE": 92, "ROM_REVISION": 96, "CANONICAL_IDENTITY": 82, "MARKET_REGION": 10, "BOX_CODE": 0, "PACKAGING_LANGUAGES": 0 },
+      "defaultReliability": 90,
+      "knownRisks": ["Technical dump metadata cannot be propagated to box or manual components.", "Technical region is not national distribution market."],
+      "queryTemplates": ["site:datomatic.no-intro.org \"{PRODUCT_CODE}\"", "site:datomatic.no-intro.org \"{TITLE}\" {PLATFORM}"]
     }
   ]
 }

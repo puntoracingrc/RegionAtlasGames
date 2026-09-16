@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ev-c84e05d0549950054e9a52c6",
+    "runId": "deep-f9686efab456f96e3467ab8d-mu4bmqd5",
+    "taskId": "deep-f9686efab456f96e3467ab8d",
+    "sourceId": "candidate:retroplayzone.com",
+    "sourceUrl": "https://retroplayzone.com/28789-international-superstar-soccer-64-cartuchoi-n64.html",
+    "canonicalUrl": "https://retroplayzone.com/28789-international-superstar-soccer-64-cartuchoi-n64.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "retroplayzone.com",
+    "fetchedAt": "2026-09-16T16:34:41.596Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Product Code: 28789",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "21d5303799395831fefe100521f6c24c00c0af30b5b4f244e89a6afc35d006d9",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-51bdc9c83bdc871926a5d196",
+    "runId": "deep-f9686efab456f96e3467ab8d-mu4bmqd5",
+    "taskId": "deep-f9686efab456f96e3467ab8d",
+    "sourceId": "ebay",
+    "sourceUrl": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+    "canonicalUrl": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+    "sourceType": "MARKETPLACE",
+    "host": "www.ebay.com",
+    "fetchedAt": "2026-09-16T16:34:49.570Z",
+    "evidenceType": "IMAGE_FROM_SOURCE_PAGE",
+    "subjectBinding": {
+      "game": "MISMATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": [
+        "WRONG_GAME",
+        "CROSS_ATTRIBUTION_RISK"
+      ]
+    },
+    "relevantExcerpt": null,
+    "imageUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+    "imageHash": "08cb87f6f587e6620ab13393dfd7cddbac1288e669208f649915a7fd76d0d37c",
+    "textHash": null,
+    "capabilities": [
+      "PRODUCT_CODE"
+    ],
+    "reliability": 50,
+    "component": "UNKNOWN_COMPONENT",
+    "productNodeId": "5d6775dcc4282484e1d6",
+    "componentNodeId": "2f306e550937ff6fe0c5",
+    "bindingState": "REJECTED",
+    "marketBindingState": "UNBOUND",
+    "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+    "editionClass": "OTHER",
+    "visibleEditionMarker": null,
+    "sourcePageUrl": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+    "originalImageUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+    "resolvedImageUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+    "sourceRecordId": null,
+    "listingId": "183816675231",
+    "platformClassification": "n64",
+    "editionClassification": "standard",
+    "marketEvidence": [],
+    "languageEvidence": [],
+    "extractedIdentifiers": [],
+    "visionModel": "gpt-4o-mini",
+    "visionSchemaVersion": 1
+  }
+]

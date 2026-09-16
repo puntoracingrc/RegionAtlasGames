@@ -1,0 +1,1652 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-16T16:31:26.333Z",
+  "subjectId": "curator-subject-563d2e3350aae4a648f7",
+  "inputHash": "8944bd61e052abea15b319a9bb2b799946bfb3fd14f89120ab1c40019a68ce8c",
+  "evidenceHash": "fa5947c34b7d65493fe8132475cf77de18484905fecb75f18d584cacd125ed1f",
+  "catalogContext": {
+    "subjectId": "curator-subject-563d2e3350aae4a648f7",
+    "subjectKind": "catalog-entry",
+    "catalogId": "ps4-usa-black-hole",
+    "canonicalGameId": null,
+    "workId": null,
+    "platformReleaseId": null,
+    "guideId": null,
+    "physicalEditionId": null,
+    "title": "Black Hole",
+    "aliases": [
+      "Black Hole"
+    ],
+    "titlePc": "Black Hole",
+    "slug": "black-hole",
+    "platformSlug": "ps4",
+    "edition": "standard",
+    "physicalVariant": null,
+    "region": "USA",
+    "regionFamily": null,
+    "marketRegion": null,
+    "regionalStatus": null,
+    "languages": [],
+    "regionalPackaging": [],
+    "canonicalSerials": [],
+    "sourceSerials": [],
+    "resolutionSerials": [],
+    "publisher": "Soedesco",
+    "developer": null,
+    "companyCredits": [
+      {
+        "role": "publisher",
+        "name": "Soedesco",
+        "slug": "soedesco",
+        "websiteUrl": null,
+        "sourceCandidateHost": null
+      }
+    ],
+    "physicalPublisherOrDistributor": null,
+    "regionalPublisher": null,
+    "releaseDate": "February 1, 2018",
+    "year": 2018,
+    "ean": null,
+    "barcode": null,
+    "productCodes": [],
+    "softwareFamilyCodes": [],
+    "serial": null,
+    "catalogNumber": null,
+    "boxCode": null,
+    "ratingSystems": [],
+    "packagingLanguages": [],
+    "softwareLanguages": [],
+    "componentLanguageEvidence": [],
+    "broadRegion": null,
+    "marketRegions": [
+      "USA"
+    ],
+    "evidenceMarkets": [],
+    "distributionMarkets": [],
+    "physicalProductType": "PHYSICAL_FULL_GAME",
+    "nativePhysicalPlatform": null,
+    "compatiblePlatforms": [],
+    "containsDisc": true,
+    "countsAsNativePhysicalRelease": true,
+    "physicalContents": [],
+    "digitalContents": [],
+    "releaseStatus": null,
+    "confidence": null,
+    "sharedDiscId": null,
+    "scanSetIds": [],
+    "ownedScans": [],
+    "coverUrl": "/covers/ps4/black-hole.jpg",
+    "editionImages": [],
+    "existingEvidence": [],
+    "existingResearchTasks": [],
+    "gameRetailer": null,
+    "priceCharting": {
+      "productId": 47078,
+      "path": "/game/playstation-4/black-hole"
+    },
+    "museumPath": null,
+    "legacySources": [],
+    "fieldProvenance": {},
+    "officialSourceCandidates": []
+  },
+  "knownVariants": [
+    {
+      "catalogId": "ps4-usa-black-hole",
+      "region": "USA",
+      "edition": "standard",
+      "physicalVariant": null
+    }
+  ],
+  "knownIdentifiers": [],
+  "ownedScans": [],
+  "knownDirectUrls": [
+    {
+      "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+      "sourceId": "todoconsolas",
+      "supports": [
+        "LISTING_EVIDENCE"
+      ]
+    }
+  ],
+  "existingEvidence": [],
+  "fieldPlans": {
+    "CANONICAL_IDENTITY": {
+      "field": "CANONICAL_IDENTITY",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "serialstation",
+        "redump",
+        "ogdb",
+        "mobygames",
+        "regionatlas-own-scan",
+        "ubisoft-official",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "serialstation",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Technical identifier families establish platform/technical region, not a national distribution market.",
+            "Bind a serial to the photographed disc or package component.",
+            "CUSA is not national-market proof."
+          ]
+        },
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence.",
+            "Disc identity is not package-market proof."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Validate exact edition and specimen."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:serialstation.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "serialstation"
+        },
+        {
+          "query": "site:redump.org \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "redump"
+        },
+        {
+          "query": "site:ogdb.eu \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:mobygames.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" canonical identity",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" canonical identity",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BARCODE": {
+      "field": "BARCODE",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "national-retailer",
+        "ogdb",
+        "todocoleccion",
+        "ebay",
+        "launchbox-images",
+        "regionatlas-own-scan"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "A Spanish retailer alone does not prove Spanish packaging."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Validate exact edition and specimen."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 68,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 65,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible.",
+            "Exact region and component must be visible."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:ogdb.eu \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:todocoleccion.net \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" back cover barcode EAN",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" back cover barcode EAN",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PRODUCT_CODE": {
+      "field": "PRODUCT_CODE",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "serialstation",
+        "redump",
+        "ogdb",
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "platform-holder-official"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "serialstation",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Technical identifier families establish platform/technical region, not a national distribution market.",
+            "Bind a serial to the photographed disc or package component.",
+            "CUSA is not national-market proof."
+          ]
+        },
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence.",
+            "Disc identity is not package-market proof."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 84,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Validate exact edition and specimen."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 62,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible.",
+            "Exact region and component must be visible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 45,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:serialstation.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "serialstation"
+        },
+        {
+          "query": "site:redump.org \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "redump"
+        },
+        {
+          "query": "site:ogdb.eu \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" cartridge disc product code",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" cartridge disc product code",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BOX_CODE": {
+      "field": "BOX_CODE",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "ogdb",
+        "launchbox-images"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Validate exact edition and specimen."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 60,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible.",
+            "Exact region and component must be visible."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ogdb.eu \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" box code",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" box code",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "MARKET_REGION": {
+      "field": "MARKET_REGION",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "mobygames",
+        "serialstation",
+        "redump"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 60,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "A Spanish retailer alone does not prove Spanish packaging."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "DISCOVERY_ONLY",
+          "score": 45,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 35,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 65,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "serialstation",
+          "capability": "CAN_SUPPORT",
+          "score": 20,
+          "limitations": [
+            "Technical identifier families establish platform/technical region, not a national distribution market.",
+            "Bind a serial to the photographed disc or package component.",
+            "CUSA is not national-market proof."
+          ]
+        },
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 10,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence.",
+            "Disc identity is not package-market proof."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:todocoleccion.net \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:mobygames.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" back cover distributor legal text",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" back cover distributor legal text",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PACKAGING_LANGUAGES": {
+      "field": "PACKAGING_LANGUAGES",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "ogdb",
+        "national-retailer"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "launchbox-images",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible.",
+            "Exact region and component must be visible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "DISCOVERY_ONLY",
+          "score": 66,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Validate exact edition and specimen."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 20,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "A Spanish retailer alone does not prove Spanish packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ogdb.eu \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" back cover spine",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" back cover spine",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PHYSICAL_PRODUCT_TYPE": {
+      "field": "PHYSICAL_PRODUCT_TYPE",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "platform-holder-official",
+        "ubisoft-official",
+        "launchbox-images",
+        "ebay"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 60,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible.",
+            "Exact region and component must be visible."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 55,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:nintendo.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "platform-holder-official"
+        },
+        {
+          "query": "site:ubisoft.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" back cover download required code in box",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" back cover download required code in box",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "OUTER_INNER_RELATION": {
+      "field": "OUTER_INNER_RELATION",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "ebay",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 48,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 30,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:yambalu.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "yambalu"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" unboxing outer package inner case",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" unboxing outer package inner case",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BUNDLE_CONTENTS": {
+      "field": "BUNDLE_CONTENTS",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "ubisoft-official",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "A Spanish retailer alone does not prove Spanish packaging."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "DISCOVERY_ONLY",
+          "score": 68,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 62,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 62,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:todocoleccion.net \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ubisoft.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" bundle contents",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" bundle contents",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "COLLECTOR_CONTENTS": {
+      "field": "COLLECTOR_CONTENTS",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "publisher-official",
+        "ubisoft-official",
+        "todocoleccion",
+        "ebay"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 74,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ubisoft.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:todocoleccion.net \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" collector contents",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" collector contents",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "RELEASE_STATUS": {
+      "field": "RELEASE_STATUS",
+      "knownFacts": [
+        "title=Black Hole",
+        "platform=ps4",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "platform-holder-official",
+        "ubisoft-official",
+        "mobygames",
+        "national-retailer"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 96,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "A Spanish retailer alone does not prove Spanish packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:nintendo.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "platform-holder-official"
+        },
+        {
+          "query": "site:ubisoft.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:mobygames.com \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "site:game.es \"Black Hole\" \"ps4\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" \"standard\" release status",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Black Hole\" \"ps4\" release status",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    }
+  },
+  "forbiddenInferences": [
+    "sellerCountry=ES does not prove a Spanish physical variant",
+    "Spanish text or software language does not prove Spanish distribution",
+    "PEGI does not prove a national market",
+    "an EAN prefix does not prove distribution country",
+    "a correct identifier on the wrong component is not corroboration",
+    "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+    "Technical-region serial does not prove national distribution.",
+    "Seller country, language and PEGI do not prove national market."
+  ],
+  "sourcePriority": [
+    "LOCAL_KNOWLEDGE",
+    "OWN_SCANS",
+    "EXISTING_DIRECT_URLS",
+    "EXACT_IDENTIFIERS",
+    "SPECIALIZED_SOURCES",
+    "OFFICIAL_SOURCES",
+    "PHYSICAL_SPECIMENS",
+    "GENERIC_SEARCH"
+  ],
+  "researchTasks": [
+    {
+      "field": "MARKET_REGION",
+      "code": "MISSING_MARKET_PROOF",
+      "missingProof": "No market-bound physical or distributor evidence.",
+      "recommendedSourceTypes": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR"
+      ]
+    },
+    {
+      "field": "CONDITION",
+      "code": "MISSING_COMPONENT_PHOTO",
+      "missingProof": "Visible contents do not support a condition bucket.",
+      "recommendedSourceTypes": [
+        "EXACT_PHYSICAL_PHOTO"
+      ]
+    },
+    {
+      "field": "CANONICAL_IDENTITY",
+      "code": "MISSING_COMPONENT_BINDING",
+      "missingProof": "No component-level observations reached the queue.",
+      "recommendedSourceTypes": [
+        "LISTING_IMAGES"
+      ]
+    }
+  ],
+  "loadedKnowledgeFiles": [
+    "data/research-engine/knowledge/sources.json",
+    "data/research-engine/knowledge/playbooks/general.json",
+    "data/research-engine/knowledge/query-templates.json",
+    "data/research-engine/knowledge/source-capabilities.json",
+    "data/research-engine/knowledge/source-access.json",
+    "data/research-engine/knowledge/identifier-patterns.json",
+    "data/research-engine/knowledge/barcode-rules.json",
+    "data/research-engine/knowledge/region-patterns.json",
+    "data/research-engine/knowledge/physical-product-rules.json",
+    "data/research-engine/knowledge/known-traps.json",
+    "data/research-engine/knowledge/platforms/ps4.json",
+    "data/research-engine/knowledge/platform-routing-matrix.json",
+    "data/research-engine/knowledge/platforms/ps4.json",
+    "data/ebay-regional-campaigns/ps4.json"
+  ],
+  "packId": "knowledge-pack-b4fdaf3bd4e2f98bff6cb740"
+}

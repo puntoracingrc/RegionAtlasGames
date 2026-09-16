@@ -1,0 +1,878 @@
+{
+  "current": {
+    "targetField": "MARKET_REGION",
+    "factsUsed": [
+      "target=MARKET_REGION",
+      "platform=ps4",
+      "title=The Order 1886 [Limited Edition]",
+      "edition=standard",
+      "BARCODE=711719806011",
+      "knowledgePack=knowledge-pack-2cdc9b47d543f525c653d2cd",
+      "knownVariants=1",
+      "knownDirectUrls=1",
+      "playbook=BARCODE_KNOWN_MARKET_UNKNOWN"
+    ],
+    "selectedPlaybook": {
+      "id": "BARCODE_KNOWN_MARKET_UNKNOWN",
+      "targets": [
+        "MARKET_REGION",
+        "PACKAGING_LANGUAGES"
+      ],
+      "triggers": [
+        "BARCODE_KNOWN"
+      ],
+      "sourceRoles": [
+        "OWN_SCAN",
+        "PHYSICAL_SPECIMEN",
+        "SPECIALIZED_DATABASE",
+        "RETAILER"
+      ],
+      "queryTemplateGroups": [
+        "BARCODE",
+        "PACKAGING_LANGUAGES"
+      ],
+      "deterministicChecks": [
+        "BARCODE_CHECKSUM",
+        "SUBJECT_BINDING",
+        "PACKAGING_NOT_SOFTWARE"
+      ],
+      "steps": [],
+      "stopWhen": null,
+      "stopRule": null,
+      "sourceIds": [],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es",
+          "www.game.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 60,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "MARKETPLACE_SPECIMEN"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "DOMAIN_SEARCH"
+        ],
+        "capabilityScore": 45,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 45."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk",
+          "www.ebay.es"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "MARKETPLACE_SPECIMEN"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "DOMAIN_SEARCH"
+        ],
+        "capabilityScore": 35,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 35."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 65,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+      },
+      {
+        "sourceId": "serialstation",
+        "hosts": [
+          "serialstation.com",
+          "www.serialstation.com"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "COMPONENT_IDENTIFIER",
+          "TECHNICAL_IDENTIFIER_DATABASE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 20,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+      },
+      {
+        "sourceId": "redump",
+        "hosts": [
+          "redump.org",
+          "redump.info"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "MEDIA_IDENTIFIER",
+          "TECHNICAL_DISC_DATABASE"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 10,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "SPECIALIST_DATABASE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 82."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "DOMAIN_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 68."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+        "sourceId": "todoconsolas",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "\"711719806011\"",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER"
+      },
+      {
+        "query": "\"711719806011\" \"The Order 1886 [Limited Edition]\"",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER"
+      },
+      {
+        "query": "site:game.es \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:regionatlas.games \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "sourceId": "regionatlas-own-scan",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "711719806011",
+        "query": "\"711719806011\" \"PlayStation 4\""
+      },
+      {
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "711719806011",
+        "query": "site:game.es \"711719806011\""
+      },
+      {
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "711719806011",
+        "query": "\"711719806011\" \"PAL España\""
+      },
+      {
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "711719806011",
+        "query": "site:todocoleccion.net \"711719806011\""
+      },
+      {
+        "query": "site:ebay.com \"711719806011\"",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"The Order 1886 [Limited Edition]\" PlayStation 4",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:serialstation.com \"The Order 1886 [Limited Edition]\" PlayStation 4",
+        "sourceId": "serialstation",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:redump.org \"The Order 1886 [Limited Edition]\" PlayStation 4",
+        "sourceId": "redump",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"The Order 1886 [Limited Edition]\" PlayStation 4",
+        "sourceId": "ogdb",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"The Order 1886 [Limited Edition]\" PlayStation 4",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.es \"The Order 1886 [Limited Edition]\" PlayStation 4",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"711719806011\"",
+        "sourceId": "ogdb",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"The Order 1886 [Limited Edition]\" \"ps4\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [],
+    "deterministicChecks": [
+      "BARCODE_CHECKSUM",
+      "SUBJECT_BINDING",
+      "PACKAGING_NOT_SOFTWARE"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "6029f873ee497b593a9d6e3c97a1bb6a70ddab5929a23d14c7149f8ee33e3be3"
+  },
+  "history": [
+    {
+      "targetField": "MARKET_REGION",
+      "factsUsed": [
+        "target=MARKET_REGION",
+        "platform=ps4",
+        "title=The Order 1886 [Limited Edition]",
+        "edition=standard",
+        "BARCODE=711719806011",
+        "knowledgePack=knowledge-pack-2cdc9b47d543f525c653d2cd",
+        "knownVariants=1",
+        "knownDirectUrls=1",
+        "playbook=BARCODE_KNOWN_MARKET_UNKNOWN"
+      ],
+      "selectedPlaybook": {
+        "id": "BARCODE_KNOWN_MARKET_UNKNOWN",
+        "targets": [
+          "MARKET_REGION",
+          "PACKAGING_LANGUAGES"
+        ],
+        "triggers": [
+          "BARCODE_KNOWN"
+        ],
+        "sourceRoles": [
+          "OWN_SCAN",
+          "PHYSICAL_SPECIMEN",
+          "SPECIALIZED_DATABASE",
+          "RETAILER"
+        ],
+        "queryTemplateGroups": [
+          "BARCODE",
+          "PACKAGING_LANGUAGES"
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "SUBJECT_BINDING",
+          "PACKAGING_NOT_SOFTWARE"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": null,
+        "sourceIds": [],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es",
+            "www.game.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 60,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+        },
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "MARKETPLACE_SPECIMEN"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "DOMAIN_SEARCH"
+          ],
+          "capabilityScore": 45,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 45."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk",
+            "www.ebay.es"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "MARKETPLACE_SPECIMEN"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "DOMAIN_SEARCH"
+          ],
+          "capabilityScore": 35,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 35."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 65,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+        },
+        {
+          "sourceId": "serialstation",
+          "hosts": [
+            "serialstation.com",
+            "www.serialstation.com"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "COMPONENT_IDENTIFIER",
+            "TECHNICAL_IDENTIFIER_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 20,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+        },
+        {
+          "sourceId": "redump",
+          "hosts": [
+            "redump.org",
+            "redump.info"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "MEDIA_IDENTIFIER",
+            "TECHNICAL_DISC_DATABASE"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 10,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "SPECIALIST_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 82."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "DOMAIN_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 68."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 90."
+        },
+        {
+          "sourceId": "yambalu",
+          "hosts": [
+            "yambalu.com",
+            "www.yambalu.com"
+          ],
+          "roles": [
+            "RETAILER_AGGREGATOR",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 58."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+          "sourceId": "todoconsolas",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "\"711719806011\"",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER"
+        },
+        {
+          "query": "\"711719806011\" \"The Order 1886 [Limited Edition]\"",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER"
+        },
+        {
+          "query": "site:game.es \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:regionatlas.games \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+          "sourceId": "regionatlas-own-scan",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "711719806011",
+          "query": "\"711719806011\" \"PlayStation 4\""
+        },
+        {
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "711719806011",
+          "query": "site:game.es \"711719806011\""
+        },
+        {
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "711719806011",
+          "query": "\"711719806011\" \"PAL España\""
+        },
+        {
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "711719806011",
+          "query": "site:todocoleccion.net \"711719806011\""
+        },
+        {
+          "query": "site:ebay.com \"711719806011\"",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"The Order 1886 [Limited Edition]\" PlayStation 4",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:serialstation.com \"The Order 1886 [Limited Edition]\" PlayStation 4",
+          "sourceId": "serialstation",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:redump.org \"The Order 1886 [Limited Edition]\" PlayStation 4",
+          "sourceId": "redump",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"The Order 1886 [Limited Edition]\" PlayStation 4",
+          "sourceId": "ogdb",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"The Order 1886 [Limited Edition]\" PlayStation 4",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.es \"The Order 1886 [Limited Edition]\" PlayStation 4",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"711719806011\"",
+          "sourceId": "ogdb",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"The Order 1886 [Limited Edition]\" \"ps4\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [],
+      "deterministicChecks": [
+        "BARCODE_CHECKSUM",
+        "SUBJECT_BINDING",
+        "PACKAGING_NOT_SOFTWARE"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "6029f873ee497b593a9d6e3c97a1bb6a70ddab5929a23d14c7149f8ee33e3be3"
+    }
+  ]
+}

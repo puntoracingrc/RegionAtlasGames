@@ -1,0 +1,116 @@
+[
+  {
+    "sourceId": "no-intro",
+    "attempted": true,
+    "requiredBeforeUnresolved": true,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "datomatic",
+    "attempted": true,
+    "requiredBeforeUnresolved": true,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "ogdb",
+    "attempted": true,
+    "requiredBeforeUnresolved": true,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "launchbox-images",
+    "attempted": true,
+    "requiredBeforeUnresolved": true,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "todocoleccion",
+    "attempted": true,
+    "requiredBeforeUnresolved": true,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "ebay",
+    "attempted": true,
+    "requiredBeforeUnresolved": false,
+    "result": "EVIDENCE_RECORDED",
+    "usefulEvidence": [
+      "ev-2389354fa0854abec7a22212"
+    ],
+    "failureReason": null
+  },
+  {
+    "sourceId": "regionatlas-own-scan",
+    "attempted": false,
+    "requiredBeforeUnresolved": false,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "nesworld",
+    "attempted": false,
+    "requiredBeforeUnresolved": false,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "nintendo64ever",
+    "attempted": false,
+    "requiredBeforeUnresolved": false,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "64scener",
+    "attempted": false,
+    "requiredBeforeUnresolved": false,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "emulation64",
+    "attempted": false,
+    "requiredBeforeUnresolved": false,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "spinecard",
+    "attempted": false,
+    "requiredBeforeUnresolved": false,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "platform-holder-official",
+    "attempted": false,
+    "requiredBeforeUnresolved": false,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  },
+  {
+    "sourceId": "retroplace",
+    "attempted": false,
+    "requiredBeforeUnresolved": false,
+    "result": "NO_USEFUL_EVIDENCE",
+    "usefulEvidence": [],
+    "failureReason": null
+  }
+]

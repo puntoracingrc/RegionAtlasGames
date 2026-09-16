@@ -1,0 +1,18 @@
+[
+  {
+    "value": "https://www.ebay.es/itm/125379744212?_skw=Fast+Food+Panic&hash=item1d313711d4:g:qU0AAOSw4JxisZ83",
+    "reason": "Error RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.mobygames.com/game/wii/fast-food-panic_",
+    "reason": "RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.todocoleccion.net/videojuegos-consola-wii/fast-food-panic-nintendo-wii-completo-pal-espana~x246246135",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/itm/133380001832",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "value": "https://www.ebay.es/itm/127600533900?_skw=Driver+San+Francisco&hash=item1db595a18c:g:YdYAAeSwDUFpWFud",
+    "reason": "Error RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.fnac.com/a8530965/Driver-San-Francisco-Wii-Jeu-video-Retrogaming",
+    "reason": "RESEARCH_PAGE_HTTP_403"
+  }
+]

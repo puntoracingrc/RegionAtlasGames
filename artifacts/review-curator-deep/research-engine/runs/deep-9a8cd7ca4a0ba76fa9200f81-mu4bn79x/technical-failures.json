@@ -1,0 +1,23 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.etsy.com/market/episode_1_racer",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.etsy.com/market/episode_1_racer",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

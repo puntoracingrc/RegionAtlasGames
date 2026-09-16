@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-3f0972582742754e4e312ffc",
+    "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+    "taskId": "deep-836d61031e3845fd998c4d09",
+    "subjectId": "curator-subject-5ed3976ca53151519bef",
+    "gameId": "n64-blast-corps",
+    "platformSlug": "n64",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "PRODUCT_CODE",
+    "value": "29876",
+    "sourceId": "candidate:retroplayzone.com",
+    "sourceUrl": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+    "evidenceId": "ev-9b9986e9ed251fdf3fe60632",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:34:19.522Z"
+  }
+]

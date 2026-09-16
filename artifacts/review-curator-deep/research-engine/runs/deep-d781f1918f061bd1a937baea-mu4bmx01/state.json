@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-d781f1918f061bd1a937baea-mu4bmx01",
+  "taskId": "deep-d781f1918f061bd1a937baea",
+  "subjectId": "curator-subject-0788a90c3cbce5ad0674",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 2,
+  "targetFields": [
+    "PRODUCT_CODE"
+  ],
+  "currentTargetField": "PRODUCT_CODE",
+  "currentPlaybook": "N64_CART_KNOWN_BOX_UNKNOWN",
+  "queriesAttempted": [
+    "site:no-intro.org \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+    "site:datomatic.no-intro.org \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+    "site:ogdb.eu \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+    "site:gamesdb.launchbox-app.com \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+    "site:todocoleccion.net \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+    "\"International Superstar Soccer 98\" \"n64\" \"standard\" cartridge disc product code",
+    "\"25645\"",
+    "\"International Superstar Soccer 98\" \"n64\" \"USA\" cartridge label \"product code\""
+  ],
+  "normalizedQueries": [
+    "site:no-intro.org \"international superstar soccer 98\" \"n64\" \"standard\"",
+    "site:datomatic.no-intro.org \"international superstar soccer 98\" \"n64\" \"standard\"",
+    "site:ogdb.eu \"international superstar soccer 98\" \"n64\" \"standard\"",
+    "site:gamesdb.launchbox-app.com \"international superstar soccer 98\" \"n64\" \"standard\"",
+    "site:todocoleccion.net \"international superstar soccer 98\" \"n64\" \"standard\"",
+    "\"international superstar soccer 98\" \"n64\" \"standard\" cartridge disc product code",
+    "\"25645\"",
+    "\"international superstar soccer 98\" \"n64\" \"usa\" cartridge label \"product code\""
+  ],
+  "urlsVisited": [
+    "https://retroplayzone.com/25645-internation-superstar-soccer-98-sin-caja-n64.html",
+    "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+    "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg"
+  ],
+  "domainsVisited": [],
+  "identifiersSeen": [
+    {
+      "type": "PRODUCT_CODE",
+      "value": "25645",
+      "component": "UNKNOWN"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-c87ce755fffe15b31f00ac49",
+      "runId": "deep-d781f1918f061bd1a937baea-mu4bmx01",
+      "taskId": "deep-d781f1918f061bd1a937baea",
+      "sourceId": "candidate:retroplayzone.com",
+      "sourceUrl": "https://retroplayzone.com/25645-internation-superstar-soccer-98-sin-caja-n64.html",
+      "canonicalUrl": "https://retroplayzone.com/25645-internation-superstar-soccer-98-sin-caja-n64.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "retroplayzone.com",
+      "fetchedAt": "2026-09-16T16:34:50.179Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "25645",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "7ed2bcb6ea6b677dfa08d769c3c99af5511e9953e4b340d727583caced795bcb",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-2389354fa0854abec7a22212",
+      "runId": "deep-d781f1918f061bd1a937baea-mu4bmx01",
+      "taskId": "deep-d781f1918f061bd1a937baea",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+      "canonicalUrl": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+      "sourceType": "MARKETPLACE",
+      "host": "www.ebay.com",
+      "fetchedAt": "2026-09-16T16:35:02.883Z",
+      "evidenceType": "EXACT_PHYSICAL_PHOTO",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": null,
+      "imageUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+      "imageHash": "08cb87f6f587e6620ab13393dfd7cddbac1288e669208f649915a7fd76d0d37c",
+      "textHash": null,
+      "capabilities": [
+        "PRODUCT_CODE"
+      ],
+      "reliability": 95,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeId": "282b907dacc5d95f2a91",
+      "componentNodeId": "12c63f2bc59510303180",
+      "bindingState": "PRODUCT_BOUND",
+      "marketBindingState": "LANGUAGE_ONLY",
+      "subjectClass": "EXACT_PRODUCT",
+      "editionClass": "EXPECTED_EDITION",
+      "visibleEditionMarker": "standard",
+      "sourcePageUrl": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+      "originalImageUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+      "resolvedImageUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+      "sourceRecordId": null,
+      "listingId": "183816675231",
+      "platformClassification": "n64",
+      "editionClassification": "standard",
+      "marketEvidence": [],
+      "languageEvidence": [
+        "English"
+      ],
+      "extractedIdentifiers": [],
+      "visionModel": "gpt-4o-mini",
+      "visionSchemaVersion": 1
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-6d5d90c165b53fb3b610d3a1",
+      "runId": "deep-d781f1918f061bd1a937baea-mu4bmx01",
+      "taskId": "deep-d781f1918f061bd1a937baea",
+      "subjectId": "curator-subject-0788a90c3cbce5ad0674",
+      "gameId": "n64-international-superstar-soccer-98",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "PRODUCT_CODE",
+      "value": "25645",
+      "sourceId": "candidate:retroplayzone.com",
+      "sourceUrl": "https://retroplayzone.com/25645-internation-superstar-soccer-98-sin-caja-n64.html",
+      "evidenceId": "ev-c87ce755fffe15b31f00ac49",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:34:51.487Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+      "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 1,
+    "agentTurns": 2,
+    "browserSessions": 1,
+    "inputTokens": 17128,
+    "outputTokens": 316,
+    "estimatedCostUsd": 0.002759
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "Extracted PRODUCT_CODE from the provided source.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:35:02.885Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+      "gapType": "MISSING_CART_PHOTO"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "PRODUCT_CODE",
+      "type": "MISSING_CART_PHOTO",
+      "candidateValue": null,
+      "missingProof": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+      "recommendedActions": [
+        "OPEN_EXISTING_GALLERIES",
+        "SEARCH_EXACT_CART_PHOTO",
+        "SEARCH_PHYSICAL_UNBOXING"
+      ],
+      "recommendedSourceTypes": [
+        "ogdb",
+        "no-intro",
+        "datomatic",
+        "nesworld",
+        "nintendo64ever"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [
+    {
+      "id": "282b907dacc5d95f2a91",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "International Superstar Soccer 98 · n64 · standard",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "12c63f2bc59510303180",
+      "type": "INNER_PRODUCT",
+      "label": "INNER_PRODUCT:CARTRIDGE_FRONT",
+      "parentProductId": "282b907dacc5d95f2a91",
+      "component": "CARTRIDGE_FRONT"
+    }
+  ],
+  "productRelations": [
+    {
+      "fromNodeId": "12c63f2bc59510303180",
+      "toNodeId": "282b907dacc5d95f2a91",
+      "relation": "BUNDLES",
+      "evidenceIds": [
+        "ev-2389354fa0854abec7a22212"
+      ]
+    }
+  ],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 1,
+    "exactTargetImages": 1,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 1,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 1,
+    "subjectAccepted": 1,
+    "componentAccepted": 1,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:34:49.989Z",
+  "updatedAt": "2026-09-16T16:35:02.885Z"
+}

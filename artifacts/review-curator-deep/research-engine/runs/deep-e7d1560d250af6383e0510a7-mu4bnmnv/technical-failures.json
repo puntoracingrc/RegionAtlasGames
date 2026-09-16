@@ -1,0 +1,9 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/176406754678",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

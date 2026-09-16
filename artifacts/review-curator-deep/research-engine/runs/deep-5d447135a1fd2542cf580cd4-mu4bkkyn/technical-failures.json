@@ -1,0 +1,16 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/133380001737?_skw=Family+Ski&hash=item1f0e114fc9:g:hIwAAOSwlw1dr0s2",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/226876895567",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

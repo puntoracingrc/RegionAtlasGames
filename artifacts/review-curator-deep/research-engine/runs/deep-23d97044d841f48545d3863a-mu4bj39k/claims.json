@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-07609662819a23ae05f88a4b",
+    "runId": "deep-23d97044d841f48545d3863a-mu4bj39k",
+    "taskId": "deep-23d97044d841f48545d3863a",
+    "subjectId": "curator-subject-1756ae52087c97a5306f",
+    "gameId": "wii-fishing-master",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "CANONICAL_IDENTITY",
+    "value": "Fishing Master",
+    "sourceId": "candidate:bitjumpgames.com",
+    "sourceUrl": "https://bitjumpgames.com/products/fishing-master-wii",
+    "evidenceId": "ev-c9d706715f39acb6fc201571",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:31:57.420Z"
+  }
+]

@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-254e9b0895cf7f3063f46432-mu4bm1el",
+  "taskId": "deep-254e9b0895cf7f3063f46432",
+  "subjectId": "curator-subject-563d2e3350aae4a648f7",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS4_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Black Hole\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"Black Hole\" \"ps4\" \"standard\"",
+    "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"Black Hole\" \"ps4\" \"standard\"",
+    "\"Black Hole\" \"ps4\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Black Hole\" PlayStation 4",
+    "site:ebay.es \"Black Hole\" PlayStation 4"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"black hole\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"black hole\" \"ps4\" \"standard\"",
+    "site:ebay.com \"black hole\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"black hole\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"black hole\" \"ps4\" \"standard\"",
+    "\"black hole\" \"ps4\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"black hole\" playstation 4",
+    "site:ebay.es \"black hole\" playstation 4"
+  ],
+  "urlsVisited": [
+    "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+    "https://www.ebay.com/itm/386868328319",
+    "https://www.ebay.com/itm/154737419727",
+    "https://www.ebay.es/itm/133113653016"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "www.ebay.es"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-d19ee5e675a7274dba8c6427",
+      "runId": "deep-254e9b0895cf7f3063f46432-mu4bm1el",
+      "taskId": "deep-254e9b0895cf7f3063f46432",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+      "canonicalUrl": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.todoconsolas.com",
+      "fetchedAt": "2026-09-16T16:34:09.910Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "USA",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "35e8e904ca025bd9c1e2963091ee4dd5fabe6cb09ed043ed44b41c9cb1c79481",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-2535fe968648fba5c01ae231",
+      "runId": "deep-254e9b0895cf7f3063f46432-mu4bm1el",
+      "taskId": "deep-254e9b0895cf7f3063f46432",
+      "subjectId": "curator-subject-563d2e3350aae4a648f7",
+      "gameId": "ps4-usa-black-hole",
+      "platformSlug": "ps4",
+      "editionId": null,
+      "variantId": null,
+      "component": null,
+      "field": "MARKET_REGION",
+      "value": "USA",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+      "evidenceId": "ev-d19ee5e675a7274dba8c6427",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:34:11.194Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.com/itm/386868328319",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/154737419727",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.es/itm/133113653016",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 2,
+    "browserSessions": 2,
+    "inputTokens": 1248,
+    "outputTokens": 86,
+    "estimatedCostUsd": 0.000238
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "Extracted MARKET_REGION as USA based on the source evidence.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:34:16.587Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:34:09.035Z",
+  "updatedAt": "2026-09-16T16:34:16.588Z"
+}

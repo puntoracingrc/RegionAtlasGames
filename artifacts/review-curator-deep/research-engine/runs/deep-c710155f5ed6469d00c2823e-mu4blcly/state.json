@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-c710155f5ed6469d00c2823e-mu4blcly",
+  "taskId": "deep-c710155f5ed6469d00c2823e",
+  "subjectId": "curator-subject-e8c0a6bc6e6a306e2ea2",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS4_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+    "site:ebay.com \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+    "\"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Batman Arkham Knight [Special Edition]\" PlayStation 4",
+    "site:ebay.es \"Batman Arkham Knight [Special Edition]\" PlayStation 4"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"batman arkham knight [special edition]\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"batman arkham knight [special edition]\" \"ps4\" \"standard\"",
+    "site:ebay.com \"batman arkham knight [special edition]\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"batman arkham knight [special edition]\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"batman arkham knight [special edition]\" \"ps4\" \"standard\"",
+    "\"batman arkham knight [special edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"batman arkham knight [special edition]\" playstation 4",
+    "site:ebay.es \"batman arkham knight [special edition]\" playstation 4"
+  ],
+  "urlsVisited": [
+    "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html"
+  ],
+  "domainsVisited": [],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-4d6e3c3f667becf67abb17ce",
+      "runId": "deep-c710155f5ed6469d00c2823e-mu4blcly",
+      "taskId": "deep-c710155f5ed6469d00c2823e",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html",
+      "canonicalUrl": "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.todoconsolas.com",
+      "fetchedAt": "2026-09-16T16:33:41.279Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Batman Arkham Knight Special Edition PS4 | Segunda Mano",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "e3ef7c5dc634ac4526877aa98232da2b58fc3da91e2f8106b05273060221334b",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-f2a01411d9937333d5e45f05",
+      "runId": "deep-c710155f5ed6469d00c2823e-mu4blcly",
+      "taskId": "deep-c710155f5ed6469d00c2823e",
+      "subjectId": "curator-subject-e8c0a6bc6e6a306e2ea2",
+      "gameId": "ps4-batman-arkham-knight-special-edition",
+      "platformSlug": "ps4",
+      "editionId": null,
+      "variantId": null,
+      "component": "MANUAL_FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html",
+      "evidenceId": "ev-4d6e3c3f667becf67abb17ce",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:33:43.109Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 2,
+    "browserSessions": 0,
+    "inputTokens": 2252,
+    "outputTokens": 111,
+    "estimatedCostUsd": 0.000404
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The evidence clearly states the market region as PAL España for the specified game edition and platform.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:33:46.261Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:33:36.924Z",
+  "updatedAt": "2026-09-16T16:33:46.261Z"
+}

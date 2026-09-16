@@ -1,0 +1,2051 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "entries": [
+    {
+      "caseId": "shadow_20_live-00f149364083176e98b3",
+      "reviewItemId": "00f149364083176e98b3",
+      "platform": "other",
+      "inputHash": "781d0c7ec3983da2d20d4e7dd140ec913779420da5f4ab88e392d51f446fb7e1",
+      "evidenceHash": "a31ae31ee6bdeaf6390566d314229d2acbb5103a0f46e11295343e5318a256ca",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "regional_variant_missing",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/377370832247?_skw=Dave+Mirra+BMX+Challenge&hash=item57dd0ded77:g:IpQAAeSwqn9qjtNW",
+          "imageUrl": "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/IpQAAeSwqn9qjtNW/s-l1600.jpg",
+            "https://i.ebayimg.com/images/g/o5AAAeSw0DZqjtNW/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/kKMAAeSw0zlqjtNW/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|377370832247|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "regional_variant_missing",
+            "Región detectada: PAL Alemania; no se aplica a la ficha buscada."
+          ],
+          "conditionRaw": null,
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": "wii-dave-mirra-bmx-challenge",
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": "regional_variant_missing",
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Dave Mirra BMX Challenge"
+        },
+        "condition": "unknown",
+        "priceEur": 6.99
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-01637866b794ae795eb9",
+      "reviewItemId": "01637866b794ae795eb9",
+      "platform": "other",
+      "inputHash": "c71b45349cca07aa71fb048e130effd7ea3d7c37d50e3f7a0a4708ec94f1779c",
+      "evidenceHash": "18fa394de66bb6cf01453696d9adc1f5bac270c2b67769c9bcf16db75990286f",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "estado_desconocido",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/225877051908?_skw=DreamWorks+Super+Star+Kartz&hash=item3497524a04:g:6AUAAOSwx-ZlWNgc",
+          "imageUrl": "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/6AUAAOSwx-ZlWNgc/s-l1600.jpg",
+            "https://i.ebayimg.com/images/g/hl8AAOSwWZNlWNgf/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|225877051908|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "cover_spain",
+            "listing_title_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "back_cover_language",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 0.9,
+          "reviewNotes": [],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": null,
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": null,
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "DreamWorks Super Star Kartz"
+        },
+        "condition": "unknown",
+        "priceEur": 26.9
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-02d2a44bf900bcc26dcf",
+      "reviewItemId": "02d2a44bf900bcc26dcf",
+      "platform": "other",
+      "inputHash": "9cd7eb15e95ff554bdd9f52b7fa92762c0f98919eccfa1ad0c282b1de4b18ad0",
+      "evidenceHash": "50ffa13a23335dc07139715cb86e6936da7380bbfd3ca725bf95dd9dfd8081b7",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "estado_desconocido",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/125379744212?_skw=Fast+Food+Panic&hash=item1d313711d4:g:qU0AAOSw4JxisZ83",
+          "imageUrl": "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/qU0AAOSw4JxisZ83/s-l960.jpg",
+            "https://i.ebayimg.com/images/g/eBwAAOSwAZJisZ8s/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|125379744212|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "cover_spain",
+            "listing_title_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "back_cover_language",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 0.9,
+          "reviewNotes": [],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": null,
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": null,
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Fast Food Panic"
+        },
+        "condition": "unknown",
+        "priceEur": 7.9
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-04a5a691752b7c689b9b",
+      "reviewItemId": "04a5a691752b7c689b9b",
+      "platform": "other",
+      "inputHash": "f276e3dfb53083b2ee8bb0ac0507a1e2fc8365772d7bcfb3f1e4629eab647aaf",
+      "evidenceHash": "8d03b33156f81b6502ca3421cb81132ce578bc1039ed7898c907d3e59c57d635",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "regional_variant_missing",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/127748927580?_skw=Fishing+Master&hash=item1dbe6df05c:g:7tgAAeSwD7RpuDY9",
+          "imageUrl": "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/7tgAAeSwD7RpuDY9/s-l640.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|127748927580|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "listing_title_region",
+            "seller_states_region",
+            "cover_usa",
+            "photo_region_mark",
+            "sku_regional",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 0.9,
+          "reviewNotes": [
+            "regional_variant_missing",
+            "Región detectada: USA; no se aplica a la ficha buscada."
+          ],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": "wii-fishing-master",
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": "regional_variant_missing",
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Fishing Master"
+        },
+        "condition": "unknown",
+        "priceEur": 23.87
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "platform_candidate",
+        "market_region"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "condition",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-054df8e1147efbc38b49",
+      "reviewItemId": "054df8e1147efbc38b49",
+      "platform": "other",
+      "inputHash": "7a53205d7c92c3302aaa98942eebe3f3576eda7cb5751a47fe5e3af2b9298b6f",
+      "evidenceHash": "d2fe2008ad76b98a37c4c4debddd828fff47d4f2b29e1ff822be003e93ff7e55",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "estado_desconocido",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/195097511021?_skw=Grand+Slam+Tennis&hash=item2d6cb7c46d:g:vzgAAOSwpgdile4t&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGbYZKe%2B%2Bmp3%2BYn0kD3eqchOiYWqmbfaWvlKCOnEzWmcfJIVHhKbFcT0jR%2BROqdOt4ad8RpMZuGN1w6uCLsw6fbgPRlaZuFHqUqP7oPmfm2W4x4qYSBCL%2F8eg4aEfzVk2kb9PFXQPyXJp7EXeiQ602ODwtn9kFnLUhBTPtfc4NFmx%2ByLnaYqsUe4MPdsr33Tl7w10aUrW8FHM126KNH3SKfIZzSz7A4xAYUWD%2BFGpNt0Q0RK8OLVBjhK8koRqljVenv7ozP%2BJUkrYsENkWd7P5k5WjT7Se0iiQKGv1NsnQjKUQ%3D%3D",
+          "imageUrl": "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/vzgAAOSwpgdile4t/s-l1600.jpg",
+            "https://i.ebayimg.com/images/g/IowAAOSw2Ppile4z/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|195097511021|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "cover_spain",
+            "listing_title_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "back_cover_language",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 1,
+          "reviewNotes": [],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": null,
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": null,
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Grand Slam Tennis"
+        },
+        "condition": "unknown",
+        "priceEur": 13.9
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0560743eaf0bc388c28c",
+      "reviewItemId": "0560743eaf0bc388c28c",
+      "platform": "other",
+      "inputHash": "cfdcdee1f096972c15246e9b95b021bb102f761098c45e144cf417624376af6d",
+      "evidenceHash": "0dd0e6e9996f96422b92d9f7a70d76d36b1a74dd9a91871a14b7fe617d8d31f0",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "estado_desconocido",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "imageUrl": "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/ZA4AAOSwmLlX8p0A/s-l1600.jpg",
+            "https://i.ebayimg.com/images/g/hqYAAOSwzaJX8p0H/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|331989403702|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "cover_spain",
+            "listing_title_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "back_cover_language",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 0.9,
+          "reviewNotes": [],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": null,
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": null,
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Gormiti The Lords of Nature"
+        },
+        "condition": "unknown",
+        "priceEur": 44.9
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0568c4a9117a9d000b0e",
+      "reviewItemId": "0568c4a9117a9d000b0e",
+      "platform": "other",
+      "inputHash": "3568db3252368b51d903734985b3d63591d6067c5cb293d188d7b1ac00e88f68",
+      "evidenceHash": "b51f1786db499ee0ec9c6a84281e039315fa1047ab3fa7be73b5ac2cdafa0c98",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "regional_variant_missing",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+          "imageUrl": "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/sXwAAeSwvVxpCxVV/s-l1200.jpg",
+            "https://i.ebayimg.com/images/g/1H0AAeSw2FtpCxVV/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/bk0AAeSwr6FpCxVW/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/U2sAAeSw6-lpCxVW/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/CCAAAeSwZilpCxVX/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|185413966546|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "regional_variant_missing",
+            "Región detectada: PAL Europa; no se aplica a la ficha buscada."
+          ],
+          "conditionRaw": null,
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": "wii-hot-wheels-track-attack",
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": "regional_variant_missing",
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Hot Wheels Track Attack"
+        },
+        "condition": "unknown",
+        "priceEur": 14.95
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-061f8b43601c71726400",
+      "reviewItemId": "061f8b43601c71726400",
+      "platform": "other",
+      "inputHash": "2768c7404f79a1972b194070bba62e2afda040050d63d9dec08450371728afc6",
+      "evidenceHash": "b203dfe54bc0a3140f9c70106c807c1131a13a0511f5eb467fc95954d87911eb",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "regional_variant_missing",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/127600533900?_skw=Driver+San+Francisco&hash=item1db595a18c:g:YdYAAeSwDUFpWFud",
+          "imageUrl": "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/YdYAAeSwDUFpWFud/s-l960.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|127600533900|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "listing_title_region",
+            "seller_states_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 1,
+          "reviewNotes": [
+            "regional_variant_missing",
+            "Región detectada: PAL Europa; no se aplica a la ficha buscada."
+          ],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": "wii-driver-san-francisco",
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": "regional_variant_missing",
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Driver San Francisco"
+        },
+        "condition": "unknown",
+        "priceEur": 16.66
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0653feb8d8bc2db37e97",
+      "reviewItemId": "0653feb8d8bc2db37e97",
+      "platform": "other",
+      "inputHash": "77c1787bb3033af9ad5bc5ca404c42cdccc9bff449e32c3c2a2c22231edbaf0d",
+      "evidenceHash": "ac45bdee534520033eedc11b1258c28661245c5085c92e0a95d3ae8acbb4f745",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "estado_desconocido",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/377370832448?_skw=Inazuma+Eleven+Strikers&hash=item57dd0dee40:g:zb0AAeSwau1qjtRX&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZj98RtiezjmIA0btTTrmFtJhb7y9%2FFR9lf3c3GMixFOclPG%2BLpTAPncMg%2BKjfAE9Snzy%2BzDdvqvEYZ9VjWW6p7q1klE%2FO%2BvR%2BgHl4iV6pG2WBTEEAkplIi6B4gsXIxZerlxMbQw7K5GSIMutlNKARNNrAhwRWxAVODd4ImHtHYKc%2B0xCudnh%2FedAPQyIVKAtKRjh01K%2BOWdB%2FEh%2F7q%2FNzXxtCJ9xD2%2Fqv932zI6ktj30Oq6H6Yruzh%2Fes1Vyhlhn%2BqaYNaOOFd73Fy6C%2BjHs9OVCjMUa5eJdvwQz707%2BPKdw%3D%3D",
+          "imageUrl": "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/zb0AAeSwau1qjtRX/s-l1600.jpg",
+            "https://i.ebayimg.com/images/g/ZzMAAeSw04tqjtRX/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|377370832448|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "cover_spain",
+            "listing_title_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "back_cover_language",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 1,
+          "reviewNotes": [],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": null,
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": null,
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Inazuma Eleven Strikers"
+        },
+        "condition": "unknown",
+        "priceEur": 28.99
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-07aac5ae7dc1b2ef39f3",
+      "reviewItemId": "07aac5ae7dc1b2ef39f3",
+      "platform": "other",
+      "inputHash": "6bfeef570368e357ab3a3ebe36ea7455e84bb9179fde47fb8fced0328af3ec99",
+      "evidenceHash": "39ddabec41efec997bbf562cf39afcadf24ca546eb4d72c2ddbc89936b88078d",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "regional_variant_missing",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/336494606882?_skw=Family+Trainer+Treasure+Adventure&hash=item4e58a43a22:g:VaIAAeSw87ZpWwib",
+          "imageUrl": "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/VaIAAeSw87ZpWwib/s-l640.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|336494606882|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "cover_spain",
+            "listing_title_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 0.9,
+          "reviewNotes": [
+            "regional_variant_missing",
+            "Región detectada: PAL Europa; no se aplica a la ficha buscada."
+          ],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": "wii-family-trainer-treasure-adventure",
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": "regional_variant_missing",
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Family Trainer Treasure Adventure"
+        },
+        "condition": "unknown",
+        "priceEur": 75.21
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-08b70515182237c17235",
+      "reviewItemId": "08b70515182237c17235",
+      "platform": "other",
+      "inputHash": "2f7cd0c212b5f86d90910bf202f5dd762c995d588b5685ba76f12ad14ed59482",
+      "evidenceHash": "3ae1f8efb25db8655d1a5827a25597c13064cfe38b36d6c48adc7c439c3cbba9",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "regional_variant_missing",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/133380001737?_skw=Family+Ski&hash=item1f0e114fc9:g:hIwAAOSwlw1dr0s2",
+          "imageUrl": "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/hIwAAOSwlw1dr0s2/s-l1600.jpg",
+            "https://i.ebayimg.com/images/g/PsIAAOSwGzNdr0s6/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|133380001737|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "regional_variant_missing",
+            "Región detectada: PAL Europa; no se aplica a la ficha buscada."
+          ],
+          "conditionRaw": null,
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": "wii-family-ski",
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": "regional_variant_missing",
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Family Ski"
+        },
+        "condition": "unknown",
+        "priceEur": 99
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0a3ac4ca518f4220b2ba",
+      "reviewItemId": "0a3ac4ca518f4220b2ba",
+      "platform": "other",
+      "inputHash": "b12cde86424afa1262dd5415e4c65a12c193c6a2a813ced9ef2704545451a804",
+      "evidenceHash": "a904f4a76bc93c7bd17f8bd7d3855b62d7a0f4ea42008dd67a31d4c23538390c",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "estado_desconocido",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/389162726108?_skw=Donkey+Kong+Jet+Race&hash=item5a9be7f2dc:g:wyYAAeSwXp5pAxsG",
+          "imageUrl": "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/wyYAAeSwXp5pAxsG/s-l1600.jpg",
+            "https://i.ebayimg.com/images/g/lYAAAeSwUTtpAxsG/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|389162726108|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "cover_spain",
+            "listing_title_region",
+            "photo_region_mark",
+            "cover_pal_eu",
+            "back_cover_language",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 1,
+          "reviewNotes": [],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": null,
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": null,
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Donkey Kong Jet Race"
+        },
+        "condition": "unknown",
+        "priceEur": 25
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0b9827473683ab13e354",
+      "reviewItemId": "0b9827473683ab13e354",
+      "platform": "other",
+      "inputHash": "362d2bf64593b2cd23e5583ac80297e5055bddaf984dd2b1b9c988ca67cba452",
+      "evidenceHash": "e302b6db13c1b4ce0a423dc437bb48bb3dea31b83f2cc6b9b20001d5fe7f4a55",
+      "workerEvidence": {
+        "source": "ebay-es",
+        "reason": "estado_desconocido",
+        "evidence": {
+          "url": "https://www.ebay.es/itm/389161090498?_skw=Ghost+Squad&hash=item5a9bcefdc2:g:LU4AAeSwVzhpApdQ",
+          "imageUrl": "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l225.jpg",
+          "imageUrls": [
+            "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l225.jpg",
+            "https://i.ebayimg.com/images/g/LU4AAeSwVzhpApdQ/s-l1600.jpg",
+            "https://i.ebayimg.com/images/g/YA8AAeSw4bdpApdQ/s-l225.jpg"
+          ],
+          "description": null,
+          "characteristics": null,
+          "externalId": "v1|389161090498|0",
+          "catalogTitle": null,
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "cover_spain",
+            "listing_title_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "back_cover_language",
+            "cover_vision"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": 0.9,
+          "reviewNotes": [],
+          "conditionRaw": null,
+          "manualExpected": true,
+          "manualExpectationSource": "platform_generation_default",
+          "originalContentsExpected": [
+            "manual"
+          ],
+          "originalContentsSource": "platform_generation_default",
+          "searchedCatalogId": null,
+          "originCountry": "ES",
+          "originRegionHint": null,
+          "routingReason": null,
+          "matchedReference": null,
+          "displayTitle": null,
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": null,
+          "fullySpanishVersion": null,
+          "searchQuery": "Ghost Squad"
+        },
+        "condition": "unknown",
+        "priceEur": 15
+      },
+      "firstPassReasoningSummary": "Reused identical evidence-only result from shadow-20-live.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-9eb77b589f8eed7f7b1c",
+      "reviewItemId": "9eb77b589f8eed7f7b1c",
+      "platform": "ps4",
+      "inputHash": "ddc3624083511a228403e6783f2cd14eb899b591afe618d29dbb129702748660",
+      "evidenceHash": "4c59454cb4a1c1fc404cfbb25e684144e79fbbd53e018e35e07a79acda60cdb6",
+      "workerEvidence": {
+        "source": "todoconsolas",
+        "reason": "catalog_region_not_exact",
+        "evidence": {
+          "url": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+          "imageUrl": "https://www.todoconsolas.com/389719-large_default/the_order_1886_limited_edition_ps4_eu_po32789.jpg",
+          "imageUrls": null,
+          "description": null,
+          "characteristics": null,
+          "externalId": "5416",
+          "catalogTitle": "The Order 1886 [Limited Edition]",
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "tcns_suffix_eu",
+            "listing_title_region"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [
+            {
+              "catalogId": "ps4-the-order-1886-limited-edition",
+              "region": "PAL España",
+              "title": "The Order 1886 [Limited Edition]",
+              "edition": "standard"
+            }
+          ],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "La región no coincide exactamente con la ficha."
+          ],
+          "conditionRaw": "Segunda mano",
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": "ps4-the-order-1886-limited-edition",
+          "originCountry": null,
+          "originRegionHint": null,
+          "routingReason": "catalog_region_not_exact",
+          "matchedReference": null,
+          "displayTitle": "The Order 1886 Limited Edition",
+          "sourceRegionCode": "EU",
+          "sourceRegionLabel": "PAL Europa",
+          "gameKeyCard": false,
+          "fullySpanishVersion": false,
+          "searchQuery": null
+        },
+        "condition": "preowned",
+        "priceEur": 29.95
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-a7e6c0f114ca5848b46c",
+      "reviewItemId": "a7e6c0f114ca5848b46c",
+      "platform": "ps4",
+      "inputHash": "e11026bb67ad0fc03353c2e15df4586c14798f00a3a258f95b670009402e962f",
+      "evidenceHash": "7dbeb1b4aba2008dc768db23b0478fcf6000bbb99d8f9cf405fa9b4accc5401e",
+      "workerEvidence": {
+        "source": "todoconsolas",
+        "reason": "catalog_region_not_exact",
+        "evidence": {
+          "url": "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html",
+          "imageUrl": "https://www.todoconsolas.com/16950-large_default/batman_arkham_knight_special_edition_ps4_sp_po36111.jpg",
+          "imageUrls": null,
+          "description": null,
+          "characteristics": null,
+          "externalId": "13268",
+          "catalogTitle": "Batman Arkham Knight [Special Edition]",
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "tcns_suffix_sp",
+            "listing_title_region"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [
+            {
+              "catalogId": "ps4-batman-arkham-knight-special-edition",
+              "region": "PAL España",
+              "title": "Batman Arkham Knight [Special Edition]",
+              "edition": "standard"
+            },
+            {
+              "catalogId": "ps4-japon-batman-arkham-knight-special-edition",
+              "region": "Japón",
+              "title": "Batman: Arkham Knight [Special Edition]",
+              "edition": "standard"
+            }
+          ],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "La región no coincide exactamente con la ficha."
+          ],
+          "conditionRaw": "Segunda mano",
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": "ps4-batman-arkham-knight-special-edition",
+          "originCountry": null,
+          "originRegionHint": null,
+          "routingReason": "catalog_region_not_exact",
+          "matchedReference": null,
+          "displayTitle": "Batman Arkham Knight Special Edition",
+          "sourceRegionCode": "SP",
+          "sourceRegionLabel": "PAL España",
+          "gameKeyCard": false,
+          "fullySpanishVersion": true,
+          "searchQuery": null
+        },
+        "condition": "preowned",
+        "priceEur": 16.95
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-5a9b9160ca1816f8d07c",
+      "reviewItemId": "5a9b9160ca1816f8d07c",
+      "platform": "ps4",
+      "inputHash": "fdb1b75393144726ba7bd0cf2c65bd78f1a18bb0059082c13c79f200c7b88d52",
+      "evidenceHash": "826b165dcd431289ef650d370e2bfb7ccadd79f4333db688de92cfe325cbe942",
+      "workerEvidence": {
+        "source": "todoconsolas",
+        "reason": "catalog_region_not_exact",
+        "evidence": {
+          "url": "https://www.todoconsolas.com/juegos-ps4/176261-pantsu_hunter__back_to_the_90s_ps4_eu_po214024-3770011615575.html",
+          "imageUrl": "https://www.todoconsolas.com/418487-large_default/pantsu_hunter__back_to_the_90s_ps4_eu_po214024.jpg",
+          "imageUrls": null,
+          "description": null,
+          "characteristics": null,
+          "externalId": "176261",
+          "catalogTitle": "Pantsu Hunter: Back to the 90s",
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "tcns_suffix_eu",
+            "listing_title_region"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [
+            {
+              "catalogId": "ps4-pantsu-hunter-back-to-the-90s",
+              "region": "PAL España",
+              "title": "Pantsu Hunter: Back to the 90s",
+              "edition": "standard"
+            }
+          ],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "La región no coincide exactamente con la ficha."
+          ],
+          "conditionRaw": "Segunda mano",
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": "ps4-pantsu-hunter-back-to-the-90s",
+          "originCountry": null,
+          "originRegionHint": null,
+          "routingReason": "catalog_region_not_exact",
+          "matchedReference": null,
+          "displayTitle": "Pantsu Hunter: Back to the 90s",
+          "sourceRegionCode": "EU",
+          "sourceRegionLabel": "PAL Europa",
+          "gameKeyCard": false,
+          "fullySpanishVersion": false,
+          "searchQuery": null
+        },
+        "condition": "preowned",
+        "priceEur": 59.95
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-bb177450aff4b98e9ecf",
+      "reviewItemId": "bb177450aff4b98e9ecf",
+      "platform": "ps4",
+      "inputHash": "8944bd61e052abea15b319a9bb2b799946bfb3fd14f89120ab1c40019a68ce8c",
+      "evidenceHash": "fa5947c34b7d65493fe8132475cf77de18484905fecb75f18d584cacd125ed1f",
+      "workerEvidence": {
+        "source": "todoconsolas",
+        "reason": "catalog_region_not_exact",
+        "evidence": {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "imageUrl": "https://www.todoconsolas.com/422119-large_default/black_hole_ps4_de_po243244.jpg",
+          "imageUrls": null,
+          "description": null,
+          "characteristics": null,
+          "externalId": "206873",
+          "catalogTitle": "Black Hole",
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "tcns_suffix_de",
+            "listing_title_region"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [
+            {
+              "catalogId": "ps4-usa-black-hole",
+              "region": "USA",
+              "title": "Black Hole",
+              "edition": "standard"
+            }
+          ],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "La región no coincide exactamente con la ficha."
+          ],
+          "conditionRaw": "Segunda mano",
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": "ps4-usa-black-hole",
+          "originCountry": null,
+          "originRegionHint": null,
+          "routingReason": "catalog_region_not_exact",
+          "matchedReference": null,
+          "displayTitle": "Black Hole",
+          "sourceRegionCode": "DE",
+          "sourceRegionLabel": "PAL Alemania",
+          "gameKeyCard": false,
+          "fullySpanishVersion": false,
+          "searchQuery": null
+        },
+        "condition": "preowned",
+        "priceEur": 3.95
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-933ba89565a5cc2437d3",
+      "reviewItemId": "n64-worker-933ba89565a5cc2437d3",
+      "platform": "n64",
+      "inputHash": "a970f8c48ca8a4a90a30e14c48c0b9569c0b0e13a573dde8068809e71ac6981b",
+      "evidenceHash": "c2746fa27b212d46afb3cd28c15ee7afa4ac03bef27e060811bc76234dcf46f6",
+      "workerEvidence": {
+        "source": "retroplayzone",
+        "reason": "mature_platform_validation",
+        "evidence": {
+          "externalId": null,
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "imageUrl": "https://retroplayzone.com/28012-home_default/blast-corps-cartucho-n64.jpg",
+          "imageUrls": [
+            "https://retroplayzone.com/28012-home_default/blast-corps-cartucho-n64.jpg"
+          ],
+          "catalogTitle": "Blast Corps",
+          "searchedCatalogId": "n64-blast-corps",
+          "regionEvidence": [
+            "cover_usa",
+            "cover_vision"
+          ],
+          "matchAlternatives": [
+            {
+              "catalogId": "n64-blast-corps",
+              "title": "Blast Corps",
+              "region": "USA",
+              "score": 0.667
+            },
+            {
+              "catalogId": "n64-pal-blast-corps",
+              "title": "Blast Corps",
+              "region": "PAL Europa",
+              "score": 0.667
+            }
+          ],
+          "aiConfidence": 0.9,
+          "conditionRaw": null,
+          "coverVision": {
+            "isTargetGame": true,
+            "identity": {
+              "titleMatches": true,
+              "platformMatches": true,
+              "editionMatches": true
+            }
+          },
+          "workerSourceArtifact": "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker/app/data/price-ingest/n64.json"
+        },
+        "condition": "loose",
+        "priceEur": 11
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "market_region",
+        "MARKET_REGION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-e3ea6ec812269321a695",
+      "reviewItemId": "n64-worker-e3ea6ec812269321a695",
+      "platform": "n64",
+      "inputHash": "681c6986aefaba369553c9b82def940ee002e1dad7a72c055f879098f27e4f6c",
+      "evidenceHash": "826a6b7c31b1ff92c5bd95ab8e45e5c755743b147a7bbf1125a48fdcde236a64",
+      "workerEvidence": {
+        "source": "retroplayzone",
+        "reason": "mature_platform_validation",
+        "evidence": {
+          "externalId": null,
+          "url": "https://retroplayzone.com/28789-international-superstar-soccer-64-cartuchoi-n64.html",
+          "imageUrl": "https://retroplayzone.com/26864-home_default/international-superstar-soccer-64-cartuchoi-n64.jpg",
+          "imageUrls": [
+            "https://retroplayzone.com/26864-home_default/international-superstar-soccer-64-cartuchoi-n64.jpg"
+          ],
+          "catalogTitle": "International Superstar Soccer 64",
+          "searchedCatalogId": "n64-international-superstar-soccer-64",
+          "regionEvidence": [
+            "cover_usa",
+            "cover_vision"
+          ],
+          "matchAlternatives": [
+            {
+              "catalogId": "n64-international-superstar-soccer-64",
+              "title": "International Superstar Soccer 64",
+              "region": "USA",
+              "score": 0.8
+            },
+            {
+              "catalogId": "n64-pal-international-superstar-soccer-64",
+              "title": "International Superstar Soccer 64",
+              "region": "PAL Europa",
+              "score": 0.8
+            },
+            {
+              "catalogId": "n64-international-superstar-soccer-2000",
+              "title": "International Superstar Soccer 2000",
+              "region": "USA",
+              "score": 0.5
+            },
+            {
+              "catalogId": "n64-international-superstar-soccer-98",
+              "title": "International Superstar Soccer 98",
+              "region": "USA",
+              "score": 0.5
+            },
+            {
+              "catalogId": "n64-pal-international-superstar-soccer-2000",
+              "title": "International Superstar Soccer 2000",
+              "region": "PAL Europa",
+              "score": 0.5
+            }
+          ],
+          "aiConfidence": 0.9,
+          "conditionRaw": null,
+          "coverVision": {
+            "isTargetGame": true,
+            "identity": {
+              "titleMatches": true,
+              "platformMatches": true,
+              "editionMatches": true
+            }
+          },
+          "workerSourceArtifact": "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker/app/data/price-ingest/n64.json"
+        },
+        "condition": "loose",
+        "priceEur": 9
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "market_region",
+        "MARKET_REGION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-2f9bc9308421264d849f",
+      "reviewItemId": "n64-worker-2f9bc9308421264d849f",
+      "platform": "n64",
+      "inputHash": "1e1058f6cd6f2e5d2903925985e4703f2f282cab31f33aacf9b023cb23c60453",
+      "evidenceHash": "6f54881b6fc68eb34e25390e3adc567e5ceeccd323740e9bd7491d9021e84011",
+      "workerEvidence": {
+        "source": "retroplayzone",
+        "reason": "mature_platform_validation",
+        "evidence": {
+          "externalId": null,
+          "url": "https://retroplayzone.com/25645-internation-superstar-soccer-98-sin-caja-n64.html",
+          "imageUrl": "https://retroplayzone.com/27220-home_default/internation-superstar-soccer-98-sin-caja-n64.jpg",
+          "imageUrls": [
+            "https://retroplayzone.com/27220-home_default/internation-superstar-soccer-98-sin-caja-n64.jpg"
+          ],
+          "catalogTitle": "International Superstar Soccer 98",
+          "searchedCatalogId": "n64-international-superstar-soccer-98",
+          "regionEvidence": [
+            "cover_usa",
+            "cover_vision"
+          ],
+          "matchAlternatives": [
+            {
+              "catalogId": "n64-international-superstar-soccer-98",
+              "title": "International Superstar Soccer 98",
+              "region": "USA",
+              "score": 0.8
+            },
+            {
+              "catalogId": "n64-pal-international-superstar-soccer-98",
+              "title": "International Superstar Soccer '98",
+              "region": "PAL Europa",
+              "score": 0.8
+            },
+            {
+              "catalogId": "n64-international-superstar-soccer-2000",
+              "title": "International Superstar Soccer 2000",
+              "region": "USA",
+              "score": 0.5
+            },
+            {
+              "catalogId": "n64-international-superstar-soccer-64",
+              "title": "International Superstar Soccer 64",
+              "region": "USA",
+              "score": 0.5
+            },
+            {
+              "catalogId": "n64-pal-international-superstar-soccer-2000",
+              "title": "International Superstar Soccer 2000",
+              "region": "PAL Europa",
+              "score": 0.5
+            }
+          ],
+          "aiConfidence": 0.9,
+          "conditionRaw": null,
+          "coverVision": {
+            "isTargetGame": true,
+            "identity": {
+              "titleMatches": true,
+              "platformMatches": true,
+              "editionMatches": true
+            }
+          },
+          "workerSourceArtifact": "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker/app/data/price-ingest/n64.json"
+        },
+        "condition": "loose",
+        "priceEur": 12
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "market_region",
+        "MARKET_REGION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-06b68c49b7795dc8aed5",
+      "reviewItemId": "n64-worker-06b68c49b7795dc8aed5",
+      "platform": "n64",
+      "inputHash": "8c7b0abed8dd579aa85cefa2fd790692ed553a6a89f223f10c8328bdf07700d4",
+      "evidenceHash": "42e8a8160a2a11244eedbbd3245d798efb4d876d75a45caeb5ab74bb11205111",
+      "workerEvidence": {
+        "source": "retroplayzone",
+        "reason": "mature_platform_validation",
+        "evidence": {
+          "externalId": null,
+          "url": "https://retroplayzone.com/29632-star-wars-racer-episode-i-cartucho-n64.html",
+          "imageUrl": "https://retroplayzone.com/27820-home_default/star-wars-racer-episode-i-cartucho-n64.jpg",
+          "imageUrls": [
+            "https://retroplayzone.com/27820-home_default/star-wars-racer-episode-i-cartucho-n64.jpg"
+          ],
+          "catalogTitle": "Star Wars Episode I: Racer",
+          "searchedCatalogId": "n64-japon-star-wars-episode-i-racer",
+          "regionEvidence": [
+            "cover_japan",
+            "cover_vision"
+          ],
+          "matchAlternatives": [
+            {
+              "catalogId": "n64-japon-star-wars-episode-i-racer",
+              "title": "Star Wars Episode I: Racer",
+              "region": "Japón",
+              "score": 0.8
+            },
+            {
+              "catalogId": "n64-star-wars-episode-i-racer",
+              "title": "Star Wars Episode I Racer",
+              "region": "PAL Europa",
+              "score": 0.8
+            },
+            {
+              "catalogId": "n64-usa-star-wars-episode-i-racer",
+              "title": "Star Wars Episode I: Racer",
+              "region": "USA",
+              "score": 0.8
+            },
+            {
+              "catalogId": "n64-usa-star-wars-episode-i-battle-naboo",
+              "title": "Star Wars: Episode I Battle for Naboo",
+              "region": "USA",
+              "score": 0.429
+            }
+          ],
+          "aiConfidence": 0.9,
+          "conditionRaw": null,
+          "coverVision": {
+            "isTargetGame": true,
+            "identity": {
+              "titleMatches": true,
+              "platformMatches": true,
+              "editionMatches": true
+            }
+          },
+          "workerSourceArtifact": "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker/app/data/price-ingest/n64.json"
+        },
+        "condition": "loose",
+        "priceEur": 20
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "market_region",
+        "MARKET_REGION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-b61040fc7f57ac796e67",
+      "reviewItemId": "b61040fc7f57ac796e67",
+      "platform": "ps5",
+      "inputHash": "01410d087ac5d07cd6cb02f9197c22bb8dabec9828f55663dbbfbf0fd7337495",
+      "evidenceHash": "34247a8c9591a2c1bf821e2f8f62cb9486971ef9fb71c57b5ac1984c125d0261",
+      "workerEvidence": {
+        "source": "todoconsolas",
+        "reason": "listing_region_missing",
+        "evidence": {
+          "url": "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+          "imageUrl": "https://www.todoconsolas.com/119082-large_default/uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833.jpg",
+          "imageUrls": null,
+          "description": null,
+          "characteristics": null,
+          "externalId": "78864",
+          "catalogTitle": "Uncharted: Colección Legado de los Ladrones",
+          "catalogCoverUrl": null,
+          "regionEvidence": [],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [
+            {
+              "catalogId": "ps5-uncharted-coleccion-legado-de-los-ladrones",
+              "region": "PAL España",
+              "title": "Uncharted: Colección Legado de los Ladrones",
+              "edition": "standard"
+            }
+          ],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "El anuncio no declara una región verificable."
+          ],
+          "conditionRaw": "Segunda mano",
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": "ps5-uncharted-coleccion-legado-de-los-ladrones",
+          "originCountry": null,
+          "originRegionHint": null,
+          "routingReason": "listing_region_missing",
+          "matchedReference": null,
+          "displayTitle": "Uncharted Coleccion Legado de los Ladrones...",
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": false,
+          "fullySpanishVersion": false,
+          "searchQuery": null
+        },
+        "condition": "preowned",
+        "priceEur": 19.95
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-99d439633b5311c4960c",
+      "reviewItemId": "99d439633b5311c4960c",
+      "platform": "ps5",
+      "inputHash": "d3d4fc13c636234f0fa0f649b8444aa1bf36b1d4cdfc8a56e6d169281a56b458",
+      "evidenceHash": "065cb13b3302296f4e9db01969b00ef992a30a5802db85c01e2b659dae1d2763",
+      "workerEvidence": {
+        "source": "todoconsolas",
+        "reason": "catalog_not_found",
+        "evidence": {
+          "url": "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html",
+          "imageUrl": "https://www.todoconsolas.com/418916-large_default/yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513.jpg",
+          "imageUrls": null,
+          "description": null,
+          "characteristics": null,
+          "externalId": "194444",
+          "catalogTitle": "Yakuza Kiwami 3 & Dark Ties Steelbook Edition",
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "tcns_suffix_eu",
+            "listing_title_region"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "No existe todavía una ficha compatible en el catálogo."
+          ],
+          "conditionRaw": "Segunda mano",
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": null,
+          "originCountry": null,
+          "originRegionHint": null,
+          "routingReason": "catalog_not_found",
+          "matchedReference": null,
+          "displayTitle": "Yakuza Kiwami 3 & Dark Ties Steelbook Edition",
+          "sourceRegionCode": "EU",
+          "sourceRegionLabel": "PAL Europa",
+          "gameKeyCard": false,
+          "fullySpanishVersion": false,
+          "searchQuery": null
+        },
+        "condition": "preowned",
+        "priceEur": 45.95
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-39b0f01b400e4cb034d4",
+      "reviewItemId": "39b0f01b400e4cb034d4",
+      "platform": "ps5",
+      "inputHash": "b2f1ddea3d3b5e4fcd4cde16a3a361d85bf08011426054f793ed7b4ccf4c975a",
+      "evidenceHash": "c88026f62bada9fed4576e41bb94d969e671c622e67880bd164e31d30bc74749",
+      "workerEvidence": {
+        "source": "todoconsolas",
+        "reason": "catalog_not_found",
+        "evidence": {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "imageUrl": "https://www.todoconsolas.com/434475-large_default/invincible_vs_collectors_edition_ps5_sp_po246925.jpg",
+          "imageUrls": null,
+          "description": null,
+          "characteristics": null,
+          "externalId": "210455",
+          "catalogTitle": "Invincible VS Collectors Edition",
+          "catalogCoverUrl": null,
+          "regionEvidence": [
+            "tcns_suffix_sp",
+            "listing_title_region"
+          ],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "No existe todavía una ficha compatible en el catálogo."
+          ],
+          "conditionRaw": "Segunda mano",
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": null,
+          "originCountry": null,
+          "originRegionHint": null,
+          "routingReason": "catalog_not_found",
+          "matchedReference": null,
+          "displayTitle": "Invincible VS Collectors Edition",
+          "sourceRegionCode": "SP",
+          "sourceRegionLabel": "PAL España",
+          "gameKeyCard": false,
+          "fullySpanishVersion": true,
+          "searchQuery": null
+        },
+        "condition": "preowned",
+        "priceEur": 89.95
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-9c0ea8059d4a40f29399",
+      "reviewItemId": "9c0ea8059d4a40f29399",
+      "platform": "ps5",
+      "inputHash": "d5ab74f272bd5e434ec0b7a0d7faac56fe68f5042cbbf85690c75a37277902f1",
+      "evidenceHash": "8c38dc2a3777fd55754f648da9f9b725cde7f78a1a76546e76c65b579107601b",
+      "workerEvidence": {
+        "source": "todoconsolas",
+        "reason": "listing_region_missing",
+        "evidence": {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210461-banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970-3512899967021.html",
+          "imageUrl": "https://www.todoconsolas.com/434489-large_default/banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970.jpg",
+          "imageUrls": null,
+          "description": null,
+          "characteristics": null,
+          "externalId": "210461",
+          "catalogTitle": "Banishers Ghosts Of New Eden Collector's Edition ...",
+          "catalogCoverUrl": null,
+          "regionEvidence": [],
+          "matchMethod": null,
+          "matchScore": null,
+          "matchMargin": null,
+          "matchAlternatives": [
+            {
+              "catalogId": "ps5-banishers-ghosts-of-new-eden-collector-s-edition",
+              "region": "PAL España",
+              "title": "Banishers: Ghosts Of New Eden [Collector's Edition]",
+              "edition": "collector"
+            },
+            {
+              "catalogId": "ps5-usa-banishers-ghosts-of-new-eden-collector-s-edition",
+              "region": "USA",
+              "title": "Banishers: Ghosts Of New Eden [Collector's Edition]",
+              "edition": "collector"
+            }
+          ],
+          "aiConfidence": null,
+          "reviewNotes": [
+            "El anuncio no declara una región verificable."
+          ],
+          "conditionRaw": "Segunda Mano",
+          "manualExpected": null,
+          "manualExpectationSource": null,
+          "originalContentsExpected": null,
+          "originalContentsSource": null,
+          "searchedCatalogId": null,
+          "originCountry": null,
+          "originRegionHint": null,
+          "routingReason": "listing_region_missing",
+          "matchedReference": null,
+          "displayTitle": "Banishers Ghosts Of New Eden Collector's Edition ...",
+          "sourceRegionCode": null,
+          "sourceRegionLabel": null,
+          "gameKeyCard": false,
+          "fullySpanishVersion": false,
+          "searchQuery": null
+        },
+        "condition": "preowned",
+        "priceEur": 99.95
+      },
+      "firstPassReasoningSummary": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+      "confirmedFacts": [
+        "platform_candidate"
+      ],
+      "rejectedHypotheses": [],
+      "unresolvedFields": [
+        "identity",
+        "market_region",
+        "condition",
+        "MARKET_REGION",
+        "CONDITION",
+        "CANONICAL_IDENTITY"
+      ],
+      "evidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "recommendedNextActions": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR",
+        "LISTING_IMAGES"
+      ]
+    }
+  ]
+}

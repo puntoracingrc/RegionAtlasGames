@@ -1,0 +1,61 @@
+[
+  {
+    "evidenceId": "ev-b0183c1f3e045c9716f79199",
+    "sourcePageUrl": "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+    "originalUrl": "https://i.ebayimg.com/images/g/c6gAAOSwIBJag0du/s-l500.jpg",
+    "resolvedUrl": "https://i.ebayimg.com/images/g/c6gAAOSwIBJag0du/s-l500.jpg",
+    "contentHash": "ebf40b86c19614bbe6c900f15ed3f99792e04a06a83f19995fe724a6c5833ffb",
+    "sourceId": "ebay",
+    "sourceRecordId": null,
+    "listingId": "223486365468",
+    "subjectClass": "EXACT_PRODUCT",
+    "component": "CARTRIDGE_FRONT",
+    "marketBindingState": "LANGUAGE_ONLY",
+    "bindingState": "PRODUCT_BOUND",
+    "productNodeId": "cda646212a30876df79c",
+    "componentNodeId": "12c63f2bc59510303180",
+    "platformClassification": "n64",
+    "editionClassification": "standard",
+    "editionClass": "STANDARD",
+    "visibleEditionMarker": null,
+    "marketEvidence": [
+      "Nintendo"
+    ],
+    "languageEvidence": [
+      "English"
+    ],
+    "extractedIdentifiers": [
+      {
+        "type": "BARCODE",
+        "value": "NUS-006 (USA)"
+      }
+    ],
+    "model": "gpt-4o-mini",
+    "schemaVersion": 1
+  },
+  {
+    "evidenceId": "ev-a2e121f4bd276ba88c90881d",
+    "sourcePageUrl": "https://www.etsy.com/market/episode_1_racer",
+    "originalUrl": "https://i.etsystatic.com/22443832/r/il/1886a4/8122609426/il_300x300.8122609426_6dxj.jpg",
+    "resolvedUrl": "https://i.etsystatic.com/22443832/r/il/1886a4/8122609426/il_300x300.8122609426_6dxj.jpg",
+    "contentHash": "72fb89dda8cea7944bd34b9a146dfe5bf1f7cd99485fcb1daeb77f379f522c03",
+    "sourceId": "candidate:www.etsy.com",
+    "sourceRecordId": null,
+    "listingId": null,
+    "subjectClass": "EXACT_PRODUCT",
+    "component": "CARTRIDGE_FRONT",
+    "marketBindingState": "UNBOUND",
+    "bindingState": "PRODUCT_BOUND",
+    "productNodeId": "cda646212a30876df79c",
+    "componentNodeId": "12c63f2bc59510303180",
+    "platformClassification": "n64",
+    "editionClassification": "standard",
+    "editionClass": "STANDARD",
+    "visibleEditionMarker": null,
+    "marketEvidence": [],
+    "languageEvidence": [],
+    "extractedIdentifiers": [],
+    "model": "gpt-4o-mini",
+    "schemaVersion": 1
+  }
+]

@@ -1,0 +1,562 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-16T16:31:20.584Z",
+  "knownPlatformCount": 35,
+  "counts": {
+    "complete": 11,
+    "partial": 17,
+    "incomplete": 7
+  },
+  "legacyNewSourceRegistryInconsistencies": {
+    "audited": 6,
+    "fixed": 6,
+    "remaining": 0,
+    "remainingHosts": []
+  },
+  "authoritativeSourceRegistry": "data/research-engine/knowledge/sources.json",
+  "rows": [
+    {
+      "platform": "3ds",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 11,
+      "status": "PARTIAL",
+      "gaps": [
+        "Reviewed national-package examples are limited."
+      ],
+      "evidenceFiles": [
+        "data/region-research/3ds.json"
+      ]
+    },
+    {
+      "platform": "dreamcast",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 6,
+      "status": "PARTIAL",
+      "gaps": [
+        "National packaging examples remain incomplete."
+      ],
+      "evidenceFiles": [
+        "data/region-research/dreamcast.json"
+      ]
+    },
+    {
+      "platform": "ds",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 11,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/region-research/ds.json",
+        "data/catalog-edition-guides-ac-nintendo.json"
+      ]
+    },
+    {
+      "platform": "gameboy",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/region-research/gameboy.json",
+        "data/region-research/gameboy-reviewed-guidance.json"
+      ]
+    },
+    {
+      "platform": "gamecube",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 8,
+      "status": "PARTIAL",
+      "gaps": [
+        "Manual/insert source coverage is incomplete."
+      ],
+      "evidenceFiles": [
+        "data/ebay-regional-campaigns/gamecube.json"
+      ]
+    },
+    {
+      "platform": "gamegear",
+      "identity": "FAMILY",
+      "codes": "NO",
+      "region": "NO",
+      "packaging": "NO",
+      "components": "PARTIAL",
+      "sources": 0,
+      "status": "INCOMPLETE",
+      "gaps": [
+        "No reviewed operational routing entry; catalog presence alone is not knowledge."
+      ],
+      "evidenceFiles": []
+    },
+    {
+      "platform": "gba",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/region-research/gameboy.json",
+        "data/region-research/gameboy-reviewed-guidance.json"
+      ]
+    },
+    {
+      "platform": "gbc",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/region-research/gameboy.json",
+        "data/region-research/gameboy-reviewed-guidance.json"
+      ]
+    },
+    {
+      "platform": "mastersystem",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 7,
+      "status": "INCOMPLETE",
+      "gaps": [
+        "No reviewed platform-specific regional research file."
+      ],
+      "evidenceFiles": [
+        "data/platform-sources.json"
+      ]
+    },
+    {
+      "platform": "megacd",
+      "identity": "FAMILY",
+      "codes": "NO",
+      "region": "NO",
+      "packaging": "NO",
+      "components": "PARTIAL",
+      "sources": 0,
+      "status": "INCOMPLETE",
+      "gaps": [
+        "No reviewed operational routing entry; catalog presence alone is not knowledge."
+      ],
+      "evidenceFiles": []
+    },
+    {
+      "platform": "megadrive",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 7,
+      "status": "PARTIAL",
+      "gaps": [
+        "Manual/insert source coverage is incomplete."
+      ],
+      "evidenceFiles": [
+        "data/region-research/megadrive.json"
+      ]
+    },
+    {
+      "platform": "n64",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/research-engine/knowledge/platforms/n64.json",
+        "data/ebay-regional-campaigns/n64.json"
+      ]
+    },
+    {
+      "platform": "neogeo",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 7,
+      "status": "PARTIAL",
+      "gaps": [
+        "Manual/insert and barcode routes are incomplete."
+      ],
+      "evidenceFiles": [
+        "scripts/test_neogeo_aes_regions.py",
+        "scripts/test_neogeo_aes_plus_catalog.py"
+      ]
+    },
+    {
+      "platform": "neogeo-aes-plus",
+      "identity": "FAMILY",
+      "codes": "NO",
+      "region": "NO",
+      "packaging": "NO",
+      "components": "PARTIAL",
+      "sources": 0,
+      "status": "INCOMPLETE",
+      "gaps": [
+        "No reviewed operational routing entry; catalog presence alone is not knowledge."
+      ],
+      "evidenceFiles": []
+    },
+    {
+      "platform": "neogeocd",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "NO",
+      "components": "PARTIAL",
+      "sources": 6,
+      "status": "PARTIAL",
+      "gaps": [
+        "National packaging routes are incomplete."
+      ],
+      "evidenceFiles": [
+        "scripts/test_neogeo_cd_regions.py"
+      ]
+    },
+    {
+      "platform": "neogeopocket",
+      "identity": "FAMILY",
+      "codes": "NO",
+      "region": "NO",
+      "packaging": "NO",
+      "components": "PARTIAL",
+      "sources": 0,
+      "status": "INCOMPLETE",
+      "gaps": [
+        "No reviewed operational routing entry; catalog presence alone is not knowledge."
+      ],
+      "evidenceFiles": []
+    },
+    {
+      "platform": "nes",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "PARTIAL",
+      "gaps": [
+        "Manual/insert source coverage is incomplete."
+      ],
+      "evidenceFiles": [
+        "data/region-research/nes.json"
+      ]
+    },
+    {
+      "platform": "ps1",
+      "identity": "YES",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 10,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/region-research/ps1.json",
+        "data/ps1-region-markets.json",
+        "src/lib/ps1-scanner-knowledge.ts"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "identity": "YES",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 10,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/region-research/ps2.json",
+        "data/ps2-region-markets.json",
+        "data/ps2-source-knowledge.json.gz"
+      ]
+    },
+    {
+      "platform": "ps3",
+      "identity": "YES",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 10,
+      "status": "PARTIAL",
+      "gaps": [
+        "Packaging-image source coverage is title-dependent."
+      ],
+      "evidenceFiles": [
+        "data/research/ac-ps3-regional-packaging-decisions-2026-09-13.json",
+        "data/catalog-edition-guides-ac-ps3.json"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "identity": "YES",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 10,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/research-engine/knowledge/platforms/ps4.json",
+        "data/ebay-regional-campaigns/ps4.json"
+      ]
+    },
+    {
+      "platform": "ps5",
+      "identity": "YES",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 10,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/research-engine/knowledge/platforms/ps5.json",
+        "data/catalog-edition-guides-ac-shadows-ps5.json"
+      ]
+    },
+    {
+      "platform": "psp",
+      "identity": "YES",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 10,
+      "status": "PARTIAL",
+      "gaps": [
+        "National packaging sources are not fully materialized."
+      ],
+      "evidenceFiles": [
+        "data/research/platform-history/platforms-psp.json"
+      ]
+    },
+    {
+      "platform": "psvita",
+      "identity": "YES",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 10,
+      "status": "PARTIAL",
+      "gaps": [
+        "Card/package component source coverage is incomplete."
+      ],
+      "evidenceFiles": [
+        "data/research/platform-history/platforms-psvita.json"
+      ]
+    },
+    {
+      "platform": "saturn",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 6,
+      "status": "INCOMPLETE",
+      "gaps": [
+        "No reviewed platform-specific regional research file."
+      ],
+      "evidenceFiles": [
+        "data/platform-sources.json"
+      ]
+    },
+    {
+      "platform": "sega32x",
+      "identity": "FAMILY",
+      "codes": "NO",
+      "region": "NO",
+      "packaging": "NO",
+      "components": "PARTIAL",
+      "sources": 0,
+      "status": "INCOMPLETE",
+      "gaps": [
+        "No reviewed operational routing entry; catalog presence alone is not knowledge."
+      ],
+      "evidenceFiles": []
+    },
+    {
+      "platform": "snes",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "PARTIAL",
+      "gaps": [
+        "Manual/insert source coverage is incomplete."
+      ],
+      "evidenceFiles": [
+        "data/region-research/snes.json",
+        "data/region-research/snes-distributions.json"
+      ]
+    },
+    {
+      "platform": "switch",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 11,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/catalog-edition-guides-ac-nintendo.json"
+      ]
+    },
+    {
+      "platform": "switch2",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "PARTIAL",
+      "sources": 11,
+      "status": "PARTIAL",
+      "gaps": [
+        "New-platform reviewed component examples remain limited."
+      ],
+      "evidenceFiles": [
+        "data/research/platform-history/platforms-nintendo-switch2.json"
+      ]
+    },
+    {
+      "platform": "wii",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 8,
+      "status": "PARTIAL",
+      "gaps": [
+        "National package mappings need more reviewed specimens."
+      ],
+      "evidenceFiles": [
+        "data/ebay-regional-campaigns/wii.json"
+      ]
+    },
+    {
+      "platform": "wiiu",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 8,
+      "status": "PARTIAL",
+      "gaps": [
+        "National package mappings need more reviewed specimens."
+      ],
+      "evidenceFiles": [
+        "data/catalog-edition-guides-ac-nintendo.json"
+      ]
+    },
+    {
+      "platform": "xbox",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "PARTIAL",
+      "gaps": [
+        "Original Xbox component identifiers need a reviewed specialist override."
+      ],
+      "evidenceFiles": [
+        "data/research/platform-history/platforms-xbox.json"
+      ]
+    },
+    {
+      "platform": "xbox360",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "COMPLETE",
+      "gaps": [],
+      "evidenceFiles": [
+        "data/region-research/xbox360.json",
+        "data/catalog-edition-guides-ac-xbox360-compilations.json"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "PARTIAL",
+      "gaps": [
+        "Regional packaging examples are sparse."
+      ],
+      "evidenceFiles": [
+        "data/research/platform-history/platforms-xboxone.json"
+      ]
+    },
+    {
+      "platform": "xboxseries",
+      "identity": "FAMILY",
+      "codes": "YES",
+      "region": "YES",
+      "packaging": "YES",
+      "components": "YES",
+      "sources": 9,
+      "status": "PARTIAL",
+      "gaps": [
+        "Smart Delivery and cross-generation package rules need reviewed examples."
+      ],
+      "evidenceFiles": [
+        "data/research/platform-history/platforms-xboxseries.json"
+      ]
+    }
+  ]
+}

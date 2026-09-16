@@ -1,0 +1,12 @@
+[
+  {
+    "host": "www.nintendolife.com",
+    "sampleUrls": [
+      "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

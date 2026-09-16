@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-2a121dbf6621ade40ab02d9f-mu4biqpw",
+  "taskId": "deep-2a121dbf6621ade40ab02d9f",
+  "subjectId": "curator-subject-c07a783db5ab1f92c36a",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "NO_IDENTIFIERS",
+  "queriesAttempted": [
+    "site:game.es \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+    "site:ebay.com \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+    "site:mobygames.com \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+    "\"DreamWorks Super Star Kartz\" \"wii\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"DreamWorks Super Star Kartz\" wii",
+    "site:ebay.es \"DreamWorks Super Star Kartz\" wii"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"dreamworks super star kartz\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"dreamworks super star kartz\" \"wii\" \"standard\"",
+    "site:ebay.com \"dreamworks super star kartz\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"dreamworks super star kartz\" \"wii\" \"standard\"",
+    "site:mobygames.com \"dreamworks super star kartz\" \"wii\" \"standard\"",
+    "\"dreamworks super star kartz\" \"wii\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"dreamworks super star kartz\" wii",
+    "site:ebay.es \"dreamworks super star kartz\" wii"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/225877051908?_skw=DreamWorks+Super+Star+Kartz&hash=item3497524a04:g:6AUAAOSwx-ZlWNgc",
+    "https://www.ebay.com/itm/266799857872",
+    "https://www.ebay.com/itm/357466007116",
+    "https://retroravengames.com/products/dreamworks-super-star-kartz-nintendo-wii"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "retroravengames.com"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-963a9513e2cbf4cfa3f65831",
+      "runId": "deep-2a121dbf6621ade40ab02d9f-mu4biqpw",
+      "taskId": "deep-2a121dbf6621ade40ab02d9f",
+      "sourceId": "candidate:retroravengames.com",
+      "sourceUrl": "https://retroravengames.com/products/dreamworks-super-star-kartz-nintendo-wii",
+      "canonicalUrl": "https://retroravengames.com/products/dreamworks-super-star-kartz-nintendo-wii",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "retroravengames.com",
+      "fetchedAt": "2026-09-16T16:31:40.351Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PAL España",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "beb12835f3eb3af098924a18a93a8b073d7ea4c7590bf6160c82889107d78f6c",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-d7281b90efad06278e992737",
+      "runId": "deep-2a121dbf6621ade40ab02d9f-mu4biqpw",
+      "taskId": "deep-2a121dbf6621ade40ab02d9f",
+      "subjectId": "curator-subject-c07a783db5ab1f92c36a",
+      "gameId": "wii-dreamworks-super-star-kartz",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:retroravengames.com",
+      "sourceUrl": "https://retroravengames.com/products/dreamworks-super-star-kartz-nintendo-wii",
+      "evidenceId": "ev-963a9513e2cbf4cfa3f65831",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:31:42.894Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/225877051908?_skw=DreamWorks+Super+Star+Kartz&hash=item3497524a04:g:6AUAAOSwx-ZlWNgc",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/266799857872",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/357466007116",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 1,
+    "browserSessions": 2,
+    "inputTokens": 1967,
+    "outputTokens": 97,
+    "estimatedCostUsd": 0.000353
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The evidence explicitly indicates the region as 'PAL España' for the game on the specified platform and edition.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:31:43.519Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "redump"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:31:35.232Z",
+  "updatedAt": "2026-09-16T16:31:43.519Z"
+}

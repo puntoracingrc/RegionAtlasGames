@@ -1,0 +1,28 @@
+{
+  "searchCalls": 8,
+  "pagesOpened": 1,
+  "imagesInspected": 0,
+  "browserSessions": 2,
+  "llmAndVisionCalls": 1,
+  "inputTokens": 1949,
+  "outputTokens": 110,
+  "estimatedCostUsd": 0.000358,
+  "providerCalls": {
+    "brave-search": 8,
+    "brave-images": 0
+  },
+  "technicalRetriesAndFailures": 3,
+  "llmCalls": 1,
+  "visionCalls": 0,
+  "modelUsages": [
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 1949,
+      "outputTokens": 110,
+      "estimatedCostUsd": 0.000358
+    }
+  ],
+  "durationMs": 8455
+}

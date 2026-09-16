@@ -1,0 +1,131 @@
+[
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/85UAAOSw-fphgCOf/s-l225.jpg",
+    "result": {
+      "component": "UNKNOWN_COMPONENT",
+      "titleCandidate": "Blast Corps",
+      "platformCandidate": "n64",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "UNREADABLE",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "UNREADABLE",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {},
+      "subjectClass": "SAME_TITLE_DIFFERENT_PLATFORM",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": null,
+      "componentNodeLabel": null,
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "visualStages": {
+        "subject": "REJECTED",
+        "component": "UNREADABLE",
+        "extraction": "SKIPPED",
+        "binding": "REJECTED"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 3259,
+      "outputTokens": 46,
+      "estimatedCostUsd": 0.000516
+    }
+  },
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/cP4AAeSw4FBqprIT/s-l225.jpg",
+    "result": {
+      "component": "CARTRIDGE_FRONT",
+      "titleCandidate": "Blast Corps",
+      "platformCandidate": "n64",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "NO_DOWNLOAD_STATEMENT",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "INNER_GAME",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {},
+      "subjectClass": "EXACT_PRODUCT",
+      "bindingState": "COMPONENT_BOUND",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": "INNER_PRODUCT",
+      "componentNodeLabel": null,
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "visualStages": {
+        "subject": "ACCEPTED",
+        "component": "ACCEPTED",
+        "extraction": "COMPLETED",
+        "binding": "COMPONENT_BOUND"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 3,
+      "inputTokens": 15875,
+      "outputTokens": 163,
+      "estimatedCostUsd": 0.002479
+    }
+  },
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/MOoAAOSwCNNndYdR/s-l225.jpg",
+    "result": {
+      "component": "CARTRIDGE_FRONT",
+      "titleCandidate": "Blast Corps",
+      "platformCandidate": "n64",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "NO_DOWNLOAD_STATEMENT",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "INNER_GAME",
+      "stickerDetected": false,
+      "imageQuality": "LIMITED",
+      "confidenceByField": {},
+      "subjectClass": "EXACT_PRODUCT",
+      "bindingState": "COMPONENT_BOUND",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": "INNER_PRODUCT",
+      "componentNodeLabel": null,
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "visualStages": {
+        "subject": "ACCEPTED",
+        "component": "ACCEPTED",
+        "extraction": "COMPLETED",
+        "binding": "COMPONENT_BOUND"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 3,
+      "inputTokens": 15890,
+      "outputTokens": 164,
+      "estimatedCostUsd": 0.002481
+    }
+  }
+]

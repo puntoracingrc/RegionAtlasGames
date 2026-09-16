@@ -1,0 +1,32 @@
+[
+  {
+    "host": "www.todoconsolas.com",
+    "sampleUrls": [
+      "https://www.todoconsolas.com/juegos-ps4/176261-pantsu_hunter__back_to_the_90s_ps4_eu_po214024-3770011615575.html"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "tokyogamestory.com",
+    "sampleUrls": [
+      "https://tokyogamestory.com/en/red-art-games-/2681-pantsu-hunter-back-to-the-90s-with-sleeve999sony-ps4-fr-game-in-de-en-es-fr-ru-newsealed-red-art-games-aventurereflexiondv-fc1-3770011615575.html"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "ecommerce.datablitz.com.ph",
+    "sampleUrls": [
+      "https://ecommerce.datablitz.com.ph/products/ps4-pantsu-hunter-back-to-the-90s-reg-2"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

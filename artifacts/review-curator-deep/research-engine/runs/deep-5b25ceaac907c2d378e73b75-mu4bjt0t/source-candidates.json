@@ -1,0 +1,12 @@
+[
+  {
+    "host": "www.budgetgaming.nl",
+    "sampleUrls": [
+      "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

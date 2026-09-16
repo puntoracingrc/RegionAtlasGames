@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-5bfdef7c20f77cd27d8138f8-mu4bk2ir",
+  "taskId": "deep-5bfdef7c20f77cd27d8138f8",
+  "subjectId": "curator-subject-ca9859d27f0289b45e56",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"3307217929153\"",
+    "\"3307217929153\" \"Driver: San Francisco\"",
+    "site:game.es \"Driver: San Francisco\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"Driver: San Francisco\" \"wii\" \"standard\"",
+    "site:ebay.com \"Driver: San Francisco\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"Driver: San Francisco\" \"wii\" \"standard\"",
+    "site:mobygames.com \"Driver: San Francisco\" \"wii\" \"standard\"",
+    "\"Driver: San Francisco\" \"wii\" \"standard\" back cover distributor legal text",
+    "\"3307217929153\" wii",
+    "site:game.es \"3307217929153\""
+  ],
+  "normalizedQueries": [
+    "\"3307217929153\"",
+    "\"3307217929153\" \"driver: san francisco\"",
+    "site:game.es \"driver: san francisco\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"driver: san francisco\" \"wii\" \"standard\"",
+    "site:ebay.com \"driver: san francisco\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"driver: san francisco\" \"wii\" \"standard\"",
+    "site:mobygames.com \"driver: san francisco\" \"wii\" \"standard\"",
+    "\"driver: san francisco\" \"wii\" \"standard\" back cover distributor legal text",
+    "\"3307217929153\" wii",
+    "site:game.es \"3307217929153\""
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/127600533900?_skw=Driver+San+Francisco&hash=item1db595a18c:g:YdYAAeSwDUFpWFud",
+    "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html",
+    "https://www.fnac.com/a8530965/Driver-San-Francisco-Wii-Jeu-video-Retrogaming"
+  ],
+  "domainsVisited": [
+    "www.smartoys.be",
+    "www.fnac.com"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-102a8e36da77b68261accf1c",
+      "runId": "deep-5bfdef7c20f77cd27d8138f8-mu4bk2ir",
+      "taskId": "deep-5bfdef7c20f77cd27d8138f8",
+      "sourceId": "candidate:www.smartoys.be",
+      "sourceUrl": "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html",
+      "canonicalUrl": "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.smartoys.be",
+      "fetchedAt": "2026-09-16T16:32:44.965Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "... disponible sur : Wii ...",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "1d79ef0f5173b3841787ad0d6436f3141ebf4a37b61381b7bed9960e74bf3288",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-88561bd2d43f8835343a1d8f",
+      "runId": "deep-5bfdef7c20f77cd27d8138f8-mu4bk2ir",
+      "taskId": "deep-5bfdef7c20f77cd27d8138f8",
+      "subjectId": "curator-subject-ca9859d27f0289b45e56",
+      "gameId": "wii-driver-san-francisco",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.smartoys.be",
+      "sourceUrl": "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html",
+      "evidenceId": "ev-102a8e36da77b68261accf1c",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:32:46.799Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/127600533900?_skw=Driver+San+Francisco&hash=item1db595a18c:g:YdYAAeSwDUFpWFud",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.fnac.com/a8530965/Driver-San-Francisco-Wii-Jeu-video-Retrogaming",
+      "reason": "RESEARCH_PAGE_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 10,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 1,
+    "browserSessions": 2,
+    "inputTokens": 2173,
+    "outputTokens": 99,
+    "estimatedCostUsd": 0.000385
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The source confirms the game is available on Wii with confirmed market region 'PAL España'.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:32:50.340Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "redump"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:32:37.173Z",
+  "updatedAt": "2026-09-16T16:32:50.340Z"
+}

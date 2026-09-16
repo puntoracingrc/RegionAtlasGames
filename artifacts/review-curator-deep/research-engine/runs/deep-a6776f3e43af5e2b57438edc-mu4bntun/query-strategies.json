@@ -1,0 +1,58 @@
+[
+  {
+    "query": "site:game.es \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.com \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:regionatlas.games \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "regionatlas-own-scan",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:mobygames.com \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "mobygames",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\" back cover distributor legal text",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" PlayStation 5",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.es \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" PlayStation 5",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

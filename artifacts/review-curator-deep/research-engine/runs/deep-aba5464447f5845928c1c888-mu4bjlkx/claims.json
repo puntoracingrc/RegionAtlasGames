@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-44ee49fd2997b903fa545a2f",
+    "runId": "deep-aba5464447f5845928c1c888-mu4bjlkx",
+    "taskId": "deep-aba5464447f5845928c1c888",
+    "subjectId": "curator-subject-4b2bb9eef68bb5094e5f",
+    "gameId": "wii-gormiti-the-lords-of-nature",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.amazon.ca",
+    "sourceUrl": "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40",
+    "evidenceId": "ev-d572db900ff502832faa3c46",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:32:23.249Z"
+  }
+]

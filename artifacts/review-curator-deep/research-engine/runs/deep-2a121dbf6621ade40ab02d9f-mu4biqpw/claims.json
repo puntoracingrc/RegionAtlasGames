@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-d7281b90efad06278e992737",
+    "runId": "deep-2a121dbf6621ade40ab02d9f-mu4biqpw",
+    "taskId": "deep-2a121dbf6621ade40ab02d9f",
+    "subjectId": "curator-subject-c07a783db5ab1f92c36a",
+    "gameId": "wii-dreamworks-super-star-kartz",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:retroravengames.com",
+    "sourceUrl": "https://retroravengames.com/products/dreamworks-super-star-kartz-nintendo-wii",
+    "evidenceId": "ev-963a9513e2cbf4cfa3f65831",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:31:42.894Z"
+  }
+]

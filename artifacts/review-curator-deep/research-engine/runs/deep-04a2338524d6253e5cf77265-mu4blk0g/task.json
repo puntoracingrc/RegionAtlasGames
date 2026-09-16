@@ -1,0 +1,17 @@
+{
+  "id": "deep-04a2338524d6253e5cf77265",
+  "subjectId": "curator-subject-516ddfa37506b9e4256e",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact ps4 physical product Pantsu Hunter: Back to the 90s, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

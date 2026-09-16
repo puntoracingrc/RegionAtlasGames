@@ -1,0 +1,58 @@
+[
+  {
+    "query": "site:ubisoft.com \"Fishing Master\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ubisoft-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:redump.org \"Fishing Master\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "redump",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ogdb.eu \"Fishing Master\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:mobygames.com \"Fishing Master\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "mobygames",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:yambalu.com \"Fishing Master\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "yambalu",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Fishing Master\" \"wii\" \"standard\" canonical identity",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:news.ubisoft.com \"Fishing Master\" wii",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ubisoft-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:redump.org \"Fishing Master\" wii",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "redump",
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

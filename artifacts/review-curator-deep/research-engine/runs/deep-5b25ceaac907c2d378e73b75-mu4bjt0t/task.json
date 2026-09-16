@@ -1,0 +1,17 @@
+{
+  "id": "deep-5b25ceaac907c2d378e73b75",
+  "subjectId": "curator-subject-bbdb0afbbd3ade10dadb",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact wii physical product HOT WHEELS - TRACK ATTACK - NINTENDO WII - PAL - COMPLETO - VERY GOOD - WIIU, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

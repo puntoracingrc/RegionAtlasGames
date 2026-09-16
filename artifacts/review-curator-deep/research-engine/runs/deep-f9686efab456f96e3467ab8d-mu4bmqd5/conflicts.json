@@ -1,0 +1,14 @@
+[
+  {
+    "id": "cross-ev-51bdc9c83bdc871926a5d196",
+    "field": "PRODUCT_CODE",
+    "claimIds": [],
+    "values": [],
+    "severity": "CRITICAL",
+    "reason": "Evidence ev-51bdc9c83bdc871926a5d196 is bound to the wrong game/platform/edition/variant/component.",
+    "nextEvidenceNeeded": [
+      "CORRECT_EXACT_SUBJECT",
+      "EXACT_COMPONENT_PHOTO"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "value": "https://www.ebay.es/itm/377370832247?_skw=Dave+Mirra+BMX+Challenge&hash=item57dd0ded77:g:IpQAAeSwqn9qjtNW",
+    "reason": "Error RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.ebay.com/itm/177021245400",
+    "reason": "RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.ebay.com/itm/394659746620",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/itm/126057588285",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/p/1304302215",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  }
+]

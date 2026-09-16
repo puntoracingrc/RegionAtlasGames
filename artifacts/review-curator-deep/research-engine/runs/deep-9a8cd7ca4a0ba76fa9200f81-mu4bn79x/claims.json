@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-2263011d61969ba6dcaf7cd9",
+    "runId": "deep-9a8cd7ca4a0ba76fa9200f81-mu4bn79x",
+    "taskId": "deep-9a8cd7ca4a0ba76fa9200f81",
+    "subjectId": "curator-subject-2c845f2becf53a7497b0",
+    "gameId": "n64-japon-star-wars-episode-i-racer",
+    "platformSlug": "n64",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "PRODUCT_CODE",
+    "value": "29632",
+    "sourceId": "candidate:retroplayzone.com",
+    "sourceUrl": "https://retroplayzone.com/29632-star-wars-racer-episode-i-cartucho-n64.html",
+    "evidenceId": "ev-16186be17bf4a71b7c374326",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:35:05.543Z"
+  }
+]

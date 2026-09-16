@@ -1,0 +1,110 @@
+[
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/c6gAAOSwIBJag0du/s-l500.jpg",
+    "result": {
+      "component": "CARTRIDGE_FRONT",
+      "titleCandidate": "Star Wars Episode I: Racer",
+      "platformCandidate": "n64",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [
+        "NUS-006 (USA)"
+      ],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [
+        "English"
+      ],
+      "ratingMarks": [
+        "E for Everyone"
+      ],
+      "publisherText": [
+        "LucasArts Entertainment Company, LLC"
+      ],
+      "distributorText": [
+        "Nintendo"
+      ],
+      "downloadStatements": [],
+      "physicalContentAssessment": "NO_DOWNLOAD_STATEMENT",
+      "barcodeBinding": "INNER_GAME_CASE",
+      "barcodeProductRole": "INNER_GAME",
+      "stickerDetected": true,
+      "imageQuality": "GOOD",
+      "confidenceByField": {
+        "PHYSICAL_EXISTENCE": 0.95,
+        "PHYSICAL_PRODUCT_TYPE": 0.9,
+        "BARCODE": 0.85,
+        "PRODUCT_CODE": 0.8,
+        "RELEASE_STATUS": 0.88
+      },
+      "subjectClass": "EXACT_PRODUCT",
+      "bindingState": "COMPONENT_BOUND",
+      "marketBindingState": "LANGUAGE_ONLY",
+      "productNodeType": "INNER_PRODUCT",
+      "componentNodeLabel": null,
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "visualStages": {
+        "subject": "ACCEPTED",
+        "component": "ACCEPTED",
+        "extraction": "COMPLETED",
+        "binding": "COMPONENT_BOUND"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 3,
+      "inputTokens": 15980,
+      "outputTokens": 257,
+      "estimatedCostUsd": 0.002551
+    }
+  },
+  {
+    "imageUrl": "https://i.etsystatic.com/22443832/r/il/1886a4/8122609426/il_300x300.8122609426_6dxj.jpg",
+    "result": {
+      "component": "CARTRIDGE_FRONT",
+      "titleCandidate": "Star Wars Episode I: Racer",
+      "platformCandidate": "n64",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [
+        "ESRB Everyone"
+      ],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "NO_DOWNLOAD_STATEMENT",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "INNER_GAME",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {
+        "PHYSICAL_PRODUCT_TYPE": 0.9,
+        "PRODUCT_CODE": 0.85,
+        "PACKAGING_LANGUAGES": 0.6
+      },
+      "subjectClass": "EXACT_PRODUCT",
+      "bindingState": "COMPONENT_BOUND",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": "INNER_PRODUCT",
+      "componentNodeLabel": null,
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "visualStages": {
+        "subject": "ACCEPTED",
+        "component": "ACCEPTED",
+        "extraction": "COMPLETED",
+        "binding": "COMPONENT_BOUND"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 3,
+      "inputTokens": 16138,
+      "outputTokens": 214,
+      "estimatedCostUsd": 0.002549
+    }
+  }
+]

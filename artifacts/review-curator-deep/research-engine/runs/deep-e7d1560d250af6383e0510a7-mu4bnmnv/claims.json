@@ -1,0 +1,44 @@
+[
+  {
+    "id": "cl-677927bcd0060a2ddd95b6f8",
+    "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+    "taskId": "deep-e7d1560d250af6383e0510a7",
+    "subjectId": "curator-subject-fa495cd4248a21a1750f",
+    "gameId": "ps5-uncharted-coleccion-legado-de-los-ladrones",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": null,
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+    "evidenceId": "ev-46fbdca4e89d2c385fd80d6a",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:35:25.592Z"
+  },
+  {
+    "id": "cl-bc2a3c7d160c85bc40f33d0f",
+    "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+    "taskId": "deep-e7d1560d250af6383e0510a7",
+    "subjectId": "curator-subject-fa495cd4248a21a1750f",
+    "gameId": "ps5-uncharted-coleccion-legado-de-los-ladrones",
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": null,
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "national-retailer",
+    "sourceUrl": "https://www.game.es/uncharted-coleccion-legado-de-los-ladrones-playstation-5-198021",
+    "evidenceId": "ev-96213aee367da51798000e5a",
+    "confidence": 1,
+    "status": "VALIDATED",
+    "validationErrors": [],
+    "createdAt": "2026-09-16T16:35:27.830Z"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "host": "retroravengames.com",
+    "sampleUrls": [
+      "https://retroravengames.com/products/dreamworks-super-star-kartz-nintendo-wii"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

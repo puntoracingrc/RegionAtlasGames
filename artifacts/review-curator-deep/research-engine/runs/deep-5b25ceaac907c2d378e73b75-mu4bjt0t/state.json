@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-5b25ceaac907c2d378e73b75-mu4bjt0t",
+  "taskId": "deep-5b25ceaac907c2d378e73b75",
+  "subjectId": "curator-subject-bbdb0afbbd3ade10dadb",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"4005209139434\"",
+    "\"4005209139434\" \"Hot Wheels Track Attack\"",
+    "site:game.es \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+    "site:ebay.com \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+    "site:mobygames.com \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+    "\"Hot Wheels Track Attack\" \"wii\" \"standard\" back cover distributor legal text",
+    "\"4005209139434\" wii",
+    "site:game.es \"4005209139434\""
+  ],
+  "normalizedQueries": [
+    "\"4005209139434\"",
+    "\"4005209139434\" \"hot wheels track attack\"",
+    "site:game.es \"hot wheels track attack\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"hot wheels track attack\" \"wii\" \"standard\"",
+    "site:ebay.com \"hot wheels track attack\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"hot wheels track attack\" \"wii\" \"standard\"",
+    "site:mobygames.com \"hot wheels track attack\" \"wii\" \"standard\"",
+    "\"hot wheels track attack\" \"wii\" \"standard\" back cover distributor legal text",
+    "\"4005209139434\" wii",
+    "site:game.es \"4005209139434\""
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+    "https://gameshop-twente.nl/hot-wheels-track-attack.html",
+    "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html",
+    "https://www.ebay.com/shop/hot-wheels-wii?_nkw=hot+wheels+wii",
+    "https://www.ebay.com/shop/hot-wheels-wii-u?_nkw=hot+wheels+wii+u",
+    "https://www.justanswer.com/game-systems/4h0pg-wii-xmas-received-game-hot-wheels-track.html"
+  ],
+  "domainsVisited": [
+    "gameshop-twente.nl",
+    "www.budgetgaming.nl",
+    "www.ebay.com",
+    "www.justanswer.com"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-fa7b30e9d4b6a12f54f72ee9",
+      "runId": "deep-5b25ceaac907c2d378e73b75-mu4bjt0t",
+      "taskId": "deep-5b25ceaac907c2d378e73b75",
+      "sourceId": "candidate:www.budgetgaming.nl",
+      "sourceUrl": "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html",
+      "canonicalUrl": "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.budgetgaming.nl",
+      "fetchedAt": "2026-09-16T16:32:28.304Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Hot Wheels: Track Attack - Wii kopen voor de Wii - Laagste prijs op budgetgaming.nl",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "04ae45d9fc228a0db35a57cf79fbfb50892bba2fdce7e2958d65e0f00ae1dd49",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-04eae2a4dc9286471704d4f7",
+      "runId": "deep-5b25ceaac907c2d378e73b75-mu4bjt0t",
+      "taskId": "deep-5b25ceaac907c2d378e73b75",
+      "subjectId": "curator-subject-bbdb0afbbd3ade10dadb",
+      "gameId": "wii-hot-wheels-track-attack",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.budgetgaming.nl",
+      "sourceUrl": "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html",
+      "evidenceId": "ev-fa7b30e9d4b6a12f54f72ee9",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:32:31.551Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://gameshop-twente.nl/hot-wheels-track-attack.html",
+      "reason": "RESEARCH_BROWSER_HTTP_429"
+    },
+    {
+      "value": "https://www.ebay.com/shop/hot-wheels-wii?_nkw=hot+wheels+wii",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.com/shop/hot-wheels-wii-u?_nkw=hot+wheels+wii+u",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.justanswer.com/game-systems/4h0pg-wii-xmas-received-game-hot-wheels-track.html",
+      "reason": "RESEARCH_PAGE_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 10,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 1,
+    "browserSessions": 2,
+    "inputTokens": 2273,
+    "outputTokens": 108,
+    "estimatedCostUsd": 0.000406
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page clearly indicates 'PAL España' as the market region for the product.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:32:36.781Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "redump"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:32:24.862Z",
+  "updatedAt": "2026-09-16T16:32:36.781Z"
+}

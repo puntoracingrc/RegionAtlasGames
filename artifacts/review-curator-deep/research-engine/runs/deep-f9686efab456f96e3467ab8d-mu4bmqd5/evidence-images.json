@@ -1,0 +1,27 @@
+[
+  {
+    "evidenceId": "ev-51bdc9c83bdc871926a5d196",
+    "sourcePageUrl": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+    "originalUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+    "resolvedUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+    "contentHash": "08cb87f6f587e6620ab13393dfd7cddbac1288e669208f649915a7fd76d0d37c",
+    "sourceId": "ebay",
+    "sourceRecordId": null,
+    "listingId": "183816675231",
+    "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+    "component": "UNKNOWN_COMPONENT",
+    "marketBindingState": "UNBOUND",
+    "bindingState": "REJECTED",
+    "productNodeId": "5d6775dcc4282484e1d6",
+    "componentNodeId": "2f306e550937ff6fe0c5",
+    "platformClassification": "n64",
+    "editionClassification": "standard",
+    "editionClass": "OTHER",
+    "visibleEditionMarker": null,
+    "marketEvidence": [],
+    "languageEvidence": [],
+    "extractedIdentifiers": [],
+    "model": "gpt-4o-mini",
+    "schemaVersion": 1
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-d572db900ff502832faa3c46",
+    "runId": "deep-aba5464447f5845928c1c888-mu4bjlkx",
+    "taskId": "deep-aba5464447f5845928c1c888",
+    "sourceId": "candidate:www.amazon.ca",
+    "sourceUrl": "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40",
+    "canonicalUrl": "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.amazon.ca",
+    "fetchedAt": "2026-09-16T16:32:21.172Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PAL España",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "5442440aa766ddeb0c4fb2a034792151179629896e5c2e0bc007cd7b65128c6b",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

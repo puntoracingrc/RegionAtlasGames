@@ -1,0 +1,22 @@
+[
+  {
+    "host": "thegameworld.co.uk",
+    "sampleUrls": [
+      "https://thegameworld.co.uk/family-ski-wii"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "bordersdown.net",
+    "sampleUrls": [
+      "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

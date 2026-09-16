@@ -1,0 +1,698 @@
+{
+  "current": {
+    "targetField": "MARKET_REGION",
+    "factsUsed": [
+      "target=MARKET_REGION",
+      "platform=wii",
+      "title=DreamWorks Super Star Kartz",
+      "edition=standard",
+      "knowledgePack=knowledge-pack-83d69d5ccaa9498a198ec006",
+      "knownVariants=1",
+      "knownDirectUrls=1",
+      "playbook=NO_IDENTIFIERS"
+    ],
+    "selectedPlaybook": {
+      "id": "NO_IDENTIFIERS",
+      "targets": [
+        "*"
+      ],
+      "triggers": [
+        "NO_IDENTIFIERS"
+      ],
+      "sourceRoles": [
+        "OFFICIAL_SOURCE_CANDIDATE",
+        "SPECIALIZED_DATABASE",
+        "RETAILER"
+      ],
+      "queryTemplateGroups": [
+        "NO_IDENTIFIERS"
+      ],
+      "deterministicChecks": [
+        "PLATFORM_MATCH",
+        "SUBJECT_BINDING"
+      ],
+      "steps": [],
+      "stopWhen": null,
+      "stopRule": null,
+      "sourceIds": [],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 60,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 20,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 65,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+      },
+      {
+        "sourceId": "redump",
+        "hosts": [
+          "redump.org",
+          "redump.info"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "MEDIA_IDENTIFIER"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 10,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 76."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 55."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://www.ebay.es/itm/225877051908?_skw=DreamWorks+Super+Star+Kartz&hash=item3497524a04:g:6AUAAOSwx-ZlWNgc",
+        "sourceId": "ebay-es",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "site:game.es \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.com \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:regionatlas.games \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "sourceId": "regionatlas-own-scan",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"DreamWorks Super Star Kartz\" \"wii\" \"standard\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"DreamWorks Super Star Kartz\" wii",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.es \"DreamWorks Super Star Kartz\" wii",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"DreamWorks Super Star Kartz\" wii",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:redump.org \"DreamWorks Super Star Kartz\" wii",
+        "sourceId": "redump",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:news.ubisoft.com \"DreamWorks Super Star Kartz\" wii",
+        "sourceId": "ubisoft-official",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:nintendo.com \"DreamWorks Super Star Kartz\" wii",
+        "sourceId": "platform-holder-official",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"DreamWorks Super Star Kartz\" \"wii\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [],
+    "deterministicChecks": [
+      "PLATFORM_MATCH",
+      "SUBJECT_BINDING"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "0ba98db48f272cca49f7e5111d76e6b0effc19df8e69dbab1e9c5bebae4effc1"
+  },
+  "history": [
+    {
+      "targetField": "MARKET_REGION",
+      "factsUsed": [
+        "target=MARKET_REGION",
+        "platform=wii",
+        "title=DreamWorks Super Star Kartz",
+        "edition=standard",
+        "knowledgePack=knowledge-pack-83d69d5ccaa9498a198ec006",
+        "knownVariants=1",
+        "knownDirectUrls=1",
+        "playbook=NO_IDENTIFIERS"
+      ],
+      "selectedPlaybook": {
+        "id": "NO_IDENTIFIERS",
+        "targets": [
+          "*"
+        ],
+        "triggers": [
+          "NO_IDENTIFIERS"
+        ],
+        "sourceRoles": [
+          "OFFICIAL_SOURCE_CANDIDATE",
+          "SPECIALIZED_DATABASE",
+          "RETAILER"
+        ],
+        "queryTemplateGroups": [
+          "NO_IDENTIFIERS"
+        ],
+        "deterministicChecks": [
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": null,
+        "sourceIds": [],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 60,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 20,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 65,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+        },
+        {
+          "sourceId": "redump",
+          "hosts": [
+            "redump.org",
+            "redump.info"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "MEDIA_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 10,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 90."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 76."
+        },
+        {
+          "sourceId": "yambalu",
+          "hosts": [
+            "yambalu.com",
+            "www.yambalu.com"
+          ],
+          "roles": [
+            "RETAILER_AGGREGATOR",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 58."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 55."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://www.ebay.es/itm/225877051908?_skw=DreamWorks+Super+Star+Kartz&hash=item3497524a04:g:6AUAAOSwx-ZlWNgc",
+          "sourceId": "ebay-es",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "site:game.es \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.com \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:regionatlas.games \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+          "sourceId": "regionatlas-own-scan",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"DreamWorks Super Star Kartz\" \"wii\" \"standard\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"DreamWorks Super Star Kartz\" wii",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.es \"DreamWorks Super Star Kartz\" wii",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"DreamWorks Super Star Kartz\" wii",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:redump.org \"DreamWorks Super Star Kartz\" wii",
+          "sourceId": "redump",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:news.ubisoft.com \"DreamWorks Super Star Kartz\" wii",
+          "sourceId": "ubisoft-official",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:nintendo.com \"DreamWorks Super Star Kartz\" wii",
+          "sourceId": "platform-holder-official",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"DreamWorks Super Star Kartz\" \"wii\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [],
+      "deterministicChecks": [
+        "PLATFORM_MATCH",
+        "SUBJECT_BINDING"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "0ba98db48f272cca49f7e5111d76e6b0effc19df8e69dbab1e9c5bebae4effc1"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "identifierType": "BARCODE",
+    "value": "NUS-006 (USA)",
+    "productNodeId": "cda646212a30876df79c",
+    "componentNodeId": "12c63f2bc59510303180",
+    "component": "CARTRIDGE_FRONT",
+    "state": "REJECTED",
+    "sourceEvidenceIds": [
+      "ev-b0183c1f3e045c9716f79199"
+    ],
+    "rejectionReason": "BARCODE_CHECKSUM"
+  }
+]

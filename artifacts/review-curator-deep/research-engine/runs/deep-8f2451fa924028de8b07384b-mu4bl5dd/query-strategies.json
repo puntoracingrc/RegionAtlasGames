@@ -1,0 +1,72 @@
+[
+  {
+    "query": "\"711719806011\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"711719806011\" \"The Order 1886 [Limited Edition]\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:game.es \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:regionatlas.games \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "regionatlas-own-scan",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:mobygames.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "mobygames",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"711719806011\" \"PlayStation 4\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "711719806011"
+  },
+  {
+    "query": "site:game.es \"711719806011\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": "national-retailer",
+    "identifierType": "BARCODE",
+    "identifierValue": "711719806011"
+  }
+]

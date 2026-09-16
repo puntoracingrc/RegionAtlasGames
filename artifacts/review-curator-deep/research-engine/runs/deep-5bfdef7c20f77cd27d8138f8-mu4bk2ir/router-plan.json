@@ -1,0 +1,822 @@
+{
+  "current": {
+    "targetField": "MARKET_REGION",
+    "factsUsed": [
+      "target=MARKET_REGION",
+      "platform=wii",
+      "title=Driver: San Francisco",
+      "edition=standard",
+      "BARCODE=3307217929153",
+      "knowledgePack=knowledge-pack-c764540ca2b970d087186d3c",
+      "knownVariants=2",
+      "knownDirectUrls=1",
+      "playbook=BARCODE_KNOWN_MARKET_UNKNOWN"
+    ],
+    "selectedPlaybook": {
+      "id": "BARCODE_KNOWN_MARKET_UNKNOWN",
+      "targets": [
+        "MARKET_REGION",
+        "PACKAGING_LANGUAGES"
+      ],
+      "triggers": [
+        "BARCODE_KNOWN"
+      ],
+      "sourceRoles": [
+        "OWN_SCAN",
+        "PHYSICAL_SPECIMEN",
+        "SPECIALIZED_DATABASE",
+        "RETAILER"
+      ],
+      "queryTemplateGroups": [
+        "BARCODE",
+        "PACKAGING_LANGUAGES"
+      ],
+      "deterministicChecks": [
+        "BARCODE_CHECKSUM",
+        "SUBJECT_BINDING",
+        "PACKAGING_NOT_SOFTWARE"
+      ],
+      "steps": [],
+      "stopWhen": null,
+      "stopRule": null,
+      "sourceIds": [],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 60,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 20,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 65,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+      },
+      {
+        "sourceId": "redump",
+        "hosts": [
+          "redump.org",
+          "redump.info"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "MEDIA_IDENTIFIER"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 10,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 76."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 55."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://www.ebay.es/itm/127600533900?_skw=Driver+San+Francisco&hash=item1db595a18c:g:YdYAAeSwDUFpWFud",
+        "sourceId": "ebay-es",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "\"3307217929153\"",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER"
+      },
+      {
+        "query": "\"3307217929153\" \"Driver: San Francisco\"",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER"
+      },
+      {
+        "query": "site:game.es \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.com \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:regionatlas.games \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "sourceId": "regionatlas-own-scan",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Driver: San Francisco\" \"wii\" \"standard\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "3307217929153",
+        "query": "\"3307217929153\" wii"
+      },
+      {
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "3307217929153",
+        "query": "site:game.es \"3307217929153\""
+      },
+      {
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "3307217929153",
+        "query": "\"3307217929153\" \"PAL España\""
+      },
+      {
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "3307217929153",
+        "query": "site:ebay.com \"3307217929153\""
+      },
+      {
+        "query": "site:todocoleccion.net \"3307217929153\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Driver: San Francisco\" wii",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:redump.org \"Driver: San Francisco\" wii",
+        "sourceId": "redump",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"Driver: San Francisco\" wii",
+        "sourceId": "ogdb",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:news.ubisoft.com \"Driver: San Francisco\" wii",
+        "sourceId": "ubisoft-official",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Driver: San Francisco\" wii",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.es \"Driver: San Francisco\" wii",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"3307217929153\"",
+        "sourceId": "ogdb",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Driver: San Francisco\" \"wii\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [],
+    "deterministicChecks": [
+      "BARCODE_CHECKSUM",
+      "SUBJECT_BINDING",
+      "PACKAGING_NOT_SOFTWARE"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "f9aa1c1c6a0041a654368900673faaa624a79e4df3e0531f55551b5857237380"
+  },
+  "history": [
+    {
+      "targetField": "MARKET_REGION",
+      "factsUsed": [
+        "target=MARKET_REGION",
+        "platform=wii",
+        "title=Driver: San Francisco",
+        "edition=standard",
+        "BARCODE=3307217929153",
+        "knowledgePack=knowledge-pack-c764540ca2b970d087186d3c",
+        "knownVariants=2",
+        "knownDirectUrls=1",
+        "playbook=BARCODE_KNOWN_MARKET_UNKNOWN"
+      ],
+      "selectedPlaybook": {
+        "id": "BARCODE_KNOWN_MARKET_UNKNOWN",
+        "targets": [
+          "MARKET_REGION",
+          "PACKAGING_LANGUAGES"
+        ],
+        "triggers": [
+          "BARCODE_KNOWN"
+        ],
+        "sourceRoles": [
+          "OWN_SCAN",
+          "PHYSICAL_SPECIMEN",
+          "SPECIALIZED_DATABASE",
+          "RETAILER"
+        ],
+        "queryTemplateGroups": [
+          "BARCODE",
+          "PACKAGING_LANGUAGES"
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "SUBJECT_BINDING",
+          "PACKAGING_NOT_SOFTWARE"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": null,
+        "sourceIds": [],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 60,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+        },
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 20,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 65,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+        },
+        {
+          "sourceId": "redump",
+          "hosts": [
+            "redump.org",
+            "redump.info"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "MEDIA_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 10,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 76."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 90."
+        },
+        {
+          "sourceId": "yambalu",
+          "hosts": [
+            "yambalu.com",
+            "www.yambalu.com"
+          ],
+          "roles": [
+            "RETAILER_AGGREGATOR",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 58."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 55."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://www.ebay.es/itm/127600533900?_skw=Driver+San+Francisco&hash=item1db595a18c:g:YdYAAeSwDUFpWFud",
+          "sourceId": "ebay-es",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "\"3307217929153\"",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER"
+        },
+        {
+          "query": "\"3307217929153\" \"Driver: San Francisco\"",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER"
+        },
+        {
+          "query": "site:game.es \"Driver: San Francisco\" \"wii\" \"standard\"",
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Driver: San Francisco\" \"wii\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.com \"Driver: San Francisco\" \"wii\" \"standard\"",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:regionatlas.games \"Driver: San Francisco\" \"wii\" \"standard\"",
+          "sourceId": "regionatlas-own-scan",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Driver: San Francisco\" \"wii\" \"standard\"",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Driver: San Francisco\" \"wii\" \"standard\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "3307217929153",
+          "query": "\"3307217929153\" wii"
+        },
+        {
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "3307217929153",
+          "query": "site:game.es \"3307217929153\""
+        },
+        {
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "3307217929153",
+          "query": "\"3307217929153\" \"PAL España\""
+        },
+        {
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "3307217929153",
+          "query": "site:ebay.com \"3307217929153\""
+        },
+        {
+          "query": "site:todocoleccion.net \"3307217929153\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Driver: San Francisco\" wii",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:redump.org \"Driver: San Francisco\" wii",
+          "sourceId": "redump",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"Driver: San Francisco\" wii",
+          "sourceId": "ogdb",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:news.ubisoft.com \"Driver: San Francisco\" wii",
+          "sourceId": "ubisoft-official",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Driver: San Francisco\" wii",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.es \"Driver: San Francisco\" wii",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"3307217929153\"",
+          "sourceId": "ogdb",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Driver: San Francisco\" \"wii\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [],
+      "deterministicChecks": [
+        "BARCODE_CHECKSUM",
+        "SUBJECT_BINDING",
+        "PACKAGING_NOT_SOFTWARE"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "f9aa1c1c6a0041a654368900673faaa624a79e4df3e0531f55551b5857237380"
+    }
+  ]
+}

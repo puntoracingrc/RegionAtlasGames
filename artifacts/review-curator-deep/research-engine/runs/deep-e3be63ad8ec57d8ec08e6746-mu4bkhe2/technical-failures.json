@@ -1,0 +1,9 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/336494606882?_skw=Family+Trainer+Treasure+Adventure&hash=item4e58a43a22:g:VaIAAeSw87ZpWwib",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

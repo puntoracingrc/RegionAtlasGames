@@ -1,0 +1,16 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/389161090498?_skw=Ghost+Squad&hash=item5a9bcefdc2:g:LU4AAeSwVzhpApdQ",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/256055706787",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

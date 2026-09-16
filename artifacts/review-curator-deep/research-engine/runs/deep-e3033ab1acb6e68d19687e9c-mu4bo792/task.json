@@ -1,0 +1,17 @@
+{
+  "id": "deep-e3033ab1acb6e68d19687e9c",
+  "subjectId": "curator-subject-20b639321bd61ad24e23",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact ps5 physical product Banishers Ghosts Of New Eden Collector's Edition ..., without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

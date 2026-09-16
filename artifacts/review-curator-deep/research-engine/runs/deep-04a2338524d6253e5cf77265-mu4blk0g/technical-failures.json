@@ -1,0 +1,23 @@
+[
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.tradergames.fr/fr/playstation-4/109485-pantsu-hunter-ps4-fr-new-3770011615575.html",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.tradergames.fr/fr/playstation-4/109485-pantsu-hunter-ps4-fr-new-3770011615575.html",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_BROWSER_HTTP_404",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://ecommerce.datablitz.com.ph/products/ps4-pantsu-hunter-back-to-the-90s-reg-2",
+    "code": "INTERNAL_ERROR",
+    "detail": "Error RESEARCH_PAGE_TOO_LARGE",
+    "recovered": true
+  }
+]

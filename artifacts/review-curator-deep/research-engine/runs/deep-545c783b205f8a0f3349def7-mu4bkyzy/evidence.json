@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-95787700828e6aa50d506c69",
+    "runId": "deep-545c783b205f8a0f3349def7-mu4bkyzy",
+    "taskId": "deep-545c783b205f8a0f3349def7",
+    "sourceId": "candidate:moegamer.net",
+    "sourceUrl": "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/",
+    "canonicalUrl": "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "moegamer.net",
+    "fetchedAt": "2026-09-16T16:33:25.292Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "...the game offered the full arcade game experience...",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "fc5400ad6710236b8de52d55d7994b9f9b39184339caa406da99aa0980ae6087",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/389162726108?_skw=Donkey+Kong+Jet+Race&hash=item5a9be7f2dc:g:wyYAAeSwXp5pAxsG",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/164180048713",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

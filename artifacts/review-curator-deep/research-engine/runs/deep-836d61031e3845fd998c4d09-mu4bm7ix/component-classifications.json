@@ -1,0 +1,20 @@
+[
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/85UAAOSw-fphgCOf/s-l225.jpg",
+    "component": "UNKNOWN_COMPONENT",
+    "componentNodeLabel": null,
+    "stage": "UNREADABLE"
+  },
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/cP4AAeSw4FBqprIT/s-l225.jpg",
+    "component": "CARTRIDGE_FRONT",
+    "componentNodeLabel": null,
+    "stage": "ACCEPTED"
+  },
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/MOoAAOSwCNNndYdR/s-l225.jpg",
+    "component": "CARTRIDGE_FRONT",
+    "componentNodeLabel": null,
+    "stage": "ACCEPTED"
+  }
+]

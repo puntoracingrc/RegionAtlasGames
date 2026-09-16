@@ -1,0 +1,19 @@
+{
+  "searchCalls": 8,
+  "pagesOpened": 0,
+  "imagesInspected": 0,
+  "browserSessions": 2,
+  "llmAndVisionCalls": 0,
+  "inputTokens": 0,
+  "outputTokens": 0,
+  "estimatedCostUsd": 0,
+  "providerCalls": {
+    "brave-search": 8,
+    "brave-images": 0
+  },
+  "technicalRetriesAndFailures": 2,
+  "llmCalls": 0,
+  "visionCalls": 0,
+  "modelUsages": [],
+  "durationMs": 5892
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-555f41810ed647118b539ad9",
+    "runId": "deep-a6776f3e43af5e2b57438edc-mu4bntun",
+    "taskId": "deep-a6776f3e43af5e2b57438edc",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html",
+    "canonicalUrl": "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.todoconsolas.com",
+    "fetchedAt": "2026-09-16T16:35:36.639Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Market Region: PAL Europa",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "ce917d7b4e18a31c34aa5332f9b94fd6990ed45922ecea2adbe5305394a4c731",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

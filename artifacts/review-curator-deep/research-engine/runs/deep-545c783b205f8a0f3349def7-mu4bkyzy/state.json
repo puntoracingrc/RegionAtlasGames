@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-545c783b205f8a0f3349def7-mu4bkyzy",
+  "taskId": "deep-545c783b205f8a0f3349def7",
+  "subjectId": "curator-subject-0290405b7da63c5c18b1",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"5060138434370,5060138435155\"",
+    "\"5060138434370,5060138435155\" \"Ghost Squad\"",
+    "site:game.es \"Ghost Squad\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"Ghost Squad\" \"wii\" \"standard\"",
+    "site:ebay.com \"Ghost Squad\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"Ghost Squad\" \"wii\" \"standard\"",
+    "site:mobygames.com \"Ghost Squad\" \"wii\" \"standard\"",
+    "\"Ghost Squad\" \"wii\" \"standard\" back cover distributor legal text",
+    "\"5060138434370,5060138435155\" wii",
+    "site:game.es \"5060138434370,5060138435155\""
+  ],
+  "normalizedQueries": [
+    "\"5060138434370,5060138435155\"",
+    "\"5060138434370,5060138435155\" \"ghost squad\"",
+    "site:game.es \"ghost squad\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"ghost squad\" \"wii\" \"standard\"",
+    "site:ebay.com \"ghost squad\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"ghost squad\" \"wii\" \"standard\"",
+    "site:mobygames.com \"ghost squad\" \"wii\" \"standard\"",
+    "\"ghost squad\" \"wii\" \"standard\" back cover distributor legal text",
+    "\"5060138434370,5060138435155\" wii",
+    "site:game.es \"5060138434370,5060138435155\""
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/389161090498?_skw=Ghost+Squad&hash=item5a9bcefdc2:g:LU4AAeSwVzhpApdQ",
+    "https://www.ebay.com/itm/256055706787",
+    "https://www.ebay.com/itm/134727399753",
+    "https://www.ebay.com/itm/404471633224",
+    "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "moegamer.net"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-95787700828e6aa50d506c69",
+      "runId": "deep-545c783b205f8a0f3349def7-mu4bkyzy",
+      "taskId": "deep-545c783b205f8a0f3349def7",
+      "sourceId": "candidate:moegamer.net",
+      "sourceUrl": "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/",
+      "canonicalUrl": "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "moegamer.net",
+      "fetchedAt": "2026-09-16T16:33:25.292Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "...the game offered the full arcade game experience...",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "fc5400ad6710236b8de52d55d7994b9f9b39184339caa406da99aa0980ae6087",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-b8cd491529ef303e15b4aecb",
+      "runId": "deep-545c783b205f8a0f3349def7-mu4bkyzy",
+      "taskId": "deep-545c783b205f8a0f3349def7",
+      "subjectId": "curator-subject-0290405b7da63c5c18b1",
+      "gameId": "wii-ghost-squad",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:moegamer.net",
+      "sourceUrl": "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/",
+      "evidenceId": "ev-95787700828e6aa50d506c69",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:33:26.728Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/389161090498?_skw=Ghost+Squad&hash=item5a9bcefdc2:g:LU4AAeSwVzhpApdQ",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/256055706787",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/134727399753",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.com/itm/404471633224",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 10,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 1,
+    "browserSessions": 2,
+    "inputTokens": 1942,
+    "outputTokens": 93,
+    "estimatedCostUsd": 0.000347
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The evidence clearly supports that the game is associated with the PAL España market.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:33:27.104Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "redump"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:33:19.283Z",
+  "updatedAt": "2026-09-16T16:33:27.104Z"
+}

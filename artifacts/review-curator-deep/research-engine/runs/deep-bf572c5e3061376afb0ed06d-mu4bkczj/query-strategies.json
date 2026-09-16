@@ -1,0 +1,58 @@
+[
+  {
+    "query": "site:game.es \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.com \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:regionatlas.games \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "regionatlas-own-scan",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:mobygames.com \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "mobygames",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Inazuma Eleven Strikers\" \"wii\" \"standard\" back cover distributor legal text",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Inazuma Eleven Strikers\" wii",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.es \"Inazuma Eleven Strikers\" wii",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-aba5464447f5845928c1c888-mu4bjlkx",
+  "taskId": "deep-aba5464447f5845928c1c888",
+  "subjectId": "curator-subject-4b2bb9eef68bb5094e5f",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "NO_IDENTIFIERS",
+  "queriesAttempted": [
+    "site:game.es \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+    "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+    "site:mobygames.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+    "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Gormiti: The Lords of Nature\" wii",
+    "site:ebay.es \"Gormiti: The Lords of Nature\" wii"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"gormiti: the lords of nature\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"gormiti: the lords of nature\" \"wii\" \"standard\"",
+    "site:ebay.com \"gormiti: the lords of nature\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"gormiti: the lords of nature\" \"wii\" \"standard\"",
+    "site:mobygames.com \"gormiti: the lords of nature\" \"wii\" \"standard\"",
+    "\"gormiti: the lords of nature\" \"wii\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"gormiti: the lords of nature\" wii",
+    "site:ebay.es \"gormiti: the lords of nature\" wii"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+    "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40"
+  ],
+  "domainsVisited": [
+    "www.amazon.ca"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-d572db900ff502832faa3c46",
+      "runId": "deep-aba5464447f5845928c1c888-mu4bjlkx",
+      "taskId": "deep-aba5464447f5845928c1c888",
+      "sourceId": "candidate:www.amazon.ca",
+      "sourceUrl": "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40",
+      "canonicalUrl": "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.amazon.ca",
+      "fetchedAt": "2026-09-16T16:32:21.172Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PAL España",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "5442440aa766ddeb0c4fb2a034792151179629896e5c2e0bc007cd7b65128c6b",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-44ee49fd2997b903fa545a2f",
+      "runId": "deep-aba5464447f5845928c1c888-mu4bjlkx",
+      "taskId": "deep-aba5464447f5845928c1c888",
+      "subjectId": "curator-subject-4b2bb9eef68bb5094e5f",
+      "gameId": "wii-gormiti-the-lords-of-nature",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.amazon.ca",
+      "sourceUrl": "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40",
+      "evidenceId": "ev-d572db900ff502832faa3c46",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:32:23.249Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 1,
+    "browserSessions": 1,
+    "inputTokens": 1965,
+    "outputTokens": 91,
+    "estimatedCostUsd": 0.000349
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The market region PAL España is explicitly stated in the page text.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:32:24.468Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "redump"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:32:15.219Z",
+  "updatedAt": "2026-09-16T16:32:24.468Z"
+}

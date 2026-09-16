@@ -1,0 +1,16 @@
+[
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.argos.co.uk/product/7950139",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.argos.co.uk/product/7950139",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

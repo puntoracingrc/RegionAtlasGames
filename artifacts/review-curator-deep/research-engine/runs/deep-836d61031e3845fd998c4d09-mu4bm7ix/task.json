@@ -1,0 +1,17 @@
+{
+  "id": "deep-836d61031e3845fd998c4d09",
+  "subjectId": "curator-subject-5ed3976ca53151519bef",
+  "targetField": "PRODUCT_CODE",
+  "question": "Find component-bound cartridge product-code evidence for Blast Corps; keep cartridge, box and manual codes separate.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

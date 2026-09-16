@@ -1,0 +1,17 @@
+{
+  "id": "deep-be225899c94fa6f41cc8fabf",
+  "subjectId": "curator-subject-c48ed8a5150125320bf0",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact wii physical product No incluye Motion Plus➡️Grand Slam Tennis Nintendo Wii PAL España COMPLETO/LEE👇, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

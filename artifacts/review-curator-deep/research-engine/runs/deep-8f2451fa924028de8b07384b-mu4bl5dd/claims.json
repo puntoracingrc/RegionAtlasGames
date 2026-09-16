@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-661142188661f4dcdfbc9617",
+    "runId": "deep-8f2451fa924028de8b07384b-mu4bl5dd",
+    "taskId": "deep-8f2451fa924028de8b07384b",
+    "subjectId": "curator-subject-b0dfe1efeab9daab3d63",
+    "gameId": "ps4-the-order-1886-limited-edition",
+    "platformSlug": "ps4",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+    "evidenceId": "ev-83d81848c00f402115bf158f",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:33:30.004Z"
+  }
+]

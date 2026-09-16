@@ -1,0 +1,1950 @@
+{
+  "schemaVersion": 1,
+  "externalRequests": 0,
+  "results": [
+    {
+      "caseId": "shadow_20_live-00f149364083176e98b3",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "00f149364083176e98b3",
+      "inputHash": "781d0c7ec3983da2d20d4e7dd140ec913779420da5f4ab88e392d51f446fb7e1",
+      "evidenceHash": "a31ae31ee6bdeaf6390566d314229d2acbb5103a0f46e11295343e5318a256ca",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "00f149364083176e98b3",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-dave-mirra-bmx-challenge",
+        "inputHash": "781d0c7ec3983da2d20d4e7dd140ec913779420da5f4ab88e392d51f446fb7e1",
+        "evidenceHash": "a31ae31ee6bdeaf6390566d314229d2acbb5103a0f46e11295343e5318a256ca",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-dave-mirra-bmx-challenge"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España",
+          "PAL Alemania"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3",
+          "image-index:4"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-c9162a02209e7304696e746f",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-01637866b794ae795eb9",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "01637866b794ae795eb9",
+      "inputHash": "c71b45349cca07aa71fb048e130effd7ea3d7c37d50e3f7a0a4708ec94f1779c",
+      "evidenceHash": "18fa394de66bb6cf01453696d9adc1f5bac270c2b67769c9bcf16db75990286f",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "01637866b794ae795eb9",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-dreamworks-super-star-kartz",
+        "inputHash": "c71b45349cca07aa71fb048e130effd7ea3d7c37d50e3f7a0a4708ec94f1779c",
+        "evidenceHash": "18fa394de66bb6cf01453696d9adc1f5bac270c2b67769c9bcf16db75990286f",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-dreamworks-super-star-kartz"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-83d69d5ccaa9498a198ec006",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-02d2a44bf900bcc26dcf",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "02d2a44bf900bcc26dcf",
+      "inputHash": "9cd7eb15e95ff554bdd9f52b7fa92762c0f98919eccfa1ad0c282b1de4b18ad0",
+      "evidenceHash": "50ffa13a23335dc07139715cb86e6936da7380bbfd3ca725bf95dd9dfd8081b7",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "02d2a44bf900bcc26dcf",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-fast-food-panic",
+        "inputHash": "9cd7eb15e95ff554bdd9f52b7fa92762c0f98919eccfa1ad0c282b1de4b18ad0",
+        "evidenceHash": "50ffa13a23335dc07139715cb86e6936da7380bbfd3ca725bf95dd9dfd8081b7",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-fast-food-panic"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-da26a99e0fb13db80796968f",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-04a5a691752b7c689b9b",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "04a5a691752b7c689b9b",
+      "inputHash": "f276e3dfb53083b2ee8bb0ac0507a1e2fc8365772d7bcfb3f1e4629eab647aaf",
+      "evidenceHash": "8d03b33156f81b6502ca3421cb81132ce578bc1039ed7898c907d3e59c57d635",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "04a5a691752b7c689b9b",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-fishing-master",
+        "inputHash": "f276e3dfb53083b2ee8bb0ac0507a1e2fc8365772d7bcfb3f1e4629eab647aaf",
+        "evidenceHash": "8d03b33156f81b6502ca3421cb81132ce578bc1039ed7898c907d3e59c57d635",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-fishing-master"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España",
+          "USA"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "market_region",
+          "image-index:1",
+          "image-index:2"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-6e9539f8a0fe25d4bf66c907",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-054df8e1147efbc38b49",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "054df8e1147efbc38b49",
+      "inputHash": "7a53205d7c92c3302aaa98942eebe3f3576eda7cb5751a47fe5e3af2b9298b6f",
+      "evidenceHash": "d2fe2008ad76b98a37c4c4debddd828fff47d4f2b29e1ff822be003e93ff7e55",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "054df8e1147efbc38b49",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-grand-slam-tennis",
+        "inputHash": "7a53205d7c92c3302aaa98942eebe3f3576eda7cb5751a47fe5e3af2b9298b6f",
+        "evidenceHash": "d2fe2008ad76b98a37c4c4debddd828fff47d4f2b29e1ff822be003e93ff7e55",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-grand-slam-tennis"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-001dcaacc5d1c22ea65af060",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0560743eaf0bc388c28c",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "0560743eaf0bc388c28c",
+      "inputHash": "cfdcdee1f096972c15246e9b95b021bb102f761098c45e144cf417624376af6d",
+      "evidenceHash": "0dd0e6e9996f96422b92d9f7a70d76d36b1a74dd9a91871a14b7fe617d8d31f0",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "0560743eaf0bc388c28c",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-gormiti-the-lords-of-nature",
+        "inputHash": "cfdcdee1f096972c15246e9b95b021bb102f761098c45e144cf417624376af6d",
+        "evidenceHash": "0dd0e6e9996f96422b92d9f7a70d76d36b1a74dd9a91871a14b7fe617d8d31f0",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-gormiti-the-lords-of-nature"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-c6ab8417b58364c2217db49c",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0568c4a9117a9d000b0e",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "0568c4a9117a9d000b0e",
+      "inputHash": "3568db3252368b51d903734985b3d63591d6067c5cb293d188d7b1ac00e88f68",
+      "evidenceHash": "b51f1786db499ee0ec9c6a84281e039315fa1047ab3fa7be73b5ac2cdafa0c98",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "0568c4a9117a9d000b0e",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-hot-wheels-track-attack",
+        "inputHash": "3568db3252368b51d903734985b3d63591d6067c5cb293d188d7b1ac00e88f68",
+        "evidenceHash": "b51f1786db499ee0ec9c6a84281e039315fa1047ab3fa7be73b5ac2cdafa0c98",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-hot-wheels-track-attack"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España",
+          "PAL Europa"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3",
+          "image-index:4",
+          "image-index:5",
+          "image-index:6"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-00912fc808702dc329d8b9eb",
+          "knownFactsSupplied": 66,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 1,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 66,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 1,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-061f8b43601c71726400",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "061f8b43601c71726400",
+      "inputHash": "2768c7404f79a1972b194070bba62e2afda040050d63d9dec08450371728afc6",
+      "evidenceHash": "b203dfe54bc0a3140f9c70106c807c1131a13a0511f5eb467fc95954d87911eb",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "061f8b43601c71726400",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-driver-san-francisco",
+        "inputHash": "2768c7404f79a1972b194070bba62e2afda040050d63d9dec08450371728afc6",
+        "evidenceHash": "b203dfe54bc0a3140f9c70106c807c1131a13a0511f5eb467fc95954d87911eb",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-driver-san-francisco"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España",
+          "PAL Europa"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-c764540ca2b970d087186d3c",
+          "knownFactsSupplied": 66,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 1,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 66,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 1,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0653feb8d8bc2db37e97",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "0653feb8d8bc2db37e97",
+      "inputHash": "77c1787bb3033af9ad5bc5ca404c42cdccc9bff449e32c3c2a2c22231edbaf0d",
+      "evidenceHash": "ac45bdee534520033eedc11b1258c28661245c5085c92e0a95d3ae8acbb4f745",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "0653feb8d8bc2db37e97",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-inazuma-eleven-strikers",
+        "inputHash": "77c1787bb3033af9ad5bc5ca404c42cdccc9bff449e32c3c2a2c22231edbaf0d",
+        "evidenceHash": "ac45bdee534520033eedc11b1258c28661245c5085c92e0a95d3ae8acbb4f745",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-inazuma-eleven-strikers"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-05026a5c9f8ce3fd22d9b7e6",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-07aac5ae7dc1b2ef39f3",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "07aac5ae7dc1b2ef39f3",
+      "inputHash": "6bfeef570368e357ab3a3ebe36ea7455e84bb9179fde47fb8fced0328af3ec99",
+      "evidenceHash": "39ddabec41efec997bbf562cf39afcadf24ca546eb4d72c2ddbc89936b88078d",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "07aac5ae7dc1b2ef39f3",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-family-trainer-treasure-adventure",
+        "inputHash": "6bfeef570368e357ab3a3ebe36ea7455e84bb9179fde47fb8fced0328af3ec99",
+        "evidenceHash": "39ddabec41efec997bbf562cf39afcadf24ca546eb4d72c2ddbc89936b88078d",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-family-trainer-treasure-adventure"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España",
+          "PAL Europa"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-fdc9c4ccef6262a698f019c3",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-08b70515182237c17235",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "08b70515182237c17235",
+      "inputHash": "2f7cd0c212b5f86d90910bf202f5dd762c995d588b5685ba76f12ad14ed59482",
+      "evidenceHash": "3ae1f8efb25db8655d1a5827a25597c13064cfe38b36d6c48adc7c439c3cbba9",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "08b70515182237c17235",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-family-ski",
+        "inputHash": "2f7cd0c212b5f86d90910bf202f5dd762c995d588b5685ba76f12ad14ed59482",
+        "evidenceHash": "3ae1f8efb25db8655d1a5827a25597c13064cfe38b36d6c48adc7c439c3cbba9",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-family-ski"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España",
+          "PAL Europa"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-206490a0bcf31bda62958644",
+          "knownFactsSupplied": 66,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 1,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 66,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 1,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0a3ac4ca518f4220b2ba",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "0a3ac4ca518f4220b2ba",
+      "inputHash": "b12cde86424afa1262dd5415e4c65a12c193c6a2a813ced9ef2704545451a804",
+      "evidenceHash": "a904f4a76bc93c7bd17f8bd7d3855b62d7a0f4ea42008dd67a31d4c23538390c",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "0a3ac4ca518f4220b2ba",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-donkey-kong-jet-race",
+        "inputHash": "b12cde86424afa1262dd5415e4c65a12c193c6a2a813ced9ef2704545451a804",
+        "evidenceHash": "a904f4a76bc93c7bd17f8bd7d3855b62d7a0f4ea42008dd67a31d4c23538390c",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-donkey-kong-jet-race"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-16fd0f8eae48eb1e7d18ec63",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "shadow_20_live-0b9827473683ab13e354",
+      "origin": "SHADOW_20_LIVE",
+      "platform": "other",
+      "reviewItemId": "0b9827473683ab13e354",
+      "inputHash": "362d2bf64593b2cd23e5583ac80297e5055bddaf984dd2b1b9c988ca67cba452",
+      "evidenceHash": "e302b6db13c1b4ce0a423dc437bb48bb3dea31b83f2cc6b9b20001d5fe7f4a55",
+      "reusedBaseline": true,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "0b9827473683ab13e354",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-ghost-squad",
+        "inputHash": "362d2bf64593b2cd23e5583ac80297e5055bddaf984dd2b1b9c988ca67cba452",
+        "evidenceHash": "e302b6db13c1b4ce0a423dc437bb48bb3dea31b83f2cc6b9b20001d5fe7f4a55",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Reused identical evidence-only result from shadow-20-live.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "wii-ghost-squad"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1",
+          "image-index:2",
+          "image-index:3"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:wii"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-0ea75e8bac18e7e6c95ed6be",
+          "knownFactsSupplied": 66,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 1,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 58,
+          "factsConsulted": 66,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 1,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "REUSE_IDENTICAL_BASELINE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-9eb77b589f8eed7f7b1c",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "platform": "ps4",
+      "reviewItemId": "9eb77b589f8eed7f7b1c",
+      "inputHash": "ddc3624083511a228403e6783f2cd14eb899b591afe618d29dbb129702748660",
+      "evidenceHash": "4c59454cb4a1c1fc404cfbb25e684144e79fbbd53e018e35e07a79acda60cdb6",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "9eb77b589f8eed7f7b1c",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps4-the-order-1886-limited-edition",
+        "inputHash": "ddc3624083511a228403e6783f2cd14eb899b591afe618d29dbb129702748660",
+        "evidenceHash": "4c59454cb4a1c1fc404cfbb25e684144e79fbbd53e018e35e07a79acda60cdb6",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.965Z",
+        "resolvedAt": "2026-09-16T16:31:28.965Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "ps4-the-order-1886-limited-edition"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España",
+          "PAL Europa"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:ps4"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-2cdc9b47d543f525c653d2cd",
+          "knownFactsSupplied": 66,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 1,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 63,
+          "factsConsulted": 66,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 1,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-a7e6c0f114ca5848b46c",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "platform": "ps4",
+      "reviewItemId": "a7e6c0f114ca5848b46c",
+      "inputHash": "e11026bb67ad0fc03353c2e15df4586c14798f00a3a258f95b670009402e962f",
+      "evidenceHash": "7dbeb1b4aba2008dc768db23b0478fcf6000bbb99d8f9cf405fa9b4accc5401e",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "a7e6c0f114ca5848b46c",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps4-batman-arkham-knight-special-edition",
+        "inputHash": "e11026bb67ad0fc03353c2e15df4586c14798f00a3a258f95b670009402e962f",
+        "evidenceHash": "7dbeb1b4aba2008dc768db23b0478fcf6000bbb99d8f9cf405fa9b4accc5401e",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "ps4-batman-arkham-knight-special-edition"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:ps4"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-bb1143e08a034d83731babe2",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 63,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-5a9b9160ca1816f8d07c",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "platform": "ps4",
+      "reviewItemId": "5a9b9160ca1816f8d07c",
+      "inputHash": "fdb1b75393144726ba7bd0cf2c65bd78f1a18bb0059082c13c79f200c7b88d52",
+      "evidenceHash": "826b165dcd431289ef650d370e2bfb7ccadd79f4333db688de92cfe325cbe942",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "5a9b9160ca1816f8d07c",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps4-pantsu-hunter-back-to-the-90s",
+        "inputHash": "fdb1b75393144726ba7bd0cf2c65bd78f1a18bb0059082c13c79f200c7b88d52",
+        "evidenceHash": "826b165dcd431289ef650d370e2bfb7ccadd79f4333db688de92cfe325cbe942",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "ps4-pantsu-hunter-back-to-the-90s"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España",
+          "PAL Europa"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:ps4"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-555cdd38f0ac4940d4d1be5c",
+          "knownFactsSupplied": 66,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 1,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 63,
+          "factsConsulted": 66,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 1,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-bb177450aff4b98e9ecf",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "platform": "ps4",
+      "reviewItemId": "bb177450aff4b98e9ecf",
+      "inputHash": "8944bd61e052abea15b319a9bb2b799946bfb3fd14f89120ab1c40019a68ce8c",
+      "evidenceHash": "fa5947c34b7d65493fe8132475cf77de18484905fecb75f18d584cacd125ed1f",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "bb177450aff4b98e9ecf",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps4-usa-black-hole",
+        "inputHash": "8944bd61e052abea15b319a9bb2b799946bfb3fd14f89120ab1c40019a68ce8c",
+        "evidenceHash": "fa5947c34b7d65493fe8132475cf77de18484905fecb75f18d584cacd125ed1f",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "ps4-usa-black-hole"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "USA",
+          "PAL Alemania"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:ps4"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-b4fdaf3bd4e2f98bff6cb740",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 63,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-933ba89565a5cc2437d3",
+      "origin": "MATURE_PLATFORM_WORKER",
+      "platform": "n64",
+      "reviewItemId": "n64-worker-933ba89565a5cc2437d3",
+      "inputHash": "a970f8c48ca8a4a90a30e14c48c0b9569c0b0e13a573dde8068809e71ac6981b",
+      "evidenceHash": "c2746fa27b212d46afb3cd28c15ee7afa4ac03bef27e060811bc76234dcf46f6",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "n64-worker-933ba89565a5cc2437d3",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "n64-blast-corps",
+        "inputHash": "a970f8c48ca8a4a90a30e14c48c0b9569c0b0e13a573dde8068809e71ac6981b",
+        "evidenceHash": "c2746fa27b212d46afb3cd28c15ee7afa4ac03bef27e060811bc76234dcf46f6",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "retroplayzone"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "n64-blast-corps"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "USA"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "identity",
+          "platform_candidate",
+          "condition",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:n64"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-e44fde443ad65d2faca9400d",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 98,
+          "factsConsulted": 55,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-e3ea6ec812269321a695",
+      "origin": "MATURE_PLATFORM_WORKER",
+      "platform": "n64",
+      "reviewItemId": "n64-worker-e3ea6ec812269321a695",
+      "inputHash": "681c6986aefaba369553c9b82def940ee002e1dad7a72c055f879098f27e4f6c",
+      "evidenceHash": "826a6b7c31b1ff92c5bd95ab8e45e5c755743b147a7bbf1125a48fdcde236a64",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "n64-worker-e3ea6ec812269321a695",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "n64-international-superstar-soccer-64",
+        "inputHash": "681c6986aefaba369553c9b82def940ee002e1dad7a72c055f879098f27e4f6c",
+        "evidenceHash": "826a6b7c31b1ff92c5bd95ab8e45e5c755743b147a7bbf1125a48fdcde236a64",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "retroplayzone"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "n64-international-superstar-soccer-64"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "USA"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "identity",
+          "platform_candidate",
+          "condition",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:n64"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-b9e3ab3740af6c4df22a2387",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 98,
+          "factsConsulted": 55,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-2f9bc9308421264d849f",
+      "origin": "MATURE_PLATFORM_WORKER",
+      "platform": "n64",
+      "reviewItemId": "n64-worker-2f9bc9308421264d849f",
+      "inputHash": "1e1058f6cd6f2e5d2903925985e4703f2f282cab31f33aacf9b023cb23c60453",
+      "evidenceHash": "6f54881b6fc68eb34e25390e3adc567e5ceeccd323740e9bd7491d9021e84011",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "n64-worker-2f9bc9308421264d849f",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "n64-international-superstar-soccer-98",
+        "inputHash": "1e1058f6cd6f2e5d2903925985e4703f2f282cab31f33aacf9b023cb23c60453",
+        "evidenceHash": "6f54881b6fc68eb34e25390e3adc567e5ceeccd323740e9bd7491d9021e84011",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "retroplayzone"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "n64-international-superstar-soccer-98"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "USA"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "identity",
+          "platform_candidate",
+          "condition",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:n64"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-defa22f6238c4bdb5fa4cdc9",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 98,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-06b68c49b7795dc8aed5",
+      "origin": "MATURE_PLATFORM_WORKER",
+      "platform": "n64",
+      "reviewItemId": "n64-worker-06b68c49b7795dc8aed5",
+      "inputHash": "8c7b0abed8dd579aa85cefa2fd790692ed553a6a89f223f10c8328bdf07700d4",
+      "evidenceHash": "42e8a8160a2a11244eedbbd3245d798efb4d876d75a45caeb5ab74bb11205111",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "n64-worker-06b68c49b7795dc8aed5",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "n64-japon-star-wars-episode-i-racer",
+        "inputHash": "8c7b0abed8dd579aa85cefa2fd790692ed553a6a89f223f10c8328bdf07700d4",
+        "evidenceHash": "42e8a8160a2a11244eedbbd3245d798efb4d876d75a45caeb5ab74bb11205111",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "retroplayzone"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "n64-japon-star-wars-episode-i-racer"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "Japón"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "identity",
+          "platform_candidate",
+          "condition",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:n64"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-3254c7c436e2d771c407e5dc",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 2,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 98,
+          "factsConsulted": 55,
+          "variantsConsulted": 2,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-b61040fc7f57ac796e67",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "platform": "ps5",
+      "reviewItemId": "b61040fc7f57ac796e67",
+      "inputHash": "01410d087ac5d07cd6cb02f9197c22bb8dabec9828f55663dbbfbf0fd7337495",
+      "evidenceHash": "34247a8c9591a2c1bf821e2f8f62cb9486971ef9fb71c57b5ac1984c125d0261",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "b61040fc7f57ac796e67",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps5-uncharted-coleccion-legado-de-los-ladrones",
+        "inputHash": "01410d087ac5d07cd6cb02f9197c22bb8dabec9828f55663dbbfbf0fd7337495",
+        "evidenceHash": "34247a8c9591a2c1bf821e2f8f62cb9486971ef9fb71c57b5ac1984c125d0261",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [
+          "ps5-uncharted-coleccion-legado-de-los-ladrones"
+        ],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "candidate_identity",
+          "platform_candidate",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:ps5"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-1706f29d51d12f770ae06e1d",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 1,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 2,
+          "sourcePlansSupplied": 70,
+          "factsConsulted": 55,
+          "variantsConsulted": 1,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-99d439633b5311c4960c",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "platform": "ps5",
+      "reviewItemId": "99d439633b5311c4960c",
+      "inputHash": "d3d4fc13c636234f0fa0f649b8444aa1bf36b1d4cdfc8a56e6d169281a56b458",
+      "evidenceHash": "065cb13b3302296f4e9db01969b00ef992a30a5802db85c01e2b659dae1d2763",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "99d439633b5311c4960c",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": null,
+        "inputHash": "d3d4fc13c636234f0fa0f649b8444aa1bf36b1d4cdfc8a56e6d169281a56b458",
+        "evidenceHash": "065cb13b3302296f4e9db01969b00ef992a30a5802db85c01e2b659dae1d2763",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [],
+        "existingRegionalVariantsConsulted": [
+          "PAL Europa"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:ps5"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-1bd73c112a62bc5e13c9d7e2",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 0,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 70,
+          "factsConsulted": 55,
+          "variantsConsulted": 0,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-39b0f01b400e4cb034d4",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "platform": "ps5",
+      "reviewItemId": "39b0f01b400e4cb034d4",
+      "inputHash": "b2f1ddea3d3b5e4fcd4cde16a3a361d85bf08011426054f793ed7b4ccf4c975a",
+      "evidenceHash": "c88026f62bada9fed4576e41bb94d969e671c622e67880bd164e31d30bc74749",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "39b0f01b400e4cb034d4",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": null,
+        "inputHash": "b2f1ddea3d3b5e4fcd4cde16a3a361d85bf08011426054f793ed7b4ccf4c975a",
+        "evidenceHash": "c88026f62bada9fed4576e41bb94d969e671c622e67880bd164e31d30bc74749",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [],
+        "existingRegionalVariantsConsulted": [
+          "PAL España"
+        ],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:ps5"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-1c285c42d386de450f253358",
+          "knownFactsSupplied": 55,
+          "knownVariantsSupplied": 0,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 70,
+          "factsConsulted": 55,
+          "variantsConsulted": 0,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    },
+    {
+      "caseId": "mature_platform_live-9c0ea8059d4a40f29399",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "platform": "ps5",
+      "reviewItemId": "9c0ea8059d4a40f29399",
+      "inputHash": "d5ab74f272bd5e434ec0b7a0d7faac56fe68f5042cbbf85690c75a37277902f1",
+      "evidenceHash": "8c38dc2a3777fd55754f648da9f9b725cde7f78a1a76546e76c65b579107601b",
+      "reusedBaseline": false,
+      "externalRequests": 0,
+      "resolution": {
+        "reviewItemId": "9c0ea8059d4a40f29399",
+        "runId": "stage-a-mu4bilz8",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": null,
+        "inputHash": "d5ab74f272bd5e434ec0b7a0d7faac56fe68f5042cbbf85690c75a37277902f1",
+        "evidenceHash": "8c38dc2a3777fd55754f648da9f9b725cde7f78a1a76546e76c65b579107601b",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:28.966Z",
+        "resolvedAt": "2026-09-16T16:31:28.966Z"
+      },
+      "knowledgeReuse": {
+        "existingCatalogFactsConsulted": [],
+        "existingRegionalVariantsConsulted": [],
+        "existingIdentifiersConsulted": [],
+        "existingPhysicalEvidenceConsulted": [
+          "platform_candidate",
+          "image-index:1"
+        ],
+        "existingResearchKnowledgeConsulted": [
+          "platform:ps5"
+        ],
+        "outcome": "EXISTING_EVIDENCE_AND_LOGIC",
+        "knowledgePackUsed": {
+          "packId": "knowledge-pack-051993156fb6e9d6cc730a27",
+          "knownFactsSupplied": 44,
+          "knownVariantsSupplied": 0,
+          "knownIdentifiersSupplied": 0,
+          "directUrlsSupplied": 1,
+          "sourcePlansSupplied": 70,
+          "factsConsulted": 44,
+          "variantsConsulted": 0,
+          "identifiersConsulted": 0,
+          "directUrlsConsulted": 0,
+          "sourcePlansConsulted": 11
+        }
+      },
+      "audit": [
+        {
+          "phase": "STAGE_A",
+          "action": "RESOLVE_FROM_BUNDLE",
+          "detail": "PhysicalEvidenceBundleV1 plus deterministic repository knowledge; no external provider is available in Stage A."
+        }
+      ]
+    }
+  ]
+}

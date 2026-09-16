@@ -1,4 +1,5 @@
 import type { ResearchPriority, ResearchRiskCode } from "./types";
+import type { ResearchKnowledgePackV1 } from "./knowledge-pack";
 
 export const RESEARCH_TARGET_FIELDS = [
   "PHYSICAL_EXISTENCE",
@@ -363,6 +364,7 @@ export type ResearchRouterInput = {
   currentConflicts: ResearchConflict[];
   evidenceGaps?: ResearchEvidenceGap[];
   researchMode?: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  knowledgePack?: ResearchKnowledgePackV1;
 };
 
 export type ResearchSourcePlanItem = {

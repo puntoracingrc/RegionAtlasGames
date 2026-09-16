@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-04eae2a4dc9286471704d4f7",
+    "runId": "deep-5b25ceaac907c2d378e73b75-mu4bjt0t",
+    "taskId": "deep-5b25ceaac907c2d378e73b75",
+    "subjectId": "curator-subject-bbdb0afbbd3ade10dadb",
+    "gameId": "wii-hot-wheels-track-attack",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.budgetgaming.nl",
+    "sourceUrl": "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html",
+    "evidenceId": "ev-fa7b30e9d4b6a12f54f72ee9",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:32:31.551Z"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/377370832247?_skw=Dave+Mirra+BMX+Challenge&hash=item57dd0ded77:g:IpQAAeSwqn9qjtNW",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/177021245400",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

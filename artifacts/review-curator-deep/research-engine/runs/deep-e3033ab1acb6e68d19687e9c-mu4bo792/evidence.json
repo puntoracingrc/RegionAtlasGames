@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-0ddfc7297580924bc6c5fb16",
+    "runId": "deep-e3033ab1acb6e68d19687e9c-mu4bo792",
+    "taskId": "deep-e3033ab1acb6e68d19687e9c",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/210461-banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970-3512899967021.html",
+    "canonicalUrl": "https://www.todoconsolas.com/juegos-ps5/210461-banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970-3512899967021.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.todoconsolas.com",
+    "fetchedAt": "2026-09-16T16:35:51.326Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "...ps5/uk...",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "056a502935ecb305311ab320f2fcf9333184668f25501a07667483b605f9617a",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

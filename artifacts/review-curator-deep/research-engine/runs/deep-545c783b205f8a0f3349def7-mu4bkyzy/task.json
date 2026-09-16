@@ -1,0 +1,17 @@
+{
+  "id": "deep-545c783b205f8a0f3349def7",
+  "subjectId": "curator-subject-0290405b7da63c5c18b1",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Ghost Squad Wii Pal España, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

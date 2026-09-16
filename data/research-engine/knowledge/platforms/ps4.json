@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "knowledgeId": "regionatlas-ps4-physical-research-v1",
+  "platformSlug": "ps4",
+  "reviewedAt": "2026-09-16",
+  "status": "FROZEN_V1",
+  "mode": "research_guidance_not_automatic_catalog_acceptance",
+  "purpose": "Precomputed PS4 routing for CUSA, EAN, regional packaging, editions and component-bound physical evidence.",
+  "coreModel": {
+    "identifierFamilies": ["CUSA", "EAN_UPC"],
+    "editionFamilies": ["Standard", "PlayStation Hits", "Deluxe", "Gold", "Ultimate", "Collector", "SteelBook"],
+    "principles": [
+      "CUSA identifies a technical product family and broad region; it does not prove Spain.",
+      "Spanish packaging language, PEGI, seller country and an EU EAN prefix do not prove Spanish distribution.",
+      "Condition is listing evidence and must not be researched from documentary web sources.",
+      "EAN, CUSA, disc, outer package and inner case evidence remain component-bound."
+    ]
+  },
+  "sources": {
+    "regionatlas-own-scan": { "baseUrl": "internal://regionatlas-owned-scans", "kind": "first_party_owned_scan", "priority": 100, "accessModes": ["INTERNAL"] },
+    "serialstation": { "baseUrl": "https://serialstation.com/", "kind": "technical_identifier_database", "priority": 94, "accessModes": ["DOMAIN_SEARCH", "BROWSER"], "cautions": ["CUSA is not national-market proof."] },
+    "redump": { "baseUrl": "http://redump.org/", "kind": "technical_disc_database", "priority": 90, "accessModes": ["DOMAIN_SEARCH", "BROWSER"], "cautions": ["Disc identity is not package-market proof."] },
+    "ogdb": { "baseUrl": "https://ogdb.eu/", "kind": "specialist_database", "priority": 82, "accessModes": ["DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"], "cautions": ["Validate exact edition and specimen."] },
+    "national-retailer": { "baseUrl": "https://www.game.es/", "kind": "retailer", "priority": 76, "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER"], "cautions": ["A Spanish retailer alone does not prove Spanish packaging."] },
+    "launchbox-images": { "baseUrl": "https://gamesdb.launchbox-app.com/", "kind": "cover_gallery", "priority": 68, "accessModes": ["DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"], "cautions": ["Exact region and component must be visible."] },
+    "todocoleccion": { "baseUrl": "https://www.todocoleccion.net/", "kind": "marketplace_specimen", "priority": 62, "accessModes": ["DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"] },
+    "ebay": { "baseUrl": "https://www.ebay.es/", "kind": "marketplace_specimen", "priority": 58, "accessModes": ["DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"] }
+  },
+  "sourceCapabilities": {
+    "PRODUCT_CODE": [["regionatlas-own-scan", 100], ["serialstation", 94], ["redump", 82], ["ogdb", 78], ["launchbox-images", 62]],
+    "BARCODE": [["regionatlas-own-scan", 100], ["national-retailer", 82], ["ogdb", 80], ["todocoleccion", 72], ["ebay", 66], ["launchbox-images", 64]],
+    "MARKET_REGION": [["regionatlas-own-scan", 100], ["national-retailer", 55], ["todocoleccion", 45], ["ebay", 35]],
+    "PACKAGING_LANGUAGES": [["regionatlas-own-scan", 100], ["launchbox-images", 78], ["todocoleccion", 74], ["ebay", 68]],
+    "CANONICAL_IDENTITY": [["regionatlas-own-scan", 100], ["serialstation", 88], ["ogdb", 82]],
+    "BUNDLE_CONTENTS": [["regionatlas-own-scan", 100], ["national-retailer", 72], ["todocoleccion", 68], ["ebay", 62]]
+  },
+  "identifierRules": [
+    { "id": "ps4-cusa-broad-only", "trigger": "PRODUCT_CODE_KNOWN", "rule": "CUSA may establish PS4 technical identity/broad region but not Spain.", "allowedConclusions": ["PS4 technical family", "broad regional family"], "forbiddenConclusions": ["Spanish distribution", "Spanish packaging"], "nextEvidence": ["exact rear cover", "distributor/legal text", "matching retailer SKU plus physical specimen"] }
+  ],
+  "decisionTests": [
+    { "id": "ps4-eu-not-spain", "question": "A CUSA/PEGI/Spanish-language clue exists without market-bound evidence. Can Spain be confirmed?", "options": ["YES", "NO"], "correct": "NO" }
+  ],
+  "playbooks": {
+    "PS4_PRODUCT_CODE": { "trigger": ["TARGET=PRODUCT_CODE"], "sourceOrder": ["regionatlas-own-scan", "serialstation", "redump", "ogdb", "launchbox-images", "todocoleccion", "ebay"], "queryTemplates": ["\"{PRODUCT_CODE}\"", "site:serialstation.com \"{PRODUCT_CODE}\"", "site:redump.org \"{PRODUCT_CODE}\""], "steps": ["local facts", "owned scans", "direct URLs", "exact identifier", "specialized source", "physical specimen", "generic last"], "stopRule": "Only confirm a component-bound identifier." },
+    "PS4_BARCODE": { "trigger": ["TARGET=BARCODE"], "sourceOrder": ["regionatlas-own-scan", "national-retailer", "ogdb", "todocoleccion", "ebay", "launchbox-images"], "queryTemplates": ["\"{BARCODE}\"", "site:ogdb.eu \"{BARCODE}\""], "steps": ["owned scan", "existing back cover", "direct retailer URL", "exact identifier", "physical specimen"], "stopRule": "Do not accept aggregate EAN without exact product/component binding." },
+    "PS4_MARKET": { "trigger": ["TARGET=MARKET_REGION"], "sourceOrder": ["regionatlas-own-scan", "national-retailer", "todocoleccion", "ebay"], "queryTemplates": ["\"{TITLE}\" {PLATFORM} back cover distributor"], "steps": ["owned specimen", "regional package evidence", "distributor documentation", "retailer plus matching specimen", "independent specimens"], "stopRule": "Language, PEGI, CUSA and seller country never promote a national market." },
+    "PS4_PACKAGING": { "trigger": ["TARGET=PACKAGING_LANGUAGES"], "sourceOrder": ["regionatlas-own-scan", "launchbox-images", "todocoleccion", "ebay"], "steps": ["owned scan", "exact rear/front/spine", "exact gallery", "marketplace specimen"], "stopRule": "Software language is not packaging language." }
+  },
+  "knownTraps": [
+    { "id": "ps4-language-market", "rule": "Spanish text is not Spanish distribution." },
+    { "id": "ps4-edition-mixing", "rule": "Standard, Hits, Deluxe, Gold, Ultimate, Collector and SteelBook prices/evidence remain separate." }
+  ],
+  "caseLearnings": [],
+  "workerPolicy": { "precomputeKnowledgePack": true, "conditionUsesListingOnly": true, "genericSearchLast": true },
+  "integrationNotes": { "authoritativeRegistry": "data/research-engine/knowledge/sources.json", "catalogMutations": false }
+}

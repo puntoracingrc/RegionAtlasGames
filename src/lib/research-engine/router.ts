@@ -107,6 +107,8 @@ function sourceRoleMatches(source: ResearchSourceDefinition, roles: string[]): b
 
 function rankSources(input: ResearchRouterInput, playbook: ResearchPlaybook): ResearchSourcePlanItem[] {
   const explicit = new Map(playbook.sourceIds.map((id, index) => [id, playbook.sourceIds.length - index]));
+  const packed = input.knowledgePack?.fieldPlans[input.targetField]?.preferredSourceIds ?? [];
+  const packedBoost = new Map(packed.map((id, index) => [id, packed.length - index]));
   const franchisePriority = input.franchiseKnowledge
     .find((rule) => rule.startsWith("Preferred franchise sources:"))
     ?.replace(/^Preferred franchise sources:\s*/, "")
@@ -121,7 +123,7 @@ function rankSources(input: ResearchRouterInput, playbook: ResearchPlaybook): Re
       const capability = source.fieldCapabilities[input.targetField] ?? 0;
       const explicitBoost = (explicit.get(source.id) ?? 0) * 100;
       const roleBoost = sourceRoleMatches(source, playbook.sourceRoles) ? 25 : 0;
-      const score = explicitBoost + (franchiseBoost.get(source.id) ?? 0) * 8 + capability * 2 + source.defaultReliability + roleBoost;
+      const score = explicitBoost + (packedBoost.get(source.id) ?? 0) * 120 + (franchiseBoost.get(source.id) ?? 0) * 8 + capability * 2 + source.defaultReliability + roleBoost;
       return {
         score,
         item: {
@@ -130,7 +132,9 @@ function rankSources(input: ResearchRouterInput, playbook: ResearchPlaybook): Re
           roles: source.roles,
           accessModes: source.accessModes,
           capabilityScore: capability,
-          reason: explicit.has(source.id)
+          reason: packedBoost.has(source.id)
+            ? `Precomputed ResearchKnowledgePack order; target capability ${capability || "not declared"}.`
+            : explicit.has(source.id)
             ? `Ordered by ${playbook.id}; target capability ${capability || "not declared"}.`
             : `Field capability ${capability || "unspecified"}; default reliability ${source.defaultReliability}.`,
         } satisfies ResearchSourcePlanItem,
@@ -186,7 +190,7 @@ function rankSources(input: ResearchRouterInput, playbook: ResearchPlaybook): Re
       },
     });
   }
-  return [...new Map(rows.sort((a, b) => b.score - a.score).map((row) => [row.item.sourceId, row.item])).values()].slice(0, 16);
+  return [...new Map(rows.sort((a, b) => b.score - a.score).map((row) => [row.item.sourceId, row.item])).values()].slice(0, 24);
 }
 
 function templateValues(input: ResearchRouterInput, source: ResearchSourcePlanItem | null): Record<string, string> {
@@ -294,6 +298,15 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
     : [];
   const genericTemplates = groups.flatMap((group) => input.queryTemplates[group] ?? []);
   const queries: ResearchRouterPlan["queryPlan"] = [];
+  const packedQueries = input.knowledgePack?.fieldPlans[input.targetField]?.exactQueries ?? [];
+  for (const row of packedQueries.filter((row) => row.strategy !== "GENERIC_LAST_RESORT")) {
+    queries.push({
+      query: row.query,
+      sourceId: row.sourceId,
+      purpose: input.targetField,
+      strategy: row.strategy === "EXACT_IDENTIFIER" ? "EXACT_IDENTIFIER" : "SOURCE_SPECIFIC",
+    });
+  }
   const physicalMode = input.researchMode === "PHYSICAL_EVIDENCE_MODE";
   const queryableSources = sourcePlan.filter((source) => source.accessModes.some((mode) => mode === "SEARCH_ENGINE" || mode === "DOMAIN_SEARCH"));
   const globalValues = templateValues(input, null);
@@ -358,16 +371,26 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
       if (rendered) queries.push({ query: rendered, sourceId: null, purpose: input.targetField, strategy: "GENERIC" });
     }
   }
+  for (const row of packedQueries.filter((row) => row.strategy === "GENERIC_LAST_RESORT")) {
+    queries.push({ query: row.query, sourceId: row.sourceId, purpose: input.targetField, strategy: "GENERIC" });
+  }
   const seen = new Set<string>();
   let physicalGenericCount = 0;
-  return queries.filter((query) => {
+  const deduplicated = queries.filter((query) => {
     const key = normalizedQuery(query.query);
     if (seen.has(key)) return false;
     if (physicalMode && query.strategy === "GENERIC" && physicalGenericCount >= 2) return false;
     if (physicalMode && query.strategy === "GENERIC") physicalGenericCount += 1;
     seen.add(key);
     return true;
-  }).slice(0, 24);
+  });
+  // Generic discovery is a true last resort. Keep the detailed ordering within
+  // each class, but never allow an early generic template to jump ahead of a
+  // precomputed identifier or source-specific route added later in the plan.
+  return [
+    ...deduplicated.filter((query) => query.strategy !== "GENERIC"),
+    ...deduplicated.filter((query) => query.strategy === "GENERIC"),
+  ].slice(0, 24);
 }
 
 function imagePlanFor(target: ResearchTargetField): ResearchRouterPlan["imagePlan"] {
@@ -396,7 +419,8 @@ function imagePlanFor(target: ResearchTargetField): ResearchRouterPlan["imagePla
 }
 
 function directUrlPlan(input: ResearchRouterInput, sourcePlan: ResearchSourcePlanItem[]): ResearchRouterPlan["directUrlPlan"] {
-  const candidates: ResearchRouterPlan["directUrlPlan"] = [];
+  const candidates: ResearchRouterPlan["directUrlPlan"] = (input.knowledgePack?.fieldPlans[input.targetField]?.directUrls ?? [])
+    .map((row) => ({ url: row.url, sourceId: row.sourceId, reason: row.reason }));
   if (input.catalogContext.gameRetailer?.url) {
     candidates.push({ url: input.catalogContext.gameRetailer.url, sourceId: "national-retailer", reason: "Exact retailer URL already bound to the catalog subject." });
   }
@@ -424,6 +448,11 @@ function factsUsed(input: ResearchRouterInput, playbook: ResearchPlaybook): stri
     ...(input.legacyKnowledge.length ? [
       `legacyScannerReviewed=${input.legacyKnowledge.filter((entry) => entry.trust === "reviewed_guidance").length}`,
       `legacyScannerCandidates=${input.legacyKnowledge.filter((entry) => entry.trust === "candidate_only").length}`,
+    ] : []),
+    ...(input.knowledgePack ? [
+      `knowledgePack=${input.knowledgePack.packId}`,
+      `knownVariants=${input.knowledgePack.knownVariants.length}`,
+      `knownDirectUrls=${input.knowledgePack.knownDirectUrls.length}`,
     ] : []),
     `playbook=${playbook.id}`,
   ];

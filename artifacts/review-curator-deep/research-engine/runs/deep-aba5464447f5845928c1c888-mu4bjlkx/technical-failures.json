@@ -1,0 +1,9 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

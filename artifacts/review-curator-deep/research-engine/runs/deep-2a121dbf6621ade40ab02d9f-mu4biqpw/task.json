@@ -1,0 +1,17 @@
+{
+  "id": "deep-2a121dbf6621ade40ab02d9f",
+  "subjectId": "curator-subject-c07a783db5ab1f92c36a",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact wii physical product DREAMWORKS SUPERSTAR KARTZ . Pal España . Envio Certificado, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

@@ -1,0 +1,55 @@
+[
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+    "result": {
+      "component": "CARTRIDGE_FRONT",
+      "titleCandidate": "International Superstar Soccer 98",
+      "platformCandidate": "n64",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [
+        "English"
+      ],
+      "ratingMarks": [
+        "E"
+      ],
+      "publisherText": [
+        "KONAMI"
+      ],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "NO_DOWNLOAD_STATEMENT",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "INNER_GAME",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {
+        "PHYSICAL_EXISTENCE": 0.95,
+        "PHYSICAL_PRODUCT_TYPE": 0.9,
+        "PACKAGING_LANGUAGES": 0.85
+      },
+      "subjectClass": "EXACT_PRODUCT",
+      "bindingState": "COMPONENT_BOUND",
+      "marketBindingState": "LANGUAGE_ONLY",
+      "productNodeType": "INNER_PRODUCT",
+      "componentNodeLabel": null,
+      "editionClass": "EXPECTED_EDITION",
+      "visibleEditionMarker": "standard",
+      "visualStages": {
+        "subject": "ACCEPTED",
+        "component": "ACCEPTED",
+        "extraction": "COMPLETED",
+        "binding": "COMPONENT_BOUND"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 3,
+      "inputTokens": 15983,
+      "outputTokens": 220,
+      "estimatedCostUsd": 0.00253
+    }
+  }
+]

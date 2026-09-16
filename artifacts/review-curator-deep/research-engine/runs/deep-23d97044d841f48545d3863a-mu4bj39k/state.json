@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-23d97044d841f48545d3863a-mu4bj39k",
+  "taskId": "deep-23d97044d841f48545d3863a",
+  "subjectId": "curator-subject-1756ae52087c97a5306f",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "CANONICAL_IDENTITY"
+  ],
+  "currentTargetField": "CANONICAL_IDENTITY",
+  "currentPlaybook": "NO_IDENTIFIERS",
+  "queriesAttempted": [
+    "site:ubisoft.com \"Fishing Master\" \"wii\" \"standard\"",
+    "site:redump.org \"Fishing Master\" \"wii\" \"standard\"",
+    "site:ogdb.eu \"Fishing Master\" \"wii\" \"standard\"",
+    "site:mobygames.com \"Fishing Master\" \"wii\" \"standard\"",
+    "site:yambalu.com \"Fishing Master\" \"wii\" \"standard\"",
+    "\"Fishing Master\" \"wii\" \"standard\" canonical identity",
+    "site:news.ubisoft.com \"Fishing Master\" wii",
+    "site:redump.org \"Fishing Master\" wii"
+  ],
+  "normalizedQueries": [
+    "site:ubisoft.com \"fishing master\" \"wii\" \"standard\"",
+    "site:redump.org \"fishing master\" \"wii\" \"standard\"",
+    "site:ogdb.eu \"fishing master\" \"wii\" \"standard\"",
+    "site:mobygames.com \"fishing master\" \"wii\" \"standard\"",
+    "site:yambalu.com \"fishing master\" \"wii\" \"standard\"",
+    "\"fishing master\" \"wii\" \"standard\" canonical identity",
+    "site:news.ubisoft.com \"fishing master\" wii",
+    "site:redump.org \"fishing master\" wii"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/127748927580?_skw=Fishing+Master&hash=item1dbe6df05c:g:7tgAAeSwD7RpuDY9",
+    "https://bitjumpgames.com/products/fishing-master-wii",
+    "https://www.walmart.com/ip/Fishing-Master-Wii/7080042",
+    "http://forum.redump.org/viewtopic.php?pid=131113"
+  ],
+  "domainsVisited": [
+    "bitjumpgames.com",
+    "www.walmart.com",
+    "forum.redump.org"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-c9d706715f39acb6fc201571",
+      "runId": "deep-23d97044d841f48545d3863a-mu4bj39k",
+      "taskId": "deep-23d97044d841f48545d3863a",
+      "sourceId": "candidate:bitjumpgames.com",
+      "sourceUrl": "https://bitjumpgames.com/products/fishing-master-wii",
+      "canonicalUrl": "https://bitjumpgames.com/products/fishing-master-wii",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "bitjumpgames.com",
+      "fetchedAt": "2026-09-16T16:31:55.817Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Fishing Master - Wii",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "b913b2e835f06eecc6f0baac11004ec2d29b548582f826de3db4956126c33ecd",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-4b29fd756ae2eea7c35f8c76",
+      "runId": "deep-23d97044d841f48545d3863a-mu4bj39k",
+      "taskId": "deep-23d97044d841f48545d3863a",
+      "sourceId": "candidate:www.walmart.com",
+      "sourceUrl": "https://www.walmart.com/ip/Fishing-Master-Wii/7080042",
+      "canonicalUrl": "https://www.walmart.com/ip/Fishing-Master-Wii/7080042",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.walmart.com",
+      "fetchedAt": "2026-09-16T16:31:58.940Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Fishing Master, Nintendo Wii Sports Game, 4 Player, 100+ Fish, Konami - Walmart.com Skip to Main Content Pickup or delivery? Cancel Reorder My Items Reorder Lists Registries Sign In Account Sign in or create account Purchase History Walmart+ Subscriptions Language | English $0.00 Departments Services Pickup or delivery? Konami Fishing Master - Nintendo Wii 4.7 out of 5 stars (4.7) | 19 ratings Key item features Fishing fun for the whole family Over 100 fish ranging from freshwater trout to mythical oddities 4 Player Head to Head Fishing Derby Over 30 saltwater and freshwater fishing locales to discover Fish Encyclopedia to learn about every fish as you become a Fishing Master View all item details Specs Current price is USD $28.70 Price when purchased online Free shipping Free 30-day returns New $28.70 $28.70 Pre-Owned: Good $19.99 $19.99 Add to cart Walmart Accident Plan by Allstate What's covered (Only one option can be selected at a time) 1-Year Plan - $2.00 2-Year Plan - $4.00 How do you want your item? How do you want your item? Shipping Arrives Sep 21 Free Pickup Not available Delivery Not available Ships to Sacramento, 95829 Arrives by Mon, Sep 21 | More options Sold and shipped by GameJiffy 4.593232044198895 out of 5 stars 4.593232044198895 stars out of 5, based on 1448 seller reviews (4.6) 1448 seller reviews Free 30-day returns Details Add to list Add to registry More seller options (2) Starting from $28.70 Compare all sellers Restored Wii Sports $55.00 $ 55 00 current price $55.00 Restored Wii Sports 4.6 out of 5 stars 74 4.6 out of 5 Stars. 74 reviews Shipping, arrives Fri, Sep 18 Add to cart Sponsored We’d love to hear what you think! Give feedback All Departments Store Directory Careers Our Company Sell on Walmart.com Help Product Recalls Accessibility Tax Exempt Program Get the Walmart App Safety Data Sheet Terms of Use Privacy Notice California Supply Chain Act Your Privacy Choices Notice at Collection AdChoices Consumer Health Data Privacy Notices L",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "0f3eaa7eb8cbac06fda2cc1a9e5be0bf102394af5573a7ab3394d6c87f742c23",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-71c646cd8e025ddb47c38bc6",
+      "runId": "deep-23d97044d841f48545d3863a-mu4bj39k",
+      "taskId": "deep-23d97044d841f48545d3863a",
+      "sourceId": "redump",
+      "sourceUrl": "http://forum.redump.org/viewtopic.php?pid=131113",
+      "canonicalUrl": "http://forum.redump.org/viewtopic.php?pid=131113",
+      "sourceType": "TECHNICAL_DATABASE",
+      "host": "forum.redump.org",
+      "fetchedAt": "2026-09-16T16:32:03.587Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Skip to forum content Redump Forum Disc Preservation Project redump.org Index User list Rules Register Login You are not logged in. Please login or register. Redump Forum → Forum message Forum message Bad request. The link you followed is incorrect or outdated. Redump Forum → Forum message Powered by PunBB 1.4.4, supported by Informer Technologies, Inc.",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "52a0ab84f25e2e86d58f03610088d5f5ac260cbbfd9afa508f6cd2ffc3ee9e00",
+      "capabilities": [
+        "CANONICAL_IDENTITY"
+      ],
+      "reliability": 78,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-07609662819a23ae05f88a4b",
+      "runId": "deep-23d97044d841f48545d3863a-mu4bj39k",
+      "taskId": "deep-23d97044d841f48545d3863a",
+      "subjectId": "curator-subject-1756ae52087c97a5306f",
+      "gameId": "wii-fishing-master",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "CANONICAL_IDENTITY",
+      "value": "Fishing Master",
+      "sourceId": "candidate:bitjumpgames.com",
+      "sourceUrl": "https://bitjumpgames.com/products/fishing-master-wii",
+      "evidenceId": "ev-c9d706715f39acb6fc201571",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:31:57.420Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/127748927580?_skw=Fishing+Master&hash=item1dbe6df05c:g:7tgAAeSwD7RpuDY9",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 3,
+    "images": 0,
+    "agentTurns": 3,
+    "browserSessions": 2,
+    "inputTokens": 4778,
+    "outputTokens": 276,
+    "estimatedCostUsd": 0.000882
+  },
+  "lastDecision": "REPLAN",
+  "reasoningSummary": "The page content was not accessible, resulting in insufficient evidence to extract the canonical identity.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:32:06.150Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Exact title, platform, edition, and variant agreement from an authoritative or independent source.",
+      "gapType": "MISSING_EDITION_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "CANONICAL_IDENTITY",
+      "type": "MISSING_EDITION_PROOF",
+      "candidateValue": null,
+      "missingProof": "Exact title, platform, edition, and variant agreement from an authoritative or independent source.",
+      "recommendedActions": [
+        "OPEN_EXISTING_GALLERIES",
+        "INSPECT_EDITION_MARKERS",
+        "SEARCH_EXACT_EDITION_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "ubisoft-official",
+        "redump",
+        "ogdb",
+        "mobygames",
+        "yambalu"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:31:51.482Z",
+  "updatedAt": "2026-09-16T16:32:06.150Z"
+}

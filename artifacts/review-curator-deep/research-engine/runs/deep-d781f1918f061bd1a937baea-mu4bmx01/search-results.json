@@ -1,0 +1,56 @@
+[
+  {
+    "title": "NVD-CVE-2026-25645 - NIST",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25645",
+    "snippet": "This is a potential security issue, you are being redirected to https://nvd.nist.gov · Official websites use .gov A .gov website belongs to an official government organization in the United States",
+    "host": "nvd.nist.gov",
+    "rank": 1,
+    "publishedAt": "2026-03-25T00:00:00",
+    "provider": "brave-search"
+  },
+  {
+    "title": "CVE Record: CVE-2026-25645",
+    "url": "https://www.cve.org/CVERecord?id=CVE-2026-25645",
+    "snippet": "Common vulnerabilities and Exposures (CVE) · We&#x27;re sorry but the CVE Website doesn&#x27;t work properly without JavaScript enabled. Please enable it to continue",
+    "host": "www.cve.org",
+    "rank": 2,
+    "publishedAt": "2026-03-25T00:00:00",
+    "provider": "brave-search"
+  },
+  {
+    "title": "Chart 25645 - Charts.NOAA.Gov",
+    "url": "https://www.charts.noaa.gov/OnLineViewer/25645.shtml",
+    "snippet": "Office of Coast Survey National Oceanic and Atmospheric Administration U.S. Department of Commerce · NOAA Raster charts have been Sunset. Please visit the Chart Locator or the ENC download page for NOAA Electronic Navigational Charts",
+    "host": "www.charts.noaa.gov",
+    "rank": 3,
+    "publishedAt": null,
+    "provider": "brave-search"
+  },
+  {
+    "title": "CVE-2026-25645 Common Vulnerabilities and Exposures | SUSE",
+    "url": "https://www.suse.com/security/cve/CVE-2026-25645.html",
+    "snippet": "Secure your Linux systems from CVE-2026-<strong>25645</strong>. Stay ahead of potential threats with the latest security updates from SUSE.",
+    "host": "www.suse.com",
+    "rank": 4,
+    "publishedAt": null,
+    "provider": "brave-search"
+  },
+  {
+    "title": "CVE-2024-25645 | INCIBE-CERT | INCIBE",
+    "url": "https://www.incibe.es/incibe-cert/alerta-temprana/vulnerabilidades/cve-2024-25645",
+    "snippet": "Puntuación base: 5.30 MEDIA Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N · Vector de acceso (AV): A través de red Complejidad de acceso (AC): Bajo Privilegios Requeridos (PR): Ninguno Interacción del usuario (UI): Ninguno Alcance (S): Sin modificar Impacto a la confidencialidad ...",
+    "host": "www.incibe.es",
+    "rank": 5,
+    "publishedAt": null,
+    "provider": "brave-search"
+  },
+  {
+    "title": "Wildflower model 25645 | InvictaWatch.com",
+    "url": "https://www.invictawatch.com/watches/detail/25645",
+    "snippet": "<strong>Home Watches Wildflower</strong> 25645 MSRP $795 · Buy from an Invicta store Buy a band · Features · Specs · Case · 40mm , Stainless Steel · Band · Stainless Steel · Movement · Japan Quartz · Water resistance · 100m · Case and Dial · Case ...",
+    "host": "www.invictawatch.com",
+    "rank": 6,
+    "publishedAt": null,
+    "provider": "brave-search"
+  }
+]

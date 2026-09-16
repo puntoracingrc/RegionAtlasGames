@@ -1,0 +1,23 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/125379744212?_skw=Fast+Food+Panic&hash=item1d313711d4:g:qU0AAOSw4JxisZ83",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/wii/fast-food-panic_",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.mobygames.com/game/wii/fast-food-panic_",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

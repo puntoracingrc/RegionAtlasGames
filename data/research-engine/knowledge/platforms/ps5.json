@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "knowledgeId": "regionatlas-ps5-physical-research-v1",
+  "platformSlug": "ps5",
+  "reviewedAt": "2026-09-16",
+  "status": "FROZEN_V1",
+  "mode": "research_guidance_not_automatic_catalog_acceptance",
+  "purpose": "Precomputed PS5 routing for PPSA, EAN, disc/inner/outer packaging, modern regional markets and download requirements.",
+  "coreModel": {
+    "identifierFamilies": ["PPSA", "EAN_UPC", "DISC_ID"],
+    "marketFamilies": ["ES", "ES/PT", "ES/IT", "FR/UK/ES", "DACH", "EUROPE_UNKNOWN_MARKET"],
+    "principles": [
+      "PPSA and PEGI identify technical/broad context, not a national market.",
+      "Outer collector package, inner game case, disc and retailer stickers are separate referents.",
+      "DoesItPlay supports technical physical-content status, never regional market identity.",
+      "Download-required, code-in-box and partial-content-download are distinct physical product states."
+    ]
+  },
+  "sources": {
+    "regionatlas-own-scan": { "baseUrl": "internal://regionatlas-owned-scans", "kind": "first_party_owned_scan", "priority": 100, "accessModes": ["INTERNAL"] },
+    "serialstation": { "baseUrl": "https://serialstation.com/", "kind": "technical_identifier_database", "priority": 92, "accessModes": ["DOMAIN_SEARCH", "BROWSER"], "cautions": ["Coverage must be checked; PPSA is not market proof."] },
+    "redump": { "baseUrl": "http://redump.org/", "kind": "technical_disc_database", "priority": 88, "accessModes": ["DOMAIN_SEARCH", "BROWSER"], "cautions": ["Disc identity is not packaging-market proof."] },
+    "doesitplay": { "baseUrl": "https://www.doesitplay.org/", "kind": "technical_physical_status", "priority": 92, "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER"], "cautions": ["Cannot prove market region."] },
+    "ogdb": { "baseUrl": "https://ogdb.eu/", "kind": "specialist_database", "priority": 80, "accessModes": ["DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"] },
+    "national-retailer": { "baseUrl": "https://www.game.es/", "kind": "retailer", "priority": 76, "accessModes": ["DIRECT_FETCH", "DOMAIN_SEARCH", "BROWSER"], "cautions": ["Retailer alone is not packaging-market proof."] },
+    "launchbox-images": { "baseUrl": "https://gamesdb.launchbox-app.com/", "kind": "cover_gallery", "priority": 68, "accessModes": ["DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"] },
+    "todocoleccion": { "baseUrl": "https://www.todocoleccion.net/", "kind": "marketplace_specimen", "priority": 62, "accessModes": ["DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"] },
+    "ebay": { "baseUrl": "https://www.ebay.es/", "kind": "marketplace_specimen", "priority": 58, "accessModes": ["DOMAIN_SEARCH", "BROWSER", "IMAGE_SEARCH"] }
+  },
+  "sourceCapabilities": {
+    "PRODUCT_CODE": [["regionatlas-own-scan", 100], ["serialstation", 90], ["redump", 78], ["ogdb", 76], ["launchbox-images", 64]],
+    "BARCODE": [["regionatlas-own-scan", 100], ["national-retailer", 84], ["ogdb", 80], ["todocoleccion", 72], ["ebay", 66], ["launchbox-images", 64]],
+    "MARKET_REGION": [["regionatlas-own-scan", 100], ["national-retailer", 55], ["todocoleccion", 45], ["ebay", 35], ["doesitplay", 0]],
+    "PACKAGING_LANGUAGES": [["regionatlas-own-scan", 100], ["launchbox-images", 78], ["todocoleccion", 74], ["ebay", 68]],
+    "PHYSICAL_PRODUCT_TYPE": [["regionatlas-own-scan", 100], ["doesitplay", 92], ["launchbox-images", 78], ["national-retailer", 55]],
+    "OUTER_INNER_RELATION": [["regionatlas-own-scan", 100], ["launchbox-images", 82], ["todocoleccion", 76], ["ebay", 70]],
+    "COLLECTOR_CONTENTS": [["regionatlas-own-scan", 100], ["national-retailer", 78], ["launchbox-images", 82], ["todocoleccion", 74], ["ebay", 68]]
+  },
+  "identifierRules": [
+    { "id": "ps5-ppsa-broad-only", "trigger": "PRODUCT_CODE_KNOWN", "rule": "PPSA supports PS5 technical identity but not ES/ES-PT/ES-IT/DACH market.", "allowedConclusions": ["PS5 technical identity"], "forbiddenConclusions": ["national market"], "nextEvidence": ["rear cover", "legal/distributor text", "matching retailer SKU plus specimen"] }
+  ],
+  "decisionTests": [
+    { "id": "ps5-doesitplay-not-market", "question": "DoesItPlay confirms disc installability. Does that establish the national package market?", "options": ["YES", "NO"], "correct": "NO" }
+  ],
+  "playbooks": {
+    "PS5_PRODUCT_CODE": { "trigger": ["TARGET=PRODUCT_CODE"], "sourceOrder": ["regionatlas-own-scan", "serialstation", "redump", "ogdb", "launchbox-images", "todocoleccion", "ebay"], "queryTemplates": ["\"{PRODUCT_CODE}\"", "site:serialstation.com \"{PRODUCT_CODE}\""], "steps": ["local", "owned scan", "direct URL", "exact PPSA", "technical source", "specimen", "generic last"], "stopRule": "Component-bound evidence only." },
+    "PS5_MARKET": { "trigger": ["TARGET=MARKET_REGION"], "sourceOrder": ["regionatlas-own-scan", "national-retailer", "todocoleccion", "ebay"], "queryTemplates": ["\"{TITLE}\" {PLATFORM} back cover distributor"], "steps": ["owned specimen", "exact package", "distributor", "retailer plus specimen", "independent specimen"], "stopRule": "Do not collapse ES, ES/PT, ES/IT, FR/UK/ES, DACH and unknown Europe." },
+    "PS5_CONTENT_STATUS": { "trigger": ["TARGET=PHYSICAL_PRODUCT_TYPE"], "sourceOrder": ["regionatlas-own-scan", "doesitplay", "launchbox-images", "national-retailer"], "queryTemplates": ["site:doesitplay.org \"{TITLE}\"", "\"{TITLE}\" {PLATFORM} \"download required\""], "steps": ["owned rear cover", "existing exact URL", "DoesItPlay", "exact rear cover", "unboxing"], "stopRule": "Separate full game, partial download, download required and code in box." },
+    "PS5_OUTER_INNER": { "trigger": ["TARGET=OUTER_INNER_RELATION"], "sourceOrder": ["regionatlas-own-scan", "launchbox-images", "todocoleccion", "ebay"], "steps": ["outer package", "inner case", "disc", "retailer sticker"], "stopRule": "Never cross-attribute identifiers." }
+  },
+  "knownTraps": [
+    { "id": "ps5-market-collapse", "rule": "Europe is not a substitute for a demonstrated national/multi-market package." },
+    { "id": "ps5-edition-mixing", "rule": "Standard, Limited, Special, Collector and SteelBook remain separate products." }
+  ],
+  "caseLearnings": [],
+  "workerPolicy": { "precomputeKnowledgePack": true, "conditionUsesListingOnly": true, "genericSearchLast": true },
+  "integrationNotes": { "authoritativeRegistry": "data/research-engine/knowledge/sources.json", "catalogMutations": false }
+}

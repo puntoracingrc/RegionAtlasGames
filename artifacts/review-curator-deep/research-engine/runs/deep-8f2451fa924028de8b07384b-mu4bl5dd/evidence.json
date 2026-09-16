@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-83d81848c00f402115bf158f",
+    "runId": "deep-8f2451fa924028de8b07384b-mu4bl5dd",
+    "taskId": "deep-8f2451fa924028de8b07384b",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+    "canonicalUrl": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.todoconsolas.com",
+    "fetchedAt": "2026-09-16T16:33:28.627Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PAL España",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "75789eee7e9243a4603285d24249459b21918221ec5ca42ae5036c0a1d3bf898",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

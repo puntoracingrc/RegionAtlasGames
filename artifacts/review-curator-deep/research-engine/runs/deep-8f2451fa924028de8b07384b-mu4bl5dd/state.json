@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-8f2451fa924028de8b07384b-mu4bl5dd",
+  "taskId": "deep-8f2451fa924028de8b07384b",
+  "subjectId": "curator-subject-b0dfe1efeab9daab3d63",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"711719806011\"",
+    "\"711719806011\" \"The Order 1886 [Limited Edition]\"",
+    "site:game.es \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "site:ebay.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+    "\"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+    "\"711719806011\" \"PlayStation 4\"",
+    "site:game.es \"711719806011\""
+  ],
+  "normalizedQueries": [
+    "\"711719806011\"",
+    "\"711719806011\" \"the order 1886 [limited edition]\"",
+    "site:game.es \"the order 1886 [limited edition]\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"the order 1886 [limited edition]\" \"ps4\" \"standard\"",
+    "site:ebay.com \"the order 1886 [limited edition]\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"the order 1886 [limited edition]\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"the order 1886 [limited edition]\" \"ps4\" \"standard\"",
+    "\"the order 1886 [limited edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+    "\"711719806011\" \"playstation 4\"",
+    "site:game.es \"711719806011\""
+  ],
+  "urlsVisited": [
+    "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+    "https://www.ebay.com/itm/116321584030",
+    "https://geedie.lv/ru/ps4-order-1886-limited-steelbook-edition"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "geedie.lv"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-83d81848c00f402115bf158f",
+      "runId": "deep-8f2451fa924028de8b07384b-mu4bl5dd",
+      "taskId": "deep-8f2451fa924028de8b07384b",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+      "canonicalUrl": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.todoconsolas.com",
+      "fetchedAt": "2026-09-16T16:33:28.627Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PAL España",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "75789eee7e9243a4603285d24249459b21918221ec5ca42ae5036c0a1d3bf898",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-661142188661f4dcdfbc9617",
+      "runId": "deep-8f2451fa924028de8b07384b-mu4bl5dd",
+      "taskId": "deep-8f2451fa924028de8b07384b",
+      "subjectId": "curator-subject-b0dfe1efeab9daab3d63",
+      "gameId": "ps4-the-order-1886-limited-edition",
+      "platformSlug": "ps4",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+      "evidenceId": "ev-83d81848c00f402115bf158f",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:33:30.004Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.com/itm/116321584030",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://geedie.lv/ru/ps4-order-1886-limited-steelbook-edition",
+      "reason": "RESEARCH_BROWSER_HTTP_404"
+    }
+  ],
+  "budget": {
+    "maxSearches": 10,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 2,
+    "browserSessions": 2,
+    "inputTokens": 1276,
+    "outputTokens": 99,
+    "estimatedCostUsd": 0.00025
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page explicitly states the market region as PAL España.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:33:36.506Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:33:27.525Z",
+  "updatedAt": "2026-09-16T16:33:36.506Z"
+}

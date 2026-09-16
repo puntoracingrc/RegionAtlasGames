@@ -1,0 +1,17 @@
+{
+  "id": "deep-d781f1918f061bd1a937baea",
+  "subjectId": "curator-subject-0788a90c3cbce5ad0674",
+  "targetField": "PRODUCT_CODE",
+  "question": "Find component-bound cartridge product-code evidence for International Superstar Soccer 98; keep cartridge, box and manual codes separate.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

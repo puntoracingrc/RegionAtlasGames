@@ -1,0 +1,22 @@
+[
+  {
+    "value": "https://www.ebay.es/itm/389162726108?_skw=Donkey+Kong+Jet+Race&hash=item5a9be7f2dc:g:wyYAAeSwXp5pAxsG",
+    "reason": "Error RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.ebay.com/itm/164180048713",
+    "reason": "RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.ebay.com/itm/167070805438",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/p/810890671",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.es/itm/381489221290",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  }
+]

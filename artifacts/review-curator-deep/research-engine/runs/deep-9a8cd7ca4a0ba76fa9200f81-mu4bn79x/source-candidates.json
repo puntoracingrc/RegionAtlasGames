@@ -1,0 +1,20 @@
+[
+  {
+    "host": "retroplayzone.com",
+    "sampleUrls": [
+      "https://retroplayzone.com/29632-star-wars-racer-episode-i-cartucho-n64.html"
+    ],
+    "fieldsObserved": [
+      "PRODUCT_CODE"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "www.etsy.com",
+    "sampleUrls": [
+      "https://www.etsy.com/market/episode_1_racer"
+    ],
+    "fieldsObserved": [],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

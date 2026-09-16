@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-6d5d90c165b53fb3b610d3a1",
+    "runId": "deep-d781f1918f061bd1a937baea-mu4bmx01",
+    "taskId": "deep-d781f1918f061bd1a937baea",
+    "subjectId": "curator-subject-0788a90c3cbce5ad0674",
+    "gameId": "n64-international-superstar-soccer-98",
+    "platformSlug": "n64",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "PRODUCT_CODE",
+    "value": "25645",
+    "sourceId": "candidate:retroplayzone.com",
+    "sourceUrl": "https://retroplayzone.com/25645-internation-superstar-soccer-98-sin-caja-n64.html",
+    "evidenceId": "ev-c87ce755fffe15b31f00ac49",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:34:51.487Z"
+  }
+]

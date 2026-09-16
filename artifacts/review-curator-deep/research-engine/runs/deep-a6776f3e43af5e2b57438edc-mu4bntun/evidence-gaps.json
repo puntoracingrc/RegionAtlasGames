@@ -1,0 +1,21 @@
+[
+  {
+    "field": "MARKET_REGION",
+    "type": "MISSING_MARKET_PROOF",
+    "candidateValue": null,
+    "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+    "recommendedActions": [
+      "INSPECT_LEGAL_TEXT",
+      "INSPECT_DISTRIBUTOR_TEXT",
+      "SEARCH_EXACT_MARKET_PACKAGE"
+    ],
+    "recommendedSourceTypes": [
+      "national-retailer",
+      "todocoleccion",
+      "ebay",
+      "mobygames",
+      "serialstation"
+    ],
+    "exhaustedActions": []
+  }
+]

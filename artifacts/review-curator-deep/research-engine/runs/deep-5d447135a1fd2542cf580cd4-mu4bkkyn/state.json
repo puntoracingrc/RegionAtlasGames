@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+  "taskId": "deep-5d447135a1fd2542cf580cd4",
+  "subjectId": "curator-subject-cf1d5662b15027d7ddab",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"045496365868,045496365875\"",
+    "\"045496365868,045496365875\" \"Family Ski\"",
+    "site:game.es \"Family Ski\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"Family Ski\" \"wii\" \"standard\"",
+    "site:ebay.com \"Family Ski\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"Family Ski\" \"wii\" \"standard\"",
+    "site:mobygames.com \"Family Ski\" \"wii\" \"standard\"",
+    "\"Family Ski\" \"wii\" \"standard\" back cover distributor legal text",
+    "\"045496365868,045496365875\" wii",
+    "site:game.es \"045496365868,045496365875\""
+  ],
+  "normalizedQueries": [
+    "\"045496365868,045496365875\"",
+    "\"045496365868,045496365875\" \"family ski\"",
+    "site:game.es \"family ski\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"family ski\" \"wii\" \"standard\"",
+    "site:ebay.com \"family ski\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"family ski\" \"wii\" \"standard\"",
+    "site:mobygames.com \"family ski\" \"wii\" \"standard\"",
+    "\"family ski\" \"wii\" \"standard\" back cover distributor legal text",
+    "\"045496365868,045496365875\" wii",
+    "site:game.es \"045496365868,045496365875\""
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/133380001737?_skw=Family+Ski&hash=item1f0e114fc9:g:hIwAAOSwlw1dr0s2",
+    "https://www.ebay.com/itm/226876895567",
+    "https://www.ebay.com/itm/376909427596",
+    "https://thegameworld.co.uk/family-ski-wii",
+    "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "thegameworld.co.uk",
+    "bordersdown.net"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-d75920240eecc5b1b888f6db",
+      "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+      "taskId": "deep-5d447135a1fd2542cf580cd4",
+      "sourceId": "candidate:thegameworld.co.uk",
+      "sourceUrl": "https://thegameworld.co.uk/family-ski-wii",
+      "canonicalUrl": "https://thegameworld.co.uk/family-ski-wii",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "thegameworld.co.uk",
+      "fetchedAt": "2026-09-16T16:33:07.144Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PAL España",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "639c4fe687cb5741b8bf649fcd28777ef9953b9563f6fe81f104b1e1b08713bd",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-1687993cdc971ef3328e3d9e",
+      "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+      "taskId": "deep-5d447135a1fd2542cf580cd4",
+      "sourceId": "candidate:bordersdown.net",
+      "sourceUrl": "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii",
+      "canonicalUrl": "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "bordersdown.net",
+      "fetchedAt": "2026-09-16T16:33:10.984Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PAL España",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "3b8b99419fac5c14a359cd3175c0640923de07545dc1e5d32a008644a1c0d6f2",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-0bcec1251cc554ae9e577859",
+      "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+      "taskId": "deep-5d447135a1fd2542cf580cd4",
+      "subjectId": "curator-subject-cf1d5662b15027d7ddab",
+      "gameId": "wii-family-ski",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:thegameworld.co.uk",
+      "sourceUrl": "https://thegameworld.co.uk/family-ski-wii",
+      "evidenceId": "ev-d75920240eecc5b1b888f6db",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:33:10.477Z"
+    },
+    {
+      "id": "cl-1d9e1f08742b270e7dc36626",
+      "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+      "taskId": "deep-5d447135a1fd2542cf580cd4",
+      "subjectId": "curator-subject-cf1d5662b15027d7ddab",
+      "gameId": "wii-family-ski",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": null,
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:bordersdown.net",
+      "sourceUrl": "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii",
+      "evidenceId": "ev-1687993cdc971ef3328e3d9e",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:33:12.333Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/133380001737?_skw=Family+Ski&hash=item1f0e114fc9:g:hIwAAOSwlw1dr0s2",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/226876895567",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/376909427596",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 10,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 2,
+    "images": 0,
+    "agentTurns": 2,
+    "browserSessions": 2,
+    "inputTokens": 4079,
+    "outputTokens": 182,
+    "estimatedCostUsd": 0.000721
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "Extracted the MARKET_REGION claim directly from the text reference to PAL España.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:33:13.074Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "redump"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:33:01.068Z",
+  "updatedAt": "2026-09-16T16:33:13.074Z"
+}

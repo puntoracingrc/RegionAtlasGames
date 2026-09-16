@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-a6776f3e43af5e2b57438edc-mu4bntun",
+  "taskId": "deep-a6776f3e43af5e2b57438edc",
+  "subjectId": "curator-subject-6ce62e89e80f5b46caa2",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS5_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+    "\"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" PlayStation 5",
+    "site:ebay.es \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" PlayStation 5"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"yakuza kiwami 3 & dark ties steelbook edition\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"yakuza kiwami 3 & dark ties steelbook edition\" \"ps5\" \"standard\"",
+    "site:ebay.com \"yakuza kiwami 3 & dark ties steelbook edition\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"yakuza kiwami 3 & dark ties steelbook edition\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"yakuza kiwami 3 & dark ties steelbook edition\" \"ps5\" \"standard\"",
+    "\"yakuza kiwami 3 & dark ties steelbook edition\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"yakuza kiwami 3 & dark ties steelbook edition\" playstation 5",
+    "site:ebay.es \"yakuza kiwami 3 & dark ties steelbook edition\" playstation 5"
+  ],
+  "urlsVisited": [
+    "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html"
+  ],
+  "domainsVisited": [],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-555f41810ed647118b539ad9",
+      "runId": "deep-a6776f3e43af5e2b57438edc-mu4bntun",
+      "taskId": "deep-a6776f3e43af5e2b57438edc",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html",
+      "canonicalUrl": "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.todoconsolas.com",
+      "fetchedAt": "2026-09-16T16:35:36.639Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Market Region: PAL Europa",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "ce917d7b4e18a31c34aa5332f9b94fd6990ed45922ecea2adbe5305394a4c731",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-21bfdee2d5b21c79db3ebce8",
+      "runId": "deep-a6776f3e43af5e2b57438edc-mu4bntun",
+      "taskId": "deep-a6776f3e43af5e2b57438edc",
+      "subjectId": "curator-subject-6ce62e89e80f5b46caa2",
+      "gameId": null,
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN_COMPONENT",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html",
+      "evidenceId": "ev-555f41810ed647118b539ad9",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:35:38.002Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 2,
+    "browserSessions": 0,
+    "inputTokens": 1270,
+    "outputTokens": 104,
+    "estimatedCostUsd": 0.000253
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "Evidence confirms the market region as PAL Europa.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:35:41.224Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:35:32.561Z",
+  "updatedAt": "2026-09-16T16:35:41.225Z"
+}

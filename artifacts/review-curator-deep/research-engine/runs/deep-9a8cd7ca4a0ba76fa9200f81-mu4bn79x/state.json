@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-9a8cd7ca4a0ba76fa9200f81-mu4bn79x",
+  "taskId": "deep-9a8cd7ca4a0ba76fa9200f81",
+  "subjectId": "curator-subject-2c845f2becf53a7497b0",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 2,
+  "targetFields": [
+    "PRODUCT_CODE"
+  ],
+  "currentTargetField": "PRODUCT_CODE",
+  "currentPlaybook": "N64_CART_KNOWN_BOX_UNKNOWN",
+  "queriesAttempted": [
+    "site:no-intro.org \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+    "site:datomatic.no-intro.org \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+    "site:ogdb.eu \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+    "site:gamesdb.launchbox-app.com \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+    "site:todocoleccion.net \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+    "\"Star Wars Episode I: Racer\" \"n64\" \"standard\" cartridge disc product code",
+    "\"29632\"",
+    "\"Star Wars Episode I: Racer\" \"n64\" \"Japón\" cartridge label \"product code\""
+  ],
+  "normalizedQueries": [
+    "site:no-intro.org \"star wars episode i: racer\" \"n64\" \"standard\"",
+    "site:datomatic.no-intro.org \"star wars episode i: racer\" \"n64\" \"standard\"",
+    "site:ogdb.eu \"star wars episode i: racer\" \"n64\" \"standard\"",
+    "site:gamesdb.launchbox-app.com \"star wars episode i: racer\" \"n64\" \"standard\"",
+    "site:todocoleccion.net \"star wars episode i: racer\" \"n64\" \"standard\"",
+    "\"star wars episode i: racer\" \"n64\" \"standard\" cartridge disc product code",
+    "\"29632\"",
+    "\"star wars episode i: racer\" \"n64\" \"japón\" cartridge label \"product code\""
+  ],
+  "urlsVisited": [
+    "https://retroplayzone.com/29632-star-wars-racer-episode-i-cartucho-n64.html",
+    "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+    "https://www.etsy.com/market/episode_1_racer",
+    "https://i.ebayimg.com/images/g/c6gAAOSwIBJag0du/s-l500.jpg",
+    "https://i.etsystatic.com/22443832/r/il/1886a4/8122609426/il_300x300.8122609426_6dxj.jpg"
+  ],
+  "domainsVisited": [],
+  "identifiersSeen": [
+    {
+      "type": "PRODUCT_CODE",
+      "value": "29632",
+      "component": null
+    },
+    {
+      "type": "PRODUCT_CODE",
+      "value": "29632",
+      "component": "UNKNOWN"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-16186be17bf4a71b7c374326",
+      "runId": "deep-9a8cd7ca4a0ba76fa9200f81-mu4bn79x",
+      "taskId": "deep-9a8cd7ca4a0ba76fa9200f81",
+      "sourceId": "candidate:retroplayzone.com",
+      "sourceUrl": "https://retroplayzone.com/29632-star-wars-racer-episode-i-cartucho-n64.html",
+      "canonicalUrl": "https://retroplayzone.com/29632-star-wars-racer-episode-i-cartucho-n64.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "retroplayzone.com",
+      "fetchedAt": "2026-09-16T16:35:03.518Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Product code 29632 found on retroplayzone.com",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "cb07e78a91b5cd37667a64ed917a6b0fbda2716585554bef5917898952af6df6",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-b0183c1f3e045c9716f79199",
+      "runId": "deep-9a8cd7ca4a0ba76fa9200f81-mu4bn79x",
+      "taskId": "deep-9a8cd7ca4a0ba76fa9200f81",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+      "canonicalUrl": "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+      "sourceType": "MARKETPLACE",
+      "host": "www.ebay.com",
+      "fetchedAt": "2026-09-16T16:35:17.320Z",
+      "evidenceType": "EXACT_PHYSICAL_PHOTO",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": null,
+      "imageUrl": "https://i.ebayimg.com/images/g/c6gAAOSwIBJag0du/s-l500.jpg",
+      "imageHash": "ebf40b86c19614bbe6c900f15ed3f99792e04a06a83f19995fe724a6c5833ffb",
+      "textHash": null,
+      "capabilities": [
+        "PRODUCT_CODE"
+      ],
+      "reliability": 95,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeId": "cda646212a30876df79c",
+      "componentNodeId": "12c63f2bc59510303180",
+      "bindingState": "PRODUCT_BOUND",
+      "marketBindingState": "LANGUAGE_ONLY",
+      "subjectClass": "EXACT_PRODUCT",
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "sourcePageUrl": "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+      "originalImageUrl": "https://i.ebayimg.com/images/g/c6gAAOSwIBJag0du/s-l500.jpg",
+      "resolvedImageUrl": "https://i.ebayimg.com/images/g/c6gAAOSwIBJag0du/s-l500.jpg",
+      "sourceRecordId": null,
+      "listingId": "223486365468",
+      "platformClassification": "n64",
+      "editionClassification": "standard",
+      "marketEvidence": [
+        "Nintendo"
+      ],
+      "languageEvidence": [
+        "English"
+      ],
+      "extractedIdentifiers": [
+        {
+          "type": "BARCODE",
+          "value": "NUS-006 (USA)"
+        }
+      ],
+      "visionModel": "gpt-4o-mini",
+      "visionSchemaVersion": 1
+    },
+    {
+      "id": "ev-a2e121f4bd276ba88c90881d",
+      "runId": "deep-9a8cd7ca4a0ba76fa9200f81-mu4bn79x",
+      "taskId": "deep-9a8cd7ca4a0ba76fa9200f81",
+      "sourceId": "candidate:www.etsy.com",
+      "sourceUrl": "https://www.etsy.com/market/episode_1_racer",
+      "canonicalUrl": "https://www.etsy.com/market/episode_1_racer",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.etsy.com",
+      "fetchedAt": "2026-09-16T16:35:22.848Z",
+      "evidenceType": "EXACT_PHYSICAL_PHOTO",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": null,
+      "imageUrl": "https://i.etsystatic.com/22443832/r/il/1886a4/8122609426/il_300x300.8122609426_6dxj.jpg",
+      "imageHash": "72fb89dda8cea7944bd34b9a146dfe5bf1f7cd99485fcb1daeb77f379f522c03",
+      "textHash": null,
+      "capabilities": [],
+      "reliability": 95,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeId": "cda646212a30876df79c",
+      "componentNodeId": "12c63f2bc59510303180",
+      "bindingState": "PRODUCT_BOUND",
+      "marketBindingState": "UNBOUND",
+      "subjectClass": "EXACT_PRODUCT",
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "sourcePageUrl": "https://www.etsy.com/market/episode_1_racer",
+      "originalImageUrl": "https://i.etsystatic.com/22443832/r/il/1886a4/8122609426/il_300x300.8122609426_6dxj.jpg",
+      "resolvedImageUrl": "https://i.etsystatic.com/22443832/r/il/1886a4/8122609426/il_300x300.8122609426_6dxj.jpg",
+      "sourceRecordId": null,
+      "listingId": null,
+      "platformClassification": "n64",
+      "editionClassification": "standard",
+      "marketEvidence": [],
+      "languageEvidence": [],
+      "extractedIdentifiers": [],
+      "visionModel": "gpt-4o-mini",
+      "visionSchemaVersion": 1
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-2263011d61969ba6dcaf7cd9",
+      "runId": "deep-9a8cd7ca4a0ba76fa9200f81-mu4bn79x",
+      "taskId": "deep-9a8cd7ca4a0ba76fa9200f81",
+      "subjectId": "curator-subject-2c845f2becf53a7497b0",
+      "gameId": "n64-japon-star-wars-episode-i-racer",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "PRODUCT_CODE",
+      "value": "29632",
+      "sourceId": "candidate:retroplayzone.com",
+      "sourceUrl": "https://retroplayzone.com/29632-star-wars-racer-episode-i-cartucho-n64.html",
+      "evidenceId": "ev-16186be17bf4a71b7c374326",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:35:05.543Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+      "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.etsy.com/market/episode_1_racer",
+      "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 2,
+    "agentTurns": 3,
+    "browserSessions": 2,
+    "inputTokens": 33263,
+    "outputTokens": 580,
+    "estimatedCostUsd": 0.005337
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "Product code explicitly tied to the expected market in the evidence.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:35:22.850Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+      "gapType": "MISSING_CART_PHOTO"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "PRODUCT_CODE",
+      "type": "MISSING_CART_PHOTO",
+      "candidateValue": null,
+      "missingProof": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+      "recommendedActions": [
+        "OPEN_EXISTING_GALLERIES",
+        "SEARCH_EXACT_CART_PHOTO",
+        "SEARCH_PHYSICAL_UNBOXING"
+      ],
+      "recommendedSourceTypes": [
+        "ogdb",
+        "no-intro",
+        "datomatic",
+        "nesworld",
+        "nintendo64ever"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [
+    {
+      "id": "cda646212a30876df79c",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "Star Wars Episode I: Racer · n64 · standard",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "12c63f2bc59510303180",
+      "type": "INNER_PRODUCT",
+      "label": "INNER_PRODUCT:CARTRIDGE_FRONT",
+      "parentProductId": "cda646212a30876df79c",
+      "component": "CARTRIDGE_FRONT"
+    }
+  ],
+  "productRelations": [
+    {
+      "fromNodeId": "12c63f2bc59510303180",
+      "toNodeId": "cda646212a30876df79c",
+      "relation": "BUNDLES",
+      "evidenceIds": [
+        "ev-a2e121f4bd276ba88c90881d"
+      ]
+    }
+  ],
+  "identifierBindings": [
+    {
+      "identifierType": "BARCODE",
+      "value": "NUS-006 (USA)",
+      "productNodeId": "cda646212a30876df79c",
+      "componentNodeId": "12c63f2bc59510303180",
+      "component": "CARTRIDGE_FRONT",
+      "state": "REJECTED",
+      "sourceEvidenceIds": [
+        "ev-b0183c1f3e045c9716f79199"
+      ],
+      "rejectionReason": "BARCODE_CHECKSUM"
+    }
+  ],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 2,
+    "exactTargetImages": 2,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 2,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 2,
+    "subjectAccepted": 2,
+    "componentAccepted": 2,
+    "identifierExtractions": 1,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:35:03.322Z",
+  "updatedAt": "2026-09-16T16:35:22.851Z"
+}
