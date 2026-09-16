@@ -1,0 +1,38 @@
+[
+  {
+    "listingId": "v1|256301000417|0",
+    "imageIndex": 1,
+    "contentHash": "cdcf1b3c0fa8c9ed072af4286738da1b2b56b6772d8e69fbd055ae9cd2597dc5",
+    "subject": "OTHER_MERCHANDISE",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "envelope with Nintendo characters"
+  },
+  {
+    "listingId": "v1|256301000417|0",
+    "imageIndex": 2,
+    "contentHash": "74d63698be7cb2262b534ddeededca66e20f0fd6b707b6315eb70f935e5806db",
+    "subject": "OTHER_MERCHANDISE",
+    "component": "INSERT",
+    "confidence": 0.0,
+    "reason": "promotional material featuring Nintendo games"
+  },
+  {
+    "listingId": "v1|256301000417|0",
+    "imageIndex": 3,
+    "contentHash": "7f2e670ba4f9b5db9fbb564613d7ce1b574366390b80afe0fd1e073a8dbed959",
+    "subject": "OTHER_MERCHANDISE",
+    "component": "INSERT",
+    "confidence": 0.0,
+    "reason": "promotional material related to Mario Kart 64"
+  },
+  {
+    "listingId": "v1|256301000417|0",
+    "imageIndex": 4,
+    "contentHash": "173f5534c0d8e5c1a80aed3e4205527c6ddcf3cf7dd346a86ea404fcbfa89bfd",
+    "subject": "OTHER_MERCHANDISE",
+    "component": "INSERT",
+    "confidence": 0.0,
+    "reason": "promotional material with Nintendo branding"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "selected": 20,
+  "completed": 20,
+  "stoppedBeforeCaseId": null,
+  "budgetUsd": 3.0,
+  "costUsd": 0.43039155,
+  "overrunUsd": 0,
+  "openAiCalls": 56,
+  "catalogMutations": 0,
+  "priceMutations": 0,
+  "authoritativeQueueMutations": 0,
+  "platforms": {
+    "ps4": 5,
+    "n64": 5,
+    "ps5": 5,
+    "gameboy": 5
+  }
+}

@@ -36,6 +36,23 @@ test("bundle serialization preserves observations, identifiers and hashes", () =
   assert.match(bundle.evidenceHash, /^[a-f0-9]{64}$/);
 });
 
+test("listing snapshot preserves exact-image provenance and bound observation identity", () => {
+  const listingId = "v1|123|0";
+  const hash = "a".repeat(64);
+  const candidate = item({ evidence: {
+    externalId: listingId, url: "https://www.ebay.es/itm/123", regionEvidence: ["sku_regional"],
+    listingSnapshot: { listingId, images: [{ imageIndex: 1, listingId, sourceUrl: "https://i.ebayimg.com/a/s-l1600.jpg", originalUrl: "https://i.ebayimg.com/a/s-l1600.jpg", resolvedUrl: "https://i.ebayimg.com/a/s-l1600.jpg", contentHash: hash, width: 1600, height: 1200, byteLength: 1000 }] },
+    coverVision: { isTargetGame: true },
+    visualObservations: [{ id: "listing-obs-bound", listingId, contentHash: hash, imageIndex: 1, component: "CARTRIDGE_FRONT", productCodes: ["NUS-NPFS-ESP"], serials: ["SERIAL-1"], visibleText: ["Pokemon Snap"] }],
+  } });
+  const bundle = physicalEvidenceBundleFromReviewItem(candidate, "v2");
+  assert.equal(bundle.images[0].listingId, listingId);
+  assert.equal(bundle.images[0].hash, hash);
+  assert.equal(bundle.images[0].publicationAllowed, false);
+  assert.equal(bundle.observations[0].id, "listing-obs-bound");
+  assert.ok(bundle.identifiers.some((row) => row.type === "SERIAL" && row.observationId === "listing-obs-bound"));
+});
+
 test("Python and TypeScript share the contract hash fixture", () => {
   const fixture = JSON.parse(readFileSync("scripts/fixtures/review-curator-contract-item.json", "utf8"));
   const bundle = physicalEvidenceBundleFromReviewItem(fixture, "contract-v1");
@@ -54,6 +71,18 @@ test("accept existing requires market-bound identity and safe condition", () => 
   const resolution = resolveReviewBundle(bundle, { catalogIds: new Set(["ps4-game"]), now: "2026-01-01T00:00:00Z" });
   assert.equal(resolution.decision, "ACCEPT_EXISTING");
   assert.equal(priceObservationFromResolution(bundle, resolution).catalogId, "ps4-game");
+});
+
+test("equivalent national market labels do not block a physically bound accept", () => {
+  const bundle = physicalEvidenceBundleFromReviewItem(item({ targetRegion: "España", detectedRegion: "PAL España" }), "v1");
+  const resolution = resolveReviewBundle(bundle, { catalogIds: new Set(["ps4-game"]) });
+  assert.equal(resolution.decision, "ACCEPT_EXISTING");
+});
+
+test("invalid OCR barcode fragments never enter identifiers", () => {
+  const candidate = item({ evidence: { regionEvidence: [], visualObservations: [{ imageIndex: 1, component: "disc", role: "disc", barcodes: ["171971869", "3307211234567"] }] } });
+  const bundle = physicalEvidenceBundleFromReviewItem(candidate, "v1");
+  assert.deepEqual(bundle.identifiers.filter((row) => row.type === "EAN_UPC").map((row) => row.value), ["3307211234567"]);
 });
 
 test("language-only evidence defers and seller country never binds market", () => {

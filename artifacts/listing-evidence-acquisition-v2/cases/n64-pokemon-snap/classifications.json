@@ -1,0 +1,29 @@
+[
+  {
+    "listingId": "v1|800170706897|0",
+    "imageIndex": 1,
+    "contentHash": "9883de125c02568cbee7637bf1c5d9a2aef6ff75e88f6536900942728e668a24",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front of the game cartridge."
+  },
+  {
+    "listingId": "v1|800170706897|0",
+    "imageIndex": 2,
+    "contentHash": "a21473ba82a75aa4acad4cbe60257e373dbd7d49f98a16806a94b5cc89cc0ad7",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 1.0,
+    "reason": "Visible back of the game cartridge."
+  },
+  {
+    "listingId": "v1|800170706897|0",
+    "imageIndex": 3,
+    "contentHash": "a15c5cb0f5dd2122907e1445eed63a7dca8fb499f724f106a20d56d8cdfdb51b",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.8,
+    "reason": "Visible side of the cartridge, but not clearly defined."
+  }
+]

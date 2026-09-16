@@ -1,0 +1,874 @@
+{
+  "caseId": "n64-mario-party",
+  "platform": "n64",
+  "subjectTitle": "Mario Party",
+  "sourcePhotos": 14,
+  "preservedPhotos": 14,
+  "originalResolutionPhotos": 14,
+  "photosClassified": 14,
+  "photosInspectedHighDetail": 12,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": true,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": true,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": true,
+      "CARTRIDGE_BACK": true,
+      "DISC": false,
+      "MANUAL_FRONT": true,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": [
+      4
+    ]
+  },
+  "componentsFound": [
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT",
+    "INNER_CASE_FRONT",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 12,
+  "marketBoundObservations": 7,
+  "diagnosis": "TRULY_MISSING_EVIDENCE",
+  "triageCalls": 2,
+  "extractCalls": 3,
+  "openAiCalls": 5,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 22921,
+      "completion_tokens": 427,
+      "total_tokens": 23348,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 17247,
+      "completion_tokens": 341,
+      "total_tokens": 17588,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 153234,
+      "completion_tokens": 738,
+      "total_tokens": 153972,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 51182,
+      "completion_tokens": 199,
+      "total_tokens": 51381,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 102204,
+      "completion_tokens": 424,
+      "total_tokens": 102628,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.0532956,
+  "item": {
+    "id": "listing-evidence-v2-n64-mario-party",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "n64",
+    "targetRegion": "PAL Europa",
+    "detectedRegion": "PAL Europa",
+    "catalogId": "n64-pal-eu-mario-party",
+    "candidateCatalogId": "n64-pal-eu-mario-party",
+    "listingTitle": "Nintendo 64 Mario Party cartucho y guia del juego en venta Pal España",
+    "priceEur": 75.0,
+    "condition": "complete",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T17:57:05Z",
+    "evidence": {
+      "externalId": "v1|306881954213|0",
+      "url": "https://www.ebay.es/itm/306881954213?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2BqsoqiytyHOZ9fXDCdgFYWySZLx5xt98SLM%2FL1EYS5NzoM4MuezKxh5du8QeaCorT11JCZqJUTMJLxmv6ICn07Z78DCpKcxnstQw3%2FosFVoyVG%2F6CuEx83lvmcI81DxerGtdYDlHEXuhtbb08F3EgbChYBtAy2sX%2FuNC%2B9%2Bj%2BZo2ktV13OEbWFMijmu5s66CM%3D",
+      "description": "<div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\">Nintendo 64 Mario Party cartucho del juego y la guia en venta Pal España.</font><br></div><div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\"><br></font></div><div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\">Juego muy bien guia esta muy usada con algunos fallos ver fotos.</font></div><div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\"><br></font></div><div style=\"text-align: center;\"><br></div><div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\">&nbsp;</font></div>",
+      "imageUrl": "https://i.ebayimg.com/images/g/I3sAAeSw7LFp33Uv/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/I3sAAeSw7LFp33Uv/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/6KUAAeSwMc9p33Fw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/0TMAAeSwwplp33Fw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/yTYAAeSwcTlp33Fw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/tskAAeSwpFxp33Fx/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/VtoAAeSwCB9p33Fw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/gYEAAeSwVJVp33Fz/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/NbIAAeSwppNp33Fw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/5xEAAeSwGjRp33Uw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/cQ4AAeSwAFFp33Uw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/YFgAAeSwmH9p33Uw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/5VIAAeSwYi9p33Uw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/hS0AAeSwqZVp33Uw/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/5CIAAeSwyTBp33Yr/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|306881954213|0",
+        "legacyItemId": "306881954213",
+        "capturedAt": "2026-09-16T17:57:05Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "Nintendo 64 Mario Party cartucho y guia del juego en venta Pal España",
+          "shortDescription": null,
+          "description": "<div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\">Nintendo 64 Mario Party cartucho del juego y la guia en venta Pal España.</font><br></div><div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\"><br></font></div><div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\">Juego muy bien guia esta muy usada con algunos fallos ver fotos.</font></div><div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\"><br></font></div><div style=\"text-align: center;\"><br></div><div style=\"text-align: center;\"><font face=\"Arial\" size=\"5\">&nbsp;</font></div>",
+          "condition": "En buen estado",
+          "conditionId": "5000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/306881954213?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2BqsoqiytyHOZ9fXDCdgFYWySZLx5xt98SLM%2FL1EYS5NzoM4MuezKxh5du8QeaCorT11JCZqJUTMJLxmv6ICn07Z78DCpKcxnstQw3%2FosFVoyVG%2F6CuEx83lvmcI81DxerGtdYDlHEXuhtbb08F3EgbChYBtAy2sX%2FuNC%2B9%2Bj%2BZo2ktV13OEbWFMijmu5s66CM%3D",
+          "itemLocation": {
+            "city": "Alaior",
+            "postalCode": "07***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "johncvcmahon1966",
+            "feedbackPercentage": "99.5",
+            "feedbackScore": 8772
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "País de origen": [
+              "España"
+            ],
+            "Nombre del videojuego": [
+              "Mario Party"
+            ],
+            "Plataforma": [
+              "Nintendo 64"
+            ],
+            "Código de región": [
+              "PAL"
+            ]
+          },
+          "price": {
+            "value": 75.0,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: cartas certificadas",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "5.95",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-25T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE",
+            "BEST_OFFER"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 0,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": null,
+          "brand": null,
+          "mpn": null,
+          "epid": null
+        },
+        "imagesAvailableFromSource": 14,
+        "imagesPreserved": 14,
+        "images": [
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/I3sAAeSw7LFp33Uv/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/I3sAAeSw7LFp33Uv/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/I3sAAeSw7LFp33Uv/s-l1600.jpg",
+            "contentHash": "44a8705b4a985270e3c841eecd1bb085b36f9d21ad65276fad5aeae95ff9f484",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 347738,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/44a8705b4a985270e3c841eecd1bb085b36f9d21ad65276fad5aeae95ff9f484.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/6KUAAeSwMc9p33Fw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/6KUAAeSwMc9p33Fw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/6KUAAeSwMc9p33Fw/s-l1600.jpg",
+            "contentHash": "10defba7ece5650e5c36b3ce1fc26d9f4a5af4f2e9da305201973b25889e2525",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 332702,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/10defba7ece5650e5c36b3ce1fc26d9f4a5af4f2e9da305201973b25889e2525.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/0TMAAeSwwplp33Fw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/0TMAAeSwwplp33Fw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/0TMAAeSwwplp33Fw/s-l1600.jpg",
+            "contentHash": "233f293c6d81ee263d2b8d76ded8d5506d6d190cc23c9776f08d14bf3e5424fd",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 290542,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/233f293c6d81ee263d2b8d76ded8d5506d6d190cc23c9776f08d14bf3e5424fd.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 4,
+            "sourceIndex": 4,
+            "sourceUrl": "https://i.ebayimg.com/images/g/yTYAAeSwcTlp33Fw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/yTYAAeSwcTlp33Fw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/yTYAAeSwcTlp33Fw/s-l1600.jpg",
+            "contentHash": "bb6b77b5b4d65a37b1bb2f1b555d0bf21f15442616a62a591a666aeed8738bd1",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 253638,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/bb6b77b5b4d65a37b1bb2f1b555d0bf21f15442616a62a591a666aeed8738bd1.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 5,
+            "sourceIndex": 5,
+            "sourceUrl": "https://i.ebayimg.com/images/g/tskAAeSwpFxp33Fx/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/tskAAeSwpFxp33Fx/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/tskAAeSwpFxp33Fx/s-l1600.jpg",
+            "contentHash": "9bf37bc65ebb15490bd35960ac80a09158551d243d98d0778063578d4a947e06",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 408676,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/9bf37bc65ebb15490bd35960ac80a09158551d243d98d0778063578d4a947e06.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 6,
+            "sourceIndex": 6,
+            "sourceUrl": "https://i.ebayimg.com/images/g/VtoAAeSwCB9p33Fw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/VtoAAeSwCB9p33Fw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/VtoAAeSwCB9p33Fw/s-l1600.jpg",
+            "contentHash": "5585208ac33975530a9070daaa642a7066da6eda2d05a260c52bebd14eccba4c",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 320695,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/5585208ac33975530a9070daaa642a7066da6eda2d05a260c52bebd14eccba4c.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 7,
+            "sourceIndex": 7,
+            "sourceUrl": "https://i.ebayimg.com/images/g/gYEAAeSwVJVp33Fz/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/gYEAAeSwVJVp33Fz/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/gYEAAeSwVJVp33Fz/s-l1600.jpg",
+            "contentHash": "babea3ff92418d1e98412b3346c03d5fa712bed7733788f84a6f7b7b59b747fc",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 313141,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/babea3ff92418d1e98412b3346c03d5fa712bed7733788f84a6f7b7b59b747fc.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 8,
+            "sourceIndex": 8,
+            "sourceUrl": "https://i.ebayimg.com/images/g/NbIAAeSwppNp33Fw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/NbIAAeSwppNp33Fw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/NbIAAeSwppNp33Fw/s-l1600.jpg",
+            "contentHash": "ed8988be5aa76311487fb67801c4cbd9954319f0e6076b028976a8a06a722f9b",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 320920,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/ed8988be5aa76311487fb67801c4cbd9954319f0e6076b028976a8a06a722f9b.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 9,
+            "sourceIndex": 9,
+            "sourceUrl": "https://i.ebayimg.com/images/g/5xEAAeSwGjRp33Uw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/5xEAAeSwGjRp33Uw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/5xEAAeSwGjRp33Uw/s-l1600.jpg",
+            "contentHash": "280fe102d63ec57634b8e16e69dd3c1862f3eca1b698a05b5c97a76b8fdc79eb",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 285618,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/280fe102d63ec57634b8e16e69dd3c1862f3eca1b698a05b5c97a76b8fdc79eb.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 10,
+            "sourceIndex": 10,
+            "sourceUrl": "https://i.ebayimg.com/images/g/cQ4AAeSwAFFp33Uw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/cQ4AAeSwAFFp33Uw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/cQ4AAeSwAFFp33Uw/s-l1600.jpg",
+            "contentHash": "e3ccbce72f9b92f6b0bdc91fb474c470de54512388828ba8422435c010c869b7",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 371565,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/e3ccbce72f9b92f6b0bdc91fb474c470de54512388828ba8422435c010c869b7.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 11,
+            "sourceIndex": 11,
+            "sourceUrl": "https://i.ebayimg.com/images/g/YFgAAeSwmH9p33Uw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/YFgAAeSwmH9p33Uw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/YFgAAeSwmH9p33Uw/s-l1600.jpg",
+            "contentHash": "92cde785a131849c24f31211bcb9efc1ce7492d50ef315811a707687afece167",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 293760,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/92cde785a131849c24f31211bcb9efc1ce7492d50ef315811a707687afece167.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 12,
+            "sourceIndex": 12,
+            "sourceUrl": "https://i.ebayimg.com/images/g/5VIAAeSwYi9p33Uw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/5VIAAeSwYi9p33Uw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/5VIAAeSwYi9p33Uw/s-l1600.jpg",
+            "contentHash": "ae58a3b2433b44f7d387b6ea19e9700bf54f2ffff717eaafbef0da1b79a12519",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 357163,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/ae58a3b2433b44f7d387b6ea19e9700bf54f2ffff717eaafbef0da1b79a12519.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 13,
+            "sourceIndex": 13,
+            "sourceUrl": "https://i.ebayimg.com/images/g/hS0AAeSwqZVp33Uw/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/hS0AAeSwqZVp33Uw/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/hS0AAeSwqZVp33Uw/s-l1600.jpg",
+            "contentHash": "646ae1b0312878fb454e95f36d2cfad4805d7f45f4e882be762c6ca3a456f56a",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 407628,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/646ae1b0312878fb454e95f36d2cfad4805d7f45f4e882be762c6ca3a456f56a.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|306881954213|0",
+            "imageIndex": 14,
+            "sourceIndex": 14,
+            "sourceUrl": "https://i.ebayimg.com/images/g/5CIAAeSwyTBp33Yr/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/5CIAAeSwyTBp33Yr/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/5CIAAeSwyTBp33Yr/s-l1600.jpg",
+            "contentHash": "cf3911db82abf9845e701212842aa865350e37e9a0397e8d9edb8183ab26f4d7",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 238223,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-party/cf3911db82abf9845e701212842aa865350e37e9a0397e8d9edb8183ab26f4d7.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-a1df75cef16d2cbe",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 2,
+          "contentHash": "10defba7ece5650e5c36b3ce1fc26d9f4a5af4f2e9da305201973b25889e2525",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "MARIO PARTY",
+          "platform": "N64",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "NUS-006 (EUR)",
+            "NUS-NLBP-EUR"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "Nintendo"
+          ],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-df65152aabf24571",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 3,
+          "contentHash": "233f293c6d81ee263d2b8d76ded8d5506d6d190cc23c9776f08d14bf3e5424fd",
+          "component": "CARTRIDGE_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "NUS-EUR-1"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "Nintendo",
+            "1996, 1997 Nintendo",
+            "Made in Japan"
+          ],
+          "visibleText": [
+            "CAUTION",
+            "DO NOT TURN THE POWER SWITCH ON AND OFF RAPIDLY"
+          ],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "cartridge_back",
+          "textSnippets": [
+            "CAUTION",
+            "DO NOT TURN THE POWER SWITCH ON AND OFF RAPIDLY"
+          ]
+        },
+        {
+          "id": "listing-obs-e3d2458ed9b583dd",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 5,
+          "contentHash": "9bf37bc65ebb15490bd35960ac80a09158551d243d98d0778063578d4a947e06",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "MARIO PARTY",
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "NUS-006 (EUR)",
+            "NUS-NLBP-EUR"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "Nintendo"
+          ],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-e2a7f3390b0bed3a",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 6,
+          "contentHash": "5585208ac33975530a9070daaa642a7066da6eda2d05a260c52bebd14eccba4c",
+          "component": "CARTRIDGE_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "NUS-EUR-1"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "1996, 1997 Nintendo",
+            "Made in Japan"
+          ],
+          "visibleText": [
+            "CE",
+            "D-63760"
+          ],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "cartridge_back",
+          "textSnippets": [
+            "CE",
+            "D-63760"
+          ]
+        },
+        {
+          "id": "listing-obs-43eae2712f919282",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 7,
+          "contentHash": "babea3ff92418d1e98412b3346c03d5fa712bed7733788f84a6f7b7b59b747fc",
+          "component": "CARTRIDGE_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "NUS-EUR-1"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "CAUTION",
+            "DO NOT TURN THE POWER SWITCH ON AND OFF RAPIDLY"
+          ],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "cartridge_back",
+          "textSnippets": [
+            "CAUTION",
+            "DO NOT TURN THE POWER SWITCH ON AND OFF RAPIDLY"
+          ]
+        },
+        {
+          "id": "listing-obs-478d5271d99a0896",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 8,
+          "contentHash": "ed8988be5aa76311487fb67801c4cbd9954319f0e6076b028976a8a06a722f9b",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "MARIO PARTY",
+          "platform": "N64",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [
+            "NUS-006 (EUR)",
+            "NUS-NLBP-EUR"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "Nintendo"
+          ],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-7fc1badb3f000b4e",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 11,
+          "contentHash": "92cde785a131849c24f31211bcb9efc1ce7492d50ef315811a707687afece167",
+          "component": "OUTER_PACKAGE_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "outer_package_back",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-5f44ed5270b3dfee",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 14,
+          "contentHash": "cf3911db82abf9845e701212842aa865350e37e9a0397e8d9edb8183ab26f4d7",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-fbd722c43a695012",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 1,
+          "contentHash": "44a8705b4a985270e3c841eecd1bb085b36f9d21ad65276fad5aeae95ff9f484",
+          "component": "INNER_CASE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "MARIO PARTY",
+          "platform": "N64",
+          "editionMarkers": [],
+          "barcodes": [
+            "4540 87039"
+          ],
+          "productCodes": [
+            "NUS-NLBER-1"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [
+            "es"
+          ],
+          "distributors": [],
+          "publisherLegalText": [
+            "Nintendo"
+          ],
+          "visibleText": [],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "inner_case_front",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-af7bfa2535d0a241",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 4,
+          "contentHash": "bb6b77b5b4d65a37b1bb2f1b555d0bf21f15442616a62a591a666aeed8738bd1",
+          "component": "UNKNOWN_COMPONENT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "unknown_component",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-3ca73e2dd5e9d674",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 9,
+          "contentHash": "280fe102d63ec57634b8e16e69dd3c1862f3eca1b698a05b5c97a76b8fdc79eb",
+          "component": "MANUAL_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "manual_front",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-04e420ba0ff7133d",
+          "listingId": "v1|306881954213|0",
+          "imageIndex": 12,
+          "contentHash": "ae58a3b2433b44f7d387b6ea19e9700bf54f2ffff717eaafbef0da1b79a12519",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": []
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": [
+          "required visible media and package components present"
+        ]
+      },
+      "regionEvidence": [
+        "sku_regional"
+      ],
+      "searchedCatalogId": "n64-pal-eu-mario-party",
+      "catalogTitle": "Mario Party",
+      "matchAlternatives": [
+        {
+          "catalogId": "n64-mario-party",
+          "region": "Japón",
+          "title": "Mario Party",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "n64-pal-eu-mario-party",
+          "region": "PAL Europa",
+          "title": "Mario Party",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": true
+    }
+  }
+}

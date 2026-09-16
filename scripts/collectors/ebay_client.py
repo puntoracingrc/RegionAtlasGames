@@ -25,10 +25,152 @@ from collectors.listing_recency import listing_cutoff
 USER_AGENT = "PAL-ES-Market/1.0 (+price-ingest; contact=local)"
 FINDING_URL = "https://svcs.ebay.com/services/search/FindingService/v1"
 BROWSE_SEARCH_URL = "https://api.ebay.com/buy/browse/v1/item_summary/search"
+BROWSE_ITEM_URL = "https://api.ebay.com/buy/browse/v1/item"
+BROWSE_LEGACY_ITEM_URL = "https://api.ebay.com/buy/browse/v1/item/get_item_by_legacy_id"
 OAUTH_URL = "https://api.ebay.com/identity/v1/oauth2/token"
 TOKEN_CACHE = Path(__file__).resolve().parents[2] / "data" / "price-ingest" / "ebay-token-cache.json"
 
 GLOBAL_ID_ES = "EBAY-ES"
+
+
+def _browse_headers(token: str, marketplace_id: str, end_user: str) -> dict[str, str]:
+    return {
+        "Authorization": f"Bearer {token}",
+        "X-EBAY-C-MARKETPLACE-ID": marketplace_id,
+        "X-EBAY-C-ENDUSERCTX": end_user,
+        "Accept": "application/json",
+    }
+
+
+def _refresh_browse_token(stale_token: str, client_id: str, client_secret: str) -> str:
+    cached = load_json(TOKEN_CACHE, {})
+    if cached.get("access_token") == stale_token:
+        try:
+            TOKEN_CACHE.unlink()
+        except FileNotFoundError:
+            pass
+    return get_browse_token(client_id, client_secret)
+
+
+def _money(block: Any) -> dict[str, Any] | None:
+    if not isinstance(block, dict):
+        return None
+    try:
+        value = float(block.get("value"))
+    except (TypeError, ValueError):
+        return None
+    return {"value": value, "currency": str(block.get("currency") or "") or None}
+
+
+def _image_records(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    """Preserve all API-returned gallery URLs in source order."""
+    records: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    groups = (
+        ("PRIMARY", [payload.get("image")]),
+        ("ADDITIONAL", payload.get("additionalImages") or []),
+        ("THUMBNAIL", payload.get("thumbnailImages") or []),
+    )
+    for kind, images in groups:
+        for image in images:
+            if not isinstance(image, dict):
+                continue
+            url = str(image.get("imageUrl") or "").strip()
+            if not url or url in seen:
+                continue
+            seen.add(url)
+            records.append({
+                "url": url,
+                "kind": kind,
+                "width": image.get("width") if isinstance(image.get("width"), int) else None,
+                "height": image.get("height") if isinstance(image.get("height"), int) else None,
+            })
+    return records
+
+
+def _normalize_hydrated_item(payload: dict[str, Any], *, requested_item_id: str) -> dict[str, Any]:
+    aspects: dict[str, list[str]] = {}
+    for row in payload.get("localizedAspects") or []:
+        if not isinstance(row, dict):
+            continue
+        name = str(row.get("name") or "").strip()
+        value = str(row.get("value") or "").strip()
+        if name and value:
+            aspects.setdefault(name, []).append(value)
+    seller = payload.get("seller") if isinstance(payload.get("seller"), dict) else {}
+    location = payload.get("itemLocation") if isinstance(payload.get("itemLocation"), dict) else {}
+    legacy_id = str(payload.get("legacyItemId") or "").strip() or None
+    rest_id = str(payload.get("itemId") or "").strip() or None
+    return {
+        "itemId": rest_id or requested_item_id,
+        "legacyItemId": legacy_id or (requested_item_id if requested_item_id.isdigit() else None),
+        "title": str(payload.get("title") or ""),
+        "shortDescription": payload.get("shortDescription"),
+        "description": payload.get("description"),
+        "condition": payload.get("condition"),
+        "conditionId": payload.get("conditionId"),
+        "conditionDescription": payload.get("conditionDescription"),
+        "itemWebUrl": payload.get("itemWebUrl"),
+        "itemAffiliateWebUrl": payload.get("itemAffiliateWebUrl"),
+        "images": _image_records(payload),
+        "itemLocation": location,
+        "seller": {
+            "username": seller.get("username"),
+            "feedbackPercentage": seller.get("feedbackPercentage"),
+            "feedbackScore": seller.get("feedbackScore"),
+        },
+        "category": payload.get("categoryPath") or payload.get("categoryId"),
+        "categoryId": payload.get("categoryId"),
+        "aspects": aspects,
+        "price": _money(payload.get("price")),
+        "shippingOptions": payload.get("shippingOptions") if isinstance(payload.get("shippingOptions"), list) else [],
+        "buyingOptions": payload.get("buyingOptions") if isinstance(payload.get("buyingOptions"), list) else [],
+        "itemEndDate": payload.get("itemEndDate"),
+        "estimatedAvailabilities": payload.get("estimatedAvailabilities") if isinstance(payload.get("estimatedAvailabilities"), list) else [],
+        "gtin": payload.get("gtin"),
+        "brand": payload.get("brand"),
+        "mpn": payload.get("mpn"),
+        "epid": payload.get("epid"),
+    }
+
+
+def hydrate_ebay_item(
+    item_id: str,
+    *,
+    catalog_region: str = "PAL España",
+    destination_postal_code: str = "",
+    client_id: str = "",
+    client_secret: str = "",
+    access_token: str = "",
+) -> dict[str, Any]:
+    """Hydrate one exact listing through the official Browse item resource."""
+    requested = str(item_id or "").strip()
+    if not requested:
+        raise ValueError("item_id is required")
+    app_id = os.environ.get("EBAY_APP_ID", "").strip()
+    resolved_client_id = client_id.strip() or os.environ.get("EBAY_CLIENT_ID", "").strip() or app_id
+    resolved_secret = client_secret.strip() or os.environ.get("EBAY_CLIENT_SECRET", "").strip()
+    token = access_token.strip() or os.environ.get("EBAY_ACCESS_TOKEN", "").strip() or os.environ.get("EBAY_OAUTH_TOKEN", "").strip()
+    token = token or get_browse_token(resolved_client_id, resolved_secret)
+    policy = ebay_regional_policy(catalog_region, destination_postal_code or None)
+    if requested.isdigit():
+        url = f"{BROWSE_LEGACY_ITEM_URL}?{urllib.parse.urlencode({'legacy_item_id': requested})}"
+    else:
+        url = f"{BROWSE_ITEM_URL}/{urllib.parse.quote(requested, safe='')}"
+    headers = _browse_headers(token, policy.marketplace_id, end_user_context(policy))
+    status, raw = _fetch(url, headers=headers)
+    if status == 401 and resolved_client_id and resolved_secret:
+        # A manually configured access token can expire while app credentials
+        # remain valid. Retry once with a freshly issued client-credentials token.
+        token = _refresh_browse_token(token, resolved_client_id, resolved_secret)
+        status, raw = _fetch(url, headers=_browse_headers(token, policy.marketplace_id, end_user_context(policy)))
+    if status != 200:
+        raise RuntimeError(f"Browse item hydration ({status}): {raw[:500]}")
+    try:
+        payload = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("Browse item hydration returned invalid JSON") from exc
+    return _normalize_hydrated_item(payload, requested_item_id=requested)
 
 
 def _fetch(url: str, headers: dict[str, str] | None = None, data: bytes | None = None, method: str = "GET") -> tuple[int, str]:
@@ -235,13 +377,14 @@ def browse_search(
     url = f"{BROWSE_SEARCH_URL}?{params}"
     status, raw = _fetch(
         url,
-        headers={
-            "Authorization": f"Bearer {token}",
-            "X-EBAY-C-MARKETPLACE-ID": policy.marketplace_id,
-            "X-EBAY-C-ENDUSERCTX": end_user_context(policy),
-            "Accept": "application/json",
-        },
+        headers=_browse_headers(token, policy.marketplace_id, end_user_context(policy)),
     )
+    if status == 401 and client_id and client_secret:
+        token = _refresh_browse_token(token, client_id, client_secret)
+        status, raw = _fetch(
+            url,
+            headers=_browse_headers(token, policy.marketplace_id, end_user_context(policy)),
+        )
     if status != 200:
         raise RuntimeError(f"Browse API ({status}): {raw[:400]}")
 

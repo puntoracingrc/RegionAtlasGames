@@ -1,0 +1,275 @@
+{
+  "caseId": "n64-mario-kart-64",
+  "platform": "n64",
+  "subjectTitle": "Mario Kart 64",
+  "sourcePhotos": 4,
+  "preservedPhotos": 4,
+  "originalResolutionPhotos": 4,
+  "photosClassified": 4,
+  "photosInspectedHighDetail": 0,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": false,
+      "OUTER_PACKAGE_BACK": false,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": false,
+      "CARTRIDGE_BACK": false,
+      "DISC": false,
+      "MANUAL_FRONT": false,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [],
+    "rejectedImageIndexes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "unknownImageIndexes": [
+      1
+    ]
+  },
+  "componentsFound": [],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_FRONT",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 0,
+  "marketBoundObservations": 0,
+  "diagnosis": "SUBJECT_CLASSIFICATION_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 0,
+  "openAiCalls": 1,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 11575,
+      "completion_tokens": 220,
+      "total_tokens": 11795,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.00186825,
+  "item": {
+    "id": "listing-evidence-v2-n64-mario-kart-64",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "n64",
+    "targetRegion": "PAL Europa",
+    "detectedRegion": null,
+    "catalogId": "n64-pal-mario-kart-64",
+    "candidateCatalogId": "n64-pal-mario-kart-64",
+    "listingTitle": "publicidad código 64 club nintendo juegos PAL ESPAÑA Golden eye 64 Mario Kart 64",
+    "priceEur": 290.0,
+    "condition": "unknown",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T17:57:31Z",
+    "evidence": {
+      "externalId": "v1|256301000417|0",
+      "url": "https://www.ebay.es/itm/256301000417?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2F2l4EDdmMUB2%2FpY%2FLdl3Dtqg6B4rNOnhVVALTN3II0OZ%2FW%2FpOCmxLAjDFOfMtntq1NA9UiX9yqEqgRtvAZIGu4zs88i9AlOho3yu31vP%2B78zMFoxCLjsgFBWQIKDSWKD2XVrM%2FJXq%2F3KmP%2FFctEJIkeAKdh6pqfBtLXrNIVxEI%2Beqr24NiXfk3W9c90LREnt4%3D",
+      "description": "Respuesta: Es un artículo OFICIAL de Nintendo y ÚNICO a la venta a nivel mundial. Los textos impresos en español al igual que sus videojuegos homónimos PAL ESPAÑA. Viene con su sobre original y etiqueta con datos personales, la etiqueta no se eliminará para no dañar el sobre.",
+      "imageUrl": "https://i.ebayimg.com/images/g/LocAAOSw1L9lVkGC/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/LocAAOSw1L9lVkGC/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/K~0AAOSwzNJlVkGY/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/UNMAAOSwGpFlVkGi/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/K3UAAOSwzNJlVkFX/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|256301000417|0",
+        "legacyItemId": "256301000417",
+        "capturedAt": "2026-09-16T17:57:31Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "publicidad código 64 club nintendo juegos PAL ESPAÑA Golden eye 64 Mario Kart 64",
+          "shortDescription": "Respuesta: Es un artículo OFICIAL de Nintendo y ÚNICO a la venta a nivel mundial. Los textos impresos en español al igual que sus videojuegos homónimos PAL ESPAÑA. Viene con su sobre original y etiqueta con datos personales, la etiqueta no se eliminará para no dañar el sobre.",
+          "description": "<span style=\"color: rgb(41, 54, 61); font-family: WallieFit; white-space-collapse: preserve-breaks;\"><font size=\"5\">Preguntas recibidas:\n\n¿Por qué este precio?\n\nRespuesta:\n\nEs un artículo OFICIAL de Nintendo y ÚNICO a la venta a nivel mundial.\n\nPerfectamente puede tener este precio o incluso más si el comprador interesado decidiera en un futuro venderlo para recuperar con ganancias lo invertido.\n\nDescripción:\n\nPublicidad de Nintendo para usuarios del Club Nintendo para aumentar las ventas de sus productos.\n\nLos textos impresos en español al igual que sus videojuegos homónimos PAL ESPAÑA.\n\n</font></span><span style=\"color: rgb(41, 54, 61); font-family: WallieFit; white-space-collapse: preserve-breaks;\"><font size=\"5\">Viene con su sobre original y etiqueta con datos personales, la etiqueta no se eliminará para no dañar el sobre.\n\nSerá obligación del comprador custodiar estos datos o destruirlos.</font></span><span style=\"color: rgb(41, 54, 61); font-family: WallieFit; white-space-collapse: preserve-breaks;\"><font size=\"5\"></font></span><div style=\"orphans:2; text-align:start; text-indent:0px; text-decoration-style:initial; text-decoration-color:initial;\"></div>",
+          "condition": "Usado",
+          "conditionId": "3000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/256301000417?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2F2l4EDdmMUB2%2FpY%2FLdl3Dtqg6B4rNOnhVVALTN3II0OZ%2FW%2FpOCmxLAjDFOfMtntq1NA9UiX9yqEqgRtvAZIGu4zs88i9AlOho3yu31vP%2B78zMFoxCLjsgFBWQIKDSWKD2XVrM%2FJXq%2F3KmP%2FFctEJIkeAKdh6pqfBtLXrNIVxEI%2Beqr24NiXfk3W9c90LREnt4%3D",
+          "itemLocation": {
+            "city": "Marbella",
+            "postalCode": "29***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "retrolotes",
+            "feedbackPercentage": "100.0",
+            "feedbackScore": 248
+          },
+          "category": "Consolas y videojuegos|Merchandising de juegos",
+          "categoryId": "38583",
+          "aspects": {
+            "Nombre del videojuego": [
+              "Mario Kart 64"
+            ],
+            "Tipo": [
+              "PROMOCIONAL"
+            ],
+            "Año de fabricación": [
+              "1995"
+            ],
+            "Marca": [
+              "Nintendo 64"
+            ]
+          },
+          "price": {
+            "value": 290.0,
+            "currency": "EUR"
+          },
+          "shippingOptions": [],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SELLER_ARRANGED_LOCAL_PICKUP"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 0,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": null,
+          "brand": "Nintendo 64",
+          "mpn": null,
+          "epid": null
+        },
+        "imagesAvailableFromSource": 4,
+        "imagesPreserved": 4,
+        "images": [
+          {
+            "listingId": "v1|256301000417|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/LocAAOSw1L9lVkGC/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/LocAAOSw1L9lVkGC/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/LocAAOSw1L9lVkGC/s-l1600.jpg",
+            "contentHash": "cdcf1b3c0fa8c9ed072af4286738da1b2b56b6772d8e69fbd055ae9cd2597dc5",
+            "width": 1600,
+            "height": 774,
+            "byteLength": 190713,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-kart-64/cdcf1b3c0fa8c9ed072af4286738da1b2b56b6772d8e69fbd055ae9cd2597dc5.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|256301000417|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/K~0AAOSwzNJlVkGY/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/K~0AAOSwzNJlVkGY/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/K~0AAOSwzNJlVkGY/s-l1600.jpg",
+            "contentHash": "74d63698be7cb2262b534ddeededca66e20f0fd6b707b6315eb70f935e5806db",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 418754,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-kart-64/74d63698be7cb2262b534ddeededca66e20f0fd6b707b6315eb70f935e5806db.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|256301000417|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/UNMAAOSwGpFlVkGi/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/UNMAAOSwGpFlVkGi/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/UNMAAOSwGpFlVkGi/s-l1600.jpg",
+            "contentHash": "7f2e670ba4f9b5db9fbb564613d7ce1b574366390b80afe0fd1e073a8dbed959",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 309458,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-kart-64/7f2e670ba4f9b5db9fbb564613d7ce1b574366390b80afe0fd1e073a8dbed959.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|256301000417|0",
+            "imageIndex": 4,
+            "sourceIndex": 4,
+            "sourceUrl": "https://i.ebayimg.com/images/g/K3UAAOSwzNJlVkFX/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/K3UAAOSwzNJlVkFX/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/K3UAAOSwzNJlVkFX/s-l1600.jpg",
+            "contentHash": "173f5534c0d8e5c1a80aed3e4205527c6ddcf3cf7dd346a86ea404fcbfa89bfd",
+            "width": 1600,
+            "height": 1200,
+            "byteLength": 216558,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-mario-kart-64/173f5534c0d8e5c1a80aed3e4205527c6ddcf3cf7dd346a86ea404fcbfa89bfd.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [],
+      "coverVision": {
+        "isTargetGame": false,
+        "conditionConfidence": 0,
+        "sellerClaims": []
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "n64-pal-mario-kart-64",
+      "catalogTitle": "Mario Kart 64",
+      "matchAlternatives": [
+        {
+          "catalogId": "n64-mario-kart-64",
+          "region": "Japón",
+          "title": "Mario Kart 64",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "n64-pal-mario-kart-64",
+          "region": "PAL Europa",
+          "title": "Mario Kart 64",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": null
+    }
+  }
+}

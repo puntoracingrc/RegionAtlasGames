@@ -1,0 +1,110 @@
+[
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 1,
+    "contentHash": "4542b00d5d4e18e58991fded1555e78c158bfe83d89654c7db7454d4adf6de3b",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible game cover for Gran Turismo 7 on PS4."
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 2,
+    "contentHash": "29f8edd90751400607f63289bd466c792d9b5a06c0d5e9a1705cd078e13f6f29",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot showing a character in a pit stop."
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 3,
+    "contentHash": "4e8e8cc37779f534b0ad65c23a1b32ac1c4a7e02bd0d6877de75f9b1e75085cd",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot of racing cars on a track."
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 4,
+    "contentHash": "40b8cee36852af220abe3caa1e28abae587e12b598eb6d63eddb1e0a11c5e242",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot of a racetrack at night."
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 5,
+    "contentHash": "d8bae337b1d39115df29202f0b357b62c8c05b607573b08447cb4f1b0289d6b4",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot showing a car's cockpit view."
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 6,
+    "contentHash": "b108d0b3d6771b45eb407bc1fb5b9833c2e19c078bba8b68334b8fe05a5e9214",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot of a racetrack with a sunset."
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 7,
+    "contentHash": "ead788ca9c9ecde21e733d8e8b379b63c2e456a0a5776c104f5b99aee58d554b",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot showing a car customization interface."
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 8,
+    "contentHash": "0b9d17a82554966270fc99e2387489835be04a1d9e255936ec29ddb2f12ad426",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot showing a car with editing options."
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 9,
+    "contentHash": "f0afeb238c26066e3de01099e87bb9614172ff598ccd06c4a0f3daaab1479d20",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "image does not depict a physical item related to the listing"
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 10,
+    "contentHash": "e7039603fc49481d6b6a05c8130fe7f760dc15ece10fe1cb9b3d8527ddecf4c3",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "image does not depict a physical item related to the listing"
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 11,
+    "contentHash": "abd394bf8360c121232f94d24c0d3510eb7199d3b700df51f2f662ecfc6e7f78",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "image does not depict a physical item related to the listing"
+  },
+  {
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 12,
+    "contentHash": "51511646e41408d59cf98938e20cdfe15764c041c5d433f410f9222480d36006",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "image does not depict a physical item related to the listing"
+  }
+]

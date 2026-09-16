@@ -1,0 +1,91 @@
+[
+  {
+    "id": "listing-obs-7ac85185826bb1a2",
+    "listingId": "v1|800170706897|0",
+    "imageIndex": 1,
+    "contentHash": "9883de125c02568cbee7637bf1c5d9a2aef6ff75e88f6536900942728e668a24",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Pokemon Snap",
+    "platform": "n64",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "NUS-006 (EUR)",
+      "NUS-NPFS-ESP"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "© 1996, 1997 NINTENDO"
+    ],
+    "visibleText": [
+      "Pokémon Snap",
+      "Nintendo",
+      "Original Nintendo Seal of Quality"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 1.0
+  },
+  {
+    "id": "listing-obs-8b1a0ff377be5c8e",
+    "listingId": "v1|800170706897|0",
+    "imageIndex": 2,
+    "contentHash": "a21473ba82a75aa4acad4cbe60257e373dbd7d49f98a16806a94b5cc89cc0ad7",
+    "component": "CARTRIDGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "NUS-EUR-1"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "© 1996, 1997 NINTENDO",
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [
+      "NINTENDO 64",
+      "GAME PAK",
+      "Caution",
+      "Attention",
+      "Wichtig"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 1.0
+  },
+  {
+    "id": "listing-obs-72faa1c3095c38c4",
+    "listingId": "v1|800170706897|0",
+    "imageIndex": 3,
+    "contentHash": "a15c5cb0f5dd2122907e1445eed63a7dca8fb499f724f106a20d56d8cdfdb51b",
+    "component": "UNKNOWN_COMPONENT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "NINTENDO 64",
+      "GAME PAK",
+      "Caution",
+      "Attention",
+      "Wichtig"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 1.0
+  }
+]

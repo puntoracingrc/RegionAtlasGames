@@ -1,0 +1,110 @@
+[
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 1,
+    "contentHash": "e420433f646ab047a5cbf4c9e669a430b8440ae92b31e1631b78fd9262df7a5d",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "This image shows the front cover of the PS5 game 'Ikai'."
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 2,
+    "contentHash": "94233033d8415b6a2afb53c69b9cca16c17f4809c7760649387c1b7c84c77b2d",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.5,
+    "reason": "This image features multiple versions of the game but is not a direct specimen."
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 3,
+    "contentHash": "6314438216ddbba52476cdc5f15c9dacbb968726df6a6abc30e5cc2b6b01602f",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "This is a screenshot from the game, not a physical item."
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 4,
+    "contentHash": "b0016a326913e5f47b967f6c3134f9074a91d65552f88b354285b2bc4af37cfc",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "This is a screenshot from the game, not a physical item."
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 5,
+    "contentHash": "cfc3781909171f079503fb06a261e1c0e4cf121186169f7a1059829fa56c702c",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "This is a screenshot from the game, not a physical item."
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 6,
+    "contentHash": "e23021544716ef012abbd659436867d8c4ca6a9fc677891c9d1f8a258aea7418",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "This is a screenshot from the game, not a physical item."
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 7,
+    "contentHash": "5ddf65b8351a8acb5ff017e886f64e92e94eea87a73b5dfee59d57d0a59ddfc7",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "This is a screenshot from the game, not a physical item."
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 8,
+    "contentHash": "bd71974f8cab1ba1d858050ce641691b7ba7b64be516958f530565cdac1480f3",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "This is a screenshot from the game, not a physical item."
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 9,
+    "contentHash": "99ab7bffa7213b0910ec52c49d758c4983261fcf6d483c0b4bee1938c828378b",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "image depicts a character in a dark setting"
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 10,
+    "contentHash": "52c49affa5b4347a8c8b254bad75f7c5c3b4846479889b9613015154cd60e7e2",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "image shows an interior room with traditional decor"
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 11,
+    "contentHash": "1f8f2f99a8e533fdfbd823425855f405f4de3eee5d6aa292f6af3305e492baef",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "image features an outdoor scene with a pathway and lanterns"
+  },
+  {
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 12,
+    "contentHash": "b0af96a32e6a43a21db342cdc6c20713ad64b77bd2c62baf8bc2267ef80282d9",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "image shows a character in a distressed pose"
+  }
+]

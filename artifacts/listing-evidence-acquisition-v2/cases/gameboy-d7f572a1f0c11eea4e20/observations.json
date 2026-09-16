@@ -1,0 +1,65 @@
+[
+  {
+    "id": "listing-obs-f8c0ba18771dd423",
+    "listingId": "v1|146943102104|0",
+    "imageIndex": 1,
+    "contentHash": "54e94a22b563389f1fee9de7de51acd2a18148f369f7e2f661034db851fcc1d9",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Snoopy's Magic Show",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "GAME BOY",
+      "SNOOPY'S",
+      "MAGIC SHOW",
+      "DIKEMCO",
+      "SPILANLEITUNG"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-3b58838b73a26e2f",
+    "listingId": "v1|146943102104|0",
+    "imageIndex": 2,
+    "contentHash": "c74ace98092d67cdfc6a21da24e682e534614d1e20f650263107a993e89f4337",
+    "component": "OUTER_PACKAGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Snoopy's Magic Show",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [
+      "German"
+    ],
+    "distributors": [
+      "AusschlieBlicher Vertrieb durch die Firma Mitsui & Co. DEUTSCHLAND GmbH"
+    ],
+    "publisherLegalText": [
+      "Printed in Japan"
+    ],
+    "visibleText": [
+      "SNOOPY'S",
+      "MAGIC SHOW",
+      "DIKEMCO",
+      "DMG-SN",
+      "SNOOPY's MAGIC SHOW",
+      "0  4499 00502 3",
+      "Nintendo",
+      "CE"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

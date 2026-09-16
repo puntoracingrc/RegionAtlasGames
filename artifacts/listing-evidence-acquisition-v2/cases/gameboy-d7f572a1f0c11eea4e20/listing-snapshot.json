@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "listingId": "v1|146943102104|0",
+  "legacyItemId": "146943102104",
+  "capturedAt": "2026-09-16T17:58:41Z",
+  "sourceMarketplace": "ebay",
+  "metadata": {
+    "title": "Snoopy’s Magic Show  Gameboy",
+    "shortDescription": "100% original.",
+    "description": "<p><b>Snoopy’s Magic Show  Gameboy.  100% original</b></p>",
+    "condition": "En buen estado",
+    "conditionId": "5000",
+    "conditionDescription": null,
+    "itemWebUrl": "https://www.ebay.es/itm/146943102104",
+    "itemLocation": {
+      "city": "Almeria ",
+      "postalCode": "04***",
+      "country": "ES"
+    },
+    "seller": {
+      "username": "aleskaywalker",
+      "feedbackPercentage": "100.0",
+      "feedbackScore": 41
+    },
+    "category": "Consolas y videojuegos|Videojuegos",
+    "categoryId": "139973",
+    "aspects": {
+      "Nombre del videojuego": [
+        "Snoopy ‘s Magic show Gameboy"
+      ],
+      "Plataforma": [
+        "Nintendo Game Boy"
+      ],
+      "Editor": [
+        "Kemco"
+      ],
+      "Clasificación": [
+        "E- Todos"
+      ]
+    },
+    "price": {
+      "value": 65.0,
+      "currency": "EUR"
+    },
+    "shippingOptions": [
+      {
+        "shippingServiceCode": "Correos: cartas ordinarias",
+        "shippingCarrierCode": "Correos",
+        "type": "Envío Económico",
+        "shippingCost": {
+          "value": "5.00",
+          "currency": "EUR"
+        },
+        "quantityUsedForEstimate": 1,
+        "minEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+        "maxEstimatedDeliveryDate": "2026-09-25T10:00:00.000Z",
+        "shipToLocationUsedForEstimate": {
+          "postalCode": "28001",
+          "country": "ES"
+        },
+        "additionalShippingCostPerUnit": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "shippingCostType": "FIXED"
+      }
+    ],
+    "buyingOptions": [
+      "FIXED_PRICE",
+      "BEST_OFFER"
+    ],
+    "itemEndDate": null,
+    "estimatedAvailabilities": [
+      {
+        "deliveryOptions": [
+          "SHIP_TO_HOME"
+        ],
+        "estimatedAvailabilityStatus": "IN_STOCK",
+        "estimatedAvailableQuantity": 1,
+        "estimatedSoldQuantity": 0,
+        "estimatedRemainingQuantity": 1
+      }
+    ],
+    "gtin": null,
+    "brand": null,
+    "mpn": null,
+    "epid": null
+  },
+  "imagesAvailableFromSource": 3,
+  "imagesPreserved": 3,
+  "images": [
+    {
+      "listingId": "v1|146943102104|0",
+      "imageIndex": 1,
+      "sourceIndex": 1,
+      "sourceUrl": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.jpg",
+      "contentHash": "54e94a22b563389f1fee9de7de51acd2a18148f369f7e2f661034db851fcc1d9",
+      "width": 1600,
+      "height": 1500,
+      "byteLength": 784629,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-d7f572a1f0c11eea4e20/54e94a22b563389f1fee9de7de51acd2a18148f369f7e2f661034db851fcc1d9.img",
+      "sourceKind": "PRIMARY",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|146943102104|0",
+      "imageIndex": 2,
+      "sourceIndex": 2,
+      "sourceUrl": "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.jpg",
+      "contentHash": "c74ace98092d67cdfc6a21da24e682e534614d1e20f650263107a993e89f4337",
+      "width": 1600,
+      "height": 1496,
+      "byteLength": 744324,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-d7f572a1f0c11eea4e20/c74ace98092d67cdfc6a21da24e682e534614d1e20f650263107a993e89f4337.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|146943102104|0",
+      "imageIndex": 3,
+      "sourceIndex": 3,
+      "sourceUrl": "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.jpg",
+      "contentHash": "56a6d9aea05e2156af7a63e0f3b77d5ae4056f169712e46e339d0eb0b6f8d46a",
+      "width": 1600,
+      "height": 892,
+      "byteLength": 207615,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-d7f572a1f0c11eea4e20/56a6d9aea05e2156af7a63e0f3b77d5ae4056f169712e46e339d0eb0b6f8d46a.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    }
+  ],
+  "failures": [],
+  "rights": {
+    "classification": "INTERNAL_EVIDENCE_REFERENCE",
+    "publishAsRegionAtlasAsset": false
+  }
+}

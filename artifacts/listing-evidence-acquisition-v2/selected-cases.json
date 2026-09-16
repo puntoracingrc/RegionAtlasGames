@@ -1,0 +1,162 @@
+[
+  {
+    "caseId": "ps4-hoa",
+    "platform": "ps4",
+    "subjectTitle": "Hoa",
+    "initialCatalogId": "ps4-hoa",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps4-god-eater-3",
+    "platform": "ps4",
+    "subjectTitle": "God Eater 3",
+    "initialCatalogId": "ps4-god-eater-3",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps4-gran-turismo-7",
+    "platform": "ps4",
+    "subjectTitle": "Gran Turismo 7",
+    "initialCatalogId": "ps4-gran-turismo-7",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps4-horizon-zero-dawn",
+    "platform": "ps4",
+    "subjectTitle": "Horizon Zero Dawn",
+    "initialCatalogId": "ps4-horizon-zero-dawn",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps4-horizon-forbidden-west",
+    "platform": "ps4",
+    "subjectTitle": "Horizon Forbidden West",
+    "initialCatalogId": "ps4-horizon-forbidden-west",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "n64-super-mario-64",
+    "platform": "n64",
+    "subjectTitle": "Super Mario 64",
+    "initialCatalogId": "n64-pal-eu-super-mario-64",
+    "targetRegion": "PAL Europa",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "n64-pokemon-snap",
+    "platform": "n64",
+    "subjectTitle": "Pokemon Snap",
+    "initialCatalogId": "n64-espana-pokemon-snap",
+    "targetRegion": "España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "n64-mario-party",
+    "platform": "n64",
+    "subjectTitle": "Mario Party",
+    "initialCatalogId": "n64-pal-eu-mario-party",
+    "targetRegion": "PAL Europa",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "n64-mario-kart-64",
+    "platform": "n64",
+    "subjectTitle": "Mario Kart 64",
+    "initialCatalogId": "n64-pal-mario-kart-64",
+    "targetRegion": "PAL Europa",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "n64-diddy-kong-racing",
+    "platform": "n64",
+    "subjectTitle": "Diddy Kong Racing",
+    "initialCatalogId": "n64-diddy-kong-racing",
+    "targetRegion": "PAL Europa",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps5-ikai",
+    "platform": "ps5",
+    "subjectTitle": "Ikai",
+    "initialCatalogId": "ps5-ikai",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps5-biomutant",
+    "platform": "ps5",
+    "subjectTitle": "Biomutant",
+    "initialCatalogId": "ps5-biomutant",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps5-hoa",
+    "platform": "ps5",
+    "subjectTitle": "Hoa",
+    "initialCatalogId": "ps5-hoa",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps5-tales-of-arise",
+    "platform": "ps5",
+    "subjectTitle": "Tales of Arise",
+    "initialCatalogId": "ps5-tales-of-arise",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "ps5-bramble-the-mountain-king",
+    "platform": "ps5",
+    "subjectTitle": "Bramble The Mountain King",
+    "initialCatalogId": "ps5-bramble-the-mountain-king",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-active-token"
+  },
+  {
+    "caseId": "gameboy-74f1b486ba2398b1d771",
+    "platform": "gameboy",
+    "subjectTitle": "Waterworld",
+    "initialCatalogId": "gameboy-es-waterworld",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-item-holdout"
+  },
+  {
+    "caseId": "gameboy-d7f572a1f0c11eea4e20",
+    "platform": "gameboy",
+    "subjectTitle": "Snoopy's Magic Show",
+    "initialCatalogId": "gameboy-es-snoopy-s-magic-show",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-item-holdout"
+  },
+  {
+    "caseId": "gameboy-2e7645bc3a0305d6661c",
+    "platform": "gameboy",
+    "subjectTitle": "Tetris",
+    "initialCatalogId": "gameboy-es-tetris",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-item-holdout"
+  },
+  {
+    "caseId": "gameboy-3e5cf57f4a78743f4a89",
+    "platform": "gameboy",
+    "subjectTitle": "Wario Land Super Mario Land 3",
+    "initialCatalogId": "gameboy-es-wario-land-super-mario-land-3",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-item-holdout"
+  },
+  {
+    "caseId": "gameboy-2a15931917249023d109",
+    "platform": "gameboy",
+    "subjectTitle": "Zelda Link's Awakening",
+    "initialCatalogId": "gameboy-es-zelda-link-s-awakening",
+    "targetRegion": "PAL España",
+    "discoveryBackend": "browse-item-holdout"
+  }
+]

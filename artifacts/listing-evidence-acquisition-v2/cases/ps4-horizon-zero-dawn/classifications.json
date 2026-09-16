@@ -1,0 +1,29 @@
+[
+  {
+    "listingId": "v1|137665114680|0",
+    "imageIndex": 1,
+    "contentHash": "7f48958873b48ebb6e4e18ad62520626cf7739d81960ec400892ea6186accbb6",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Front cover of the game packaging."
+  },
+  {
+    "listingId": "v1|137665114680|0",
+    "imageIndex": 2,
+    "contentHash": "93794a4477fbcb4ba508c50d580838228e1df47f94f8d4df7911e11327acbab7",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 1.0,
+    "reason": "Back cover of the game packaging."
+  },
+  {
+    "listingId": "v1|137665114680|0",
+    "imageIndex": 3,
+    "contentHash": "d62ed130c0dd5159e1ed3a3267771b7c24d43a6d863153d5edca898beda4a74b",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.5,
+    "reason": "Contains additional merchandise related to the game."
+  }
+]

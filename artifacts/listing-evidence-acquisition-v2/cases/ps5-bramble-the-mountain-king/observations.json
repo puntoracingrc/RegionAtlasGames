@@ -1,0 +1,28 @@
+[
+  {
+    "id": "listing-obs-729eb57c92969f30",
+    "listingId": "v1|336641149509|0",
+    "imageIndex": 1,
+    "contentHash": "ad2244f4d1428e7b0b7bb29a1aa220a6909182d3816da1538d71b17f061fb686",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Bramble The Mountain King",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 18"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "DIMFROST STUDIO",
+      "MERGE"
+    ],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

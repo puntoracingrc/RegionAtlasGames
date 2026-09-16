@@ -1,0 +1,299 @@
+[
+  {
+    "id": "listing-obs-a1df75cef16d2cbe",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 2,
+    "contentHash": "10defba7ece5650e5c36b3ce1fc26d9f4a5af4f2e9da305201973b25889e2525",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "MARIO PARTY",
+    "platform": "N64",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "NUS-006 (EUR)",
+      "NUS-NLBP-EUR"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "Nintendo"
+    ],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-df65152aabf24571",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 3,
+    "contentHash": "233f293c6d81ee263d2b8d76ded8d5506d6d190cc23c9776f08d14bf3e5424fd",
+    "component": "CARTRIDGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "NUS-EUR-1"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "Nintendo",
+      "1996, 1997 Nintendo",
+      "Made in Japan"
+    ],
+    "visibleText": [
+      "CAUTION",
+      "DO NOT TURN THE POWER SWITCH ON AND OFF RAPIDLY"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-e3d2458ed9b583dd",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 5,
+    "contentHash": "9bf37bc65ebb15490bd35960ac80a09158551d243d98d0778063578d4a947e06",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "MARIO PARTY",
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "NUS-006 (EUR)",
+      "NUS-NLBP-EUR"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "Nintendo"
+    ],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-e2a7f3390b0bed3a",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 6,
+    "contentHash": "5585208ac33975530a9070daaa642a7066da6eda2d05a260c52bebd14eccba4c",
+    "component": "CARTRIDGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "NUS-EUR-1"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "1996, 1997 Nintendo",
+      "Made in Japan"
+    ],
+    "visibleText": [
+      "CE",
+      "D-63760"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-43eae2712f919282",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 7,
+    "contentHash": "babea3ff92418d1e98412b3346c03d5fa712bed7733788f84a6f7b7b59b747fc",
+    "component": "CARTRIDGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "NUS-EUR-1"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "CAUTION",
+      "DO NOT TURN THE POWER SWITCH ON AND OFF RAPIDLY"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-478d5271d99a0896",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 8,
+    "contentHash": "ed8988be5aa76311487fb67801c4cbd9954319f0e6076b028976a8a06a722f9b",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "MARIO PARTY",
+    "platform": "N64",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "NUS-006 (EUR)",
+      "NUS-NLBP-EUR"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "Nintendo"
+    ],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-7fc1badb3f000b4e",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 11,
+    "contentHash": "92cde785a131849c24f31211bcb9efc1ce7492d50ef315811a707687afece167",
+    "component": "OUTER_PACKAGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-5f44ed5270b3dfee",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 14,
+    "contentHash": "cf3911db82abf9845e701212842aa865350e37e9a0397e8d9edb8183ab26f4d7",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-fbd722c43a695012",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 1,
+    "contentHash": "44a8705b4a985270e3c841eecd1bb085b36f9d21ad65276fad5aeae95ff9f484",
+    "component": "INNER_CASE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "MARIO PARTY",
+    "platform": "N64",
+    "editionMarkers": [],
+    "barcodes": [
+      "4540 87039"
+    ],
+    "productCodes": [
+      "NUS-NLBER-1"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [
+      "es"
+    ],
+    "distributors": [],
+    "publisherLegalText": [
+      "Nintendo"
+    ],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-af7bfa2535d0a241",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 4,
+    "contentHash": "bb6b77b5b4d65a37b1bb2f1b555d0bf21f15442616a62a591a666aeed8738bd1",
+    "component": "UNKNOWN_COMPONENT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-3ca73e2dd5e9d674",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 9,
+    "contentHash": "280fe102d63ec57634b8e16e69dd3c1862f3eca1b698a05b5c97a76b8fdc79eb",
+    "component": "MANUAL_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-04e420ba0ff7133d",
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 12,
+    "contentHash": "ae58a3b2433b44f7d387b6ea19e9700bf54f2ffff717eaafbef0da1b79a12519",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

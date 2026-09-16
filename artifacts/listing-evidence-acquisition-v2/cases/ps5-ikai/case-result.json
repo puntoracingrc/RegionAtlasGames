@@ -1,0 +1,534 @@
+{
+  "caseId": "ps5-ikai",
+  "platform": "ps5",
+  "subjectTitle": "Ikai",
+  "sourcePhotos": 12,
+  "preservedPhotos": 12,
+  "originalResolutionPhotos": 12,
+  "photosClassified": 12,
+  "photosInspectedHighDetail": 1,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": false,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": false,
+      "CARTRIDGE_BACK": false,
+      "DISC": false,
+      "MANUAL_FRONT": false,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "componentsFound": [
+    "OUTER_PACKAGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 1,
+  "marketBoundObservations": 1,
+  "diagnosis": "MARKET_BINDING_FAILURE",
+  "triageCalls": 2,
+  "extractCalls": 1,
+  "openAiCalls": 3,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 22921,
+      "completion_tokens": 453,
+      "total_tokens": 23374,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 11573,
+      "completion_tokens": 212,
+      "total_tokens": 11785,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 25669,
+      "completion_tokens": 128,
+      "total_tokens": 25797,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.00950025,
+  "item": {
+    "id": "listing-evidence-v2-ps5-ikai",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "ps5",
+    "targetRegion": "PAL España",
+    "detectedRegion": null,
+    "catalogId": "ps5-ikai",
+    "candidateCatalogId": "ps5-ikai",
+    "listingTitle": "Ikai Juego para Consola Sony PlayStation 5 PS5, PAL ESPAÑA",
+    "priceEur": 22.56,
+    "condition": "unknown",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T17:57:56Z",
+    "evidence": {
+      "externalId": "v1|335724375446|0",
+      "url": "https://www.ebay.es/itm/335724375446",
+      "description": "Con su atención al detalle y su compromiso con la calidad, PM Studios garantiza una experiencia de juego excepcional en Ikai. ¡Entonces no busques más! El juego Ikai para PlayStation 5 es la elección perfecta para los amantes de los juegos de terror.",
+      "imageUrl": "https://i.ebayimg.com/images/g/CWQAAeSwwapqHbNP/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/CWQAAeSwwapqHbNP/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/1dEAAeSwHjBqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/6QoAAeSw9MVqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/5LcAAeSw2k5qHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/XU4AAeSwMrpqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/7hYAAeSwIqVqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/Y~0AAeSwP5RqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/x0oAAeSwZXlqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/-hMAAeSwJ6NqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/0h4AAeSwj3lqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/7vcAAeSw72lqHbNN/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/z~wAAeSwTfpqHbNN/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|335724375446|0",
+        "legacyItemId": "335724375446",
+        "capturedAt": "2026-09-16T17:57:56Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "Ikai Juego para Consola Sony PlayStation 5 PS5, PAL ESPAÑA",
+          "shortDescription": "Con su atención al detalle y su compromiso con la calidad, PM Studios garantiza una experiencia de juego excepcional en Ikai. ¡Entonces no busques más! El juego Ikai para PlayStation 5 es la elección perfecta para los amantes de los juegos de terror.",
+          "description": "Ikai Juego para Consola Sony PlayStation 5 PS5, PAL ESPAÑA /  1187935 / 5056280435464<h1>Ikai Juego para PlayStation 5 PS5, PAL ES<br /></h1><p><br />¿Estás listo para experimentar una aventura de horror verdaderamente aterradora? ¡Entonces no busques más! El juego Ikai para PlayStation 5 es la elección perfecta para los amantes de los juegos de terror. Con su impresionante calidad gráfica y su emocionante jugabilidad, te sumergirás en un mundo oscuro lleno de misterios y terrores sobrenaturales. <br /><br /><strong>Género: PlayStation 5 - Games - PM Studios - Horror - Standard</strong><br /><br />¡Prepárate para vivir una experiencia única y espeluznante con Ikai! Este juego te llevará a través de una historia intrigante que te mantendrá al borde de tu asiento en todo momento. Ponte en la piel de un joven sacerdote que se encuentra atrapado en un antiguo santuario japonés, donde un espíritu maligno acecha en las sombras. Explora cada rincón de este lugar maldito, resuelve acertijos desafiantes y desentraña los secretos oscuros que se esconden dentro de sus paredes.<br /><br /><strong>Plataforma: PlayStation 5</strong><br /><br />Con Ikai para PlayStation 5, disfrutarás de una experiencia de juego sin igual gracias a las capacidades técnicas de esta consola de última generación. Sumérgete en mundos detallados y realistas con gráficos de alta definición y tiempos de carga ultrarrápidos. La potencia del PS5 lleva la inmersión a un nivel superior, permitiéndote sentir cada emoción y susto como si estuvieras realmente allí.<br /><br /><strong>Idioma en Contraportada: Español, Inglés, Francés</strong><br /><br />Con una amplia variedad de opciones de idioma, Ikai te permite disfrutar de la experiencia en el idioma que prefieras. Tanto si eres un hablante nativo de español, inglés o francés, podrás sumergirte por completo en la historia y entender todos los detalles de este escalofriante juego.<br /><br /><strong>Idioma en el Juego (Audio): Inglés, Japonés</strong><br /><br />Además de los idiomas disponibles en la contraportada, Ikai también ofrece opciones de audio en inglés y japonés. De esta manera, podrás escuchar las voces originales de los personajes y sumergirte aún más en la atmósfera terrorífica del juego.<br /><br /><strong>Idioma en el Juego (Subtítulos): Alemán, Español, Francés, Italiano, Japonés, Chino Tradicional, Chino Simplificado, Inglés</strong><br /><br />Si prefieres jugar con subtítulos, Ikai te permite elegir entre varios idiomas, como alemán, español, francés, italiano, japonés, chino tradicional, chino simplificado e inglés. De esta manera, podrás seguir la historia fácilmente y no perder ningún detalle importante mientras exploras el santuario maldito.<br /><br /><strong>Garantía del fabricante: 36 Meses</strong><br /><br />Con la garantía del fabricante de 36 meses, puedes sentirte tranquilo sabiendo que tu copia de Ikai está protegida contra cualquier defecto de fabricación. Si algo sale mal con el disco, puedes contar con el respaldo del fabricante para solucionarlo.<br /><br /><strong>Equivalente USK Alemania: USK ab 16 Jahren</strong><br /><br />El juego Ikai ha sido clasificado por USK Alemania como apto para mayores de 16 años. Esto significa que el contenido del juego puede contener violencia, sangre y temas intensos que pueden no ser adecuados para audiencias más jóvenes. Por favor, ten en cuenta esta clasificación al decidir si este juego es adecuado para ti o para alguien que conozcas.<br /><br /><strong>Fecha de Lanzamiento: 2022-06-10</strong><br /><br />Ikai estará disponible a partir del 10 de junio de 2022. No pierdas la oportunidad de ser uno de los primeros en sumergirse en este emocionante y escalofriante juego.<br /><br /><strong>Editor: PM Studios</strong><br /><br />El juego Ikai ha sido desarrollado por PM Studios, un estudio de desarrollo de renombre con una larga trayectoria en la creación de experiencias de juego inmersivas y emocionantes. Con su atención al detalle y su compromiso con la calidad, PM Studios garantiza una experiencia de juego excepcional en Ikai.<br /><br /><strong>Precintado de Fábrica: Sí</strong><br /><br />Para garantizar la autenticidad y la calidad del producto, cada copia de Ikai viene precintada de fábrica. Esto significa que si deseas devolver el producto, deberás asegurarte de que el precinto original no haya sido abierto. Si el producto ha sido abierto, no podrá ser devuelto ni reembolsado.<br /><br /><strong>Región: PAL ES (English)</strong><br /><br />El juego Ikai está diseñado para funcionar en consolas PlayStation 5 de la región PAL ES. Asegúrate de que tu consola sea compatible con esta región antes de realizar la compra.<br /><br /><strong>EAN: 5056280435464</strong><br /><br />El código EAN único de Ikai es 5056280435464. Utiliza este código para identificar y buscar el juego fácilmente en tiendas y sitios web.<br /><br />¡No pierdas la oportunidad de vivir una experiencia de juego de terror inolvidable con Ikai para PlayStation 5! Sumérgete en un mundo oscuro lleno de misterios y terrores sobrenaturales mientras desentrañas los secretos del antiguo santuario japonés. Con su impresionante calidad gráfica, emocionante jugabilidad y opciones de idioma, Ikai te proporcionará horas de entretenimiento aterrador. ¡Atrévete a adentrarte en lo desconocido y descubrir qué te espera en las sombras!<br /><br /></p><h2>Preguntas frecuentes sobre Ikai Juego para PlayStation 5 PS5, PAL ES<br /></h2><p><br /></p><ul><li>¿Cuál es la clasificación de edad de Ikai?<br />Ikai ha sido clasificado por USK Alemania como apto para mayores de 16 años debido a su contenido violento e intensos temas.<br /><br /></li><li>¿Cuándo estará disponible Ikai en PlayStation 5?<br />Ikai estará disponible a partir del 10 de junio de 2022.<br /><br /></li><li>¿Qué idiomas están disponibles en Ikai?<br />Encontrarás disponibles los idiomas inglés, español, francés, alemán, italiano, japonés, chino tradicional y chino simplificado tanto en audio como en subtítulos.<br /><br /></li><li>¿Puedo devolver el juego si no me gusta?<br />Sí, pero solo si el precinto original no ha sido abierto. Si el juego ha sido abierto, no podrá ser devuelto ni reembolsado. Asegúrate de que el precinto esté intacto antes de abrirlo.<br /><br /></li><li>¿El juego es físico o digital?<br />Ikai es un juego físico para PlayStation 5, lo que significa que recibirás un disco que deberás insertar en tu consola para jugar.<br /><br /></li><li>¿Cuánto tiempo dura la garantía del fabricante?<br />La garantía del fabricante cubre el juego durante 36 meses a partir de la fecha de compra.<br /><br /></li><li>¿El juego incluye contenido adicional o bonificaciones?<br />No se mencionan contenidos adicionales ni bonificaciones con la compra del juego Ikai.<br /><br /></li><li>¿Cuál es la editorial responsable de Ikai?<br />PM Studios es la editorial responsable del desarrollo y distribución de Ikai.<br /><br /></li><li>¿Es necesario tener una consola PlayStation 5 para jugar a Ikai?<br />Sí, Ikai ha sido desarrollado específicamente para la consola PlayStation 5. Asegúrate de tener una PS5 antes de adquirir el juego.<br /><br /></li><li>¿Puedo cambiar el idioma del juego después de comenzar a jugar?<br />Sí, puedes cambiar el idioma tanto del audio como de los subtítulos dentro del juego en cualquier momento. Esto te permitirá disfrutar de la experiencia en el idioma de tu elección.</li></ul>",
+          "condition": "Nuevo",
+          "conditionId": "1000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/335724375446",
+          "itemLocation": {
+            "city": "Gandia",
+            "stateOrProvince": "Comunidad Valenciana",
+            "postalCode": "46***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "arreglatelo",
+            "feedbackPercentage": "98.1",
+            "feedbackScore": 27745
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "Nombre del videojuego": [
+              "1187935"
+            ],
+            "Garantía del fabricante": [
+              "3 años"
+            ],
+            "Plataforma": [
+              "PlayStation 5"
+            ],
+            "Precintado de Fabrica": [
+              "Si"
+            ],
+            "Código de región": [
+              "English"
+            ],
+            "MPN": [
+              "1187935"
+            ],
+            "País de origen": [
+              "PAL ES"
+            ],
+            "Cantidad de unidades": [
+              "1"
+            ],
+            "Equivalente USK": [
+              "USK ab 16 Jahren"
+            ],
+            "Género": [
+              "Acción y Aventura"
+            ],
+            "Tipo de unidad": [
+              "Unidad"
+            ],
+            "Editor": [
+              "PM Studios"
+            ],
+            "Características": [
+              "PlayStation 5 - Games - PM Studios - Horror - Standard"
+            ],
+            "Clasificación": [
+              "16+"
+            ],
+            "EAN": [
+              "5056280435464"
+            ]
+          },
+          "price": {
+            "value": 22.56,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: Paq Estándar",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "4.50",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-29T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-30T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 2,
+              "estimatedSoldQuantity": 1,
+              "estimatedRemainingQuantity": 2
+            }
+          ],
+          "gtin": "5056280435464",
+          "brand": null,
+          "mpn": "1187935",
+          "epid": null
+        },
+        "imagesAvailableFromSource": 12,
+        "imagesPreserved": 12,
+        "images": [
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/CWQAAeSwwapqHbNP/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/CWQAAeSwwapqHbNP/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/CWQAAeSwwapqHbNP/s-l1600.jpg",
+            "contentHash": "e420433f646ab047a5cbf4c9e669a430b8440ae92b31e1631b78fd9262df7a5d",
+            "width": 1025,
+            "height": 1295,
+            "byteLength": 151516,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/e420433f646ab047a5cbf4c9e669a430b8440ae92b31e1631b78fd9262df7a5d.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/1dEAAeSwHjBqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/1dEAAeSwHjBqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/1dEAAeSwHjBqHbNN/s-l1600.jpg",
+            "contentHash": "94233033d8415b6a2afb53c69b9cca16c17f4809c7760649387c1b7c84c77b2d",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 195155,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/94233033d8415b6a2afb53c69b9cca16c17f4809c7760649387c1b7c84c77b2d.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/6QoAAeSw9MVqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/6QoAAeSw9MVqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/6QoAAeSw9MVqHbNN/s-l1600.jpg",
+            "contentHash": "6314438216ddbba52476cdc5f15c9dacbb968726df6a6abc30e5cc2b6b01602f",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 57564,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/6314438216ddbba52476cdc5f15c9dacbb968726df6a6abc30e5cc2b6b01602f.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 4,
+            "sourceIndex": 4,
+            "sourceUrl": "https://i.ebayimg.com/images/g/5LcAAeSw2k5qHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/5LcAAeSw2k5qHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/5LcAAeSw2k5qHbNN/s-l1600.jpg",
+            "contentHash": "b0016a326913e5f47b967f6c3134f9074a91d65552f88b354285b2bc4af37cfc",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 61455,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/b0016a326913e5f47b967f6c3134f9074a91d65552f88b354285b2bc4af37cfc.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 5,
+            "sourceIndex": 5,
+            "sourceUrl": "https://i.ebayimg.com/images/g/XU4AAeSwMrpqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/XU4AAeSwMrpqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/XU4AAeSwMrpqHbNN/s-l1600.jpg",
+            "contentHash": "cfc3781909171f079503fb06a261e1c0e4cf121186169f7a1059829fa56c702c",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 114041,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/cfc3781909171f079503fb06a261e1c0e4cf121186169f7a1059829fa56c702c.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 6,
+            "sourceIndex": 6,
+            "sourceUrl": "https://i.ebayimg.com/images/g/7hYAAeSwIqVqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/7hYAAeSwIqVqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/7hYAAeSwIqVqHbNN/s-l1600.jpg",
+            "contentHash": "e23021544716ef012abbd659436867d8c4ca6a9fc677891c9d1f8a258aea7418",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 71315,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/e23021544716ef012abbd659436867d8c4ca6a9fc677891c9d1f8a258aea7418.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 7,
+            "sourceIndex": 7,
+            "sourceUrl": "https://i.ebayimg.com/images/g/Y~0AAeSwP5RqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/Y~0AAeSwP5RqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/Y~0AAeSwP5RqHbNN/s-l1600.jpg",
+            "contentHash": "5ddf65b8351a8acb5ff017e886f64e92e94eea87a73b5dfee59d57d0a59ddfc7",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 160664,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/5ddf65b8351a8acb5ff017e886f64e92e94eea87a73b5dfee59d57d0a59ddfc7.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 8,
+            "sourceIndex": 8,
+            "sourceUrl": "https://i.ebayimg.com/images/g/x0oAAeSwZXlqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/x0oAAeSwZXlqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/x0oAAeSwZXlqHbNN/s-l1600.jpg",
+            "contentHash": "bd71974f8cab1ba1d858050ce641691b7ba7b64be516958f530565cdac1480f3",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 58073,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/bd71974f8cab1ba1d858050ce641691b7ba7b64be516958f530565cdac1480f3.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 9,
+            "sourceIndex": 9,
+            "sourceUrl": "https://i.ebayimg.com/images/g/-hMAAeSwJ6NqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/-hMAAeSwJ6NqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/-hMAAeSwJ6NqHbNN/s-l1600.jpg",
+            "contentHash": "99ab7bffa7213b0910ec52c49d758c4983261fcf6d483c0b4bee1938c828378b",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 61713,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/99ab7bffa7213b0910ec52c49d758c4983261fcf6d483c0b4bee1938c828378b.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 10,
+            "sourceIndex": 10,
+            "sourceUrl": "https://i.ebayimg.com/images/g/0h4AAeSwj3lqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/0h4AAeSwj3lqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/0h4AAeSwj3lqHbNN/s-l1600.jpg",
+            "contentHash": "52c49affa5b4347a8c8b254bad75f7c5c3b4846479889b9613015154cd60e7e2",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 85831,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/52c49affa5b4347a8c8b254bad75f7c5c3b4846479889b9613015154cd60e7e2.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 11,
+            "sourceIndex": 11,
+            "sourceUrl": "https://i.ebayimg.com/images/g/7vcAAeSw72lqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/7vcAAeSw72lqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/7vcAAeSw72lqHbNN/s-l1600.jpg",
+            "contentHash": "1f8f2f99a8e533fdfbd823425855f405f4de3eee5d6aa292f6af3305e492baef",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 55213,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/1f8f2f99a8e533fdfbd823425855f405f4de3eee5d6aa292f6af3305e492baef.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|335724375446|0",
+            "imageIndex": 12,
+            "sourceIndex": 12,
+            "sourceUrl": "https://i.ebayimg.com/images/g/z~wAAeSwTfpqHbNN/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/z~wAAeSwTfpqHbNN/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/z~wAAeSwTfpqHbNN/s-l1600.jpg",
+            "contentHash": "b0af96a32e6a43a21db342cdc6c20713ad64b77bd2c62baf8bc2267ef80282d9",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 55754,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-ikai/b0af96a32e6a43a21db342cdc6c20713ad64b77bd2c62baf8bc2267ef80282d9.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-0f36b3b33e2c199a",
+          "listingId": "v1|335724375446|0",
+          "imageIndex": 1,
+          "contentHash": "e420433f646ab047a5cbf4c9e669a430b8440ae92b31e1631b78fd9262df7a5d",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Ikai",
+          "platform": "ps5",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "PM STUDIOS"
+          ],
+          "visibleText": [],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": []
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": []
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "ps5-ikai",
+      "catalogTitle": "Ikai",
+      "matchAlternatives": [
+        {
+          "catalogId": "ps5-ikai",
+          "region": "PAL España",
+          "title": "Ikai",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "ps5-usa-ikai",
+          "region": "USA",
+          "title": "Ikai",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": false
+    }
+  },
+  "marketFollowupCalls": 0
+}

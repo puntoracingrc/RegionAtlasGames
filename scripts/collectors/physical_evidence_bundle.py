@@ -33,10 +33,40 @@ def _hash(value: Any) -> str:
     return hashlib.sha256(_canonical(value).encode("utf-8")).hexdigest()
 
 
+def _valid_gtin(value: str) -> bool:
+    if len(value) not in {8, 12, 13, 14} or not value.isdigit():
+        return False
+    digits = [int(char) for char in value]
+    total = sum(digit * (3 if (len(digits) - 2 - index) % 2 == 0 else 1) for index, digit in enumerate(digits[:-1]))
+    return (10 - total % 10) % 10 == digits[-1]
+
+
 def map_visual_component(observation: dict[str, Any]) -> tuple[str, str]:
     """Map only facts the observation proves; ambiguous boxes stay unknown."""
     role = str(observation.get("role") or "other").strip().lower()
     component = str(observation.get("component") or "other").strip().lower()
+    explicit = {
+        "outer_package_front": ("OUTER_PACKAGE_FRONT", "OUTER_PACKAGE"),
+        "outer_package_back": ("OUTER_PACKAGE_BACK", "OUTER_PACKAGE"),
+        "outer_package_spine": ("OUTER_PACKAGE_SPINE", "OUTER_PACKAGE"),
+        "inner_case_front": ("INNER_CASE_FRONT", "INNER_PRODUCT"),
+        "inner_case_back": ("INNER_CASE_BACK", "INNER_PRODUCT"),
+        "inner_case_spine": ("INNER_CASE_SPINE", "INNER_PRODUCT"),
+        "cartridge_front": ("CARTRIDGE_FRONT", "MEDIA"),
+        "cartridge_back": ("CARTRIDGE_BACK", "MEDIA"),
+        "disc": ("DISC", "MEDIA"),
+        "manual_front": ("MANUAL_FRONT", "DOCUMENT"),
+        "manual_back": ("MANUAL_BACK", "DOCUMENT"),
+        "insert": ("INSERT", "DOCUMENT"),
+        "code_voucher": ("CODE_VOUCHER", "DOCUMENT"),
+        "download_card": ("DOWNLOAD_CARD", "DOCUMENT"),
+        "seal": ("SEAL", "STICKER"),
+        "seller_sticker": ("SELLER_STICKER", "STICKER"),
+        "accessory": ("ACCESSORY", "ACCESSORY"),
+        "unknown_component": ("UNKNOWN_COMPONENT", "PHYSICAL_PRODUCT"),
+    }
+    if component in explicit:
+        return explicit[component]
     if role == "cartridge":
         return "CARTRIDGE_FRONT", "MEDIA"
     if role == "disc":
@@ -62,7 +92,7 @@ def map_visual_component(observation: dict[str, Any]) -> tuple[str, str]:
 
 def _market_binding(region_evidence: list[str], observations: list[dict[str, Any]]) -> str:
     signals = set(region_evidence)
-    if signals & MARKET_BOUND_SIGNALS:
+    if observations and signals & MARKET_BOUND_SIGNALS:
         return "MARKET_BOUND"
     # A generic publisher/distributor name is not market proof. The upstream
     # regional policy must have classified the visible legal text as regional.
@@ -95,31 +125,63 @@ def build_physical_evidence_bundle(item: dict[str, Any], *, queue_version: str |
         if not isinstance(raw, dict):
             continue
         component, node_type = map_visual_component(raw)
-        observation_id = f"obs-{index + 1}-{_hash(raw)[:12]}"
+        observation_id = _clean(raw.get("id")) or f"obs-{index + 1}-{_hash(raw)[:12]}"
         observation = {
             "id": observation_id,
             "imageIndex": max(1, int(raw.get("imageIndex") or index + 1)),
             "component": component,
             "productNodeType": node_type,
             "role": str(raw.get("role") or "other").strip().lower(),
-            "textSnippets": _strings(raw.get("textSnippets")),
+            "textSnippets": _strings(raw.get("textSnippets")) or _strings(raw.get("visibleText")),
             "productCodes": _strings(raw.get("productCodes")),
-            "barcodes": [re.sub(r"\D", "", value) for value in _strings(raw.get("barcodes")) if 8 <= len(re.sub(r"\D", "", value)) <= 14],
+            "barcodes": [clean for value in _strings(raw.get("barcodes")) if _valid_gtin(clean := re.sub(r"\D", "", value))],
             "languages": _strings(raw.get("languages")),
             "ratingSystems": _strings(raw.get("ratingSystems")),
             "distributors": _strings(raw.get("distributors")),
             "editionMarkers": _strings(raw.get("editionMarkers")),
         }
+        if _clean(raw.get("listingId")):
+            observation["listingId"] = _clean(raw.get("listingId"))
+        if _clean(raw.get("contentHash")):
+            observation["contentHash"] = _clean(raw.get("contentHash"))
+        if _strings(raw.get("serials")):
+            observation["serials"] = _strings(raw.get("serials"))
         observations.append(observation)
         identifiers.extend({"type": "EAN_UPC", "value": value, "component": component, "observationId": observation_id} for value in observation["barcodes"])
         identifiers.extend({"type": "PRODUCT_CODE", "value": value, "component": component, "observationId": observation_id} for value in observation["productCodes"])
+        identifiers.extend({"type": "SERIAL", "value": value, "component": component, "observationId": observation_id} for value in observation.get("serials", []))
 
     image_urls = _strings(evidence.get("imageUrls"))
     if _clean(evidence.get("imageUrl")) and evidence.get("imageUrl") not in image_urls:
         image_urls.insert(0, str(evidence["imageUrl"]))
-    original_urls = _strings(raw_vision.get("images")) or image_urls
-    image_hashes = evidence.get("imageHashes") if isinstance(evidence.get("imageHashes"), dict) else {}
-    images = [{"index": index + 1, "url": url, "originalUrl": original_urls[index] if index < len(original_urls) else None, "hash": _clean(image_hashes.get(url))} for index, url in enumerate(image_urls)]
+    snapshot = evidence.get("listingSnapshot") if isinstance(evidence.get("listingSnapshot"), dict) else {}
+    snapshot_images = _list(snapshot.get("images"))
+    if snapshot_images:
+        images = []
+        for index, raw_image in enumerate(snapshot_images):
+            if not isinstance(raw_image, dict):
+                continue
+            url = _clean(raw_image.get("resolvedUrl") or raw_image.get("originalUrl") or raw_image.get("sourceUrl"))
+            if not url:
+                continue
+            image = {
+                "index": max(1, int(raw_image.get("imageIndex") or index + 1)),
+                "url": url,
+                "originalUrl": _clean(raw_image.get("originalUrl") or raw_image.get("sourceUrl")),
+                "hash": _clean(raw_image.get("contentHash")),
+                "listingId": _clean(raw_image.get("listingId") or snapshot.get("listingId")),
+                "sourceUrl": _clean(raw_image.get("sourceUrl")),
+                "resolvedUrl": _clean(raw_image.get("resolvedUrl")),
+                "width": raw_image.get("width") if isinstance(raw_image.get("width"), int) else None,
+                "height": raw_image.get("height") if isinstance(raw_image.get("height"), int) else None,
+                "byteLength": raw_image.get("byteLength") if isinstance(raw_image.get("byteLength"), int) else None,
+                "publicationAllowed": False,
+            }
+            images.append(image)
+    else:
+        original_urls = _strings(raw_vision.get("images")) or image_urls
+        image_hashes = evidence.get("imageHashes") if isinstance(evidence.get("imageHashes"), dict) else {}
+        images = [{"index": index + 1, "url": url, "originalUrl": original_urls[index] if index < len(original_urls) else None, "hash": _clean(image_hashes.get(url))} for index, url in enumerate(image_urls)]
     region_evidence = _strings(evidence.get("regionEvidence"))
     market_binding = _market_binding(region_evidence, observations)
     root_id = f"product-{_hash([item.get('id'), item.get('candidateCatalogId')])[:16]}"

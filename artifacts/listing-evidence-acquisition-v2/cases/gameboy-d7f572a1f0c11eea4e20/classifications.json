@@ -1,0 +1,29 @@
+[
+  {
+    "listingId": "v1|146943102104|0",
+    "imageIndex": 1,
+    "contentHash": "54e94a22b563389f1fee9de7de51acd2a18148f369f7e2f661034db851fcc1d9",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible front of the game box with title and branding."
+  },
+  {
+    "listingId": "v1|146943102104|0",
+    "imageIndex": 2,
+    "contentHash": "c74ace98092d67cdfc6a21da24e682e534614d1e20f650263107a993e89f4337",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 0.9,
+    "reason": "Visible back of the game box with additional information."
+  },
+  {
+    "listingId": "v1|146943102104|0",
+    "imageIndex": 3,
+    "contentHash": "56a6d9aea05e2156af7a63e0f3b77d5ae4056f169712e46e339d0eb0b6f8d46a",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.5,
+    "reason": "Image shows the side of a box but lacks clear identification."
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "listingId": "v1|275605922422|0",
+    "imageIndex": 1,
+    "contentHash": "a67309aad5a412c167125a5d22cb70c99d321643c3d5933b1f74de5b2acd4e70",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "VHS tape and case, not related to the game."
+  },
+  {
+    "listingId": "v1|275605922422|0",
+    "imageIndex": 2,
+    "contentHash": "b44d6b8c20f5cc57b257ed1ee139b74c426fe1754a15b4ef41150ffa16f08081",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "VHS tape back cover, not related to the game."
+  },
+  {
+    "listingId": "v1|275605922422|0",
+    "imageIndex": 3,
+    "contentHash": "93dac6910963b2106b91ed3e56d37c7e2e2e1fcf81b8c48ec88d38cd2a1a2a65",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "VHS tape and case, not related to the game."
+  }
+]

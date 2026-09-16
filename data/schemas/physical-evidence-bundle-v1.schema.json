@@ -99,7 +99,14 @@
     "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
     "image": {
       "type": "object", "additionalProperties": false, "required": ["index", "url", "originalUrl", "hash"],
-      "properties": { "index": { "type": "integer", "minimum": 1 }, "url": { "type": "string" }, "originalUrl": { "type": ["string", "null"] }, "hash": { "type": ["string", "null"] } }
+      "properties": {
+        "index": { "type": "integer", "minimum": 1 }, "url": { "type": "string" },
+        "originalUrl": { "type": ["string", "null"] }, "hash": { "type": ["string", "null"] },
+        "listingId": { "type": ["string", "null"] }, "sourceUrl": { "type": ["string", "null"] },
+        "resolvedUrl": { "type": ["string", "null"] }, "width": { "type": ["integer", "null"], "minimum": 1 },
+        "height": { "type": ["integer", "null"], "minimum": 1 }, "byteLength": { "type": ["integer", "null"], "minimum": 1 },
+        "publicationAllowed": { "const": false }
+      }
     },
     "node": {
       "type": "object", "additionalProperties": false, "required": ["id", "type", "component", "label"],
@@ -123,7 +130,10 @@
         "languages": { "type": "array", "items": { "type": "string" } },
         "ratingSystems": { "type": "array", "items": { "type": "string" } },
         "distributors": { "type": "array", "items": { "type": "string" } },
-        "editionMarkers": { "type": "array", "items": { "type": "string" } }
+        "editionMarkers": { "type": "array", "items": { "type": "string" } },
+        "listingId": { "type": "string", "minLength": 1 },
+        "contentHash": { "$ref": "#/$defs/hash" },
+        "serials": { "type": "array", "items": { "type": "string" } }
       }
     },
     "identifier": {

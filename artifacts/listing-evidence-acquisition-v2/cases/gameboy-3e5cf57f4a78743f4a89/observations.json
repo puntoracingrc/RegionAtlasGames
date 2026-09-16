@@ -1,0 +1,78 @@
+[
+  {
+    "id": "listing-obs-a838ec0543a007a8",
+    "listingId": "v1|267775480937|0",
+    "imageIndex": 1,
+    "contentHash": "8d2acf0eddd97be10ac1ea30c04015aea6c7bed158e778591b8cf6f5ec01a6ee",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "WARIO LAND",
+      "SUPER MARIO LAND 3",
+      "NINTENDO",
+      "GAME BOY"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-9e9091b8f345be6f",
+    "listingId": "v1|267775480937|0",
+    "imageIndex": 2,
+    "contentHash": "5f2fff54212f9e32d290ecef3e047e931f9281d1b1b67d41c7c71f1b6bd10bad",
+    "component": "CARTRIDGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "MADE IN JAPAN",
+      "PAT. PEND"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-a183a65db113beba",
+    "listingId": "v1|267775480937|0",
+    "imageIndex": 3,
+    "contentHash": "e7f02afea01ad0be3ac50b7e79403f999213c587b35b8a11831daf9d3de46f04",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "WARIO LAND",
+      "SUPER MARIO LAND 3",
+      "NINTENDO",
+      "GAME BOY"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

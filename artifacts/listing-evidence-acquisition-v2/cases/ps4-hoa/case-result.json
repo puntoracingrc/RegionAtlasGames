@@ -1,0 +1,429 @@
+{
+  "caseId": "ps4-hoa",
+  "platform": "ps4",
+  "subjectTitle": "Hoa",
+  "sourcePhotos": 7,
+  "preservedPhotos": 7,
+  "originalResolutionPhotos": 7,
+  "photosClassified": 7,
+  "photosInspectedHighDetail": 1,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": false,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": false,
+      "CARTRIDGE_BACK": false,
+      "DISC": false,
+      "MANUAL_FRONT": false,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "componentsFound": [
+    "OUTER_PACKAGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 1,
+  "marketBoundObservations": 1,
+  "diagnosis": "MARKET_BINDING_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 1,
+  "openAiCalls": 2,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 20083,
+      "completion_tokens": 341,
+      "total_tokens": 20424,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 25668,
+      "completion_tokens": 119,
+      "total_tokens": 25787,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.00713865,
+  "item": {
+    "id": "listing-evidence-v2-ps4-hoa",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "ps4",
+    "targetRegion": "PAL España",
+    "detectedRegion": null,
+    "catalogId": "ps4-hoa",
+    "candidateCatalogId": "ps4-hoa",
+    "listingTitle": "HOA Juego para Consola Sony PlayStation 4, PS4, PAL ESPAÑA",
+    "priceEur": 22.56,
+    "condition": "unknown",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T17:55:08Z",
+    "evidence": {
+      "externalId": "v1|336646284380|0",
+      "url": "https://www.ebay.es/itm/336646284380",
+      "description": "Sumérgete en un mundo mágico donde los sueños se hacen realidad y la belleza está en cada rincón. ¡Descubre un mundo mágico lleno de aventura y misterio con HOA! Nombre del Juego: HOA. ️Exploración y aventura: Explora un vasto y hermoso mundo lleno de secretos por descubrir.",
+      "imageUrl": "https://i.ebayimg.com/images/g/AE8AAeSwEz1qHbFF/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/AE8AAeSwEz1qHbFF/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/3XoAAeSw6SZqHbFF/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/suwAAeSwO91qHbFF/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/PgsAAeSwQwpqHbFF/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/Om8AAeSwCp5qHbFF/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/0OQAAeSwrWBqHbFF/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/9NsAAeSwvfRqHbFF/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|336646284380|0",
+        "legacyItemId": "336646284380",
+        "capturedAt": "2026-09-16T17:55:08Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "HOA Juego para Consola Sony PlayStation 4, PS4, PAL ESPAÑA",
+          "shortDescription": "Sumérgete en un mundo mágico donde los sueños se hacen realidad y la belleza está en cada rincón. ¡Descubre un mundo mágico lleno de aventura y misterio con HOA! Nombre del Juego: HOA. ️Exploración y aventura: Explora un vasto y hermoso mundo lleno de secretos por descubrir.",
+          "description": "HOA Juego para Consola Sony PlayStation 4, PS4, PAL ESPAÑA /  1194163 / 5056280445074<h1>HOA Juego para PlayStation 4 PS4, PAL ES<br /></h1><p><br /></p><h2>¡Descubre un mundo mágico lleno de aventura y misterio con HOA!<br /></h2><p><br />¡Prepárate para vivir una experiencia de juego única y emocionante con HOA Juego para PlayStation 4 PS4, PAL ES! Sumérgete en un mundo mágico donde los sueños se hacen realidad y la belleza está en cada rincón. Conviértete en el protagonista de esta increíble historia y descubre todos los secretos que HOA tiene para ti.<br /><br /></p><h3>Especificaciones técnicas:<br /></h3><p><br /></p><ul><li><strong>Garantía del fabricante:</strong> 36 Meses<br /></li><li><strong>Formato:</strong> Físico<br /></li><li><strong>Género:</strong> PlayStation 4 - Games - PM Studios - Standard<br /></li><li><strong>Pegi:</strong> 7+<br /></li><li><strong>Plataforma:</strong> PlayStation 4<br /></li><li><strong>Idioma en Contraportada:</strong> English, French, Spanish<br /></li><li><strong>Idioma en el Juego (Audio):</strong> English<br /></li><li><strong>Idioma en el Juego (Subtítulos):</strong> English, German, Spanish, French, Italian, Polish, Russian, Brazilian, Japanese, Korean, Traditional Chinese, Simplified Chinese, Turkish<br /></li><li><strong>Nombre del Juego:</strong> HOA<br /></li><li><strong>Fecha de Lanzamiento:</strong> 2022-03-11<br /></li><li><strong>Editor:</strong> Numskull<br /></li><li><strong>Equivalente USK Alemania:</strong> USK ab 6 Jahren<br /></li><li><strong>Precintado de Fábrica:</strong> Sí<br /></li><li><strong>Región:</strong> English<br /></li><li><strong>EAN:</strong> 5056280445074<br /><br /><h3>Características destacadas:<br /></h3><p><br /></p></li><li> <strong>Experiencia mágica:</strong> Adéntrate en un mundo de fantasía y vive una experiencia única llena de magia y encanto con HOA Juego para PlayStation 4 PS4, PAL ES.<br /></li><li> <strong>Gráficos impresionantes:</strong> Disfruta de unos gráficos impresionantes que te transportarán a un mundo lleno de belleza y detalle.<br /></li><li>️ <strong>Exploración y aventura:</strong> Explora un vasto y hermoso mundo lleno de secretos por descubrir. Embárcate en una emocionante aventura y desvela los misterios de HOA.<br /></li><li> <strong>Banda sonora cautivadora:</strong> Sumérgete en la atmósfera del juego con una banda sonora cautivadora que te acompañará en cada momento de tu aventura.<br /></li><li> <strong>Puzles desafiantes:</strong> Supera desafiantes puzles que pondrán a prueba tu ingenio y habilidad. Descubre nuevas mecánicas y resuelve los acertijos que se interponen en tu camino.<br /></li><li> <strong>Ambiente envolvente:</strong> Sumérgete en un mundo lleno de vida y naturaleza. Explora preciosos paisajes y descubre la belleza oculta en cada rincón de HOA.<br /><br /><h3>Las mejores prácticas para disfrutar de HOA Juego para PlayStation 4 PS4, PAL ES:<br /></h3><p><br /></p></li><li> <strong>Sumérgete en la historia:</strong> Dedica un tiempo a sumergirte en la historia de HOA. Conoce a sus personajes, descubre su trasfondo y vive cada momento intensamente para disfrutar al máximo de la experiencia de juego.<br /></li><li> <strong>Explora con calma:</strong> No tengas prisa por avanzar en el juego. Tómate tu tiempo para explorar cada rincón del mundo de HOA. Descubre secretos ocultos, interactúa con los personajes y disfruta de la belleza que te rodea.<br /></li><li> <strong>Presta atención a los detalles:</strong> Los puzles y desafíos en HOA suelen requerir un ojo atento a los detalles. Presta atención a los objetos que encuentres, a los patrones y a las pistas que puedas descubrir. ¡La clave para superarlos está en los pequeños detalles!<br /></li><li> <strong>Disfruta de la banda sonora:</strong> La banda sonora de HOA es un componente importante de la experiencia de juego. No olvides poner atención a la música que te acompaña en tu aventura. Sumérgete en su melodía y déjate llevar por la atmósfera del juego.<br /></li><li>⚙️ <strong>Experimenta con las mecánicas de juego:</strong> HOA presenta una variedad de mecánicas de juego únicas. No dudes en experimentar con ellas y descubrir nuevas formas de interactuar con el entorno. ¡Puedes sorprenderte con las posibilidades que ofrece!<br /><br /><h3>¿Qué incluye HOA Juego para PlayStation 4 PS4, PAL ES?<br /></h3><p><br /></p></li><li>1 x Juego HOA para PlayStation 4 PS4, PAL ES<br /></li><li>Manual de instrucciones<br /><br /><h3>Condiciones de devolución:<br /></h3><p><br />En caso de que desees devolver el producto, ten en cuenta que debe conservar sus precintos originales. Si el producto ha sido abierto, no podrá ser devuelto ni reembolsado.<br /><br />¡Embárcate en una aventura inolvidable con HOA Juego para PlayStation 4 PS4, PAL ES! Sumérgete en un mundo mágico y descubre todos los secretos que este increíble juego tiene para ti. ¡No esperes más y vive una experiencia de juego única!<br /><br /></p><h2>FAQ (Preguntas frecuentes)<br /></h2><p><br /></p></li><li>¿Cuál es la garantía del producto?<br /><ul><li>El fabricante ofrece una garantía de 36 meses para HOA Juego para PlayStation 4 PS4, PAL ES.<br /><br /></li></ul></li><li>¿Qué idiomas se encuentran disponibles en el juego?<br /><ul><li>Encontrarás los siguientes idiomas disponibles: inglés, francés, español, alemán, italiano, polaco, ruso, brasileño, japonés, coreano, chino tradicional, chino simplificado y turco.<br /><br /></li></ul></li><li>¿Puedo devolver el producto si no cumple mis expectativas?<br /><ul><li>Sí, puedes devolver el producto siempre y cuando conserve sus precintos originales. Si el producto ha sido abierto, no podrá ser devuelto ni reembolsado.<br /><br /></li></ul></li><li>¿Cuál es la edad recomendada para jugar a HOA?<br /><ul><li>HOA cuenta con una clasificación Pegi de 7+, por lo que es apto para jugadores a partir de esa edad.<br /><br /></li></ul></li><li>¿Cuándo fue lanzado HOA Juego para PlayStation 4 PS4, PAL ES?<br /><ul><li>El juego fue lanzado el 11 de marzo de 2022.<br /><br /></li></ul></li><li>¿En qué plataforma puedo jugar a HOA?<br /><ul><li>HOA está disponible exclusivamente para PlayStation 4.<br /><br /></li></ul></li><li>¿Quién es el editor de HOA Juego para PlayStation 4 PS4, PAL ES?<br /><ul><li>El juego fue editado por Numskull.<br /><br /></li></ul></li><li>¿El juego viene precintado de fábrica?<br /><ul><li>Sí, el juego viene precintado de fábrica para asegurarte de que recibas un producto nuevo y en perfectas condiciones.<br /><br /></li></ul></li><li>¿Qué incluye el paquete de HOA Juego para PlayStation 4 PS4, PAL ES?<br /><ul><li>El paquete incluye el juego HOA para PlayStation 4 PS4, PAL ES y un manual de instrucciones.<br /><br /></li></ul></li><li>¿Cuál es la equivalencia de USK Alemania para HOA Juego para PlayStation 4 PS4, PAL ES?<br /><ul><li>La equivalencia de clasificación por edad en Alemania es \"USK ab 6 Jahren\".</li></ul></li></ul>",
+          "condition": "Nuevo",
+          "conditionId": "1000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/336646284380",
+          "itemLocation": {
+            "city": "Gandia",
+            "stateOrProvince": "Comunidad Valenciana",
+            "postalCode": "46***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "arreglatelo",
+            "feedbackPercentage": "98.1",
+            "feedbackScore": 27745
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "Nombre del videojuego": [
+              "1194163"
+            ],
+            "Garantía del fabricante": [
+              "3 años"
+            ],
+            "Plataforma": [
+              "PlayStation 4"
+            ],
+            "Precintado de Fabrica": [
+              "Si"
+            ],
+            "Código de región": [
+              "English"
+            ],
+            "MPN": [
+              "1194163"
+            ],
+            "País de origen": [
+              "PAL ES"
+            ],
+            "Cantidad de unidades": [
+              "1"
+            ],
+            "Equivalente USK": [
+              "USK ab 6 Jahren"
+            ],
+            "Género": [
+              "Acción y Aventura"
+            ],
+            "Tipo de unidad": [
+              "Unidad"
+            ],
+            "Editor": [
+              "Nintendo;PM Studios;Numskull"
+            ],
+            "Características": [
+              "PlayStation 4 - Games - PM Studios - Standard"
+            ],
+            "Clasificación": [
+              "7+"
+            ],
+            "EAN": [
+              "5056280445074"
+            ]
+          },
+          "price": {
+            "value": 22.56,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: Paq Estándar",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "4.50",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-29T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-30T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 2,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": "5056280445074",
+          "brand": null,
+          "mpn": "1194163",
+          "epid": null
+        },
+        "imagesAvailableFromSource": 7,
+        "imagesPreserved": 7,
+        "images": [
+          {
+            "listingId": "v1|336646284380|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/AE8AAeSwEz1qHbFF/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/AE8AAeSwEz1qHbFF/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/AE8AAeSwEz1qHbFF/s-l1600.jpg",
+            "contentHash": "cdd2356f33a061a7e09b7e9a51797db7994663916f6de3141a89cd5d4fbd434f",
+            "width": 1025,
+            "height": 1295,
+            "byteLength": 227565,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-hoa/cdd2356f33a061a7e09b7e9a51797db7994663916f6de3141a89cd5d4fbd434f.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336646284380|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/3XoAAeSw6SZqHbFF/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/3XoAAeSw6SZqHbFF/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/3XoAAeSw6SZqHbFF/s-l1600.jpg",
+            "contentHash": "e0f42a5f551635e9a0f8eaf41170c6170fbf980221c7181299d4dc23f6388c74",
+            "width": 1280,
+            "height": 720,
+            "byteLength": 75648,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-hoa/e0f42a5f551635e9a0f8eaf41170c6170fbf980221c7181299d4dc23f6388c74.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336646284380|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/suwAAeSwO91qHbFF/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/suwAAeSwO91qHbFF/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/suwAAeSwO91qHbFF/s-l1600.jpg",
+            "contentHash": "129094d9520dea91897c48afe06fc11ff4876479e8711b4a3e564ba32d0346cd",
+            "width": 1280,
+            "height": 720,
+            "byteLength": 134531,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-hoa/129094d9520dea91897c48afe06fc11ff4876479e8711b4a3e564ba32d0346cd.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336646284380|0",
+            "imageIndex": 4,
+            "sourceIndex": 4,
+            "sourceUrl": "https://i.ebayimg.com/images/g/PgsAAeSwQwpqHbFF/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/PgsAAeSwQwpqHbFF/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/PgsAAeSwQwpqHbFF/s-l1600.jpg",
+            "contentHash": "503d659bfe672b0fed8241fa8bdcda330786d28a47b66e20c3f9fa12c67c3739",
+            "width": 1280,
+            "height": 720,
+            "byteLength": 92539,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-hoa/503d659bfe672b0fed8241fa8bdcda330786d28a47b66e20c3f9fa12c67c3739.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336646284380|0",
+            "imageIndex": 5,
+            "sourceIndex": 5,
+            "sourceUrl": "https://i.ebayimg.com/images/g/Om8AAeSwCp5qHbFF/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/Om8AAeSwCp5qHbFF/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/Om8AAeSwCp5qHbFF/s-l1600.jpg",
+            "contentHash": "7b28f10293bb72f1996bb5c4fa6b46e3b3ac30cf398d248ed633f5a9608458ed",
+            "width": 1280,
+            "height": 720,
+            "byteLength": 101097,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-hoa/7b28f10293bb72f1996bb5c4fa6b46e3b3ac30cf398d248ed633f5a9608458ed.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336646284380|0",
+            "imageIndex": 6,
+            "sourceIndex": 6,
+            "sourceUrl": "https://i.ebayimg.com/images/g/0OQAAeSwrWBqHbFF/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/0OQAAeSwrWBqHbFF/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/0OQAAeSwrWBqHbFF/s-l1600.jpg",
+            "contentHash": "4ecf338577fe22c6fbf47121c1a53cc9ee6c4d4696b7c913eda036b9e5e74409",
+            "width": 1280,
+            "height": 720,
+            "byteLength": 150523,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-hoa/4ecf338577fe22c6fbf47121c1a53cc9ee6c4d4696b7c913eda036b9e5e74409.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336646284380|0",
+            "imageIndex": 7,
+            "sourceIndex": 7,
+            "sourceUrl": "https://i.ebayimg.com/images/g/9NsAAeSwvfRqHbFF/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/9NsAAeSwvfRqHbFF/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/9NsAAeSwvfRqHbFF/s-l1600.jpg",
+            "contentHash": "48cb6dc750a919ea305e96443ecf5d2cb378d81a7a31ee670ec9e3feaac798ab",
+            "width": 1280,
+            "height": 720,
+            "byteLength": 51774,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-hoa/48cb6dc750a919ea305e96443ecf5d2cb378d81a7a31ee670ec9e3feaac798ab.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-3eb66cc5492e48c1",
+          "listingId": "v1|336646284380|0",
+          "imageIndex": 1,
+          "contentHash": "cdd2356f33a061a7e09b7e9a51797db7994663916f6de3141a89cd5d4fbd434f",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Hoa",
+          "platform": "ps4",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [
+            "PEGI 7"
+          ],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "PM STUDIOS"
+          ],
+          "visibleText": [],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": []
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": []
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "ps4-hoa",
+      "catalogTitle": "Hoa",
+      "matchAlternatives": [
+        {
+          "catalogId": "ps4-hoa",
+          "region": "PAL España",
+          "title": "Hoa",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "ps4-usa-hoa",
+          "region": "USA",
+          "title": "Hoa",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": false
+    }
+  },
+  "marketFollowupCalls": 0
+}

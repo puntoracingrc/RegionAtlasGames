@@ -1,0 +1,56 @@
+[
+  {
+    "listingId": "v1|336641149509|0",
+    "imageIndex": 1,
+    "contentHash": "ad2244f4d1428e7b0b7bb29a1aa220a6909182d3816da1538d71b17f061fb686",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible front cover of the PS5 game."
+  },
+  {
+    "listingId": "v1|336641149509|0",
+    "imageIndex": 2,
+    "contentHash": "d7e5602280cbb46a177a2a3b0144b52aebca57a9010f5f7edf9d1aace2fbb672",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot."
+  },
+  {
+    "listingId": "v1|336641149509|0",
+    "imageIndex": 3,
+    "contentHash": "77c021b138e6920c19d28ee1515e3a5ce9570e7c5948f89e1ddd70bef8b1e4e0",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot."
+  },
+  {
+    "listingId": "v1|336641149509|0",
+    "imageIndex": 4,
+    "contentHash": "c88a1e542a6c1b07f22eeb89ed10c7bac68eca1d418379b1f1fb52ac955ee4de",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot."
+  },
+  {
+    "listingId": "v1|336641149509|0",
+    "imageIndex": 5,
+    "contentHash": "eeec38f5151da1ab2da48cd61ee036f9912331f41ea64ce21cf9bfa77ac8e9a8",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot."
+  },
+  {
+    "listingId": "v1|336641149509|0",
+    "imageIndex": 6,
+    "contentHash": "babfc0cc22cb31980f915b17d7d8e8276ad2955f41a9b726ef0b009cb2cb0573",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "In-game screenshot."
+  }
+]

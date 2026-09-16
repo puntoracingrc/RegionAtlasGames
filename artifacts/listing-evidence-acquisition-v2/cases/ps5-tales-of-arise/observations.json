@@ -1,0 +1,112 @@
+[
+  {
+    "id": "listing-obs-e349e6b1e5d8f10e",
+    "listingId": "v1|186554265988|0",
+    "imageIndex": 1,
+    "contentHash": "1ff7f90864b912e5cfe66c8756cf95bef751ed8b6e7d5bf234f8b88262b58a16",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Tales of Arise",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 12"
+    ],
+    "languages": [],
+    "distributors": [
+      "BANDAI NAMCO Entertainment"
+    ],
+    "publisherLegalText": [],
+    "visibleText": [
+      "Tales of Arise",
+      "12",
+      "PEGI",
+      "BANDAI NAMCO Entertainment"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-03c9bc777c1d7528",
+    "listingId": "v1|186554265988|0",
+    "imageIndex": 2,
+    "contentHash": "72ef0cd9797398693549fcd23dc820d9e7b461f992bae0705df65b7a1e0934c8",
+    "component": "OUTER_PACKAGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Tales of Arise",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [
+      "3391892015737",
+      "3 931892 015737"
+    ],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 12"
+    ],
+    "languages": [
+      "Spanish",
+      "Portuguese"
+    ],
+    "distributors": [
+      "BANDAI NAMCO Entertainment",
+      "BANDAI NAMCO ENTERTAINMENT EUROPE S.A.S."
+    ],
+    "publisherLegalText": [
+      "FOR HOME USE ONLY",
+      "This software is licensed for play on authorised PlayStation consoles only.",
+      "BANDAI NAMCO Entertainment Inc. All rights reserved."
+    ],
+    "visibleText": [
+      "¡DESAFÍA UN DESTINO INEVITABLE!",
+      "EXPLORA UN UNIVERSO LLENO DE VIDA",
+      "VIVE LA HISTORIA DE DOS PUEBLOS ENFRENTADOS",
+      "ENCADENA POTENTES ATAQUES CON TUS COMPAÑEROS",
+      "1 Player",
+      "40 GB Minimum",
+      "Vibration Function & Trigger Effect Supported",
+      "In-game Purchases",
+      "PEGI 12",
+      "BANDAI NAMCO Entertainment Europe S.A.S. - 15 RUE FELIX MANING - 69000 LYON - FRANCE",
+      "FOR HOME USE ONLY: This software is licensed for play on authorised PlayStation®5 consoles only.",
+      "PROHIBITED UNLESS EXPRESSLY AUTHORISED BY SE",
+      "BANDAI NAMCO Entertainment Inc. All rights reserved.",
+      "Developed by BANDAI NAMCO Studios Inc."
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-dd25f7a3f717597d",
+    "listingId": "v1|186554265988|0",
+    "imageIndex": 3,
+    "contentHash": "02a210af016d0b95058ddfae35567cfae4cd6500929ae0c6fbc2fc0a78cbea83",
+    "component": "OUTER_PACKAGE_SPINE",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Tales of Arise",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 12"
+    ],
+    "languages": [],
+    "distributors": [
+      "BANDAI NAMCO Entertainment"
+    ],
+    "publisherLegalText": [],
+    "visibleText": [
+      "Tales of Arise",
+      "12",
+      "PEGI"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

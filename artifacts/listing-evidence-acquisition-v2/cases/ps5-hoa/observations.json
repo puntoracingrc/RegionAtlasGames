@@ -1,0 +1,27 @@
+[
+  {
+    "id": "listing-obs-a46542f2951bdf15",
+    "listingId": "v1|335722829812|0",
+    "imageIndex": 1,
+    "contentHash": "cc63d97bb3faa727674645799e5b1e2d6afb5aa1db9603eec732597e482f8ef8",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Hoa",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 7"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "PM STUDIOS"
+    ],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]
