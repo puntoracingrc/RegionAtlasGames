@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "patterns": [
+    { "id": "sony-ps3", "platforms": ["ps3"], "type": "SERIAL", "pattern": "^(BLES|BLUS|BLJM|BLAS|BLKS|BCES|BCUS|BCJS|BCAS|BCKS)-?\\d+" },
+    { "id": "sony-ps4", "platforms": ["ps4"], "type": "SERIAL", "pattern": "^CUSA-?\\d+" },
+    { "id": "sony-ps5", "platforms": ["ps5"], "type": "SERIAL", "pattern": "^PPSA-?\\d+" },
+    { "id": "sony-psp", "platforms": ["psp"], "type": "SERIAL", "pattern": "^(ULES|ULUS|ULJM|ULKS|UCES|UCUS|UCJS|UCKS)-?\\d+" },
+    { "id": "sony-vita", "platforms": ["psvita"], "type": "SERIAL", "pattern": "^(PCSB|PCSE|PCSG|PCSH|VLJM|VLAS|VLJS|VLKS)-?\\d+" },
+    { "id": "nintendo-n64-component", "platforms": ["n64"], "type": "PRODUCT_CODE", "pattern": "^(DIS-)?NUS-[A-Z0-9-]+$" },
+    { "id": "nintendo-ds", "platforms": ["ds", "nintendo-ds"], "type": "PRODUCT_CODE", "pattern": "^(NTR|TWL)-[A-Z0-9-]+$" },
+    { "id": "nintendo-wiiu", "platforms": ["wiiu", "wii-u"], "type": "PRODUCT_CODE", "pattern": "^(WUP|TSA-WUP)-[A-Z0-9-]+$" },
+    { "id": "nintendo-switch", "platforms": ["switch"], "type": "PRODUCT_CODE", "pattern": "^(HAC|TSA-HAC|LA-H)-[A-Z0-9-]+$" },
+    { "id": "nintendo-switch2", "platforms": ["switch2"], "type": "PRODUCT_CODE", "pattern": "^(POT|TSA-POT)-[A-Z0-9-]+$" }
+  ]
+}

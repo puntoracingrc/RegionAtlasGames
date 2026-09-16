@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "fields": {
+    "BARCODE": [
+      { "evidenceType": "OWN_SCAN", "score": 100 },
+      { "evidenceType": "EXACT_PHYSICAL_PHOTO", "score": 98 },
+      { "evidenceType": "PUBLISHER_SKU", "score": 95 },
+      { "evidenceType": "NATIONAL_RETAILER", "score": 90 },
+      { "evidenceType": "SPECIALIZED_DATABASE", "score": 86 },
+      { "evidenceType": "MARKETPLACE_METADATA", "score": 62 },
+      { "evidenceType": "SEARCH_RESULT", "score": 30 }
+    ],
+    "PACKAGING_LANGUAGES": [
+      { "evidenceType": "OWN_SCAN", "score": 100 },
+      { "evidenceType": "EXACT_PHYSICAL_PHOTO", "score": 98 },
+      { "evidenceType": "UNBOXING_FRAME", "score": 95 },
+      { "evidenceType": "FINAL_PUBLISHER_IMAGE", "score": 90 },
+      { "evidenceType": "REAL_RETAILER_PHOTO", "score": 85 },
+      { "evidenceType": "RETAILER_TEXT", "score": 20 },
+      { "evidenceType": "SOFTWARE_DATABASE", "score": 10 }
+    ],
+    "MARKET_REGION": [
+      { "evidenceType": "EXPLICIT_PUBLISHER_DISTRIBUTOR", "score": 100 },
+      { "evidenceType": "NATIONAL_BOX_CODE_WITH_SCAN", "score": 98 },
+      { "evidenceType": "LEGAL_DISTRIBUTOR_TEXT", "score": 95 },
+      { "evidenceType": "NATIONAL_PACKAGING_SCAN", "score": 90 },
+      { "evidenceType": "MULTIPLE_NATIONAL_RETAILERS", "score": 75 },
+      { "evidenceType": "SINGLE_NATIONAL_RETAILER", "score": 60 },
+      { "evidenceType": "SELLER_COUNTRY", "score": 20 },
+      { "evidenceType": "BARCODE_PREFIX", "score": 0 }
+    ],
+    "SOFTWARE_LANGUAGES": [
+      { "evidenceType": "TECHNICAL_DATABASE", "score": 98 },
+      { "evidenceType": "OFFICIAL_SOFTWARE_SPECIFICATION", "score": 95 },
+      { "evidenceType": "PACKAGING_TEXT", "score": 50 }
+    ],
+    "ROM_REVISION": [
+      { "evidenceType": "TECHNICAL_DATABASE", "score": 100 },
+      { "evidenceType": "VERIFIED_DUMP", "score": 100 },
+      { "evidenceType": "LABEL_SUFFIX", "score": 0 }
+    ]
+  }
+}

@@ -83,6 +83,7 @@ public/covers
 /logs/
 /data/logs/
 /data/worker-runtime/
+/artifacts/research-engine/
 /data/ebay-regional-campaigns/audit/
 
 # ingest eBay (token + caché local — resto de price-ingest en disco externo)

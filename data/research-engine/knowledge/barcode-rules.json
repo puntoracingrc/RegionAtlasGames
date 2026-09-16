@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "rules": [
+    { "id": "ean13-checksum", "length": 13, "validator": "EAN13", "onFailure": "RETRY_DIGITS_ONLY" },
+    { "id": "upca-checksum", "length": 12, "validator": "UPCA", "onFailure": "RETRY_DIGITS_ONLY" },
+    { "id": "preserve-leading-zeroes", "rule": "Store the observed digits literally before normalization." },
+    { "id": "upc-ean-equivalence", "rule": "A valid UPC-A and a valid EAN-13 differing only by a leading zero are equivalent representations." },
+    { "id": "prefix-not-market", "rule": "GS1/JAN prefix may guide search but cannot prove packaging market." }
+  ]
+}

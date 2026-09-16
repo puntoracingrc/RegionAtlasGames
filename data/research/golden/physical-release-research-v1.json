@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "physical-release-research-v1",
+  "purpose": "Deterministic evaluation only. This document must never be loaded as runtime research truth.",
+  "runtimeUse": "FORBIDDEN",
+  "cases": [
+    {
+      "id": "liberation-hd-ps3-digital-only",
+      "kind": "PHYSICAL_TAXONOMY",
+      "input": { "digitalOnly": true },
+      "expected": "DIGITAL_ONLY"
+    },
+    {
+      "id": "shadows-gold-ps5-canceled-physical",
+      "kind": "PHYSICAL_TAXONOMY",
+      "input": { "canceledPhysical": true },
+      "expected": "CANCELED_PHYSICAL"
+    },
+    {
+      "id": "shadows-target-steelbook-bonus-no-game",
+      "kind": "PHYSICAL_TAXONOMY",
+      "input": { "bonusItemOnly": true, "gameIncluded": false, "steelbook": true },
+      "expected": "BONUS_ITEM_ONLY"
+    },
+    {
+      "id": "black-flag-resynced-deluxe-standalone-digital",
+      "kind": "PHYSICAL_TAXONOMY",
+      "input": { "digitalOnly": true, "standalone": true },
+      "expected": "DIGITAL_ONLY"
+    },
+    {
+      "id": "ezio-collection-switch-code-sku",
+      "kind": "PHYSICAL_TAXONOMY",
+      "input": { "codeInBox": true },
+      "expected": "CODE_IN_BOX"
+    },
+    {
+      "id": "shadows-switch2-game-key-card",
+      "kind": "PHYSICAL_TAXONOMY",
+      "input": { "gameKeyCard": true },
+      "expected": "GAME_KEY_CARD"
+    },
+    {
+      "id": "american-saga-xbox360-liberation-component",
+      "kind": "COMPONENT_CONTENT",
+      "input": { "component": "Liberation HD", "observedForm": "printed download voucher" },
+      "expected": "VOUCHER"
+    },
+    {
+      "id": "xbox360-bles-platform-conflict",
+      "kind": "PLATFORM_IDENTIFIER",
+      "input": { "platformSlug": "xbox360", "identifier": "BLES-01234" },
+      "expected": "PLATFORM_IDENTIFIER_CONFLICT"
+    },
+    {
+      "id": "spain-retailer-not-spanish-packaging",
+      "kind": "REGION_EVIDENCE",
+      "input": { "retailerCountry": "Spain", "exactPackageObserved": false },
+      "expected": "EVIDENCE_MARKET_ONLY"
+    }
+  ],
+  "n64Cases": [
+    {
+      "id": "n64-cart-eur-family-only",
+      "ruleId": "n64-eur-not-national-package",
+      "expectedAllowed": "EUROPEAN_CARTRIDGE_FAMILY",
+      "expectedForbidden": "GENERIC_EUROPE_BOX"
+    },
+    {
+      "id": "n64-euu-no-country-map",
+      "ruleId": "n64-euu-not-country-map",
+      "expectedForbidden": "EUU_EQUALS_FR_DE"
+    },
+    {
+      "id": "n64-same-barcode-different-boxes",
+      "ruleId": "n64-barcode-shared",
+      "expectedRuleContains": "Do not merge variants"
+    },
+    {
+      "id": "n64-label-minus-one-not-rom-revision",
+      "ruleId": "n64-label-minus-one-not-rom-rev",
+      "expectedForbidden": "ROM_REVISION_FROM_LABEL_SUFFIX"
+    },
+    {
+      "id": "n64-bundle-inner-cart-no-new-game",
+      "ruleId": "n64-bundle-same-inner-game",
+      "expectedForbidden": "AUTOMATIC_NEW_CANONICAL_GAME"
+    },
+    {
+      "id": "n64-title-not-canonical-merge",
+      "ruleId": "n64-title-not-identity",
+      "expectedRuleContains": "title alone is insufficient"
+    }
+  ]
+}

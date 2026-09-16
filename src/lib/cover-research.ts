@@ -1,6 +1,7 @@
 import { normalizeAffiliateText, titleTokens } from "./affiliate/matching/normalize-title.ts";
 import type { EbayResearchReport } from "./ebay/ebay-research.ts";
 import type { CatalogGame, GameDetails } from "./types.ts";
+import { searchResearchWeb } from "./research-engine/search-provider.ts";
 
 const USER_AGENT = "RegionAtlasGames/1.0 (admin cover research)";
 const REQUEST_TIMEOUT_MS = 9_000;
@@ -276,42 +277,9 @@ function platformOfficialDomains(platformSlug: string): string[] {
   return [];
 }
 
-async function googleSearch(query: string): Promise<SearchResult[]> {
-  const key = process.env.GOOGLE_SEARCH_API_KEY?.trim();
-  const cx = process.env.GOOGLE_SEARCH_CX?.trim();
-  if (!key || !cx) return [];
-  const params = new URLSearchParams({ key, cx, q: query, num: "3", hl: "es", safe: "active" });
-  const response = await fetch(`https://www.googleapis.com/customsearch/v1?${params}`, {
-    headers: { "User-Agent": USER_AGENT },
-    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-    cache: "no-store",
-  });
-  if (!response.ok) throw new Error(`google_search_${response.status}`);
-  const data = await response.json() as { items?: Array<{ title?: string; link?: string; snippet?: string }> };
-  return (data.items ?? [])
-    .map((item) => ({ title: item.title ?? "", url: item.link ?? "", snippet: item.snippet ?? "" }))
-    .filter((item) => item.title && item.url);
-}
-
-async function serpApiSearch(query: string): Promise<SearchResult[]> {
-  const key = process.env.SERPAPI_KEY?.trim() || process.env.SERPAPI_API_KEY?.trim();
-  if (!key) return [];
-  const params = new URLSearchParams({ engine: "google", api_key: key, q: query, google_domain: "google.es", gl: "es", hl: "es", num: "3" });
-  const response = await fetch(`https://serpapi.com/search.json?${params}`, {
-    headers: { "User-Agent": USER_AGENT },
-    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-    cache: "no-store",
-  });
-  if (!response.ok) throw new Error(`serpapi_${response.status}`);
-  const data = await response.json() as { organic_results?: Array<{ title?: string; link?: string; snippet?: string }> };
-  return (data.organic_results ?? [])
-    .map((item) => ({ title: item.title ?? "", url: item.link ?? "", snippet: item.snippet ?? "" }))
-    .filter((item) => item.title && item.url);
-}
-
 async function searchOfficial(query: string): Promise<SearchResult[]> {
-  if (process.env.GOOGLE_SEARCH_API_KEY?.trim() && process.env.GOOGLE_SEARCH_CX?.trim()) return googleSearch(query);
-  return serpApiSearch(query);
+  return (await searchResearchWeb(query, { timeoutMs: REQUEST_TIMEOUT_MS }))
+    .map((result) => ({ title: result.title, url: result.url, snippet: result.snippet }));
 }
 
 async function candidateFromOfficialPage(

@@ -1,0 +1,110 @@
+import { existsSync } from "node:fs";
+import { assertSafeResearchUrl, type ResearchDnsLookup } from "./url-security";
+import type { ResearchBrowserProvider, ResearchBrowserResult } from "./v2-types";
+
+type BrowserProviderOptions = {
+  executablePath?: string | null;
+  headless?: boolean;
+  timeoutMs?: number;
+  resolver?: ResearchDnsLookup;
+};
+
+function browserExecutable(explicit?: string | null): string | undefined {
+  const candidates = [
+    explicit,
+    process.env.RESEARCH_BROWSER_EXECUTABLE_PATH,
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "/Applications/Chromium.app/Contents/MacOS/Chromium",
+    "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+    "/usr/bin/google-chrome",
+    "/usr/bin/chromium",
+    "/usr/bin/chromium-browser",
+  ].filter((value): value is string => Boolean(value?.trim()));
+  return candidates.find((candidate) => existsSync(candidate));
+}
+
+export class PlaywrightResearchBrowserProvider implements ResearchBrowserProvider {
+  readonly name = "playwright-chromium";
+  private browser: import("playwright-core").Browser | null = null;
+  private readonly executablePath: string | undefined;
+  private readonly headless: boolean;
+  private readonly timeoutMs: number;
+  private readonly resolver?: ResearchDnsLookup;
+
+  constructor(options: BrowserProviderOptions = {}) {
+    this.executablePath = browserExecutable(options.executablePath);
+    this.headless = options.headless ?? true;
+    this.timeoutMs = Math.max(2_000, Math.min(60_000, options.timeoutMs ?? 20_000));
+    this.resolver = options.resolver;
+  }
+
+  private async getBrowser() {
+    if (this.browser) return this.browser;
+    const { chromium } = await import("playwright-core");
+    this.browser = await chromium.launch({
+      headless: this.headless,
+      ...(this.executablePath ? { executablePath: this.executablePath } : {}),
+      args: ["--disable-background-networking", "--disable-component-update", "--disable-sync"],
+    });
+    return this.browser;
+  }
+
+  async browse(value: string): Promise<ResearchBrowserResult> {
+    const url = await assertSafeResearchUrl(value, this.resolver);
+    const browser = await this.getBrowser();
+    const context = await browser.newContext({
+      userAgent: "RegionAtlasResearchEngine/2.0 (+https://www.regionatlas.games/)",
+      javaScriptEnabled: true,
+      serviceWorkers: "block",
+    });
+    const page = await context.newPage();
+    await page.route("**/*", async (route) => {
+      try {
+        await assertSafeResearchUrl(route.request().url(), this.resolver);
+        await route.continue();
+      } catch {
+        await route.abort("blockedbyclient");
+      }
+    });
+    try {
+      const navigation = await page.goto(url.toString(), { waitUntil: "domcontentloaded", timeout: this.timeoutMs });
+      await page.waitForLoadState("networkidle", { timeout: Math.min(5_000, this.timeoutMs) }).catch(() => undefined);
+      const current = await assertSafeResearchUrl(page.url(), this.resolver);
+      const status = navigation?.status() ?? 200;
+      if (status < 200 || status >= 400) throw new Error(`RESEARCH_BROWSER_HTTP_${status}`);
+      const output = await page.evaluate(() => ({
+        title: document.title,
+        text: document.body?.innerText ?? "",
+        links: Array.from(document.querySelectorAll("a[href]"), (element) => (element as HTMLAnchorElement).href),
+        images: Array.from(document.querySelectorAll("img[src]"), (element) => {
+          const image = element as HTMLImageElement;
+          const figure = image.closest("figure");
+          return {
+            url: image.currentSrc || image.src,
+            alt: image.alt || null,
+            caption: figure?.querySelector("figcaption")?.textContent?.trim() || image.title || null,
+          };
+        }),
+      }));
+      const links = [...new Set(output.links.filter((link) => /^https?:\/\//i.test(link)))].slice(0, 500);
+      const images = [...new Map(output.images.filter((image) => /^https?:\/\//i.test(image.url)).map((image) => [image.url, image])).values()].slice(0, 250);
+      return {
+        url: current.toString(),
+        status,
+        title: output.title.slice(0, 500),
+        text: output.text.replace(/\s+/g, " ").trim().slice(0, 300_000),
+        links,
+        images,
+      };
+    } finally {
+      await context.close();
+    }
+  }
+
+  async close(): Promise<void> {
+    const browser = this.browser;
+    this.browser = null;
+    await browser?.close();
+  }
+}

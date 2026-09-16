@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "taxonomy": ["PHYSICAL_FULL_GAME", "PHYSICAL_DOWNLOAD_REQUIRED", "GAME_KEY_CARD", "CODE_IN_BOX", "DIGITAL_ONLY", "CANCELED_PHYSICAL", "COLLECTOR_WITH_PHYSICAL_GAME", "COLLECTOR_WITHOUT_PHYSICAL_GAME", "BONUS_ITEM_ONLY", "RETAILER_BUNDLE", "GAME_ACCESSORY_BUNDLE", "HARDWARE_BUNDLE", "COMPILATION", "EXPANSION", "NFR_BUNDLE_COPY", "DEMO_PRODUCT", "RENTAL_PRODUCT", "UNKNOWN_PHYSICAL_STATUS"],
+  "rules": [
+    { "id": "edition-name-not-physical", "trigger": "EDITION_NAME_ONLY", "forbidden": ["PHYSICAL_EXISTENCE"] },
+    { "id": "steelbook-not-game", "trigger": "STEELBOOK_PRESENT", "nextEvidence": ["GAME_INCLUDED", "INNER_MEDIA"] },
+    { "id": "collector-needs-media-proof", "trigger": "COLLECTOR_LABEL", "nextEvidence": ["PHYSICAL_CONTENTS", "INNER_MEDIA", "DOWNLOAD_STATEMENT"] },
+    { "id": "preorder-not-release", "trigger": "PREORDER_OR_MOCKUP", "forbidden": ["RELEASED"] },
+    { "id": "code-in-box-not-media", "trigger": "CODE_IN_BOX", "forbidden": ["PHYSICAL_FULL_GAME"] },
+    { "id": "game-key-card-not-full-card", "trigger": "GAME_KEY_CARD", "forbidden": ["FULL_GAME_STORED_ON_CARD"] },
+    { "id": "outer-inner-independent", "trigger": "OUTER_AND_INNER_PRODUCT", "nextEvidence": ["OUTER_BARCODE", "INNER_BARCODE", "INNER_MEDIA_ID"] }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "rules": [
+    { "id": "retailer-country-is-evidence-market", "observed": "RETAILER_COUNTRY", "allowed": ["EVIDENCE_MARKET"], "forbidden": ["MARKET_REGION"] },
+    { "id": "seller-country-is-circulation", "observed": "SELLER_COUNTRY", "allowed": ["CIRCULATION_EVIDENCE"], "forbidden": ["MARKET_REGION", "DISTRIBUTION_MARKET"] },
+    { "id": "generic-region-is-not-national", "observed": "BROAD_REGION", "allowed": ["SEARCH_HINT"], "forbidden": ["NATIONAL_PACKAGING_VARIANT"] },
+    { "id": "packaging-software-languages-independent", "observed": "LANGUAGE_SIGNAL", "allowed": ["COMPONENT_SCOPED_LANGUAGE"], "forbidden": ["COPY_BETWEEN_PACKAGING_AND_SOFTWARE"] }
+  ]
+}

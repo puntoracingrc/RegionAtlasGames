@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "regionatlas-own-scan",
+      "hosts": ["regionatlas.games", "www.regionatlas.games"],
+      "platforms": ["*"],
+      "countries": ["*"],
+      "roles": ["OWN_SCAN", "PHYSICAL_SCAN"],
+      "accessModes": ["INTERNAL"],
+      "fieldCapabilities": {
+        "BARCODE": 100,
+        "BOX_CODE": 100,
+        "SERIAL": 100,
+        "PRODUCT_CODE": 100,
+        "MARKET_REGION": 100,
+        "PACKAGING_LANGUAGES": 100,
+        "RATING": 100,
+        "OUTER_INNER_RELATION": 100,
+        "BUNDLE_CONTENTS": 100,
+        "COLLECTOR_CONTENTS": 100
+      },
+      "defaultReliability": 100,
+      "knownRisks": ["The scan proves only the photographed specimen and visible components."],
+      "queryTemplates": []
+    },
+    {
+      "id": "publisher-official",
+      "hosts": [],
+      "platforms": ["*"],
+      "countries": ["*"],
+      "roles": ["PUBLISHER", "OFFICIAL_SOURCE_CANDIDATE"],
+      "accessModes": ["DIRECT_FETCH", "SEARCH_ENGINE", "DOMAIN_SEARCH", "BROWSER", "ARCHIVE"],
+      "fieldCapabilities": {
+        "PHYSICAL_EXISTENCE": 96,
+        "PHYSICAL_PRODUCT_TYPE": 92,
+        "RELEASE_STATUS": 96,
+        "BUNDLE_CONTENTS": 92,
+        "COLLECTOR_CONTENTS": 92,
+        "SOFTWARE_LANGUAGES": 80
+      },
+      "defaultReliability": 92,
+      "knownRisks": ["Announcement and preorder pages do not prove that a physical product reached retail."],
+      "queryTemplates": ["site:{HOST} \"{TITLE}\" \"{EDITION}\" {PLATFORM}"]
+    },
+    {
+      "id": "platform-holder-official",
+      "hosts": ["nintendo.com", "playstation.com", "xbox.com"],
+      "platforms": ["*"],
+      "countries": ["*"],
+      "roles": ["PLATFORM_HOLDER", "OFFICIAL_SOURCE_CANDIDATE"],
+      "accessModes": ["DIRECT_FETCH", "SEARCH_ENGINE", "DOMAIN_SEARCH", "BROWSER", "ARCHIVE"],
+      "fieldCapabilities": {
+        "PHYSICAL_EXISTENCE": 94,
+        "PHYSICAL_PRODUCT_TYPE": 90,
+        "RELEASE_STATUS": 94,
+        "PRODUCT_CODE": 86,
+        "SOFTWARE_LANGUAGES": 84
+      },
+      "defaultReliability": 90,
+      "knownRisks": ["Digital store pages do not prove a physical release or its packaging."],
+      "queryTemplates": ["site:{HOST} \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "national-retailer",
+      "hosts": ["game.es", "fnac.es", "mediamarkt.es"],
+      "platforms": ["*"],
+      "countries": ["ES"],
+      "roles": ["RETAILER"],
+      "accessModes": ["DIRECT_FETCH", "SEARCH_ENGINE", "DOMAIN_SEARCH", "BROWSER", "ARCHIVE"],
+      "fieldCapabilities": {
+        "PHYSICAL_EXISTENCE": 84,
+        "BARCODE": 90,
+        "EVIDENCE_MARKET": 80,
+        "MARKET_REGION": 60,
+        "RELEASE_STATUS": 70,
+        "PACKAGING_LANGUAGES": 20
+      },
+      "defaultReliability": 72,
+      "knownRisks": ["Retailer country proves circulation, not automatically packaging market.", "Mockups may differ from released packaging."],
+      "queryTemplates": ["site:{HOST} \"{BARCODE}\"", "site:{HOST} \"{TITLE}\" \"{EDITION}\""]
+    },
+    {
+      "id": "ebay",
+      "hosts": ["ebay.com", "ebay.es", "ebay.co.uk"],
+      "platforms": ["*"],
+      "countries": ["*"],
+      "roles": ["MARKETPLACE", "PHYSICAL_SPECIMEN_DISCOVERY"],
+      "accessModes": ["MARKETPLACE_API", "SEARCH_ENGINE", "BROWSER", "IMAGE_SEARCH"],
+      "fieldCapabilities": {
+        "PHYSICAL_EXISTENCE": 60,
+        "BARCODE": 68,
+        "PACKAGING_LANGUAGES": 72,
+        "COLLECTOR_CONTENTS": 70,
+        "MARKET_REGION": 20
+      },
+      "defaultReliability": 52,
+      "knownRisks": ["Aggregated product pages can mix identifiers from multiple variants.", "Seller country and seller-entered metadata are weak evidence."],
+      "queryTemplates": ["site:ebay.com \"{BARCODE}\"", "site:ebay.es \"{TITLE}\" {PLATFORM}"]
+    },
+    {
+      "id": "todocoleccion",
+      "hosts": ["todocoleccion.net", "www.todocoleccion.net"],
+      "platforms": ["*"],
+      "countries": ["ES"],
+      "roles": ["MARKETPLACE", "PHYSICAL_SPECIMEN_DISCOVERY"],
+      "accessModes": ["SEARCH_ENGINE", "BROWSER", "IMAGE_SEARCH"],
+      "fieldCapabilities": {
+        "PHYSICAL_EXISTENCE": 62,
+        "BARCODE": 72,
+        "PACKAGING_LANGUAGES": 78,
+        "COLLECTOR_CONTENTS": 74,
+        "EVIDENCE_MARKET": 55
+      },
+      "defaultReliability": 55,
+      "knownRisks": ["Seller descriptions are weak; exact listing photos can be strong component evidence."],
+      "queryTemplates": ["site:todocoleccion.net \"{BARCODE}\"", "site:todocoleccion.net \"{TITLE}\" {PLATFORM}"]
+    }
+  ]
+}

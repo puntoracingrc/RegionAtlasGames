@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "playbooks": [
+    { "id": "OWN_SCAN_FIRST", "targets": ["*"], "triggers": ["OWN_SCAN_AVAILABLE"], "sourceRoles": ["OWN_SCAN"], "deterministicChecks": ["SUBJECT_BINDING", "BARCODE_CHECKSUM", "COMPONENT_BINDING"], "stopWhen": "TARGET_RESOLVED" },
+    { "id": "NO_IDENTIFIERS", "targets": ["*"], "triggers": ["NO_IDENTIFIERS"], "sourceRoles": ["OFFICIAL_SOURCE_CANDIDATE", "SPECIALIZED_DATABASE", "RETAILER"], "queryTemplateGroups": ["NO_IDENTIFIERS"], "deterministicChecks": ["PLATFORM_MATCH", "SUBJECT_BINDING"] },
+    { "id": "MISSING_BARCODE", "targets": ["BARCODE"], "triggers": ["BARCODE_UNKNOWN"], "sourceRoles": ["OWN_SCAN", "PHYSICAL_SPECIMEN", "RETAILER", "SPECIALIZED_DATABASE"], "queryTemplateGroups": ["EDITION", "SERIAL"], "deterministicChecks": ["BARCODE_CHECKSUM", "SUBJECT_BINDING", "COMPONENT_BINDING"] },
+    { "id": "BARCODE_KNOWN_MARKET_UNKNOWN", "targets": ["MARKET_REGION", "PACKAGING_LANGUAGES"], "triggers": ["BARCODE_KNOWN"], "sourceRoles": ["OWN_SCAN", "PHYSICAL_SPECIMEN", "SPECIALIZED_DATABASE", "RETAILER"], "queryTemplateGroups": ["BARCODE", "PACKAGING_LANGUAGES"], "deterministicChecks": ["BARCODE_CHECKSUM", "SUBJECT_BINDING", "PACKAGING_NOT_SOFTWARE"] },
+    { "id": "SERIAL_KNOWN_BARCODE_UNKNOWN", "targets": ["BARCODE", "MARKET_REGION"], "triggers": ["SERIAL_KNOWN"], "sourceRoles": ["TECHNICAL_DATABASE", "SPECIALIZED_DATABASE", "PHYSICAL_SPECIMEN"], "queryTemplateGroups": ["SERIAL"], "deterministicChecks": ["PLATFORM_MATCH", "SUBJECT_BINDING"] },
+    { "id": "PHYSICAL_DIGITAL_CONFLICT", "targets": ["PHYSICAL_EXISTENCE", "PHYSICAL_PRODUCT_TYPE", "RELEASE_STATUS"], "triggers": ["PHYSICAL_STATUS_CONFLICT"], "sourceRoles": ["PUBLISHER", "PLATFORM_HOLDER", "PHYSICAL_SPECIMEN", "RETAILER"], "queryTemplateGroups": ["PHYSICAL_PRODUCT_TYPE", "EDITION"], "deterministicChecks": ["SUBJECT_BINDING", "MEDIA_PRESENT", "RELEASED_NOT_PREORDER"] },
+    { "id": "OUTER_INNER_BARCODE", "targets": ["OUTER_INNER_RELATION", "BUNDLE_CONTENTS", "COLLECTOR_CONTENTS"], "triggers": ["OUTER_INNER_RELATION_UNKNOWN"], "sourceRoles": ["OWN_SCAN", "PHYSICAL_SPECIMEN", "PUBLISHER"], "queryTemplateGroups": ["BARCODE", "EDITION"], "deterministicChecks": ["COMPONENT_BINDING", "SUBJECT_BINDING"] },
+    { "id": "PLATFORM_CONTAMINATION", "targets": ["CANONICAL_IDENTITY", "PRODUCT_CODE", "SERIAL"], "triggers": ["PLATFORM_IDENTIFIER_CONFLICT"], "sourceRoles": ["TECHNICAL_DATABASE", "PUBLISHER", "PHYSICAL_SPECIMEN"], "queryTemplateGroups": ["SERIAL", "EDITION"], "deterministicChecks": ["PLATFORM_MATCH", "SUBJECT_BINDING"] },
+    { "id": "CANONICAL_IDENTITY", "targets": ["CANONICAL_IDENTITY"], "triggers": ["IDENTITY_CONFLICT"], "sourceRoles": ["FRANCHISE_SPECIALIZED", "TECHNICAL_DATABASE", "PUBLISHER"], "queryTemplateGroups": ["EDITION"], "deterministicChecks": ["LINEAGE", "PRODUCT_CODE", "CONTENT_COMPARISON", "SUBJECT_BINDING"] }
+  ]
+}
