@@ -5,8 +5,8 @@ import { bindEvidenceSubject } from "./evidence-binding";
 import { crossAttributionConflicts, resolveResearchClaimRecords, type ResearchFieldResolution } from "./conflict-engine";
 import { loadResearchKnowledge } from "./knowledge-loader";
 import { researchPageTextHash } from "./page-fetcher";
+import { boundedBackoff, classifyRetrievalFailure, isInfrastructureRetrievalFailure, isRetryableRetrievalFailure, safeRetrievalDetail } from "./retrieval-resilience";
 import { applicableDecisionTests, knownIdentifiersForRouter, routeResearch, shouldDynamicallyReplan } from "./router";
-import { ResearchSearchProviderError } from "./search-provider";
 import { ResearchRunStore, createResearchState } from "./state-store";
 import type { ResearchSubject } from "./types";
 import { validateClaimDeterministically } from "./validators";
@@ -22,6 +22,8 @@ import type {
   ResearchModelUsage,
   ResearchPage,
   ResearchPageFetcher,
+  ResearchRetrievalEvent,
+  ResearchRetrievalFailureCode,
   ResearchRouterInput,
   ResearchRouterPlan,
   ResearchSearchProviderV2,
@@ -62,8 +64,14 @@ export type ResearchWorkerResult = {
   sourceCandidates: Array<{ host: string; sampleUrls: string[]; fieldsObserved: ResearchTargetField[]; status: "PENDING_SOURCE_REVIEW" }>;
   resolution: ResearchFieldResolution;
   providerUsage: Record<string, number>;
+  providerHealth: ReturnType<NonNullable<ResearchSearchProviderV2["getHealth"]>>;
+  retrievalEvents: ResearchRetrievalEvent[];
+  technicalFailures: Array<{ operation: string; target: string; code: ResearchRetrievalFailureCode; detail: string; recovered: boolean }>;
+  funnel: { searches: number; searchResults: number; pagesAttempted: number; pagesOpened: number; imagesDiscovered: number; imagesInspected: number };
   artifactDirectory: string;
 };
+
+type TechnicalFailure = ResearchWorkerResult["technicalFailures"][number];
 
 function now(): string {
   return new Date().toISOString();
@@ -396,20 +404,37 @@ async function fetchWithFallback(input: {
   state: ResearchState;
   pageFetcher: ResearchPageFetcher;
   browserProvider: ResearchBrowserProvider | null;
+  technicalFailures: TechnicalFailure[];
 }): Promise<{ page: ResearchPage; mode: PageArtifact["mode"] }> {
   const directAllowed = input.source?.accessModes.includes("DIRECT_FETCH") ?? true;
   let directError: unknown = new Error("DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE");
   if (directAllowed) {
-    try {
-      return { page: await input.pageFetcher.fetch(input.url), mode: "DIRECT_FETCH" };
-    } catch (error) {
-      directError = error;
+    const maxRetries = Math.max(0, Math.min(2, Number(process.env.RESEARCH_PAGE_TECHNICAL_RETRIES ?? 1)));
+    for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+      try {
+        const page = await input.pageFetcher.fetch(input.url);
+        for (const failure of input.technicalFailures.filter((row) => row.operation === "DIRECT_FETCH" && row.target === input.url)) failure.recovered = true;
+        return { page, mode: "DIRECT_FETCH" };
+      } catch (error) {
+        directError = error;
+        const code = classifyRetrievalFailure(error);
+        input.technicalFailures.push({ operation: "DIRECT_FETCH", target: input.url, code, detail: safeRetrievalDetail(error), recovered: false });
+        if (attempt >= maxRetries || !isRetryableRetrievalFailure(code)) break;
+        await boundedBackoff(attempt + 1);
+      }
     }
   }
   const browserAllowed = input.source?.accessModes.includes("BROWSER") ?? true;
   if (!input.browserProvider || !browserAllowed || !budgetAllows(input.state.budget, input.state.usage, "browserSessions")) throw directError;
   input.state.usage = recordBudgetUse(input.state.usage, "browserSessions");
-  const rendered = await input.browserProvider.browse(input.url);
+  let rendered;
+  try {
+    rendered = await input.browserProvider.browse(input.url);
+    for (const failure of input.technicalFailures.filter((row) => row.target === input.url)) failure.recovered = true;
+  } catch (error) {
+    input.technicalFailures.push({ operation: "BROWSER", target: input.url, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
+    throw error;
+  }
   return {
     mode: "BROWSER",
     page: {
@@ -508,6 +533,7 @@ async function inspectDiscoveredImages(input: {
   images: ResearchImageSearchResult[];
   visionResults: ResearchWorkerResult["visionResults"];
   modelUsages: ResearchModelUsage[];
+  technicalFailures: TechnicalFailure[];
 }): Promise<void> {
   if (!input.imageSearchProvider || !input.visionProvider || !input.plan.imagePlan.length) return;
   if (!budgetAllows(input.state.budget, input.state.usage, "searches") || !budgetAllows(input.state.budget, input.state.usage, "images")) return;
@@ -521,12 +547,12 @@ async function inspectDiscoveredImages(input: {
   try {
     found = await input.imageSearchProvider.search({ query: imageQuery, maxResults: 4, country: "ES", language: "es" });
   } catch (error) {
+    input.technicalFailures.push({ operation: "IMAGE_SEARCH", target: imageQuery, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
     input.state.rejectedHypotheses.push({
       value: imageQuery,
       reason: error instanceof Error ? error.message.slice(0, 300) : "IMAGE_SEARCH_FAILED",
     });
     await persist(input.store, input.state);
-    if (error instanceof ResearchSearchProviderError) throw error;
     return;
   }
   input.images.push(...found);
@@ -555,6 +581,49 @@ async function inspectDiscoveredImages(input: {
     });
     addUniqueEvidence(input.state, evidence);
     addUniqueClaims(input.state, claimsFromVision({ state: input.state, task: input.task, context: input.context, evidence, result: inspected.result }));
+    await persist(input.store, input.state);
+  }
+}
+
+async function inspectPageImages(input: {
+  task: DurableResearchTask;
+  context: ResearchCatalogContext;
+  state: ResearchState;
+  plan: ResearchRouterPlan;
+  page: ResearchPage;
+  source: ResearchSourcePlanItem | null;
+  visionProvider: ResearchVisionProvider | null;
+  store: ResearchRunStore;
+  images: ResearchImageSearchResult[];
+  visionResults: ResearchWorkerResult["visionResults"];
+  modelUsages: ResearchModelUsage[];
+  technicalFailures: TechnicalFailure[];
+}): Promise<void> {
+  if (!input.visionProvider || !input.plan.imagePlan.length) return;
+  const ranked = input.page.imageCandidates
+    .filter((candidate) => /^https?:\/\//i.test(candidate.url))
+    .sort((a, b) => Number(/back|rear|barcode|box|cover|cart|disc/i.test(`${b.alt ?? ""} ${b.caption ?? ""} ${b.url}`)) - Number(/back|rear|barcode|box|cover|cart|disc/i.test(`${a.alt ?? ""} ${a.caption ?? ""} ${a.url}`)))
+    .slice(0, 3);
+  for (const [index, candidate] of ranked.entries()) {
+    if (input.state.urlsVisited.includes(candidate.url) || !budgetAllows(input.state.budget, input.state.usage, "images")) continue;
+    input.images.push({ imageUrl: candidate.url, thumbnailUrl: null, sourcePageUrl: input.page.canonicalUrl, title: candidate.alt ?? candidate.caption ?? input.page.title, host: new URL(input.page.canonicalUrl).hostname, rank: index + 1 });
+    updateState(input.state, { status: "INSPECTING_IMAGES", urlsVisited: [...input.state.urlsVisited, candidate.url] });
+    try {
+      const inspected = await input.visionProvider.inspect({
+        imageUrl: candidate.url,
+        componentHint: input.plan.imagePlan[0]?.component,
+        requestedFields: input.plan.imagePlan.flatMap((row) => row.fields),
+      });
+      input.state.usage = recordBudgetUse(input.state.usage, "images");
+      recordUsage(input.state, inspected.usage);
+      input.modelUsages.push(inspected.usage);
+      input.visionResults.push({ imageUrl: candidate.url, result: inspected.result });
+      const evidence = imageEvidence({ state: input.state, task: input.task, context: input.context, source: input.source, imageUrl: candidate.url, sourcePageUrl: input.page.canonicalUrl, result: inspected.result, ownScan: false });
+      addUniqueEvidence(input.state, evidence);
+      addUniqueClaims(input.state, claimsFromVision({ state: input.state, task: input.task, context: input.context, evidence, result: inspected.result }));
+    } catch (error) {
+      input.technicalFailures.push({ operation: "IMAGE_INSPECTION", target: candidate.url, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
+    }
     await persist(input.store, input.state);
   }
 }
@@ -604,6 +673,9 @@ async function writeArtifacts(input: {
   resolution: ResearchFieldResolution;
   modelUsages: ResearchModelUsage[];
   providerUsage: Record<string, number>;
+  providerHealth: ResearchWorkerResult["providerHealth"];
+  retrievalEvents: ResearchRetrievalEvent[];
+  technicalFailures: TechnicalFailure[];
   durationMs: number;
 }): Promise<void> {
   const { store, state } = input;
@@ -622,6 +694,17 @@ async function writeArtifacts(input: {
     store.writeArtifact(state.runId, "conflicts.json", state.conflicts),
     store.writeArtifact(state.runId, "rejected-hypotheses.json", state.rejectedHypotheses),
     store.writeArtifact(state.runId, "source-candidates.json", sourceCandidates(state)),
+    store.writeArtifact(state.runId, "provider-health.json", input.providerHealth),
+    store.writeArtifact(state.runId, "retrieval-events.json", input.retrievalEvents),
+    store.writeArtifact(state.runId, "technical-failures.json", input.technicalFailures),
+    store.writeArtifact(state.runId, "retrieval-funnel.json", {
+      searches: state.usage.searches,
+      searchResults: input.searchResults.length,
+      pagesAttempted: new Set([...input.pages.map((page) => page.requestedUrl), ...input.technicalFailures.filter((row) => row.operation === "DIRECT_FETCH" || row.operation === "BROWSER").map((row) => row.target)]).size,
+      pagesOpened: input.pages.length,
+      imagesDiscovered: input.images.length,
+      imagesInspected: input.visionResults.length,
+    }),
     store.writeArtifact(state.runId, "resolution.json", input.resolution),
     store.writeArtifact(state.runId, "cost.json", {
       searchCalls: state.usage.searches,
@@ -633,6 +716,7 @@ async function writeArtifacts(input: {
       outputTokens: state.usage.outputTokens,
       estimatedCostUsd: state.usage.estimatedCostUsd,
       providerCalls: input.providerUsage,
+      technicalRetriesAndFailures: input.technicalFailures.length,
       llmCalls: Math.max(0, state.usage.agentTurns - input.visionResults.length),
       visionCalls: input.visionResults.length,
       modelUsages: input.modelUsages,
@@ -703,6 +787,9 @@ export async function runResearchTaskV2(input: {
     ? await store.readArtifact(state.runId, "vision-results.json", () => [] as ResearchWorkerResult["visionResults"])
     : [];
   const modelUsages: ResearchModelUsage[] = [...(priorCost.modelUsages ?? [])];
+  const technicalFailures: TechnicalFailure[] = input.resumeState
+    ? await store.readArtifact(state.runId, "technical-failures.json", () => [] as TechnicalFailure[])
+    : [];
   await persist(store, state);
 
   let finalResolution: ResearchFieldResolution = {
@@ -763,6 +850,29 @@ export async function runResearchTaskV2(input: {
 
       let progressed = false;
       let replan = false;
+      for (const direct of plan.directUrlPlan) {
+        if (state.urlsVisited.includes(direct.url) || !budgetAllows(state.budget, state.usage, "pages")) continue;
+        const directSource = plan.sourcePlan.find((row) => row.sourceId === direct.sourceId) ?? sourceForUrl(direct.url, plan);
+        updateState(state, { status: "READING", urlsVisited: [...state.urlsVisited, direct.url] });
+        try {
+          const fetched = await fetchWithFallback({
+            url: direct.url,
+            source: directSource,
+            state,
+            pageFetcher: input.dependencies.pageFetcher,
+            browserProvider: input.dependencies.browserProvider ?? null,
+            technicalFailures,
+          });
+          state.usage = recordBudgetUse(state.usage, "pages");
+          pages.push(pageArtifact(fetched.page, fetched.mode));
+          progressed = true;
+          replan = await processPage({ task: input.task, context, state, plan, page: fetched.page, source: directSource, llmProvider: input.dependencies.llmProvider ?? null, store, modelUsages });
+          await inspectPageImages({ task: input.task, context, state, plan, page: fetched.page, source: directSource, visionProvider: input.dependencies.visionProvider ?? null, store, images, visionResults, modelUsages, technicalFailures });
+        } catch (error) {
+          state.rejectedHypotheses.push({ value: direct.url, reason: safeRetrievalDetail(error) });
+        }
+        if (replan) break;
+      }
       if (input.dependencies.searchProvider) {
         for (const planned of plan.queryPlan) {
           const normalized = normalizedQuery(planned.query);
@@ -782,12 +892,12 @@ export async function runResearchTaskV2(input: {
               language: "es",
             });
           } catch (error) {
+            technicalFailures.push({ operation: "SEARCH", target: planned.query, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
             state.rejectedHypotheses.push({
               value: planned.query,
               reason: error instanceof Error ? error.message.slice(0, 300) : "SEARCH_FAILED",
             });
             await persist(store, state);
-            if (error instanceof ResearchSearchProviderError) throw error;
             continue;
           }
           searchResults.push(...found);
@@ -804,6 +914,7 @@ export async function runResearchTaskV2(input: {
                 state,
                 pageFetcher: input.dependencies.pageFetcher,
                 browserProvider: input.dependencies.browserProvider ?? null,
+                technicalFailures,
               });
               state.usage = recordBudgetUse(state.usage, "pages");
               pages.push(pageArtifact(fetched.page, fetched.mode));
@@ -819,6 +930,20 @@ export async function runResearchTaskV2(input: {
                 llmProvider: input.dependencies.llmProvider ?? null,
                 store,
                 modelUsages,
+              });
+              await inspectPageImages({
+                task: input.task,
+                context,
+                state,
+                plan,
+                page: fetched.page,
+                source: finalSource,
+                visionProvider: input.dependencies.visionProvider ?? null,
+                store,
+                images,
+                visionResults,
+                modelUsages,
+                technicalFailures,
               });
               const resolved = resolveResearchClaimRecords({ field: input.task.targetField, claims: state.claims, evidence: state.evidence });
               state.claims = resolved.claims;
@@ -856,6 +981,7 @@ export async function runResearchTaskV2(input: {
         images,
         visionResults,
         modelUsages,
+        technicalFailures,
       });
       const resolved = resolveResearchClaimRecords({ field: input.task.targetField, claims: state.claims, evidence: state.evidence });
       state.claims = resolved.claims;
@@ -872,21 +998,23 @@ export async function runResearchTaskV2(input: {
       }
     }
     if (state.status !== "CONFIRMED") {
-      const terminal = finalResolution.status === "PARTIAL" ? "PARTIAL" : "UNRESOLVED";
+      const infrastructureBlocked = technicalFailures.some((failure) => !failure.recovered)
+        && !pages.length
+        && !searchResults.length
+        && !state.evidence.length;
+      const terminal = finalResolution.status === "PARTIAL" ? "PARTIAL" : infrastructureBlocked ? "BLOCKED_INFRASTRUCTURE" : "UNRESOLVED";
       updateState(state, {
         status: terminal,
         decisionSummary: finalResolution.reason,
         nextEvidenceNeeded: state.conflicts.flatMap((conflict) => conflict.nextEvidenceNeeded).filter((value, index, all) => all.indexOf(value) === index),
-        whyStopped: state.whyStopped ?? "EVIDENCE_INSUFFICIENT",
+        whyStopped: infrastructureBlocked ? "RETRIEVAL_INFRASTRUCTURE_UNAVAILABLE" : state.whyStopped ?? "EVIDENCE_INSUFFICIENT",
       });
     }
   } catch (error) {
-    updateState(state, {
-      status: "FAILED",
-      whyStopped: error instanceof Error ? error.message.slice(0, 500) : "UNKNOWN_WORKER_FAILURE",
-    });
+    const code = classifyRetrievalFailure(error);
+    updateState(state, { status: isInfrastructureRetrievalFailure(code) ? "BLOCKED_INFRASTRUCTURE" : "FAILED", whyStopped: safeRetrievalDetail(error) });
     await persist(store, state);
-    throw error;
+    if (!isInfrastructureRetrievalFailure(code)) throw error;
   } finally {
     await input.dependencies.browserProvider?.close().catch(() => undefined);
   }
@@ -898,6 +1026,11 @@ export async function runResearchTaskV2(input: {
   ]) {
     for (const [provider, calls] of Object.entries(usage)) providerUsage[provider] = (providerUsage[provider] ?? 0) + calls;
   }
+  const providerHealth = input.dependencies.searchProvider?.getHealth?.() ?? [];
+  const retrievalEvents = [
+    ...(input.dependencies.searchProvider?.getEvents?.() ?? []),
+    ...(input.dependencies.imageSearchProvider?.getEvents?.() ?? []),
+  ];
   await writeArtifacts({
     store,
     task: input.task,
@@ -911,6 +1044,9 @@ export async function runResearchTaskV2(input: {
     resolution: finalResolution,
     modelUsages,
     providerUsage,
+    providerHealth,
+    retrievalEvents,
+    technicalFailures,
     durationMs: (priorCost.durationMs ?? 0) + Date.now() - started,
   });
   return {
@@ -924,6 +1060,17 @@ export async function runResearchTaskV2(input: {
     sourceCandidates: sourceCandidates(state),
     resolution: finalResolution,
     providerUsage,
+    providerHealth,
+    retrievalEvents,
+    technicalFailures,
+    funnel: {
+      searches: state.usage.searches,
+      searchResults: searchResults.length,
+      pagesAttempted: new Set([...pages.map((page) => page.requestedUrl), ...technicalFailures.filter((row) => row.operation === "DIRECT_FETCH" || row.operation === "BROWSER").map((row) => row.target)]).size,
+      pagesOpened: pages.length,
+      imagesDiscovered: images.length,
+      imagesInspected: visionResults.length,
+    },
     artifactDirectory: store.runDirectory(state.runId),
   };
 }

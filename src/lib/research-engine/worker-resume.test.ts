@@ -160,7 +160,7 @@ test("worker dynamically replans after a new identifier and resume skips prior q
   }
 });
 
-test("worker records transient search timeouts and closes unresolved instead of failing the run", async () => {
+test("worker records transient search timeouts as infrastructure blockage instead of failing the run", async () => {
   const directory = await mkdtemp(path.join(tmpdir(), "regionatlas-worker-timeout-"));
   try {
     const task = durableTask({
@@ -193,8 +193,9 @@ test("worker records transient search timeouts and closes unresolved instead of 
       dependencies: { searchProvider: timeoutSearch, pageFetcher, store: new ResearchRunStore(directory) },
       resumeState: state,
     });
-    assert.equal(result.state.status, "UNRESOLVED");
+    assert.equal(result.state.status, "BLOCKED_INFRASTRUCTURE");
     assert.equal(result.state.usage.searches, 1);
+    assert.equal(result.technicalFailures[0]?.code, "SOURCE_TIMEOUT");
     assert.ok(result.state.rejectedHypotheses.some((item) => String(item.reason).includes("timeout")));
   } finally {
     await rm(directory, { recursive: true, force: true });

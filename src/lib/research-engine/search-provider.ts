@@ -1,10 +1,13 @@
 import type {
+  ResearchProviderHealth,
+  ResearchRetrievalEvent,
   ResearchImageSearchProvider,
   ResearchImageSearchResult,
   ResearchSearchProviderV2,
   ResearchSearchRequest,
   ResearchSearchResult,
 } from "./v2-types";
+import { boundedBackoff, classifyRetrievalFailure, isRetryableRetrievalFailure, safeRetrievalDetail } from "./retrieval-resilience";
 
 const USER_AGENT = "RegionAtlasResearchEngine/2.0 (+https://www.regionatlas.games/)";
 const DEFAULT_TIMEOUT_MS = 12_000;
@@ -12,6 +15,7 @@ const DEFAULT_TIMEOUT_MS = 12_000;
 type ProviderOptions = {
   fetchImpl?: typeof fetch;
   timeoutMs?: number;
+  maxTechnicalRetries?: number;
 };
 
 export class ResearchSearchProviderError extends Error {
@@ -75,7 +79,7 @@ export class GoogleCustomResearchSearchProvider implements ResearchSearchProvide
     this.calls += 1;
     const key = process.env.GOOGLE_SEARCH_API_KEY?.trim();
     const cx = process.env.GOOGLE_SEARCH_CX?.trim();
-    if (!key || !cx) throw new Error("GOOGLE_SEARCH_NOT_CONFIGURED");
+    if (!key || !cx) throw new ResearchSearchProviderError("GOOGLE_SEARCH_NOT_CONFIGURED");
     const params = new URLSearchParams({
       key,
       cx,
@@ -91,7 +95,7 @@ export class GoogleCustomResearchSearchProvider implements ResearchSearchProvide
       signal: AbortSignal.timeout(this.timeoutMs),
       cache: "no-store",
     });
-    if (!response.ok) throw new Error(`GOOGLE_SEARCH_HTTP_${response.status}`);
+    if (!response.ok) throw new ResearchSearchProviderError(`GOOGLE_SEARCH_HTTP_${response.status}`);
     const payload = await response.json() as {
       items?: Array<{ title?: string; link?: string; snippet?: string; pagemap?: { metatags?: Array<Record<string, string>> } }>;
     };
@@ -147,13 +151,25 @@ export class SerpApiResearchSearchProvider implements ResearchSearchProviderV2 {
       signal: AbortSignal.timeout(this.timeoutMs),
       cache: "no-store",
     });
-    if (!response.ok) throw new ResearchSearchProviderError(`SERPAPI_HTTP_${response.status}`);
+    if (!response.ok) {
+      const failure = await response.json().catch(() => ({})) as { error?: unknown };
+      const message = safeProviderMessage(failure.error);
+      const code = message && /quota|credits? exhausted|plan limit|monthly searches|run out of searches/i.test(message)
+        ? "SERPAPI_QUOTA_EXHAUSTED"
+        : `SERPAPI_HTTP_${response.status}`;
+      throw new ResearchSearchProviderError(code, message);
+    }
     const payload = await response.json() as {
       error?: string;
       organic_results?: Array<{ title?: string; link?: string; snippet?: string; date?: string }>;
     };
     if (isEmptyResultMessage(payload.error)) return [];
-    if (payload.error) throw new ResearchSearchProviderError("SERPAPI_PROVIDER_ERROR", safeProviderMessage(payload.error));
+    if (payload.error) {
+      const code = /quota|credits? exhausted|plan limit|monthly searches|run out of searches/i.test(payload.error)
+        ? "SERPAPI_QUOTA_EXHAUSTED"
+        : "SERPAPI_PROVIDER_ERROR";
+      throw new ResearchSearchProviderError(code, safeProviderMessage(payload.error));
+    }
     return (payload.organic_results ?? []).flatMap((item, index) => {
       const url = safeResultUrl(item.link);
       if (!url) return [];
@@ -176,23 +192,97 @@ export class SerpApiResearchSearchProvider implements ResearchSearchProviderV2 {
 
 export class FallbackResearchSearchProvider implements ResearchSearchProviderV2 {
   readonly name: string;
+  private readonly health = new Map<string, ResearchProviderHealth>();
+  private readonly events: ResearchRetrievalEvent[] = [];
+  private readonly cache = new Map<string, ResearchSearchResult[]>();
+  private readonly maxTechnicalRetries: number;
 
-  constructor(private readonly providers: ResearchSearchProviderV2[]) {
+  constructor(private readonly providers: ResearchSearchProviderV2[], options: ProviderOptions = {}) {
     if (!providers.length) throw new Error("NO_SEARCH_PROVIDERS");
     this.name = providers.map((provider) => provider.name).join("+");
+    this.maxTechnicalRetries = Math.max(0, Math.min(3, options.maxTechnicalRetries ?? Number(process.env.RESEARCH_MAX_TECHNICAL_RETRIES ?? 1)));
+    for (const provider of providers) this.setHealth(provider.name, "DEGRADED", null, "Preflight pending");
+  }
+
+  private setHealth(provider: string, state: ResearchProviderHealth["state"], failureCode: ResearchProviderHealth["failureCode"], detail: string | null): void {
+    this.health.set(provider, { provider, state, checkedAt: new Date().toISOString(), failureCode, detail });
+  }
+
+  private event(provider: string, outcome: ResearchRetrievalEvent["outcome"], failureCode: ResearchRetrievalEvent["failureCode"], detail: string | null, operation: ResearchRetrievalEvent["operation"] = "SEARCH"): void {
+    this.events.push({ at: new Date().toISOString(), operation, provider, outcome, failureCode, detail });
+  }
+
+  private cacheKey(request: ResearchSearchRequest): string {
+    return JSON.stringify({ ...request, query: request.query.toLowerCase().replace(/\s+/g, " ").trim(), domains: [...(request.domains ?? [])].sort() });
+  }
+
+  async preflight(): Promise<ResearchProviderHealth[]> {
+    for (const provider of this.providers) {
+      if (this.health.get(provider.name)?.state === "OPEN_CIRCUIT") continue;
+      try {
+        await provider.search({ query: "RegionAtlas", maxResults: 1, country: "ES", language: "es" });
+        this.setHealth(provider.name, "HEALTHY", null, null);
+        this.event(provider.name, "SUCCESS", null, "Preflight request completed", "PREFLIGHT");
+      } catch (error) {
+        const code = classifyRetrievalFailure(error);
+        const open = code === "PROVIDER_QUOTA_EXHAUSTED";
+        this.setHealth(provider.name, open ? "OPEN_CIRCUIT" : "DEGRADED", code, safeRetrievalDetail(error));
+        this.event(provider.name, open ? "OPEN_CIRCUIT" : "FAILURE", code, safeRetrievalDetail(error), "PREFLIGHT");
+      }
+    }
+    return this.getHealth();
+  }
+
+  getHealth(): ResearchProviderHealth[] {
+    return [...this.health.values()];
+  }
+
+  getEvents(): ResearchRetrievalEvent[] {
+    return [...this.events];
   }
 
   async search(request: ResearchSearchRequest): Promise<ResearchSearchResult[]> {
+    const cacheKey = this.cacheKey(request);
+    const cached = this.cache.get(cacheKey);
+    if (cached) {
+      this.event(this.name, "CACHE_HIT", null, `${cached.length} cached results`);
+      return cached;
+    }
     const errors: unknown[] = [];
     for (const provider of this.providers) {
-      try {
-        const results = await provider.search(request);
-        if (results.length) return results;
-      } catch (error) {
-        errors.push(error);
+      if (this.health.get(provider.name)?.state === "OPEN_CIRCUIT") continue;
+      for (let attempt = 0; attempt <= this.maxTechnicalRetries; attempt += 1) {
+        try {
+          const results = await provider.search(request);
+          this.setHealth(provider.name, "HEALTHY", null, null);
+          this.event(provider.name, results.length ? "SUCCESS" : "EMPTY", null, `${results.length} results`);
+          if (results.length) {
+            this.cache.set(cacheKey, results);
+            return results;
+          }
+          break;
+        } catch (error) {
+          errors.push(error);
+          const code = classifyRetrievalFailure(error);
+          const detail = safeRetrievalDetail(error);
+          if (code === "PROVIDER_QUOTA_EXHAUSTED") {
+            this.setHealth(provider.name, "OPEN_CIRCUIT", code, detail);
+            this.event(provider.name, "OPEN_CIRCUIT", code, detail);
+            break;
+          }
+          if (attempt < this.maxTechnicalRetries && isRetryableRetrievalFailure(code)) {
+            this.setHealth(provider.name, "DEGRADED", code, detail);
+            this.event(provider.name, "RETRY", code, detail);
+            await boundedBackoff(attempt + 1);
+            continue;
+          }
+          this.setHealth(provider.name, "DEGRADED", code, detail);
+          this.event(provider.name, "FAILOVER", code, detail);
+          break;
+        }
       }
     }
-    if (errors.length === this.providers.length) throw errors[0];
+    if (errors.length && this.providers.every((provider) => this.health.get(provider.name)?.state !== "HEALTHY")) throw errors.at(-1);
     return [];
   }
 
@@ -209,7 +299,7 @@ export function createConfiguredResearchSearchProvider(options: ProviderOptions 
   const providers: ResearchSearchProviderV2[] = [];
   if (configuredGoogle()) providers.push(new GoogleCustomResearchSearchProvider(options));
   if (serpApiKey()) providers.push(new SerpApiResearchSearchProvider(options));
-  return providers.length ? new FallbackResearchSearchProvider(providers) : null;
+  return providers.length ? new FallbackResearchSearchProvider(providers, options) : null;
 }
 
 export class SerpApiResearchImageSearchProvider implements ResearchImageSearchProvider {
@@ -241,13 +331,25 @@ export class SerpApiResearchImageSearchProvider implements ResearchImageSearchPr
       signal: AbortSignal.timeout(this.timeoutMs),
       cache: "no-store",
     });
-    if (!response.ok) throw new ResearchSearchProviderError(`SERPAPI_IMAGE_HTTP_${response.status}`);
+    if (!response.ok) {
+      const failure = await response.json().catch(() => ({})) as { error?: unknown };
+      const message = safeProviderMessage(failure.error);
+      const code = message && /quota|credits? exhausted|plan limit|monthly searches|run out of searches/i.test(message)
+        ? "SERPAPI_IMAGE_QUOTA_EXHAUSTED"
+        : `SERPAPI_IMAGE_HTTP_${response.status}`;
+      throw new ResearchSearchProviderError(code, message);
+    }
     const payload = await response.json() as {
       error?: string;
       images_results?: Array<{ title?: string; original?: string; thumbnail?: string; link?: string; source?: string }>;
     };
     if (isEmptyResultMessage(payload.error)) return [];
-    if (payload.error) throw new ResearchSearchProviderError("SERPAPI_IMAGE_PROVIDER_ERROR", safeProviderMessage(payload.error));
+    if (payload.error) {
+      const code = /quota|credits? exhausted|plan limit|monthly searches|run out of searches/i.test(payload.error)
+        ? "SERPAPI_IMAGE_QUOTA_EXHAUSTED"
+        : "SERPAPI_IMAGE_PROVIDER_ERROR";
+      throw new ResearchSearchProviderError(code, safeProviderMessage(payload.error));
+    }
     return (payload.images_results ?? []).slice(0, Math.max(1, Math.min(20, request.maxResults ?? 8))).flatMap((item, index) => {
       const image = safeResultUrl(item.original);
       if (!image) return [];
@@ -283,7 +385,7 @@ export class GoogleCustomResearchImageSearchProvider implements ResearchImageSea
     this.calls += 1;
     const key = process.env.GOOGLE_SEARCH_API_KEY?.trim();
     const cx = process.env.GOOGLE_SEARCH_CX?.trim();
-    if (!key || !cx) throw new Error("GOOGLE_SEARCH_NOT_CONFIGURED");
+    if (!key || !cx) throw new ResearchSearchProviderError("GOOGLE_IMAGE_NOT_CONFIGURED");
     const params = new URLSearchParams({
       key,
       cx,
@@ -298,7 +400,7 @@ export class GoogleCustomResearchImageSearchProvider implements ResearchImageSea
       signal: AbortSignal.timeout(this.timeoutMs),
       cache: "no-store",
     });
-    if (!response.ok) throw new Error(`GOOGLE_IMAGE_HTTP_${response.status}`);
+    if (!response.ok) throw new ResearchSearchProviderError(`GOOGLE_IMAGE_HTTP_${response.status}`);
     const payload = await response.json() as {
       items?: Array<{ title?: string; link?: string; image?: { thumbnailLink?: string; contextLink?: string } }>;
     };

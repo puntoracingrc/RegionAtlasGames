@@ -7,6 +7,7 @@ import {
   ResearchSearchProviderError,
   SerpApiResearchSearchProvider,
 } from "./search-provider";
+import type { ResearchSearchProviderV2 } from "./v2-types";
 
 function withEnv(values: Record<string, string | undefined>, callback: () => Promise<void>): Promise<void> {
   const previous = Object.fromEntries(Object.keys(values).map((key) => [key, process.env[key]]));
@@ -53,7 +54,9 @@ test("fallback provider records attempted Google and successful SerpAPI calls", 
     const fallback = new FallbackResearchSearchProvider([google, serp]);
     const results = await fallback.search({ query: "barcode" });
     assert.equal(results[0]?.provider, "serpapi-google");
-    assert.deepEqual(fallback.getUsage(), { "google-custom-search": 1, "serpapi-google": 1 });
+    assert.deepEqual(fallback.getUsage(), { "google-custom-search": 2, "serpapi-google": 1 });
+    assert.ok(fallback.getEvents().some((event) => event.provider === "google-custom-search" && event.outcome === "RETRY"));
+    assert.equal(fallback.getHealth().find((row) => row.provider === "serpapi-google")?.state, "HEALTHY");
   });
 });
 
@@ -66,7 +69,7 @@ test("SerpAPI no-results responses are an empty result set, not a provider failu
   });
 });
 
-test("SerpAPI operational errors keep a stable code without exposing credentials", async () => {
+test("SerpAPI quota errors keep a stable code without exposing credentials", async () => {
   await withEnv({ SERPAPI_KEY: "serp-key" }, async () => {
     const provider = new SerpApiResearchSearchProvider({
       fetchImpl: (async () => Response.json({ error: "Your account has run out of searches." })) as typeof fetch,
@@ -74,9 +77,37 @@ test("SerpAPI operational errors keep a stable code without exposing credentials
     await assert.rejects(
       provider.search({ query: "barcode" }),
       (error: unknown) => error instanceof ResearchSearchProviderError
-        && error.code === "SERPAPI_PROVIDER_ERROR"
+        && error.code === "SERPAPI_QUOTA_EXHAUSTED"
         && !error.message.includes("serp-key"),
     );
+  });
+});
+
+test("quota exhaustion opens the provider circuit and cached success avoids a second provider call", async () => {
+  await withEnv({ SERPAPI_KEY: "serp-key" }, async () => {
+    let exhaustedCalls = 0;
+    const exhausted = new SerpApiResearchSearchProvider({
+      fetchImpl: (async () => {
+        exhaustedCalls += 1;
+        return Response.json({ error: "Your account quota is exhausted." });
+      }) as typeof fetch,
+    });
+    let healthyCalls = 0;
+    const healthy: ResearchSearchProviderV2 = {
+      name: "healthy-provider",
+      async search() {
+        healthyCalls += 1;
+        return [{ title: "Exact", url: "https://example.test/item", snippet: "", host: "example.test", rank: 1, publishedAt: null, provider: "healthy-provider" }];
+      },
+      getUsage: () => ({ "healthy-provider": healthyCalls }),
+    };
+    const pool = new FallbackResearchSearchProvider([exhausted, healthy], { maxTechnicalRetries: 2 });
+    assert.equal((await pool.search({ query: "exact barcode" })).length, 1);
+    assert.equal((await pool.search({ query: "exact barcode" })).length, 1);
+    assert.equal(exhaustedCalls, 1);
+    assert.equal(healthyCalls, 1);
+    assert.equal(pool.getHealth().find((row) => row.provider === "serpapi-google")?.state, "OPEN_CIRCUIT");
+    assert.ok(pool.getEvents().some((event) => event.outcome === "CACHE_HIT"));
   });
 });
 

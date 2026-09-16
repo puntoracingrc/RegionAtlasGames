@@ -99,8 +99,15 @@ export async function loadResearchKnowledge(input: {
   if (input.franchiseId) {
     const franchisePath = `${base}/franchises/${input.franchiseId}.json`;
     try {
-      const raw = await readJson(rootDir, franchisePath) as { rules?: unknown };
+      const raw = await readJson(rootDir, franchisePath) as { rules?: unknown; platformMethods?: unknown; sourcePriority?: unknown };
       if (Array.isArray(raw.rules)) franchiseRules.push(...raw.rules.filter((item): item is string => typeof item === "string"));
+      if (raw.platformMethods && typeof raw.platformMethods === "object" && !Array.isArray(raw.platformMethods)) {
+        const methods = (raw.platformMethods as Record<string, unknown>)[input.platformSlug];
+        if (Array.isArray(methods)) franchiseRules.push(...methods.filter((item): item is string => typeof item === "string"));
+      }
+      if (Array.isArray(raw.sourcePriority)) {
+        franchiseRules.push(`Preferred franchise sources: ${raw.sourcePriority.filter((item): item is string => typeof item === "string").join(", ")}.`);
+      }
       loadedFiles.push(franchisePath);
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;

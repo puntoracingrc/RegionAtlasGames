@@ -12,18 +12,22 @@ import { runResearchTaskV2, type ResearchWorkerResult } from "./worker";
 
 function queueStatus(status: ResearchState["status"]): DurableResearchTask["status"] {
   if (status === "CONFIRMED") return "RESOLVED";
-  if (status === "BLOCKED" || status === "FAILED") return "BLOCKED";
+  if (status === "BLOCKED" || status === "BLOCKED_INFRASTRUCTURE" || status === "FAILED") return "BLOCKED";
   if (status === "PARTIAL" || status === "UNRESOLVED") return "UNRESOLVED";
   return "IN_PROGRESS";
 }
 
 export function createResearchWorkerDependencies(store = new ResearchRunStore()) {
   const openai = process.env.OPENAI_API_KEY?.trim() ? new OpenAIResearchProvider() : null;
+  const numeric = (name: string, fallback: number) => {
+    const value = Number(process.env[name]);
+    return Number.isFinite(value) && value > 0 ? value : fallback;
+  };
   return {
-    searchProvider: createConfiguredResearchSearchProvider(),
-    pageFetcher: new HttpResearchPageFetcher(),
-    browserProvider: new PlaywrightResearchBrowserProvider(),
-    imageSearchProvider: createConfiguredResearchImageSearchProvider(),
+    searchProvider: createConfiguredResearchSearchProvider({ timeoutMs: numeric("RESEARCH_SEARCH_TIMEOUT_MS", 12_000), maxTechnicalRetries: numeric("RESEARCH_MAX_TECHNICAL_RETRIES", 1) }),
+    pageFetcher: new HttpResearchPageFetcher({ timeoutMs: numeric("RESEARCH_PAGE_TIMEOUT_MS", 12_000) }),
+    browserProvider: new PlaywrightResearchBrowserProvider({ timeoutMs: numeric("RESEARCH_BROWSER_TIMEOUT_MS", 20_000) }),
+    imageSearchProvider: createConfiguredResearchImageSearchProvider({ timeoutMs: numeric("RESEARCH_IMAGE_SEARCH_TIMEOUT_MS", 12_000), maxTechnicalRetries: numeric("RESEARCH_MAX_TECHNICAL_RETRIES", 1) }),
     llmProvider: openai,
     visionProvider: openai,
     store,

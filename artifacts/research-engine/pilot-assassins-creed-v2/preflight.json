@@ -1,0 +1,31 @@
+{
+  "status": "PRECHECK_BLOCKED",
+  "checkedAt": "2026-09-16T04:13:46.547Z",
+  "checks": {
+    "generalProvider": {
+      "ok": false,
+      "detail": "serpapi-google:OPEN_CIRCUIT:PROVIDER_QUOTA_EXHAUSTED"
+    },
+    "browser": {
+      "ok": true,
+      "detail": "playwright-chromium"
+    },
+    "vision": {
+      "ok": true,
+      "detail": "gpt-4o-mini; image=/catalog-covers/ps3/ac-regional-2026-09-13/original/o109.jpg"
+    },
+    "localStorage": {
+      "ok": true,
+      "detail": "Research artifact write/read succeeded."
+    }
+  },
+  "providerHealth": [
+    {
+      "provider": "serpapi-google",
+      "state": "OPEN_CIRCUIT",
+      "checkedAt": "2026-09-16T04:13:38.936Z",
+      "failureCode": "PROVIDER_QUOTA_EXHAUSTED",
+      "detail": "ResearchSearchProviderError SERPAPI_QUOTA_EXHAUSTED: Your account has run out of searches."
+    }
+  ]
+}

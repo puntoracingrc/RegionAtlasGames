@@ -1,0 +1,19 @@
+{
+  "pilot1": {
+    "confirmed": 0,
+    "partial": 0,
+    "unresolved": 1,
+    "failed": 4,
+    "searches": 52,
+    "pages": 13,
+    "images": 4,
+    "estimatedCostUsd": 0.019041
+  },
+  "pilot2": {
+    "status": "PRECHECK_BLOCKED",
+    "casesStarted": 0,
+    "catalogMutations": 0
+  },
+  "retrievalPass": false,
+  "functionalValidated": false
+}

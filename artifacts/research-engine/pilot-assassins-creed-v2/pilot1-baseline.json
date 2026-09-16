@@ -1,0 +1,14 @@
+{
+  "confirmed": 0,
+  "partial": 0,
+  "unresolved": 1,
+  "failed": 4,
+  "searches": 52,
+  "pages": 13,
+  "images": 4,
+  "estimatedCostUsd": 0.019041,
+  "catalogMutations": 0,
+  "unsafeFalsePositives": 0,
+  "crossAttributionErrors": 0,
+  "platformContaminationErrors": 0
+}

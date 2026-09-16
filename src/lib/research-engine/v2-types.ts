@@ -269,6 +269,7 @@ export type ResearchRouterPlan = {
   factsUsed: string[];
   selectedPlaybook: ResearchPlaybook;
   sourcePlan: ResearchSourcePlanItem[];
+  directUrlPlan: Array<{ url: string; sourceId: string; reason: string }>;
   queryPlan: Array<{ query: string; sourceId: string | null; purpose: ResearchTargetField }>;
   imagePlan: Array<{ component: ResearchComponent; fields: ResearchTargetField[]; reason: string }>;
   deterministicChecks: string[];
@@ -357,10 +358,41 @@ export type ResearchSearchResult = {
   provider: string;
 };
 
+export type ResearchRetrievalFailureCode =
+  | "SOURCE_TIMEOUT"
+  | "SOURCE_BLOCKED"
+  | "SOURCE_NOT_FOUND"
+  | "SOURCE_RATE_LIMITED"
+  | "PROVIDER_QUOTA_EXHAUSTED"
+  | "PROVIDER_TEMPORARILY_UNAVAILABLE"
+  | "BROWSER_REQUIRED"
+  | "IMAGE_UNAVAILABLE"
+  | "INTERNAL_ERROR";
+
+export type ResearchProviderHealth = {
+  provider: string;
+  state: "HEALTHY" | "DEGRADED" | "OPEN_CIRCUIT" | "NOT_CONFIGURED";
+  checkedAt: string;
+  failureCode: ResearchRetrievalFailureCode | null;
+  detail: string | null;
+};
+
+export type ResearchRetrievalEvent = {
+  at: string;
+  operation: "PREFLIGHT" | "SEARCH" | "IMAGE_SEARCH" | "DIRECT_FETCH" | "BROWSER";
+  provider: string;
+  outcome: "SUCCESS" | "EMPTY" | "RETRY" | "FAILOVER" | "OPEN_CIRCUIT" | "CACHE_HIT" | "FAILURE";
+  failureCode: ResearchRetrievalFailureCode | null;
+  detail: string | null;
+};
+
 export type ResearchSearchProviderV2 = {
   name: string;
   search(request: ResearchSearchRequest): Promise<ResearchSearchResult[]>;
   getUsage?(): Record<string, number>;
+  preflight?(): Promise<ResearchProviderHealth[]>;
+  getHealth?(): ResearchProviderHealth[];
+  getEvents?(): ResearchRetrievalEvent[];
 };
 
 export type ResearchPage = {
@@ -410,6 +442,9 @@ export type ResearchImageSearchProvider = {
   name: string;
   search(request: ResearchSearchRequest): Promise<ResearchImageSearchResult[]>;
   getUsage?(): Record<string, number>;
+  preflight?(): Promise<ResearchProviderHealth[]>;
+  getHealth?(): ResearchProviderHealth[];
+  getEvents?(): ResearchRetrievalEvent[];
 };
 
 export type ResearchVisionResult = {
@@ -493,6 +528,7 @@ export type ResearchRunStatus =
   | "CONFIRMED"
   | "PARTIAL"
   | "UNRESOLVED"
+  | "BLOCKED_INFRASTRUCTURE"
   | "BLOCKED"
   | "FAILED";
 

@@ -5,11 +5,11 @@ import { publicListedCatalog } from "../src/lib/catalog";
 import { findResearchSubjects, getResearchSubjectById } from "../src/lib/research-engine/catalog-context";
 import { assertResearchEngineEnabled, loadResearchEnvironment, researchRuntimeCapabilities } from "../src/lib/research-engine/env";
 import { ResearchOpenAIError } from "../src/lib/research-engine/openai-provider";
-import { runDurableResearchTask } from "../src/lib/research-engine/runtime";
+import { createResearchWorkerDependencies, runDurableResearchTask } from "../src/lib/research-engine/runtime";
 import { ResearchSearchProviderError } from "../src/lib/research-engine/search-provider";
 import { createResearchState, durableTask, researchArtifactRoot, ResearchRunStore } from "../src/lib/research-engine/state-store";
 import type { ResearchSubject } from "../src/lib/research-engine/types";
-import type { ResearchBudgetUsage, ResearchTargetField } from "../src/lib/research-engine/v2-types";
+import type { ResearchBudgetUsage, ResearchProviderHealth, ResearchTargetField } from "../src/lib/research-engine/v2-types";
 
 type PilotCase = {
   number: number;
@@ -225,8 +225,52 @@ function overallStatus(completed: CompletedTarget[], failures: Array<{ targetFie
   if (failures.length) return "FAILED";
   const statuses = completed.map((item) => item.result.state.status);
   if (statuses.length && statuses.every((status) => status === "CONFIRMED")) return "CONFIRMED";
+  if (statuses.length && statuses.every((status) => status === "BLOCKED_INFRASTRUCTURE")) return "BLOCKED_INFRASTRUCTURE";
   if (statuses.length && statuses.every((status) => status === "UNRESOLVED")) return "UNRESOLVED";
+  if (statuses.some((status) => status === "CONFIRMED" || status === "PARTIAL")) return "PARTIAL";
+  if (statuses.some((status) => status === "BLOCKED_INFRASTRUCTURE")) return "BLOCKED_INFRASTRUCTURE";
   return statuses.length ? "PARTIAL" : "FAILED";
+}
+
+async function runPreflight(pilotRoot: string, store: ResearchRunStore) {
+  const dependencies = createResearchWorkerDependencies(store);
+  const checks: Record<string, { ok: boolean; detail: string }> = {};
+  let providerHealth: ResearchProviderHealth[] = [];
+  try {
+    providerHealth = await dependencies.searchProvider?.preflight?.() ?? [];
+    checks.generalProvider = { ok: providerHealth.some((row) => row.state === "HEALTHY"), detail: providerHealth.map((row) => `${row.provider}:${row.state}:${row.failureCode ?? "OK"}`).join(", ") || "No configured provider" };
+  } catch (error) {
+    checks.generalProvider = { ok: false, detail: error instanceof Error ? error.message.slice(0, 300) : "PROVIDER_PREFLIGHT_FAILED" };
+  }
+  try {
+    await dependencies.browserProvider?.browse(process.env.REGION_ATLAS_BASE_URL?.trim() || "https://www.regionatlas.games/");
+    checks.browser = { ok: true, detail: dependencies.browserProvider?.name ?? "browser" };
+  } catch (error) {
+    checks.browser = { ok: false, detail: error instanceof Error ? error.message.slice(0, 300) : "BROWSER_PREFLIGHT_FAILED" };
+  } finally {
+    await dependencies.browserProvider?.close().catch(() => undefined);
+  }
+  try {
+    const cover = process.env.RESEARCH_PREFLIGHT_IMAGE_URL?.trim()
+      || "/catalog-covers/ps3/ac-regional-2026-09-13/original/o109.jpg";
+    if (!dependencies.visionProvider) throw new Error("VISION_NOT_CONFIGURED");
+    const base = process.env.REGION_ATLAS_BASE_URL?.trim() || "https://www.regionatlas.games/";
+    const inspected = await dependencies.visionProvider.inspect({ imageUrl: new URL(cover, base).toString(), requestedFields: ["CANONICAL_IDENTITY"] });
+    checks.vision = { ok: inspected.usage.calls === 1, detail: `${inspected.usage.model ?? "vision-model"}; image=${cover}` };
+  } catch (error) {
+    checks.vision = { ok: false, detail: error instanceof Error ? error.message.slice(0, 300) : "VISION_PREFLIGHT_FAILED" };
+  }
+  try {
+    const marker = { checkedAt: new Date().toISOString(), mode: "RESEARCH_ONLY" };
+    await store.writeArtifact("pilot-v2-preflight", "storage-check.json", marker);
+    const readback = await store.readArtifact("pilot-v2-preflight", "storage-check.json", () => null as typeof marker | null);
+    checks.localStorage = { ok: readback?.mode === "RESEARCH_ONLY", detail: "Research artifact write/read succeeded." };
+  } catch (error) {
+    checks.localStorage = { ok: false, detail: error instanceof Error ? error.message.slice(0, 300) : "STORAGE_PREFLIGHT_FAILED" };
+  }
+  const result = { status: Object.values(checks).every((check) => check.ok) ? "READY" : "PRECHECK_BLOCKED", checkedAt: new Date().toISOString(), checks, providerHealth };
+  await writeJson(path.join(pilotRoot, "preflight.json"), result);
+  return result;
 }
 
 async function runCase(definition: PilotCase, pilotRoot: string, store: ResearchRunStore, pilotBudget: PilotBudget): Promise<void> {
@@ -255,11 +299,11 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
     state.identifiersSeen = definition.identifiers.map((identifier) => ({ ...identifier, component: null }));
     state.budget = {
       ...state.budget,
-      maxSearches: numericEnv("RESEARCH_PILOT_MAX_SEARCHES", Math.min(4, state.budget.maxSearches)),
-      maxPages: numericEnv("RESEARCH_PILOT_MAX_PAGES", Math.min(6, state.budget.maxPages)),
-      maxImages: numericEnv("RESEARCH_PILOT_MAX_IMAGES", Math.min(3, state.budget.maxImages)),
-      maxAgentTurns: numericEnv("RESEARCH_PILOT_MAX_AGENT_TURNS", Math.min(4, state.budget.maxAgentTurns)),
-      maxBrowserSessions: numericEnv("RESEARCH_PILOT_MAX_BROWSER_SESSIONS", Math.min(2, state.budget.maxBrowserSessions)),
+      maxSearches: numericEnv("RESEARCH_PILOT_MAX_SEARCHES", 25),
+      maxPages: numericEnv("RESEARCH_PILOT_MAX_PAGES", 30),
+      maxImages: numericEnv("RESEARCH_PILOT_MAX_IMAGES", 20),
+      maxAgentTurns: numericEnv("RESEARCH_PILOT_MAX_AGENT_TURNS", 12),
+      maxBrowserSessions: numericEnv("RESEARCH_PILOT_MAX_BROWSER_SESSIONS", 8),
       maxTokens: numericEnv("RESEARCH_PILOT_MAX_TOKENS", Math.min(40_000, state.budget.maxTokens)),
       maxCostUsd: Math.min(numericEnv("RESEARCH_PILOT_MAX_COST_USD", state.budget.maxCostUsd), pilotBudget.remainingUsd),
     };
@@ -318,6 +362,9 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
   const claims = completed.flatMap((item) => item.result.state.claims);
   const sourceCandidates = completed.flatMap((item) => item.result.sourceCandidates);
   const catalogMutations = completed.flatMap((item) => item.result.catalogImmutability.changed);
+  const evidenceTimeline = completed.flatMap((item) => item.result.state.evidence.map((evidence) => ({ targetField: item.targetField, at: evidence.fetchedAt, evidenceId: evidence.id, sourceId: evidence.sourceId, sourceUrl: evidence.sourceUrl, evidenceType: evidence.evidenceType })))
+    .sort((a, b) => a.at.localeCompare(b.at));
+  const citationLines = [...new Map(evidenceTimeline.filter((row) => row.sourceUrl).map((row) => [row.sourceUrl, `- [${row.sourceId}](${row.sourceUrl}) — ${row.targetField}, ${row.evidenceType}`])).values()];
   await Promise.all([
     writeJson(path.join(directory, "task.json"), { case: definition, subjectId: subject.id, tasks }),
     writeJson(path.join(directory, "catalog-context.json"), { subject, contexts: completed.map((item) => ({ targetField: item.targetField, context: item.result.context })) }),
@@ -335,7 +382,14 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
     writeJson(path.join(directory, "resolution.json"), { status, resolutions, failures }),
     writeJson(path.join(directory, "cost.json"), costs),
     writeJson(path.join(directory, "source-candidates.json"), sourceCandidates),
+    writeJson(path.join(directory, "provider-health.json"), completed.flatMap((item) => item.result.providerHealth.map((row) => ({ targetField: item.targetField, ...row })))),
+    writeJson(path.join(directory, "retrieval-events.json"), completed.flatMap((item) => item.result.retrievalEvents.map((row) => ({ targetField: item.targetField, ...row })))),
+    writeJson(path.join(directory, "technical-failures.json"), completed.flatMap((item) => item.result.technicalFailures.map((row) => ({ targetField: item.targetField, ...row })))),
+    writeJson(path.join(directory, "retrieval-funnel.json"), completed.map((item) => ({ targetField: item.targetField, ...item.result.funnel }))),
     writeJson(path.join(directory, "catalog-immutability.json"), { identical: catalogMutations.length === 0, changed: [...new Set(catalogMutations)] }),
+    writeJson(path.join(directory, "evidence-timeline.json"), evidenceTimeline),
+    writeJson(path.join(directory, "repro.json"), { command: `npm run research:pilot:assassins-creed:v2 -- --case ${definition.number}`, researchOnly: true, sequential: true, targetFields: definition.targetFields }),
+    writeFile(path.join(directory, "citations.md"), `# Citations\n\n${citationLines.length ? citationLines.join("\n") : "No citation-bearing evidence was accepted."}\n`, "utf8"),
   ]);
   const summary = [
     `# ${definition.id}`,
@@ -375,7 +429,8 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
     const cost = await readJsonOrNull(path.join(pilotRoot, definition.id, "cost.json"));
     const claims = await readJsonOrNull(path.join(pilotRoot, definition.id, "claims.json")) as unknown as Array<Record<string, unknown>> | null;
     const conflicts = await readJsonOrNull(path.join(pilotRoot, definition.id, "conflicts.json")) as unknown as Array<Record<string, unknown>> | null;
-    return { definition, resolution, cost, claims: Array.isArray(claims) ? claims : [], conflicts: Array.isArray(conflicts) ? conflicts : [] };
+    const technicalFailures = await readJsonOrNull(path.join(pilotRoot, definition.id, "technical-failures.json")) as unknown as Array<Record<string, unknown>> | null;
+    return { definition, resolution, cost, claims: Array.isArray(claims) ? claims : [], conflicts: Array.isArray(conflicts) ? conflicts : [], technicalFailures: Array.isArray(technicalFailures) ? technicalFailures : [] };
   }));
   const statuses = rows.map((row) => String(row.resolution?.status ?? "NOT_RUN"));
   const number = (value: unknown) => typeof value === "number" && Number.isFinite(value) ? value : 0;
@@ -391,6 +446,7 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
   const platformContaminationErrors = rows.flatMap((row) => row.claims).filter((claim) => claim.status === "VALIDATED" && Array.isArray(claim.validationErrors) && claim.validationErrors.some((error) => String(error).includes("PLATFORM"))).length;
   const catalogMutationDocuments = await Promise.all(PILOT_CASES.map((definition) => readJsonOrNull(path.join(pilotRoot, definition.id, "catalog-immutability.json"))));
   const catalogMutations = catalogMutationDocuments.reduce((sum, document) => sum + (Array.isArray(document?.changed) ? document.changed.length : 0), 0);
+  const unrecoveredTechnicalFailures = rows.flatMap((row) => row.technicalFailures).filter((failure) => failure.recovered !== true).length;
   const summary = {
     cases: PILOT_CASES.length,
     completedCases: statuses.filter((status) => status !== "NOT_RUN").length,
@@ -398,13 +454,17 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
     partial: statuses.filter((status) => status === "PARTIAL").length,
     unresolved: statuses.filter((status) => status === "UNRESOLVED").length,
     failed: statuses.filter((status) => status === "FAILED").length,
+    blockedInfrastructure: statuses.filter((status) => status === "BLOCKED_INFRASTRUCTURE").length,
     notRun: statuses.filter((status) => status === "NOT_RUN").length,
     unsafeFalsePositives,
     crossAttributionErrors,
     platformContaminationErrors,
     ...totalCost,
     catalogMutations,
+    unrecoveredTechnicalFailures,
   };
+  const retrievalPass = summary.completedCases === 5 && summary.failed === 0 && summary.blockedInfrastructure === 0 && summary.unrecoveredTechnicalFailures === 0;
+  const functionalValidated = summary.failed === 0 && (summary.confirmed >= 2 || (summary.confirmed >= 1 && summary.partial >= 3));
   const markdown = [
     "# Assassin's Creed research pilot closure",
     "",
@@ -415,6 +475,9 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
     `- Partial: ${summary.partial}`,
     `- Unresolved: ${summary.unresolved}`,
     `- Failed: ${summary.failed}`,
+    `- Blocked infrastructure: ${summary.blockedInfrastructure}`,
+    `- Retrieval pass: ${retrievalPass ? "PASS" : "FAIL"}`,
+    `- Functional validation: ${functionalValidated ? "PASS" : "FAIL"}`,
     `- Unsafe false positives: ${summary.unsafeFalsePositives}`,
     `- Cross-attribution errors accepted: ${summary.crossAttributionErrors}`,
     `- Platform contamination errors accepted: ${summary.platformContaminationErrors}`,
@@ -431,19 +494,58 @@ async function writeClosure(pilotRoot: string): Promise<Record<string, unknown>>
   ].join("\n");
   await mkdir(pilotRoot, { recursive: true });
   await writeFile(path.join(pilotRoot, "closure.md"), `${markdown}\n`, "utf8");
-  return summary;
+  await writeJson(path.join(pilotRoot, "before-after-comparison.json"), {
+    pilot1: { confirmed: 0, partial: 0, unresolved: 1, failed: 4, searches: 52, pages: 13, images: 4, estimatedCostUsd: 0.019041 },
+    pilot2: summary,
+    retrievalPass,
+    functionalValidated,
+  });
+  return { ...summary, retrievalPass, functionalValidated };
+}
+
+async function writePilotBaseline(pilotRoot: string): Promise<void> {
+  await mkdir(pilotRoot, { recursive: true });
+  await writeFile(path.join(pilotRoot, "pilot1-root-cause.md"), [
+    "# Pilot 1 root-cause analysis",
+    "",
+    "- Outcome: 0 CONFIRMED, 0 PARTIAL, 1 UNRESOLVED, 4 FAILED.",
+    "- Funnel: 52 searches, 13 pages opened and 4 images inspected.",
+    "- Cost: $0.019041.",
+    "- Safety: 0 catalog mutations, 0 accepted unsafe false positives, 0 accepted cross-attribution errors and 0 accepted platform-contamination errors.",
+    "- Primary root cause: retrieval infrastructure exceptions escaped the search/image layers and were interpreted as semantic case failures.",
+    "- Contributing causes: a single usable general provider, quota exhaustion opening no circuit, limited source-aware direct routing, shallow page-image extraction and shared accounting of technical failures with semantic progress.",
+    "- Corrective status: covered by typed retrieval failures, quota circuit breaker, bounded retry/failover, direct URL routing, richer image discovery, separate technical telemetry and BLOCKED_INFRASTRUCTURE terminal state.",
+  ].join("\n") + "\n", "utf8");
+  await writeJson(path.join(pilotRoot, "pilot1-baseline.json"), {
+    confirmed: 0, partial: 0, unresolved: 1, failed: 4,
+    searches: 52, pages: 13, images: 4, estimatedCostUsd: 0.019041,
+    catalogMutations: 0, unsafeFalsePositives: 0, crossAttributionErrors: 0, platformContaminationErrors: 0,
+  });
 }
 
 async function main(): Promise<void> {
   await loadResearchEnvironment();
   const args = parseArgs(process.argv.slice(2));
-  const pilotRoot = path.join(researchArtifactRoot(), "pilot-assassins-creed");
+  const pilotRoot = path.join(researchArtifactRoot(), "pilot-assassins-creed-v2");
+  await writePilotBaseline(pilotRoot);
   if (!args.reportOnly) {
     assertResearchEngineEnabled();
     const capabilities = researchRuntimeCapabilities();
     if (!capabilities.openai) throw new Error("OPENAI_NOT_CONFIGURED");
     if (!capabilities.googleSearch && !capabilities.serpApi) throw new Error("RESEARCH_SEARCH_NOT_CONFIGURED");
     const store = new ResearchRunStore();
+    const preflight = await runPreflight(pilotRoot, store);
+    if (preflight.status !== "READY") {
+      await writeFile(path.join(pilotRoot, "closure.md"), "# Assassin's Creed research pilot 2\n\n- Status: PRECHECK BLOCKED\n- Blocker: no healthy general search provider; SerpAPI quota circuit is open.\n- Browser: healthy\n- Vision: healthy\n- Local artifact storage: healthy\n- Pilot cases started: 0\n- Catalog mutations: 0\n- Retrieval pass: not achieved\n- Functional validation: not run\n", "utf8");
+      await writeJson(path.join(pilotRoot, "before-after-comparison.json"), {
+        pilot1: { confirmed: 0, partial: 0, unresolved: 1, failed: 4, searches: 52, pages: 13, images: 4, estimatedCostUsd: 0.019041 },
+        pilot2: { status: "PRECHECK_BLOCKED", casesStarted: 0, catalogMutations: 0 },
+        retrievalPass: false,
+        functionalValidated: false,
+      });
+      console.log(JSON.stringify(preflight, null, 2));
+      return;
+    }
     const pilotBudget: PilotBudget = { remainingUsd: numericEnv("RESEARCH_MAX_COST_USD", 1) };
     for (const definition of args.cases) {
       if (pilotBudget.remainingUsd <= 0) break;

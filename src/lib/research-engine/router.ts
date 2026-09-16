@@ -98,6 +98,13 @@ function sourceRoleMatches(source: ResearchSourceDefinition, roles: string[]): b
 
 function rankSources(input: ResearchRouterInput, playbook: ResearchPlaybook): ResearchSourcePlanItem[] {
   const explicit = new Map(playbook.sourceIds.map((id, index) => [id, playbook.sourceIds.length - index]));
+  const franchisePriority = input.franchiseKnowledge
+    .find((rule) => rule.startsWith("Preferred franchise sources:"))
+    ?.replace(/^Preferred franchise sources:\s*/, "")
+    .replace(/\.$/, "")
+    .split(",")
+    .map((value) => value.trim()) ?? [];
+  const franchiseBoost = new Map(franchisePriority.map((id, index) => [id, franchisePriority.length - index]));
   const rows = input.sourceKnowledge
     .filter((source) => sourceSupportsPlatform(source, input.catalogContext.platformSlug))
     .filter((source) => source.id !== "regionatlas-own-scan" || input.catalogContext.ownedScans.length > 0)
@@ -105,7 +112,7 @@ function rankSources(input: ResearchRouterInput, playbook: ResearchPlaybook): Re
       const capability = source.fieldCapabilities[input.targetField] ?? 0;
       const explicitBoost = (explicit.get(source.id) ?? 0) * 100;
       const roleBoost = sourceRoleMatches(source, playbook.sourceRoles) ? 25 : 0;
-      const score = explicitBoost + capability * 2 + source.defaultReliability + roleBoost;
+      const score = explicitBoost + (franchiseBoost.get(source.id) ?? 0) * 8 + capability * 2 + source.defaultReliability + roleBoost;
       return {
         score,
         item: {
@@ -253,6 +260,23 @@ function imagePlanFor(target: ResearchTargetField): ResearchRouterPlan["imagePla
   return rows[target] ?? [];
 }
 
+function directUrlPlan(input: ResearchRouterInput, sourcePlan: ResearchSourcePlanItem[]): ResearchRouterPlan["directUrlPlan"] {
+  const candidates: ResearchRouterPlan["directUrlPlan"] = [];
+  if (input.catalogContext.gameRetailer?.url) {
+    candidates.push({ url: input.catalogContext.gameRetailer.url, sourceId: "national-retailer", reason: "Exact retailer URL already bound to the catalog subject." });
+  }
+  for (const url of input.catalogContext.officialSourceCandidates) {
+    try {
+      const host = new URL(url).hostname;
+      const source = sourcePlan.find((row) => row.hosts.some((candidate) => host === candidate || host.endsWith(`.${candidate}`)));
+      candidates.push({ url, sourceId: source?.sourceId ?? `company-official:${host}`, reason: "Known official URL from current catalog context." });
+    } catch {
+      // Invalid context URLs never become retrieval work.
+    }
+  }
+  return [...new Map(candidates.map((candidate) => [candidate.url, candidate])).values()].slice(0, 8);
+}
+
 function factsUsed(input: ResearchRouterInput, playbook: ResearchPlaybook): string[] {
   const context = input.catalogContext;
   return [
@@ -274,6 +298,7 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
   const triggers = triggerSet(input);
   const selectedPlaybook = selectPlaybook(input, triggers);
   const sourcePlan = rankSources(input, selectedPlaybook);
+  const directUrls = directUrlPlan(input, sourcePlan);
   const queryPlan = buildQueries(input, selectedPlaybook, sourcePlan);
   const deterministicChecks = [...new Set([
     ...selectedPlaybook.deterministicChecks,
@@ -293,6 +318,7 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
     playbook: selectedPlaybook.id,
     identifiers: knownIdentifiersForRouter(input),
     sources: sourcePlan.map((source) => source.sourceId),
+    directUrls: directUrls.map((row) => row.url),
     queries: queryPlan.map((query) => query.query),
   });
   return {
@@ -300,6 +326,7 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
     factsUsed: factsUsed(input, selectedPlaybook),
     selectedPlaybook,
     sourcePlan,
+    directUrlPlan: directUrls,
     queryPlan,
     imagePlan: imagePlanFor(input.targetField),
     deterministicChecks,

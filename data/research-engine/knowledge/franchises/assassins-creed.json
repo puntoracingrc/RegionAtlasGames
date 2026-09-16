@@ -13,6 +13,14 @@
     "Outer product identifiers must remain separate from inner game identifiers.",
     "A platform identifier incompatible with the target platform is a blocking conflict."
   ],
+  "platformMethods": {
+    "ps5": ["Start with Ubisoft and PlayStation identity pages, then DoesItPlay for media/install claims, then exact retail or specimen evidence."],
+    "ds": ["Prioritize Nintendo product codes and component-bound DBox, OGDB or Retroplace images; keep box and cartridge codes separate."],
+    "wiiu": ["Treat collector-edition outer packaging separately from the standard inner game; require Skull Edition binding on every claim."],
+    "switch": ["Distinguish game card, code-in-box and download-required content; product code and download statement need component evidence."],
+    "xbox360": ["Model compilation outer barcode, each inner game and standalone releases as separate identities; reject incompatible platform identifiers."]
+  },
+  "sourcePriority": ["ubisoft-official", "platform-holder-official", "nintendo-official", "dbox", "doesitplay", "ogdb", "retroplace", "mobygames", "national-retailer", "ebay", "todocoleccion", "gamefaqs-guarded"],
   "pilotQueryHints": ["exact barcode", "exact serial", "back cover", "unboxing", "physical contents"],
   "forbiddenRuntimeInputs": ["manual final answers", "audit closure verdicts"]
 }

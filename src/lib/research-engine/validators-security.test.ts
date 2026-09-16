@@ -52,7 +52,7 @@ test("page fetcher parses bounded HTML and blocks redirect-to-private SSRF", asy
   const resolver = async () => [{ address: "93.184.216.34", family: 4 }];
   const fetcher = new HttpResearchPageFetcher({
     resolver,
-    fetchImpl: (async () => new Response(`<!doctype html><html lang="es"><head><title>Ficha física</title><link rel="canonical" href="/canonical"></head><body><script>ignore()</script><p>Juego físico para España</p><a href="/more">Más</a><img src="/back.jpg" alt="Contraportada"></body></html>`, {
+    fetchImpl: (async () => new Response(`<!doctype html><html lang="es"><head><title>Ficha física</title><link rel="canonical" href="/canonical"><meta property="og:image" content="/social.jpg"><script type="application/ld+json">{"@type":"Product","image":["/product-front.jpg"]}</script></head><body><script>ignore()</script><p>Juego físico para España</p><a href="/more">Más</a><img src="/back.jpg" srcset="/back-large.jpg 2x" alt="Contraportada"></body></html>`, {
       status: 200,
       headers: { "content-type": "text/html; charset=utf-8" },
     })) as typeof fetch,
@@ -64,6 +64,9 @@ test("page fetcher parses bounded HTML and blocks redirect-to-private SSRF", asy
   assert.ok(!page.text.includes("ignore()"));
   assert.deepEqual(page.links, ["https://example.com/more"]);
   assert.equal(page.imageCandidates[0]?.url, "https://example.com/back.jpg");
+  assert.ok(page.imageCandidates.some((image) => image.url === "https://example.com/back-large.jpg"));
+  assert.ok(page.imageCandidates.some((image) => image.url === "https://example.com/social.jpg"));
+  assert.ok(page.imageCandidates.some((image) => image.url === "https://example.com/product-front.jpg"));
 
   const redirecting = new HttpResearchPageFetcher({
     resolver,
