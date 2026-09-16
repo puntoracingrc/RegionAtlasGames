@@ -2874,9 +2874,11 @@
       "eligibilityPeriod": null,
       "venue": "Hulic Hall Tokyo",
       "city": "Tokio",
-      "status": "upcoming",
-      "officialUrl": "https://awards.cesa.or.jp/overview/",
+      "status": "completed",
+      "officialUrl": "https://awards.cesa.or.jp/en/year/prize/01.html",
       "sourceIds": [
+        "AW-SRC-0e3bd7346fd6",
+        "AW-SRC-6373f4a332e5",
         "AW-SRC-813fb3aeeabf"
       ]
     },
@@ -3290,6 +3292,86 @@
       "successorCategoryId": null,
       "sourceIds": [
         "AW-SRC-835976405c6b"
+      ]
+    },
+    {
+      "id": "japan-game-awards:game-designers-award",
+      "seriesSlug": "japan-game-awards",
+      "slug": "game-designers-award",
+      "canonicalName": "Game Designers Award",
+      "displayName": "Game Designers Award",
+      "categoryType": "game_design",
+      "prestigeGroup": "category_award",
+      "activeFrom": null,
+      "activeTo": null,
+      "previousNames": [],
+      "successorCategoryId": null,
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ]
+    },
+    {
+      "id": "japan-game-awards:award-for-excellence",
+      "seriesSlug": "japan-game-awards",
+      "slug": "award-for-excellence",
+      "canonicalName": "Award for Excellence",
+      "displayName": "Award for Excellence",
+      "categoryType": "other",
+      "prestigeGroup": "category_award",
+      "activeFrom": null,
+      "activeTo": null,
+      "previousNames": [],
+      "successorCategoryId": null,
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ]
+    },
+    {
+      "id": "japan-game-awards:breakthrough-award",
+      "seriesSlug": "japan-game-awards",
+      "slug": "breakthrough-award",
+      "canonicalName": "Breakthrough Award",
+      "displayName": "Breakthrough Award",
+      "categoryType": "innovation",
+      "prestigeGroup": "category_award",
+      "activeFrom": null,
+      "activeTo": null,
+      "previousNames": [],
+      "successorCategoryId": null,
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ]
+    },
+    {
+      "id": "japan-game-awards:movement-award",
+      "seriesSlug": "japan-game-awards",
+      "slug": "movement-award",
+      "canonicalName": "Movement Award",
+      "displayName": "Movement Award",
+      "categoryType": "special",
+      "prestigeGroup": "category_award",
+      "activeFrom": null,
+      "activeTo": null,
+      "previousNames": [],
+      "successorCategoryId": null,
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ]
+    },
+    {
+      "id": "japan-game-awards:special-award",
+      "seriesSlug": "japan-game-awards",
+      "slug": "special-award",
+      "canonicalName": "Special Award",
+      "displayName": "Special Award",
+      "categoryType": "special",
+      "prestigeGroup": "category_award",
+      "activeFrom": null,
+      "activeTo": null,
+      "previousNames": [],
+      "successorCategoryId": null,
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
       ]
     }
   ],
@@ -8175,6 +8257,380 @@
       "confidence": "HIGH",
       "verificationStatus": "VERIFIED",
       "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:grand-award:ab32a8febb",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:grand-award",
+      "resultType": "winner",
+      "officialLabel": "Grand Award",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "Pokémon Pokopia"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-0e3bd7346fd6"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:game-designers-award:48e9d5617e",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:game-designers-award",
+      "resultType": "winner",
+      "officialLabel": "Game Designers Award",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "文字遊戯"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:be9d4739ec",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "イナズマイレブン 英雄たちのヴィクトリーロード"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:0b41151567",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "カービィのエアライダー"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:19b1191372",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "Ghost of Yōtei"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:84fa69aec3",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "SILENT HILL f"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:2a47aecaec",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "デジモンストーリー タイムストレンジャー"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:17581dc70b",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "DEATH STRANDING 2: ON THE BEACH"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:070b88c7b7",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "ドンキーコング バナンザ"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:88e20cb547",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "バイオハザード レクイエム"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:4287cc0c88",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "パラノマサイト FILE38 伊勢人魚物語"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:1b9698195c",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "PRAGMATA"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:ab32a8febb",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "Pokémon Pokopia"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-0e3bd7346fd6"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:award-for-excellence:8dcf125eac",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:award-for-excellence",
+      "resultType": "recipient",
+      "officialLabel": "Award for Excellence",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "魔法少女ノ魔女裁判"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:breakthrough-award:1b9698195c",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:breakthrough-award",
+      "resultType": "winner",
+      "officialLabel": "Breakthrough Award",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "PRAGMATA"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:movement-award:4efcb29f94",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:movement-award",
+      "resultType": "winner",
+      "officialLabel": "Movement Award",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "game",
+          "workKey": null,
+          "displayName": "めっちゃカメレオン"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "japan-game-awards:2026:special-award:0f08013b6f",
+      "editionId": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "categoryId": "japan-game-awards:special-award",
+      "resultType": "special_recognition",
+      "officialLabel": "Special Award",
+      "shared": false,
+      "recipients": [
+        {
+          "type": "other",
+          "key": "the-super-mario-galaxy-movie",
+          "displayName": "ザ・スーパーマリオギャラクシー・ムービー"
+        }
+      ],
+      "sourceIds": [
+        "AW-SRC-6373f4a332e5"
+      ],
+      "confidence": "HIGH",
+      "verificationStatus": "VERIFIED",
+      "publicationStatus": "published"
     }
   ],
   "workLinks": [
@@ -11535,6 +11991,22 @@
       "retrievedAt": "2026-09-06",
       "verifiedPrimary": true,
       "evidenceSummary": "Baldur's Gate 3: winner en Best Design, 2024. Baldur's Gate 3: winner en Best Narrative, 2024. Baldur's Gate 3: winner en Audience Award, 2024. Baldur's Gate 3: finalist en Best Audio, 2024. Cocoon: finalist en Game of the Year, 2024. Dave the Diver: finalist en Game of the Year, 2024. Dredge: finalist en Game of the Year, 2024. Marvel's Spider-Man 2: finalist en Game of the Year, 2024. The Legend of Zelda: Tears of the Kingdom: finalist en Game of the Year, 2024."
+    },
+    {
+      "id": "AW-SRC-0e3bd7346fd6",
+      "url": "https://awards.cesa.or.jp/en/year/prize/01.html",
+      "title": "Japan Game Awards 2026: Grand Award",
+      "retrievedAt": "2026-09-16",
+      "verifiedPrimary": true,
+      "evidenceSummary": "Resultado oficial: Pokémon Pokopia — Grand Award. Resultado oficial: Pokémon Pokopia — Award for Excellence."
+    },
+    {
+      "id": "AW-SRC-6373f4a332e5",
+      "url": "https://awards.cesa.or.jp/year/prize/index.html",
+      "title": "Japan Game Awards 2026: Game Designers Award",
+      "retrievedAt": "2026-09-16",
+      "verifiedPrimary": true,
+      "evidenceSummary": "Resultado oficial: 文字遊戯 — Game Designers Award. Resultado oficial: イナズマイレブン 英雄たちのヴィクトリーロード — Award for Excellence. Resultado oficial: カービィのエアライダー — Award for Excellence. Resultado oficial: Ghost of Yōtei — Award for Excellence. Resultado oficial: SILENT HILL f — Award for Excellence. Resultado oficial: デジモンストーリー タイムストレンジャー — Award for Excellence. Resultado oficial: DEATH STRANDING 2: ON THE BEACH — Award for Excellence. Resultado oficial: ドンキーコング バナンザ — Award for Excellence. Resultado oficial: バイオハザード レクイエム — Award for Excellence. Resultado oficial: パラノマサイト FILE38 伊勢人魚物語 — Award for Excellence. Resultado oficial: PRAGMATA — Award for Excellence. Resultado oficial: 魔法少女ノ魔女裁判 — Award for Excellence. Resultado oficial: PRAGMATA — Breakthrough Award. Resultado oficial: めっちゃカメレオン — Movement Award. Resultado oficial: ザ・スーパーマリオギャラクシー・ムービー — Special Award."
     },
     {
       "id": "AW-SRC-813fb3aeeabf",

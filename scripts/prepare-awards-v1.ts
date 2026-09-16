@@ -12,6 +12,7 @@ type WorkDecision = { title: string; ids: string[]; url: string; note: string };
 type PersonalDecision = { series: string; year: number; category: string; categoryName: string; slug: string; name: string; qid: string; url: string; legacyIds: string[] };
 type CreditDecision = { title: string; personWorkId: string; url: string; note: string };
 type CompanyDecision = { title: string; companySlug: string; role: "developer" | "publisher"; catalogId: string; url: string; note: string };
+type CurrentResultDecision = { series: string; year: number; title: string; categorySlug: string; categoryName: string; categoryType: AwardCategoryType; resultType: AwardResultType; url: string; recipientType: "game" | "other"; recipientKey?: string; retrievedAt: string; };
 const seed = read(root + "backfill-v1.json") as {
   batch: string; reviewedAt: string;
   series: [string,string,string,string,string,string,string,AwardPrestigeGroup,string][];
@@ -21,6 +22,7 @@ const seed = read(root + "backfill-v1.json") as {
   pending: { key: string; status: string; reason: string }[];
   legacyPersonalResults: [string,string,number,string,string,string][];
   otherResults: [string,number,string,string,string,AwardCategoryType,AwardResultType,string][];
+  currentResults?: CurrentResultDecision[];
   generalLegacyIds: string[];
 };
 assert.equal(seed.batch, "AWARDS-PERSONS-V1");
@@ -33,10 +35,10 @@ const identities = read(identityFile) as { catalogIdToWorkKey: Record<string,str
 const research: AwardResearchData = { version: 1, reviewedAt: seed.reviewedAt, series: [], editions: [], categories: [], results: [], workLinks: [], personWorkLinks: [], companyWorkLinks: [], legacyLinks: [], sources: [] };
 const approved = new Set<string>();
 const approve = (kind: string, id: string) => approved.add(`${kind}:${id}`);
-const source = (url: string, title: string, summary: string) => {
+const source = (url: string, title: string, summary: string, retrievedAt = seed.reviewedAt) => {
   const id = "AW-SRC-" + createHash("sha256").update(url).digest("hex").slice(0,12);
   const existing = research.sources.find(s => s.id === id);
-  if (!existing) research.sources.push({ id, url, title, retrievedAt: seed.reviewedAt, verifiedPrimary: true, evidenceSummary: summary });
+  if (!existing) research.sources.push({ id, url, title, retrievedAt, verifiedPrimary: true, evidenceSummary: summary });
   else if (!existing.evidenceSummary.includes(summary)) existing.evidenceSummary += ` ${summary}`;
   return id;
 };
@@ -121,6 +123,19 @@ for (const [seriesSlug,year,title,categorySlug,categoryName,categoryType,resultT
   if (!research.categories.some(c => c.id === categoryId)) research.categories.push({id:categoryId,seriesSlug,slug:categorySlug,canonicalName:categoryName,displayName:categoryName,categoryType,prestigeGroup:"category_award",activeFrom:null,activeTo:null,previousNames:[],successorCategoryId:null,sourceIds:[sourceId]});
   const id = `${editionId}:${categorySlug}:${createHash("sha256").update(title).digest("hex").slice(0,10)}`;
   research.results.push({id,editionId,seriesSlug,categoryId,resultType,officialLabel:null,shared:false,recipients:[{type:"game",workKey:keys.get(title) ?? null,displayName:title}],sourceIds:[sourceId],confidence:"HIGH",verificationStatus:"VERIFIED",publicationStatus:"published"});
+  approve("category",categoryId); approve("result",id);
+}
+for (const row of seed.currentResults ?? []) {
+  const series = research.series.find(s => s.slug === row.series)!; assert.ok(series);
+  const sourceId = source(row.url, `${series.shortName} ${row.year}: ${row.categoryName}`, `Resultado oficial: ${row.title} — ${row.categoryName}.`, row.retrievedAt);
+  const editionId = edition(row.series,row.year,sourceId,row.url);
+  const categoryId = `${row.series}:${row.categorySlug}`;
+  if (!research.categories.some(c => c.id === categoryId)) research.categories.push({id:categoryId,seriesSlug:row.series,slug:row.categorySlug,canonicalName:row.categoryName,displayName:row.categoryName,categoryType:row.categoryType,prestigeGroup:"category_award",activeFrom:null,activeTo:null,previousNames:[],successorCategoryId:null,sourceIds:[sourceId]});
+  const id = `${editionId}:${row.categorySlug}:${createHash("sha256").update(row.title).digest("hex").slice(0,10)}`;
+  const recipient = row.recipientType === "other"
+    ? {type:"other" as const,key:row.recipientKey ?? row.title,displayName:row.title}
+    : {type:"game" as const,workKey:keys.get(row.title) ?? null,displayName:row.title};
+  research.results.push({id,editionId,seriesSlug:row.series,categoryId,resultType:row.resultType,officialLabel:row.categoryName,shared:false,recipients:[recipient],sourceIds:[sourceId],confidence:"HIGH",verificationStatus:"VERIFIED",publicationStatus:"published"});
   approve("category",categoryId); approve("result",id);
 }
 for (const row of metadata.editions) {
