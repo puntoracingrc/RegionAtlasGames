@@ -10,9 +10,18 @@ import {
 import { AffiliateDisclosure } from "./affiliate/affiliate-disclosure";
 import { Badge, Panel, PanelTitle } from "./ui";
 import type { AffiliateFallbackCta, AffiliateOffer } from "@/lib/affiliate-offers";
+import {
+  AMAZON_MARKETPLACE_OPTIONS,
+  type AmazonMarketplaceCode,
+} from "@/lib/affiliate/amazon-marketplaces";
 
 type AffiliateOffersResponse = {
   enabled: boolean;
+  amazonMarketplace: {
+    code: AmazonMarketplaceCode;
+    label: string;
+    domain: string;
+  };
   offers: AffiliateOffer[];
   fallbackCta: AffiliateFallbackCta | null;
   fallbackCtas?: AffiliateFallbackCta[];
@@ -30,6 +39,24 @@ type LoadState =
   | { status: "ready"; data: AffiliateOffersResponse }
   | { status: "error" };
 
+const AMAZON_MARKETPLACE_STORAGE_KEY = "regionatlas-amazon-marketplace";
+
+async function fetchAffiliateOffers(
+  catalogId: string,
+  amazonCountry?: AmazonMarketplaceCode | null,
+  signal?: AbortSignal,
+): Promise<AffiliateOffersResponse> {
+  const params = new URLSearchParams();
+  if (amazonCountry) params.set("amazonCountry", amazonCountry);
+  const query = params.size > 0 ? `?${params.toString()}` : "";
+  const response = await fetch(`/api/catalog/offers/${encodeURIComponent(catalogId)}${query}`, {
+    signal,
+    headers: { Accept: "application/json" },
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return (await response.json()) as AffiliateOffersResponse;
+}
+
 function providerLabel(provider: AffiliateOffer["provider"]): string {
   if (provider === "ebay") return "eBay";
   if (provider === "amazon") return "Amazon";
@@ -45,18 +72,22 @@ function fallbackProviderLabel(provider: AffiliateFallbackCta["provider"]): stri
 
 export function AffiliateOffersPanel({ catalogId }: Props) {
   const [state, setState] = useState<LoadState>({ status: "loading" });
+  const [changingAmazonMarketplace, setChangingAmazonMarketplace] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
 
-    fetch(`/api/catalog/offers/${encodeURIComponent(catalogId)}`, {
-      signal: controller.signal,
-      headers: { Accept: "application/json" },
-    })
-      .then(async (response) => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return (await response.json()) as AffiliateOffersResponse;
-      })
+    let preferredAmazonMarketplace: AmazonMarketplaceCode | null = null;
+    try {
+      const stored = window.localStorage.getItem(AMAZON_MARKETPLACE_STORAGE_KEY);
+      preferredAmazonMarketplace = AMAZON_MARKETPLACE_OPTIONS.some((option) => option.code === stored)
+        ? (stored as AmazonMarketplaceCode)
+        : null;
+    } catch {
+      preferredAmazonMarketplace = null;
+    }
+
+    fetchAffiliateOffers(catalogId, preferredAmazonMarketplace, controller.signal)
       .then((data) => {
         setState({ status: "ready", data });
       })
@@ -68,6 +99,24 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
 
     return () => controller.abort();
   }, [catalogId]);
+
+  async function changeAmazonMarketplace(code: AmazonMarketplaceCode) {
+    if (state.status !== "ready" || code === state.data.amazonMarketplace.code) return;
+    setChangingAmazonMarketplace(true);
+    try {
+      const data = await fetchAffiliateOffers(catalogId, code);
+      setState({ status: "ready", data });
+      try {
+        window.localStorage.setItem(AMAZON_MARKETPLACE_STORAGE_KEY, code);
+      } catch {
+        // La preferencia local es opcional; el enlace sigue funcionando sin persistencia.
+      }
+    } catch {
+      // Conservamos las ofertas ya visibles si el cambio de tienda falla.
+    } finally {
+      setChangingAmazonMarketplace(false);
+    }
+  }
 
   if (state.status === "loading") {
     return (
@@ -97,7 +146,7 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
     );
   }
 
-  const { offers, fallbackCta, fallbackCtas, ebayImpressionPixelUrl, error } = state.data;
+  const { offers, fallbackCta, fallbackCtas, ebayImpressionPixelUrl, error, amazonMarketplace } = state.data;
   const searchFallbacks = fallbackCtas?.length ? fallbackCtas : fallbackCta ? [fallbackCta] : [];
   const ebaySearchFallback = searchFallbacks.find((fallback) => fallback.provider === "ebay");
   const amazonSearchFallback = searchFallbacks.find((fallback) => fallback.provider === "amazon");
@@ -140,6 +189,26 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
       <div className="mb-4 mt-3">
         <AffiliateDisclosure />
       </div>
+      {amazonSearchFallback ? (
+        <div className="mb-4 flex justify-center">
+          <label className="flex w-full max-w-sm flex-col gap-1.5 text-xs font-semibold text-muted sm:flex-row sm:items-center sm:justify-center">
+            <span className="shrink-0">Tienda Amazon</span>
+            <select
+              value={amazonMarketplace.code}
+              onChange={(event) => void changeAmazonMarketplace(event.target.value as AmazonMarketplaceCode)}
+              disabled={changingAmazonMarketplace}
+              className="min-h-10 w-full rounded-xl border border-border bg-background px-3 text-sm font-semibold text-foreground outline-none transition focus:border-amber-500 disabled:cursor-wait disabled:opacity-60 sm:w-auto"
+              aria-label="Seleccionar tienda de Amazon"
+            >
+              {AMAZON_MARKETPLACE_OPTIONS.map((option) => (
+                <option key={option.code} value={option.code}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      ) : null}
       {offers.length > 0 ? (
         <>
           <p className="mb-4 text-sm leading-6 text-muted">

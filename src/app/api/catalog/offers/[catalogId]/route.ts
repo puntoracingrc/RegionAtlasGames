@@ -13,6 +13,7 @@ import {
 } from "@/lib/catalog-ebay-region";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import { getGameDetailsWithOverlay, readCatalogOverlayGame } from "@/lib/catalog-runtime-overlay";
+import { amazonMarketplaceSummary, resolveAmazonMarketplace } from "@/lib/affiliate/amazon-marketplaces";
 
 export const dynamic = "force-dynamic";
 
@@ -72,6 +73,7 @@ function disabledPayload(catalogId: string, error?: string): AffiliateOfferApiPa
   return {
     enabled: false,
     ebayPriorityCountry: null,
+    amazonMarketplace: amazonMarketplaceSummary(resolveAmazonMarketplace("ES")),
     offers: [],
     fallbackCta: null,
     checkedAt: null,
@@ -105,9 +107,15 @@ export async function GET(request: Request, { params }: RouteParams) {
   const currentMarket = currentEdition?.marketRegions.length === 1
     ? currentEdition.marketRegions[0]
     : null;
-  const requestedRegion = new URL(request.url).searchParams.get(CATALOG_EBAY_REGION_PARAM);
+  const requestUrl = new URL(request.url);
+  const requestedRegion = requestUrl.searchParams.get(CATALOG_EBAY_REGION_PARAM);
   const selectedRegion = resolveCatalogEbayRegion(regionOptions, requestedRegion, currentMarket);
-  const cacheKey = catalogEbayOfferCacheKey(catalogId, selectedRegion?.value);
+  const requestedAmazonCountry =
+    requestUrl.searchParams.get("amazonCountry") ??
+    request.headers.get("x-vercel-ip-country") ??
+    request.headers.get("cf-ipcountry");
+  const selectedAmazonMarketplace = resolveAmazonMarketplace(requestedAmazonCountry);
+  const cacheKey = `${catalogEbayOfferCacheKey(catalogId, selectedRegion?.value)}:amazon:${selectedAmazonMarketplace.code}`;
   const cache = affiliateOfferCache();
   const cached = cache.get(cacheKey);
   if (cached && cached.expiresAt > Date.now()) {
@@ -129,6 +137,7 @@ export async function GET(request: Request, { params }: RouteParams) {
       ...(selectedRegion ? { ebayCountry: selectedRegion.value } : {}),
       ebayGame,
       ebayDetails: ebayDetails ?? null,
+      amazonCountry: selectedAmazonMarketplace.code,
     }));
     cache.set(cacheKey, {
       payload,
