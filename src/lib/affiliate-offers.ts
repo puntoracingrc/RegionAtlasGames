@@ -11,6 +11,11 @@ import {
   type EbayAffiliateSearchScope,
   type EbayOfferMarketScope,
 } from "./affiliate/ebay-offer-priority";
+import {
+  amazonMarketplaceSummary,
+  resolveAmazonMarketplace,
+  type AmazonMarketplace,
+} from "./affiliate/amazon-marketplaces";
 import { getPlatform } from "./catalog";
 import { readCatalogOverlayGame } from "./catalog-runtime-overlay";
 import { physicalEditionsMatch } from "./physical-edition";
@@ -44,6 +49,7 @@ export type AffiliateFallbackCta = {
 export type AffiliateOfferBlock = {
   enabled: boolean;
   ebayPriorityCountry: string | null;
+  amazonMarketplace: ReturnType<typeof amazonMarketplaceSummary>;
   offers: AffiliateOffer[];
   fallbackCta: AffiliateFallbackCta | null;
   fallbackCtas?: AffiliateFallbackCta[];
@@ -55,6 +61,7 @@ export type AffiliateOfferSelection = {
   ebayCountry?: string | null;
   ebayGame?: CatalogGame;
   ebayDetails?: GameDetails | null;
+  amazonCountry?: string | null;
 };
 
 type EbaySearchItem = {
@@ -642,21 +649,29 @@ function amazonGameCustomId(game: CatalogGame): string {
   return `rag-game-${game.slug}-${game.platformSlug}`.replace(/[^a-z0-9-]+/gi, "-").toLowerCase();
 }
 
-function amazonFallbackSearchCta(game: CatalogGame, details: GameDetails | null): AffiliateFallbackCta | null {
-  const associateTag = configured(process.env.AMAZON_ASSOCIATE_TAG);
-  if (!associateTag || !amazonAffiliateEnabled()) return null;
-  const marketplace = amazonMarketplace().replace(/^https?:\/\//, "").replace(/\/+$/, "");
+function amazonFallbackSearchCta(
+  game: CatalogGame,
+  details: GameDetails | null,
+  marketplace: AmazonMarketplace,
+): AffiliateFallbackCta | null {
+  if (!amazonAffiliateEnabled()) return null;
   const query = amazonQuery(game, details);
-  const url = new URL(`https://${marketplace}/s`);
+  const url = new URL(`https://${marketplace.domain}/s`);
   url.searchParams.set("k", query);
-  url.searchParams.set("tag", associateTag);
+  url.searchParams.set("tag", marketplace.associateTag);
   url.searchParams.set("ascsubtag", amazonGameCustomId(game));
   return {
     provider: "amazon",
-    id: `${game.id}-amazon-search-fallback`,
-    label: "Buscar este juego en Amazon",
+    id: `${game.id}-amazon-${marketplace.code.toLowerCase()}-search-fallback`,
+    label: `Buscar este juego en Amazon ${marketplace.label}`,
     url: url.toString(),
   };
+}
+
+function amazonCreatorsMatchesMarketplace(marketplace: AmazonMarketplace): boolean {
+  const configuredTag = configured(process.env.AMAZON_ASSOCIATE_TAG);
+  const configuredMarketplace = amazonMarketplace().replace(/^https?:\/\//, "").replace(/\/+$/, "");
+  return configuredTag === marketplace.associateTag && configuredMarketplace === marketplace.domain;
 }
 
 async function getEbayOffers(
@@ -876,21 +891,24 @@ export async function getAffiliateOfferBlock(
   const preferredCountry = selection.ebayCountry === undefined
     ? ebayPriorityCountry(ebayGame)
     : normalizeEbayCountry(selection.ebayCountry);
+  const selectedAmazonMarketplace = resolveAmazonMarketplace(selection.amazonCountry);
+  const amazonMarketplaceInfo = amazonMarketplaceSummary(selectedAmazonMarketplace);
   const trackingId = ebayGameCustomId(ebayGame);
-  if (!affiliateEnabled()) return { enabled: false, ebayPriorityCountry: preferredCountry, offers: [], fallbackCta: null, checkedAt: null, trackingId };
-  if (!(await affiliateGameWhitelisted(game))) return { enabled: true, ebayPriorityCountry: preferredCountry, offers: [], fallbackCta: null, checkedAt: null, trackingId };
+  if (!affiliateEnabled()) return { enabled: false, ebayPriorityCountry: preferredCountry, amazonMarketplace: amazonMarketplaceInfo, offers: [], fallbackCta: null, checkedAt: null, trackingId };
+  if (!(await affiliateGameWhitelisted(game))) return { enabled: true, ebayPriorityCountry: preferredCountry, amazonMarketplace: amazonMarketplaceInfo, offers: [], fallbackCta: null, checkedAt: null, trackingId };
 
   const [ebayResult, amazonOffers] = await Promise.all([
     getEbayOffers(ebayGame, ebayDetails, preferredCountry),
-    getAmazonOffers(game, details),
+    amazonCreatorsMatchesMarketplace(selectedAmazonMarketplace) ? getAmazonOffers(game, details) : Promise.resolve([]),
   ]);
-  const amazonFallback = amazonFallbackSearchCta(game, details);
+  const amazonFallback = amazonFallbackSearchCta(game, details, selectedAmazonMarketplace);
   const fallbackCtas = [...(amazonOffers.length > 0 ? [] : [amazonFallback]), ebayResult.fallbackCta].filter(
     (fallback): fallback is AffiliateFallbackCta => Boolean(fallback),
   );
   return {
     enabled: true,
     ebayPriorityCountry: preferredCountry,
+    amazonMarketplace: amazonMarketplaceInfo,
     offers: [...ebayResult.offers, ...amazonOffers],
     fallbackCta: fallbackCtas[0] ?? null,
     fallbackCtas,
