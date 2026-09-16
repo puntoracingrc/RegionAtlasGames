@@ -160,6 +160,47 @@ test("worker dynamically replans after a new identifier and resume skips prior q
   }
 });
 
+test("worker records transient search timeouts and closes unresolved instead of failing the run", async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), "regionatlas-worker-timeout-"));
+  try {
+    const task = durableTask({
+      id: "pilot:n64-timeout-test:box-code",
+      subjectId: subject.id,
+      targetField: "BOX_CODE",
+      question: "Which exact box code belongs to this cartridge?",
+      priority: "P2",
+    });
+    const state = createResearchState({
+      runId: "timeout-test-run",
+      taskId: task.id,
+      subjectId: subject.id,
+      targetField: task.targetField,
+      priority: task.priority,
+    });
+    state.budget.maxSearches = 1;
+    const timeoutSearch: ResearchSearchProviderV2 = {
+      name: "timeout-search",
+      async search() {
+        throw new DOMException("The operation was aborted due to timeout", "TimeoutError");
+      },
+      getUsage() {
+        return { "timeout-search": 1 };
+      },
+    };
+    const result = await runResearchTaskV2({
+      task,
+      subject,
+      dependencies: { searchProvider: timeoutSearch, pageFetcher, store: new ResearchRunStore(directory) },
+      resumeState: state,
+    });
+    assert.equal(result.state.status, "UNRESOLVED");
+    assert.equal(result.state.usage.searches, 1);
+    assert.ok(result.state.rejectedHypotheses.some((item) => String(item.reason).includes("timeout")));
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("owned scan metadata resolves barcode before search or AI", async () => {
   const directory = await mkdtemp(path.join(tmpdir(), "regionatlas-worker-owned-scan-"));
   try {

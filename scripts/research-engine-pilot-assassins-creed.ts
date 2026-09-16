@@ -4,10 +4,12 @@ import path from "node:path";
 import { publicListedCatalog } from "../src/lib/catalog";
 import { findResearchSubjects, getResearchSubjectById } from "../src/lib/research-engine/catalog-context";
 import { assertResearchEngineEnabled, loadResearchEnvironment, researchRuntimeCapabilities } from "../src/lib/research-engine/env";
+import { ResearchOpenAIError } from "../src/lib/research-engine/openai-provider";
 import { runDurableResearchTask } from "../src/lib/research-engine/runtime";
+import { ResearchSearchProviderError } from "../src/lib/research-engine/search-provider";
 import { createResearchState, durableTask, researchArtifactRoot, ResearchRunStore } from "../src/lib/research-engine/state-store";
 import type { ResearchSubject } from "../src/lib/research-engine/types";
-import type { ResearchTargetField } from "../src/lib/research-engine/v2-types";
+import type { ResearchBudgetUsage, ResearchTargetField } from "../src/lib/research-engine/v2-types";
 
 type PilotCase = {
   number: number;
@@ -195,6 +197,29 @@ function taskFor(definition: PilotCase, subject: ResearchSubject, field: Researc
 }
 
 type CompletedTarget = { targetField: ResearchTargetField; durationMs: number; result: Awaited<ReturnType<typeof runDurableResearchTask>> };
+type FailedTarget = { targetField: ResearchTargetField; error: string; usage: ResearchBudgetUsage };
+type PilotBudget = { remainingUsd: number };
+
+const EMPTY_USAGE: ResearchBudgetUsage = {
+  searches: 0,
+  pages: 0,
+  images: 0,
+  agentTurns: 0,
+  browserSessions: 0,
+  inputTokens: 0,
+  outputTokens: 0,
+  estimatedCostUsd: 0,
+};
+
+function roundUsd(value: number): number {
+  return Math.round(Math.max(0, value) * 1_000_000) / 1_000_000;
+}
+
+function isFatalProviderError(error: unknown): boolean {
+  return error instanceof ResearchOpenAIError
+    || error instanceof ResearchSearchProviderError
+    || (error instanceof Error && /^(?:GOOGLE_SEARCH|GOOGLE_IMAGE|SERPAPI)_/.test(error.message));
+}
 
 function overallStatus(completed: CompletedTarget[], failures: Array<{ targetField: ResearchTargetField; error: string }>): string {
   if (failures.length) return "FAILED";
@@ -204,15 +229,20 @@ function overallStatus(completed: CompletedTarget[], failures: Array<{ targetFie
   return statuses.length ? "PARTIAL" : "FAILED";
 }
 
-async function runCase(definition: PilotCase, pilotRoot: string, store: ResearchRunStore): Promise<void> {
+async function runCase(definition: PilotCase, pilotRoot: string, store: ResearchRunStore, pilotBudget: PilotBudget): Promise<void> {
   const directory = path.join(pilotRoot, definition.id);
   const subject = resolveSubject(definition);
   const tasks = definition.targetFields.map((field) => taskFor(definition, subject, field));
   await store.upsertTasks(tasks);
   const completed: CompletedTarget[] = [];
-  const failures: Array<{ targetField: ResearchTargetField; error: string }> = [];
+  const failures: FailedTarget[] = [];
+  let fatalError: unknown = null;
 
   for (const task of tasks) {
+    if (pilotBudget.remainingUsd <= 0) {
+      failures.push({ targetField: task.targetField, error: "GLOBAL_PILOT_COST_BUDGET_EXHAUSTED", usage: { ...EMPTY_USAGE } });
+      continue;
+    }
     const runId = `${definition.id}-${task.targetField.toLowerCase()}-${randomUUID()}`;
     const state = createResearchState({
       runId,
@@ -225,20 +255,28 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
     state.identifiersSeen = definition.identifiers.map((identifier) => ({ ...identifier, component: null }));
     state.budget = {
       ...state.budget,
-      maxSearches: numericEnv("RESEARCH_PILOT_MAX_SEARCHES", state.budget.maxSearches),
-      maxPages: numericEnv("RESEARCH_PILOT_MAX_PAGES", state.budget.maxPages),
-      maxImages: numericEnv("RESEARCH_PILOT_MAX_IMAGES", state.budget.maxImages),
-      maxAgentTurns: numericEnv("RESEARCH_PILOT_MAX_AGENT_TURNS", state.budget.maxAgentTurns),
-      maxBrowserSessions: numericEnv("RESEARCH_PILOT_MAX_BROWSER_SESSIONS", state.budget.maxBrowserSessions),
-      maxTokens: numericEnv("RESEARCH_PILOT_MAX_TOKENS", state.budget.maxTokens),
-      maxCostUsd: numericEnv("RESEARCH_PILOT_MAX_COST_USD", state.budget.maxCostUsd),
+      maxSearches: numericEnv("RESEARCH_PILOT_MAX_SEARCHES", Math.min(4, state.budget.maxSearches)),
+      maxPages: numericEnv("RESEARCH_PILOT_MAX_PAGES", Math.min(6, state.budget.maxPages)),
+      maxImages: numericEnv("RESEARCH_PILOT_MAX_IMAGES", Math.min(3, state.budget.maxImages)),
+      maxAgentTurns: numericEnv("RESEARCH_PILOT_MAX_AGENT_TURNS", Math.min(4, state.budget.maxAgentTurns)),
+      maxBrowserSessions: numericEnv("RESEARCH_PILOT_MAX_BROWSER_SESSIONS", Math.min(2, state.budget.maxBrowserSessions)),
+      maxTokens: numericEnv("RESEARCH_PILOT_MAX_TOKENS", Math.min(40_000, state.budget.maxTokens)),
+      maxCostUsd: Math.min(numericEnv("RESEARCH_PILOT_MAX_COST_USD", state.budget.maxCostUsd), pilotBudget.remainingUsd),
     };
     const started = Date.now();
     try {
       const result = await runDurableResearchTask({ task, subject, store, resumeState: state, franchiseId: "assassins-creed" });
       completed.push({ targetField: task.targetField, durationMs: Date.now() - started, result });
+      pilotBudget.remainingUsd = roundUsd(pilotBudget.remainingUsd - result.state.usage.estimatedCostUsd);
     } catch (error) {
-      failures.push({ targetField: task.targetField, error: error instanceof Error ? error.message : "UNKNOWN_PILOT_FAILURE" });
+      const failedState = await store.readState(runId);
+      const usage = failedState?.usage ?? { ...EMPTY_USAGE };
+      pilotBudget.remainingUsd = roundUsd(pilotBudget.remainingUsd - usage.estimatedCostUsd);
+      failures.push({ targetField: task.targetField, error: error instanceof Error ? error.message : "UNKNOWN_PILOT_FAILURE", usage });
+      if (isFatalProviderError(error)) {
+        fatalError = error;
+        break;
+      }
     }
   }
 
@@ -247,15 +285,15 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
     for (const [provider, calls] of Object.entries(item.result.providerUsage)) totals[provider] = (totals[provider] ?? 0) + calls;
     return totals;
   }, {});
-  const usage = completed.reduce((total, item) => ({
-    searches: total.searches + item.result.state.usage.searches,
-    pages: total.pages + item.result.state.usage.pages,
-    images: total.images + item.result.state.usage.images,
-    agentTurns: total.agentTurns + item.result.state.usage.agentTurns,
-    browserSessions: total.browserSessions + item.result.state.usage.browserSessions,
-    inputTokens: total.inputTokens + item.result.state.usage.inputTokens,
-    outputTokens: total.outputTokens + item.result.state.usage.outputTokens,
-    estimatedCostUsd: Math.round((total.estimatedCostUsd + item.result.state.usage.estimatedCostUsd) * 1_000_000) / 1_000_000,
+  const usage = [...completed.map((item) => item.result.state.usage), ...failures.map((failure) => failure.usage)].reduce((total, item) => ({
+    searches: total.searches + item.searches,
+    pages: total.pages + item.pages,
+    images: total.images + item.images,
+    agentTurns: total.agentTurns + item.agentTurns,
+    browserSessions: total.browserSessions + item.browserSessions,
+    inputTokens: total.inputTokens + item.inputTokens,
+    outputTokens: total.outputTokens + item.outputTokens,
+    estimatedCostUsd: roundUsd(total.estimatedCostUsd + item.estimatedCostUsd),
   }), { searches: 0, pages: 0, images: 0, agentTurns: 0, browserSessions: 0, inputTokens: 0, outputTokens: 0, estimatedCostUsd: 0 });
   const visionCalls = completed.reduce((sum, item) => sum + item.result.visionResults.length, 0);
   const status = overallStatus(completed, failures);
@@ -319,6 +357,7 @@ async function runCase(definition: PilotCase, pilotRoot: string, store: Research
   ].join("\n");
   await writeFile(path.join(directory, "summary.md"), `${summary}\n`, "utf8");
   console.error(`[research-engine] ${definition.id}: ${status}; cost=$${usage.estimatedCostUsd.toFixed(6)}; catalog mutations=${catalogMutations.length}`);
+  if (fatalError) throw fatalError;
 }
 
 async function readJsonOrNull(filename: string): Promise<Record<string, unknown> | null> {
@@ -405,12 +444,21 @@ async function main(): Promise<void> {
     if (!capabilities.openai) throw new Error("OPENAI_NOT_CONFIGURED");
     if (!capabilities.googleSearch && !capabilities.serpApi) throw new Error("RESEARCH_SEARCH_NOT_CONFIGURED");
     const store = new ResearchRunStore();
-    for (const definition of args.cases) await runCase(definition, pilotRoot, store);
+    const pilotBudget: PilotBudget = { remainingUsd: numericEnv("RESEARCH_MAX_COST_USD", 1) };
+    for (const definition of args.cases) {
+      if (pilotBudget.remainingUsd <= 0) break;
+      await runCase(definition, pilotRoot, store, pilotBudget);
+    }
   }
   console.log(JSON.stringify(await writeClosure(pilotRoot), null, 2));
 }
 
 void main().catch((error) => {
-  console.error(error instanceof Error ? error.message : "RESEARCH_PILOT_FAILED");
+  const code = error instanceof ResearchOpenAIError || error instanceof ResearchSearchProviderError
+    ? error.code
+    : error instanceof Error
+      ? error.message
+      : "RESEARCH_PILOT_FAILED";
+  console.error(code);
   process.exitCode = 1;
 });

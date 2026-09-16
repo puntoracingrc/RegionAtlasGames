@@ -14,6 +14,23 @@ type ProviderOptions = {
   timeoutMs?: number;
 };
 
+export class ResearchSearchProviderError extends Error {
+  constructor(public readonly code: string, providerMessage?: string) {
+    super(providerMessage ? `${code}: ${providerMessage}` : code);
+    this.name = "ResearchSearchProviderError";
+  }
+}
+
+function safeProviderMessage(value: unknown): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const compact = value.replace(/\s+/g, " ").trim().slice(0, 300);
+  return compact || undefined;
+}
+
+function isEmptyResultMessage(value: unknown): boolean {
+  return typeof value === "string" && /(?:hasn't|has not) returned any results|no results (?:were )?found/i.test(value);
+}
+
 function configuredGoogle(): boolean {
   return Boolean(process.env.GOOGLE_SEARCH_API_KEY?.trim() && process.env.GOOGLE_SEARCH_CX?.trim());
 }
@@ -113,7 +130,7 @@ export class SerpApiResearchSearchProvider implements ResearchSearchProviderV2 {
   async search(request: ResearchSearchRequest): Promise<ResearchSearchResult[]> {
     this.calls += 1;
     const key = serpApiKey();
-    if (!key) throw new Error("SERPAPI_NOT_CONFIGURED");
+    if (!key) throw new ResearchSearchProviderError("SERPAPI_NOT_CONFIGURED");
     const params = new URLSearchParams({
       engine: "google",
       api_key: key,
@@ -130,12 +147,13 @@ export class SerpApiResearchSearchProvider implements ResearchSearchProviderV2 {
       signal: AbortSignal.timeout(this.timeoutMs),
       cache: "no-store",
     });
-    if (!response.ok) throw new Error(`SERPAPI_HTTP_${response.status}`);
+    if (!response.ok) throw new ResearchSearchProviderError(`SERPAPI_HTTP_${response.status}`);
     const payload = await response.json() as {
       error?: string;
       organic_results?: Array<{ title?: string; link?: string; snippet?: string; date?: string }>;
     };
-    if (payload.error) throw new Error("SERPAPI_PROVIDER_ERROR");
+    if (isEmptyResultMessage(payload.error)) return [];
+    if (payload.error) throw new ResearchSearchProviderError("SERPAPI_PROVIDER_ERROR", safeProviderMessage(payload.error));
     return (payload.organic_results ?? []).flatMap((item, index) => {
       const url = safeResultUrl(item.link);
       if (!url) return [];
@@ -208,7 +226,7 @@ export class SerpApiResearchImageSearchProvider implements ResearchImageSearchPr
   async search(request: ResearchSearchRequest): Promise<ResearchImageSearchResult[]> {
     this.calls += 1;
     const key = serpApiKey();
-    if (!key) throw new Error("SERPAPI_NOT_CONFIGURED");
+    if (!key) throw new ResearchSearchProviderError("SERPAPI_NOT_CONFIGURED");
     const params = new URLSearchParams({
       engine: "google_images",
       api_key: key,
@@ -223,12 +241,13 @@ export class SerpApiResearchImageSearchProvider implements ResearchImageSearchPr
       signal: AbortSignal.timeout(this.timeoutMs),
       cache: "no-store",
     });
-    if (!response.ok) throw new Error(`SERPAPI_IMAGE_HTTP_${response.status}`);
+    if (!response.ok) throw new ResearchSearchProviderError(`SERPAPI_IMAGE_HTTP_${response.status}`);
     const payload = await response.json() as {
       error?: string;
       images_results?: Array<{ title?: string; original?: string; thumbnail?: string; link?: string; source?: string }>;
     };
-    if (payload.error) throw new Error("SERPAPI_IMAGE_PROVIDER_ERROR");
+    if (isEmptyResultMessage(payload.error)) return [];
+    if (payload.error) throw new ResearchSearchProviderError("SERPAPI_IMAGE_PROVIDER_ERROR", safeProviderMessage(payload.error));
     return (payload.images_results ?? []).slice(0, Math.max(1, Math.min(20, request.maxResults ?? 8))).flatMap((item, index) => {
       const image = safeResultUrl(item.original);
       if (!image) return [];

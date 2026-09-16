@@ -4,6 +4,7 @@ import {
   FallbackResearchSearchProvider,
   GoogleCustomResearchImageSearchProvider,
   GoogleCustomResearchSearchProvider,
+  ResearchSearchProviderError,
   SerpApiResearchSearchProvider,
 } from "./search-provider";
 
@@ -53,6 +54,29 @@ test("fallback provider records attempted Google and successful SerpAPI calls", 
     const results = await fallback.search({ query: "barcode" });
     assert.equal(results[0]?.provider, "serpapi-google");
     assert.deepEqual(fallback.getUsage(), { "google-custom-search": 1, "serpapi-google": 1 });
+  });
+});
+
+test("SerpAPI no-results responses are an empty result set, not a provider failure", async () => {
+  await withEnv({ SERPAPI_KEY: "serp-key" }, async () => {
+    const provider = new SerpApiResearchSearchProvider({
+      fetchImpl: (async () => Response.json({ error: "Google hasn't returned any results for this query." })) as typeof fetch,
+    });
+    assert.deepEqual(await provider.search({ query: "missing physical variant" }), []);
+  });
+});
+
+test("SerpAPI operational errors keep a stable code without exposing credentials", async () => {
+  await withEnv({ SERPAPI_KEY: "serp-key" }, async () => {
+    const provider = new SerpApiResearchSearchProvider({
+      fetchImpl: (async () => Response.json({ error: "Your account has run out of searches." })) as typeof fetch,
+    });
+    await assert.rejects(
+      provider.search({ query: "barcode" }),
+      (error: unknown) => error instanceof ResearchSearchProviderError
+        && error.code === "SERPAPI_PROVIDER_ERROR"
+        && !error.message.includes("serp-key"),
+    );
   });
 });
 

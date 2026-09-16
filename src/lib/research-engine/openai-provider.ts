@@ -23,6 +23,10 @@ type OpenAIProviderOptions = {
 
 type OpenAIUsage = { input_tokens?: unknown; output_tokens?: unknown };
 
+const RESEARCH_ONLY_MODEL_RATES: Record<string, { input: number; output: number }> = {
+  "gpt-4.1-mini": { input: 0.4, output: 1.6 },
+};
+
 export class ResearchOpenAIError extends Error {
   constructor(public readonly code: string, message: string) {
     super(message);
@@ -41,7 +45,13 @@ function modelRates(model: string): { input: number; output: number } {
     return { input: configuredInput, output: configuredOutput };
   }
   const profile = scannerModel(model as Parameters<typeof scannerModel>[0]);
-  return profile ? { input: profile.inputRate, output: profile.outputRate } : { input: 0, output: 0 };
+  if (profile) return { input: profile.inputRate, output: profile.outputRate };
+  const researchOnly = RESEARCH_ONLY_MODEL_RATES[model];
+  if (researchOnly) return researchOnly;
+  throw new ResearchOpenAIError(
+    "MODEL_PRICING_NOT_CONFIGURED",
+    `Configure RESEARCH_MODEL_INPUT_USD_PER_MILLION and RESEARCH_MODEL_OUTPUT_USD_PER_MILLION for ${model}.`,
+  );
 }
 
 function usageFor(model: string, raw: unknown): ResearchModelUsage {

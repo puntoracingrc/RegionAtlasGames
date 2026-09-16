@@ -6,6 +6,7 @@ import { crossAttributionConflicts, resolveResearchClaimRecords, type ResearchFi
 import { loadResearchKnowledge } from "./knowledge-loader";
 import { researchPageTextHash } from "./page-fetcher";
 import { applicableDecisionTests, knownIdentifiersForRouter, routeResearch, shouldDynamicallyReplan } from "./router";
+import { ResearchSearchProviderError } from "./search-provider";
 import { ResearchRunStore, createResearchState } from "./state-store";
 import type { ResearchSubject } from "./types";
 import { validateClaimDeterministically } from "./validators";
@@ -516,7 +517,18 @@ async function inspectDiscoveredImages(input: {
   input.state.usage = recordBudgetUse(input.state.usage, "searches");
   input.state.queriesAttempted.push(imageQuery);
   input.state.normalizedQueries.push(normalizedQuery(imageQuery));
-  const found = await input.imageSearchProvider.search({ query: imageQuery, maxResults: 4, country: "ES", language: "es" });
+  let found: ResearchImageSearchResult[];
+  try {
+    found = await input.imageSearchProvider.search({ query: imageQuery, maxResults: 4, country: "ES", language: "es" });
+  } catch (error) {
+    input.state.rejectedHypotheses.push({
+      value: imageQuery,
+      reason: error instanceof Error ? error.message.slice(0, 300) : "IMAGE_SEARCH_FAILED",
+    });
+    await persist(input.store, input.state);
+    if (error instanceof ResearchSearchProviderError) throw error;
+    return;
+  }
   input.images.push(...found);
   for (const image of found.slice(0, 2)) {
     if (!image.sourcePageUrl || input.state.urlsVisited.includes(image.imageUrl) || !budgetAllows(input.state.budget, input.state.usage, "images")) continue;
@@ -760,13 +772,24 @@ export async function runResearchTaskV2(input: {
           state.usage = recordBudgetUse(state.usage, "searches");
           state.queriesAttempted.push(planned.query);
           state.normalizedQueries.push(normalized);
-          const found = await input.dependencies.searchProvider.search({
-            query: planned.query,
-            domains: source?.hosts.length ? source.hosts : undefined,
-            maxResults: 6,
-            country: "ES",
-            language: "es",
-          });
+          let found: ResearchSearchResult[];
+          try {
+            found = await input.dependencies.searchProvider.search({
+              query: planned.query,
+              domains: source?.hosts.length ? source.hosts : undefined,
+              maxResults: 6,
+              country: "ES",
+              language: "es",
+            });
+          } catch (error) {
+            state.rejectedHypotheses.push({
+              value: planned.query,
+              reason: error instanceof Error ? error.message.slice(0, 300) : "SEARCH_FAILED",
+            });
+            await persist(store, state);
+            if (error instanceof ResearchSearchProviderError) throw error;
+            continue;
+          }
           searchResults.push(...found);
           progressed ||= found.length > 0;
           await persist(store, state);
