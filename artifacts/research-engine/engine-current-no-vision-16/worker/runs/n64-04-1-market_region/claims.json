@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cl-e52277946300f64cd79d0e72",
+    "runId": "n64-04-1-market_region",
+    "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+    "subjectId": "catalog:n64-pal-body-harvest",
+    "gameId": "n64-pal-body-harvest",
+    "platformSlug": "n64",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN_COMPONENT",
+    "field": "MARKET_REGION",
+    "value": "PAL Europa",
+    "sourceId": "nintendo64ever",
+    "sourceUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+    "evidenceId": "ev-789b05f4161d2c973565d20a",
+    "confidence": 0.9,
+    "status": "VALIDATED",
+    "validationErrors": [],
+    "createdAt": "2026-09-16T20:12:36.965Z"
+  },
+  {
+    "id": "cl-c66a6e6d1f66d092286bc3fc",
+    "runId": "n64-04-1-market_region",
+    "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+    "subjectId": "catalog:n64-pal-body-harvest",
+    "gameId": "n64-pal-body-harvest",
+    "platformSlug": "n64",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL Europa",
+    "sourceId": "ogdb",
+    "sourceUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+    "evidenceId": "ev-d2f2eb6f59ea098c9c04a94c",
+    "confidence": 1,
+    "status": "VALIDATED",
+    "validationErrors": [],
+    "createdAt": "2026-09-16T20:12:42.392Z"
+  }
+]

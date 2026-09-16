@@ -1,0 +1,3127 @@
+{
+  "schemaVersion": 1,
+  "caseId": "GB-03",
+  "game": "Mole Mania",
+  "platform": "gameboy",
+  "benchmarkGitSha": "afb90285994c57010a31fabb843b888402332476",
+  "initialContext": {
+    "exactCatalogRecords": [
+      {
+        "id": "gameboy-mole-mania",
+        "title": "Mole Mania",
+        "region": "USA",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "MUSEUM_PAL",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      },
+      {
+        "id": "gameboy-pal-mole-mania",
+        "title": "Mole Mania",
+        "region": "PAL Europa",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "MUSEUM_MULTI",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      },
+      {
+        "id": "gameboy-es-mole-mania",
+        "title": "Mole Mania",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "SEED_PC",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      }
+    ],
+    "scannerSubjects": [
+      {
+        "subject": {
+          "id": "catalog:gameboy-pal-mole-mania",
+          "kind": "catalog-entry",
+          "catalogId": "gameboy-pal-mole-mania",
+          "guideId": null,
+          "physicalEditionId": null,
+          "title": "Mole Mania",
+          "platformSlug": "gameboy",
+          "edition": "standard",
+          "region": "PAL Europa",
+          "barcode": null,
+          "productCodes": [],
+          "serials": [],
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "releaseStatus": null,
+          "physicalProductType": null,
+          "containsDisc": null,
+          "countsAsNativePhysicalRelease": null,
+          "confidence": "MUSEUM_MULTI",
+          "evidenceCount": 0,
+          "sourceCount": 0,
+          "notes": []
+        },
+        "risks": [
+          {
+            "code": "GENERIC_REGION",
+            "priority": "P1",
+            "weight": 14,
+            "reason": "La ficha usa una región amplia (PAL Europa) y puede ocultar cajas nacionales distintas.",
+            "targetField": "market"
+          }
+        ],
+        "engineTasks": [
+          {
+            "id": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+            "subjectId": "catalog:gameboy-pal-mole-mania",
+            "kind": "RESOLVE_MARKET",
+            "priority": "P1",
+            "question": "¿Qué mercado o mercados corresponden a esta caja física concreta?",
+            "requiredEvidence": [
+              "PHYSICAL_SCAN",
+              "RETAILER",
+              "COLLECTOR_DATABASE"
+            ],
+            "riskCodes": [
+              "GENERIC_REGION"
+            ],
+            "status": "queued",
+            "createdAt": "2026-09-16T20:13:03.999Z"
+          }
+        ],
+        "debtScore": 44
+      },
+      {
+        "subject": {
+          "id": "catalog:gameboy-es-mole-mania",
+          "kind": "catalog-entry",
+          "catalogId": "gameboy-es-mole-mania",
+          "guideId": null,
+          "physicalEditionId": null,
+          "title": "Mole Mania",
+          "platformSlug": "gameboy",
+          "edition": "standard",
+          "region": "PAL España",
+          "barcode": null,
+          "productCodes": [],
+          "serials": [],
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "releaseStatus": null,
+          "physicalProductType": null,
+          "containsDisc": null,
+          "countsAsNativePhysicalRelease": null,
+          "confidence": "SEED_PC",
+          "evidenceCount": 1,
+          "sourceCount": 0,
+          "notes": []
+        },
+        "risks": [],
+        "engineTasks": [],
+        "debtScore": 0
+      },
+      {
+        "subject": {
+          "id": "catalog:gameboy-mole-mania",
+          "kind": "catalog-entry",
+          "catalogId": "gameboy-mole-mania",
+          "guideId": null,
+          "physicalEditionId": null,
+          "title": "Mole Mania",
+          "platformSlug": "gameboy",
+          "edition": "standard",
+          "region": "USA",
+          "barcode": null,
+          "productCodes": [],
+          "serials": [],
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "releaseStatus": null,
+          "physicalProductType": null,
+          "containsDisc": null,
+          "countsAsNativePhysicalRelease": null,
+          "confidence": "MUSEUM_PAL",
+          "evidenceCount": 1,
+          "sourceCount": 0,
+          "notes": []
+        },
+        "risks": [],
+        "engineTasks": [],
+        "debtScore": 0
+      }
+    ],
+    "scannerGeneratedTaskCount": 1
+  },
+  "sourcesPlanned": [
+    "legacy:gameboy-visual-reviewed-20260908:800612078639",
+    "legacy:gameboy-visual-reviewed-20260908:335866722818",
+    "legacy:gameboy-visual-reviewed-20260908:297478441978",
+    "legacy:gameboy-visual-reviewed-20260908:326091056529",
+    "legacy:gameboy-documentary-v3-legado:hardware",
+    "legacy:gameboy-documentary-v3-legado:flintstones",
+    "legacy:gameboy-documentary-v3-legado:asterix",
+    "legacy:gameboy-documentary-v3-legado:addams",
+    "legacy:gameboy-documentary-v3-legado:revisions",
+    "legacy:gameboy-documentary-v3-legado:pokemon-red-nesp",
+    "legacy:gameboy-documentary-v3-legado:wario-neai",
+    "legacy:gameboy-documentary-v3-legado:zelda-esp2",
+    "legacy:gameboy-documentary-v3-legado:legado-esp-list",
+    "mobygames",
+    "national-retailer",
+    "publisher-official",
+    "ubisoft-official",
+    "platform-holder-official",
+    "no-intro",
+    "datomatic",
+    "ogdb",
+    "ebay",
+    "yambalu",
+    "todocoleccion"
+  ],
+  "sourcesUsed": [
+    "ebay",
+    "legacy:gameboy-visual-reviewed-20260908:800612078639",
+    "candidate:www.retroplace.com",
+    "candidate:www.videogamesage.com"
+  ],
+  "directUrlsUsed": [
+    "https://www.ebay.com/p/1912",
+    "https://www.ebay.es/p/1912",
+    "https://www.retroplace.com/en/games/33772--mole-mania",
+    "https://www.etsy.com/listing/1429763692/mole-mania-replacement-label-dmg-amop",
+    "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+    "https://www.retroplace.com/es/juegos/33773--mole-mania"
+  ],
+  "queriesExecuted": [
+    "\"Mole Mania\" \"gameboy\" physical edition",
+    "\"Mole Mania\" \"gameboy\" product code",
+    "\"DMG-AMOP-EUR\"",
+    "\"DMG-AMOP-EUR\" gameboy",
+    "site:www.ebay.es \"DMG-AMOP-EUR\"",
+    "\"DMG-AMOP-EUR\" \"Mole Mania\"",
+    "\"DMG-AMOP-EUR\" \"PAL Europa\"",
+    "site:www.ebay.es \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+    "site:gbhwdb.gekkio.fi \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+    "site:www.game-boy-database.com \"Mole Mania\" gameboy packaging distributor \"legal text\""
+  ],
+  "identifiersFound": [
+    {
+      "type": "PRODUCT_CODE",
+      "value": "DMG-AMOP-EUR",
+      "component": null
+    }
+  ],
+  "variantsRegionsDiscovered": [
+    "PAL Europa",
+    "PAL Europa",
+    "PAL Europa",
+    "PAL Europa",
+    "PAL Europa",
+    "PAL Europa"
+  ],
+  "confirmedFacts": [],
+  "conflicts": [],
+  "unresolvedFields": [
+    "MARKET_REGION"
+  ],
+  "imageUrls": [
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/yFsAAOxygo9Q6h9j/s-l640.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "rendered-meta-image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/J~oAAeSw5glqdjed/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with Japanese text “モラルニア” and “黄犬” on red and brown background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with Japanese text “モラルニア” and “黄犬” on red and brown background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/IMsAAeSwvFVqdjeg/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with Japanese text “モゴチャン” and “ピッカチー” on white background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with Japanese text “モゴチャン” and “ピッカチー” on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/JDkAAeSwA6tqdjej/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy with brown logo, Japanese text, and colorful mole graphics on white background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy with brown logo, Japanese text, and colorful mole graphics on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/VNUAAeSwUrdqdjel/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy authentic Japanese case with label showing Mole Mania characters, pink Japanese text, and Nintendo logo.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy authentic Japanese case with label showing Mole Mania characters, pink Japanese text, and Nintendo logo.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HbQAAeSwgYVqdjen/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Tan Nintendo Game Boy cartridge with pink label showing Mole Mania characters, Japanese text, and Nintendo Game Boy logo.",
+        "caption": null,
+        "galleryLabel": "Tan Nintendo Game Boy cartridge with pink label showing Mole Mania characters, Japanese text, and Nintendo Game Boy logo.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/GEcAAeSwMbhqdjeu/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy authentic Japanese version with back label reading “MADE IN JAPAN PAT. PEND.” and gold connector port.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy authentic Japanese version with back label reading “MADE IN JAPAN PAT. PEND.” and gold connector port.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/g1gAAeSwaRZqdjex/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with black label, white case, and gold connector, tested in clear plastic case.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with black label, white case, and gold connector, tested in clear plastic case.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/Gx0AAeSw4vtqdjez/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Brown Nintendo Game Boy cartridge with black text reading “MADE IN JAPAN PAT. PEND.” on white background.",
+        "caption": null,
+        "galleryLabel": "Brown Nintendo Game Boy cartridge with black text reading “MADE IN JAPAN PAT. PEND.” on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/M1oAAeSwlShqdje2/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Square beige Nintendo Game Boy cartridge with black plastic case, side view tested in clear plastic holder.",
+        "caption": null,
+        "galleryLabel": "Square beige Nintendo Game Boy cartridge with black plastic case, side view tested in clear plastic holder.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/TDgAAeSw1Ktqdje-/s-l64.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy with label showing Japanese text, brown insert, and green cartridge.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy with label showing Japanese text, brown insert, and green cartridge.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/J~oAAeSw5glqdjed/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with Japanese text “モラルニア” and “黄犬” on red and brown background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with Japanese text “モラルニア” and “黄犬” on red and brown background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/IMsAAeSwvFVqdjeg/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with Japanese text “モゴチャン” and “ピッカチー” on white background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with Japanese text “モゴチャン” and “ピッカチー” on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/JDkAAeSwA6tqdjej/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy with brown logo, Japanese text, and colorful mole graphics on white background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy with brown logo, Japanese text, and colorful mole graphics on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/VNUAAeSwUrdqdjel/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy authentic Japanese case with label showing Mole Mania characters, pink Japanese text, and Nintendo logo.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy authentic Japanese case with label showing Mole Mania characters, pink Japanese text, and Nintendo logo.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HbQAAeSwgYVqdjen/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Tan Nintendo Game Boy cartridge with pink label showing Mole Mania characters, Japanese text, and Nintendo Game Boy logo.",
+        "caption": null,
+        "galleryLabel": "Tan Nintendo Game Boy cartridge with pink label showing Mole Mania characters, Japanese text, and Nintendo Game Boy logo.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/GEcAAeSwMbhqdjeu/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy authentic Japanese version with back label reading “MADE IN JAPAN PAT. PEND.” and gold connector port.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy authentic Japanese version with back label reading “MADE IN JAPAN PAT. PEND.” and gold connector port.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/g1gAAeSwaRZqdjex/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with black label, white case, and gold connector, tested in clear plastic case.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with black label, white case, and gold connector, tested in clear plastic case.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/Gx0AAeSw4vtqdjez/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Brown Nintendo Game Boy cartridge with black text reading “MADE IN JAPAN PAT. PEND.” on white background.",
+        "caption": null,
+        "galleryLabel": "Brown Nintendo Game Boy cartridge with black text reading “MADE IN JAPAN PAT. PEND.” on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/M1oAAeSwlShqdje2/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Square beige Nintendo Game Boy cartridge with black plastic case, side view tested in clear plastic holder.",
+        "caption": null,
+        "galleryLabel": "Square beige Nintendo Game Boy cartridge with black plastic case, side view tested in clear plastic holder.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/TDgAAeSw1Ktqdje-/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy with label showing Japanese text, brown insert, and green cartridge.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy with label showing Japanese text, brown insert, and green cartridge.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HbQAAeSwgYVqdjen/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Tan Nintendo Game Boy cartridge with pink label showing Mole Mania characters, Japanese text, and Nintendo Game Boy logo.",
+        "caption": null,
+        "galleryLabel": "Tan Nintendo Game Boy cartridge with pink label showing Mole Mania characters, Japanese text, and Nintendo Game Boy logo.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/GEcAAeSwMbhqdjeu/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy authentic Japanese version with back label reading “MADE IN JAPAN PAT. PEND.” and gold connector port.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy authentic Japanese version with back label reading “MADE IN JAPAN PAT. PEND.” and gold connector port.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/g1gAAeSwaRZqdjex/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with black label, white case, and gold connector, tested in clear plastic case.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with black label, white case, and gold connector, tested in clear plastic case.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/Gx0AAeSw4vtqdjez/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Brown Nintendo Game Boy cartridge with black text reading “MADE IN JAPAN PAT. PEND.” on white background.",
+        "caption": null,
+        "galleryLabel": "Brown Nintendo Game Boy cartridge with black text reading “MADE IN JAPAN PAT. PEND.” on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/M1oAAeSwlShqdje2/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Square beige Nintendo Game Boy cartridge with black plastic case, side view tested in clear plastic holder.",
+        "caption": null,
+        "galleryLabel": "Square beige Nintendo Game Boy cartridge with black plastic case, side view tested in clear plastic holder.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/TDgAAeSw1Ktqdje-/s-l1600.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy with label showing Japanese text, brown insert, and green cartridge.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy with label showing Japanese text, brown insert, and green cartridge.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/J~oAAeSw5glqdjed/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with Japanese text “モラルニア” and “黄犬” on red and brown background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with Japanese text “モラルニア” and “黄犬” on red and brown background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/IMsAAeSwvFVqdjeg/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy cartridge with Japanese text “モゴチャン” and “ピッカチー” on white background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy cartridge with Japanese text “モゴチャン” and “ピッカチー” on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/JDkAAeSwA6tqdjej/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy with brown logo, Japanese text, and colorful mole graphics on white background.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy with brown logo, Japanese text, and colorful mole graphics on white background.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/VNUAAeSwUrdqdjel/s-l500.webp",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Gray Nintendo Game Boy authentic Japanese case with label showing Mole Mania characters, pink Japanese text, and Nintendo logo.",
+        "caption": null,
+        "galleryLabel": "Gray Nintendo Game Boy authentic Japanese case with label showing Mole Mania characters, pink Japanese text, and Nintendo logo.",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/c7YAAOSwgQBmK-uc/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://www.ebay.com/p/1912",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HroAAeSwYtNqk0Ua/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Authentic Japanese Version - US Seller",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Authentic Japanese Version - US Seller",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/J~oAAeSw5glqdjed/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Authentic Japanese Version Tested",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Authentic Japanese Version Tested",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/JQwAAeSwyBdpkJl7/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania (Original Nintendo Game Boy) Authentic Jp Version Tested",
+        "caption": null,
+        "galleryLabel": "Mole Mania (Original Nintendo Game Boy) Authentic Jp Version Tested",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/R6IAAeSwLGBp65dF/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania (Nintendo Game Boy, 1997) Authentic Cartridge TESTED",
+        "caption": null,
+        "galleryLabel": "Mole Mania (Nintendo Game Boy, 1997) Authentic Cartridge TESTED",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/fzMAAeSwXMpqKvaG/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Game Color Advance SP Game",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Game Color Advance SP Game",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/I54AAeSwfqVp9ref/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania (Original Nintendo Game Boy) Authentic US Version Cart Only",
+        "caption": null,
+        "galleryLabel": "Mole Mania (Original Nintendo Game Boy) Authentic US Version Cart Only",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/5WwAAeSwtM1qKHmP/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Original Nintendo Gameboy CARTRIDGE ONLY AUTHENTIC/TESTED Puzzle Game",
+        "caption": null,
+        "galleryLabel": "Mole Mania Original Nintendo Gameboy CARTRIDGE ONLY AUTHENTIC/TESTED Puzzle Game",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HikAAeSwQotqoexi/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Game Boy Nintendo GB Game Cartridge Authentic New Battery !!!",
+        "caption": null,
+        "galleryLabel": "Mole Mania Game Boy Nintendo GB Game Cartridge Authentic New Battery !!!",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/xNwAAeSwsrNqHJGx/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Super Mario Land 2 (Nintendo Game Boy GameBoy) Complete in Box CIB",
+        "caption": null,
+        "galleryLabel": "Super Mario Land 2 (Nintendo Game Boy GameBoy) Complete in Box CIB",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/80wAAeSwrj5qg4Ba/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/thumbs/images/g/jswAAeSwwlRqMJXe/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Onimusha: Way of the Sword + Steelbook - Sony PlayStation 5",
+        "caption": null,
+        "galleryLabel": "Onimusha: Way of the Sword + Steelbook - Sony PlayStation 5",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/thumbs/images/g/3XQAAeSwxsNqMJXl/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Onimusha: Way of the Sword - Sony PlayStation 5",
+        "caption": null,
+        "galleryLabel": "Onimusha: Way of the Sword - Sony PlayStation 5",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/thumbs/images/g/cekAAOSw33xnPFir/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Metal Gear Solid: Master Collection Vo1. 1 - Sony PlayStation 5",
+        "caption": null,
+        "galleryLabel": "Metal Gear Solid: Master Collection Vo1. 1 - Sony PlayStation 5",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/thumbs/images/g/O1sAAOSwi7VoI-pG/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Hyrule Warriors - Definitive Edition - Nintendo Switch",
+        "caption": null,
+        "galleryLabel": "Hyrule Warriors - Definitive Edition - Nintendo Switch",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/thumbs/images/g/aLMAAeSwu8RpqVYA/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Pokemon Pokopia (Game-Key Card) - Nintendo Switch 2",
+        "caption": null,
+        "galleryLabel": "Pokemon Pokopia (Game-Key Card) - Nintendo Switch 2",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/thumbs/images/g/Yn0AAOSwozZoCtRg/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "The Legend Of Zelda: Breath Of The Wild - Nintendo Switch 2 Edition - Nintendo Switch 2",
+        "caption": null,
+        "galleryLabel": "The Legend Of Zelda: Breath Of The Wild - Nintendo Switch 2 Edition - Nintendo Switch 2",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/thumbs/images/g/vAcAAOSwtLtoI-pX/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Pokemon Ultra Moon - Nintendo 3DS",
+        "caption": null,
+        "galleryLabel": "Pokemon Ultra Moon - Nintendo 3DS",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/LygAAOSwhgNl9wh4/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Hyrule Warriors: Definitive Edition Switch Brand New Game (2018 Hack and Slash)",
+        "caption": null,
+        "galleryLabel": "Hyrule Warriors: Definitive Edition Switch Brand New Game (2018 Hack and Slash)",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/T-kAAeSwGjJqbWL5/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "STARFOX NEW SEALED 2026 Authentic Nintendo Switch 2 Star Fox",
+        "caption": null,
+        "galleryLabel": "STARFOX NEW SEALED 2026 Authentic Nintendo Switch 2 Star Fox",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/a6sAAeSwKkJqqbW5/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Metal Gear Solid: Master Collection Vol. 2 PS5 - Brand New - EU Edition",
+        "caption": null,
+        "galleryLabel": "Metal Gear Solid: Master Collection Vol. 2 PS5 - Brand New - EU Edition",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/yAMAAOSwuzVhnrlJ/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Dark Souls Trilogy PS4 Sony PlayStation 4 Brand New Factory Sealed All DLCs UK",
+        "caption": null,
+        "galleryLabel": "Dark Souls Trilogy PS4 Sony PlayStation 4 Brand New Factory Sealed All DLCs UK",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/ctoAAeSwnLRqqheJ/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Cyberpunk 2077 - Nintendo Switch 2",
+        "caption": null,
+        "galleryLabel": "Cyberpunk 2077 - Nintendo Switch 2",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/ZD4AAOSwXuxfNXPM/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Pokemon Sword And Shield Japanese Zarude & Shiny Celebi Movie Event Bundle!",
+        "caption": null,
+        "galleryLabel": "Pokemon Sword And Shield Japanese Zarude & Shiny Celebi Movie Event Bundle!",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/NAkAAOSwDqNoNAUk/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nintendo Taz-Mania Video Games",
+        "caption": null,
+        "galleryLabel": "Nintendo Taz-Mania Video Games",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/6YsAAOSwFA9nYHMK/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nintendo Game Boy 1997 Video Games",
+        "caption": null,
+        "galleryLabel": "Nintendo Game Boy 1997 Video Games",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/5k0AAOSwhYRoLwsD/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nintendo SNES Taz-Mania Video Games",
+        "caption": null,
+        "galleryLabel": "Nintendo SNES Taz-Mania Video Games",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/rI0AAOSw2lRf6xb-/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nintendo Game Boy Advance Games",
+        "caption": null,
+        "galleryLabel": "Nintendo Game Boy Advance Games",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/QIEAAOSwYGNf6xce/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nintendo Game Boy Video Games",
+        "caption": null,
+        "galleryLabel": "Nintendo Game Boy Video Games",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/MNMAAOSwqtJf6xcR/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nintendo Game Boy Video Game Consoles",
+        "caption": null,
+        "galleryLabel": "Nintendo Game Boy Video Game Consoles",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ebay",
+      "pageUrl": "https://www.ebay.com/p/1912",
+      "imageUrl": "https://rover.ebay.com/roverimp/0/0/9?imp=2046301&trknvp=cp%3D2349526%26ghi%3D98&1789589588641",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/J~oAAeSw5glqdjed/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 1 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 1 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/J~oAAeSw5glqdjed/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 1 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 1 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/J~oAAeSw5glqdjed/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 1 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 1 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/IMsAAeSwvFVqdjeg/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 2 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 2 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/IMsAAeSwvFVqdjeg/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 2 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 2 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/IMsAAeSwvFVqdjeg/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 2 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 2 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/JDkAAeSwA6tqdjej/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 3 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 3 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/JDkAAeSwA6tqdjej/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 3 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 3 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/JDkAAeSwA6tqdjej/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 3 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 3 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/VNUAAeSwUrdqdjel/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 4 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 4 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/VNUAAeSwUrdqdjel/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 4 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 4 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/VNUAAeSwUrdqdjel/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 4 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 4 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HbQAAeSwgYVqdjen/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 5 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 5 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HbQAAeSwgYVqdjen/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 5 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 5 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HbQAAeSwgYVqdjen/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 5 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 5 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/GEcAAeSwMbhqdjeu/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 6 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 6 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/GEcAAeSwMbhqdjeu/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 6 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 6 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/GEcAAeSwMbhqdjeu/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 6 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 6 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/g1gAAeSwaRZqdjex/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 7 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 7 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/g1gAAeSwaRZqdjex/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 7 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 7 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/g1gAAeSwaRZqdjex/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 7 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 7 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/Gx0AAeSw4vtqdjez/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 8 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 8 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/Gx0AAeSw4vtqdjez/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 8 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 8 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/Gx0AAeSw4vtqdjez/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 8 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 8 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/M1oAAeSwlShqdje2/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 9 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 9 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/M1oAAeSwlShqdje2/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 9 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 9 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/M1oAAeSwlShqdje2/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 9 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 9 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/TDgAAeSw1Ktqdje-/s-l64.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 10 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 10 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/TDgAAeSw1Ktqdje-/s-l500.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 10 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 10 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/TDgAAeSw1Ktqdje-/s-l1600.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 10 de 10",
+        "caption": null,
+        "galleryLabel": "Mole Mania Nintendo Game Boy Auténtico Versión Japonesa Probado - Imagen 10 de 10",
+        "acquisitionMechanisms": [
+          "img.srcset",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/yFsAAOxygo9Q6h9j/s-l640.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/Ry4AAOSwMBtg1l72/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/g1QAAOSwjelg1l~W/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/mbMAAOSwbn1eRJ2Y/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/3MQAAOSwpe9g1nkX/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/~28AAOSwzvRg1qoL/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/yFsAAOxygo9Q6h9j/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HroAAeSwYtNqk0Ua/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/J~oAAeSw5glqdjed/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/JQwAAeSwyBdpkJl7/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/R6IAAeSwLGBp65dF/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/fzMAAeSwXMpqKvaG/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/I54AAeSwfqVp9ref/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/5WwAAeSwtM1qKHmP/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/HikAAeSwQotqoexi/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/xNwAAeSwsrNqHJGx/s-l225.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1912",
+      "imageUrl": "https://i.ebayimg.com/images/g/c7YAAOSwgQBmK-uc/s-l140.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.facebook.com/tr?id=1419726858539829&ev=PageView&noscript=1",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/retroplace-small.svg",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/rp.svg",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/retroplace_white.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/en/games/pics/gameboy/packshots/33772--mole-mania.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania - GAMEBOY - Nintendo Game Boy - Packshots",
+        "caption": "Mole Mania - GAMEBOY - Nintendo Game Boy - Packshot",
+        "galleryLabel": "Mole Mania - GAMEBOY - Nintendo Game Boy - Packshot",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/en/games/pics/gameboy/titles/33772--mole-mania.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania - GAMEBOY - Nintendo Game Boy - Titles",
+        "caption": "Mole Mania - GAMEBOY - Nintendo Game Boy - Title",
+        "galleryLabel": "Mole Mania - GAMEBOY - Nintendo Game Boy - Title",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/en/games/pics/gameboy/ingames/33772--mole-mania.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania - GAMEBOY - Nintendo Game Boy - Ingames",
+        "caption": "Mole Mania - GAMEBOY - Nintendo Game Boy - Ingame",
+        "galleryLabel": "Mole Mania - GAMEBOY - Nintendo Game Boy - Ingame",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/us.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "USA",
+        "caption": "USA",
+        "galleryLabel": "USA",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/jp.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Japan",
+        "caption": "Japan",
+        "galleryLabel": "Japan",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/eu.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Europe",
+        "caption": "Europe",
+        "galleryLabel": "Europe",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/graded.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "graded",
+        "caption": "graded",
+        "galleryLabel": "graded",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/new.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "new",
+        "caption": "new",
+        "galleryLabel": "new",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/perfect.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "as new",
+        "caption": "as new",
+        "galleryLabel": "as new",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/very_good.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "very good",
+        "caption": "very good",
+        "galleryLabel": "very good",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/good.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "good",
+        "caption": "good",
+        "galleryLabel": "good",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/acceptable.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "acceptable",
+        "caption": "acceptable",
+        "galleryLabel": "acceptable",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/broken.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "broken",
+        "caption": "broken",
+        "galleryLabel": "broken",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/en/games/offers/",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/packshots/33772--mole-mania.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/ingames/33772--mole-mania.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/titles/33772--mole-mania.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "http://www.retroplace.com/ui/theme/img/logos/retroplace-fb-share.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "imageUrl": "https://www.retroplace.com/pics/gameboy/packshots/33772--mole-mania.png",
+      "listingId": "33772",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "twitter:image",
+        "caption": null,
+        "galleryLabel": "twitter:image",
+        "acquisitionMechanisms": [
+          "twitter:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.videogamesage.com",
+      "pageUrl": "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+      "imageUrl": "https://media.invisioncic.com/g290812/monthly_2026_01/VGS-LogoMascot-Final-01-compressed_less_newlkogo.png.7ef1797e0bc3407ff5c3ef1fb56ce9f1.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Video Game Sage",
+        "caption": null,
+        "galleryLabel": "Video Game Sage",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.videogamesage.com",
+      "pageUrl": "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+      "imageUrl": "https://vgs-media.s3.ca-central-1.amazonaws.com/monthly_2019_11/BZLGAMLISTITEMS.jpg.777db88f56f806c90a7e1e0bbca1b4e2.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "rendered-meta-image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.videogamesage.com",
+      "pageUrl": "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+      "imageUrl": "https://vgs-media.s3.ca-central-1.amazonaws.com/monthly_2023_07/de06t4f-135a438d-d9bf-408b-9d01-39676afc351f.thumb.png.7984b25d17d75a5f3b0f9fcc4a17a40c.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "JVOSS",
+        "caption": null,
+        "galleryLabel": "JVOSS",
+        "acquisitionMechanisms": [
+          "rendered-img"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.facebook.com/tr?id=1419726858539829&ev=PageView&noscript=1",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/retroplace-small.svg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/rp.svg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/retroplace_white.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/es/juegos/pics/gameboy/packshots/33773--mole-mania.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania - GAMEBOY - Nintendo Game Boy - Packshots",
+        "caption": "Mole Mania - GAMEBOY - Nintendo Game Boy - Packshot",
+        "galleryLabel": "Mole Mania - GAMEBOY - Nintendo Game Boy - Packshot",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/es/juegos/pics/gameboy/titles/33773--mole-mania.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania - GAMEBOY - Nintendo Game Boy - Titles",
+        "caption": "Mole Mania - GAMEBOY - Nintendo Game Boy - Title",
+        "galleryLabel": "Mole Mania - GAMEBOY - Nintendo Game Boy - Title",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/es/juegos/pics/gameboy/ingames/33773--mole-mania.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mole Mania - GAMEBOY - Nintendo Game Boy - Ingames",
+        "caption": "Mole Mania - GAMEBOY - Nintendo Game Boy - Ingame",
+        "galleryLabel": "Mole Mania - GAMEBOY - Nintendo Game Boy - Ingame",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/us.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Estados Unidos",
+        "caption": "Estados Unidos",
+        "galleryLabel": "Estados Unidos",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/jp.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Japón",
+        "caption": "Japón",
+        "galleryLabel": "Japón",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/eu.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Europa",
+        "caption": "Europa",
+        "galleryLabel": "Europa",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/graded.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "graded",
+        "caption": "graded",
+        "galleryLabel": "graded",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/new.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nuevo",
+        "caption": "Nuevo",
+        "galleryLabel": "Nuevo",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/perfect.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Como nuevo",
+        "caption": "Como nuevo",
+        "galleryLabel": "Como nuevo",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/very_good.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "En muy buenas condiciones",
+        "caption": "En muy buenas condiciones",
+        "galleryLabel": "En muy buenas condiciones",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/good.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "En buenas condiciones",
+        "caption": "En buenas condiciones",
+        "galleryLabel": "En buenas condiciones",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/acceptable.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Aceptable",
+        "caption": "Aceptable",
+        "galleryLabel": "Aceptable",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/broken.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Roto",
+        "caption": "Roto",
+        "galleryLabel": "Roto",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/es/juegos/offers/",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/packshots/33773--mole-mania.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/ingames/33773--mole-mania.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/titles/33773--mole-mania.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "http://www.retroplace.com/ui/theme/img/logos/retroplace-fb-share.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "imageUrl": "https://www.retroplace.com/pics/gameboy/packshots/33773--mole-mania.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "twitter:image",
+        "caption": null,
+        "galleryLabel": "twitter:image",
+        "acquisitionMechanisms": [
+          "twitter:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    }
+  ],
+  "imagePolicy": "IMAGE_URL_FOUND",
+  "onlyRemainingEvidenceRequiresImageAnalysis": false,
+  "engineTasks": [
+    {
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "subjectId": "catalog:gameboy-pal-mole-mania",
+      "targetField": "MARKET_REGION",
+      "question": "¿Qué mercado o mercados corresponden a esta caja física concreta?",
+      "riskCodes": [
+        "GENERIC_REGION"
+      ],
+      "status": "PARTIAL",
+      "resolution": {
+        "field": "MARKET_REGION",
+        "status": "PARTIAL",
+        "value": "PAL Europa",
+        "score": 0.738,
+        "claimIds": [
+          "cl-1c765e591afce3fa808cebbb",
+          "cl-b1fc79a2be8c2d50c9f542de"
+        ],
+        "sourceIds": [
+          "ebay",
+          "legacy:gameboy-visual-reviewed-20260908:800612078639"
+        ],
+        "reason": "A plausible value exists but confirmation threshold is not met."
+      },
+      "whyStopped": "NO_NEW_DISCRIMINATING_EVIDENCE",
+      "sourcesPlanned": [
+        "legacy:gameboy-visual-reviewed-20260908:800612078639",
+        "legacy:gameboy-visual-reviewed-20260908:335866722818",
+        "legacy:gameboy-visual-reviewed-20260908:297478441978",
+        "legacy:gameboy-visual-reviewed-20260908:326091056529",
+        "legacy:gameboy-documentary-v3-legado:hardware",
+        "legacy:gameboy-documentary-v3-legado:flintstones",
+        "legacy:gameboy-documentary-v3-legado:asterix",
+        "legacy:gameboy-documentary-v3-legado:addams",
+        "legacy:gameboy-documentary-v3-legado:revisions",
+        "legacy:gameboy-documentary-v3-legado:pokemon-red-nesp",
+        "legacy:gameboy-documentary-v3-legado:wario-neai",
+        "legacy:gameboy-documentary-v3-legado:zelda-esp2",
+        "legacy:gameboy-documentary-v3-legado:legado-esp-list",
+        "mobygames",
+        "national-retailer",
+        "publisher-official",
+        "ubisoft-official",
+        "platform-holder-official",
+        "no-intro",
+        "datomatic",
+        "ogdb",
+        "ebay",
+        "yambalu",
+        "todocoleccion"
+      ],
+      "sourcesUsed": [
+        "ebay",
+        "legacy:gameboy-visual-reviewed-20260908:800612078639",
+        "candidate:www.retroplace.com",
+        "candidate:www.videogamesage.com"
+      ],
+      "queriesExecuted": [
+        "\"Mole Mania\" \"gameboy\" physical edition",
+        "\"Mole Mania\" \"gameboy\" product code",
+        "\"DMG-AMOP-EUR\"",
+        "\"DMG-AMOP-EUR\" gameboy",
+        "site:www.ebay.es \"DMG-AMOP-EUR\"",
+        "\"DMG-AMOP-EUR\" \"Mole Mania\"",
+        "\"DMG-AMOP-EUR\" \"PAL Europa\"",
+        "site:www.ebay.es \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+        "site:gbhwdb.gekkio.fi \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+        "site:www.game-boy-database.com \"Mole Mania\" gameboy packaging distributor \"legal text\""
+      ],
+      "directUrlsUsed": [
+        "https://www.ebay.com/p/1912",
+        "https://www.ebay.es/p/1912",
+        "https://www.retroplace.com/en/games/33772--mole-mania",
+        "https://www.etsy.com/listing/1429763692/mole-mania-replacement-label-dmg-amop",
+        "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+        "https://www.retroplace.com/es/juegos/33773--mole-mania"
+      ],
+      "identifiersFound": [
+        {
+          "type": "PRODUCT_CODE",
+          "value": "DMG-AMOP-EUR",
+          "component": null
+        }
+      ],
+      "confirmedClaims": [],
+      "candidateClaims": [
+        {
+          "id": "cl-1c765e591afce3fa808cebbb",
+          "runId": "gb-03-1-market_region",
+          "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+          "subjectId": "catalog:gameboy-pal-mole-mania",
+          "gameId": "gameboy-pal-mole-mania",
+          "platformSlug": "gameboy",
+          "editionId": null,
+          "variantId": null,
+          "component": null,
+          "field": "MARKET_REGION",
+          "value": "PAL Europa",
+          "sourceId": "ebay",
+          "sourceUrl": "https://www.ebay.com/p/1912",
+          "evidenceId": "ev-334d4d8a8d2d89966d5b42a0",
+          "confidence": 0.9,
+          "status": "VALIDATED",
+          "validationErrors": [],
+          "createdAt": "2026-09-16T20:13:13.940Z"
+        },
+        {
+          "id": "cl-b1fc79a2be8c2d50c9f542de",
+          "runId": "gb-03-1-market_region",
+          "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+          "subjectId": "catalog:gameboy-pal-mole-mania",
+          "gameId": "gameboy-pal-mole-mania",
+          "platformSlug": "gameboy",
+          "editionId": null,
+          "variantId": null,
+          "component": null,
+          "field": "MARKET_REGION",
+          "value": "PAL Europa",
+          "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+          "sourceUrl": "https://www.ebay.es/p/1912",
+          "evidenceId": "ev-58f69705a3bc580f3102bce4",
+          "confidence": 0.9,
+          "status": "VALIDATED",
+          "validationErrors": [],
+          "createdAt": "2026-09-16T20:13:17.011Z"
+        },
+        {
+          "id": "cl-fb8c82070f2ae3afa9255170",
+          "runId": "gb-03-1-market_region",
+          "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+          "subjectId": "catalog:gameboy-pal-mole-mania",
+          "gameId": "gameboy-pal-mole-mania",
+          "platformSlug": "gameboy",
+          "editionId": null,
+          "variantId": null,
+          "component": "UNKNOWN",
+          "field": "MARKET_REGION",
+          "value": "PAL Europa",
+          "sourceId": "candidate:www.retroplace.com",
+          "sourceUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+          "evidenceId": "ev-bdd195c7d0b9f37ba086d3fe",
+          "confidence": 0.9,
+          "status": "REJECTED",
+          "validationErrors": [
+            "SOURCE_CAPABILITY_MISMATCH"
+          ],
+          "createdAt": "2026-09-16T20:13:27.561Z"
+        },
+        {
+          "id": "cl-daf9c9ac3238e6a673a51ebe",
+          "runId": "gb-03-1-market_region",
+          "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+          "subjectId": "catalog:gameboy-pal-mole-mania",
+          "gameId": "gameboy-pal-mole-mania",
+          "platformSlug": "gameboy",
+          "editionId": null,
+          "variantId": null,
+          "component": "UNKNOWN",
+          "field": "MARKET_REGION",
+          "value": "PAL Europa",
+          "sourceId": "candidate:www.videogamesage.com",
+          "sourceUrl": "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+          "evidenceId": "ev-081b6ed20b9fdce4b3949a1a",
+          "confidence": 0.9,
+          "status": "REJECTED",
+          "validationErrors": [
+            "SOURCE_CAPABILITY_MISMATCH"
+          ],
+          "createdAt": "2026-09-16T20:13:36.266Z"
+        },
+        {
+          "id": "cl-657dc30791efa39fcaeb497a",
+          "runId": "gb-03-1-market_region",
+          "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+          "subjectId": "catalog:gameboy-pal-mole-mania",
+          "gameId": "gameboy-pal-mole-mania",
+          "platformSlug": "gameboy",
+          "editionId": null,
+          "variantId": null,
+          "component": "UNKNOWN",
+          "field": "MARKET_REGION",
+          "value": "PAL Europa",
+          "sourceId": "candidate:www.retroplace.com",
+          "sourceUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+          "evidenceId": "ev-d92fc106d1dd427063daddf1",
+          "confidence": 0.9,
+          "status": "REJECTED",
+          "validationErrors": [
+            "SOURCE_CAPABILITY_MISMATCH"
+          ],
+          "createdAt": "2026-09-16T20:13:44.668Z"
+        }
+      ],
+      "conflicts": [],
+      "evidenceGaps": [
+        {
+          "field": "MARKET_REGION",
+          "type": "MISSING_MARKET_PROOF",
+          "candidateValue": "PAL Europa",
+          "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+          "recommendedActions": [
+            "INSPECT_LEGAL_TEXT",
+            "INSPECT_DISTRIBUTOR_TEXT",
+            "SEARCH_EXACT_MARKET_PACKAGE"
+          ],
+          "recommendedSourceTypes": [
+            "legacy:gameboy-visual-reviewed-20260908:800612078639",
+            "legacy:gameboy-visual-reviewed-20260908:335866722818",
+            "legacy:gameboy-visual-reviewed-20260908:297478441978",
+            "legacy:gameboy-visual-reviewed-20260908:326091056529",
+            "legacy:gameboy-documentary-v3-legado:hardware"
+          ],
+          "exhaustedActions": []
+        }
+      ],
+      "imageEvidenceAvailableNotAnalyzed": false,
+      "imageUrlsFound": 161,
+      "technicalFailures": [
+        {
+          "operation": "DIRECT_FETCH",
+          "target": "https://www.etsy.com/listing/1429763692/mole-mania-replacement-label-dmg-amop",
+          "code": "SOURCE_BLOCKED",
+          "detail": "Error RESEARCH_PAGE_HTTP_403",
+          "recovered": true
+        },
+        {
+          "operation": "BROWSER",
+          "target": "https://www.etsy.com/listing/1429763692/mole-mania-replacement-label-dmg-amop",
+          "code": "SOURCE_BLOCKED",
+          "detail": "Error RESEARCH_BROWSER_HTTP_403",
+          "recovered": true
+        },
+        {
+          "operation": "DIRECT_FETCH",
+          "target": "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+          "code": "SOURCE_BLOCKED",
+          "detail": "Error RESEARCH_PAGE_HTTP_403",
+          "recovered": true
+        }
+      ],
+      "providerUsage": {
+        "brave-search": 10,
+        "brave-images": 0
+      },
+      "cost": {
+        "openAiUsd": 0.001922,
+        "braveUsd": 0.05
+      },
+      "artifactDirectory": "/Users/macbookpro14/Projects/regionatlas-engine-codex-review-benchmark/artifacts/research-engine/engine-current-no-vision-16/worker/runs/gb-03-1-market_region",
+      "error": null
+    }
+  ],
+  "decision": "REVIEW_REQUIRED",
+  "decisionReason": "At least one Engine-generated target remained partial, unresolved, blocked, or failed under the no-vision policy.",
+  "reasonForReview": "At least one Engine-generated target remained partial, unresolved, blocked, or failed under the no-vision policy.",
+  "cost": {
+    "openAiUsd": 0.001922,
+    "braveUsd": 0.05,
+    "totalUsd": 0.051922
+  },
+  "mutations": {
+    "catalog": 0,
+    "prices": 0,
+    "authoritativeQueue": 0,
+    "publicAssets": 0
+  },
+  "frozenAt": "2026-09-16T20:13:47.026Z",
+  "resultHash": "77986a926e1fa3cb3388c1f4a3d5c51aa5f84584742be3a442c3f9311a30f603"
+}

@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 2,
+  "runId": "n64-02-1-market_region",
+  "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+  "subjectId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon",
+  "priority": "P1",
+  "status": "UNRESOLVED",
+  "round": 3,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "N64_CART_KNOWN_BOX_UNKNOWN",
+  "queriesAttempted": [
+    "site:ogdb.eu \"Mystical Ninja Starring Goemon\" n64",
+    "site:mobygames.com \"Mystical Ninja Starring Goemon\" n64",
+    "site:ebay.es \"Mystical Ninja Starring Goemon\" n64",
+    "\"4988602602487\"",
+    "\"NUS-NGMP-EUR\"",
+    "\"4988602602487\" n64",
+    "\"NUS-NGMP-EUR\" n64",
+    "site:www.nintendo64ever.com \"4988602602487\"",
+    "site:www.nintendo64ever.com \"NUS-NGMP-EUR\"",
+    "\"4988602602487\" \"Mystical Ninja Starring Goemon\"",
+    "\"NUS-NGMP-EUR\" \"Mystical Ninja Starring Goemon\"",
+    "site:game.es \"4988602602487\""
+  ],
+  "normalizedQueries": [
+    "site:ogdb.eu \"mystical ninja starring goemon\" n64",
+    "site:mobygames.com \"mystical ninja starring goemon\" n64",
+    "site:ebay.es \"mystical ninja starring goemon\" n64",
+    "\"4988602602487\"",
+    "\"nus-ngmp-eur\"",
+    "\"4988602602487\" n64",
+    "\"nus-ngmp-eur\" n64",
+    "site:www.nintendo64ever.com \"4988602602487\"",
+    "site:www.nintendo64ever.com \"nus-ngmp-eur\"",
+    "\"4988602602487\" \"mystical ninja starring goemon\"",
+    "\"nus-ngmp-eur\" \"mystical ninja starring goemon\"",
+    "site:game.es \"4988602602487\""
+  ],
+  "urlsVisited": [
+    "https://www.mobygames.com/game/21284/mystical-ninja-starring-goemon/credits/n64/",
+    "https://www.mobygames.com/game/21284/mystical-ninja-starring-goemon/screenshots/n64/169600/",
+    "https://www.ebay.es/p/581039857",
+    "https://www.ebay.com/itm/116508358537",
+    "https://www.retroplace.com/es/juegos/48906--mystical-ninja-starring-goemon-2",
+    "https://www.gameplaystores.es/juegos-n64/43045-mystical-ninja-2-starring-goemon-n64.html",
+    "https://www.retroplace.com/es/juegos/48914--mystical-ninja-starring-goemon",
+    "https://videojuegos.fandom.com/es/wiki/Mystical_Ninja_Starring_Goemon_(N64)"
+  ],
+  "domainsVisited": [
+    "www.mobygames.com",
+    "www.ebay.es",
+    "www.ebay.com",
+    "www.retroplace.com",
+    "www.gameplaystores.es",
+    "videojuegos.fandom.com"
+  ],
+  "identifiersSeen": [
+    {
+      "type": "BARCODE",
+      "value": "4988602602487",
+      "component": null
+    },
+    {
+      "type": "BARCODE",
+      "value": "4988602602487",
+      "component": "UNKNOWN"
+    },
+    {
+      "type": "PRODUCT_CODE",
+      "value": "NUS-NGMP-EUR",
+      "component": "UNKNOWN"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-17a4625f18889ade0742b1e6",
+      "runId": "n64-02-1-market_region",
+      "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.es/p/581039857",
+      "canonicalUrl": "https://www.ebay.es/p/581039857",
+      "sourceType": "MARKETPLACE",
+      "host": "www.ebay.es",
+      "fetchedAt": "2026-09-16T20:11:19.790Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Código de región PAL",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "d30e2f02aec5a61fa61095a1cafaceaf8d4bd1777f5914175713c7f51edad252",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 30,
+      "component": null
+    },
+    {
+      "id": "ev-d9f616aa00e6b5ba8b3e573f",
+      "runId": "n64-02-1-market_region",
+      "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+      "sourceId": "retroplace",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/48906--mystical-ninja-starring-goemon-2",
+      "canonicalUrl": "https://www.retroplace.com/es/juegos/48906--mystical-ninja-starring-goemon-2",
+      "sourceType": "SPECIALIZED_DATABASE",
+      "host": "www.retroplace.com",
+      "fetchedAt": "2026-09-16T20:11:36.489Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Country version: Europa",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "aaf13ff7928947a4c83668cc907dc51ff4b175e3ef4c4515397fbdc00cabfe6b",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-d76dac3d9de1f969b403f136",
+      "runId": "n64-02-1-market_region",
+      "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+      "sourceId": "candidate:www.gameplaystores.es",
+      "sourceUrl": "https://www.gameplaystores.es/juegos-n64/43045-mystical-ninja-2-starring-goemon-n64.html",
+      "canonicalUrl": "https://www.gameplaystores.es/juegos-n64/43045-mystical-ninja-2-starring-goemon-n64.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.gameplaystores.es",
+      "fetchedAt": "2026-09-16T20:11:41.810Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "...region: PAL Europa...",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "3fab6085e7ccaa6eb4b266fbe496ee4c63757ef885bead3fab17dd5923345e3c",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-65c79ad46225b80af8ed6610",
+      "runId": "n64-02-1-market_region",
+      "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+      "sourceId": "retroplace",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/48914--mystical-ninja-starring-goemon",
+      "canonicalUrl": "https://www.retroplace.com/es/juegos/48914--mystical-ninja-starring-goemon",
+      "sourceType": "SPECIALIZED_DATABASE",
+      "host": "www.retroplace.com",
+      "fetchedAt": "2026-09-16T20:11:59.008Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Country version: Europa",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "f44ba9ac399b19a09f5e0783afb65db57123be9308a53c9fb511cef052a509c7",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-d688da5ee16b81cba29f63fb",
+      "runId": "n64-02-1-market_region",
+      "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+      "subjectId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon",
+      "gameId": "n64-pal-eu-mystical-ninja-starring-goemon",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.es/p/581039857",
+      "evidenceId": "ev-17a4625f18889ade0742b1e6",
+      "confidence": 1,
+      "status": "CANDIDATE",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T20:11:21.916Z"
+    },
+    {
+      "id": "cl-01533e7f317c93ba9687a3c5",
+      "runId": "n64-02-1-market_region",
+      "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+      "subjectId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon",
+      "gameId": "n64-pal-eu-mystical-ninja-starring-goemon",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "retroplace",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/48906--mystical-ninja-starring-goemon-2",
+      "evidenceId": "ev-d9f616aa00e6b5ba8b3e573f",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T20:11:38.711Z"
+    },
+    {
+      "id": "cl-0ad17ec8ee05885c13055b5a",
+      "runId": "n64-02-1-market_region",
+      "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+      "subjectId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon",
+      "gameId": "n64-pal-eu-mystical-ninja-starring-goemon",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "candidate:www.gameplaystores.es",
+      "sourceUrl": "https://www.gameplaystores.es/juegos-n64/43045-mystical-ninja-2-starring-goemon-n64.html",
+      "evidenceId": "ev-d76dac3d9de1f969b403f136",
+      "confidence": 0.95,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T20:11:49.156Z"
+    },
+    {
+      "id": "cl-1697ab80bdee1b194d673eaa",
+      "runId": "n64-02-1-market_region",
+      "taskId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon:resolve_market:1",
+      "subjectId": "catalog:n64-pal-eu-mystical-ninja-starring-goemon",
+      "gameId": "n64-pal-eu-mystical-ninja-starring-goemon",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "retroplace",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/48914--mystical-ninja-starring-goemon",
+      "evidenceId": "ev-65c79ad46225b80af8ed6610",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T20:12:00.827Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "YES",
+      "reason": "Failed closed-choice rule test-barcode-shared."
+    },
+    {
+      "value": "https://www.mobygames.com/game/21284/mystical-ninja-starring-goemon/credits/n64/",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.mobygames.com/game/21284/mystical-ninja-starring-goemon/screenshots/n64/169600/",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "YES",
+      "reason": "Failed closed-choice rule test-barcode-shared."
+    },
+    {
+      "value": "https://www.ebay.com/itm/116508358537",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://videojuegos.fandom.com/es/wiki/Mystical_Ninja_Starring_Goemon_(N64)",
+      "reason": "RESEARCH_PAGE_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 12,
+    "maxPages": 20,
+    "maxImages": 12,
+    "maxAgentTurns": 8,
+    "maxTokens": 80000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 4
+  },
+  "usage": {
+    "searches": 12,
+    "pages": 4,
+    "images": 0,
+    "agentTurns": 7,
+    "browserSessions": 4,
+    "inputTokens": 7890,
+    "outputTokens": 462,
+    "estimatedCostUsd": 0.001461
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page explicitly mentions 'Country version: Europa' as the region for the game.",
+  "decisionSummary": "Evidence remains too weak.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "SEARCH_BUDGET_EXHAUSTED",
+  "riskCodes": [
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T20:12:01.792Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "nintendo64ever",
+        "rfgeneration",
+        "ogdb",
+        "spinecard",
+        "retroloco"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T20:11:04.106Z",
+  "updatedAt": "2026-09-16T20:12:01.793Z"
+}

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "caseId": "N64-03",
+  "game": "Star Wars: Rogue Squadron",
+  "platform": "n64",
+  "benchmarkGitSha": "afb90285994c57010a31fabb843b888402332476",
+  "initialContext": {
+    "exactCatalogRecords": [
+      {
+        "id": "n64-star-wars-rogue-squadron",
+        "title": "Star Wars Rogue Squadron",
+        "region": "PAL Europa",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "SEED_PC",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      },
+      {
+        "id": "n64-usa-star-wars-rogue-squadron",
+        "title": "Star Wars: Rogue Squadron",
+        "region": "USA",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "MUSEUM_MULTI",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      }
+    ],
+    "scannerSubjects": [
+      {
+        "subject": {
+          "id": "catalog:n64-usa-star-wars-rogue-squadron",
+          "kind": "catalog-entry",
+          "catalogId": "n64-usa-star-wars-rogue-squadron",
+          "guideId": null,
+          "physicalEditionId": null,
+          "title": "Star Wars: Rogue Squadron",
+          "platformSlug": "n64",
+          "edition": "standard",
+          "region": "USA",
+          "barcode": null,
+          "productCodes": [],
+          "serials": [],
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "releaseStatus": null,
+          "physicalProductType": null,
+          "containsDisc": null,
+          "countsAsNativePhysicalRelease": null,
+          "confidence": "MUSEUM_MULTI",
+          "evidenceCount": 0,
+          "sourceCount": 0,
+          "notes": []
+        },
+        "risks": [],
+        "engineTasks": [],
+        "debtScore": 0
+      }
+    ],
+    "scannerGeneratedTaskCount": 0
+  },
+  "sourcesPlanned": [],
+  "sourcesUsed": [],
+  "directUrlsUsed": [],
+  "queriesExecuted": [],
+  "identifiersFound": [],
+  "variantsRegionsDiscovered": [],
+  "confirmedFacts": [],
+  "conflicts": [],
+  "unresolvedFields": [],
+  "imageUrls": [],
+  "imagePolicy": "NO_IMAGE_URL_FOUND",
+  "onlyRemainingEvidenceRequiresImageAnalysis": false,
+  "engineTasks": [],
+  "decision": "ACCEPT_EXISTING",
+  "decisionReason": "The current catalog scanner generated no research risk or task for the exact active catalog subject(s).",
+  "reasonForReview": null,
+  "cost": {
+    "openAiUsd": 0,
+    "braveUsd": 0,
+    "totalUsd": 0
+  },
+  "mutations": {
+    "catalog": 0,
+    "prices": 0,
+    "authoritativeQueue": 0,
+    "publicAssets": 0
+  },
+  "frozenAt": "2026-09-16T20:12:02.051Z",
+  "resultHash": "053b6923dfeab6077831ab67e984087cb93085e7b193d5943845356b147b22ae"
+}

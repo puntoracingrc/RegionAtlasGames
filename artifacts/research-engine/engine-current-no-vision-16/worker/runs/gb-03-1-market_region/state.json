@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 2,
+  "runId": "gb-03-1-market_region",
+  "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+  "subjectId": "catalog:gameboy-pal-mole-mania",
+  "priority": "P1",
+  "status": "PARTIAL",
+  "round": 2,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"Mole Mania\" \"gameboy\" physical edition",
+    "\"Mole Mania\" \"gameboy\" product code",
+    "\"DMG-AMOP-EUR\"",
+    "\"DMG-AMOP-EUR\" gameboy",
+    "site:www.ebay.es \"DMG-AMOP-EUR\"",
+    "\"DMG-AMOP-EUR\" \"Mole Mania\"",
+    "\"DMG-AMOP-EUR\" \"PAL Europa\"",
+    "site:www.ebay.es \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+    "site:gbhwdb.gekkio.fi \"Mole Mania\" gameboy packaging distributor \"legal text\"",
+    "site:www.game-boy-database.com \"Mole Mania\" gameboy packaging distributor \"legal text\""
+  ],
+  "normalizedQueries": [
+    "\"mole mania\" \"gameboy\" physical edition",
+    "\"mole mania\" \"gameboy\" product code",
+    "\"dmg-amop-eur\"",
+    "\"dmg-amop-eur\" gameboy",
+    "site:www.ebay.es \"dmg-amop-eur\"",
+    "\"dmg-amop-eur\" \"mole mania\"",
+    "\"dmg-amop-eur\" \"pal europa\"",
+    "site:www.ebay.es \"mole mania\" gameboy packaging distributor \"legal text\"",
+    "site:gbhwdb.gekkio.fi \"mole mania\" gameboy packaging distributor \"legal text\"",
+    "site:www.game-boy-database.com \"mole mania\" gameboy packaging distributor \"legal text\""
+  ],
+  "urlsVisited": [
+    "https://www.ebay.com/p/1912",
+    "https://www.ebay.es/p/1912",
+    "https://www.retroplace.com/en/games/33772--mole-mania",
+    "https://www.etsy.com/listing/1429763692/mole-mania-replacement-label-dmg-amop",
+    "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+    "https://www.retroplace.com/es/juegos/33773--mole-mania"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "www.ebay.es",
+    "www.retroplace.com",
+    "www.etsy.com",
+    "www.videogamesage.com"
+  ],
+  "identifiersSeen": [
+    {
+      "type": "PRODUCT_CODE",
+      "value": "DMG-AMOP-EUR",
+      "component": null
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-334d4d8a8d2d89966d5b42a0",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.com/p/1912",
+      "canonicalUrl": "https://www.ebay.com/p/1912",
+      "sourceType": "MARKETPLACE",
+      "host": "www.ebay.com",
+      "fetchedAt": "2026-09-16T20:13:11.122Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Country/Region of Manufacture USA",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "8670c3cae56001e8a40b016b36d8d7437991b9d03b15a2515d429a72566d0eb6",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 20,
+      "component": null
+    },
+    {
+      "id": "ev-58f69705a3bc580f3102bce4",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "sourceUrl": "https://www.ebay.es/p/1912",
+      "canonicalUrl": "https://www.ebay.es/p/1912",
+      "sourceType": "LEGACY_SCANNER_DOCUMENTARY",
+      "host": "www.ebay.es",
+      "fetchedAt": "2026-09-16T20:13:15.235Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Country/Region of Manufacture USA",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "6db793431a448fc51b745dfdb1630d512a1fad33c883688a5dd63ca09b2f5301",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 62,
+      "component": null
+    },
+    {
+      "id": "ev-bdd195c7d0b9f37ba086d3fe",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "sourceId": "candidate:www.retroplace.com",
+      "sourceUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "canonicalUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.retroplace.com",
+      "fetchedAt": "2026-09-16T20:13:25.837Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Mole Mania - DMG-AMOP-EUR 1997 * That's the item you're looking at right now.",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "c991b80bad59ef298255925001ec9a47991c07dadf6e44262dea6dc313375cfd",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-081b6ed20b9fdce4b3949a1a",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "sourceId": "candidate:www.videogamesage.com",
+      "sourceUrl": "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+      "canonicalUrl": "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.videogamesage.com",
+      "fetchedAt": "2026-09-16T20:13:32.698Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "This weeks list is the EUR list as best I have found.",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "fa0a69fe0683c7a2d26e11bf35307b1090b2a1014fade9da77a31720e72fd83b",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-d92fc106d1dd427063daddf1",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "sourceId": "candidate:www.retroplace.com",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "canonicalUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.retroplace.com",
+      "fetchedAt": "2026-09-16T20:13:41.302Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Country version: Europa",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "8a646621f1c919b8b70ceb47400e3c17d8ae8b0bb5fd6f2041b617eb90ba5d3d",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-1c765e591afce3fa808cebbb",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "subjectId": "catalog:gameboy-pal-mole-mania",
+      "gameId": "gameboy-pal-mole-mania",
+      "platformSlug": "gameboy",
+      "editionId": null,
+      "variantId": null,
+      "component": null,
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.com/p/1912",
+      "evidenceId": "ev-334d4d8a8d2d89966d5b42a0",
+      "confidence": 0.9,
+      "status": "VALIDATED",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T20:13:13.940Z"
+    },
+    {
+      "id": "cl-b1fc79a2be8c2d50c9f542de",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "subjectId": "catalog:gameboy-pal-mole-mania",
+      "gameId": "gameboy-pal-mole-mania",
+      "platformSlug": "gameboy",
+      "editionId": null,
+      "variantId": null,
+      "component": null,
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "sourceUrl": "https://www.ebay.es/p/1912",
+      "evidenceId": "ev-58f69705a3bc580f3102bce4",
+      "confidence": 0.9,
+      "status": "VALIDATED",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T20:13:17.011Z"
+    },
+    {
+      "id": "cl-fb8c82070f2ae3afa9255170",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "subjectId": "catalog:gameboy-pal-mole-mania",
+      "gameId": "gameboy-pal-mole-mania",
+      "platformSlug": "gameboy",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "candidate:www.retroplace.com",
+      "sourceUrl": "https://www.retroplace.com/en/games/33772--mole-mania",
+      "evidenceId": "ev-bdd195c7d0b9f37ba086d3fe",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T20:13:27.561Z"
+    },
+    {
+      "id": "cl-daf9c9ac3238e6a673a51ebe",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "subjectId": "catalog:gameboy-pal-mole-mania",
+      "gameId": "gameboy-pal-mole-mania",
+      "platformSlug": "gameboy",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "candidate:www.videogamesage.com",
+      "sourceUrl": "https://www.videogamesage.com/blogs/entry/432-working-list-of-world-gray-carts-part-11-europe-eur/",
+      "evidenceId": "ev-081b6ed20b9fdce4b3949a1a",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T20:13:36.266Z"
+    },
+    {
+      "id": "cl-657dc30791efa39fcaeb497a",
+      "runId": "gb-03-1-market_region",
+      "taskId": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+      "subjectId": "catalog:gameboy-pal-mole-mania",
+      "gameId": "gameboy-pal-mole-mania",
+      "platformSlug": "gameboy",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL Europa",
+      "sourceId": "candidate:www.retroplace.com",
+      "sourceUrl": "https://www.retroplace.com/es/juegos/33773--mole-mania",
+      "evidenceId": "ev-d92fc106d1dd427063daddf1",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T20:13:44.668Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.etsy.com/listing/1429763692/mole-mania-replacement-label-dmg-amop",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 12,
+    "maxPages": 20,
+    "maxImages": 12,
+    "maxAgentTurns": 8,
+    "maxTokens": 80000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 4
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 5,
+    "images": 0,
+    "agentTurns": 5,
+    "browserSessions": 3,
+    "inputTokens": 10685,
+    "outputTokens": 530,
+    "estimatedCostUsd": 0.001922
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page explicitly states 'Country version: Europa', indicating the market region is PAL Europa.",
+  "decisionSummary": "A plausible value exists but confirmation threshold is not met.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "NO_NEW_DISCRIMINATING_EVIDENCE",
+  "riskCodes": [
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T20:13:45.558Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": "PAL Europa",
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "legacy:gameboy-visual-reviewed-20260908:800612078639",
+        "legacy:gameboy-visual-reviewed-20260908:335866722818",
+        "legacy:gameboy-visual-reviewed-20260908:297478441978",
+        "legacy:gameboy-visual-reviewed-20260908:326091056529",
+        "legacy:gameboy-documentary-v3-legado:hardware"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T20:13:04.035Z",
+  "updatedAt": "2026-09-16T20:13:46.807Z"
+}

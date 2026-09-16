@@ -1,0 +1,15 @@
+{
+  "field": "MARKET_REGION",
+  "status": "PARTIAL",
+  "value": "PAL Europa",
+  "score": 0.738,
+  "claimIds": [
+    "cl-1c765e591afce3fa808cebbb",
+    "cl-b1fc79a2be8c2d50c9f542de"
+  ],
+  "sourceIds": [
+    "ebay",
+    "legacy:gameboy-visual-reviewed-20260908:800612078639"
+  ],
+  "reason": "A plausible value exists but confirmation threshold is not met."
+}

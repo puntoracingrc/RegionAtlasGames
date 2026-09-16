@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "caseId": "GB-04",
+  "game": "Gargoyle's Quest",
+  "platform": "gameboy",
+  "benchmarkGitSha": "afb90285994c57010a31fabb843b888402332476",
+  "initialContext": {
+    "exactCatalogRecords": [
+      {
+        "id": "gameboy-es-gargoyle-s-quest",
+        "title": "Gargoyle's Quest",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "SEED_PC",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      },
+      {
+        "id": "gameboy-usa-gargoyle-s-quest",
+        "title": "Gargoyle's Quest",
+        "region": "USA",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "SEED_PC_NTSC",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      }
+    ],
+    "scannerSubjects": [
+      {
+        "subject": {
+          "id": "catalog:gameboy-es-gargoyle-s-quest",
+          "kind": "catalog-entry",
+          "catalogId": "gameboy-es-gargoyle-s-quest",
+          "guideId": null,
+          "physicalEditionId": null,
+          "title": "Gargoyle's Quest",
+          "platformSlug": "gameboy",
+          "edition": "standard",
+          "region": "PAL España",
+          "barcode": null,
+          "productCodes": [],
+          "serials": [],
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "releaseStatus": null,
+          "physicalProductType": null,
+          "containsDisc": null,
+          "countsAsNativePhysicalRelease": null,
+          "confidence": "SEED_PC",
+          "evidenceCount": 1,
+          "sourceCount": 0,
+          "notes": []
+        },
+        "risks": [],
+        "engineTasks": [],
+        "debtScore": 0
+      },
+      {
+        "subject": {
+          "id": "catalog:gameboy-usa-gargoyle-s-quest",
+          "kind": "catalog-entry",
+          "catalogId": "gameboy-usa-gargoyle-s-quest",
+          "guideId": null,
+          "physicalEditionId": null,
+          "title": "Gargoyle's Quest",
+          "platformSlug": "gameboy",
+          "edition": "standard",
+          "region": "USA",
+          "barcode": null,
+          "productCodes": [],
+          "serials": [],
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "releaseStatus": null,
+          "physicalProductType": null,
+          "containsDisc": null,
+          "countsAsNativePhysicalRelease": null,
+          "confidence": "SEED_PC_NTSC",
+          "evidenceCount": 1,
+          "sourceCount": 0,
+          "notes": []
+        },
+        "risks": [],
+        "engineTasks": [],
+        "debtScore": 0
+      }
+    ],
+    "scannerGeneratedTaskCount": 0
+  },
+  "sourcesPlanned": [],
+  "sourcesUsed": [],
+  "directUrlsUsed": [],
+  "queriesExecuted": [],
+  "identifiersFound": [],
+  "variantsRegionsDiscovered": [],
+  "confirmedFacts": [],
+  "conflicts": [],
+  "unresolvedFields": [],
+  "imageUrls": [],
+  "imagePolicy": "NO_IMAGE_URL_FOUND",
+  "onlyRemainingEvidenceRequiresImageAnalysis": false,
+  "engineTasks": [],
+  "decision": "ACCEPT_EXISTING",
+  "decisionReason": "The current catalog scanner generated no research risk or task for the exact active catalog subject(s).",
+  "reasonForReview": null,
+  "cost": {
+    "openAiUsd": 0,
+    "braveUsd": 0,
+    "totalUsd": 0
+  },
+  "mutations": {
+    "catalog": 0,
+    "prices": 0,
+    "authoritativeQueue": 0,
+    "publicAssets": 0
+  },
+  "frozenAt": "2026-09-16T20:13:47.067Z",
+  "resultHash": "047d6faa3f747c12809b6952d9600719929150f40fb24c122742e58b1e7ebe33"
+}

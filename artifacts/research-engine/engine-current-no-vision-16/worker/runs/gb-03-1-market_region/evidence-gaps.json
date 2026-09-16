@@ -1,0 +1,21 @@
+[
+  {
+    "field": "MARKET_REGION",
+    "type": "MISSING_MARKET_PROOF",
+    "candidateValue": "PAL Europa",
+    "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+    "recommendedActions": [
+      "INSPECT_LEGAL_TEXT",
+      "INSPECT_DISTRIBUTOR_TEXT",
+      "SEARCH_EXACT_MARKET_PACKAGE"
+    ],
+    "recommendedSourceTypes": [
+      "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "legacy:gameboy-visual-reviewed-20260908:335866722818",
+      "legacy:gameboy-visual-reviewed-20260908:297478441978",
+      "legacy:gameboy-visual-reviewed-20260908:326091056529",
+      "legacy:gameboy-documentary-v3-legado:hardware"
+    ],
+    "exhaustedActions": []
+  }
+]

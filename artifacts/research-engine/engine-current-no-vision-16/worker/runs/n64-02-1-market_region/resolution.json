@@ -1,0 +1,13 @@
+{
+  "field": "MARKET_REGION",
+  "status": "UNRESOLVED",
+  "value": null,
+  "score": 0.3,
+  "claimIds": [
+    "cl-d688da5ee16b81cba29f63fb"
+  ],
+  "sourceIds": [
+    "ebay"
+  ],
+  "reason": "Evidence remains too weak."
+}

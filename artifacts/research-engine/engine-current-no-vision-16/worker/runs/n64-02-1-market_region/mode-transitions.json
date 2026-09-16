@@ -1,0 +1,9 @@
+[
+  {
+    "at": "2026-09-16T20:12:01.792Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+    "gapType": "MISSING_MARKET_PROOF"
+  }
+]

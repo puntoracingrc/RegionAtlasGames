@@ -1,0 +1,12 @@
+[
+  {
+    "host": "www.gameplaystores.es",
+    "sampleUrls": [
+      "https://www.gameplaystores.es/juegos-n64/43045-mystical-ninja-2-starring-goemon-n64.html"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

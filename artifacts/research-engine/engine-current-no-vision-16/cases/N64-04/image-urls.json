@@ -1,0 +1,341 @@
+{
+  "policy": "NO_VISION_NO_OCR",
+  "images": [
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/banniere.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nintendo64EVER, the Nintendo64 reference over the net!",
+        "caption": null,
+        "galleryLabel": "Nintendo64EVER, the Nintendo64 reference over the net!",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/drapeaux/Europe.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Europe",
+        "caption": "Europe",
+        "galleryLabel": "Europe",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/images/logos/jeux/thumbnails/Logo-Jeu-Body-Harvest-1280_400x400.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Game Body Harvest",
+        "caption": null,
+        "galleryLabel": "Game Body Harvest",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/images/elements-design/icone-save-cartouche.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Cartridge saves",
+        "caption": "Cartridge saves",
+        "galleryLabel": "Cartridge saves",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/images/elements-design/icone-rumble-pak.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Rumble Pak",
+        "caption": "Rumble Pak",
+        "galleryLabel": "Rumble Pak",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.paypal.com/fr_FR/i/scr/pixel.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/drapeaux/Mexique.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mexico",
+        "caption": "Mexico",
+        "galleryLabel": "Mexico",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/photos/jeux/thumbnails/Photo-Jeu-Nintendo-64-Fiche71,715_240x180.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Une course urbaine (Cruis",
+        "caption": null,
+        "galleryLabel": "Une course urbaine (Cruis",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/forum/Smileys/default/wink.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "wink",
+        "caption": null,
+        "galleryLabel": "wink",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/drapeaux/Fran%C3%A7ais.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "French",
+        "caption": null,
+        "galleryLabel": "French",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/system/logo_blue_oben.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/system/ogdb_games.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/system/logo_blue_unten.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=18248&limit=197",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=185932&limit=197",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=156884&limit=197",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=1196&limit=197",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=133686&limit=147",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=185935&limit=147",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=185933&limit=147",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=185934&limit=147",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    }
+  ]
+}

@@ -1,0 +1,2079 @@
+{
+  "policy": "NO_VISION_NO_OCR",
+  "images": [
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://fls-eu.amazon.es/1/batch/1/OP/A1RKKUPIHCS9HS:520-2106386-3495149:J3KGBYAAPV908Z3RCTZH$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DJ3KGBYAAPV908Z3RCTZH:0",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381700_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/EU-Deals-Team/2026/PBDD26/HP/SWM/es-ES_LUHP_SWMStatic_800x78._CB755760264_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "PBDD26",
+        "caption": null,
+        "galleryLabel": "PBDD26",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://images-eu.ssl-images-amazon.com/images/G/02/omaha/images/yoda/flyout_72dpi._V270092858_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://images-eu.ssl-images-amazon.com/images/G/02/prime/yourprime/yourprime-widget-piv-fallback._V310089192_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/21a21LWJjpL.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Papelería, lista",
+        "caption": null,
+        "galleryLabel": "Papelería, lista",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/51MhFdenqSL._AC_SR38,50_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/51GIf7bgZpL._AC_SR38,50_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/41qXyXDNEDL._AC_SR38,50_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/41LXBpjA1jL._AC_SR38,50_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SX342_SY445_QL70_ML2_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "GameBoy - Dr. Mario",
+        "caption": null,
+        "galleryLabel": "GameBoy - Dr. Mario",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/sash//pLB3SkYb3bHZzHQ.svg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/sash//swRPyHOrgnz358_.svg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/sash//vfyy_4zFgJkmREP.svg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/21u+Pxt488L._SS75_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/sash/sfwfCa9XX12F4At.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/sash/Drs0Q4ykCo009TA.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/sash/3QtWxPDJwNfJe8s.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/sash/FQQMS6xydSSApTa.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Imagen del cliente",
+        "caption": null,
+        "galleryLabel": "Imagen del cliente",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/amazon-avatars-global/default._SX48_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/amazon-avatars-global/b8265206-2fa6-47b8-8b2b-bb26dd198d4a._CR0%2C0%2C311%2C311_UX460_SX48_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/amazon-avatars-global/ad601de5-d36e-49c1-bb44-9723e22f6a3e._CR0%2C0%2C480%2C480_SX460_SX48_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/S/sash//eve1bZY0MgtnzFB.svg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/51MhFdenqSL._AC_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "GameBoy - Dr. Mario",
+        "caption": null,
+        "galleryLabel": "GameBoy - Dr. Mario",
+        "acquisitionMechanisms": [
+          "img.src",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/personalization/ybh/loading-4x-gray._CB485916902_.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://fls-eu.amazon.es/1/batch/1/OP/A1RKKUPIHCS9HS:520-2106386-3495149:J3KGBYAAPV908Z3RCTZH$uedata=s:%2Frd%2Fuedata%3Fnoscript%26id%3DJ3KGBYAAPV908Z3RCTZH:0",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/gno/sprites/nav-sprite-global-2x-reorg-privacy._CB546381700_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/gno/sprites/timeline_sprite_2x._CB443580960_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/x-locale/common/transparent-pixel._CB485935036_.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SL1500_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SX342_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SX385_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SX425_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SX466_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SX522_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SX569_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91aS0k1HcwL._AC_SX679_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91HT4hYdqRL._AC_SL1500_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/51GIf7bgZpL._AC_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91HT4hYdqRL._AC_SX342_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91HT4hYdqRL._AC_SX385_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91HT4hYdqRL._AC_SX425_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91HT4hYdqRL._AC_SX466_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91HT4hYdqRL._AC_SX522_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91HT4hYdqRL._AC_SX569_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91HT4hYdqRL._AC_SX679_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/913hWyzmQdL._AC_SL1500_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/41qXyXDNEDL._AC_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/913hWyzmQdL._AC_SX342_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/913hWyzmQdL._AC_SX385_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/913hWyzmQdL._AC_SX425_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/913hWyzmQdL._AC_SX466_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/913hWyzmQdL._AC_SX522_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/913hWyzmQdL._AC_SX569_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/913hWyzmQdL._AC_SX679_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91PlmPbuF+L._AC_SL1500_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/41LXBpjA1jL._AC_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91PlmPbuF+L._AC_SX342_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91PlmPbuF+L._AC_SX385_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91PlmPbuF+L._AC_SX425_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91PlmPbuF+L._AC_SX466_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91PlmPbuF+L._AC_SX522_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91PlmPbuF+L._AC_SX569_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/I/91PlmPbuF+L._AC_SX679_.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/01/books-detail-page-table-of-contents/blackback/ToC.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/apparel/rcxgs/tile._CB483369954_.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/shopbylook/shoppable-images/close_x_white._CB416326186_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/javascripts/lib/popover/images/light/sprite-vertical-popover-arrow._CB485935394_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/HomeCustomProduct/imageBlock-360-thumbnail-icon-small._CB610490299_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/Quarterdeck/en_US/images/video._CB485935549_SX38_SY50_CR,0,0,38,50_.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/ui/loadIndicators/loading-large._CB485945341_.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/HomeCustomProduct/360_icon_73x73v2._CB485971309_SX38_SY50_CR,0,0,38,50_.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://m.media-amazon.com/images/G/30/ui/loadIndicators/loading-large_labeled._CB485921391_.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.amazon.es",
+      "pageUrl": "https://www.amazon.es/Dr-Mario/dp/B00002ST3E",
+      "imageUrl": "https://redirect.prod.experiment.routing.cloudfront.aws.a2z.com/x.png?timestamp\\x3d",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/7WgAAOSwQ7haxTU1/s-l1600.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/RNMAAOSwxu5ZGXOo/s-l140.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/FXkAAOSwoX9gbA68/s-l140.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/BNwAAOSw~hZeRJf8/s-l140.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/9fAAAOSwpJReQHKo/s-l140.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/acwAAOSw3PlgExJd/s-l140.png",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/QqUAAOSwKytZGXNk/s-l140.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/RUkAAeSwgGdqgZ7i/s-l225.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/wC8AAeSwiPdp0Pw6/s-l225.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/87YAAeSwHVloZDSm/s-l225.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/MqAAAeSwlspqqVbx/s-l225.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/Rz8AAeSwgQFqo9Ww/s-l225.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/a80AAeSwdZtpQvLS/s-l225.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/7xcAAeSwuqxqqqME/s-l225.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "pageUrl": "https://www.ebay.es/p/1444700809",
+      "imageUrl": "https://i.ebayimg.com/images/g/UmoAAeSwQMdqAAr8/s-l225.jpg",
+      "listingId": "1444700809",
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.facebook.com/tr?id=1419726858539829&ev=PageView&noscript=1",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/retroplace-small.svg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/rp.svg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/logos/retroplace_white.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "retroplace.com",
+        "caption": null,
+        "galleryLabel": "retroplace.com",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/es/juegos/pics/gameboy/packshots/32971--dr-mario.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Packshots",
+        "caption": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Packshot",
+        "galleryLabel": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Packshot",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/es/juegos/pics/gameboy/titles/32971--dr-mario.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Titles",
+        "caption": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Title",
+        "galleryLabel": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Title",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/es/juegos/pics/gameboy/ingames/32971--dr-mario.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Ingames",
+        "caption": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Ingame",
+        "galleryLabel": "Dr. Mario - GAMEBOY - Nintendo Game Boy - Ingame",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/us.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Estados Unidos",
+        "caption": "Estados Unidos",
+        "galleryLabel": "Estados Unidos",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/eu.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Europa",
+        "caption": "Europa",
+        "galleryLabel": "Europa",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/de.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Alemania",
+        "caption": "Alemania",
+        "galleryLabel": "Alemania",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/au.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Australia",
+        "caption": "Australia",
+        "galleryLabel": "Australia",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/jp.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Japón",
+        "caption": "Japón",
+        "galleryLabel": "Japón",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/gb.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Reino Unido",
+        "caption": "Reino Unido",
+        "galleryLabel": "Reino Unido",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/as.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Asia",
+        "caption": "Asia",
+        "galleryLabel": "Asia",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/graded.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "graded",
+        "caption": "graded",
+        "galleryLabel": "graded",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/new.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nuevo",
+        "caption": "Nuevo",
+        "galleryLabel": "Nuevo",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/perfect.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Como nuevo",
+        "caption": "Como nuevo",
+        "galleryLabel": "Como nuevo",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/very_good.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "En muy buenas condiciones",
+        "caption": "En muy buenas condiciones",
+        "galleryLabel": "En muy buenas condiciones",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/good.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "En buenas condiciones",
+        "caption": "En buenas condiciones",
+        "galleryLabel": "En buenas condiciones",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/acceptable.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Aceptable",
+        "caption": "Aceptable",
+        "galleryLabel": "Aceptable",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/gradings/zelda/broken.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Roto",
+        "caption": "Roto",
+        "galleryLabel": "Roto",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/es/juegos/offers/",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/ui/theme/img/regions/",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/packshots/32971--dr-mario.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/ingames/32971--dr-mario.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "http://www.retroplace.com/pics/gameboy/titles/32971--dr-mario.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "http://www.retroplace.com/ui/theme/img/logos/retroplace-fb-share.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:www.retroplace.com",
+      "pageUrl": "https://www.retroplace.com/es/juegos/32971--dr-mario",
+      "imageUrl": "https://www.retroplace.com/pics/gameboy/packshots/32971--dr-mario.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "twitter:image",
+        "caption": null,
+        "galleryLabel": "twitter:image",
+        "acquisitionMechanisms": [
+          "twitter:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/nvgaLogo2024_arcadestick_150wide.png?v=1730730017&width=600",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nostalgic Video Games & Arcade",
+        "caption": null,
+        "galleryLabel": "Nostalgic Video Games & Arcade",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/nvgaLogo2024_arcadestick_150wide.png?v=1730730017&width=150",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nostalgic Video Games & Arcade",
+        "caption": null,
+        "galleryLabel": "Nostalgic Video Games & Arcade",
+        "acquisitionMechanisms": [
+          "img.srcset"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/nvgaLogo2024_arcadestick_150wide.png?v=1730730017&width=225",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nostalgic Video Games & Arcade",
+        "caption": null,
+        "galleryLabel": "Nostalgic Video Games & Arcade",
+        "acquisitionMechanisms": [
+          "img.srcset"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/nvgaLogo2024_arcadestick_150wide.png?v=1730730017&width=300",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nostalgic Video Games & Arcade",
+        "caption": null,
+        "galleryLabel": "Nostalgic Video Games & Arcade",
+        "acquisitionMechanisms": [
+          "img.srcset"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/16528-240.jpg?v=1734425602&width=1946",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/16528-240.jpg?v=1734425602",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.srcset"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/16528-240.jpg?v=1734425602&width=1445",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Dr. Mario | (LS) (GameBoy)",
+        "caption": null,
+        "galleryLabel": "Dr. Mario | (LS) (GameBoy)",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "http://nostalgicvideogames.com/cdn/shop/files/16528-240.jpg?v=1734425602",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "og:image",
+        "caption": null,
+        "galleryLabel": "og:image",
+        "acquisitionMechanisms": [
+          "og:image"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/16528-240.jpg?v=1734425602&width=1920",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "JSON-LD image",
+        "caption": null,
+        "galleryLabel": "JSON-LD image",
+        "acquisitionMechanisms": [
+          "json-ld.image",
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "candidate:nostalgicvideogames.com",
+      "pageUrl": "https://nostalgicvideogames.com/products/dr-mario-ls-gameboy",
+      "imageUrl": "https://nostalgicvideogames.com/cdn/shop/files/nvgaLogo2024_arcadestick_150wide.png?v=1730730017&width=500",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Embedded gallery image",
+        "caption": null,
+        "galleryLabel": "Embedded gallery image",
+        "acquisitionMechanisms": [
+          "embedded-state"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    }
+  ]
+}

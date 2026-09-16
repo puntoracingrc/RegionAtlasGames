@@ -1,0 +1,685 @@
+{
+  "schemaVersion": 1,
+  "caseId": "N64-04",
+  "game": "Body Harvest",
+  "platform": "n64",
+  "benchmarkGitSha": "afb90285994c57010a31fabb843b888402332476",
+  "initialContext": {
+    "exactCatalogRecords": [
+      {
+        "id": "n64-body-harvest",
+        "title": "Body Harvest",
+        "region": "USA",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "SEED_PC",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      },
+      {
+        "id": "n64-pal-body-harvest",
+        "title": "Body Harvest",
+        "region": "PAL Europa",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "excludeReason": null,
+        "matchConfidence": "MUSEUM_MULTI",
+        "marketRegion": null,
+        "languages": [],
+        "canonicalSerials": [],
+        "resolutionSerials": [],
+        "sourceSerials": []
+      }
+    ],
+    "scannerSubjects": [
+      {
+        "subject": {
+          "id": "catalog:n64-pal-body-harvest",
+          "kind": "catalog-entry",
+          "catalogId": "n64-pal-body-harvest",
+          "guideId": null,
+          "physicalEditionId": null,
+          "title": "Body Harvest",
+          "platformSlug": "n64",
+          "edition": "standard",
+          "region": "PAL Europa",
+          "barcode": null,
+          "productCodes": [],
+          "serials": [],
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "releaseStatus": null,
+          "physicalProductType": null,
+          "containsDisc": null,
+          "countsAsNativePhysicalRelease": null,
+          "confidence": "MUSEUM_MULTI",
+          "evidenceCount": 1,
+          "sourceCount": 0,
+          "notes": []
+        },
+        "risks": [
+          {
+            "code": "GENERIC_REGION",
+            "priority": "P1",
+            "weight": 14,
+            "reason": "La ficha usa una región amplia (PAL Europa) y puede ocultar cajas nacionales distintas.",
+            "targetField": "market"
+          }
+        ],
+        "engineTasks": [
+          {
+            "id": "catalog:n64-pal-body-harvest:resolve_market:1",
+            "subjectId": "catalog:n64-pal-body-harvest",
+            "kind": "RESOLVE_MARKET",
+            "priority": "P1",
+            "question": "¿Qué mercado o mercados corresponden a esta caja física concreta?",
+            "requiredEvidence": [
+              "PHYSICAL_SCAN",
+              "RETAILER",
+              "COLLECTOR_DATABASE"
+            ],
+            "riskCodes": [
+              "GENERIC_REGION"
+            ],
+            "status": "queued",
+            "createdAt": "2026-09-16T20:12:02.060Z"
+          }
+        ],
+        "debtScore": 44
+      },
+      {
+        "subject": {
+          "id": "catalog:n64-body-harvest",
+          "kind": "catalog-entry",
+          "catalogId": "n64-body-harvest",
+          "guideId": null,
+          "physicalEditionId": null,
+          "title": "Body Harvest",
+          "platformSlug": "n64",
+          "edition": "standard",
+          "region": "USA",
+          "barcode": null,
+          "productCodes": [],
+          "serials": [],
+          "marketRegions": [],
+          "evidenceMarkets": [],
+          "packagingLanguages": [],
+          "softwareLanguages": [],
+          "releaseStatus": null,
+          "physicalProductType": null,
+          "containsDisc": null,
+          "countsAsNativePhysicalRelease": null,
+          "confidence": "SEED_PC",
+          "evidenceCount": 0,
+          "sourceCount": 0,
+          "notes": []
+        },
+        "risks": [],
+        "engineTasks": [],
+        "debtScore": 0
+      }
+    ],
+    "scannerGeneratedTaskCount": 1
+  },
+  "sourcesPlanned": [
+    "ogdb",
+    "spinecard",
+    "rfgeneration",
+    "nintendo64ever",
+    "retroloco",
+    "mobygames",
+    "national-retailer",
+    "gamefaqs",
+    "ebay",
+    "no-intro",
+    "datomatic",
+    "retroplace",
+    "publisher-official",
+    "ubisoft-official",
+    "nesworld",
+    "platform-holder-official",
+    "64scener",
+    "bulbapedia",
+    "todocoleccion",
+    "yambalu",
+    "crimson-ceremony",
+    "launchbox-images",
+    "emulation64",
+    "vgcollect"
+  ],
+  "sourcesUsed": [
+    "nintendo64ever",
+    "ogdb"
+  ],
+  "directUrlsUsed": [
+    "https://www.uvlist.net/game-98689-Body+Harvest",
+    "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+    "https://ogdb.eu/index.php?gameid=1453&section=game"
+  ],
+  "queriesExecuted": [
+    "\"5013658086871\"",
+    "\"5013658086871\" n64",
+    "site:ogdb.eu \"5013658086871\"",
+    "\"5013658086871\" \"Body Harvest\"",
+    "\"5013658086871\" \"PAL Europa\"",
+    "site:foro.spinecard.com \"5013658086871\"",
+    "site:ogdb.eu \"Body Harvest\" n64"
+  ],
+  "identifiersFound": [],
+  "variantsRegionsDiscovered": [
+    "PAL Europa",
+    "PAL Europa",
+    "PAL Europa"
+  ],
+  "confirmedFacts": [],
+  "conflicts": [],
+  "unresolvedFields": [],
+  "imageUrls": [
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/banniere.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Nintendo64EVER, the Nintendo64 reference over the net!",
+        "caption": null,
+        "galleryLabel": "Nintendo64EVER, the Nintendo64 reference over the net!",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/drapeaux/Europe.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Europe",
+        "caption": "Europe",
+        "galleryLabel": "Europe",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/images/logos/jeux/thumbnails/Logo-Jeu-Body-Harvest-1280_400x400.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Game Body Harvest",
+        "caption": null,
+        "galleryLabel": "Game Body Harvest",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/images/elements-design/icone-save-cartouche.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Cartridge saves",
+        "caption": "Cartridge saves",
+        "galleryLabel": "Cartridge saves",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/images/elements-design/icone-rumble-pak.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Rumble Pak",
+        "caption": "Rumble Pak",
+        "galleryLabel": "Rumble Pak",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.paypal.com/fr_FR/i/scr/pixel.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/drapeaux/Mexique.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Mexico",
+        "caption": "Mexico",
+        "galleryLabel": "Mexico",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/photos/jeux/thumbnails/Photo-Jeu-Nintendo-64-Fiche71,715_240x180.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "Une course urbaine (Cruis",
+        "caption": null,
+        "galleryLabel": "Une course urbaine (Cruis",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/forum/Smileys/default/wink.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "wink",
+        "caption": null,
+        "galleryLabel": "wink",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "nintendo64ever",
+      "pageUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+      "imageUrl": "https://www.nintendo64ever.com/drapeaux/Fran%C3%A7ais.jpg",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": "French",
+        "caption": null,
+        "galleryLabel": "French",
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/system/logo_blue_oben.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/system/ogdb_games.png",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/system/logo_blue_unten.gif",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=18248&limit=197",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=185932&limit=197",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=156884&limit=197",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=1196&limit=197",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=133686&limit=147",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=185935&limit=147",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=185933&limit=147",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    },
+    {
+      "source": "ogdb",
+      "pageUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+      "imageUrl": "https://ogdb.eu/imageview.php?image_id=185934&limit=147",
+      "listingId": null,
+      "sourceRecordId": null,
+      "metadata": {
+        "alt": null,
+        "caption": null,
+        "galleryLabel": null,
+        "acquisitionMechanisms": [
+          "img.src"
+        ]
+      },
+      "status": "IMAGE_URL_FOUND"
+    }
+  ],
+  "imagePolicy": "IMAGE_URL_FOUND",
+  "onlyRemainingEvidenceRequiresImageAnalysis": false,
+  "engineTasks": [
+    {
+      "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+      "subjectId": "catalog:n64-pal-body-harvest",
+      "targetField": "MARKET_REGION",
+      "question": "¿Qué mercado o mercados corresponden a esta caja física concreta?",
+      "riskCodes": [
+        "GENERIC_REGION"
+      ],
+      "status": "CONFIRMED",
+      "resolution": {
+        "field": "MARKET_REGION",
+        "status": "CONFIRMED",
+        "value": "PAL Europa",
+        "score": 1.615,
+        "claimIds": [
+          "cl-e52277946300f64cd79d0e72",
+          "cl-c66a6e6d1f66d092286bc3fc"
+        ],
+        "sourceIds": [
+          "nintendo64ever",
+          "ogdb"
+        ],
+        "reason": "Independent sources corroborate the field."
+      },
+      "whyStopped": "TARGET_CONFIRMED",
+      "sourcesPlanned": [
+        "ogdb",
+        "spinecard",
+        "rfgeneration",
+        "nintendo64ever",
+        "retroloco",
+        "mobygames",
+        "national-retailer",
+        "gamefaqs",
+        "ebay",
+        "no-intro",
+        "datomatic",
+        "retroplace",
+        "publisher-official",
+        "ubisoft-official",
+        "nesworld",
+        "platform-holder-official",
+        "64scener",
+        "bulbapedia",
+        "todocoleccion",
+        "yambalu",
+        "crimson-ceremony",
+        "launchbox-images",
+        "emulation64",
+        "vgcollect"
+      ],
+      "sourcesUsed": [
+        "nintendo64ever",
+        "ogdb"
+      ],
+      "queriesExecuted": [
+        "\"5013658086871\"",
+        "\"5013658086871\" n64",
+        "site:ogdb.eu \"5013658086871\"",
+        "\"5013658086871\" \"Body Harvest\"",
+        "\"5013658086871\" \"PAL Europa\"",
+        "site:foro.spinecard.com \"5013658086871\"",
+        "site:ogdb.eu \"Body Harvest\" n64"
+      ],
+      "directUrlsUsed": [
+        "https://www.uvlist.net/game-98689-Body+Harvest",
+        "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+        "https://ogdb.eu/index.php?gameid=1453&section=game"
+      ],
+      "identifiersFound": [],
+      "confirmedClaims": [],
+      "candidateClaims": [
+        {
+          "id": "cl-e52277946300f64cd79d0e72",
+          "runId": "n64-04-1-market_region",
+          "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+          "subjectId": "catalog:n64-pal-body-harvest",
+          "gameId": "n64-pal-body-harvest",
+          "platformSlug": "n64",
+          "editionId": null,
+          "variantId": null,
+          "component": "UNKNOWN_COMPONENT",
+          "field": "MARKET_REGION",
+          "value": "PAL Europa",
+          "sourceId": "nintendo64ever",
+          "sourceUrl": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1280,Body-Harvest.html",
+          "evidenceId": "ev-789b05f4161d2c973565d20a",
+          "confidence": 0.9,
+          "status": "VALIDATED",
+          "validationErrors": [],
+          "createdAt": "2026-09-16T20:12:36.965Z"
+        },
+        {
+          "id": "cl-c66a6e6d1f66d092286bc3fc",
+          "runId": "n64-04-1-market_region",
+          "taskId": "catalog:n64-pal-body-harvest:resolve_market:1",
+          "subjectId": "catalog:n64-pal-body-harvest",
+          "gameId": "n64-pal-body-harvest",
+          "platformSlug": "n64",
+          "editionId": null,
+          "variantId": null,
+          "component": "UNKNOWN",
+          "field": "MARKET_REGION",
+          "value": "PAL Europa",
+          "sourceId": "ogdb",
+          "sourceUrl": "https://ogdb.eu/index.php?gameid=1453&section=game",
+          "evidenceId": "ev-d2f2eb6f59ea098c9c04a94c",
+          "confidence": 1,
+          "status": "VALIDATED",
+          "validationErrors": [],
+          "createdAt": "2026-09-16T20:12:42.392Z"
+        }
+      ],
+      "conflicts": [],
+      "evidenceGaps": [],
+      "imageEvidenceAvailableNotAnalyzed": false,
+      "imageUrlsFound": 21,
+      "technicalFailures": [
+        {
+          "operation": "DIRECT_FETCH",
+          "target": "https://www.uvlist.net/game-98689-Body+Harvest",
+          "code": "INTERNAL_ERROR",
+          "detail": "TypeError fetch failed",
+          "recovered": true
+        },
+        {
+          "operation": "BROWSER",
+          "target": "https://www.uvlist.net/game-98689-Body+Harvest",
+          "code": "SOURCE_TIMEOUT",
+          "detail": "TimeoutError page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.uvlist.net/game-98689-Body+Harvest\", waiting until \"domcontentloaded\"\u001b[22m\n",
+          "recovered": true
+        }
+      ],
+      "providerUsage": {
+        "brave-search": 7,
+        "brave-images": 0
+      },
+      "cost": {
+        "openAiUsd": 0.000793,
+        "braveUsd": 0.035
+      },
+      "artifactDirectory": "/Users/macbookpro14/Projects/regionatlas-engine-codex-review-benchmark/artifacts/research-engine/engine-current-no-vision-16/worker/runs/n64-04-1-market_region",
+      "error": null
+    }
+  ],
+  "decision": "ACCEPT_EXISTING",
+  "decisionReason": "Every target generated by the current catalog scanner was confirmed by the current Research Engine.",
+  "reasonForReview": null,
+  "cost": {
+    "openAiUsd": 0.000793,
+    "braveUsd": 0.035,
+    "totalUsd": 0.035793
+  },
+  "mutations": {
+    "catalog": 0,
+    "prices": 0,
+    "authoritativeQueue": 0,
+    "publicAssets": 0
+  },
+  "frozenAt": "2026-09-16T20:12:42.574Z",
+  "resultHash": "ee38a1924d796602638e7bdbd00c2610b98033bf7eb42562768f939f5ba08ae3"
+}

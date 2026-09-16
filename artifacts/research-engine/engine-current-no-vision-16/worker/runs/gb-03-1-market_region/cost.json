@@ -1,0 +1,60 @@
+{
+  "searchCalls": 10,
+  "pagesOpened": 5,
+  "imagesInspected": 0,
+  "browserSessions": 3,
+  "llmAndVisionCalls": 5,
+  "inputTokens": 10685,
+  "outputTokens": 530,
+  "estimatedCostUsd": 0.001922,
+  "providerCalls": {
+    "brave-search": 10,
+    "brave-images": 0
+  },
+  "technicalRetriesAndFailures": 3,
+  "llmCalls": 5,
+  "visionCalls": 0,
+  "modelUsages": [
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 1998,
+      "outputTokens": 103,
+      "estimatedCostUsd": 0.000362
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 2077,
+      "outputTokens": 97,
+      "estimatedCostUsd": 0.00037
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 2043,
+      "outputTokens": 129,
+      "estimatedCostUsd": 0.000384
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 2487,
+      "outputTokens": 108,
+      "estimatedCostUsd": 0.000438
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 2080,
+      "outputTokens": 93,
+      "estimatedCostUsd": 0.000368
+    }
+  ],
+  "durationMs": 42990
+}

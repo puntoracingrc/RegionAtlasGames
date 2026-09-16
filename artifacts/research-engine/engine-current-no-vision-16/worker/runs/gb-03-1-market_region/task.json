@@ -1,0 +1,18 @@
+{
+  "id": "catalog:gameboy-pal-mole-mania:resolve_market:1",
+  "subjectId": "catalog:gameboy-pal-mole-mania",
+  "targetField": "MARKET_REGION",
+  "question": "¿Qué mercado o mercados corresponden a esta caja física concreta?",
+  "priority": "P1",
+  "evidenceNeeded": [
+    "PHYSICAL_SCAN",
+    "RETAILER",
+    "COLLECTOR_DATABASE"
+  ],
+  "riskCodes": [
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T20:13:03.999Z",
+  "updatedAt": "2026-09-16T20:13:03.999Z"
+}

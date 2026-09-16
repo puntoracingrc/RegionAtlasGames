@@ -1,0 +1,381 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "CURRENT_ENGINE_NO_VISION_16",
+  "startedAt": "2026-09-16T20:11:03.150Z",
+  "completedAt": "2026-09-16T20:13:47.291Z",
+  "gitSha": "afb90285994c57010a31fabb843b888402332476",
+  "constraints": {
+    "currentEngineOnly": true,
+    "knowledgeModifiedBeforeRun": false,
+    "routingModifiedBeforeRun": false,
+    "thresholdsModifiedBeforeRun": false,
+    "rulesModifiedBeforeRun": false,
+    "visionEnabled": false,
+    "ocrEnabled": false,
+    "imageSemanticsAllowed": false,
+    "researchProvider": "brave",
+    "textModel": "gpt-4o-mini"
+  },
+  "totals": {
+    "cases": 16,
+    "investigable": 15,
+    "externallyResearched": 4,
+    "resolved": 13,
+    "reviewRequired": 3,
+    "decisions": {
+      "ACCEPT_EXISTING": 12,
+      "REROUTE_EXISTING": 0,
+      "REJECT": 1,
+      "PROPOSE_NEW_VARIANT": 0,
+      "REVIEW_REQUIRED": 3
+    },
+    "sourcesActuallyUsed": [
+      "ebay",
+      "retroplace",
+      "candidate:www.gameplaystores.es",
+      "nintendo64ever",
+      "ogdb",
+      "candidate:www.amazon.es",
+      "legacy:gameboy-visual-reviewed-20260908:800612078639",
+      "candidate:www.retroplace.com",
+      "candidate:nostalgicvideogames.com",
+      "candidate:www.videogamesage.com"
+    ],
+    "casesWithImageUrls": 4,
+    "imageUrlCoveragePct": 25,
+    "imageOnlyRemainingCases": 0,
+    "imageOnlyRemainingPct": 0,
+    "costUsd": 0.180644,
+    "costPerCaseUsd": 0.01129,
+    "braveSearchCalls": 35,
+    "braveImageCalls": 0,
+    "visionCalls": 0,
+    "ocrCalls": 0
+  },
+  "resolutionByPlatform": {
+    "ps4": {
+      "total": 4,
+      "resolved": 4,
+      "reviewRequired": 0,
+      "decisions": {
+        "ACCEPT_EXISTING": 4,
+        "REROUTE_EXISTING": 0,
+        "REJECT": 0,
+        "PROPOSE_NEW_VARIANT": 0,
+        "REVIEW_REQUIRED": 0
+      }
+    },
+    "ps5": {
+      "total": 4,
+      "resolved": 4,
+      "reviewRequired": 0,
+      "decisions": {
+        "ACCEPT_EXISTING": 4,
+        "REROUTE_EXISTING": 0,
+        "REJECT": 0,
+        "PROPOSE_NEW_VARIANT": 0,
+        "REVIEW_REQUIRED": 0
+      }
+    },
+    "n64": {
+      "total": 4,
+      "resolved": 3,
+      "reviewRequired": 1,
+      "decisions": {
+        "ACCEPT_EXISTING": 2,
+        "REROUTE_EXISTING": 0,
+        "REJECT": 1,
+        "PROPOSE_NEW_VARIANT": 0,
+        "REVIEW_REQUIRED": 1
+      }
+    },
+    "gameboy": {
+      "total": 4,
+      "resolved": 2,
+      "reviewRequired": 2,
+      "decisions": {
+        "ACCEPT_EXISTING": 2,
+        "REROUTE_EXISTING": 0,
+        "REJECT": 0,
+        "PROPOSE_NEW_VARIANT": 0,
+        "REVIEW_REQUIRED": 2
+      }
+    }
+  },
+  "invariants": {
+    "engineConfiguration": {
+      "before": "799a959eda53f28c7dc0a69583573f98d8a71c143f91dbc0f3febbbf8adc020e",
+      "after": "799a959eda53f28c7dc0a69583573f98d8a71c143f91dbc0f3febbbf8adc020e",
+      "identical": true
+    },
+    "catalogAndPrices": {
+      "before": "8caf709eb8218a072dc12f91cec4fa8669b9253c32602f25f15742898b7c4375",
+      "after": "8caf709eb8218a072dc12f91cec4fa8669b9253c32602f25f15742898b7c4375",
+      "identical": true,
+      "changed": []
+    },
+    "catalogMutations": 0,
+    "priceMutations": 0,
+    "authoritativeQueueMutations": 0,
+    "publicAssetMutations": 0
+  },
+  "cases": [
+    {
+      "caseId": "PS4-01",
+      "game": "A Plague Tale: Innocence",
+      "platform": "ps4",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "d1f5dba91f9e7420311ae1fde69a3ca3fda463f0aa8dff2b2fba4071961a54fc"
+    },
+    {
+      "caseId": "PS4-02",
+      "game": "Valkyria Chronicles 4",
+      "platform": "ps4",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "5265d37666d66955310f0fd112d600cf84974459a718e77ad5265a9ebc958d19"
+    },
+    {
+      "caseId": "PS4-03",
+      "game": "The Surge 2",
+      "platform": "ps4",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "aa69a2e37278454bb2c2fb0ed791c5e2ce68aa6cb0d9a18e6e0afd1aa28c6d6a"
+    },
+    {
+      "caseId": "PS4-04",
+      "game": "A Way Out",
+      "platform": "ps4",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "1de2bb406a2ce5d11f4648b12905df31c467f0bc572fe302921df9b63c25be2d"
+    },
+    {
+      "caseId": "PS5-01",
+      "game": "A Plague Tale: Requiem",
+      "platform": "ps5",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "32961bc2c34bebc349fa875b5ccd8e9a3b6d0e8526ebabedf14bed4ae1228bd8"
+    },
+    {
+      "caseId": "PS5-02",
+      "game": "Steelrising",
+      "platform": "ps5",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "c162e98e91192b001b22203cce88f59b81b4bd250ac519bf88ed741632443c6b"
+    },
+    {
+      "caseId": "PS5-03",
+      "game": "Wo Long: Fallen Dynasty",
+      "platform": "ps5",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "7db6611a3631c07da49e1acfbf696111fb07df64ff8ccce805a3cfc7dda4123b"
+    },
+    {
+      "caseId": "PS5-04",
+      "game": "Dead Space",
+      "platform": "ps5",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "9b2eaced3607c16c7a805b911c1e2b3abf8392e39c2c0ffde98ed0b88089a2e4"
+    },
+    {
+      "caseId": "N64-01",
+      "game": "1080° Snowboarding",
+      "platform": "n64",
+      "engineTasks": 0,
+      "decision": "REJECT",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "749b416ecbd4f616ba00644a5634e3a1a86b9711b63bbca7f18150a3b36349e2"
+    },
+    {
+      "caseId": "N64-02",
+      "game": "Mystical Ninja Starring Goemon",
+      "platform": "n64",
+      "engineTasks": 1,
+      "decision": "REVIEW_REQUIRED",
+      "reasonForReview": "At least one Engine-generated target remained partial, unresolved, blocked, or failed under the no-vision policy.",
+      "imagePolicy": "IMAGE_URL_FOUND",
+      "imageUrlsFound": 62,
+      "cost": {
+        "openAiUsd": 0.001461,
+        "braveUsd": 0.06,
+        "totalUsd": 0.061461
+      },
+      "resultHash": "bae54f648b3a19dc34fbdcfdcf2252f8ad6dc42ce2717c27eb8ab89cc0361ce4"
+    },
+    {
+      "caseId": "N64-03",
+      "game": "Star Wars: Rogue Squadron",
+      "platform": "n64",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "053b6923dfeab6077831ab67e984087cb93085e7b193d5943845356b147b22ae"
+    },
+    {
+      "caseId": "N64-04",
+      "game": "Body Harvest",
+      "platform": "n64",
+      "engineTasks": 1,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "IMAGE_URL_FOUND",
+      "imageUrlsFound": 21,
+      "cost": {
+        "openAiUsd": 0.000793,
+        "braveUsd": 0.035,
+        "totalUsd": 0.035793
+      },
+      "resultHash": "ee38a1924d796602638e7bdbd00c2610b98033bf7eb42562768f939f5ba08ae3"
+    },
+    {
+      "caseId": "GB-01",
+      "game": "Dr. Mario",
+      "platform": "gameboy",
+      "engineTasks": 1,
+      "decision": "REVIEW_REQUIRED",
+      "reasonForReview": "At least one Engine-generated target remained partial, unresolved, blocked, or failed under the no-vision policy.",
+      "imagePolicy": "IMAGE_URL_FOUND",
+      "imageUrlsFound": 129,
+      "cost": {
+        "openAiUsd": 0.001468,
+        "braveUsd": 0.03,
+        "totalUsd": 0.031468
+      },
+      "resultHash": "cf31da302b8c216aca7dc98e978cd95edc13a5e0f936c7adf27300fc888e0b64"
+    },
+    {
+      "caseId": "GB-02",
+      "game": "Kirby's Dream Land",
+      "platform": "gameboy",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "40643c30291e799041cf210496aa6bcc81c26690d82cfd39e7514e08d5307553"
+    },
+    {
+      "caseId": "GB-03",
+      "game": "Mole Mania",
+      "platform": "gameboy",
+      "engineTasks": 1,
+      "decision": "REVIEW_REQUIRED",
+      "reasonForReview": "At least one Engine-generated target remained partial, unresolved, blocked, or failed under the no-vision policy.",
+      "imagePolicy": "IMAGE_URL_FOUND",
+      "imageUrlsFound": 161,
+      "cost": {
+        "openAiUsd": 0.001922,
+        "braveUsd": 0.05,
+        "totalUsd": 0.051922
+      },
+      "resultHash": "77986a926e1fa3cb3388c1f4a3d5c51aa5f84584742be3a442c3f9311a30f603"
+    },
+    {
+      "caseId": "GB-04",
+      "game": "Gargoyle's Quest",
+      "platform": "gameboy",
+      "engineTasks": 0,
+      "decision": "ACCEPT_EXISTING",
+      "reasonForReview": null,
+      "imagePolicy": "NO_IMAGE_URL_FOUND",
+      "imageUrlsFound": 0,
+      "cost": {
+        "openAiUsd": 0,
+        "braveUsd": 0,
+        "totalUsd": 0
+      },
+      "resultHash": "047d6faa3f747c12809b6952d9600719929150f40fb24c122742e58b1e7ebe33"
+    }
+  ],
+  "freezeHash": "cc3607bbc6ccc0ecb39008f12c9c67484444e637e1ceba934170b7b5455e371c"
+}

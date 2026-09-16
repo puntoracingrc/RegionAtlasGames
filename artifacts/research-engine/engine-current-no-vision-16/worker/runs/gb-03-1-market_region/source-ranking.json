@@ -1,0 +1,412 @@
+[
+  {
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:800612078639",
+    "hosts": [
+      "www.ebay.es"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:335866722818",
+    "hosts": [
+      "www.ebay.es"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:297478441978",
+    "hosts": [
+      "www.ebay.es"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-visual-reviewed-20260908:326091056529",
+    "hosts": [
+      "www.ebay.es"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:hardware",
+    "hosts": [
+      "gbhwdb.gekkio.fi"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:flintstones",
+    "hosts": [
+      "www.game-boy-database.com"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:asterix",
+    "hosts": [
+      "gbhwdb.gekkio.fi"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:addams",
+    "hosts": [
+      "gbhwdb.gekkio.fi"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:revisions",
+    "hosts": [
+      "www.game-boy-database.com"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:pokemon-red-nesp",
+    "hosts": [
+      "www.game-boy-database.com"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:wario-neai",
+    "hosts": [
+      "www.game-boy-database.com"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:zelda-esp2",
+    "hosts": [
+      "www.game-boy-database.com"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "legacy:gameboy-documentary-v3-legado:legado-esp-list",
+    "hosts": [
+      "www.legadodelpixel.es"
+    ],
+    "roles": [
+      "LEGACY_SCANNER_DOCUMENTARY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 62,
+    "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+  },
+  {
+    "sourceId": "mobygames",
+    "hosts": [
+      "mobygames.com"
+    ],
+    "roles": [
+      "SPECIALIZED_DATABASE",
+      "RELEASE_IDENTITY"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "DOMAIN_SEARCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 65,
+    "reason": "Field capability 65; default reliability 72."
+  },
+  {
+    "sourceId": "national-retailer",
+    "hosts": [
+      "game.es",
+      "fnac.es",
+      "mediamarkt.es"
+    ],
+    "roles": [
+      "RETAILER"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "SEARCH_ENGINE",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "ARCHIVE"
+    ],
+    "capabilityScore": 60,
+    "reason": "Field capability 60; default reliability 72."
+  },
+  {
+    "sourceId": "ebay",
+    "hosts": [
+      "ebay.com",
+      "ebay.es",
+      "ebay.co.uk"
+    ],
+    "roles": [
+      "MARKETPLACE",
+      "PHYSICAL_SPECIMEN_DISCOVERY"
+    ],
+    "accessModes": [
+      "MARKETPLACE_API",
+      "SEARCH_ENGINE",
+      "BROWSER",
+      "IMAGE_SEARCH"
+    ],
+    "capabilityScore": 20,
+    "reason": "Field capability 20; default reliability 52."
+  },
+  {
+    "sourceId": "no-intro",
+    "hosts": [
+      "no-intro.org",
+      "wiki.no-intro.org"
+    ],
+    "roles": [
+      "TECHNICAL_DATABASE",
+      "CARTRIDGE_IDENTIFIER"
+    ],
+    "accessModes": [
+      "DOMAIN_SEARCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 10,
+    "reason": "Field capability 10; default reliability 90."
+  },
+  {
+    "sourceId": "datomatic",
+    "hosts": [
+      "datomatic.no-intro.org"
+    ],
+    "roles": [
+      "TECHNICAL_DATABASE",
+      "CARTRIDGE_IDENTIFIER"
+    ],
+    "accessModes": [
+      "DOMAIN_SEARCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 10,
+    "reason": "Field capability 10; default reliability 90."
+  },
+  {
+    "sourceId": "ogdb",
+    "hosts": [
+      "ogdb.eu"
+    ],
+    "roles": [
+      "SPECIALIZED_DATABASE",
+      "PHYSICAL_SPECIMEN_DISCOVERY"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "IMAGE_SEARCH"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 76."
+  },
+  {
+    "sourceId": "publisher-official",
+    "hosts": [],
+    "roles": [
+      "PUBLISHER",
+      "OFFICIAL_SOURCE_CANDIDATE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "SEARCH_ENGINE",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "ARCHIVE"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 92."
+  },
+  {
+    "sourceId": "ubisoft-official",
+    "hosts": [
+      "ubisoft.com",
+      "news.ubisoft.com",
+      "store.ubisoft.com"
+    ],
+    "roles": [
+      "PUBLISHER",
+      "OFFICIAL_SOURCE_CANDIDATE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "ARCHIVE"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 92."
+  },
+  {
+    "sourceId": "platform-holder-official",
+    "hosts": [
+      "nintendo.com",
+      "playstation.com",
+      "xbox.com"
+    ],
+    "roles": [
+      "PLATFORM_HOLDER",
+      "OFFICIAL_SOURCE_CANDIDATE"
+    ],
+    "accessModes": [
+      "DIRECT_FETCH",
+      "SEARCH_ENGINE",
+      "DOMAIN_SEARCH",
+      "BROWSER",
+      "ARCHIVE"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 90."
+  },
+  {
+    "sourceId": "yambalu",
+    "hosts": [
+      "yambalu.com",
+      "www.yambalu.com"
+    ],
+    "roles": [
+      "RETAILER_AGGREGATOR",
+      "RELEASE_IDENTITY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "DIRECT_FETCH",
+      "BROWSER"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 58."
+  },
+  {
+    "sourceId": "todocoleccion",
+    "hosts": [
+      "todocoleccion.net",
+      "www.todocoleccion.net"
+    ],
+    "roles": [
+      "MARKETPLACE",
+      "PHYSICAL_SPECIMEN_DISCOVERY"
+    ],
+    "accessModes": [
+      "SEARCH_ENGINE",
+      "BROWSER",
+      "IMAGE_SEARCH"
+    ],
+    "capabilityScore": 0,
+    "reason": "Field capability unspecified; default reliability 55."
+  }
+]
