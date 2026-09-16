@@ -1,0 +1,188 @@
+[
+  {
+    "id": "listing-obs-f0f671bd60747c39",
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 1,
+    "contentHash": "a13f361a63e18e7c9f1de93aad19589cfcca3317bf64a9e1009540164c826829",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Tetris",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "TETRIS",
+      "Un gioco stimolante e divertente che non lascerai più!",
+      "Dalla Russia un gioco emozionante e divertente!",
+      "GIG",
+      "Nintendo"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-8ce7d0923cca92cd",
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 2,
+    "contentHash": "5ae38733ab917450879e1a6862c159abf9c8b5513025a2498a0b78567b56d67e",
+    "component": "OUTER_PACKAGE_SPINE",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-402fc866af77e7cc",
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 3,
+    "contentHash": "a4f117ad6c90945b1e4907187f47f52caedf0b6cd4e21e062affa5ec1cf78392",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Tetris",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "TETRIS",
+      "DMG-TR-IT"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-1830eceb803eb6e4",
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 4,
+    "contentHash": "3bbe526da992c9d49a3088b4576fa0715103dee98847eaef67fe952c2dc27184",
+    "component": "OUTER_PACKAGE_SPINE",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "DMG-TR",
+      "ITA-1",
+      "960801"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-a9c5f33d53b9dc7a",
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 5,
+    "contentHash": "a6cedaaec4c0cb398937354372108494a6b93e3e6e5f63eec5a138ba9c38c59a",
+    "component": "OUTER_PACKAGE_SPINE",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "DMG-TR",
+      "ITA-1"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-6f00d03a083e0980",
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 6,
+    "contentHash": "49d52f9a74ce9a2186c131b145783fe7b453ed3a98f5bb48b3f7d993379edcbe",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Tetris",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "TETRIS",
+      "Un gioco stimolante e divertente che non lascerai più!",
+      "Dalla Russia un gioco emozionante e divertente!",
+      "GIG",
+      "Nintendo"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-14c7d1d06261ef42",
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 7,
+    "contentHash": "fe9ca33632731bca1d85df538a116a90671a66aa5dddf6fa0b579b6fa435797e",
+    "component": "OUTER_PACKAGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "TETRIS",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [
+      "04549673027"
+    ],
+    "productCodes": [
+      "DMG P TR"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [
+      "Italian"
+    ],
+    "distributors": [],
+    "publisherLegalText": [
+      "Nintendo"
+    ],
+    "visibleText": [
+      "Dalla Russia un gioco emozionante e divertente!",
+      "Linee, blocchi quadrati, zig-zag e blocchi a forma di L scendono in modo imprevedibile!",
+      "Questo gioco ti prenderà talmente tanto che sentirai il tuo polso muoversi velocemente per incastrare tutti i blocchi!",
+      "E' eccitante e man mano che aumenti di livello dovrai prendere le decisioni delle posizioni delle figure in pochissimi secondi!!!",
+      "Scegli la musica ed avanza progressivamente attraverso 20 Livelli.",
+      "Questa cassetta funziona solo con il Sistema di Gioco Game Boy Compact Video.",
+      "Game Boy Game Pak (DMG-09)",
+      "Original (Nintendo) Seal of Quality"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

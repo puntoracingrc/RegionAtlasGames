@@ -1,0 +1,56 @@
+[
+  {
+    "listingId": "v1|197148593440|0",
+    "imageIndex": 1,
+    "contentHash": "f1c7a261fabe093e5141611f203cd0736576b88479ba65a07ecad8d7c15c2655",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Front cover of the PS4 game case."
+  },
+  {
+    "listingId": "v1|197148593440|0",
+    "imageIndex": 2,
+    "contentHash": "59b6b2692f7112f1ba6c2139a1111ee99f77239d43bbaefbbb8476231d357a68",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 1.0,
+    "reason": "Back cover of the PS4 game case."
+  },
+  {
+    "listingId": "v1|197148593440|0",
+    "imageIndex": 3,
+    "contentHash": "1fc5ad1980ed6a2a17deaa17ce99ec2f86b0010b08d8ca44d2ce21aa1c1c99d0",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "INNER_CASE_FRONT",
+    "confidence": 1.0,
+    "reason": "Inside front cover of the PS4 game case with the disc."
+  },
+  {
+    "listingId": "v1|197148593440|0",
+    "imageIndex": 4,
+    "contentHash": "c5567bacf950ab4e1424317a12f311a0fa8a85846afa49a0273bb73e2b451645",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "DISC",
+    "confidence": 1.0,
+    "reason": "Disc of the PS4 game."
+  },
+  {
+    "listingId": "v1|197148593440|0",
+    "imageIndex": 5,
+    "contentHash": "88b8fa978ba3515e58f48d17592954c535d547de05017bdf7c8c185f3e98a0c2",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "INNER_CASE_FRONT",
+    "confidence": 1.0,
+    "reason": "Inside front cover of the PS4 game case with two discs."
+  },
+  {
+    "listingId": "v1|197148593440|0",
+    "imageIndex": 6,
+    "contentHash": "58fa9b197c488935ce882e5965e2a0a7a75c89a04e84632253e9379569798140",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "DISC",
+    "confidence": 1.0,
+    "reason": "Disc of the PS4 game."
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "listing-obs-de11426fbe001855",
+    "listingId": "v1|800220276200|0",
+    "imageIndex": 1,
+    "contentHash": "63f2fb76ec4dd4eedef3078a9f3b202e479f2f28ba1ffbda200b2f72760a47c1",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "The Legend of Zelda: Link's Awakening",
+    "platform": "Game Boy",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "DMG-ZL-EUR"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [
+      "The Legend of Zelda",
+      "Link's Awakening"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-3b5c04b0cd9518d6",
+    "listingId": "v1|800220276200|0",
+    "imageIndex": 2,
+    "contentHash": "acea4cedc1ce061b1057657982f62fd9bc6c57f4a65f2ee551d08624c526d6e0",
+    "component": "CARTRIDGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-e58bb6a1c313efad",
+    "listingId": "v1|800220276200|0",
+    "imageIndex": 3,
+    "contentHash": "22daa1e117bd5960647d8df23b9639027edd0c49ff59eca2448b67f733faa82e",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "DMG-ZL-EUR"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-08f368ed90715afb",
+    "listingId": "v1|800220276200|0",
+    "imageIndex": 4,
+    "contentHash": "8cfa15d39dca9a60325ddad143f3d0ed3c675b71d17295f4ffc56840f90e8aca",
+    "component": "CARTRIDGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "DMG-ZL-EUR"
+    ],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "MADE IN JAPAN"
+    ],
+    "visibleText": [
+      "The Legend of Zelda",
+      "Link's Awakening"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

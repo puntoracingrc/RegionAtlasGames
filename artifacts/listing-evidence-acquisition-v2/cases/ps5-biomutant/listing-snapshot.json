@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "listingId": "v1|318778350376|0",
+  "legacyItemId": "318778350376",
+  "capturedAt": "2026-09-16T17:58:08Z",
+  "sourceMarketplace": "ebay",
+  "metadata": {
+    "title": "Biomutant Juego para Consola Sony PlayStation 5 PS5, PAL ESPAÑA",
+    "shortDescription": "Estado del Artículo: El juego se encuentra precintado en su envoltorio de plástico original de fábrica (nuevo a estrenar), manteniendo el estuche azul oficial de PlayStation 5 en perfectas condiciones.",
+    "description": "<b>Biomutant Juego para Consola Sony PlayStation 5 PS5</b><div><br></div><div><li><p data-path-to-node=\"2,0,0\"><b data-path-to-node=\"2,0,0\" data-index-in-node=\"0\">Plataforma:</b> Edición específica para <b data-path-to-node=\"2,0,0\" data-index-in-node=\"36\">PlayStation 5</b> (PS5), lo que aprovecha las mejoras técnicas de la consola de nueva generación.</p></li><li><p data-path-to-node=\"2,1,0\"><b data-path-to-node=\"2,1,0\" data-index-in-node=\"0\">Género y Estilo:</b> Es un juego de rol (RPG) de acción de mundo abierto ambientado en un universo postapocalíptico de ciencia ficción, protagonizado por singulares criaturas marciales mutantes.</p></li><li><p data-path-to-node=\"2,2,0\"><b data-path-to-node=\"2,2,0\" data-index-in-node=\"0\">Clasificación por Edad:</b> Cuenta con el sello <b data-path-to-node=\"2,2,0\" data-index-in-node=\"44\">PEGI 12</b>, lo que indica que está recomendado para mayores de 12 años debido a la presencia de violencia moderada.</p></li><li><p data-path-to-node=\"2,3,0\"><b data-path-to-node=\"2,3,0\" data-index-in-node=\"0\">Desarrollo y Edición:</b> Desarrollado por el estudio Experiment 101 y publicado por <b data-path-to-node=\"2,3,0\" data-index-in-node=\"81\">THQ Nordic</b>.</p></li><li><p data-path-to-node=\"2,4,0\"><b data-path-to-node=\"2,4,0\" data-index-in-node=\"0\">Estado del Artículo:</b> El juego se encuentra precintado en su envoltorio de plástico original de fábrica (nuevo a estrenar), manteniendo el estuche azul oficial de PlayStation 5 en perfectas condiciones.</p></li></div>",
+    "condition": "Nuevo",
+    "conditionId": "1000",
+    "conditionDescription": null,
+    "itemWebUrl": "https://www.ebay.es/itm/318778350376?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2BCM7h5nDBEJV9EA8xKHNn%2B59KtxQpXg7ObpnwmqPCqrmFJZaBeywuAeo1P0hBIJtAlnj2QWsyK8%2Fbms9LHltQazNNrkIGZmwg6v0MTDTCNVn9byusM6%2B2VRK2s3HSLK9TZWzSGkJ%2F%2BPzzkrwpp220RJuaiPFMoEE11t7nmIFJu%2BWOdBKUAq3qR%2FZuMrlCYALQ%3D",
+    "itemLocation": {
+      "city": "ibi",
+      "postalCode": "03***",
+      "country": "ES"
+    },
+    "seller": {
+      "username": "johnarrazolam0",
+      "feedbackPercentage": "100.0",
+      "feedbackScore": 1
+    },
+    "category": "Consolas y videojuegos|Videojuegos",
+    "categoryId": "139973",
+    "aspects": {
+      "Nombre del videojuego": [
+        "1204206"
+      ],
+      "Garantía del fabricante": [
+        "3 años"
+      ],
+      "Plataforma": [
+        "Sony PlayStation 5"
+      ],
+      "Precintado de Fabrica": [
+        "Si"
+      ],
+      "Código de región": [
+        "English"
+      ],
+      "MPN": [
+        "1204206"
+      ],
+      "País de origen": [
+        "PAL ES"
+      ],
+      "Cantidad de unidades": [
+        "1"
+      ],
+      "Equivalente USK": [
+        "USK ab 12 Jahren"
+      ],
+      "Género": [
+        "Acción y Aventura"
+      ],
+      "Tipo de unidad": [
+        "Unidad"
+      ],
+      "Editor": [
+        "THQ Nordic"
+      ],
+      "Características": [
+        "PlayStation 5 - Games - THQ - Open World - Roleplaying - Standard"
+      ],
+      "Clasificación": [
+        "PEGI 12"
+      ],
+      "EAN": [
+        "9120080078261"
+      ]
+    },
+    "price": {
+      "value": 19.7,
+      "currency": "EUR"
+    },
+    "shippingOptions": [
+      {
+        "shippingServiceCode": "Correos: cartas certificadas",
+        "shippingCarrierCode": "Correos",
+        "type": "Envío Económico",
+        "shippingCost": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "quantityUsedForEstimate": 1,
+        "minEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+        "maxEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+        "shipToLocationUsedForEstimate": {
+          "postalCode": "28001",
+          "country": "ES"
+        },
+        "additionalShippingCostPerUnit": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "shippingCostType": "FIXED"
+      }
+    ],
+    "buyingOptions": [
+      "FIXED_PRICE"
+    ],
+    "itemEndDate": null,
+    "estimatedAvailabilities": [
+      {
+        "deliveryOptions": [
+          "SHIP_TO_HOME",
+          "SELLER_ARRANGED_LOCAL_PICKUP"
+        ],
+        "estimatedAvailabilityStatus": "IN_STOCK",
+        "estimatedAvailableQuantity": 1,
+        "estimatedSoldQuantity": 0,
+        "estimatedRemainingQuantity": 1
+      }
+    ],
+    "gtin": "9120080078261",
+    "brand": null,
+    "mpn": "1204206",
+    "epid": null
+  },
+  "imagesAvailableFromSource": 3,
+  "imagesPreserved": 3,
+  "images": [
+    {
+      "listingId": "v1|318778350376|0",
+      "imageIndex": 1,
+      "sourceIndex": 1,
+      "sourceUrl": "https://i.ebayimg.com/images/g/qHoAAeSwmOBqjdaA/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/qHoAAeSwmOBqjdaA/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/qHoAAeSwmOBqjdaA/s-l1600.jpg",
+      "contentHash": "d563256fa5d5ba7c28ec574f8bd1485901ffd5200e80f1a1867548e7f7008ed3",
+      "width": 768,
+      "height": 1024,
+      "byteLength": 85642,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-biomutant/d563256fa5d5ba7c28ec574f8bd1485901ffd5200e80f1a1867548e7f7008ed3.img",
+      "sourceKind": "PRIMARY",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|318778350376|0",
+      "imageIndex": 2,
+      "sourceIndex": 2,
+      "sourceUrl": "https://i.ebayimg.com/images/g/yj8AAeSwvEZqjdaf/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/yj8AAeSwvEZqjdaf/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/yj8AAeSwvEZqjdaf/s-l1600.jpg",
+      "contentHash": "961e75df1a6bcb9ccd08ed7ade2d84f7594e3cf9ae701b20f3c5f110dd7096ad",
+      "width": 768,
+      "height": 1024,
+      "byteLength": 84215,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-biomutant/961e75df1a6bcb9ccd08ed7ade2d84f7594e3cf9ae701b20f3c5f110dd7096ad.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|318778350376|0",
+      "imageIndex": 3,
+      "sourceIndex": 3,
+      "sourceUrl": "https://i.ebayimg.com/images/g/4roAAeSwcZxqjdam/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/4roAAeSwcZxqjdam/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/4roAAeSwcZxqjdam/s-l1600.jpg",
+      "contentHash": "869eaedfe8147d742af6bce746ac7ff5566cb87eb022b6b288aff7be77df0ce5",
+      "width": 768,
+      "height": 1024,
+      "byteLength": 105406,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-biomutant/869eaedfe8147d742af6bce746ac7ff5566cb87eb022b6b288aff7be77df0ce5.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    }
+  ],
+  "failures": [],
+  "rights": {
+    "classification": "INTERNAL_EVIDENCE_REFERENCE",
+    "publishAsRegionAtlasAsset": false
+  }
+}

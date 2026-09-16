@@ -1,0 +1,65 @@
+[
+  {
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 1,
+    "contentHash": "a13f361a63e18e7c9f1de93aad19589cfcca3317bf64a9e1009540164c826829",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible front of the game box with contents."
+  },
+  {
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 2,
+    "contentHash": "5ae38733ab917450879e1a6862c159abf9c8b5513025a2498a0b78567b56d67e",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_SPINE",
+    "confidence": 0.8,
+    "reason": "Visible spine of the game box."
+  },
+  {
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 3,
+    "contentHash": "a4f117ad6c90945b1e4907187f47f52caedf0b6cd4e21e062affa5ec1cf78392",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible front of the game cartridge."
+  },
+  {
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 4,
+    "contentHash": "3bbe526da992c9d49a3088b4576fa0715103dee98847eaef67fe952c2dc27184",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_SPINE",
+    "confidence": 0.7,
+    "reason": "Visible spine of the game box."
+  },
+  {
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 5,
+    "contentHash": "a6cedaaec4c0cb398937354372108494a6b93e3e6e5f63eec5a138ba9c38c59a",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_SPINE",
+    "confidence": 0.7,
+    "reason": "Visible spine of the game box."
+  },
+  {
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 6,
+    "contentHash": "49d52f9a74ce9a2186c131b145783fe7b453ed3a98f5bb48b3f7d993379edcbe",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible front of the game box."
+  },
+  {
+    "listingId": "v1|137429610296|0",
+    "imageIndex": 7,
+    "contentHash": "fe9ca33632731bca1d85df538a116a90671a66aa5dddf6fa0b579b6fa435797e",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 0.9,
+    "reason": "Visible back of the game box."
+  }
+]

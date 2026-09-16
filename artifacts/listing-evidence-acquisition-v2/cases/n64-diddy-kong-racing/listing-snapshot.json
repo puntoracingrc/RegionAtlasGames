@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "listingId": "v1|276673197017|0",
+  "legacyItemId": "276673197017",
+  "capturedAt": "2026-09-16T17:57:37Z",
+  "sourceMarketplace": "ebay",
+  "metadata": {
+    "title": "Diddy Kong Racing N64 Nintendo Pal Europe España Donkey country land",
+    "shortDescription": "Diddy Kong Racing N64 Nintendo Pal Europe España Donkey country land.",
+    "description": "Diddy Kong Racing N64 Nintendo Pal Europe España Donkey country land. ",
+    "condition": "En buen estado",
+    "conditionId": "5000",
+    "conditionDescription": null,
+    "itemWebUrl": "https://www.ebay.es/itm/276673197017",
+    "itemLocation": {
+      "city": "Camas",
+      "postalCode": "41***",
+      "country": "ES"
+    },
+    "seller": {
+      "username": "surmedia",
+      "feedbackPercentage": "100.0",
+      "feedbackScore": 1710
+    },
+    "category": "Consolas y videojuegos|Videojuegos",
+    "categoryId": "139973",
+    "aspects": {
+      "País de origen": [
+        "España"
+      ],
+      "Plataforma": [
+        "Nintendo 64"
+      ],
+      "Nombre del videojuego": [
+        "Diddy Kong Racing"
+      ],
+      "Editor": [
+        "Nintendo"
+      ],
+      "Código de región": [
+        "PAL"
+      ]
+    },
+    "price": {
+      "value": 64.98,
+      "currency": "EUR"
+    },
+    "shippingOptions": [
+      {
+        "shippingServiceCode": "Correos: cartas certificadas",
+        "shippingCarrierCode": "Correos",
+        "type": "Envío Económico",
+        "shippingCost": {
+          "value": "4.99",
+          "currency": "EUR"
+        },
+        "quantityUsedForEstimate": 1,
+        "minEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+        "maxEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+        "shipToLocationUsedForEstimate": {
+          "postalCode": "28001",
+          "country": "ES"
+        },
+        "additionalShippingCostPerUnit": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "shippingCostType": "FIXED"
+      }
+    ],
+    "buyingOptions": [
+      "FIXED_PRICE"
+    ],
+    "itemEndDate": null,
+    "estimatedAvailabilities": [
+      {
+        "deliveryOptions": [
+          "SHIP_TO_HOME"
+        ],
+        "estimatedAvailabilityStatus": "IN_STOCK",
+        "estimatedAvailableQuantity": 1,
+        "estimatedSoldQuantity": 0,
+        "estimatedRemainingQuantity": 1
+      }
+    ],
+    "gtin": null,
+    "brand": null,
+    "mpn": null,
+    "epid": null
+  },
+  "imagesAvailableFromSource": 8,
+  "imagesPreserved": 8,
+  "images": [
+    {
+      "listingId": "v1|276673197017|0",
+      "imageIndex": 1,
+      "sourceIndex": 1,
+      "sourceUrl": "https://i.ebayimg.com/images/g/pJ4AAOSwGUFnApVM/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/pJ4AAOSwGUFnApVM/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/pJ4AAOSwGUFnApVM/s-l1600.jpg",
+      "contentHash": "8273710ef71c31170314c86519e3aef370a86f1b1d2273414858365271b3b012",
+      "width": 1600,
+      "height": 900,
+      "byteLength": 196444,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-diddy-kong-racing/8273710ef71c31170314c86519e3aef370a86f1b1d2273414858365271b3b012.img",
+      "sourceKind": "PRIMARY",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|276673197017|0",
+      "imageIndex": 2,
+      "sourceIndex": 2,
+      "sourceUrl": "https://i.ebayimg.com/images/g/58YAAOSwl1BnApVM/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/58YAAOSwl1BnApVM/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/58YAAOSwl1BnApVM/s-l1600.jpg",
+      "contentHash": "2766e45c187849134b88b34ff615ccfdef30470b0cbe1a6542f7f78b8d6b778a",
+      "width": 1600,
+      "height": 900,
+      "byteLength": 233239,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-diddy-kong-racing/2766e45c187849134b88b34ff615ccfdef30470b0cbe1a6542f7f78b8d6b778a.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|276673197017|0",
+      "imageIndex": 3,
+      "sourceIndex": 3,
+      "sourceUrl": "https://i.ebayimg.com/images/g/71wAAOSw9X5nApVN/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/71wAAOSw9X5nApVN/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/71wAAOSw9X5nApVN/s-l1600.jpg",
+      "contentHash": "2b571e1b85cdc6095da6beb96b69764c8386b22c731ec36d193d2a2367ea51db",
+      "width": 1600,
+      "height": 900,
+      "byteLength": 228844,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-diddy-kong-racing/2b571e1b85cdc6095da6beb96b69764c8386b22c731ec36d193d2a2367ea51db.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|276673197017|0",
+      "imageIndex": 4,
+      "sourceIndex": 4,
+      "sourceUrl": "https://i.ebayimg.com/images/g/bnoAAOSwhCtnApVN/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/bnoAAOSwhCtnApVN/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/bnoAAOSwhCtnApVN/s-l1600.jpg",
+      "contentHash": "412e476a34c69870f5848779132f5191197b543ae05a868feb7e1b3744b9d670",
+      "width": 1600,
+      "height": 900,
+      "byteLength": 172211,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-diddy-kong-racing/412e476a34c69870f5848779132f5191197b543ae05a868feb7e1b3744b9d670.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|276673197017|0",
+      "imageIndex": 5,
+      "sourceIndex": 5,
+      "sourceUrl": "https://i.ebayimg.com/images/g/VJYAAOSwTztnApVO/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/VJYAAOSwTztnApVO/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/VJYAAOSwTztnApVO/s-l1600.jpg",
+      "contentHash": "23591d427a3ecb9bb9e70eedfd2324fb9e90aca2d0507c8692edd4fb398b1203",
+      "width": 1600,
+      "height": 900,
+      "byteLength": 199258,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-diddy-kong-racing/23591d427a3ecb9bb9e70eedfd2324fb9e90aca2d0507c8692edd4fb398b1203.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|276673197017|0",
+      "imageIndex": 6,
+      "sourceIndex": 6,
+      "sourceUrl": "https://i.ebayimg.com/images/g/Ze0AAOSw6AtnApVO/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/Ze0AAOSw6AtnApVO/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/Ze0AAOSw6AtnApVO/s-l1600.jpg",
+      "contentHash": "c189f35b168f3a6317b3cbf810a98a0763917c855d957dd6127f73024b4df267",
+      "width": 1600,
+      "height": 900,
+      "byteLength": 192805,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-diddy-kong-racing/c189f35b168f3a6317b3cbf810a98a0763917c855d957dd6127f73024b4df267.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|276673197017|0",
+      "imageIndex": 7,
+      "sourceIndex": 7,
+      "sourceUrl": "https://i.ebayimg.com/images/g/Sk8AAOSwQCdnApVP/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/Sk8AAOSwQCdnApVP/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/Sk8AAOSwQCdnApVP/s-l1600.jpg",
+      "contentHash": "e12b55e20c166f5a299708243fe9bda007cf9a30cb8af5ee22d05565bf6f173a",
+      "width": 1600,
+      "height": 900,
+      "byteLength": 178781,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-diddy-kong-racing/e12b55e20c166f5a299708243fe9bda007cf9a30cb8af5ee22d05565bf6f173a.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|276673197017|0",
+      "imageIndex": 8,
+      "sourceIndex": 8,
+      "sourceUrl": "https://i.ebayimg.com/images/g/qrsAAOSw~JZnApVP/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/qrsAAOSw~JZnApVP/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/qrsAAOSw~JZnApVP/s-l1600.jpg",
+      "contentHash": "4d62c35a36e0568b4acff701cdf1559cc41dc5d37d370d587f122e8c46f000e8",
+      "width": 1600,
+      "height": 900,
+      "byteLength": 212925,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-diddy-kong-racing/4d62c35a36e0568b4acff701cdf1559cc41dc5d37d370d587f122e8c46f000e8.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    }
+  ],
+  "failures": [],
+  "rights": {
+    "classification": "INTERNAL_EVIDENCE_REFERENCE",
+    "publishAsRegionAtlasAsset": false
+  }
+}

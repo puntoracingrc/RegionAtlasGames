@@ -1,0 +1,67 @@
+[
+  {
+    "id": "listing-obs-d80f9d182e5798c5",
+    "listingId": "v1|377500341460|0",
+    "imageIndex": 1,
+    "contentHash": "c76e5e50a1170635f0f1b9c89b685be357e161b2c95f609149b324b714b22ae5",
+    "component": "UNKNOWN_COMPONENT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "GOD EATER 3",
+    "platform": "PS4",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 12"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "BANDAI NAMCO Entertainment"
+    ],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-315ccfb9c3a9134d",
+    "listingId": "v1|377500341460|0",
+    "imageIndex": 2,
+    "contentHash": "364f22145ca2caa07b8ed52e955c019e91b05cdd1014480ce58d84cd5020f4d1",
+    "component": "DISC",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "GOD EATER 3",
+    "platform": "PS4",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [
+      "CUSA-13326"
+    ],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 12",
+      "USK 12",
+      "M"
+    ],
+    "languages": [],
+    "distributors": [
+      "BANDAI NAMCO Entertainment S.A."
+    ],
+    "publisherLegalText": [
+      "BANDAI NAMCO Entertainment"
+    ],
+    "visibleText": [
+      "GOD EATER 3",
+      "BANDAI NAMCO",
+      "DOLBY DIGITAL",
+      "PS4",
+      "12+",
+      "PEGI",
+      "USK 12",
+      "M"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

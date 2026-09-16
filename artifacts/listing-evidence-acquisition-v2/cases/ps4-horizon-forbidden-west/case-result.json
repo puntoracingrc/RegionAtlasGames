@@ -1,0 +1,565 @@
+{
+  "caseId": "ps4-horizon-forbidden-west",
+  "platform": "ps4",
+  "subjectTitle": "Horizon Forbidden West",
+  "sourcePhotos": 6,
+  "preservedPhotos": 6,
+  "originalResolutionPhotos": 6,
+  "photosClassified": 6,
+  "photosInspectedHighDetail": 6,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": true,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": true,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": false,
+      "CARTRIDGE_BACK": false,
+      "DISC": true,
+      "MANUAL_FRONT": false,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": []
+  },
+  "componentsFound": [
+    "DISC",
+    "INNER_CASE_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT",
+    "CODE_VOUCHER",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 6,
+  "marketBoundObservations": 1,
+  "diagnosis": "MARKET_BINDING_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 1,
+  "openAiCalls": 3,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 17248,
+      "completion_tokens": 347,
+      "total_tokens": 17595,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 175895,
+      "completion_tokens": 653,
+      "total_tokens": 176548,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 76698,
+      "completion_tokens": 299,
+      "total_tokens": 76997,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.04125555,
+  "item": {
+    "id": "listing-evidence-v2-ps4-horizon-forbidden-west",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "ps4",
+    "targetRegion": "PAL España",
+    "detectedRegion": null,
+    "catalogId": "ps4-horizon-forbidden-west",
+    "candidateCatalogId": "ps4-horizon-forbidden-west",
+    "listingTitle": "Horizon Forbidden West Playstation 4 PS4 Pal España/LEER👇",
+    "priceEur": 39.0,
+    "condition": "complete",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T17:56:02Z",
+    "evidence": {
+      "externalId": "v1|197148593440|0",
+      "url": "https://www.ebay.es/itm/197148593440?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2F%2BrrezQGeEYNVj6Dg--CZsq6ORcv2CXjMok%2BtrRV5XVE4aS1Z6L0BHepRgiIi49ebrwrFP6KIux2QgHwdHfNw7fMnEc9BZ%2FK6P8xZPBvNiHAbVsNis%2B3nfaT%2BXHg48PK99jo5j6HOq4Mb1x3iOQH8P4llceSx80%2BLgfzPe5WbHmsmNh2YyJD2rl5C5zUpPf4w%3D",
+      "description": "No sé incluyen códigos.",
+      "imageUrl": "https://i.ebayimg.com/images/g/hYgAAeSwAtln4-Tf/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/hYgAAeSwAtln4-Tf/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/lG0AAeSw3Bln4-Tm/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/HEYAAeSwEaBn4-Tt/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/qEYAAeSw6JBn4-Tz/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/CqUAAeSwxiFn4-T9/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/H5UAAeSw6Tln4-UB/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|197148593440|0",
+        "legacyItemId": "197148593440",
+        "capturedAt": "2026-09-16T17:56:02Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "Horizon Forbidden West Playstation 4 PS4 Pal España/LEER👇",
+          "shortDescription": "No sé incluyen códigos.",
+          "description": "<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\"><b>No s&#233; incluyen c&#243;digos.</b></p>\n<br>\n<br>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\"><b>Buen</b><b> estado general, la caja ,</b><b>manual</b><b> y </b><b>portada</b><b> podr&#237;an representar marcas o signos de uso,</b><b>Cd</b><b> como espejo,si tienes dudas enviame correo, respondo rapido</b><b>,el envio es certificado. </b></p>\n<br>\n<br>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\"><b><span style=\"color:#00429A;\">Nota importante: </span></b></p>\n<br>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\"><b><span style=\"color:#00429A;\">Tener en cuenta ,que el estado anunciado del articulo es BUENO significa ,que el articulo podria tener marcas,caja envejecida,signos de uso o del tiempo pasado,etiqueta pegada o resto de pegamento y etc.Si eres coleccionista muy exigente con los detalles </span></b><b><span style=\"color:#FF0010;\">NO COMPRES </span></b><b><span style=\"color:#00429A;\">este articulo,solo los anunciados de estado COMO NUEVO o ESTADO DE COLECCION en mi tienda son los que cumplen y no tienen pegas!Ante cualquier duda contacta conmigo antes de comprar,respondo rapido!</span></b></p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\"><b>&#160;</b><b><span style=\"color:#FF0010;\">&#160; &#160; &#160; &#160; &#160; &#160;</span></b></p>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\"><b><span style=\"color:#FF0010;\">&#160; &#160; &#160; &#160; &#160; &#160; NO HACEMOS ENVIOS A CANARIAS</span></b><b><span style=\"color:#FF0010;\">,CIUDADES CEUTA Y MELILLA!!!</span></b></p>\n<br>\n<br>\n<p dir=\"ltr\" style=\"margin-top:0; margin-bottom:0;\"><b><span style=\"color:#FF0010;\">COMPRAS DESDE ESTE DESTINOS SE CANCELARAN DE INMEDIATO SIN PREVIO AVISO, DISCULPEN EL INCONVENIENTE!!!</span></b></p>",
+          "condition": "En buen estado",
+          "conditionId": "5000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/197148593440?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2F%2BrrezQGeEYNVj6Dg--CZsq6ORcv2CXjMok%2BtrRV5XVE4aS1Z6L0BHepRgiIi49ebrwrFP6KIux2QgHwdHfNw7fMnEc9BZ%2FK6P8xZPBvNiHAbVsNis%2B3nfaT%2BXHg48PK99jo5j6HOq4Mb1x3iOQH8P4llceSx80%2BLgfzPe5WbHmsmNh2YyJD2rl5C5zUpPf4w%3D",
+          "itemLocation": {
+            "city": "Cala Major",
+            "postalCode": "07***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "equilibrium38",
+            "feedbackPercentage": "100.0",
+            "feedbackScore": 3864
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "País de origen": [
+              "España"
+            ],
+            "Nombre del videojuego": [
+              "game"
+            ],
+            "Plataforma": [
+              "consola"
+            ],
+            "Género": [
+              "Racing"
+            ],
+            "Código de región": [
+              "PAL"
+            ]
+          },
+          "price": {
+            "value": 39.0,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: cartas certificadas",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 0,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": null,
+          "brand": null,
+          "mpn": null,
+          "epid": null
+        },
+        "imagesAvailableFromSource": 6,
+        "imagesPreserved": 6,
+        "images": [
+          {
+            "listingId": "v1|197148593440|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/hYgAAeSwAtln4-Tf/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/hYgAAeSwAtln4-Tf/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/hYgAAeSwAtln4-Tf/s-l1600.jpg",
+            "contentHash": "f1c7a261fabe093e5141611f203cd0736576b88479ba65a07ecad8d7c15c2655",
+            "width": 833,
+            "height": 799,
+            "byteLength": 136605,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-forbidden-west/f1c7a261fabe093e5141611f203cd0736576b88479ba65a07ecad8d7c15c2655.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|197148593440|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/lG0AAeSw3Bln4-Tm/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/lG0AAeSw3Bln4-Tm/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/lG0AAeSw3Bln4-Tm/s-l1600.jpg",
+            "contentHash": "59b6b2692f7112f1ba6c2139a1111ee99f77239d43bbaefbbb8476231d357a68",
+            "width": 884,
+            "height": 803,
+            "byteLength": 149761,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-forbidden-west/59b6b2692f7112f1ba6c2139a1111ee99f77239d43bbaefbbb8476231d357a68.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|197148593440|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/HEYAAeSwEaBn4-Tt/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/HEYAAeSwEaBn4-Tt/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/HEYAAeSwEaBn4-Tt/s-l1600.jpg",
+            "contentHash": "1fc5ad1980ed6a2a17deaa17ce99ec2f86b0010b08d8ca44d2ce21aa1c1c99d0",
+            "width": 1545,
+            "height": 818,
+            "byteLength": 247456,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-forbidden-west/1fc5ad1980ed6a2a17deaa17ce99ec2f86b0010b08d8ca44d2ce21aa1c1c99d0.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|197148593440|0",
+            "imageIndex": 4,
+            "sourceIndex": 4,
+            "sourceUrl": "https://i.ebayimg.com/images/g/qEYAAeSw6JBn4-Tz/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/qEYAAeSw6JBn4-Tz/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/qEYAAeSw6JBn4-Tz/s-l1600.jpg",
+            "contentHash": "c5567bacf950ab4e1424317a12f311a0fa8a85846afa49a0273bb73e2b451645",
+            "width": 907,
+            "height": 790,
+            "byteLength": 100392,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-forbidden-west/c5567bacf950ab4e1424317a12f311a0fa8a85846afa49a0273bb73e2b451645.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|197148593440|0",
+            "imageIndex": 5,
+            "sourceIndex": 5,
+            "sourceUrl": "https://i.ebayimg.com/images/g/CqUAAeSwxiFn4-T9/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/CqUAAeSwxiFn4-T9/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/CqUAAeSwxiFn4-T9/s-l1600.jpg",
+            "contentHash": "88b8fa978ba3515e58f48d17592954c535d547de05017bdf7c8c185f3e98a0c2",
+            "width": 1473,
+            "height": 796,
+            "byteLength": 201099,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-forbidden-west/88b8fa978ba3515e58f48d17592954c535d547de05017bdf7c8c185f3e98a0c2.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|197148593440|0",
+            "imageIndex": 6,
+            "sourceIndex": 6,
+            "sourceUrl": "https://i.ebayimg.com/images/g/H5UAAeSw6Tln4-UB/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/H5UAAeSw6Tln4-UB/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/H5UAAeSw6Tln4-UB/s-l1600.jpg",
+            "contentHash": "58fa9b197c488935ce882e5965e2a0a7a75c89a04e84632253e9379569798140",
+            "width": 848,
+            "height": 674,
+            "byteLength": 92385,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-forbidden-west/58fa9b197c488935ce882e5965e2a0a7a75c89a04e84632253e9379569798140.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-2c30652eae1b9f27",
+          "listingId": "v1|197148593440|0",
+          "imageIndex": 1,
+          "contentHash": "f1c7a261fabe093e5141611f203cd0736576b88479ba65a07ecad8d7c15c2655",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Horizon Forbidden West",
+          "platform": "ps4",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "Horizon",
+            "Forbidden West",
+            "PS4",
+            "16"
+          ],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": [
+            "Horizon",
+            "Forbidden West",
+            "PS4",
+            "16"
+          ]
+        },
+        {
+          "id": "listing-obs-6c1e7fdb677c0d6a",
+          "listingId": "v1|197148593440|0",
+          "imageIndex": 2,
+          "contentHash": "59b6b2692f7112f1ba6c2139a1111ee99f77239d43bbaefbbb8476231d357a68",
+          "component": "OUTER_PACKAGE_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [
+            "171971869",
+            "1719 71869"
+          ],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "GOD OF WAR RAGNAROK",
+            "©2022 Sony Interactive Entertainment LLC. Developed by Santa Monica Studio. PlayStation, PS4, PS5, and the PlayStation logo are trademarks or registered trademarks of Sony Interactive Entertainment Inc. All rights reserved."
+          ],
+          "visibleText": [
+            "Alzate sobre nuestras ruinas",
+            "Acompaña a Aloy",
+            "2 Discs",
+            "Playable in English",
+            "ALZATE SOBRE NUESTRAS RUINAS",
+            "Acompaña a Aloy en su aventura por las peligrosas y majestuosas tierras fronterizas del Oeste Prohibido, y enfréntate a nuevas y misteriosas amenazas.",
+            "Descubre páramos remotos y asombrosas tribus nuevas.",
+            "Enfréntate a máquinas más grandes e imponentes.",
+            "Desentraña el secreto del inminente colapso de la Tierra.",
+            "16",
+            "pgp.info",
+            "1 JUGADOR",
+            "MINIMO 70GB",
+            "COMPATIBLE CON PS5",
+            "PS4 PRO MEJORADA",
+            "playstation.com"
+          ],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "outer_package_back",
+          "textSnippets": [
+            "Alzate sobre nuestras ruinas",
+            "Acompaña a Aloy",
+            "2 Discs",
+            "Playable in English",
+            "ALZATE SOBRE NUESTRAS RUINAS",
+            "Acompaña a Aloy en su aventura por las peligrosas y majestuosas tierras fronterizas del Oeste Prohibido, y enfréntate a nuevas y misteriosas amenazas.",
+            "Descubre páramos remotos y asombrosas tribus nuevas.",
+            "Enfréntate a máquinas más grandes e imponentes.",
+            "Desentraña el secreto del inminente colapso de la Tierra.",
+            "16",
+            "pgp.info",
+            "1 JUGADOR",
+            "MINIMO 70GB",
+            "COMPATIBLE CON PS5",
+            "PS4 PRO MEJORADA",
+            "playstation.com"
+          ]
+        },
+        {
+          "id": "listing-obs-4eee2ef081afdf78",
+          "listingId": "v1|197148593440|0",
+          "imageIndex": 3,
+          "contentHash": "1fc5ad1980ed6a2a17deaa17ce99ec2f86b0010b08d8ca44d2ce21aa1c1c99d0",
+          "component": "INNER_CASE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": "ps4",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "inner_case_front",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-92d5f7d658b955cf",
+          "listingId": "v1|197148593440|0",
+          "imageIndex": 4,
+          "contentHash": "c5567bacf950ab4e1424317a12f311a0fa8a85846afa49a0273bb73e2b451645",
+          "component": "DISC",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "disc",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-cc875ab745e7b9d5",
+          "listingId": "v1|197148593440|0",
+          "imageIndex": 5,
+          "contentHash": "88b8fa978ba3515e58f48d17592954c535d547de05017bdf7c8c185f3e98a0c2",
+          "component": "INNER_CASE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": "ps4",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [
+            "PEGI 16"
+          ],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "inner_case_front",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-60e6019e38395e2a",
+          "listingId": "v1|197148593440|0",
+          "imageIndex": 6,
+          "contentHash": "58fa9b197c488935ce882e5965e2a0a7a75c89a04e84632253e9379569798140",
+          "component": "DISC",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "disc",
+          "textSnippets": []
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": [
+          "required visible media and package components present"
+        ]
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "ps4-horizon-forbidden-west",
+      "catalogTitle": "Horizon Forbidden West",
+      "matchAlternatives": [
+        {
+          "catalogId": "ps4-horizon-forbidden-west",
+          "region": "PAL España",
+          "title": "Horizon Forbidden West",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "ps4-usa-horizon-forbidden-west",
+          "region": "USA",
+          "title": "Horizon Forbidden West",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": false
+    }
+  },
+  "marketFollowupCalls": 1
+}

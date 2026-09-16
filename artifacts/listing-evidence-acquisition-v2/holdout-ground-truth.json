@@ -1,0 +1,65 @@
+{
+  "gameboy-74f1b486ba2398b1d771": {
+    "rowId": "74f1b486ba2398b1d771",
+    "expectedStatus": "rejected",
+    "expectedDecision": {
+      "action": "reject",
+      "note": "Exclude a different product category rather than leaving its game condition unresolved. Spanish film packaging says nothing about the Spanish Game Boy release of the same name.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "reasonCode": "non_game"
+    }
+  },
+  "gameboy-d7f572a1f0c11eea4e20": {
+    "rowId": "d7f572a1f0c11eea4e20",
+    "expectedStatus": "accepted",
+    "expectedDecision": {
+      "action": "accept",
+      "note": "German localized packaging with explicit distributor evidence, not merely a German seller. This regional entry is absent. The printed German packaging does not prove German gameplay text.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-de-snoopys-magic-show",
+      "region": "PAL Alemania",
+      "condition": "complete"
+    }
+  },
+  "gameboy-2e7645bc3a0305d6661c": {
+    "rowId": "2e7645bc3a0305d6661c",
+    "expectedStatus": "accepted",
+    "expectedDecision": {
+      "action": "accept",
+      "note": "Italian localized packaging is positive evidence. The worker already detected Italy but left a conflict against the Spanish target; no Italian Game Boy catalog entries exist at the pinned snapshot. Do not adopt the worker's alleged PEGI or DMG-TR-ITA-3: neither was independently read in this review. Do not copy the Spanish price to a new Italian entry.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-it-tetris",
+      "region": "PAL Italia",
+      "condition": "complete"
+    }
+  },
+  "gameboy-3e5cf57f4a78743f4a89": {
+    "rowId": "3e5cf57f4a78743f4a89",
+    "expectedStatus": "accepted",
+    "expectedDecision": {
+      "action": "accept",
+      "note": "European ficha exists under Super Mario Land 3: Wario Land. The missing-variant decision is a matching failure, not evidence that a new entry is needed. The photographed EUR cartridge does not distinguish Spain from other European distribution. The worker's PEGI and Spanish-language observations were not visible.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-pal-super-mario-land-3-wario-land",
+      "region": "PAL Europa",
+      "condition": "loose"
+    }
+  },
+  "gameboy-2a15931917249023d109": {
+    "rowId": "2a15931917249023d109",
+    "expectedStatus": "accepted",
+    "expectedDecision": {
+      "action": "accept",
+      "note": "Existing European ficha found under an alternative title. Recover the loose listing there, without creating a duplicate. Do not associate this with DX, Game Boy Color or the Switch remake.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-legend-zelda-links-awakening",
+      "region": "PAL Europa",
+      "condition": "loose"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "listing-obs-85512b64fe39f5a9",
+    "listingId": "v1|137665114680|0",
+    "imageIndex": 1,
+    "contentHash": "7f48958873b48ebb6e4e18ad62520626cf7739d81960ec400892ea6186accbb6",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Horizon Zero Dawn",
+    "platform": "ps4",
+    "editionMarkers": [
+      "EDICIÓN LIMITADA"
+    ],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 16"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "GUERRILLA"
+    ],
+    "visibleText": [
+      "Solo en PlayStation"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-52d305dabf04e842",
+    "listingId": "v1|137665114680|0",
+    "imageIndex": 2,
+    "contentHash": "93794a4477fbcb4ba508c50d580838228e1df47f94f8d4df7911e11327acbab7",
+    "component": "OUTER_PACKAGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [
+      "7 11719 82826 6"
+    ],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [
+      "Español"
+    ],
+    "distributors": [],
+    "publisherLegalText": [
+      "SOLO PARA USO DOMÉSTICO. Este software tiene licencia para su uso en sistemas PlayStation autorizados."
+    ],
+    "visibleText": [
+      "LA TIERRA YA NO NOS PERTENECE",
+      "HAN PASADO MIL AÑOS. LAS MÁQUINAS CAMINAN A SU ANTOJO POR EL MUNDO Y LA HUMANIDAD YA NO ES LA ESPECIE DOMINANTE. UNA JOVEN CAZADORA SE EMBARCA EN UN VIAJE PARA DESCUBRIR QUE LE DEPARA EL DESTINO...",
+      "LA EDICIÓN LIMITADA INCLUYE: HORIZON ZERO DAWN EN FORMATO BLU-RAY, ESTUCHE METÁLICO EXCLUSIVO, LIBRO DE ILUSTRACIONES THE ART OF HORIZON ZERO DAWN, TEMA DINÁMICO DE PS4, OBJETOS DE BONIFICACIÓN EN EL JUEGO: TRAJE Y ARCO STORM RANGER CARJA, PACK DE COMENZANTE CARJA, TRAJE Y ARCO TÁBILAZER BANUK, PACK DE VIAJERO BANUK",
+      "Playable in English",
+      "1 JUGADOR",
+      "MÍNIMO 42 GB",
+      "FUNCIÓN DE VIBRACIÓN DUALSHOCK",
+      "SALIDA DE VIDEO HD 720P-1080P",
+      "COMPATIBLE CON JUEGO A DISTANCIA",
+      "PS4 PRO ENHANCED",
+      "DECIMA",
+      "16",
+      "VIOLENCIA",
+      "eu.playstation.com"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

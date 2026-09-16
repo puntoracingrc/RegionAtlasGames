@@ -1,0 +1,27 @@
+[
+  {
+    "id": "listing-obs-0f36b3b33e2c199a",
+    "listingId": "v1|335724375446|0",
+    "imageIndex": 1,
+    "contentHash": "e420433f646ab047a5cbf4c9e669a430b8440ae92b31e1631b78fd9262df7a5d",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Ikai",
+    "platform": "ps5",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 16"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "PM STUDIOS"
+    ],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

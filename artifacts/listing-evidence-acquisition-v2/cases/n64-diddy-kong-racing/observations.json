@@ -1,0 +1,217 @@
+[
+  {
+    "id": "listing-obs-018e1f40055adab2",
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 1,
+    "contentHash": "8273710ef71c31170314c86519e3aef370a86f1b1d2273414858365271b3b012",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Diddy Kong Racing",
+    "platform": "n64",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "PUBLISHED BY RARE"
+    ],
+    "visibleText": [
+      "DIDDY KONG RACING",
+      "NINTENDO 64",
+      "PAL VERSION"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-ad874ba3546f9cb3",
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 2,
+    "contentHash": "2766e45c187849134b88b34ff615ccfdef30470b0cbe1a6542f7f78b8d6b778a",
+    "component": "OUTER_PACKAGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [
+      "Z-252819495-10"
+    ],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [
+      "Nintendo GmbH",
+      "Nintendo Center, 51149 Köln, Germany"
+    ],
+    "publisherLegalText": [
+      "Nintendo of America Inc.",
+      "P.O. Box 957, Redmond, WA 98073-0957"
+    ],
+    "visibleText": [
+      "DIDDY KONG RACING",
+      "NINTENDO 64",
+      "MADE IN JAPAN",
+      "NUS-006(UKV)",
+      "NUS-P-NDYP-NEU6-2"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-f8e9b8a5ee8b20e8",
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 3,
+    "contentHash": "2b571e1b85cdc6095da6beb96b69764c8386b22c731ec36d193d2a2367ea51db",
+    "component": "INNER_CASE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Diddy Kong Racing",
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [
+      "English",
+      "German",
+      "French",
+      "Spanish",
+      "Italian"
+    ],
+    "distributors": [],
+    "publisherLegalText": [
+      "PUBLISHED BY RARE"
+    ],
+    "visibleText": [
+      "INSTRUCTION BOOKLET"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-e97430a136e74987",
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 4,
+    "contentHash": "412e476a34c69870f5848779132f5191197b543ae05a868feb7e1b3744b9d670",
+    "component": "MANUAL_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-6aa89473849f5cbc",
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 5,
+    "contentHash": "23591d427a3ecb9bb9e70eedfd2324fb9e90aca2d0507c8692edd4fb398b1203",
+    "component": "INNER_CASE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Diddy Kong Racing",
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "PUBLISHED BY RARE"
+    ],
+    "visibleText": [
+      "INSTRUCTION BOOKLET"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-eb4ee77e530e2da7",
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 6,
+    "contentHash": "c189f35b168f3a6317b3cbf810a98a0763917c855d957dd6127f73024b4df267",
+    "component": "OUTER_PACKAGE_SPINE",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-dad1295aa3e5bd60",
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 7,
+    "contentHash": "e12b55e20c166f5a299708243fe9bda007cf9a30cb8af5ee22d05565bf6f173a",
+    "component": "OUTER_PACKAGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Diddy Kong Racing",
+    "platform": "n64",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "PUBLISHED BY RARE"
+    ],
+    "visibleText": [
+      "NINTENDO64",
+      "DIDDY KONG RACING",
+      "PAL VERSION"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  },
+  {
+    "id": "listing-obs-66795745b1069fec",
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 8,
+    "contentHash": "4d62c35a36e0568b4acff701cdf1559cc41dc5d37d370d587f122e8c46f000e8",
+    "component": "OUTER_PACKAGE_BACK",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": null,
+    "platform": null,
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "Diddy Kong Racing",
+      "NINTENDO 64",
+      "Made in Japan",
+      "Rated E for Everyone",
+      "3+ Players",
+      "8 Megabit"
+    ],
+    "sealEvidence": "UNKNOWN",
+    "confidence": 0.0
+  }
+]

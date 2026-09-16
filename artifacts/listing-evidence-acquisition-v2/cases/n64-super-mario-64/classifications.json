@@ -1,0 +1,128 @@
+[
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 1,
+    "contentHash": "b0a23c7a34624f4e13055c5541854ef763e3391f10d770eccfdd8dcafdcb48c5",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "INNER_CASE_FRONT",
+    "confidence": 0.9,
+    "reason": "Includes the game cartridge and manual."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 2,
+    "contentHash": "5ccf577b32618c3c19d43d53ad11b57ce3e8fa6d96833b10a1ef8d1416e4e2c3",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Shows the front of the game cartridge."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 3,
+    "contentHash": "efddf6cf8fc5dac990db984934bf04454455b7c46d1757df08fe22c56f6e3539",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 0.9,
+    "reason": "Displays the back of the game cartridge."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 4,
+    "contentHash": "93a3135c029b76fa9c59fe2250c0983975577014411a361f499dbc99052bff64",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.5,
+    "reason": "Part of the cartridge but unclear context."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 5,
+    "contentHash": "0dc7642b66e710c83d060f50d2ff819a804c2e7724c4b38f924c2dd9f0652c6f",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 0.9,
+    "reason": "Shows the back of the game cartridge."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 6,
+    "contentHash": "ab1ddead0bb5f061bf510c8e38cfb494871d64e3157b992867df62f06b09a94a",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.5,
+    "reason": "Top view of the cartridge, unclear context."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 7,
+    "contentHash": "cd4f6aeaef6a8616fb3af406d472284436be344320d84124ff3f3d79403d1306",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Shows the front label of the cartridge."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 8,
+    "contentHash": "b6b5062b865d33b6734eebfe2cb66145fd7d6d64915b38f0a190447d306f1403",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Displays the front of the game cartridge."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 9,
+    "contentHash": "c8bad3e9f126d6627c59845047d647d42126ab4381a10e2c044b17d1662da89f",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible game manual page with instructions related to Super Mario 64."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 10,
+    "contentHash": "d5d913a154099d6fc98b9acf8400998c6ccb3de30073679c32637377432e1848",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible game manual page with instructions related to Super Mario 64."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 11,
+    "contentHash": "636c247114a604aa165df6033d289a0f200b680a9e17b50b68a3de6bdbb679c9",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible game manual page with instructions related to Super Mario 64."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 12,
+    "contentHash": "079df007c43bd31019e2be8bdcf3b7df44735453a201ae1f46b45e89b6945508",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible game manual page with instructions related to Super Mario 64."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 13,
+    "contentHash": "b4cba9121dd617e971238bef8c5a4bce632cc78848c5763074a614ff0d79badb",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible game manual page with instructions related to Super Mario 64."
+  },
+  {
+    "listingId": "v1|306733771117|0",
+    "imageIndex": 14,
+    "contentHash": "1d15861c769f1c2e3f2ff70b93526fcf863eb2c4c4ed3dce45face945f5acf03",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible game manual page with instructions related to Super Mario 64."
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "components": {
+    "OUTER_PACKAGE_FRONT": true,
+    "OUTER_PACKAGE_BACK": true,
+    "OUTER_PACKAGE_SPINE": true,
+    "INNER_CASE_FRONT": false,
+    "INNER_CASE_BACK": false,
+    "INNER_CASE_SPINE": false,
+    "CARTRIDGE_FRONT": true,
+    "CARTRIDGE_BACK": false,
+    "DISC": false,
+    "MANUAL_FRONT": false,
+    "MANUAL_BACK": false,
+    "INSERT": false,
+    "CODE_VOUCHER": false,
+    "DOWNLOAD_CARD": false,
+    "SEAL": false,
+    "SELLER_STICKER": false,
+    "ACCESSORY": false
+  },
+  "acceptedImageIndexes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "rejectedImageIndexes": [],
+  "unknownImageIndexes": []
+}

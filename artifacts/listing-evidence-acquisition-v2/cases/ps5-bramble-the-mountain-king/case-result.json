@@ -1,0 +1,411 @@
+{
+  "caseId": "ps5-bramble-the-mountain-king",
+  "platform": "ps5",
+  "subjectTitle": "Bramble The Mountain King",
+  "sourcePhotos": 6,
+  "preservedPhotos": 6,
+  "originalResolutionPhotos": 6,
+  "photosClassified": 6,
+  "photosInspectedHighDetail": 1,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": false,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": false,
+      "CARTRIDGE_BACK": false,
+      "DISC": false,
+      "MANUAL_FRONT": false,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "componentsFound": [
+    "OUTER_PACKAGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 1,
+  "marketBoundObservations": 1,
+  "diagnosis": "MARKET_BINDING_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 1,
+  "openAiCalls": 2,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 17250,
+      "completion_tokens": 291,
+      "total_tokens": 17541,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 25672,
+      "completion_tokens": 128,
+      "total_tokens": 25800,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.0066897,
+  "item": {
+    "id": "listing-evidence-v2-ps5-bramble-the-mountain-king",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "ps5",
+    "targetRegion": "PAL España",
+    "detectedRegion": null,
+    "catalogId": "ps5-bramble-the-mountain-king",
+    "candidateCatalogId": "ps5-bramble-the-mountain-king",
+    "listingTitle": "Bramble: The Mountain King Juego para Consola Sony PlayStation 5 PS5, PAL ESPAÑA",
+    "priceEur": 22.91,
+    "condition": "unknown",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T17:58:30Z",
+    "evidence": {
+      "externalId": "v1|336641149509|0",
+      "url": "https://www.ebay.es/itm/336641149509",
+      "description": "Nombre del Juego : Bramble: The Mountain King - Embárcate en una emocionante aventura como Bramble, el rey de la montaña. ¡Sumérgete en una aventura épica llena de emoción y desafíos con Bramble: The Mountain King para PlayStation 5!",
+      "imageUrl": "https://i.ebayimg.com/images/g/f04AAeSwBZ1qMIp8/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/f04AAeSwBZ1qMIp8/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/ANQAAeSwQl1qMIp8/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/cgAAAeSwetZqMIp8/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/TyoAAeSwAdhqMIp8/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/CGcAAeSwKWdqMIp8/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/2j8AAeSw2MlqMIp8/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|336641149509|0",
+        "legacyItemId": "336641149509",
+        "capturedAt": "2026-09-16T17:58:30Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "Bramble: The Mountain King Juego para Consola Sony PlayStation 5 PS5, PAL ESPAÑA",
+          "shortDescription": "Nombre del Juego : Bramble: The Mountain King - Embárcate en una emocionante aventura como Bramble, el rey de la montaña. ¡Sumérgete en una aventura épica llena de emoción y desafíos con Bramble: The Mountain King para PlayStation 5!",
+          "description": "Bramble: The Mountain King Juego para Consola Sony PlayStation 5 PS5, PAL ESPAÑA /  1216647 / 5060264378166<h1>Bramble: The Mountain King Juego para PlayStation 5 PS5, PAL ES<br /></h1><p><br />¡Sumérgete en una aventura épica llena de emoción y desafíos con Bramble: The Mountain King para PlayStation 5! Este increíble juego te llevará a un mundo mágico lleno de misterio y peligros. Prepárate para explorar los rincones más oscuros de la montaña mientras luchas contra enemigos feroces y resuelves acertijos desafiantes. Con gráficos impresionantes y una jugabilidad envolvente, este juego te mantendrá pegado a tu asiento durante horas.<br /><br /></p><h2>Características principales:<br /></h2><p><br /></p><ul><li><strong>Garantía del fabricante</strong>: ¡Disfruta de la tranquilidad de tener una garantía de 36 meses con tu compra! Si algo sale mal, estaremos aquí para ayudarte.<br /></li><li><strong>Formato</strong>: Físico - ¡Obtén tu copia física de Bramble: The Mountain King y disfruta de la experiencia de tenerlo en tus propias manos!<br /></li><li><strong>Género</strong>: PlayStation 5 - Games - Mergegames - Adventure - Standard. Prepárate para vivir una aventura única con este juego de acción y aventuras en tercera persona.<br /></li><li><strong>Pegi</strong>: 18+ - Este juego está diseñado solo para adultos. Prepárate para una experiencia intensa y emocionante que pondrá a prueba tus habilidades.<br /></li><li><strong>Plataforma</strong>: PlayStation 5 - Este juego ha sido optimizado para aprovechar al máximo las capacidades de la PlayStation 5. Disfruta de gráficos de última generación y tiempos de carga rápidos.<br /></li><li><strong>Idioma en Contraportada</strong>: Inglés, Francés, Español - ¡Elige el idioma que mejor se adapte a ti y sumérgete en la historia de Bramble: The Mountain King!<br /></li><li><strong>Idioma en el Juego (Audio)</strong>: Inglés - Sumérgete en una experiencia de juego inmersiva con audio en inglés de alta calidad.<br /></li><li><strong>Idioma en el Juego (Subtítulos)</strong>: Inglés, Alemán, Español, Francés, Italiano, Portugués, Ruso, Sueco, Finlandés, Noruego, Brazileño, Japonés, Coreano, Chino Tradicional, Chino Simplificado, Turco - Disfruta del juego en tu idioma preferido y no te pierdas ni un solo detalle de la historia.<br /></li><li><strong>Nombre del Juego</strong>: Bramble: The Mountain King - Embárcate en una emocionante aventura como Bramble, el rey de la montaña. Descubre secretos antiguos, lucha contra criaturas peligrosas y reclama tu lugar como el verdadero rey.<br /></li><li><strong>Fecha de Lanzamiento</strong>: 2023-04-27 - Marca esta fecha en tu calendario y prepárate para embarcarte en una aventura épica en Bramble: The Mountain King.<br /></li><li><strong>Editor</strong>: Mergegames - Un reconocido editor de juegos que ha traído al mercado algunos de los títulos más emocionantes de los últimos años.<br /></li><li><strong>Equivalente USK Alemania</strong>: USK ab 18 Jahren - Este juego ha sido clasificado como apto solo para mayores de 18 años por la USK (Sistema de Clasificación de Software de Entretenimiento).<br /></li><li><strong>Precintado de Fabrica</strong>: Sí - Tus juegos llegarán a ti en perfecto estado, sellados de fábrica para garantizar una experiencia de juego óptima.<br /></li><li><strong>Región</strong>: Inglés - Este juego es compatible con la región PAL ES.<br /></li><li><strong>EAN</strong>: 5060264378166 - ¡Usa este código para identificar rápidamente el juego y realizar tu compra sin problemas!<br /><br /><h2>Mejores prácticas sobre cómo usar Bramble: The Mountain King Juego para PlayStation 5 PS5, PAL ES:<br /></h2><p><br /></p></li><li>Antes de jugar, asegúrate de leer el manual de instrucciones para familiarizarte con los controles y las mecánicas del juego.<br /></li><li>Recomendamos jugar en una habitación tranquila y sin distracciones para poder sumergirte por completo en la historia y disfrutar de la atmósfera del juego.<br /></li><li>Utiliza auriculares para disfrutar de una experiencia de sonido envolvente y escuchar cada detalle del juego.<br /></li><li>No dudes en explorar cada rincón del mundo de Bramble: The Mountain King. Puede haber secretos y tesoros escondidos esperando a ser descubiertos.<br /></li><li>Si te encuentras con un enemigo difícil de vencer, intenta cambiar tu estrategia o mejorar tus habilidades antes de enfrentarlo nuevamente.<br /></li><li>Mantén tus expectativas altas, ya que Bramble: The Mountain King es conocido por su narrativa cautivadora y sus gráficos impresionantes.<br /><br /><h2>Preguntas frecuentes sobre Bramble: The Mountain King Juego para PlayStation 5 PS5, PAL ES:<br /></h2><p><br /></p></li><li>¿Puedo devolver el juego si no estoy satisfecho?<br />Sí, puedes devolver el juego dentro de un plazo determinado, siempre y cuando tenga los sellos originales. Si el producto ha sido abierto, no se podrá devolver ni reembolsar.<br /><br /></li><li>¿Cuánto tiempo de juego ofrece Bramble: The Mountain King?<br />El tiempo de juego puede variar dependiendo del estilo de juego y la velocidad de progreso. Sin embargo, en promedio, los jugadores pueden esperar disfrutar de varias horas de juego.<br /><br /></li><li>¿Hay una versión digital disponible de Bramble: The Mountain King?<br />No, Bramble: The Mountain King solo está disponible en formato físico para PlayStation 5.<br /><br /></li><li>¿Es necesario tener experiencia previa en juegos de aventuras para jugar a Bramble: The Mountain King?<br />No es necesario tener experiencia previa en juegos de aventuras para disfrutar de Bramble: The Mountain King. El juego está diseñado para jugadores de todos los niveles de habilidad.<br /><br /></li><li>¿Se requiere conexión a Internet para jugar a Bramble: The Mountain King?<br />No, Bramble: The Mountain King es un juego de un solo jugador y no requiere conexión a Internet para jugar. Puedes disfrutarlo sin conexión en cualquier momento y en cualquier lugar.<br /><br /></li><li>¿Hay contenido adicional o expansiones disponibles para Bramble: The Mountain King?<br />No se han anunciado expansiones o contenido adicional para Bramble: The Mountain King en este momento. Sin embargo, asegúrate de estar atento a las actualizaciones y anuncios oficiales del editor del juego.<br /><br /></li><li>¿Bramble: The Mountain King es compatible con otros accesorios de PlayStation 5?<br />Sí, Bramble: The Mountain King es compatible con todos los accesorios estándar de PlayStation 5, como controladores adicionales y auriculares.<br /><br /></li><li>¿Puedo jugar a Bramble: The Mountain King en PlayStation 4?<br />No, Bramble: The Mountain King es exclusivo para PlayStation 5 y no es compatible con PlayStation 4.<br /><br /></li><li>¿Cuál es la clasificación de contenido de Bramble: The Mountain King?<br />Bramble: The Mountain King ha sido clasificado como apto solo para mayores de 18 años por la USK (Sistema de Clasificación de Software de Entretenimiento).<br /><br /></li><li>¿Bramble: The Mountain King tiene soporte para multijugador?<br />No, Bramble: The Mountain King es un juego de un solo jugador y no tiene soporte para multijugador en línea o local.<br /><br />¡Prepárate para vivir una aventura inolvidable con Bramble: The Mountain King en PlayStation 5! Sumérgete en un mundo mágico lleno de desafíos y emoción, y descubre si tienes lo necesario para convertirte en el verdadero rey de la montaña. ¡No te lo pierdas!</li></ul>",
+          "condition": "Nuevo",
+          "conditionId": "1000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/336641149509",
+          "itemLocation": {
+            "city": "Gandia",
+            "stateOrProvince": "Comunidad Valenciana",
+            "postalCode": "46***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "arreglatelo",
+            "feedbackPercentage": "98.1",
+            "feedbackScore": 27745
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "Nombre del videojuego": [
+              "1216647"
+            ],
+            "Garantía del fabricante": [
+              "3 años"
+            ],
+            "Plataforma": [
+              "PlayStation 5"
+            ],
+            "Precintado de Fabrica": [
+              "Si"
+            ],
+            "Código de región": [
+              "English"
+            ],
+            "MPN": [
+              "1216647"
+            ],
+            "País de origen": [
+              "PAL ES"
+            ],
+            "Cantidad de unidades": [
+              "1"
+            ],
+            "Equivalente USK": [
+              "USK ab 18 Jahren"
+            ],
+            "Género": [
+              "Acción y Aventura"
+            ],
+            "Tipo de unidad": [
+              "Unidad"
+            ],
+            "Editor": [
+              "Mergegames"
+            ],
+            "Características": [
+              "PlayStation 5 - Games - Mergegames - Adventure - Standard"
+            ],
+            "Clasificación": [
+              "18+"
+            ],
+            "EAN": [
+              "5060264378166"
+            ]
+          },
+          "price": {
+            "value": 22.91,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: Paq Estándar",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "4.50",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-29T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-30T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 2,
+              "estimatedSoldQuantity": 2,
+              "estimatedRemainingQuantity": 2
+            }
+          ],
+          "gtin": "5060264378166",
+          "brand": null,
+          "mpn": "1216647",
+          "epid": null
+        },
+        "imagesAvailableFromSource": 6,
+        "imagesPreserved": 6,
+        "images": [
+          {
+            "listingId": "v1|336641149509|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/f04AAeSwBZ1qMIp8/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/f04AAeSwBZ1qMIp8/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/f04AAeSwBZ1qMIp8/s-l1600.jpg",
+            "contentHash": "ad2244f4d1428e7b0b7bb29a1aa220a6909182d3816da1538d71b17f061fb686",
+            "width": 1200,
+            "height": 1500,
+            "byteLength": 235677,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-bramble-the-mountain-king/ad2244f4d1428e7b0b7bb29a1aa220a6909182d3816da1538d71b17f061fb686.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336641149509|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/ANQAAeSwQl1qMIp8/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/ANQAAeSwQl1qMIp8/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/ANQAAeSwQl1qMIp8/s-l1600.jpg",
+            "contentHash": "d7e5602280cbb46a177a2a3b0144b52aebca57a9010f5f7edf9d1aace2fbb672",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 94829,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-bramble-the-mountain-king/d7e5602280cbb46a177a2a3b0144b52aebca57a9010f5f7edf9d1aace2fbb672.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336641149509|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/cgAAAeSwetZqMIp8/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/cgAAAeSwetZqMIp8/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/cgAAAeSwetZqMIp8/s-l1600.jpg",
+            "contentHash": "77c021b138e6920c19d28ee1515e3a5ce9570e7c5948f89e1ddd70bef8b1e4e0",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 139385,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-bramble-the-mountain-king/77c021b138e6920c19d28ee1515e3a5ce9570e7c5948f89e1ddd70bef8b1e4e0.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336641149509|0",
+            "imageIndex": 4,
+            "sourceIndex": 4,
+            "sourceUrl": "https://i.ebayimg.com/images/g/TyoAAeSwAdhqMIp8/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/TyoAAeSwAdhqMIp8/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/TyoAAeSwAdhqMIp8/s-l1600.jpg",
+            "contentHash": "c88a1e542a6c1b07f22eeb89ed10c7bac68eca1d418379b1f1fb52ac955ee4de",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 104750,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-bramble-the-mountain-king/c88a1e542a6c1b07f22eeb89ed10c7bac68eca1d418379b1f1fb52ac955ee4de.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336641149509|0",
+            "imageIndex": 5,
+            "sourceIndex": 5,
+            "sourceUrl": "https://i.ebayimg.com/images/g/CGcAAeSwKWdqMIp8/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/CGcAAeSwKWdqMIp8/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/CGcAAeSwKWdqMIp8/s-l1600.jpg",
+            "contentHash": "eeec38f5151da1ab2da48cd61ee036f9912331f41ea64ce21cf9bfa77ac8e9a8",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 51972,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-bramble-the-mountain-king/eeec38f5151da1ab2da48cd61ee036f9912331f41ea64ce21cf9bfa77ac8e9a8.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|336641149509|0",
+            "imageIndex": 6,
+            "sourceIndex": 6,
+            "sourceUrl": "https://i.ebayimg.com/images/g/2j8AAeSw2MlqMIp8/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/2j8AAeSw2MlqMIp8/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/2j8AAeSw2MlqMIp8/s-l1600.jpg",
+            "contentHash": "babfc0cc22cb31980f915b17d7d8e8276ad2955f41a9b726ef0b009cb2cb0573",
+            "width": 1500,
+            "height": 844,
+            "byteLength": 122229,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps5-bramble-the-mountain-king/babfc0cc22cb31980f915b17d7d8e8276ad2955f41a9b726ef0b009cb2cb0573.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-729eb57c92969f30",
+          "listingId": "v1|336641149509|0",
+          "imageIndex": 1,
+          "contentHash": "ad2244f4d1428e7b0b7bb29a1aa220a6909182d3816da1538d71b17f061fb686",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Bramble The Mountain King",
+          "platform": "ps5",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [
+            "PEGI 18"
+          ],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [
+            "DIMFROST STUDIO",
+            "MERGE"
+          ],
+          "visibleText": [],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": []
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": []
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "ps5-bramble-the-mountain-king",
+      "catalogTitle": "Bramble The Mountain King",
+      "matchAlternatives": [
+        {
+          "catalogId": "ps5-bramble-the-mountain-king",
+          "region": "PAL España",
+          "title": "Bramble: The Mountain King",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "ps5-usa-bramble-the-mountain-king",
+          "region": "USA",
+          "title": "Bramble: The Mountain King",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": false
+    }
+  }
+}

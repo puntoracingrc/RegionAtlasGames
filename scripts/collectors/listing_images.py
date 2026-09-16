@@ -14,6 +14,8 @@ from collectors.storage_paths import ingest_dir
 
 IMAGE_CACHE_DIR = ingest_dir() / "cache" / "listing-images"
 DEFAULT_MAX_LISTING_IMAGES = 3
+CURATOR_MAX_LISTING_IMAGES = 24
+EBAY_SIZE_TOKEN_RE = re.compile(r"/s-l(\d+)\.(jpe?g|png|webp)(?:\?.*)?$", re.I)
 
 OG_IMAGE_RE = re.compile(
     r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
@@ -97,6 +99,50 @@ def _ebay_image_urls(product: dict[str, Any]) -> list[str]:
     return []
 
 
+def ebay_image_identity(url: str) -> str:
+    """Collapse thumbnail/medium/original variants without fabricating a URL."""
+    return EBAY_SIZE_TOKEN_RE.sub(r"/s-lSIZE.\2", str(url).strip())
+
+
+def _ebay_quality(record: dict[str, Any]) -> tuple[int, int]:
+    width = record.get("width") if isinstance(record.get("width"), int) else 0
+    height = record.get("height") if isinstance(record.get("height"), int) else 0
+    match = EBAY_SIZE_TOKEN_RE.search(str(record.get("url") or ""))
+    encoded_size = int(match.group(1)) if match else 0
+    kind = str(record.get("kind") or "").upper()
+    kind_rank = {"PRIMARY": 3, "ADDITIONAL": 3, "THUMBNAIL": 1}.get(kind, 2)
+    return kind_rank, max(width, height, encoded_size)
+
+
+def curator_ebay_image_records(product: dict[str, Any], *, limit: int = CURATOR_MAX_LISTING_IMAGES) -> list[dict[str, Any]]:
+    """Keep one highest-quality API-provided URL per actual listing photo."""
+    raw = product.get("images") if isinstance(product.get("images"), list) else []
+    chosen: dict[str, dict[str, Any]] = {}
+    order: list[str] = []
+    for index, value in enumerate(raw):
+        if not isinstance(value, dict):
+            continue
+        url = str(value.get("url") or value.get("imageUrl") or "").strip()
+        if not url:
+            continue
+        record = {
+            "sourceUrl": url,
+            "originalUrl": url,
+            "resolvedUrl": url,
+            "kind": str(value.get("kind") or "UNKNOWN"),
+            "width": value.get("width") if isinstance(value.get("width"), int) else None,
+            "height": value.get("height") if isinstance(value.get("height"), int) else None,
+            "sourceIndex": index + 1,
+        }
+        identity = ebay_image_identity(url)
+        if identity not in chosen:
+            chosen[identity] = record
+            order.append(identity)
+        elif _ebay_quality(record) > _ebay_quality(chosen[identity]):
+            chosen[identity] = record
+    return [chosen[key] for key in order[: max(1, min(limit, CURATOR_MAX_LISTING_IMAGES))]]
+
+
 def extract_product_image_urls(
     product: dict[str, Any],
     source: str,
@@ -169,7 +215,10 @@ def attach_image_urls(
 
 
 __all__ = [
+    "CURATOR_MAX_LISTING_IMAGES",
     "attach_image_urls",
+    "curator_ebay_image_records",
+    "ebay_image_identity",
     "extract_product_image_urls",
     "fetch_page_image_urls",
     "row_image_urls",

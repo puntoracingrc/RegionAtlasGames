@@ -1,0 +1,29 @@
+[
+  {
+    "listingId": "v1|186554265988|0",
+    "imageIndex": 1,
+    "contentHash": "1ff7f90864b912e5cfe66c8756cf95bef751ed8b6e7d5bf234f8b88262b58a16",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Front cover of the game packaging."
+  },
+  {
+    "listingId": "v1|186554265988|0",
+    "imageIndex": 2,
+    "contentHash": "72ef0cd9797398693549fcd23dc820d9e7b461f992bae0705df65b7a1e0934c8",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 1.0,
+    "reason": "Back cover of the game packaging."
+  },
+  {
+    "listingId": "v1|186554265988|0",
+    "imageIndex": 3,
+    "contentHash": "02a210af016d0b95058ddfae35567cfae4cd6500929ae0c6fbc2fc0a78cbea83",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_SPINE",
+    "confidence": 1.0,
+    "reason": "Spine view of the game packaging."
+  }
+]

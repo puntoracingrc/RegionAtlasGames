@@ -1,0 +1,74 @@
+[
+  {
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 1,
+    "contentHash": "8273710ef71c31170314c86519e3aef370a86f1b1d2273414858365271b3b012",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 0.0,
+    "reason": "visible game box with cartridge and manual"
+  },
+  {
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 2,
+    "contentHash": "2766e45c187849134b88b34ff615ccfdef30470b0cbe1a6542f7f78b8d6b778a",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 0.0,
+    "reason": "visible game box back with cartridge and manual"
+  },
+  {
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 3,
+    "contentHash": "2b571e1b85cdc6095da6beb96b69764c8386b22c731ec36d193d2a2367ea51db",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "INNER_CASE_FRONT",
+    "confidence": 0.0,
+    "reason": "visible manual front cover"
+  },
+  {
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 4,
+    "contentHash": "412e476a34c69870f5848779132f5191197b543ae05a868feb7e1b3744b9d670",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_BACK",
+    "confidence": 0.0,
+    "reason": "visible damage on manual"
+  },
+  {
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 5,
+    "contentHash": "23591d427a3ecb9bb9e70eedfd2324fb9e90aca2d0507c8692edd4fb398b1203",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "INNER_CASE_BACK",
+    "confidence": 0.0,
+    "reason": "visible manual back cover"
+  },
+  {
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 6,
+    "contentHash": "c189f35b168f3a6317b3cbf810a98a0763917c855d957dd6127f73024b4df267",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_SPINE",
+    "confidence": 0.0,
+    "reason": "visible box spine"
+  },
+  {
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 7,
+    "contentHash": "e12b55e20c166f5a299708243fe9bda007cf9a30cb8af5ee22d05565bf6f173a",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 0.0,
+    "reason": "visible box back"
+  },
+  {
+    "listingId": "v1|276673197017|0",
+    "imageIndex": 8,
+    "contentHash": "4d62c35a36e0568b4acff701cdf1559cc41dc5d37d370d587f122e8c46f000e8",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 0.0,
+    "reason": "visible box back"
+  }
+]

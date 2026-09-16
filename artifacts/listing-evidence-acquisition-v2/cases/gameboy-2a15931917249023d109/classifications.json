@@ -1,0 +1,38 @@
+[
+  {
+    "listingId": "v1|800220276200|0",
+    "imageIndex": 1,
+    "contentHash": "63f2fb76ec4dd4eedef3078a9f3b202e479f2f28ba1ffbda200b2f72760a47c1",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible Game Boy cartridge with title and branding."
+  },
+  {
+    "listingId": "v1|800220276200|0",
+    "imageIndex": 2,
+    "contentHash": "acea4cedc1ce061b1057657982f62fd9bc6c57f4a65f2ee551d08624c526d6e0",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 0.9,
+    "reason": "Back of the Game Boy cartridge visible."
+  },
+  {
+    "listingId": "v1|800220276200|0",
+    "imageIndex": 3,
+    "contentHash": "22daa1e117bd5960647d8df23b9639027edd0c49ff59eca2448b67f733faa82e",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.8,
+    "reason": "Front view of the Game Boy cartridge showing title."
+  },
+  {
+    "listingId": "v1|800220276200|0",
+    "imageIndex": 4,
+    "contentHash": "8cfa15d39dca9a60325ddad143f3d0ed3c675b71d17295f4ffc56840f90e8aca",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.8,
+    "reason": "Close-up of the Game Boy cartridge front with title."
+  }
+]

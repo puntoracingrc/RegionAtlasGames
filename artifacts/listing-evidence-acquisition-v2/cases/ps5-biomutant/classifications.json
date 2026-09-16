@@ -1,0 +1,29 @@
+[
+  {
+    "listingId": "v1|318778350376|0",
+    "imageIndex": 1,
+    "contentHash": "d563256fa5d5ba7c28ec574f8bd1485901ffd5200e80f1a1867548e7f7008ed3",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Front view of the game packaging."
+  },
+  {
+    "listingId": "v1|318778350376|0",
+    "imageIndex": 2,
+    "contentHash": "961e75df1a6bcb9ccd08ed7ade2d84f7594e3cf9ae701b20f3c5f110dd7096ad",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 1.0,
+    "reason": "Back view of the game packaging."
+  },
+  {
+    "listingId": "v1|318778350376|0",
+    "imageIndex": 3,
+    "contentHash": "869eaedfe8147d742af6bce746ac7ff5566cb87eb022b6b288aff7be77df0ce5",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_SPINE",
+    "confidence": 1.0,
+    "reason": "Spine view of the game packaging."
+  }
+]

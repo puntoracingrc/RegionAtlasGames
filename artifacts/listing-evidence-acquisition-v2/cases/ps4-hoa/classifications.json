@@ -1,0 +1,65 @@
+[
+  {
+    "listingId": "v1|336646284380|0",
+    "imageIndex": 1,
+    "contentHash": "cdd2356f33a061a7e09b7e9a51797db7994663916f6de3141a89cd5d4fbd434f",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 1.0,
+    "reason": "Visible PS4 game cover for Hoa."
+  },
+  {
+    "listingId": "v1|336646284380|0",
+    "imageIndex": 2,
+    "contentHash": "e0f42a5f551635e9a0f8eaf41170c6170fbf980221c7181299d4dc23f6388c74",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "Screenshot from the game."
+  },
+  {
+    "listingId": "v1|336646284380|0",
+    "imageIndex": 3,
+    "contentHash": "129094d9520dea91897c48afe06fc11ff4876479e8711b4a3e564ba32d0346cd",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "Screenshot from the game."
+  },
+  {
+    "listingId": "v1|336646284380|0",
+    "imageIndex": 4,
+    "contentHash": "503d659bfe672b0fed8241fa8bdcda330786d28a47b66e20c3f9fa12c67c3739",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "Screenshot from the game."
+  },
+  {
+    "listingId": "v1|336646284380|0",
+    "imageIndex": 5,
+    "contentHash": "7b28f10293bb72f1996bb5c4fa6b46e3b3ac30cf398d248ed633f5a9608458ed",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "Screenshot from the game."
+  },
+  {
+    "listingId": "v1|336646284380|0",
+    "imageIndex": 6,
+    "contentHash": "4ecf338577fe22c6fbf47121c1a53cc9ee6c4d4696b7c913eda036b9e5e74409",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "Screenshot from the game."
+  },
+  {
+    "listingId": "v1|336646284380|0",
+    "imageIndex": 7,
+    "contentHash": "48cb6dc750a919ea305e96443ecf5d2cb378d81a7a31ee670ec9e3feaac798ab",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "Screenshot from the game."
+  }
+]

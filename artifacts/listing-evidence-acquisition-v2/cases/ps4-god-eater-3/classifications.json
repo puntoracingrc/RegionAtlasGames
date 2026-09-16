@@ -1,0 +1,38 @@
+[
+  {
+    "listingId": "v1|377500341460|0",
+    "imageIndex": 1,
+    "contentHash": "c76e5e50a1170635f0f1b9c89b685be357e161b2c95f609149b324b714b22ae5",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 1.0,
+    "reason": "Complete game case with front and back cover and disc visible."
+  },
+  {
+    "listingId": "v1|377500341460|0",
+    "imageIndex": 2,
+    "contentHash": "364f22145ca2caa07b8ed52e955c019e91b05cdd1014480ce58d84cd5020f4d1",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "DISC",
+    "confidence": 1.0,
+    "reason": "Close-up of the game disc with visible artwork."
+  },
+  {
+    "listingId": "v1|377500341460|0",
+    "imageIndex": 3,
+    "contentHash": "7c295a5d750e06d32c28f2c4f422b0ff45603c7b10d79e493674f1051725e5ce",
+    "subject": "UNKNOWN",
+    "component": "DISC",
+    "confidence": 0.8,
+    "reason": "Image of the back of the disc, no identifiable features."
+  },
+  {
+    "listingId": "v1|377500341460|0",
+    "imageIndex": 4,
+    "contentHash": "be5f63cc4388d95961a781a11b40028f2f2e2c61c839274a396a2692d2d7462b",
+    "subject": "UNKNOWN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.7,
+    "reason": "Image of the inner case and a disc, but lacks identifiable features."
+  }
+]

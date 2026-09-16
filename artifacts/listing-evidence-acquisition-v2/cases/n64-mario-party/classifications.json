@@ -1,0 +1,128 @@
+[
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 1,
+    "contentHash": "44a8705b4a985270e3c841eecd1bb085b36f9d21ad65276fad5aeae95ff9f484",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "INNER_CASE_FRONT",
+    "confidence": 0.0,
+    "reason": "visible game guide and cartridge"
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 2,
+    "contentHash": "10defba7ece5650e5c36b3ce1fc26d9f4a5af4f2e9da305201973b25889e2525",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.0,
+    "reason": "visible cartridge front"
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 3,
+    "contentHash": "233f293c6d81ee263d2b8d76ded8d5506d6d190cc23c9776f08d14bf3e5424fd",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 0.0,
+    "reason": "visible cartridge back"
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 4,
+    "contentHash": "bb6b77b5b4d65a37b1bb2f1b555d0bf21f15442616a62a591a666aeed8738bd1",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "UNKNOWN_COMPONENT",
+    "confidence": 0.0,
+    "reason": "visible cartridge spine"
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 5,
+    "contentHash": "9bf37bc65ebb15490bd35960ac80a09158551d243d98d0778063578d4a947e06",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.0,
+    "reason": "visible cartridge front"
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 6,
+    "contentHash": "5585208ac33975530a9070daaa642a7066da6eda2d05a260c52bebd14eccba4c",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 0.0,
+    "reason": "visible cartridge back"
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 7,
+    "contentHash": "babea3ff92418d1e98412b3346c03d5fa712bed7733788f84a6f7b7b59b747fc",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 0.0,
+    "reason": "visible cartridge back"
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 8,
+    "contentHash": "ed8988be5aa76311487fb67801c4cbd9954319f0e6076b028976a8a06a722f9b",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.0,
+    "reason": "visible cartridge front"
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 9,
+    "contentHash": "280fe102d63ec57634b8e16e69dd3c1862f3eca1b698a05b5c97a76b8fdc79eb",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible pages from the manual with game content."
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 10,
+    "contentHash": "e3ccbce72f9b92f6b0bdc91fb474c470de54512388828ba8422435c010c869b7",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible pages from the manual with game content."
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 11,
+    "contentHash": "92cde785a131849c24f31211bcb9efc1ce7492d50ef315811a707687afece167",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_BACK",
+    "confidence": 0.7,
+    "reason": "Visible back cover of the package."
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 12,
+    "contentHash": "ae58a3b2433b44f7d387b6ea19e9700bf54f2ffff717eaafbef0da1b79a12519",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "OUTER_PACKAGE_FRONT",
+    "confidence": 0.7,
+    "reason": "Visible front cover of the package."
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 13,
+    "contentHash": "646ae1b0312878fb454e95f36d2cfad4805d7f45f4e882be762c6ca3a456f56a",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "MANUAL_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible pages from the manual with game content."
+  },
+  {
+    "listingId": "v1|306881954213|0",
+    "imageIndex": 14,
+    "contentHash": "cf3911db82abf9845e701212842aa865350e37e9a0397e8d9edb8183ab26f4d7",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.8,
+    "reason": "Visible cartridge with game label."
+  }
+]

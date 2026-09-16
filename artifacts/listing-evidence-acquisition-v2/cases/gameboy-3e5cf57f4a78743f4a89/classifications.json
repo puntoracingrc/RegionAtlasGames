@@ -1,0 +1,29 @@
+[
+  {
+    "listingId": "v1|267775480937|0",
+    "imageIndex": 1,
+    "contentHash": "8d2acf0eddd97be10ac1ea30c04015aea6c7bed158e778591b8cf6f5ec01a6ee",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.9,
+    "reason": "Visible front of the game cartridge with title and artwork."
+  },
+  {
+    "listingId": "v1|267775480937|0",
+    "imageIndex": 2,
+    "contentHash": "5f2fff54212f9e32d290ecef3e047e931f9281d1b1b67d41c7c71f1b6bd10bad",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_BACK",
+    "confidence": 0.9,
+    "reason": "Visible back of the game cartridge."
+  },
+  {
+    "listingId": "v1|267775480937|0",
+    "imageIndex": 3,
+    "contentHash": "e7f02afea01ad0be3ac50b7e79403f999213c587b35b8a11831daf9d3de46f04",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "component": "CARTRIDGE_FRONT",
+    "confidence": 0.8,
+    "reason": "Visible front of the game cartridge at an angle."
+  }
+]

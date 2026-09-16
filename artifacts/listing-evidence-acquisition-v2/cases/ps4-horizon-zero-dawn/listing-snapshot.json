@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "listingId": "v1|137665114680|0",
+  "legacyItemId": "137665114680",
+  "capturedAt": "2026-09-16T17:55:52Z",
+  "sourceMarketplace": "ebay",
+  "metadata": {
+    "title": "Horizon Zero Dawn Edición Limitada Playstation 4 PS4 Pal España ",
+    "shortDescription": "Edición limitada como nueva",
+    "description": "Edición limitada como nueva",
+    "condition": "Como nuevo",
+    "conditionId": "2750",
+    "conditionDescription": null,
+    "itemWebUrl": "https://www.ebay.es/itm/137665114680",
+    "itemLocation": {
+      "city": "Bonanza",
+      "postalCode": "11***",
+      "country": "ES"
+    },
+    "seller": {
+      "username": "ssecarlo",
+      "feedbackPercentage": "0.0",
+      "feedbackScore": 0
+    },
+    "category": "Consolas y videojuegos|Videojuegos",
+    "categoryId": "139973",
+    "aspects": {
+      "País de origen": [
+        "España"
+      ],
+      "Nombre del videojuego": [
+        "horizon zero dawn"
+      ],
+      "Plataforma": [
+        "consola"
+      ],
+      "Código de región": [
+        "PAL"
+      ],
+      "Características": [
+        "Edición completa"
+      ]
+    },
+    "price": {
+      "value": 90.0,
+      "currency": "EUR"
+    },
+    "shippingOptions": [
+      {
+        "shippingServiceCode": "Correos: cartas certificadas",
+        "shippingCarrierCode": "Correos",
+        "type": "Envío Económico",
+        "shippingCost": {
+          "value": "5.00",
+          "currency": "EUR"
+        },
+        "quantityUsedForEstimate": 1,
+        "minEstimatedDeliveryDate": "2026-09-22T10:00:00.000Z",
+        "maxEstimatedDeliveryDate": "2026-09-24T10:00:00.000Z",
+        "shipToLocationUsedForEstimate": {
+          "postalCode": "28001",
+          "country": "ES"
+        },
+        "additionalShippingCostPerUnit": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "shippingCostType": "FIXED"
+      }
+    ],
+    "buyingOptions": [
+      "FIXED_PRICE"
+    ],
+    "itemEndDate": null,
+    "estimatedAvailabilities": [
+      {
+        "deliveryOptions": [
+          "SHIP_TO_HOME"
+        ],
+        "estimatedAvailabilityStatus": "IN_STOCK",
+        "estimatedAvailableQuantity": 1,
+        "estimatedSoldQuantity": 0,
+        "estimatedRemainingQuantity": 1
+      }
+    ],
+    "gtin": null,
+    "brand": null,
+    "mpn": null,
+    "epid": null
+  },
+  "imagesAvailableFromSource": 3,
+  "imagesPreserved": 3,
+  "images": [
+    {
+      "listingId": "v1|137665114680|0",
+      "imageIndex": 1,
+      "sourceIndex": 1,
+      "sourceUrl": "https://i.ebayimg.com/images/g/gSwAAeSwALdqj2wB/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/gSwAAeSwALdqj2wB/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/gSwAAeSwALdqj2wB/s-l1600.jpg",
+      "contentHash": "7f48958873b48ebb6e4e18ad62520626cf7739d81960ec400892ea6186accbb6",
+      "width": 1290,
+      "height": 1540,
+      "byteLength": 344219,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-zero-dawn/7f48958873b48ebb6e4e18ad62520626cf7739d81960ec400892ea6186accbb6.img",
+      "sourceKind": "PRIMARY",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|137665114680|0",
+      "imageIndex": 2,
+      "sourceIndex": 2,
+      "sourceUrl": "https://i.ebayimg.com/images/g/ZGkAAeSwWaNqj2wB/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/ZGkAAeSwWaNqj2wB/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/ZGkAAeSwWaNqj2wB/s-l1600.jpg",
+      "contentHash": "93794a4477fbcb4ba508c50d580838228e1df47f94f8d4df7911e11327acbab7",
+      "width": 1290,
+      "height": 1599,
+      "byteLength": 415638,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-zero-dawn/93794a4477fbcb4ba508c50d580838228e1df47f94f8d4df7911e11327acbab7.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|137665114680|0",
+      "imageIndex": 3,
+      "sourceIndex": 3,
+      "sourceUrl": "https://i.ebayimg.com/images/g/na0AAeSwS8tqj2wB/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/na0AAeSwS8tqj2wB/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/na0AAeSwS8tqj2wB/s-l1600.jpg",
+      "contentHash": "d62ed130c0dd5159e1ed3a3267771b7c24d43a6d863153d5edca898beda4a74b",
+      "width": 1245,
+      "height": 806,
+      "byteLength": 250330,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/ps4-horizon-zero-dawn/d62ed130c0dd5159e1ed3a3267771b7c24d43a6d863153d5edca898beda4a74b.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    }
+  ],
+  "failures": [],
+  "rights": {
+    "classification": "INTERNAL_EVIDENCE_REFERENCE",
+    "publishAsRegionAtlasAsset": false
+  }
+}

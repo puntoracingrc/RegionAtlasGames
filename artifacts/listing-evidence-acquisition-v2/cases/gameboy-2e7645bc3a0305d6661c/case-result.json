@@ -1,0 +1,658 @@
+{
+  "caseId": "gameboy-2e7645bc3a0305d6661c",
+  "platform": "gameboy",
+  "subjectTitle": "Tetris",
+  "sourcePhotos": 7,
+  "preservedPhotos": 7,
+  "originalResolutionPhotos": 7,
+  "photosClassified": 7,
+  "photosInspectedHighDetail": 7,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": true,
+      "OUTER_PACKAGE_BACK": true,
+      "OUTER_PACKAGE_SPINE": true,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": true,
+      "CARTRIDGE_BACK": false,
+      "DISC": false,
+      "MANUAL_FRONT": false,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": []
+  },
+  "componentsFound": [
+    "CARTRIDGE_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_FRONT",
+    "OUTER_PACKAGE_SPINE"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CARTRIDGE_BACK",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 7,
+  "marketBoundObservations": 1,
+  "diagnosis": "MARKET_BINDING_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 2,
+  "openAiCalls": 3,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 20084,
+      "completion_tokens": 399,
+      "total_tokens": 20483,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 153237,
+      "completion_tokens": 757,
+      "total_tokens": 153994,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 25669,
+      "completion_tokens": 309,
+      "total_tokens": 25978,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.030727499999999998,
+  "item": {
+    "id": "listing-evidence-v2-gameboy-2e7645bc3a0305d6661c",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "gameboy",
+    "targetRegion": "PAL España",
+    "detectedRegion": null,
+    "catalogId": "gameboy-es-tetris",
+    "candidateCatalogId": "gameboy-es-tetris",
+    "listingTitle": "TETRIS GIOCO NINTENDO GAME BOY PAL ITALIANO CIB SUPER COMPLETO RARO GIG ITA",
+    "priceEur": 349.95,
+    "condition": "unknown",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T17:58:51Z",
+    "evidence": {
+      "externalId": "v1|137429610296|0",
+      "url": "https://www.ebay.es/itm/137429610296?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fth9fejPADilz0Q7xXh8eYV29arT7uy8d%2BcuHPwBGylhe7L8j6RMWmRJ%2BMN4W80Y%2BevqmieqHRvbRc3jxHbc1mRSzQoJwwigh59jIhfatecyuN1iNQXmEXIoEQ8Kdl12ZCgV%2BGKGSfiX9kCYOhBuoRiVhwne0%2FhYbYszhnmFx16TuW%2BYOD77vu6019ReHuKVA%3D",
+      "description": "Rareza del catálogo de Game Boy. Completo. Ver fotos para comprobar el estado del juego.",
+      "imageUrl": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/Au8AAeSw1~xqM~zt/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/yOAAAeSwQjhqM~zs/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/xJEAAeSw9gVqM~zs/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/0uMAAeSw-ghqM~zt/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/QBAAAeSwcddqM~zt/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/K4QAAeSwFNhqM~zt/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|137429610296|0",
+        "legacyItemId": "137429610296",
+        "capturedAt": "2026-09-16T17:58:51Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "TETRIS GIOCO NINTENDO GAME BOY PAL ITALIANO CIB SUPER COMPLETO RARO GIG ITA",
+          "shortDescription": "Rareza del catálogo de Game Boy. Completo. Ver fotos para comprobar el estado del juego.",
+          "description": "Rareza del catálogo de Game Boy. Completo.<br><br>Ver fotos para comprobar el estado del juego.",
+          "condition": "En muy buen estado",
+          "conditionId": "4000",
+          "conditionDescription": null,
+          "itemWebUrl": "https://www.ebay.es/itm/137429610296?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2Fth9fejPADilz0Q7xXh8eYV29arT7uy8d%2BcuHPwBGylhe7L8j6RMWmRJ%2BMN4W80Y%2BevqmieqHRvbRc3jxHbc1mRSzQoJwwigh59jIhfatecyuN1iNQXmEXIoEQ8Kdl12ZCgV%2BGKGSfiX9kCYOhBuoRiVhwne0%2FhYbYszhnmFx16TuW%2BYOD77vu6019ReHuKVA%3D",
+          "itemLocation": {
+            "city": "Aspe",
+            "postalCode": "03***",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "ivaaraci0",
+            "feedbackPercentage": "100.0",
+            "feedbackScore": 13
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "Nombre del videojuego": [
+              "Tetris"
+            ],
+            "Genere": [
+              "Azione/avventura"
+            ],
+            "Codice regionale": [
+              "PAL"
+            ],
+            "Paese di origine": [
+              "Giappone"
+            ],
+            "Titolo videogioco": [
+              "Tetris"
+            ],
+            "Plataforma": [
+              "Nintendo Game Boy"
+            ],
+            "Valutazione": [
+              "7+"
+            ],
+            "Editore": [
+              "Nintendo"
+            ],
+            "MPN": [
+              "0045496424466PO"
+            ],
+            "Caratteristiche": [
+              "Edizione da collezione"
+            ],
+            "Unità di misura": [
+              "Unità"
+            ],
+            "Serie videogiochi": [
+              "Tetris"
+            ],
+            "Quantità": [
+              "1"
+            ],
+            "Anno di rilascio": [
+              "1990"
+            ],
+            "Piattaforma": [
+              "Nintendo Game Boy, Nintendo Game Boy Advance, Nintendo Game Boy Color"
+            ]
+          },
+          "price": {
+            "value": 349.95,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Correos: cartas certificadas",
+              "shippingCarrierCode": "Correos",
+              "type": "Envío Económico",
+              "shippingCost": {
+                "value": "8.10",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-22T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-24T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE",
+            "BEST_OFFER"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 0,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": null,
+          "brand": null,
+          "mpn": "0045496424466PO",
+          "epid": null
+        },
+        "imagesAvailableFromSource": 7,
+        "imagesPreserved": 7,
+        "images": [
+          {
+            "listingId": "v1|137429610296|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.jpg",
+            "contentHash": "a13f361a63e18e7c9f1de93aad19589cfcca3317bf64a9e1009540164c826829",
+            "width": 1599,
+            "height": 1199,
+            "byteLength": 472395,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-2e7645bc3a0305d6661c/a13f361a63e18e7c9f1de93aad19589cfcca3317bf64a9e1009540164c826829.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|137429610296|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/Au8AAeSw1~xqM~zt/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/Au8AAeSw1~xqM~zt/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/Au8AAeSw1~xqM~zt/s-l1600.jpg",
+            "contentHash": "5ae38733ab917450879e1a6862c159abf9c8b5513025a2498a0b78567b56d67e",
+            "width": 1200,
+            "height": 1600,
+            "byteLength": 474762,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-2e7645bc3a0305d6661c/5ae38733ab917450879e1a6862c159abf9c8b5513025a2498a0b78567b56d67e.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|137429610296|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/yOAAAeSwQjhqM~zs/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/yOAAAeSwQjhqM~zs/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/yOAAAeSwQjhqM~zs/s-l1600.jpg",
+            "contentHash": "a4f117ad6c90945b1e4907187f47f52caedf0b6cd4e21e062affa5ec1cf78392",
+            "width": 1200,
+            "height": 1600,
+            "byteLength": 373422,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-2e7645bc3a0305d6661c/a4f117ad6c90945b1e4907187f47f52caedf0b6cd4e21e062affa5ec1cf78392.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|137429610296|0",
+            "imageIndex": 4,
+            "sourceIndex": 4,
+            "sourceUrl": "https://i.ebayimg.com/images/g/xJEAAeSw9gVqM~zs/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/xJEAAeSw9gVqM~zs/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/xJEAAeSw9gVqM~zs/s-l1600.jpg",
+            "contentHash": "3bbe526da992c9d49a3088b4576fa0715103dee98847eaef67fe952c2dc27184",
+            "width": 1200,
+            "height": 1600,
+            "byteLength": 364832,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-2e7645bc3a0305d6661c/3bbe526da992c9d49a3088b4576fa0715103dee98847eaef67fe952c2dc27184.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|137429610296|0",
+            "imageIndex": 5,
+            "sourceIndex": 5,
+            "sourceUrl": "https://i.ebayimg.com/images/g/0uMAAeSw-ghqM~zt/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/0uMAAeSw-ghqM~zt/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/0uMAAeSw-ghqM~zt/s-l1600.jpg",
+            "contentHash": "a6cedaaec4c0cb398937354372108494a6b93e3e6e5f63eec5a138ba9c38c59a",
+            "width": 1200,
+            "height": 1600,
+            "byteLength": 464113,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-2e7645bc3a0305d6661c/a6cedaaec4c0cb398937354372108494a6b93e3e6e5f63eec5a138ba9c38c59a.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|137429610296|0",
+            "imageIndex": 6,
+            "sourceIndex": 6,
+            "sourceUrl": "https://i.ebayimg.com/images/g/QBAAAeSwcddqM~zt/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/QBAAAeSwcddqM~zt/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/QBAAAeSwcddqM~zt/s-l1600.jpg",
+            "contentHash": "49d52f9a74ce9a2186c131b145783fe7b453ed3a98f5bb48b3f7d993379edcbe",
+            "width": 1200,
+            "height": 1600,
+            "byteLength": 445914,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-2e7645bc3a0305d6661c/49d52f9a74ce9a2186c131b145783fe7b453ed3a98f5bb48b3f7d993379edcbe.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|137429610296|0",
+            "imageIndex": 7,
+            "sourceIndex": 7,
+            "sourceUrl": "https://i.ebayimg.com/images/g/K4QAAeSwFNhqM~zt/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/K4QAAeSwFNhqM~zt/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/K4QAAeSwFNhqM~zt/s-l1600.jpg",
+            "contentHash": "fe9ca33632731bca1d85df538a116a90671a66aa5dddf6fa0b579b6fa435797e",
+            "width": 1200,
+            "height": 1600,
+            "byteLength": 427883,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-2e7645bc3a0305d6661c/fe9ca33632731bca1d85df538a116a90671a66aa5dddf6fa0b579b6fa435797e.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-f0f671bd60747c39",
+          "listingId": "v1|137429610296|0",
+          "imageIndex": 1,
+          "contentHash": "a13f361a63e18e7c9f1de93aad19589cfcca3317bf64a9e1009540164c826829",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Tetris",
+          "platform": "Game Boy",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "TETRIS",
+            "Un gioco stimolante e divertente che non lascerai più!",
+            "Dalla Russia un gioco emozionante e divertente!",
+            "GIG",
+            "Nintendo"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": [
+            "TETRIS",
+            "Un gioco stimolante e divertente che non lascerai più!",
+            "Dalla Russia un gioco emozionante e divertente!",
+            "GIG",
+            "Nintendo"
+          ]
+        },
+        {
+          "id": "listing-obs-8ce7d0923cca92cd",
+          "listingId": "v1|137429610296|0",
+          "imageIndex": 2,
+          "contentHash": "5ae38733ab917450879e1a6862c159abf9c8b5513025a2498a0b78567b56d67e",
+          "component": "OUTER_PACKAGE_SPINE",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_spine",
+          "textSnippets": []
+        },
+        {
+          "id": "listing-obs-402fc866af77e7cc",
+          "listingId": "v1|137429610296|0",
+          "imageIndex": 3,
+          "contentHash": "a4f117ad6c90945b1e4907187f47f52caedf0b6cd4e21e062affa5ec1cf78392",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Tetris",
+          "platform": "Game Boy",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "TETRIS",
+            "DMG-TR-IT"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": [
+            "TETRIS",
+            "DMG-TR-IT"
+          ]
+        },
+        {
+          "id": "listing-obs-1830eceb803eb6e4",
+          "listingId": "v1|137429610296|0",
+          "imageIndex": 4,
+          "contentHash": "3bbe526da992c9d49a3088b4576fa0715103dee98847eaef67fe952c2dc27184",
+          "component": "OUTER_PACKAGE_SPINE",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "DMG-TR",
+            "ITA-1",
+            "960801"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_spine",
+          "textSnippets": [
+            "DMG-TR",
+            "ITA-1",
+            "960801"
+          ]
+        },
+        {
+          "id": "listing-obs-a9c5f33d53b9dc7a",
+          "listingId": "v1|137429610296|0",
+          "imageIndex": 5,
+          "contentHash": "a6cedaaec4c0cb398937354372108494a6b93e3e6e5f63eec5a138ba9c38c59a",
+          "component": "OUTER_PACKAGE_SPINE",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "DMG-TR",
+            "ITA-1"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_spine",
+          "textSnippets": [
+            "DMG-TR",
+            "ITA-1"
+          ]
+        },
+        {
+          "id": "listing-obs-6f00d03a083e0980",
+          "listingId": "v1|137429610296|0",
+          "imageIndex": 6,
+          "contentHash": "49d52f9a74ce9a2186c131b145783fe7b453ed3a98f5bb48b3f7d993379edcbe",
+          "component": "OUTER_PACKAGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "Tetris",
+          "platform": "Game Boy",
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "TETRIS",
+            "Un gioco stimolante e divertente che non lascerai più!",
+            "Dalla Russia un gioco emozionante e divertente!",
+            "GIG",
+            "Nintendo"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "outer_package_front",
+          "textSnippets": [
+            "TETRIS",
+            "Un gioco stimolante e divertente che non lascerai più!",
+            "Dalla Russia un gioco emozionante e divertente!",
+            "GIG",
+            "Nintendo"
+          ]
+        },
+        {
+          "id": "listing-obs-14c7d1d06261ef42",
+          "listingId": "v1|137429610296|0",
+          "imageIndex": 7,
+          "contentHash": "fe9ca33632731bca1d85df538a116a90671a66aa5dddf6fa0b579b6fa435797e",
+          "component": "OUTER_PACKAGE_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": "TETRIS",
+          "platform": "Game Boy",
+          "editionMarkers": [],
+          "barcodes": [
+            "04549673027"
+          ],
+          "productCodes": [
+            "DMG P TR"
+          ],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [
+            "Italian"
+          ],
+          "distributors": [],
+          "publisherLegalText": [
+            "Nintendo"
+          ],
+          "visibleText": [
+            "Dalla Russia un gioco emozionante e divertente!",
+            "Linee, blocchi quadrati, zig-zag e blocchi a forma di L scendono in modo imprevedibile!",
+            "Questo gioco ti prenderà talmente tanto che sentirai il tuo polso muoversi velocemente per incastrare tutti i blocchi!",
+            "E' eccitante e man mano che aumenti di livello dovrai prendere le decisioni delle posizioni delle figure in pochissimi secondi!!!",
+            "Scegli la musica ed avanza progressivamente attraverso 20 Livelli.",
+            "Questa cassetta funziona solo con il Sistema di Gioco Game Boy Compact Video.",
+            "Game Boy Game Pak (DMG-09)",
+            "Original (Nintendo) Seal of Quality"
+          ],
+          "sealEvidence": "UNKNOWN",
+          "confidence": 0.0,
+          "role": "outer_package_back",
+          "textSnippets": [
+            "Dalla Russia un gioco emozionante e divertente!",
+            "Linee, blocchi quadrati, zig-zag e blocchi a forma di L scendono in modo imprevedibile!",
+            "Questo gioco ti prenderà talmente tanto che sentirai il tuo polso muoversi velocemente per incastrare tutti i blocchi!",
+            "E' eccitante e man mano che aumenti di livello dovrai prendere le decisioni delle posizioni delle figure in pochissimi secondi!!!",
+            "Scegli la musica ed avanza progressivamente attraverso 20 Livelli.",
+            "Questa cassetta funziona solo con il Sistema di Gioco Game Boy Compact Video.",
+            "Game Boy Game Pak (DMG-09)",
+            "Original (Nintendo) Seal of Quality"
+          ]
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": true,
+        "conditionConfidence": 0.0,
+        "sellerClaims": []
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "gameboy-es-tetris",
+      "catalogTitle": "Tetris",
+      "matchAlternatives": [
+        {
+          "catalogId": "gameboy-tetris",
+          "region": "PAL Europa",
+          "title": "Tetris",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-es-tetris",
+          "region": "PAL España",
+          "title": "Tetris",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-usa-tetris",
+          "region": "USA",
+          "title": "Tetris",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-it-tetris",
+          "region": "PAL Italia",
+          "title": "Tetris",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": null
+    }
+  }
+}

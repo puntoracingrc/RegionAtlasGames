@@ -1,0 +1,418 @@
+{
+  "caseId": "gameboy-3e5cf57f4a78743f4a89",
+  "platform": "gameboy",
+  "subjectTitle": "Wario Land Super Mario Land 3",
+  "sourcePhotos": 3,
+  "preservedPhotos": 3,
+  "originalResolutionPhotos": 3,
+  "photosClassified": 3,
+  "photosInspectedHighDetail": 3,
+  "coverage": {
+    "components": {
+      "OUTER_PACKAGE_FRONT": false,
+      "OUTER_PACKAGE_BACK": false,
+      "OUTER_PACKAGE_SPINE": false,
+      "INNER_CASE_FRONT": false,
+      "INNER_CASE_BACK": false,
+      "INNER_CASE_SPINE": false,
+      "CARTRIDGE_FRONT": true,
+      "CARTRIDGE_BACK": true,
+      "DISC": false,
+      "MANUAL_FRONT": false,
+      "MANUAL_BACK": false,
+      "INSERT": false,
+      "CODE_VOUCHER": false,
+      "DOWNLOAD_CARD": false,
+      "SEAL": false,
+      "SELLER_STICKER": false,
+      "ACCESSORY": false
+    },
+    "acceptedImageIndexes": [
+      1,
+      2,
+      3
+    ],
+    "rejectedImageIndexes": [],
+    "unknownImageIndexes": []
+  },
+  "componentsFound": [
+    "CARTRIDGE_BACK",
+    "CARTRIDGE_FRONT"
+  ],
+  "componentsMissing": [
+    "ACCESSORY",
+    "CODE_VOUCHER",
+    "DISC",
+    "DOWNLOAD_CARD",
+    "INNER_CASE_BACK",
+    "INNER_CASE_FRONT",
+    "INNER_CASE_SPINE",
+    "INSERT",
+    "MANUAL_BACK",
+    "MANUAL_FRONT",
+    "OUTER_PACKAGE_BACK",
+    "OUTER_PACKAGE_FRONT",
+    "OUTER_PACKAGE_SPINE",
+    "SEAL",
+    "SELLER_STICKER"
+  ],
+  "componentBoundObservations": 3,
+  "marketBoundObservations": 0,
+  "diagnosis": "MARKET_BINDING_FAILURE",
+  "triageCalls": 1,
+  "extractCalls": 1,
+  "openAiCalls": 3,
+  "openAiUsage": [
+    {
+      "prompt_tokens": 8742,
+      "completion_tokens": 181,
+      "total_tokens": 8923,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 76701,
+      "completion_tokens": 378,
+      "total_tokens": 77079,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 76709,
+      "completion_tokens": 101,
+      "total_tokens": 76810,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  ],
+  "costUsd": 0.0247188,
+  "item": {
+    "id": "listing-evidence-v2-gameboy-3e5cf57f4a78743f4a89",
+    "status": "pending",
+    "source": "ebay-es",
+    "platformSlug": "gameboy",
+    "targetRegion": "PAL España",
+    "detectedRegion": null,
+    "catalogId": "gameboy-es-wario-land-super-mario-land-3",
+    "candidateCatalogId": "gameboy-es-wario-land-super-mario-land-3",
+    "listingTitle": "TARA Pegatina: Wario Land: Super Mario Land 3 GB (SP) [PO247047]",
+    "priceEur": 16.95,
+    "condition": "loose",
+    "reason": "listing_evidence_acquisition_v2",
+    "updatedAt": "2026-09-16T17:59:09Z",
+    "evidence": {
+      "externalId": "v1|267775480937|0",
+      "url": "https://www.ebay.es/itm/267775480937?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8BlJdpI81HkQZikW1t2Eva3dsY0%2BqtLQFnjSwSL8u1sicaCKR%2BC3S3x8bXMuud%2BJ5JZAK38vYU0GsFoZviZQbfsbXBnUdbpKGd3tLOHvs6WgE5RdZ0piwtwsBp7NQ%2BCUeWj64l30t0NKC4SSYmUk7dRTBAKlbeLM5BmihqgZDt5rpz%2BaDmb%2FEG3pYo3cQBzA8%3D",
+      "description": "<div style=\"font-family:sans-serif,Arial,Verdana; font-size:13px;\"><div style=\"height:57px;background-color:#0056da;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_logo.png\" width=\"314\" height=\"51\" style=\"float:left;\"></div><div style=\"clear:both\"><br></div><div style=\"text-align:center;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_2.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_1.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_4.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_3.jpg\" height=\"100\" style=\"margin:6 10;\"></div><div style=\"clear:both\"></div></div><br>",
+      "imageUrl": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.jpg",
+      "imageUrls": [
+        "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/YCQAAeSwM89qmhvT/s-l1600.jpg",
+        "https://i.ebayimg.com/images/g/cTYAAeSwjPFqmhvT/s-l1600.jpg"
+      ],
+      "listingSnapshot": {
+        "schemaVersion": 1,
+        "listingId": "v1|267775480937|0",
+        "legacyItemId": "267775480937",
+        "capturedAt": "2026-09-16T17:59:09Z",
+        "sourceMarketplace": "ebay",
+        "metadata": {
+          "title": "TARA Pegatina: Wario Land: Super Mario Land 3 GB (SP) [PO247047]",
+          "shortDescription": null,
+          "description": "<div style=\"font-family:sans-serif,Arial,Verdana; font-size:13px;\"><div style=\"height:57px;background-color:#0056da;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_logo.png\" width=\"314\" height=\"51\" style=\"float:left;\"></div><div style=\"clear:both\"><br></div><div style=\"text-align:center;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_2.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_1.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_4.jpg\" height=\"100\" style=\"margin:6 10;\"><img src=\"https://www.todoconsolas.com/img/cms/Descripciones_productos/PIE/product_description_footer_3.jpg\" height=\"100\" style=\"margin:6 10;\"></div><div style=\"clear:both\"></div></div><br>",
+          "condition": "Aceptable",
+          "conditionId": "6000",
+          "conditionDescription": "El artículo presenta algún tipo de defecto o daño, pero que no afecta a su funcionamiento general. Es decir, el producto todavía es utilizable y puede cumplir su propósito original a pesar de tener un defecto o daño leve.",
+          "itemWebUrl": "https://www.ebay.es/itm/267775480937?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde8BlJdpI81HkQZikW1t2Eva3dsY0%2BqtLQFnjSwSL8u1sicaCKR%2BC3S3x8bXMuud%2BJ5JZAK38vYU0GsFoZviZQbfsbXBnUdbpKGd3tLOHvs6WgE5RdZ0piwtwsBp7NQ%2BCUeWj64l30t0NKC4SSYmUk7dRTBAKlbeLM5BmihqgZDt5rpz%2BaDmb%2FEG3pYo3cQBzA8%3D",
+          "itemLocation": {
+            "city": "Galicia",
+            "country": "ES"
+          },
+          "seller": {
+            "username": "todoconsolassl",
+            "feedbackPercentage": "99.1",
+            "feedbackScore": 21219
+          },
+          "category": "Consolas y videojuegos|Videojuegos",
+          "categoryId": "139973",
+          "aspects": {
+            "Plataforma": [
+              "Nintendo Game Boy"
+            ],
+            "Nombre del videojuego": [
+              "TARA Pegatina: Wario Land: Super Mario Land 3 GB (SP) [PO247047]"
+            ]
+          },
+          "price": {
+            "value": 16.95,
+            "currency": "EUR"
+          },
+          "shippingOptions": [
+            {
+              "shippingServiceCode": "Otro envío en 48 horas",
+              "shippingCarrierCode": "Other",
+              "type": "Envío estándar",
+              "shippingCost": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "quantityUsedForEstimate": 1,
+              "minEstimatedDeliveryDate": "2026-09-21T10:00:00.000Z",
+              "maxEstimatedDeliveryDate": "2026-09-22T10:00:00.000Z",
+              "shipToLocationUsedForEstimate": {
+                "postalCode": "28001",
+                "country": "ES"
+              },
+              "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingCostType": "FIXED"
+            }
+          ],
+          "buyingOptions": [
+            "FIXED_PRICE"
+          ],
+          "itemEndDate": null,
+          "estimatedAvailabilities": [
+            {
+              "deliveryOptions": [
+                "SHIP_TO_HOME"
+              ],
+              "estimatedAvailabilityStatus": "IN_STOCK",
+              "estimatedAvailableQuantity": 1,
+              "estimatedSoldQuantity": 0,
+              "estimatedRemainingQuantity": 1
+            }
+          ],
+          "gtin": null,
+          "brand": null,
+          "mpn": null,
+          "epid": null
+        },
+        "imagesAvailableFromSource": 3,
+        "imagesPreserved": 3,
+        "images": [
+          {
+            "listingId": "v1|267775480937|0",
+            "imageIndex": 1,
+            "sourceIndex": 1,
+            "sourceUrl": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.jpg",
+            "contentHash": "8d2acf0eddd97be10ac1ea30c04015aea6c7bed158e778591b8cf6f5ec01a6ee",
+            "width": 1600,
+            "height": 1600,
+            "byteLength": 291711,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-3e5cf57f4a78743f4a89/8d2acf0eddd97be10ac1ea30c04015aea6c7bed158e778591b8cf6f5ec01a6ee.img",
+            "sourceKind": "PRIMARY",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|267775480937|0",
+            "imageIndex": 2,
+            "sourceIndex": 2,
+            "sourceUrl": "https://i.ebayimg.com/images/g/YCQAAeSwM89qmhvT/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/YCQAAeSwM89qmhvT/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/YCQAAeSwM89qmhvT/s-l1600.jpg",
+            "contentHash": "5f2fff54212f9e32d290ecef3e047e931f9281d1b1b67d41c7c71f1b6bd10bad",
+            "width": 1600,
+            "height": 1600,
+            "byteLength": 259861,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-3e5cf57f4a78743f4a89/5f2fff54212f9e32d290ecef3e047e931f9281d1b1b67d41c7c71f1b6bd10bad.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          },
+          {
+            "listingId": "v1|267775480937|0",
+            "imageIndex": 3,
+            "sourceIndex": 3,
+            "sourceUrl": "https://i.ebayimg.com/images/g/cTYAAeSwjPFqmhvT/s-l1600.jpg",
+            "originalUrl": "https://i.ebayimg.com/images/g/cTYAAeSwjPFqmhvT/s-l1600.jpg",
+            "resolvedUrl": "https://i.ebayimg.com/images/g/cTYAAeSwjPFqmhvT/s-l1600.jpg",
+            "contentHash": "e7f02afea01ad0be3ac50b7e79403f999213c587b35b8a11831daf9d3de46f04",
+            "width": 1600,
+            "height": 1600,
+            "byteLength": 236730,
+            "contentType": "image/jpeg",
+            "cachePath": "data/price-ingest/cache/listing-evidence-v2/gameboy-3e5cf57f4a78743f4a89/e7f02afea01ad0be3ac50b7e79403f999213c587b35b8a11831daf9d3de46f04.img",
+            "sourceKind": "ADDITIONAL",
+            "publicationAllowed": false
+          }
+        ],
+        "failures": [],
+        "rights": {
+          "classification": "INTERNAL_EVIDENCE_REFERENCE",
+          "publishAsRegionAtlasAsset": false
+        }
+      },
+      "visualObservations": [
+        {
+          "id": "listing-obs-a838ec0543a007a8",
+          "listingId": "v1|267775480937|0",
+          "imageIndex": 1,
+          "contentHash": "8d2acf0eddd97be10ac1ea30c04015aea6c7bed158e778591b8cf6f5ec01a6ee",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "WARIO LAND",
+            "SUPER MARIO LAND 3",
+            "NINTENDO",
+            "GAME BOY"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": [
+            "WARIO LAND",
+            "SUPER MARIO LAND 3",
+            "NINTENDO",
+            "GAME BOY"
+          ]
+        },
+        {
+          "id": "listing-obs-9e9091b8f345be6f",
+          "listingId": "v1|267775480937|0",
+          "imageIndex": 2,
+          "contentHash": "5f2fff54212f9e32d290ecef3e047e931f9281d1b1b67d41c7c71f1b6bd10bad",
+          "component": "CARTRIDGE_BACK",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "MADE IN JAPAN",
+            "PAT. PEND"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "cartridge_back",
+          "textSnippets": [
+            "MADE IN JAPAN",
+            "PAT. PEND"
+          ]
+        },
+        {
+          "id": "listing-obs-a183a65db113beba",
+          "listingId": "v1|267775480937|0",
+          "imageIndex": 3,
+          "contentHash": "e7f02afea01ad0be3ac50b7e79403f999213c587b35b8a11831daf9d3de46f04",
+          "component": "CARTRIDGE_FRONT",
+          "subject": "TARGET_LISTING_SPECIMEN",
+          "title": null,
+          "platform": null,
+          "editionMarkers": [],
+          "barcodes": [],
+          "productCodes": [],
+          "serials": [],
+          "ratingSystems": [],
+          "languages": [],
+          "distributors": [],
+          "publisherLegalText": [],
+          "visibleText": [
+            "WARIO LAND",
+            "SUPER MARIO LAND 3",
+            "NINTENDO",
+            "GAME BOY"
+          ],
+          "sealEvidence": "NOT_APPLICABLE",
+          "confidence": 0.0,
+          "role": "cartridge_front",
+          "textSnippets": [
+            "WARIO LAND",
+            "SUPER MARIO LAND 3",
+            "NINTENDO",
+            "GAME BOY"
+          ]
+        }
+      ],
+      "coverVision": {
+        "isTargetGame": null,
+        "conditionConfidence": 0.0,
+        "sellerClaims": [
+          "media visible without retail package"
+        ]
+      },
+      "regionEvidence": [],
+      "searchedCatalogId": "gameboy-es-wario-land-super-mario-land-3",
+      "catalogTitle": "Wario Land Super Mario Land 3",
+      "matchAlternatives": [
+        {
+          "catalogId": "gameboy-usa-wario-land-super-mario-land-3",
+          "region": "USA",
+          "title": "Wario Land: Super Mario Land 3",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-es-wario-land-super-mario-land-3",
+          "region": "PAL España",
+          "title": "Wario Land Super Mario Land 3",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-super-mario-land-3-wario-land",
+          "region": "Japón",
+          "title": "Super Mario Land 3: Wario Land",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-japon-super-mario-land-3-wario-land",
+          "region": "Japón",
+          "title": "Super Mario Land 3: Wario Land",
+          "edition": "standard"
+        },
+        {
+          "catalogId": "gameboy-pal-super-mario-land-3-wario-land",
+          "region": "PAL Europa",
+          "title": "Super Mario Land 3: Wario Land",
+          "edition": "standard"
+        }
+      ],
+      "manualExpected": null
+    }
+  },
+  "marketFollowupCalls": 1
+}

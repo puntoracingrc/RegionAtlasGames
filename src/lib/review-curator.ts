@@ -22,6 +22,23 @@ export type PhysicalEvidenceObservationV1 = {
   ratingSystems: string[];
   distributors: string[];
   editionMarkers: string[];
+  listingId?: string;
+  contentHash?: string;
+  serials?: string[];
+};
+
+export type ListingEvidenceImageV1 = {
+  index: number;
+  url: string;
+  originalUrl: string | null;
+  hash: string | null;
+  listingId?: string;
+  sourceUrl?: string;
+  resolvedUrl?: string;
+  width?: number | null;
+  height?: number | null;
+  byteLength?: number | null;
+  publicationAllowed?: false;
 };
 
 export type PhysicalEvidenceBundleV1 = {
@@ -37,8 +54,8 @@ export type PhysicalEvidenceBundleV1 = {
   listing: { id: string | null; url: string | null; title: string; description: string | null; searchQuery: string | null };
   catalog: { searchedCatalogId: string | null; candidateCatalogId: string | null; alternatives: Array<Record<string, unknown>> };
   subject: { identity: string | null; platform: string | null; edition: string | null; physicalVariant: string | null };
-  images: Array<{ index: number; url: string; originalUrl: string | null; hash: string | null }>;
-  originalImages: Array<{ index: number; url: string; originalUrl: string | null; hash: string | null }>;
+  images: ListingEvidenceImageV1[];
+  originalImages: ListingEvidenceImageV1[];
   productGraph: { nodes: Array<Record<string, unknown>>; relations: Array<Record<string, unknown>> };
   observations: PhysicalEvidenceObservationV1[];
   identifiers: Array<{ type: "EAN_UPC" | "PRODUCT_CODE" | "SERIAL"; value: string; component: ResearchComponent; observationId: string }>;
@@ -105,12 +122,30 @@ function text(value: unknown): string | null {
   return clean || null;
 }
 
+function validGtin(value: string): boolean {
+  if (![8, 12, 13, 14].includes(value.length) || !/^\d+$/.test(value)) return false;
+  const digits = [...value].map(Number);
+  const body = digits.slice(0, -1);
+  const total = body.reduce((sum, digit, index) => sum + digit * (((digits.length - 2 - index) % 2 === 0) ? 3 : 1), 0);
+  return (10 - total % 10) % 10 === digits.at(-1);
+}
+
 export function mapWorkerObservation(raw: Record<string, unknown>, index = 0): PhysicalEvidenceObservationV1 {
   const role = String(raw.role ?? "other").toLowerCase();
   const workerComponent = String(raw.component ?? "other").toLowerCase();
   let component: ResearchComponent = "UNKNOWN_COMPONENT";
   let productNodeType: PhysicalEvidenceObservationV1["productNodeType"] = "PHYSICAL_PRODUCT";
-  if (role === "cartridge") { component = "CARTRIDGE_FRONT"; productNodeType = "MEDIA"; }
+  const explicitComponents: Record<string, PhysicalEvidenceObservationV1["productNodeType"]> = {
+    outer_package_front: "OUTER_PACKAGE", outer_package_back: "OUTER_PACKAGE", outer_package_spine: "OUTER_PACKAGE",
+    inner_case_front: "INNER_PRODUCT", inner_case_back: "INNER_PRODUCT", inner_case_spine: "INNER_PRODUCT",
+    cartridge_front: "MEDIA", cartridge_back: "MEDIA", disc: "MEDIA",
+    manual_front: "DOCUMENT", manual_back: "DOCUMENT", insert: "DOCUMENT", code_voucher: "DOCUMENT", download_card: "DOCUMENT",
+    seal: "STICKER", seller_sticker: "STICKER", accessory: "ACCESSORY", unknown_component: "PHYSICAL_PRODUCT",
+  };
+  if (workerComponent in explicitComponents) {
+    component = workerComponent.toUpperCase() as ResearchComponent;
+    productNodeType = explicitComponents[workerComponent];
+  } else if (role === "cartridge") { component = "CARTRIDGE_FRONT"; productNodeType = "MEDIA"; }
   else if (role === "disc") { component = "DISC"; productNodeType = "MEDIA"; }
   else if (role === "manual" || workerComponent === "manual") { component = role === "back" ? "MANUAL_BACK" : "MANUAL_FRONT"; productNodeType = "DOCUMENT"; }
   else if (workerComponent === "supplement") {
@@ -120,19 +155,22 @@ export function mapWorkerObservation(raw: Record<string, unknown>, index = 0): P
   } else if (workerComponent === "seal" || role === "seal") productNodeType = "STICKER";
   else if (workerComponent === "extra") productNodeType = "ACCESSORY";
   // workerComponent=box is intentionally not promoted to outer or inner packaging.
-  const barcodes = strings(raw.barcodes).map((value) => value.replace(/\D/g, "")).filter((value) => value.length >= 8 && value.length <= 14);
+  const barcodes = strings(raw.barcodes).map((value) => value.replace(/\D/g, "")).filter(validGtin);
   return {
-    id: `obs-${index + 1}-${curatorHash(raw).slice(0, 12)}`,
+    id: text(raw.id) ?? `obs-${index + 1}-${curatorHash(raw).slice(0, 12)}`,
     imageIndex: Math.max(1, Number(raw.imageIndex) || index + 1), component, productNodeType, role,
-    textSnippets: strings(raw.textSnippets), productCodes: strings(raw.productCodes), barcodes,
+    textSnippets: strings(raw.textSnippets).length ? strings(raw.textSnippets) : strings(raw.visibleText), productCodes: strings(raw.productCodes), barcodes,
     languages: strings(raw.languages), ratingSystems: strings(raw.ratingSystems), distributors: strings(raw.distributors), editionMarkers: strings(raw.editionMarkers),
+    ...(text(raw.listingId) ? { listingId: text(raw.listingId)! } : {}),
+    ...(text(raw.contentHash) ? { contentHash: text(raw.contentHash)! } : {}),
+    ...(strings(raw.serials).length ? { serials: strings(raw.serials) } : {}),
   };
 }
 
 function marketBinding(regionEvidence: string[], observations: PhysicalEvidenceObservationV1[]): PhysicalEvidenceBundleV1["regional"]["marketBinding"] {
   // A generic publisher/distributor string is not market proof. Only the
   // upstream regional policy's explicit physical/legal-text signals bind it.
-  if (regionEvidence.some((value) => ["sku_regional", "distributor_regional"].includes(value))) return "MARKET_BOUND";
+  if (observations.length > 0 && regionEvidence.some((value) => ["sku_regional", "distributor_regional"].includes(value))) return "MARKET_BOUND";
   if (regionEvidence.some((value) => ["back_cover_language", "cover_spain"].includes(value)) || observations.some((row) => row.languages.length)) return "LANGUAGE_ONLY";
   return "UNBOUND";
 }
@@ -152,10 +190,22 @@ export function physicalEvidenceBundleFromReviewItem(item: Record<string, unknow
   const imageUrls = strings(evidence.imageUrls);
   const primaryImage = text(evidence.imageUrl);
   if (primaryImage && !imageUrls.includes(primaryImage)) imageUrls.unshift(primaryImage);
-  const images = imageUrls.map((url, index) => ({ index: index + 1, url, originalUrl: url, hash: null }));
+  const snapshot = evidence.listingSnapshot && typeof evidence.listingSnapshot === "object" ? evidence.listingSnapshot as Record<string, unknown> : null;
+  const snapshotImages = snapshot && Array.isArray(snapshot.images) ? snapshot.images.filter((row): row is Record<string, unknown> => Boolean(row) && typeof row === "object") : [];
+  const images: ListingEvidenceImageV1[] = snapshotImages.length ? snapshotImages.map((row, index) => ({
+    index: Math.max(1, Number(row.imageIndex) || index + 1),
+    url: String(row.resolvedUrl ?? row.originalUrl ?? row.sourceUrl ?? ""),
+    originalUrl: text(row.originalUrl ?? row.sourceUrl), hash: text(row.contentHash),
+    ...(text(row.listingId ?? snapshot?.listingId) ? { listingId: text(row.listingId ?? snapshot?.listingId)! } : {}),
+    ...(text(row.sourceUrl) ? { sourceUrl: text(row.sourceUrl)! } : {}),
+    ...(text(row.resolvedUrl) ? { resolvedUrl: text(row.resolvedUrl)! } : {}),
+    width: typeof row.width === "number" ? row.width : null, height: typeof row.height === "number" ? row.height : null,
+    byteLength: typeof row.byteLength === "number" ? row.byteLength : null, publicationAllowed: false,
+  })) : imageUrls.map((url, index) => ({ index: index + 1, url, originalUrl: url, hash: null }));
   const identifiers: PhysicalEvidenceBundleV1["identifiers"] = observations.flatMap((row: PhysicalEvidenceObservationV1) => [
     ...row.barcodes.map((value) => ({ type: "EAN_UPC" as const, value, component: row.component, observationId: row.id })),
     ...row.productCodes.map((value) => ({ type: "PRODUCT_CODE" as const, value, component: row.component, observationId: row.id })),
+    ...(row.serials ?? []).map((value) => ({ type: "SERIAL" as const, value, component: row.component, observationId: row.id })),
   ]);
   const gaps: PhysicalEvidenceBundleV1["evidenceGaps"] = [];
   if (binding !== "MARKET_BOUND") gaps.push({ field: "MARKET_REGION", code: "MISSING_MARKET_PROOF", missingProof: "No market-bound physical or distributor evidence.", recommendedSourceTypes: ["EXACT_PHYSICAL_PHOTO", "DISTRIBUTOR"] });
@@ -185,7 +235,7 @@ export function physicalEvidenceBundleFromReviewItem(item: Record<string, unknow
     listing: { id: text(evidence.externalId), url: text(evidence.url), title: String(item.listingTitle ?? ""), description: text(evidence.description), searchQuery: text(evidence.searchQuery) },
     catalog: { searchedCatalogId: text(evidence.searchedCatalogId ?? item.catalogId), candidateCatalogId: text(item.candidateCatalogId ?? item.catalogId), alternatives: Array.isArray(evidence.matchAlternatives) ? evidence.matchAlternatives : [] },
     subject: { identity: text(evidence.catalogTitle ?? item.listingTitle), platform: text(item.platformSlug), edition: text(evidence.detectedPhysicalEdition ?? evidence.targetPhysicalEdition), physicalVariant: text(evidence.physicalVariant) },
-    images, originalImages: images, productGraph: { nodes: [], relations: [] }, observations, identifiers,
+    images, originalImages: images.map((image) => ({ ...image, url: image.originalUrl ?? image.url })), productGraph: { nodes: [], relations: [] }, observations, identifiers,
     regional: { targetRegion: text(item.targetRegion), detectedRegion: text(item.detectedRegion), marketBinding: binding, evidence: regionEvidence, packagingLanguages: [...new Set(observations.flatMap((row) => row.languages))], distributors: [...new Set(observations.flatMap((row) => row.distributors))], ratingSystems: [...new Set(observations.flatMap((row) => row.ratingSystems))] },
     condition: { bucket: condition, confidence: typeof coverVision.conditionConfidence === "number" ? coverVision.conditionConfidence : null, evidence: strings(coverVision.sellerClaims), manualExpected: typeof evidence.manualExpected === "boolean" ? evidence.manualExpected : null, originalContentsExpected: strings(evidence.originalContentsExpected) },
     price: { amount: typeof item.priceEur === "number" ? item.priceEur : null, shipping: typeof evidence.shippingEur === "number" ? evidence.shippingEur : null, currency: text(evidence.originalCurrency ?? "EUR"), estimatedTotalToSpain: typeof evidence.estimatedTotalToSpainEur === "number" ? evidence.estimatedTotalToSpainEur : null },
@@ -222,6 +272,18 @@ export function researchTasksFromBundle(bundle: PhysicalEvidenceBundleV1): Resea
 
 function normalized(value: string | null | undefined): string {
   return (value ?? "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+function marketKey(value: string | null | undefined): string {
+  const clean = normalized(value);
+  if (/\b(espana|spain|spanish)\b/.test(clean)) return "ES";
+  if (/\b(italia|italy|italian)\b/.test(clean)) return "IT";
+  if (/\b(alemania|germany|german|deutschland)\b/.test(clean)) return "DE";
+  if (/\b(uk|eng|united kingdom|reino unido)\b/.test(clean)) return "UK";
+  if (/\b(usa|united states|ntsc u)\b/.test(clean)) return "US";
+  if (/\b(japon|japan|ntsc j)\b/.test(clean)) return "JP";
+  if (/\b(pal europa|pal europe|europe|europa|eur)\b/.test(clean)) return "EU";
+  return clean;
 }
 
 function canonicalPlatform(value: string | null | undefined): string {
@@ -294,7 +356,7 @@ export function resolveReviewBundle(bundle: PhysicalEvidenceBundleV1, options: {
   const exactIdentity = bundle.confirmed.includes("identity");
   const safeCondition = conditionIsPhysicallySupported(bundle);
   const marketBound = bundle.regional.marketBinding === "MARKET_BOUND";
-  const targetSame = normalized(bundle.regional.targetRegion) === normalized(bundle.regional.detectedRegion);
+  const targetSame = marketKey(bundle.regional.targetRegion) === marketKey(bundle.regional.detectedRegion);
   let decision: CuratorDecisionKind = "DEFER";
   let resolvedCatalogId: string | null = null;
   let reason = "High-value evidence gaps remain; preserve the case for a later eligible attempt.";
@@ -304,7 +366,7 @@ export function resolveReviewBundle(bundle: PhysicalEvidenceBundleV1, options: {
   } else if (candidateExists && exactIdentity && safeCondition && marketBound && targetSame) {
     decision = "ACCEPT_EXISTING"; resolvedCatalogId = candidate; reason = "Identity, market and visible condition are bound to the existing catalog entry."; confidence = Math.max(0.9, bundle.confidence ?? 0);
   } else if (candidateExists && exactIdentity && safeCondition && marketBound && !targetSame) {
-    const alternative = bundle.catalog.alternatives.find((row) => typeof row.catalogId === "string" && options.catalogIds.has(row.catalogId) && normalized(String(row.region ?? "")) === normalized(bundle.regional.detectedRegion));
+    const alternative = bundle.catalog.alternatives.find((row) => typeof row.catalogId === "string" && options.catalogIds.has(row.catalogId) && marketKey(String(row.region ?? "")) === marketKey(bundle.regional.detectedRegion));
     if (alternative?.catalogId) { decision = "REROUTE_EXISTING"; resolvedCatalogId = String(alternative.catalogId); reason = "Market-bound evidence identifies a different existing regional variant."; confidence = Math.max(0.9, bundle.confidence ?? 0); }
   } else if (!candidateExists && exactIdentity && safeCondition && marketBound) {
     decision = "PROPOSE_NEW_VARIANT"; reason = "Bound evidence supports a physical/regional variant absent from the current catalog; proposal only."; confidence = Math.max(0.85, bundle.confidence ?? 0);

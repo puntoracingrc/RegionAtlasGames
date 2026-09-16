@@ -1,0 +1,29 @@
+[
+  {
+    "id": "listing-obs-bc47dc5fb5c933c7",
+    "listingId": "v1|335728662314|0",
+    "imageIndex": 1,
+    "contentHash": "4542b00d5d4e18e58991fded1555e78c158bfe83d89654c7db7454d4adf6de3b",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Gran Turismo 7",
+    "platform": "ps4",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 3"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [],
+    "visibleText": [
+      "SE REQUIERE UNA CONEXIÓN A INTERNET PARA ACCEDER A LA MAYORÍA DEL CONTENIDO",
+      "Actualización para versión PS5 disponible",
+      "ARTE NO FINAL"
+    ],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "listing-obs-3eb66cc5492e48c1",
+    "listingId": "v1|336646284380|0",
+    "imageIndex": 1,
+    "contentHash": "cdd2356f33a061a7e09b7e9a51797db7994663916f6de3141a89cd5d4fbd434f",
+    "component": "OUTER_PACKAGE_FRONT",
+    "subject": "TARGET_LISTING_SPECIMEN",
+    "title": "Hoa",
+    "platform": "ps4",
+    "editionMarkers": [],
+    "barcodes": [],
+    "productCodes": [],
+    "serials": [],
+    "ratingSystems": [
+      "PEGI 7"
+    ],
+    "languages": [],
+    "distributors": [],
+    "publisherLegalText": [
+      "PM STUDIOS"
+    ],
+    "visibleText": [],
+    "sealEvidence": "NOT_APPLICABLE",
+    "confidence": 0.0
+  }
+]

@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "listingId": "v1|306733771117|0",
+  "legacyItemId": "306733771117",
+  "capturedAt": "2026-09-16T17:56:21Z",
+  "sourceMarketplace": "ebay",
+  "metadata": {
+    "title": "Nintendo 64 Super Mario 64 cartucho NUS-006(EUR) Pal España",
+    "shortDescription": null,
+    "description": "<div style=\"text-align: center;\"><font size=\"5\"><font color=\"#0039f3\">Nintendo 64 </font>Super Mario 64 cartucho NUS-006(EUR) Pal España.</font></div><div style=\"text-align: center;\"><font size=\"5\"><br></font></div><div style=\"text-align: center;\"><font size=\"5\">Tal cual las fotos original cartucho y de regalo el manual de instruciones muy usado..</font></div>",
+    "condition": "En buen estado",
+    "conditionId": "5000",
+    "conditionDescription": null,
+    "itemWebUrl": "https://www.ebay.es/itm/306733771117?amdata=enc%3AAQALAAAAoCHNgUiiE%2FjQhlDTaMiAde%2BRYL%2BC%2BsONyef%2FjpVUck76Nf2wKS3EkEMVesTWxOvoGq78dHimCpZcXKgnTamfWE80Jt9veaEzR5N%2BRjtNoI%2FLNIOlVYaUn6oMIuQya%2FJap1xpuxA9xhIw65krNV6WFqnZtauk%2F0GZlbDMvsAQHV7wbUXSu8jCyotiI4VCtOVAdJMpXWr0Tg%2FQfobuxNrGN1E%3D",
+    "itemLocation": {
+      "city": "Alaior",
+      "postalCode": "07***",
+      "country": "ES"
+    },
+    "seller": {
+      "username": "johncvcmahon1966",
+      "feedbackPercentage": "99.5",
+      "feedbackScore": 8772
+    },
+    "category": "Consolas y videojuegos|Videojuegos",
+    "categoryId": "139973",
+    "aspects": {
+      "Nombre del videojuego": [
+        "Super Mario 64"
+      ],
+      "Plataforma": [
+        "Nintendo 64"
+      ],
+      "País de origen": [
+        "España"
+      ]
+    },
+    "price": {
+      "value": 42.0,
+      "currency": "EUR"
+    },
+    "shippingOptions": [
+      {
+        "shippingServiceCode": "Correos: cartas certificadas",
+        "shippingCarrierCode": "Correos",
+        "type": "Envío Económico",
+        "shippingCost": {
+          "value": "5.95",
+          "currency": "EUR"
+        },
+        "quantityUsedForEstimate": 1,
+        "minEstimatedDeliveryDate": "2026-09-23T10:00:00.000Z",
+        "maxEstimatedDeliveryDate": "2026-09-25T10:00:00.000Z",
+        "shipToLocationUsedForEstimate": {
+          "postalCode": "28001",
+          "country": "ES"
+        },
+        "additionalShippingCostPerUnit": {
+          "value": "0.00",
+          "currency": "EUR"
+        },
+        "shippingCostType": "FIXED"
+      }
+    ],
+    "buyingOptions": [
+      "FIXED_PRICE",
+      "BEST_OFFER"
+    ],
+    "itemEndDate": null,
+    "estimatedAvailabilities": [
+      {
+        "deliveryOptions": [
+          "SHIP_TO_HOME"
+        ],
+        "estimatedAvailabilityStatus": "IN_STOCK",
+        "estimatedAvailableQuantity": 1,
+        "estimatedSoldQuantity": 0,
+        "estimatedRemainingQuantity": 1
+      }
+    ],
+    "gtin": null,
+    "brand": null,
+    "mpn": null,
+    "epid": null
+  },
+  "imagesAvailableFromSource": 14,
+  "imagesPreserved": 14,
+  "images": [
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 1,
+      "sourceIndex": 1,
+      "sourceUrl": "https://i.ebayimg.com/images/g/wPMAAeSwNqNpeLMr/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/wPMAAeSwNqNpeLMr/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/wPMAAeSwNqNpeLMr/s-l1600.jpg",
+      "contentHash": "b0a23c7a34624f4e13055c5541854ef763e3391f10d770eccfdd8dcafdcb48c5",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 387904,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/b0a23c7a34624f4e13055c5541854ef763e3391f10d770eccfdd8dcafdcb48c5.img",
+      "sourceKind": "PRIMARY",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 2,
+      "sourceIndex": 2,
+      "sourceUrl": "https://i.ebayimg.com/images/g/jM8AAOSwVzpoHPak/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/jM8AAOSwVzpoHPak/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/jM8AAOSwVzpoHPak/s-l1600.jpg",
+      "contentHash": "5ccf577b32618c3c19d43d53ad11b57ce3e8fa6d96833b10a1ef8d1416e4e2c3",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 328048,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/5ccf577b32618c3c19d43d53ad11b57ce3e8fa6d96833b10a1ef8d1416e4e2c3.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 3,
+      "sourceIndex": 3,
+      "sourceUrl": "https://i.ebayimg.com/images/g/6LUAAOSwGnFoHPak/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/6LUAAOSwGnFoHPak/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/6LUAAOSwGnFoHPak/s-l1600.jpg",
+      "contentHash": "efddf6cf8fc5dac990db984934bf04454455b7c46d1757df08fe22c56f6e3539",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 356538,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/efddf6cf8fc5dac990db984934bf04454455b7c46d1757df08fe22c56f6e3539.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 4,
+      "sourceIndex": 4,
+      "sourceUrl": "https://i.ebayimg.com/images/g/0r4AAOSwK1toHPak/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/0r4AAOSwK1toHPak/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/0r4AAOSwK1toHPak/s-l1600.jpg",
+      "contentHash": "93a3135c029b76fa9c59fe2250c0983975577014411a361f499dbc99052bff64",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 299359,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/93a3135c029b76fa9c59fe2250c0983975577014411a361f499dbc99052bff64.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 5,
+      "sourceIndex": 5,
+      "sourceUrl": "https://i.ebayimg.com/images/g/6m8AAOSwiw1oHPak/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/6m8AAOSwiw1oHPak/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/6m8AAOSwiw1oHPak/s-l1600.jpg",
+      "contentHash": "0dc7642b66e710c83d060f50d2ff819a804c2e7724c4b38f924c2dd9f0652c6f",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 320048,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/0dc7642b66e710c83d060f50d2ff819a804c2e7724c4b38f924c2dd9f0652c6f.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 6,
+      "sourceIndex": 6,
+      "sourceUrl": "https://i.ebayimg.com/images/g/X0MAAOSwdMtoHPak/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/X0MAAOSwdMtoHPak/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/X0MAAOSwdMtoHPak/s-l1600.jpg",
+      "contentHash": "ab1ddead0bb5f061bf510c8e38cfb494871d64e3157b992867df62f06b09a94a",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 295060,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/ab1ddead0bb5f061bf510c8e38cfb494871d64e3157b992867df62f06b09a94a.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 7,
+      "sourceIndex": 7,
+      "sourceUrl": "https://i.ebayimg.com/images/g/DU4AAOSwwCloHPak/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/DU4AAOSwwCloHPak/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/DU4AAOSwwCloHPak/s-l1600.jpg",
+      "contentHash": "cd4f6aeaef6a8616fb3af406d472284436be344320d84124ff3f3d79403d1306",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 344440,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/cd4f6aeaef6a8616fb3af406d472284436be344320d84124ff3f3d79403d1306.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 8,
+      "sourceIndex": 8,
+      "sourceUrl": "https://i.ebayimg.com/images/g/HUQAAOSwgd9oHPak/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/HUQAAOSwgd9oHPak/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/HUQAAOSwgd9oHPak/s-l1600.jpg",
+      "contentHash": "b6b5062b865d33b6734eebfe2cb66145fd7d6d64915b38f0a190447d306f1403",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 328070,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/b6b5062b865d33b6734eebfe2cb66145fd7d6d64915b38f0a190447d306f1403.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 9,
+      "sourceIndex": 9,
+      "sourceUrl": "https://i.ebayimg.com/images/g/ZqMAAeSwXttpeLMp/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/ZqMAAeSwXttpeLMp/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/ZqMAAeSwXttpeLMp/s-l1600.jpg",
+      "contentHash": "c8bad3e9f126d6627c59845047d647d42126ab4381a10e2c044b17d1662da89f",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 353704,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/c8bad3e9f126d6627c59845047d647d42126ab4381a10e2c044b17d1662da89f.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 10,
+      "sourceIndex": 10,
+      "sourceUrl": "https://i.ebayimg.com/images/g/asMAAeSwsFtpeLMr/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/asMAAeSwsFtpeLMr/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/asMAAeSwsFtpeLMr/s-l1600.jpg",
+      "contentHash": "d5d913a154099d6fc98b9acf8400998c6ccb3de30073679c32637377432e1848",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 380790,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/d5d913a154099d6fc98b9acf8400998c6ccb3de30073679c32637377432e1848.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 11,
+      "sourceIndex": 11,
+      "sourceUrl": "https://i.ebayimg.com/images/g/4Z8AAeSwMXdpeLMq/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/4Z8AAeSwMXdpeLMq/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/4Z8AAeSwMXdpeLMq/s-l1600.jpg",
+      "contentHash": "636c247114a604aa165df6033d289a0f200b680a9e17b50b68a3de6bdbb679c9",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 347899,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/636c247114a604aa165df6033d289a0f200b680a9e17b50b68a3de6bdbb679c9.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 12,
+      "sourceIndex": 12,
+      "sourceUrl": "https://i.ebayimg.com/images/g/wcQAAeSw--VpeLMr/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/wcQAAeSw--VpeLMr/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/wcQAAeSw--VpeLMr/s-l1600.jpg",
+      "contentHash": "079df007c43bd31019e2be8bdcf3b7df44735453a201ae1f46b45e89b6945508",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 336404,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/079df007c43bd31019e2be8bdcf3b7df44735453a201ae1f46b45e89b6945508.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 13,
+      "sourceIndex": 13,
+      "sourceUrl": "https://i.ebayimg.com/images/g/dqgAAeSwLCdpeLMr/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/dqgAAeSwLCdpeLMr/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/dqgAAeSwLCdpeLMr/s-l1600.jpg",
+      "contentHash": "b4cba9121dd617e971238bef8c5a4bce632cc78848c5763074a614ff0d79badb",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 324313,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/b4cba9121dd617e971238bef8c5a4bce632cc78848c5763074a614ff0d79badb.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    },
+    {
+      "listingId": "v1|306733771117|0",
+      "imageIndex": 14,
+      "sourceIndex": 14,
+      "sourceUrl": "https://i.ebayimg.com/images/g/a2cAAeSwCRdpeLMq/s-l1600.jpg",
+      "originalUrl": "https://i.ebayimg.com/images/g/a2cAAeSwCRdpeLMq/s-l1600.jpg",
+      "resolvedUrl": "https://i.ebayimg.com/images/g/a2cAAeSwCRdpeLMq/s-l1600.jpg",
+      "contentHash": "1d15861c769f1c2e3f2ff70b93526fcf863eb2c4c4ed3dce45face945f5acf03",
+      "width": 1600,
+      "height": 1200,
+      "byteLength": 394225,
+      "contentType": "image/jpeg",
+      "cachePath": "data/price-ingest/cache/listing-evidence-v2/n64-super-mario-64/1d15861c769f1c2e3f2ff70b93526fcf863eb2c4c4ed3dce45face945f5acf03.img",
+      "sourceKind": "ADDITIONAL",
+      "publicationAllowed": false
+    }
+  ],
+  "failures": [],
+  "rights": {
+    "classification": "INTERNAL_EVIDENCE_REFERENCE",
+    "publishAsRegionAtlasAsset": false
+  }
+}
