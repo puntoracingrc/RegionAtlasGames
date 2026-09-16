@@ -1,0 +1,1586 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-16T16:31:26.333Z",
+  "subjectId": "curator-subject-4b2bb9eef68bb5094e5f",
+  "inputHash": "cfdcdee1f096972c15246e9b95b021bb102f761098c45e144cf417624376af6d",
+  "evidenceHash": "0dd0e6e9996f96422b92d9f7a70d76d36b1a74dd9a91871a14b7fe617d8d31f0",
+  "catalogContext": {
+    "subjectId": "curator-subject-4b2bb9eef68bb5094e5f",
+    "subjectKind": "catalog-entry",
+    "catalogId": "wii-gormiti-the-lords-of-nature",
+    "canonicalGameId": null,
+    "workId": null,
+    "platformReleaseId": null,
+    "guideId": null,
+    "physicalEditionId": null,
+    "title": "Gormiti: The Lords of Nature",
+    "aliases": [
+      "Gormiti: The Lords of Nature"
+    ],
+    "titlePc": "Gormiti: The Lords of Nature",
+    "slug": "gormiti-the-lords-of-nature",
+    "platformSlug": "wii",
+    "edition": "standard",
+    "physicalVariant": null,
+    "region": "PAL España",
+    "regionFamily": null,
+    "marketRegion": null,
+    "regionalStatus": null,
+    "languages": [],
+    "regionalPackaging": [],
+    "canonicalSerials": [],
+    "sourceSerials": [],
+    "resolutionSerials": [],
+    "publisher": "Konami",
+    "developer": "Climax Studios",
+    "companyCredits": [
+      {
+        "role": "developer",
+        "name": "Climax Studios",
+        "slug": "climax-studios",
+        "websiteUrl": null,
+        "sourceCandidateHost": null
+      },
+      {
+        "role": "publisher",
+        "name": "Konami",
+        "slug": "konami",
+        "websiteUrl": null,
+        "sourceCandidateHost": null
+      }
+    ],
+    "physicalPublisherOrDistributor": null,
+    "regionalPublisher": null,
+    "releaseDate": "September 27, 2010",
+    "year": 2010,
+    "ean": null,
+    "barcode": null,
+    "productCodes": [],
+    "softwareFamilyCodes": [],
+    "serial": null,
+    "catalogNumber": null,
+    "boxCode": null,
+    "ratingSystems": [],
+    "packagingLanguages": [],
+    "softwareLanguages": [],
+    "componentLanguageEvidence": [],
+    "broadRegion": null,
+    "marketRegions": [
+      "PAL España"
+    ],
+    "evidenceMarkets": [],
+    "distributionMarkets": [],
+    "physicalProductType": "PHYSICAL_FULL_GAME",
+    "nativePhysicalPlatform": null,
+    "compatiblePlatforms": [],
+    "containsDisc": false,
+    "countsAsNativePhysicalRelease": true,
+    "physicalContents": [],
+    "digitalContents": [],
+    "releaseStatus": null,
+    "confidence": null,
+    "sharedDiscId": null,
+    "scanSetIds": [],
+    "ownedScans": [],
+    "coverUrl": "/covers/wii/gormiti-the-lords-of-nature.jpg",
+    "editionImages": [],
+    "existingEvidence": [],
+    "existingResearchTasks": [],
+    "gameRetailer": null,
+    "priceCharting": {
+      "productId": 55204,
+      "path": "/game/pal-wii/gormiti-the-lords-of-nature"
+    },
+    "museumPath": null,
+    "legacySources": [],
+    "fieldProvenance": {},
+    "officialSourceCandidates": []
+  },
+  "knownVariants": [
+    {
+      "catalogId": "wii-gormiti-the-lords-of-nature",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null
+    }
+  ],
+  "knownIdentifiers": [],
+  "ownedScans": [],
+  "knownDirectUrls": [
+    {
+      "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+      "sourceId": "ebay-es",
+      "supports": [
+        "LISTING_EVIDENCE"
+      ]
+    }
+  ],
+  "existingEvidence": [],
+  "fieldPlans": {
+    "CANONICAL_IDENTITY": {
+      "field": "CANONICAL_IDENTITY",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "ubisoft-official",
+        "redump",
+        "ogdb",
+        "mobygames",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:ubisoft.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:redump.org \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "redump"
+        },
+        {
+          "query": "site:ogdb.eu \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:mobygames.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "site:yambalu.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "yambalu"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" canonical identity",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" canonical identity",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BARCODE": {
+      "field": "BARCODE",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "national-retailer",
+        "ogdb",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "launchbox-images"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 68,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 65,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:ogdb.eu \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:todocoleccion.net \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" back cover barcode EAN",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" back cover barcode EAN",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PRODUCT_CODE": {
+      "field": "PRODUCT_CODE",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "redump",
+        "ogdb",
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "platform-holder-official"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 84,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 55,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 45,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:redump.org \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "redump"
+        },
+        {
+          "query": "site:ogdb.eu \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" cartridge disc product code",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" cartridge disc product code",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BOX_CODE": {
+      "field": "BOX_CODE",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "ogdb",
+        "launchbox-images"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 60,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ogdb.eu \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" box code",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" box code",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "MARKET_REGION": {
+      "field": "MARKET_REGION",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "mobygames",
+        "redump"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 60,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 20,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 65,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 10,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:todocoleccion.net \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:mobygames.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" back cover distributor legal text",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" back cover distributor legal text",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PACKAGING_LANGUAGES": {
+      "field": "PACKAGING_LANGUAGES",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "todocoleccion",
+        "ebay",
+        "ogdb",
+        "launchbox-images",
+        "national-retailer"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "DISCOVERY_ONLY",
+          "score": 66,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 62,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 20,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:todocoleccion.net \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:ogdb.eu \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" back cover spine",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" back cover spine",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PHYSICAL_PRODUCT_TYPE": {
+      "field": "PHYSICAL_PRODUCT_TYPE",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "platform-holder-official",
+        "ubisoft-official",
+        "launchbox-images",
+        "ebay"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 60,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 55,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:nintendo.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "platform-holder-official"
+        },
+        {
+          "query": "site:ubisoft.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" back cover download required code in box",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" back cover download required code in box",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "OUTER_INNER_RELATION": {
+      "field": "OUTER_INNER_RELATION",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "launchbox-images",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 48,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 30,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:yambalu.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "yambalu"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" unboxing outer package inner case",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" unboxing outer package inner case",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BUNDLE_CONTENTS": {
+      "field": "BUNDLE_CONTENTS",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "publisher-official",
+        "ubisoft-official",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 62,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ubisoft.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:yambalu.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "yambalu"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" bundle contents",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" bundle contents",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "COLLECTOR_CONTENTS": {
+      "field": "COLLECTOR_CONTENTS",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "publisher-official",
+        "ubisoft-official",
+        "todocoleccion",
+        "ebay"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 74,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ubisoft.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:todocoleccion.net \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" collector contents",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" collector contents",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "RELEASE_STATUS": {
+      "field": "RELEASE_STATUS",
+      "knownFacts": [
+        "title=Gormiti: The Lords of Nature",
+        "platform=wii",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "sourceId": "ebay-es",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "platform-holder-official",
+        "ubisoft-official",
+        "mobygames",
+        "national-retailer"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 96,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:nintendo.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "platform-holder-official"
+        },
+        {
+          "query": "site:ubisoft.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:mobygames.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "site:game.es \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" release status",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Gormiti: The Lords of Nature\" \"wii\" release status",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Disc identity does not prove box/manual market.",
+        "Language and seller country do not prove national distribution."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    }
+  },
+  "forbiddenInferences": [
+    "sellerCountry=ES does not prove a Spanish physical variant",
+    "Spanish text or software language does not prove Spanish distribution",
+    "PEGI does not prove a national market",
+    "an EAN prefix does not prove distribution country",
+    "a correct identifier on the wrong component is not corroboration",
+    "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+    "Disc identity does not prove box/manual market.",
+    "Language and seller country do not prove national distribution."
+  ],
+  "sourcePriority": [
+    "LOCAL_KNOWLEDGE",
+    "OWN_SCANS",
+    "EXISTING_DIRECT_URLS",
+    "EXACT_IDENTIFIERS",
+    "SPECIALIZED_SOURCES",
+    "OFFICIAL_SOURCES",
+    "PHYSICAL_SPECIMENS",
+    "GENERIC_SEARCH"
+  ],
+  "researchTasks": [
+    {
+      "field": "MARKET_REGION",
+      "code": "MISSING_MARKET_PROOF",
+      "missingProof": "No market-bound physical or distributor evidence.",
+      "recommendedSourceTypes": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR"
+      ]
+    },
+    {
+      "field": "CONDITION",
+      "code": "MISSING_COMPONENT_PHOTO",
+      "missingProof": "Visible contents do not support a condition bucket.",
+      "recommendedSourceTypes": [
+        "EXACT_PHYSICAL_PHOTO"
+      ]
+    },
+    {
+      "field": "CANONICAL_IDENTITY",
+      "code": "MISSING_COMPONENT_BINDING",
+      "missingProof": "No component-level observations reached the queue.",
+      "recommendedSourceTypes": [
+        "LISTING_IMAGES"
+      ]
+    }
+  ],
+  "loadedKnowledgeFiles": [
+    "data/research-engine/knowledge/sources.json",
+    "data/research-engine/knowledge/playbooks/general.json",
+    "data/research-engine/knowledge/query-templates.json",
+    "data/research-engine/knowledge/source-capabilities.json",
+    "data/research-engine/knowledge/source-access.json",
+    "data/research-engine/knowledge/identifier-patterns.json",
+    "data/research-engine/knowledge/barcode-rules.json",
+    "data/research-engine/knowledge/region-patterns.json",
+    "data/research-engine/knowledge/physical-product-rules.json",
+    "data/research-engine/knowledge/known-traps.json",
+    "data/research-engine/knowledge/platform-routing-matrix.json",
+    "data/ebay-regional-campaigns/wii.json"
+  ],
+  "packId": "knowledge-pack-c6ab8417b58364c2217db49c"
+}

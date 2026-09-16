@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-24270bae0f1601df968cd6f9",
+    "runId": "deep-dcbc66b8bea0c8b6e950fbc4-mu4bo0pm",
+    "taskId": "deep-dcbc66b8bea0c8b6e950fbc4",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+    "canonicalUrl": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.todoconsolas.com",
+    "fetchedAt": "2026-09-16T16:35:43.235Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PAL España",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "e1902ad081c70349292f82df34ff546dfc83ea906938a3d4cad9d561a29f5f22",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

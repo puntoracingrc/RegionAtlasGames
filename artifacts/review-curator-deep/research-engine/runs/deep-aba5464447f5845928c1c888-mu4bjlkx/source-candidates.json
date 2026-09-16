@@ -1,0 +1,12 @@
+[
+  {
+    "host": "www.amazon.ca",
+    "sampleUrls": [
+      "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

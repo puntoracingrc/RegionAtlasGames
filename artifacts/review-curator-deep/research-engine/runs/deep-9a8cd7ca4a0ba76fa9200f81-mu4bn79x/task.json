@@ -1,0 +1,17 @@
+{
+  "id": "deep-9a8cd7ca4a0ba76fa9200f81",
+  "subjectId": "curator-subject-2c845f2becf53a7497b0",
+  "targetField": "PRODUCT_CODE",
+  "question": "Find component-bound cartridge product-code evidence for Star Wars Episode I: Racer; keep cartridge, box and manual codes separate.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

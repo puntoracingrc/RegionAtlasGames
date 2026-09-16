@@ -1,0 +1,20 @@
+[
+  {
+    "host": "bitjumpgames.com",
+    "sampleUrls": [
+      "https://bitjumpgames.com/products/fishing-master-wii"
+    ],
+    "fieldsObserved": [
+      "CANONICAL_IDENTITY"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  },
+  {
+    "host": "www.walmart.com",
+    "sampleUrls": [
+      "https://www.walmart.com/ip/Fishing-Master-Wii/7080042"
+    ],
+    "fieldsObserved": [],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

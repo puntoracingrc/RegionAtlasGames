@@ -1,0 +1,45 @@
+[
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/zPoAAOSw3rJc4NKb/s-l300.jpg",
+    "result": {
+      "component": "UNKNOWN_COMPONENT",
+      "titleCandidate": "International Superstar Soccer 98",
+      "platformCandidate": "n64",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "UNREADABLE",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "UNREADABLE",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {},
+      "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": null,
+      "componentNodeLabel": null,
+      "editionClass": "OTHER",
+      "visibleEditionMarker": null,
+      "visualStages": {
+        "subject": "REJECTED",
+        "component": "UNREADABLE",
+        "extraction": "SKIPPED",
+        "binding": "REJECTED"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 3285,
+      "outputTokens": 50,
+      "estimatedCostUsd": 0.000523
+    }
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-b8cd491529ef303e15b4aecb",
+    "runId": "deep-545c783b205f8a0f3349def7-mu4bkyzy",
+    "taskId": "deep-545c783b205f8a0f3349def7",
+    "subjectId": "curator-subject-0290405b7da63c5c18b1",
+    "gameId": "wii-ghost-squad",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:moegamer.net",
+    "sourceUrl": "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/",
+    "evidenceId": "ev-95787700828e6aa50d506c69",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:33:26.728Z"
+  }
+]

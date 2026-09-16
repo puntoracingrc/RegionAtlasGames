@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-b68482cd9c3386382bb2538f",
+    "runId": "deep-be225899c94fa6f41cc8fabf-mu4bjevt",
+    "taskId": "deep-be225899c94fa6f41cc8fabf",
+    "sourceId": "candidate:www.nintendolife.com",
+    "sourceUrl": "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii",
+    "canonicalUrl": "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.nintendolife.com",
+    "fetchedAt": "2026-09-16T16:32:11.882Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Version Reviewed: European review by Christopher Clark Sun 21st Jun 2009",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "52974af18f43b9210f392f9ead6e230ec1345a0e057a44c6187ac08a6627ab1d",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

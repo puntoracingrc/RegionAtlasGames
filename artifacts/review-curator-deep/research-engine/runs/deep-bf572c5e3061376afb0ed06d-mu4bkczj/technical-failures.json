@@ -1,0 +1,23 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/377370832448?_skw=Inazuma+Eleven+Strikers&hash=item57dd0dee40:g:zb0AAeSwau1qjtRX&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZj98RtiezjmIA0btTTrmFtJhb7y9%2FFR9lf3c3GMixFOclPG%2BLpTAPncMg%2BKjfAE9Snzy%2BzDdvqvEYZ9VjWW6p7q1klE%2FO%2BvR%2BgHl4iV6pG2WBTEEAkplIi6B4gsXIxZerlxMbQw7K5GSIMutlNKARNNrAhwRWxAVODd4ImHtHYKc%2B0xCudnh%2FedAPQyIVKAtKRjh01K%2BOWdB%2FEh%2F7q%2FNzXxtCJ9xD2%2Fqv932zI6ktj30Oq6H6Yruzh%2Fes1Vyhlhn%2BqaYNaOOFd73Fy6C%2BjHs9OVCjMUa5eJdvwQz707%2BPKdw%3D%3D",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/256576436493",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/50929/inazuma-eleven/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  }
+]

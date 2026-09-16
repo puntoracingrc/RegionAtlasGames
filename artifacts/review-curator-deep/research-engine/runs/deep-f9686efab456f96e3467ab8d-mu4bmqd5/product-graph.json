@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "5d6775dcc4282484e1d6",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "International Superstar Soccer 64 · n64 · standard",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "2f306e550937ff6fe0c5",
+      "type": "OUTER_PACKAGE",
+      "label": "OUTER_PACKAGE:UNKNOWN_COMPONENT",
+      "parentProductId": "5d6775dcc4282484e1d6",
+      "component": "UNKNOWN_COMPONENT"
+    }
+  ],
+  "relations": [
+    {
+      "fromNodeId": "2f306e550937ff6fe0c5",
+      "toNodeId": "5d6775dcc4282484e1d6",
+      "relation": "WRAPS",
+      "evidenceIds": [
+        "ev-51bdc9c83bdc871926a5d196"
+      ]
+    }
+  ]
+}

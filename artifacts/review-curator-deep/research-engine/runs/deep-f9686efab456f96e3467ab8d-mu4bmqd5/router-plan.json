@@ -1,0 +1,1943 @@
+{
+  "current": {
+    "targetField": "PRODUCT_CODE",
+    "factsUsed": [
+      "target=PRODUCT_CODE",
+      "platform=n64",
+      "title=International Superstar Soccer 64",
+      "edition=standard",
+      "PRODUCT_CODE=28789",
+      "knowledgePack=knowledge-pack-b9e3ab3740af6c4df22a2387",
+      "knownVariants=2",
+      "knownDirectUrls=1",
+      "playbook=N64_CART_KNOWN_BOX_UNKNOWN"
+    ],
+    "selectedPlaybook": {
+      "id": "N64_CART_KNOWN_BOX_UNKNOWN",
+      "targets": [
+        "*"
+      ],
+      "triggers": [
+        "CARTRIDGE_CODE_KNOWN",
+        "BOX_CODE_UNKNOWN"
+      ],
+      "sourceRoles": [],
+      "queryTemplateGroups": [],
+      "deterministicChecks": [
+        "SUBJECT_BINDING",
+        "PLATFORM_MATCH",
+        "COMPONENT_BINDING"
+      ],
+      "steps": [],
+      "stopWhen": null,
+      "stopRule": "Do not set national market from cart suffix alone.",
+      "sourceIds": [
+        "nintendo64ever",
+        "nesworld",
+        "rfgeneration",
+        "ogdb",
+        "spinecard",
+        "retroplace"
+      ],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "EUROPEAN_RELEASE_DATABASE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "SEARCH_ENGINE"
+        ],
+        "capabilityScore": 86,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 86."
+      },
+      {
+        "sourceId": "no-intro",
+        "hosts": [
+          "no-intro.org",
+          "wiki.no-intro.org"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "CARTRIDGE_IDENTIFIER",
+          "TECHNICAL_ROM_DATABASE"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH"
+        ],
+        "capabilityScore": 98,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 98."
+      },
+      {
+        "sourceId": "datomatic",
+        "hosts": [
+          "datomatic.no-intro.org"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "CARTRIDGE_IDENTIFIER"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 92,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 92."
+      },
+      {
+        "sourceId": "nesworld",
+        "hosts": [
+          "www.nesworld.com"
+        ],
+        "roles": [
+          "SPECIALIZED_NINTENDO_DATABASE"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 96,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 96."
+      },
+      {
+        "sourceId": "nintendo64ever",
+        "hosts": [
+          "www.nintendo64ever.com"
+        ],
+        "roles": [
+          "SPECIALIZED_N64_DATABASE"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 95,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 95."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 55,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 55."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk",
+          "www.ebay.com"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "API"
+        ],
+        "capabilityScore": 45,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 45."
+      },
+      {
+        "sourceId": "64scener",
+        "hosts": [
+          "64scener.com"
+        ],
+        "roles": [
+          "SPECIALIZED_N64_WORLDWIDE_LIST"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 94,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 94."
+      },
+      {
+        "sourceId": "spinecard",
+        "hosts": [
+          "foro.spinecard.com"
+        ],
+        "roles": [
+          "COMMUNITY_DOCUMENTED_SPECIMEN"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 88,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 88."
+      },
+      {
+        "sourceId": "emulation64",
+        "hosts": [
+          "www.emulation64.fr"
+        ],
+        "roles": [
+          "MANUAL_SCAN_ARCHIVE"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 90,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 90."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 86,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 86."
+      },
+      {
+        "sourceId": "rfgeneration",
+        "hosts": [
+          "www.rfgeneration.com"
+        ],
+        "roles": [
+          "COLLECTOR_RELEASE_DATABASE"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Ordered by N64_CART_KNOWN_BOX_UNKNOWN; target capability not declared."
+      },
+      {
+        "sourceId": "retroplace",
+        "hosts": [
+          "retroplace.com",
+          "www.retroplace.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COLLECTOR_PRODUCT_DATABASE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH",
+          "SEARCH_ENGINE"
+        ],
+        "capabilityScore": 78,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 78."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "bulbapedia",
+        "hosts": [
+          "bulbapedia.bulbagarden.net"
+        ],
+        "roles": [
+          "FRANCHISE_SPECIALIZED_REFERENCE"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 86."
+      },
+      {
+        "sourceId": "crimson-ceremony",
+        "hosts": [
+          "crimson-ceremony.net"
+        ],
+        "roles": [
+          "FRANCHISE_SPECIALIZED_REFERENCE"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 82."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com",
+          "www.mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY",
+          "RELEASE_AND_COVER_DATABASE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "SEARCH_ENGINE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 78."
+      },
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 72."
+      },
+      {
+        "sourceId": "retroloco",
+        "hosts": [
+          "www.retroloco.es"
+        ],
+        "roles": [
+          "SPANISH_RETRO_RETAILER_SPECIMEN"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 72."
+      },
+      {
+        "sourceId": "vgcollect",
+        "hosts": [
+          "vgcollect.com"
+        ],
+        "roles": [
+          "COLLECTOR_VARIANT_DATABASE"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 68."
+      },
+      {
+        "sourceId": "gamefaqs",
+        "hosts": [
+          "gamefaqs.gamespot.com"
+        ],
+        "roles": [
+          "RELEASE_DISCOVERY_DATABASE"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 65."
+      },
+      {
+        "sourceId": "micro64",
+        "hosts": [
+          "micro-64.com"
+        ],
+        "roles": [
+          "N64_MASTER_LIST"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 64."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://retroplayzone.com/28789-international-superstar-soccer-64-cartuchoi-n64.html",
+        "sourceId": "retroplayzone",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "site:no-intro.org \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "sourceId": "no-intro",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:datomatic.no-intro.org \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "sourceId": "datomatic",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "sourceId": "ogdb",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:gamesdb.launchbox-app.com \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "sourceId": "launchbox-images",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "sourceId": "todocoleccion",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"International Superstar Soccer 64\" \"n64\" \"standard\" cartridge disc product code",
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "28789",
+        "query": "\"28789\""
+      },
+      {
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "28789",
+        "query": "\"28789\" n64"
+      },
+      {
+        "sourceId": "ogdb",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "28789",
+        "query": "site:ogdb.eu \"28789\""
+      },
+      {
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "28789",
+        "query": "\"28789\" \"International Superstar Soccer 64\""
+      },
+      {
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "28789",
+        "query": "\"28789\" USA"
+      },
+      {
+        "sourceId": "no-intro",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "PRODUCT_CODE",
+        "identifierValue": "28789",
+        "query": "site:no-intro.org \"28789\""
+      },
+      {
+        "query": "site:ogdb.eu \"International Superstar Soccer 64\" n64",
+        "sourceId": "ogdb",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:wiki.no-intro.org \"28789\"",
+        "sourceId": "no-intro",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:datomatic.no-intro.org \"28789\"",
+        "sourceId": "datomatic",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:gamesdb.launchbox-app.com \"International Superstar Soccer 64\" n64 back",
+        "sourceId": "launchbox-images",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"International Superstar Soccer 64\" n64",
+        "sourceId": "todocoleccion",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.es \"International Superstar Soccer 64\" n64",
+        "sourceId": "ebay",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:no-intro.org \"International Superstar Soccer 64\" n64",
+        "sourceId": "no-intro",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:datomatic.no-intro.org \"International Superstar Soccer 64\" n64",
+        "sourceId": "datomatic",
+        "purpose": "PRODUCT_CODE",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"28789\" box",
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "GENERIC"
+      },
+      {
+        "query": "\"28789\" manual",
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "GENERIC"
+      },
+      {
+        "query": "\"28789\" barcode",
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "GENERIC"
+      },
+      {
+        "query": "\"International Superstar Soccer 64\" \"n64\" cartridge disc product code",
+        "sourceId": null,
+        "purpose": "PRODUCT_CODE",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [
+      {
+        "component": "CARTRIDGE_FRONT",
+        "fields": [
+          "PRODUCT_CODE"
+        ],
+        "reason": "Read the code from the exact physical medium."
+      },
+      {
+        "component": "CART_FRONT",
+        "fields": [
+          "PRODUCT_CODE"
+        ],
+        "reason": "Legacy compatibility alias; canonicalized to CARTRIDGE_FRONT before binding."
+      }
+    ],
+    "deterministicChecks": [
+      "SUBJECT_BINDING",
+      "PLATFORM_MATCH",
+      "COMPONENT_BINDING"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "83a8e5497b96025221593f7d5c7fd42a12b4588e211086bded1ec1f011a7985c"
+  },
+  "history": [
+    {
+      "targetField": "PRODUCT_CODE",
+      "factsUsed": [
+        "target=PRODUCT_CODE",
+        "platform=n64",
+        "title=International Superstar Soccer 64",
+        "edition=standard",
+        "knowledgePack=knowledge-pack-b9e3ab3740af6c4df22a2387",
+        "knownVariants=2",
+        "knownDirectUrls=1",
+        "playbook=N64_NO_IDENTIFIERS"
+      ],
+      "selectedPlaybook": {
+        "id": "N64_NO_IDENTIFIERS",
+        "targets": [
+          "*"
+        ],
+        "triggers": [
+          "NO_BARCODE",
+          "NO_COMPONENT_CODE"
+        ],
+        "sourceRoles": [],
+        "queryTemplateGroups": [],
+        "deterministicChecks": [
+          "SUBJECT_BINDING",
+          "PLATFORM_MATCH",
+          "COMPONENT_BINDING"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": null,
+        "sourceIds": [
+          "nintendo64ever",
+          "nesworld",
+          "64scener",
+          "micro64",
+          "mobygames",
+          "rfgeneration",
+          "ogdb",
+          "retroplace"
+        ],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "no-intro",
+          "hosts": [
+            "no-intro.org",
+            "wiki.no-intro.org"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "CARTRIDGE_IDENTIFIER",
+            "TECHNICAL_ROM_DATABASE"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH"
+          ],
+          "capabilityScore": 98,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 98."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "EUROPEAN_RELEASE_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "SEARCH_ENGINE"
+          ],
+          "capabilityScore": 86,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 86."
+        },
+        {
+          "sourceId": "datomatic",
+          "hosts": [
+            "datomatic.no-intro.org"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "CARTRIDGE_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 92,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 92."
+        },
+        {
+          "sourceId": "nesworld",
+          "hosts": [
+            "www.nesworld.com"
+          ],
+          "roles": [
+            "SPECIALIZED_NINTENDO_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 96,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 96."
+        },
+        {
+          "sourceId": "nintendo64ever",
+          "hosts": [
+            "www.nintendo64ever.com"
+          ],
+          "roles": [
+            "SPECIALIZED_N64_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 95,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 95."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 55,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 55."
+        },
+        {
+          "sourceId": "64scener",
+          "hosts": [
+            "64scener.com"
+          ],
+          "roles": [
+            "SPECIALIZED_N64_WORLDWIDE_LIST"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 94,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 94."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk",
+            "www.ebay.com"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "API"
+          ],
+          "capabilityScore": 45,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 45."
+        },
+        {
+          "sourceId": "emulation64",
+          "hosts": [
+            "www.emulation64.fr"
+          ],
+          "roles": [
+            "MANUAL_SCAN_ARCHIVE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 90,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 90."
+        },
+        {
+          "sourceId": "spinecard",
+          "hosts": [
+            "foro.spinecard.com"
+          ],
+          "roles": [
+            "COMMUNITY_DOCUMENTED_SPECIMEN"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 88,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 88."
+        },
+        {
+          "sourceId": "micro64",
+          "hosts": [
+            "micro-64.com"
+          ],
+          "roles": [
+            "N64_MASTER_LIST"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Ordered by N64_NO_IDENTIFIERS; target capability not declared."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 86,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 86."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com",
+            "www.mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY",
+            "RELEASE_AND_COVER_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "SEARCH_ENGINE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Ordered by N64_NO_IDENTIFIERS; target capability not declared."
+        },
+        {
+          "sourceId": "retroplace",
+          "hosts": [
+            "retroplace.com",
+            "www.retroplace.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COLLECTOR_PRODUCT_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "SEARCH_ENGINE"
+          ],
+          "capabilityScore": 78,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 78."
+        },
+        {
+          "sourceId": "rfgeneration",
+          "hosts": [
+            "www.rfgeneration.com"
+          ],
+          "roles": [
+            "COLLECTOR_RELEASE_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Ordered by N64_NO_IDENTIFIERS; target capability not declared."
+        },
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "bulbapedia",
+          "hosts": [
+            "bulbapedia.bulbagarden.net"
+          ],
+          "roles": [
+            "FRANCHISE_SPECIALIZED_REFERENCE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 86."
+        },
+        {
+          "sourceId": "crimson-ceremony",
+          "hosts": [
+            "crimson-ceremony.net"
+          ],
+          "roles": [
+            "FRANCHISE_SPECIALIZED_REFERENCE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 82."
+        },
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 72."
+        },
+        {
+          "sourceId": "retroloco",
+          "hosts": [
+            "www.retroloco.es"
+          ],
+          "roles": [
+            "SPANISH_RETRO_RETAILER_SPECIMEN"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 72."
+        },
+        {
+          "sourceId": "vgcollect",
+          "hosts": [
+            "vgcollect.com"
+          ],
+          "roles": [
+            "COLLECTOR_VARIANT_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 68."
+        },
+        {
+          "sourceId": "gamefaqs",
+          "hosts": [
+            "gamefaqs.gamespot.com"
+          ],
+          "roles": [
+            "RELEASE_DISCOVERY_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 65."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://retroplayzone.com/28789-international-superstar-soccer-64-cartuchoi-n64.html",
+          "sourceId": "retroplayzone",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "site:no-intro.org \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "no-intro",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "datomatic",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "ogdb",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "launchbox-images",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"International Superstar Soccer 64\" \"n64\" \"standard\" cartridge disc product code",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:no-intro.org \"International Superstar Soccer 64\" n64",
+          "sourceId": "no-intro",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"International Superstar Soccer 64\" n64",
+          "sourceId": "ogdb",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"International Superstar Soccer 64\" n64",
+          "sourceId": "datomatic",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"International Superstar Soccer 64\" n64 back",
+          "sourceId": "launchbox-images",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"International Superstar Soccer 64\" n64",
+          "sourceId": "todocoleccion",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"International Superstar Soccer 64\" Nintendo 64 NUS",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        },
+        {
+          "query": "\"International Superstar Soccer 64\" N64 box serial",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        },
+        {
+          "query": "\"International Superstar Soccer 64\" N64 barcode",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        },
+        {
+          "query": "\"International Superstar Soccer 64\" N64 manual code",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        },
+        {
+          "query": "\"International Superstar Soccer 64\" \"n64\" cartridge disc product code",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [
+        {
+          "component": "CARTRIDGE_FRONT",
+          "fields": [
+            "PRODUCT_CODE"
+          ],
+          "reason": "Read the code from the exact physical medium."
+        },
+        {
+          "component": "CART_FRONT",
+          "fields": [
+            "PRODUCT_CODE"
+          ],
+          "reason": "Legacy compatibility alias; canonicalized to CARTRIDGE_FRONT before binding."
+        }
+      ],
+      "deterministicChecks": [
+        "SUBJECT_BINDING",
+        "PLATFORM_MATCH",
+        "COMPONENT_BINDING"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "0c41a85320a0a5cacd1c64e51e1054398d99d0603345408896c3a3f1169fda5e"
+    },
+    {
+      "targetField": "PRODUCT_CODE",
+      "factsUsed": [
+        "target=PRODUCT_CODE",
+        "platform=n64",
+        "title=International Superstar Soccer 64",
+        "edition=standard",
+        "PRODUCT_CODE=28789",
+        "knowledgePack=knowledge-pack-b9e3ab3740af6c4df22a2387",
+        "knownVariants=2",
+        "knownDirectUrls=1",
+        "playbook=N64_CART_KNOWN_BOX_UNKNOWN"
+      ],
+      "selectedPlaybook": {
+        "id": "N64_CART_KNOWN_BOX_UNKNOWN",
+        "targets": [
+          "*"
+        ],
+        "triggers": [
+          "CARTRIDGE_CODE_KNOWN",
+          "BOX_CODE_UNKNOWN"
+        ],
+        "sourceRoles": [],
+        "queryTemplateGroups": [],
+        "deterministicChecks": [
+          "SUBJECT_BINDING",
+          "PLATFORM_MATCH",
+          "COMPONENT_BINDING"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": "Do not set national market from cart suffix alone.",
+        "sourceIds": [
+          "nintendo64ever",
+          "nesworld",
+          "rfgeneration",
+          "ogdb",
+          "spinecard",
+          "retroplace"
+        ],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "EUROPEAN_RELEASE_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "SEARCH_ENGINE"
+          ],
+          "capabilityScore": 86,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 86."
+        },
+        {
+          "sourceId": "no-intro",
+          "hosts": [
+            "no-intro.org",
+            "wiki.no-intro.org"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "CARTRIDGE_IDENTIFIER",
+            "TECHNICAL_ROM_DATABASE"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH"
+          ],
+          "capabilityScore": 98,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 98."
+        },
+        {
+          "sourceId": "datomatic",
+          "hosts": [
+            "datomatic.no-intro.org"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "CARTRIDGE_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 92,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 92."
+        },
+        {
+          "sourceId": "nesworld",
+          "hosts": [
+            "www.nesworld.com"
+          ],
+          "roles": [
+            "SPECIALIZED_NINTENDO_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 96,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 96."
+        },
+        {
+          "sourceId": "nintendo64ever",
+          "hosts": [
+            "www.nintendo64ever.com"
+          ],
+          "roles": [
+            "SPECIALIZED_N64_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 95,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 95."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 55,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 55."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk",
+            "www.ebay.com"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "API"
+          ],
+          "capabilityScore": 45,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 45."
+        },
+        {
+          "sourceId": "64scener",
+          "hosts": [
+            "64scener.com"
+          ],
+          "roles": [
+            "SPECIALIZED_N64_WORLDWIDE_LIST"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 94,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 94."
+        },
+        {
+          "sourceId": "spinecard",
+          "hosts": [
+            "foro.spinecard.com"
+          ],
+          "roles": [
+            "COMMUNITY_DOCUMENTED_SPECIMEN"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 88,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 88."
+        },
+        {
+          "sourceId": "emulation64",
+          "hosts": [
+            "www.emulation64.fr"
+          ],
+          "roles": [
+            "MANUAL_SCAN_ARCHIVE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 90,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 90."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 86,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 86."
+        },
+        {
+          "sourceId": "rfgeneration",
+          "hosts": [
+            "www.rfgeneration.com"
+          ],
+          "roles": [
+            "COLLECTOR_RELEASE_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Ordered by N64_CART_KNOWN_BOX_UNKNOWN; target capability not declared."
+        },
+        {
+          "sourceId": "retroplace",
+          "hosts": [
+            "retroplace.com",
+            "www.retroplace.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COLLECTOR_PRODUCT_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH",
+            "SEARCH_ENGINE"
+          ],
+          "capabilityScore": 78,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 78."
+        },
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "bulbapedia",
+          "hosts": [
+            "bulbapedia.bulbagarden.net"
+          ],
+          "roles": [
+            "FRANCHISE_SPECIALIZED_REFERENCE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 86."
+        },
+        {
+          "sourceId": "crimson-ceremony",
+          "hosts": [
+            "crimson-ceremony.net"
+          ],
+          "roles": [
+            "FRANCHISE_SPECIALIZED_REFERENCE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 82."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com",
+            "www.mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY",
+            "RELEASE_AND_COVER_DATABASE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "SEARCH_ENGINE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 78."
+        },
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 72."
+        },
+        {
+          "sourceId": "retroloco",
+          "hosts": [
+            "www.retroloco.es"
+          ],
+          "roles": [
+            "SPANISH_RETRO_RETAILER_SPECIMEN"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 72."
+        },
+        {
+          "sourceId": "vgcollect",
+          "hosts": [
+            "vgcollect.com"
+          ],
+          "roles": [
+            "COLLECTOR_VARIANT_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 68."
+        },
+        {
+          "sourceId": "gamefaqs",
+          "hosts": [
+            "gamefaqs.gamespot.com"
+          ],
+          "roles": [
+            "RELEASE_DISCOVERY_DATABASE"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 65."
+        },
+        {
+          "sourceId": "micro64",
+          "hosts": [
+            "micro-64.com"
+          ],
+          "roles": [
+            "N64_MASTER_LIST"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 64."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://retroplayzone.com/28789-international-superstar-soccer-64-cartuchoi-n64.html",
+          "sourceId": "retroplayzone",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "site:no-intro.org \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "no-intro",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "datomatic",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "ogdb",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "launchbox-images",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"International Superstar Soccer 64\" \"n64\" \"standard\" cartridge disc product code",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "28789",
+          "query": "\"28789\""
+        },
+        {
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "28789",
+          "query": "\"28789\" n64"
+        },
+        {
+          "sourceId": "ogdb",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "28789",
+          "query": "site:ogdb.eu \"28789\""
+        },
+        {
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "28789",
+          "query": "\"28789\" \"International Superstar Soccer 64\""
+        },
+        {
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "28789",
+          "query": "\"28789\" USA"
+        },
+        {
+          "sourceId": "no-intro",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "PRODUCT_CODE",
+          "identifierValue": "28789",
+          "query": "site:no-intro.org \"28789\""
+        },
+        {
+          "query": "site:ogdb.eu \"International Superstar Soccer 64\" n64",
+          "sourceId": "ogdb",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:wiki.no-intro.org \"28789\"",
+          "sourceId": "no-intro",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"28789\"",
+          "sourceId": "datomatic",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"International Superstar Soccer 64\" n64 back",
+          "sourceId": "launchbox-images",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"International Superstar Soccer 64\" n64",
+          "sourceId": "todocoleccion",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.es \"International Superstar Soccer 64\" n64",
+          "sourceId": "ebay",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:no-intro.org \"International Superstar Soccer 64\" n64",
+          "sourceId": "no-intro",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"International Superstar Soccer 64\" n64",
+          "sourceId": "datomatic",
+          "purpose": "PRODUCT_CODE",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"28789\" box",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        },
+        {
+          "query": "\"28789\" manual",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        },
+        {
+          "query": "\"28789\" barcode",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        },
+        {
+          "query": "\"International Superstar Soccer 64\" \"n64\" cartridge disc product code",
+          "sourceId": null,
+          "purpose": "PRODUCT_CODE",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [
+        {
+          "component": "CARTRIDGE_FRONT",
+          "fields": [
+            "PRODUCT_CODE"
+          ],
+          "reason": "Read the code from the exact physical medium."
+        },
+        {
+          "component": "CART_FRONT",
+          "fields": [
+            "PRODUCT_CODE"
+          ],
+          "reason": "Legacy compatibility alias; canonicalized to CARTRIDGE_FRONT before binding."
+        }
+      ],
+      "deterministicChecks": [
+        "SUBJECT_BINDING",
+        "PLATFORM_MATCH",
+        "COMPONENT_BINDING"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "83a8e5497b96025221593f7d5c7fd42a12b4588e211086bded1ec1f011a7985c"
+    }
+  ]
+}

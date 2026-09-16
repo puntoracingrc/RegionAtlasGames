@@ -1,0 +1,9 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://ebay.com/itm/206191526933?hash=item3001f90415%3Ag%3As%7EUAAeSwtLtp0n0s&itmmeta=01KNFDTQXQYWS7QVHB30HHX9HY&itmprp=enc%3AAQALAAAA4DKQclQvzFwZQpmMrsO4LuqlkX3%2F99YUYp4E1RxtGgc4lR3ZnApigcsKHN%2FmBTmGCMehWYW835iZTZxNNS46pKRup68WQ0Pp0y0gkkqvKJTkIKFxjleiJmxYW%2FOp45G0TwZVCeXVNg1gT3CvQhk0BDQDUP9BAsqvU53VTk+JGGJuzuMwiLCrh179C%2FfzGmpaK34D74ibmari4iGn9+0Hu3i48U9DbWIDktekEkE66xeEjmwlhj9AHYgsQ+YvesVUI08DgXr0mATyMzhyGuBt3jZXoZppO3j%2FlWwTTv5tFJ45%7Ctkp%3ABk9SR4L_6u2rZw",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": false
+  }
+]

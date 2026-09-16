@@ -1,0 +1,23 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/195097511021?_skw=Grand+Slam+Tennis&hash=item2d6cb7c46d:g:vzgAAOSwpgdile4t&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGbYZKe%2B%2Bmp3%2BYn0kD3eqchOiYWqmbfaWvlKCOnEzWmcfJIVHhKbFcT0jR%2BROqdOt4ad8RpMZuGN1w6uCLsw6fbgPRlaZuFHqUqP7oPmfm2W4x4qYSBCL%2F8eg4aEfzVk2kb9PFXQPyXJp7EXeiQ602ODwtn9kFnLUhBTPtfc4NFmx%2ByLnaYqsUe4MPdsr33Tl7w10aUrW8FHM126KNH3SKfIZzSz7A4xAYUWD%2BFGpNt0Q0RK8OLVBjhK8koRqljVenv7ozP%2BJUkrYsENkWd7P5k5WjT7Se0iiQKGv1NsnQjKUQ%3D%3D",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/291645184076",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://forumsold.operationsports.com/previews/70/grand-slam-tennis-whats-hot-and-whats-not/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "id": "deep-c31a6d77c6f78885365c9fb0",
+  "subjectId": "curator-subject-91dfd7dd5d2735c03c0b",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Dave Mirra BMX Challenge Wii Nintendo Wii PAL Alemania Español EMBALAJE ORIGINAL Completo, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 1,
+  "rows": [
+    {
+      "caseId": "shadow_20_live-00f149364083176e98b3",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-01637866b794ae795eb9",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-02d2a44bf900bcc26dcf",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-04a5a691752b7c689b9b",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "platform_candidate",
+        "market_region"
+      ],
+      "workerGaps": [
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-054df8e1147efbc38b49",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-0560743eaf0bc388c28c",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-0568c4a9117a9d000b0e",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-061f8b43601c71726400",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-0653feb8d8bc2db37e97",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-07aac5ae7dc1b2ef39f3",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-08b70515182237c17235",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-0a3ac4ca518f4220b2ba",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "shadow_20_live-0b9827473683ab13e354",
+      "platform": "other",
+      "origin": "SHADOW_20_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_live-9eb77b589f8eed7f7b1c",
+      "platform": "ps4",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_live-a7e6c0f114ca5848b46c",
+      "platform": "ps4",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_live-5a9b9160ca1816f8d07c",
+      "platform": "ps4",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_live-bb177450aff4b98e9ecf",
+      "platform": "ps4",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-933ba89565a5cc2437d3",
+      "platform": "n64",
+      "origin": "MATURE_PLATFORM_WORKER",
+      "workerConfirmed": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-e3ea6ec812269321a695",
+      "platform": "n64",
+      "origin": "MATURE_PLATFORM_WORKER",
+      "workerConfirmed": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-2f9bc9308421264d849f",
+      "platform": "n64",
+      "origin": "MATURE_PLATFORM_WORKER",
+      "workerConfirmed": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-06b68c49b7795dc8aed5",
+      "platform": "n64",
+      "origin": "MATURE_PLATFORM_WORKER",
+      "workerConfirmed": [
+        "identity",
+        "platform_candidate",
+        "condition"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_live-b61040fc7f57ac796e67",
+      "platform": "ps5",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "workerConfirmed": [
+        "candidate_identity",
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_live-99d439633b5311c4960c",
+      "platform": "ps5",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "workerConfirmed": [
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_live-39b0f01b400e4cb034d4",
+      "platform": "ps5",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "workerConfirmed": [
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    },
+    {
+      "caseId": "mature_platform_live-9c0ea8059d4a40f29399",
+      "platform": "ps5",
+      "origin": "MATURE_PLATFORM_LIVE",
+      "workerConfirmed": [
+        "platform_candidate"
+      ],
+      "workerGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "firstPass": "DEFER",
+      "deep": "DEFER",
+      "change": false
+    }
+  ],
+  "scorecards": {
+    "ps4": {
+      "cases": 4,
+      "firstPassResolved": 0,
+      "deepEscalated": 4,
+      "deepResolved": 0,
+      "finalDeferred": 4,
+      "ACCEPT_EXISTING": 0,
+      "REROUTE_EXISTING": 0,
+      "REJECT": 0,
+      "DEFER": 4,
+      "PROPOSE_NEW_VARIANT": 0,
+      "componentBindingErrors": 0,
+      "crossAttributionErrors": 0,
+      "marketBindingErrors": 0,
+      "editionMixingErrors": 0,
+      "criticalErrors": 0
+    },
+    "n64": {
+      "cases": 4,
+      "firstPassResolved": 0,
+      "deepEscalated": 4,
+      "deepResolved": 0,
+      "finalDeferred": 4,
+      "ACCEPT_EXISTING": 0,
+      "REROUTE_EXISTING": 0,
+      "REJECT": 0,
+      "DEFER": 4,
+      "PROPOSE_NEW_VARIANT": 0,
+      "componentBindingErrors": 0,
+      "crossAttributionErrors": 0,
+      "marketBindingErrors": 0,
+      "editionMixingErrors": 0,
+      "criticalErrors": 0
+    },
+    "ps5": {
+      "cases": 4,
+      "firstPassResolved": 0,
+      "deepEscalated": 4,
+      "deepResolved": 0,
+      "finalDeferred": 4,
+      "ACCEPT_EXISTING": 0,
+      "REROUTE_EXISTING": 0,
+      "REJECT": 0,
+      "DEFER": 4,
+      "PROPOSE_NEW_VARIANT": 0,
+      "componentBindingErrors": 0,
+      "crossAttributionErrors": 0,
+      "marketBindingErrors": 0,
+      "editionMixingErrors": 0,
+      "criticalErrors": 0
+    }
+  }
+}

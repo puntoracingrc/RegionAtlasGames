@@ -1,0 +1,23 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/116321584030",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://geedie.lv/ru/ps4-order-1886-limited-steelbook-edition",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_PAGE_HTTP_404",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://geedie.lv/ru/ps4-order-1886-limited-steelbook-edition",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_BROWSER_HTTP_404",
+    "recovered": true
+  }
+]

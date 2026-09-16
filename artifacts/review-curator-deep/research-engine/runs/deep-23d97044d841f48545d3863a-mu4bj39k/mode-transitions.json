@@ -1,0 +1,9 @@
+[
+  {
+    "at": "2026-09-16T16:32:06.150Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Exact title, platform, edition, and variant agreement from an authoritative or independent source.",
+    "gapType": "MISSING_EDITION_PROOF"
+  }
+]

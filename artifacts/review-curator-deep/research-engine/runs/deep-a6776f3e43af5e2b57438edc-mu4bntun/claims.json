@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-21bfdee2d5b21c79db3ebce8",
+    "runId": "deep-a6776f3e43af5e2b57438edc-mu4bntun",
+    "taskId": "deep-a6776f3e43af5e2b57438edc",
+    "subjectId": "curator-subject-6ce62e89e80f5b46caa2",
+    "gameId": null,
+    "platformSlug": "ps5",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN_COMPONENT",
+    "field": "MARKET_REGION",
+    "value": "PAL Europa",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html",
+    "evidenceId": "ev-555f41810ed647118b539ad9",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:35:38.002Z"
+  }
+]

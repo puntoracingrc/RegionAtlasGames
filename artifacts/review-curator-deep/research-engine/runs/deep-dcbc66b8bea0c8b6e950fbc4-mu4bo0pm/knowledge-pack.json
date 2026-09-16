@@ -1,0 +1,1703 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-16T16:31:26.333Z",
+  "subjectId": "curator-subject-108e16ae8c2b4326a3fe",
+  "inputHash": "b2f1ddea3d3b5e4fcd4cde16a3a361d85bf08011426054f793ed7b4ccf4c975a",
+  "evidenceHash": "c88026f62bada9fed4576e41bb94d969e671c622e67880bd164e31d30bc74749",
+  "catalogContext": {
+    "subjectId": "curator-subject-108e16ae8c2b4326a3fe",
+    "subjectKind": "catalog-entry",
+    "catalogId": null,
+    "canonicalGameId": null,
+    "workId": null,
+    "platformReleaseId": null,
+    "guideId": null,
+    "physicalEditionId": null,
+    "title": "Invincible VS Collectors Edition",
+    "aliases": [],
+    "titlePc": null,
+    "slug": null,
+    "platformSlug": "ps5",
+    "edition": "standard",
+    "physicalVariant": null,
+    "region": "PAL España",
+    "regionFamily": null,
+    "marketRegion": null,
+    "regionalStatus": null,
+    "languages": [],
+    "regionalPackaging": [],
+    "canonicalSerials": [],
+    "sourceSerials": [],
+    "resolutionSerials": [],
+    "publisher": null,
+    "developer": null,
+    "companyCredits": [],
+    "physicalPublisherOrDistributor": null,
+    "regionalPublisher": null,
+    "releaseDate": null,
+    "year": null,
+    "ean": null,
+    "barcode": null,
+    "productCodes": [],
+    "softwareFamilyCodes": [],
+    "serial": null,
+    "catalogNumber": null,
+    "boxCode": null,
+    "ratingSystems": [],
+    "packagingLanguages": [],
+    "softwareLanguages": [],
+    "componentLanguageEvidence": [],
+    "broadRegion": null,
+    "marketRegions": [
+      "PAL España"
+    ],
+    "evidenceMarkets": [],
+    "distributionMarkets": [],
+    "physicalProductType": "PHYSICAL_FULL_GAME",
+    "nativePhysicalPlatform": null,
+    "compatiblePlatforms": [],
+    "containsDisc": true,
+    "countsAsNativePhysicalRelease": true,
+    "physicalContents": [],
+    "digitalContents": [],
+    "releaseStatus": null,
+    "confidence": null,
+    "sharedDiscId": null,
+    "scanSetIds": [],
+    "ownedScans": [],
+    "coverUrl": null,
+    "editionImages": [],
+    "existingEvidence": [],
+    "existingResearchTasks": [],
+    "gameRetailer": null,
+    "priceCharting": null,
+    "museumPath": null,
+    "legacySources": [],
+    "fieldProvenance": {},
+    "officialSourceCandidates": []
+  },
+  "knownVariants": [],
+  "knownIdentifiers": [],
+  "ownedScans": [],
+  "knownDirectUrls": [
+    {
+      "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+      "sourceId": "todoconsolas",
+      "supports": [
+        "LISTING_EVIDENCE"
+      ]
+    }
+  ],
+  "existingEvidence": [],
+  "fieldPlans": {
+    "CANONICAL_IDENTITY": {
+      "field": "CANONICAL_IDENTITY",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "serialstation",
+        "redump",
+        "ogdb",
+        "mobygames",
+        "ubisoft-official",
+        "yambalu",
+        "gamefaqs-guarded"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "serialstation",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Technical identifier families establish platform/technical region, not a national distribution market.",
+            "Bind a serial to the photographed disc or package component.",
+            "Coverage must be checked; PPSA is not market proof."
+          ]
+        },
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence.",
+            "Disc identity is not packaging-market proof."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        },
+        {
+          "sourceId": "gamefaqs-guarded",
+          "capability": "DISCOVERY_ONLY",
+          "score": 58,
+          "limitations": [
+            "Discovery only: walkthrough counters and ASCII art are not product identifiers; never confirm a physical identifier from this source."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:serialstation.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "serialstation"
+        },
+        {
+          "query": "site:redump.org \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "redump"
+        },
+        {
+          "query": "site:ogdb.eu \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:mobygames.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "site:ubisoft.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" canonical identity",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" canonical identity",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BARCODE": {
+      "field": "BARCODE",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "national-retailer",
+        "ogdb",
+        "todocoleccion",
+        "ebay",
+        "launchbox-images",
+        "regionatlas-own-scan"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "Retailer alone is not packaging-market proof."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 68,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 65,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:ogdb.eu \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:todocoleccion.net \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" back cover barcode EAN",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" back cover barcode EAN",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PRODUCT_CODE": {
+      "field": "PRODUCT_CODE",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "serialstation",
+        "redump",
+        "ogdb",
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "platform-holder-official"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "serialstation",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Technical identifier families establish platform/technical region, not a national distribution market.",
+            "Bind a serial to the photographed disc or package component.",
+            "Coverage must be checked; PPSA is not market proof."
+          ]
+        },
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence.",
+            "Disc identity is not packaging-market proof."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 84,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 64,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 45,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:serialstation.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "serialstation"
+        },
+        {
+          "query": "site:redump.org \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "redump"
+        },
+        {
+          "query": "site:ogdb.eu \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" cartridge disc product code",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" cartridge disc product code",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BOX_CODE": {
+      "field": "BOX_CODE",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "ogdb",
+        "launchbox-images"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 60,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ogdb.eu \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" box code",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" box code",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "MARKET_REGION": {
+      "field": "MARKET_REGION",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "mobygames",
+        "serialstation",
+        "redump"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 60,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "Retailer alone is not packaging-market proof."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "DISCOVERY_ONLY",
+          "score": 45,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 35,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 65,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "serialstation",
+          "capability": "CAN_SUPPORT",
+          "score": 20,
+          "limitations": [
+            "Technical identifier families establish platform/technical region, not a national distribution market.",
+            "Bind a serial to the photographed disc or package component.",
+            "Coverage must be checked; PPSA is not market proof."
+          ]
+        },
+        {
+          "sourceId": "redump",
+          "capability": "CAN_SUPPORT",
+          "score": 10,
+          "limitations": [
+            "Disc/dump identity is not national packaging or distribution proof.",
+            "Coverage varies by platform and title; absence is not evidence of absence.",
+            "Disc identity is not packaging-market proof."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:todocoleccion.net \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:mobygames.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" back cover distributor legal text",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" back cover distributor legal text",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PACKAGING_LANGUAGES": {
+      "field": "PACKAGING_LANGUAGES",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "ogdb",
+        "national-retailer"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "launchbox-images",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "DISCOVERY_ONLY",
+          "score": 66,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 20,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "Retailer alone is not packaging-market proof."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ogdb.eu \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" back cover spine",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" back cover spine",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PHYSICAL_PRODUCT_TYPE": {
+      "field": "PHYSICAL_PRODUCT_TYPE",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "doesitplay",
+        "publisher-official",
+        "platform-holder-official",
+        "launchbox-images",
+        "regionatlas-own-scan",
+        "ubisoft-official",
+        "national-retailer",
+        "ebay"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "doesitplay",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Technical installability does not by itself establish regional packaging identity.",
+            "Cannot prove market region."
+          ]
+        },
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 55,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "Retailer alone is not packaging-market proof."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 55,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:doesitplay.org \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "doesitplay"
+        },
+        {
+          "query": "site:nintendo.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "platform-holder-official"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:regionatlas.games \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ubisoft.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" back cover download required code in box",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" back cover download required code in box",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "OUTER_INNER_RELATION": {
+      "field": "OUTER_INNER_RELATION",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 30,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:yambalu.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "yambalu"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" unboxing outer package inner case",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" unboxing outer package inner case",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BUNDLE_CONTENTS": {
+      "field": "BUNDLE_CONTENTS",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "publisher-official",
+        "ubisoft-official",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 62,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ubisoft.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:yambalu.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "yambalu"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" bundle contents",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" bundle contents",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "COLLECTOR_CONTENTS": {
+      "field": "COLLECTOR_CONTENTS",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "national-retailer",
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "ubisoft-official"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "Retailer alone is not packaging-market proof."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 74,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" collector contents",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" collector contents",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "RELEASE_STATUS": {
+      "field": "RELEASE_STATUS",
+      "knownFacts": [
+        "title=Invincible VS Collectors Edition",
+        "platform=ps5",
+        "edition=standard",
+        "catalogRegion=PAL España",
+        "marketRegions=PAL España"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "sourceId": "todoconsolas",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "platform-holder-official",
+        "ubisoft-official",
+        "doesitplay",
+        "mobygames",
+        "national-retailer",
+        "gamefaqs-guarded"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 96,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "doesitplay",
+          "capability": "CAN_SUPPORT",
+          "score": 80,
+          "limitations": [
+            "Technical installability does not by itself establish regional packaging identity.",
+            "Cannot prove market region."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging.",
+            "Retailer alone is not packaging-market proof."
+          ]
+        },
+        {
+          "sourceId": "gamefaqs-guarded",
+          "capability": "DISCOVERY_ONLY",
+          "score": 55,
+          "limitations": [
+            "Discovery only: walkthrough counters and ASCII art are not product identifiers; never confirm a physical identifier from this source."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:nintendo.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "platform-holder-official"
+        },
+        {
+          "query": "site:ubisoft.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:doesitplay.org \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "doesitplay"
+        },
+        {
+          "query": "site:mobygames.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "site:game.es \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" release status",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Invincible VS Collectors Edition\" \"ps5\" release status",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Technical-region serial does not prove national distribution.",
+        "Seller country, language and PEGI do not prove national market."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    }
+  },
+  "forbiddenInferences": [
+    "sellerCountry=ES does not prove a Spanish physical variant",
+    "Spanish text or software language does not prove Spanish distribution",
+    "PEGI does not prove a national market",
+    "an EAN prefix does not prove distribution country",
+    "a correct identifier on the wrong component is not corroboration",
+    "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+    "Technical-region serial does not prove national distribution.",
+    "Seller country, language and PEGI do not prove national market."
+  ],
+  "sourcePriority": [
+    "LOCAL_KNOWLEDGE",
+    "OWN_SCANS",
+    "EXISTING_DIRECT_URLS",
+    "EXACT_IDENTIFIERS",
+    "SPECIALIZED_SOURCES",
+    "OFFICIAL_SOURCES",
+    "PHYSICAL_SPECIMENS",
+    "GENERIC_SEARCH"
+  ],
+  "researchTasks": [
+    {
+      "field": "MARKET_REGION",
+      "code": "MISSING_MARKET_PROOF",
+      "missingProof": "No market-bound physical or distributor evidence.",
+      "recommendedSourceTypes": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR"
+      ]
+    },
+    {
+      "field": "CONDITION",
+      "code": "MISSING_COMPONENT_PHOTO",
+      "missingProof": "Visible contents do not support a condition bucket.",
+      "recommendedSourceTypes": [
+        "EXACT_PHYSICAL_PHOTO"
+      ]
+    },
+    {
+      "field": "CANONICAL_IDENTITY",
+      "code": "MISSING_COMPONENT_BINDING",
+      "missingProof": "No component-level observations reached the queue.",
+      "recommendedSourceTypes": [
+        "LISTING_IMAGES"
+      ]
+    }
+  ],
+  "loadedKnowledgeFiles": [
+    "data/research-engine/knowledge/sources.json",
+    "data/research-engine/knowledge/playbooks/general.json",
+    "data/research-engine/knowledge/query-templates.json",
+    "data/research-engine/knowledge/source-capabilities.json",
+    "data/research-engine/knowledge/source-access.json",
+    "data/research-engine/knowledge/identifier-patterns.json",
+    "data/research-engine/knowledge/barcode-rules.json",
+    "data/research-engine/knowledge/region-patterns.json",
+    "data/research-engine/knowledge/physical-product-rules.json",
+    "data/research-engine/knowledge/known-traps.json",
+    "data/research-engine/knowledge/platforms/ps5.json",
+    "data/research-engine/knowledge/platform-routing-matrix.json",
+    "data/research-engine/knowledge/platforms/ps5.json",
+    "data/catalog-edition-guides-ac-shadows-ps5.json"
+  ],
+  "packId": "knowledge-pack-1c285c42d386de450f253358"
+}

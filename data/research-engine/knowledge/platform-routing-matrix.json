@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-16",
+  "routeOrder": ["LOCAL_KNOWLEDGE", "OWN_SCANS", "EXISTING_DIRECT_URLS", "EXACT_IDENTIFIERS", "SPECIALIZED_SOURCES", "OFFICIAL_SOURCES", "PHYSICAL_SPECIMENS", "GENERIC_SEARCH"],
+  "families": {
+    "PLAYSTATION_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "serialstation", "redump", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "BARCODE": ["regionatlas-own-scan", "national-retailer", "ogdb", "todocoleccion", "ebay", "launchbox-images"],
+        "MARKET_REGION": ["regionatlas-own-scan", "publisher-official", "national-retailer", "todocoleccion", "ebay"],
+        "PACKAGING_LANGUAGES": ["regionatlas-own-scan", "launchbox-images", "todocoleccion", "ebay"],
+        "CANONICAL_IDENTITY": ["regionatlas-own-scan", "serialstation", "redump", "ogdb", "mobygames"]
+      },
+      "forbidden": ["Technical-region serial does not prove national distribution.", "Seller country, language and PEGI do not prove national market."]
+    },
+    "NINTENDO_CARTRIDGE_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "no-intro", "datomatic", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "BOX_CODE": ["regionatlas-own-scan", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "BARCODE": ["regionatlas-own-scan", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "MARKET_REGION": ["regionatlas-own-scan", "publisher-official", "national-retailer", "todocoleccion", "ebay"],
+        "PACKAGING_LANGUAGES": ["regionatlas-own-scan", "launchbox-images", "todocoleccion", "ebay"]
+      },
+      "forbidden": ["Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.", "Technical ROM region or suffix does not prove national packaging."]
+    },
+    "NINTENDO_OPTICAL_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "redump", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "BARCODE": ["regionatlas-own-scan", "national-retailer", "ogdb", "todocoleccion", "ebay"],
+        "MARKET_REGION": ["regionatlas-own-scan", "publisher-official", "national-retailer", "todocoleccion", "ebay"],
+        "OUTER_INNER_RELATION": ["regionatlas-own-scan", "launchbox-images", "todocoleccion", "ebay"]
+      },
+      "forbidden": ["Disc identity does not prove box/manual market.", "Language and seller country do not prove national distribution."]
+    },
+    "NINTENDO_CARD_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "dbox", "no-intro", "datomatic", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "BOX_CODE": ["regionatlas-own-scan", "dbox", "ogdb", "launchbox-images"],
+        "BARCODE": ["regionatlas-own-scan", "dbox", "national-retailer", "ogdb", "todocoleccion", "ebay"],
+        "MARKET_REGION": ["regionatlas-own-scan", "nintendo-official", "national-retailer", "todocoleccion", "ebay"],
+        "PHYSICAL_PRODUCT_TYPE": ["regionatlas-own-scan", "doesitplay", "nintendo-official", "launchbox-images"]
+      },
+      "forbidden": ["Cart/card, box and manual codes remain separate.", "PEGI and European suffixes do not prove Spain."]
+    },
+    "XBOX_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "redump", "ogdb", "dbox", "launchbox-images", "todocoleccion", "ebay"],
+        "BARCODE": ["regionatlas-own-scan", "national-retailer", "ogdb", "dbox", "todocoleccion", "ebay"],
+        "MARKET_REGION": ["regionatlas-own-scan", "platform-holder-official", "national-retailer", "todocoleccion", "ebay"],
+        "OUTER_INNER_RELATION": ["regionatlas-own-scan", "dbox", "launchbox-images", "todocoleccion", "ebay"]
+      },
+      "forbidden": ["Xbox technical/disc identity does not prove national packaging.", "Outer bundle and inner standalone identifiers must not be cross-attributed."]
+    },
+    "SEGA_CARTRIDGE_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "no-intro", "datomatic", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "BARCODE": ["regionatlas-own-scan", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "MARKET_REGION": ["regionatlas-own-scan", "ogdb", "todocoleccion", "ebay"]
+      },
+      "forbidden": ["Cartridge technical region does not prove box/manual distribution."]
+    },
+    "SEGA_OPTICAL_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "redump", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "BARCODE": ["regionatlas-own-scan", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "MARKET_REGION": ["regionatlas-own-scan", "ogdb", "todocoleccion", "ebay"]
+      },
+      "forbidden": ["Disc identity does not prove national packaging."]
+    },
+    "SNK_CARTRIDGE_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "no-intro", "datomatic", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "MARKET_REGION": ["regionatlas-own-scan", "ogdb", "todocoleccion", "ebay"],
+        "PACKAGING_LANGUAGES": ["regionatlas-own-scan", "launchbox-images", "todocoleccion", "ebay"]
+      },
+      "forbidden": ["MVS/AES identity, cartridge language and seller location do not prove a national home-package market."]
+    },
+    "SNK_OPTICAL_COMMON": {
+      "fields": {
+        "PRODUCT_CODE": ["regionatlas-own-scan", "redump", "ogdb", "launchbox-images", "todocoleccion", "ebay"],
+        "MARKET_REGION": ["regionatlas-own-scan", "ogdb", "todocoleccion", "ebay"]
+      },
+      "forbidden": ["Disc identity does not prove case/manual market."]
+    }
+  },
+  "platforms": {
+    "ps1": { "family": "PLAYSTATION_COMMON", "identifierFamilies": ["SLES", "SCES", "SLUS", "SCUS", "SLPS", "SCPS"], "evidenceFiles": ["data/region-research/ps1.json", "data/ps1-region-markets.json", "src/lib/ps1-scanner-knowledge.ts"], "status": "COMPLETE", "gaps": [] },
+    "ps2": { "family": "PLAYSTATION_COMMON", "identifierFamilies": ["SLES", "SCES", "SLUS", "SCUS", "SLPS", "SCPS"], "evidenceFiles": ["data/region-research/ps2.json", "data/ps2-region-markets.json", "data/ps2-source-knowledge.json.gz"], "status": "COMPLETE", "gaps": [] },
+    "ps3": { "family": "PLAYSTATION_COMMON", "identifierFamilies": ["BLES", "BCES", "BLUS", "BCUS", "BLJM", "BLJS"], "evidenceFiles": ["data/research/ac-ps3-regional-packaging-decisions-2026-09-13.json", "data/catalog-edition-guides-ac-ps3.json"], "status": "PARTIAL", "gaps": ["Packaging-image source coverage is title-dependent."] },
+    "ps4": { "family": "PLAYSTATION_COMMON", "identifierFamilies": ["CUSA", "EAN_UPC"], "evidenceFiles": ["data/research-engine/knowledge/platforms/ps4.json", "data/ebay-regional-campaigns/ps4.json"], "status": "COMPLETE", "gaps": [] },
+    "ps5": { "family": "PLAYSTATION_COMMON", "identifierFamilies": ["PPSA", "EAN_UPC", "DISC_ID"], "evidenceFiles": ["data/research-engine/knowledge/platforms/ps5.json", "data/catalog-edition-guides-ac-shadows-ps5.json"], "status": "COMPLETE", "gaps": [] },
+    "psp": { "family": "PLAYSTATION_COMMON", "identifierFamilies": ["ULES", "UCES", "ULUS", "UCUS", "ULJM", "UCJS"], "evidenceFiles": ["data/research/platform-history/platforms-psp.json"], "status": "PARTIAL", "gaps": ["National packaging sources are not fully materialized."] },
+    "psvita": { "family": "PLAYSTATION_COMMON", "identifierFamilies": ["PCSF", "PCSB", "PCSE", "PCSA", "PCSG"], "evidenceFiles": ["data/research/platform-history/platforms-psvita.json"], "status": "PARTIAL", "gaps": ["Card/package component source coverage is incomplete."] },
+    "xbox": { "family": "XBOX_COMMON", "identifierFamilies": ["DISC_ID", "EAN_UPC"], "evidenceFiles": ["data/research/platform-history/platforms-xbox.json"], "status": "PARTIAL", "gaps": ["Original Xbox component identifiers need a reviewed specialist override."] },
+    "xbox360": { "family": "XBOX_COMMON", "identifierFamilies": ["DISC_ID", "XEX", "EAN_UPC"], "evidenceFiles": ["data/region-research/xbox360.json", "data/catalog-edition-guides-ac-xbox360-compilations.json"], "status": "COMPLETE", "gaps": [] },
+    "xboxone": { "family": "XBOX_COMMON", "identifierFamilies": ["DISC_ID", "EAN_UPC"], "evidenceFiles": ["data/research/platform-history/platforms-xboxone.json"], "status": "PARTIAL", "gaps": ["Regional packaging examples are sparse."] },
+    "xboxseries": { "family": "XBOX_COMMON", "identifierFamilies": ["DISC_ID", "EAN_UPC"], "evidenceFiles": ["data/research/platform-history/platforms-xboxseries.json"], "status": "PARTIAL", "gaps": ["Smart Delivery and cross-generation package rules need reviewed examples."] },
+    "nes": { "family": "NINTENDO_CARTRIDGE_COMMON", "identifierFamilies": ["NES", "EAN_UPC"], "evidenceFiles": ["data/region-research/nes.json"], "status": "PARTIAL", "gaps": ["Manual/insert source coverage is incomplete."] },
+    "snes": { "family": "NINTENDO_CARTRIDGE_COMMON", "identifierFamilies": ["SNSP", "SNS", "SHVC", "EAN_UPC"], "evidenceFiles": ["data/region-research/snes.json", "data/region-research/snes-distributions.json"], "status": "PARTIAL", "gaps": ["Manual/insert source coverage is incomplete."] },
+    "n64": { "family": "NINTENDO_CARTRIDGE_COMMON", "identifierFamilies": ["NUS", "EAN_UPC"], "evidenceFiles": ["data/research-engine/knowledge/platforms/n64.json", "data/ebay-regional-campaigns/n64.json"], "status": "COMPLETE", "gaps": [] },
+    "gamecube": { "family": "NINTENDO_OPTICAL_COMMON", "identifierFamilies": ["DOL", "EAN_UPC"], "evidenceFiles": ["data/ebay-regional-campaigns/gamecube.json"], "status": "PARTIAL", "gaps": ["Manual/insert source coverage is incomplete."] },
+    "wii": { "family": "NINTENDO_OPTICAL_COMMON", "identifierFamilies": ["RVL", "EAN_UPC"], "evidenceFiles": ["data/ebay-regional-campaigns/wii.json"], "status": "PARTIAL", "gaps": ["National package mappings need more reviewed specimens."] },
+    "wiiu": { "family": "NINTENDO_OPTICAL_COMMON", "identifierFamilies": ["WUP", "EAN_UPC"], "evidenceFiles": ["data/catalog-edition-guides-ac-nintendo.json"], "status": "PARTIAL", "gaps": ["National package mappings need more reviewed specimens."] },
+    "gameboy": { "family": "NINTENDO_CARTRIDGE_COMMON", "identifierFamilies": ["DMG", "CGB", "AGB", "EAN_UPC"], "evidenceFiles": ["data/region-research/gameboy.json", "data/region-research/gameboy-reviewed-guidance.json"], "status": "COMPLETE", "gaps": [] },
+    "gbc": { "family": "NINTENDO_CARTRIDGE_COMMON", "identifierFamilies": ["CGB", "EAN_UPC"], "evidenceFiles": ["data/region-research/gameboy.json", "data/region-research/gameboy-reviewed-guidance.json"], "status": "COMPLETE", "gaps": [] },
+    "gba": { "family": "NINTENDO_CARTRIDGE_COMMON", "identifierFamilies": ["AGB", "EAN_UPC"], "evidenceFiles": ["data/region-research/gameboy.json", "data/region-research/gameboy-reviewed-guidance.json"], "status": "COMPLETE", "gaps": [] },
+    "ds": { "family": "NINTENDO_CARD_COMMON", "identifierFamilies": ["NTR", "TWL", "EAN_UPC"], "evidenceFiles": ["data/region-research/ds.json", "data/catalog-edition-guides-ac-nintendo.json"], "status": "COMPLETE", "gaps": [] },
+    "3ds": { "family": "NINTENDO_CARD_COMMON", "identifierFamilies": ["CTR", "LNA", "EAN_UPC"], "evidenceFiles": ["data/region-research/3ds.json"], "status": "PARTIAL", "gaps": ["Reviewed national-package examples are limited."] },
+    "switch": { "family": "NINTENDO_CARD_COMMON", "identifierFamilies": ["HAC", "LA-H", "TSA-HAC", "EAN_UPC"], "evidenceFiles": ["data/catalog-edition-guides-ac-nintendo.json"], "status": "COMPLETE", "gaps": [] },
+    "switch2": { "family": "NINTENDO_CARD_COMMON", "identifierFamilies": ["BEE", "GAME_KEY_CARD", "EAN_UPC"], "evidenceFiles": ["data/research/platform-history/platforms-nintendo-switch2.json"], "status": "PARTIAL", "gaps": ["New-platform reviewed component examples remain limited."] },
+    "mastersystem": { "family": "SEGA_CARTRIDGE_COMMON", "identifierFamilies": ["SEGA_PART", "EAN_UPC"], "evidenceFiles": ["data/platform-sources.json"], "status": "INCOMPLETE", "gaps": ["No reviewed platform-specific regional research file."] },
+    "megadrive": { "family": "SEGA_CARTRIDGE_COMMON", "identifierFamilies": ["SEGA_PART", "EAN_UPC"], "evidenceFiles": ["data/region-research/megadrive.json"], "status": "PARTIAL", "gaps": ["Manual/insert source coverage is incomplete."] },
+    "saturn": { "family": "SEGA_OPTICAL_COMMON", "identifierFamilies": ["SEGA_PART", "DISC_ID", "EAN_UPC"], "evidenceFiles": ["data/platform-sources.json"], "status": "INCOMPLETE", "gaps": ["No reviewed platform-specific regional research file."] },
+    "dreamcast": { "family": "SEGA_OPTICAL_COMMON", "identifierFamilies": ["MK", "T", "DISC_ID", "EAN_UPC"], "evidenceFiles": ["data/region-research/dreamcast.json"], "status": "PARTIAL", "gaps": ["National packaging examples remain incomplete."] },
+    "neogeo": { "family": "SNK_CARTRIDGE_COMMON", "identifierFamilies": ["NGH", "AES", "MVS"], "evidenceFiles": ["scripts/test_neogeo_aes_regions.py", "scripts/test_neogeo_aes_plus_catalog.py"], "status": "PARTIAL", "gaps": ["Manual/insert and barcode routes are incomplete."] },
+    "neogeocd": { "family": "SNK_OPTICAL_COMMON", "identifierFamilies": ["NGCD", "DISC_ID"], "evidenceFiles": ["scripts/test_neogeo_cd_regions.py"], "status": "PARTIAL", "gaps": ["National packaging routes are incomplete."] }
+  }
+}

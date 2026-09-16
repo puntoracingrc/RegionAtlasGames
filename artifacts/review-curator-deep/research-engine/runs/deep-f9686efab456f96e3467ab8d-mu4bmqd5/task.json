@@ -1,0 +1,17 @@
+{
+  "id": "deep-f9686efab456f96e3467ab8d",
+  "subjectId": "curator-subject-96dc15384d7e059a5f3b",
+  "targetField": "PRODUCT_CODE",
+  "question": "Find component-bound cartridge product-code evidence for International Superstar Soccer 64; keep cartridge, box and manual codes separate.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

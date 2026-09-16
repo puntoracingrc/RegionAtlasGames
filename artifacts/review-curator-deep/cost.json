@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "budgetUsd": 3,
+  "stopReason": "QUEUE_EXHAUSTED",
+  "stoppedBeforeCaseId": null,
+  "braveWeb": 208,
+  "braveImages": 4,
+  "openAiCalls": 41,
+  "braveCostUsd": 1.0600000000000005,
+  "openAiCostUsd": 0.021464999999999998,
+  "totalCostUsd": 1.081465,
+  "escalatedCases": 25,
+  "researchedCases": 25,
+  "costPerEscalatedCase": 0.043258599999999994,
+  "newlyResolved": 0,
+  "costPerNewlyResolvedCase": null,
+  "overrunUsd": 0,
+  "cases": [
+    {
+      "caseId": "shadow_20_live-00f149364083176e98b3",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "totalCostUsd": 0.04
+    },
+    {
+      "caseId": "shadow_20_live-01637866b794ae795eb9",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "totalCostUsd": 0.040353
+    },
+    {
+      "caseId": "shadow_20_live-02d2a44bf900bcc26dcf",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "totalCostUsd": 0.04
+    },
+    {
+      "caseId": "shadow_20_live-04a5a691752b7c689b9b",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 3,
+      "totalCostUsd": 0.040882
+    },
+    {
+      "caseId": "shadow_20_live-054df8e1147efbc38b49",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "totalCostUsd": 0.040358
+    },
+    {
+      "caseId": "shadow_20_live-0560743eaf0bc388c28c",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "totalCostUsd": 0.040349
+    },
+    {
+      "caseId": "shadow_20_live-0568c4a9117a9d000b0e",
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "totalCostUsd": 0.050406
+    },
+    {
+      "caseId": "shadow_20_live-061f8b43601c71726400",
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "totalCostUsd": 0.050385000000000006
+    },
+    {
+      "caseId": "shadow_20_live-0653feb8d8bc2db37e97",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "totalCostUsd": 0.04
+    },
+    {
+      "caseId": "shadow_20_live-07aac5ae7dc1b2ef39f3",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "totalCostUsd": 0.04
+    },
+    {
+      "caseId": "shadow_20_live-08b70515182237c17235",
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.050721
+    },
+    {
+      "caseId": "shadow_20_live-0a3ac4ca518f4220b2ba",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "totalCostUsd": 0.04
+    },
+    {
+      "caseId": "shadow_20_live-0b9827473683ab13e354",
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "totalCostUsd": 0.050347
+    },
+    {
+      "caseId": "mature_platform_live-9eb77b589f8eed7f7b1c",
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.05025
+    },
+    {
+      "caseId": "mature_platform_live-a7e6c0f114ca5848b46c",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.040404
+    },
+    {
+      "caseId": "mature_platform_live-5a9b9160ca1816f8d07c",
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 4,
+      "totalCostUsd": 0.050852
+    },
+    {
+      "caseId": "mature_platform_live-bb177450aff4b98e9ecf",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.040238
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-933ba89565a5cc2437d3",
+      "braveWeb": 7,
+      "braveImages": 1,
+      "openAiCalls": 4,
+      "totalCostUsd": 0.045689
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-e3ea6ec812269321a695",
+      "braveWeb": 7,
+      "braveImages": 1,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.040747
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-2f9bc9308421264d849f",
+      "braveWeb": 7,
+      "braveImages": 1,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.042759
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-06b68c49b7795dc8aed5",
+      "braveWeb": 7,
+      "braveImages": 1,
+      "openAiCalls": 3,
+      "totalCostUsd": 0.045337
+    },
+    {
+      "caseId": "mature_platform_live-b61040fc7f57ac796e67",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 3,
+      "totalCostUsd": 0.040637
+    },
+    {
+      "caseId": "mature_platform_live-99d439633b5311c4960c",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.040253000000000004
+    },
+    {
+      "caseId": "mature_platform_live-39b0f01b400e4cb034d4",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.040244
+    },
+    {
+      "caseId": "mature_platform_live-9c0ea8059d4a40f29399",
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "totalCostUsd": 0.040254
+    }
+  ]
+}

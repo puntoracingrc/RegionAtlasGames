@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "byGap": {
+    "MISSING_MARKET_PROOF": 24,
+    "MISSING_COMPONENT_PHOTO": 21,
+    "MISSING_COMPONENT_BINDING": 25
+  },
+  "blockedCases": [],
+  "diagnosis": {
+    "worker": "Missing listing-specific original-resolution component observations dominate the inherited queue.",
+    "bundle": "The bundle preserves available evidence but cannot manufacture cart, case, manual or seal observations.",
+    "deepCurator": "Product-level research remains intentionally unable to promote listing-specific condition or component claims without referent-bound evidence."
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "query": "\"3770011615575\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"3770011615575\" \"Pantsu Hunter: Back to the 90s\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:game.es \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ebay.com \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:regionatlas.games \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "regionatlas-own-scan",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:mobygames.com \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "mobygames",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\" back cover distributor legal text",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"3770011615575\" \"PlayStation 4\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3770011615575"
+  },
+  {
+    "query": "site:game.es \"3770011615575\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": "national-retailer",
+    "identifierType": "BARCODE",
+    "identifierValue": "3770011615575"
+  }
+]

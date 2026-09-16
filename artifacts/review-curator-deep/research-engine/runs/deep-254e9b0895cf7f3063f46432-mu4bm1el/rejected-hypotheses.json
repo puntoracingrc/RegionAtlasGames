@@ -1,0 +1,14 @@
+[
+  {
+    "value": "https://www.ebay.com/itm/386868328319",
+    "reason": "RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.ebay.com/itm/154737419727",
+    "reason": "RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://www.ebay.es/itm/133113653016",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  }
+]

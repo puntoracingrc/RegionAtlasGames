@@ -1,0 +1,2954 @@
+{
+  "schemaVersion": 1,
+  "model": "gpt-4o-mini",
+  "reasoningConfiguration": "no explicit reasoning effort exposed",
+  "results": [
+    {
+      "caseId": "shadow_20_live-00f149364083176e98b3",
+      "reviewItemId": "00f149364083176e98b3",
+      "platform": "other",
+      "runId": "deep-c31a6d77c6f78885365c9fb0-mu4bilzn",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "00f149364083176e98b3",
+        "runId": "deep-c31a6d77c6f78885365c9fb0-mu4bilzn",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-dave-mirra-bmx-challenge",
+        "inputHash": "781d0c7ec3983da2d20d4e7dd140ec913779420da5f4ab88e392d51f446fb7e1",
+        "evidenceHash": "a31ae31ee6bdeaf6390566d314229d2acbb5103a0f46e11295343e5318a256ca",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Dave Mirra BMX Challenge\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Dave Mirra BMX Challenge\" \"wii\" \"standard\"",
+        "site:ebay.com \"Dave Mirra BMX Challenge\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Dave Mirra BMX Challenge\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Dave Mirra BMX Challenge\" \"wii\" \"standard\"",
+        "\"Dave Mirra BMX Challenge\" \"wii\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Dave Mirra BMX Challenge\" wii",
+        "site:ebay.es \"Dave Mirra BMX Challenge\" wii"
+      ],
+      "usefulSources": [],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/377370832247?_skw=Dave+Mirra+BMX+Challenge&hash=item57dd0ded77:g:IpQAAeSwqn9qjtNW",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/177021245400",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/394659746620",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/itm/126057588285",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/p/1304302215",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "openAiCostUsd": 0,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.04,
+      "technicalFailures": 2,
+      "recoveredTechnicalFailures": 2,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-c9162a02209e7304696e746f",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-01637866b794ae795eb9",
+      "reviewItemId": "01637866b794ae795eb9",
+      "platform": "other",
+      "runId": "deep-2a121dbf6621ade40ab02d9f-mu4biqpw",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "01637866b794ae795eb9",
+        "runId": "deep-2a121dbf6621ade40ab02d9f-mu4biqpw",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-dreamworks-super-star-kartz",
+        "inputHash": "c71b45349cca07aa71fb048e130effd7ea3d7c37d50e3f7a0a4708ec94f1779c",
+        "evidenceHash": "18fa394de66bb6cf01453696d9adc1f5bac270c2b67769c9bcf16db75990286f",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Packaging language is not market proof; MARKET_BOUND evidence is still required.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "site:ebay.com \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "site:mobygames.com \"DreamWorks Super Star Kartz\" \"wii\" \"standard\"",
+        "\"DreamWorks Super Star Kartz\" \"wii\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"DreamWorks Super Star Kartz\" wii",
+        "site:ebay.es \"DreamWorks Super Star Kartz\" wii"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://retroravengames.com/products/dreamworks-super-star-kartz-nintendo-wii",
+          "label": "candidate:retroravengames.com",
+          "summary": "PAL España"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/225877051908?_skw=DreamWorks+Super+Star+Kartz&hash=item3497524a04:g:6AUAAOSwx-ZlWNgc",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/266799857872",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/357466007116",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "openAiCostUsd": 0.000353,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040353,
+      "technicalFailures": 2,
+      "recoveredTechnicalFailures": 2,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-83d69d5ccaa9498a198ec006",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:retroravengames.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-02d2a44bf900bcc26dcf",
+      "reviewItemId": "02d2a44bf900bcc26dcf",
+      "platform": "other",
+      "runId": "deep-e83659757dfcb5d07ad5b95a-mu4bixf3",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "02d2a44bf900bcc26dcf",
+        "runId": "deep-e83659757dfcb5d07ad5b95a-mu4bixf3",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-fast-food-panic",
+        "inputHash": "9cd7eb15e95ff554bdd9f52b7fa92762c0f98919eccfa1ad0c282b1de4b18ad0",
+        "evidenceHash": "50ffa13a23335dc07139715cb86e6936da7380bbfd3ca725bf95dd9dfd8081b7",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Packaging language is not market proof; MARKET_BOUND evidence is still required.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Fast Food Panic\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Fast Food Panic\" \"wii\" \"standard\"",
+        "site:ebay.com \"Fast Food Panic\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Fast Food Panic\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Fast Food Panic\" \"wii\" \"standard\"",
+        "\"Fast Food Panic\" \"wii\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Fast Food Panic\" wii",
+        "site:ebay.es \"Fast Food Panic\" wii"
+      ],
+      "usefulSources": [],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/125379744212?_skw=Fast+Food+Panic&hash=item1d313711d4:g:qU0AAOSw4JxisZ83",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.mobygames.com/game/wii/fast-food-panic_",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.todocoleccion.net/videojuegos-consola-wii/fast-food-panic-nintendo-wii-completo-pal-espana~x246246135",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/itm/133380001832",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "openAiCostUsd": 0,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.04,
+      "technicalFailures": 3,
+      "recoveredTechnicalFailures": 3,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-da26a99e0fb13db80796968f",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-04a5a691752b7c689b9b",
+      "reviewItemId": "04a5a691752b7c689b9b",
+      "platform": "other",
+      "runId": "deep-23d97044d841f48545d3863a-mu4bj39k",
+      "targetField": "CANONICAL_IDENTITY",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "04a5a691752b7c689b9b",
+        "runId": "deep-23d97044d841f48545d3863a-mu4bj39k",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-fishing-master",
+        "inputHash": "f276e3dfb53083b2ee8bb0ac0507a1e2fc8365772d7bcfb3f1e4629eab647aaf",
+        "evidenceHash": "8d03b33156f81b6502ca3421cb81132ce578bc1039ed7898c907d3e59c57d635",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "CANONICAL_IDENTITY",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:ubisoft.com \"Fishing Master\" \"wii\" \"standard\"",
+        "site:redump.org \"Fishing Master\" \"wii\" \"standard\"",
+        "site:ogdb.eu \"Fishing Master\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Fishing Master\" \"wii\" \"standard\"",
+        "site:yambalu.com \"Fishing Master\" \"wii\" \"standard\"",
+        "\"Fishing Master\" \"wii\" \"standard\" canonical identity",
+        "site:news.ubisoft.com \"Fishing Master\" wii",
+        "site:redump.org \"Fishing Master\" wii"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://bitjumpgames.com/products/fishing-master-wii",
+          "label": "candidate:bitjumpgames.com",
+          "summary": "Fishing Master - Wii"
+        },
+        {
+          "url": "https://www.walmart.com/ip/Fishing-Master-Wii/7080042",
+          "label": "candidate:www.walmart.com",
+          "summary": "Fishing Master, Nintendo Wii Sports Game, 4 Player, 100+ Fish, Konami - Walmart.com Skip to Main Content Pickup or delivery? Cancel Reorder My Items Reorder Lists Registries Sign In Account Sign in or create account Purchase History Walmart+ Subscriptions Language | English $0.00 Departments Services Pickup or delivery? Konami Fishing Master - Nintendo Wii 4.7 out of 5 stars (4.7) | 19 ratings Key item features Fishing fun for the whole family Over 100 fish ranging from freshwater trout to mythical oddities 4 Player Head to Head Fishing Derby Over 30 saltwater and freshwater fishing locales to discover Fish Encyclopedia to learn about every fish as you become a Fishing Master View all item details Specs Current price is USD $28.70 Price when purchased online Free shipping Free 30-day returns New $28.70 $28.70 Pre-Owned: Good $19.99 $19.99 Add to cart Walmart Accident Plan by Allstate What's covered (Only one option can be selected at a time) 1-Year Plan - $2.00 2-Year Plan - $4.00 How do you want your item? How do you want your item? Shipping Arrives Sep 21 Free Pickup Not available Delivery Not available Ships to Sacramento, 95829 Arrives by Mon, Sep 21 | More options Sold and shipped by GameJiffy 4.593232044198895 out of 5 stars 4.593232044198895 stars out of 5, based on 1448 seller reviews (4.6) 1448 seller reviews Free 30-day returns Details Add to list Add to registry More seller options (2) Starting from $28.70 Compare all sellers Restored Wii Sports $55.00 $ 55 00 current price $55.00 Restored Wii Sports 4.6 out of 5 stars 74 4.6 out of 5 Stars. 74 reviews Shipping, arrives Fri, Sep 18 Add to cart Sponsored We’d love to hear what you think! Give feedback All Departments Store Directory Careers Our Company Sell on Walmart.com Help Product Recalls Accessibility Tax Exempt Program Get the Walmart App Safety Data Sheet Terms of Use Privacy Notice California Supply Chain Act Your Privacy Choices Notice at Collection AdChoices Consumer Health Data Privacy Notices L"
+        },
+        {
+          "url": "http://forum.redump.org/viewtopic.php?pid=131113",
+          "label": "redump",
+          "summary": "Skip to forum content Redump Forum Disc Preservation Project redump.org Index User list Rules Register Login You are not logged in. Please login or register. Redump Forum → Forum message Forum message Bad request. The link you followed is incorrect or outdated. Redump Forum → Forum message Powered by PunBB 1.4.4, supported by Informer Technologies, Inc."
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/127748927580?_skw=Fishing+Master&hash=item1dbe6df05c:g:7tgAAeSwD7RpuDY9",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 3,
+      "openAiCostUsd": 0.000882,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040882,
+      "technicalFailures": 1,
+      "recoveredTechnicalFailures": 1,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-6e9539f8a0fe25d4bf66c907",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 5,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:bitjumpgames.com",
+          "candidate:www.walmart.com",
+          "redump"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-054df8e1147efbc38b49",
+      "reviewItemId": "054df8e1147efbc38b49",
+      "platform": "other",
+      "runId": "deep-be225899c94fa6f41cc8fabf-mu4bjevt",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "054df8e1147efbc38b49",
+        "runId": "deep-be225899c94fa6f41cc8fabf-mu4bjevt",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-grand-slam-tennis",
+        "inputHash": "7a53205d7c92c3302aaa98942eebe3f3576eda7cb5751a47fe5e3af2b9298b6f",
+        "evidenceHash": "d2fe2008ad76b98a37c4c4debddd828fff47d4f2b29e1ff822be003e93ff7e55",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Packaging language is not market proof; MARKET_BOUND evidence is still required.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Grand Slam Tennis\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Grand Slam Tennis\" \"wii\" \"standard\"",
+        "site:ebay.com \"Grand Slam Tennis\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Grand Slam Tennis\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Grand Slam Tennis\" \"wii\" \"standard\"",
+        "\"Grand Slam Tennis\" \"wii\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Grand Slam Tennis\" wii",
+        "site:ebay.es \"Grand Slam Tennis\" wii"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii",
+          "label": "candidate:www.nintendolife.com",
+          "summary": "Version Reviewed: European review by Christopher Clark Sun 21st Jun 2009"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/195097511021?_skw=Grand+Slam+Tennis&hash=item2d6cb7c46d:g:vzgAAOSwpgdile4t&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGbYZKe%2B%2Bmp3%2BYn0kD3eqchOiYWqmbfaWvlKCOnEzWmcfJIVHhKbFcT0jR%2BROqdOt4ad8RpMZuGN1w6uCLsw6fbgPRlaZuFHqUqP7oPmfm2W4x4qYSBCL%2F8eg4aEfzVk2kb9PFXQPyXJp7EXeiQ602ODwtn9kFnLUhBTPtfc4NFmx%2ByLnaYqsUe4MPdsr33Tl7w10aUrW8FHM126KNH3SKfIZzSz7A4xAYUWD%2BFGpNt0Q0RK8OLVBjhK8koRqljVenv7ozP%2BJUkrYsENkWd7P5k5WjT7Se0iiQKGv1NsnQjKUQ%3D%3D",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/291645184076",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/135349264780",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://forumsold.operationsports.com/previews/70/grand-slam-tennis-whats-hot-and-whats-not/",
+          "reason": "RESEARCH_PAGE_HTTP_403"
+        },
+        {
+          "value": "https://www.todocoleccion.net/videojuegos-consola-wii/grand-slam-tennis-nintendo-wii-kreaten~x524881492",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.todocoleccion.net/videojuegos-pc/grand-slam-tennis-wii-5030934073691~x512937117",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/itm/196070638930",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/itm/267320088556",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "openAiCostUsd": 0.000358,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040358,
+      "technicalFailures": 3,
+      "recoveredTechnicalFailures": 3,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-001dcaacc5d1c22ea65af060",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.nintendolife.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-0560743eaf0bc388c28c",
+      "reviewItemId": "0560743eaf0bc388c28c",
+      "platform": "other",
+      "runId": "deep-aba5464447f5845928c1c888-mu4bjlkx",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "0560743eaf0bc388c28c",
+        "runId": "deep-aba5464447f5845928c1c888-mu4bjlkx",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-gormiti-the-lords-of-nature",
+        "inputHash": "cfdcdee1f096972c15246e9b95b021bb102f761098c45e144cf417624376af6d",
+        "evidenceHash": "0dd0e6e9996f96422b92d9f7a70d76d36b1a74dd9a91871a14b7fe617d8d31f0",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Packaging language is not market proof; MARKET_BOUND evidence is still required.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+        "site:ebay.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Gormiti: The Lords of Nature\" \"wii\" \"standard\"",
+        "\"Gormiti: The Lords of Nature\" \"wii\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Gormiti: The Lords of Nature\" wii",
+        "site:ebay.es \"Gormiti: The Lords of Nature\" wii"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.amazon.ca/Gormiti-Lords-Nature-Wii-Standard/dp/B003TJTV40",
+          "label": "candidate:www.amazon.ca",
+          "summary": "PAL España"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/331989403702?_skw=Gormiti+The+Lords+of+Nature&hash=item4d4c1c4836:g:ZA4AAOSwmLlX8p0A",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "openAiCostUsd": 0.000349,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040349,
+      "technicalFailures": 1,
+      "recoveredTechnicalFailures": 1,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-c6ab8417b58364c2217db49c",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.amazon.ca"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-0568c4a9117a9d000b0e",
+      "reviewItemId": "0568c4a9117a9d000b0e",
+      "platform": "other",
+      "runId": "deep-5b25ceaac907c2d378e73b75-mu4bjt0t",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "0568c4a9117a9d000b0e",
+        "runId": "deep-5b25ceaac907c2d378e73b75-mu4bjt0t",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-hot-wheels-track-attack",
+        "inputHash": "3568db3252368b51d903734985b3d63591d6067c5cb293d188d7b1ac00e88f68",
+        "evidenceHash": "b51f1786db499ee0ec9c6a84281e039315fa1047ab3fa7be73b5ac2cdafa0c98",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "\"4005209139434\"",
+        "\"4005209139434\" \"Hot Wheels Track Attack\"",
+        "site:game.es \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "site:ebay.com \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "\"Hot Wheels Track Attack\" \"wii\" \"standard\" back cover distributor legal text",
+        "\"4005209139434\" wii",
+        "site:game.es \"4005209139434\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html",
+          "label": "candidate:www.budgetgaming.nl",
+          "summary": "Hot Wheels: Track Attack - Wii kopen voor de Wii - Laagste prijs op budgetgaming.nl"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://gameshop-twente.nl/hot-wheels-track-attack.html",
+          "reason": "RESEARCH_BROWSER_HTTP_429"
+        },
+        {
+          "value": "https://www.ebay.com/shop/hot-wheels-wii?_nkw=hot+wheels+wii",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.com/shop/hot-wheels-wii-u?_nkw=hot+wheels+wii+u",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.justanswer.com/game-systems/4h0pg-wii-xmas-received-game-hot-wheels-track.html",
+          "reason": "RESEARCH_PAGE_HTTP_403"
+        }
+      ],
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "openAiCostUsd": 0.000406,
+      "braveCostUsd": 0.05,
+      "totalCostUsd": 0.050406,
+      "technicalFailures": 4,
+      "recoveredTechnicalFailures": 4,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-00912fc808702dc329d8b9eb",
+        "knownFactsSupplied": 6,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 1,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.budgetgaming.nl"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 8,
+        "requiredQueriesAttempted": 8
+      }
+    },
+    {
+      "caseId": "shadow_20_live-061f8b43601c71726400",
+      "reviewItemId": "061f8b43601c71726400",
+      "platform": "other",
+      "runId": "deep-5bfdef7c20f77cd27d8138f8-mu4bk2ir",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "061f8b43601c71726400",
+        "runId": "deep-5bfdef7c20f77cd27d8138f8-mu4bk2ir",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-driver-san-francisco",
+        "inputHash": "2768c7404f79a1972b194070bba62e2afda040050d63d9dec08450371728afc6",
+        "evidenceHash": "b203dfe54bc0a3140f9c70106c807c1131a13a0511f5eb467fc95954d87911eb",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "\"3307217929153\"",
+        "\"3307217929153\" \"Driver: San Francisco\"",
+        "site:game.es \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "site:ebay.com \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Driver: San Francisco\" \"wii\" \"standard\"",
+        "\"Driver: San Francisco\" \"wii\" \"standard\" back cover distributor legal text",
+        "\"3307217929153\" wii",
+        "site:game.es \"3307217929153\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html",
+          "label": "candidate:www.smartoys.be",
+          "summary": "... disponible sur : Wii ..."
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/127600533900?_skw=Driver+San+Francisco&hash=item1db595a18c:g:YdYAAeSwDUFpWFud",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.fnac.com/a8530965/Driver-San-Francisco-Wii-Jeu-video-Retrogaming",
+          "reason": "RESEARCH_PAGE_HTTP_403"
+        }
+      ],
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "openAiCostUsd": 0.000385,
+      "braveCostUsd": 0.05,
+      "totalCostUsd": 0.050385000000000006,
+      "technicalFailures": 3,
+      "recoveredTechnicalFailures": 3,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-c764540ca2b970d087186d3c",
+        "knownFactsSupplied": 6,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 1,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.smartoys.be"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 8,
+        "requiredQueriesAttempted": 8
+      }
+    },
+    {
+      "caseId": "shadow_20_live-0653feb8d8bc2db37e97",
+      "reviewItemId": "0653feb8d8bc2db37e97",
+      "platform": "other",
+      "runId": "deep-bf572c5e3061376afb0ed06d-mu4bkczj",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "0653feb8d8bc2db37e97",
+        "runId": "deep-bf572c5e3061376afb0ed06d-mu4bkczj",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-inazuma-eleven-strikers",
+        "inputHash": "77c1787bb3033af9ad5bc5ca404c42cdccc9bff449e32c3c2a2c22231edbaf0d",
+        "evidenceHash": "ac45bdee534520033eedc11b1258c28661245c5085c92e0a95d3ae8acbb4f745",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Packaging language is not market proof; MARKET_BOUND evidence is still required.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "site:ebay.com \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "\"Inazuma Eleven Strikers\" \"wii\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Inazuma Eleven Strikers\" wii",
+        "site:ebay.es \"Inazuma Eleven Strikers\" wii"
+      ],
+      "usefulSources": [],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/377370832448?_skw=Inazuma+Eleven+Strikers&hash=item57dd0dee40:g:zb0AAeSwau1qjtRX&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZj98RtiezjmIA0btTTrmFtJhb7y9%2FFR9lf3c3GMixFOclPG%2BLpTAPncMg%2BKjfAE9Snzy%2BzDdvqvEYZ9VjWW6p7q1klE%2FO%2BvR%2BgHl4iV6pG2WBTEEAkplIi6B4gsXIxZerlxMbQw7K5GSIMutlNKARNNrAhwRWxAVODd4ImHtHYKc%2B0xCudnh%2FedAPQyIVKAtKRjh01K%2BOWdB%2FEh%2F7q%2FNzXxtCJ9xD2%2Fqv932zI6ktj30Oq6H6Yruzh%2Fes1Vyhlhn%2BqaYNaOOFd73Fy6C%2BjHs9OVCjMUa5eJdvwQz707%2BPKdw%3D%3D",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/256576436493",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/295301620729",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.mobygames.com/game/50929/inazuma-eleven/",
+          "reason": "RESEARCH_PAGE_HTTP_403"
+        },
+        {
+          "value": "https://www.todocoleccion.net/videojuegos-consola-wii/inazuma-eleven-strikers-wii-2-mano-bueno~x287191493",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.todocoleccion.net/videojuegos-consola-wii/antiguo-juego-para-wii-inazuma-eleven-strikers~x421596304",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/p/12031245060",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/b/Inazuma-eleven-strikers/139973/bn_7005617356",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "openAiCostUsd": 0,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.04,
+      "technicalFailures": 3,
+      "recoveredTechnicalFailures": 3,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-05026a5c9f8ce3fd22d9b7e6",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-07aac5ae7dc1b2ef39f3",
+      "reviewItemId": "07aac5ae7dc1b2ef39f3",
+      "platform": "other",
+      "runId": "deep-e3be63ad8ec57d8ec08e6746-mu4bkhe2",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "07aac5ae7dc1b2ef39f3",
+        "runId": "deep-e3be63ad8ec57d8ec08e6746-mu4bkhe2",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-family-trainer-treasure-adventure",
+        "inputHash": "6bfeef570368e357ab3a3ebe36ea7455e84bb9179fde47fb8fced0328af3ec99",
+        "evidenceHash": "39ddabec41efec997bbf562cf39afcadf24ca546eb4d72c2ddbc89936b88078d",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Packaging language is not market proof; MARKET_BOUND evidence is still required.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Family Trainer: Treasure Adventure\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Family Trainer: Treasure Adventure\" \"wii\" \"standard\"",
+        "site:ebay.com \"Family Trainer: Treasure Adventure\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Family Trainer: Treasure Adventure\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Family Trainer: Treasure Adventure\" \"wii\" \"standard\"",
+        "\"Family Trainer: Treasure Adventure\" \"wii\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Family Trainer: Treasure Adventure\" wii",
+        "site:ebay.es \"Family Trainer: Treasure Adventure\" wii"
+      ],
+      "usefulSources": [],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/336494606882?_skw=Family+Trainer+Treasure+Adventure&hash=item4e58a43a22:g:VaIAAeSw87ZpWwib",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "openAiCostUsd": 0,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.04,
+      "technicalFailures": 1,
+      "recoveredTechnicalFailures": 1,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-fdc9c4ccef6262a698f019c3",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-08b70515182237c17235",
+      "reviewItemId": "08b70515182237c17235",
+      "platform": "other",
+      "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "08b70515182237c17235",
+        "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-family-ski",
+        "inputHash": "2f7cd0c212b5f86d90910bf202f5dd762c995d588b5685ba76f12ad14ed59482",
+        "evidenceHash": "3ae1f8efb25db8655d1a5827a25597c13064cfe38b36d6c48adc7c439c3cbba9",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "\"045496365868,045496365875\"",
+        "\"045496365868,045496365875\" \"Family Ski\"",
+        "site:game.es \"Family Ski\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Family Ski\" \"wii\" \"standard\"",
+        "site:ebay.com \"Family Ski\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Family Ski\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Family Ski\" \"wii\" \"standard\"",
+        "\"Family Ski\" \"wii\" \"standard\" back cover distributor legal text",
+        "\"045496365868,045496365875\" wii",
+        "site:game.es \"045496365868,045496365875\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://thegameworld.co.uk/family-ski-wii",
+          "label": "candidate:thegameworld.co.uk",
+          "summary": "PAL España"
+        },
+        {
+          "url": "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii",
+          "label": "candidate:bordersdown.net",
+          "summary": "PAL España"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/133380001737?_skw=Family+Ski&hash=item1f0e114fc9:g:hIwAAOSwlw1dr0s2",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/226876895567",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/376909427596",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.000721,
+      "braveCostUsd": 0.05,
+      "totalCostUsd": 0.050721,
+      "technicalFailures": 2,
+      "recoveredTechnicalFailures": 2,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-206490a0bcf31bda62958644",
+        "knownFactsSupplied": 6,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 1,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:thegameworld.co.uk",
+          "candidate:bordersdown.net"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 8,
+        "requiredQueriesAttempted": 8
+      }
+    },
+    {
+      "caseId": "shadow_20_live-0a3ac4ca518f4220b2ba",
+      "reviewItemId": "0a3ac4ca518f4220b2ba",
+      "platform": "other",
+      "runId": "deep-440f48507684d95a980a4132-mu4bkuim",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "0a3ac4ca518f4220b2ba",
+        "runId": "deep-440f48507684d95a980a4132-mu4bkuim",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-donkey-kong-jet-race",
+        "inputHash": "b12cde86424afa1262dd5415e4c65a12c193c6a2a813ced9ef2704545451a804",
+        "evidenceHash": "a904f4a76bc93c7bd17f8bd7d3855b62d7a0f4ea42008dd67a31d4c23538390c",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Packaging language is not market proof; MARKET_BOUND evidence is still required.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Donkey Kong Jet Race\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Donkey Kong Jet Race\" \"wii\" \"standard\"",
+        "site:ebay.com \"Donkey Kong Jet Race\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Donkey Kong Jet Race\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Donkey Kong Jet Race\" \"wii\" \"standard\"",
+        "\"Donkey Kong Jet Race\" \"wii\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Donkey Kong Jet Race\" wii",
+        "site:ebay.es \"Donkey Kong Jet Race\" wii"
+      ],
+      "usefulSources": [],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/389162726108?_skw=Donkey+Kong+Jet+Race&hash=item5a9be7f2dc:g:wyYAAeSwXp5pAxsG",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/164180048713",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/167070805438",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/p/810890671",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.es/itm/381489221290",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 0,
+      "openAiCostUsd": 0,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.04,
+      "technicalFailures": 2,
+      "recoveredTechnicalFailures": 2,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-16fd0f8eae48eb1e7d18ec63",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "shadow_20_live-0b9827473683ab13e354",
+      "reviewItemId": "0b9827473683ab13e354",
+      "platform": "other",
+      "runId": "deep-545c783b205f8a0f3349def7-mu4bkyzy",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "0b9827473683ab13e354",
+        "runId": "deep-545c783b205f8a0f3349def7-mu4bkyzy",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "wii-ghost-squad",
+        "inputHash": "362d2bf64593b2cd23e5583ac80297e5055bddaf984dd2b1b9c988ca67cba452",
+        "evidenceHash": "e302b6db13c1b4ce0a423dc437bb48bb3dea31b83f2cc6b9b20001d5fe7f4a55",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "Packaging language is not market proof; MARKET_BOUND evidence is still required.",
+        "confidence": 0.5,
+        "sources": [
+          "ebay-es"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "\"5060138434370,5060138435155\"",
+        "\"5060138434370,5060138435155\" \"Ghost Squad\"",
+        "site:game.es \"Ghost Squad\" \"wii\" \"standard\"",
+        "site:todocoleccion.net \"Ghost Squad\" \"wii\" \"standard\"",
+        "site:ebay.com \"Ghost Squad\" \"wii\" \"standard\"",
+        "site:regionatlas.games \"Ghost Squad\" \"wii\" \"standard\"",
+        "site:mobygames.com \"Ghost Squad\" \"wii\" \"standard\"",
+        "\"Ghost Squad\" \"wii\" \"standard\" back cover distributor legal text",
+        "\"5060138434370,5060138435155\" wii",
+        "site:game.es \"5060138434370,5060138435155\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/",
+          "label": "candidate:moegamer.net",
+          "summary": "...the game offered the full arcade game experience..."
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/389161090498?_skw=Ghost+Squad&hash=item5a9bcefdc2:g:LU4AAeSwVzhpApdQ",
+          "reason": "Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/256055706787",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/134727399753",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        },
+        {
+          "value": "https://www.ebay.com/itm/404471633224",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 1,
+      "openAiCostUsd": 0.000347,
+      "braveCostUsd": 0.05,
+      "totalCostUsd": 0.050347,
+      "technicalFailures": 2,
+      "recoveredTechnicalFailures": 2,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-0ea75e8bac18e7e6c95ed6be",
+        "knownFactsSupplied": 6,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 1,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 7,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:moegamer.net"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 8,
+        "requiredQueriesAttempted": 8
+      }
+    },
+    {
+      "caseId": "mature_platform_live-9eb77b589f8eed7f7b1c",
+      "reviewItemId": "9eb77b589f8eed7f7b1c",
+      "platform": "ps4",
+      "runId": "deep-8f2451fa924028de8b07384b-mu4bl5dd",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "9eb77b589f8eed7f7b1c",
+        "runId": "deep-8f2451fa924028de8b07384b-mu4bl5dd",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps4-the-order-1886-limited-edition",
+        "inputHash": "ddc3624083511a228403e6783f2cd14eb899b591afe618d29dbb129702748660",
+        "evidenceHash": "4c59454cb4a1c1fc404cfbb25e684144e79fbbd53e018e35e07a79acda60cdb6",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "\"711719806011\"",
+        "\"711719806011\" \"The Order 1886 [Limited Edition]\"",
+        "site:game.es \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "site:todocoleccion.net \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "site:ebay.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "site:regionatlas.games \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "site:mobygames.com \"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\"",
+        "\"The Order 1886 [Limited Edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+        "\"711719806011\" \"PlayStation 4\"",
+        "site:game.es \"711719806011\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/5416-the_order_1886_limited_edition_ps4_eu_po32789-711719823933.html",
+          "label": "candidate:www.todoconsolas.com",
+          "summary": "PAL España"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.com/itm/116321584030",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://geedie.lv/ru/ps4-order-1886-limited-steelbook-edition",
+          "reason": "RESEARCH_BROWSER_HTTP_404"
+        }
+      ],
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.00025,
+      "braveCostUsd": 0.05,
+      "totalCostUsd": 0.05025,
+      "technicalFailures": 3,
+      "recoveredTechnicalFailures": 3,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-2cdc9b47d543f525c653d2cd",
+        "knownFactsSupplied": 6,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 1,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 8,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.todoconsolas.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 8,
+        "requiredQueriesAttempted": 8
+      }
+    },
+    {
+      "caseId": "mature_platform_live-a7e6c0f114ca5848b46c",
+      "reviewItemId": "a7e6c0f114ca5848b46c",
+      "platform": "ps4",
+      "runId": "deep-c710155f5ed6469d00c2823e-mu4blcly",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "a7e6c0f114ca5848b46c",
+        "runId": "deep-c710155f5ed6469d00c2823e-mu4blcly",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps4-batman-arkham-knight-special-edition",
+        "inputHash": "e11026bb67ad0fc03353c2e15df4586c14798f00a3a258f95b670009402e962f",
+        "evidenceHash": "7dbeb1b4aba2008dc768db23b0478fcf6000bbb99d8f9cf405fa9b4accc5401e",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+        "site:todocoleccion.net \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+        "site:ebay.com \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+        "site:regionatlas.games \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+        "site:mobygames.com \"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\"",
+        "\"Batman Arkham Knight [Special Edition]\" \"ps4\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Batman Arkham Knight [Special Edition]\" PlayStation 4",
+        "site:ebay.es \"Batman Arkham Knight [Special Edition]\" PlayStation 4"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html",
+          "label": "candidate:www.todoconsolas.com",
+          "summary": "Batman Arkham Knight Special Edition PS4 | Segunda Mano"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.000404,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040404,
+      "technicalFailures": 0,
+      "recoveredTechnicalFailures": 0,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-bb1143e08a034d83731babe2",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 8,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.todoconsolas.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_live-5a9b9160ca1816f8d07c",
+      "reviewItemId": "5a9b9160ca1816f8d07c",
+      "platform": "ps4",
+      "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "5a9b9160ca1816f8d07c",
+        "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps4-pantsu-hunter-back-to-the-90s",
+        "inputHash": "fdb1b75393144726ba7bd0cf2c65bd78f1a18bb0059082c13c79f200c7b88d52",
+        "evidenceHash": "826b165dcd431289ef650d370e2bfb7ccadd79f4333db688de92cfe325cbe942",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "\"3770011615575\"",
+        "\"3770011615575\" \"Pantsu Hunter: Back to the 90s\"",
+        "site:game.es \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+        "site:todocoleccion.net \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+        "site:ebay.com \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+        "site:regionatlas.games \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+        "site:mobygames.com \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+        "\"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\" back cover distributor legal text",
+        "\"3770011615575\" \"PlayStation 4\"",
+        "site:game.es \"3770011615575\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/176261-pantsu_hunter__back_to_the_90s_ps4_eu_po214024-3770011615575.html",
+          "label": "candidate:www.todoconsolas.com",
+          "summary": "..."
+        },
+        {
+          "url": "https://tokyogamestory.com/en/red-art-games-/2681-pantsu-hunter-back-to-the-90s-with-sleeve999sony-ps4-fr-game-in-de-en-es-fr-ru-newsealed-red-art-games-aventurereflexiondv-fc1-3770011615575.html",
+          "label": "candidate:tokyogamestory.com",
+          "summary": "PAGE_TEXT"
+        },
+        {
+          "url": "https://ecommerce.datablitz.com.ph/products/ps4-pantsu-hunter-back-to-the-90s-reg-2",
+          "label": "candidate:ecommerce.datablitz.com.ph",
+          "summary": "PS4 Pantsu Hunter Back to The 90S Reg.2"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.tradergames.fr/fr/playstation-4/109485-pantsu-hunter-ps4-fr-new-3770011615575.html",
+          "reason": "RESEARCH_BROWSER_HTTP_404"
+        }
+      ],
+      "braveWeb": 10,
+      "braveImages": 0,
+      "openAiCalls": 4,
+      "openAiCostUsd": 0.000852,
+      "braveCostUsd": 0.05,
+      "totalCostUsd": 0.050852,
+      "technicalFailures": 3,
+      "recoveredTechnicalFailures": 3,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-555cdd38f0ac4940d4d1be5c",
+        "knownFactsSupplied": 6,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 1,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 8,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.todoconsolas.com",
+          "candidate:tokyogamestory.com",
+          "candidate:ecommerce.datablitz.com.ph"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 8,
+        "requiredQueriesAttempted": 8
+      }
+    },
+    {
+      "caseId": "mature_platform_live-bb177450aff4b98e9ecf",
+      "reviewItemId": "bb177450aff4b98e9ecf",
+      "platform": "ps4",
+      "runId": "deep-254e9b0895cf7f3063f46432-mu4bm1el",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "bb177450aff4b98e9ecf",
+        "runId": "deep-254e9b0895cf7f3063f46432-mu4bm1el",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps4-usa-black-hole",
+        "inputHash": "8944bd61e052abea15b319a9bb2b799946bfb3fd14f89120ab1c40019a68ce8c",
+        "evidenceHash": "fa5947c34b7d65493fe8132475cf77de18484905fecb75f18d584cacd125ed1f",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Black Hole\" \"ps4\" \"standard\"",
+        "site:todocoleccion.net \"Black Hole\" \"ps4\" \"standard\"",
+        "site:ebay.com \"Black Hole\" \"ps4\" \"standard\"",
+        "site:regionatlas.games \"Black Hole\" \"ps4\" \"standard\"",
+        "site:mobygames.com \"Black Hole\" \"ps4\" \"standard\"",
+        "\"Black Hole\" \"ps4\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Black Hole\" PlayStation 4",
+        "site:ebay.es \"Black Hole\" PlayStation 4"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+          "label": "candidate:www.todoconsolas.com",
+          "summary": "USA"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.com/itm/386868328319",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.com/itm/154737419727",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.ebay.es/itm/133113653016",
+          "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.000238,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040238,
+      "technicalFailures": 2,
+      "recoveredTechnicalFailures": 2,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-b4fdaf3bd4e2f98bff6cb740",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 8,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.todoconsolas.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-933ba89565a5cc2437d3",
+      "reviewItemId": "n64-worker-933ba89565a5cc2437d3",
+      "platform": "n64",
+      "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+      "targetField": "PRODUCT_CODE",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "n64-worker-933ba89565a5cc2437d3",
+        "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "n64-blast-corps",
+        "inputHash": "a970f8c48ca8a4a90a30e14c48c0b9569c0b0e13a573dde8068809e71ac6981b",
+        "evidenceHash": "c2746fa27b212d46afb3cd28c15ee7afa4ac03bef27e060811bc76234dcf46f6",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "retroplayzone"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "PRODUCT_CODE",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+        "site:datomatic.no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+        "site:ogdb.eu \"Blast Corps\" \"n64\" \"standard\"",
+        "site:gamesdb.launchbox-app.com \"Blast Corps\" \"n64\" \"standard\"",
+        "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+        "\"Blast Corps\" \"n64\" \"standard\" cartridge disc product code",
+        "\"29876\"",
+        "\"Blast Corps\" \"n64\" \"USA\" cartridge label \"product code\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "label": "candidate:retroplayzone.com",
+          "summary": "29876"
+        },
+        {
+          "url": "https://www.ebay.es/p/1126",
+          "label": "ebay",
+          "summary": "EXACT_PHYSICAL_PHOTO"
+        },
+        {
+          "url": "https://www.ebay.es/p/1126",
+          "label": "ebay",
+          "summary": "EXACT_PHYSICAL_PHOTO"
+        },
+        {
+          "url": "https://www.ebay.es/p/1126",
+          "label": "ebay",
+          "summary": "IMAGE_FROM_SOURCE_PAGE"
+        }
+      ],
+      "imagesInspected": 3,
+      "identifiersFound": [
+        {
+          "type": "PRODUCT_CODE",
+          "value": "29876",
+          "component": "UNKNOWN"
+        }
+      ],
+      "rejectedEvidence": [
+        {
+          "value": "https://ebay.com/itm/206191526933?hash=item3001f90415%3Ag%3As%7EUAAeSwtLtp0n0s&itmmeta=01KNFDTQXQYWS7QVHB30HHX9HY&itmprp=enc%3AAQALAAAA4DKQclQvzFwZQpmMrsO4LuqlkX3%2F99YUYp4E1RxtGgc4lR3ZnApigcsKHN%2FmBTmGCMehWYW835iZTZxNNS46pKRup68WQ0Pp0y0gkkqvKJTkIKFxjleiJmxYW%2FOp45G0TwZVCeXVNg1gT3CvQhk0BDQDUP9BAsqvU53VTk+JGGJuzuMwiLCrh179C%2FfzGmpaK34D74ibmari4iGn9+0Hu3i48U9DbWIDktekEkE66xeEjmwlhj9AHYgsQ+YvesVUI08DgXr0mATyMzhyGuBt3jZXoZppO3j%2FlWwTTv5tFJ45%7Ctkp%3ABk9SR4L_6u2rZw",
+          "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 7,
+      "braveImages": 1,
+      "openAiCalls": 4,
+      "openAiCostUsd": 0.005689,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.045689,
+      "technicalFailures": 1,
+      "recoveredTechnicalFailures": 0,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-e44fde443ad65d2faca9400d",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 14,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:retroplayzone.com",
+          "ebay"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-e3ea6ec812269321a695",
+      "reviewItemId": "n64-worker-e3ea6ec812269321a695",
+      "platform": "n64",
+      "runId": "deep-f9686efab456f96e3467ab8d-mu4bmqd5",
+      "targetField": "PRODUCT_CODE",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "n64-worker-e3ea6ec812269321a695",
+        "runId": "deep-f9686efab456f96e3467ab8d-mu4bmqd5",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "n64-international-superstar-soccer-64",
+        "inputHash": "681c6986aefaba369553c9b82def940ee002e1dad7a72c055f879098f27e4f6c",
+        "evidenceHash": "826a6b7c31b1ff92c5bd95ab8e45e5c755743b147a7bbf1125a48fdcde236a64",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "retroplayzone"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "PRODUCT_CODE",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:no-intro.org \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "site:datomatic.no-intro.org \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "site:ogdb.eu \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "site:gamesdb.launchbox-app.com \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "site:todocoleccion.net \"International Superstar Soccer 64\" \"n64\" \"standard\"",
+        "\"International Superstar Soccer 64\" \"n64\" \"standard\" cartridge disc product code",
+        "\"28789\"",
+        "\"International Superstar Soccer 64\" \"n64\" \"USA\" cartridge label \"product code\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://retroplayzone.com/28789-international-superstar-soccer-64-cartuchoi-n64.html",
+          "label": "candidate:retroplayzone.com",
+          "summary": "Product Code: 28789"
+        },
+        {
+          "url": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+          "label": "ebay",
+          "summary": "IMAGE_FROM_SOURCE_PAGE"
+        }
+      ],
+      "imagesInspected": 1,
+      "identifiersFound": [
+        {
+          "type": "PRODUCT_CODE",
+          "value": "28789",
+          "component": "UNKNOWN"
+        }
+      ],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+          "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 7,
+      "braveImages": 1,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.000747,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040747,
+      "technicalFailures": 1,
+      "recoveredTechnicalFailures": 1,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-b9e3ab3740af6c4df22a2387",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 14,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:retroplayzone.com",
+          "ebay"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-2f9bc9308421264d849f",
+      "reviewItemId": "n64-worker-2f9bc9308421264d849f",
+      "platform": "n64",
+      "runId": "deep-d781f1918f061bd1a937baea-mu4bmx01",
+      "targetField": "PRODUCT_CODE",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "n64-worker-2f9bc9308421264d849f",
+        "runId": "deep-d781f1918f061bd1a937baea-mu4bmx01",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "n64-international-superstar-soccer-98",
+        "inputHash": "1e1058f6cd6f2e5d2903925985e4703f2f282cab31f33aacf9b023cb23c60453",
+        "evidenceHash": "6f54881b6fc68eb34e25390e3adc567e5ceeccd323740e9bd7491d9021e84011",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "retroplayzone"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "PRODUCT_CODE",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:no-intro.org \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+        "site:datomatic.no-intro.org \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+        "site:ogdb.eu \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+        "site:gamesdb.launchbox-app.com \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+        "site:todocoleccion.net \"International Superstar Soccer 98\" \"n64\" \"standard\"",
+        "\"International Superstar Soccer 98\" \"n64\" \"standard\" cartridge disc product code",
+        "\"25645\"",
+        "\"International Superstar Soccer 98\" \"n64\" \"USA\" cartridge label \"product code\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://retroplayzone.com/25645-internation-superstar-soccer-98-sin-caja-n64.html",
+          "label": "candidate:retroplayzone.com",
+          "summary": "25645"
+        },
+        {
+          "url": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+          "label": "ebay",
+          "summary": "EXACT_PHYSICAL_PHOTO"
+        }
+      ],
+      "imagesInspected": 1,
+      "identifiersFound": [
+        {
+          "type": "PRODUCT_CODE",
+          "value": "25645",
+          "component": "UNKNOWN"
+        }
+      ],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.com/itm/International-superstar-soccer-98-N64-cartridge-replacement-label-sticker-precut-/183816675231",
+          "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 7,
+      "braveImages": 1,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.002759,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.042759,
+      "technicalFailures": 1,
+      "recoveredTechnicalFailures": 1,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-defa22f6238c4bdb5fa4cdc9",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 14,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:retroplayzone.com",
+          "ebay"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_worker-n64-worker-06b68c49b7795dc8aed5",
+      "reviewItemId": "n64-worker-06b68c49b7795dc8aed5",
+      "platform": "n64",
+      "runId": "deep-9a8cd7ca4a0ba76fa9200f81-mu4bn79x",
+      "targetField": "PRODUCT_CODE",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "n64-worker-06b68c49b7795dc8aed5",
+        "runId": "deep-9a8cd7ca4a0ba76fa9200f81-mu4bn79x",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "n64-japon-star-wars-episode-i-racer",
+        "inputHash": "8c7b0abed8dd579aa85cefa2fd790692ed553a6a89f223f10c8328bdf07700d4",
+        "evidenceHash": "42e8a8160a2a11244eedbbd3245d798efb4d876d75a45caeb5ab74bb11205111",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "retroplayzone"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "PRODUCT_CODE",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:no-intro.org \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+        "site:datomatic.no-intro.org \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+        "site:ogdb.eu \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+        "site:gamesdb.launchbox-app.com \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+        "site:todocoleccion.net \"Star Wars Episode I: Racer\" \"n64\" \"standard\"",
+        "\"Star Wars Episode I: Racer\" \"n64\" \"standard\" cartridge disc product code",
+        "\"29632\"",
+        "\"Star Wars Episode I: Racer\" \"n64\" \"Japón\" cartridge label \"product code\""
+      ],
+      "usefulSources": [
+        {
+          "url": "https://retroplayzone.com/29632-star-wars-racer-episode-i-cartucho-n64.html",
+          "label": "candidate:retroplayzone.com",
+          "summary": "Product code 29632 found on retroplayzone.com"
+        },
+        {
+          "url": "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+          "label": "ebay",
+          "summary": "EXACT_PHYSICAL_PHOTO"
+        },
+        {
+          "url": "https://www.etsy.com/market/episode_1_racer",
+          "label": "candidate:www.etsy.com",
+          "summary": "EXACT_PHYSICAL_PHOTO"
+        }
+      ],
+      "imagesInspected": 2,
+      "identifiersFound": [
+        {
+          "type": "PRODUCT_CODE",
+          "value": "29632",
+          "component": null
+        },
+        {
+          "type": "PRODUCT_CODE",
+          "value": "29632",
+          "component": "UNKNOWN"
+        }
+      ],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.com/itm/Nintendo-64-Star-Wars-Racer-Cartridge-Replacement-Game-Label-Sticker-/223486365468",
+          "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+        },
+        {
+          "value": "https://www.etsy.com/market/episode_1_racer",
+          "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 7,
+      "braveImages": 1,
+      "openAiCalls": 3,
+      "openAiCostUsd": 0.005337,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.045337,
+      "technicalFailures": 3,
+      "recoveredTechnicalFailures": 3,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-3254c7c436e2d771c407e5dc",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 2,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 14,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:retroplayzone.com",
+          "ebay",
+          "candidate:www.etsy.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_live-b61040fc7f57ac796e67",
+      "reviewItemId": "b61040fc7f57ac796e67",
+      "platform": "ps5",
+      "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "PARTIAL",
+      "finalResolution": {
+        "reviewItemId": "b61040fc7f57ac796e67",
+        "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": "ps5-uncharted-coleccion-legado-de-los-ladrones",
+        "inputHash": "01410d087ac5d07cd6cb02f9197c22bb8dabec9828f55663dbbfbf0fd7337495",
+        "evidenceHash": "34247a8c9591a2c1bf821e2f8f62cb9486971ef9fb71c57b5ac1984c125d0261",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "PARTIAL",
+        "value": "PAL España",
+        "score": 0.6,
+        "claimIds": [
+          "cl-bc2a3c7d160c85bc40f33d0f"
+        ],
+        "sourceIds": [
+          "national-retailer"
+        ],
+        "reason": "A plausible value exists but confirmation threshold is not met."
+      },
+      "queries": [
+        "site:game.es \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+        "site:todocoleccion.net \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+        "site:ebay.com \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+        "site:regionatlas.games \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+        "site:mobygames.com \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+        "\"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Uncharted: Colección Legado de los Ladrones\" PlayStation 5",
+        "site:ebay.es \"Uncharted: Colección Legado de los Ladrones\" PlayStation 5"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+          "label": "candidate:www.todoconsolas.com",
+          "summary": "PAL España"
+        },
+        {
+          "url": "https://www.game.es/uncharted-coleccion-legado-de-los-ladrones-playstation-5-198021",
+          "label": "national-retailer",
+          "summary": "PAL España"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.ebay.es/itm/176406754678",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 3,
+      "openAiCostUsd": 0.000637,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040637,
+      "technicalFailures": 1,
+      "recoveredTechnicalFailures": 1,
+      "catalogMutations": 0,
+      "decisiveEvidence": [
+        "national-retailer"
+      ],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-1706f29d51d12f770ae06e1d",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 1,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 8,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.todoconsolas.com",
+          "national-retailer"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_live-99d439633b5311c4960c",
+      "reviewItemId": "99d439633b5311c4960c",
+      "platform": "ps5",
+      "runId": "deep-a6776f3e43af5e2b57438edc-mu4bntun",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "99d439633b5311c4960c",
+        "runId": "deep-a6776f3e43af5e2b57438edc-mu4bntun",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": null,
+        "inputHash": "d3d4fc13c636234f0fa0f649b8444aa1bf36b1d4cdfc8a56e6d169281a56b458",
+        "evidenceHash": "065cb13b3302296f4e9db01969b00ef992a30a5802db85c01e2b659dae1d2763",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+        "site:todocoleccion.net \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+        "site:ebay.com \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+        "site:regionatlas.games \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+        "site:mobygames.com \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\"",
+        "\"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" \"ps5\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" PlayStation 5",
+        "site:ebay.es \"Yakuza Kiwami 3 & Dark Ties Steelbook Edition\" PlayStation 5"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/194444-yakuza_kiwami_3___dark_ties_steelbook_edition_ps5_eu_po231513-5052770123453.html",
+          "label": "candidate:www.todoconsolas.com",
+          "summary": "Market Region: PAL Europa"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.000253,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040253000000000004,
+      "technicalFailures": 0,
+      "recoveredTechnicalFailures": 0,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-1bd73c112a62bc5e13c9d7e2",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 0,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 8,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.todoconsolas.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_live-39b0f01b400e4cb034d4",
+      "reviewItemId": "39b0f01b400e4cb034d4",
+      "platform": "ps5",
+      "runId": "deep-dcbc66b8bea0c8b6e950fbc4-mu4bo0pm",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "39b0f01b400e4cb034d4",
+        "runId": "deep-dcbc66b8bea0c8b6e950fbc4-mu4bo0pm",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": null,
+        "inputHash": "b2f1ddea3d3b5e4fcd4cde16a3a361d85bf08011426054f793ed7b4ccf4c975a",
+        "evidenceHash": "c88026f62bada9fed4576e41bb94d969e671c622e67880bd164e31d30bc74749",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+        "site:todocoleccion.net \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+        "site:ebay.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+        "site:regionatlas.games \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+        "site:mobygames.com \"Invincible VS Collectors Edition\" \"ps5\" \"standard\"",
+        "\"Invincible VS Collectors Edition\" \"ps5\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Invincible VS Collectors Edition\" PlayStation 5",
+        "site:ebay.es \"Invincible VS Collectors Edition\" PlayStation 5"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210455-invincible_vs_collectors_edition_ps5_sp_po246925-810161631780.html",
+          "label": "candidate:www.todoconsolas.com",
+          "summary": "PAL España"
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [
+        {
+          "value": "https://www.argos.co.uk/product/7950139",
+          "reason": "RESEARCH_BROWSER_HTTP_403"
+        }
+      ],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.000244,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040244,
+      "technicalFailures": 2,
+      "recoveredTechnicalFailures": 2,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-1c285c42d386de450f253358",
+        "knownFactsSupplied": 5,
+        "knownVariantsSupplied": 0,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 8,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.todoconsolas.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    },
+    {
+      "caseId": "mature_platform_live-9c0ea8059d4a40f29399",
+      "reviewItemId": "9c0ea8059d4a40f29399",
+      "platform": "ps5",
+      "runId": "deep-e3033ab1acb6e68d19687e9c-mu4bo792",
+      "targetField": "MARKET_REGION",
+      "model": "gpt-4o-mini",
+      "reasoningConfiguration": "Research Engine V2 configured model; no explicit reasoning-effort control is exposed by this provider adapter.",
+      "status": "UNRESOLVED",
+      "finalResolution": {
+        "reviewItemId": "9c0ea8059d4a40f29399",
+        "runId": "deep-e3033ab1acb6e68d19687e9c-mu4bo792",
+        "decision": "DEFER",
+        "resolvedCatalogId": null,
+        "previousCatalogId": null,
+        "inputHash": "d5ab74f272bd5e434ec0b7a0d7faac56fe68f5042cbbf85690c75a37277902f1",
+        "evidenceHash": "8c38dc2a3777fd55754f648da9f9b725cde7f78a1a76546e76c65b579107601b",
+        "researchEngineVersion": "review-curator-v1",
+        "gitSha": "9984c7534ebc04193c75d1b6b584e3ba8ac3546a",
+        "reason": "High-value evidence gaps remain; preserve the case for a later eligible attempt.",
+        "confidence": 0.5,
+        "sources": [
+          "todoconsolas"
+        ],
+        "evidenceIds": [],
+        "imagesUsed": [],
+        "identifiersUsed": [],
+        "evidenceGaps": [
+          "MISSING_MARKET_PROOF",
+          "MISSING_COMPONENT_PHOTO",
+          "MISSING_COMPONENT_BINDING"
+        ],
+        "braveCalls": 0,
+        "openAiCalls": 0,
+        "costUsd": 0,
+        "createdAt": "2026-09-16T16:31:26.333Z",
+        "resolvedAt": "2026-09-16T16:31:26.333Z"
+      },
+      "researchResolution": {
+        "field": "MARKET_REGION",
+        "status": "UNRESOLVED",
+        "value": null,
+        "score": 0,
+        "claimIds": [],
+        "sourceIds": [],
+        "reason": "No eligible field-level claims."
+      },
+      "queries": [
+        "site:game.es \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+        "site:todocoleccion.net \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+        "site:ebay.com \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+        "site:regionatlas.games \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+        "site:mobygames.com \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+        "\"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\" back cover distributor legal text",
+        "site:todocoleccion.net \"Banishers Ghosts Of New Eden Collector's Edition ...\" PlayStation 5",
+        "site:ebay.es \"Banishers Ghosts Of New Eden Collector's Edition ...\" PlayStation 5"
+      ],
+      "usefulSources": [
+        {
+          "url": "https://www.todoconsolas.com/juegos-ps5/210461-banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970-3512899967021.html",
+          "label": "candidate:www.todoconsolas.com",
+          "summary": "...ps5/uk..."
+        }
+      ],
+      "imagesInspected": 0,
+      "identifiersFound": [],
+      "rejectedEvidence": [],
+      "braveWeb": 8,
+      "braveImages": 0,
+      "openAiCalls": 2,
+      "openAiCostUsd": 0.000254,
+      "braveCostUsd": 0.04,
+      "totalCostUsd": 0.040254,
+      "technicalFailures": 0,
+      "recoveredTechnicalFailures": 0,
+      "catalogMutations": 0,
+      "decisiveEvidence": [],
+      "remainingEvidenceGaps": [
+        "MISSING_MARKET_PROOF",
+        "MISSING_COMPONENT_PHOTO",
+        "MISSING_COMPONENT_BINDING"
+      ],
+      "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+      "error": null,
+      "knowledgePackUsed": {
+        "packId": "knowledge-pack-051993156fb6e9d6cc730a27",
+        "knownFactsSupplied": 4,
+        "knownVariantsSupplied": 0,
+        "knownIdentifiersSupplied": 0,
+        "directUrlsSupplied": 1,
+        "sourcePlansSupplied": 8,
+        "directUrlsConsulted": 1,
+        "sourcesActuallyConsulted": [
+          "candidate:www.todoconsolas.com"
+        ],
+        "genericSearchUsed": false,
+        "couldGenericSearchHaveBeenAvoided": false,
+        "routingViolations": [],
+        "requiredSourceRoutes": 5,
+        "requiredSourceRoutesAttempted": 5,
+        "requiredQueries": 6,
+        "requiredQueriesAttempted": 6
+      }
+    }
+  ]
+}

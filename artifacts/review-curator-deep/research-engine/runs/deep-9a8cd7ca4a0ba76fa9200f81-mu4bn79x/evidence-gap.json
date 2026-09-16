@@ -1,0 +1,19 @@
+{
+  "field": "PRODUCT_CODE",
+  "type": "MISSING_CART_PHOTO",
+  "candidateValue": null,
+  "missingProof": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+  "recommendedActions": [
+    "OPEN_EXISTING_GALLERIES",
+    "SEARCH_EXACT_CART_PHOTO",
+    "SEARCH_PHYSICAL_UNBOXING"
+  ],
+  "recommendedSourceTypes": [
+    "ogdb",
+    "no-intro",
+    "datomatic",
+    "nesworld",
+    "nintendo64ever"
+  ],
+  "exhaustedActions": []
+}

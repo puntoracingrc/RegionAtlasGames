@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {
+      "id": "43149a09251b9a9ddeff",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "Blast Corps · n64 · standard",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "2f306e550937ff6fe0c5",
+      "type": "OUTER_PACKAGE",
+      "label": "OUTER_PACKAGE:UNKNOWN_COMPONENT",
+      "parentProductId": "43149a09251b9a9ddeff",
+      "component": "UNKNOWN_COMPONENT"
+    },
+    {
+      "id": "12c63f2bc59510303180",
+      "type": "INNER_PRODUCT",
+      "label": "INNER_PRODUCT:CARTRIDGE_FRONT",
+      "parentProductId": "43149a09251b9a9ddeff",
+      "component": "CARTRIDGE_FRONT"
+    }
+  ],
+  "relations": [
+    {
+      "fromNodeId": "2f306e550937ff6fe0c5",
+      "toNodeId": "43149a09251b9a9ddeff",
+      "relation": "WRAPS",
+      "evidenceIds": [
+        "ev-b7b11f79d3221a96582b8945"
+      ]
+    },
+    {
+      "fromNodeId": "12c63f2bc59510303180",
+      "toNodeId": "43149a09251b9a9ddeff",
+      "relation": "BUNDLES",
+      "evidenceIds": [
+        "ev-eee1105706ed72eb349de955"
+      ]
+    }
+  ]
+}

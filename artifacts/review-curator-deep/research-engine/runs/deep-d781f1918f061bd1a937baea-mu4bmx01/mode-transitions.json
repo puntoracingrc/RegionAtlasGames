@@ -1,0 +1,9 @@
+[
+  {
+    "at": "2026-09-16T16:35:02.885Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+    "gapType": "MISSING_CART_PHOTO"
+  }
+]

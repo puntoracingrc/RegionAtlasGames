@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+  "taskId": "deep-836d61031e3845fd998c4d09",
+  "subjectId": "curator-subject-5ed3976ca53151519bef",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 2,
+  "targetFields": [
+    "PRODUCT_CODE"
+  ],
+  "currentTargetField": "PRODUCT_CODE",
+  "currentPlaybook": "N64_CART_KNOWN_BOX_UNKNOWN",
+  "queriesAttempted": [
+    "site:no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+    "site:datomatic.no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+    "site:ogdb.eu \"Blast Corps\" \"n64\" \"standard\"",
+    "site:gamesdb.launchbox-app.com \"Blast Corps\" \"n64\" \"standard\"",
+    "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+    "\"Blast Corps\" \"n64\" \"standard\" cartridge disc product code",
+    "\"29876\"",
+    "\"Blast Corps\" \"n64\" \"USA\" cartridge label \"product code\""
+  ],
+  "normalizedQueries": [
+    "site:no-intro.org \"blast corps\" \"n64\" \"standard\"",
+    "site:datomatic.no-intro.org \"blast corps\" \"n64\" \"standard\"",
+    "site:ogdb.eu \"blast corps\" \"n64\" \"standard\"",
+    "site:gamesdb.launchbox-app.com \"blast corps\" \"n64\" \"standard\"",
+    "site:todocoleccion.net \"blast corps\" \"n64\" \"standard\"",
+    "\"blast corps\" \"n64\" \"standard\" cartridge disc product code",
+    "\"29876\"",
+    "\"blast corps\" \"n64\" \"usa\" cartridge label \"product code\""
+  ],
+  "urlsVisited": [
+    "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+    "https://www.ebay.es/p/1126",
+    "https://i.ebayimg.com/images/g/85UAAOSw-fphgCOf/s-l225.jpg",
+    "https://i.ebayimg.com/images/g/cP4AAeSw4FBqprIT/s-l225.jpg",
+    "https://i.ebayimg.com/images/g/MOoAAOSwCNNndYdR/s-l225.jpg",
+    "https://ebay.com/itm/206191526933?hash=item3001f90415%3Ag%3As%7EUAAeSwtLtp0n0s&itmmeta=01KNFDTQXQYWS7QVHB30HHX9HY&itmprp=enc%3AAQALAAAA4DKQclQvzFwZQpmMrsO4LuqlkX3%2F99YUYp4E1RxtGgc4lR3ZnApigcsKHN%2FmBTmGCMehWYW835iZTZxNNS46pKRup68WQ0Pp0y0gkkqvKJTkIKFxjleiJmxYW%2FOp45G0TwZVCeXVNg1gT3CvQhk0BDQDUP9BAsqvU53VTk+JGGJuzuMwiLCrh179C%2FfzGmpaK34D74ibmari4iGn9+0Hu3i48U9DbWIDktekEkE66xeEjmwlhj9AHYgsQ+YvesVUI08DgXr0mATyMzhyGuBt3jZXoZppO3j%2FlWwTTv5tFJ45%7Ctkp%3ABk9SR4L_6u2rZw"
+  ],
+  "domainsVisited": [],
+  "identifiersSeen": [
+    {
+      "type": "PRODUCT_CODE",
+      "value": "29876",
+      "component": "UNKNOWN"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-9b9986e9ed251fdf3fe60632",
+      "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+      "taskId": "deep-836d61031e3845fd998c4d09",
+      "sourceId": "candidate:retroplayzone.com",
+      "sourceUrl": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+      "canonicalUrl": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "retroplayzone.com",
+      "fetchedAt": "2026-09-16T16:34:17.150Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "29876",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "5431ce57c0ee22395a9e77ece815faeeaeaa05aa2569fa430bcf258f88dfc733",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-b7b11f79d3221a96582b8945",
+      "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+      "taskId": "deep-836d61031e3845fd998c4d09",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.es/p/1126",
+      "canonicalUrl": "https://www.ebay.es/p/1126",
+      "sourceType": "MARKETPLACE",
+      "host": "www.ebay.es",
+      "fetchedAt": "2026-09-16T16:34:28.579Z",
+      "evidenceType": "EXACT_PHYSICAL_PHOTO",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": null,
+      "imageUrl": "https://i.ebayimg.com/images/g/85UAAOSw-fphgCOf/s-l225.jpg",
+      "imageHash": "cc8355b316b749c5bd45501162fc3a0abe6fc612e4536503f14de6f2a64d73f1",
+      "textHash": null,
+      "capabilities": [
+        "PRODUCT_CODE"
+      ],
+      "reliability": 95,
+      "component": "UNKNOWN_COMPONENT",
+      "productNodeId": "43149a09251b9a9ddeff",
+      "componentNodeId": "2f306e550937ff6fe0c5",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "subjectClass": "SAME_TITLE_DIFFERENT_PLATFORM",
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "sourcePageUrl": "https://www.ebay.es/p/1126",
+      "originalImageUrl": "https://i.ebayimg.com/images/g/85UAAOSw-fphgCOf/s-l225.jpg",
+      "resolvedImageUrl": "https://i.ebayimg.com/images/g/85UAAOSw-fphgCOf/s-l225.jpg",
+      "sourceRecordId": null,
+      "listingId": null,
+      "platformClassification": "n64",
+      "editionClassification": "standard",
+      "marketEvidence": [],
+      "languageEvidence": [],
+      "extractedIdentifiers": [],
+      "visionModel": "gpt-4o-mini",
+      "visionSchemaVersion": 1
+    },
+    {
+      "id": "ev-b52075e0a620e3f421e58735",
+      "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+      "taskId": "deep-836d61031e3845fd998c4d09",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.es/p/1126",
+      "canonicalUrl": "https://www.ebay.es/p/1126",
+      "sourceType": "MARKETPLACE",
+      "host": "www.ebay.es",
+      "fetchedAt": "2026-09-16T16:34:32.840Z",
+      "evidenceType": "EXACT_PHYSICAL_PHOTO",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": null,
+      "imageUrl": "https://i.ebayimg.com/images/g/cP4AAeSw4FBqprIT/s-l225.jpg",
+      "imageHash": "ba791940aeb3c203b984c38d7a062279e2c81501d6a63a05b5f5b8745271fe42",
+      "textHash": null,
+      "capabilities": [
+        "PRODUCT_CODE"
+      ],
+      "reliability": 95,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeId": "43149a09251b9a9ddeff",
+      "componentNodeId": "12c63f2bc59510303180",
+      "bindingState": "PRODUCT_BOUND",
+      "marketBindingState": "UNBOUND",
+      "subjectClass": "EXACT_PRODUCT",
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "sourcePageUrl": "https://www.ebay.es/p/1126",
+      "originalImageUrl": "https://i.ebayimg.com/images/g/cP4AAeSw4FBqprIT/s-l225.jpg",
+      "resolvedImageUrl": "https://i.ebayimg.com/images/g/cP4AAeSw4FBqprIT/s-l225.jpg",
+      "sourceRecordId": null,
+      "listingId": null,
+      "platformClassification": "n64",
+      "editionClassification": "standard",
+      "marketEvidence": [],
+      "languageEvidence": [],
+      "extractedIdentifiers": [],
+      "visionModel": "gpt-4o-mini",
+      "visionSchemaVersion": 1
+    },
+    {
+      "id": "ev-eee1105706ed72eb349de955",
+      "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+      "taskId": "deep-836d61031e3845fd998c4d09",
+      "sourceId": "ebay",
+      "sourceUrl": "https://www.ebay.es/p/1126",
+      "canonicalUrl": "https://www.ebay.es/p/1126",
+      "sourceType": "MARKETPLACE",
+      "host": "www.ebay.es",
+      "fetchedAt": "2026-09-16T16:34:39.741Z",
+      "evidenceType": "IMAGE_FROM_SOURCE_PAGE",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": null,
+      "imageUrl": "https://i.ebayimg.com/images/g/MOoAAOSwCNNndYdR/s-l225.jpg",
+      "imageHash": "4e01fc6fc9ed95f411e96f38ad01eb0afdda79ba845eecb9f061195dbc9a653f",
+      "textHash": null,
+      "capabilities": [
+        "PRODUCT_CODE"
+      ],
+      "reliability": 50,
+      "component": "CARTRIDGE_FRONT",
+      "productNodeId": "43149a09251b9a9ddeff",
+      "componentNodeId": "12c63f2bc59510303180",
+      "bindingState": "PRODUCT_BOUND",
+      "marketBindingState": "UNBOUND",
+      "subjectClass": "EXACT_PRODUCT",
+      "editionClass": "STANDARD",
+      "visibleEditionMarker": null,
+      "sourcePageUrl": "https://www.ebay.es/p/1126",
+      "originalImageUrl": "https://i.ebayimg.com/images/g/MOoAAOSwCNNndYdR/s-l225.jpg",
+      "resolvedImageUrl": "https://i.ebayimg.com/images/g/MOoAAOSwCNNndYdR/s-l225.jpg",
+      "sourceRecordId": null,
+      "listingId": null,
+      "platformClassification": "n64",
+      "editionClassification": "standard",
+      "marketEvidence": [],
+      "languageEvidence": [],
+      "extractedIdentifiers": [],
+      "visionModel": "gpt-4o-mini",
+      "visionSchemaVersion": 1
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-3f0972582742754e4e312ffc",
+      "runId": "deep-836d61031e3845fd998c4d09-mu4bm7ix",
+      "taskId": "deep-836d61031e3845fd998c4d09",
+      "subjectId": "curator-subject-5ed3976ca53151519bef",
+      "gameId": "n64-blast-corps",
+      "platformSlug": "n64",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "PRODUCT_CODE",
+      "value": "29876",
+      "sourceId": "candidate:retroplayzone.com",
+      "sourceUrl": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+      "evidenceId": "ev-9b9986e9ed251fdf3fe60632",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:34:19.522Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://ebay.com/itm/206191526933?hash=item3001f90415%3Ag%3As%7EUAAeSwtLtp0n0s&itmmeta=01KNFDTQXQYWS7QVHB30HHX9HY&itmprp=enc%3AAQALAAAA4DKQclQvzFwZQpmMrsO4LuqlkX3%2F99YUYp4E1RxtGgc4lR3ZnApigcsKHN%2FmBTmGCMehWYW835iZTZxNNS46pKRup68WQ0Pp0y0gkkqvKJTkIKFxjleiJmxYW%2FOp45G0TwZVCeXVNg1gT3CvQhk0BDQDUP9BAsqvU53VTk+JGGJuzuMwiLCrh179C%2FfzGmpaK34D74ibmari4iGn9+0Hu3i48U9DbWIDktekEkE66xeEjmwlhj9AHYgsQ+YvesVUI08DgXr0mATyMzhyGuBt3jZXoZppO3j%2FlWwTTv5tFJ45%7Ctkp%3ABk9SR4L_6u2rZw",
+      "reason": "GALLERY_PAGE_UNAVAILABLE: Error RESEARCH_BROWSER_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 2,
+    "images": 3,
+    "agentTurns": 4,
+    "browserSessions": 2,
+    "inputTokens": 36155,
+    "outputTokens": 445,
+    "estimatedCostUsd": 0.005689
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:34:40.955Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+      "gapType": "MISSING_CART_PHOTO"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "PRODUCT_CODE",
+      "type": "MISSING_CART_PHOTO",
+      "candidateValue": null,
+      "missingProof": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+      "recommendedActions": [
+        "OPEN_EXISTING_GALLERIES",
+        "SEARCH_EXACT_CART_PHOTO",
+        "SEARCH_PHYSICAL_UNBOXING"
+      ],
+      "recommendedSourceTypes": [
+        "ogdb",
+        "no-intro",
+        "datomatic",
+        "nesworld",
+        "nintendo64ever"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [
+    {
+      "id": "43149a09251b9a9ddeff",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "Blast Corps · n64 · standard",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "2f306e550937ff6fe0c5",
+      "type": "OUTER_PACKAGE",
+      "label": "OUTER_PACKAGE:UNKNOWN_COMPONENT",
+      "parentProductId": "43149a09251b9a9ddeff",
+      "component": "UNKNOWN_COMPONENT"
+    },
+    {
+      "id": "12c63f2bc59510303180",
+      "type": "INNER_PRODUCT",
+      "label": "INNER_PRODUCT:CARTRIDGE_FRONT",
+      "parentProductId": "43149a09251b9a9ddeff",
+      "component": "CARTRIDGE_FRONT"
+    }
+  ],
+  "productRelations": [
+    {
+      "fromNodeId": "2f306e550937ff6fe0c5",
+      "toNodeId": "43149a09251b9a9ddeff",
+      "relation": "WRAPS",
+      "evidenceIds": [
+        "ev-b7b11f79d3221a96582b8945"
+      ]
+    },
+    {
+      "fromNodeId": "12c63f2bc59510303180",
+      "toNodeId": "43149a09251b9a9ddeff",
+      "relation": "BUNDLES",
+      "evidenceIds": [
+        "ev-eee1105706ed72eb349de955"
+      ]
+    }
+  ],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 1,
+    "imageCandidatesDiscovered": 63,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 3,
+    "exactTargetImages": 2,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 1,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 2,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 1,
+    "imagesDiscovered": 63,
+    "originalImagesResolved": 1,
+    "imagesInspected": 3,
+    "subjectAccepted": 2,
+    "componentAccepted": 2,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 1,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:34:16.974Z",
+  "updatedAt": "2026-09-16T16:34:40.955Z"
+}

@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-be225899c94fa6f41cc8fabf-mu4bjevt",
+  "taskId": "deep-be225899c94fa6f41cc8fabf",
+  "subjectId": "curator-subject-c48ed8a5150125320bf0",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "NO_IDENTIFIERS",
+  "queriesAttempted": [
+    "site:game.es \"Grand Slam Tennis\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"Grand Slam Tennis\" \"wii\" \"standard\"",
+    "site:ebay.com \"Grand Slam Tennis\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"Grand Slam Tennis\" \"wii\" \"standard\"",
+    "site:mobygames.com \"Grand Slam Tennis\" \"wii\" \"standard\"",
+    "\"Grand Slam Tennis\" \"wii\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Grand Slam Tennis\" wii",
+    "site:ebay.es \"Grand Slam Tennis\" wii"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"grand slam tennis\" \"wii\" \"standard\"",
+    "site:todocoleccion.net \"grand slam tennis\" \"wii\" \"standard\"",
+    "site:ebay.com \"grand slam tennis\" \"wii\" \"standard\"",
+    "site:regionatlas.games \"grand slam tennis\" \"wii\" \"standard\"",
+    "site:mobygames.com \"grand slam tennis\" \"wii\" \"standard\"",
+    "\"grand slam tennis\" \"wii\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"grand slam tennis\" wii",
+    "site:ebay.es \"grand slam tennis\" wii"
+  ],
+  "urlsVisited": [
+    "https://www.ebay.es/itm/195097511021?_skw=Grand+Slam+Tennis&hash=item2d6cb7c46d:g:vzgAAOSwpgdile4t&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGbYZKe%2B%2Bmp3%2BYn0kD3eqchOiYWqmbfaWvlKCOnEzWmcfJIVHhKbFcT0jR%2BROqdOt4ad8RpMZuGN1w6uCLsw6fbgPRlaZuFHqUqP7oPmfm2W4x4qYSBCL%2F8eg4aEfzVk2kb9PFXQPyXJp7EXeiQ602ODwtn9kFnLUhBTPtfc4NFmx%2ByLnaYqsUe4MPdsr33Tl7w10aUrW8FHM126KNH3SKfIZzSz7A4xAYUWD%2BFGpNt0Q0RK8OLVBjhK8koRqljVenv7ozP%2BJUkrYsENkWd7P5k5WjT7Se0iiQKGv1NsnQjKUQ%3D%3D",
+    "https://www.ebay.com/itm/291645184076",
+    "https://www.ebay.com/itm/135349264780",
+    "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii",
+    "https://forumsold.operationsports.com/previews/70/grand-slam-tennis-whats-hot-and-whats-not/",
+    "https://www.todocoleccion.net/videojuegos-consola-wii/grand-slam-tennis-nintendo-wii-kreaten~x524881492",
+    "https://www.todocoleccion.net/videojuegos-pc/grand-slam-tennis-wii-5030934073691~x512937117",
+    "https://www.ebay.es/itm/196070638930",
+    "https://www.ebay.es/itm/267320088556"
+  ],
+  "domainsVisited": [
+    "www.ebay.com",
+    "www.nintendolife.com",
+    "forumsold.operationsports.com",
+    "www.todocoleccion.net",
+    "www.ebay.es"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-b68482cd9c3386382bb2538f",
+      "runId": "deep-be225899c94fa6f41cc8fabf-mu4bjevt",
+      "taskId": "deep-be225899c94fa6f41cc8fabf",
+      "sourceId": "candidate:www.nintendolife.com",
+      "sourceUrl": "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii",
+      "canonicalUrl": "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.nintendolife.com",
+      "fetchedAt": "2026-09-16T16:32:11.882Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "Version Reviewed: European review by Christopher Clark Sun 21st Jun 2009",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "52974af18f43b9210f392f9ead6e230ec1345a0e057a44c6187ac08a6627ab1d",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-9a23d63f478281ad501630f9",
+      "runId": "deep-be225899c94fa6f41cc8fabf-mu4bjevt",
+      "taskId": "deep-be225899c94fa6f41cc8fabf",
+      "subjectId": "curator-subject-c48ed8a5150125320bf0",
+      "gameId": "wii-grand-slam-tennis",
+      "platformSlug": "wii",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.nintendolife.com",
+      "sourceUrl": "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii",
+      "evidenceId": "ev-b68482cd9c3386382bb2538f",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:32:13.925Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/195097511021?_skw=Grand+Slam+Tennis&hash=item2d6cb7c46d:g:vzgAAOSwpgdile4t&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGbYZKe%2B%2Bmp3%2BYn0kD3eqchOiYWqmbfaWvlKCOnEzWmcfJIVHhKbFcT0jR%2BROqdOt4ad8RpMZuGN1w6uCLsw6fbgPRlaZuFHqUqP7oPmfm2W4x4qYSBCL%2F8eg4aEfzVk2kb9PFXQPyXJp7EXeiQ602ODwtn9kFnLUhBTPtfc4NFmx%2ByLnaYqsUe4MPdsr33Tl7w10aUrW8FHM126KNH3SKfIZzSz7A4xAYUWD%2BFGpNt0Q0RK8OLVBjhK8koRqljVenv7ozP%2BJUkrYsENkWd7P5k5WjT7Se0iiQKGv1NsnQjKUQ%3D%3D",
+      "reason": "Error RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/291645184076",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    },
+    {
+      "value": "https://www.ebay.com/itm/135349264780",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://forumsold.operationsports.com/previews/70/grand-slam-tennis-whats-hot-and-whats-not/",
+      "reason": "RESEARCH_PAGE_HTTP_403"
+    },
+    {
+      "value": "https://www.todocoleccion.net/videojuegos-consola-wii/grand-slam-tennis-nintendo-wii-kreaten~x524881492",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.todocoleccion.net/videojuegos-pc/grand-slam-tennis-wii-5030934073691~x512937117",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/itm/196070638930",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    },
+    {
+      "value": "https://www.ebay.es/itm/267320088556",
+      "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 1,
+    "browserSessions": 2,
+    "inputTokens": 1949,
+    "outputTokens": 110,
+    "estimatedCostUsd": 0.000358
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The text explicitly states 'Version Reviewed: European review' indicating it pertains to the PAL region, specifically 'PAL España'.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:32:14.845Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "ebay",
+        "mobygames",
+        "redump"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:32:06.542Z",
+  "updatedAt": "2026-09-16T16:32:14.846Z"
+}

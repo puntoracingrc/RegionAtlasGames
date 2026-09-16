@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-88561bd2d43f8835343a1d8f",
+    "runId": "deep-5bfdef7c20f77cd27d8138f8-mu4bk2ir",
+    "taskId": "deep-5bfdef7c20f77cd27d8138f8",
+    "subjectId": "curator-subject-ca9859d27f0289b45e56",
+    "gameId": "wii-driver-san-francisco",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.smartoys.be",
+    "sourceUrl": "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html",
+    "evidenceId": "ev-102a8e36da77b68261accf1c",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:32:46.799Z"
+  }
+]

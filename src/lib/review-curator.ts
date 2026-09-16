@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from "node:crypto";
 import type { ResearchComponent, ResearchEvidenceGap, ResearchTargetField } from "./research-engine/v2-types";
+import type { ResearchKnowledgePackV1 } from "./research-engine/knowledge-pack";
 
 export const CURATOR_ENGINE_VERSION = "review-curator-v1";
 export const CURATOR_DECISIONS = [
@@ -57,6 +58,8 @@ export type PhysicalEvidenceBundleV1 = {
   rejected: string[];
   uncertain: string[];
   evidenceGaps: Array<{ field: string; code: string; missingProof: string; recommendedSourceTypes: string[] }>;
+  /** Precomputed once and shared unchanged by Worker, Stage A and Deep Curator. */
+  knowledgePack?: ResearchKnowledgePackV1;
 };
 
 export type CuratorResolution = {

@@ -1,0 +1,30 @@
+[
+  {
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://gameshop-twente.nl/hot-wheels-track-attack.html",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_PAGE_HTTP_404",
+    "recovered": true
+  },
+  {
+    "operation": "BROWSER",
+    "target": "https://gameshop-twente.nl/hot-wheels-track-attack.html",
+    "code": "SOURCE_RATE_LIMITED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_429",
+    "recovered": true
+  },
+  {
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.justanswer.com/game-systems/4h0pg-wii-xmas-received-game-hot-wheels-track.html",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  }
+]

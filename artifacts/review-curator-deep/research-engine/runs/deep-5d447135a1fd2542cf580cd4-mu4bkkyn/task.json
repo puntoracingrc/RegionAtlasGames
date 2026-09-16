@@ -1,0 +1,17 @@
+{
+  "id": "deep-5d447135a1fd2542cf580cd4",
+  "subjectId": "curator-subject-cf1d5662b15027d7ddab",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Family Ski & Snowboard (Balance Board) Version PAL NINTENDO Wii / Wii U RAREZA!!, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "deep-440f48507684d95a980a4132",
+  "subjectId": "curator-subject-c9da9210fccfba482e2d",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact wii physical product DONKEY KONG JET RACE - NINTENDO WII - PAL ESPAÑA, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

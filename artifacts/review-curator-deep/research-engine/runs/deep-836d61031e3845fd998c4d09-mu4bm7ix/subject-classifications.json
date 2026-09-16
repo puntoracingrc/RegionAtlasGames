@@ -1,0 +1,17 @@
+[
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/85UAAOSw-fphgCOf/s-l225.jpg",
+    "subjectClass": "SAME_TITLE_DIFFERENT_PLATFORM",
+    "stage": "REJECTED"
+  },
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/cP4AAeSw4FBqprIT/s-l225.jpg",
+    "subjectClass": "EXACT_PRODUCT",
+    "stage": "ACCEPTED"
+  },
+  {
+    "imageUrl": "https://i.ebayimg.com/images/g/MOoAAOSwCNNndYdR/s-l225.jpg",
+    "subjectClass": "EXACT_PRODUCT",
+    "stage": "ACCEPTED"
+  }
+]

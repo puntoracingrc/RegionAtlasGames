@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "282b907dacc5d95f2a91",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "International Superstar Soccer 98 · n64 · standard",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "12c63f2bc59510303180",
+      "type": "INNER_PRODUCT",
+      "label": "INNER_PRODUCT:CARTRIDGE_FRONT",
+      "parentProductId": "282b907dacc5d95f2a91",
+      "component": "CARTRIDGE_FRONT"
+    }
+  ],
+  "relations": [
+    {
+      "fromNodeId": "12c63f2bc59510303180",
+      "toNodeId": "282b907dacc5d95f2a91",
+      "relation": "BUNDLES",
+      "evidenceIds": [
+        "ev-2389354fa0854abec7a22212"
+      ]
+    }
+  ]
+}

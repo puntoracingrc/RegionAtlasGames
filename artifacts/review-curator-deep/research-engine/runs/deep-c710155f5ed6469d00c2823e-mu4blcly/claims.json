@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-f2a01411d9937333d5e45f05",
+    "runId": "deep-c710155f5ed6469d00c2823e-mu4blcly",
+    "taskId": "deep-c710155f5ed6469d00c2823e",
+    "subjectId": "curator-subject-e8c0a6bc6e6a306e2ea2",
+    "gameId": "ps4-batman-arkham-knight-special-edition",
+    "platformSlug": "ps4",
+    "editionId": null,
+    "variantId": null,
+    "component": "MANUAL_FRONT",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html",
+    "evidenceId": "ev-4d6e3c3f667becf67abb17ce",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:33:43.109Z"
+  }
+]

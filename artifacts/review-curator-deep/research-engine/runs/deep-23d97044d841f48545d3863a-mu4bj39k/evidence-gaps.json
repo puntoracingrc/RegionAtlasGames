@@ -1,0 +1,21 @@
+[
+  {
+    "field": "CANONICAL_IDENTITY",
+    "type": "MISSING_EDITION_PROOF",
+    "candidateValue": null,
+    "missingProof": "Exact title, platform, edition, and variant agreement from an authoritative or independent source.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "INSPECT_EDITION_MARKERS",
+      "SEARCH_EXACT_EDITION_PACKAGE"
+    ],
+    "recommendedSourceTypes": [
+      "ubisoft-official",
+      "redump",
+      "ogdb",
+      "mobygames",
+      "yambalu"
+    ],
+    "exhaustedActions": []
+  }
+]

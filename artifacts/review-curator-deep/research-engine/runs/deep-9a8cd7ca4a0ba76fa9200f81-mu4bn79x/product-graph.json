@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "cda646212a30876df79c",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "Star Wars Episode I: Racer · n64 · standard",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "12c63f2bc59510303180",
+      "type": "INNER_PRODUCT",
+      "label": "INNER_PRODUCT:CARTRIDGE_FRONT",
+      "parentProductId": "cda646212a30876df79c",
+      "component": "CARTRIDGE_FRONT"
+    }
+  ],
+  "relations": [
+    {
+      "fromNodeId": "12c63f2bc59510303180",
+      "toNodeId": "cda646212a30876df79c",
+      "relation": "BUNDLES",
+      "evidenceIds": [
+        "ev-a2e121f4bd276ba88c90881d"
+      ]
+    }
+  ]
+}

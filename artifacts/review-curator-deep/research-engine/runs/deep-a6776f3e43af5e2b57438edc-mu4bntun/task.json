@@ -1,0 +1,17 @@
+{
+  "id": "deep-a6776f3e43af5e2b57438edc",
+  "subjectId": "curator-subject-6ce62e89e80f5b46caa2",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact ps5 physical product Yakuza Kiwami 3 & Dark Ties Steelbook Edition, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

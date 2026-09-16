@@ -1,0 +1,13 @@
+{
+  "field": "MARKET_REGION",
+  "status": "PARTIAL",
+  "value": "PAL España",
+  "score": 0.6,
+  "claimIds": [
+    "cl-bc2a3c7d160c85bc40f33d0f"
+  ],
+  "sourceIds": [
+    "national-retailer"
+  ],
+  "reason": "A plausible value exists but confirmation threshold is not met."
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-d19ee5e675a7274dba8c6427",
+    "runId": "deep-254e9b0895cf7f3063f46432-mu4bm1el",
+    "taskId": "deep-254e9b0895cf7f3063f46432",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+    "canonicalUrl": "https://www.todoconsolas.com/juegos-ps4/206873-black_hole_ps4_de_po243244-8718591185540.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.todoconsolas.com",
+    "fetchedAt": "2026-09-16T16:34:09.910Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "USA",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "35e8e904ca025bd9c1e2963091ee4dd5fabe6cb09ed043ed44b41c9cb1c79481",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

@@ -1,0 +1,822 @@
+{
+  "current": {
+    "targetField": "MARKET_REGION",
+    "factsUsed": [
+      "target=MARKET_REGION",
+      "platform=wii",
+      "title=Hot Wheels Track Attack",
+      "edition=standard",
+      "BARCODE=4005209139434",
+      "knowledgePack=knowledge-pack-00912fc808702dc329d8b9eb",
+      "knownVariants=1",
+      "knownDirectUrls=1",
+      "playbook=BARCODE_KNOWN_MARKET_UNKNOWN"
+    ],
+    "selectedPlaybook": {
+      "id": "BARCODE_KNOWN_MARKET_UNKNOWN",
+      "targets": [
+        "MARKET_REGION",
+        "PACKAGING_LANGUAGES"
+      ],
+      "triggers": [
+        "BARCODE_KNOWN"
+      ],
+      "sourceRoles": [
+        "OWN_SCAN",
+        "PHYSICAL_SPECIMEN",
+        "SPECIALIZED_DATABASE",
+        "RETAILER"
+      ],
+      "queryTemplateGroups": [
+        "BARCODE",
+        "PACKAGING_LANGUAGES"
+      ],
+      "deterministicChecks": [
+        "BARCODE_CHECKSUM",
+        "SUBJECT_BINDING",
+        "PACKAGING_NOT_SOFTWARE"
+      ],
+      "steps": [],
+      "stopWhen": null,
+      "stopRule": null,
+      "sourceIds": [],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 60,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 20,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 65,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+      },
+      {
+        "sourceId": "redump",
+        "hosts": [
+          "redump.org",
+          "redump.info"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "MEDIA_IDENTIFIER"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 10,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 76."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 55."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+        "sourceId": "ebay-es",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "\"4005209139434\"",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER"
+      },
+      {
+        "query": "\"4005209139434\" \"Hot Wheels Track Attack\"",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER"
+      },
+      {
+        "query": "site:game.es \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.com \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:regionatlas.games \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "sourceId": "regionatlas-own-scan",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Hot Wheels Track Attack\" \"wii\" \"standard\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "4005209139434",
+        "query": "\"4005209139434\" wii"
+      },
+      {
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "4005209139434",
+        "query": "site:game.es \"4005209139434\""
+      },
+      {
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "4005209139434",
+        "query": "\"4005209139434\" \"PAL España\""
+      },
+      {
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "EXACT_IDENTIFIER",
+        "identifierType": "BARCODE",
+        "identifierValue": "4005209139434",
+        "query": "site:ebay.com \"4005209139434\""
+      },
+      {
+        "query": "site:todocoleccion.net \"4005209139434\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Hot Wheels Track Attack\" wii",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:redump.org \"Hot Wheels Track Attack\" wii",
+        "sourceId": "redump",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"Hot Wheels Track Attack\" wii",
+        "sourceId": "ogdb",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:news.ubisoft.com \"Hot Wheels Track Attack\" wii",
+        "sourceId": "ubisoft-official",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Hot Wheels Track Attack\" wii",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.es \"Hot Wheels Track Attack\" wii",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"4005209139434\"",
+        "sourceId": "ogdb",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Hot Wheels Track Attack\" \"wii\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [],
+    "deterministicChecks": [
+      "BARCODE_CHECKSUM",
+      "SUBJECT_BINDING",
+      "PACKAGING_NOT_SOFTWARE"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "d466d255f0331c360db84135f50f925f11642be729837f612b2e5258f7790c91"
+  },
+  "history": [
+    {
+      "targetField": "MARKET_REGION",
+      "factsUsed": [
+        "target=MARKET_REGION",
+        "platform=wii",
+        "title=Hot Wheels Track Attack",
+        "edition=standard",
+        "BARCODE=4005209139434",
+        "knowledgePack=knowledge-pack-00912fc808702dc329d8b9eb",
+        "knownVariants=1",
+        "knownDirectUrls=1",
+        "playbook=BARCODE_KNOWN_MARKET_UNKNOWN"
+      ],
+      "selectedPlaybook": {
+        "id": "BARCODE_KNOWN_MARKET_UNKNOWN",
+        "targets": [
+          "MARKET_REGION",
+          "PACKAGING_LANGUAGES"
+        ],
+        "triggers": [
+          "BARCODE_KNOWN"
+        ],
+        "sourceRoles": [
+          "OWN_SCAN",
+          "PHYSICAL_SPECIMEN",
+          "SPECIALIZED_DATABASE",
+          "RETAILER"
+        ],
+        "queryTemplateGroups": [
+          "BARCODE",
+          "PACKAGING_LANGUAGES"
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "SUBJECT_BINDING",
+          "PACKAGING_NOT_SOFTWARE"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": null,
+        "sourceIds": [],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 60,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+        },
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 20,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 65,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+        },
+        {
+          "sourceId": "redump",
+          "hosts": [
+            "redump.org",
+            "redump.info"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "MEDIA_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 10,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 76."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 90."
+        },
+        {
+          "sourceId": "yambalu",
+          "hosts": [
+            "yambalu.com",
+            "www.yambalu.com"
+          ],
+          "roles": [
+            "RETAILER_AGGREGATOR",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 58."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 55."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+          "sourceId": "ebay-es",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "\"4005209139434\"",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER"
+        },
+        {
+          "query": "\"4005209139434\" \"Hot Wheels Track Attack\"",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER"
+        },
+        {
+          "query": "site:game.es \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.com \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:regionatlas.games \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+          "sourceId": "regionatlas-own-scan",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Hot Wheels Track Attack\" \"wii\" \"standard\"",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Hot Wheels Track Attack\" \"wii\" \"standard\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "4005209139434",
+          "query": "\"4005209139434\" wii"
+        },
+        {
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "4005209139434",
+          "query": "site:game.es \"4005209139434\""
+        },
+        {
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "4005209139434",
+          "query": "\"4005209139434\" \"PAL España\""
+        },
+        {
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "EXACT_IDENTIFIER",
+          "identifierType": "BARCODE",
+          "identifierValue": "4005209139434",
+          "query": "site:ebay.com \"4005209139434\""
+        },
+        {
+          "query": "site:todocoleccion.net \"4005209139434\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Hot Wheels Track Attack\" wii",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:redump.org \"Hot Wheels Track Attack\" wii",
+          "sourceId": "redump",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"Hot Wheels Track Attack\" wii",
+          "sourceId": "ogdb",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:news.ubisoft.com \"Hot Wheels Track Attack\" wii",
+          "sourceId": "ubisoft-official",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Hot Wheels Track Attack\" wii",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.es \"Hot Wheels Track Attack\" wii",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"4005209139434\"",
+          "sourceId": "ogdb",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Hot Wheels Track Attack\" \"wii\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [],
+      "deterministicChecks": [
+        "BARCODE_CHECKSUM",
+        "SUBJECT_BINDING",
+        "PACKAGING_NOT_SOFTWARE"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "d466d255f0331c360db84135f50f925f11642be729837f612b2e5258f7790c91"
+    }
+  ]
+}

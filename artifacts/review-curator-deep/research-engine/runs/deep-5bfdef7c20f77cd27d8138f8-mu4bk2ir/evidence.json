@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-102a8e36da77b68261accf1c",
+    "runId": "deep-5bfdef7c20f77cd27d8138f8-mu4bk2ir",
+    "taskId": "deep-5bfdef7c20f77cd27d8138f8",
+    "sourceId": "candidate:www.smartoys.be",
+    "sourceUrl": "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html",
+    "canonicalUrl": "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.smartoys.be",
+    "fetchedAt": "2026-09-16T16:32:44.965Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "... disponible sur : Wii ...",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "1d79ef0f5173b3841787ad0d6436f3141ebf4a37b61381b7bed9960e74bf3288",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

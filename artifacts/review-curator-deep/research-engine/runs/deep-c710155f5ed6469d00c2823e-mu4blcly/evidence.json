@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-4d6e3c3f667becf67abb17ce",
+    "runId": "deep-c710155f5ed6469d00c2823e-mu4blcly",
+    "taskId": "deep-c710155f5ed6469d00c2823e",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html",
+    "canonicalUrl": "https://www.todoconsolas.com/juegos-ps4/13268-batman_arkham_knight_special_edition_ps4_sp_po36111-5051893221008.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.todoconsolas.com",
+    "fetchedAt": "2026-09-16T16:33:41.279Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Batman Arkham Knight Special Edition PS4 | Segunda Mano",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "e3ef7c5dc634ac4526877aa98232da2b58fc3da91e2f8106b05273060221334b",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

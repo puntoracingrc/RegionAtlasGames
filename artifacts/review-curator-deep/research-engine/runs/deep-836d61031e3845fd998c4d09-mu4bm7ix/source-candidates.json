@@ -1,0 +1,12 @@
+[
+  {
+    "host": "retroplayzone.com",
+    "sampleUrls": [
+      "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html"
+    ],
+    "fieldsObserved": [
+      "PRODUCT_CODE"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

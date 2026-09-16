@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-e3033ab1acb6e68d19687e9c-mu4bo792",
+  "taskId": "deep-e3033ab1acb6e68d19687e9c",
+  "subjectId": "curator-subject-20b639321bd61ad24e23",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS5_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\"",
+    "\"Banishers Ghosts Of New Eden Collector's Edition ...\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Banishers Ghosts Of New Eden Collector's Edition ...\" PlayStation 5",
+    "site:ebay.es \"Banishers Ghosts Of New Eden Collector's Edition ...\" PlayStation 5"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"banishers ghosts of new eden collector's edition ...\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"banishers ghosts of new eden collector's edition ...\" \"ps5\" \"standard\"",
+    "site:ebay.com \"banishers ghosts of new eden collector's edition ...\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"banishers ghosts of new eden collector's edition ...\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"banishers ghosts of new eden collector's edition ...\" \"ps5\" \"standard\"",
+    "\"banishers ghosts of new eden collector's edition ...\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"banishers ghosts of new eden collector's edition ...\" playstation 5",
+    "site:ebay.es \"banishers ghosts of new eden collector's edition ...\" playstation 5"
+  ],
+  "urlsVisited": [
+    "https://www.todoconsolas.com/juegos-ps5/210461-banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970-3512899967021.html"
+  ],
+  "domainsVisited": [],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-0ddfc7297580924bc6c5fb16",
+      "runId": "deep-e3033ab1acb6e68d19687e9c-mu4bo792",
+      "taskId": "deep-e3033ab1acb6e68d19687e9c",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/210461-banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970-3512899967021.html",
+      "canonicalUrl": "https://www.todoconsolas.com/juegos-ps5/210461-banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970-3512899967021.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.todoconsolas.com",
+      "fetchedAt": "2026-09-16T16:35:51.326Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "...ps5/uk...",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "056a502935ecb305311ab320f2fcf9333184668f25501a07667483b605f9617a",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-46e6d7930bd55d2efab6bad2",
+      "runId": "deep-e3033ab1acb6e68d19687e9c-mu4bo792",
+      "taskId": "deep-e3033ab1acb6e68d19687e9c",
+      "subjectId": "curator-subject-20b639321bd61ad24e23",
+      "gameId": null,
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "UK",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/210461-banishers_ghosts_of_new_eden_collector_s_edition_ps5_uk_po246970-3512899967021.html",
+      "evidenceId": "ev-0ddfc7297580924bc6c5fb16",
+      "confidence": 0.9,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:35:53.147Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 1,
+    "images": 0,
+    "agentTurns": 2,
+    "browserSessions": 0,
+    "inputTokens": 1261,
+    "outputTokens": 108,
+    "estimatedCostUsd": 0.000254
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The page explicitly mentions the UK in relation to the PS5 version.",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:35:55.896Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:35:49.930Z",
+  "updatedAt": "2026-09-16T16:35:55.896Z"
+}

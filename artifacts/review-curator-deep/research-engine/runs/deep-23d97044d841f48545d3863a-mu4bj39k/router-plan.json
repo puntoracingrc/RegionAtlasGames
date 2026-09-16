@@ -1,0 +1,698 @@
+{
+  "current": {
+    "targetField": "CANONICAL_IDENTITY",
+    "factsUsed": [
+      "target=CANONICAL_IDENTITY",
+      "platform=wii",
+      "title=Fishing Master",
+      "edition=standard",
+      "knowledgePack=knowledge-pack-6e9539f8a0fe25d4bf66c907",
+      "knownVariants=2",
+      "knownDirectUrls=1",
+      "playbook=NO_IDENTIFIERS"
+    ],
+    "selectedPlaybook": {
+      "id": "NO_IDENTIFIERS",
+      "targets": [
+        "*"
+      ],
+      "triggers": [
+        "NO_IDENTIFIERS"
+      ],
+      "sourceRoles": [
+        "OFFICIAL_SOURCE_CANDIDATE",
+        "SPECIALIZED_DATABASE",
+        "RETAILER"
+      ],
+      "queryTemplateGroups": [
+        "NO_IDENTIFIERS"
+      ],
+      "deterministicChecks": [
+        "PLATFORM_MATCH",
+        "SUBJECT_BINDING"
+      ],
+      "steps": [],
+      "stopWhen": null,
+      "stopRule": null,
+      "sourceIds": [],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 94,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 94."
+      },
+      {
+        "sourceId": "redump",
+        "hosts": [
+          "redump.org",
+          "redump.info"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "MEDIA_IDENTIFIER"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 78,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 78."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 76,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 76."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 76,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 76."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 76,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 76."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 72."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 55."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 55."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 52."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://www.ebay.es/itm/127748927580?_skw=Fishing+Master&hash=item1dbe6df05c:g:7tgAAeSwD7RpuDY9",
+        "sourceId": "ebay-es",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "site:ubisoft.com \"Fishing Master\" \"wii\" \"standard\"",
+        "sourceId": "ubisoft-official",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:redump.org \"Fishing Master\" \"wii\" \"standard\"",
+        "sourceId": "redump",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"Fishing Master\" \"wii\" \"standard\"",
+        "sourceId": "ogdb",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Fishing Master\" \"wii\" \"standard\"",
+        "sourceId": "mobygames",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:yambalu.com \"Fishing Master\" \"wii\" \"standard\"",
+        "sourceId": "yambalu",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Fishing Master\" \"wii\" \"standard\" canonical identity",
+        "sourceId": null,
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:news.ubisoft.com \"Fishing Master\" wii",
+        "sourceId": "ubisoft-official",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:redump.org \"Fishing Master\" wii",
+        "sourceId": "redump",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ogdb.eu \"Fishing Master\" wii",
+        "sourceId": "ogdb",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Fishing Master\" wii",
+        "sourceId": "mobygames",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:yambalu.com \"Fishing Master\" wii",
+        "sourceId": "yambalu",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:nintendo.com \"Fishing Master\" wii",
+        "sourceId": "platform-holder-official",
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Fishing Master\" \"wii\" canonical identity",
+        "sourceId": null,
+        "purpose": "CANONICAL_IDENTITY",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [],
+    "deterministicChecks": [
+      "PLATFORM_MATCH",
+      "SUBJECT_BINDING"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "85493ff3188f5c094b404aa2d5c03c23d49947e574d4dfdb40ddd3f0714e8c7f"
+  },
+  "history": [
+    {
+      "targetField": "CANONICAL_IDENTITY",
+      "factsUsed": [
+        "target=CANONICAL_IDENTITY",
+        "platform=wii",
+        "title=Fishing Master",
+        "edition=standard",
+        "knowledgePack=knowledge-pack-6e9539f8a0fe25d4bf66c907",
+        "knownVariants=2",
+        "knownDirectUrls=1",
+        "playbook=NO_IDENTIFIERS"
+      ],
+      "selectedPlaybook": {
+        "id": "NO_IDENTIFIERS",
+        "targets": [
+          "*"
+        ],
+        "triggers": [
+          "NO_IDENTIFIERS"
+        ],
+        "sourceRoles": [
+          "OFFICIAL_SOURCE_CANDIDATE",
+          "SPECIALIZED_DATABASE",
+          "RETAILER"
+        ],
+        "queryTemplateGroups": [
+          "NO_IDENTIFIERS"
+        ],
+        "deterministicChecks": [
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": null,
+        "sourceIds": [],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 94,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 94."
+        },
+        {
+          "sourceId": "redump",
+          "hosts": [
+            "redump.org",
+            "redump.info"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "MEDIA_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 78,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 78."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 76,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 76."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 76,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 76."
+        },
+        {
+          "sourceId": "yambalu",
+          "hosts": [
+            "yambalu.com",
+            "www.yambalu.com"
+          ],
+          "roles": [
+            "RETAILER_AGGREGATOR",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 76,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 76."
+        },
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 90."
+        },
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 72."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 55."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 55."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 52."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://www.ebay.es/itm/127748927580?_skw=Fishing+Master&hash=item1dbe6df05c:g:7tgAAeSwD7RpuDY9",
+          "sourceId": "ebay-es",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "site:ubisoft.com \"Fishing Master\" \"wii\" \"standard\"",
+          "sourceId": "ubisoft-official",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:redump.org \"Fishing Master\" \"wii\" \"standard\"",
+          "sourceId": "redump",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"Fishing Master\" \"wii\" \"standard\"",
+          "sourceId": "ogdb",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Fishing Master\" \"wii\" \"standard\"",
+          "sourceId": "mobygames",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:yambalu.com \"Fishing Master\" \"wii\" \"standard\"",
+          "sourceId": "yambalu",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Fishing Master\" \"wii\" \"standard\" canonical identity",
+          "sourceId": null,
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:news.ubisoft.com \"Fishing Master\" wii",
+          "sourceId": "ubisoft-official",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:redump.org \"Fishing Master\" wii",
+          "sourceId": "redump",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ogdb.eu \"Fishing Master\" wii",
+          "sourceId": "ogdb",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Fishing Master\" wii",
+          "sourceId": "mobygames",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:yambalu.com \"Fishing Master\" wii",
+          "sourceId": "yambalu",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:nintendo.com \"Fishing Master\" wii",
+          "sourceId": "platform-holder-official",
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Fishing Master\" \"wii\" canonical identity",
+          "sourceId": null,
+          "purpose": "CANONICAL_IDENTITY",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [],
+      "deterministicChecks": [
+        "PLATFORM_MATCH",
+        "SUBJECT_BINDING"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "85493ff3188f5c094b404aa2d5c03c23d49947e574d4dfdb40ddd3f0714e8c7f"
+    }
+  ]
+}

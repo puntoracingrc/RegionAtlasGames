@@ -1,6 +1,7 @@
 import { createHash, randomUUID } from "node:crypto";
 import { buildResearchCatalogContext } from "./catalog-context";
 import { budgetAllows, budgetExhaustionReason, recordBudgetUse, recordModelUsage } from "./budget";
+import { researchKnowledgePackSearchBudget, type ResearchKnowledgePackV1 } from "./knowledge-pack";
 import { bindEvidenceSubject } from "./evidence-binding";
 import { crossAttributionConflicts, resolveResearchClaimRecords, type ResearchFieldResolution } from "./conflict-engine";
 import { loadResearchKnowledge } from "./knowledge-loader";
@@ -106,6 +107,42 @@ function absoluteOwnedScanUrl(value: string): string {
 
 function normalizedQuery(query: string): string {
   return query.toLowerCase().replace(/[“”]/g, "\"").replace(/\s+/g, " ").trim();
+}
+
+function highValueKnowledgeRoutesExhausted(
+  pack: ResearchKnowledgePackV1 | undefined,
+  targetField: ResearchTargetField,
+  state: ResearchState,
+): boolean {
+  const plan = pack?.fieldPlans[targetField];
+  if (!plan) return false;
+  const directUrlsDone = plan.directUrls.every((row) => state.urlsVisited.includes(row.url));
+  const exactAndSourceQueriesDone = plan.exactQueries
+    .filter((row) => row.strategy !== "GENERIC_LAST_RESORT")
+    .every((row) => state.normalizedQueries.includes(normalizedQuery(row.query)));
+  return directUrlsDone && exactAndSourceQueriesDone;
+}
+
+function secondaryBudgetCanDegradeWithoutCuttingSearch(reason: string, packRoutesExhausted: boolean): boolean {
+  if (packRoutesExhausted) return false;
+  return [
+    "PAGE_BUDGET_EXHAUSTED",
+    "IMAGE_BUDGET_EXHAUSTED",
+    "AGENT_TURN_BUDGET_EXHAUSTED",
+    "BROWSER_BUDGET_EXHAUSTED",
+  ].includes(reason);
+}
+
+function completedKnowledgeRouteStopReason(
+  exhausted: string | null,
+  pack: ResearchKnowledgePackV1 | undefined,
+  targetField: ResearchTargetField,
+  state: ResearchState,
+): string | null {
+  return exhausted?.endsWith("_BUDGET_EXHAUSTED")
+    && highValueKnowledgeRoutesExhausted(pack, targetField, state)
+    ? "HIGH_VALUE_ROUTES_EXHAUSTED"
+    : exhausted;
 }
 
 function comparableText(value: string): string {
@@ -556,6 +593,7 @@ function routerInput(input: {
   task: DurableResearchTask;
   state: ResearchState;
   knowledge: Awaited<ReturnType<typeof loadResearchKnowledge>>;
+  knowledgePack?: import("./knowledge-pack").ResearchKnowledgePackV1;
 }): ResearchRouterInput {
   return {
     catalogContext: input.context,
@@ -572,6 +610,7 @@ function routerInput(input: {
     currentConflicts: input.state.conflicts,
     evidenceGaps: input.state.evidenceGaps ?? [],
     researchMode: input.state.researchMode ?? "STANDARD",
+    knowledgePack: input.knowledgePack,
   };
 }
 
@@ -1231,6 +1270,7 @@ export async function runResearchTaskV2(input: {
   resumeState?: ResearchState | null;
   rootDir?: string;
   franchiseId?: string | null;
+  knowledgePack?: import("./knowledge-pack").ResearchKnowledgePackV1;
 }): Promise<ResearchWorkerResult> {
   const started = Date.now();
   const store = input.dependencies.store ?? new ResearchRunStore();
@@ -1249,6 +1289,13 @@ export async function runResearchTaskV2(input: {
     priority: input.task.priority,
     riskCodes: input.task.riskCodes,
   });
+  if (input.knowledgePack) {
+    state.budget.maxSearches = Math.max(state.budget.maxSearches, researchKnowledgePackSearchBudget(
+      input.knowledgePack,
+      input.task.targetField,
+      { reserveImageSearch: Boolean(input.dependencies.imageSearchProvider && input.dependencies.visionProvider) },
+    ));
+  }
   state.physicalMetrics = { ...createResearchPhysicalMetrics(), ...(state.physicalMetrics ?? {}) };
   const priorRouter = input.resumeState
     ? await store.readArtifact<{ history?: ResearchRouterPlan[] }>(state.runId, "router-plan.json", () => ({}))
@@ -1289,11 +1336,14 @@ export async function runResearchTaskV2(input: {
   try {
     for (; state.round < maxRounds; state.round += 1) {
       const exhausted = budgetExhaustionReason(state.budget, state.usage);
-      if (exhausted) {
-        updateState(state, { whyStopped: exhausted });
+      const packRoutesExhausted = highValueKnowledgeRoutesExhausted(input.knowledgePack, input.task.targetField, state);
+      if (exhausted && !secondaryBudgetCanDegradeWithoutCuttingSearch(exhausted, packRoutesExhausted)) {
+        updateState(state, {
+          whyStopped: completedKnowledgeRouteStopReason(exhausted, input.knowledgePack, input.task.targetField, state),
+        });
         break;
       }
-      const routeInput = routerInput({ context, task: input.task, state, knowledge });
+      const routeInput = routerInput({ context, task: input.task, state, knowledge, knowledgePack: input.knowledgePack });
       const plan = routeResearch(routeInput);
       plans.push(plan);
       updateState(state, { currentPlaybook: plan.selectedPlaybook.id, status: "SEARCHING" });
@@ -1496,7 +1546,11 @@ export async function runResearchTaskV2(input: {
       replan ||= activatePhysicalEvidenceMode(state, resolved.resolution, plans);
       noProgressRounds = progressed || replan ? 0 : noProgressRounds + 1;
       if (noProgressRounds >= 1 || !replan) {
-        updateState(state, { whyStopped: budgetExhaustionReason(state.budget, state.usage) ?? "NO_NEW_DISCRIMINATING_EVIDENCE" });
+        const exhausted = budgetExhaustionReason(state.budget, state.usage);
+        updateState(state, {
+          whyStopped: completedKnowledgeRouteStopReason(exhausted, input.knowledgePack, input.task.targetField, state)
+            ?? "NO_NEW_DISCRIMINATING_EVIDENCE",
+        });
         break;
       }
     }

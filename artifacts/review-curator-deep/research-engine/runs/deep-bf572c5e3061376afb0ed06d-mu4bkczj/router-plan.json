@@ -1,0 +1,698 @@
+{
+  "current": {
+    "targetField": "MARKET_REGION",
+    "factsUsed": [
+      "target=MARKET_REGION",
+      "platform=wii",
+      "title=Inazuma Eleven Strikers",
+      "edition=standard",
+      "knowledgePack=knowledge-pack-05026a5c9f8ce3fd22d9b7e6",
+      "knownVariants=1",
+      "knownDirectUrls=1",
+      "playbook=NO_IDENTIFIERS"
+    ],
+    "selectedPlaybook": {
+      "id": "NO_IDENTIFIERS",
+      "targets": [
+        "*"
+      ],
+      "triggers": [
+        "NO_IDENTIFIERS"
+      ],
+      "sourceRoles": [
+        "OFFICIAL_SOURCE_CANDIDATE",
+        "SPECIALIZED_DATABASE",
+        "RETAILER"
+      ],
+      "queryTemplateGroups": [
+        "NO_IDENTIFIERS"
+      ],
+      "deterministicChecks": [
+        "PLATFORM_MATCH",
+        "SUBJECT_BINDING"
+      ],
+      "steps": [],
+      "stopWhen": null,
+      "stopRule": null,
+      "sourceIds": [],
+      "requiredEvidencePreference": []
+    },
+    "sourcePlan": [
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 60,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 20,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 65,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+      },
+      {
+        "sourceId": "redump",
+        "hosts": [
+          "redump.org",
+          "redump.info"
+        ],
+        "roles": [
+          "TECHNICAL_DATABASE",
+          "MEDIA_IDENTIFIER"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 10,
+        "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 76."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 55."
+      }
+    ],
+    "directUrlPlan": [
+      {
+        "url": "https://www.ebay.es/itm/377370832448?_skw=Inazuma+Eleven+Strikers&hash=item57dd0dee40:g:zb0AAeSwau1qjtRX&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZj98RtiezjmIA0btTTrmFtJhb7y9%2FFR9lf3c3GMixFOclPG%2BLpTAPncMg%2BKjfAE9Snzy%2BzDdvqvEYZ9VjWW6p7q1klE%2FO%2BvR%2BgHl4iV6pG2WBTEEAkplIi6B4gsXIxZerlxMbQw7K5GSIMutlNKARNNrAhwRWxAVODd4ImHtHYKc%2B0xCudnh%2FedAPQyIVKAtKRjh01K%2BOWdB%2FEh%2F7q%2FNzXxtCJ9xD2%2Fqv932zI6ktj30Oq6H6Yruzh%2Fes1Vyhlhn%2BqaYNaOOFd73Fy6C%2BjHs9OVCjMUa5eJdvwQz707%2BPKdw%3D%3D",
+        "sourceId": "ebay-es",
+        "reason": "Known exact URL supplied by RegionAtlas context."
+      }
+    ],
+    "queryPlan": [
+      {
+        "query": "site:game.es \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "sourceId": "national-retailer",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.com \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:regionatlas.games \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "sourceId": "regionatlas-own-scan",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Inazuma Eleven Strikers\" \"wii\" \"standard\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:todocoleccion.net \"Inazuma Eleven Strikers\" wii",
+        "sourceId": "todocoleccion",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:ebay.es \"Inazuma Eleven Strikers\" wii",
+        "sourceId": "ebay",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:mobygames.com \"Inazuma Eleven Strikers\" wii",
+        "sourceId": "mobygames",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:redump.org \"Inazuma Eleven Strikers\" wii",
+        "sourceId": "redump",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:news.ubisoft.com \"Inazuma Eleven Strikers\" wii",
+        "sourceId": "ubisoft-official",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "site:nintendo.com \"Inazuma Eleven Strikers\" wii",
+        "sourceId": "platform-holder-official",
+        "purpose": "MARKET_REGION",
+        "strategy": "SOURCE_SPECIFIC"
+      },
+      {
+        "query": "\"Inazuma Eleven Strikers\" \"wii\" back cover distributor legal text",
+        "sourceId": null,
+        "purpose": "MARKET_REGION",
+        "strategy": "GENERIC"
+      }
+    ],
+    "imagePlan": [],
+    "deterministicChecks": [
+      "PLATFORM_MATCH",
+      "SUBJECT_BINDING"
+    ],
+    "escalationRules": [
+      "REPLAN_AFTER_NEW_IDENTIFIER",
+      "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+      "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+      "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+      "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+    ],
+    "researchMode": "STANDARD",
+    "evidenceGapTypes": [],
+    "routeFingerprint": "17cd5ae584046f7230540b91e0a73fca878dca29431fcd849c1bd9bda1640ec5"
+  },
+  "history": [
+    {
+      "targetField": "MARKET_REGION",
+      "factsUsed": [
+        "target=MARKET_REGION",
+        "platform=wii",
+        "title=Inazuma Eleven Strikers",
+        "edition=standard",
+        "knowledgePack=knowledge-pack-05026a5c9f8ce3fd22d9b7e6",
+        "knownVariants=1",
+        "knownDirectUrls=1",
+        "playbook=NO_IDENTIFIERS"
+      ],
+      "selectedPlaybook": {
+        "id": "NO_IDENTIFIERS",
+        "targets": [
+          "*"
+        ],
+        "triggers": [
+          "NO_IDENTIFIERS"
+        ],
+        "sourceRoles": [
+          "OFFICIAL_SOURCE_CANDIDATE",
+          "SPECIALIZED_DATABASE",
+          "RETAILER"
+        ],
+        "queryTemplateGroups": [
+          "NO_IDENTIFIERS"
+        ],
+        "deterministicChecks": [
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING"
+        ],
+        "steps": [],
+        "stopWhen": null,
+        "stopRule": null,
+        "sourceIds": [],
+        "requiredEvidencePreference": []
+      },
+      "sourcePlan": [
+        {
+          "sourceId": "publisher-official",
+          "hosts": [],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "national-retailer",
+          "hosts": [
+            "game.es",
+            "fnac.es",
+            "mediamarkt.es"
+          ],
+          "roles": [
+            "RETAILER"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 60,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 60."
+        },
+        {
+          "sourceId": "todocoleccion",
+          "hosts": [
+            "todocoleccion.net",
+            "www.todocoleccion.net"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability not declared."
+        },
+        {
+          "sourceId": "ebay",
+          "hosts": [
+            "ebay.com",
+            "ebay.es",
+            "ebay.co.uk"
+          ],
+          "roles": [
+            "MARKETPLACE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "MARKETPLACE_API",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 20,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 20."
+        },
+        {
+          "sourceId": "mobygames",
+          "hosts": [
+            "mobygames.com"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 65,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 65."
+        },
+        {
+          "sourceId": "redump",
+          "hosts": [
+            "redump.org",
+            "redump.info"
+          ],
+          "roles": [
+            "TECHNICAL_DATABASE",
+            "MEDIA_IDENTIFIER"
+          ],
+          "accessModes": [
+            "DOMAIN_SEARCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 10,
+          "reason": "Precomputed ResearchKnowledgePack order; target capability 10."
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "hosts": [
+            "ubisoft.com",
+            "news.ubisoft.com",
+            "store.ubisoft.com"
+          ],
+          "roles": [
+            "PUBLISHER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 92."
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "hosts": [
+            "nintendo.com",
+            "playstation.com",
+            "xbox.com"
+          ],
+          "roles": [
+            "PLATFORM_HOLDER",
+            "OFFICIAL_SOURCE_CANDIDATE"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "ARCHIVE"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 90."
+        },
+        {
+          "sourceId": "ogdb",
+          "hosts": [
+            "ogdb.eu"
+          ],
+          "roles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN_DISCOVERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "DOMAIN_SEARCH",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 76."
+        },
+        {
+          "sourceId": "yambalu",
+          "hosts": [
+            "yambalu.com",
+            "www.yambalu.com"
+          ],
+          "roles": [
+            "RETAILER_AGGREGATOR",
+            "RELEASE_IDENTITY"
+          ],
+          "accessModes": [
+            "SEARCH_ENGINE",
+            "DIRECT_FETCH",
+            "BROWSER"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 58."
+        },
+        {
+          "sourceId": "launchbox-images",
+          "hosts": [
+            "gamesdb.launchbox-app.com"
+          ],
+          "roles": [
+            "PHYSICAL_SPECIMEN_DISCOVERY",
+            "COVER_GALLERY"
+          ],
+          "accessModes": [
+            "DIRECT_FETCH",
+            "SEARCH_ENGINE",
+            "BROWSER",
+            "IMAGE_SEARCH"
+          ],
+          "capabilityScore": 0,
+          "reason": "Field capability unspecified; default reliability 55."
+        }
+      ],
+      "directUrlPlan": [
+        {
+          "url": "https://www.ebay.es/itm/377370832448?_skw=Inazuma+Eleven+Strikers&hash=item57dd0dee40:g:zb0AAeSwau1qjtRX&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZj98RtiezjmIA0btTTrmFtJhb7y9%2FFR9lf3c3GMixFOclPG%2BLpTAPncMg%2BKjfAE9Snzy%2BzDdvqvEYZ9VjWW6p7q1klE%2FO%2BvR%2BgHl4iV6pG2WBTEEAkplIi6B4gsXIxZerlxMbQw7K5GSIMutlNKARNNrAhwRWxAVODd4ImHtHYKc%2B0xCudnh%2FedAPQyIVKAtKRjh01K%2BOWdB%2FEh%2F7q%2FNzXxtCJ9xD2%2Fqv932zI6ktj30Oq6H6Yruzh%2Fes1Vyhlhn%2BqaYNaOOFd73Fy6C%2BjHs9OVCjMUa5eJdvwQz707%2BPKdw%3D%3D",
+          "sourceId": "ebay-es",
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "queryPlan": [
+        {
+          "query": "site:game.es \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+          "sourceId": "national-retailer",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.com \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:regionatlas.games \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+          "sourceId": "regionatlas-own-scan",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Inazuma Eleven Strikers\" \"wii\" \"standard\"",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Inazuma Eleven Strikers\" \"wii\" \"standard\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:todocoleccion.net \"Inazuma Eleven Strikers\" wii",
+          "sourceId": "todocoleccion",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:ebay.es \"Inazuma Eleven Strikers\" wii",
+          "sourceId": "ebay",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:mobygames.com \"Inazuma Eleven Strikers\" wii",
+          "sourceId": "mobygames",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:redump.org \"Inazuma Eleven Strikers\" wii",
+          "sourceId": "redump",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:news.ubisoft.com \"Inazuma Eleven Strikers\" wii",
+          "sourceId": "ubisoft-official",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "site:nintendo.com \"Inazuma Eleven Strikers\" wii",
+          "sourceId": "platform-holder-official",
+          "purpose": "MARKET_REGION",
+          "strategy": "SOURCE_SPECIFIC"
+        },
+        {
+          "query": "\"Inazuma Eleven Strikers\" \"wii\" back cover distributor legal text",
+          "sourceId": null,
+          "purpose": "MARKET_REGION",
+          "strategy": "GENERIC"
+        }
+      ],
+      "imagePlan": [],
+      "deterministicChecks": [
+        "PLATFORM_MATCH",
+        "SUBJECT_BINDING"
+      ],
+      "escalationRules": [
+        "REPLAN_AFTER_NEW_IDENTIFIER",
+        "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+        "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+        "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+        "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+      ],
+      "researchMode": "STANDARD",
+      "evidenceGapTypes": [],
+      "routeFingerprint": "17cd5ae584046f7230540b91e0a73fca878dca29431fcd849c1bd9bda1640ec5"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "host": "www.smartoys.be",
+    "sampleUrls": [
+      "https://www.smartoys.be/catalog/retro-gaming-wii-driver-san-francisco-p-3307217929153.html"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

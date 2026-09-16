@@ -1,0 +1,427 @@
+[
+  {
+    "id": "deep-c31a6d77c6f78885365c9fb0",
+    "subjectId": "curator-subject-91dfd7dd5d2735c03c0b",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Dave Mirra BMX Challenge Wii Nintendo Wii PAL Alemania Español EMBALAJE ORIGINAL Completo, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:31:35.100Z"
+  },
+  {
+    "id": "deep-2a121dbf6621ade40ab02d9f",
+    "subjectId": "curator-subject-c07a783db5ab1f92c36a",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product DREAMWORKS SUPERSTAR KARTZ . Pal España . Envio Certificado, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:31:43.785Z"
+  },
+  {
+    "id": "deep-e83659757dfcb5d07ad5b95a",
+    "subjectId": "curator-subject-caf1c39cfd393ffd5923",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Fast Food Panic para Nintendo Wii Pal España Completo en excelente estado, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:31:51.361Z"
+  },
+  {
+    "id": "deep-23d97044d841f48545d3863a",
+    "subjectId": "curator-subject-1756ae52087c97a5306f",
+    "targetField": "CANONICAL_IDENTITY",
+    "question": "Find evidence that closes CANONICAL_IDENTITY for the exact wii physical product Fishing Master (selects) Juego Nintendo Wii, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No component-level observations reached the queue."
+    ],
+    "riskCodes": [
+      "WEAK_OR_MISSING_EVIDENCE",
+      "PENDING_IDENTIFIER"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:32:06.418Z"
+  },
+  {
+    "id": "deep-be225899c94fa6f41cc8fabf",
+    "subjectId": "curator-subject-c48ed8a5150125320bf0",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product No incluye Motion Plus➡️Grand Slam Tennis Nintendo Wii PAL España COMPLETO/LEE👇, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:32:15.098Z"
+  },
+  {
+    "id": "deep-aba5464447f5845928c1c888",
+    "subjectId": "curator-subject-4b2bb9eef68bb5094e5f",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product GORMITI THE LORDS OF NATURE! + FIGURA .  Pal España.. Envio Certificado..Paypal, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:32:24.743Z"
+  },
+  {
+    "id": "deep-5b25ceaac907c2d378e73b75",
+    "subjectId": "curator-subject-bbdb0afbbd3ade10dadb",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product HOT WHEELS - TRACK ATTACK - NINTENDO WII - PAL - COMPLETO - VERY GOOD - WIIU, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:32:37.052Z"
+  },
+  {
+    "id": "deep-5bfdef7c20f77cd27d8138f8",
+    "subjectId": "curator-subject-ca9859d27f0289b45e56",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Driver San Francisco, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:32:50.617Z"
+  },
+  {
+    "id": "deep-bf572c5e3061376afb0ed06d",
+    "subjectId": "curator-subject-5cb6b5c7b24b1475b08e",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Inazuma Eleven Strikers Wii Nintendo Wii PAL España Español Completo Caja 2011, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:32:56.324Z"
+  },
+  {
+    "id": "deep-e3be63ad8ec57d8ec08e6746",
+    "subjectId": "curator-subject-e4e9662e9970a3e3e7a2",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Family Trainer Treasure Adv.+ Extreme Challenge Juego para Nintendo Wii [PAL ES], without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:33:00.952Z"
+  },
+  {
+    "id": "deep-5d447135a1fd2542cf580cd4",
+    "subjectId": "curator-subject-cf1d5662b15027d7ddab",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Family Ski & Snowboard (Balance Board) Version PAL NINTENDO Wii / Wii U RAREZA!!, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:33:13.335Z"
+  },
+  {
+    "id": "deep-440f48507684d95a980a4132",
+    "subjectId": "curator-subject-c9da9210fccfba482e2d",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product DONKEY KONG JET RACE - NINTENDO WII - PAL ESPAÑA, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:33:19.142Z"
+  },
+  {
+    "id": "deep-545c783b205f8a0f3349def7",
+    "subjectId": "curator-subject-0290405b7da63c5c18b1",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Ghost Squad Wii Pal España, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:33:27.405Z"
+  },
+  {
+    "id": "deep-8f2451fa924028de8b07384b",
+    "subjectId": "curator-subject-b0dfe1efeab9daab3d63",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact ps4 physical product The Order 1886 [Limited Edition], without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:33:36.785Z"
+  },
+  {
+    "id": "deep-c710155f5ed6469d00c2823e",
+    "subjectId": "curator-subject-e8c0a6bc6e6a306e2ea2",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact ps4 physical product Batman Arkham Knight [Special Edition], without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:33:46.378Z"
+  },
+  {
+    "id": "deep-04a2338524d6253e5cf77265",
+    "subjectId": "curator-subject-516ddfa37506b9e4256e",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact ps4 physical product Pantsu Hunter: Back to the 90s, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:34:08.921Z"
+  },
+  {
+    "id": "deep-254e9b0895cf7f3063f46432",
+    "subjectId": "curator-subject-563d2e3350aae4a648f7",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact ps4 physical product Black Hole, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:34:16.853Z"
+  },
+  {
+    "id": "deep-836d61031e3845fd998c4d09",
+    "subjectId": "curator-subject-5ed3976ca53151519bef",
+    "targetField": "PRODUCT_CODE",
+    "question": "Find component-bound cartridge product-code evidence for Blast Corps; keep cartridge, box and manual codes separate.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "WEAK_OR_MISSING_EVIDENCE",
+      "PENDING_IDENTIFIER"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:34:41.268Z"
+  },
+  {
+    "id": "deep-f9686efab456f96e3467ab8d",
+    "subjectId": "curator-subject-96dc15384d7e059a5f3b",
+    "targetField": "PRODUCT_CODE",
+    "question": "Find component-bound cartridge product-code evidence for International Superstar Soccer 64; keep cartridge, box and manual codes separate.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "WEAK_OR_MISSING_EVIDENCE",
+      "PENDING_IDENTIFIER"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:34:49.869Z"
+  },
+  {
+    "id": "deep-d781f1918f061bd1a937baea",
+    "subjectId": "curator-subject-0788a90c3cbce5ad0674",
+    "targetField": "PRODUCT_CODE",
+    "question": "Find component-bound cartridge product-code evidence for International Superstar Soccer 98; keep cartridge, box and manual codes separate.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "WEAK_OR_MISSING_EVIDENCE",
+      "PENDING_IDENTIFIER"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:35:03.186Z"
+  },
+  {
+    "id": "deep-9a8cd7ca4a0ba76fa9200f81",
+    "subjectId": "curator-subject-2c845f2becf53a7497b0",
+    "targetField": "PRODUCT_CODE",
+    "question": "Find component-bound cartridge product-code evidence for Star Wars Episode I: Racer; keep cartridge, box and manual codes separate.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "WEAK_OR_MISSING_EVIDENCE",
+      "PENDING_IDENTIFIER"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:35:23.125Z"
+  },
+  {
+    "id": "deep-e7d1560d250af6383e0510a7",
+    "subjectId": "curator-subject-fa495cd4248a21a1750f",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact ps5 physical product Uncharted: Colección Legado de los Ladrones, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:35:32.438Z"
+  },
+  {
+    "id": "deep-a6776f3e43af5e2b57438edc",
+    "subjectId": "curator-subject-6ce62e89e80f5b46caa2",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact ps5 physical product Yakuza Kiwami 3 & Dark Ties Steelbook Edition, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:35:41.330Z"
+  },
+  {
+    "id": "deep-dcbc66b8bea0c8b6e950fbc4",
+    "subjectId": "curator-subject-108e16ae8c2b4326a3fe",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact ps5 physical product Invincible VS Collectors Edition, without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:35:49.806Z"
+  },
+  {
+    "id": "deep-e3033ab1acb6e68d19687e9c",
+    "subjectId": "curator-subject-20b639321bd61ad24e23",
+    "targetField": "MARKET_REGION",
+    "question": "Find evidence that closes MARKET_REGION for the exact ps5 physical product Banishers Ghosts Of New Eden Collector's Edition ..., without inferring market from language or seller country.",
+    "priority": "P2",
+    "evidenceNeeded": [
+      "No market-bound physical or distributor evidence."
+    ],
+    "riskCodes": [
+      "MISSING_MARKET_MAPPING",
+      "GENERIC_REGION"
+    ],
+    "status": "UNRESOLVED",
+    "createdAt": "2026-09-16T16:31:26.333Z",
+    "updatedAt": "2026-09-16T16:35:56.011Z"
+  }
+]

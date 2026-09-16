@@ -1,0 +1,17 @@
+{
+  "id": "deep-bf572c5e3061376afb0ed06d",
+  "subjectId": "curator-subject-5cb6b5c7b24b1475b08e",
+  "targetField": "MARKET_REGION",
+  "question": "Find evidence that closes MARKET_REGION for the exact wii physical product Inazuma Eleven Strikers Wii Nintendo Wii PAL España Español Completo Caja 2011, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No market-bound physical or distributor evidence."
+  ],
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

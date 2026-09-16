@@ -1,0 +1,46 @@
+[
+  {
+    "id": "cl-0bcec1251cc554ae9e577859",
+    "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+    "taskId": "deep-5d447135a1fd2542cf580cd4",
+    "subjectId": "curator-subject-cf1d5662b15027d7ddab",
+    "gameId": "wii-family-ski",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:thegameworld.co.uk",
+    "sourceUrl": "https://thegameworld.co.uk/family-ski-wii",
+    "evidenceId": "ev-d75920240eecc5b1b888f6db",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:33:10.477Z"
+  },
+  {
+    "id": "cl-1d9e1f08742b270e7dc36626",
+    "runId": "deep-5d447135a1fd2542cf580cd4-mu4bkkyn",
+    "taskId": "deep-5d447135a1fd2542cf580cd4",
+    "subjectId": "curator-subject-cf1d5662b15027d7ddab",
+    "gameId": "wii-family-ski",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": null,
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:bordersdown.net",
+    "sourceUrl": "https://bordersdown.net/forum/gaming/first-play/36415-family-ski-we-ski-wii",
+    "evidenceId": "ev-1687993cdc971ef3328e3d9e",
+    "confidence": 0.9,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:33:12.333Z"
+  }
+]

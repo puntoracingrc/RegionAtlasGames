@@ -1,0 +1,69 @@
+[
+  {
+    "id": "cl-dca81446541a8073d0a26039",
+    "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+    "taskId": "deep-04a2338524d6253e5cf77265",
+    "subjectId": "curator-subject-516ddfa37506b9e4256e",
+    "gameId": "ps4-pantsu-hunter-back-to-the-90s",
+    "platformSlug": "ps4",
+    "editionId": null,
+    "variantId": null,
+    "component": null,
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/176261-pantsu_hunter__back_to_the_90s_ps4_eu_po214024-3770011615575.html",
+    "evidenceId": "ev-f4e53f96ef189e5795047be6",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:33:48.652Z"
+  },
+  {
+    "id": "cl-a7084adcbf7a227c4999fa71",
+    "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+    "taskId": "deep-04a2338524d6253e5cf77265",
+    "subjectId": "curator-subject-516ddfa37506b9e4256e",
+    "gameId": "ps4-pantsu-hunter-back-to-the-90s",
+    "platformSlug": "ps4",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:tokyogamestory.com",
+    "sourceUrl": "https://tokyogamestory.com/en/red-art-games-/2681-pantsu-hunter-back-to-the-90s-with-sleeve999sony-ps4-fr-game-in-de-en-es-fr-ru-newsealed-red-art-games-aventurereflexiondv-fc1-3770011615575.html",
+    "evidenceId": "ev-d8a8050ac8f140af5c710fbd",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH",
+      "SUBJECT_BINDING_INCOMPLETE"
+    ],
+    "createdAt": "2026-09-16T16:33:51.502Z"
+  },
+  {
+    "id": "cl-f5b74d61f72bff3fff18b8b1",
+    "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+    "taskId": "deep-04a2338524d6253e5cf77265",
+    "subjectId": "curator-subject-516ddfa37506b9e4256e",
+    "gameId": "ps4-pantsu-hunter-back-to-the-90s",
+    "platformSlug": "ps4",
+    "editionId": null,
+    "variantId": null,
+    "component": "OUTER_PACKAGE_FRONT",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:ecommerce.datablitz.com.ph",
+    "sourceUrl": "https://ecommerce.datablitz.com.ph/products/ps4-pantsu-hunter-back-to-the-90s-reg-2",
+    "evidenceId": "ev-378383228f3545da50d2399a",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:34:05.126Z"
+  }
+]

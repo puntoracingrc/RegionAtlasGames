@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ev-46fbdca4e89d2c385fd80d6a",
+    "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+    "taskId": "deep-e7d1560d250af6383e0510a7",
+    "sourceId": "candidate:www.todoconsolas.com",
+    "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+    "canonicalUrl": "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.todoconsolas.com",
+    "fetchedAt": "2026-09-16T16:35:24.109Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PAL España",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "315b0fb3689cf02ce93df0f8567314cd8c08c7886e21893a3b7862ac9678c819",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-96213aee367da51798000e5a",
+    "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+    "taskId": "deep-e7d1560d250af6383e0510a7",
+    "sourceId": "national-retailer",
+    "sourceUrl": "https://www.game.es/uncharted-coleccion-legado-de-los-ladrones-playstation-5-198021",
+    "canonicalUrl": "https://www.game.es/uncharted-coleccion-legado-de-los-ladrones-playstation-5-198021",
+    "sourceType": "RETAILER",
+    "host": "www.game.es",
+    "fetchedAt": "2026-09-16T16:35:25.825Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "PAL España",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "d4259093e46d4851497108e7ce81809efd0e8748a0a445059ba2b9fb4faea441",
+    "capabilities": [
+      "MARKET_REGION"
+    ],
+    "reliability": 60,
+    "component": null
+  }
+]

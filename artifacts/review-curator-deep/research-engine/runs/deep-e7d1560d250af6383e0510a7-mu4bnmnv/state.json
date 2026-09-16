@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+  "taskId": "deep-e7d1560d250af6383e0510a7",
+  "subjectId": "curator-subject-fa495cd4248a21a1750f",
+  "priority": "P2",
+  "status": "PARTIAL",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "PS5_MARKET",
+  "queriesAttempted": [
+    "site:game.es \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+    "site:ebay.com \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\"",
+    "\"Uncharted: Colección Legado de los Ladrones\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"Uncharted: Colección Legado de los Ladrones\" PlayStation 5",
+    "site:ebay.es \"Uncharted: Colección Legado de los Ladrones\" PlayStation 5"
+  ],
+  "normalizedQueries": [
+    "site:game.es \"uncharted: colección legado de los ladrones\" \"ps5\" \"standard\"",
+    "site:todocoleccion.net \"uncharted: colección legado de los ladrones\" \"ps5\" \"standard\"",
+    "site:ebay.com \"uncharted: colección legado de los ladrones\" \"ps5\" \"standard\"",
+    "site:regionatlas.games \"uncharted: colección legado de los ladrones\" \"ps5\" \"standard\"",
+    "site:mobygames.com \"uncharted: colección legado de los ladrones\" \"ps5\" \"standard\"",
+    "\"uncharted: colección legado de los ladrones\" \"ps5\" \"standard\" back cover distributor legal text",
+    "site:todocoleccion.net \"uncharted: colección legado de los ladrones\" playstation 5",
+    "site:ebay.es \"uncharted: colección legado de los ladrones\" playstation 5"
+  ],
+  "urlsVisited": [
+    "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+    "https://www.game.es/videojuegos/aventura/playstation-5/uncharted-coleccion-legado-de-los-ladrones/198021",
+    "https://www.ebay.es/itm/176406754678"
+  ],
+  "domainsVisited": [
+    "www.ebay.es"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-46fbdca4e89d2c385fd80d6a",
+      "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+      "taskId": "deep-e7d1560d250af6383e0510a7",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+      "canonicalUrl": "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.todoconsolas.com",
+      "fetchedAt": "2026-09-16T16:35:24.109Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PAL España",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "315b0fb3689cf02ce93df0f8567314cd8c08c7886e21893a3b7862ac9678c819",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-96213aee367da51798000e5a",
+      "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+      "taskId": "deep-e7d1560d250af6383e0510a7",
+      "sourceId": "national-retailer",
+      "sourceUrl": "https://www.game.es/uncharted-coleccion-legado-de-los-ladrones-playstation-5-198021",
+      "canonicalUrl": "https://www.game.es/uncharted-coleccion-legado-de-los-ladrones-playstation-5-198021",
+      "sourceType": "RETAILER",
+      "host": "www.game.es",
+      "fetchedAt": "2026-09-16T16:35:25.825Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PAL España",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "d4259093e46d4851497108e7ce81809efd0e8748a0a445059ba2b9fb4faea441",
+      "capabilities": [
+        "MARKET_REGION"
+      ],
+      "reliability": 60,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-677927bcd0060a2ddd95b6f8",
+      "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+      "taskId": "deep-e7d1560d250af6383e0510a7",
+      "subjectId": "curator-subject-fa495cd4248a21a1750f",
+      "gameId": "ps5-uncharted-coleccion-legado-de-los-ladrones",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": null,
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps5/78864-uncharted_coleccion_legado_de_los_ladrones_remasterizado_ps5_sp_po127833-711719791690.html",
+      "evidenceId": "ev-46fbdca4e89d2c385fd80d6a",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:35:25.592Z"
+    },
+    {
+      "id": "cl-bc2a3c7d160c85bc40f33d0f",
+      "runId": "deep-e7d1560d250af6383e0510a7-mu4bnmnv",
+      "taskId": "deep-e7d1560d250af6383e0510a7",
+      "subjectId": "curator-subject-fa495cd4248a21a1750f",
+      "gameId": "ps5-uncharted-coleccion-legado-de-los-ladrones",
+      "platformSlug": "ps5",
+      "editionId": null,
+      "variantId": null,
+      "component": null,
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "national-retailer",
+      "sourceUrl": "https://www.game.es/uncharted-coleccion-legado-de-los-ladrones-playstation-5-198021",
+      "evidenceId": "ev-96213aee367da51798000e5a",
+      "confidence": 1,
+      "status": "VALIDATED",
+      "validationErrors": [],
+      "createdAt": "2026-09-16T16:35:27.830Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.ebay.es/itm/176406754678",
+      "reason": "RESEARCH_BROWSER_HTTP_403"
+    }
+  ],
+  "budget": {
+    "maxSearches": 8,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 8,
+    "pages": 2,
+    "images": 0,
+    "agentTurns": 3,
+    "browserSessions": 1,
+    "inputTokens": 3414,
+    "outputTokens": 207,
+    "estimatedCostUsd": 0.000637
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "The title and platform presented are directly linked to a Spanish retailer, confirming the market region as PAL España.",
+  "decisionSummary": "A plausible value exists but confirmation threshold is not met.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:35:32.152Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": "PAL España",
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:35:23.270Z",
+  "updatedAt": "2026-09-16T16:35:32.152Z"
+}

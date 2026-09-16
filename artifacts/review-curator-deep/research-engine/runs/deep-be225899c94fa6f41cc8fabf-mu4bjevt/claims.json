@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-9a23d63f478281ad501630f9",
+    "runId": "deep-be225899c94fa6f41cc8fabf-mu4bjevt",
+    "taskId": "deep-be225899c94fa6f41cc8fabf",
+    "subjectId": "curator-subject-c48ed8a5150125320bf0",
+    "gameId": "wii-grand-slam-tennis",
+    "platformSlug": "wii",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "MARKET_REGION",
+    "value": "PAL España",
+    "sourceId": "candidate:www.nintendolife.com",
+    "sourceUrl": "https://www.nintendolife.com/reviews/2009/06/grand_slam_tennis_wii",
+    "evidenceId": "ev-b68482cd9c3386382bb2538f",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:32:13.925Z"
+  }
+]

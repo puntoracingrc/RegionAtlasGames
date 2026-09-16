@@ -1,0 +1,22 @@
+[
+  {
+    "value": "https://www.ebay.es/itm/185413966546?_skw=Hot+Wheels+Track+Attack&hash=item2b2b889ad2:g:sXwAAeSwvVxpCxVV",
+    "reason": "Error RESEARCH_BROWSER_HTTP_403"
+  },
+  {
+    "value": "https://gameshop-twente.nl/hot-wheels-track-attack.html",
+    "reason": "RESEARCH_BROWSER_HTTP_429"
+  },
+  {
+    "value": "https://www.ebay.com/shop/hot-wheels-wii?_nkw=hot+wheels+wii",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.ebay.com/shop/hot-wheels-wii-u?_nkw=hot+wheels+wii+u",
+    "reason": "DIRECT_FETCH_NOT_ALLOWED_FOR_SOURCE"
+  },
+  {
+    "value": "https://www.justanswer.com/game-systems/4h0pg-wii-xmas-received-game-hot-wheels-track.html",
+    "reason": "RESEARCH_PAGE_HTTP_403"
+  }
+]

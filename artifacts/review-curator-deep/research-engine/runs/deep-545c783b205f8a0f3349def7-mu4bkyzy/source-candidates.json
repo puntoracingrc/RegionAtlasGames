@@ -1,0 +1,12 @@
+[
+  {
+    "host": "moegamer.net",
+    "sampleUrls": [
+      "https://moegamer.net/2018/11/23/wii-essentials-ghost-squad/"
+    ],
+    "fieldsObserved": [
+      "MARKET_REGION"
+    ],
+    "status": "PENDING_SOURCE_REVIEW"
+  }
+]

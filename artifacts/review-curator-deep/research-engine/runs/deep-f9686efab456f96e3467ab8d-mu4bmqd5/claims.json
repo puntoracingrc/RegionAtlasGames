@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-504230e908f033a428cb0ca7",
+    "runId": "deep-f9686efab456f96e3467ab8d-mu4bmqd5",
+    "taskId": "deep-f9686efab456f96e3467ab8d",
+    "subjectId": "curator-subject-96dc15384d7e059a5f3b",
+    "gameId": "n64-international-superstar-soccer-64",
+    "platformSlug": "n64",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "PRODUCT_CODE",
+    "value": "28789",
+    "sourceId": "candidate:retroplayzone.com",
+    "sourceUrl": "https://retroplayzone.com/28789-international-superstar-soccer-64-cartuchoi-n64.html",
+    "evidenceId": "ev-c84e05d0549950054e9a52c6",
+    "confidence": 1,
+    "status": "REJECTED",
+    "validationErrors": [
+      "SOURCE_CAPABILITY_MISMATCH"
+    ],
+    "createdAt": "2026-09-16T16:34:43.015Z"
+  }
+]

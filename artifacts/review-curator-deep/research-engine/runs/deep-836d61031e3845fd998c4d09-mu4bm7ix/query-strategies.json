@@ -1,0 +1,58 @@
+[
+  {
+    "query": "site:no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "no-intro",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:datomatic.no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "datomatic",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:ogdb.eu \"Blast Corps\" \"n64\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:gamesdb.launchbox-app.com \"Blast Corps\" \"n64\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "launchbox-images",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "todocoleccion",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"Blast Corps\" \"n64\" \"standard\" cartridge disc product code",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "query": "\"29876\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "29876"
+  },
+  {
+    "query": "\"Blast Corps\" \"n64\" \"USA\" cartridge label \"product code\"",
+    "strategy": "IMAGE",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

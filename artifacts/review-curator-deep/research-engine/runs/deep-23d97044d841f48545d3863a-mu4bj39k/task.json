@@ -1,0 +1,17 @@
+{
+  "id": "deep-23d97044d841f48545d3863a",
+  "subjectId": "curator-subject-1756ae52087c97a5306f",
+  "targetField": "CANONICAL_IDENTITY",
+  "question": "Find evidence that closes CANONICAL_IDENTITY for the exact wii physical product Fishing Master (selects) Juego Nintendo Wii, without inferring market from language or seller country.",
+  "priority": "P2",
+  "evidenceNeeded": [
+    "No component-level observations reached the queue."
+  ],
+  "riskCodes": [
+    "WEAK_OR_MISSING_EVIDENCE",
+    "PENDING_IDENTIFIER"
+  ],
+  "status": "PENDING",
+  "createdAt": "2026-09-16T16:31:26.333Z",
+  "updatedAt": "2026-09-16T16:31:26.333Z"
+}

@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 2,
+  "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+  "taskId": "deep-04a2338524d6253e5cf77265",
+  "subjectId": "curator-subject-516ddfa37506b9e4256e",
+  "priority": "P2",
+  "status": "UNRESOLVED",
+  "round": 1,
+  "targetFields": [
+    "MARKET_REGION"
+  ],
+  "currentTargetField": "MARKET_REGION",
+  "currentPlaybook": "BARCODE_KNOWN_MARKET_UNKNOWN",
+  "queriesAttempted": [
+    "\"3770011615575\"",
+    "\"3770011615575\" \"Pantsu Hunter: Back to the 90s\"",
+    "site:game.es \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "site:ebay.com \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\"",
+    "\"Pantsu Hunter: Back to the 90s\" \"ps4\" \"standard\" back cover distributor legal text",
+    "\"3770011615575\" \"PlayStation 4\"",
+    "site:game.es \"3770011615575\""
+  ],
+  "normalizedQueries": [
+    "\"3770011615575\"",
+    "\"3770011615575\" \"pantsu hunter: back to the 90s\"",
+    "site:game.es \"pantsu hunter: back to the 90s\" \"ps4\" \"standard\"",
+    "site:todocoleccion.net \"pantsu hunter: back to the 90s\" \"ps4\" \"standard\"",
+    "site:ebay.com \"pantsu hunter: back to the 90s\" \"ps4\" \"standard\"",
+    "site:regionatlas.games \"pantsu hunter: back to the 90s\" \"ps4\" \"standard\"",
+    "site:mobygames.com \"pantsu hunter: back to the 90s\" \"ps4\" \"standard\"",
+    "\"pantsu hunter: back to the 90s\" \"ps4\" \"standard\" back cover distributor legal text",
+    "\"3770011615575\" \"playstation 4\"",
+    "site:game.es \"3770011615575\""
+  ],
+  "urlsVisited": [
+    "https://www.todoconsolas.com/juegos-ps4/176261-pantsu_hunter__back_to_the_90s_ps4_eu_po214024-3770011615575.html",
+    "https://tokyogamestory.com/en/red-art-games-/2681-pantsu-hunter-back-to-the-90s-with-sleeve999sony-ps4-fr-game-in-de-en-es-fr-ru-newsealed-red-art-games-aventurereflexiondv-fc1-3770011615575.html",
+    "https://www.tradergames.fr/fr/playstation-4/109485-pantsu-hunter-ps4-fr-new-3770011615575.html",
+    "https://ecommerce.datablitz.com.ph/products/ps4-pantsu-hunter-back-to-the-90s-reg-2",
+    "https://tokyogamestory.com/en/playstation-4-ps4-all/2681-pantsu-hunter-back-to-the-90s-with-sleeve999sony-ps4-fr-game-in-de-en-es-fr-ru-newsealed-red-art-games-aventurereflexiondv-fc1-3770011615575.html"
+  ],
+  "domainsVisited": [
+    "tokyogamestory.com",
+    "www.tradergames.fr",
+    "ecommerce.datablitz.com.ph"
+  ],
+  "identifiersSeen": [],
+  "evidence": [
+    {
+      "id": "ev-f4e53f96ef189e5795047be6",
+      "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+      "taskId": "deep-04a2338524d6253e5cf77265",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/176261-pantsu_hunter__back_to_the_90s_ps4_eu_po214024-3770011615575.html",
+      "canonicalUrl": "https://www.todoconsolas.com/juegos-ps4/176261-pantsu_hunter__back_to_the_90s_ps4_eu_po214024-3770011615575.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "www.todoconsolas.com",
+      "fetchedAt": "2026-09-16T16:33:47.413Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "...",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "9a1e5a0be8d19fdcbf83abd8e4b88e982145c9a62687e1e486571878de243037",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-d8a8050ac8f140af5c710fbd",
+      "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+      "taskId": "deep-04a2338524d6253e5cf77265",
+      "sourceId": "candidate:tokyogamestory.com",
+      "sourceUrl": "https://tokyogamestory.com/en/red-art-games-/2681-pantsu-hunter-back-to-the-90s-with-sleeve999sony-ps4-fr-game-in-de-en-es-fr-ru-newsealed-red-art-games-aventurereflexiondv-fc1-3770011615575.html",
+      "canonicalUrl": "https://tokyogamestory.com/en/red-art-games-/2681-pantsu-hunter-back-to-the-90s-with-sleeve999sony-ps4-fr-game-in-de-en-es-fr-ru-newsealed-red-art-games-aventurereflexiondv-fc1-3770011615575.html",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "tokyogamestory.com",
+      "fetchedAt": "2026-09-16T16:34:08.401Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "UNKNOWN",
+        "platform": "UNKNOWN",
+        "edition": "UNKNOWN",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": null,
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "f99a332e0db8477b69606f03145b541bbda873d410eb3f4a33d55ffa2ee380eb",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    },
+    {
+      "id": "ev-378383228f3545da50d2399a",
+      "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+      "taskId": "deep-04a2338524d6253e5cf77265",
+      "sourceId": "candidate:ecommerce.datablitz.com.ph",
+      "sourceUrl": "https://ecommerce.datablitz.com.ph/products/ps4-pantsu-hunter-back-to-the-90s-reg-2",
+      "canonicalUrl": "https://ecommerce.datablitz.com.ph/products/ps4-pantsu-hunter-back-to-the-90s-reg-2",
+      "sourceType": "NEW_SOURCE_CANDIDATE",
+      "host": "ecommerce.datablitz.com.ph",
+      "fetchedAt": "2026-09-16T16:34:03.343Z",
+      "evidenceType": "PAGE_TEXT",
+      "subjectBinding": {
+        "game": "MATCH",
+        "platform": "MATCH",
+        "edition": "MATCH",
+        "variant": "UNKNOWN",
+        "component": "UNKNOWN",
+        "risks": []
+      },
+      "relevantExcerpt": "PS4 Pantsu Hunter Back to The 90S Reg.2",
+      "imageUrl": null,
+      "imageHash": null,
+      "textHash": "202e8b5256890a247de7ebc2a18721f9706c7263f00a1dac7c603fec0b32fcdc",
+      "capabilities": [],
+      "reliability": 0,
+      "component": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl-dca81446541a8073d0a26039",
+      "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+      "taskId": "deep-04a2338524d6253e5cf77265",
+      "subjectId": "curator-subject-516ddfa37506b9e4256e",
+      "gameId": "ps4-pantsu-hunter-back-to-the-90s",
+      "platformSlug": "ps4",
+      "editionId": null,
+      "variantId": null,
+      "component": null,
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:www.todoconsolas.com",
+      "sourceUrl": "https://www.todoconsolas.com/juegos-ps4/176261-pantsu_hunter__back_to_the_90s_ps4_eu_po214024-3770011615575.html",
+      "evidenceId": "ev-f4e53f96ef189e5795047be6",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:33:48.652Z"
+    },
+    {
+      "id": "cl-a7084adcbf7a227c4999fa71",
+      "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+      "taskId": "deep-04a2338524d6253e5cf77265",
+      "subjectId": "curator-subject-516ddfa37506b9e4256e",
+      "gameId": "ps4-pantsu-hunter-back-to-the-90s",
+      "platformSlug": "ps4",
+      "editionId": null,
+      "variantId": null,
+      "component": "UNKNOWN",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:tokyogamestory.com",
+      "sourceUrl": "https://tokyogamestory.com/en/red-art-games-/2681-pantsu-hunter-back-to-the-90s-with-sleeve999sony-ps4-fr-game-in-de-en-es-fr-ru-newsealed-red-art-games-aventurereflexiondv-fc1-3770011615575.html",
+      "evidenceId": "ev-d8a8050ac8f140af5c710fbd",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH",
+        "SUBJECT_BINDING_INCOMPLETE"
+      ],
+      "createdAt": "2026-09-16T16:33:51.502Z"
+    },
+    {
+      "id": "cl-f5b74d61f72bff3fff18b8b1",
+      "runId": "deep-04a2338524d6253e5cf77265-mu4blk0g",
+      "taskId": "deep-04a2338524d6253e5cf77265",
+      "subjectId": "curator-subject-516ddfa37506b9e4256e",
+      "gameId": "ps4-pantsu-hunter-back-to-the-90s",
+      "platformSlug": "ps4",
+      "editionId": null,
+      "variantId": null,
+      "component": "OUTER_PACKAGE_FRONT",
+      "field": "MARKET_REGION",
+      "value": "PAL España",
+      "sourceId": "candidate:ecommerce.datablitz.com.ph",
+      "sourceUrl": "https://ecommerce.datablitz.com.ph/products/ps4-pantsu-hunter-back-to-the-90s-reg-2",
+      "evidenceId": "ev-378383228f3545da50d2399a",
+      "confidence": 1,
+      "status": "REJECTED",
+      "validationErrors": [
+        "SOURCE_CAPABILITY_MISMATCH"
+      ],
+      "createdAt": "2026-09-16T16:34:05.126Z"
+    }
+  ],
+  "conflicts": [],
+  "rejectedHypotheses": [
+    {
+      "value": "https://www.tradergames.fr/fr/playstation-4/109485-pantsu-hunter-ps4-fr-new-3770011615575.html",
+      "reason": "RESEARCH_BROWSER_HTTP_404"
+    }
+  ],
+  "budget": {
+    "maxSearches": 10,
+    "maxPages": 10,
+    "maxImages": 6,
+    "maxAgentTurns": 4,
+    "maxTokens": 40000,
+    "maxCostUsd": 1,
+    "maxBrowserSessions": 2
+  },
+  "usage": {
+    "searches": 10,
+    "pages": 4,
+    "images": 0,
+    "agentTurns": 4,
+    "browserSessions": 2,
+    "inputTokens": 4581,
+    "outputTokens": 274,
+    "estimatedCostUsd": 0.000852
+  },
+  "lastDecision": "ACCEPT_EVIDENCE",
+  "reasoningSummary": "",
+  "decisionSummary": "No eligible field-level claims.",
+  "nextEvidenceNeeded": [],
+  "whyStopped": "HIGH_VALUE_ROUTES_EXHAUSTED",
+  "riskCodes": [
+    "MISSING_MARKET_MAPPING",
+    "GENERIC_REGION"
+  ],
+  "researchMode": "PHYSICAL_EVIDENCE_MODE",
+  "modeTransitions": [
+    {
+      "at": "2026-09-16T16:34:08.621Z",
+      "from": "STANDARD",
+      "to": "PHYSICAL_EVIDENCE_MODE",
+      "reason": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "gapType": "MISSING_MARKET_PROOF"
+    }
+  ],
+  "evidenceGaps": [
+    {
+      "field": "MARKET_REGION",
+      "type": "MISSING_MARKET_PROOF",
+      "candidateValue": null,
+      "missingProof": "Additional independently bound evidence meeting the field confirmation threshold.",
+      "recommendedActions": [
+        "INSPECT_LEGAL_TEXT",
+        "INSPECT_DISTRIBUTOR_TEXT",
+        "SEARCH_EXACT_MARKET_PACKAGE"
+      ],
+      "recommendedSourceTypes": [
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "mobygames",
+        "serialstation"
+      ],
+      "exhaustedActions": []
+    }
+  ],
+  "productNodes": [],
+  "productRelations": [],
+  "identifierBindings": [],
+  "physicalMetrics": {
+    "physicalEvidenceModeEntries": 1,
+    "galleryPagesOpened": 0,
+    "imageCandidatesDiscovered": 0,
+    "fullResolutionImagesFetched": 0,
+    "imagesClassified": 0,
+    "exactTargetImages": 0,
+    "wrongEditionImagesRejected": 0,
+    "wrongPlatformImagesRejected": 0,
+    "ambiguousImagesRejected": 0,
+    "outerPackageImages": 0,
+    "innerCaseImages": 0,
+    "cartImages": 0,
+    "discImages": 0,
+    "backCoverImages": 0,
+    "componentBoundClaims": 0,
+    "productBoundIdentifiers": 0,
+    "unboundIdentifierCandidates": 0,
+    "sellerStickerIdentifiers": 0,
+    "marketBoundClaims": 0,
+    "galleriesOpened": 0,
+    "imagesDiscovered": 0,
+    "originalImagesResolved": 0,
+    "imagesInspected": 0,
+    "subjectAccepted": 0,
+    "componentAccepted": 0,
+    "identifierExtractions": 0,
+    "productBindings": 0,
+    "rejectedImages": 0,
+    "duplicateImages": 0,
+    "thumbnailFailures": 0
+  },
+  "createdAt": "2026-09-16T16:33:46.518Z",
+  "updatedAt": "2026-09-16T16:34:08.621Z"
+}

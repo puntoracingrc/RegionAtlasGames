@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ev-fa7b30e9d4b6a12f54f72ee9",
+    "runId": "deep-5b25ceaac907c2d378e73b75-mu4bjt0t",
+    "taskId": "deep-5b25ceaac907c2d378e73b75",
+    "sourceId": "candidate:www.budgetgaming.nl",
+    "sourceUrl": "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html",
+    "canonicalUrl": "https://www.budgetgaming.nl/wii/hot+wheels:+track+attack.html",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "www.budgetgaming.nl",
+    "fetchedAt": "2026-09-16T16:32:28.304Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Hot Wheels: Track Attack - Wii kopen voor de Wii - Laagste prijs op budgetgaming.nl",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "04ae45d9fc228a0db35a57cf79fbfb50892bba2fdce7e2958d65e0f00ae1dd49",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  }
+]

@@ -8,6 +8,7 @@ import { createConfiguredResearchImageSearchProvider, createConfiguredResearchSe
 import { ResearchRunStore } from "./state-store";
 import type { ResearchSubject } from "./types";
 import type { DurableResearchTask, ResearchState } from "./v2-types";
+import type { ResearchKnowledgePackV1 } from "./knowledge-pack";
 import { runResearchTaskV2, type ResearchWorkerResult } from "./worker";
 
 function queueStatus(status: ResearchState["status"]): DurableResearchTask["status"] {
@@ -42,6 +43,7 @@ export async function runDurableResearchTask(input: {
   resumeState?: ResearchState | null;
   runId?: string;
   franchiseId?: string | null;
+  knowledgePack?: ResearchKnowledgePackV1;
 }): Promise<ResearchWorkerResult & { catalogImmutability: { identical: boolean; changed: string[]; before: string; after: string } }> {
   const rootDir = input.rootDir ?? process.cwd();
   const store = input.store ?? new ResearchRunStore();
@@ -61,6 +63,7 @@ export async function runDurableResearchTask(input: {
       resumeState: input.resumeState ?? null,
       rootDir,
       franchiseId: input.franchiseId ?? null,
+      knowledgePack: input.knowledgePack,
     });
   } catch (error) {
     await store.updateTask(input.task.id, { status: "BLOCKED" });

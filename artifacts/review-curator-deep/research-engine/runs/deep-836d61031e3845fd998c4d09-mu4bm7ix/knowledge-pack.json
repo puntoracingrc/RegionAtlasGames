@@ -1,0 +1,2045 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-16T16:31:26.333Z",
+  "subjectId": "curator-subject-5ed3976ca53151519bef",
+  "inputHash": "a970f8c48ca8a4a90a30e14c48c0b9569c0b0e13a573dde8068809e71ac6981b",
+  "evidenceHash": "c2746fa27b212d46afb3cd28c15ee7afa4ac03bef27e060811bc76234dcf46f6",
+  "catalogContext": {
+    "subjectId": "curator-subject-5ed3976ca53151519bef",
+    "subjectKind": "catalog-entry",
+    "catalogId": "n64-blast-corps",
+    "canonicalGameId": null,
+    "workId": null,
+    "platformReleaseId": null,
+    "guideId": null,
+    "physicalEditionId": null,
+    "title": "Blast Corps",
+    "aliases": [
+      "Blast Corps"
+    ],
+    "titlePc": "Blast Corps",
+    "slug": "blast-corps",
+    "platformSlug": "n64",
+    "edition": "standard",
+    "physicalVariant": null,
+    "region": "USA",
+    "regionFamily": null,
+    "marketRegion": null,
+    "regionalStatus": null,
+    "languages": [],
+    "regionalPackaging": [],
+    "canonicalSerials": [],
+    "sourceSerials": [],
+    "resolutionSerials": [],
+    "publisher": "Nintendo",
+    "developer": "Rare",
+    "companyCredits": [
+      {
+        "role": "developer",
+        "name": "Rare",
+        "slug": "rare",
+        "websiteUrl": null,
+        "sourceCandidateHost": null
+      },
+      {
+        "role": "publisher",
+        "name": "Nintendo",
+        "slug": "nintendo",
+        "websiteUrl": null,
+        "sourceCandidateHost": null
+      }
+    ],
+    "physicalPublisherOrDistributor": null,
+    "regionalPublisher": null,
+    "releaseDate": "28 Febrero, 1997",
+    "year": 1997,
+    "ean": null,
+    "barcode": null,
+    "productCodes": [],
+    "softwareFamilyCodes": [],
+    "serial": null,
+    "catalogNumber": null,
+    "boxCode": null,
+    "ratingSystems": [],
+    "packagingLanguages": [],
+    "softwareLanguages": [],
+    "componentLanguageEvidence": [],
+    "broadRegion": null,
+    "marketRegions": [
+      "USA"
+    ],
+    "evidenceMarkets": [],
+    "distributionMarkets": [],
+    "physicalProductType": "PHYSICAL_FULL_GAME",
+    "nativePhysicalPlatform": null,
+    "compatiblePlatforms": [],
+    "containsDisc": false,
+    "countsAsNativePhysicalRelease": true,
+    "physicalContents": [],
+    "digitalContents": [],
+    "releaseStatus": null,
+    "confidence": null,
+    "sharedDiscId": null,
+    "scanSetIds": [],
+    "ownedScans": [],
+    "coverUrl": "/covers/n64/blast-corps.jpg",
+    "editionImages": [],
+    "existingEvidence": [],
+    "existingResearchTasks": [],
+    "gameRetailer": null,
+    "priceCharting": null,
+    "museumPath": "/juegos/nintendo-64/usa/blast-corps",
+    "legacySources": [],
+    "fieldProvenance": {},
+    "officialSourceCandidates": []
+  },
+  "knownVariants": [
+    {
+      "catalogId": "n64-blast-corps",
+      "region": "USA",
+      "edition": "standard",
+      "physicalVariant": null
+    },
+    {
+      "catalogId": "n64-pal-blast-corps",
+      "region": "PAL Europa",
+      "edition": "standard",
+      "physicalVariant": null
+    }
+  ],
+  "knownIdentifiers": [],
+  "ownedScans": [],
+  "knownDirectUrls": [
+    {
+      "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+      "sourceId": "retroplayzone",
+      "supports": [
+        "LISTING_EVIDENCE"
+      ]
+    }
+  ],
+  "existingEvidence": [],
+  "fieldPlans": {
+    "CANONICAL_IDENTITY": {
+      "field": "CANONICAL_IDENTITY",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "no-intro",
+        "datomatic",
+        "ogdb",
+        "mobygames",
+        "bulbapedia",
+        "ubisoft-official",
+        "yambalu",
+        "micro64",
+        "retroplace",
+        "gamefaqs"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "no-intro",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "ROM/cartridge evidence does not prove box, manual or national packaging.",
+            "Undumped and discovery records are not released-package inventories.",
+            "Technical ROM evidence is not national packaging evidence.",
+            "Undumped/not-confirmed pages must not be treated as released-package inventories."
+          ]
+        },
+        {
+          "sourceId": "datomatic",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Technical dump metadata cannot be propagated to box or manual components.",
+            "Technical region is not national distribution market."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Generic Europe records may merge or misbind packaging subvariants.",
+            "Conflicting component codes must be retained as conflicts until scan corroboration."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants.",
+            "Use scans as stronger evidence than release metadata when they disagree."
+          ]
+        },
+        {
+          "sourceId": "bulbapedia",
+          "capability": "CAN_SUPPORT",
+          "score": 96,
+          "limitations": [
+            "Franchise-specific; do not generalize to other publishers."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 76,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        },
+        {
+          "sourceId": "micro64",
+          "capability": "CAN_SUPPORT",
+          "score": 75,
+          "limitations": [
+            "Not sufficient for national packaging, barcode or print revision."
+          ]
+        },
+        {
+          "sourceId": "retroplace",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Community records require exact subject and component validation.",
+            "Publisher/territory metadata can be less reliable than barcode/product-code data.",
+            "Do not use a correct barcode to validate unrelated fields automatically."
+          ]
+        },
+        {
+          "sourceId": "gamefaqs",
+          "capability": "CAN_SUPPORT",
+          "score": 65,
+          "limitations": [
+            "Platform contamination and cross-binding of barcode/code between variants has been observed.",
+            "Every identifier must pass platform/component validation before acceptance.",
+            "Treat as discovery unless independently corroborated."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "no-intro"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "datomatic"
+        },
+        {
+          "query": "site:ogdb.eu \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:mobygames.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "site:bulbapedia.bulbagarden.net \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "bulbapedia"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" canonical identity",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" canonical identity",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BARCODE": {
+      "field": "BARCODE",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "ogdb",
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "rfgeneration",
+        "nintendo64ever",
+        "national-retailer",
+        "retroplace",
+        "spinecard",
+        "retroloco",
+        "pricecharting",
+        "gamefaqs"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Generic Europe records may merge or misbind packaging subvariants.",
+            "Conflicting component codes must be retained as conflicts until scan corroboration."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 65,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence.",
+            "Seller descriptions are weak; photos can be strong."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 68,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence.",
+            "Aggregated product pages can mix regional identifiers.",
+            "Specific listing + real photos is stronger than product-page metadata.",
+            "Seller-selected region/title is weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "rfgeneration",
+          "capability": "CAN_SUPPORT",
+          "score": 93,
+          "limitations": [
+            "Corroborate country grouping when the package itself is not visible.",
+            "Community-maintained data should remain field-scoped."
+          ]
+        },
+        {
+          "sourceId": "nintendo64ever",
+          "capability": "CAN_SUPPORT",
+          "score": 91,
+          "limitations": [
+            "Individual barcode/transcription errors have been observed.",
+            "A Europe entry can hide multiple physical packaging variants; inspect Versions.",
+            "High priority does not remove checksum/corroboration requirements."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging."
+          ]
+        },
+        {
+          "sourceId": "retroplace",
+          "capability": "CAN_SUPPORT",
+          "score": 87,
+          "limitations": [
+            "Community records require exact subject and component validation.",
+            "Publisher/territory metadata can be less reliable than barcode/product-code data.",
+            "Do not use a correct barcode to validate unrelated fields automatically."
+          ]
+        },
+        {
+          "sourceId": "spinecard",
+          "capability": "CAN_SUPPORT",
+          "score": 84,
+          "limitations": [
+            "A referenced specimen is comparison evidence, not proof of the current item.",
+            "Community terminology can mislabel a box/product code as a 'barcode'; parse by format."
+          ]
+        },
+        {
+          "sourceId": "retroloco",
+          "capability": "CAN_SUPPORT",
+          "score": 80,
+          "limitations": [
+            "Language metadata should be visually corroborated."
+          ]
+        },
+        {
+          "sourceId": "pricecharting",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Do not infer European market or packaging language.",
+            "Useful for discovery, not national-package certification."
+          ]
+        },
+        {
+          "sourceId": "gamefaqs",
+          "capability": "CAN_SUPPORT",
+          "score": 50,
+          "limitations": [
+            "Platform contamination and cross-binding of barcode/code between variants has been observed.",
+            "Every identifier must pass platform/component validation before acceptance.",
+            "Treat as discovery unless independently corroborated."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:ogdb.eu \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" back cover barcode EAN",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" back cover barcode EAN",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PRODUCT_CODE": {
+      "field": "PRODUCT_CODE",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "no-intro",
+        "datomatic",
+        "ogdb",
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "nesworld",
+        "nintendo64ever",
+        "64scener",
+        "emulation64",
+        "spinecard",
+        "platform-holder-official",
+        "retroplace"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "no-intro",
+          "capability": "CAN_SUPPORT",
+          "score": 98,
+          "limitations": [
+            "ROM/cartridge evidence does not prove box, manual or national packaging.",
+            "Undumped and discovery records are not released-package inventories.",
+            "Technical ROM evidence is not national packaging evidence.",
+            "Undumped/not-confirmed pages must not be treated as released-package inventories."
+          ]
+        },
+        {
+          "sourceId": "datomatic",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Technical dump metadata cannot be propagated to box or manual components.",
+            "Technical region is not national distribution market."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Generic Europe records may merge or misbind packaging subvariants.",
+            "Conflicting component codes must be retained as conflicts until scan corroboration."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 55,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence.",
+            "Seller descriptions are weak; photos can be strong."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 45,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence.",
+            "Aggregated product pages can mix regional identifiers.",
+            "Specific listing + real photos is stronger than product-page metadata.",
+            "Seller-selected region/title is weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "nesworld",
+          "capability": "CAN_SUPPORT",
+          "score": 96,
+          "limitations": [
+            "Some entries are incomplete.",
+            "Do not infer national packaging from GamePak identity alone."
+          ]
+        },
+        {
+          "sourceId": "nintendo64ever",
+          "capability": "CAN_SUPPORT",
+          "score": 95,
+          "limitations": [
+            "Individual barcode/transcription errors have been observed.",
+            "A Europe entry can hide multiple physical packaging variants; inspect Versions.",
+            "High priority does not remove checksum/corroboration requirements."
+          ]
+        },
+        {
+          "sourceId": "64scener",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Entries can aggregate multiple box variants under one Game ID.",
+            "Use primarily for cartridge/worldwide discovery, not exact package certification."
+          ]
+        },
+        {
+          "sourceId": "emulation64",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Manual evidence cannot prove box barcode or cartridge code unless visible."
+          ]
+        },
+        {
+          "sourceId": "spinecard",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "A referenced specimen is comparison evidence, not proof of the current item.",
+            "Community terminology can mislabel a box/product code as a 'barcode'; parse by format."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "retroplace",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Community records require exact subject and component validation.",
+            "Publisher/territory metadata can be less reliable than barcode/product-code data.",
+            "Do not use a correct barcode to validate unrelated fields automatically."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "no-intro"
+        },
+        {
+          "query": "site:datomatic.no-intro.org \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "datomatic"
+        },
+        {
+          "query": "site:ogdb.eu \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" cartridge disc product code",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" cartridge disc product code",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BOX_CODE": {
+      "field": "BOX_CODE",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "ogdb",
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "nintendo64ever",
+        "nesworld",
+        "rfgeneration",
+        "spinecard",
+        "retroplace"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 89,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Generic Europe records may merge or misbind packaging subvariants.",
+            "Conflicting component codes must be retained as conflicts until scan corroboration."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 60,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence.",
+            "Seller descriptions are weak; photos can be strong."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence.",
+            "Aggregated product pages can mix regional identifiers.",
+            "Specific listing + real photos is stronger than product-page metadata.",
+            "Seller-selected region/title is weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "nintendo64ever",
+          "capability": "CAN_SUPPORT",
+          "score": 95,
+          "limitations": [
+            "Individual barcode/transcription errors have been observed.",
+            "A Europe entry can hide multiple physical packaging variants; inspect Versions.",
+            "High priority does not remove checksum/corroboration requirements."
+          ]
+        },
+        {
+          "sourceId": "nesworld",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Some entries are incomplete.",
+            "Do not infer national packaging from GamePak identity alone."
+          ]
+        },
+        {
+          "sourceId": "rfgeneration",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Corroborate country grouping when the package itself is not visible.",
+            "Community-maintained data should remain field-scoped."
+          ]
+        },
+        {
+          "sourceId": "spinecard",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "A referenced specimen is comparison evidence, not proof of the current item.",
+            "Community terminology can mislabel a box/product code as a 'barcode'; parse by format."
+          ]
+        },
+        {
+          "sourceId": "retroplace",
+          "capability": "CAN_SUPPORT",
+          "score": 82,
+          "limitations": [
+            "Community records require exact subject and component validation.",
+            "Publisher/territory metadata can be less reliable than barcode/product-code data.",
+            "Do not use a correct barcode to validate unrelated fields automatically."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:ogdb.eu \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ogdb"
+        },
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" box code",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" box code",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "MARKET_REGION": {
+      "field": "MARKET_REGION",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "national-retailer",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "spinecard",
+        "rfgeneration",
+        "ogdb",
+        "nintendo64ever",
+        "retroloco",
+        "mobygames",
+        "gamefaqs",
+        "no-intro",
+        "datomatic"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 60,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CANNOT_SUPPORT",
+          "score": 0,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence.",
+            "Seller descriptions are weak; photos can be strong."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 30,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence.",
+            "Aggregated product pages can mix regional identifiers.",
+            "Specific listing + real photos is stronger than product-page metadata.",
+            "Seller-selected region/title is weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "spinecard",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "A referenced specimen is comparison evidence, not proof of the current item.",
+            "Community terminology can mislabel a box/product code as a 'barcode'; parse by format."
+          ]
+        },
+        {
+          "sourceId": "rfgeneration",
+          "capability": "CAN_SUPPORT",
+          "score": 89,
+          "limitations": [
+            "Corroborate country grouping when the package itself is not visible.",
+            "Community-maintained data should remain field-scoped."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 85,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Generic Europe records may merge or misbind packaging subvariants.",
+            "Conflicting component codes must be retained as conflicts until scan corroboration."
+          ]
+        },
+        {
+          "sourceId": "nintendo64ever",
+          "capability": "CAN_SUPPORT",
+          "score": 85,
+          "limitations": [
+            "Individual barcode/transcription errors have been observed.",
+            "A Europe entry can hide multiple physical packaging variants; inspect Versions.",
+            "High priority does not remove checksum/corroboration requirements."
+          ]
+        },
+        {
+          "sourceId": "retroloco",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Language metadata should be visually corroborated."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 65,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants.",
+            "Use scans as stronger evidence than release metadata when they disagree."
+          ]
+        },
+        {
+          "sourceId": "gamefaqs",
+          "capability": "CAN_SUPPORT",
+          "score": 48,
+          "limitations": [
+            "Platform contamination and cross-binding of barcode/code between variants has been observed.",
+            "Every identifier must pass platform/component validation before acceptance.",
+            "Treat as discovery unless independently corroborated."
+          ]
+        },
+        {
+          "sourceId": "no-intro",
+          "capability": "CAN_SUPPORT",
+          "score": 10,
+          "limitations": [
+            "ROM/cartridge evidence does not prove box, manual or national packaging.",
+            "Undumped and discovery records are not released-package inventories.",
+            "Technical ROM evidence is not national packaging evidence.",
+            "Undumped/not-confirmed pages must not be treated as released-package inventories."
+          ]
+        },
+        {
+          "sourceId": "datomatic",
+          "capability": "CAN_SUPPORT",
+          "score": 10,
+          "limitations": [
+            "Technical dump metadata cannot be propagated to box or manual components.",
+            "Technical region is not national distribution market."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:game.es \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:foro.spinecard.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "spinecard"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" back cover distributor legal text",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" back cover distributor legal text",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PACKAGING_LANGUAGES": {
+      "field": "PACKAGING_LANGUAGES",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "launchbox-images",
+        "todocoleccion",
+        "ebay",
+        "regionatlas-own-scan",
+        "spinecard",
+        "rfgeneration",
+        "nintendo64ever",
+        "ogdb",
+        "mobygames",
+        "retroloco",
+        "national-retailer"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 62,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence.",
+            "Seller descriptions are weak; photos can be strong."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence.",
+            "Aggregated product pages can mix regional identifiers.",
+            "Specific listing + real photos is stronger than product-page metadata.",
+            "Seller-selected region/title is weak evidence."
+          ]
+        },
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "spinecard",
+          "capability": "CAN_SUPPORT",
+          "score": 96,
+          "limitations": [
+            "A referenced specimen is comparison evidence, not proof of the current item.",
+            "Community terminology can mislabel a box/product code as a 'barcode'; parse by format."
+          ]
+        },
+        {
+          "sourceId": "rfgeneration",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Corroborate country grouping when the package itself is not visible.",
+            "Community-maintained data should remain field-scoped."
+          ]
+        },
+        {
+          "sourceId": "nintendo64ever",
+          "capability": "CAN_SUPPORT",
+          "score": 91,
+          "limitations": [
+            "Individual barcode/transcription errors have been observed.",
+            "A Europe entry can hide multiple physical packaging variants; inspect Versions.",
+            "High priority does not remove checksum/corroboration requirements."
+          ]
+        },
+        {
+          "sourceId": "ogdb",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Database records can aggregate editions; verify exact images and region.",
+            "Generic Europe records may merge or misbind packaging subvariants.",
+            "Conflicting component codes must be retained as conflicts until scan corroboration."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants.",
+            "Use scans as stronger evidence than release metadata when they disagree."
+          ]
+        },
+        {
+          "sourceId": "retroloco",
+          "capability": "CAN_SUPPORT",
+          "score": 78,
+          "limitations": [
+            "Language metadata should be visually corroborated."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 20,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:gamesdb.launchbox-app.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "launchbox-images"
+        },
+        {
+          "query": "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:regionatlas.games \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:foro.spinecard.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "spinecard"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" back cover spine",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" back cover spine",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "PHYSICAL_PRODUCT_TYPE": {
+      "field": "PHYSICAL_PRODUCT_TYPE",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "64scener",
+        "nesworld",
+        "publisher-official",
+        "platform-holder-official",
+        "nintendo64ever",
+        "ubisoft-official",
+        "launchbox-images",
+        "ebay"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "64scener",
+          "capability": "CAN_SUPPORT",
+          "score": 98,
+          "limitations": [
+            "Entries can aggregate multiple box variants under one Game ID.",
+            "Use primarily for cartridge/worldwide discovery, not exact package certification."
+          ]
+        },
+        {
+          "sourceId": "nesworld",
+          "capability": "CAN_SUPPORT",
+          "score": 95,
+          "limitations": [
+            "Some entries are incomplete.",
+            "Do not infer national packaging from GamePak identity alone."
+          ]
+        },
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "nintendo64ever",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Individual barcode/transcription errors have been observed.",
+            "A Europe entry can hide multiple physical packaging variants; inspect Versions.",
+            "High priority does not remove checksum/corroboration requirements."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 86,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "launchbox-images",
+          "capability": "DISCOVERY_ONLY",
+          "score": 60,
+          "limitations": [
+            "Community cover galleries can mix regions; only exact readable component photos are eligible."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 55,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence.",
+            "Aggregated product pages can mix regional identifiers.",
+            "Specific listing + real photos is stronger than product-page metadata.",
+            "Seller-selected region/title is weak evidence."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:64scener.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "64scener"
+        },
+        {
+          "query": "site:www.nesworld.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "nesworld"
+        },
+        {
+          "query": "site:nintendo.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "platform-holder-official"
+        },
+        {
+          "query": "site:www.nintendo64ever.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "nintendo64ever"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" back cover download required code in box",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" back cover download required code in box",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "OUTER_INNER_RELATION": {
+      "field": "OUTER_INNER_RELATION",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "ebay",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "DISCOVERY_ONLY",
+          "score": 48,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence.",
+            "Aggregated product pages can mix regional identifiers.",
+            "Specific listing + real photos is stronger than product-page metadata.",
+            "Seller-selected region/title is weak evidence."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 30,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ebay.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "site:yambalu.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "yambalu"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" unboxing outer package inner case",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" unboxing outer package inner case",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "BUNDLE_CONTENTS": {
+      "field": "BUNDLE_CONTENTS",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "publisher-official",
+        "ubisoft-official",
+        "yambalu"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 88,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "yambalu",
+          "capability": "CAN_SUPPORT",
+          "score": 62,
+          "limitations": [
+            "Product naming can be localized; identifiers and component relationships require stronger corroboration."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ubisoft.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:yambalu.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "yambalu"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" bundle contents",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" bundle contents",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "COLLECTOR_CONTENTS": {
+      "field": "COLLECTOR_CONTENTS",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "regionatlas-own-scan",
+        "publisher-official",
+        "ubisoft-official",
+        "todocoleccion",
+        "ebay"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "regionatlas-own-scan",
+          "capability": "CAN_SUPPORT",
+          "score": 100,
+          "limitations": [
+            "The scan proves only the photographed specimen and visible components."
+          ]
+        },
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 90,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "todocoleccion",
+          "capability": "CAN_SUPPORT",
+          "score": 74,
+          "limitations": [
+            "Seller descriptions are weak; exact listing photos can be strong component evidence.",
+            "Seller descriptions are weak; photos can be strong."
+          ]
+        },
+        {
+          "sourceId": "ebay",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Aggregated product pages can mix identifiers from multiple variants.",
+            "Seller country and seller-entered metadata are weak evidence.",
+            "Aggregated product pages can mix regional identifiers.",
+            "Specific listing + real photos is stronger than product-page metadata.",
+            "Seller-selected region/title is weak evidence."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:regionatlas.games \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "regionatlas-own-scan"
+        },
+        {
+          "query": "site:ubisoft.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:todocoleccion.net \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "todocoleccion"
+        },
+        {
+          "query": "site:ebay.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ebay"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" collector contents",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" collector contents",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    },
+    "RELEASE_STATUS": {
+      "field": "RELEASE_STATUS",
+      "knownFacts": [
+        "title=Blast Corps",
+        "platform=n64",
+        "edition=standard",
+        "catalogRegion=USA",
+        "marketRegions=USA"
+      ],
+      "knownConflicts": [],
+      "directUrls": [
+        {
+          "url": "https://retroplayzone.com/29876-blast-corps-cartucho-n64.html",
+          "sourceId": "retroplayzone",
+          "supports": [
+            "LISTING_EVIDENCE"
+          ],
+          "reason": "Known exact URL supplied by RegionAtlas context."
+        }
+      ],
+      "preferredSourceIds": [
+        "publisher-official",
+        "platform-holder-official",
+        "ubisoft-official",
+        "mobygames",
+        "national-retailer"
+      ],
+      "sourceCapabilities": [
+        {
+          "sourceId": "publisher-official",
+          "capability": "CAN_SUPPORT",
+          "score": 96,
+          "limitations": [
+            "Announcement and preorder pages do not prove that a physical product reached retail."
+          ]
+        },
+        {
+          "sourceId": "platform-holder-official",
+          "capability": "CAN_SUPPORT",
+          "score": 94,
+          "limitations": [
+            "Digital store pages do not prove a physical release or its packaging."
+          ]
+        },
+        {
+          "sourceId": "ubisoft-official",
+          "capability": "CAN_SUPPORT",
+          "score": 92,
+          "limitations": [
+            "Official marketing may omit regional packaging identifiers and can describe digital editions."
+          ]
+        },
+        {
+          "sourceId": "mobygames",
+          "capability": "CAN_SUPPORT",
+          "score": 72,
+          "limitations": [
+            "Release groups and cover galleries may combine regional variants.",
+            "Use scans as stronger evidence than release metadata when they disagree."
+          ]
+        },
+        {
+          "sourceId": "national-retailer",
+          "capability": "CAN_SUPPORT",
+          "score": 70,
+          "limitations": [
+            "Retailer country proves circulation, not automatically packaging market.",
+            "Mockups may differ from released packaging."
+          ]
+        }
+      ],
+      "exactQueries": [
+        {
+          "query": "site:nintendo.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "platform-holder-official"
+        },
+        {
+          "query": "site:ubisoft.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "ubisoft-official"
+        },
+        {
+          "query": "site:mobygames.com \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "mobygames"
+        },
+        {
+          "query": "site:game.es \"Blast Corps\" \"n64\" \"standard\"",
+          "strategy": "SOURCE_SPECIFIC",
+          "sourceId": "national-retailer"
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" \"standard\" release status",
+          "strategy": "EXACT_PRODUCT",
+          "sourceId": null
+        },
+        {
+          "query": "\"Blast Corps\" \"n64\" release status",
+          "strategy": "GENERIC_LAST_RESORT",
+          "sourceId": null
+        }
+      ],
+      "forbiddenInferences": [
+        "sellerCountry=ES does not prove a Spanish physical variant",
+        "Spanish text or software language does not prove Spanish distribution",
+        "PEGI does not prove a national market",
+        "an EAN prefix does not prove distribution country",
+        "a correct identifier on the wrong component is not corroboration",
+        "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+        "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+        "Technical ROM region or suffix does not prove national packaging."
+      ],
+      "routeOrder": [
+        "LOCAL_KNOWLEDGE",
+        "OWN_SCANS",
+        "EXISTING_DIRECT_URLS",
+        "EXACT_IDENTIFIERS",
+        "SPECIALIZED_SOURCES",
+        "OFFICIAL_SOURCES",
+        "PHYSICAL_SPECIMENS",
+        "GENERIC_SEARCH"
+      ]
+    }
+  },
+  "forbiddenInferences": [
+    "sellerCountry=ES does not prove a Spanish physical variant",
+    "Spanish text or software language does not prove Spanish distribution",
+    "PEGI does not prove a national market",
+    "an EAN prefix does not prove distribution country",
+    "a correct identifier on the wrong component is not corroboration",
+    "box, cartridge/disc, manual, voucher, outer package and inner case identifiers must not be cross-attributed",
+    "Cartridge, box, manual, insert and sticker identifiers must not be cross-attributed.",
+    "Technical ROM region or suffix does not prove national packaging."
+  ],
+  "sourcePriority": [
+    "LOCAL_KNOWLEDGE",
+    "OWN_SCANS",
+    "EXISTING_DIRECT_URLS",
+    "EXACT_IDENTIFIERS",
+    "SPECIALIZED_SOURCES",
+    "OFFICIAL_SOURCES",
+    "PHYSICAL_SPECIMENS",
+    "GENERIC_SEARCH"
+  ],
+  "researchTasks": [
+    {
+      "field": "MARKET_REGION",
+      "code": "MISSING_MARKET_PROOF",
+      "missingProof": "No market-bound physical or distributor evidence.",
+      "recommendedSourceTypes": [
+        "EXACT_PHYSICAL_PHOTO",
+        "DISTRIBUTOR"
+      ]
+    },
+    {
+      "field": "CANONICAL_IDENTITY",
+      "code": "MISSING_COMPONENT_BINDING",
+      "missingProof": "No component-level observations reached the queue.",
+      "recommendedSourceTypes": [
+        "LISTING_IMAGES"
+      ]
+    }
+  ],
+  "loadedKnowledgeFiles": [
+    "data/research-engine/knowledge/sources.json",
+    "data/research-engine/knowledge/playbooks/general.json",
+    "data/research-engine/knowledge/query-templates.json",
+    "data/research-engine/knowledge/source-capabilities.json",
+    "data/research-engine/knowledge/source-access.json",
+    "data/research-engine/knowledge/identifier-patterns.json",
+    "data/research-engine/knowledge/barcode-rules.json",
+    "data/research-engine/knowledge/region-patterns.json",
+    "data/research-engine/knowledge/physical-product-rules.json",
+    "data/research-engine/knowledge/known-traps.json",
+    "data/research-engine/knowledge/platforms/n64.json",
+    "data/research-engine/knowledge/platform-routing-matrix.json",
+    "data/research-engine/knowledge/platforms/n64.json",
+    "data/ebay-regional-campaigns/n64.json"
+  ],
+  "packId": "knowledge-pack-e44fde443ad65d2faca9400d"
+}
