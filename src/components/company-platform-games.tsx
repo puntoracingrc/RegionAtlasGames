@@ -8,9 +8,9 @@ export function CompanyPlatformGames({ platforms }: { platforms: CompanyPlatform
   return (
     <section className="space-y-3">
       <div>
-        <h2 className="text-xl font-bold text-foreground">Fichas por plataforma</h2>
+        <h2 className="text-xl font-bold text-foreground">Obras y ediciones por plataforma</h2>
         <p className="mt-1 text-sm text-foreground/75">
-          Desplegable con enlaces a las fichas del catálogo Region Atlas.
+          Cada fila reúne las fichas regionales de una misma obra y edición.
         </p>
       </div>
       <div className="space-y-2">
@@ -23,7 +23,12 @@ export function CompanyPlatformGames({ platforms }: { platforms: CompanyPlatform
               <span className="font-medium text-foreground">
                 {platform.platformName}
                 <span className="ml-2 text-sm font-normal text-foreground/70">
-                  ({formatCatalogEntryCount(platform.catalogEntryCount)})
+                  ({platform.games.length.toLocaleString("es-ES")} {platform.games.length === 1
+                    ? "grupo"
+                    : "grupos"}
+                  {platform.games.length !== platform.catalogEntryCount
+                    ? ` · ${formatCatalogEntryCount(platform.catalogEntryCount)}`
+                    : ""})
                 </span>
               </span>
               <span className="text-xs text-muted transition group-open:rotate-180">▼</span>

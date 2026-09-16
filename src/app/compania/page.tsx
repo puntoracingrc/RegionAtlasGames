@@ -10,7 +10,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-dynamic";
 
-export function buildCompaniesListMetadata(): Metadata {
+function buildCompaniesListMetadata(): Metadata {
   const data = getCompanyBrowseData();
   const description = `${companyListIntro(data.stats)}. Filtra por función, plataforma, género, tamaño, estado, periodo de actividad y cobertura de precios.`;
   const url = `${getSiteUrl()}/compania`;
