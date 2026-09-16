@@ -28,6 +28,21 @@ export const RESEARCH_TARGET_FIELDS = [
 export type ResearchTargetField = (typeof RESEARCH_TARGET_FIELDS)[number];
 
 export const RESEARCH_COMPONENTS = [
+  "OUTER_PACKAGE_FRONT",
+  "OUTER_PACKAGE_BACK",
+  "OUTER_PACKAGE_SPINE",
+  "OUTER_PACKAGE_FLAP",
+  "INNER_CASE_FRONT",
+  "INNER_CASE_BACK",
+  "INNER_CASE_SPINE",
+  "CARTRIDGE_FRONT",
+  "CARTRIDGE_BACK",
+  "MANUAL_FRONT",
+  "MANUAL_BACK",
+  "CODE_VOUCHER",
+  "DOWNLOAD_CARD",
+  "SELLER_STICKER",
+  "UNKNOWN_COMPONENT",
   "FRONT",
   "BACK",
   "SPINE",
@@ -49,6 +64,83 @@ export const RESEARCH_COMPONENTS = [
 ] as const;
 
 export type ResearchComponent = (typeof RESEARCH_COMPONENTS)[number];
+
+export const RESEARCH_PRODUCT_NODE_TYPES = ["PHYSICAL_PRODUCT", "OUTER_PACKAGE", "INNER_PRODUCT", "MEDIA", "DOCUMENT", "STICKER", "ACCESSORY"] as const;
+export type ResearchProductNodeType = (typeof RESEARCH_PRODUCT_NODE_TYPES)[number];
+
+export const RESEARCH_COMPONENT_RELATIONS = ["CONTAINS", "WRAPS", "BUNDLES", "MEDIA_FOR", "MANUAL_FOR", "STICKER_ON", "VOUCHER_FOR", "ACCESSORY_FOR"] as const;
+export type ResearchComponentRelation = (typeof RESEARCH_COMPONENT_RELATIONS)[number];
+
+export const RESEARCH_BINDING_STATES = ["UNBOUND", "COMPONENT_BOUND", "PRODUCT_BOUND", "CONFLICTING", "REJECTED"] as const;
+export type ResearchBindingState = (typeof RESEARCH_BINDING_STATES)[number];
+
+export const RESEARCH_SUBJECT_CLASSES = ["EXACT_PRODUCT", "SAME_TITLE_DIFFERENT_EDITION", "SAME_TITLE_DIFFERENT_PLATFORM", "RELATED_PRODUCT", "IRRELEVANT", "UNREADABLE"] as const;
+export type ResearchSubjectClass = (typeof RESEARCH_SUBJECT_CLASSES)[number];
+
+export const RESEARCH_EDITION_CLASSES = ["EXPECTED_EDITION", "STANDARD", "SPECIAL", "SKULL", "BUCCANEER", "BLACK_CHEST", "DOUBLE_PACK", "OTHER", "UNKNOWN"] as const;
+export type ResearchEditionClass = (typeof RESEARCH_EDITION_CLASSES)[number];
+
+export const RESEARCH_MARKET_BINDING_STATES = ["UNBOUND", "MARKET_BOUND", "LANGUAGE_ONLY", "CONFLICTING", "REJECTED"] as const;
+export type ResearchMarketBindingState = (typeof RESEARCH_MARKET_BINDING_STATES)[number];
+
+export type ResearchProductNode = {
+  id: string;
+  type: ResearchProductNodeType;
+  label: string;
+  parentProductId: string | null;
+  component: ResearchComponent | null;
+};
+
+export type ResearchProductRelation = {
+  fromNodeId: string;
+  toNodeId: string;
+  relation: ResearchComponentRelation;
+  evidenceIds: string[];
+};
+
+export type ResearchIdentifierBinding = {
+  identifierType: string;
+  value: string;
+  productNodeId: string | null;
+  componentNodeId: string | null;
+  component: ResearchComponent | null;
+  state: ResearchBindingState;
+  sourceEvidenceIds: string[];
+  rejectionReason: string | null;
+};
+
+export const RESEARCH_EVIDENCE_GAP_TYPES = [
+  "MISSING_BACK_COVER",
+  "MISSING_BARCODE_PHOTO",
+  "MISSING_CART_PHOTO",
+  "MISSING_OUTER_BOX_PHOTO",
+  "MISSING_INNER_BOX_PHOTO",
+  "MISSING_MANUAL_PHOTO",
+  "MISSING_DOWNLOAD_STATEMENT",
+  "MISSING_MARKET_PROOF",
+  "MISSING_EDITION_PROOF",
+  "MISSING_COMPONENT_BINDING",
+  "MISSING_SECOND_SOURCE"
+] as const;
+export type ResearchEvidenceGapType = (typeof RESEARCH_EVIDENCE_GAP_TYPES)[number];
+
+export type ResearchEvidenceGap = {
+  field: ResearchTargetField;
+  type: ResearchEvidenceGapType;
+  candidateValue: unknown;
+  missingProof: string;
+  recommendedActions: string[];
+  recommendedSourceTypes: string[];
+  exhaustedActions: string[];
+};
+
+export type ResearchModeTransition = {
+  at: string;
+  from: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  to: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  reason: string;
+  gapType: ResearchEvidenceGapType | null;
+};
 
 export const RESEARCH_ACCESS_MODES = [
   "INTERNAL",
@@ -162,6 +254,22 @@ export type ResearchSourceDefinition = {
   defaultReliability: number;
   knownRisks: string[];
   queryTemplates: string[];
+  physicalImageCapabilities?: {
+    realSpecimenImages: boolean;
+    frontImages: boolean;
+    backImages: boolean;
+    spineImages: boolean;
+    cartImages: boolean;
+    discImages: boolean;
+    outerPackageImages: boolean;
+    innerContentsImages: boolean;
+    gallery: boolean;
+    originalImages: boolean;
+    componentLabels: boolean;
+    regionLabels: boolean;
+    listingIds: boolean;
+    accessRisk?: string[];
+  };
 };
 
 export type ResearchDecisionTest = {
@@ -253,6 +361,8 @@ export type ResearchRouterInput = {
   legacyKnowledge: ResearchLegacyKnowledgeEntry[];
   currentClaims: ResearchClaimRecord[];
   currentConflicts: ResearchConflict[];
+  evidenceGaps?: ResearchEvidenceGap[];
+  researchMode?: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
 };
 
 export type ResearchSourcePlanItem = {
@@ -281,6 +391,8 @@ export type ResearchRouterPlan = {
   imagePlan: Array<{ component: ResearchComponent; fields: ResearchTargetField[]; reason: string }>;
   deterministicChecks: string[];
   escalationRules: string[];
+  researchMode?: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  evidenceGapTypes?: ResearchEvidenceGapType[];
   routeFingerprint: string;
 };
 
@@ -312,6 +424,25 @@ export type ResearchEvidenceRecord = {
   capabilities: ResearchTargetField[];
   reliability: number;
   component: ResearchComponent | null;
+  productNodeId?: string | null;
+  componentNodeId?: string | null;
+  bindingState?: ResearchBindingState;
+  marketBindingState?: ResearchMarketBindingState;
+  subjectClass?: ResearchSubjectClass;
+  editionClass?: ResearchEditionClass;
+  visibleEditionMarker?: string | null;
+  sourcePageUrl?: string | null;
+  originalImageUrl?: string | null;
+  resolvedImageUrl?: string | null;
+  sourceRecordId?: string | null;
+  listingId?: string | null;
+  platformClassification?: string | null;
+  editionClassification?: string | null;
+  marketEvidence?: string[];
+  languageEvidence?: string[];
+  extractedIdentifiers?: Array<{ type: string; value: string }>;
+  visionModel?: string | null;
+  visionSchemaVersion?: number;
 };
 
 export type ResearchClaimRecord = {
@@ -413,10 +544,25 @@ export type ResearchPage = {
   language: string | null;
   structuredData: unknown[];
   links: string[];
-  imageCandidates: Array<{ url: string; alt: string | null; caption: string | null }>;
+  imageCandidates: ResearchImageCandidate[];
   fetchedAt: string;
   contentType: string;
   bytes: number;
+};
+
+export type ResearchImageCandidate = {
+  url: string;
+  thumbnailUrl: string | null;
+  originalUrl: string | null;
+  resolvedUrl: string;
+  canonicalUrl: string;
+  alt: string | null;
+  caption: string | null;
+  galleryLabel: string | null;
+  sourcePageUrl: string;
+  sourceRecordId: string | null;
+  listingId: string | null;
+  acquisitionMechanisms: string[];
 };
 
 export type ResearchPageFetcher = {
@@ -429,7 +575,7 @@ export type ResearchBrowserResult = {
   title: string;
   text: string;
   links: string[];
-  images: Array<{ url: string; alt: string | null; caption: string | null }>;
+  images: ResearchImageCandidate[];
 };
 
 export type ResearchBrowserProvider = {
@@ -474,6 +620,19 @@ export type ResearchVisionResult = {
   stickerDetected: boolean;
   imageQuality: "GOOD" | "LIMITED" | "UNREADABLE";
   confidenceByField: Record<string, number>;
+  subjectClass?: ResearchSubjectClass;
+  editionClass?: ResearchEditionClass;
+  visibleEditionMarker?: string | null;
+  bindingState?: ResearchBindingState;
+  marketBindingState?: ResearchMarketBindingState;
+  productNodeType?: ResearchProductNodeType | null;
+  componentNodeLabel?: string | null;
+  visualStages?: {
+    subject: "ACCEPTED" | "REJECTED" | "UNREADABLE";
+    component: "ACCEPTED" | "REJECTED" | "UNREADABLE";
+    extraction: "COMPLETED" | "SKIPPED";
+    binding: ResearchBindingState;
+  };
 };
 
 export type ResearchModelUsage = {
@@ -587,6 +746,44 @@ export type ResearchState = {
   nextEvidenceNeeded: string[];
   whyStopped: string | null;
   riskCodes: ResearchRiskCode[];
+  researchMode?: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  modeTransitions?: ResearchModeTransition[];
+  evidenceGaps?: ResearchEvidenceGap[];
+  productNodes?: ResearchProductNode[];
+  productRelations?: ResearchProductRelation[];
+  identifierBindings?: ResearchIdentifierBinding[];
+  physicalMetrics?: {
+    physicalEvidenceModeEntries: number;
+    galleryPagesOpened: number;
+    imageCandidatesDiscovered: number;
+    fullResolutionImagesFetched: number;
+    imagesClassified: number;
+    exactTargetImages: number;
+    wrongEditionImagesRejected: number;
+    wrongPlatformImagesRejected: number;
+    ambiguousImagesRejected: number;
+    outerPackageImages: number;
+    innerCaseImages: number;
+    cartImages: number;
+    discImages: number;
+    backCoverImages: number;
+    componentBoundClaims: number;
+    productBoundIdentifiers: number;
+    unboundIdentifierCandidates: number;
+    sellerStickerIdentifiers: number;
+    marketBoundClaims: number;
+    galleriesOpened: number;
+    imagesDiscovered: number;
+    originalImagesResolved: number;
+    imagesInspected: number;
+    subjectAccepted: number;
+    componentAccepted: number;
+    identifierExtractions: number;
+    productBindings: number;
+    rejectedImages: number;
+    duplicateImages: number;
+    thumbnailFailures: number;
+  };
   createdAt: string;
   updatedAt: string;
 };

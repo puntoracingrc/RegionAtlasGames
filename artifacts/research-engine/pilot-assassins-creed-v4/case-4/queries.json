@@ -1,0 +1,154 @@
+[
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "site:nintendo.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "platform-holder-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "site:nintendo-europe.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "nintendo-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "site:dbox.tools \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "dbox",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "site:ogdb.eu \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "site:ebay.es \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "site:gamesdb.launchbox-app.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch back",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "launchbox-images",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "site:news.ubisoft.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ubisoft-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "site:nintendo-europe.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "nintendo-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "site:doesitplay.org \"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "doesitplay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "site:ogdb.eu \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "site:nintendo.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "platform-holder-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "site:ebay.es \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ebay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "site:doesitplay.org \"Assassin's Creed: The Ezio Collection\" \"download required\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "doesitplay",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"back cover\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" unboxing",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"download required\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"game card included\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"code in box\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"PAL España\" \"back cover\"",
+    "strategy": "IMAGE",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

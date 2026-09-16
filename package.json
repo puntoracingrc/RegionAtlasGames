@@ -15,6 +15,7 @@
     "research:pilot:assassins-creed": "tsx scripts/research-engine-pilot-assassins-creed.ts",
     "research:pilot:assassins-creed:v2": "tsx scripts/research-engine-pilot-assassins-creed.ts",
     "research:pilot:assassins-creed:v3": "tsx scripts/research-engine-pilot-assassins-creed.ts --version v3",
+    "research:pilot:assassins-creed:v4": "tsx scripts/research-engine-pilot-assassins-creed.ts --version v4",
     "research:golden": "tsx scripts/research-engine-golden.ts",
     "research:benchmark": "tsx scripts/research-engine-benchmark.ts",
     "test:research-engine": "tsx --test src/lib/research-engine/*.test.ts",

@@ -1,0 +1,50 @@
+{
+  "case": {
+    "number": 1,
+    "id": "case-1-black-flag-resynced-ps5",
+    "title": "Assassin's Creed Black Flag Resynced",
+    "titleCandidates": [
+      "Assassin's Creed Black Flag Resynced",
+      "Assassin's Creed IV: Black Flag Resynced"
+    ],
+    "platformSlug": "ps5",
+    "edition": "Edition identity pending",
+    "editionNeedles": [
+      "resynced"
+    ],
+    "region": "Europe",
+    "identifiers": [
+      {
+        "type": "BARCODE",
+        "value": "3307216308898"
+      },
+      {
+        "type": "BARCODE",
+        "value": "3307216308904"
+      }
+    ],
+    "targetFields": [
+      "CANONICAL_IDENTITY"
+    ],
+    "objective": "Determine what each supplied barcode identifies and distinguish Standard, Launch, Deluxe, Collector, SteelBook and retailer bundles without merging unlike products."
+  },
+  "subjectId": "catalog:ps5-usa-assassin-s-creed-black-flag-resynced",
+  "tasks": [
+    {
+      "id": "pilot:v4:case-1-black-flag-resynced-ps5:canonical_identity",
+      "subjectId": "catalog:ps5-usa-assassin-s-creed-black-flag-resynced",
+      "targetField": "CANONICAL_IDENTITY",
+      "question": "Determine what each supplied barcode identifies and distinguish Standard, Launch, Deluxe, Collector, SteelBook and retailer bundles without merging unlike products. Target field: CANONICAL_IDENTITY.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T11:54:28.031Z",
+      "updatedAt": "2026-09-16T11:54:28.031Z"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T11:56:04.031Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T11:56:04.486Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T11:56:05.003Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T11:56:05.579Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "at": "2026-09-16T11:56:27.809Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "at": "2026-09-16T11:56:28.335Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "at": "2026-09-16T11:56:29.470Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "at": "2026-09-16T11:56:29.796Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "at": "2026-09-16T11:56:30.695Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "at": "2026-09-16T11:56:31.333Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "at": "2026-09-16T11:56:46.535Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "at": "2026-09-16T11:56:47.287Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  }
+]

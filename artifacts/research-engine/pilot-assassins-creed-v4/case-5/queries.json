@@ -1,0 +1,114 @@
+[
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"3307215689271\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215689271"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"3307215689165\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215689165"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"3307215693865\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215693865"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"3307215673393\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215673393"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"3000-52333\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "3000-52333"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"3307215689271\" \"Xbox 360\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215689271"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"3307215689165\" \"Xbox 360\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215689165"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"3307215693865\" \"Xbox 360\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215693865"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" \"Xbox 360\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "query": "\"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Xbox 360\" \"Europe\" \"back cover\" barcode",
+    "strategy": "IMAGE",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307215689271\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215689271"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307215689165\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215689165"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307215693865\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215693865"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307215673393\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215673393"
+  }
+]

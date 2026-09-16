@@ -1,0 +1,144 @@
+[
+  {
+    "targetField": "PRODUCT_CODE",
+    "imageUrl": "https://images.launchbox-app.com/r2_9891014f-7736-454e-ac68-04718b916fb3.png",
+    "result": {
+      "component": "UNKNOWN_COMPONENT",
+      "titleCandidate": "Assassin's Creed: The Ezio Collection",
+      "platformCandidate": "switch",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "UNREADABLE",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "UNREADABLE",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {},
+      "subjectClass": "SAME_TITLE_DIFFERENT_PLATFORM",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": null,
+      "componentNodeLabel": null,
+      "visualStages": {
+        "subject": "REJECTED",
+        "component": "UNREADABLE",
+        "extraction": "SKIPPED",
+        "binding": "REJECTED"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 14453,
+      "outputTokens": 41,
+      "estimatedCostUsd": 0.002193
+    }
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "imageUrl": "https://images.launchbox-app.com/fab1d1b0-a9fc-4ac7-902f-1346a1a2a8fc.jpg",
+    "result": {
+      "component": "CARTRIDGE_FRONT",
+      "titleCandidate": "Assassin's Creed: The Ezio Collection",
+      "platformCandidate": "switch",
+      "editionCandidate": "standard",
+      "barcodeCandidates": [
+        "87256 11195"
+      ],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [
+        "English",
+        "French"
+      ],
+      "ratingMarks": [
+        "Mature 17+"
+      ],
+      "publisherText": [
+        "Ubisoft"
+      ],
+      "distributorText": [],
+      "downloadStatements": [
+        "Other content available via download from Nintendo eShop."
+      ],
+      "physicalContentAssessment": "DOWNLOAD_REQUIRED",
+      "barcodeBinding": "INNER_GAME_CASE",
+      "barcodeProductRole": "INNER_GAME",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {
+        "PHYSICAL_EXISTENCE": 0.95,
+        "PHYSICAL_PRODUCT_TYPE": 0.9,
+        "BARCODE": 0.99,
+        "PRODUCT_CODE": 0.93
+      },
+      "subjectClass": "EXACT_PRODUCT",
+      "bindingState": "COMPONENT_BOUND",
+      "marketBindingState": "LANGUAGE_ONLY",
+      "productNodeType": "INNER_PRODUCT",
+      "componentNodeLabel": null,
+      "visualStages": {
+        "subject": "ACCEPTED",
+        "component": "ACCEPTED",
+        "extraction": "COMPLETED",
+        "binding": "COMPONENT_BOUND"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 3,
+      "inputTokens": 44097,
+      "outputTokens": 241,
+      "estimatedCostUsd": 0.006759
+    }
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "imageUrl": "https://gocdkeys.es/assets/thumbnails/assassins-creed-the-ezio-collection-nintendo-switch-1.webp",
+    "result": {
+      "component": "UNKNOWN_COMPONENT",
+      "titleCandidate": "Assassin's Creed: The Ezio Collection",
+      "platformCandidate": "null",
+      "editionCandidate": "null",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "UNREADABLE",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "UNREADABLE",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {},
+      "subjectClass": "RELATED_PRODUCT",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": null,
+      "componentNodeLabel": null,
+      "visualStages": {
+        "subject": "REJECTED",
+        "component": "UNREADABLE",
+        "extraction": "SKIPPED",
+        "binding": "REJECTED"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 37122,
+      "outputTokens": 36,
+      "estimatedCostUsd": 0.00559
+    }
+  }
+]

@@ -1,0 +1,442 @@
+{
+  "subject": {
+    "id": "edition:assassins-creed-iv-black-flag-wiiu-worldwide:ac4-wiiu-skull-es",
+    "kind": "physical-edition",
+    "catalogId": "wiiu-assassin-s-creed-iv-black-flag",
+    "guideId": "assassins-creed-iv-black-flag-wiiu-worldwide",
+    "physicalEditionId": "ac4-wiiu-skull-es",
+    "title": "Assassin's Creed IV: Black Flag",
+    "platformSlug": "wiiu",
+    "edition": "Skull Edition · España · barcode pendiente",
+    "region": "EUROPE",
+    "barcode": null,
+    "productCodes": [],
+    "serials": [],
+    "marketRegions": [
+      "ES"
+    ],
+    "evidenceMarkets": [],
+    "packagingLanguages": [],
+    "softwareLanguages": [],
+    "releaseStatus": "RELEASED",
+    "physicalProductType": "NATIVE_GAME_DISC",
+    "containsDisc": true,
+    "countsAsNativePhysicalRelease": true,
+    "confidence": "PENDING_IDENTIFIER",
+    "evidenceCount": 1,
+    "sourceCount": 5,
+    "notes": [
+      "3307215706435 pertenece a Standard España y no puede reutilizarse para Skull."
+    ]
+  },
+  "contexts": [
+    {
+      "targetField": "BARCODE",
+      "context": {
+        "subjectId": "edition:assassins-creed-iv-black-flag-wiiu-worldwide:ac4-wiiu-skull-es",
+        "subjectKind": "physical-edition",
+        "catalogId": "wiiu-assassin-s-creed-iv-black-flag",
+        "canonicalGameId": "assassins-creed-iv-black-flag",
+        "workId": null,
+        "platformReleaseId": "assassins-creed-iv-black-flag-wiiu",
+        "guideId": "assassins-creed-iv-black-flag-wiiu-worldwide",
+        "physicalEditionId": "ac4-wiiu-skull-es",
+        "title": "Assassin's Creed IV: Black Flag",
+        "aliases": [
+          "Assassin's Creed IV: Black Flag"
+        ],
+        "titlePc": "Assassin's Creed IV: Black Flag",
+        "slug": "assassin-s-creed-iv-black-flag",
+        "platformSlug": "wiiu",
+        "edition": "Skull Edition · España · barcode pendiente",
+        "physicalVariant": null,
+        "region": "Mundial (guía física V2)",
+        "regionFamily": null,
+        "marketRegion": null,
+        "regionalStatus": null,
+        "languages": [],
+        "regionalPackaging": [],
+        "canonicalSerials": [],
+        "sourceSerials": [],
+        "resolutionSerials": [],
+        "publisher": null,
+        "developer": null,
+        "companyCredits": [],
+        "physicalPublisherOrDistributor": null,
+        "regionalPublisher": null,
+        "releaseDate": null,
+        "year": null,
+        "ean": null,
+        "barcode": null,
+        "productCodes": [],
+        "softwareFamilyCodes": [],
+        "serial": null,
+        "catalogNumber": null,
+        "boxCode": null,
+        "ratingSystems": [],
+        "packagingLanguages": [],
+        "softwareLanguages": [],
+        "componentLanguageEvidence": [],
+        "broadRegion": "EUROPE",
+        "marketRegions": [
+          "ES"
+        ],
+        "evidenceMarkets": [],
+        "distributionMarkets": [],
+        "physicalProductType": "NATIVE_GAME_DISC",
+        "nativePhysicalPlatform": "wiiu",
+        "compatiblePlatforms": [
+          "wiiu"
+        ],
+        "containsDisc": true,
+        "countsAsNativePhysicalRelease": true,
+        "physicalContents": [
+          "Disco de juego Wii U",
+          "Contenido Skull Edition documentado por el dossier"
+        ],
+        "digitalContents": [],
+        "releaseStatus": "RELEASED",
+        "confidence": "PENDING_IDENTIFIER",
+        "sharedDiscId": null,
+        "scanSetIds": [],
+        "ownedScans": [],
+        "coverUrl": null,
+        "editionImages": [],
+        "existingEvidence": [
+          {
+            "id": "ac4-wiiu-dossier",
+            "type": "UNKNOWN",
+            "label": "Dossier aportado · Black Flag Wii U worldwide variants",
+            "url": null,
+            "summary": "Compila Nintendo y retail/coleccionismo regional sin nueva investigación.",
+            "supports": [
+              "cinco familias físicas Wii U",
+              "barcodes demostrados",
+              "pendientes explícitos",
+              "exclusión de falsas ediciones"
+            ]
+          }
+        ],
+        "existingResearchTasks": [
+          {
+            "id": "ac4-wiiu-buccaneer-other-markets",
+            "label": "Buccaneer · otros mercados",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES",
+              "FR",
+              "DE",
+              "IT",
+              "AU"
+            ],
+            "notes": [
+              "Australia está demostrada con barcode pendiente; no copiar EAN de PS3/Xbox."
+            ]
+          },
+          {
+            "id": "ac4-wiiu-black-chest-other-markets",
+            "label": "Black Chest · España/Francia/Italia",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES",
+              "FR",
+              "IT"
+            ],
+            "notes": [
+              "Determinar si la outer box es regional o paneuropea."
+            ]
+          },
+          {
+            "id": "ac4-wiiu-unsupported-editions",
+            "label": "Jackdaw y Freedom Cry físico Wii U",
+            "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+            "marketRegions": [],
+            "notes": [
+              "No crear sin evidencia física Wii U inequívoca."
+            ]
+          }
+        ],
+        "gameRetailer": null,
+        "priceCharting": null,
+        "museumPath": null,
+        "legacySources": [
+          "https://www.nintendo.com/es-es/Juegos/Juegos-de-Wii-U/Assassin-s-Creed-IV-Black-Flag-765047.html"
+        ],
+        "fieldProvenance": {},
+        "officialSourceCandidates": []
+      }
+    },
+    {
+      "targetField": "BOX_CODE",
+      "context": {
+        "subjectId": "edition:assassins-creed-iv-black-flag-wiiu-worldwide:ac4-wiiu-skull-es",
+        "subjectKind": "physical-edition",
+        "catalogId": "wiiu-assassin-s-creed-iv-black-flag",
+        "canonicalGameId": "assassins-creed-iv-black-flag",
+        "workId": null,
+        "platformReleaseId": "assassins-creed-iv-black-flag-wiiu",
+        "guideId": "assassins-creed-iv-black-flag-wiiu-worldwide",
+        "physicalEditionId": "ac4-wiiu-skull-es",
+        "title": "Assassin's Creed IV: Black Flag",
+        "aliases": [
+          "Assassin's Creed IV: Black Flag"
+        ],
+        "titlePc": "Assassin's Creed IV: Black Flag",
+        "slug": "assassin-s-creed-iv-black-flag",
+        "platformSlug": "wiiu",
+        "edition": "Skull Edition · España · barcode pendiente",
+        "physicalVariant": null,
+        "region": "Mundial (guía física V2)",
+        "regionFamily": null,
+        "marketRegion": null,
+        "regionalStatus": null,
+        "languages": [],
+        "regionalPackaging": [],
+        "canonicalSerials": [],
+        "sourceSerials": [],
+        "resolutionSerials": [],
+        "publisher": null,
+        "developer": null,
+        "companyCredits": [],
+        "physicalPublisherOrDistributor": null,
+        "regionalPublisher": null,
+        "releaseDate": null,
+        "year": null,
+        "ean": null,
+        "barcode": null,
+        "productCodes": [],
+        "softwareFamilyCodes": [],
+        "serial": null,
+        "catalogNumber": null,
+        "boxCode": null,
+        "ratingSystems": [],
+        "packagingLanguages": [],
+        "softwareLanguages": [],
+        "componentLanguageEvidence": [],
+        "broadRegion": "EUROPE",
+        "marketRegions": [
+          "ES"
+        ],
+        "evidenceMarkets": [],
+        "distributionMarkets": [],
+        "physicalProductType": "NATIVE_GAME_DISC",
+        "nativePhysicalPlatform": "wiiu",
+        "compatiblePlatforms": [
+          "wiiu"
+        ],
+        "containsDisc": true,
+        "countsAsNativePhysicalRelease": true,
+        "physicalContents": [
+          "Disco de juego Wii U",
+          "Contenido Skull Edition documentado por el dossier"
+        ],
+        "digitalContents": [],
+        "releaseStatus": "RELEASED",
+        "confidence": "PENDING_IDENTIFIER",
+        "sharedDiscId": null,
+        "scanSetIds": [],
+        "ownedScans": [],
+        "coverUrl": null,
+        "editionImages": [],
+        "existingEvidence": [
+          {
+            "id": "ac4-wiiu-dossier",
+            "type": "UNKNOWN",
+            "label": "Dossier aportado · Black Flag Wii U worldwide variants",
+            "url": null,
+            "summary": "Compila Nintendo y retail/coleccionismo regional sin nueva investigación.",
+            "supports": [
+              "cinco familias físicas Wii U",
+              "barcodes demostrados",
+              "pendientes explícitos",
+              "exclusión de falsas ediciones"
+            ]
+          }
+        ],
+        "existingResearchTasks": [
+          {
+            "id": "ac4-wiiu-buccaneer-other-markets",
+            "label": "Buccaneer · otros mercados",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES",
+              "FR",
+              "DE",
+              "IT",
+              "AU"
+            ],
+            "notes": [
+              "Australia está demostrada con barcode pendiente; no copiar EAN de PS3/Xbox."
+            ]
+          },
+          {
+            "id": "ac4-wiiu-black-chest-other-markets",
+            "label": "Black Chest · España/Francia/Italia",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES",
+              "FR",
+              "IT"
+            ],
+            "notes": [
+              "Determinar si la outer box es regional o paneuropea."
+            ]
+          },
+          {
+            "id": "ac4-wiiu-unsupported-editions",
+            "label": "Jackdaw y Freedom Cry físico Wii U",
+            "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+            "marketRegions": [],
+            "notes": [
+              "No crear sin evidencia física Wii U inequívoca."
+            ]
+          }
+        ],
+        "gameRetailer": null,
+        "priceCharting": null,
+        "museumPath": null,
+        "legacySources": [
+          "https://www.nintendo.com/es-es/Juegos/Juegos-de-Wii-U/Assassin-s-Creed-IV-Black-Flag-765047.html"
+        ],
+        "fieldProvenance": {},
+        "officialSourceCandidates": []
+      }
+    },
+    {
+      "targetField": "CANONICAL_IDENTITY",
+      "context": {
+        "subjectId": "edition:assassins-creed-iv-black-flag-wiiu-worldwide:ac4-wiiu-skull-es",
+        "subjectKind": "physical-edition",
+        "catalogId": "wiiu-assassin-s-creed-iv-black-flag",
+        "canonicalGameId": "assassins-creed-iv-black-flag",
+        "workId": null,
+        "platformReleaseId": "assassins-creed-iv-black-flag-wiiu",
+        "guideId": "assassins-creed-iv-black-flag-wiiu-worldwide",
+        "physicalEditionId": "ac4-wiiu-skull-es",
+        "title": "Assassin's Creed IV: Black Flag",
+        "aliases": [
+          "Assassin's Creed IV: Black Flag"
+        ],
+        "titlePc": "Assassin's Creed IV: Black Flag",
+        "slug": "assassin-s-creed-iv-black-flag",
+        "platformSlug": "wiiu",
+        "edition": "Skull Edition · España · barcode pendiente",
+        "physicalVariant": null,
+        "region": "Mundial (guía física V2)",
+        "regionFamily": null,
+        "marketRegion": null,
+        "regionalStatus": null,
+        "languages": [],
+        "regionalPackaging": [],
+        "canonicalSerials": [],
+        "sourceSerials": [],
+        "resolutionSerials": [],
+        "publisher": null,
+        "developer": null,
+        "companyCredits": [],
+        "physicalPublisherOrDistributor": null,
+        "regionalPublisher": null,
+        "releaseDate": null,
+        "year": null,
+        "ean": null,
+        "barcode": null,
+        "productCodes": [],
+        "softwareFamilyCodes": [],
+        "serial": null,
+        "catalogNumber": null,
+        "boxCode": null,
+        "ratingSystems": [],
+        "packagingLanguages": [],
+        "softwareLanguages": [],
+        "componentLanguageEvidence": [],
+        "broadRegion": "EUROPE",
+        "marketRegions": [
+          "ES"
+        ],
+        "evidenceMarkets": [],
+        "distributionMarkets": [],
+        "physicalProductType": "NATIVE_GAME_DISC",
+        "nativePhysicalPlatform": "wiiu",
+        "compatiblePlatforms": [
+          "wiiu"
+        ],
+        "containsDisc": true,
+        "countsAsNativePhysicalRelease": true,
+        "physicalContents": [
+          "Disco de juego Wii U",
+          "Contenido Skull Edition documentado por el dossier"
+        ],
+        "digitalContents": [],
+        "releaseStatus": "RELEASED",
+        "confidence": "PENDING_IDENTIFIER",
+        "sharedDiscId": null,
+        "scanSetIds": [],
+        "ownedScans": [],
+        "coverUrl": null,
+        "editionImages": [],
+        "existingEvidence": [
+          {
+            "id": "ac4-wiiu-dossier",
+            "type": "UNKNOWN",
+            "label": "Dossier aportado · Black Flag Wii U worldwide variants",
+            "url": null,
+            "summary": "Compila Nintendo y retail/coleccionismo regional sin nueva investigación.",
+            "supports": [
+              "cinco familias físicas Wii U",
+              "barcodes demostrados",
+              "pendientes explícitos",
+              "exclusión de falsas ediciones"
+            ]
+          }
+        ],
+        "existingResearchTasks": [
+          {
+            "id": "ac4-wiiu-buccaneer-other-markets",
+            "label": "Buccaneer · otros mercados",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES",
+              "FR",
+              "DE",
+              "IT",
+              "AU"
+            ],
+            "notes": [
+              "Australia está demostrada con barcode pendiente; no copiar EAN de PS3/Xbox."
+            ]
+          },
+          {
+            "id": "ac4-wiiu-black-chest-other-markets",
+            "label": "Black Chest · España/Francia/Italia",
+            "status": "PENDING_REVIEW",
+            "marketRegions": [
+              "ES",
+              "FR",
+              "IT"
+            ],
+            "notes": [
+              "Determinar si la outer box es regional o paneuropea."
+            ]
+          },
+          {
+            "id": "ac4-wiiu-unsupported-editions",
+            "label": "Jackdaw y Freedom Cry físico Wii U",
+            "status": "PHYSICAL_VARIANT_NOT_CONFIRMED",
+            "marketRegions": [],
+            "notes": [
+              "No crear sin evidencia física Wii U inequívoca."
+            ]
+          }
+        ],
+        "gameRetailer": null,
+        "priceCharting": null,
+        "museumPath": null,
+        "legacySources": [
+          "https://www.nintendo.com/es-es/Juegos/Juegos-de-Wii-U/Assassin-s-Creed-IV-Black-Flag-765047.html"
+        ],
+        "fieldProvenance": {},
+        "officialSourceCandidates": []
+      }
+    }
+  ]
+}

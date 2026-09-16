@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cross-ev-02e1af7ee0c8d9b94e4586e4",
+    "field": "CANONICAL_IDENTITY",
+    "claimIds": [],
+    "values": [],
+    "severity": "CRITICAL",
+    "reason": "Evidence ev-02e1af7ee0c8d9b94e4586e4 is bound to the wrong game/platform/edition/variant/component.",
+    "nextEvidenceNeeded": [
+      "CORRECT_EXACT_SUBJECT",
+      "EXACT_COMPONENT_PHOTO"
+    ]
+  },
+  {
+    "id": "cross-ev-afc0faf5f9844e77f6d50406",
+    "field": "CANONICAL_IDENTITY",
+    "claimIds": [],
+    "values": [],
+    "severity": "CRITICAL",
+    "reason": "Evidence ev-afc0faf5f9844e77f6d50406 is bound to the wrong game/platform/edition/variant/component.",
+    "nextEvidenceNeeded": [
+      "CORRECT_EXACT_SUBJECT",
+      "EXACT_COMPONENT_PHOTO"
+    ]
+  }
+]

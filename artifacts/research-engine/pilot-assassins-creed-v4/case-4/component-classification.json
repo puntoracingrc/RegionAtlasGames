@@ -1,0 +1,20 @@
+[
+  {
+    "targetField": "PRODUCT_CODE",
+    "imageUrl": "https://images.launchbox-app.com/r2_9891014f-7736-454e-ac68-04718b916fb3.png",
+    "component": "UNKNOWN_COMPONENT",
+    "stage": "UNREADABLE"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "imageUrl": "https://images.launchbox-app.com/fab1d1b0-a9fc-4ac7-902f-1346a1a2a8fc.jpg",
+    "component": "CARTRIDGE_FRONT",
+    "stage": "ACCEPTED"
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "imageUrl": "https://gocdkeys.es/assets/thumbnails/assassins-creed-the-ezio-collection-nintendo-switch-1.webp",
+    "component": "UNKNOWN_COMPONENT",
+    "stage": "UNREADABLE"
+  }
+]

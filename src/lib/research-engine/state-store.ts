@@ -105,6 +105,41 @@ export class ResearchRunStore {
   }
 }
 
+export function createResearchPhysicalMetrics(): NonNullable<ResearchState["physicalMetrics"]> {
+  return {
+    physicalEvidenceModeEntries: 0,
+    galleryPagesOpened: 0,
+    imageCandidatesDiscovered: 0,
+    fullResolutionImagesFetched: 0,
+    imagesClassified: 0,
+    exactTargetImages: 0,
+    wrongEditionImagesRejected: 0,
+    wrongPlatformImagesRejected: 0,
+    ambiguousImagesRejected: 0,
+    outerPackageImages: 0,
+    innerCaseImages: 0,
+    cartImages: 0,
+    discImages: 0,
+    backCoverImages: 0,
+    componentBoundClaims: 0,
+    productBoundIdentifiers: 0,
+    unboundIdentifierCandidates: 0,
+    sellerStickerIdentifiers: 0,
+    marketBoundClaims: 0,
+    galleriesOpened: 0,
+    imagesDiscovered: 0,
+    originalImagesResolved: 0,
+    imagesInspected: 0,
+    subjectAccepted: 0,
+    componentAccepted: 0,
+    identifierExtractions: 0,
+    productBindings: 0,
+    rejectedImages: 0,
+    duplicateImages: 0,
+    thumbnailFailures: 0,
+  };
+}
+
 export function createResearchState(input: {
   runId: string;
   taskId: string;
@@ -143,6 +178,13 @@ export function createResearchState(input: {
     nextEvidenceNeeded: [],
     whyStopped: null,
     riskCodes: input.riskCodes ?? [],
+    researchMode: "STANDARD",
+    modeTransitions: [],
+    evidenceGaps: [],
+    productNodes: [],
+    productRelations: [],
+    identifierBindings: [],
+    physicalMetrics: createResearchPhysicalMetrics(),
     createdAt: now,
     updatedAt: now,
   };

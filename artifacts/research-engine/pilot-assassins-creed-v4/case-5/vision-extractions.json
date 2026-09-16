@@ -1,0 +1,54 @@
+[
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51DdHGB5IAL.jpg",
+    "result": {
+      "component": "OUTER_PACKAGE_BACK",
+      "titleCandidate": "Assassin's Creed Brotherhood + Revelations Double Pack",
+      "platformCandidate": "xbox360",
+      "editionCandidate": "Double Pack",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [
+        "English"
+      ],
+      "ratingMarks": [
+        "PEGI 18"
+      ],
+      "publisherText": [
+        "UBISOFT"
+      ],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "NO_DOWNLOAD_STATEMENT",
+      "barcodeBinding": "OUTER_COLLECTOR_PACKAGE",
+      "barcodeProductRole": "OUTER_PRODUCT",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {
+        "OUTER_INNER_RELATION": 0.9,
+        "BARCODE": 0.9,
+        "PRODUCT_CODE": 0.9
+      },
+      "subjectClass": "EXACT_PRODUCT",
+      "bindingState": "COMPONENT_BOUND",
+      "marketBindingState": "LANGUAGE_ONLY",
+      "productNodeType": "OUTER_PACKAGE",
+      "componentNodeLabel": null,
+      "visualStages": {
+        "subject": "ACCEPTED",
+        "component": "ACCEPTED",
+        "extraction": "COMPLETED",
+        "binding": "COMPONENT_BOUND"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 3,
+      "inputTokens": 27217,
+      "outputTokens": 228,
+      "estimatedCostUsd": 0.00422
+    }
+  }
+]

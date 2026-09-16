@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {
+      "id": "3193cdc46aef80c28a50",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "Assassin's Creed: The Ezio Collection · switch · standard",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "2f306e550937ff6fe0c5",
+      "type": "OUTER_PACKAGE",
+      "label": "OUTER_PACKAGE:UNKNOWN_COMPONENT",
+      "parentProductId": "3193cdc46aef80c28a50",
+      "component": "UNKNOWN_COMPONENT"
+    },
+    {
+      "id": "12c63f2bc59510303180",
+      "type": "INNER_PRODUCT",
+      "label": "INNER_PRODUCT:CARTRIDGE_FRONT",
+      "parentProductId": "3193cdc46aef80c28a50",
+      "component": "CARTRIDGE_FRONT"
+    }
+  ],
+  "relations": [
+    {
+      "fromNodeId": "2f306e550937ff6fe0c5",
+      "toNodeId": "3193cdc46aef80c28a50",
+      "relation": "WRAPS",
+      "evidenceIds": [
+        "ev-3229cd1cbf712cbc5635d045"
+      ]
+    },
+    {
+      "fromNodeId": "12c63f2bc59510303180",
+      "toNodeId": "3193cdc46aef80c28a50",
+      "relation": "BUNDLES",
+      "evidenceIds": [
+        "ev-5a613fce0168032b3aa55cee"
+      ]
+    }
+  ]
+}
