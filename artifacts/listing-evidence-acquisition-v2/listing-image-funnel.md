@@ -10,10 +10,13 @@ The eBay HTML listing page is not used as the primary acquisition route. Exact i
 - total gallery images: 126
 - unique images preserved by content hash: 126
 - original-resolution images: 126
-- subject/component classified: 126
+- photos triaged: 126
+- subject accepted: 74
+- component classified: 71
 - high-detail inspected: 68
 - component-bound observations: 67
 - market-bound observations: 38
+- resolved cases: 5
 
 ## Loss audit
 

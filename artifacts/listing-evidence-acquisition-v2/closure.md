@@ -1,7 +1,7 @@
 # Listing Evidence Acquisition V2 closure
 
 - Base HEAD: `9882d6e2c31e7f862ebff5783061ec2e2f12e1b6`
-- Validation HEAD: `9882d6e2c31e7f862ebff5783061ec2e2f12e1b6`
+- Validation HEAD: `3a343eeb265c5b67498d623e8678a5fb7ace44a2`
 - Cases: 20
 - Cost: $0.430392
 - OpenAI calls: 56

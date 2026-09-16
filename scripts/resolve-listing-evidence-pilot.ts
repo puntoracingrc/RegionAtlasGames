@@ -108,6 +108,13 @@ const summary = {
 };
 writeJson(path.join(outputDir, "resolution-results.json"), { summary, cases: results });
 
+const resolvedCases = results.filter((row) => row.finalDecision !== "DEFER" && row.finalDecision !== "NEEDS_HUMAN").length;
+const funnelPath = path.join(outputDir, "listing-image-funnel.md");
+let funnel = readFileSync(funnelPath, "utf8");
+if (/^- resolved cases:.*$/m.test(funnel)) funnel = funnel.replace(/^- resolved cases:.*$/m, `- resolved cases: ${resolvedCases}`);
+else funnel = funnel.replace(/(- market-bound observations:.*\n)/, `$1- resolved cases: ${resolvedCases}\n`);
+writeFileSync(funnelPath, funnel, "utf8");
+
 const acquisition = JSON.parse(readFileSync(path.join(outputDir, "acquisition-summary.json"), "utf8"));
 const allPlatforms = Object.values(platformEvidence);
 const listingReady = allPlatforms.every((row) => row.originalGallery && row.componentClassification && row.componentBinding);
