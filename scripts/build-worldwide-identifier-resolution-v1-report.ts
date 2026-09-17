@@ -43,13 +43,27 @@ function normalizeFailure(row: any) {
   return quota ? { ...row, code: "PROVIDER_QUOTA_EXHAUSTED" } : row;
 }
 
+function normalizeCaseCoverage(entry: any) {
+  if (!entry?.runs || !entry?.coverageLedger) return entry;
+  const technicalBuckets = new Set(entry.runs
+    .filter((run: any) => run.status === "BLOCKED_INFRASTRUCTURE"
+      || run.technicalFailures.some((failure: any) => /prepaid credit balance|balance is insufficient/i.test(failure.detail ?? "")))
+    .map((run: any) => run.bucket));
+  return {
+    ...entry,
+    coverageLedger: entry.coverageLedger.map((row: any) => technicalBuckets.has(row.bucket)
+      ? { ...row, status: "TECHNICAL_FAILURE", remainingGaps: [...new Set([...(row.remainingGaps ?? []), "PROVIDER_QUOTA_EXHAUSTED"]) ] }
+      : row),
+  };
+}
+
 async function main(): Promise<void> {
   const absolum = await readJson(path.join(ROOT, "cases", "ABSOLUM-PS5", "result.json"));
   if (!absolum) throw new Error("ABSOLUM_RESULT_MISSING");
   const pilot = [];
   for (const [caseId, title, platform] of CASES) {
     const existing = await readJson(path.join(ROOT, "cases", caseId, "result.json"));
-    pilot.push(existing ?? quotaBlockedCase(caseId, title, platform));
+    pilot.push(existing ? normalizeCaseCoverage(existing) : quotaBlockedCase(caseId, title, platform));
   }
   const traces = [absolum, ...pilot].flatMap((entry) => (entry.runs ?? []).flatMap((run: any) => run.identifiers.map((trace: any) => ({ caseId: entry.caseId, bucket: run.bucket, targetField: run.targetField, ...trace }))));
   const failures = [absolum, ...pilot].flatMap((entry) => (entry.runs ?? []).flatMap((run: any) => run.technicalFailures.map((failure: any) => ({ caseId: entry.caseId, bucket: run.bucket, targetField: run.targetField, ...normalizeFailure(failure) }))));

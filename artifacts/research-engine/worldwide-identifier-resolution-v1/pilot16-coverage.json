@@ -719,7 +719,7 @@
       },
       {
         "bucket": "LATIN_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [
           "candidate:www.rolagames.com",
           "candidate:www.gamestop.com",
@@ -746,7 +746,8 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       }
     ]
@@ -758,7 +759,7 @@
     "coverageLedger": [
       {
         "bucket": "EUROPE",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
@@ -781,12 +782,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "NORTH_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
@@ -809,12 +811,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "JAPAN",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
@@ -837,12 +840,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "ASIA_OTHER",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
@@ -865,12 +869,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "OCEANIA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
@@ -893,12 +898,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "LATIN_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
@@ -921,7 +927,8 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       }
     ]
@@ -933,7 +940,7 @@
     "coverageLedger": [
       {
         "bucket": "EUROPE",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [
           "national-retailer"
         ],
@@ -958,12 +965,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "NORTH_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [
           "national-retailer"
         ],
@@ -988,12 +996,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "JAPAN",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [
           "national-retailer"
         ],
@@ -1018,12 +1027,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "ASIA_OTHER",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [
           "national-retailer"
         ],
@@ -1048,12 +1058,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "OCEANIA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [
           "national-retailer"
         ],
@@ -1077,12 +1088,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "LATIN_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [
           "national-retailer"
         ],
@@ -1106,7 +1118,8 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       }
     ]
@@ -1118,7 +1131,7 @@
     "coverageLedger": [
       {
         "bucket": "EUROPE",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" EAN",
@@ -1141,12 +1154,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "NORTH_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" USA UPC",
@@ -1169,12 +1183,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "JAPAN",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" JAN",
@@ -1197,12 +1212,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "ASIA_OTHER",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Korea barcode",
@@ -1225,12 +1241,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "OCEANIA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Australia barcode",
@@ -1252,12 +1269,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "LATIN_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Mexico UPC",
@@ -1279,7 +1297,8 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       }
     ]
@@ -1291,7 +1310,7 @@
     "coverageLedger": [
       {
         "bucket": "EUROPE",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Dead Space\" \"PlayStation 5\" EAN",
@@ -1314,12 +1333,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "NORTH_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Dead Space\" \"PlayStation 5\" USA UPC",
@@ -1342,12 +1362,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "JAPAN",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Dead Space\" \"PlayStation 5\" JAN",
@@ -1370,12 +1391,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "ASIA_OTHER",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Dead Space\" \"PlayStation 5\" Korea barcode",
@@ -1398,12 +1420,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "OCEANIA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Dead Space\" \"PlayStation 5\" Australia barcode",
@@ -1425,12 +1448,13 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       },
       {
         "bucket": "LATIN_AMERICA",
-        "status": "UNRESOLVED",
+        "status": "TECHNICAL_FAILURE",
         "sourcesConsulted": [],
         "queries": [
           "\"Dead Space\" \"PlayStation 5\" Mexico UPC",
@@ -1452,7 +1476,8 @@
         "identifiersFound": [],
         "physicalFamiliesFound": [],
         "remainingGaps": [
-          "No eligible field-level claims."
+          "No eligible field-level claims.",
+          "PROVIDER_QUOTA_EXHAUSTED"
         ]
       }
     ]

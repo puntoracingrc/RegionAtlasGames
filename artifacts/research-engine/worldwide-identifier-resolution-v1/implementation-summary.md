@@ -1,6 +1,6 @@
 # Worldwide Identifier Resolution V1 — implementation summary
 
-- Implementation HEAD: abeb7be17096dbd6433cfa6b661d06c0a91c9e4e
+- Implementation HEAD: 3d109e58865ee0f72ee493b5f6aa924f4337a869
 - Extended the existing Research Engine; no second engine or provider was introduced.
 - Added deterministic candidate extraction, normalization, checksum/platform validation, exact-search expansion, title/platform/edition/region binding, corroboration and hard-conflict rejection.
 - Added field-specific, release-seed, regional and local-title ladder stages with scoped query deduplication and dynamic replanning.
