@@ -1,0 +1,354 @@
+{
+  "baseline": {
+    "searches": 66,
+    "pagesOpened": 14,
+    "braveUsd": 0.33,
+    "openAiUsd": 0.005171,
+    "totalUsd": 0.335171
+  },
+  "after": {
+    "queries": 107,
+    "exactIdentifierQueries": 11,
+    "duplicateQueriesPrevented": 6,
+    "candidates": 9,
+    "corroborated": 7,
+    "partial": 0,
+    "hardConflicts": 1,
+    "imageUrls": 384,
+    "visionCalls": 0,
+    "ocrCalls": 0,
+    "cost": {
+      "openAiUsd": 0.012979,
+      "braveUsd": 0.535,
+      "totalUsd": 0.547979
+    }
+  },
+  "rows": [
+    {
+      "field": "USA UPC",
+      "before": "UNRESOLVED",
+      "after": "CONFIRMED",
+      "value": "850070166225",
+      "discoveredFrom": [
+        {
+          "value": "850070166225",
+          "query": "Absolum \"PlayStation 5\" USA UPC",
+          "source": "www.ebay.com"
+        },
+        {
+          "value": "0850070166225",
+          "query": "Absolum \"PlayStation 5\" USA UPC",
+          "source": "www.ebay.com"
+        },
+        {
+          "value": "397177282507",
+          "query": "Absolum \"PlayStation 5\" USA UPC",
+          "source": "www.ebay.com"
+        },
+        {
+          "value": "100137828949",
+          "query": "Absolum \"PlayStation 5\" USA UPC",
+          "source": "www.ebay.com"
+        },
+        {
+          "value": "357466010461",
+          "query": "Absolum \"PlayStation 5\" USA UPC",
+          "source": "www.ebay.com"
+        }
+      ],
+      "corroboratedBy": [
+        {
+          "value": "850070166225",
+          "sources": [
+            "www.bestbuy.com",
+            "www.popngames.com",
+            "www.ebay.com"
+          ],
+          "status": "CORROBORATED"
+        },
+        {
+          "value": "0850070166225",
+          "sources": [],
+          "status": "DISCOVERED"
+        },
+        {
+          "value": "397177282507",
+          "sources": [],
+          "status": "DISCOVERED"
+        },
+        {
+          "value": "100137828949",
+          "sources": [],
+          "status": "DISCOVERED"
+        },
+        {
+          "value": "357466010461",
+          "sources": [],
+          "status": "REJECTED"
+        }
+      ],
+      "queries": [
+        "Absolum \"PlayStation 5\" USA UPC",
+        "\"850070166225\""
+      ],
+      "cost": {
+        "openAiUsd": 0.000037,
+        "braveUsd": 0.01,
+        "totalUsd": 0.010037
+      }
+    },
+    {
+      "field": "Japan JAN",
+      "before": "UNRESOLVED",
+      "after": "CONFIRMED",
+      "value": "4510772250122",
+      "discoveredFrom": [
+        {
+          "value": "ELJM-30750",
+          "query": "Absolum \"PlayStation 5\" Japan JAN",
+          "source": "www.cdjapan.co.jp"
+        },
+        {
+          "value": "ELJM30750",
+          "query": "Absolum \"PlayStation 5\" 型番",
+          "source": "www.yamada-denkiweb.com"
+        },
+        {
+          "value": "4510772250122",
+          "query": "Absolum \"PlayStation 5\" 型番",
+          "source": "search.kakaku.com"
+        }
+      ],
+      "corroboratedBy": [
+        {
+          "value": "ELJM-30750",
+          "sources": [
+            "joshinweb.jp",
+            "mediaworld.co.jp",
+            "store.shopping.yahoo.co.jp"
+          ],
+          "status": "CORROBORATED"
+        },
+        {
+          "value": "ELJM30750",
+          "sources": [
+            "www.edion.com",
+            "www.yamada-denkiweb.com",
+            "search.kakaku.com"
+          ],
+          "status": "CORROBORATED"
+        },
+        {
+          "value": "4510772250122",
+          "sources": [
+            "store.shopping.yahoo.co.jp",
+            "books.rakuten.co.jp",
+            "www.amazon.co.jp",
+            "www.amiami.jp",
+            "mediaworld.co.jp"
+          ],
+          "status": "CORROBORATED"
+        }
+      ],
+      "queries": [
+        "Absolum \"PlayStation 5\" JAN",
+        "Absolum \"PlayStation 5\" Japan JAN",
+        "\"ELJM-30750\"",
+        "\"ELJM-30750\" \"PlayStation 5\"",
+        "Absolum \"PlayStation 5\" 型番",
+        "\"ELJM30750\"",
+        "\"4510772250122\""
+      ],
+      "cost": {
+        "openAiUsd": 0.001378,
+        "braveUsd": 0.035,
+        "totalUsd": 0.036378
+      }
+    },
+    {
+      "field": "Japan product ID",
+      "before": "UNRESOLVED",
+      "after": "CONFIRMED",
+      "value": "ELJM-30750",
+      "discoveredFrom": [
+        {
+          "value": "ELJM-30750",
+          "query": "Absolum \"PlayStation 5\" Japan JAN",
+          "source": "www.cdjapan.co.jp"
+        }
+      ],
+      "corroboratedBy": [
+        {
+          "value": "ELJM-30750",
+          "sources": [
+            "joshinweb.jp",
+            "mediaworld.co.jp",
+            "store.shopping.yahoo.co.jp"
+          ],
+          "status": "CORROBORATED"
+        }
+      ],
+      "queries": [
+        "Absolum \"PlayStation 5\" JAN",
+        "Absolum \"PlayStation 5\" Japan JAN",
+        "\"ELJM-30750\""
+      ],
+      "cost": {
+        "openAiUsd": 0.000717,
+        "braveUsd": 0.015,
+        "totalUsd": 0.015717
+      }
+    },
+    {
+      "field": "Asia barcode",
+      "before": "UNRESOLVED",
+      "after": "UNRESOLVED",
+      "value": null,
+      "discoveredFrom": [],
+      "corroboratedBy": [],
+      "queries": [
+        "Absolum \"PlayStation 5\" Korea barcode",
+        "Absolum \"PlayStation 5\" GRAC",
+        "Absolum \"PlayStation 5\" Hong Kong barcode",
+        "Absolum \"PlayStation 5\" Taiwan barcode",
+        "Absolum \"PlayStation 5\" Asia UPC EAN",
+        "Absolum \"PlayStation 5\" Chinese edition barcode",
+        "Absolum \"PlayStation 5\" release data",
+        "Absolum \"PlayStation 5\" product code barcode",
+        "Absolum \"PlayStation 5\" serial UPC EAN",
+        "Absolum \"PlayStation 5\" physical release regions",
+        "site:gamefaqs.gamespot.com Absolum \"PlayStation 5\"",
+        "site:github.com Absolum \"PlayStation 5\"",
+        "site:game.es \"Absolum\" \"Hong Kong / Taiwán\"",
+        "site:ogdb.eu \"Absolum\" PlayStation 5",
+        "site:todocoleccion.net \"Absolum\" PlayStation 5",
+        "site:gamesdb.launchbox-app.com \"Absolum\" PlayStation 5 back"
+      ],
+      "cost": {
+        "openAiUsd": 0.002279,
+        "braveUsd": 0.08,
+        "totalUsd": 0.082279
+      }
+    },
+    {
+      "field": "Asia product ID",
+      "before": "UNRESOLVED",
+      "after": "UNRESOLVED",
+      "value": null,
+      "discoveredFrom": [],
+      "corroboratedBy": [],
+      "queries": [
+        "Absolum \"PlayStation 5\" Korea barcode",
+        "Absolum \"PlayStation 5\" GRAC",
+        "Absolum \"PlayStation 5\" Hong Kong barcode",
+        "Absolum \"PlayStation 5\" Taiwan barcode",
+        "Absolum \"PlayStation 5\" Asia UPC EAN",
+        "Absolum \"PlayStation 5\" Chinese edition barcode",
+        "Absolum \"PlayStation 5\" release data",
+        "Absolum \"PlayStation 5\" product code barcode",
+        "Absolum \"PlayStation 5\" serial UPC EAN",
+        "Absolum \"PlayStation 5\" physical release regions",
+        "site:gamefaqs.gamespot.com Absolum \"PlayStation 5\"",
+        "site:github.com Absolum \"PlayStation 5\"",
+        "site:serialstation.com \"Absolum\" PlayStation 5",
+        "site:redump.org \"Absolum\" PlayStation 5",
+        "site:ogdb.eu \"Absolum\" PlayStation 5",
+        "site:gamesdb.launchbox-app.com \"Absolum\" PlayStation 5 back"
+      ],
+      "cost": {
+        "openAiUsd": 0.002259,
+        "braveUsd": 0.08,
+        "totalUsd": 0.082259
+      }
+    },
+    {
+      "field": "Korea barcode",
+      "before": "UNRESOLVED",
+      "after": "UNRESOLVED",
+      "value": null,
+      "discoveredFrom": [],
+      "corroboratedBy": [],
+      "queries": [
+        "Absolum \"PlayStation 5\" Korea barcode",
+        "Absolum \"PlayStation 5\" GRAC",
+        "Absolum \"PlayStation 5\" Hong Kong barcode",
+        "Absolum \"PlayStation 5\" Taiwan barcode",
+        "Absolum \"PlayStation 5\" Asia UPC EAN",
+        "Absolum \"PlayStation 5\" Chinese edition barcode",
+        "Absolum \"PlayStation 5\" release data",
+        "Absolum \"PlayStation 5\" product code barcode",
+        "Absolum \"PlayStation 5\" serial UPC EAN",
+        "Absolum \"PlayStation 5\" physical release regions",
+        "site:gamefaqs.gamespot.com Absolum \"PlayStation 5\"",
+        "site:github.com Absolum \"PlayStation 5\"",
+        "site:game.es \"Absolum\" \"Corea GRAC\"",
+        "site:ogdb.eu \"Absolum\" PlayStation 5",
+        "site:todocoleccion.net \"Absolum\" PlayStation 5",
+        "site:gamesdb.launchbox-app.com \"Absolum\" PlayStation 5 back"
+      ],
+      "cost": {
+        "openAiUsd": 0.002239,
+        "braveUsd": 0.08,
+        "totalUsd": 0.082239
+      }
+    },
+    {
+      "field": "Special national market",
+      "before": "UNRESOLVED",
+      "after": "CONFIRMED",
+      "value": "NO_DISTINCT_NATIONAL_MARKET_PROVEN",
+      "discoveredFrom": [
+        {
+          "value": "5061078710685",
+          "query": null,
+          "source": null
+        },
+        {
+          "value": "8710685",
+          "query": null,
+          "source": null
+        }
+      ],
+      "corroboratedBy": [
+        {
+          "value": "5061078710685",
+          "sources": [
+            "www.shinestar.es",
+            "www.gamevip.es",
+            "www.lameesoftware.com",
+            "tecoesgames.com"
+          ],
+          "status": "CORROBORATED"
+        },
+        {
+          "value": "8710685",
+          "sources": [],
+          "status": "DISCOVERED"
+        }
+      ],
+      "queries": [
+        "\"5061078710685\"",
+        "\"8710685\"",
+        "\"5061078710685\" \"PlayStation 5\"",
+        "\"8710685\" \"PlayStation 5\"",
+        "\"Absolum [Special Edition]\" \"PlayStation 5\" EAN",
+        "\"Absolum [Special Edition]\" \"PlayStation 5\" Europe barcode",
+        "\"Absolum [Special Edition]\" \"PlayStation 5\" PEGI EAN",
+        "\"Absolum [Special Edition]\" \"PlayStation 5\" USK EAN",
+        "\"Absolum [Special Edition]\" \"PlayStation 5\" release data",
+        "\"Absolum [Special Edition]\" \"PlayStation 5\" product code barcode",
+        "\"Absolum [Special Edition]\" \"PlayStation 5\" serial UPC EAN",
+        "\"Absolum [Special Edition]\" \"PlayStation 5\" physical release regions",
+        "site:gamefaqs.gamespot.com \"Absolum [Special Edition]\" \"PlayStation 5\"",
+        "site:github.com \"Absolum [Special Edition]\" \"PlayStation 5\"",
+        "site:mobygames.com \"Absolum [Special Edition]\" PlayStation 5",
+        "site:game.es \"5061078710685\""
+      ],
+      "cost": {
+        "openAiUsd": 0.00025,
+        "braveUsd": 0.08,
+        "totalUsd": 0.08025
+      }
+    }
+  ]
+}

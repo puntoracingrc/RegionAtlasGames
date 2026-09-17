@@ -11,6 +11,7 @@ test("fault injection classifies source and provider failures without semantic f
     [new Error("SERPAPI_AUTH_ERROR"), "PROVIDER_AUTHENTICATION_FAILED"],
     [new Error("GOOGLE_SEARCH_HTTP_503"), "PROVIDER_TEMPORARILY_UNAVAILABLE"],
     [new Error("SERPAPI_QUOTA_EXHAUSTED"), "PROVIDER_QUOTA_EXHAUSTED"],
+    [new Error("BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request."), "PROVIDER_QUOTA_EXHAUSTED"],
     [new Error("IMAGE_UNAVAILABLE"), "IMAGE_UNAVAILABLE"],
   ] as const;
   for (const [error, expected] of cases) {

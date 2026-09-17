@@ -8,9 +8,20 @@ import { loadResearchKnowledge } from "./knowledge-loader";
 import { researchPageTextHash } from "./page-fetcher";
 import { boundedBackoff, classifyRetrievalFailure, isInfrastructureRetrievalFailure, isRetryableRetrievalFailure, safeRetrievalDetail } from "./retrieval-resilience";
 import { applicableDecisionTests, knownIdentifiersForRouter, routeResearch, shouldDynamicallyReplan } from "./router";
-import { ResearchRunStore, createResearchPhysicalMetrics, createResearchState } from "./state-store";
+import { ResearchRunStore, createResearchPhysicalMetrics, createResearchState, createResearchTelemetry } from "./state-store";
 import type { ResearchSubject } from "./types";
-import { validateClaimDeterministically } from "./validators";
+import { knownValuesForTarget, validateClaimDeterministically } from "./validators";
+import {
+  assessIdentifierSearchResults,
+  createIdentifierTrace,
+  createWorldwideCoverageLedger,
+  discoverIdentifierCandidates,
+  identifierField,
+  missingExhaustionStages,
+  nationalMarketRequirement,
+  requiredExhaustionStages,
+  searchResultMatchesResearchScope,
+} from "./identifier-resolution";
 import {
   canonicalImageUrl,
   canonicalResearchComponent,
@@ -40,6 +51,7 @@ import type {
   ResearchRetrievalFailureCode,
   ResearchRouterInput,
   ResearchRouterPlan,
+  ResearchQueryStage,
   ResearchSearchProviderV2,
   ResearchSearchResult,
   ResearchSourcePlanItem,
@@ -265,6 +277,193 @@ function sourceForUrl(url: string, plan: ResearchRouterPlan): ResearchSourcePlan
     return null;
   }
   return plan.sourcePlan.find((source) => source.hosts.some((candidate) => hostMatches(host, candidate))) ?? null;
+}
+
+function traceKey(type: string, value: string): string {
+  return `${type}:${value.toUpperCase()}`;
+}
+
+function recordQueryTelemetry(state: ResearchState, planned: ResearchRouterPlan["queryPlan"][number]): void {
+  state.telemetry ??= createResearchTelemetry();
+  if (planned.stage === "STRUCTURED_RELEASE_SEED") state.telemetry.releaseMapSeedQueries += 1;
+  if (planned.stage === "FIELD_SPECIFIC") state.telemetry.fieldSpecificQueries += 1;
+  if (planned.stage === "REGIONAL_FALLBACK") state.telemetry.regionalQueries += 1;
+  if (planned.stage === "LOCAL_LANGUAGE_FALLBACK") state.telemetry.localLanguageQueries += 1;
+  if (planned.strategy === "EXACT_IDENTIFIER" || planned.stage === "EXACT_IDENTIFIER_SEARCH" || planned.stage === "KNOWN_EXACT_IDENTIFIER") {
+    state.telemetry.exactIdentifierQueries += 1;
+  }
+}
+
+function searchLocaleFor(planned: ResearchRouterPlan["queryPlan"][number]): { country: string; language: string } {
+  const query = planned.query.toLowerCase();
+  if (planned.coverageBucket === "JAPAN" || /\b(?:japan|jan)\b|型番|日本/.test(query)) return { country: "JP", language: "ja" };
+  if (planned.coverageBucket === "ASIA_OTHER") {
+    if (/\b(?:korea|grac)\b|한국/.test(query)) return { country: "KR", language: "ko" };
+    return { country: "HK", language: "en" };
+  }
+  if (planned.coverageBucket === "NORTH_AMERICA") return { country: "US", language: "en" };
+  if (planned.coverageBucket === "OCEANIA") return { country: "AU", language: "en" };
+  if (planned.coverageBucket === "LATIN_AMERICA") {
+    return { country: "MX", language: "es" };
+  }
+  return { country: "ES", language: "es" };
+}
+
+function discoveryLadderComplete(state: ResearchState, plan: ResearchRouterPlan): boolean {
+  const requiredStages = new Set<ResearchQueryStage>(["FIELD_SPECIFIC", "STRUCTURED_RELEASE_SEED", "REGIONAL_FALLBACK"]);
+  if (plan.queryPlan.some((row) => row.stage === "LOCAL_LANGUAGE_FALLBACK")) requiredStages.add("LOCAL_LANGUAGE_FALLBACK");
+  const attempted = new Set(executedQueries(state, [plan]).map((row) => row.stage).filter((stage): stage is ResearchQueryStage => Boolean(stage)));
+  return [...requiredStages].every((stage) => attempted.has(stage))
+    && plan.queryPlan
+      .filter((row) => requiredStages.has(row.stage as ResearchQueryStage))
+      .every((row) => state.normalizedQueries.includes(normalizedQuery(row.query)));
+}
+
+function processSearchResultIdentifiers(input: {
+  task: DurableResearchTask;
+  context: ResearchCatalogContext;
+  state: ResearchState;
+  plan: ResearchRouterPlan;
+  planned: ResearchRouterPlan["queryPlan"][number];
+  hits: ResearchSearchResult[];
+}): { newCandidate: boolean; exactProcessed: boolean } {
+  input.state.telemetry ??= createResearchTelemetry();
+  const previous = new Set((input.state.identifierTraces ?? []).map((trace) => traceKey(trace.type, trace.normalizedValue)));
+  const traces = new Map((input.state.identifierTraces ?? []).map((trace) => [traceKey(trace.type, trace.normalizedValue), trace]));
+  const discoveryHits = input.planned.strategy === "EXACT_IDENTIFIER"
+    ? []
+    : input.hits.filter((hit) => searchResultMatchesResearchScope({ hit, context: input.context, coverageBucket: input.planned.coverageBucket }));
+  for (const hit of discoveryHits) {
+    for (const candidate of discoverIdentifierCandidates(`${hit.title}\n${hit.snippet}\n${hit.url}`, input.context.platformSlug)) {
+      const key = traceKey(candidate.type, candidate.normalizedValue);
+      if (!traces.has(key)) {
+        traces.set(key, createIdentifierTrace({
+          candidate,
+          discoveredFrom: "SEARCH_RESULT",
+          discoveryQuery: input.planned.query,
+          discoverySource: hit.host,
+        }));
+        input.state.telemetry.identifierCandidatesFound += 1;
+        if (candidate.validation === "FORMAT_REJECTED") input.state.telemetry.identifierFormatRejected += 1;
+        if (candidate.validation === "CHECKSUM_REJECTED") input.state.telemetry.identifierChecksumRejected += 1;
+      }
+      if (candidate.validation === "VALID") {
+        input.state.identifiersSeen = mergeIdentifiers(input.state, [{ type: candidate.type, value: candidate.normalizedValue, component: null }]);
+      }
+    }
+  }
+  input.state.identifierTraces = [...traces.values()];
+  const exactIdentifier = input.planned.identifierValue;
+  const exactProcessed = Boolean(exactIdentifier && input.planned.strategy === "EXACT_IDENTIFIER");
+  if (exactIdentifier) {
+    const candidate = discoverIdentifierCandidates(exactIdentifier, input.context.platformSlug)[0]
+      ?? (input.planned.identifierType ? {
+        type: input.planned.identifierType === "BARCODE" ? "BARCODE" as const : input.planned.identifierType === "SERIAL" ? "SERIAL" as const : "PRODUCT_CODE" as const,
+        observedValue: exactIdentifier,
+        normalizedValue: exactIdentifier.trim().toUpperCase(),
+        validation: "VALID" as const,
+        rejectionReason: null,
+      } : null);
+    if (candidate) {
+      const key = traceKey(candidate.type, candidate.normalizedValue);
+      const trace = traces.get(key) ?? createIdentifierTrace({ candidate, discoveredFrom: "CATALOG" });
+      trace.exactSearchQueries = [...new Set([...trace.exactSearchQueries, input.planned.query])];
+      const confirmationHits = input.hits.filter((hit) => {
+        const source = sourceForUrl(hit.url, input.plan);
+        return !source?.roles.some((role) => role === "DISCOVERY_ONLY");
+      });
+      const assessment = assessIdentifierSearchResults({ identifier: candidate.normalizedValue, context: input.context, hits: confirmationHits, coverageBucket: input.planned.coverageBucket });
+      trace.matchingSources = [...new Set([...trace.matchingSources, ...assessment.matchingSources])];
+      trace.conflictingSources = [...new Set([...trace.conflictingSources, ...assessment.conflictingSources])];
+      trace.subjectBinding = assessment.subjectBinding;
+      trace.platformBinding = assessment.platformBinding;
+      trace.editionBinding = assessment.editionBinding;
+      if (assessment.status === "HARD_CONFLICT") {
+        trace.finalStatus = "REJECTED";
+        trace.rejectionReason = "HARD_IDENTIFIER_SUBJECT_CONFLICT";
+        input.state.identifiersSeen = input.state.identifiersSeen.filter((row) => traceKey(row.type, row.value) !== key);
+        input.state.rejectedHypotheses.push({ value: candidate.normalizedValue, reason: "HARD_IDENTIFIER_SUBJECT_CONFLICT" });
+        input.state.telemetry.identifierSubjectConflicts += 1;
+        input.state.claims = input.state.claims.map((claim) => {
+          if (claim.field !== identifierField(candidate.type) || String(claim.value).trim().toUpperCase() !== candidate.normalizedValue) return claim;
+          return {
+            ...claim,
+            status: "REJECTED" as const,
+            validationErrors: [...new Set([...claim.validationErrors, "HARD_IDENTIFIER_SUBJECT_CONFLICT"])],
+          };
+        });
+        input.state.conflicts = [...new Map([...input.state.conflicts, {
+          id: `hard-id-${createHash("sha256").update(key).digest("hex").slice(0, 16)}`,
+          field: identifierField(candidate.type),
+          claimIds: [],
+          values: [candidate.normalizedValue],
+          severity: "CRITICAL" as const,
+          reason: "HARD_IDENTIFIER_SUBJECT_CONFLICT",
+          nextEvidenceNeeded: ["CORRECT_EXACT_SUBJECT", "INDEPENDENT_EXACT_IDENTIFIER_SEARCH"],
+        }].map((conflict) => [conflict.id, conflict])).values()];
+      } else {
+        const combinedStatus = trace.matchingSources.length >= 2 ? "CORROBORATED" : trace.matchingSources.length === 1 ? "PARTIAL" : "DISCOVERED";
+        if (trace.finalStatus !== "CORROBORATED") {
+          if (combinedStatus === "CORROBORATED") input.state.telemetry.identifierCorroborated += 1;
+          else if (combinedStatus === "PARTIAL" && trace.finalStatus !== "PARTIAL") input.state.telemetry.identifierPartial += 1;
+        }
+        trace.finalStatus = combinedStatus;
+        trace.rejectionReason = null;
+        const field = identifierField(candidate.type);
+        for (const hit of confirmationHits.filter((row) => trace.matchingSources.includes(row.host))) {
+          const source = sourceForUrl(hit.url, input.plan);
+          const sourceId = source?.sourceId ?? `web:${hit.host}`;
+          const evidence: ResearchEvidenceRecord = {
+            id: evidenceId(input.state.runId, hit.url, "EXACT_IDENTIFIER_SEARCH_RESULT", null),
+            runId: input.state.runId,
+            taskId: input.task.id,
+            sourceId,
+            sourceUrl: hit.url,
+            canonicalUrl: hit.url,
+            sourceType: source?.roles[0] ?? "SEARCH_RESULT",
+            host: hit.host,
+            fetchedAt: now(),
+            evidenceType: "EXACT_IDENTIFIER_SEARCH_RESULT",
+            subjectBinding: { game: "MATCH", platform: "MATCH", edition: "UNKNOWN", variant: "UNKNOWN", component: "UNKNOWN", risks: [] },
+            relevantExcerpt: `${hit.title} — ${hit.snippet}`.slice(0, 2_000),
+            imageUrl: null,
+            imageHash: null,
+            textHash: createHash("sha256").update(`${hit.title}\n${hit.snippet}`).digest("hex"),
+            capabilities: [field],
+            reliability: Math.max(68, source?.capabilityScore ?? 0),
+            component: null,
+          };
+          addUniqueEvidence(input.state, evidence);
+          const claim: ResearchClaimRecord = {
+            id: claimId(evidence.id, field, candidate.normalizedValue),
+            runId: input.state.runId,
+            taskId: input.task.id,
+            subjectId: input.context.subjectId,
+            gameId: input.context.catalogId,
+            platformSlug: input.context.platformSlug,
+            editionId: input.context.physicalEditionId,
+            variantId: input.context.physicalVariant,
+            component: null,
+            field,
+            value: candidate.normalizedValue,
+            sourceId,
+            sourceUrl: hit.url,
+            evidenceId: evidence.id,
+            confidence: 0.9,
+            status: "CANDIDATE",
+            validationErrors: [],
+            createdAt: now(),
+          };
+          claim.validationErrors = validateClaimDeterministically(claim, input.context);
+          addUniqueClaims(input.state, [claim]);
+        }
+      }
+      traces.set(key, trace);
+      input.state.identifierTraces = [...traces.values()];
+    }
+  }
+  const newCandidate = [...traces.keys()].some((key) => !previous.has(key) && traces.get(key)?.validation === "VALID");
+  return { newCandidate, exactProcessed };
 }
 
 function evidenceId(runId: string, sourceUrl: string, evidenceType: string, component: string | null): string {
@@ -610,6 +809,8 @@ function routerInput(input: {
     currentConflicts: input.state.conflicts,
     evidenceGaps: input.state.evidenceGaps ?? [],
     researchMode: input.state.researchMode ?? "STANDARD",
+    coverageBucket: input.task.coverageBucket ?? null,
+    regionalTitleCandidates: input.task.regionalTitleCandidates ?? [],
     knowledgePack: input.knowledgePack,
   };
 }
@@ -821,8 +1022,22 @@ async function processPage(input: {
     observedEdition: extraction.observedSubject.edition,
     observedVariant: extraction.observedSubject.variant,
   });
+  const pageInResearchScope = searchResultMatchesResearchScope({
+    hit: {
+      title: input.page.title,
+      snippet: input.page.text.slice(0, 8_000),
+      url: input.page.canonicalUrl,
+      host: (() => { try { return new URL(input.page.canonicalUrl).hostname; } catch { return "unknown"; } })(),
+      rank: 1,
+      publishedAt: null,
+      provider: "opened-page",
+    },
+    context: input.context,
+    coverageBucket: input.task.coverageBucket,
+  });
   const previousIdentifiers = [...input.state.identifiersSeen];
   const extractedIdentifiers = extraction.identifiers.filter((identifier) => {
+    if (!pageInResearchScope && input.task.researchMode === "WORLDWIDE_VARIANT_DISCOVERY") return false;
     if (!["BARCODE", "BOX_CODE", "SERIAL", "PRODUCT_CODE", "MEDIA_ID", "XEMID"].includes(identifier.type)) return false;
     if (/\b(?:unknown|unresolved|pending|pendiente|aucune id[eé]e)\b/i.test(identifier.value)) return false;
     const probe = { field: identifier.type as ResearchTargetField, value: identifier.value, component: identifier.component };
@@ -831,6 +1046,7 @@ async function processPage(input: {
   input.state.identifiersSeen = mergeIdentifiers(input.state, extractedIdentifiers);
   const claims = extraction.claims
     .filter((claim) => claim.field === input.task.targetField)
+    .filter(() => pageInResearchScope || input.task.researchMode !== "WORLDWIDE_VARIANT_DISCOVERY")
     .map((claim): ResearchClaimRecord => {
       const base: ResearchClaimRecord = {
         id: claimId(evidence.id, claim.field, claim.value),
@@ -1102,8 +1318,49 @@ function executedQueries(state: ResearchState, plans: ResearchRouterPlan[]) {
       sourceId: match?.sourceId ?? null,
       identifierType: match?.identifierType ?? null,
       identifierValue: match?.identifierValue ?? null,
+      stage: match?.stage ?? null,
+      coverageBucket: match?.coverageBucket ?? null,
     };
   });
+}
+
+function searchExhaustion(input: {
+  state: ResearchState;
+  context: ResearchCatalogContext;
+  task: DurableResearchTask;
+  plans: ResearchRouterPlan[];
+  technicalFailures: TechnicalFailure[];
+}) {
+  const executions = executedQueries(input.state, input.plans);
+  const attemptedStages = executions.map((row) => row.stage).filter((stage): stage is ResearchQueryStage => Boolean(stage));
+  const validTraces = (input.state.identifierTraces ?? []).filter((trace) => trace.validation === "VALID");
+  const required = requiredExhaustionStages({
+    worldwide: input.state.researchMode === "WORLDWIDE_VARIANT_DISCOVERY",
+    candidatesFound: validTraces.length,
+    regionalTitleCandidates: input.task.regionalTitleCandidates?.length ?? 0,
+  });
+  const missingStages = missingExhaustionStages(required, attemptedStages);
+  const unrecovered = input.technicalFailures.filter((failure) => !failure.recovered);
+  const exhaustionStatus = unrecovered.length
+    ? "BLOCKED_BY_TECHNICAL_FAILURE" as const
+    : missingStages.length ? "INCOMPLETE" as const : "COMPLETE" as const;
+  return {
+    field: input.task.targetField,
+    initialKnowledge: knownValuesForTarget(input.context, input.task.targetField),
+    queriesAttempted: [...input.state.queriesAttempted],
+    sourcesReached: [...new Set(input.state.evidence.map((row) => row.sourceId))],
+    candidatesFound: validTraces.map((trace) => trace.normalizedValue),
+    exactIdentifierQueries: executions.filter((row) => row.strategy === "EXACT_IDENTIFIER").map((row) => row.query),
+    corroborations: validTraces.filter((trace) => trace.finalStatus === "CORROBORATED").map((trace) => trace.normalizedValue),
+    rejections: (input.state.identifierTraces ?? []).filter((trace) => trace.finalStatus === "REJECTED").map((trace) => `${trace.normalizedValue}:${trace.rejectionReason ?? "REJECTED"}`),
+    hardConflicts: input.state.conflicts.filter((conflict) => conflict.reason === "HARD_IDENTIFIER_SUBJECT_CONFLICT").map((conflict) => String(conflict.values[0] ?? "unknown")),
+    technicalFailures: unrecovered.map((failure) => `${failure.operation}:${failure.target}:${failure.code}`),
+    regionalFallbackAttempted: attemptedStages.includes("REGIONAL_FALLBACK"),
+    localLanguageFallbackAttempted: attemptedStages.includes("LOCAL_LANGUAGE_FALLBACK"),
+    finalStatus: input.state.status,
+    exhaustionStatus,
+    missingStages,
+  };
 }
 
 function evidenceGap(input: { state: ResearchState; resolution: ResearchFieldResolution; plans: ResearchRouterPlan[] }) {
@@ -1132,7 +1389,7 @@ function activatePhysicalEvidenceMode(state: ResearchState, resolution: Research
   const existed = (state.evidenceGaps ?? []).some((row) => row.field === gap.field && row.type === gap.type);
   state.evidenceGaps = [...new Map([...(state.evidenceGaps ?? []), gap].map((row) => [`${row.field}:${row.type}`, row])).values()];
   state.nextEvidenceNeeded = [...new Set([...state.nextEvidenceNeeded, ...gap.recommendedActions])];
-  if (!isPhysicalEvidenceGap(gap) || state.researchMode === "PHYSICAL_EVIDENCE_MODE") return !existed;
+  if (!isPhysicalEvidenceGap(gap) || state.researchMode !== "STANDARD") return !existed;
   const at = now();
   state.modeTransitions = [...(state.modeTransitions ?? []), { at, from: state.researchMode ?? "STANDARD", to: "PHYSICAL_EVIDENCE_MODE", reason: gap.missingProof, gapType: gap.type }];
   state.researchMode = "PHYSICAL_EVIDENCE_MODE";
@@ -1202,6 +1459,10 @@ async function writeArtifacts(input: {
     store.writeArtifact(state.runId, "subject-classifications.json", input.visionResults.map((row) => ({ imageUrl: row.imageUrl, subjectClass: row.result.subjectClass ?? "UNREADABLE", stage: row.result.visualStages?.subject ?? "UNREADABLE" }))),
     store.writeArtifact(state.runId, "component-classifications.json", input.visionResults.map((row) => ({ imageUrl: row.imageUrl, component: row.result.component, componentNodeLabel: row.result.componentNodeLabel ?? null, stage: row.result.visualStages?.component ?? "UNREADABLE" }))),
     store.writeArtifact(state.runId, "identifier-bindings.json", state.identifierBindings ?? []),
+    store.writeArtifact(state.runId, "identifier-resolution-traces.json", state.identifierTraces ?? []),
+    store.writeArtifact(state.runId, "search-exhaustion.json", state.searchExhaustion ?? null),
+    store.writeArtifact(state.runId, "worldwide-coverage.json", state.coverageLedger ?? []),
+    store.writeArtifact(state.runId, "research-telemetry.json", state.telemetry ?? createResearchTelemetry()),
     store.writeArtifact(state.runId, "product-graph.json", { nodes: state.productNodes ?? [], relations: state.productRelations ?? [] }),
     store.writeArtifact(state.runId, "market-binding.json", evidenceImages.map((row) => ({ evidenceId: row.evidenceId, marketBindingState: row.marketBindingState }))),
     store.writeArtifact(state.runId, "mode-transitions.json", state.modeTransitions ?? []),
@@ -1289,6 +1550,15 @@ export async function runResearchTaskV2(input: {
     priority: input.task.priority,
     riskCodes: input.task.riskCodes,
   });
+  if (!input.resumeState) {
+    state.researchMode = input.task.researchMode ?? "STANDARD";
+    state.identifierTraces = state.identifierTraces ?? [];
+    state.telemetry = state.telemetry ?? createResearchTelemetry();
+    if (state.researchMode === "WORLDWIDE_VARIANT_DISCOVERY") {
+      state.coverageLedger = createWorldwideCoverageLedger();
+      state.budget.maxSearches = Math.max(state.budget.maxSearches, 16);
+    }
+  }
   if (input.knowledgePack) {
     state.budget.maxSearches = Math.max(state.budget.maxSearches, researchKnowledgePackSearchBudget(
       input.knowledgePack,
@@ -1346,6 +1616,8 @@ export async function runResearchTaskV2(input: {
       const routeInput = routerInput({ context, task: input.task, state, knowledge, knowledgePack: input.knowledgePack });
       const plan = routeResearch(routeInput);
       plans.push(plan);
+      state.telemetry ??= createResearchTelemetry();
+      state.telemetry.duplicateQueriesPrevented += plan.duplicateQueriesPrevented ?? 0;
       updateState(state, { currentPlaybook: plan.selectedPlaybook.id, status: "SEARCHING" });
       await persist(store, state);
 
@@ -1427,14 +1699,16 @@ export async function runResearchTaskV2(input: {
           state.usage = recordBudgetUse(state.usage, "searches");
           state.queriesAttempted.push(planned.query);
           state.normalizedQueries.push(normalized);
+          recordQueryTelemetry(state, planned);
           let found: ResearchSearchResult[];
           try {
+            const locale = searchLocaleFor(planned);
             found = await input.dependencies.searchProvider.search({
               query: planned.query,
               domains: source?.hosts.length ? source.hosts : undefined,
               maxResults: 6,
-              country: "ES",
-              language: "es",
+              country: locale.country,
+              language: locale.language,
             });
           } catch (error) {
             technicalFailures.push({ operation: "SEARCH", target: planned.query, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
@@ -1446,6 +1720,23 @@ export async function runResearchTaskV2(input: {
             continue;
           }
           searchResults.push(...found);
+          const identifierProgress = processSearchResultIdentifiers({ task: input.task, context, state, plan, planned, hits: found });
+          const identifierResolution = resolveResearchClaimRecords({ field: input.task.targetField, claims: state.claims, evidence: state.evidence });
+          state.claims = identifierResolution.claims;
+          state.conflicts = [...new Map([...state.conflicts, ...identifierResolution.conflicts].map((conflict) => [conflict.id, conflict])).values()];
+          finalResolution = identifierResolution.resolution;
+          if (identifierResolution.resolution.status === "CONFIRMED") {
+            state.telemetry ??= createResearchTelemetry();
+            state.telemetry.fieldsResolvedAfterExactSearch += identifierProgress.exactProcessed ? 1 : 0;
+            updateState(state, { status: "CONFIRMED", whyStopped: "TARGET_CONFIRMED_AFTER_EXACT_IDENTIFIER_SEARCH", decisionSummary: identifierResolution.resolution.reason });
+            await persist(store, state);
+            break;
+          }
+          if (identifierProgress.newCandidate && !identifierProgress.exactProcessed) {
+            replan = true;
+            await persist(store, state);
+            break;
+          }
           const shortlisted = found.filter((hit) => searchResultLooksRelevant(hit, context, input.task.targetField, plan, planned));
           progressed ||= shortlisted.length > 0;
           await persist(store, state);
@@ -1515,6 +1806,7 @@ export async function runResearchTaskV2(input: {
               await persist(store, state);
             }
           }
+          if (!replan && !(state.identifierTraces ?? []).some((trace) => trace.validation === "VALID") && discoveryLadderComplete(state, plan)) break;
           if (state.status === "CONFIRMED" || replan) break;
         }
       }
@@ -1555,19 +1847,65 @@ export async function runResearchTaskV2(input: {
       }
     }
     if (state.status !== "CONFIRMED") {
+      state.searchExhaustion = searchExhaustion({ state, context, task: input.task, plans, technicalFailures });
+      if (input.task.targetField === "MARKET_REGION"
+        && nationalMarketRequirement({
+          broadRegion: context.broadRegion,
+          marketRegions: context.marketRegions,
+          physicalExistenceConfirmed: context.releaseStatus === "RELEASED" || context.existingEvidence.length > 0,
+          identifierConfirmed: Boolean(context.barcode || context.ean),
+        }) === "NOT_REQUIRED") {
+        finalResolution = {
+          field: "MARKET_REGION",
+          status: "CONFIRMED",
+          value: "NO_DISTINCT_NATIONAL_MARKET_PROVEN",
+          score: 1,
+          claimIds: [],
+          sourceIds: [],
+          reason: "Broad European physical edition is confirmed; a national packaging subdivision is not required.",
+        };
+        updateState(state, { status: "CONFIRMED", whyStopped: "NATIONAL_MARKET_NOT_REQUIRED", decisionSummary: finalResolution.reason });
+      }
+    }
+    if (state.status !== "CONFIRMED") {
       const infrastructureBlocked = technicalFailures.some((failure) => !failure.recovered)
         && !pages.length
         && !searchResults.length
         && !state.evidence.length;
       const strongCandidateRemains = finalResolution.status === "PARTIAL"
         || (finalResolution.status === "CONFLICT" && finalResolution.score >= 0.6);
-      const terminal = strongCandidateRemains ? "PARTIAL" : infrastructureBlocked ? "BLOCKED_INFRASTRUCTURE" : "UNRESOLVED";
+      const incompleteExhaustion = state.searchExhaustion?.exhaustionStatus === "INCOMPLETE";
+      const exhaustionBlocked = state.searchExhaustion?.exhaustionStatus === "BLOCKED_BY_TECHNICAL_FAILURE";
+      const terminal = strongCandidateRemains ? "PARTIAL" : infrastructureBlocked || exhaustionBlocked ? "BLOCKED_INFRASTRUCTURE" : incompleteExhaustion ? "BLOCKED" : "UNRESOLVED";
       updateState(state, {
         status: terminal,
         decisionSummary: finalResolution.reason,
         nextEvidenceNeeded: state.conflicts.flatMap((conflict) => conflict.nextEvidenceNeeded).filter((value, index, all) => all.indexOf(value) === index),
-        whyStopped: infrastructureBlocked ? "RETRIEVAL_INFRASTRUCTURE_UNAVAILABLE" : state.whyStopped ?? "EVIDENCE_INSUFFICIENT",
+        whyStopped: infrastructureBlocked || exhaustionBlocked ? "RETRIEVAL_INFRASTRUCTURE_UNAVAILABLE"
+          : incompleteExhaustion ? `SEARCH_EXHAUSTION_INCOMPLETE:${state.searchExhaustion?.missingStages.join(",")}`
+            : state.whyStopped ?? "EVIDENCE_INSUFFICIENT",
       });
+      if (terminal === "UNRESOLVED") {
+        state.telemetry ??= createResearchTelemetry();
+        state.telemetry.fieldsUnresolvedAfterExhaustion += 1;
+      }
+    }
+    if (state.searchExhaustion) state.searchExhaustion.finalStatus = state.status;
+    if (state.researchMode === "WORLDWIDE_VARIANT_DISCOVERY" && input.task.coverageBucket) {
+      const ledger = state.coverageLedger ?? createWorldwideCoverageLedger();
+      const entry = ledger.find((row) => row.bucket === input.task.coverageBucket);
+      if (entry) {
+        entry.status = state.status === "CONFIRMED" ? "CONFIRMED_VARIANT_FOUND"
+          : state.status === "BLOCKED_INFRASTRUCTURE" ? "TECHNICAL_FAILURE" : "UNRESOLVED";
+        entry.sourcesConsulted = [...new Set(state.evidence.map((row) => row.sourceId))];
+        entry.queries = [...state.queriesAttempted];
+        entry.identifiersFound = [...new Set((state.identifierTraces ?? []).filter((trace) => trace.validation === "VALID").map((trace) => trace.normalizedValue))];
+        entry.physicalFamiliesFound = context.physicalVariant ? [context.physicalVariant] : [];
+        entry.remainingGaps = state.status === "CONFIRMED" ? [] : [...new Set(state.nextEvidenceNeeded)];
+        state.telemetry ??= createResearchTelemetry();
+        state.telemetry.coverageBucketsComplete = ledger.filter((row) => row.status !== "NOT_CHECKED").length;
+      }
+      state.coverageLedger = ledger;
     }
   } catch (error) {
     const code = classifyRetrievalFailure(error);

@@ -28,6 +28,102 @@ export const RESEARCH_TARGET_FIELDS = [
 
 export type ResearchTargetField = (typeof RESEARCH_TARGET_FIELDS)[number];
 
+export const RESEARCH_MODES = ["STANDARD", "PHYSICAL_EVIDENCE_MODE", "WORLDWIDE_VARIANT_DISCOVERY"] as const;
+export type ResearchMode = (typeof RESEARCH_MODES)[number];
+
+export const RESEARCH_COVERAGE_BUCKETS = [
+  "EUROPE",
+  "NORTH_AMERICA",
+  "JAPAN",
+  "ASIA_OTHER",
+  "OCEANIA",
+  "LATIN_AMERICA",
+] as const;
+export type ResearchCoverageBucket = (typeof RESEARCH_COVERAGE_BUCKETS)[number];
+
+export type ResearchCoverageStatus =
+  | "CONFIRMED_VARIANT_FOUND"
+  | "NO_DISTINCT_VARIANT_FOUND"
+  | "NOT_APPLICABLE"
+  | "UNRESOLVED"
+  | "TECHNICAL_FAILURE"
+  | "NOT_CHECKED";
+
+export type ResearchCoverageLedgerEntry = {
+  bucket: ResearchCoverageBucket;
+  status: ResearchCoverageStatus;
+  sourcesConsulted: string[];
+  queries: string[];
+  identifiersFound: string[];
+  physicalFamiliesFound: string[];
+  remainingGaps: string[];
+};
+
+export type ResearchQueryStage =
+  | "KNOWN_EXACT_IDENTIFIER"
+  | "STRUCTURED_RELEASE_SEED"
+  | "FIELD_SPECIFIC"
+  | "REGIONAL_FALLBACK"
+  | "LOCAL_LANGUAGE_FALLBACK"
+  | "EXACT_IDENTIFIER_SEARCH"
+  | "SOURCE_SPECIFIC"
+  | "GENERIC_LAST_RESORT";
+
+export type ResearchIdentifierTrace = {
+  candidate: string;
+  type: string;
+  normalizedValue: string;
+  discoveredFrom: "CATALOG" | "KNOWLEDGE_PACK" | "SEARCH_RESULT" | "PAGE" | "VISION";
+  discoveryQuery: string | null;
+  discoverySource: string | null;
+  validation: "VALID" | "FORMAT_REJECTED" | "CHECKSUM_REJECTED" | "PLATFORM_REJECTED";
+  exactSearchQueries: string[];
+  matchingSources: string[];
+  conflictingSources: string[];
+  subjectBinding: "MATCH" | "MISMATCH" | "UNKNOWN";
+  platformBinding: "MATCH" | "MISMATCH" | "UNKNOWN";
+  editionBinding: "MATCH" | "MISMATCH" | "UNKNOWN";
+  componentBinding: ResearchBindingState;
+  finalStatus: "DISCOVERED" | "PARTIAL" | "CORROBORATED" | "REJECTED";
+  rejectionReason: string | null;
+};
+
+export type ResearchSearchExhaustion = {
+  field: ResearchTargetField;
+  initialKnowledge: unknown[];
+  queriesAttempted: string[];
+  sourcesReached: string[];
+  candidatesFound: string[];
+  exactIdentifierQueries: string[];
+  corroborations: string[];
+  rejections: string[];
+  hardConflicts: string[];
+  technicalFailures: string[];
+  regionalFallbackAttempted: boolean;
+  localLanguageFallbackAttempted: boolean;
+  finalStatus: ResearchRunStatus;
+  exhaustionStatus: "COMPLETE" | "INCOMPLETE" | "BLOCKED_BY_TECHNICAL_FAILURE";
+  missingStages: ResearchQueryStage[];
+};
+
+export type ResearchTelemetry = {
+  releaseMapSeedQueries: number;
+  fieldSpecificQueries: number;
+  regionalQueries: number;
+  localLanguageQueries: number;
+  exactIdentifierQueries: number;
+  identifierCandidatesFound: number;
+  identifierFormatRejected: number;
+  identifierChecksumRejected: number;
+  identifierSubjectConflicts: number;
+  identifierCorroborated: number;
+  identifierPartial: number;
+  fieldsResolvedAfterExactSearch: number;
+  fieldsUnresolvedAfterExhaustion: number;
+  duplicateQueriesPrevented: number;
+  coverageBucketsComplete: number;
+};
+
 export const RESEARCH_COMPONENTS = [
   "OUTER_PACKAGE_FRONT",
   "OUTER_PACKAGE_BACK",
@@ -137,8 +233,8 @@ export type ResearchEvidenceGap = {
 
 export type ResearchModeTransition = {
   at: string;
-  from: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
-  to: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  from: ResearchMode;
+  to: ResearchMode;
   reason: string;
   gapType: ResearchEvidenceGapType | null;
 };
@@ -252,6 +348,9 @@ export type ResearchSourceDefinition = {
   roles: string[];
   accessModes: ResearchAccessMode[];
   fieldCapabilities: Partial<Record<ResearchTargetField, number>>;
+  discoveryCapabilities?: string[];
+  confirmationCapabilities?: string[];
+  negativeEvidenceCapabilities?: string[];
   defaultReliability: number;
   knownRisks: string[];
   queryTemplates: string[];
@@ -363,7 +462,9 @@ export type ResearchRouterInput = {
   currentClaims: ResearchClaimRecord[];
   currentConflicts: ResearchConflict[];
   evidenceGaps?: ResearchEvidenceGap[];
-  researchMode?: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  researchMode?: ResearchMode;
+  coverageBucket?: ResearchCoverageBucket | null;
+  regionalTitleCandidates?: string[];
   knowledgePack?: ResearchKnowledgePackV1;
 };
 
@@ -387,14 +488,17 @@ export type ResearchRouterPlan = {
     sourceId: string | null;
     purpose: ResearchTargetField;
     strategy: "EXACT_IDENTIFIER" | "SOURCE_SPECIFIC" | "GENERIC";
+    stage?: ResearchQueryStage;
+    coverageBucket?: ResearchCoverageBucket | null;
     identifierType?: string;
     identifierValue?: string;
   }>;
   imagePlan: Array<{ component: ResearchComponent; fields: ResearchTargetField[]; reason: string }>;
   deterministicChecks: string[];
   escalationRules: string[];
-  researchMode?: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  researchMode?: ResearchMode;
   evidenceGapTypes?: ResearchEvidenceGapType[];
+  duplicateQueriesPrevented?: number;
   routeFingerprint: string;
 };
 
@@ -749,12 +853,16 @@ export type ResearchState = {
   nextEvidenceNeeded: string[];
   whyStopped: string | null;
   riskCodes: ResearchRiskCode[];
-  researchMode?: "STANDARD" | "PHYSICAL_EVIDENCE_MODE";
+  researchMode?: ResearchMode;
   modeTransitions?: ResearchModeTransition[];
   evidenceGaps?: ResearchEvidenceGap[];
   productNodes?: ResearchProductNode[];
   productRelations?: ResearchProductRelation[];
   identifierBindings?: ResearchIdentifierBinding[];
+  identifierTraces?: ResearchIdentifierTrace[];
+  searchExhaustion?: ResearchSearchExhaustion | null;
+  coverageLedger?: ResearchCoverageLedgerEntry[];
+  telemetry?: ResearchTelemetry;
   physicalMetrics?: {
     physicalEvidenceModeEntries: number;
     galleryPagesOpened: number;
@@ -799,6 +907,9 @@ export type DurableResearchTask = {
   priority: ResearchPriority;
   evidenceNeeded: string[];
   riskCodes: ResearchRiskCode[];
+  researchMode?: ResearchMode;
+  coverageBucket?: ResearchCoverageBucket | null;
+  regionalTitleCandidates?: string[];
   status: "PENDING" | "IN_PROGRESS" | "RESOLVED" | "UNRESOLVED" | "BLOCKED";
   createdAt: string;
   updatedAt: string;

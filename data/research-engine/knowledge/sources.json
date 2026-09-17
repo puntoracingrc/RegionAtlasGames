@@ -209,14 +209,32 @@
     {
       "id": "gamefaqs-guarded",
       "hosts": ["gamefaqs.gamespot.com"],
-      "platforms": ["ds", "wiiu", "switch", "xbox360", "ps5"],
+      "platforms": ["ps4", "ps5", "n64", "gameboy", "ds", "wiiu", "switch", "xbox360"],
       "countries": ["*"],
-      "roles": ["DISCOVERY_ONLY", "RELEASE_IDENTITY"],
+      "roles": ["DISCOVERY_ONLY", "STRUCTURED_RELEASE_LEAD", "REGIONAL_IDENTIFIER_DISCOVERY", "REGIONAL_TITLE_DISCOVERY"],
       "accessModes": ["DOMAIN_SEARCH", "BROWSER"],
       "fieldCapabilities": { "CANONICAL_IDENTITY": 58, "RELEASE_STATUS": 55 },
+      "discoveryCapabilities": ["REGIONAL_IDENTIFIER", "REGIONAL_TITLE", "BARCODE_CANDIDATE", "RELEASE_MAP"],
+      "confirmationCapabilities": [],
+      "negativeEvidenceCapabilities": [],
       "defaultReliability": 52,
       "knownRisks": ["Discovery only: walkthrough counters and ASCII art are not product identifiers; never confirm a physical identifier from this source."],
-      "queryTemplates": ["site:gamefaqs.gamespot.com \"{TITLE}\" {PLATFORM}"]
+      "queryTemplates": ["site:gamefaqs.gamespot.com \"{TITLE}\" {PLATFORM} release data", "site:gamefaqs.gamespot.com \"{TITLE}\" {PLATFORM} UPC JAN product code"]
+    },
+    {
+      "id": "libretro-thumbnails",
+      "hosts": ["github.com", "raw.githubusercontent.com", "thumbnails.libretro.com"],
+      "platforms": ["ps4", "ps5", "n64", "gameboy"],
+      "countries": ["*"],
+      "roles": ["DISCOVERY_ONLY", "REGIONAL_RELEASE_LEAD", "REGIONAL_TITLE_LEAD", "IMAGE_URL_DISCOVERY"],
+      "accessModes": ["DOMAIN_SEARCH", "DIRECT_FETCH", "BROWSER"],
+      "fieldCapabilities": { "CANONICAL_IDENTITY": 35, "MARKET_REGION": 15, "ROM_REVISION": 20 },
+      "discoveryCapabilities": ["REGIONAL_RELEASE", "REGIONAL_TITLE", "REVISION", "IMAGE_URL"],
+      "confirmationCapabilities": [],
+      "negativeEvidenceCapabilities": [],
+      "defaultReliability": 40,
+      "knownRisks": ["Discovery only; reused or missing thumbnails do not prove or disprove a physical variant.", "Never use source absence as negative evidence."],
+      "queryTemplates": ["site:github.com/libretro-thumbnails \"{TITLE}\" {PLATFORM}", "site:thumbnails.libretro.com \"{TITLE}\""]
     },
     {
       "id": "launchbox-images",

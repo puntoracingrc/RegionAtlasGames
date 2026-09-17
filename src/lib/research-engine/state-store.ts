@@ -140,6 +140,26 @@ export function createResearchPhysicalMetrics(): NonNullable<ResearchState["phys
   };
 }
 
+export function createResearchTelemetry(): NonNullable<ResearchState["telemetry"]> {
+  return {
+    releaseMapSeedQueries: 0,
+    fieldSpecificQueries: 0,
+    regionalQueries: 0,
+    localLanguageQueries: 0,
+    exactIdentifierQueries: 0,
+    identifierCandidatesFound: 0,
+    identifierFormatRejected: 0,
+    identifierChecksumRejected: 0,
+    identifierSubjectConflicts: 0,
+    identifierCorroborated: 0,
+    identifierPartial: 0,
+    fieldsResolvedAfterExactSearch: 0,
+    fieldsUnresolvedAfterExhaustion: 0,
+    duplicateQueriesPrevented: 0,
+    coverageBucketsComplete: 0,
+  };
+}
+
 export function createResearchState(input: {
   runId: string;
   taskId: string;
@@ -178,6 +198,10 @@ export function createResearchState(input: {
     nextEvidenceNeeded: [],
     whyStopped: null,
     riskCodes: input.riskCodes ?? [],
+    identifierTraces: [],
+    searchExhaustion: null,
+    coverageLedger: [],
+    telemetry: createResearchTelemetry(),
     researchMode: "STANDARD",
     modeTransitions: [],
     evidenceGaps: [],

@@ -4,6 +4,7 @@ import type {
   ResearchTask,
   ResearchTaskKind,
 } from "./types";
+import { RESEARCH_COVERAGE_BUCKETS, type DurableResearchTask, type ResearchTargetField } from "./v2-types";
 
 function taskKindForRisk(risk: ResearchRisk): ResearchTaskKind {
   switch (risk.code) {
@@ -104,4 +105,29 @@ export function buildResearchTasks(subjectId: string, risks: ResearchRisk[], now
 export function researchDebtScore(risks: ResearchRisk[]): number {
   const priorityBase = { P0: 100, P1: 30, P2: 5 } as const;
   return risks.reduce((sum, risk) => sum + priorityBase[risk.priority] + Math.max(0, risk.weight), 0);
+}
+
+export function buildWorldwideResearchTasks(input: {
+  subjectId: string;
+  title: string;
+  platformSlug: string;
+  now?: Date;
+}): DurableResearchTask[] {
+  const now = (input.now ?? new Date()).toISOString();
+  const targetField: ResearchTargetField = ["n64", "gameboy"].includes(input.platformSlug) ? "PRODUCT_CODE" : "BARCODE";
+  return RESEARCH_COVERAGE_BUCKETS.map((coverageBucket) => ({
+    id: `${input.subjectId}:worldwide:${coverageBucket.toLowerCase()}:${targetField.toLowerCase()}`,
+    subjectId: input.subjectId,
+    targetField,
+    question: `Map ${input.title} on ${input.platformSlug} for ${coverageBucket}; discover physical identifiers, exact-search every candidate, and close only after search exhaustion.`,
+    priority: "P1",
+    evidenceNeeded: ["STRUCTURED_RELEASE_LEAD", "INDEPENDENT_EXACT_IDENTIFIER_CORROBORATION"],
+    riskCodes: [],
+    researchMode: "WORLDWIDE_VARIANT_DISCOVERY",
+    coverageBucket,
+    regionalTitleCandidates: [],
+    status: "PENDING",
+    createdAt: now,
+    updatedAt: now,
+  }));
 }

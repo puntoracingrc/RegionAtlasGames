@@ -1,0 +1,315 @@
+[
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "candidate": "5061078710678",
+    "type": "BARCODE",
+    "normalizedValue": "5061078710678",
+    "discoveredFrom": "CATALOG",
+    "discoveryQuery": null,
+    "discoverySource": null,
+    "validation": "VALID",
+    "exactSearchQueries": [
+      "\"5061078710678\""
+    ],
+    "matchingSources": [
+      "www.amazon.es",
+      "www.shinestar.es",
+      "www.amazon.fr",
+      "www.amazon.co.uk",
+      "www.lameesoftware.com"
+    ],
+    "conflictingSources": [],
+    "subjectBinding": "MATCH",
+    "platformBinding": "MATCH",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "CORROBORATED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "EUROPE",
+    "targetField": "MARKET_REGION",
+    "candidate": "5061078710685",
+    "type": "BARCODE",
+    "normalizedValue": "5061078710685",
+    "discoveredFrom": "CATALOG",
+    "discoveryQuery": null,
+    "discoverySource": null,
+    "validation": "VALID",
+    "exactSearchQueries": [
+      "\"5061078710685\"",
+      "\"5061078710685\" \"PlayStation 5\""
+    ],
+    "matchingSources": [
+      "www.shinestar.es",
+      "www.gamevip.es",
+      "www.lameesoftware.com",
+      "tecoesgames.com"
+    ],
+    "conflictingSources": [],
+    "subjectBinding": "UNKNOWN",
+    "platformBinding": "UNKNOWN",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "CORROBORATED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "EUROPE",
+    "targetField": "MARKET_REGION",
+    "candidate": "8710685",
+    "type": "PRODUCT_CODE",
+    "normalizedValue": "8710685",
+    "discoveredFrom": "CATALOG",
+    "discoveryQuery": null,
+    "discoverySource": null,
+    "validation": "VALID",
+    "exactSearchQueries": [
+      "\"8710685\"",
+      "\"8710685\" \"PlayStation 5\""
+    ],
+    "matchingSources": [],
+    "conflictingSources": [
+      "pubmed.ncbi.nlm.nih.gov",
+      "forums.ea.com",
+      "www.lyrics.com",
+      "www.wikidata.org"
+    ],
+    "subjectBinding": "UNKNOWN",
+    "platformBinding": "UNKNOWN",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "DISCOVERED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "candidate": "850070166225",
+    "type": "BARCODE",
+    "normalizedValue": "850070166225",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" USA UPC",
+    "discoverySource": "www.ebay.com",
+    "validation": "VALID",
+    "exactSearchQueries": [
+      "\"850070166225\""
+    ],
+    "matchingSources": [
+      "www.bestbuy.com",
+      "www.popngames.com",
+      "www.ebay.com"
+    ],
+    "conflictingSources": [],
+    "subjectBinding": "MATCH",
+    "platformBinding": "MATCH",
+    "editionBinding": "MATCH",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "CORROBORATED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "candidate": "0850070166225",
+    "type": "BARCODE",
+    "normalizedValue": "0850070166225",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" USA UPC",
+    "discoverySource": "www.ebay.com",
+    "validation": "VALID",
+    "exactSearchQueries": [],
+    "matchingSources": [],
+    "conflictingSources": [],
+    "subjectBinding": "UNKNOWN",
+    "platformBinding": "UNKNOWN",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "DISCOVERED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "candidate": "397177282507",
+    "type": "BARCODE",
+    "normalizedValue": "397177282507",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" USA UPC",
+    "discoverySource": "www.ebay.com",
+    "validation": "VALID",
+    "exactSearchQueries": [],
+    "matchingSources": [],
+    "conflictingSources": [],
+    "subjectBinding": "UNKNOWN",
+    "platformBinding": "UNKNOWN",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "DISCOVERED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "candidate": "100137828949",
+    "type": "BARCODE",
+    "normalizedValue": "100137828949",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" USA UPC",
+    "discoverySource": "www.ebay.com",
+    "validation": "VALID",
+    "exactSearchQueries": [],
+    "matchingSources": [],
+    "conflictingSources": [],
+    "subjectBinding": "UNKNOWN",
+    "platformBinding": "UNKNOWN",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "DISCOVERED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "candidate": "357466010461",
+    "type": "BARCODE",
+    "normalizedValue": "357466010461",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" USA UPC",
+    "discoverySource": "www.ebay.com",
+    "validation": "CHECKSUM_REJECTED",
+    "exactSearchQueries": [],
+    "matchingSources": [],
+    "conflictingSources": [],
+    "subjectBinding": "UNKNOWN",
+    "platformBinding": "UNKNOWN",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "REJECTED",
+    "rejectionReason": "BARCODE_CHECKSUM"
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "candidate": "ELJM-30750",
+    "type": "PRODUCT_CODE",
+    "normalizedValue": "ELJM-30750",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" Japan JAN",
+    "discoverySource": "www.cdjapan.co.jp",
+    "validation": "VALID",
+    "exactSearchQueries": [
+      "\"ELJM-30750\"",
+      "\"ELJM-30750\" \"PlayStation 5\""
+    ],
+    "matchingSources": [
+      "joshinweb.jp",
+      "mediaworld.co.jp",
+      "store.shopping.yahoo.co.jp"
+    ],
+    "conflictingSources": [
+      "search.kakaku.com"
+    ],
+    "subjectBinding": "UNKNOWN",
+    "platformBinding": "UNKNOWN",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "CORROBORATED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "candidate": "ELJM30750",
+    "type": "PRODUCT_CODE",
+    "normalizedValue": "ELJM30750",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" 型番",
+    "discoverySource": "www.yamada-denkiweb.com",
+    "validation": "VALID",
+    "exactSearchQueries": [
+      "\"ELJM30750\""
+    ],
+    "matchingSources": [
+      "www.edion.com",
+      "www.yamada-denkiweb.com",
+      "search.kakaku.com"
+    ],
+    "conflictingSources": [],
+    "subjectBinding": "MATCH",
+    "platformBinding": "MATCH",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "CORROBORATED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "candidate": "4510772250122",
+    "type": "BARCODE",
+    "normalizedValue": "4510772250122",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" 型番",
+    "discoverySource": "search.kakaku.com",
+    "validation": "VALID",
+    "exactSearchQueries": [
+      "\"4510772250122\""
+    ],
+    "matchingSources": [
+      "store.shopping.yahoo.co.jp",
+      "books.rakuten.co.jp",
+      "www.amazon.co.jp",
+      "www.amiami.jp",
+      "mediaworld.co.jp"
+    ],
+    "conflictingSources": [],
+    "subjectBinding": "MATCH",
+    "platformBinding": "MATCH",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "CORROBORATED",
+    "rejectionReason": null
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "JAPAN",
+    "targetField": "PRODUCT_CODE",
+    "candidate": "ELJM-30750",
+    "type": "PRODUCT_CODE",
+    "normalizedValue": "ELJM-30750",
+    "discoveredFrom": "SEARCH_RESULT",
+    "discoveryQuery": "Absolum \"PlayStation 5\" Japan JAN",
+    "discoverySource": "www.cdjapan.co.jp",
+    "validation": "VALID",
+    "exactSearchQueries": [
+      "\"ELJM-30750\""
+    ],
+    "matchingSources": [
+      "joshinweb.jp",
+      "mediaworld.co.jp",
+      "store.shopping.yahoo.co.jp"
+    ],
+    "conflictingSources": [
+      "search.kakaku.com"
+    ],
+    "subjectBinding": "MATCH",
+    "platformBinding": "MATCH",
+    "editionBinding": "UNKNOWN",
+    "componentBinding": "UNBOUND",
+    "finalStatus": "CORROBORATED",
+    "rejectionReason": null
+  }
+]

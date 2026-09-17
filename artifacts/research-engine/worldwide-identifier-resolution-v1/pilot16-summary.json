@@ -1,0 +1,2374 @@
+{
+  "schemaVersion": 1,
+  "implementationHead": "3d109e58865ee0f72ee493b5f6aa924f4337a869",
+  "status": "BLOCKED_PROVIDER_QUOTA",
+  "casesRequested": 16,
+  "casesWithFrozenArtifacts": 8,
+  "casesBlockedOrNotStarted": 13,
+  "blocker": "Brave HTTP 402: prepaid credit balance insufficient.",
+  "cases": [
+    {
+      "caseId": "PS4-01",
+      "title": "A Plague Tale: Innocence",
+      "platform": "ps4",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "ebay",
+            "web:www.retroplace.com",
+            "web:www.retroloco.es",
+            "web:www.mcpsp.com",
+            "web:www.todoconsolas.com",
+            "national-retailer",
+            "web:www.carrefour.es"
+          ],
+          "queries": [
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" EAN",
+            "\"3512899945807\"",
+            "\"CUSA-10812\"",
+            "\"3512899121423\""
+          ],
+          "identifiersFound": [
+            "3512899945807",
+            "CUSA-10812",
+            "3512899121423"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "ebay",
+            "web:www.gamesiwant.com",
+            "web:gameware.com"
+          ],
+          "queries": [
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" USA UPC",
+            "\"859529007294\""
+          ],
+          "identifiersFound": [
+            "859529007294"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "UNRESOLVED",
+          "sourcesConsulted": [
+            "gamefaqs-guarded",
+            "candidate:nostalgicvideogames.com",
+            "ebay",
+            "libretro-thumbnails",
+            "ogdb",
+            "web:www.gamesiwant.com",
+            "web:dustygame.com",
+            "web:gameware.com"
+          ],
+          "queries": [
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" JAN",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Japan JAN",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" 型番",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" release data",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" product code barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" serial UPC EAN",
+            "\"0859529007294\"",
+            "\"0859529007294\" \"PlayStation 4\"",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Innocence\" \"PlayStation 4\"",
+            "site:github.com \"A Plague Tale: Innocence\" \"PlayStation 4\"",
+            "site:game.es \"0859529007294\"",
+            "site:ogdb.eu \"A Plague Tale: Innocence\" PlayStation 4",
+            "site:todocoleccion.net \"0859529007294\"",
+            "site:ebay.com \"0859529007294\"",
+            "\"859529007294\""
+          ],
+          "identifiersFound": [
+            "0859529007294",
+            "859529007294"
+          ],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "Conflicting values are too close to resolve safely."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "NO_DISTINCT_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "candidate:nostalgicvideogames.com",
+            "gamefaqs-guarded",
+            "candidate:camelcamelcamel.com",
+            "libretro-thumbnails",
+            "ogdb"
+          ],
+          "queries": [
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Korea barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" GRAC",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Hong Kong barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Taiwan barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Asia UPC EAN",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Chinese edition barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" release data",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" product code barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" serial UPC EAN",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Innocence\" \"PlayStation 4\"",
+            "site:github.com \"A Plague Tale: Innocence\" \"PlayStation 4\"",
+            "site:ogdb.eu \"A Plague Tale: Innocence\" PlayStation 4"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "candidate:www.ebgames.com.au",
+            "gamefaqs-guarded",
+            "candidate:nostalgicvideogames.com",
+            "candidate:camelcamelcamel.com",
+            "web:www.ebay.com.au",
+            "ebay",
+            "web:dustygame.com",
+            "web:www.gamesiwant.com",
+            "web:gameware.com"
+          ],
+          "queries": [
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Australia barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" AU physical",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" release data",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" product code barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" serial UPC EAN",
+            "\"859529007294\""
+          ],
+          "identifiersFound": [
+            "859529007294"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "NO_DISTINCT_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "national-retailer",
+            "candidate:nostalgicvideogames.com",
+            "gamefaqs-guarded",
+            "candidate:camelcamelcamel.com",
+            "libretro-thumbnails",
+            "ogdb"
+          ],
+          "queries": [
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Mexico UPC",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" Brazil barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" release data",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" product code barcode",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" serial UPC EAN",
+            "\"A Plague Tale: Innocence\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Innocence\" \"PlayStation 4\"",
+            "site:github.com \"A Plague Tale: Innocence\" \"PlayStation 4\"",
+            "site:ogdb.eu \"A Plague Tale: Innocence\" PlayStation 4"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 50,
+        "exactIdentifierQueries": 8,
+        "duplicateQueriesPrevented": 8,
+        "candidates": 7,
+        "corroborated": 5,
+        "partial": 1,
+        "hardConflicts": 1,
+        "imageUrls": 226,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0.009013,
+          "braveUsd": 0.25,
+          "totalUsd": 0.259013
+        }
+      },
+      "blocker": null
+    },
+    {
+      "caseId": "PS4-02",
+      "title": "Valkyria Chronicles 4",
+      "platform": "ps4",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "ebay",
+            "web:glitchwave.com",
+            "redump",
+            "web:www.chollogames.es",
+            "web:www.todoconsolas.com",
+            "web:botiga.compsaonline.com",
+            "yambalu",
+            "web:www.gamevip.es",
+            "national-retailer"
+          ],
+          "queries": [
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" EAN",
+            "\"CUSA-10776\"",
+            "\"5055277032662\""
+          ],
+          "identifiersFound": [
+            "CUSA-10776",
+            "5055277032662",
+            "5055277032228",
+            "4974365823658"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "gamefaqs-guarded",
+            "web:levelupvideogames.com",
+            "ebay",
+            "web:www.gamesiwant.com",
+            "web:camelcamelcamel.com"
+          ],
+          "queries": [
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" USA UPC",
+            "\"146080941182\"",
+            "\"146080941182\" \"PlayStation 4\"",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" US barcode",
+            "\"010086632323\""
+          ],
+          "identifiersFound": [
+            "146080941182",
+            "010086632323"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "NO_DISTINCT_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "gamefaqs-guarded",
+            "national-retailer",
+            "redump"
+          ],
+          "queries": [
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" JAN",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" Japan JAN",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" 型番",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" release data",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" product code barcode",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" serial UPC EAN",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Valkyria Chronicles 4\" \"PlayStation 4\"",
+            "site:github.com \"Valkyria Chronicles 4\" \"PlayStation 4\"",
+            "site:ogdb.eu \"Valkyria Chronicles 4\" PlayStation 4"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "gamefaqs-guarded",
+            "web:levelupvideogames.com",
+            "ebay",
+            "web:www.gamesiwant.com"
+          ],
+          "queries": [
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" Korea barcode",
+            "\"010086632323\""
+          ],
+          "identifiersFound": [
+            "010086632323"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "UNRESOLVED",
+          "sourcesConsulted": [
+            "candidate:www.ebgames.com.au",
+            "gamefaqs-guarded",
+            "redump"
+          ],
+          "queries": [
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" Australia barcode",
+            "\"236965\"",
+            "\"236965\" \"PlayStation 4\"",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" AU physical",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" release data",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" product code barcode",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" serial UPC EAN",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Valkyria Chronicles 4\" \"PlayStation 4\"",
+            "site:github.com \"Valkyria Chronicles 4\" \"PlayStation 4\"",
+            "site:ogdb.eu \"Valkyria Chronicles 4\" PlayStation 4",
+            "site:todocoleccion.net \"Valkyria Chronicles 4\" PlayStation 4",
+            "site:ebay.es \"Valkyria Chronicles 4\" PlayStation 4",
+            "site:gamesdb.launchbox-app.com \"Valkyria Chronicles 4\" PlayStation 4 back",
+            "site:serialstation.com \"236965\"",
+            "site:news.ubisoft.com \"Valkyria Chronicles 4\" PlayStation 4"
+          ],
+          "identifiersFound": [
+            "236965"
+          ],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "NO_DISTINCT_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "redump",
+            "national-retailer",
+            "gamefaqs-guarded"
+          ],
+          "queries": [
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" Mexico UPC",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" Brazil barcode",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" release data",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" product code barcode",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" serial UPC EAN",
+            "\"Valkyria Chronicles 4\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Valkyria Chronicles 4\" \"PlayStation 4\"",
+            "site:github.com \"Valkyria Chronicles 4\" \"PlayStation 4\"",
+            "site:ogdb.eu \"Valkyria Chronicles 4\" PlayStation 4"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 45,
+        "exactIdentifierQueries": 8,
+        "duplicateQueriesPrevented": 6,
+        "candidates": 8,
+        "corroborated": 4,
+        "partial": 0,
+        "hardConflicts": 1,
+        "imageUrls": 192,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0.006604,
+          "braveUsd": 0.225,
+          "totalUsd": 0.231604
+        }
+      },
+      "blocker": null
+    },
+    {
+      "caseId": "PS4-03",
+      "title": "The Surge 2",
+      "platform": "ps4",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "UNRESOLVED",
+          "sourcesConsulted": [
+            "ebay",
+            "national-retailer",
+            "web:www.mightyape.com.au",
+            "gamefaqs-guarded"
+          ],
+          "queries": [
+            "\"0859529007386,3512899121201\"",
+            "\"0859529007386,3512899121201\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" EAN",
+            "\"5060146462839\"",
+            "\"5060146462839\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" Europe barcode",
+            "\"168595\"",
+            "\"168595\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" PEGI EAN",
+            "\"3512899121713\"",
+            "\"3512899121713\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" USK EAN",
+            "\"The Surge 2\" \"PlayStation 4\" release data",
+            "\"The Surge 2\" \"PlayStation 4\" product code barcode",
+            "\"The Surge 2\" \"PlayStation 4\" serial UPC EAN",
+            "\"The Surge 2\" \"PlayStation 4\" physical release regions"
+          ],
+          "identifiersFound": [
+            "0859529007386",
+            "5060146462839",
+            "168595",
+            "3512899121713"
+          ],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "Conflicting values are too close to resolve safely.",
+            "REGIONAL_FALLBACK"
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "UNRESOLVED",
+          "sourcesConsulted": [
+            "ebay",
+            "gamefaqs-guarded",
+            "web:www.walmart.com",
+            "web:musicmillennium.com",
+            "web:www.popngames.com",
+            "web:digitalworld.sr",
+            "candidate:musicmillennium.com",
+            "candidate:www.popngames.com"
+          ],
+          "queries": [
+            "\"0859529007386,3512899121201\"",
+            "\"0859529007386,3512899121201\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" USA UPC",
+            "\"859529007423\"",
+            "\"859529007423\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" US barcode",
+            "\"859529007386\"",
+            "\"859529007386\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" ESRB UPC",
+            "\"The Surge 2\" \"PlayStation 4\" release data",
+            "\"The Surge 2\" \"PlayStation 4\" product code barcode",
+            "\"The Surge 2\" \"PlayStation 4\" serial UPC EAN",
+            "\"The Surge 2\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"The Surge 2\" \"PlayStation 4\"",
+            "site:github.com \"The Surge 2\" \"PlayStation 4\"",
+            "site:game.es \"0859529007386,3512899121201\""
+          ],
+          "identifiersFound": [
+            "0859529007386",
+            "859529007423",
+            "859529007386"
+          ],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "Conflicting values are too close to resolve safely."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "ebay",
+            "web:paypaymall.yahoo.co.jp",
+            "web:books.rakuten.co.jp",
+            "web:www.yamada-denkiweb.com",
+            "web:product.rakuten.co.jp",
+            "web:www.ean-search.org"
+          ],
+          "queries": [
+            "\"0859529007386,3512899121201\"",
+            "\"0859529007386,3512899121201\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" JAN",
+            "\"The Surge 2\" \"PlayStation 4\" Japan JAN",
+            "\"4571331332666\""
+          ],
+          "identifiersFound": [
+            "0859529007386",
+            "4571331332666"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "UNRESOLVED",
+          "sourcesConsulted": [
+            "gamefaqs-guarded",
+            "ebay",
+            "ogdb"
+          ],
+          "queries": [
+            "\"0859529007386,3512899121201\"",
+            "\"0859529007386,3512899121201\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" Korea barcode",
+            "\"The Surge 2\" \"PlayStation 4\" GRAC",
+            "\"The Surge 2\" \"PlayStation 4\" Hong Kong barcode",
+            "\"The Surge 2\" \"PlayStation 4\" Taiwan barcode",
+            "\"The Surge 2\" \"PlayStation 4\" Asia UPC EAN",
+            "\"The Surge 2\" \"PlayStation 4\" Chinese edition barcode",
+            "\"The Surge 2\" \"PlayStation 4\" release data",
+            "\"The Surge 2\" \"PlayStation 4\" product code barcode",
+            "\"The Surge 2\" \"PlayStation 4\" serial UPC EAN",
+            "\"The Surge 2\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"The Surge 2\" \"PlayStation 4\"",
+            "site:github.com \"The Surge 2\" \"PlayStation 4\"",
+            "site:game.es \"0859529007386,3512899121201\"",
+            "site:ogdb.eu \"The Surge 2\" PlayStation 4"
+          ],
+          "identifiersFound": [
+            "0859529007386"
+          ],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "UNRESOLVED",
+          "sourcesConsulted": [
+            "candidate:www.ebgames.com.au",
+            "gamefaqs-guarded",
+            "candidate:www.amazon.ca",
+            "ebay",
+            "ogdb",
+            "launchbox-images"
+          ],
+          "queries": [
+            "\"0859529007386,3512899121201\"",
+            "\"0859529007386,3512899121201\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" Australia barcode",
+            "\"The Surge 2\" \"PlayStation 4\" AU physical",
+            "\"The Surge 2\" \"PlayStation 4\" release data",
+            "\"The Surge 2\" \"PlayStation 4\" product code barcode",
+            "\"The Surge 2\" \"PlayStation 4\" serial UPC EAN",
+            "\"The Surge 2\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"The Surge 2\" \"PlayStation 4\"",
+            "site:github.com \"The Surge 2\" \"PlayStation 4\"",
+            "site:game.es \"0859529007386,3512899121201\"",
+            "site:ogdb.eu \"The Surge 2\" PlayStation 4",
+            "site:todocoleccion.net \"0859529007386,3512899121201\"",
+            "site:ebay.com \"0859529007386,3512899121201\"",
+            "site:gamesdb.launchbox-app.com \"The Surge 2\" PlayStation 4 back",
+            "site:serialstation.com \"The Surge 2\" PlayStation 4"
+          ],
+          "identifiersFound": [
+            "0859529007386"
+          ],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "UNRESOLVED",
+          "sourcesConsulted": [
+            "national-retailer",
+            "yambalu",
+            "gamefaqs-guarded",
+            "ogdb",
+            "launchbox-images"
+          ],
+          "queries": [
+            "\"0859529007386,3512899121201\"",
+            "\"0859529007386,3512899121201\" \"PlayStation 4\"",
+            "\"The Surge 2\" \"PlayStation 4\" Mexico UPC",
+            "\"The Surge 2\" \"PlayStation 4\" Brazil barcode",
+            "\"The Surge 2\" \"PlayStation 4\" release data",
+            "\"The Surge 2\" \"PlayStation 4\" product code barcode",
+            "\"The Surge 2\" \"PlayStation 4\" serial UPC EAN",
+            "\"The Surge 2\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"The Surge 2\" \"PlayStation 4\"",
+            "site:github.com \"The Surge 2\" \"PlayStation 4\"",
+            "site:game.es \"0859529007386,3512899121201\"",
+            "site:ogdb.eu \"The Surge 2\" PlayStation 4",
+            "site:todocoleccion.net \"0859529007386,3512899121201\"",
+            "site:ebay.com \"0859529007386,3512899121201\"",
+            "site:gamesdb.launchbox-app.com \"The Surge 2\" PlayStation 4 back",
+            "site:serialstation.com \"The Surge 2\" PlayStation 4"
+          ],
+          "identifiersFound": [
+            "0859529007386"
+          ],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 85,
+        "exactIdentifierQueries": 23,
+        "duplicateQueriesPrevented": 22,
+        "candidates": 5,
+        "corroborated": 3,
+        "partial": 2,
+        "hardConflicts": 2,
+        "imageUrls": 398,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0.0089,
+          "braveUsd": 0.425,
+          "totalUsd": 0.4339
+        }
+      },
+      "blocker": null
+    },
+    {
+      "caseId": "PS4-04",
+      "title": "A Way Out",
+      "platform": "ps4",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "web:www.walmart.com",
+            "web:www.rolagames.com",
+            "web:www.ubuy.ec",
+            "web:business.walmart.com",
+            "web:www.yachew.com"
+          ],
+          "queries": [
+            "\"A Way Out\" \"PlayStation 4\" EAN",
+            "\"014633739138\""
+          ],
+          "identifiersFound": [
+            "014633739138"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "CONFIRMED_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "candidate:filthygamesroom.com",
+            "candidate:www.rolagames.com",
+            "web:www.walmart.com",
+            "web:business.walmart.com",
+            "web:www.rolagames.com",
+            "web:www.yachew.com"
+          ],
+          "queries": [
+            "\"A Way Out\" \"PlayStation 4\" USA UPC",
+            "\"014633739138\""
+          ],
+          "identifiersFound": [
+            "014633739138"
+          ],
+          "physicalFamiliesFound": [
+            "Standard"
+          ],
+          "remainingGaps": []
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "NO_DISTINCT_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "gamefaqs-guarded",
+            "platform-holder-official",
+            "ogdb"
+          ],
+          "queries": [
+            "\"A Way Out\" \"PlayStation 4\" JAN",
+            "\"A Way Out\" \"PlayStation 4\" Japan JAN",
+            "\"A Way Out\" \"PlayStation 4\" 型番",
+            "\"A Way Out\" \"PlayStation 4\" release data",
+            "\"A Way Out\" \"PlayStation 4\" product code barcode",
+            "\"A Way Out\" \"PlayStation 4\" serial UPC EAN",
+            "\"A Way Out\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Way Out\" \"PlayStation 4\"",
+            "site:github.com \"A Way Out\" \"PlayStation 4\"",
+            "site:ogdb.eu \"A Way Out\" PlayStation 4"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "NO_DISTINCT_VARIANT_FOUND",
+          "sourcesConsulted": [
+            "candidate:www.gamestop.com",
+            "gamefaqs-guarded",
+            "candidate:filthygamesroom.com",
+            "candidate:blueshellgaming.com",
+            "candidate:www.ebgames.com.au",
+            "candidate:www.rolagames.com",
+            "ogdb"
+          ],
+          "queries": [
+            "\"A Way Out\" \"PlayStation 4\" Korea barcode",
+            "\"A Way Out\" \"PlayStation 4\" GRAC",
+            "\"A Way Out\" \"PlayStation 4\" Hong Kong barcode",
+            "\"A Way Out\" \"PlayStation 4\" Taiwan barcode",
+            "\"A Way Out\" \"PlayStation 4\" Asia UPC EAN",
+            "\"A Way Out\" \"PlayStation 4\" Chinese edition barcode",
+            "\"A Way Out\" \"PlayStation 4\" release data",
+            "\"A Way Out\" \"PlayStation 4\" product code barcode",
+            "\"A Way Out\" \"PlayStation 4\" serial UPC EAN",
+            "\"A Way Out\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Way Out\" \"PlayStation 4\"",
+            "site:github.com \"A Way Out\" \"PlayStation 4\"",
+            "site:ogdb.eu \"A Way Out\" PlayStation 4"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "UNRESOLVED",
+          "sourcesConsulted": [
+            "candidate:www.ebgames.com.au",
+            "gamefaqs-guarded",
+            "ogdb",
+            "launchbox-images"
+          ],
+          "queries": [
+            "\"A Way Out\" \"PlayStation 4\" Australia barcode",
+            "\"237731\"",
+            "\"237731\" \"PlayStation 4\"",
+            "\"A Way Out\" \"PlayStation 4\" AU physical",
+            "\"A Way Out\" \"PlayStation 4\" release data",
+            "\"A Way Out\" \"PlayStation 4\" product code barcode",
+            "\"A Way Out\" \"PlayStation 4\" serial UPC EAN",
+            "\"A Way Out\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Way Out\" \"PlayStation 4\"",
+            "site:github.com \"A Way Out\" \"PlayStation 4\"",
+            "site:ogdb.eu \"A Way Out\" PlayStation 4",
+            "site:todocoleccion.net \"A Way Out\" PlayStation 4",
+            "site:ebay.es \"A Way Out\" PlayStation 4",
+            "site:gamesdb.launchbox-app.com \"A Way Out\" PlayStation 4 back",
+            "site:serialstation.com \"237731\"",
+            "site:news.ubisoft.com \"A Way Out\" PlayStation 4"
+          ],
+          "identifiersFound": [
+            "237731"
+          ],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [
+            "candidate:www.rolagames.com",
+            "candidate:www.gamestop.com",
+            "gamefaqs-guarded"
+          ],
+          "queries": [
+            "\"A Way Out\" \"PlayStation 4\" Mexico UPC",
+            "\"A Way Out\" \"PlayStation 4\" Brazil barcode",
+            "\"A Way Out\" \"PlayStation 4\" release data",
+            "\"A Way Out\" \"PlayStation 4\" product code barcode",
+            "\"A Way Out\" \"PlayStation 4\" serial UPC EAN",
+            "\"A Way Out\" \"PlayStation 4\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Way Out\" \"PlayStation 4\"",
+            "site:github.com \"A Way Out\" \"PlayStation 4\"",
+            "site:ogdb.eu \"A Way Out\" PlayStation 4",
+            "site:todocoleccion.net \"A Way Out\" PlayStation 4",
+            "site:ebay.es \"A Way Out\" PlayStation 4",
+            "site:gamesdb.launchbox-app.com \"A Way Out\" PlayStation 4 back",
+            "site:serialstation.com \"A Way Out\" PlayStation 4",
+            "site:news.ubisoft.com \"A Way Out\" PlayStation 4",
+            "\"A Way Out\" \"PlayStation 4\" physical edition",
+            "\"A Way Out\" \"PlayStation 4\" product code"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 59,
+        "exactIdentifierQueries": 4,
+        "duplicateQueriesPrevented": 4,
+        "candidates": 6,
+        "corroborated": 2,
+        "partial": 0,
+        "hardConflicts": 1,
+        "imageUrls": 368,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0.008551,
+          "braveUsd": 0.295,
+          "totalUsd": 0.303551
+        }
+      },
+      "blocker": null
+    },
+    {
+      "caseId": "PS5-01",
+      "title": "A Plague Tale: Requiem",
+      "platform": "ps5",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+            "collector \"PlayStation 5\" barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Europe barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" PEGI EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" USK EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+            "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+            "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+            "collector \"PlayStation 5\" barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" USA UPC",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" US barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" ESRB UPC",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+            "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+            "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+            "site:todocoleccion.net \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+            "collector \"PlayStation 5\" barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" JAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Japan JAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" 型番",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+            "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+            "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+            "site:todocoleccion.net \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+            "collector \"PlayStation 5\" barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Korea barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" GRAC",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Hong Kong barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Taiwan barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Asia UPC EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Chinese edition barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+            "collector \"PlayStation 5\" barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Australia barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" AU physical",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+            "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+            "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+            "site:todocoleccion.net \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+            "site:ebay.es \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+            "collector \"PlayStation 5\" barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Mexico UPC",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Brazil barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+            "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+            "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+            "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+            "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+            "site:todocoleccion.net \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+            "site:ebay.es \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 96,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 30,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0.000108,
+          "braveUsd": 0.48,
+          "totalUsd": 0.480108
+        }
+      },
+      "blocker": null
+    },
+    {
+      "caseId": "PS5-02",
+      "title": "Steelrising",
+      "platform": "ps5",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [
+            "national-retailer"
+          ],
+          "queries": [
+            "Steelrising \"PlayStation 5\" EAN",
+            "Steelrising \"PlayStation 5\" Europe barcode",
+            "Steelrising \"PlayStation 5\" PEGI EAN",
+            "Steelrising \"PlayStation 5\" USK EAN",
+            "Steelrising \"PlayStation 5\" release data",
+            "Steelrising \"PlayStation 5\" product code barcode",
+            "Steelrising \"PlayStation 5\" serial UPC EAN",
+            "Steelrising \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+            "site:github.com Steelrising \"PlayStation 5\"",
+            "site:ogdb.eu \"Steelrising\" PlayStation 5",
+            "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+            "site:ebay.es \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+            "site:mobygames.com \"Steelrising\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [
+            "national-retailer"
+          ],
+          "queries": [
+            "Steelrising \"PlayStation 5\" USA UPC",
+            "Steelrising \"PlayStation 5\" US barcode",
+            "Steelrising \"PlayStation 5\" ESRB UPC",
+            "Steelrising \"PlayStation 5\" release data",
+            "Steelrising \"PlayStation 5\" product code barcode",
+            "Steelrising \"PlayStation 5\" serial UPC EAN",
+            "Steelrising \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+            "site:github.com Steelrising \"PlayStation 5\"",
+            "site:ogdb.eu \"Steelrising\" PlayStation 5",
+            "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+            "site:ebay.es \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+            "site:mobygames.com \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [
+            "national-retailer"
+          ],
+          "queries": [
+            "Steelrising \"PlayStation 5\" JAN",
+            "Steelrising \"PlayStation 5\" Japan JAN",
+            "Steelrising \"PlayStation 5\" 型番",
+            "Steelrising \"PlayStation 5\" release data",
+            "Steelrising \"PlayStation 5\" product code barcode",
+            "Steelrising \"PlayStation 5\" serial UPC EAN",
+            "Steelrising \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+            "site:github.com Steelrising \"PlayStation 5\"",
+            "site:ogdb.eu \"Steelrising\" PlayStation 5",
+            "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+            "site:ebay.es \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+            "site:mobygames.com \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [
+            "national-retailer"
+          ],
+          "queries": [
+            "Steelrising \"PlayStation 5\" Korea barcode",
+            "Steelrising \"PlayStation 5\" GRAC",
+            "Steelrising \"PlayStation 5\" Hong Kong barcode",
+            "Steelrising \"PlayStation 5\" Taiwan barcode",
+            "Steelrising \"PlayStation 5\" Asia UPC EAN",
+            "Steelrising \"PlayStation 5\" Chinese edition barcode",
+            "Steelrising \"PlayStation 5\" release data",
+            "Steelrising \"PlayStation 5\" product code barcode",
+            "Steelrising \"PlayStation 5\" serial UPC EAN",
+            "Steelrising \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+            "site:github.com Steelrising \"PlayStation 5\"",
+            "site:ogdb.eu \"Steelrising\" PlayStation 5",
+            "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+            "site:ebay.es \"Steelrising\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [
+            "national-retailer"
+          ],
+          "queries": [
+            "Steelrising \"PlayStation 5\" Australia barcode",
+            "Steelrising \"PlayStation 5\" AU physical",
+            "Steelrising \"PlayStation 5\" release data",
+            "Steelrising \"PlayStation 5\" product code barcode",
+            "Steelrising \"PlayStation 5\" serial UPC EAN",
+            "Steelrising \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+            "site:github.com Steelrising \"PlayStation 5\"",
+            "site:ogdb.eu \"Steelrising\" PlayStation 5",
+            "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+            "site:ebay.es \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+            "site:mobygames.com \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [
+            "national-retailer"
+          ],
+          "queries": [
+            "Steelrising \"PlayStation 5\" Mexico UPC",
+            "Steelrising \"PlayStation 5\" Brazil barcode",
+            "Steelrising \"PlayStation 5\" release data",
+            "Steelrising \"PlayStation 5\" product code barcode",
+            "Steelrising \"PlayStation 5\" serial UPC EAN",
+            "Steelrising \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+            "site:github.com Steelrising \"PlayStation 5\"",
+            "site:ogdb.eu \"Steelrising\" PlayStation 5",
+            "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+            "site:ebay.es \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+            "site:mobygames.com \"Steelrising\" PlayStation 5",
+            "site:doesitplay.org \"Steelrising\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 94,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 64,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0.002454,
+          "braveUsd": 0.47,
+          "totalUsd": 0.472454
+        }
+      },
+      "blocker": null
+    },
+    {
+      "caseId": "PS5-03",
+      "title": "Wo Long: Fallen Dynasty",
+      "platform": "ps5",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Europe barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" PEGI EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" USK EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+            "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" USA UPC",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" US barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" ESRB UPC",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+            "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" JAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Japan JAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" 型番",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+            "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Korea barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" GRAC",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Hong Kong barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Taiwan barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Asia UPC EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Chinese edition barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+            "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Australia barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" AU physical",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+            "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Mexico UPC",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Brazil barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+            "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+            "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+            "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+            "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 94,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0.000144,
+          "braveUsd": 0.47,
+          "totalUsd": 0.470144
+        }
+      },
+      "blocker": null
+    },
+    {
+      "caseId": "PS5-04",
+      "title": "Dead Space",
+      "platform": "ps5",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Dead Space\" \"PlayStation 5\" EAN",
+            "\"Dead Space\" \"PlayStation 5\" Europe barcode",
+            "\"Dead Space\" \"PlayStation 5\" PEGI EAN",
+            "\"Dead Space\" \"PlayStation 5\" USK EAN",
+            "\"Dead Space\" \"PlayStation 5\" release data",
+            "\"Dead Space\" \"PlayStation 5\" product code barcode",
+            "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+            "\"Dead Space\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+            "site:github.com \"Dead Space\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Dead Space\" PlayStation 5",
+            "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+            "site:ebay.es \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+            "site:mobygames.com \"Dead Space\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Dead Space\" \"PlayStation 5\" USA UPC",
+            "\"Dead Space\" \"PlayStation 5\" US barcode",
+            "\"Dead Space\" \"PlayStation 5\" ESRB UPC",
+            "\"Dead Space\" \"PlayStation 5\" release data",
+            "\"Dead Space\" \"PlayStation 5\" product code barcode",
+            "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+            "\"Dead Space\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+            "site:github.com \"Dead Space\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Dead Space\" PlayStation 5",
+            "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+            "site:ebay.es \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+            "site:mobygames.com \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Dead Space\" \"PlayStation 5\" JAN",
+            "\"Dead Space\" \"PlayStation 5\" Japan JAN",
+            "\"Dead Space\" \"PlayStation 5\" 型番",
+            "\"Dead Space\" \"PlayStation 5\" release data",
+            "\"Dead Space\" \"PlayStation 5\" product code barcode",
+            "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+            "\"Dead Space\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+            "site:github.com \"Dead Space\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Dead Space\" PlayStation 5",
+            "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+            "site:ebay.es \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+            "site:mobygames.com \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Dead Space\" \"PlayStation 5\" Korea barcode",
+            "\"Dead Space\" \"PlayStation 5\" GRAC",
+            "\"Dead Space\" \"PlayStation 5\" Hong Kong barcode",
+            "\"Dead Space\" \"PlayStation 5\" Taiwan barcode",
+            "\"Dead Space\" \"PlayStation 5\" Asia UPC EAN",
+            "\"Dead Space\" \"PlayStation 5\" Chinese edition barcode",
+            "\"Dead Space\" \"PlayStation 5\" release data",
+            "\"Dead Space\" \"PlayStation 5\" product code barcode",
+            "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+            "\"Dead Space\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+            "site:github.com \"Dead Space\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Dead Space\" PlayStation 5",
+            "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+            "site:ebay.es \"Dead Space\" PlayStation 5"
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Dead Space\" \"PlayStation 5\" Australia barcode",
+            "\"Dead Space\" \"PlayStation 5\" AU physical",
+            "\"Dead Space\" \"PlayStation 5\" release data",
+            "\"Dead Space\" \"PlayStation 5\" product code barcode",
+            "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+            "\"Dead Space\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+            "site:github.com \"Dead Space\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Dead Space\" PlayStation 5",
+            "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+            "site:ebay.es \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+            "site:mobygames.com \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [
+            "\"Dead Space\" \"PlayStation 5\" Mexico UPC",
+            "\"Dead Space\" \"PlayStation 5\" Brazil barcode",
+            "\"Dead Space\" \"PlayStation 5\" release data",
+            "\"Dead Space\" \"PlayStation 5\" product code barcode",
+            "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+            "\"Dead Space\" \"PlayStation 5\" physical release regions",
+            "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+            "site:github.com \"Dead Space\" \"PlayStation 5\"",
+            "site:ogdb.eu \"Dead Space\" PlayStation 5",
+            "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+            "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+            "site:ebay.es \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+            "site:mobygames.com \"Dead Space\" PlayStation 5",
+            "site:doesitplay.org \"Dead Space\" \"download required\""
+          ],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "No eligible field-level claims.",
+            "PROVIDER_QUOTA_EXHAUSTED"
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 94,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0.000144,
+          "braveUsd": 0.47,
+          "totalUsd": 0.470144
+        }
+      },
+      "blocker": null
+    },
+    {
+      "caseId": "N64-01",
+      "title": "1080° Snowboarding",
+      "platform": "n64",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 0,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0,
+          "braveUsd": 0,
+          "totalUsd": 0
+        }
+      },
+      "blocker": "BRAVE_PREPAID_CREDIT_EXHAUSTED"
+    },
+    {
+      "caseId": "N64-02",
+      "title": "Mystical Ninja Starring Goemon",
+      "platform": "n64",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 0,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0,
+          "braveUsd": 0,
+          "totalUsd": 0
+        }
+      },
+      "blocker": "BRAVE_PREPAID_CREDIT_EXHAUSTED"
+    },
+    {
+      "caseId": "N64-03",
+      "title": "Star Wars: Rogue Squadron",
+      "platform": "n64",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 0,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0,
+          "braveUsd": 0,
+          "totalUsd": 0
+        }
+      },
+      "blocker": "BRAVE_PREPAID_CREDIT_EXHAUSTED"
+    },
+    {
+      "caseId": "N64-04",
+      "title": "Body Harvest",
+      "platform": "n64",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 0,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0,
+          "braveUsd": 0,
+          "totalUsd": 0
+        }
+      },
+      "blocker": "BRAVE_PREPAID_CREDIT_EXHAUSTED"
+    },
+    {
+      "caseId": "GB-01",
+      "title": "Dr. Mario",
+      "platform": "gameboy",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 0,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0,
+          "braveUsd": 0,
+          "totalUsd": 0
+        }
+      },
+      "blocker": "BRAVE_PREPAID_CREDIT_EXHAUSTED"
+    },
+    {
+      "caseId": "GB-02",
+      "title": "Kirby's Dream Land",
+      "platform": "gameboy",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 0,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0,
+          "braveUsd": 0,
+          "totalUsd": 0
+        }
+      },
+      "blocker": "BRAVE_PREPAID_CREDIT_EXHAUSTED"
+    },
+    {
+      "caseId": "GB-03",
+      "title": "Mole Mania",
+      "platform": "gameboy",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 0,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0,
+          "braveUsd": 0,
+          "totalUsd": 0
+        }
+      },
+      "blocker": "BRAVE_PREPAID_CREDIT_EXHAUSTED"
+    },
+    {
+      "caseId": "GB-04",
+      "title": "Gargoyle's Quest",
+      "platform": "gameboy",
+      "coverageLedger": [
+        {
+          "bucket": "EUROPE",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "NORTH_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "JAPAN",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "ASIA_OTHER",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "OCEANIA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        },
+        {
+          "bucket": "LATIN_AMERICA",
+          "status": "TECHNICAL_FAILURE",
+          "sourcesConsulted": [],
+          "queries": [],
+          "identifiersFound": [],
+          "physicalFamiliesFound": [],
+          "remainingGaps": [
+            "PROVIDER_QUOTA_EXHAUSTED: Brave HTTP 402 prepaid credit balance insufficient; case not started."
+          ]
+        }
+      ],
+      "totals": {
+        "queries": 0,
+        "exactIdentifierQueries": 0,
+        "duplicateQueriesPrevented": 0,
+        "candidates": 0,
+        "corroborated": 0,
+        "partial": 0,
+        "hardConflicts": 0,
+        "imageUrls": 0,
+        "visionCalls": 0,
+        "ocrCalls": 0,
+        "cost": {
+          "openAiUsd": 0,
+          "braveUsd": 0,
+          "totalUsd": 0
+        }
+      },
+      "blocker": "BRAVE_PREPAID_CREDIT_EXHAUSTED"
+    }
+  ],
+  "invariants": {
+    "catalogMutations": 0,
+    "priceMutations": 0,
+    "authoritativeQueueMutations": 0,
+    "publicAssetMutations": 0,
+    "visionCalls": 0,
+    "ocrCalls": 0
+  }
+}

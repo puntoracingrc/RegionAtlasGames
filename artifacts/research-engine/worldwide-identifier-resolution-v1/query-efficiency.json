@@ -1,0 +1,27 @@
+{
+  "absolum": {
+    "queries": 107,
+    "exactIdentifierQueries": 11,
+    "duplicateQueriesPrevented": 6,
+    "candidates": 9,
+    "corroborated": 7,
+    "partial": 0,
+    "hardConflicts": 1,
+    "imageUrls": 384,
+    "visionCalls": 0,
+    "ocrCalls": 0,
+    "cost": {
+      "openAiUsd": 0.012979,
+      "braveUsd": 0.535,
+      "totalUsd": 0.547979
+    }
+  },
+  "pilot16Partial": {
+    "casesWithFrozenArtifacts": 8,
+    "queries": 617,
+    "exactIdentifierQueries": 43,
+    "duplicateQueriesPrevented": 70,
+    "costUsd": 3.1209179999999996
+  },
+  "note": "Provider-usage cost counts attempted Brave calls; HTTP 402 failures may not be billable and are retained for auditability."
+}
