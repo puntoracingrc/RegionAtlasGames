@@ -1,6 +1,6 @@
 import type { ResearchRetrievalFailureCode } from "./v2-types";
 
-const QUOTA_PATTERN = /(?:quota|credits? exhausted|plan limit|monthly searches|run out of searches|account.*limit)/i;
+const QUOTA_PATTERN = /(?:quota|credits? exhausted|plan limit|monthly searches|run out of searches|account.*limit|prepaid credit balance|balance is insufficient|insufficient (?:credit|balance))/i;
 const TIMEOUT_PATTERN = /(?:timeout|timed out|aborterror|etimedout)/i;
 
 export class ResearchRetrievalError extends Error {

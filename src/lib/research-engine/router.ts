@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { deduplicateScopedQueries } from "./identifier-resolution";
 import type {
   ResearchComponent,
   ResearchDecisionTest,
@@ -16,6 +17,7 @@ function platformSearchLabel(platformSlug: string): string {
   return ({
     ds: "Nintendo DS", "3ds": "Nintendo 3DS", wiiu: "Wii U", switch: "Nintendo Switch",
     ps3: "PlayStation 3", ps4: "PlayStation 4", ps5: "PlayStation 5", xbox360: "Xbox 360",
+    n64: "Nintendo 64", gameboy: "Game Boy",
   } as Record<string, string>)[platformSlug] ?? platformSlug;
 }
 
@@ -37,7 +39,11 @@ function contextIdentifiers(input: ResearchRouterInput): Array<{ type: string; v
 
 export function knownIdentifiersForRouter(input: Pick<ResearchRouterInput, "catalogContext" | "knownIdentifiers">) {
   const combined = [...contextIdentifiers(input as ResearchRouterInput), ...input.knownIdentifiers];
-  return [...new Map(combined.map((identifier) => [`${identifier.type}:${identifier.value}`, identifier])).values()];
+  const queryable = combined.filter((identifier) => {
+    const value = identifier.value.trim();
+    return value.length >= 4 && !/^(?:unknown|unresolved|pending|none|null|n\/a|pendiente)$/i.test(value);
+  });
+  return [...new Map(queryable.map((identifier) => [`${identifier.type}:${identifier.value}`, identifier])).values()];
 }
 
 function triggerSet(input: ResearchRouterInput): Set<string> {
@@ -216,6 +222,7 @@ function templateValues(input: ResearchRouterInput, source: ResearchSourcePlanIt
     CART_CODE: first("PRODUCT_CODE"),
     SOURCE_HOST: sourceHost,
     HOST: sourceHost,
+    REGION: input.coverageBucket ?? (context.marketRegions.join(" ") || context.marketRegion || context.region || ""),
   };
 }
 
@@ -227,10 +234,6 @@ function renderTemplate(template: string, values: Record<string, string>): strin
     return value;
   }).replace(/\s+/g, " ").trim();
   return missing || !rendered ? null : rendered;
-}
-
-function normalizedQuery(query: string): string {
-  return query.toLowerCase().replace(/[“”]/g, "\"").replace(/\s+/g, " ").trim();
 }
 
 function cleanEdition(value: string): string {
@@ -261,6 +264,8 @@ function exactIdentifierQueries(input: ResearchRouterInput, sourcePlan: Research
     strategy: "EXACT_IDENTIFIER" as const,
     identifierType: identifier.type,
     identifierValue: identifier.value,
+    stage: "EXACT_IDENTIFIER_SEARCH" as const,
+    coverageBucket: input.coverageBucket ?? null,
   });
   for (const identifier of identifiers) {
     const exact = exactQuote(identifier.value);
@@ -286,7 +291,72 @@ function exactIdentifierQueries(input: ResearchRouterInput, sourcePlan: Research
   return rows;
 }
 
-function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, sourcePlan: ResearchSourcePlanItem[]) {
+function queryRow(input: ResearchRouterInput, query: string, stage: ResearchRouterPlan["queryPlan"][number]["stage"], sourceId: string | null = null): ResearchRouterPlan["queryPlan"][number] {
+  return {
+    query,
+    sourceId,
+    purpose: input.targetField,
+    strategy: stage === "GENERIC_LAST_RESORT" ? "GENERIC" : "SOURCE_SPECIFIC",
+    stage,
+    coverageBucket: input.coverageBucket ?? null,
+  };
+}
+
+function structuredReleaseSeedQueries(input: ResearchRouterInput): ResearchRouterPlan["queryPlan"] {
+  const title = quote(input.catalogContext.title);
+  const platform = quote(platformSearchLabel(input.catalogContext.platformSlug));
+  return [
+    queryRow(input, `${title} ${platform} release data`, "STRUCTURED_RELEASE_SEED"),
+    queryRow(input, `${title} ${platform} product code barcode`, "STRUCTURED_RELEASE_SEED"),
+    queryRow(input, `${title} ${platform} serial UPC EAN`, "STRUCTURED_RELEASE_SEED"),
+    queryRow(input, `${title} ${platform} physical release regions`, "STRUCTURED_RELEASE_SEED"),
+  ];
+}
+
+function inferredCoverageBucket(input: ResearchRouterInput): ResearchRouterInput["coverageBucket"] {
+  if (input.coverageBucket) return input.coverageBucket;
+  const region = `${input.catalogContext.region ?? ""} ${input.catalogContext.broadRegion ?? ""} ${input.catalogContext.marketRegion ?? ""} ${input.catalogContext.marketRegions.join(" ")}`.toUpperCase();
+  if (/JAPAN|\bJP\b|CERO/.test(region)) return "JAPAN";
+  if (/KOREA|HONG KONG|TAIWAN|\bKR\b|\bHK\b|\bTW\b|ASIA/.test(region)) return "ASIA_OTHER";
+  if (/USA|NORTH AMERICA|\bUS\b|CANADA|\bCA\b/.test(region)) return "NORTH_AMERICA";
+  if (/AUSTRALIA|NEW ZEALAND|OCEANIA|\bAU\b|\bNZ\b/.test(region)) return "OCEANIA";
+  if (/MEXICO|BRAZIL|LATIN|LATAM|\bMX\b|\bBR\b/.test(region)) return "LATIN_AMERICA";
+  return "EUROPE";
+}
+
+function fieldSpecificQueries(input: ResearchRouterInput): ResearchRouterPlan["queryPlan"] {
+  const title = quote(input.catalogContext.title);
+  const platform = quote(platformSearchLabel(input.catalogContext.platformSlug));
+  const bucket = inferredCoverageBucket(input);
+  const byBucket = {
+    NORTH_AMERICA: [`${title} ${platform} USA UPC`, `${title} ${platform} US barcode`, `${title} ${platform} ESRB UPC`],
+    EUROPE: [`${title} ${platform} EAN`, `${title} ${platform} Europe barcode`, `${title} ${platform} PEGI EAN`, `${title} ${platform} USK EAN`],
+    JAPAN: [`${title} ${platform} JAN`, `${title} ${platform} Japan JAN`, `${title} ${platform} 型番`],
+    ASIA_OTHER: [`${title} ${platform} Korea barcode`, `${title} ${platform} GRAC`, `${title} ${platform} Hong Kong barcode`, `${title} ${platform} Taiwan barcode`, `${title} ${platform} Asia UPC EAN`, `${title} ${platform} Chinese edition barcode`],
+    OCEANIA: [`${title} ${platform} Australia barcode`, `${title} ${platform} AU physical`],
+    LATIN_AMERICA: [`${title} ${platform} Mexico UPC`, `${title} ${platform} Brazil barcode`],
+  } satisfies Record<NonNullable<ResearchRouterInput["coverageBucket"]>, string[]>;
+  return byBucket[bucket ?? "EUROPE"].map((query) => queryRow(input, query, "FIELD_SPECIFIC"));
+}
+
+function regionalFallbackQueries(input: ResearchRouterInput, sourcePlan: ResearchSourcePlanItem[]): ResearchRouterPlan["queryPlan"] {
+  const title = quote(input.catalogContext.title);
+  const platform = quote(platformSearchLabel(input.catalogContext.platformSlug));
+  const rows: ResearchRouterPlan["queryPlan"] = [];
+  for (const sourceId of ["gamefaqs-guarded", "libretro-thumbnails"]) {
+    const source = sourcePlan.find((candidate) => candidate.sourceId === sourceId);
+    if (source?.hosts[0]) rows.push(queryRow(input, `site:${source.hosts[0]} ${title} ${platform}`, "REGIONAL_FALLBACK", sourceId));
+  }
+  for (const regionalTitle of input.regionalTitleCandidates ?? []) {
+    rows.push(queryRow(input, `${quote(regionalTitle)} ${platform} JAN UPC barcode`, "LOCAL_LANGUAGE_FALLBACK"));
+  }
+  return rows;
+}
+
+function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, sourcePlan: ResearchSourcePlanItem[]): {
+  queryPlan: ResearchRouterPlan["queryPlan"];
+  duplicateQueriesPrevented: number;
+} {
   const groups = playbook.queryTemplateGroups.length
     ? playbook.queryTemplateGroups
     : identifiersByType(input, "BARCODE").length ? ["BARCODE"]
@@ -312,8 +382,23 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
   const globalValues = templateValues(input, null);
   // A newly discovered identifier changes the research question from discovery
   // to verification. Every candidate is chased before title-led discovery.
-  queries.push(...exactIdentifierQueries(input, sourcePlan).slice(0, 8));
+  const knownIdentifierCount = knownIdentifiersForRouter(input).length;
+  queries.push(...exactIdentifierQueries(input, sourcePlan).slice(0, Math.min(8, Math.max(2, knownIdentifierCount * 2))));
   const identifierVerification = queries.length > 0;
+  const earlyEdition = cleanEdition(input.catalogContext.edition);
+  const collectorEdition = /\b(?:skull|buccaneer|black chest|collector|special|double pack)\b/i.test(earlyEdition);
+  if (!identifierVerification && collectorEdition) {
+    const editionName = earlyEdition.replace(/\b(?:spain|españa|espana|europe|europa)\b/gi, "").replace(/\s+/g, " ").trim();
+    const platform = platformSearchLabel(input.catalogContext.platformSlug);
+    queries.push(
+      queryRow(input, `${quote(input.catalogContext.title)} ${quote(editionName)} ${quote(platform)}`, "FIELD_SPECIFIC"),
+      queryRow(input, `${quote(editionName)} ${quote(platform)} barcode`, "FIELD_SPECIFIC"),
+      queryRow(input, `${quote(input.catalogContext.title)} ${quote(editionName)} "back cover"`, "FIELD_SPECIFIC"),
+    );
+  }
+  queries.push(...fieldSpecificQueries(input));
+  queries.push(...structuredReleaseSeedQueries(input));
+  queries.push(...regionalFallbackQueries(input, sourcePlan));
   if (physicalMode) {
     const gapTerms: Record<string, string> = {
       MISSING_BACK_COVER: '"back cover"', MISSING_BARCODE_PHOTO: '"back cover" barcode', MISSING_CART_PHOTO: "cartridge cart label",
@@ -329,8 +414,7 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
     queries.push({ query: exactSubject, sourceId: null, purpose: input.targetField, strategy: "GENERIC" });
     queries.push({ query: `${exactSubject} photo`, sourceId: null, purpose: input.targetField, strategy: "GENERIC" });
   }
-  const edition = cleanEdition(input.catalogContext.edition);
-  const collectorEdition = /\b(?:skull|buccaneer|black chest|collector|special|double pack)\b/i.test(edition);
+  const edition = earlyEdition;
   if (collectorEdition) {
     const editionName = edition.replace(/\b(?:spain|españa|espana|europe|europa)\b/gi, "").replace(/\s+/g, " ").trim();
     const platform = platformSearchLabel(input.catalogContext.platformSlug);
@@ -374,23 +458,28 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
   for (const row of packedQueries.filter((row) => row.strategy === "GENERIC_LAST_RESORT")) {
     queries.push({ query: row.query, sourceId: row.sourceId, purpose: input.targetField, strategy: "GENERIC" });
   }
-  const seen = new Set<string>();
+  const beforeDeduplication = queries.length;
+  const scoped = deduplicateScopedQueries({
+    rows: queries,
+    canonicalWork: input.catalogContext.workId ?? input.catalogContext.canonicalGameId ?? input.catalogContext.title,
+    platform: input.catalogContext.platformSlug,
+    regionBucket: input.coverageBucket ?? inferredCoverageBucket(input) ?? "UNSCOPED",
+    field: input.targetField,
+  });
   let physicalGenericCount = 0;
-  const deduplicated = queries.filter((query) => {
-    const key = normalizedQuery(query.query);
-    if (seen.has(key)) return false;
+  const deduplicated = scoped.rows.filter((query) => {
     if (physicalMode && query.strategy === "GENERIC" && physicalGenericCount >= 2) return false;
     if (physicalMode && query.strategy === "GENERIC") physicalGenericCount += 1;
-    seen.add(key);
     return true;
   });
   // Generic discovery is a true last resort. Keep the detailed ordering within
   // each class, but never allow an early generic template to jump ahead of a
   // precomputed identifier or source-specific route added later in the plan.
-  return [
+  const queryPlan = [
     ...deduplicated.filter((query) => query.strategy !== "GENERIC"),
     ...deduplicated.filter((query) => query.strategy === "GENERIC"),
-  ].slice(0, 24);
+  ].slice(0, 32);
+  return { queryPlan, duplicateQueriesPrevented: Math.max(0, beforeDeduplication - deduplicated.length) };
 }
 
 function imagePlanFor(target: ResearchTargetField): ResearchRouterPlan["imagePlan"] {
@@ -463,7 +552,7 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
   const selectedPlaybook = selectPlaybook(input, triggers);
   const sourcePlan = rankSources(input, selectedPlaybook);
   const directUrls = directUrlPlan(input, sourcePlan);
-  const queryPlan = buildQueries(input, selectedPlaybook, sourcePlan);
+  const { queryPlan, duplicateQueriesPrevented } = buildQueries(input, selectedPlaybook, sourcePlan);
   const deterministicChecks = [...new Set([
     ...selectedPlaybook.deterministicChecks,
     "SUBJECT_BINDING",
@@ -497,6 +586,7 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
     escalationRules,
     researchMode: input.researchMode ?? "STANDARD",
     evidenceGapTypes: [...new Set((input.evidenceGaps ?? []).map((gap) => gap.type))],
+    duplicateQueriesPrevented,
     routeFingerprint: createHash("sha256").update(fingerprintInput).digest("hex"),
   };
 }

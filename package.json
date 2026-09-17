@@ -23,6 +23,8 @@
     "review:listing-evidence:pilot": "python3 scripts/listing-evidence-pilot-v2.py && tsx scripts/resolve-listing-evidence-pilot.ts",
     "review:curator:knowledge-audit": "tsx scripts/audit-research-platform-knowledge.ts",
     "research:benchmark": "tsx scripts/research-engine-benchmark.ts",
+    "research:worldwide:v1": "tsx scripts/research-engine-worldwide-identifier-resolution-v1.ts",
+    "research:worldwide:v1:report": "tsx scripts/build-worldwide-identifier-resolution-v1-report.ts",
     "test:research-engine": "tsx --test src/lib/research-engine/*.test.ts",
     "test:scanner": "tsx --test src/lib/game-scanner.test.ts src/lib/scanner-engine.test.ts src/lib/scanner-knowledge.test.ts src/lib/ps1-scanner-knowledge.test.ts src/lib/scanner-upload.test.ts src/lib/scanner-camera-client.test.ts",
     "test:catalog-offers": "tsx --test src/lib/catalog-offer-sort.test.ts src/lib/marketplace-listing-values.test.ts",
