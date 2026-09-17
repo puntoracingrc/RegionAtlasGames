@@ -1,10 +1,12 @@
 #!/usr/bin/env tsx
 /* eslint-disable @typescript-eslint/no-explicit-any -- this script consolidates immutable benchmark payloads. */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { RESEARCH_COVERAGE_BUCKETS } from "../src/lib/research-engine/v2-types";
 
 const ROOT = path.resolve(process.cwd(), "artifacts/research-engine/worldwide-identifier-resolution-v1");
+const IMPLEMENTATION_HEAD = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
 const CASES = [
   ["PS4-01", "A Plague Tale: Innocence", "ps4"], ["PS4-02", "Valkyria Chronicles 4", "ps4"],
   ["PS4-03", "The Surge 2", "ps4"], ["PS4-04", "A Way Out", "ps4"],
@@ -55,6 +57,7 @@ async function main(): Promise<void> {
   const quotaBlocked = pilot.filter((entry) => entry.completed === false || entry.runs?.some((run: any) => run.technicalFailures.some((failure: any) => /prepaid credit balance|balance is insufficient/i.test(failure.detail ?? ""))));
   const pilotSummary = {
     schemaVersion: 1,
+    implementationHead: IMPLEMENTATION_HEAD,
     status: pilot.every((entry) => entry.completed !== false && !entry.runs?.some((run: any) => run.status === "BLOCKED_INFRASTRUCTURE")) ? "COMPLETE" : "BLOCKED_PROVIDER_QUOTA",
     casesRequested: 16,
     casesWithFrozenArtifacts: completed.length,
@@ -74,7 +77,7 @@ async function main(): Promise<void> {
     },
     note: "Provider-usage cost counts attempted Brave calls; HTTP 402 failures may not be billable and are retained for auditability.",
   };
-  await json(path.join(ROOT, "absolum-result.json"), absolum);
+  await json(path.join(ROOT, "absolum-result.json"), { ...absolum, implementationHead: IMPLEMENTATION_HEAD });
   await json(path.join(ROOT, "absolum-trace.json"), traces.filter((row) => row.caseId === "ABSOLUM-PS5"));
   await json(path.join(ROOT, "pilot16-summary.json"), pilotSummary);
   await json(path.join(ROOT, "pilot16-coverage.json"), pilot.map((entry) => ({ caseId: entry.caseId, title: entry.title, platform: entry.platform, coverageLedger: entry.coverageLedger })));
@@ -84,6 +87,7 @@ async function main(): Promise<void> {
 
   const implementation = [
     "# Worldwide Identifier Resolution V1 — implementation summary", "",
+    `- Implementation HEAD: ${IMPLEMENTATION_HEAD}`,
     "- Extended the existing Research Engine; no second engine or provider was introduced.",
     "- Added deterministic candidate extraction, normalization, checksum/platform validation, exact-search expansion, title/platform/edition/region binding, corroboration and hard-conflict rejection.",
     "- Added field-specific, release-seed, regional and local-title ladder stages with scoped query deduplication and dynamic replanning.",

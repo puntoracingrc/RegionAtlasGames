@@ -1,0 +1,4742 @@
+[
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "EUROPE",
+    "targetField": "MARKET_REGION",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.fnac.es/Absolum-Special-Edition-PS5-Videojuego-PS5/a12034803",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "EUROPE",
+    "targetField": "MARKET_REGION",
+    "operation": "BROWSER",
+    "target": "https://www.fnac.es/Absolum-Special-Edition-PS5-Videojuego-PS5/a12034803",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "EUROPE",
+    "targetField": "MARKET_REGION",
+    "operation": "DIRECT_FETCH",
+    "target": "https://tecoesgames.com/products/absolum-special-edition-sony-playstation-5-ps5",
+    "code": "INTERNAL_ERROR",
+    "detail": "TypeError fetch failed",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "EUROPE",
+    "targetField": "MARKET_REGION",
+    "operation": "BROWSER",
+    "target": "https://tecoesgames.com/products/absolum-special-edition-sony-playstation-5-ps5",
+    "code": "INTERNAL_ERROR",
+    "detail": "Error page.goto: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://tecoesgames.com/products/absolum-special-edition-sony-playstation-5-ps5\nCall log:\n\u001b[2m  - navigating to \"https://tecoesgames.com/products/absolum-special-edition-sony-playstation-5-ps5\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps5/330229-absolum",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/397177282507",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "ASIA_OTHER",
+    "targetField": "PRODUCT_CODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps5/330229-absolum",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "ASIA_OTHER",
+    "targetField": "PRODUCT_CODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/397177282507",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps5/330229-absolum",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/397177282507",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps5/330229-absolum",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/198491227919",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/248605/absolum/releases/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/248605/absolum/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/397177282507",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/406244552935",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Absolum \"PlayStation 5\" Brazil barcode",
+    "code": "INTERNAL_ERROR",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_422: Unable to validate request parameter(s)",
+    "recovered": false
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/248605/absolum/releases/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "ABSOLUM-PS5",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/248605/absolum/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/133575524137",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://serialstation.com/titles/CUSA/10812",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://serialstation.com/titles/CUSA/10812",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/116129278707",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "PROVIDER_TEMPORARILY_UNAVAILABLE",
+    "detail": "Error RESEARCH_PAGE_HTTP_502",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.retroplace.com/en/games/170223--a-plague-tale-innocence\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-plague-tale-innocence/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://camelcamelcamel.com/product/B07NBDYK99",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/116129278707",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "PROVIDER_TEMPORARILY_UNAVAILABLE",
+    "detail": "Error RESEARCH_PAGE_HTTP_502",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "PROVIDER_TEMPORARILY_UNAVAILABLE",
+    "detail": "Error RESEARCH_BROWSER_HTTP_502",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps4/250250-a-plague-tale-innocence-preowned",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "PROVIDER_TEMPORARILY_UNAVAILABLE",
+    "detail": "Error RESEARCH_PAGE_HTTP_502",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.retroplace.com/en/games/170223--a-plague-tale-innocence",
+    "code": "PROVIDER_TEMPORARILY_UNAVAILABLE",
+    "detail": "Error RESEARCH_BROWSER_HTTP_502",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://camelcamelcamel.com/product/B07NBDYK99",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/116129278707",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/133273274472",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps4/236965-valkyria-chronicles-4-preowned",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebay.com.au/itm/165039499783",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.es/itm/203325455329",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/135038/the-surge-2/releases/playstation-4/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.mobygames.com/game/135038/the-surge-2/releases/playstation-4/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/204892669769?_ul=BR",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/267198429166",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/393135898210",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.gamestop.com/video-games/playstation-4/products/the-surge-2---playstation-4/11103188.html?bt=true",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/135038/the-surge-2/releases/playstation-4/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.gamestop.com/video-games/playstation-4/products/the-surge-2---playstation-4/11103188.html?bt=true",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.gamestop.com/video-games/playstation-4/products/the-surge-2---playstation-4/11103188.html?bt=true",
+    "code": "INTERNAL_ERROR",
+    "detail": "Error RESEARCH_BROWSER_HTTP_410",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/135038/the-surge-2/releases/playstation-4/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps4/253354-the-surge-2-preowned",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/135038/the-surge-2/releases/playstation-4/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.mobygames.com/game/135038/the-surge-2/releases/playstation-4/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.mobygames.com/game/135038/the-surge-2/releases/playstation-4/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.mobygames.com/game/135038/the-surge-2/releases/playstation-4/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/116937376257",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-way-out/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-way-out/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/172577--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/172577--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/166571--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/166571--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.gamestop.com/video-games/playstation-4/products/a-way-out---playstation-4/10157128-10157128.html",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps4/237731-a-way-out-preowned",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-way-out/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-way-out/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/166571--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/166571--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebgames.com.au/product/ps4/237731-a-way-out-preowned",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-way-out/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-way-out/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/172577--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/172577--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.retroplace.com/en/games/172577--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.retroplace.com/en/games/172577--a-way-out\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/166571--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/en/games/166571--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.gamestop.com/video-games/playstation-4/products/a-way-out---playstation-4/10157128-10157128.html",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-way-out/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://gameware.com/product/playstation/ps4-games/a-way-out/",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/de/spiele/175290--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/de/spiele/175290--a-way-out",
+    "code": "SOURCE_TIMEOUT",
+    "detail": "TimeoutError The operation was aborted due to timeout",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.retroplace.com/de/spiele/175290--a-way-out",
+    "code": "PROVIDER_TEMPORARILY_UNAVAILABLE",
+    "detail": "Error RESEARCH_BROWSER_HTTP_502",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/es/juegos/172577--a-way-out",
+    "code": "PROVIDER_TEMPORARILY_UNAVAILABLE",
+    "detail": "Error RESEARCH_PAGE_HTTP_502",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.retroplace.com/es/juegos/172577--a-way-out",
+    "code": "PROVIDER_TEMPORARILY_UNAVAILABLE",
+    "detail": "Error RESEARCH_PAGE_HTTP_502",
+    "recovered": true
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"A Way Out\" \"PlayStation 4\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"A Way Out\" \"PlayStation 4\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"A Way Out\" PlayStation 4",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"A Way Out\" PlayStation 4",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"A Way Out\" PlayStation 4",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"A Way Out\" PlayStation 4 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:serialstation.com \"A Way Out\" PlayStation 4",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:news.ubisoft.com \"A Way Out\" PlayStation 4",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Way Out\" \"PlayStation 4\" physical edition",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS4-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Way Out\" \"PlayStation 4\" product code",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "collector \"PlayStation 5\" barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Europe barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" PEGI EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" USK EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "collector \"PlayStation 5\" barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" USA UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" US barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" ESRB UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "collector \"PlayStation 5\" barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" JAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Japan JAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" 型番",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "collector \"PlayStation 5\" barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Korea barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" GRAC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Hong Kong barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Taiwan barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Asia UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Chinese edition barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "collector \"PlayStation 5\" barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Australia barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" AU physical",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "collector \"PlayStation 5\" barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" collector \"back cover\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Mexico UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" Brazil barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"A Plague Tale: Requiem [Collector's Edition]\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:game.es \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ubisoft.com \"A Plague Tale: Requiem [Collector's Edition]\" \"collector\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-01",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"A Plague Tale: Requiem [Collector's Edition]\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Europe barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" PEGI EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" USK EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" USA UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" US barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" ESRB UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" JAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Japan JAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" 型番",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Korea barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" GRAC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Hong Kong barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Taiwan barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Asia UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Chinese edition barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Australia barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" AU physical",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Mexico UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" Brazil barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "Steelrising \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com Steelrising \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Steelrising\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Steelrising\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-02",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Steelrising\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Europe barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" PEGI EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" USK EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" USA UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" US barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" ESRB UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" JAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Japan JAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" 型番",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Korea barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" GRAC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Hong Kong barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Taiwan barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Asia UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Chinese edition barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Australia barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" AU physical",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Mexico UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" Brazil barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Wo Long: Fallen Dynasty\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Wo Long: Fallen Dynasty\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Wo Long: Fallen Dynasty\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-03",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Wo Long: Fallen Dynasty\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Europe barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" PEGI EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" USK EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "EUROPE",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" USA UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" US barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" ESRB UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "NORTH_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" JAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Japan JAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" 型番",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "JAPAN",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Korea barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" GRAC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Hong Kong barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Taiwan barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Asia UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Chinese edition barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "ASIA_OTHER",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Australia barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" AU physical",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "OCEANIA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Mexico UPC",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" Brazil barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" release data",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" product code barcode",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" serial UPC EAN",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "\"Dead Space\" \"PlayStation 5\" physical release regions",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamefaqs.gamespot.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:github.com \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ogdb.eu \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:todocoleccion.net \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:gamesdb.launchbox-app.com \"Dead Space\" PlayStation 5 back",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:ebay.es \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"PlayStation 5\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:mobygames.com \"Dead Space\" PlayStation 5",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  },
+  {
+    "caseId": "PS5-04",
+    "bucket": "LATIN_AMERICA",
+    "targetField": "BARCODE",
+    "operation": "SEARCH",
+    "target": "site:doesitplay.org \"Dead Space\" \"download required\"",
+    "code": "PROVIDER_QUOTA_EXHAUSTED",
+    "detail": "ResearchSearchProviderError BRAVE_SEARCH_HTTP_402: Prepaid credit balance is insufficient for this request. Top up to continue.",
+    "recovered": false
+  }
+]
