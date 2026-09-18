@@ -14,6 +14,8 @@ export function draftFromCatalogGame(
     titlePc: game.titlePc,
     platformSlug: game.platformSlug,
     region: game.region,
+    marketRegion: game.marketRegion ?? null,
+    physicalReleaseGroup: game.physicalReleaseGroup ?? null,
     physicalVariant: game.physicalVariant ?? null,
     edition: game.edition || "standard",
     reference: details?.reference ?? null,
@@ -85,6 +87,9 @@ export function applyDraftPatch(
   if (typeof body.slug === "string") next.slug = body.slug.trim();
   if (typeof body.platformSlug === "string") next.platformSlug = body.platformSlug;
   if (typeof body.region === "string") next.region = body.region;
+  if (typeof body.marketRegion === "string" || body.marketRegion === null) {
+    next.marketRegion = typeof body.marketRegion === "string" ? body.marketRegion.trim() || null : null;
+  }
   if (typeof body.physicalVariant === "string") next.physicalVariant = body.physicalVariant.trim() || null;
   if (typeof body.edition === "string") next.edition = body.edition;
   assignString("reference", body.reference);

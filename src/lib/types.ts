@@ -1,6 +1,18 @@
 import type { Ps1EditionDetails } from "./ps1-regional";
 import type { Ps2EditionDetails } from "./ps2-regional";
-import type { CatalogPhysicalEditionGroupSummary } from "./catalog-edition-guide-types";
+import type {
+  CatalogPhysicalEditionGroupSummary,
+  CatalogPhysicalVariantConfidence,
+} from "./catalog-edition-guide-types";
+
+export type CatalogPhysicalReleaseGroup = {
+  id: string;
+  label: string;
+  barcode?: string | null;
+  productCodes?: string[];
+  packagingLanguages?: string[];
+  confidence?: CatalogPhysicalVariantConfidence;
+};
 
 export type DetailEntitySource =
   | "museum"
@@ -299,9 +311,11 @@ export type CatalogGame = {
   titlePc: string | null;
   platformSlug: string;
   region: string;
-  /** Independent regional dimensions; populated only for the PS1 V2 migration. */
+  /** Independent V2 regional dimensions. */
   regionFamily?: string;
   marketRegion?: string | null;
+  /** Several regional catalog records can point to the same physical box. */
+  physicalReleaseGroup?: CatalogPhysicalReleaseGroup | null;
   regionCode?: string | null;
   regionalStatus?: "resolved" | "review";
   languages?: string[];

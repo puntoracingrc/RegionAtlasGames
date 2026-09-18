@@ -156,6 +156,8 @@ export function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStaging
     titlePc: draft.titlePc ?? draft.title,
     platformSlug: draft.platformSlug,
     region: draft.region,
+    marketRegion: draft.marketRegion ?? null,
+    physicalReleaseGroup: draft.physicalReleaseGroup ?? null,
     physicalVariant: draft.physicalVariant,
     edition: draft.edition || "standard",
     listingStatus: "listed",
@@ -254,6 +256,8 @@ export function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDra
     titlePc: draft.titlePc ?? draft.title,
     platformSlug: draft.platformSlug,
     region: draft.region,
+    marketRegion: draft.marketRegion ?? existing.marketRegion ?? null,
+    physicalReleaseGroup: draft.physicalReleaseGroup ?? existing.physicalReleaseGroup ?? null,
     physicalVariant: draft.physicalVariant,
     edition: draft.edition || existing.edition || "standard",
     coverUrl: draft.coverUrl,
@@ -893,6 +897,7 @@ export type PublishResult =
 
 export async function publishAdminGameDraft(
   draft: AdminGameDraft,
+  options: { triggerDeploy?: boolean } = {},
 ): Promise<PublishResult> {
   const collision = await findDraftIdentityCollision(draft);
   if (collision) {
@@ -957,7 +962,9 @@ export async function publishAdminGameDraft(
   }
 
   await registerDraftCompanies(draft);
-  const deployHook = await triggerCatalogDeployHook();
+  const deployHook = options.triggerDeploy === false
+    ? { triggered: false, detail: "Publicación agrupada: despliegue aplazado hasta completar el lote." }
+    : await triggerCatalogDeployHook();
 
   return { ok: true, catalogId: draft.catalogId, url, mode, deployHook };
 }

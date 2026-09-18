@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
@@ -226,6 +227,11 @@ export function AdminNewGameForm({
           ? "Crea una ficha nueva. Solo puedes enviarla a revisión; el administrador decidirá si publicarla."
           : "Crea una ficha desde cero. Al escribir el título verás si ya hay nombres parecidos en el catálogo. Al guardar se busca portada en PriceCharting y, si activas la opción, la IA rellenará metadatos y descripción en directo."}
       </p>
+      {!contributorMode ? (
+        <Link href="/admin/juegos/nuevo/variantes" className="btn-secondary mb-5 inline-flex">
+          Crear varias regiones agrupadas
+        </Link>
+      ) : null}
 
       <form
         onSubmit={onSubmit}

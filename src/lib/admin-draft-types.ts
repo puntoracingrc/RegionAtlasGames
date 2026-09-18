@@ -1,4 +1,4 @@
-import type { GameDetailsSeoMeta } from "./types";
+import type { CatalogPhysicalReleaseGroup, GameDetailsSeoMeta } from "./types";
 
 export type AdminGameEsSource = {
   sku: string;
@@ -22,6 +22,8 @@ export type AdminGameDraft = {
   titlePc: string | null;
   platformSlug: string;
   region: string;
+  marketRegion?: string | null;
+  physicalReleaseGroup?: CatalogPhysicalReleaseGroup | null;
   physicalVariant: string | null;
   edition: string;
   reference: string | null;
