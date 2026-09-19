@@ -1,6 +1,7 @@
 import { getCollectionPlatformShortName } from "./collection-platform-groups";
 import { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
 import { getPriceHistory, type PriceHistorySnapshot } from "./price-history";
+import { priceHistoryAt } from "./price-history-model";
 import type { CollectionSummary } from "./collection-store";
 import type { CollectionView } from "./types";
 
@@ -28,6 +29,7 @@ export type HomeCollectionSnapshot = {
 type TimelineOptions = {
   now?: string;
   historyForGame?: (catalogId: string) => PriceHistorySnapshot[];
+  historyForItem?: (item: CollectionView) => PriceHistorySnapshot[];
 };
 
 function validTime(value: string | null | undefined): number | null {
@@ -92,10 +94,10 @@ export function buildCollectionValueTimeline(
     const addedAt = validTime(item.addedAt);
     if (addedAt != null && addedAt <= nowTime) dates.add(addedAt);
     if (!item.catalogId) continue;
-    const series = historyForGame(item.catalogId).filter(
+    const series = (options.historyForItem?.(item) ?? historyForGame(item.catalogId)).filter(
       (snapshot) => (validTime(snapshot.at) ?? Number.POSITIVE_INFINITY) <= nowTime,
     );
-    histories.set(item.catalogId, series);
+    histories.set(item.id, series);
     for (const snapshot of series) {
       const at = validTime(snapshot.at);
       if (at != null) dates.add(at);
@@ -114,11 +116,8 @@ export function buildCollectionValueTimeline(
       for (const item of items) {
         const addedAt = validTime(item.addedAt);
         if (addedAt != null && addedAt > at) continue;
-        const series = item.catalogId ? histories.get(item.catalogId) ?? [] : [];
-        const snapshot = [...series]
-          .reverse()
-          .find((candidate) => (validTime(candidate.at) ?? Number.POSITIVE_INFINITY) <= at);
-        const unitPrice = snapshot ? snapshotPrice(item, snapshot) : null;
+        const series = histories.get(item.id) ?? [];
+        const unitPrice = snapshotPrice(item, priceHistoryAt(series, at));
         if (unitPrice != null) value += unitPrice * Math.max(1, item.quantity || 1);
       }
       return { at: new Date(at).toISOString(), value: Math.round(value * 100) / 100 };

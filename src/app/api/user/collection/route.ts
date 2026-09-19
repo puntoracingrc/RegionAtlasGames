@@ -20,7 +20,7 @@ export async function GET() {
 
   return NextResponse.json({
     items,
-    summary: summarizeCollectionForPlan(file.items, user.plan),
+    summary: summarizeCollectionForPlan(items, user.plan),
     canViewCollectionValue: showValues,
     importedAt: file.importedAt,
     source: file.source,

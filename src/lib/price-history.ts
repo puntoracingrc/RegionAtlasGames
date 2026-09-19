@@ -1,26 +1,7 @@
 import priceHistoryData from "../../data/price-history.json";
-import type { ConditionBucket } from "./condition-prices";
-import { CONDITION_PRICE_LABELS } from "./condition-prices";
-
-export type PriceHistorySnapshot = {
-  at: string;
-  loose: number | null;
-  gameManual?: number | null;
-  complete: number | null;
-  sealed: number | null;
-  newRetail?: number | null;
-};
-
-export const CONDITION_CHART_COLORS: Record<
-  ConditionBucket,
-  { stroke: string; label: string }
-> = {
-  loose: { stroke: "#d97706", label: CONDITION_PRICE_LABELS.loose },
-  gameManual: { stroke: "#0ea5e9", label: CONDITION_PRICE_LABELS.gameManual },
-  complete: { stroke: "#10b981", label: CONDITION_PRICE_LABELS.complete },
-  sealed: { stroke: "#8b5cf6", label: CONDITION_PRICE_LABELS.sealed },
-  newRetail: { stroke: "#db2777", label: CONDITION_PRICE_LABELS.newRetail },
-};
+import type { PriceConnectorGame } from "./direct-price-connector";
+import { mergePublishedPriceHistory, type PriceHistorySnapshot } from "./price-history-model";
+export type { PriceHistorySnapshot } from "./price-history-model";
 
 type PriceHistoryFile = {
   version?: number;
@@ -39,4 +20,8 @@ export function getPriceHistory(catalogId: string): PriceHistorySnapshot[] {
 
 export function hasPriceHistory(catalogId: string): boolean {
   return getPriceHistory(catalogId).length > 0;
+}
+
+export function getPublishedPriceHistory(game: PriceConnectorGame): PriceHistorySnapshot[] {
+  return mergePublishedPriceHistory(game.id, getPriceHistory(game.id), game.priceConnectorReceipts);
 }

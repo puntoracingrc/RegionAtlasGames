@@ -6,7 +6,7 @@ import {
   removeCatalogGameFromCollection,
   removeOneCatalogGameFromCollection,
 } from "@/lib/collection-store";
-import { enrichCollectionItem } from "@/lib/catalog";
+import { enrichCollectionItemsWithCurrentPrices, enrichCollectionItemWithCurrentPrices } from "@/lib/collection-runtime-prices";
 import { getSellerListings } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 import { defaultCollectionConditionForPlatform } from "@/lib/collection-condition-policy";
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
   }
 
   const file = await readUserCollection(user.id);
-  const views = file.items.map(enrichCollectionItem);
+  const views = await enrichCollectionItemsWithCurrentPrices(file.items);
   const addedIdentity = wishlistIdentityKey({
     catalogId: result.item.catalogId ?? catalogId,
     ...(result.item.physicalVariantId ? { physicalVariantId: result.item.physicalVariantId } : {}),
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
         .reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
 
   return NextResponse.json({
-    item: enrichCollectionItem(result.item),
+    item: await enrichCollectionItemWithCurrentPrices(result.item),
     owned: true,
     linkedExisting: result.linkedExisting,
     wishlistAchieved: file.wishlistAchievements?.some((entry) => entry.games.some(

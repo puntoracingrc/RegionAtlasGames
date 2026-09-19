@@ -78,6 +78,11 @@ export function getCollectionItem(id: string): CollectionView | undefined {
 
 export function enrichCollectionItem(item: CollectionItem): CollectionView {
   const cat = item.catalogId ? getCatalogGame(item.catalogId) : undefined;
+  return enrichCollectionItemWithCatalog(item, cat);
+}
+
+/** Enrich the view only; purchase costs, quantities and personal estimates stay untouched. */
+export function enrichCollectionItemWithCatalog(item: CollectionItem, cat: CatalogGame | undefined): CollectionView {
   const quantity = Math.max(1, item.quantity || 1);
   const condition = normalizeLegacyCollectionCondition(item.collectionCondition, item.sealed);
   const fallbackCatalogPrice = cat ? primaryConditionPrice(cat) ?? cat.recommendedPrice : null;

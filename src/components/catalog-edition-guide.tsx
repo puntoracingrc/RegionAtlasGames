@@ -8,6 +8,7 @@ import { CollectionToggle } from "@/components/collection-toggle";
 import { RegionFlag } from "@/components/region-flag";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { getCatalogGame } from "@/lib/catalog";
+import { editionPriceGame, type CatalogPriceGames } from "@/lib/catalog-price-games";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
 import {
   catalogBroadRegionLabel,
@@ -40,6 +41,7 @@ import type { CatalogGame } from "@/lib/types";
 
 type CatalogEditionGuideProps = {
   game: CatalogGame;
+  priceGames: CatalogPriceGames;
   guide?: CatalogEditionGuideModel;
   isLoggedIn?: boolean;
   physicalVariantActionStates?: Record<string, {
@@ -85,6 +87,7 @@ function researchStatusLabel(status: CatalogEditionGuideModel["researchTasks"][n
 
 export function CatalogEditionGuide({
   game,
+  priceGames,
   guide: providedGuide,
   isLoggedIn = false,
   physicalVariantActionStates = {},
@@ -98,6 +101,7 @@ export function CatalogEditionGuide({
         guide={guide}
         isLoggedIn={isLoggedIn}
         physicalVariantActionStates={physicalVariantActionStates}
+        priceGames={priceGames}
       />
     );
 }
@@ -214,10 +218,12 @@ function RegionRail({ identity }: { identity: CatalogRegionRailIdentity }) {
 
 function PhysicalEditionGuide({
   guide,
+  priceGames,
   isLoggedIn,
   physicalVariantActionStates,
 }: {
   guide: CatalogEditionGuideModel;
+  priceGames: CatalogPriceGames;
   isLoggedIn: boolean;
   physicalVariantActionStates: NonNullable<CatalogEditionGuideProps["physicalVariantActionStates"]>;
 }) {
@@ -280,6 +286,7 @@ function PhysicalEditionGuide({
                         actionState={physicalVariantActionStates[edition.id]}
                         currentGame={currentGame}
                         currentGamePath={currentGamePath}
+                        priceGames={priceGames}
                       />
                     ))}
                   </div>
@@ -324,6 +331,7 @@ function PhysicalEditionGuide({
 
 function PhysicalEditionRow({
   edition,
+  priceGames,
   guide,
   family,
   terminology,
@@ -333,6 +341,7 @@ function PhysicalEditionRow({
   currentGamePath,
 }: {
   edition: CatalogPhysicalEdition;
+  priceGames: CatalogPriceGames;
   guide: CatalogEditionGuideModel;
   family?: CatalogEditionFamily;
   terminology: "edition" | "variant";
@@ -346,10 +355,7 @@ function PhysicalEditionRow({
   currentGamePath: string;
 }) {
   const galleryImages = physicalEditionGalleryImages(edition);
-  const linkedCatalogGame = edition.catalogIds.flatMap((id) => {
-    const game = getCatalogGame(id);
-    return game ? [game] : [];
-  })[0];
+  const linkedCatalogGame = editionPriceGame(edition.catalogIds, priceGames);
   const priceRows = linkedCatalogGame
     && edition.releaseStatus === "RELEASED"
     ? catalogConditionPriceRows(linkedCatalogGame).filter((row) => row.condition !== "loose")
@@ -436,7 +442,7 @@ function PhysicalEditionRow({
               Sin precio CIB/new: este lanzamiento físico fue cancelado.
             </p>
           ) : (
-            <dl className="mt-3 divide-y divide-border/60 border-y border-border/70 text-xs">
+            <dl data-price-catalog-id={linkedCatalogGame?.id} className="mt-3 divide-y divide-border/60 border-y border-border/70 text-xs">
               {priceRows.map((row) => (
                 <div
                   key={row.condition}

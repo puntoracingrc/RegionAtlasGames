@@ -86,7 +86,8 @@ import {
   COMPANY_CREDIT_ROLE_LABELS,
   resolveGameCompanyCredits,
 } from "@/lib/company-credits";
-import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
+import { getPublishedPriceHistory } from "@/lib/price-history";
+import { editionPriceGame, loadCatalogPriceGames } from "@/lib/catalog-price-games";
 import { getCatalogRouteRedirect } from "@/lib/catalog-route-redirects";
 import { getRegionDisplay } from "@/lib/region-display";
 import { SITE_DEFAULT_URL } from "@/lib/site-brand";
@@ -302,7 +303,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
   const pendingPs1 = game.platformSlug === "ps1" && game.regionalStatus === "review";
   const similar = getSimilarGames(game);
   const faqs = buildGameFaq(game, platform, details, { physicalEditionIdentity });
-  const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
+  const priceHistory = getPublishedPriceHistory(game);
   const publicSeries = (await listPublicSeriesForGame(game.id)).filter(
     (series) => !getLegacySeriesRedirect(series.slug),
   );
@@ -397,28 +398,32 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
         }];
       }))
     : {};
+  const priceEditions = editionGuide?.physicalEditions.filter(edition =>
+    !currentEditionFamily || currentEditionFamily.physicalEditionIds.includes(edition.id),
+  ) ?? [];
+  const editionPriceIds = new Set(priceEditions.flatMap(edition => edition.catalogIds));
+  const priceGames = await loadCatalogPriceGames(
+    [...editionPriceIds],
+    async id => {
+      const linked = await resolveCatalogGameWithOverlay(id);
+      return linked && isPublicCatalogGame(linked) ? linked : undefined;
+    },
+    [...platformCatalog.filter(candidate => editionPriceIds.has(candidate.id)), game],
+  );
   const physicalEditionPriceOptions: PhysicalEditionPriceOption[] =
     editionGuide?.schemaVersion === 2 && currentEditionFamily
-      ? await Promise.all(currentEditionFamily.physicalEditionIds
-        .flatMap((editionId) => {
-          const edition = editionGuide.physicalEditions.find((candidate) => candidate.id === editionId);
-          return edition ? [edition] : [];
-        })
+      ? priceEditions
         .filter(isReleasedPhysicalEdition)
-        .map(async (edition) => {
-          const linkedCatalogId = edition.catalogIds[0];
-          const linkedGame = linkedCatalogId
-            ? linkedCatalogId === game.id
-              ? game
-              : await resolveCatalogGameWithOverlay(linkedCatalogId)
-            : undefined;
-          const linkedPriceGame = linkedGame && isPublicCatalogGame(linkedGame)
-            ? linkedGame
-            : undefined;
+        .map((edition) => {
+          const linkedPriceGame = editionPriceGame(edition.catalogIds, priceGames);
           const priceGame = linkedPriceGame ?? game;
           const documentedRegions = edition.marketRegions.length
             ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
             : catalogPhysicalEditionOverviewRegions([edition]);
+          const priceRegionLabel = linkedPriceGame
+            ? getRegionDisplay(linkedPriceGame.region).label
+            : documentedRegions.map(region => getRegionDisplay(region).label).join(" / ");
+          const priceEditionLabel = `${priceRegionLabel} · ${edition.label}`;
           return {
             id: edition.id,
             label: edition.label,
@@ -428,14 +433,22 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
             content: (
               <GamePriceHero
                 game={priceGame}
-                regionLabelOverride={catalogBroadRegionLabel(edition.broadRegion)}
+                regionLabelOverride={priceEditionLabel}
                 pendingMessage="Aún no hay suficientes ventas verificadas para esta edición."
                 allowedBuckets={currentEditionFamily.priceConditions}
                 forcePending={!linkedPriceGame}
               />
             ),
+            history: (
+              <GamePriceHistoryChart
+                catalogId={linkedPriceGame?.id ?? edition.id}
+                editionLabel={priceEditionLabel}
+                history={linkedPriceGame ? getPublishedPriceHistory(linkedPriceGame) : []}
+                allowedBuckets={currentEditionFamily.priceConditions}
+              />
+            ),
           };
-        }))
+        })
       : [];
 
   return (
@@ -582,15 +595,15 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
             ) : (
               <GamePriceHero
                 game={game}
-                regionLabelOverride={physicalEditionIdentity?.broadRegionLabel}
+                regionLabelOverride={regionLabel}
                 pendingMessage={physicalEditionIdentity
                   ? "Aún no hay suficientes ventas verificadas para esta edición."
                   : undefined}
               />
             )}
 
-            {priceHistory.length > 0 && (
-              <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />
+            {!isCanceledPhysicalRelease && !physicalEditionPriceOptions.length && (
+              <GamePriceHistoryChart catalogId={game.id} editionLabel={regionLabel} history={priceHistory} />
             )}
 
             {currentPhysicalEdition?.collectionIdentity !== "physical-variant"
@@ -605,6 +618,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
               guide={editionGuide}
               isLoggedIn={Boolean(user)}
               physicalVariantActionStates={physicalVariantActionStates}
+              priceGames={priceGames}
             />
 
             <CatalogCommercialRelationsPanel catalogId={game.id} />
