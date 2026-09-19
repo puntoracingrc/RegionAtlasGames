@@ -319,6 +319,10 @@ function amazonAffiliateEnabled(): boolean {
   return process.env.AMAZON_AFFILIATE_ENABLED === "1" || process.env.AMAZON_AFFILIATE_ENABLED === "true";
 }
 
+function amazonCreatorsApiEnabled(): boolean {
+  return process.env.AMAZON_CREATORS_API_ENABLED === "1" || process.env.AMAZON_CREATORS_API_ENABLED === "true";
+}
+
 function amazonCredentialId(): string | null {
   return configured(process.env.AMAZON_CREATORS_CREDENTIAL_ID);
 }
@@ -899,7 +903,9 @@ export async function getAffiliateOfferBlock(
 
   const [ebayResult, amazonOffers] = await Promise.all([
     getEbayOffers(ebayGame, ebayDetails, preferredCountry),
-    amazonCreatorsMatchesMarketplace(selectedAmazonMarketplace) ? getAmazonOffers(game, details) : Promise.resolve([]),
+    amazonCreatorsApiEnabled() && amazonCreatorsMatchesMarketplace(selectedAmazonMarketplace)
+      ? getAmazonOffers(game, details)
+      : Promise.resolve([]),
   ]);
   const amazonFallback = amazonFallbackSearchCta(game, details, selectedAmazonMarketplace);
   const fallbackCtas = [...(amazonOffers.length > 0 ? [] : [amazonFallback]), ebayResult.fallbackCta].filter(

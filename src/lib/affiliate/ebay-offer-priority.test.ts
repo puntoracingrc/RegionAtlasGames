@@ -216,3 +216,46 @@ test("an empty selected eBay region falls back to valid offers from other origin
     }
   }
 });
+
+test("keeps the Amazon affiliate button without querying Creators API", async () => {
+  const { getAffiliateOfferBlock } = await import("../affiliate-offers");
+  const { getCatalogGame } = await import("../catalog");
+  const env = {
+    AFFILIATE_OFFERS_ENABLED: "1",
+    AFFILIATE_OFFERS_PRODUCTION_WHITELIST: "false",
+    EBAY_AFFILIATE_ENABLED: "0",
+    AMAZON_AFFILIATE_ENABLED: "1",
+    AMAZON_CREATORS_API_ENABLED: "0",
+    AMAZON_ASSOCIATE_TAG: "punto04-21",
+    AMAZON_MARKETPLACE: "www.amazon.es",
+    AMAZON_CREATORS_CREDENTIAL_ID: "unused-id",
+    AMAZON_CREATORS_CREDENTIAL_SECRET: "unused-secret",
+  };
+  const previousEnv = new Map(Object.keys(env).map(key => [key, process.env[key]]));
+  const previousFetch = globalThis.fetch;
+  try {
+    Object.assign(process.env, env);
+    let requests = 0;
+    globalThis.fetch = async () => {
+      requests += 1;
+      throw new Error("Creators API must stay disabled");
+    };
+    const game = getCatalogGame("ps5-absolum");
+    assert.ok(game);
+
+    const block = await getAffiliateOfferBlock(game, null, { amazonCountry: "ES" });
+
+    assert.equal(requests, 0);
+    assert.deepEqual(block.offers, []);
+    assert.equal(block.fallbackCta?.provider, "amazon");
+    assert.equal(block.fallbackCta?.label, "Buscar este juego en Amazon España");
+    assert.match(block.fallbackCta?.url ?? "", /amazon\.es\/s\?/);
+    assert.match(block.fallbackCta?.url ?? "", /tag=punto04-21/);
+  } finally {
+    globalThis.fetch = previousFetch;
+    for (const [key, value] of previousEnv) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  }
+});
