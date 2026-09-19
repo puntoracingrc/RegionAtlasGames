@@ -42,11 +42,16 @@ test("normalizes only user-facing detail text", () => {
   assert.equal(normalized.museumPath, details.museumPath);
 });
 
-test("allows curated local catalog covers without allowing arbitrary URLs", () => {
+test("allows curated catalog covers without allowing arbitrary absolute URLs", () => {
   assert.equal(
     getCoverSrc("/catalog-covers/ps4/1971-project-helios.jpg"),
     "/catalog-covers/ps4/1971-project-helios.jpg",
   );
+  assert.equal(
+    getCoverSrc("//static.fnac-static.com/multimedia/cover.jpg"),
+    "https://static.fnac-static.com/multimedia/cover.jpg",
+  );
+  assert.equal(getCoverSrc("//untrusted.example/cover.jpg"), null);
   assert.equal(getCoverSrc("https://untrusted.example/cover.jpg"), null);
 });
 
