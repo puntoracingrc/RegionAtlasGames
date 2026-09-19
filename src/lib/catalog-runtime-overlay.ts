@@ -15,6 +15,8 @@ import {
   resolveCatalogOverlayCandidate,
 } from "./catalog-overlay-merge";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
+import { mutateOverlayGame, mutateOverlayIndex, registerOverlayGame } from "./catalog-overlay-documents";
+import { preserveDirectPriceReceipts } from "./direct-price-connector";
 import { getStaticGameDetails } from "./static-game-details";
 import { withOwnedScanDetails } from "./catalog-owned-scans";
 import { getPs1EditionDetails } from "./ps1-edition-data";
@@ -84,19 +86,6 @@ const readIndexFromBlobCached = unstable_cache(
 
 async function readIndexFromBlob(options?: { fresh?: boolean }): Promise<CatalogOverlayIndex> {
   return options?.fresh ? readIndexFromBlobFresh() : readIndexFromBlobCached();
-}
-
-async function writeIndexToBlob(index: CatalogOverlayIndex): Promise<void> {
-  if (!shouldUseBlobStorage()) return;
-  const auth = await blobAuthOptions("private");
-  await put(INDEX_PATH, JSON.stringify({ ...index, updatedAt: new Date().toISOString() }, null, 2), {
-    ...auth,
-    contentType: "application/json",
-    addRandomSuffix: false,
-    allowOverwrite: true,
-    cacheControlMaxAge: 60,
-  });
-  revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
 }
 
 function gameBlobPath(catalogId: string): string {
@@ -174,16 +163,11 @@ export async function writeCatalogOverlay(input: {
   }
 
   const auth = await blobAuthOptions("private");
-  const gameJson = JSON.stringify(input.game, null, 2);
   const detailsJson = JSON.stringify(input.details, null, 2);
 
-  await put(gameBlobPath(input.game.id), gameJson, {
-    ...auth,
-    contentType: "application/json",
-    addRandomSuffix: false,
-    allowOverwrite: true,
-    cacheControlMaxAge: 60,
-  });
+  await mutateOverlayGame(input.game.id, current => ({
+    next: preserveDirectPriceReceipts(current, input.game), result: undefined,
+  }));
   await put(detailsBlobPath(input.game.id), detailsJson, {
     ...auth,
     contentType: "application/json",
@@ -192,18 +176,7 @@ export async function writeCatalogOverlay(input: {
     cacheControlMaxAge: 60,
   });
 
-  const index = await readIndexFromBlob({ fresh: true });
-  if (!index.ids.includes(input.game.id)) {
-    index.ids.push(input.game.id);
-    index.ids.sort();
-  }
-  const platform = input.game.platformSlug;
-  const platformIds = new Set(index.byPlatform[platform] ?? []);
-  platformIds.add(input.game.id);
-  index.byPlatform[platform] = [...platformIds].sort();
-  index.seoSlugs[buildCatalogSeoSlug(input.game)] = input.game.id;
-
-  await writeIndexToBlob(index);
+  await registerOverlayGame(input.game);
   revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
   return { ok: true };
 }
@@ -230,23 +203,12 @@ export async function deleteCatalogOverlayGame(
     console.warn("[catalog-overlay] blob delete failed", catalogId, error);
   }
 
-  index.ids = index.ids.filter((id) => id !== catalogId);
-
-  if (game) {
-    const platformIds = (index.byPlatform[game.platformSlug] ?? []).filter((id) => id !== catalogId);
-    if (platformIds.length > 0) {
-      index.byPlatform[game.platformSlug] = platformIds;
-    } else {
-      delete index.byPlatform[game.platformSlug];
-    }
-    delete index.seoSlugs[buildCatalogSeoSlug(game)];
-  } else {
-    for (const [slug, id] of Object.entries(index.seoSlugs)) {
-      if (id === catalogId) delete index.seoSlugs[slug];
-    }
-  }
-
-  await writeIndexToBlob(index);
+  await mutateOverlayIndex(current => ({
+    ...current,
+    ids: current.ids.filter(id => id !== catalogId),
+    byPlatform: Object.fromEntries(Object.entries(current.byPlatform).map(([platform, ids]) => [platform, ids.filter(id => id !== catalogId)]).filter(([, ids]) => ids.length > 0)),
+    seoSlugs: Object.fromEntries(Object.entries(current.seoSlugs).filter(([, id]) => id !== catalogId)),
+  }));
   revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
   return { ok: true, removed: true };
 }
