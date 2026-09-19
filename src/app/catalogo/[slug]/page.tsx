@@ -63,6 +63,7 @@ import {
   getSimilarGames,
 } from "@/lib/catalog-seo";
 import {
+  getCatalogByPlatformWithOverlay,
   getCatalogGameDetailsWithOverlay,
   resolveCatalogGameWithOverlay,
 } from "@/lib/catalog-runtime-overlay";
@@ -204,7 +205,8 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
   }
 
   const platform = getPlatform(game.platformSlug);
-  const editionGuide = getCatalogEditionGuide(game);
+  const platformCatalog = await getCatalogByPlatformWithOverlay(game.platformSlug);
+  const editionGuide = getCatalogEditionGuide(game, platformCatalog);
   const currentPhysicalEdition = editionGuide?.physicalEditions.find(
     (edition) => edition.id === editionGuide.currentEditionId,
   );

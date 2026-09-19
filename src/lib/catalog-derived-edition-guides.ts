@@ -434,6 +434,89 @@ function addCatalogGameToGuide(
   return guide;
 }
 
+function isSparseCatalogEdition(edition: CatalogPhysicalEdition): boolean {
+  return edition.id.startsWith("catalog-edition-")
+    && !edition.id.startsWith("catalog-edition-group-")
+    && !edition.barcode
+    && !edition.catalogNumber
+    && !edition.serial
+    && !edition.boxCode
+    && edition.productCodes.length === 0
+    && edition.images.length === 0;
+}
+
+function mergeSparseCatalogEditions(guide: CatalogEditionGuideModel): CatalogEditionGuideModel {
+  const merged = cloneGuide(guide);
+  const removed = new Set<string>();
+
+  for (const target of merged.physicalEditions) {
+    if (!target.id.startsWith("catalog-edition-group-") || target.marketRegions.length === 0) continue;
+
+    const duplicates = merged.physicalEditions.filter((candidate) => (
+      candidate.id !== target.id
+      && !removed.has(candidate.id)
+      && isSparseCatalogEdition(candidate)
+      && candidate.editionType === target.editionType
+      && candidate.marketRegions.length === 1
+      && target.marketRegions.includes(candidate.marketRegions[0])
+    ));
+
+    for (const duplicate of duplicates) {
+      target.catalogIds = [...new Set([...target.catalogIds, ...duplicate.catalogIds])];
+      target.catalogLinks = [
+        ...target.catalogLinks,
+        ...duplicate.catalogLinks.filter((link) => (
+          !target.catalogLinks.some((current) => current.catalogId === link.catalogId)
+        )),
+      ];
+      target.scanSetIds = [...new Set([...target.scanSetIds, ...duplicate.scanSetIds])];
+      target.packagingLanguages = [...new Set([...target.packagingLanguages, ...duplicate.packagingLanguages])];
+      target.softwareLanguages = [...new Set([...target.softwareLanguages, ...duplicate.softwareLanguages])];
+      target.ratingSystems = [...new Set([...target.ratingSystems, ...duplicate.ratingSystems])];
+      removed.add(duplicate.id);
+    }
+  }
+
+  if (!removed.size) return merged;
+  merged.physicalEditions = merged.physicalEditions.filter((edition) => !removed.has(edition.id));
+  merged.editionFamilies = merged.editionFamilies.map((family) => ({
+    ...family,
+    physicalEditionIds: family.physicalEditionIds.filter((editionId) => !removed.has(editionId)),
+  }));
+  return merged;
+}
+
+/**
+ * Completa una ficha V2 con las publicaciones calientes de la misma obra y
+ * familia. La coincidencia por titulo solo se usa dentro de la misma plataforma
+ * y tipo de edicion; las fichas genericas sin identificador se absorben cuando
+ * una caja regional confirmada representa inequívocamente el mismo mercado.
+ */
+export function extendCatalogEditionGuideWithRuntimeGames(
+  sourceGuide: CatalogEditionGuideModel,
+  currentGame: CatalogGame,
+  runtimeGames: CatalogGame[],
+): CatalogEditionGuideModel {
+  const currentTitle = normalizedIdentity(currentGame.title);
+  const currentFamily = familyIdentity(currentGame);
+  const matches = runtimeGames.filter((candidate) => (
+    candidate.listingStatus === "listed"
+    && candidate.platformSlug === currentGame.platformSlug
+    && normalizedIdentity(candidate.title) === currentTitle
+    && familyIdentity(candidate) === currentFamily
+  ));
+  if (!matches.length) return sourceGuide;
+
+  const catalogById = new Map(publicCatalogById);
+  for (const candidate of matches) catalogById.set(candidate.id, candidate);
+  const expanded = matches.reduce((guide, candidate) => {
+    const alreadyIncluded = guide.physicalEditions.some((edition) => edition.catalogIds.includes(candidate.id));
+    return alreadyIncluded ? guide : addCatalogGameToGuide(guide, candidate, catalogById);
+  }, sourceGuide);
+
+  return mergeSparseCatalogEditions(expanded);
+}
+
 /**
  * Amplía las guías documentales con nuevas fichas públicas inequívocas. Esta es
  * la conexión que permite que una región validada por el worker aparezca en V2
