@@ -162,6 +162,65 @@ function patchPhysicalEditionGroup(
   };
 }
 
+function centralEditionIdentity(game: CatalogListGame): string | null {
+  const group = game.physicalEditionGroup;
+  if (!group) return null;
+  const family = group.editionFamilyLabel ?? group.editionTypes.join(" ");
+  return normalizeCatalogSearchParts([game.platformSlug, game.title, family]);
+}
+
+function mergeGroupedCards(current: CatalogListGame, incoming: CatalogListGame): CatalogListGame {
+  const currentGroup = current.physicalEditionGroup!;
+  const incomingGroup = incoming.physicalEditionGroup!;
+  const preferred = incomingGroup.physicalEditionCount >= currentGroup.physicalEditionCount
+    ? incoming
+    : current;
+  const preferredGroup = preferred.physicalEditionGroup!;
+  const broadRegions = new Map(preferredGroup.broadRegions.map((entry) => [entry.value, entry]));
+  for (const entry of [...currentGroup.broadRegions, ...incomingGroup.broadRegions]) {
+    const existing = broadRegions.get(entry.value);
+    if (!existing || entry.editionCount > existing.editionCount) broadRegions.set(entry.value, entry);
+  }
+  const complete = extendPriceRange(currentGroup.priceRanges.complete, [
+    incomingGroup.priceRanges.complete?.min,
+    incomingGroup.priceRanges.complete?.max,
+  ]);
+  const sealed = extendPriceRange(currentGroup.priceRanges.sealed, [
+    incomingGroup.priceRanges.sealed?.min,
+    incomingGroup.priceRanges.sealed?.max,
+  ]);
+
+  return {
+    ...preferred,
+    physicalEditionGroup: {
+      ...preferredGroup,
+      catalogIds: unique([...currentGroup.catalogIds, ...incomingGroup.catalogIds]),
+      legacyRegions: unique([...currentGroup.legacyRegions, ...incomingGroup.legacyRegions]),
+      marketRegions: unique([...currentGroup.marketRegions, ...incomingGroup.marketRegions]),
+      overviewRegions: unique([...currentGroup.overviewRegions, ...incomingGroup.overviewRegions]),
+      physicalEditionCount: Math.max(currentGroup.physicalEditionCount, incomingGroup.physicalEditionCount),
+      collectibleVariantCount: Math.max(currentGroup.collectibleVariantCount, incomingGroup.collectibleVariantCount),
+      broadRegions: [...broadRegions.values()],
+      editionTypes: unique([...currentGroup.editionTypes, ...incomingGroup.editionTypes]),
+      ratingSystems: unique([...currentGroup.ratingSystems, ...incomingGroup.ratingSystems]),
+      packagingLanguages: unique([...currentGroup.packagingLanguages, ...incomingGroup.packagingLanguages]),
+      priceRanges: {
+        ...(complete ? { complete } : {}),
+        ...(sealed ? { sealed } : {}),
+      },
+    },
+    isGrail: current.isGrail || incoming.isGrail,
+    isTopSegment: current.isTopSegment || incoming.isTopSegment,
+    searchText: appendSearchText(current.searchText, incoming.searchText ?? ""),
+    gameSearchText: appendSearchText(current.gameSearchText, incoming.gameSearchText ?? ""),
+    companySearchText: appendSearchText(current.companySearchText, incoming.companySearchText ?? ""),
+    companies: unique([...(current.companies ?? []), ...(incoming.companies ?? [])]),
+    genreSlugs: unique([...(current.genreSlugs ?? []), ...(incoming.genreSlugs ?? [])]),
+    subgenreSlugs: unique([...(current.subgenreSlugs ?? []), ...(incoming.subgenreSlugs ?? [])]),
+    facetSlugs: unique([...(current.facetSlugs ?? []), ...(incoming.facetSlugs ?? [])]),
+  };
+}
+
 function overlayListGame(
   overlay: CatalogGame,
   displayPlatform: string,
@@ -264,11 +323,23 @@ export function mergeCatalogBrowseOverlay(
     newOverlays.map(({ game, displayPlatform }) => overlayListGame(game, displayPlatform)),
     { mergeSearchMetadata: false },
   );
+  const indexByCentralEdition = new Map<string, number>();
+  result.forEach((game, index) => {
+    const identity = centralEditionIdentity(game);
+    if (identity) indexByCentralEdition.set(identity, index);
+  });
   for (const game of groupedNewGames) {
-    const index = result.length;
-    result.push(game);
-    indexByCatalogId.set(game.id, index);
-    for (const catalogId of game.physicalEditionGroup?.catalogIds ?? []) {
+    const centralIdentity = centralEditionIdentity(game);
+    const existingIndex = centralIdentity ? indexByCentralEdition.get(centralIdentity) : undefined;
+    const index = existingIndex ?? result.length;
+    if (existingIndex == null) {
+      result.push(game);
+      if (centralIdentity) indexByCentralEdition.set(centralIdentity, index);
+    } else {
+      result[index] = mergeGroupedCards(result[index], game);
+    }
+    indexByCatalogId.set(result[index].id, index);
+    for (const catalogId of result[index].physicalEditionGroup?.catalogIds ?? []) {
       indexByCatalogId.set(catalogId, index);
     }
   }
