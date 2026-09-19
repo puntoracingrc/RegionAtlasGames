@@ -143,6 +143,10 @@ test("the detail guide folds a published batch into the existing V2 central card
   } as CatalogGame));
 
   const baseGuide = buildRuntimeCatalogEditionGuide(genericGames[0], [], genericGames);
+  const browseGuide = buildRuntimeCatalogEditionGuide(runtimeGames[0], [baseGuide], runtimeGames);
+  assert.equal(browseGuide.physicalEditions.length, 11);
+  assert.equal(browseGuide.editionFamilies[0].physicalEditionIds.length, 11);
+
   const merged = extendCatalogEditionGuideWithRuntimeGames(
     baseGuide,
     runtimeGames.find((game) => game.marketRegion === "ES")!,

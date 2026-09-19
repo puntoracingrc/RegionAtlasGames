@@ -613,12 +613,13 @@ export function buildRuntimeCatalogEditionGuide(
     if (candidates.length === 1) {
       const catalogById = new Map(publicCatalogById);
       for (const candidate of relatedRuntimeGames) catalogById.set(candidate.id, candidate);
-      return relatedRuntimeGames.reduce((guide, candidate) => {
+      const expandedGuide = relatedRuntimeGames.reduce((guide, candidate) => {
         const candidateGuides = documentedGuideCandidates(documentedGuides, candidate);
         return candidateGuides.length === 1 && candidateGuides[0] === candidates[0]
           ? addCatalogGameToGuide(guide, candidate, catalogById)
           : guide;
       }, documentedGuides[candidates[0]]);
+      return mergeSparseCatalogEditions(expandedGuide);
     }
   }
 
