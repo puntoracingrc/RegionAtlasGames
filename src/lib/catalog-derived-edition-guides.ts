@@ -105,7 +105,11 @@ function relationshipKeys(game: CatalogGame): string[] {
 }
 
 export function catalogDerivedEditionType(game: CatalogGame): CatalogPhysicalEditionType {
-  const editionIdentity = normalizedIdentity(`${game.edition} ${game.physicalVariant ?? ""}`);
+  const editionIdentity = [...new Set(
+    [game.edition, game.physicalVariant]
+      .map(normalizedIdentity)
+      .filter(Boolean),
+  )].join(" ");
   const title = normalizedIdentity(game.title);
   const has = (pattern: RegExp) => pattern.test(editionIdentity);
   const titleHas = (pattern: RegExp) => pattern.test(title);

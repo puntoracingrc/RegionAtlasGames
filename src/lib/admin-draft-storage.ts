@@ -40,7 +40,11 @@ function parseDraft(raw: string, pcId: number): AdminGameDraft | null {
   try {
     const parsed = JSON.parse(raw) as AdminGameDraft;
     if (!parsed || parsed.pcId !== pcId) return null;
-    return { ...parsed, physicalVariant: parsed.physicalVariant ?? null };
+    return {
+      ...parsed,
+      physicalVariant: parsed.physicalVariant ?? null,
+      workId: parsed.workId ?? null,
+    };
   } catch {
     return null;
   }
@@ -145,6 +149,8 @@ export function draftFromStaging(
     titlePc: existing?.titlePc ?? game.titlePc,
     platformSlug: existing?.platformSlug ?? game.platformSlug,
     region: existing?.region ?? game.region,
+    workId: existing?.workId ?? null,
+    regionalStatus: existing?.regionalStatus,
     marketRegion: existing?.marketRegion ?? null,
     physicalReleaseGroup: existing?.physicalReleaseGroup ?? null,
     initialPrices: existing?.initialPrices ?? null,
@@ -195,6 +201,8 @@ export function draftFromManualInput(input: {
   title: string;
   platformSlug: string;
   region: string;
+  workId?: string | null;
+  regionalStatus?: AdminGameDraft["regionalStatus"];
   marketRegion?: string | null;
   physicalReleaseGroup?: AdminGameDraft["physicalReleaseGroup"];
   initialPrices?: AdminGameDraft["initialPrices"];
@@ -239,6 +247,8 @@ export function draftFromManualInput(input: {
     titlePc: input.title.trim(),
     platformSlug: input.platformSlug,
     region: input.region,
+    workId: input.workId?.trim() || null,
+    regionalStatus: input.regionalStatus,
     marketRegion: input.marketRegion ?? null,
     physicalReleaseGroup: input.physicalReleaseGroup ?? null,
     initialPrices: input.initialPrices ?? null,

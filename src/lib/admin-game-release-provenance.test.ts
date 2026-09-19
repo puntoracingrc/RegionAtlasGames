@@ -77,6 +77,21 @@ test("publishes the initial regional prices entered in the batch form", () => {
   assert.equal(game.hasEsPrice, true);
 });
 
+test("publishes the shared V2 work identity created by a regional batch", () => {
+  const draft = draftFromManualInput({
+    pcId: -1,
+    title: "Mortal Shell II",
+    platformSlug: "ps5",
+    region: "PAL España",
+    workId: "mortal-shell-ii",
+    regionalStatus: "resolved",
+  });
+
+  const game = buildCatalogEntry(draft, null);
+  assert.equal(game.workId, "mortal-shell-ii");
+  assert.equal(game.regionalStatus, "resolved");
+});
+
 test("keeps verified region evidence and unrelated field provenance on later edits", () => {
   const gameEsSource = {
     sku: "123456",

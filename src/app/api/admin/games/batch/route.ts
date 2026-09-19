@@ -17,6 +17,7 @@ import {
   catalogIdExistsInCatalog,
   triggerCatalogDeployHook,
 } from "@/lib/catalog-runtime-overlay";
+import { slugify } from "@/lib/slug";
 
 export const maxDuration = 300;
 
@@ -76,12 +77,15 @@ export async function POST(request: Request) {
 
   const drafts = [];
   const catalogIds = new Set<string>();
+  const workId = slugify(body.baseSlug?.trim() || body.title);
   for (const row of expanded.rows) {
     const pcId = await nextManualPcId();
     const draft = draftFromManualInput({
       title: body.title,
       platformSlug: body.platformSlug,
       region: row.region,
+      workId,
+      regionalStatus: "resolved",
       marketRegion: row.marketRegion,
       physicalReleaseGroup: row.group,
       initialPrices: row.initialPrices,
@@ -126,6 +130,7 @@ export async function POST(request: Request) {
   }
 
   const published: string[] = [];
+  let publicUrl: string | null = null;
   if (body.publishNow) {
     for (const draft of drafts) {
       const result = await publishAdminGameDraft(draft, { triggerDeploy: false });
@@ -140,6 +145,7 @@ export async function POST(request: Request) {
         );
       }
       published.push(result.catalogId);
+      publicUrl ??= result.url;
     }
     await triggerCatalogDeployHook();
   }
@@ -156,6 +162,7 @@ export async function POST(request: Request) {
       groupId: draft.physicalReleaseGroup?.id,
     })),
     published,
-    redirect: drafts[0] ? `/admin/cola/${drafts[0].pcId}` : "/admin/cola",
+    workId,
+    redirect: publicUrl ?? (drafts[0] ? `/admin/cola/${drafts[0].pcId}` : "/admin/cola"),
   });
 }

@@ -162,7 +162,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
   }
 
   async function submit(publishNow: boolean) {
-    if (publishNow && !window.confirm(`Se publicarán ${regionalRecordCount} fichas regionales de ${title.trim()}. ¿Continuar?`)) {
+    if (publishNow && !window.confirm(`Se publicará una ficha central de ${title.trim()}, con ${groups.length} cajas físicas y ${regionalRecordCount} identidades regionales. ¿Continuar?`)) {
       return;
     }
     setLoading(true); setError(null); setResult(null);
@@ -213,7 +213,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
 
   return <Panel className={adminToneClass("edit")}>
     <PanelTitle eyebrow="Alta regional V2">Juego y variantes físicas</PanelTitle>
-    <p className="mb-5 max-w-4xl text-sm leading-6 text-muted">Completa el juego una vez, documenta cada caja física y añade precios distintos por mercado. Las fichas regionales seguirán agrupadas como una sola edición física en V2.</p>
+    <p className="mb-5 max-w-4xl text-sm leading-6 text-muted">Completa el juego una vez, documenta cada caja física y añade precios distintos por mercado. El catálogo mostrará una sola ficha central V2 para esta edición, con todas sus cajas y regiones dentro.</p>
 
     <section className="rounded-lg border border-border bg-background/45 p-4">
       <h2 className="text-base font-semibold">Datos comunes del juego</h2>
@@ -279,8 +279,8 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
       </section>;
     })}</div>
     <button type="button" className="btn-secondary mt-4" onClick={() => { setGroups((current) => [...current, emptyGroup(nextId)]); setNextId((current) => current + 1); }}><Plus size={18} aria-hidden="true" /> Añadir caja física</button>
-    <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5"><p className="text-sm text-muted"><strong className="text-foreground">{groups.length}</strong> variantes físicas · <strong className="text-foreground">{regionalRecordCount}</strong> fichas regionales</p><div className="flex flex-wrap gap-2"><button type="button" className="btn-secondary" disabled={loading || !canSubmit} onClick={() => void submit(false)}>{loading ? "Guardando y subiendo imágenes…" : "Crear lote para revisar"}</button><button type="button" className="btn-primary" disabled={loading || !canSubmit} onClick={() => void submit(true)}>{loading ? "Publicando…" : "Crear y publicar lote"}</button></div></div>
+    <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5"><p className="text-sm text-muted"><strong className="text-foreground">1</strong> ficha central V2 · <strong className="text-foreground">{groups.length}</strong> cajas físicas · <strong className="text-foreground">{regionalRecordCount}</strong> identidades regionales</p><div className="flex flex-wrap gap-2"><button type="button" className="btn-secondary" disabled={loading || !canSubmit} onClick={() => void submit(false)}>{loading ? "Guardando y subiendo imágenes…" : "Crear lote para revisar"}</button><button type="button" className="btn-primary" disabled={loading || !canSubmit} onClick={() => void submit(true)}>{loading ? "Publicando…" : "Crear y publicar ficha V2"}</button></div></div>
     {error ? <p className="mt-4 rounded-md border border-danger/35 bg-danger/10 p-3 text-sm text-danger">{error}</p> : null}
-    {result ? <p className="mt-4 rounded-md border border-success/35 bg-success/10 p-3 text-sm text-foreground">Lote creado: {result.physicalVariantCount} variantes físicas y {result.regionalRecordCount} fichas regionales.</p> : null}
+    {result ? <p className="mt-4 rounded-md border border-success/35 bg-success/10 p-3 text-sm text-foreground">Ficha central creada con {result.physicalVariantCount} cajas físicas y {result.regionalRecordCount} identidades regionales.</p> : null}
   </Panel>;
 }
