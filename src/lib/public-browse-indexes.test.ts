@@ -160,7 +160,7 @@ test("el overlay caliente agrupa las regiones nuevas bajo una tarjeta V2", async
   assert.equal(mortalShellCards.length, 1);
   assert.ok(mortalShellCards[0].physicalEditionGroup?.catalogIds.includes(es.id));
   assert.ok(mortalShellCards[0].physicalEditionGroup?.catalogIds.includes(fr.id));
-  assert.ok((mortalShellCards[0].physicalEditionGroup?.physicalEditionCount ?? 0) >= 2);
+  assert.equal(mortalShellCards[0].physicalEditionGroup?.physicalEditionCount, 2);
 });
 
 test("el índice de compañías y sus filtros coinciden con la fuente enriquecida", () => {
