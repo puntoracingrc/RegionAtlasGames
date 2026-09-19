@@ -16,7 +16,6 @@ import { SiteNav } from "@/components/site-nav";
 import { Panel } from "@/components/ui";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import {
-  enrichCollectionItem,
   getCatalogGame,
   hasPublicCatalogGames,
   meta,
@@ -27,6 +26,7 @@ import { readUserCollection, summarizeCollectionForPlan } from "@/lib/collection
 import { getUserCommunicationOverview } from "@/lib/conversations";
 import { getCoverSrc } from "@/lib/cover-url";
 import { buildHomeCollectionSnapshot, type HomeCollectionSnapshot } from "@/lib/home-dashboard";
+import { loadCollectionPriceData } from "@/lib/collection-runtime-prices";
 import { indexStats } from "@/lib/indexes";
 import { getSellerListings } from "@/lib/listings";
 import { listingStatusLabel } from "@/lib/marketplace-ui";
@@ -40,9 +40,11 @@ import { getCurrentUser } from "@/lib/users";
 const loadHomeCollectionSnapshot = cache(
   async (userId: string, plan: PublicUser["plan"]): Promise<HomeCollectionSnapshot> => {
     const file = await readUserCollection(userId);
-    const items = file.items.map(enrichCollectionItem);
+    const { items, historyByItemId } = await loadCollectionPriceData(file.items);
     const summary = summarizeCollectionForPlan(items, plan);
-    return buildHomeCollectionSnapshot(items, summary);
+    return buildHomeCollectionSnapshot(items, summary, {
+      historyForItem: item => historyByItemId.get(item.id) ?? [],
+    });
   },
 );
 

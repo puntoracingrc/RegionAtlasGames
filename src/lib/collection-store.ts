@@ -6,7 +6,8 @@ import type {
   CollectionPhotoSlot,
   CollectionView,
 } from "./types";
-import { enrichCollectionItem, getCatalogGame } from "./catalog";
+import { getCatalogGame } from "./catalog";
+import { enrichCollectionItemWithCurrentPrices, enrichCollectionItemsWithCurrentPrices } from "./collection-runtime-prices";
 import type { UserPlan } from "./marketplace-types";
 import { canViewCollectionValue } from "./plans";
 import { slugify } from "./slug";
@@ -26,7 +27,6 @@ import {
   collectionPhysicalIdentityKey,
   resolveCatalogEditionMembership,
   resolveCatalogPhysicalVariant,
-  withResolvedCollectionPhysicalVariant,
 } from "./catalog-physical-variant";
 import {
   availableCollectionConditions,
@@ -78,7 +78,7 @@ export async function updateUserCollection<R>(
 
 export async function getUserCollectionViews(userId: string): Promise<CollectionView[]> {
   const file = await readUserCollection(userId);
-  return file.items.map((item) => withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)));
+  return enrichCollectionItemsWithCurrentPrices(file.items);
 }
 
 export async function getUserCollectionItem(
@@ -87,7 +87,7 @@ export async function getUserCollectionItem(
 ): Promise<CollectionView | undefined> {
   const file = await readUserCollection(userId);
   const item = file.items.find((i) => i.id === itemId);
-  return item ? withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)) : undefined;
+  return item ? enrichCollectionItemWithCurrentPrices(item) : undefined;
 }
 
 export async function getUserCollectionItemsForCatalog(
@@ -95,9 +95,7 @@ export async function getUserCollectionItemsForCatalog(
   catalogId: string,
 ): Promise<CollectionView[]> {
   const file = await readUserCollection(userId);
-  return file.items
-    .filter((item) => item.catalogId === catalogId)
-    .map((item) => withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)));
+  return enrichCollectionItemsWithCurrentPrices(file.items.filter((item) => item.catalogId === catalogId));
 }
 
 export async function getUserCollectionItemsForEditionFamily(
@@ -106,16 +104,17 @@ export async function getUserCollectionItemsForEditionFamily(
   editionFamilyId: string,
 ): Promise<CollectionView[]> {
   const file = await readUserCollection(userId);
-  return file.items.flatMap((item) => {
+  const items = file.items.filter((item) => {
     const membership = resolveCatalogEditionMembership(item.catalogId, item.physicalVariantId);
     if (
       membership?.guide.id !== guideId ||
       membership.family.id !== editionFamilyId
     ) {
-      return [];
+      return false;
     }
-    return [withResolvedCollectionPhysicalVariant(enrichCollectionItem(item))];
+    return true;
   });
+  return enrichCollectionItemsWithCurrentPrices(items);
 }
 
 function collectionTitleKey(item: CollectionItem): string {
@@ -232,7 +231,7 @@ export async function getFirstCollectionItemForCatalog(
 ): Promise<CollectionView | undefined> {
   const file = await readUserCollection(userId);
   const item = file.items.find((i) => i.catalogId === catalogId);
-  return item ? withResolvedCollectionPhysicalVariant(enrichCollectionItem(item)) : undefined;
+  return item ? enrichCollectionItemWithCurrentPrices(item) : undefined;
 }
 
 function uniqueItemId(items: CollectionItem[], title: string): string {

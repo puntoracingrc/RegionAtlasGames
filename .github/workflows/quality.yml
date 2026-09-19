@@ -58,6 +58,9 @@ jobs:
           npx tsx --test src/lib/direct-price-connector.test.ts
           python3 scripts/test_publish_direct_prices.py
 
+      - name: Published regional prices and collection valuation
+        run: npm run test:published-price-views
+
       - name: PS1 cover backlog tests
         run: python3 scripts/test_ps1_cover_backlog.py
 

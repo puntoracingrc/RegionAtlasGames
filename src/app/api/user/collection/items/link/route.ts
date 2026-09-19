@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { enrichCollectionItem } from "@/lib/catalog";
+import { enrichCollectionItemWithCurrentPrices } from "@/lib/collection-runtime-prices";
 import { linkCollectionItemToCatalog } from "@/lib/collection-store";
 import { getCurrentUser } from "@/lib/users";
 
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.json({
-    item: enrichCollectionItem(result.item),
+    item: await enrichCollectionItemWithCurrentPrices(result.item),
     linked: true,
   });
 }

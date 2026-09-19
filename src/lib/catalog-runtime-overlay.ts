@@ -28,6 +28,7 @@ import {
   normalizeGameDetailsPresentation,
 } from "./catalog-presentation";
 import type { CatalogGame, GameDetails } from "./types";
+import { loadCatalogPriceGames } from "./catalog-price-games";
 
 const OVERLAY_PREFIX = "region-atlas/catalog/overlay";
 const INDEX_PATH = `${OVERLAY_PREFIX}/index.json`;
@@ -223,7 +224,7 @@ export async function resolveCatalogGameWithOverlay(
   param: string,
 ): Promise<CatalogGame | undefined> {
   const staticGame =
-    listedCatalog.find((g) => buildCatalogSeoSlug(g) === param) ?? getCatalogGame(param);
+    getCatalogGame(param) ?? listedCatalog.find((g) => buildCatalogSeoSlug(g) === param);
   const index = await loadCatalogOverlayIndex();
   const overlayId = resolveCatalogOverlayCandidate(
     param,
@@ -317,9 +318,9 @@ export async function getCatalogByPlatformWithOverlay(platformSlug: string): Pro
   const overlayIds = index.byPlatform[platformSlug] ?? [];
   if (overlayIds.length === 0) return staticGames;
 
-  const overlayGames = (
-    await Promise.all(overlayIds.map((id) => readCatalogOverlayGame(id)))
-  ).filter((g): g is CatalogGame => g != null);
+  const overlayGames = Object.values(await loadCatalogPriceGames(
+    overlayIds, async id => (await readCatalogOverlayGame(id)) ?? undefined,
+  )).filter((g): g is CatalogGame => g != null);
 
   return mergeCatalogPlatformGames(platformSlug, staticGames, overlayGames);
 }
@@ -329,9 +330,9 @@ export async function getPublicCatalogWithOverlay(): Promise<CatalogGame[]> {
   const index = await loadCatalogOverlayIndex();
   if (index.ids.length === 0) return publicListedCatalog;
 
-  const overlayGames = (
-    await Promise.all(index.ids.map((id) => readCatalogOverlayGame(id)))
-  ).filter((game): game is CatalogGame => game != null && canonicalCatalogId(game.id) === game.id);
+  const overlayGames = Object.values(await loadCatalogPriceGames(
+    index.ids, async id => (await readCatalogOverlayGame(id)) ?? undefined,
+  )).filter((game): game is CatalogGame => game != null && canonicalCatalogId(game.id) === game.id);
   if (overlayGames.length === 0) return publicListedCatalog;
 
   return mergePublicCatalogWithOverlayGames(publicListedCatalog, overlayGames);

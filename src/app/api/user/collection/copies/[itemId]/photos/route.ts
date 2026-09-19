@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { enrichCollectionItem } from "@/lib/catalog";
+import { enrichCollectionItemWithCurrentPrices } from "@/lib/collection-runtime-prices";
 import { saveCollectionPhotoFile } from "@/lib/collection-photo-storage";
 import { validateCollectionPhoto } from "@/lib/collection-photo-validation";
 import { isCollectionPhotoSlot } from "@/lib/collection-photos";
@@ -73,7 +73,7 @@ export async function POST(request: Request, { params }: Params) {
       return NextResponse.json({ error: updated.error }, { status: 409 });
     }
 
-    return NextResponse.json({ item: enrichCollectionItem(updated.item), photo });
+    return NextResponse.json({ item: await enrichCollectionItemWithCurrentPrices(updated.item), photo });
   } catch (error) {
     console.error("[collection-photo-upload] failed", { userId: user.id, itemId, error });
     return NextResponse.json(

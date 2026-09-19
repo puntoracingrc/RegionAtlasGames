@@ -13,6 +13,7 @@ export type PhysicalEditionPriceOption = {
   broadRegionLabel: string;
   regions: string[];
   content: ReactNode;
+  history?: ReactNode;
 };
 
 export function PhysicalEditionPriceSwitcher({
@@ -51,7 +52,7 @@ export function PhysicalEditionPriceSwitcher({
   }, [selectedId]);
 
   if (!selected) return null;
-  if (options.length === 1) return selected.content;
+  if (options.length === 1) return <div className="space-y-5">{selected.content}{selected.history}</div>;
 
   function move(offset: number) {
     const nextIndex = (selectedIndex + offset + options.length) % options.length;
@@ -156,6 +157,7 @@ export function PhysicalEditionPriceSwitcher({
           })}
         </div>
       </div>
+      <div key={selected.id} aria-live="polite">{selected.history}</div>
     </section>
   );
 }

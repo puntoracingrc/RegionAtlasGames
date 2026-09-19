@@ -4,14 +4,17 @@ import { useMemo, useState } from "react";
 import type { ConditionBucket } from "@/lib/condition-prices";
 import {
   CONDITION_CHART_COLORS,
+  PRICE_HISTORY_BUCKETS,
   type PriceHistorySnapshot,
-} from "@/lib/price-history";
+} from "@/lib/price-history-model";
 import { formatEur } from "@/lib/price-format";
 import { Panel, PanelTitle } from "@/components/ui";
 
 type Props = {
   catalogId: string;
   history: PriceHistorySnapshot[];
+  editionLabel?: string;
+  allowedBuckets?: readonly ConditionBucket[];
 };
 
 type Point = { x: number; y: number; at: string; value: number };
@@ -19,7 +22,6 @@ type Point = { x: number; y: number; at: string; value: number };
 const WIDTH = 640;
 const HEIGHT = 240;
 const PAD = { top: 18, right: 16, bottom: 36, left: 52 };
-const BUCKETS: ConditionBucket[] = ["loose", "gameManual", "complete", "sealed", "newRetail"];
 
 function seriesPoints(
   history: PriceHistorySnapshot[],
@@ -32,6 +34,7 @@ function seriesPoints(
 
   for (const snap of history) {
     const value = snap[bucket];
+    if (value === undefined) continue;
     if (value == null) {
       if (current.length) segments.push(current);
       current = [];
@@ -63,16 +66,18 @@ function formatAxisDate(iso: string): string {
   return new Intl.DateTimeFormat("es-ES", {
     month: "short",
     day: "numeric",
+    timeZone: "Europe/Madrid",
   }).format(new Date(iso));
 }
 
 function formatTooltipDate(iso: string): string {
   return new Intl.DateTimeFormat("es-ES", {
     dateStyle: "medium",
+    timeZone: "Europe/Madrid",
   }).format(new Date(iso));
 }
 
-export function GamePriceHistoryChart({ catalogId, history }: Props) {
+export function GamePriceHistoryChart({ catalogId, history, editionLabel, allowedBuckets = PRICE_HISTORY_BUCKETS }: Props) {
   const [hover, setHover] = useState<Point | null>(null);
   const [hoverBucket, setHoverBucket] = useState<ConditionBucket | null>(null);
 
@@ -81,7 +86,7 @@ export function GamePriceHistoryChart({ catalogId, history }: Props) {
     const plotH = HEIGHT - PAD.top - PAD.bottom;
 
     const values = history.flatMap((snap) =>
-      BUCKETS.map((b) => snap[b]).filter((v): v is number => v != null),
+      allowedBuckets.map((b) => snap[b]).filter((v): v is number => v != null),
     );
     if (values.length === 0) return null;
 
@@ -112,16 +117,30 @@ export function GamePriceHistoryChart({ catalogId, history }: Props) {
             Math.round((i / Math.max(xTickCount - 1, 1)) * (history.length - 1)),
           );
 
-    const series = BUCKETS.map((bucket) => ({
+    const series = allowedBuckets.map((bucket) => ({
       bucket,
       segments: seriesPoints(history, bucket, xScale, yScale),
       color: CONDITION_CHART_COLORS[bucket].stroke,
     })).filter((s) => s.segments.some((seg) => seg.length > 0));
 
     return { xScale, yScale, yTickValues, xTickIndexes, series, plotH, plotW, yMin, yMax };
-  }, [history]);
+  }, [history, allowedBuckets]);
 
-  if (!chart || chart.series.length === 0) return null;
+  const heading = (
+    <>
+      <PanelTitle>Evolución del precio{editionLabel ? ` · ${editionLabel}` : ""}</PanelTitle>
+      <p className="mb-4 text-sm text-muted">
+        Precios orientativos publicados por estado, en EUR y sin transporte. Solo de esta región y edición.
+      </p>
+    </>
+  );
+
+  if (!chart || chart.series.length === 0) return (
+    <Panel>
+      {heading}
+      <p className="text-sm text-muted">Sin historial de precios para esta región y edición.</p>
+    </Panel>
+  );
 
   const activeSeries = hoverBucket
     ? chart.series.find((s) => s.bucket === hoverBucket)
@@ -129,17 +148,15 @@ export function GamePriceHistoryChart({ catalogId, history }: Props) {
 
   return (
     <Panel>
-      <PanelTitle>Evolución del precio</PanelTitle>
-      <p className="mb-4 text-sm text-muted">
-        Medias ponderadas por estado. Se actualiza con cada pasada de recopilación de precios.
-      </p>
+      {heading}
 
       <div className="relative w-full overflow-x-auto">
         <svg
           viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
           className="h-auto w-full min-w-[280px] max-w-full"
           role="img"
-          aria-label={`Gráfica de evolución de precios para ${catalogId}`}
+          aria-label={`Gráfica de evolución de precios para ${editionLabel ?? catalogId}`}
+          data-price-history-catalog-id={catalogId}
         >
           {chart.yTickValues.map((value) => {
             const y = chart.yScale(value);
@@ -212,7 +229,9 @@ export function GamePriceHistoryChart({ catalogId, history }: Props) {
                       setHover(null);
                       setHoverBucket(null);
                     }}
-                  />
+                  >
+                    <title>{`${CONDITION_CHART_COLORS[bucket].label}: ${formatEur(point.value)} · ${formatTooltipDate(point.at)}`}</title>
+                  </circle>
                 ))}
               </g>
             )),
@@ -258,6 +277,12 @@ export function GamePriceHistoryChart({ catalogId, history }: Props) {
           </li>
         ))}
       </ul>
+
+      {allowedBuckets.filter(bucket => !chart.series.some(series => series.bucket === bucket)).map(bucket => (
+        <p key={bucket} className="mt-2 text-xs text-muted">
+          {CONDITION_CHART_COLORS[bucket].label}: sin historial.
+        </p>
+      ))}
 
       {history.length === 1 && (
         <p className="mt-3 text-xs text-muted/80">

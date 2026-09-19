@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { enrichCollectionItem } from "@/lib/catalog";
+import { enrichCollectionItemWithCurrentPrices } from "@/lib/collection-runtime-prices";
 import {
   deleteCollectionPhotoFile,
   readCollectionPhotoFile,
@@ -48,5 +48,5 @@ export async function DELETE(_request: Request, { params }: Params) {
   } catch (error) {
     console.error("[collection-photo-delete] cleanup failed", { userId: user.id, itemId, slot, error });
   }
-  return NextResponse.json({ item: enrichCollectionItem(result.item) });
+  return NextResponse.json({ item: await enrichCollectionItemWithCurrentPrices(result.item) });
 }
