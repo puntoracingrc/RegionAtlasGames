@@ -632,7 +632,7 @@ export function buildRuntimeCatalogEditionGuide(
   const siblings = game.listingStatus === "listed"
     ? (catalogGamesByDerivedGroup().get(key) ?? []).filter((candidate) => !claimed.has(candidate.id))
     : [];
-  return buildGuide([...new Map(
+  return mergeSparseCatalogEditions(buildGuide([...new Map(
     [...siblings, ...relatedRuntimeGames].map((candidate) => [candidate.id, candidate]),
-  ).values()]);
+  ).values()]));
 }
