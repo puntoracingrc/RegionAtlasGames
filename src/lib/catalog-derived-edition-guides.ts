@@ -167,10 +167,13 @@ export function catalogDerivedBroadRegion(game: CatalogGame): CatalogPhysicalEdi
     : catalogBroadRegionFromLegacyRegion(game.regionFamily ?? game.region);
 }
 
-function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
+function physicalEditionFromCatalogGames(games: CatalogGame[]): CatalogPhysicalEdition {
+  const game = representative(games);
   const scan = getOwnedScanSetById(game.id);
   const originalContents = resolveOriginalGameContents(game);
-  const marketRegions = exactMarketRegions(game);
+  const marketRegions = [...new Set(games.flatMap(exactMarketRegions))];
+  const releaseGroup = game.physicalReleaseGroup ?? null;
+  const barcode = releaseGroup?.barcode || scan?.packaging.ean || undefined;
   const catalogNumber = scan?.packaging.reference
     ?? (game.regionalStatus === "resolved" ? game.canonicalSerials?.join(" / ") : undefined)
     ?? (game.regionalStatus === "resolved" ? game.resolutionSerials?.join(" / ") : undefined);
@@ -183,8 +186,8 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
     : [];
 
   return {
-    id: `catalog-edition-${game.id}`,
-    label: familyLabel(game),
+    id: releaseGroup ? `catalog-edition-group-${slugify(releaseGroup.id)}` : `catalog-edition-${game.id}`,
+    label: releaseGroup?.label || familyLabel(game),
     broadRegion: catalogDerivedBroadRegion(game),
     editionType: catalogDerivedEditionType(game),
     releaseStatus: "RELEASED",
@@ -192,25 +195,26 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
     marketRegions,
     evidenceMarkets: [],
     distributionMarkets: [],
-    packagingLanguages: scan?.packaging.languages ?? [],
+    packagingLanguages: releaseGroup?.packagingLanguages ?? scan?.packaging.languages ?? [],
     softwareLanguages: [],
     componentLanguageEvidence: [],
     ratingSystems: [],
     softwareFamilyCodes: [],
-    productCodes: [],
+    productCodes: releaseGroup?.productCodes ?? [],
     compatiblePlatforms: [game.platformSlug],
-    ...(scan?.packaging.ean ? { barcode: scan.packaging.ean } : {}),
+    ...(barcode ? { barcode } : {}),
+    ...(releaseGroup?.confidence ? { confidence: releaseGroup.confidence } : {}),
     ...(catalogNumber ? { catalogNumber } : {}),
     physicalContents,
     digitalContents: [],
-    catalogIds: [game.id],
-    catalogLinks: [{
-      catalogId: game.id,
-      href: catalogGamePath(game),
+    catalogIds: games.map((entry) => entry.id),
+    catalogLinks: games.map((entry) => ({
+      catalogId: entry.id,
+      href: catalogGamePath(entry),
       current: false,
-      region: game.region,
-    }],
-    scanSetIds: scan ? [game.id] : [],
+      region: entry.region,
+    })),
+    scanSetIds: games.filter((entry) => getOwnedScanSetById(entry.id)).map((entry) => entry.id),
     evidence: [],
     images: [],
     includesEditionIds: [],
@@ -219,6 +223,15 @@ function physicalEditionFromCatalog(game: CatalogGame): CatalogPhysicalEdition {
     variants: [],
     notes: [],
   };
+}
+
+function physicalEditionGroups(games: CatalogGame[]): CatalogGame[][] {
+  const grouped = new Map<string, CatalogGame[]>();
+  for (const game of games) {
+    const key = game.physicalReleaseGroup?.id || `catalog-entry:${game.id}`;
+    grouped.set(key, [...(grouped.get(key) ?? []), game]);
+  }
+  return [...grouped.values()];
 }
 
 function representative(games: CatalogGame[]): CatalogGame {
@@ -253,9 +266,9 @@ function buildGuide(games: CatalogGame[]): CatalogEditionGuideModel {
     if (typeDiff) return typeDiff;
     return familyLabel(left[0]).localeCompare(familyLabel(right[0]), "es");
   });
-  const editions = sortedFamilies.flatMap((familyGames) => [...familyGames]
-    .sort((left, right) => regionSortRank(left.region) - regionSortRank(right.region) || left.id.localeCompare(right.id, "es"))
-    .map(physicalEditionFromCatalog));
+  const editions = sortedFamilies.flatMap((familyGames) => physicalEditionGroups(familyGames)
+    .sort((left, right) => regionSortRank(representative(left).region) - regionSortRank(representative(right).region))
+    .map(physicalEditionFromCatalogGames));
   const families: CatalogEditionFamily[] = sortedFamilies.map((familyGames) => {
     const first = familyGames[0];
     const label = familyLabel(first);
@@ -263,7 +276,7 @@ function buildGuide(games: CatalogGame[]): CatalogEditionGuideModel {
       id: uniqueFamilyId(familyIdentity(first), usedFamilyIds),
       label,
       representativeCatalogId: representative(familyGames).id,
-      physicalEditionIds: familyGames.map((game) => `catalog-edition-${game.id}`),
+      physicalEditionIds: physicalEditionGroups(familyGames).map((group) => physicalEditionFromCatalogGames(group).id),
       priceConditions: priceConditions(catalogDerivedEditionType(first)),
     };
   });
@@ -375,8 +388,18 @@ function addCatalogGameToGuide(
   catalogById: Map<string, CatalogGame>,
 ): CatalogEditionGuideModel {
   const guide = cloneGuide(sourceGuide);
-  const edition = physicalEditionFromCatalog(game);
-  guide.physicalEditions.push(edition);
+  const edition = physicalEditionFromCatalogGames([game]);
+  const existingEdition = guide.physicalEditions.find((candidate) => candidate.id === edition.id);
+  if (existingEdition) {
+    existingEdition.catalogIds = [...new Set([...existingEdition.catalogIds, ...edition.catalogIds])];
+    existingEdition.catalogLinks = [
+      ...existingEdition.catalogLinks,
+      ...edition.catalogLinks.filter((link) => !existingEdition.catalogLinks.some((current) => current.catalogId === link.catalogId)),
+    ];
+    existingEdition.marketRegions = [...new Set([...existingEdition.marketRegions, ...edition.marketRegions])];
+  } else {
+    guide.physicalEditions.push(edition);
+  }
   let family = matchingFamily(guide, game);
   if (!family) {
     const used = new Set(guide.editionFamilies.map((candidate) => candidate.id));
@@ -389,7 +412,7 @@ function addCatalogGameToGuide(
     };
     guide.editionFamilies.push(family);
   }
-  family.physicalEditionIds.push(edition.id);
+  if (!family.physicalEditionIds.includes(edition.id)) family.physicalEditionIds.push(edition.id);
   const familyGames = family.physicalEditionIds.flatMap((editionId) => {
     const familyEdition = guide.physicalEditions.find((candidate) => candidate.id === editionId);
     const catalogId = familyEdition?.catalogIds[0];

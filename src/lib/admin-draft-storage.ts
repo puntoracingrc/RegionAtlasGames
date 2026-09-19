@@ -10,6 +10,7 @@ import { catalogIdFromStaging, guessPcPath } from "./pc-path-guess";
 import { slugify } from "./slug";
 import { getGameDetails } from "./indexes";
 import { getPlatform, platforms } from "./catalog";
+import { CATALOG_MARKET_REGION_META } from "./catalog-edition-guide-types";
 
 const ADMIN_DRAFT_BLOB_PREFIX = "region-atlas/admin/drafts";
 const emptyTaxonomyFields = {
@@ -144,6 +145,8 @@ export function draftFromStaging(
     titlePc: existing?.titlePc ?? game.titlePc,
     platformSlug: existing?.platformSlug ?? game.platformSlug,
     region: existing?.region ?? game.region,
+    marketRegion: existing?.marketRegion ?? null,
+    physicalReleaseGroup: existing?.physicalReleaseGroup ?? null,
     physicalVariant: existing?.physicalVariant ?? null,
     edition: existing?.edition ?? "standard",
     reference: existing?.reference ?? details?.reference ?? null,
@@ -191,6 +194,8 @@ export function draftFromManualInput(input: {
   title: string;
   platformSlug: string;
   region: string;
+  marketRegion?: string | null;
+  physicalReleaseGroup?: AdminGameDraft["physicalReleaseGroup"];
   slug?: string;
   reference?: string | null;
   physicalVariant?: string | null;
@@ -232,6 +237,8 @@ export function draftFromManualInput(input: {
     titlePc: input.title.trim(),
     platformSlug: input.platformSlug,
     region: input.region,
+    marketRegion: input.marketRegion ?? null,
+    physicalReleaseGroup: input.physicalReleaseGroup ?? null,
     physicalVariant: input.physicalVariant?.trim() || null,
     edition: "standard",
     reference: input.reference?.trim() || null,
@@ -310,11 +317,12 @@ export function platformOptions() {
   return [...platforms].sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-export const REGION_OPTIONS = [
+export const REGION_OPTIONS: readonly string[] = [...new Set([
   "PAL España",
   "PAL Europa",
   "USA",
   "Japón",
   "Occidental",
   "Japonesa",
-] as const;
+  ...Object.values(CATALOG_MARKET_REGION_META).map((market) => market.legacyRegion),
+])];
