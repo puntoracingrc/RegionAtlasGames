@@ -146,6 +146,13 @@ test("the detail guide folds a published batch into the existing V2 central card
   const browseGuide = buildRuntimeCatalogEditionGuide(runtimeGames[0], [baseGuide], runtimeGames);
   assert.equal(browseGuide.physicalEditions.length, 11);
   assert.equal(browseGuide.editionFamilies[0].physicalEditionIds.length, 11);
+  const fallbackBrowseGuide = buildRuntimeCatalogEditionGuide(
+    runtimeGames[0],
+    [],
+    [...genericGames, ...runtimeGames],
+  );
+  assert.equal(fallbackBrowseGuide.physicalEditions.length, 11);
+  assert.equal(fallbackBrowseGuide.editionFamilies[0].physicalEditionIds.length, 11);
 
   const merged = extendCatalogEditionGuideWithRuntimeGames(
     baseGuide,
