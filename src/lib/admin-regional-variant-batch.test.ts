@@ -91,6 +91,9 @@ test("V2 keeps regional links but counts one physical edition per shared box", (
   } as CatalogGame));
   const guide = buildRuntimeCatalogEditionGuide(games[0], [], games);
   assert.equal(guide.physicalEditions.length, 11);
+  assert.equal(guide.editionFamilies.length, 1);
+  assert.equal(guide.editionFamilies[0].label, "Estándar");
+  assert.ok(guide.physicalEditions.every((edition) => edition.editionType === "STANDARD"));
   const northAmerica = guide.physicalEditions.find((edition) => edition.barcode === "810136675634");
   assert.deepEqual(northAmerica?.marketRegions.sort(), ["CA", "US"]);
   assert.equal(northAmerica?.catalogIds.length, 2);

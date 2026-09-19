@@ -25,6 +25,7 @@ import {
   type CatalogBrowseGameTuple,
 } from "./catalog-browse-index-codec";
 import { getCatalogOverlayLiteSnapshot } from "./catalog-overlay-lite";
+import { groupCatalogListGames } from "./catalog-physical-edition-browse";
 
 const INDEX_VERSION = 2;
 const INDEX_FILE = "catalog-browse-index.json.gz";
@@ -174,6 +175,7 @@ function overlayListGame(
   );
   return {
     ...current,
+    sourceCatalogGame: overlay,
     id: overlay.id,
     slug: overlay.slug,
     title: overlay.title,
@@ -223,6 +225,7 @@ export function mergeCatalogBrowseOverlay(
 ): CatalogListGame[] {
   const activePlatforms = new Map(platforms.map((platform) => [platform.slug, platform.name]));
   const result = [...games];
+  const newOverlays: Array<{ game: CatalogGame; displayPlatform: string }> = [];
   const indexByCatalogId = new Map<string, number>();
   result.forEach((game, index) => {
     indexByCatalogId.set(game.id, index);
@@ -238,8 +241,7 @@ export function mergeCatalogBrowseOverlay(
     }
     const currentIndex = indexByCatalogId.get(overlay.id);
     if (currentIndex == null) {
-      indexByCatalogId.set(overlay.id, result.length);
-      result.push(overlayListGame(overlay, displayPlatform));
+      newOverlays.push({ game: overlay, displayPlatform });
       continue;
     }
     const current = result[currentIndex];
@@ -256,6 +258,19 @@ export function mergeCatalogBrowseOverlay(
         ? { physicalEditionGroup: patchPhysicalEditionGroup(current.physicalEditionGroup, overlay) }
         : {}),
     };
+  }
+
+  const groupedNewGames = groupCatalogListGames(
+    newOverlays.map(({ game, displayPlatform }) => overlayListGame(game, displayPlatform)),
+    { mergeSearchMetadata: false },
+  );
+  for (const game of groupedNewGames) {
+    const index = result.length;
+    result.push(game);
+    indexByCatalogId.set(game.id, index);
+    for (const catalogId of game.physicalEditionGroup?.catalogIds ?? []) {
+      indexByCatalogId.set(catalogId, index);
+    }
   }
   return result;
 }

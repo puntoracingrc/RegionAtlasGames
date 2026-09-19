@@ -14,6 +14,8 @@ export function draftFromCatalogGame(
     titlePc: game.titlePc,
     platformSlug: game.platformSlug,
     region: game.region,
+    workId: game.workId ?? null,
+    regionalStatus: game.regionalStatus,
     marketRegion: game.marketRegion ?? null,
     physicalReleaseGroup: game.physicalReleaseGroup ?? null,
     initialPrices: null,

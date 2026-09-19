@@ -107,6 +107,60 @@ test("el overlay caliente actualiza y añade tarjetas sin reconstruir el catálo
   assert.match(inserted?.searchText ?? "", /worker new catalog game/);
 });
 
+test("el overlay caliente agrupa las regiones nuevas bajo una tarjeta V2", async () => {
+  const indexed = await getCatalogBrowseData();
+  const seed = publicListedCatalog.find((game) => game.platformSlug === "ps5");
+  assert.ok(seed);
+  const common = {
+    ...seed,
+    title: "Mortal Shell II",
+    titlePc: "Mortal Shell II",
+    physicalVariant: "Standard",
+    edition: "standard",
+    workId: "mortal-shell-ii",
+    regionalStatus: "resolved" as const,
+  };
+  const es = {
+    ...common,
+    id: "ps5-mortal-shell-ii-es",
+    slug: "mortal-shell-ii-es",
+    region: "PAL España",
+    marketRegion: "ES",
+    physicalReleaseGroup: {
+      id: "ps5:mortal-shell-ii:standard:01-es",
+      label: "España",
+      barcode: "5056635624581",
+      confidence: "CONFIRMED" as const,
+    },
+  };
+  const fr = {
+    ...common,
+    id: "ps5-mortal-shell-ii-fr",
+    slug: "mortal-shell-ii-fr",
+    region: "PAL Francia",
+    marketRegion: "FR",
+    physicalReleaseGroup: {
+      id: "ps5:mortal-shell-ii:standard:02-fr",
+      label: "Francia",
+      barcode: "5056635624567",
+      confidence: "CONFIRMED" as const,
+    },
+  };
+
+  const merged = mergeCatalogBrowseOverlay(
+    indexed.games,
+    [es, fr],
+    [{ slug: "ps5", name: "PS5" }],
+  );
+  const mortalShellCards = merged.filter((game) => (
+    game.physicalEditionGroup?.catalogIds.includes(es.id)
+      || game.physicalEditionGroup?.catalogIds.includes(fr.id)
+  ));
+  assert.equal(mortalShellCards.length, 1);
+  assert.deepEqual(mortalShellCards[0].physicalEditionGroup?.catalogIds.sort(), [es.id, fr.id]);
+  assert.equal(mortalShellCards[0].physicalEditionGroup?.physicalEditionCount, 2);
+});
+
 test("el índice de compañías y sus filtros coinciden con la fuente enriquecida", () => {
   const indexed = getCompanyBrowseData();
   const expected = getCompanyExplorerData();

@@ -30,6 +30,8 @@ export type AdminGameDraft = {
   titlePc: string | null;
   platformSlug: string;
   region: string;
+  workId?: string | null;
+  regionalStatus?: "resolved" | "review";
   marketRegion?: string | null;
   physicalReleaseGroup?: CatalogPhysicalReleaseGroup | null;
   initialPrices?: AdminInitialPriceFields | null;
