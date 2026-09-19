@@ -168,9 +168,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!game || !isPublicCatalogGame(game)) return { title: "Juego no encontrado" };
   const platform = getPlatform(game.platformSlug);
   const details = await getCatalogGameDetailsWithOverlay(game);
+  const platformCatalog = await getCatalogByPlatformWithOverlay(game.platformSlug);
+  const editionGuide = getCatalogEditionGuide(game, platformCatalog);
   const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
     game,
     platform?.shortName ?? game.platformSlug,
+    editionGuide,
   );
   return buildGameMetadata(game, details, {
     physicalEditionIdentity,
@@ -245,6 +248,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
   const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
     game,
     platform?.shortName ?? game.platformSlug,
+    editionGuide,
   );
   const currentPhysicalVariantId = currentPhysicalEdition?.collectionIdentity === "physical-variant"
     ? currentPhysicalEdition.id
@@ -598,6 +602,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
             {!guideRendersCurrentScans ? <OwnedScansPanel scans={ownedScans} title={game.title} /> : null}
             <CatalogEditionGuide
               game={game}
+              guide={editionGuide}
               isLoggedIn={Boolean(user)}
               physicalVariantActionStates={physicalVariantActionStates}
             />

@@ -40,6 +40,7 @@ import type { CatalogGame } from "@/lib/types";
 
 type CatalogEditionGuideProps = {
   game: CatalogGame;
+  guide?: CatalogEditionGuideModel;
   isLoggedIn?: boolean;
   physicalVariantActionStates?: Record<string, {
     ownedCount: number;
@@ -84,10 +85,11 @@ function researchStatusLabel(status: CatalogEditionGuideModel["researchTasks"][n
 
 export function CatalogEditionGuide({
   game,
+  guide: providedGuide,
   isLoggedIn = false,
   physicalVariantActionStates = {},
 }: CatalogEditionGuideProps) {
-  const guide = getCatalogEditionGuide(game);
+  const guide = providedGuide ?? getCatalogEditionGuide(game);
   if (!guide) return null;
   return guide.schemaVersion === 1
     ? <LegacyEditionGuide guide={guide} />

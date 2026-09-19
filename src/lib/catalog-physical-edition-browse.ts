@@ -95,8 +95,9 @@ function normalizedIdentityText(value: string): string {
 export function getCatalogPhysicalEditionPublicIdentity(
   game: CatalogGame,
   platformName: string,
+  providedGuide?: CatalogEditionGuideModel,
 ): CatalogPhysicalEditionPublicIdentity | undefined {
-  const guide = getCatalogEditionGuide(game);
+  const guide = providedGuide ?? getCatalogEditionGuide(game);
   if (guide?.schemaVersion !== 2 || !guide.currentEditionFamilyId) return undefined;
 
   const family = guide.editionFamilies.find((entry) => entry.id === guide.currentEditionFamilyId);
