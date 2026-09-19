@@ -12,7 +12,8 @@ Principios:
 - eBay solo renderiza cards cuando Browse API devuelve `itemAffiliateWebUrl`.
 - Si eBay no devuelve ofertas válidas, el fallback trackeado se muestra como CTA separado, no como oferta.
 - Amazon solo renderiza cards cuando Creators API devuelve productos con `detailPageURL`.
-- Amazon queda apagado salvo que `AMAZON_AFFILIATE_ENABLED=true` y existan credenciales Creators API.
+- Los enlaces afiliados de Amazon quedan apagados salvo que `AMAZON_AFFILIATE_ENABLED=true`.
+- Las consultas a Creators API requieren además `AMAZON_CREATORS_API_ENABLED=true` y credenciales válidas. Así se puede mantener el botón afiliado sin consultar la API mientras la cuenta no sea elegible.
 - Amazon usa `AMAZON_ASSOCIATE_TAG` como partner tag global y no genera enlaces manuales por juego.
 - Rakuten queda preparado pero desactivado por defecto.
 - GamersGate queda en backlog/review para PC digital games, sin implementación pública.
@@ -40,6 +41,7 @@ Variables esperadas en Production:
 
 ```txt
 AMAZON_AFFILIATE_ENABLED=true
+AMAZON_CREATORS_API_ENABLED=false
 AMAZON_ASSOCIATE_TAG=punto04-21
 AMAZON_CREATORS_CREDENTIAL_ID=...
 AMAZON_CREATORS_CREDENTIAL_SECRET=...
