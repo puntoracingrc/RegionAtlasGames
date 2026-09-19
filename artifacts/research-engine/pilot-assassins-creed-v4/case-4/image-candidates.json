@@ -1,0 +1,1412 @@
+[
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Resources/Images/logo.png",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Resources/Images/logo.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Resources/Images/logo.png",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Resources/Images/logo.png",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/SearchIcon.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/SearchIcon.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/SearchIcon.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/SearchIcon.svg",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/PlusIcon.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/PlusIcon.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/PlusIcon.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/PlusIcon.svg",
+    "alt": "+",
+    "caption": null,
+    "galleryLabel": "+",
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/ProfileIcon.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ProfileIcon.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ProfileIcon.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ProfileIcon.svg",
+    "alt": "Profile",
+    "caption": null,
+    "galleryLabel": "Profile",
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/Calender.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Calender.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Calender.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Calender.svg",
+    "alt": "calendar",
+    "caption": null,
+    "galleryLabel": "calendar",
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/Joystick.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Joystick.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Joystick.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Joystick.svg",
+    "alt": "joystick",
+    "caption": null,
+    "galleryLabel": "joystick",
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/Star.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Star.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Star.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Star.svg",
+    "alt": "type",
+    "caption": null,
+    "galleryLabel": "type",
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/People.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/People.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/People.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/People.svg",
+    "alt": "players",
+    "caption": null,
+    "galleryLabel": "players",
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/r2_9891014f-7736-454e-ac68-04718b916fb3.png",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/r2_9891014f-7736-454e-ac68-04718b916fb3.png",
+    "resolvedUrl": "https://images.launchbox-app.com/r2_9891014f-7736-454e-ac68-04718b916fb3.png",
+    "canonicalUrl": "https://images.launchbox-app.com/r2_9891014f-7736-454e-ac68-04718b916fb3.png",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/fab1d1b0-a9fc-4ac7-902f-1346a1a2a8fc.jpg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/fab1d1b0-a9fc-4ac7-902f-1346a1a2a8fc.jpg",
+    "resolvedUrl": "https://images.launchbox-app.com/fab1d1b0-a9fc-4ac7-902f-1346a1a2a8fc.jpg",
+    "canonicalUrl": "https://images.launchbox-app.com/fab1d1b0-a9fc-4ac7-902f-1346a1a2a8fc.jpg",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/1ee04272-1f2e-41d6-b6e2-4921d0b6066f.jpg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/1ee04272-1f2e-41d6-b6e2-4921d0b6066f.jpg",
+    "resolvedUrl": "https://images.launchbox-app.com/1ee04272-1f2e-41d6-b6e2-4921d0b6066f.jpg",
+    "canonicalUrl": "https://images.launchbox-app.com/1ee04272-1f2e-41d6-b6e2-4921d0b6066f.jpg",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/a81657a6-1948-4236-82d5-e9853a818c08.png",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/a81657a6-1948-4236-82d5-e9853a818c08.png",
+    "resolvedUrl": "https://images.launchbox-app.com/a81657a6-1948-4236-82d5-e9853a818c08.png",
+    "canonicalUrl": "https://images.launchbox-app.com/a81657a6-1948-4236-82d5-e9853a818c08.png",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/f9e215bf-7df3-414a-98f9-c1451218168c.jpg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/f9e215bf-7df3-414a-98f9-c1451218168c.jpg",
+    "resolvedUrl": "https://images.launchbox-app.com/f9e215bf-7df3-414a-98f9-c1451218168c.jpg",
+    "canonicalUrl": "https://images.launchbox-app.com/f9e215bf-7df3-414a-98f9-c1451218168c.jpg",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/f11a0dbc-60d7-40ff-85ea-ce3255da1a97.png",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/f11a0dbc-60d7-40ff-85ea-ce3255da1a97.png",
+    "resolvedUrl": "https://images.launchbox-app.com/f11a0dbc-60d7-40ff-85ea-ce3255da1a97.png",
+    "canonicalUrl": "https://images.launchbox-app.com/f11a0dbc-60d7-40ff-85ea-ce3255da1a97.png",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/4442c5ce-fbb3-4333-bbef-f88dda450a8b.png",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/4442c5ce-fbb3-4333-bbef-f88dda450a8b.png",
+    "resolvedUrl": "https://images.launchbox-app.com/4442c5ce-fbb3-4333-bbef-f88dda450a8b.png",
+    "canonicalUrl": "https://images.launchbox-app.com/4442c5ce-fbb3-4333-bbef-f88dda450a8b.png",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/e69d3c70-1026-4676-92a7-5f40c7787a57.jpg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/e69d3c70-1026-4676-92a7-5f40c7787a57.jpg",
+    "resolvedUrl": "https://images.launchbox-app.com/e69d3c70-1026-4676-92a7-5f40c7787a57.jpg",
+    "canonicalUrl": "https://images.launchbox-app.com/e69d3c70-1026-4676-92a7-5f40c7787a57.jpg",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/f746f832-7701-4c8f-9e03-2c6e1803c7b4.jpg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/f746f832-7701-4c8f-9e03-2c6e1803c7b4.jpg",
+    "resolvedUrl": "https://images.launchbox-app.com/f746f832-7701-4c8f-9e03-2c6e1803c7b4.jpg",
+    "canonicalUrl": "https://images.launchbox-app.com/f746f832-7701-4c8f-9e03-2c6e1803c7b4.jpg",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/3db6e3fd-2910-4c5b-93ea-f281d6c1c428.jpg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/3db6e3fd-2910-4c5b-93ea-f281d6c1c428.jpg",
+    "resolvedUrl": "https://images.launchbox-app.com/3db6e3fd-2910-4c5b-93ea-f281d6c1c428.jpg",
+    "canonicalUrl": "https://images.launchbox-app.com/3db6e3fd-2910-4c5b-93ea-f281d6c1c428.jpg",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://images.launchbox-app.com/7225eb25-c325-4270-aa4f-31f641a29809.png",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/ZoomIcon.svg",
+    "originalUrl": "https://images.launchbox-app.com/7225eb25-c325-4270-aa4f-31f641a29809.png",
+    "resolvedUrl": "https://images.launchbox-app.com/7225eb25-c325-4270-aa4f-31f641a29809.png",
+    "canonicalUrl": "https://images.launchbox-app.com/7225eb25-c325-4270-aa4f-31f641a29809.png",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "ancestor-a.href"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/Close.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Close.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Close.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Close.svg",
+    "alt": "X",
+    "caption": null,
+    "galleryLabel": "X",
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/cropped-pacman.gif",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/cropped-pacman.gif",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/cropped-pacman.gif",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/cropped-pacman.gif",
+    "alt": "Working...",
+    "caption": null,
+    "galleryLabel": "Working...",
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "url": "https://gamesdb.launchbox-app.com/Theme/Images/Delete.svg",
+    "thumbnailUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Delete.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Delete.svg",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/Theme/Images/Delete.svg",
+    "alt": null,
+    "caption": null,
+    "galleryLabel": null,
+    "sourcePageUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceRecordId": null,
+    "listingId": "158107",
+    "acquisitionMechanisms": [
+      "rendered-img"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4r3kxi2C6KeK8lDreVqB5/0daa667067fa8ddfc9c31d251a212f46/ACEC_Keyart_Thumbnail.jpg",
+    "thumbnailUrl": "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4r3kxi2C6KeK8lDreVqB5/0daa667067fa8ddfc9c31d251a212f46/ACEC_Keyart_Thumbnail.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4r3kxi2C6KeK8lDreVqB5/0daa667067fa8ddfc9c31d251a212f46/ACEC_Keyart_Thumbnail.jpg",
+    "canonicalUrl": "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4r3kxi2C6KeK8lDreVqB5/0daa667067fa8ddfc9c31d251a212f46/ACEC_Keyart_Thumbnail.jpg",
+    "alt": "",
+    "caption": null,
+    "galleryLabel": "",
+    "sourcePageUrl": "https://news.ubisoft.com/es-mx/article/2L6Ahp3Tlrnybzh3wwh157/assassins-creed-the-ezio-collection-llegar-a-switch-el-17-de-febrero",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "og:image",
+      "twitter:image",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://i.ytimg.com/vi/cAodiNKK9AM/maxresdefault.jpg",
+    "thumbnailUrl": "https://i.ytimg.com/vi/cAodiNKK9AM/maxresdefault.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://i.ytimg.com/vi/cAodiNKK9AM/maxresdefault.jpg",
+    "canonicalUrl": "https://i.ytimg.com/vi/cAodiNKK9AM/maxresdefault.jpg",
+    "alt": "undefined",
+    "caption": null,
+    "galleryLabel": "undefined",
+    "sourcePageUrl": "https://news.ubisoft.com/es-mx/article/2L6Ahp3Tlrnybzh3wwh157/assassins-creed-the-ezio-collection-llegar-a-switch-el-17-de-febrero",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4r3kxi2C6KeK8lDreVqB5/8ed5d5d16aaba7010bba0bc29d19f991/ACEC_Keyart_Thumbnail.jpg",
+    "thumbnailUrl": "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4r3kxi2C6KeK8lDreVqB5/8ed5d5d16aaba7010bba0bc29d19f991/ACEC_Keyart_Thumbnail.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4r3kxi2C6KeK8lDreVqB5/8ed5d5d16aaba7010bba0bc29d19f991/ACEC_Keyart_Thumbnail.jpg",
+    "canonicalUrl": "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4r3kxi2C6KeK8lDreVqB5/8ed5d5d16aaba7010bba0bc29d19f991/ACEC_Keyart_Thumbnail.jpg",
+    "alt": "",
+    "caption": null,
+    "galleryLabel": "",
+    "sourcePageUrl": "https://news.ubisoft.com/en-gb/article/2L6Ahp3Tlrnybzh3wwh157/assassins-creed-the-ezio-collection-coming-to-switch-february-17",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "og:image",
+      "twitter:image",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://i.ytimg.com/vi/rhWj9LddQII/maxresdefault.jpg",
+    "thumbnailUrl": "https://i.ytimg.com/vi/rhWj9LddQII/maxresdefault.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://i.ytimg.com/vi/rhWj9LddQII/maxresdefault.jpg",
+    "canonicalUrl": "https://i.ytimg.com/vi/rhWj9LddQII/maxresdefault.jpg",
+    "alt": "undefined",
+    "caption": null,
+    "galleryLabel": "undefined",
+    "sourcePageUrl": "https://news.ubisoft.com/en-gb/article/2L6Ahp3Tlrnybzh3wwh157/assassins-creed-the-ezio-collection-coming-to-switch-february-17",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-videojuegos.png",
+    "alt": "Videojuegos",
+    "caption": null,
+    "galleryLabel": "Videojuegos",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-pcgaming.png",
+    "alt": "PC gaming",
+    "caption": null,
+    "galleryLabel": "PC gaming",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-tarjetaregalo.png",
+    "alt": "Tarjetas Regalo",
+    "caption": null,
+    "galleryLabel": "Tarjetas Regalo",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/pcgaming-portatiles.svg",
+    "alt": "Informática",
+    "caption": null,
+    "galleryLabel": "Informática",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-porcentaje.webp",
+    "alt": "Promociones",
+    "caption": null,
+    "galleryLabel": "Promociones",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-seminuevos.png",
+    "alt": "Seminuevos",
+    "caption": null,
+    "galleryLabel": "Seminuevos",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-merchan.png",
+    "alt": "Merchandising",
+    "caption": null,
+    "galleryLabel": "Merchandising",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-libroscine.png",
+    "alt": "Cine y cómics",
+    "caption": null,
+    "galleryLabel": "Cine y cómics",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+    "thumbnailUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+    "canonicalUrl": "https://media.game.es/CMS/Menus/Icons/icono-electronica.png",
+    "alt": "Electrónica",
+    "caption": null,
+    "galleryLabel": "Electrónica",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/198/198653.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/198/198653.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/198/198653.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/198/198653.png",
+    "alt": "Assassin´s Creed The Ezio Collection",
+    "caption": "Assassin´s Creed The Ezio Collection",
+    "galleryLabel": "Assassin´s Creed The Ezio Collection",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "og:image",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://www.game.es/Content/img/product/imagenes.svg",
+    "thumbnailUrl": "https://www.game.es/Content/img/product/imagenes.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://www.game.es/Content/img/product/imagenes.svg",
+    "canonicalUrl": "https://www.game.es/Content/img/product/imagenes.svg",
+    "alt": "Ir a imágenes",
+    "caption": "Ir a imágenes",
+    "galleryLabel": "Ir a imágenes",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://www.game.es/Content/img/product/video.svg",
+    "thumbnailUrl": "https://www.game.es/Content/img/product/video.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://www.game.es/Content/img/product/video.svg",
+    "canonicalUrl": "https://www.game.es/Content/img/product/video.svg",
+    "alt": "Ver vídeos",
+    "caption": "Ver vídeos",
+    "galleryLabel": "Ver vídeos",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/pegi-18.jpg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/pegi-18.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/pegi-18.jpg",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/pegi-18.jpg",
+    "alt": "PEGI edad recomendada: 18 años",
+    "caption": "PEGI edad recomendada: 18 años",
+    "galleryLabel": "PEGI edad recomendada: 18 años",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/257/257190.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/257/257190.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/257/257190.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/257/257190.png",
+    "alt": "Castlevania: Belmont´s Curse Midnight Edition",
+    "caption": null,
+    "galleryLabel": "Castlevania: Belmont´s Curse Midnight Edition",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/stick/incluye-regalo.png",
+    "alt": "Este producto incluye regalo",
+    "caption": null,
+    "galleryLabel": "Este producto incluye regalo",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/264/264123.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/264/264123.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/264/264123.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/264/264123.png",
+    "alt": "Blasphemous: Martyrs’ Edition",
+    "caption": null,
+    "galleryLabel": "Blasphemous: Martyrs’ Edition",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/257/257482.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/257/257482.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/257/257482.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/257/257482.png",
+    "alt": "Operation Highjump The Fall of Berlin Collector´s Edition",
+    "caption": null,
+    "galleryLabel": "Operation Highjump The Fall of Berlin Collector´s Edition",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/263/263578.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/263/263578.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/263/263578.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/263/263578.png",
+    "alt": "Kong: Survivor Instinct",
+    "caption": null,
+    "galleryLabel": "Kong: Survivor Instinct",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/257/257480.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/257/257480.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/257/257480.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/257/257480.png",
+    "alt": "Operation Highjump The Fall of Berlin",
+    "caption": null,
+    "galleryLabel": "Operation Highjump The Fall of Berlin",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/240/240183.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/240/240183.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/240/240183.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/240/240183.png",
+    "alt": "Stasis Bone Totem",
+    "caption": null,
+    "galleryLabel": "Stasis Bone Totem",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/265/265468.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/265/265468.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/265/265468.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/265/265468.png",
+    "alt": "MIO Memories in Orbit",
+    "caption": null,
+    "galleryLabel": "MIO Memories in Orbit",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/COVERV2/3D_L/264/264025.png",
+    "thumbnailUrl": "https://media.game.es/COVERV2/3D_L/264/264025.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/COVERV2/3D_L/264/264025.png",
+    "canonicalUrl": "https://media.game.es/COVERV2/3D_L/264/264025.png",
+    "alt": "Muchi Muchi Pork! & PinkSweets Boosted More Edition",
+    "caption": null,
+    "galleryLabel": "Muchi Muchi Pork! & PinkSweets Boosted More Edition",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src",
+      "embedded-state"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/ic_avatar_gray.svg",
+    "alt": "Usuario",
+    "caption": null,
+    "galleryLabel": "Usuario",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/ScreenShootsV2/198/198653/00_xxl.jpg",
+    "thumbnailUrl": "https://media.game.es/ScreenShootsV2/198/198653/00_xxl.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/ScreenShootsV2/198/198653/00_xxl.jpg",
+    "canonicalUrl": "https://media.game.es/ScreenShootsV2/198/198653/00_xxl.jpg",
+    "alt": "Assassin´s Creed The Ezio Collection-0",
+    "caption": "Assassin´s Creed The Ezio Collection-0",
+    "galleryLabel": "Assassin´s Creed The Ezio Collection-0",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/ScreenShootsV2/198/198653/01_xxl.jpg",
+    "thumbnailUrl": "https://media.game.es/ScreenShootsV2/198/198653/01_xxl.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/ScreenShootsV2/198/198653/01_xxl.jpg",
+    "canonicalUrl": "https://media.game.es/ScreenShootsV2/198/198653/01_xxl.jpg",
+    "alt": "Assassin´s Creed The Ezio Collection-1",
+    "caption": "Assassin´s Creed The Ezio Collection-1",
+    "galleryLabel": "Assassin´s Creed The Ezio Collection-1",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/ScreenShootsV2/198/198653/02_xxl.jpg",
+    "thumbnailUrl": "https://media.game.es/ScreenShootsV2/198/198653/02_xxl.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/ScreenShootsV2/198/198653/02_xxl.jpg",
+    "canonicalUrl": "https://media.game.es/ScreenShootsV2/198/198653/02_xxl.jpg",
+    "alt": "Assassin´s Creed The Ezio Collection-2",
+    "caption": "Assassin´s Creed The Ezio Collection-2",
+    "galleryLabel": "Assassin´s Creed The Ezio Collection-2",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/ScreenShootsV2/198/198653/03_xxl.jpg",
+    "thumbnailUrl": "https://media.game.es/ScreenShootsV2/198/198653/03_xxl.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/ScreenShootsV2/198/198653/03_xxl.jpg",
+    "canonicalUrl": "https://media.game.es/ScreenShootsV2/198/198653/03_xxl.jpg",
+    "alt": "Assassin´s Creed The Ezio Collection-3",
+    "caption": "Assassin´s Creed The Ezio Collection-3",
+    "galleryLabel": "Assassin´s Creed The Ezio Collection-3",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/ScreenShootsV2/198/198653/04_xxl.jpg",
+    "thumbnailUrl": "https://media.game.es/ScreenShootsV2/198/198653/04_xxl.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/ScreenShootsV2/198/198653/04_xxl.jpg",
+    "canonicalUrl": "https://media.game.es/ScreenShootsV2/198/198653/04_xxl.jpg",
+    "alt": "Assassin´s Creed The Ezio Collection-4",
+    "caption": "Assassin´s Creed The Ezio Collection-4",
+    "galleryLabel": "Assassin´s Creed The Ezio Collection-4",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/img-tienda-click-recoger.jpg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/img-tienda-click-recoger.jpg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/img-tienda-click-recoger.jpg",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/img-tienda-click-recoger.jpg",
+    "alt": "Encuentra tu tienda más cercana y reserva tu producto",
+    "caption": "Encuentra tu tienda más cercana y reserva tu producto",
+    "galleryLabel": "Encuentra tu tienda más cercana y reserva tu producto",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://www.game.es/Content/img/img-statics/load-auto-search.gif",
+    "thumbnailUrl": "https://www.game.es/Content/img/img-statics/load-auto-search.gif",
+    "originalUrl": null,
+    "resolvedUrl": "https://www.game.es/Content/img/img-statics/load-auto-search.gif",
+    "canonicalUrl": "https://www.game.es/Content/img/img-statics/load-auto-search.gif",
+    "alt": "Cargando",
+    "caption": "Cargando",
+    "galleryLabel": "Cargando",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/load-auto-search.gif",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/load-auto-search.gif",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/load-auto-search.gif",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/load-auto-search.gif",
+    "alt": "Cargando",
+    "caption": "Cargando",
+    "galleryLabel": "Cargando",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger.png",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger.png",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger.png",
+    "alt": "Producto disponible",
+    "caption": "producto disponible",
+    "galleryLabel": "producto disponible",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger-tienda.png",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger-tienda.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger-tienda.png",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/img-disponible-click-recoger-tienda.png",
+    "alt": "Producto disponible envío a tienda",
+    "caption": "Comprar y recoger en tienda",
+    "galleryLabel": "Comprar y recoger en tienda",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/img-no-disponible-click-recoger.png",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/img-no-disponible-click-recoger.png",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/img-no-disponible-click-recoger.png",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/img-no-disponible-click-recoger.png",
+    "alt": "Producto no disponible",
+    "caption": "Producto no disponible",
+    "galleryLabel": "Producto no disponible",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/load-gris.gif",
+    "alt": "Cargando",
+    "caption": "Cargando",
+    "galleryLabel": "Cargando",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_ecommerce.svg",
+    "alt": "Ecommerce",
+    "caption": null,
+    "galleryLabel": "Ecommerce",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_omnichannel.svg",
+    "alt": "Omnichannel",
+    "caption": null,
+    "galleryLabel": "Omnichannel",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twitter.svg",
+    "alt": "Visítanos en X",
+    "caption": null,
+    "galleryLabel": "Visítanos en X",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twittersac.svg",
+    "alt": "Visítanos en X SAC",
+    "caption": null,
+    "galleryLabel": "Visítanos en X SAC",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_instagram.svg",
+    "alt": "Visítanos en Instagram",
+    "caption": null,
+    "galleryLabel": "Visítanos en Instagram",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_facebook.svg",
+    "alt": "Visítanos en Facebook",
+    "caption": null,
+    "galleryLabel": "Visítanos en Facebook",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_youtube.svg",
+    "alt": "Visítanos en Youtube",
+    "caption": null,
+    "galleryLabel": "Visítanos en Youtube",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_tiktok.svg",
+    "alt": "Visítanos en Tik Tok",
+    "caption": null,
+    "galleryLabel": "Visítanos en Tik Tok",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_telegram.svg",
+    "alt": "Visítanos en Telegram",
+    "caption": null,
+    "galleryLabel": "Visítanos en Telegram",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_gameplus.svg",
+    "alt": "Visítanos en Blog GAME+",
+    "caption": null,
+    "galleryLabel": "Visítanos en Blog GAME+",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_twitch.svg",
+    "alt": "Visítanos en Blog GAME+",
+    "caption": null,
+    "galleryLabel": "Visítanos en Blog GAME+",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_debitcard.svg",
+    "alt": "Tarjeta bancaria",
+    "caption": null,
+    "galleryLabel": "Tarjeta bancaria",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_bizum.svg",
+    "alt": "Bizum",
+    "caption": null,
+    "galleryLabel": "Bizum",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_pepper.svg",
+    "alt": "Pepper",
+    "caption": null,
+    "galleryLabel": "Pepper",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_sequra.svg",
+    "alt": "SeQura",
+    "caption": null,
+    "galleryLabel": "SeQura",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_walletcard.svg",
+    "alt": "Visítanos en Facebook",
+    "caption": null,
+    "galleryLabel": "Visítanos en Facebook",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_pointscard.svg",
+    "alt": "Puntos socio",
+    "caption": null,
+    "galleryLabel": "Puntos socio",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/nav/footer_giftcard.svg",
+    "alt": "Tarjeta regalo",
+    "caption": null,
+    "galleryLabel": "Tarjeta regalo",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+    "thumbnailUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/ic_see_psw.svg",
+    "alt": "password",
+    "caption": null,
+    "galleryLabel": "password",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "img.src"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://www.game.es/",
+    "thumbnailUrl": null,
+    "originalUrl": null,
+    "resolvedUrl": "https://www.game.es/",
+    "canonicalUrl": "https://www.game.es/",
+    "alt": "JSON-LD image",
+    "caption": null,
+    "galleryLabel": "JSON-LD image",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "json-ld.image"
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "url": "https://media.game.es/Img-statics/img-statics/logo.png",
+    "thumbnailUrl": null,
+    "originalUrl": null,
+    "resolvedUrl": "https://media.game.es/Img-statics/img-statics/logo.png",
+    "canonicalUrl": "https://media.game.es/Img-statics/img-statics/logo.png",
+    "alt": "Embedded gallery image",
+    "caption": null,
+    "galleryLabel": "Embedded gallery image",
+    "sourcePageUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceRecordId": null,
+    "listingId": null,
+    "acquisitionMechanisms": [
+      "embedded-state"
+    ]
+  }
+]

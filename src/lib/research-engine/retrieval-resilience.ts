@@ -23,6 +23,7 @@ export function classifyRetrievalFailure(error: unknown): ResearchRetrievalFailu
   if (error instanceof ResearchRetrievalError) return error.code;
   const message = errorText(error);
   if (QUOTA_PATTERN.test(message)) return "PROVIDER_QUOTA_EXHAUSTED";
+  if (/(?:BRAVE_SEARCH|BRAVE_IMAGE|GOOGLE_SEARCH|GOOGLE_IMAGE|SERPAPI|SERPAPI_IMAGE)_AUTH_ERROR/i.test(message)) return "PROVIDER_AUTHENTICATION_FAILED";
   if (TIMEOUT_PATTERN.test(message)) return "SOURCE_TIMEOUT";
   if (/HTTP_(?:401|403)|PAGE_HTTP_(?:401|403)|BROWSER_HTTP_(?:401|403)|blocked|forbidden/i.test(message)) return "SOURCE_BLOCKED";
   if (/HTTP_404|PAGE_HTTP_404|BROWSER_HTTP_404|not found/i.test(message)) return "SOURCE_NOT_FOUND";

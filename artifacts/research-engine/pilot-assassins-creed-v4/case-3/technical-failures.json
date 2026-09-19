@@ -1,0 +1,58 @@
+[
+  {
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Skull-Edition-Wii-U-Videojuego-Wii-U/a898644",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Skull-Edition-Wii-U-Videojuego-Wii-U/a898644",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BOX_CODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Skull-Edition-Wii-U-Videojuego-Wii-U/a898644",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BOX_CODE",
+    "operation": "BROWSER",
+    "target": "https://www.fnac.es/Assassin-s-Creed-IV-Black-Flag-Skull-Edition-Wii-U-Videojuego-Wii-U/a898644",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BOX_CODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/b/Nintendo-Wii-U-Assassins-Creed-IV-Black-Flag-Video-Games/139973/bn_7369882",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BOX_CODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/135375163165",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.pricecharting.com/es/game/pal-wii-u/assassin's-creed-iv-black-flag-skull-edition",
+    "code": "INTERNAL_ERROR",
+    "detail": "Error RESEARCH_PAGE_HTTP_400",
+    "recovered": true
+  }
+]

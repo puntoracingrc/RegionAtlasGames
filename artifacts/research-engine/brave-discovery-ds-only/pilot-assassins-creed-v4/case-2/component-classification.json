@@ -1,0 +1,14 @@
+[
+  {
+    "targetField": "BARCODE",
+    "imageUrl": "https://images.launchbox-app.com/4fd1a817-2421-4092-8e2f-f7c0ce673a19.jpg",
+    "component": "OUTER_PACKAGE_BACK",
+    "stage": "ACCEPTED"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "imageUrl": "https://pixel-retro.com/cdn/shop/files/IMG_0610_b44ba37f-e77a-4d49-980a-d8b002f4bf3f.jpg?v=1685848438&width=1946",
+    "component": "OUTER_PACKAGE_FLAP",
+    "stage": "ACCEPTED"
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "field": "OUTER_INNER_RELATION",
+    "type": "MISSING_OUTER_BOX_PHOTO",
+    "candidateValue": null,
+    "missingProof": "Each identifier bound separately to the outer product or named inner product.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "SEARCH_EXACT_OUTER_PACKAGE",
+      "SEARCH_SPECIFIC_LISTING"
+    ],
+    "recommendedSourceTypes": [
+      "dbox",
+      "ebay",
+      "legacy:spinecard-xbox360-documentary-v1-20260908:no-manual-1",
+      "legacy:spinecard-xbox360-documentary-v1-20260908:objection-4",
+      "yambalu"
+    ],
+    "exhaustedActions": []
+  }
+]

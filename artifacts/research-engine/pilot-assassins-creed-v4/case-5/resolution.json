@@ -1,0 +1,26 @@
+{
+  "status": "UNRESOLVED",
+  "resolutions": [
+    {
+      "targetField": "OUTER_INNER_RELATION",
+      "field": "OUTER_INNER_RELATION",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    },
+    {
+      "targetField": "CANONICAL_IDENTITY",
+      "field": "CANONICAL_IDENTITY",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    }
+  ],
+  "failures": []
+}

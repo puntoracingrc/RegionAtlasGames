@@ -1,0 +1,14 @@
+[
+  {
+    "identifierType": "BARCODE",
+    "value": "87256 11195",
+    "productNodeId": "3193cdc46aef80c28a50",
+    "componentNodeId": "12c63f2bc59510303180",
+    "component": "CARTRIDGE_FRONT",
+    "state": "REJECTED",
+    "sourceEvidenceIds": [
+      "ev-5a613fce0168032b3aa55cee"
+    ],
+    "rejectionReason": "BARCODE_CHECKSUM"
+  }
+]

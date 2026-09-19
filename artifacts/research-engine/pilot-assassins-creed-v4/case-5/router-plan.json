@@ -1,0 +1,1564 @@
+[
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "history": [
+      {
+        "targetField": "OUTER_INNER_RELATION",
+        "factsUsed": [
+          "target=OUTER_INNER_RELATION",
+          "platform=xbox360",
+          "title=Assassin's Creed Brotherhood + Revelations Double Pack",
+          "edition=Double Pack",
+          "BARCODE=3307215689271",
+          "BARCODE=3307215689165",
+          "BARCODE=3307215693865",
+          "BARCODE=3307215673393",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=DOUBLE_PACK_COMPONENTS"
+        ],
+        "selectedPlaybook": {
+          "id": "DOUBLE_PACK_COMPONENTS",
+          "targets": [
+            "OUTER_INNER_RELATION",
+            "CANONICAL_IDENTITY",
+            "BUNDLE_CONTENTS"
+          ],
+          "triggers": [
+            "BUNDLE_PRODUCT"
+          ],
+          "sourceRoles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN",
+            "PUBLISHER"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "EDITION"
+          ],
+          "deterministicChecks": [
+            "OUTER_INNER_BINDING",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Treat the outer compilation and each inner game as separate products.",
+            "Search every candidate identifier exactly.",
+            "Reject a correct barcode attached to the wrong component."
+          ],
+          "stopWhen": "OUTER_AND_INNER_PRODUCTS_BOUND",
+          "stopRule": null,
+          "sourceIds": [
+            "dbox",
+            "ogdb",
+            "retroplace",
+            "mobygames",
+            "gamefaqs-guarded",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 88,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability 88."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability not declared."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability not declared."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability not declared."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 48,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability 48."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability not declared."
+          },
+          {
+            "sourceId": "legacy:spinecard-xbox360-documentary-v1-20260908:no-manual-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 62,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-xbox360-documentary-v1-20260908:objection-4",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 62,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 30,
+            "reason": "Field capability 30; default reliability 58."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689271",
+            "query": "\"3307215689271\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689165",
+            "query": "\"3307215689165\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215693865",
+            "query": "\"3307215693865\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215673393",
+            "query": "\"3307215673393\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689271",
+            "query": "\"3307215689271\" \"Xbox 360\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689165",
+            "query": "\"3307215689165\" \"Xbox 360\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215693865",
+            "query": "\"3307215693865\" \"Xbox 360\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215673393",
+            "query": "\"3307215673393\" \"Xbox 360\""
+          },
+          {
+            "query": "\"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" \"Xbox 360\"",
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Double Pack\" \"Xbox 360\" barcode",
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:dbox.tools \"3307215689271\"",
+            "sourceId": "dbox",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "ogdb",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "retroplace",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "mobygames",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.com \"3307215689271\"",
+            "sourceId": "ebay",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamefaqs.gamespot.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "gamefaqs-guarded",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"3307215689271\"",
+            "sourceId": "dbox",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"3307215689271\"",
+            "sourceId": "ogdb",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"3307215689271\"",
+            "sourceId": "retroplace",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "ebay",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "dbox",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_BACK",
+            "fields": [
+              "OUTER_INNER_RELATION",
+              "BARCODE"
+            ],
+            "reason": "Bind the outer identifier separately."
+          },
+          {
+            "component": "INNER_CASE_BACK",
+            "fields": [
+              "OUTER_INNER_RELATION",
+              "PRODUCT_CODE"
+            ],
+            "reason": "Bind the inner game separately."
+          }
+        ],
+        "deterministicChecks": [
+          "OUTER_INNER_BINDING",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "8a8fc429d95ed8f27453be309153a8c48467b502882c2030b15b31d4f7345318"
+      },
+      {
+        "targetField": "OUTER_INNER_RELATION",
+        "factsUsed": [
+          "target=OUTER_INNER_RELATION",
+          "platform=xbox360",
+          "title=Assassin's Creed Brotherhood + Revelations Double Pack",
+          "edition=Double Pack",
+          "BARCODE=3307215689271",
+          "BARCODE=3307215689165",
+          "BARCODE=3307215693865",
+          "BARCODE=3307215673393",
+          "PRODUCT_CODE=3000-52333",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=VERIFY_IDENTIFIER"
+        ],
+        "selectedPlaybook": {
+          "id": "VERIFY_IDENTIFIER",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "BARCODE_KNOWN",
+            "BOX_CODE_KNOWN",
+            "PRODUCT_CODE_KNOWN",
+            "SERIAL_KNOWN"
+          ],
+          "sourceRoles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN",
+            "TECHNICAL_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "SERIAL"
+          ],
+          "deterministicChecks": [
+            "BARCODE_CHECKSUM",
+            "PLATFORM_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Search every exact identifier before any remaining title query.",
+            "Bind the identifier to the exact edition and physical component.",
+            "Seek a second authoritative source or exact physical photo."
+          ],
+          "stopWhen": "IDENTIFIER_CONFIRMED_OR_HIGH_VALUE_ROUTES_EXHAUSTED",
+          "stopRule": null,
+          "sourceIds": [
+            "dbox",
+            "ogdb",
+            "retroplace",
+            "mobygames",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 88,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 88."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 48,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 48."
+          },
+          {
+            "sourceId": "legacy:spinecard-xbox360-documentary-v1-20260908:no-manual-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 62,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-xbox360-documentary-v1-20260908:objection-4",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 62,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 30,
+            "reason": "Field capability 30; default reliability 58."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689271",
+            "query": "\"3307215689271\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689165",
+            "query": "\"3307215689165\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215693865",
+            "query": "\"3307215693865\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215673393",
+            "query": "\"3307215673393\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "PRODUCT_CODE",
+            "identifierValue": "3000-52333",
+            "query": "\"3000-52333\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689271",
+            "query": "\"3307215689271\" \"Xbox 360\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689165",
+            "query": "\"3307215689165\" \"Xbox 360\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215693865",
+            "query": "\"3307215693865\" \"Xbox 360\""
+          },
+          {
+            "query": "\"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" \"Xbox 360\"",
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Double Pack\" \"Xbox 360\" barcode",
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:dbox.tools \"3307215689271\"",
+            "sourceId": "dbox",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "ogdb",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "retroplace",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "mobygames",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.com \"3307215689271\"",
+            "sourceId": "ebay",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" Xbox 360",
+            "sourceId": "ubisoft-official",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"3307215689271\"",
+            "sourceId": "dbox",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"3307215689271\"",
+            "sourceId": "ogdb",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"3307215689271\"",
+            "sourceId": "retroplace",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "ebay",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "ubisoft-official",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "dbox",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"3000-52333\"",
+            "sourceId": "dbox",
+            "purpose": "OUTER_INNER_RELATION",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_BACK",
+            "fields": [
+              "OUTER_INNER_RELATION",
+              "BARCODE"
+            ],
+            "reason": "Bind the outer identifier separately."
+          },
+          {
+            "component": "INNER_CASE_BACK",
+            "fields": [
+              "OUTER_INNER_RELATION",
+              "PRODUCT_CODE"
+            ],
+            "reason": "Bind the inner game separately."
+          }
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "4e0bcafe637b39ec752b41891998b66c8547e0cb5413cb3316f0098e7feeb939"
+      }
+    ]
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "history": [
+      {
+        "targetField": "CANONICAL_IDENTITY",
+        "factsUsed": [
+          "target=CANONICAL_IDENTITY",
+          "platform=xbox360",
+          "title=Assassin's Creed Brotherhood + Revelations Double Pack",
+          "edition=Double Pack",
+          "BARCODE=3307215689271",
+          "BARCODE=3307215689165",
+          "BARCODE=3307215693865",
+          "BARCODE=3307215673393",
+          "PRODUCT_CODE=3000-52333",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=DOUBLE_PACK_COMPONENTS"
+        ],
+        "selectedPlaybook": {
+          "id": "DOUBLE_PACK_COMPONENTS",
+          "targets": [
+            "OUTER_INNER_RELATION",
+            "CANONICAL_IDENTITY",
+            "BUNDLE_CONTENTS"
+          ],
+          "triggers": [
+            "BUNDLE_PRODUCT"
+          ],
+          "sourceRoles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN",
+            "PUBLISHER"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "EDITION"
+          ],
+          "deterministicChecks": [
+            "OUTER_INNER_BINDING",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Treat the outer compilation and each inner game as separate products.",
+            "Search every candidate identifier exactly.",
+            "Reject a correct barcode attached to the wrong component."
+          ],
+          "stopWhen": "OUTER_AND_INNER_PRODUCTS_BOUND",
+          "stopRule": null,
+          "sourceIds": [
+            "dbox",
+            "ogdb",
+            "retroplace",
+            "mobygames",
+            "gamefaqs-guarded",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 70,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability 70."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability 76."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 72,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability 72."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability 76."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 94,
+            "reason": "Field capability 94; default reliability 92."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 58,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability 58."
+          },
+          {
+            "sourceId": "legacy:spinecard-xbox360-documentary-v1-20260908:no-manual-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-xbox360-documentary-v1-20260908:objection-4",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 58."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by DOUBLE_PACK_COMPONENTS; target capability not declared."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689271",
+            "query": "\"3307215689271\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689165",
+            "query": "\"3307215689165\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215693865",
+            "query": "\"3307215693865\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215673393",
+            "query": "\"3307215673393\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "PRODUCT_CODE",
+            "identifierValue": "3000-52333",
+            "query": "\"3000-52333\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689271",
+            "query": "\"3307215689271\" \"Xbox 360\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215689165",
+            "query": "\"3307215689165\" \"Xbox 360\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215693865",
+            "query": "\"3307215693865\" \"Xbox 360\""
+          },
+          {
+            "query": "\"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" \"Xbox 360\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Double Pack\" \"Xbox 360\" barcode",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:dbox.tools \"3307215689271\"",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "mobygames",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" \"Double Pack\" Xbox 360",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamefaqs.gamespot.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "gamefaqs-guarded",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"3307215689271\"",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"3307215689271\"",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"3307215689271\"",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed Brotherhood + Revelations Double Pack\" Xbox 360",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"3000-52333\"",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [],
+        "deterministicChecks": [
+          "OUTER_INNER_BINDING",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "33c5040e6bc4dfd104050e1fbf5f0c6641ca9644c2d9745d79f9e117069b7f63"
+      }
+    ]
+  }
+]

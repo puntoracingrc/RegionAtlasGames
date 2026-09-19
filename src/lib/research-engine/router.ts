@@ -294,12 +294,28 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
     : [];
   const genericTemplates = groups.flatMap((group) => input.queryTemplates[group] ?? []);
   const queries: ResearchRouterPlan["queryPlan"] = [];
+  const physicalMode = input.researchMode === "PHYSICAL_EVIDENCE_MODE";
   const queryableSources = sourcePlan.filter((source) => source.accessModes.some((mode) => mode === "SEARCH_ENGINE" || mode === "DOMAIN_SEARCH"));
   const globalValues = templateValues(input, null);
   // A newly discovered identifier changes the research question from discovery
   // to verification. Every candidate is chased before title-led discovery.
   queries.push(...exactIdentifierQueries(input, sourcePlan).slice(0, 8));
   const identifierVerification = queries.length > 0;
+  if (physicalMode) {
+    const gapTerms: Record<string, string> = {
+      MISSING_BACK_COVER: '"back cover"', MISSING_BARCODE_PHOTO: '"back cover" barcode', MISSING_CART_PHOTO: "cartridge cart label",
+      MISSING_OUTER_BOX_PHOTO: '"outer box" package', MISSING_INNER_BOX_PHOTO: '"inner case"', MISSING_MANUAL_PHOTO: "manual scan",
+      MISSING_DOWNLOAD_STATEMENT: '"back cover" "download required"', MISSING_MARKET_PROOF: 'packaging distributor "legal text"',
+      MISSING_EDITION_PROOF: 'edition box packaging', MISSING_COMPONENT_BINDING: 'unboxing outer inner', MISSING_SECOND_SOURCE: "identifier",
+    };
+    const terms = [...new Set((input.evidenceGaps ?? []).map((gap) => gapTerms[gap.type]).filter(Boolean))].join(" ") || "physical packaging";
+    const exactSubject = `${quote(input.catalogContext.title)} ${quote(platformSearchLabel(input.catalogContext.platformSlug))} ${quote(cleanEdition(input.catalogContext.edition))} ${terms}`.replace(/\s+/g, " ").trim();
+    for (const source of sourcePlan.filter((row) => row.accessModes.some((mode) => mode === "SEARCH_ENGINE" || mode === "DOMAIN_SEARCH")).slice(0, 6)) {
+      if (source.hosts[0]) queries.push({ query: `site:${source.hosts[0]} ${exactSubject}`, sourceId: source.sourceId, purpose: input.targetField, strategy: "SOURCE_SPECIFIC" });
+    }
+    queries.push({ query: exactSubject, sourceId: null, purpose: input.targetField, strategy: "GENERIC" });
+    queries.push({ query: `${exactSubject} photo`, sourceId: null, purpose: input.targetField, strategy: "GENERIC" });
+  }
   const edition = cleanEdition(input.catalogContext.edition);
   const collectorEdition = /\b(?:skull|buccaneer|black chest|collector|special|double pack)\b/i.test(edition);
   if (collectorEdition) {
@@ -343,9 +359,12 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
     }
   }
   const seen = new Set<string>();
+  let physicalGenericCount = 0;
   return queries.filter((query) => {
     const key = normalizedQuery(query.query);
     if (seen.has(key)) return false;
+    if (physicalMode && query.strategy === "GENERIC" && physicalGenericCount >= 2) return false;
+    if (physicalMode && query.strategy === "GENERIC") physicalGenericCount += 1;
     seen.add(key);
     return true;
   }).slice(0, 24);
@@ -353,19 +372,25 @@ function buildQueries(input: ResearchRouterInput, playbook: ResearchPlaybook, so
 
 function imagePlanFor(target: ResearchTargetField): ResearchRouterPlan["imagePlan"] {
   const rows: Partial<Record<ResearchTargetField, Array<{ component: ResearchComponent; fields: ResearchTargetField[]; reason: string }>>> = {
-    BARCODE: [{ component: "BACK", fields: ["BARCODE"], reason: "Barcode must be read from the exact rear package or sticker." }],
-    BOX_CODE: [{ component: "BOX_FLAPS", fields: ["BOX_CODE", "PRINT_REVISION"], reason: "Box codes and print revisions are component-scoped." }],
-    PACKAGING_LANGUAGES: [{ component: "BACK", fields: ["PACKAGING_LANGUAGES"], reason: "Printed package text must be visually observed." }],
-    RATING: [{ component: "FRONT", fields: ["RATING"], reason: "Rating marks are usually visible on physical packaging." }],
+    BARCODE: [{ component: "OUTER_PACKAGE_BACK", fields: ["BARCODE"], reason: "Barcode must be read from the exact rear package or sticker." }],
+    BOX_CODE: [{ component: "OUTER_PACKAGE_FLAP", fields: ["BOX_CODE", "PRINT_REVISION"], reason: "Box codes and print revisions are component-scoped." }],
+    PACKAGING_LANGUAGES: [{ component: "OUTER_PACKAGE_BACK", fields: ["PACKAGING_LANGUAGES"], reason: "Printed package text must be visually observed." }],
+    RATING: [{ component: "OUTER_PACKAGE_FRONT", fields: ["RATING"], reason: "Rating marks are usually visible on physical packaging." }],
     OUTER_INNER_RELATION: [
-      { component: "OUTER_BOX", fields: ["OUTER_INNER_RELATION", "BARCODE"], reason: "Bind the outer identifier separately." },
-      { component: "INNER_BOX", fields: ["OUTER_INNER_RELATION", "PRODUCT_CODE"], reason: "Bind the inner game separately." },
+      { component: "OUTER_PACKAGE_BACK", fields: ["OUTER_INNER_RELATION", "BARCODE"], reason: "Bind the outer identifier separately." },
+      { component: "INNER_CASE_BACK", fields: ["OUTER_INNER_RELATION", "PRODUCT_CODE"], reason: "Bind the inner game separately." },
     ],
-    BUNDLE_CONTENTS: [{ component: "OUTER_BOX", fields: ["BUNDLE_CONTENTS", "PHYSICAL_PRODUCT_TYPE"], reason: "The exact bundle contents must be visible or documented." }],
-    COLLECTOR_CONTENTS: [{ component: "OUTER_BOX", fields: ["COLLECTOR_CONTENTS", "PHYSICAL_PRODUCT_TYPE"], reason: "Collector packaging does not prove game media is included." }],
-    PHYSICAL_PRODUCT_TYPE: [{ component: "BACK", fields: ["PHYSICAL_PRODUCT_TYPE"], reason: "Back-cover download/code statements or an exact unboxing must distinguish on-media content from required downloads." }],
-    PRODUCT_CODE: [{ component: "CART_FRONT", fields: ["PRODUCT_CODE"], reason: "Read the code from the exact physical medium." }],
-    ROM_REVISION: [{ component: "CART_FRONT", fields: ["ROM_REVISION"], reason: "Label evidence is only a clue; technical evidence remains required." }],
+    BUNDLE_CONTENTS: [{ component: "OUTER_PACKAGE_FRONT", fields: ["BUNDLE_CONTENTS", "PHYSICAL_PRODUCT_TYPE"], reason: "The exact bundle contents must be visible or documented." }],
+    COLLECTOR_CONTENTS: [{ component: "OUTER_PACKAGE_FRONT", fields: ["COLLECTOR_CONTENTS", "PHYSICAL_PRODUCT_TYPE"], reason: "Collector packaging does not prove game media is included." }],
+    PHYSICAL_PRODUCT_TYPE: [{ component: "OUTER_PACKAGE_BACK", fields: ["PHYSICAL_PRODUCT_TYPE"], reason: "Back-cover download/code statements or an exact unboxing must distinguish on-media content from required downloads." }],
+    PRODUCT_CODE: [
+      { component: "CARTRIDGE_FRONT", fields: ["PRODUCT_CODE"], reason: "Read the code from the exact physical medium." },
+      { component: "CART_FRONT", fields: ["PRODUCT_CODE"], reason: "Legacy compatibility alias; canonicalized to CARTRIDGE_FRONT before binding." },
+    ],
+    ROM_REVISION: [
+      { component: "CARTRIDGE_FRONT", fields: ["ROM_REVISION"], reason: "Label evidence is only a clue; technical evidence remains required." },
+      { component: "CART_FRONT", fields: ["ROM_REVISION"], reason: "Legacy compatibility alias; canonicalized to CARTRIDGE_FRONT before binding." },
+    ],
   };
   return rows[target] ?? [];
 }
@@ -441,6 +466,8 @@ export function routeResearch(input: ResearchRouterInput): ResearchRouterPlan {
     imagePlan: imagePlanFor(input.targetField),
     deterministicChecks,
     escalationRules,
+    researchMode: input.researchMode ?? "STANDARD",
+    evidenceGapTypes: [...new Set((input.evidenceGaps ?? []).map((gap) => gap.type))],
     routeFingerprint: createHash("sha256").update(fingerprintInput).digest("hex"),
   };
 }

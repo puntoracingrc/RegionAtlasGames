@@ -45,6 +45,7 @@ function braveSearchKey(): string {
 }
 
 function serpApiKey(): string {
+  if (["1", "true", "yes", "on"].includes((process.env.RESEARCH_DISABLE_SERPAPI ?? "").trim().toLowerCase())) return "";
   return process.env.SERPAPI_KEY?.trim() || process.env.SERPAPI_API_KEY?.trim() || "";
 }
 
@@ -206,7 +207,10 @@ export class GoogleCustomResearchSearchProvider implements ResearchSearchProvide
       signal: AbortSignal.timeout(this.timeoutMs),
       cache: "no-store",
     });
-    if (!response.ok) throw new ResearchSearchProviderError(`GOOGLE_SEARCH_HTTP_${response.status}`);
+    if (!response.ok) {
+      const suffix = response.status === 401 || response.status === 403 ? "AUTH_ERROR" : `HTTP_${response.status}`;
+      throw new ResearchSearchProviderError(`GOOGLE_SEARCH_${suffix}`);
+    }
     const payload = await response.json() as {
       items?: Array<{ title?: string; link?: string; snippet?: string; pagemap?: { metatags?: Array<Record<string, string>> } }>;
     };
@@ -265,9 +269,11 @@ export class SerpApiResearchSearchProvider implements ResearchSearchProviderV2 {
     if (!response.ok) {
       const failure = await response.json().catch(() => ({})) as { error?: unknown };
       const message = safeProviderMessage(failure.error);
-      const code = message && /quota|credits? exhausted|plan limit|monthly searches|run out of searches/i.test(message)
-        ? "SERPAPI_QUOTA_EXHAUSTED"
-        : `SERPAPI_HTTP_${response.status}`;
+      const code = response.status === 401 || response.status === 403
+        ? "SERPAPI_AUTH_ERROR"
+        : message && /quota|credits? exhausted|plan limit|monthly searches|run out of searches/i.test(message)
+          ? "SERPAPI_QUOTA_EXHAUSTED"
+          : `SERPAPI_HTTP_${response.status}`;
       throw new ResearchSearchProviderError(code, message);
     }
     const payload = await response.json() as {
@@ -336,7 +342,7 @@ export class FallbackResearchSearchProvider implements ResearchSearchProviderV2 
       this.event(provider.name, "SUCCESS", null, "Preflight request completed", "PREFLIGHT");
     } catch (error) {
       const code = classifyRetrievalFailure(error);
-      const open = code === "PROVIDER_QUOTA_EXHAUSTED" || code === "SOURCE_RATE_LIMITED";
+      const open = code === "PROVIDER_AUTHENTICATION_FAILED" || code === "PROVIDER_QUOTA_EXHAUSTED" || code === "SOURCE_RATE_LIMITED";
       this.setHealth(provider.name, open ? "OPEN_CIRCUIT" : "DEGRADED", code, safeRetrievalDetail(error));
       this.event(provider.name, open ? "OPEN_CIRCUIT" : "FAILURE", code, safeRetrievalDetail(error), "PREFLIGHT");
     }
@@ -375,7 +381,7 @@ export class FallbackResearchSearchProvider implements ResearchSearchProviderV2 
           errors.push(error);
           const code = classifyRetrievalFailure(error);
           const detail = safeRetrievalDetail(error);
-          const opensImmediately = code === "PROVIDER_QUOTA_EXHAUSTED";
+          const opensImmediately = code === "PROVIDER_AUTHENTICATION_FAILED" || code === "PROVIDER_QUOTA_EXHAUSTED";
           const opensAfterRetry = code === "SOURCE_RATE_LIMITED" && attempt >= this.maxTechnicalRetries;
           if (opensImmediately || opensAfterRetry) {
             this.setHealth(provider.name, "OPEN_CIRCUIT", code, detail);
@@ -514,9 +520,11 @@ export class SerpApiResearchImageSearchProvider implements ResearchImageSearchPr
     if (!response.ok) {
       const failure = await response.json().catch(() => ({})) as { error?: unknown };
       const message = safeProviderMessage(failure.error);
-      const code = message && /quota|credits? exhausted|plan limit|monthly searches|run out of searches/i.test(message)
-        ? "SERPAPI_IMAGE_QUOTA_EXHAUSTED"
-        : `SERPAPI_IMAGE_HTTP_${response.status}`;
+      const code = response.status === 401 || response.status === 403
+        ? "SERPAPI_IMAGE_AUTH_ERROR"
+        : message && /quota|credits? exhausted|plan limit|monthly searches|run out of searches/i.test(message)
+          ? "SERPAPI_IMAGE_QUOTA_EXHAUSTED"
+          : `SERPAPI_IMAGE_HTTP_${response.status}`;
       throw new ResearchSearchProviderError(code, message);
     }
     const payload = await response.json() as {
@@ -580,7 +588,10 @@ export class GoogleCustomResearchImageSearchProvider implements ResearchImageSea
       signal: AbortSignal.timeout(this.timeoutMs),
       cache: "no-store",
     });
-    if (!response.ok) throw new ResearchSearchProviderError(`GOOGLE_IMAGE_HTTP_${response.status}`);
+    if (!response.ok) {
+      const suffix = response.status === 401 || response.status === 403 ? "AUTH_ERROR" : `HTTP_${response.status}`;
+      throw new ResearchSearchProviderError(`GOOGLE_IMAGE_${suffix}`);
+    }
     const payload = await response.json() as {
       items?: Array<{ title?: string; link?: string; image?: { thumbnailLink?: string; contextLink?: string } }>;
     };
@@ -658,7 +669,7 @@ export class FallbackResearchImageSearchProvider implements ResearchImageSearchP
           errors.push(error);
           const code = classifyRetrievalFailure(error);
           const detail = safeRetrievalDetail(error);
-          const opensImmediately = code === "PROVIDER_QUOTA_EXHAUSTED";
+          const opensImmediately = code === "PROVIDER_AUTHENTICATION_FAILED" || code === "PROVIDER_QUOTA_EXHAUSTED";
           const opensAfterRetry = code === "SOURCE_RATE_LIMITED" && attempt >= this.maxTechnicalRetries;
           if (opensImmediately || opensAfterRetry) {
             this.setHealth(provider.name, "OPEN_CIRCUIT", code, detail);

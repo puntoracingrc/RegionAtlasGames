@@ -1,0 +1,220 @@
+[
+  {
+    "id": "ev-6705793128384700f9aed539",
+    "runId": "v4-case-4-ezio-collection-switch-product_code-ff8a6f65-80ca-4f6b-97d6-7d160097bace",
+    "taskId": "pilot:v4:case-4-ezio-collection-switch:product_code",
+    "sourceId": "launchbox-images",
+    "sourceUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceType": "PHYSICAL_SPECIMEN_DISCOVERY",
+    "host": "gamesdb.launchbox-app.com",
+    "fetchedAt": "2026-09-16T11:56:09.698Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "LaunchBox GAMES DATABASE Home Get LaunchBox Forums Tutorials Download Big Box My Collection Assassin's Creed: The Ezio Collection Release Date February 17, 2022 Platform Nintendo Switch Game Type Released Max Players 1 Details Images Scroll to Top LaunchBox GAMES DATABASE",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "1ec4ae3f9523aecb64839cbfc2c8dca30a7062335a2a72e2724d940a8e915414",
+    "capabilities": [
+      "PRODUCT_CODE"
+    ],
+    "reliability": 55,
+    "component": null
+  },
+  {
+    "id": "ev-c1fb316f0ce391760e2ba7ae",
+    "runId": "v4-case-4-ezio-collection-switch-product_code-ff8a6f65-80ca-4f6b-97d6-7d160097bace",
+    "taskId": "pilot:v4:case-4-ezio-collection-switch:product_code",
+    "sourceId": "launchbox-images",
+    "sourceUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceType": "PHYSICAL_SPECIMEN_DISCOVERY",
+    "host": "gamesdb.launchbox-app.com",
+    "fetchedAt": "2026-09-16T11:56:13.568Z",
+    "evidenceType": "EXACT_PHYSICAL_PHOTO",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": null,
+    "imageUrl": "https://images.launchbox-app.com/r2_9891014f-7736-454e-ac68-04718b916fb3.png",
+    "imageHash": "3d025a85f98cf1f6c9b46ebe03485df8493acfb226eee904160f375d12459db6",
+    "textHash": null,
+    "capabilities": [
+      "PRODUCT_CODE"
+    ],
+    "reliability": 95,
+    "component": "UNKNOWN_COMPONENT",
+    "productNodeId": "3193cdc46aef80c28a50",
+    "componentNodeId": "2f306e550937ff6fe0c5",
+    "bindingState": "REJECTED",
+    "marketBindingState": "UNBOUND",
+    "subjectClass": "SAME_TITLE_DIFFERENT_PLATFORM"
+  },
+  {
+    "id": "ev-5a613fce0168032b3aa55cee",
+    "runId": "v4-case-4-ezio-collection-switch-product_code-ff8a6f65-80ca-4f6b-97d6-7d160097bace",
+    "taskId": "pilot:v4:case-4-ezio-collection-switch:product_code",
+    "sourceId": "launchbox-images",
+    "sourceUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "canonicalUrl": "https://gamesdb.launchbox-app.com/games/images/158107-assassins-creed-the-ezio-collection",
+    "sourceType": "PHYSICAL_SPECIMEN_DISCOVERY",
+    "host": "gamesdb.launchbox-app.com",
+    "fetchedAt": "2026-09-16T11:56:19.092Z",
+    "evidenceType": "EXACT_PHYSICAL_PHOTO",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": null,
+    "imageUrl": "https://images.launchbox-app.com/fab1d1b0-a9fc-4ac7-902f-1346a1a2a8fc.jpg",
+    "imageHash": "c689607c6656a677e8d0995e68deb132c94af28be8cf726806e04f5a35890e72",
+    "textHash": null,
+    "capabilities": [
+      "PRODUCT_CODE"
+    ],
+    "reliability": 95,
+    "component": "CARTRIDGE_FRONT",
+    "productNodeId": "3193cdc46aef80c28a50",
+    "componentNodeId": "12c63f2bc59510303180",
+    "bindingState": "PRODUCT_BOUND",
+    "marketBindingState": "LANGUAGE_ONLY",
+    "subjectClass": "EXACT_PRODUCT"
+  },
+  {
+    "id": "ev-77b0690fff861e2b7650e664",
+    "runId": "v4-case-4-ezio-collection-switch-physical_product_type-2b009a7e-0543-4dff-9e75-97e143932e54",
+    "taskId": "pilot:v4:case-4-ezio-collection-switch:physical_product_type",
+    "sourceId": "ubisoft-official",
+    "sourceUrl": "https://news.ubisoft.com/es-mx/article/2L6Ahp3Tlrnybzh3wwh157/assassins-creed-the-ezio-collection-llegar-a-switch-el-17-de-febrero",
+    "canonicalUrl": "https://news.ubisoft.com/es-mx/article/2L6Ahp3Tlrnybzh3wwh157/assassins-creed-the-ezio-collection-llegar-a-switch-el-17-de-febrero",
+    "sourceType": "PUBLISHER",
+    "host": "news.ubisoft.com",
+    "fetchedAt": "2026-09-16T11:56:21.893Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Assassin's Creed: The Ezio Collection llegará a Nintendo Switch",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "223b83a07e6a5c5bc2158b3a5b19d255c1ef87ecb59214c3c23c9bc4dbe81e0e",
+    "capabilities": [
+      "PHYSICAL_PRODUCT_TYPE"
+    ],
+    "reliability": 86,
+    "component": null
+  },
+  {
+    "id": "ev-c1ab8929a59df71c87cac728",
+    "runId": "v4-case-4-ezio-collection-switch-physical_product_type-2b009a7e-0543-4dff-9e75-97e143932e54",
+    "taskId": "pilot:v4:case-4-ezio-collection-switch:physical_product_type",
+    "sourceId": "ubisoft-official",
+    "sourceUrl": "https://news.ubisoft.com/en-gb/article/2L6Ahp3Tlrnybzh3wwh157/assassins-creed-the-ezio-collection-coming-to-switch-february-17",
+    "canonicalUrl": "https://news.ubisoft.com/en-gb/article/2L6Ahp3Tlrnybzh3wwh157/assassins-creed-the-ezio-collection-coming-to-switch-february-17",
+    "sourceType": "PUBLISHER",
+    "host": "news.ubisoft.com",
+    "fetchedAt": "2026-09-16T11:56:25.617Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Assassin's Creed: The Ezio Collection is coming to Nintendo Switch",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "9f35e8ef6f836ed17b420ec6c82da09dbf102edfcf717b129107a6c82162afac",
+    "capabilities": [
+      "PHYSICAL_PRODUCT_TYPE"
+    ],
+    "reliability": 86,
+    "component": null
+  },
+  {
+    "id": "ev-78226faec878cce13b69fe6f",
+    "runId": "v4-case-4-ezio-collection-switch-physical_product_type-2b009a7e-0543-4dff-9e75-97e143932e54",
+    "taskId": "pilot:v4:case-4-ezio-collection-switch:physical_product_type",
+    "sourceId": "national-retailer",
+    "sourceUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "canonicalUrl": "https://www.game.es/assassins-creed-the-ezio-collection-nintendo-switch-198653",
+    "sourceType": "RETAILER",
+    "host": "www.game.es",
+    "fetchedAt": "2026-09-16T11:56:32.948Z",
+    "evidenceType": "PAGE_TEXT",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MATCH",
+      "edition": "MATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": []
+    },
+    "relevantExcerpt": "Compra Assassin&acute;s Creed The Ezio Collection y haz historia en el papel del legendario Maestro Assassin Ezio Auditore de Florencia, que incluye las célebres campañas de un solo jugador de Assassin&rsquo;s Creed II, Assassin&rsquo;s Creed: La Hermandad, y Assassin&rsquo;s Creed Revelations.",
+    "imageUrl": null,
+    "imageHash": null,
+    "textHash": "70dad1815b1299e57bb6be7364383321fdb3ba6b08cb74bc0806e648ee65799e",
+    "capabilities": [],
+    "reliability": 0,
+    "component": null
+  },
+  {
+    "id": "ev-3229cd1cbf712cbc5635d045",
+    "runId": "v4-case-4-ezio-collection-switch-physical_product_type-2b009a7e-0543-4dff-9e75-97e143932e54",
+    "taskId": "pilot:v4:case-4-ezio-collection-switch:physical_product_type",
+    "sourceId": "candidate:gocdkeys.es",
+    "sourceUrl": "https://gocdkeys.es/comprar-assassins-creed-the-ezio-collection-nintendo-switch",
+    "canonicalUrl": "https://gocdkeys.es/comprar-assassins-creed-the-ezio-collection-nintendo-switch",
+    "sourceType": "NEW_SOURCE_CANDIDATE",
+    "host": "gocdkeys.es",
+    "fetchedAt": "2026-09-16T11:56:51.245Z",
+    "evidenceType": "IMAGE_FROM_SOURCE_PAGE",
+    "subjectBinding": {
+      "game": "MATCH",
+      "platform": "MISMATCH",
+      "edition": "MISMATCH",
+      "variant": "UNKNOWN",
+      "component": "UNKNOWN",
+      "risks": [
+        "WRONG_PLATFORM",
+        "WRONG_EDITION",
+        "CROSS_ATTRIBUTION_RISK"
+      ]
+    },
+    "relevantExcerpt": null,
+    "imageUrl": "https://gocdkeys.es/assets/thumbnails/assassins-creed-the-ezio-collection-nintendo-switch-1.webp",
+    "imageHash": "cb7e410150398eff6a668c5bda90512cdf160653d5faa1d42a327f9eb3ab8e99",
+    "textHash": null,
+    "capabilities": [],
+    "reliability": 5,
+    "component": "UNKNOWN_COMPONENT",
+    "productNodeId": "3193cdc46aef80c28a50",
+    "componentNodeId": "2f306e550937ff6fe0c5",
+    "bindingState": "REJECTED",
+    "marketBindingState": "UNBOUND",
+    "subjectClass": "RELATED_PRODUCT"
+  }
+]

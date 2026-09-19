@@ -1,0 +1,2813 @@
+[
+  {
+    "targetField": "BARCODE",
+    "history": [
+      {
+        "targetField": "BARCODE",
+        "factsUsed": [
+          "target=BARCODE",
+          "platform=wiiu",
+          "title=Assassin's Creed IV: Black Flag",
+          "edition=Skull Edition · España · barcode pendiente",
+          "playbook=COLLECTOR_EDITION_FIRST"
+        ],
+        "selectedPlaybook": {
+          "id": "COLLECTOR_EDITION_FIRST",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "CANONICAL_IDENTITY",
+            "COLLECTOR_CONTENTS",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "COLLECTOR_EDITION"
+          ],
+          "sourceRoles": [
+            "PUBLISHER",
+            "RETAILER",
+            "PHYSICAL_SPECIMEN",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "EDITION",
+            "BARCODE"
+          ],
+          "deterministicChecks": [
+            "EDITION_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Require the named collector edition in non-identifier results.",
+            "Classify a barcode as outer package, inner case, retailer sticker, or unknown.",
+            "Treat Spanish retail circulation as separate from Spanish packaging."
+          ],
+          "stopWhen": "EXACT_EDITION_AND_COMPONENT_CONFIRMED",
+          "stopRule": null,
+          "sourceIds": [
+            "ubisoft-official",
+            "national-retailer",
+            "ogdb",
+            "retroplace",
+            "todocoleccion",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 90,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 90."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 82,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 82."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 76."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 72,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 72."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 68,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 68."
+          },
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 82,
+            "reason": "Field capability 82; default reliability 76."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 65,
+            "reason": "Field capability 65; default reliability 55."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Skull Edition\" \"Wii U\" barcode",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\"",
+            "sourceId": "national-retailer",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ogdb",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "retroplace",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "todocoleccion",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ebay",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "dbox",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamesdb.launchbox-app.com \"Assassin's Creed IV: Black Flag\" Wii U back",
+            "sourceId": "launchbox-images",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" barcode",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" unboxing",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_BACK",
+            "fields": [
+              "BARCODE"
+            ],
+            "reason": "Barcode must be read from the exact rear package or sticker."
+          }
+        ],
+        "deterministicChecks": [
+          "EDITION_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING",
+          "BARCODE_CHECKSUM"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "be226197119f8fa39febf5b12a98bf54367a6ae297a5a7214299663ccaa484c0"
+      }
+    ]
+  },
+  {
+    "targetField": "BOX_CODE",
+    "history": [
+      {
+        "targetField": "BOX_CODE",
+        "factsUsed": [
+          "target=BOX_CODE",
+          "platform=wiiu",
+          "title=Assassin's Creed IV: Black Flag",
+          "edition=Skull Edition · España · barcode pendiente",
+          "playbook=COLLECTOR_EDITION_FIRST"
+        ],
+        "selectedPlaybook": {
+          "id": "COLLECTOR_EDITION_FIRST",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "CANONICAL_IDENTITY",
+            "COLLECTOR_CONTENTS",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "COLLECTOR_EDITION"
+          ],
+          "sourceRoles": [
+            "PUBLISHER",
+            "RETAILER",
+            "PHYSICAL_SPECIMEN",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "EDITION",
+            "BARCODE"
+          ],
+          "deterministicChecks": [
+            "EDITION_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Require the named collector edition in non-identifier results.",
+            "Classify a barcode as outer package, inner case, retailer sticker, or unknown.",
+            "Treat Spanish retail circulation as separate from Spanish packaging."
+          ],
+          "stopWhen": "EXACT_EDITION_AND_COMPONENT_CONFIRMED",
+          "stopRule": null,
+          "sourceIds": [
+            "ubisoft-official",
+            "national-retailer",
+            "ogdb",
+            "retroplace",
+            "todocoleccion",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 78."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 78."
+          },
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 90,
+            "reason": "Field capability 90; default reliability 76."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 60,
+            "reason": "Field capability 60; default reliability 55."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Skull Edition\" \"Wii U\" barcode",
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ogdb",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\"",
+            "sourceId": "national-retailer",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "retroplace",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "todocoleccion",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ebay",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamesdb.launchbox-app.com \"Assassin's Creed IV: Black Flag\" Wii U back",
+            "sourceId": "launchbox-images",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" barcode",
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" unboxing",
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "GENERIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_FLAP",
+            "fields": [
+              "BOX_CODE",
+              "PRINT_REVISION"
+            ],
+            "reason": "Box codes and print revisions are component-scoped."
+          }
+        ],
+        "deterministicChecks": [
+          "EDITION_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "7af3ab9758aaf5be8af01fcb6bc66491c0bec9b96b3f2683f8ff5b662dbd488d"
+      }
+    ]
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "history": [
+      {
+        "targetField": "CANONICAL_IDENTITY",
+        "factsUsed": [
+          "target=CANONICAL_IDENTITY",
+          "platform=wiiu",
+          "title=Assassin's Creed IV: Black Flag",
+          "edition=Skull Edition · España · barcode pendiente",
+          "playbook=COLLECTOR_EDITION_FIRST"
+        ],
+        "selectedPlaybook": {
+          "id": "COLLECTOR_EDITION_FIRST",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "CANONICAL_IDENTITY",
+            "COLLECTOR_CONTENTS",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "COLLECTOR_EDITION"
+          ],
+          "sourceRoles": [
+            "PUBLISHER",
+            "RETAILER",
+            "PHYSICAL_SPECIMEN",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "EDITION",
+            "BARCODE"
+          ],
+          "deterministicChecks": [
+            "EDITION_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Require the named collector edition in non-identifier results.",
+            "Classify a barcode as outer package, inner case, retailer sticker, or unknown.",
+            "Treat Spanish retail circulation as separate from Spanish packaging."
+          ],
+          "stopWhen": "EXACT_EDITION_AND_COMPONENT_CONFIRMED",
+          "stopRule": null,
+          "sourceIds": [
+            "ubisoft-official",
+            "national-retailer",
+            "ogdb",
+            "retroplace",
+            "todocoleccion",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 94,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 94."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 76."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 72,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 72."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 88,
+            "reason": "Field capability 88; default reliability 90."
+          },
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 70,
+            "reason": "Field capability 70; default reliability 76."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 72."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 58."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 58,
+            "reason": "Field capability 58; default reliability 52."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Skull Edition\" \"Wii U\" barcode",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\"",
+            "sourceId": "national-retailer",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo-europe.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "nintendo-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "todocoleccion",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "mobygames",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" barcode",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" unboxing",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          }
+        ],
+        "imagePlan": [],
+        "deterministicChecks": [
+          "EDITION_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "a35b8e5ce0ae5d62db0cf72802bfe2010fb240992bc391a44fc7b841b40135ba"
+      },
+      {
+        "targetField": "CANONICAL_IDENTITY",
+        "factsUsed": [
+          "target=CANONICAL_IDENTITY",
+          "platform=wiiu",
+          "title=Assassin's Creed IV: Black Flag",
+          "edition=Skull Edition · España · barcode pendiente",
+          "BARCODE=3307215714966",
+          "playbook=COLLECTOR_EDITION_FIRST"
+        ],
+        "selectedPlaybook": {
+          "id": "COLLECTOR_EDITION_FIRST",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "CANONICAL_IDENTITY",
+            "COLLECTOR_CONTENTS",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "COLLECTOR_EDITION"
+          ],
+          "sourceRoles": [
+            "PUBLISHER",
+            "RETAILER",
+            "PHYSICAL_SPECIMEN",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "EDITION",
+            "BARCODE"
+          ],
+          "deterministicChecks": [
+            "EDITION_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Require the named collector edition in non-identifier results.",
+            "Classify a barcode as outer package, inner case, retailer sticker, or unknown.",
+            "Treat Spanish retail circulation as separate from Spanish packaging."
+          ],
+          "stopWhen": "EXACT_EDITION_AND_COMPONENT_CONFIRMED",
+          "stopRule": null,
+          "sourceIds": [
+            "ubisoft-official",
+            "national-retailer",
+            "ogdb",
+            "retroplace",
+            "todocoleccion",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 94,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 94."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 76."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 72,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 72."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 88,
+            "reason": "Field capability 88; default reliability 90."
+          },
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 70,
+            "reason": "Field capability 70; default reliability 76."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 72."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 58."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 58,
+            "reason": "Field capability 58; default reliability 52."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "\"3307215714966\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "\"3307215714966\" \"Wii U\""
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "site:ubisoft.com \"3307215714966\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "\"3307215714966\" \"Assassin's Creed IV: Black Flag\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "\"3307215714966\" ES"
+          },
+          {
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "site:ogdb.eu \"3307215714966\""
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Skull Edition\" \"Wii U\" barcode",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"3307215714966\"",
+            "sourceId": "national-retailer",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo-europe.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "nintendo-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"3307215714966\"",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"3307215714966\"",
+            "sourceId": "todocoleccion",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "mobygames",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\"",
+            "sourceId": "national-retailer",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"3307215714966\"",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"3307215714966\"",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "todocoleccion",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [],
+        "deterministicChecks": [
+          "EDITION_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "5e2da38243735aa92e99c13da0a0694ec2895389b3a9e0d57889a7f8ffd67c9d"
+      },
+      {
+        "targetField": "CANONICAL_IDENTITY",
+        "factsUsed": [
+          "target=CANONICAL_IDENTITY",
+          "platform=wiiu",
+          "title=Assassin's Creed IV: Black Flag",
+          "edition=Skull Edition · España · barcode pendiente",
+          "BARCODE=3307215714966",
+          "BARCODE=3307215706084",
+          "PRODUCT_CODE=WUP-ASBP-SCN",
+          "MEDIA_ID=WUP-P-ASBP-EUR-0",
+          "playbook=COLLECTOR_EDITION_FIRST"
+        ],
+        "selectedPlaybook": {
+          "id": "COLLECTOR_EDITION_FIRST",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "CANONICAL_IDENTITY",
+            "COLLECTOR_CONTENTS",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "COLLECTOR_EDITION"
+          ],
+          "sourceRoles": [
+            "PUBLISHER",
+            "RETAILER",
+            "PHYSICAL_SPECIMEN",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "EDITION",
+            "BARCODE"
+          ],
+          "deterministicChecks": [
+            "EDITION_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Require the named collector edition in non-identifier results.",
+            "Classify a barcode as outer package, inner case, retailer sticker, or unknown.",
+            "Treat Spanish retail circulation as separate from Spanish packaging."
+          ],
+          "stopWhen": "EXACT_EDITION_AND_COMPONENT_CONFIRMED",
+          "stopRule": null,
+          "sourceIds": [
+            "ubisoft-official",
+            "national-retailer",
+            "ogdb",
+            "retroplace",
+            "todocoleccion",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 94,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 94."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 76."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 72,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 72."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 88,
+            "reason": "Field capability 88; default reliability 90."
+          },
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 70,
+            "reason": "Field capability 70; default reliability 76."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 72."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 58."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 58,
+            "reason": "Field capability 58; default reliability 52."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "\"3307215714966\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215706084",
+            "query": "\"3307215706084\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "PRODUCT_CODE",
+            "identifierValue": "WUP-ASBP-SCN",
+            "query": "\"WUP-ASBP-SCN\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "MEDIA_ID",
+            "identifierValue": "WUP-P-ASBP-EUR-0",
+            "query": "\"WUP-P-ASBP-EUR-0\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "\"3307215714966\" \"Wii U\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215706084",
+            "query": "\"3307215706084\" \"Wii U\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "PRODUCT_CODE",
+            "identifierValue": "WUP-ASBP-SCN",
+            "query": "\"WUP-ASBP-SCN\" \"Wii U\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "MEDIA_ID",
+            "identifierValue": "WUP-P-ASBP-EUR-0",
+            "query": "\"WUP-P-ASBP-EUR-0\" \"Wii U\""
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Skull Edition\" \"Wii U\" barcode",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"3307215714966\"",
+            "sourceId": "national-retailer",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo.es \"Assassin's Creed IV: Black Flag\" Wii U WUP-ASBP-SCN",
+            "sourceId": "nintendo-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"3307215714966\"",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"3307215714966\"",
+            "sourceId": "todocoleccion",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "mobygames",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"3307215714966\"",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\"",
+            "sourceId": "national-retailer",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"3307215714966\"",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo-europe.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "nintendo-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [],
+        "deterministicChecks": [
+          "EDITION_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "b20c92954ee091ce71023509d6ddd1fad2d2d1b72af72127f199ff9f689244ba"
+      },
+      {
+        "targetField": "CANONICAL_IDENTITY",
+        "factsUsed": [
+          "target=CANONICAL_IDENTITY",
+          "platform=wiiu",
+          "title=Assassin's Creed IV: Black Flag",
+          "edition=Skull Edition · España · barcode pendiente",
+          "BARCODE=3307215714966",
+          "BARCODE=3307215706084",
+          "PRODUCT_CODE=WUP-ASBP-SCN",
+          "MEDIA_ID=WUP-P-ASBP-EUR-0",
+          "BARCODE=3307215706107",
+          "playbook=COLLECTOR_EDITION_FIRST"
+        ],
+        "selectedPlaybook": {
+          "id": "COLLECTOR_EDITION_FIRST",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "CANONICAL_IDENTITY",
+            "COLLECTOR_CONTENTS",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "COLLECTOR_EDITION"
+          ],
+          "sourceRoles": [
+            "PUBLISHER",
+            "RETAILER",
+            "PHYSICAL_SPECIMEN",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "EDITION",
+            "BARCODE"
+          ],
+          "deterministicChecks": [
+            "EDITION_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Require the named collector edition in non-identifier results.",
+            "Classify a barcode as outer package, inner case, retailer sticker, or unknown.",
+            "Treat Spanish retail circulation as separate from Spanish packaging."
+          ],
+          "stopWhen": "EXACT_EDITION_AND_COMPONENT_CONFIRMED",
+          "stopRule": null,
+          "sourceIds": [
+            "ubisoft-official",
+            "national-retailer",
+            "ogdb",
+            "retroplace",
+            "todocoleccion",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 94,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 94."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 76."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 72,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability 72."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 88,
+            "reason": "Field capability 88; default reliability 90."
+          },
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 70,
+            "reason": "Field capability 70; default reliability 76."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 72."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 58."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by COLLECTOR_EDITION_FIRST; target capability not declared."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 58,
+            "reason": "Field capability 58; default reliability 52."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "\"3307215714966\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215706084",
+            "query": "\"3307215706084\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "PRODUCT_CODE",
+            "identifierValue": "WUP-ASBP-SCN",
+            "query": "\"WUP-ASBP-SCN\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "MEDIA_ID",
+            "identifierValue": "WUP-P-ASBP-EUR-0",
+            "query": "\"WUP-P-ASBP-EUR-0\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215706107",
+            "query": "\"3307215706107\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215714966",
+            "query": "\"3307215714966\" \"Wii U\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307215706084",
+            "query": "\"3307215706084\" \"Wii U\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "PRODUCT_CODE",
+            "identifierValue": "WUP-ASBP-SCN",
+            "query": "\"WUP-ASBP-SCN\" \"Wii U\""
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Skull Edition\" \"Wii U\" barcode",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"3307215714966\"",
+            "sourceId": "national-retailer",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo.es \"Assassin's Creed IV: Black Flag\" Wii U WUP-ASBP-SCN",
+            "sourceId": "nintendo-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"3307215714966\"",
+            "sourceId": "dbox",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"3307215714966\"",
+            "sourceId": "todocoleccion",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "mobygames",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"3307215714966\"",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\"",
+            "sourceId": "national-retailer",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"3307215714966\"",
+            "sourceId": "retroplace",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo-europe.com \"Assassin's Creed IV: Black Flag\" Wii U",
+            "sourceId": "nintendo-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [],
+        "deterministicChecks": [
+          "EDITION_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "84ef4d72b9d66c089f1c83b8fa83d10222bc8eae35728526915c05d0ad70f71a"
+      }
+    ]
+  }
+]

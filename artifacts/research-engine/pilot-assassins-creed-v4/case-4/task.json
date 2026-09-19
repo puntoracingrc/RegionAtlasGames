@@ -1,0 +1,58 @@
+{
+  "case": {
+    "number": 4,
+    "id": "case-4-ezio-collection-switch",
+    "title": "Assassin's Creed: The Ezio Collection",
+    "titleCandidates": [
+      "Assassin's Creed: The Ezio Collection",
+      "Assassin's Creed The Ezio Collection"
+    ],
+    "platformSlug": "switch",
+    "edition": "Physical product identity pending",
+    "editionNeedles": [
+      "ezio"
+    ],
+    "region": "Europe",
+    "identifiers": [],
+    "targetFields": [
+      "PRODUCT_CODE",
+      "PHYSICAL_PRODUCT_TYPE"
+    ],
+    "objective": "Distinguish game-card SKU from code-in-box SKU and document any download requirement without treating software language as packaging evidence."
+  },
+  "subjectId": "catalog:switch-assassin-s-creed-the-ezio-collection",
+  "tasks": [
+    {
+      "id": "pilot:v4:case-4-ezio-collection-switch:product_code",
+      "subjectId": "catalog:switch-assassin-s-creed-the-ezio-collection",
+      "targetField": "PRODUCT_CODE",
+      "question": "Distinguish game-card SKU from code-in-box SKU and document any download requirement without treating software language as packaging evidence. Target field: PRODUCT_CODE.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T11:56:02.883Z",
+      "updatedAt": "2026-09-16T11:56:02.883Z"
+    },
+    {
+      "id": "pilot:v4:case-4-ezio-collection-switch:physical_product_type",
+      "subjectId": "catalog:switch-assassin-s-creed-the-ezio-collection",
+      "targetField": "PHYSICAL_PRODUCT_TYPE",
+      "question": "Distinguish game-card SKU from code-in-box SKU and document any download requirement without treating software language as packaging evidence. Target field: PHYSICAL_PRODUCT_TYPE.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T11:56:02.883Z",
+      "updatedAt": "2026-09-16T11:56:02.883Z"
+    }
+  ]
+}

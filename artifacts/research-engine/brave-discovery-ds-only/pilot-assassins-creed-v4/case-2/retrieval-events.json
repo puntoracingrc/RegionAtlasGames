@@ -1,0 +1,182 @@
+[
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:07:59.778Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:07:59.969Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:08:00.161Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:08:00.504Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "1 results"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:08:03.370Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "6 results"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:08:06.937Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "5 results"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T13:08:08.265Z",
+    "operation": "IMAGE_SEARCH",
+    "provider": "brave-images",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "4 results"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:15.665Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "6 results"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:18.120Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "5 results"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:23.246Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:23.445Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:24.069Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:24.678Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "1 results"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T13:08:24.872Z",
+    "operation": "IMAGE_SEARCH",
+    "provider": "brave-images",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "4 results"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T13:08:35.155Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "6 results"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T13:08:36.900Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "5 results"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T13:08:41.956Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T13:08:42.153Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T13:08:42.345Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "EMPTY",
+    "failureCode": null,
+    "detail": "0 results"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "at": "2026-09-16T13:08:42.535Z",
+    "operation": "SEARCH",
+    "provider": "brave-search",
+    "outcome": "SUCCESS",
+    "failureCode": null,
+    "detail": "1 results"
+  }
+]

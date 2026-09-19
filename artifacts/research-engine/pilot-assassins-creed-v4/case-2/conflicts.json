@@ -1,0 +1,65 @@
+[
+  {
+    "id": "conflict-9c4769cd936b5c1912b0",
+    "field": "BARCODE",
+    "claimIds": [
+      "cl-21e56b4b894882e365fff19b",
+      "cl-1b862b8fa5a6acf022ad515b",
+      "cl-ac328df51d75d75d40d13499"
+    ],
+    "values": [
+      "008888165347",
+      "3307211667419",
+      "3307211667426"
+    ],
+    "severity": "HIGH",
+    "reason": "Competing well-supported values remain unresolved.",
+    "nextEvidenceNeeded": [
+      "EXACT_SUBJECT_BINDING",
+      "INDEPENDENT_SOURCE",
+      "COMPONENT_SPECIFIC_EVIDENCE"
+    ]
+  },
+  {
+    "id": "conflict-d2f59cdc5d3956edea75",
+    "field": "BARCODE",
+    "claimIds": [
+      "cl-9159c33a06125efa8c9f0dbd",
+      "cl-21e56b4b894882e365fff19b",
+      "cl-1b862b8fa5a6acf022ad515b",
+      "cl-ac328df51d75d75d40d13499"
+    ],
+    "values": [
+      "3 307211 667402",
+      "008888165347",
+      "3307211667419",
+      "3307211667426"
+    ],
+    "severity": "HIGH",
+    "reason": "Competing well-supported values remain unresolved.",
+    "nextEvidenceNeeded": [
+      "EXACT_SUBJECT_BINDING",
+      "INDEPENDENT_SOURCE",
+      "COMPONENT_SPECIFIC_EVIDENCE"
+    ]
+  },
+  {
+    "id": "conflict-0773845ddaa9c0b7b5d7",
+    "field": "BOX_CODE",
+    "claimIds": [
+      "cl-1882f0b5c7e94b7d776a75a4",
+      "cl-301fd48dce818bc4e830f5e2"
+    ],
+    "values": [
+      "TWL-VACE-USA",
+      "TWL-VACV-EUR"
+    ],
+    "severity": "HIGH",
+    "reason": "Competing well-supported values remain unresolved.",
+    "nextEvidenceNeeded": [
+      "EXACT_SUBJECT_BINDING",
+      "INDEPENDENT_SOURCE",
+      "COMPONENT_SPECIFIC_EVIDENCE"
+    ]
+  }
+]

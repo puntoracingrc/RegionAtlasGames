@@ -1,0 +1,26 @@
+[
+  {
+    "targetField": "BARCODE",
+    "provider": "brave-search",
+    "state": "HEALTHY",
+    "checkedAt": "2026-09-16T13:08:06.937Z",
+    "failureCode": null,
+    "detail": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "provider": "brave-search",
+    "state": "HEALTHY",
+    "checkedAt": "2026-09-16T13:08:24.678Z",
+    "failureCode": null,
+    "detail": null
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "provider": "brave-search",
+    "state": "HEALTHY",
+    "checkedAt": "2026-09-16T13:08:42.535Z",
+    "failureCode": null,
+    "detail": null
+  }
+]

@@ -8,6 +8,7 @@ test("fault injection classifies source and provider failures without semantic f
     [new Error("RESEARCH_PAGE_HTTP_403"), "SOURCE_BLOCKED"],
     [new Error("RESEARCH_PAGE_HTTP_404"), "SOURCE_NOT_FOUND"],
     [new Error("SERPAPI_HTTP_429"), "SOURCE_RATE_LIMITED"],
+    [new Error("SERPAPI_AUTH_ERROR"), "PROVIDER_AUTHENTICATION_FAILED"],
     [new Error("GOOGLE_SEARCH_HTTP_503"), "PROVIDER_TEMPORARILY_UNAVAILABLE"],
     [new Error("SERPAPI_QUOTA_EXHAUSTED"), "PROVIDER_QUOTA_EXHAUSTED"],
     [new Error("IMAGE_UNAVAILABLE"), "IMAGE_UNAVAILABLE"],
@@ -19,6 +20,7 @@ test("fault injection classifies source and provider failures without semantic f
   }
   assert.equal(isRetryableRetrievalFailure("SOURCE_TIMEOUT"), true);
   assert.equal(isRetryableRetrievalFailure("SOURCE_RATE_LIMITED"), true);
+  assert.equal(isRetryableRetrievalFailure("PROVIDER_AUTHENTICATION_FAILED"), false);
   assert.equal(isRetryableRetrievalFailure("PROVIDER_QUOTA_EXHAUSTED"), false);
 });
 

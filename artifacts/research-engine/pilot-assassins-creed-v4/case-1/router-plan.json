@@ -1,0 +1,412 @@
+[
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "history": [
+      {
+        "targetField": "CANONICAL_IDENTITY",
+        "factsUsed": [
+          "target=CANONICAL_IDENTITY",
+          "platform=ps5",
+          "title=Assassin's Creed Black Flag Resynced",
+          "edition=standard",
+          "BARCODE=3307216308898",
+          "BARCODE=3307216308904",
+          "playbook=CANONICAL_IDENTITY"
+        ],
+        "selectedPlaybook": {
+          "id": "CANONICAL_IDENTITY",
+          "targets": [
+            "CANONICAL_IDENTITY"
+          ],
+          "triggers": [
+            "IDENTITY_CONFLICT"
+          ],
+          "sourceRoles": [
+            "FRANCHISE_SPECIALIZED",
+            "TECHNICAL_DATABASE",
+            "PUBLISHER"
+          ],
+          "queryTemplateGroups": [
+            "EDITION"
+          ],
+          "deterministicChecks": [
+            "LINEAGE",
+            "PRODUCT_CODE",
+            "CONTENT_COMPARISON",
+            "SUBJECT_BINDING"
+          ],
+          "steps": [],
+          "stopWhen": null,
+          "stopRule": null,
+          "sourceIds": [],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 94,
+            "reason": "Field capability 94; default reliability 92."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 76."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 72."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 58."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 58,
+            "reason": "Field capability 58; default reliability 52."
+          },
+          {
+            "sourceId": "doesitplay",
+            "hosts": [
+              "doesitplay.org"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "TECHNICAL_PHYSICAL_STATUS"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 82."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307216308898",
+            "query": "\"3307216308898\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307216308904",
+            "query": "\"3307216308904\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307216308898",
+            "query": "\"3307216308898\" \"PlayStation 5\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307216308904",
+            "query": "\"3307216308904\" \"PlayStation 5\""
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307216308898",
+            "query": "site:ubisoft.com \"3307216308898\""
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307216308904",
+            "query": "site:ubisoft.com \"3307216308904\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307216308898",
+            "query": "\"3307216308898\" \"Assassin's Creed Black Flag Resynced\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307216308904",
+            "query": "\"3307216308904\" \"Assassin's Creed Black Flag Resynced\""
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+            "sourceId": "ubisoft-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+            "sourceId": "mobygames",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:yambalu.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+            "sourceId": "yambalu",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:playstation.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+            "sourceId": "platform-holder-official",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamefaqs.gamespot.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+            "sourceId": "gamefaqs-guarded",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:doesitplay.org \"Assassin's Creed Black Flag Resynced\" \"PlayStation 5\"",
+            "sourceId": "doesitplay",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"3307216308898\"",
+            "sourceId": "ogdb",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:yambalu.com \"3307216308898\"",
+            "sourceId": "yambalu",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:doesitplay.org \"Assassin's Creed Black Flag Resynced\" \"download required\"",
+            "sourceId": "doesitplay",
+            "purpose": "CANONICAL_IDENTITY",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [],
+        "deterministicChecks": [
+          "LINEAGE",
+          "PRODUCT_CODE",
+          "CONTENT_COMPARISON",
+          "SUBJECT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "d1487c5399649c6636590366ff5072247a42278a3c4fa076d1f000fc2b731b02"
+      }
+    ]
+  }
+]

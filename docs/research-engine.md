@@ -102,7 +102,9 @@ ResearchLlmProvider
 ResearchRunStore
 ```
 
-Search can use Google Custom Search and/or SerpAPI. Direct fetches are bounded and SSRF-protected. Playwright is used only as a permitted fallback. OpenAI text and vision models are configurable and must return strict structured output.
+Search uses Brave Search and Brave Images as the validated primary providers; the existing fallback adapters remain available when explicitly configured. Direct fetches are bounded and SSRF-protected. Playwright is used only as a permitted fallback. OpenAI text and vision models are configurable and must return strict structured output.
+
+Set `RESEARCH_DISABLE_SERPAPI=1` when a retained SerpAPI credential is intentionally unavailable or invalid. Authentication failures are classified separately, open that provider's circuit immediately and never trigger technical retries.
 
 The catalog/domain layer must not know which provider is used.
 
@@ -165,6 +167,14 @@ npm run research:pilot:assassins-creed -- --report
 npm run research:golden
 ```
 
+Pilot 4 exercises the physical-evidence pipeline. Discovery is the mandatory first gate; the full five-case run is allowed only after that gate demonstrates a component-bound identifier with no unrecovered technical failure.
+
+```bash
+npm run research:pilot:assassins-creed:v4 -- --case 2
+npm run research:pilot:assassins-creed:v4 -- --all
+npm run research:pilot:assassins-creed:v4 -- --report
+```
+
 Run artifacts live under `artifacts/research-engine/runs/<run-id>/`. Pilot case artifacts live directly under `artifacts/research-engine/pilot-assassins-creed/<case-id>/`, with a global `closure.md`.
 
 The queue and state are JSON documents on local disk and survive process or machine restarts. A resumed run reloads prior artifacts and skips every normalized query and visited URL already recorded.
@@ -175,6 +185,28 @@ The queue and state are JSON documents on local disk and survive process or mach
 - `data/research-engine/knowledge/platforms/n64.json` is the frozen N64 v1 pack.
 - `data/region-research/` is adapted as component-bound documentary guidance. `reviewed_guidance` can route research; candidates stay discovery-only. Neither becomes an automatic answer.
 - `data/research/golden/` is evaluation-only and is deliberately excluded from the runtime knowledge loader.
+
+## Physical evidence binding
+
+When the remaining gap requires a photograph, the router enters `PHYSICAL_EVIDENCE_MODE`. It first opens source galleries, resolves original images from thumbnails and embedded metadata, and deduplicates image bytes before spending vision calls. Generic search is capped after this transition.
+
+Vision is staged and fail-closed:
+
+```text
+subject identity (low detail)
+        ↓ exact product only
+component identity (low detail)
+        ↓ known component only
+identifier/text extraction (high detail)
+        ↓ deterministic validation
+product + component binding
+```
+
+Collector and bundle evidence additionally requires a literal visible edition marker before `EXACT_PRODUCT` is eligible. A matching title on a Standard, Skull, Buccaneer, Black Chest, Special or Double Pack image is not interchangeable.
+
+The product graph keeps physical product, outer package, inner product, media, document, sticker and accessory nodes distinct. Identifier bindings therefore record both a product node and component node. An outer-package barcode cannot corroborate an inner game barcode, and a seller sticker is never treated as printed package evidence.
+
+Physical acquisition and binding are auditable through the case artifacts: source/gallery pages, image resolution provenance, staged classifications, vision extractions, identifier candidates/rejections, product graph, market binding, evidence gaps, fallback events and component-binding metrics.
 
 ## Cost and model policy
 

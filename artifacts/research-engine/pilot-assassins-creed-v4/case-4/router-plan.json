@@ -1,0 +1,816 @@
+[
+  {
+    "targetField": "PRODUCT_CODE",
+    "history": [
+      {
+        "targetField": "PRODUCT_CODE",
+        "factsUsed": [
+          "target=PRODUCT_CODE",
+          "platform=switch",
+          "title=Assassin's Creed: The Ezio Collection",
+          "edition=standard",
+          "playbook=MISSING_PRODUCT_CODE"
+        ],
+        "selectedPlaybook": {
+          "id": "MISSING_PRODUCT_CODE",
+          "targets": [
+            "PRODUCT_CODE"
+          ],
+          "triggers": [
+            "NO_COMPONENT_CODE"
+          ],
+          "sourceRoles": [
+            "OWN_SCAN",
+            "PHYSICAL_SPECIMEN",
+            "TECHNICAL_DATABASE",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "PRODUCT_CODE",
+            "EDITION"
+          ],
+          "deterministicChecks": [
+            "PLATFORM_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [],
+          "stopWhen": null,
+          "stopRule": null,
+          "sourceIds": [],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 86,
+            "reason": "Field capability 86; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 90,
+            "reason": "Field capability 90; default reliability 90."
+          },
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 88,
+            "reason": "Field capability 88; default reliability 76."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 84,
+            "reason": "Field capability 84; default reliability 76."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 45,
+            "reason": "Field capability 45; default reliability 52."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 55,
+            "reason": "Field capability 55; default reliability 55."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "doesitplay",
+            "hosts": [
+              "doesitplay.org"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "TECHNICAL_PHYSICAL_STATUS"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 82."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "query": "site:nintendo.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "platform-holder-official",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo-europe.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "nintendo-official",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "dbox",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "ogdb",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "ebay",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamesdb.launchbox-app.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch back",
+            "sourceId": "launchbox-images",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "ubisoft-official",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:doesitplay.org \"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\"",
+            "sourceId": "doesitplay",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:doesitplay.org \"Assassin's Creed: The Ezio Collection\" \"download required\"",
+            "sourceId": "doesitplay",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" cartridge code",
+            "sourceId": null,
+            "purpose": "PRODUCT_CODE",
+            "strategy": "GENERIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "CARTRIDGE_FRONT",
+            "fields": [
+              "PRODUCT_CODE"
+            ],
+            "reason": "Read the code from the exact physical medium."
+          },
+          {
+            "component": "CART_FRONT",
+            "fields": [
+              "PRODUCT_CODE"
+            ],
+            "reason": "Legacy compatibility alias; canonicalized to CARTRIDGE_FRONT before binding."
+          }
+        ],
+        "deterministicChecks": [
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "a54259e479334c2185770ee012a240f30bfbcac29b677f56a831548142ffb31c"
+      }
+    ]
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "history": [
+      {
+        "targetField": "PHYSICAL_PRODUCT_TYPE",
+        "factsUsed": [
+          "target=PHYSICAL_PRODUCT_TYPE",
+          "platform=switch",
+          "title=Assassin's Creed: The Ezio Collection",
+          "edition=standard",
+          "playbook=SWITCH_PHYSICAL_CONTENT"
+        ],
+        "selectedPlaybook": {
+          "id": "SWITCH_PHYSICAL_CONTENT",
+          "targets": [
+            "PHYSICAL_PRODUCT_TYPE"
+          ],
+          "triggers": [
+            "PHYSICAL_STATUS_CONFLICT"
+          ],
+          "sourceRoles": [
+            "PUBLISHER",
+            "PLATFORM_HOLDER",
+            "TECHNICAL_PHYSICAL_STATUS",
+            "PHYSICAL_SPECIMEN"
+          ],
+          "queryTemplateGroups": [
+            "PHYSICAL_PRODUCT_TYPE",
+            "EDITION"
+          ],
+          "deterministicChecks": [
+            "PLATFORM_MATCH",
+            "SUBJECT_BINDING",
+            "PHYSICAL_PRODUCT_TYPE_TAXONOMY"
+          ],
+          "steps": [
+            "Check Ubisoft and Nintendo for the exact Switch release.",
+            "Check DoesItPlay only for the exact platform.",
+            "If text is insufficient, seek back-cover or unboxing evidence.",
+            "Classify full game, download required, partial download, or code in box without inferring from silence."
+          ],
+          "stopWhen": "PHYSICAL_CONTENT_DISTRIBUTION_CONFIRMED",
+          "stopRule": null,
+          "sourceIds": [
+            "ubisoft-official",
+            "nintendo-official",
+            "doesitplay",
+            "ogdb",
+            "national-retailer",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 86,
+            "reason": "Ordered by SWITCH_PHYSICAL_CONTENT; target capability 86."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 86,
+            "reason": "Ordered by SWITCH_PHYSICAL_CONTENT; target capability 86."
+          },
+          {
+            "sourceId": "doesitplay",
+            "hosts": [
+              "doesitplay.org"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "TECHNICAL_PHYSICAL_STATUS"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 90,
+            "reason": "Ordered by SWITCH_PHYSICAL_CONTENT; target capability 90."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by SWITCH_PHYSICAL_CONTENT; target capability not declared."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 90,
+            "reason": "Field capability 90; default reliability 90."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 55,
+            "reason": "Ordered by SWITCH_PHYSICAL_CONTENT; target capability 55."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by SWITCH_PHYSICAL_CONTENT; target capability not declared."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 92,
+            "reason": "Field capability 92; default reliability 92."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 60,
+            "reason": "Field capability 60; default reliability 55."
+          },
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 76."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "ubisoft-official",
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo-europe.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "nintendo-official",
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:doesitplay.org \"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\"",
+            "sourceId": "doesitplay",
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "ogdb",
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo.com \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "platform-holder-official",
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed: The Ezio Collection\" Nintendo Switch",
+            "sourceId": "ebay",
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:doesitplay.org \"Assassin's Creed: The Ezio Collection\" \"download required\"",
+            "sourceId": "doesitplay",
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" unboxing",
+            "sourceId": null,
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"download required\"",
+            "sourceId": null,
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"game card included\"",
+            "sourceId": null,
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed: The Ezio Collection\" \"Nintendo Switch\" \"code in box\"",
+            "sourceId": null,
+            "purpose": "PHYSICAL_PRODUCT_TYPE",
+            "strategy": "GENERIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_BACK",
+            "fields": [
+              "PHYSICAL_PRODUCT_TYPE"
+            ],
+            "reason": "Back-cover download/code statements or an exact unboxing must distinguish on-media content from required downloads."
+          }
+        ],
+        "deterministicChecks": [
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING",
+          "PHYSICAL_PRODUCT_TYPE_TAXONOMY"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "1da0c1b4dccb23f2be64abbd8ae5a57a4ccde75ab026c8ce55eae2dcdeea2a07"
+      }
+    ]
+  }
+]

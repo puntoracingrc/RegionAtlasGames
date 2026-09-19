@@ -64,6 +64,9 @@ export function parseResearchSources(value: unknown): ResearchSourceDefinition[]
     const accessModes = stringArray(row.accessModes, `sources[${index}].accessModes`)
       .filter((mode): mode is ResearchAccessMode => accessModeSet.has(mode));
     if (!accessModes.length) throw new Error(`sources[${index}] has no valid accessModes`);
+    const physical = row.physicalImageCapabilities && typeof row.physicalImageCapabilities === "object"
+      ? record(row.physicalImageCapabilities, `sources[${index}].physicalImageCapabilities`)
+      : null;
     return {
       id: stringValue(row.id, `sources[${index}].id`),
       hosts: stringArray(row.hosts, `sources[${index}].hosts`),
@@ -75,6 +78,22 @@ export function parseResearchSources(value: unknown): ResearchSourceDefinition[]
       defaultReliability: finiteNumber(row.defaultReliability, `sources[${index}].defaultReliability`),
       knownRisks: stringArray(row.knownRisks, `sources[${index}].knownRisks`),
       queryTemplates: stringArray(row.queryTemplates, `sources[${index}].queryTemplates`),
+      physicalImageCapabilities: physical ? {
+        realSpecimenImages: physical.realSpecimenImages === true,
+        frontImages: physical.frontImages === true,
+        backImages: physical.backImages === true,
+        spineImages: physical.spineImages === true,
+        cartImages: physical.cartImages === true,
+        discImages: physical.discImages === true,
+        outerPackageImages: physical.outerPackageImages === true,
+        innerContentsImages: physical.innerContentsImages === true,
+        gallery: physical.gallery === true,
+        originalImages: physical.originalImages === true,
+        componentLabels: physical.componentLabels === true,
+        regionLabels: physical.regionLabels === true,
+        listingIds: physical.listingIds === true,
+        accessRisk: Array.isArray(physical.accessRisk) ? physical.accessRisk.filter((item): item is string => typeof item === "string") : [],
+      } : undefined,
     };
   });
 }

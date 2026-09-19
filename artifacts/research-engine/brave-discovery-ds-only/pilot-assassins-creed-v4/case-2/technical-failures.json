@@ -1,0 +1,74 @@
+[
+  {
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/326904811777",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BARCODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebay.de/itm/235731778231",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BARCODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.de/itm/235731778231",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BOX_CODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebay.de/itm/235731778231",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BOX_CODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.de/itm/235731778231",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "BOX_CODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/b/Assassins-Creed-II-Discovery-Video-Games/139973/bn_7121964964",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.com/itm/326904811777",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.ebay.de/itm/235731778231",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.de/itm/235731778231",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  }
+]

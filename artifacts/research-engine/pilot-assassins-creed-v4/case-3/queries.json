@@ -1,0 +1,162 @@
+[
+  {
+    "targetField": "BARCODE",
+    "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "\"Skull Edition\" \"Wii U\" barcode",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"back cover\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "site:ubisoft.com \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" Wii U",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ubisoft-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "site:game.es \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "site:ogdb.eu \"Assassin's Creed IV: Black Flag\" Wii U",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "\"Assassin's Creed IV: Black Flag\" \"Wii U\" \"ES\" \"back cover\" barcode",
+    "strategy": "IMAGE",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"Skull Edition\" \"Wii U\" barcode",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"back cover\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "site:ubisoft.com \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\" Wii U",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ubisoft-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "site:ogdb.eu \"Assassin's Creed IV: Black Flag\" Wii U",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "site:game.es \"Assassin's Creed IV: Black Flag\" \"Skull Edition España\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"Assassin's Creed IV: Black Flag\" \"Wii U\" \"ES\" \"box code\" packaging",
+    "strategy": "IMAGE",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"Assassin's Creed IV: Black Flag\" \"Skull Edition\" \"Wii U\"",
+    "strategy": "GENERIC",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307215714966\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215714966"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307215706084\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215706084"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"WUP-ASBP-SCN\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "PRODUCT_CODE",
+    "identifierValue": "WUP-ASBP-SCN"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"WUP-P-ASBP-EUR-0\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "MEDIA_ID",
+    "identifierValue": "WUP-P-ASBP-EUR-0"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307215706107\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307215706107"
+  }
+]

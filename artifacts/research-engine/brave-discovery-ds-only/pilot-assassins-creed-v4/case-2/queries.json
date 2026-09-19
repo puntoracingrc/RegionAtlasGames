@@ -1,0 +1,162 @@
+[
+  {
+    "targetField": "BARCODE",
+    "query": "site:dbox.tools \"Assassin's Creed II: Discovery\" Nintendo DS",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "dbox",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "site:ogdb.eu \"Assassin's Creed II: Discovery\" Nintendo DS",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "site:game.es \"Assassin's Creed II: Discovery\" \"España\"",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "national-retailer",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "site:retroplace.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "retroplace",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "\"008888165347\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "008888165347"
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "\"3307211667419\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307211667419"
+  },
+  {
+    "targetField": "BARCODE",
+    "query": "\"Assassin's Creed II: Discovery\" \"Nintendo DS\" \"ES\" \"back cover\" barcode",
+    "strategy": "IMAGE",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"008888165347\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "008888165347"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"3307211667419\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307211667419"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"3307211667426\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307211667426"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"3 307211 667402\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3 307211 667402"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"TWL-VACE-USA\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BOX_CODE",
+    "identifierValue": "TWL-VACE-USA"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"TWL-VACV-EUR\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BOX_CODE",
+    "identifierValue": "TWL-VACV-EUR"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "query": "\"Assassin's Creed II: Discovery\" \"Nintendo DS\" \"ES\" \"box code\" packaging",
+    "strategy": "IMAGE",
+    "sourceId": null,
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "\"008888165347\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "008888165347"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "\"3307211667419\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307211667419"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "\"3307211667426\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307211667426"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "\"3 307211 667402\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3 307211 667402"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "\"TWL-VACE-USA\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BOX_CODE",
+    "identifierValue": "TWL-VACE-USA"
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "query": "\"TWL-VACV-EUR\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BOX_CODE",
+    "identifierValue": "TWL-VACV-EUR"
+  }
+]

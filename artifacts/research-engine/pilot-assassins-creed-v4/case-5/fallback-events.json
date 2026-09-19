@@ -1,0 +1,29 @@
+[
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "at": "2026-09-16T11:57:30.789Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "at": "2026-09-16T11:57:32.041Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "at": "2026-09-16T11:57:35.067Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "case": 2,
+  "status": "PARTIAL",
+  "pass": true,
+  "classification": "PHYSICAL_PIPELINE_DEMONSTRATED",
+  "candidateCount": 362,
+  "visionCount": 2,
+  "bindingCount": 1,
+  "eligibleBindingCount": 1,
+  "subjectAccepted": 2,
+  "componentAccepted": 2,
+  "unrecoveredTechnicalFailures": 0
+}

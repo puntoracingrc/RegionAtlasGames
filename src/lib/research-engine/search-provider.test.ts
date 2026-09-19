@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   BraveResearchImageSearchProvider,
   BraveResearchSearchProvider,
+  createConfiguredResearchSearchProvider,
   FallbackResearchSearchProvider,
   GoogleCustomResearchImageSearchProvider,
   GoogleCustomResearchSearchProvider,
@@ -93,6 +94,19 @@ test("Brave without a key is NOT_CONFIGURED rather than an HTTP failure", async 
       (error: unknown) => error instanceof ResearchSearchProviderError && error.code === "BRAVE_SEARCH_NOT_CONFIGURED",
     );
     assert.deepEqual(provider.getUsage(), { "brave-search": 0 });
+  });
+});
+
+test("disabled SerpAPI is excluded even when a stale credential remains", async () => {
+  await withEnv({
+    BRAVE_SEARCH_API_KEY: undefined,
+    GOOGLE_SEARCH_API_KEY: undefined,
+    GOOGLE_SEARCH_CX: undefined,
+    SERPAPI_KEY: "stale-key",
+    SERPAPI_API_KEY: undefined,
+    RESEARCH_DISABLE_SERPAPI: "1",
+  }, async () => {
+    assert.equal(createConfiguredResearchSearchProvider(), null);
   });
 });
 
@@ -252,6 +266,24 @@ test("SerpAPI quota errors keep a stable code without exposing credentials", asy
         && error.code === "SERPAPI_QUOTA_EXHAUSTED"
         && !error.message.includes("serp-key"),
     );
+  });
+});
+
+test("provider authentication failure opens its circuit after one request", async () => {
+  await withEnv({ SERPAPI_KEY: "invalid-key" }, async () => {
+    let calls = 0;
+    const provider = new SerpApiResearchSearchProvider({
+      fetchImpl: (async () => {
+        calls += 1;
+        return Response.json({ error: "Invalid API key." }, { status: 401 });
+      }) as typeof fetch,
+    });
+    const pool = new FallbackResearchSearchProvider([provider]);
+    await assert.rejects(pool.search({ query: "first query" }));
+    assert.deepEqual(await pool.search({ query: "second query" }), []);
+    assert.equal(calls, 1);
+    assert.equal(pool.getHealth()[0]?.state, "OPEN_CIRCUIT");
+    assert.equal(pool.getHealth()[0]?.failureCode, "PROVIDER_AUTHENTICATION_FAILED");
   });
 });
 
