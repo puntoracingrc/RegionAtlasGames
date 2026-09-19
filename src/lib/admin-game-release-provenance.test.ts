@@ -52,6 +52,31 @@ test("preserves trusted GAME provenance from draft to published catalog data", (
   assert.deepEqual(details.genres.map((genre) => genre.slug), ["action", "simulation", "sports"]);
 });
 
+test("publishes the initial regional prices entered in the batch form", () => {
+  const draft = draftFromManualInput({
+    pcId: -1,
+    title: "Juego con precios regionales",
+    platformSlug: "ps5",
+    region: "Norteamérica",
+    marketRegion: "US",
+    initialPrices: {
+      estimatedPriceLoose: 31.5,
+      estimatedPriceGameManual: 35,
+      estimatedPriceComplete: 45,
+      estimatedPriceSealed: 60,
+      estimatedPriceNewRetail: 69.99,
+    },
+  });
+
+  const game = buildCatalogEntry(draft, null);
+  assert.equal(game.estimatedPriceLoose, 31.5);
+  assert.equal(game.estimatedPriceGameManual, 35);
+  assert.equal(game.estimatedPriceComplete, 45);
+  assert.equal(game.estimatedPriceSealed, 60);
+  assert.equal(game.estimatedPriceNewRetail, 69.99);
+  assert.equal(game.hasEsPrice, true);
+});
+
 test("keeps verified region evidence and unrelated field provenance on later edits", () => {
   const gameEsSource = {
     sku: "123456",

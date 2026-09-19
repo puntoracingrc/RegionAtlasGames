@@ -55,6 +55,14 @@ test("a physical box can group markets but cannot cross broad regions", () => {
   });
   assert.ok("error" in invalid);
   assert.match(invalid.error, /grandes regiones/);
+
+  const invalidPrice = expandRegionalVariantBatch({
+    title: "Example",
+    platformSlug: "ps5",
+    groups: [{ markets: ["ES"], marketPrices: { ES: { estimatedPriceComplete: -1 } } }],
+  });
+  assert.ok("error" in invalidPrice);
+  assert.match(invalidPrice.error, /precio no válido/);
 });
 
 test("V2 keeps regional links but counts one physical edition per shared box", () => {
@@ -89,4 +97,71 @@ test("V2 keeps regional links but counts one physical edition per shared box", (
   const asia = guide.physicalEditions.find((edition) => edition.marketRegions.includes("HK"));
   assert.deepEqual(asia?.marketRegions.sort(), ["HK", "TW"]);
   assert.equal(guide.editionFamilies[0].physicalEditionIds.length, 11);
+});
+
+test("a regional box keeps its gallery, physical data and independent market prices", () => {
+  const result = expandRegionalVariantBatch({
+    title: "Mortal Shell II",
+    platformSlug: "ps5",
+    groups: [{
+      markets: ["US", "CA"],
+      barcode: "810136675634",
+      physicalContentStatus: "PHYSICAL_FULL_GAME",
+      physicalProductType: "NATIVE_GAME_DISC",
+      physicalContents: ["Caja", "Juego"],
+      softwareLanguages: ["EN", "FR"],
+      ratingSystems: ["ESRB M"],
+      catalogNumber: "PPSA-99999",
+      serial: "PPSA-99999",
+      boxCode: "675634-CVR",
+      releaseDate: "2026-08-20",
+      releaseDateContext: "Lanzamiento norteamericano",
+      images: [{
+        key: "mortal-shell-ii-na-front",
+        placement: "GALLERY",
+        url: "/covers/ps5/mortal-shell-ii-na-front.jpg",
+        thumbnailUrl: "/covers/ps5/mortal-shell-ii-na-front.jpg",
+        width: 1200,
+        height: 1600,
+        caption: "Portada",
+        evidenceType: "OWNER_CONFIRMATION",
+      }],
+      marketPrices: {
+        US: { estimatedPriceComplete: 45, estimatedPriceSealed: 60 },
+        CA: { estimatedPriceComplete: 55, estimatedPriceSealed: 70 },
+      },
+    }],
+  });
+  assert.ok(!("error" in result));
+  assert.equal(result.rows[0].group.images?.[0]?.caption, "Portada");
+  assert.equal(result.rows[0].group.physicalProductType, "NATIVE_GAME_DISC");
+  assert.equal(result.rows.find((row) => row.market === "US")?.initialPrices?.estimatedPriceComplete, 45);
+  assert.equal(result.rows.find((row) => row.market === "CA")?.initialPrices?.estimatedPriceComplete, 55);
+
+  const games = result.rows.map((row, index) => ({
+    id: `ps5-mortal-shell-ii-na-${index}`,
+    slug: row.slug,
+    title: "Mortal Shell II",
+    titlePc: "Mortal Shell II",
+    platformSlug: "ps5",
+    region: row.region,
+    marketRegion: row.marketRegion,
+    physicalReleaseGroup: row.group,
+    physicalVariant: "Standard",
+    edition: "standard",
+    listingStatus: "listed",
+    coverUrl: row.group.coverUrl ?? null,
+  } as CatalogGame));
+  const guide = buildRuntimeCatalogEditionGuide(games[0], [], games);
+  const edition = guide.physicalEditions.find((candidate) => candidate.barcode === "810136675634");
+  assert.ok(edition);
+  assert.equal(edition.images[0]?.caption, "Portada");
+  assert.equal(edition.ratingSystems[0], "ESRB M");
+  assert.equal(edition.physicalContents[0], "Caja");
+  assert.deepEqual(edition.softwareLanguages, ["EN", "FR"]);
+  assert.equal(edition.catalogNumber, "PPSA-99999");
+  assert.equal(edition.serial, "PPSA-99999");
+  assert.equal(edition.boxCode, "675634-CVR");
+  assert.equal(edition.releaseDate, "2026-08-20");
+  assert.equal(edition.releaseDateContext, "Lanzamiento norteamericano");
 });
