@@ -17,6 +17,12 @@ export function getCoverSrc(
     return null;
   }
 
+  // Conserva las portadas curadas de Fnac cuando el importador no puede
+  // almacenarlas todavía en el CDN propio.
+  if (coverUrl.startsWith("//static.fnac-static.com/")) {
+    return `https:${coverUrl}`;
+  }
+
   if (coverUrl.startsWith("/covers/")) {
     const relative = coverUrl.slice("/covers/".length);
     return `${COVERS_PUBLIC_BASE_URL}/${relative}`;
