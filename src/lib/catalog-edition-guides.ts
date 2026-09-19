@@ -42,6 +42,7 @@ import {
   buildCatalogDerivedGuideIndex,
   buildCatalogDerivedGuideForGame,
   buildRuntimeCatalogEditionGuide,
+  extendCatalogEditionGuideWithRuntimeGames,
   extendDocumentedGuidesWithCatalog,
 } from "./catalog-derived-edition-guides";
 import {
@@ -870,8 +871,14 @@ export function getCatalogEditionGuideModel(game: CatalogGame): CatalogEditionGu
   return documentedGuideByCatalogId().get(game.id) ?? lazyDerivedGuide(catalogGame);
 }
 
-export function getCatalogEditionGuide(game: CatalogGame): CatalogEditionGuideModel | undefined {
-  const guide = getCatalogEditionGuideModel(game);
+export function getCatalogEditionGuide(
+  game: CatalogGame,
+  runtimeGames: CatalogGame[] = [],
+): CatalogEditionGuideModel | undefined {
+  const baseGuide = getCatalogEditionGuideModel(game);
+  const guide = baseGuide && runtimeGames.length
+    ? extendCatalogEditionGuideWithRuntimeGames(baseGuide, game, runtimeGames)
+    : baseGuide;
   if (!guide) return undefined;
   return withCurrentCatalogEdition(guide, game.id);
 }

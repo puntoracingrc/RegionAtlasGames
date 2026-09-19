@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { expandRegionalVariantBatch } from "./admin-regional-variant-batch";
-import { buildRuntimeCatalogEditionGuide } from "./catalog-derived-edition-guides";
+import {
+  buildRuntimeCatalogEditionGuide,
+  extendCatalogEditionGuideWithRuntimeGames,
+} from "./catalog-derived-edition-guides";
 import type { CatalogGame } from "./types";
 
 const MORTAL_SHELL_GROUPS = [
@@ -100,6 +103,60 @@ test("V2 keeps regional links but counts one physical edition per shared box", (
   const asia = guide.physicalEditions.find((edition) => edition.marketRegions.includes("HK"));
   assert.deepEqual(asia?.marketRegions.sort(), ["HK", "TW"]);
   assert.equal(guide.editionFamilies[0].physicalEditionIds.length, 11);
+});
+
+test("the detail guide folds a published batch into the existing V2 central card", () => {
+  const result = expandRegionalVariantBatch({
+    title: "Mortal Shell II",
+    platformSlug: "ps5",
+    physicalVariant: "Standard",
+    groups: MORTAL_SHELL_GROUPS,
+  });
+  assert.ok(!("error" in result));
+  const runtimeGames = result.rows.map((row, index) => ({
+    id: `ps5-mortal-shell-ii-runtime-${index}`,
+    slug: row.slug,
+    title: "Mortal Shell II",
+    titlePc: "Mortal Shell II",
+    platformSlug: "ps5",
+    region: row.region,
+    marketRegion: row.marketRegion,
+    physicalReleaseGroup: row.group,
+    physicalVariant: "Standard",
+    edition: "standard",
+    listingStatus: "listed",
+    coverUrl: null,
+  } as CatalogGame));
+  const genericGames = [
+    { id: "ps5-mortal-shell-ii", region: "PAL España", marketRegion: "ES" },
+    { id: "ps5-usa-mortal-shell-ii", region: "NTSC USA", marketRegion: "US" },
+  ].map((entry) => ({
+    ...entry,
+    slug: "mortal-shell-ii",
+    title: "Mortal Shell II",
+    titlePc: "Mortal Shell II",
+    platformSlug: "ps5",
+    physicalVariant: null,
+    edition: "standard",
+    listingStatus: "listed",
+    coverUrl: null,
+  } as CatalogGame));
+
+  const baseGuide = buildRuntimeCatalogEditionGuide(genericGames[0], [], genericGames);
+  const merged = extendCatalogEditionGuideWithRuntimeGames(
+    baseGuide,
+    runtimeGames.find((game) => game.marketRegion === "ES")!,
+    [...genericGames, ...runtimeGames],
+  );
+
+  assert.equal(merged.physicalEditions.length, 11);
+  assert.equal(merged.editionFamilies[0].physicalEditionIds.length, 11);
+  assert.equal(new Set(merged.physicalEditions.flatMap((edition) => edition.catalogIds)).size, 15);
+  const spanish = merged.physicalEditions.find((edition) => edition.marketRegions.includes("ES"));
+  assert.ok(spanish?.catalogIds.includes("ps5-mortal-shell-ii"));
+  const northAmerica = merged.physicalEditions.find((edition) => edition.barcode === "810136675634");
+  assert.deepEqual(northAmerica?.marketRegions.sort(), ["CA", "US"]);
+  assert.ok(northAmerica?.catalogIds.includes("ps5-usa-mortal-shell-ii"));
 });
 
 test("a regional box keeps its gallery, physical data and independent market prices", () => {
