@@ -1,5 +1,13 @@
 import type { CatalogPhysicalReleaseGroup, GameDetailsSeoMeta } from "./types";
 
+export type AdminInitialPriceFields = {
+  estimatedPriceLoose?: number | null;
+  estimatedPriceGameManual?: number | null;
+  estimatedPriceComplete?: number | null;
+  estimatedPriceSealed?: number | null;
+  estimatedPriceNewRetail?: number | null;
+};
+
 export type AdminGameEsSource = {
   sku: string;
   productUrl: string;
@@ -24,6 +32,7 @@ export type AdminGameDraft = {
   region: string;
   marketRegion?: string | null;
   physicalReleaseGroup?: CatalogPhysicalReleaseGroup | null;
+  initialPrices?: AdminInitialPriceFields | null;
   physicalVariant: string | null;
   edition: string;
   reference: string | null;

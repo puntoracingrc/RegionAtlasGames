@@ -261,7 +261,7 @@ export async function uploadCoverToCdn(input: {
   catalogId?: string | null;
   fileBuffer: Buffer;
   mimeType?: string;
-}): Promise<{ ok: true; coverUrl: string } | { error: string }> {
+}): Promise<{ ok: true; coverUrl: string; width: number; height: number } | { error: string }> {
   if (!coversFtpConfigured()) {
     return { error: "FTP de portadas no configurado (COVERS_FTP_* en env)." };
   }
@@ -283,7 +283,7 @@ export async function uploadCoverToCdn(input: {
 
   try {
     if (!existsSync(tmpDir)) mkdirSync(tmpDir, { recursive: true });
-    await sharp(input.fileBuffer, {
+    const info = await sharp(input.fileBuffer, {
       limitInputPixels: MAX_IMAGE_INPUT_PIXELS,
       sequentialRead: true,
       failOn: "error",
@@ -308,7 +308,12 @@ export async function uploadCoverToCdn(input: {
       }
     }
 
-    return { ok: true, coverUrl: buildCoverCatalogPath(platformSlug, slug) };
+    return {
+      ok: true,
+      coverUrl: buildCoverCatalogPath(platformSlug, slug),
+      width: info.width,
+      height: info.height,
+    };
   } catch (error) {
     const err = error as Error & { stderr?: string; stdout?: string; code?: number | string };
     const detail = [err.stderr, err.stdout, err.message].find((value) => value?.trim())?.trim();
@@ -330,7 +335,7 @@ export async function downloadAndUploadCoverToCdn(input: {
   slug: string;
   catalogId?: string | null;
   sourceUrl: string;
-}): Promise<{ ok: true; coverUrl: string } | { error: string }> {
+}): Promise<{ ok: true; coverUrl: string; width: number; height: number } | { error: string }> {
   const sourceUrl = input.sourceUrl.trim();
   const downloadUrl = coverSourceToDownloadUrl(sourceUrl);
   if (!downloadUrl) {

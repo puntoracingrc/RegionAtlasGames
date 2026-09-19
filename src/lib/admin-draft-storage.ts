@@ -147,6 +147,7 @@ export function draftFromStaging(
     region: existing?.region ?? game.region,
     marketRegion: existing?.marketRegion ?? null,
     physicalReleaseGroup: existing?.physicalReleaseGroup ?? null,
+    initialPrices: existing?.initialPrices ?? null,
     physicalVariant: existing?.physicalVariant ?? null,
     edition: existing?.edition ?? "standard",
     reference: existing?.reference ?? details?.reference ?? null,
@@ -196,6 +197,7 @@ export function draftFromManualInput(input: {
   region: string;
   marketRegion?: string | null;
   physicalReleaseGroup?: AdminGameDraft["physicalReleaseGroup"];
+  initialPrices?: AdminGameDraft["initialPrices"];
   slug?: string;
   reference?: string | null;
   physicalVariant?: string | null;
@@ -239,6 +241,7 @@ export function draftFromManualInput(input: {
     region: input.region,
     marketRegion: input.marketRegion ?? null,
     physicalReleaseGroup: input.physicalReleaseGroup ?? null,
+    initialPrices: input.initialPrices ?? null,
     physicalVariant: input.physicalVariant?.trim() || null,
     edition: "standard",
     reference: input.reference?.trim() || null,

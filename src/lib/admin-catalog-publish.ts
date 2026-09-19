@@ -149,7 +149,7 @@ export function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStaging
     titlePc: draft.titlePc,
   });
 
-  return {
+  const entry: CatalogGame = {
     id: draft.catalogId,
     slug: draft.slug,
     title: draft.title,
@@ -185,6 +185,7 @@ export function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStaging
     gameEsPreownedSku: draft.gameEsSource?.preowned?.sku ?? null,
     gameEsPreownedProductUrl: draft.gameEsSource?.preowned?.productUrl ?? null,
   };
+  return draft.initialPrices ? applyPricePatch(entry, draft.initialPrices) : entry;
 }
 
 export function buildDetailsEntry(draft: AdminGameDraft): GameDetails {
@@ -248,7 +249,7 @@ export function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDra
     titlePc: draft.titlePc,
   });
 
-  return {
+  const entry: CatalogGame = {
     ...existing,
     id: draft.catalogId,
     slug: draft.slug,
@@ -277,6 +278,7 @@ export function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDra
         }
       : {}),
   };
+  return draft.initialPrices ? applyPricePatch(entry, draft.initialPrices) : entry;
 }
 
 export function mergeDetailsFromDraft(existing: GameDetails | null, draft: AdminGameDraft): GameDetails {

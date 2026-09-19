@@ -24,6 +24,7 @@ type BatchBody = AdminRegionalVariantBatchInput & {
   coverUrl?: string | null;
   year?: number | string | null;
   releaseDate?: string | null;
+  pegi?: number | string | null;
   players?: number | string | null;
   support?: string | null;
   developerName?: string | null;
@@ -62,11 +63,15 @@ export async function POST(request: Request) {
 
   const year = optionalNumber(body.year);
   const players = optionalNumber(body.players);
+  const pegi = optionalNumber(body.pegi);
   if (body.year != null && body.year !== "" && year == null) {
     return NextResponse.json({ error: "Año no válido." }, { status: 400 });
   }
   if (body.players != null && body.players !== "" && players == null) {
     return NextResponse.json({ error: "Jugadores no válido." }, { status: 400 });
+  }
+  if (pegi != null && ![3, 7, 12, 16, 18].includes(pegi)) {
+    return NextResponse.json({ error: "PEGI no válido." }, { status: 400 });
   }
 
   const drafts = [];
@@ -79,12 +84,14 @@ export async function POST(request: Request) {
       region: row.region,
       marketRegion: row.marketRegion,
       physicalReleaseGroup: row.group,
+      initialPrices: row.initialPrices,
       slug: row.slug,
       physicalVariant: body.physicalVariant ?? null,
       reference: row.group.productCodes?.join(" / ") || null,
-      coverUrl: body.coverUrl ?? null,
+      coverUrl: row.group.coverUrl ?? body.coverUrl ?? null,
       year,
       releaseDate: body.releaseDate ?? null,
+      pegi,
       players,
       support: body.support ?? null,
       developerName: body.developerName ?? null,

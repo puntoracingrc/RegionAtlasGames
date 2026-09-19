@@ -16,6 +16,7 @@ export function draftFromCatalogGame(
     region: game.region,
     marketRegion: game.marketRegion ?? null,
     physicalReleaseGroup: game.physicalReleaseGroup ?? null,
+    initialPrices: null,
     physicalVariant: game.physicalVariant ?? null,
     edition: game.edition || "standard",
     reference: details?.reference ?? null,

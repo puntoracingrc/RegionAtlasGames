@@ -1,7 +1,11 @@
 import type { Ps1EditionDetails } from "./ps1-regional";
 import type { Ps2EditionDetails } from "./ps2-regional";
 import type {
+  CatalogEditionImage,
+  CatalogPhysicalContentStatus,
+  CatalogPhysicalDimensions,
   CatalogPhysicalEditionGroupSummary,
+  CatalogPhysicalProductType,
   CatalogPhysicalVariantConfidence,
 } from "./catalog-edition-guide-types";
 
@@ -11,7 +15,22 @@ export type CatalogPhysicalReleaseGroup = {
   barcode?: string | null;
   productCodes?: string[];
   packagingLanguages?: string[];
+  softwareLanguages?: string[];
   confidence?: CatalogPhysicalVariantConfidence;
+  coverUrl?: string | null;
+  ratingSystems?: string[];
+  catalogNumber?: string | null;
+  serial?: string | null;
+  boxCode?: string | null;
+  releaseDate?: string | null;
+  releaseDateContext?: string | null;
+  physicalContentStatus?: CatalogPhysicalContentStatus;
+  physicalProductType?: CatalogPhysicalProductType;
+  dimensions?: CatalogPhysicalDimensions;
+  physicalContents?: string[];
+  digitalContents?: string[];
+  images?: CatalogEditionImage[];
+  notes?: string[];
 };
 
 export type DetailEntitySource =

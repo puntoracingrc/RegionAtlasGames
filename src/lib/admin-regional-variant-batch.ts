@@ -7,6 +7,7 @@ import {
 } from "./catalog-edition-guide-types";
 import { slugify } from "./slug";
 import type { CatalogPhysicalReleaseGroup } from "./types";
+import type { AdminInitialPriceFields } from "./admin-draft-types";
 
 export const GENERIC_MARKET_VALUES = ["EU_GENERIC", "ASIA_GENERIC"] as const;
 export type GenericMarketValue = (typeof GENERIC_MARKET_VALUES)[number];
@@ -18,7 +19,23 @@ export type AdminRegionalVariantGroupInput = {
   barcode?: string | null;
   productCodes?: string[];
   packagingLanguages?: string[];
+  softwareLanguages?: string[];
   confidence?: CatalogPhysicalVariantConfidence;
+  coverUrl?: string | null;
+  ratingSystems?: string[];
+  catalogNumber?: string | null;
+  serial?: string | null;
+  boxCode?: string | null;
+  releaseDate?: string | null;
+  releaseDateContext?: string | null;
+  physicalContentStatus?: CatalogPhysicalReleaseGroup["physicalContentStatus"];
+  physicalProductType?: CatalogPhysicalReleaseGroup["physicalProductType"];
+  dimensions?: CatalogPhysicalReleaseGroup["dimensions"];
+  physicalContents?: string[];
+  digitalContents?: string[];
+  images?: CatalogPhysicalReleaseGroup["images"];
+  notes?: string[];
+  marketPrices?: Record<string, AdminInitialPriceFields | undefined>;
 };
 
 export type AdminRegionalVariantBatchInput = {
@@ -35,6 +52,7 @@ export type ExpandedRegionalVariantRow = {
   region: string;
   slug: string;
   group: CatalogPhysicalReleaseGroup;
+  initialPrices: AdminInitialPriceFields | null;
 };
 
 export const ADMIN_MARKET_GROUPS = [
@@ -110,6 +128,10 @@ function cleanList(values: string[] | undefined): string[] {
   return [...new Set((values ?? []).map((value) => value.trim()).filter(Boolean))];
 }
 
+function validInitialPrices(prices: AdminInitialPriceFields | undefined): boolean {
+  return Object.values(prices ?? {}).every((value) => value == null || (Number.isFinite(value) && value >= 0));
+}
+
 export function expandRegionalVariantBatch(
   input: AdminRegionalVariantBatchInput,
 ): { rows: ExpandedRegionalVariantRow[]; physicalVariantCount: number } | { error: string } {
@@ -146,6 +168,10 @@ export function expandRegionalVariantBatch(
       return { error: `La región ${repeatedMarket.shortLabel} está seleccionada en más de una variante.` };
     }
     resolvedMarkets.forEach((market) => usedMarkets.add(market.value));
+    const invalidPriceMarket = resolvedMarkets.find((market) => !validInitialPrices(rawGroup.marketPrices?.[market.value]));
+    if (invalidPriceMarket) {
+      return { error: `La variante ${index + 1} contiene un precio no válido para ${invalidPriceMarket.shortLabel}.` };
+    }
 
     const regionLabel = resolvedMarkets.map((market) => market.shortLabel).join("/");
     const groupLabel = rawGroup.label?.trim() || regionLabel;
@@ -156,7 +182,22 @@ export function expandRegionalVariantBatch(
       barcode: rawGroup.barcode?.trim() || null,
       productCodes: cleanList(rawGroup.productCodes),
       packagingLanguages: cleanList(rawGroup.packagingLanguages).map((value) => value.toUpperCase()),
+      softwareLanguages: cleanList(rawGroup.softwareLanguages).map((value) => value.toUpperCase()),
       confidence: rawGroup.confidence ?? (rawGroup.barcode?.trim() ? "CONFIRMED" : "PENDING_IDENTIFIER"),
+      coverUrl: rawGroup.coverUrl?.trim() || null,
+      ratingSystems: cleanList(rawGroup.ratingSystems),
+      catalogNumber: rawGroup.catalogNumber?.trim() || null,
+      serial: rawGroup.serial?.trim() || null,
+      boxCode: rawGroup.boxCode?.trim() || null,
+      releaseDate: rawGroup.releaseDate?.trim() || null,
+      releaseDateContext: rawGroup.releaseDateContext?.trim() || null,
+      physicalContentStatus: rawGroup.physicalContentStatus,
+      physicalProductType: rawGroup.physicalProductType,
+      dimensions: rawGroup.dimensions,
+      physicalContents: cleanList(rawGroup.physicalContents),
+      digitalContents: cleanList(rawGroup.digitalContents),
+      images: rawGroup.images ?? [],
+      notes: cleanList(rawGroup.notes),
     };
 
     for (const market of resolvedMarkets) {
@@ -170,6 +211,7 @@ export function expandRegionalVariantBatch(
         region: market.region,
         slug,
         group,
+        initialPrices: rawGroup.marketPrices?.[market.value] ?? null,
       });
     }
   }
