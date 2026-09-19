@@ -53,6 +53,11 @@ jobs:
       - name: Unit tests
         run: npm run test:unit
 
+      - name: Direct price connector
+        run: |
+          npx tsx --test src/lib/direct-price-connector.test.ts
+          python3 scripts/test_publish_direct_prices.py
+
       - name: PS1 cover backlog tests
         run: python3 scripts/test_ps1_cover_backlog.py
 
