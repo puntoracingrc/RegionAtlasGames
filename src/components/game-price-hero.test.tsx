@@ -17,4 +17,6 @@ test("detail price cards show the exact regional trend and omit transport totals
   assert.doesNotMatch(html, /Transporte estimado/);
   assert.doesNotMatch(html, /Artículo \+ transporte/);
   assert.doesNotMatch(html, /entrega calculada/);
+  assert.doesNotMatch(html, /Importe convertido a EUR/);
+  assert.doesNotMatch(html, /Precio orientativo/);
 });

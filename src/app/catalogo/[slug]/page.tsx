@@ -535,23 +535,11 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
                   ))}
                 {isCanceledPhysicalRelease ? (
                   <Badge tone="amber">CANCELLED / NO RETAIL RELEASE</Badge>
-                ) : (
-                  <Badge
-                    tone={
-                      priceStatus === "verified"
-                        ? "amber"
-                        : priceStatus === "unverified"
-                          ? "amber"
-                          : "rose"
-                    }
-                  >
-                    {priceStatus === "verified"
-                      ? "Precio verificado"
-                      : priceStatus === "unverified"
-                        ? "Precio orientativo"
-                        : "Precio pendiente"}
-                  </Badge>
-                )}
+                ) : priceStatus === "verified" ? (
+                  <Badge tone="amber">Precio verificado</Badge>
+                ) : priceStatus === "pending" ? (
+                  <Badge tone="rose">Precio pendiente</Badge>
+                ) : null}
                 {owned && (
                   <Badge tone="green">
                     {ownedCount > 1 ? `${ownedCount} copias en tu colección` : "En tu colección"}
