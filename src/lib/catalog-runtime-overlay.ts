@@ -266,7 +266,30 @@ export async function getCatalogGameDetailsWithOverlay(
 ): Promise<GameDetails | undefined> {
   const detailsCatalogId = resolveCatalogGameDetailsCatalogId(game);
   const details = await getGameDetailsWithOverlay(detailsCatalogId);
-  return detailsCatalogId === game.id ? details : withOwnedScanDetails(game, details);
+  if (detailsCatalogId === game.id) return details;
+  const regionalDetails = await getGameDetailsWithOverlay(game.id);
+  return mergeCatalogRegionalPhysicalDetails(game, details, regionalDetails);
+}
+
+export function mergeCatalogRegionalPhysicalDetails(
+  game: CatalogGame,
+  details: GameDetails | undefined,
+  regionalDetails: GameDetails | undefined,
+): GameDetails | undefined {
+  if (!details) return regionalDetails;
+  // Shared editorial details must not transfer the canonical box's identifiers
+  // to a different regional product. Owned scans still take precedence below.
+  return withOwnedScanDetails(game, {
+    ...details,
+    reference: regionalDetails?.reference ?? null,
+    ean: regionalDetails?.ean ?? null,
+    fieldSources: { ...details.fieldSources, reference: regionalDetails?.fieldSources?.reference },
+    sources: {
+      ...details.sources,
+      serialstation: regionalDetails?.sources?.serialstation,
+      ownedScan: regionalDetails?.sources?.ownedScan,
+    },
+  });
 }
 
 async function getGameDetailsOverlaySource(id: string): Promise<GameDetails | undefined> {

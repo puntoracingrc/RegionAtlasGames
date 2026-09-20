@@ -1,0 +1,56 @@
+{
+  "base": "f3f25892",
+  "researchId": "a-way-out-2026-09-20",
+  "status": "PASS",
+  "addedCatalogIds": [
+    "xboxone-usa-a-way-out"
+  ],
+  "enrichedCatalogIds": [
+    "ps4-a-way-out",
+    "ps4-usa-a-way-out"
+  ],
+  "preservedExistingCatalogRecords": 81461,
+  "preservedUnrelatedDetails": 50604,
+  "priceMutations": 0,
+  "otherGameMutations": 0,
+  "queueStatusMutations": 0,
+  "newNativeXboxSeriesReleases": 0,
+  "completedQueueEntries": [],
+  "partiallyCoveredQueueEntries": [
+    "catalog-group:ps4-a-way-out"
+  ],
+  "unchangedFiles": [
+    {
+      "file": "research/queue.json",
+      "sha256": "6aeb0ed09b5bbac7da1dd5d71b294334fe8f1cbeb008fab80064f397a6100a0f"
+    },
+    {
+      "file": "research/results/a-way-out-2026-09-20.json",
+      "sha256": "3d0aa33073a6a0d33f9b26b6cafa64108cfced507800f3ee08ed7d318ad38234"
+    },
+    {
+      "file": "data/platforms.json",
+      "sha256": "3b41381abf128e85d4b61bbdf1e89f6f9bdce6d1717833b7f1eb13b007b75354"
+    },
+    {
+      "file": "data/catalog-owned-scans.json",
+      "sha256": "c5a1bd7c31b4ec21a67c89f0ebe3471a1d88a4aa9fa923f3103df88f790d26d1"
+    },
+    {
+      "file": "data/index/company-entities.json",
+      "sha256": "c63335eebaa27acf5fa7ce6e68d18717b472f02f7bd9698326c4635588fad7e1"
+    }
+  ],
+  "protectedFileHashUpdates": [
+    {
+      "file": "data/index/companies.json",
+      "before": "92cbd16f65ea267bb9b425324b10c1092d16fd0368edcb7db9278c7da4d9e906",
+      "after": "ff69de67f46f4460423dd7e47ef07b15a4dc83904ec800bf1465cd5bf5b4be71"
+    },
+    {
+      "file": "data/game-details.json",
+      "before": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce",
+      "after": "54fec2313979fb365d5506b0ee3817e745e6795b477dd8557c7026fe13f68ee9"
+    }
+  ]
+}

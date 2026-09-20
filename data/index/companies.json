@@ -9572,7 +9572,8 @@
       "ps2-fr-sles-53333",
       "ps2-jp-slpm-65763",
       "ps2-jp-slpm-66145-ea-best-hits",
-      "ps2-jp-slpm-66615-ea-best-hits"
+      "ps2-jp-slpm-66615-ea-best-hits",
+      "xboxone-usa-a-way-out"
     ],
     "byPlatform": {
       "3ds": 4,
@@ -9590,7 +9591,8 @@
       "ps4": 123,
       "ps5": 1,
       "saturn": 43,
-      "wii": 72
+      "wii": 72,
+      "xboxone": 1
     },
     "asDeveloper": [
       "megadrive-f-22-interceptor",
@@ -10786,9 +10788,10 @@
       "ps2-fr-sles-53333",
       "ps2-jp-slpm-65763",
       "ps2-jp-slpm-66145-ea-best-hits",
-      "ps2-jp-slpm-66615-ea-best-hits"
+      "ps2-jp-slpm-66615-ea-best-hits",
+      "xboxone-usa-a-way-out"
     ],
-    "gameCount": 1086,
+    "gameCount": 1087,
     "asPhysicalPublisherOrDistributor": [
       "ps4-dragon-age-inquisition-game-of-the-year",
       "ps4-rocket-arena-mythic-edition",
@@ -114195,18 +114198,21 @@
     "gameIds": [
       "ps4-it-takes-two",
       "ps4-usa-a-way-out",
-      "ps4-usa-it-takes-two"
+      "ps4-usa-it-takes-two",
+      "xboxone-usa-a-way-out"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 3,
+      "xboxone": 1
     },
     "asDeveloper": [
       "ps4-it-takes-two",
       "ps4-usa-a-way-out",
-      "ps4-usa-it-takes-two"
+      "ps4-usa-it-takes-two",
+      "xboxone-usa-a-way-out"
     ],
     "asPublisher": [],
-    "gameCount": 3
+    "gameCount": 4
   },
   "headgames": {
     "name": "Headgames",

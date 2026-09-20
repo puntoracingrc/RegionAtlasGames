@@ -982,7 +982,8 @@ test("catalog expansion preserves the exact pre-V2 catalog and the original four
   assert.equal(acPs3Implementation.preservation.userDataChanges, 0);
 
   const physicalV2Additions = rawCatalog.filter((entry) => entry.seedSource === "physical-editions-v2");
-  assert.equal(physicalV2Additions.length, 32);
+  assert.equal(physicalV2Additions.length, 33);
+  assert.equal(physicalV2Additions.filter(entry => entry.id !== "xboxone-usa-a-way-out").length, 32);
 
   const previousCatalog = rawCatalog.filter((entry) =>
     entry.seedSource !== "physical-editions-v2" &&

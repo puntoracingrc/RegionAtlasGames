@@ -30,9 +30,9 @@
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
     "data/company-groups.json": "68463bcaa8b9df3df1ddb2804b122c1b717e656cde6f691f16ce5012fba02d64",
     "data/company-separations.json": "c3293b49d5fec9ef6eab11c5219d50e7312a44c6cf84c9f54bcab0318f060896",
-    "data/index/companies.json": "92cbd16f65ea267bb9b425324b10c1092d16fd0368edcb7db9278c7da4d9e906",
+    "data/index/companies.json": "ff69de67f46f4460423dd7e47ef07b15a4dc83904ec800bf1465cd5bf5b4be71",
     "data/index/company-entities.json": "c63335eebaa27acf5fa7ce6e68d18717b472f02f7bd9698326c4635588fad7e1",
-    "data/game-details.json": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce"
+    "data/game-details.json": "54fec2313979fb365d5506b0ee3817e745e6795b477dd8557c7026fe13f68ee9"
   },
   "protectedFileHashUpdates": [
     {
@@ -186,6 +186,20 @@
         "data/game-details.json": {
           "before": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972",
           "after": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce"
+        }
+      }
+    },
+    {
+      "batchId": "a-way-out-research-import-2026-09-20",
+      "reviewedAt": "2026-09-21",
+      "files": {
+        "data/index/companies.json": {
+          "before": "92cbd16f65ea267bb9b425324b10c1092d16fd0368edcb7db9278c7da4d9e906",
+          "after": "ff69de67f46f4460423dd7e47ef07b15a4dc83904ec800bf1465cd5bf5b4be71"
+        },
+        "data/game-details.json": {
+          "before": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce",
+          "after": "54fec2313979fb365d5506b0ee3817e745e6795b477dd8557c7026fe13f68ee9"
         }
       }
     }

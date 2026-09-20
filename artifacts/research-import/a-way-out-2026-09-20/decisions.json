@@ -1,0 +1,756 @@
+{
+  "researchId": "a-way-out-2026-09-20",
+  "reviewedAt": "2026-09-21",
+  "mode": "LOCAL_REVIEWED_IMPORT",
+  "inputPreserved": true,
+  "imagesInspected": 0,
+  "fieldsNotInferred": [
+    "distribution markets from retailers",
+    "packaging language from software or locale",
+    "physical CUSA from digital store",
+    "native Xbox Series release from compatibility"
+  ],
+  "releases": [
+    {
+      "platform": "ps4",
+      "inputMarket": "Spain",
+      "barcode": "5030931122767",
+      "physicalEditionId": "a-way-out-ps4-es",
+      "catalogIds": [
+        "ps4-a-way-out"
+      ],
+      "accepted": {
+        "serial": "CUSA-08004",
+        "productCodes": [
+          "106327301601"
+        ],
+        "marketRegions": [
+          "ES"
+        ],
+        "evidenceMarkets": [
+          "ES"
+        ],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_fnac_es"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [
+          "Spanish"
+        ],
+        "distributionMarkets": [
+          "Spain"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "United Kingdom",
+      "barcode": "5030945122760",
+      "physicalEditionId": "a-way-out-ps4-gb",
+      "catalogIds": [],
+      "accepted": {
+        "serial": "CUSA-08004",
+        "productCodes": [
+          "106326801601"
+        ],
+        "marketRegions": [
+          "GB"
+        ],
+        "evidenceMarkets": [],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_rfgen_uk"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [
+          "English"
+        ],
+        "distributionMarkets": [
+          "United Kingdom"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "EU French/Dutch variant",
+      "barcode": "5030932122766",
+      "physicalEditionId": "a-way-out-ps4-fr-nl",
+      "catalogIds": [],
+      "accepted": {
+        "serial": "CUSA-08004",
+        "productCodes": [
+          "106327401601"
+        ],
+        "marketRegions": [],
+        "evidenceMarkets": [
+          "BE"
+        ],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_smartoys_be"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [
+          "French",
+          "Dutch"
+        ],
+        "distributionMarkets": [
+          "France",
+          "Belgium"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "French/Dutch es la denominación de variante en GameFAQs; no acredita por sí sola los idiomas impresos ni la distribución nacional."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "Germany",
+      "barcode": "5030933122765",
+      "physicalEditionId": "a-way-out-ps4-de",
+      "catalogIds": [],
+      "accepted": {
+        "serial": "CUSA-08004",
+        "productCodes": [
+          "106327501601"
+        ],
+        "marketRegions": [
+          "DE"
+        ],
+        "evidenceMarkets": [
+          "DE"
+        ],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_rebuy_de"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [
+          "German"
+        ],
+        "distributionMarkets": [
+          "Germany"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "Poland",
+      "barcode": "5035228122758",
+      "physicalEditionId": "a-way-out-ps4-pl",
+      "catalogIds": [],
+      "accepted": {
+        "serial": "CUSA-08004",
+        "productCodes": [
+          "106327101601"
+        ],
+        "marketRegions": [
+          "PL"
+        ],
+        "evidenceMarkets": [
+          "PL"
+        ],
+        "packagingLanguages": [
+          "PL"
+        ],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_gamefinity_pl"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": [
+          "Poland"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "Switzerland",
+      "barcode": "5030934122764",
+      "physicalEditionId": "a-way-out-ps4-ch",
+      "catalogIds": [],
+      "accepted": {
+        "serial": "CUSA-08004",
+        "productCodes": [
+          "106327601601"
+        ],
+        "marketRegions": [
+          "CH"
+        ],
+        "evidenceMarkets": [
+          "CH"
+        ],
+        "packagingLanguages": [
+          "DE",
+          "FR",
+          "IT"
+        ],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_wog_ch"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": [
+          "Switzerland"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "Nordic",
+      "barcode": "5030938122760",
+      "physicalEditionId": "a-way-out-ps4-nordic",
+      "catalogIds": [],
+      "accepted": {
+        "serial": null,
+        "productCodes": [
+          "1063270"
+        ],
+        "marketRegions": [],
+        "evidenceMarkets": [
+          "DK",
+          "NO",
+          "SE"
+        ],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_elgiganten_dk",
+        "s_elkjop_no",
+        "s_elgiganten_se"
+      ],
+      "deferred": {
+        "productCode": "CUSA-08004",
+        "packagingLanguages": [],
+        "distributionMarkets": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "CUSA-08004 pendiente: las fuentes del EAN nórdico no vinculan ese identificador. Finlandia no corroborada."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "Australia",
+      "barcode": "5030944122761",
+      "physicalEditionId": "a-way-out-ps4-au",
+      "catalogIds": [],
+      "accepted": {
+        "serial": "CUSA-08004",
+        "productCodes": [
+          "106326701601"
+        ],
+        "marketRegions": [
+          "AU"
+        ],
+        "evidenceMarkets": [],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "HIGH",
+      "sourceRefs": [
+        "s_gamefaqs_ps4"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": [
+          "Australia"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "United States",
+      "barcode": "014633739138",
+      "physicalEditionId": "a-way-out-ps4-us",
+      "catalogIds": [
+        "ps4-usa-a-way-out"
+      ],
+      "accepted": {
+        "serial": "CUSA-07995",
+        "productCodes": [
+          "7391301601"
+        ],
+        "marketRegions": [
+          "US"
+        ],
+        "evidenceMarkets": [
+          "US"
+        ],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_jnl_ps4_us"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [
+          "English"
+        ],
+        "distributionMarkets": [
+          "United States"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "Canada",
+      "barcode": "014633373905",
+      "physicalEditionId": "a-way-out-ps4-ca",
+      "catalogIds": [],
+      "accepted": {
+        "serial": null,
+        "productCodes": [
+          "3739001601"
+        ],
+        "marketRegions": [
+          "CA"
+        ],
+        "evidenceMarkets": [],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "HIGH",
+      "sourceRefs": [
+        "s_gamefaqs_ps4"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": [
+          "Canada"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "Brazil",
+      "barcode": "7892110217033",
+      "physicalEditionId": "a-way-out-ps4-br",
+      "catalogIds": [],
+      "accepted": {
+        "serial": null,
+        "productCodes": [],
+        "marketRegions": [
+          "BR"
+        ],
+        "evidenceMarkets": [
+          "BR"
+        ],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "HIGH",
+      "sourceRefs": [
+        "s_xande_br"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": [
+          "Brazil"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "Identificadores EA del resultado externo no corroborados; se conserva sólo el EAN y el origen Brasil declarados por el comercio."
+      ]
+    },
+    {
+      "platform": "ps4",
+      "inputMarket": "Asia",
+      "barcode": "5030943500294",
+      "physicalEditionId": "a-way-out-ps4-asia",
+      "catalogIds": [],
+      "accepted": {
+        "serial": "PLAS-10166",
+        "productCodes": [],
+        "marketRegions": [],
+        "evidenceMarkets": [],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "HIGH",
+      "sourceRefs": [
+        "s_gamefaqs_ps4"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": []
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco."
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "inputMarket": "United States",
+      "barcode": "014633739152",
+      "physicalEditionId": "a-way-out-xboxone-us",
+      "catalogIds": [
+        "xboxone-usa-a-way-out"
+      ],
+      "accepted": {
+        "serial": null,
+        "productCodes": [
+          "7391501601"
+        ],
+        "marketRegions": [
+          "US"
+        ],
+        "evidenceMarkets": [
+          "US"
+        ],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_jnl_xbox_us"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [
+          "English"
+        ],
+        "distributionMarkets": [
+          "United States"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "La compatibilidad con Xbox Series no constituye un lanzamiento físico nativo para Series. Los productCodes son referencias comerciales, no seriales de disco."
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "inputMarket": "Canada",
+      "barcode": "014633373912",
+      "physicalEditionId": "a-way-out-xboxone-ca",
+      "catalogIds": [],
+      "accepted": {
+        "serial": null,
+        "productCodes": [
+          "3739101601"
+        ],
+        "marketRegions": [
+          "CA"
+        ],
+        "evidenceMarkets": [],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "HIGH",
+      "sourceRefs": [
+        "s_gamefaqs_ps4"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": [
+          "Canada"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "La compatibilidad con Xbox Series no constituye un lanzamiento físico nativo para Series. Los productCodes son referencias comerciales, no seriales de disco."
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "inputMarket": "Europe",
+      "barcode": "5030937122761",
+      "physicalEditionId": "a-way-out-xboxone-eu",
+      "catalogIds": [],
+      "accepted": {
+        "serial": null,
+        "productCodes": [
+          "106327801601"
+        ],
+        "marketRegions": [],
+        "evidenceMarkets": [],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "HIGH",
+      "sourceRefs": [
+        "s_gamefaqs_ps4"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": []
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "La compatibilidad con Xbox Series no constituye un lanzamiento físico nativo para Series. Los productCodes son referencias comerciales, no seriales de disco."
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "inputMarket": "EU French/Dutch variant",
+      "barcode": "5030946122769",
+      "physicalEditionId": "a-way-out-xboxone-fr-nl",
+      "catalogIds": [],
+      "accepted": {
+        "serial": null,
+        "productCodes": [
+          "106328401601"
+        ],
+        "marketRegions": [],
+        "evidenceMarkets": [
+          "FR"
+        ],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "CONFIRMED",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_fnac_fr_xbox"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [
+          "French",
+          "Dutch"
+        ],
+        "distributionMarkets": [
+          "France",
+          "Belgium"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "French/Dutch es la denominación de variante en GameFAQs; no acredita por sí sola los idiomas impresos ni la distribución nacional.",
+        "La compatibilidad con Xbox Series no constituye un lanzamiento físico nativo para Series. Los productCodes son referencias comerciales, no seriales de disco."
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "inputMarket": "Poland",
+      "barcode": "5030940122765",
+      "physicalEditionId": "a-way-out-xboxone-pl",
+      "catalogIds": [],
+      "accepted": {
+        "serial": null,
+        "productCodes": [
+          "106328101601"
+        ],
+        "marketRegions": [
+          "PL"
+        ],
+        "evidenceMarkets": [],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "HIGH",
+      "sourceRefs": [
+        "s_gamefaqs_ps4"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [
+          "Polish"
+        ],
+        "distributionMarkets": [
+          "Poland"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "La compatibilidad con Xbox Series no constituye un lanzamiento físico nativo para Series. Los productCodes son referencias comerciales, no seriales de disco."
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "inputMarket": "Australia",
+      "barcode": "5030935122763",
+      "physicalEditionId": "a-way-out-xboxone-au",
+      "catalogIds": [],
+      "accepted": {
+        "serial": null,
+        "productCodes": [
+          "106327701601"
+        ],
+        "marketRegions": [
+          "AU"
+        ],
+        "evidenceMarkets": [],
+        "packagingLanguages": [],
+        "releaseDate": "2018-03-23"
+      },
+      "confidence": "HIGH",
+      "sourceRefs": [
+        "s_gamefaqs_ps4"
+      ],
+      "deferred": {
+        "productCode": null,
+        "packagingLanguages": [],
+        "distributionMarkets": [
+          "Australia"
+        ]
+      },
+      "notes": [
+        "Metadatos textuales; no se ha inspeccionado ninguna imagen ni verificado un ejemplar físico.",
+        "El código de producto no demuestra idioma de caja, componentes completos ni contenido íntegro del disco.",
+        "La compatibilidad con Xbox Series no constituye un lanzamiento físico nativo para Series. Los productCodes son referencias comerciales, no seriales de disco."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "EA launch press release — A Way Out available worldwide",
+      "url": "https://news.ea.com/press-releases/press-releases-details/2018/Experience-a-Daring-Story-Driven-Adventure-With-a-Friend-in-A-Way-Out-Available-Worldwide-Today/default.aspx"
+    },
+    {
+      "label": "A Way Out Release Information for PlayStation 4 — GameFAQs",
+      "url": "https://gamefaqs.gamespot.com/ps4/211217-a-way-out/data"
+    },
+    {
+      "label": "Fnac España — A Way Out PS4",
+      "url": "https://www.fnac.es/A-Way-Out-PS4-Videojuego-PS4/a1441211"
+    },
+    {
+      "label": "RF Generation — A Way Out PS4 GB",
+      "url": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-215-S-10010-A"
+    },
+    {
+      "label": "Smartoys Belgium — A Way Out PS4",
+      "url": "https://www.smartoys.be/catalog/jeux-video-playstation-way-out-p-5030932122766.html?language=fr"
+    },
+    {
+      "label": "rebuy Germany — A Way Out PS4",
+      "url": "https://www.rebuy.de/i%2C10923779/playstation-4/a-way-out"
+    },
+    {
+      "label": "Gamefinity Poland — A Way Out PL PS4",
+      "url": "https://gamefinity.pl/produkt/a-way-out-pl-ps4"
+    },
+    {
+      "label": "World of Games Switzerland — A Way Out PS4",
+      "url": "https://www.wog.ch/en/index.cfm/details/product/61973-A-Way-Out"
+    },
+    {
+      "label": "Elgiganten Denmark — A Way Out PS4",
+      "url": "https://www.elgiganten.dk/product/gaming/spil/a-way-out-ps4/PS4AWAYOUT"
+    },
+    {
+      "label": "Elkjøp Norway — A Way Out PS4",
+      "url": "https://www.elkjop.no/product/gaming/spill/a-way-out-ps4/PS4AWAYOUT"
+    },
+    {
+      "label": "Elgiganten Sweden — A Way Out PS4",
+      "url": "https://www.elgiganten.se/product/gaming/spel/a-way-out-ps4/PS4AWAYOUT"
+    },
+    {
+      "label": "J&L Game — A Way Out PS4 US",
+      "url": "https://www.jnlgame.com/products/a-way-out-playstation-4-pre-owned"
+    },
+    {
+      "label": "Xande A Lenda Games Brazil — A Way Out PS4",
+      "url": "https://www.xandealendagames.com.br/a-way-out-ps4-novo"
+    },
+    {
+      "label": "J&L Game — A Way Out Xbox One US",
+      "url": "https://www.jnlgame.com/products/a-way-out-xb1-xbox-one"
+    },
+    {
+      "label": "Fnac France — A Way Out Xbox One",
+      "url": "https://www.fnac.com/a11299290/A-Way-Out-Xbox-One-Jeu-video-Xbox-One"
+    }
+  ],
+  "queueDecision": {
+    "id": "catalog-group:ps4-a-way-out",
+    "coverage": "PARTIAL",
+    "statusBefore": "pending",
+    "statusAfter": "pending",
+    "reason": "Identificadores incorporados; quedan embalaje y asociaciones regionales sin verificar. No se acepta el completed externo automáticamente."
+  }
+}

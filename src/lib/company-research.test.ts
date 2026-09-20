@@ -167,6 +167,7 @@ test("preserves every protected canonical file byte for byte", () => {
       "owned-scans-2026-09-11-batch-2",
       "absolum-v2-public-url-and-details-2026-09-13",
       "resident-evil-ps4-dedup-20260915",
+      "a-way-out-research-import-2026-09-20",
     ],
   );
 });

@@ -3,7 +3,7 @@
   "source": "/Users/macbookpro14/Downloads/CATALOGO_COMPLETO_PAL_ESPAÑA.xlsx",
   "catalogScope": "retro-pal-es-closed",
   "platformCount": 22,
-  "catalogListed": 79276,
+  "catalogListed": 79277,
   "catalogEstimatedTotal": 49133,
   "listedByPlatform": {
     "3ds": 1708,
@@ -35,7 +35,8 @@
     "switch2": 364,
     "wii": 3061,
     "wiiu": 2,
-    "xbox360": 30
+    "xbox360": 30,
+    "xboxone": 1
   },
   "collection": {
     "totalItems": 479,
@@ -48,7 +49,7 @@
     "totalBuyValue": 19199.33
   },
   "catalogExcluded": 2185,
-  "catalogTotal": 81461,
+  "catalogTotal": 81462,
   "excludedByPlatform": {
     "3ds": 136,
     "ds": 52,
@@ -82,7 +83,7 @@
   "coversListed": 70726,
   "coversListedPct": 99.7,
   "lastCoversSeedAt": "2026-09-05T07:09:21",
-  "gamesWithDetails": 50605,
+  "gamesWithDetails": 50606,
   "indexCompanies": 5907,
   "indexGenres": 121,
   "lastDetailsSeedAt": "2026-06-12T19:59:24",
