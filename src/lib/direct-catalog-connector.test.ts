@@ -2,9 +2,10 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import test from "node:test";
 import { authorizeCatalogConnector, CatalogConnectorError, parseCatalogSubmission } from "./direct-catalog-connector";
+import { classifyExistingCatalogIdentity } from "./direct-catalog-publisher";
 
 const valid = {
-  schemaVersion: 1,
+  schemaVersion: 1 as const,
   batchId: "catalog-20260920-example",
   taskId: "task-587",
   title: "Example [Collector's Edition]",
@@ -40,4 +41,38 @@ test("la activación y el bearer son obligatorios", () => {
   assert.doesNotThrow(() => authorizeCatalogConnector(request, env));
   assert.throws(() => authorizeCatalogConnector(request, { ...env, CATALOG_CONNECTOR_ENABLED: "0" }), CatalogConnectorError);
   assert.throws(() => authorizeCatalogConnector(new Request(request.url), env), CatalogConnectorError);
+});
+
+test("reactiva solo una ficha excluida con la misma identidad base", () => {
+  assert.equal(classifyExistingCatalogIdentity({
+    title: valid.title,
+    platformSlug: valid.platformSlug,
+    region: valid.region,
+    physicalVariant: null,
+    listingStatus: "excluded",
+  }, valid), "reactivate");
+  assert.equal(classifyExistingCatalogIdentity({
+    title: "Otra edición",
+    platformSlug: valid.platformSlug,
+    region: valid.region,
+    physicalVariant: null,
+    listingStatus: "excluded",
+  }, valid), "conflict");
+});
+
+test("una ficha publicada requiere también la misma variante física", () => {
+  assert.equal(classifyExistingCatalogIdentity({
+    title: valid.title,
+    platformSlug: valid.platformSlug,
+    region: valid.region,
+    physicalVariant: valid.physicalVariant,
+    listingStatus: "listed",
+  }, valid), "alreadyApplied");
+  assert.equal(classifyExistingCatalogIdentity({
+    title: valid.title,
+    platformSlug: valid.platformSlug,
+    region: valid.region,
+    physicalVariant: null,
+    listingStatus: "listed",
+  }, valid), "conflict");
 });
