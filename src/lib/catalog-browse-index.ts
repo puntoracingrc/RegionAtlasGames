@@ -317,7 +317,15 @@ export function mergeCatalogBrowseOverlay(
     }
     const current = result[currentIndex];
     if (current.id === overlay.id) {
-      result[currentIndex] = overlayListGame(overlay, displayPlatform, current);
+      const patched = overlayListGame(overlay, displayPlatform, current);
+      const editionIdentityChanged = (current.physicalVariant ?? null) !== (overlay.physicalVariant ?? null) ||
+        (current.sourceCatalogGame?.physicalReleaseGroup?.id ?? null) !== (overlay.physicalReleaseGroup?.id ?? null);
+      result[currentIndex] = editionIdentityChanged
+        ? groupCatalogListGames(
+          [{ ...patched, physicalEditionGroup: undefined }],
+          { mergeSearchMetadata: false },
+        )[0] ?? patched
+        : patched;
       continue;
     }
     const addition = overlaySearchText(overlay);
@@ -374,7 +382,7 @@ export function augmentCatalogBrowseFilterOptions(
   const companies = new Map(base.companies.map((option) => [option.value, option]));
   const broadRegions = new Map(base.physicalEditions.broadRegions.map((option) => [option.value, option]));
   const editionTypes = new Map(base.physicalEditions.editionTypes.map((option) => [option.value, option]));
-  const editionFamilies = new Map(base.physicalEditions.editionFamilies.map((option) => [option.value, option]));
+  const editionFamilies = new Map((base.physicalEditions.editionFamilies ?? []).map((option) => [option.value, option]));
   const ratingSystems = new Set(base.physicalEditions.ratingSystems);
 
   for (const game of games) {

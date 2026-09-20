@@ -210,12 +210,17 @@ export function groupCatalogListGames(
 
   for (const game of uniqueGames) {
     const staticGame = getCatalogGame(game.id);
+    const runtimeGame = game.sourceCatalogGame;
+    const runtimeEditionIdentityChanged = Boolean(staticGame && runtimeGame && (
+      (staticGame.physicalVariant ?? null) !== (runtimeGame.physicalVariant ?? null) ||
+      (staticGame.physicalReleaseGroup?.id ?? null) !== (runtimeGame.physicalReleaseGroup?.id ?? null)
+    ));
     if (staticGame) {
-      const guide = getCatalogEditionGuideModel(staticGame);
+      const sourceGame = runtimeEditionIdentityChanged ? runtimeGame! : staticGame;
+      const guide = getCatalogEditionGuideModel(sourceGame);
       if (guide) guidesById.set(guide.id, guide);
-    } else if (game.sourceCatalogGame) {
-      runtimeGames.push(game.sourceCatalogGame);
-    }
+      else if (runtimeGame) runtimeGames.push(runtimeGame);
+    } else if (runtimeGame) runtimeGames.push(runtimeGame);
   }
 
   const groupedRuntimeCatalogIds = new Set<string>();

@@ -864,7 +864,9 @@ export function getCatalogEditionGuideModel(game: CatalogGame): CatalogEditionGu
     catalogGame.platformSlug !== game.platformSlug ||
     catalogGame.slug !== game.slug ||
     catalogGame.region !== game.region ||
-    catalogGame.edition !== game.edition
+    catalogGame.edition !== game.edition ||
+    (catalogGame.physicalVariant ?? null) !== (game.physicalVariant ?? null) ||
+    (catalogGame.physicalReleaseGroup?.id ?? null) !== (game.physicalReleaseGroup?.id ?? null)
   ) {
     return undefined;
   }
