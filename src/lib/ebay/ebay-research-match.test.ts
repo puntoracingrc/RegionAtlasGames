@@ -120,6 +120,40 @@ test("keeps generic PAL listings under review for a Spain-specific edition", () 
   assert.equal(match.decision, "review");
 });
 
+test("normalizes cartridge-only combinations to loose", () => {
+  const cartridgeTarget = { ...target, platformSlug: "n64" };
+  for (const title of [
+    "Silent Hill 2 N64 cartucho suelto",
+    "Silent Hill 2 N64 cartucho con manual sin caja",
+    "Silent Hill 2 N64 cartucho con caja sin manual",
+  ]) {
+    assert.equal(evaluateEbayResearchMatch(cartridgeTarget, evidence({ title })).conditionBucket, "loose");
+  }
+});
+
+test("excludes accessory-only and incomplete optical listings", () => {
+  assert.equal(
+    evaluateEbayResearchMatch({ ...target, platformSlug: "n64" }, evidence({ title: "Silent Hill 2 N64 caja y manual sin cartucho" })).conditionBucket,
+    "unknown",
+  );
+  assert.equal(evaluateEbayResearchMatch(target, evidence({ title: "Silent Hill 2 PS2 disc only" })).conditionBucket, "unknown");
+  assert.equal(evaluateEbayResearchMatch(target, evidence({ title: "Silent Hill 2 PS2 case only" })).conditionBucket, "unknown");
+});
+
+test("maps marketplace new to complete unless the listing proves it is sealed", () => {
+  assert.equal(
+    evaluateEbayResearchMatch(target, evidence({ title: "Silent Hill 2 PS2 PAL España", condition: "New" })).conditionBucket,
+    "complete",
+  );
+});
+
+test("recognizes an explicit unopened listing as sealed", () => {
+  assert.equal(
+    evaluateEbayResearchMatch(target, evidence({ title: "Silent Hill 2 PS2 PAL España sin abrir" })).conditionBucket,
+    "sealed",
+  );
+});
+
 test("accepts a strong platform and Spain-region match", () => {
   const match = evaluateEbayResearchMatch(target, evidence({}));
   assert.equal(match.platformMatch, "exact");

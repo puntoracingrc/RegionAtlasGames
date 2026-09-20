@@ -514,7 +514,7 @@ export type CatalogPhysicalEditionGroupSummary = {
   editionTypes: CatalogPhysicalEditionType[];
   ratingSystems: string[];
   packagingLanguages: string[];
-  priceRanges: Partial<Record<"complete" | "sealed", CatalogPriceRange>>;
+  priceRanges: Partial<Record<"loose" | "complete" | "sealed", CatalogPriceRange>>;
 };
 
 export type CatalogPhysicalEditionPublicIdentity = {

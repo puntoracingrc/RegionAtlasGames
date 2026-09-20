@@ -116,6 +116,19 @@ test("does not publish expired, rejected or non-EUR evidence", () => {
   assert.equal(estimates[0].publishable, false);
 });
 
+test("merges legacy game-manual evidence into loose only for cartridge platforms", () => {
+  const observations = [
+    observation({ id: "one", listingId: "one", conditionBucket: "game_manual", price: 10 }),
+    observation({ id: "two", listingId: "two", conditionBucket: "loose", price: 20 }),
+    observation({ id: "three", listingId: "three", conditionBucket: "game_manual", price: 30 }),
+  ];
+  const cartridge = calculateStoredMarketEstimates(observations, Date.parse(NOW), "n64");
+  assert.equal(cartridge.length, 1);
+  assert.equal(cartridge[0].condition, "loose");
+  assert.equal(cartridge[0].median, 20);
+  assert.deepEqual(calculateStoredMarketEstimates(observations, Date.parse(NOW), "ps3"), []);
+});
+
 test("deduplicates an eBay item and preserves an explicit admin rejection", () => {
   const existing = observation({
     reviewStatus: "rejected",

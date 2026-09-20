@@ -30,6 +30,7 @@ import type {
 } from "./market-research-types";
 import { getRegionDisplay } from "./region-display";
 import type { CatalogGame } from "./types";
+import { normalizePublicPriceCondition } from "./platform-price-condition-policy";
 
 type ResearchPayload = Awaited<ReturnType<typeof researchEbayMarket>>;
 type CoverPayload = Awaited<ReturnType<typeof researchCoverCandidates>>;
@@ -94,6 +95,7 @@ function observationFromListing(input: {
   routed: boolean;
 }): MarketObservation {
   const { listing, destination, origin, collectedAt, routed } = input;
+  const conditionBucket = normalizePublicPriceCondition(listing.conditionBucket, destination.platformSlug) ?? "unknown";
   return {
     id: `ebay:${listing.marketplaceId}:${listing.itemId}`,
     source: "ebay",
@@ -116,7 +118,7 @@ function observationFromListing(input: {
     originLabel: listing.originLabel,
     importCostsMayApply: listing.importCostsMayApply,
     condition: listing.condition,
-    conditionBucket: listing.conditionBucket,
+    conditionBucket,
     confidence: listing.confidence,
     detectedRegion: listing.suggestedRegion ?? (listing.regionMatch === "exact" ? destination.region : null),
     targetRegion: destination.region,

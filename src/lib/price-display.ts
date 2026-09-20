@@ -1,5 +1,6 @@
 import type { CatalogGame, CatalogListGame, CollectionItem } from "./types";
 import { hasAnyConditionEstimate, primaryConditionPriceEntry } from "./condition-prices";
+import { publicPriceConditionsForPlatform } from "./platform-price-condition-policy";
 
 type PriceFields = Pick<
   CatalogGame | CollectionItem,
@@ -8,12 +9,12 @@ type PriceFields = Pick<
 
 type CatalogConditionPriceFields = Pick<
   CatalogGame | CollectionItem,
-  "estimatedPriceSealed" | "estimatedPriceComplete" | "estimatedPriceLoose"
+  "platformSlug" | "estimatedPriceSealed" | "estimatedPriceComplete" | "estimatedPriceLoose" | "estimatedPriceGameManual"
 > & Pick<Partial<CatalogListGame>, "physicalEditionGroup">;
 
 export type CatalogConditionPriceRow = {
   condition: "sealed" | "complete" | "loose";
-  label: "Precintado" | "Completo" | "Solo juego";
+  label: "Precintado" | "Completo" | "Loose";
   price: number | null;
   maxPrice?: number | null;
 };
@@ -24,16 +25,21 @@ export function catalogConditionPriceRows(
 ): CatalogConditionPriceRow[] {
   const grouped = game.physicalEditionGroup?.priceRanges;
   if (game.physicalEditionGroup) {
-    return [
+    const rows: CatalogConditionPriceRow[] = [
       { condition: "sealed", label: "Precintado", price: grouped?.sealed?.min ?? null, maxPrice: grouped?.sealed?.max ?? null },
       { condition: "complete", label: "Completo", price: grouped?.complete?.min ?? null, maxPrice: grouped?.complete?.max ?? null },
+      { condition: "loose", label: "Loose", price: grouped?.loose?.min ?? null, maxPrice: grouped?.loose?.max ?? null },
     ];
+    const allowed = new Set(publicPriceConditionsForPlatform(game.platformSlug));
+    return rows.filter((row) => allowed.has(row.condition));
   }
-  return [
+  const rows: CatalogConditionPriceRow[] = [
     { condition: "sealed", label: "Precintado", price: game.estimatedPriceSealed ?? null },
     { condition: "complete", label: "Completo", price: game.estimatedPriceComplete ?? null },
-    { condition: "loose", label: "Solo juego", price: game.estimatedPriceLoose ?? null },
+    { condition: "loose", label: "Loose", price: game.estimatedPriceLoose ?? game.estimatedPriceGameManual ?? null },
   ];
+  const allowed = new Set(publicPriceConditionsForPlatform(game.platformSlug));
+  return rows.filter((row) => allowed.has(row.condition));
 }
 
 /** Precio ES fiable: existe y la región de los anuncios fuente quedó verificada. */

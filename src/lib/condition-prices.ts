@@ -19,7 +19,7 @@ export const COLLECTION_CONDITION_SHORT_LABELS: Record<CollectionCondition, stri
 };
 
 export const CONDITION_PRICE_LABELS: Record<ConditionBucket, string> = {
-  loose: "Suelto",
+  loose: "Loose",
   gameManual: "Juego + manual",
   complete: "Completo",
   sealed: "Precintado",
@@ -27,7 +27,7 @@ export const CONDITION_PRICE_LABELS: Record<ConditionBucket, string> = {
 };
 
 export const CONDITION_PRICE_SHORT_LABELS: Record<ConditionBucket, string> = {
-  loose: "Suelto",
+  loose: "Loose",
   gameManual: "Jgo. + manual",
   complete: "Completo",
   sealed: "Prec.",
@@ -35,7 +35,7 @@ export const CONDITION_PRICE_SHORT_LABELS: Record<ConditionBucket, string> = {
 };
 
 export const CONDITION_PRICE_DESCRIPTIONS: Record<ConditionBucket, string> = {
-  loose: "Cartucho o disco suelto",
+  loose: "Cartucho solo, con manual o con caja, pero sin el contenido completo",
   gameManual: "Juego + manual, sin caja",
   complete: "Abierto con todo su contenido original",
   sealed: "Nuevo precintado",
@@ -87,16 +87,23 @@ export function conditionPriceEntries(
   allowedBuckets?: readonly ConditionBucket[],
 ): ConditionPriceEntry[] {
   const entries: ConditionPriceEntry[] = [];
-  if (game.estimatedPriceLoose != null) {
+  const loosePrice = game.estimatedPriceLoose ?? (
+    allowedBuckets?.includes("loose") ? game.estimatedPriceGameManual : null
+  );
+  if (loosePrice != null) {
     entries.push({
       bucket: "loose",
       label: CONDITION_PRICE_LABELS.loose,
-      price: game.estimatedPriceLoose,
-      shippingToSpain: game.estimatedShippingToSpainLoose ?? null,
-      totalToSpain: game.estimatedTotalToSpainLoose ?? null,
+      price: loosePrice,
+      shippingToSpain: game.estimatedPriceLoose != null
+        ? game.estimatedShippingToSpainLoose ?? null
+        : game.estimatedShippingToSpainGameManual ?? null,
+      totalToSpain: game.estimatedPriceLoose != null
+        ? game.estimatedTotalToSpainLoose ?? null
+        : game.estimatedTotalToSpainGameManual ?? null,
     });
   }
-  if (game.estimatedPriceGameManual != null) {
+  if (game.estimatedPriceGameManual != null && !allowedBuckets?.includes("loose")) {
     entries.push({
       bucket: "gameManual",
       label: CONDITION_PRICE_LABELS.gameManual,

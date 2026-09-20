@@ -263,6 +263,7 @@ def product_to_ingest_row(
         condition_raw=raw_cond,
         manual_expected=manual_expected,
         original_contents_expected=original_contents_expected,
+        platform_slug=platform_slug,
     )
     missing_required_manual = (
         manual_expected is not False and manual_missing_declared(full_text)
@@ -277,7 +278,8 @@ def product_to_ingest_row(
         and not missing_required_content
         and ai_result.condition in DISPLAY_BUCKETS
     ):
-        bucket = ai_result.condition
+        from collectors.platform_price_policy import normalize_price_bucket
+        bucket = normalize_price_bucket(ai_result.condition, platform_slug)
 
     image_scratch: dict[str, Any] = {}
     attach_image_urls(image_scratch, product, "wallapop", limit=12)

@@ -24,6 +24,7 @@ import {
 } from "./catalog-derived-edition-guides";
 import { getCatalogGame, publicListedCatalog } from "./catalog";
 import type { CatalogGame, CatalogListGame } from "./types";
+import { platformPriceMedia } from "./platform-price-condition-policy";
 
 const catalogPhysicalFilterOptionsCache = new Map<string, CatalogPhysicalFilterOptions>();
 
@@ -156,6 +157,9 @@ function buildSummary(
     regionCounts.set(edition.broadRegion, (regionCounts.get(edition.broadRegion) ?? 0) + 1);
   }
   const complete = priceRange(pricedGames.map((game) => game.estimatedPriceComplete));
+  const loose = platformPriceMedia(games[0]?.platformSlug) === "cartridge"
+    ? priceRange(pricedGames.map((game) => game.estimatedPriceLoose ?? game.estimatedPriceGameManual))
+    : undefined;
   const sealed = priceRange(pricedGames.map((game) => game.estimatedPriceSealed ?? game.estimatedPriceNewRetail));
   const marketRegions = unique(releasedEditions.flatMap((edition) => edition.marketRegions));
   const legacyMarketRegions = marketRegions.map(catalogMarketRegionToLegacyRegion);
@@ -178,6 +182,7 @@ function buildSummary(
     ratingSystems: unique(releasedEditions.flatMap((edition) => edition.ratingSystems)),
     packagingLanguages: unique(releasedEditions.flatMap((edition) => edition.packagingLanguages)),
     priceRanges: {
+      ...(loose ? { loose } : {}),
       ...(complete ? { complete } : {}),
       ...(sealed ? { sealed } : {}),
     },

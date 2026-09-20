@@ -33,7 +33,7 @@ function seriesPoints(
   let current: Point[] = [];
 
   for (const snap of history) {
-    const value = snap[bucket];
+    const value = bucket === "loose" ? snap.loose ?? snap.gameManual : snap[bucket];
     if (value === undefined) continue;
     if (value == null) {
       if (current.length) segments.push(current);
@@ -86,7 +86,7 @@ export function GamePriceHistoryChart({ catalogId, history, editionLabel, allowe
     const plotH = HEIGHT - PAD.top - PAD.bottom;
 
     const values = history.flatMap((snap) =>
-      allowedBuckets.map((b) => snap[b]).filter((v): v is number => v != null),
+      allowedBuckets.map((b) => b === "loose" ? snap.loose ?? snap.gameManual : snap[b]).filter((v): v is number => v != null),
     );
     if (values.length === 0) return null;
 

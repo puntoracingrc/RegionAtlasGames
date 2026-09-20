@@ -24,11 +24,12 @@ test("missing condition inserts mean, existing condition blends once", () => {
   assert.equal(previous.estimatedPriceComplete, 10);
 });
 test("loose is stored and blended independently with its own shipping total", () => {
-  const submission = input({ conditions: [{ state: "loose", meanEur: 20, listings: [{ listingId: "loose-1", url: "https://www.wallapop.com/item/1", priceEur: 20 }] }] });
-  const inserted = planDirectPrice({ ...base, estimatedShippingToSpainLoose: 3.5 }, submission, "now");
+  const cartridge = { ...base, id: "n64-test", title: "Test N64", platformSlug: "n64" };
+  const submission = input({ catalogId: cartridge.id, catalogTitle: cartridge.title, platformSlug: cartridge.platformSlug, conditions: [{ state: "loose", meanEur: 20, listings: [{ listingId: "loose-1", url: "https://www.wallapop.com/item/1", priceEur: 20 }] }] });
+  const inserted = planDirectPrice({ ...cartridge, estimatedShippingToSpainLoose: 3.5 }, submission, "now");
   assert.equal(inserted.game.estimatedPriceLoose, 20);
   assert.equal(inserted.game.estimatedTotalToSpainLoose, 23.5);
-  const blended = planDirectPrice({ ...base, estimatedPriceLoose: 10 }, submission, "now");
+  const blended = planDirectPrice({ ...cartridge, estimatedPriceLoose: 10 }, submission, "now");
   assert.equal(blended.game.estimatedPriceLoose, 15);
   assert.equal(blended.game.estimatedPriceComplete, undefined);
 });
@@ -77,6 +78,28 @@ test("strict schema guards money, averages, condition, duplicates and path trave
   errorStatus(() => input({ conditions: [{ state: "used", meanEur: 20, listings: [] }] }), 400);
   errorStatus(() => input({ conditions: [{ state: "complete", meanEur: 21, listings: [{ listingId: "1", url: "https://example.com/1", priceEur: 20 }] }] }), 400);
   errorStatus(() => input({ conditions: [input().conditions[0], input().conditions[0]] }), 400);
+});
+test("accepts loose for cartridge platforms and rejects it for optical media", () => {
+  const loose = {
+    state: "loose",
+    meanEur: 15,
+    listings: [{ listingId: "cart-1", url: "https://www.ebay.es/itm/cart-1", priceEur: 15 }],
+  };
+  const cartridge = input({
+    catalogId: "n64-test",
+    catalogTitle: "Test N64",
+    platformSlug: "n64",
+    conditions: [loose],
+  });
+  assert.equal(cartridge.conditions[0].state, "loose");
+  const planned = planDirectPrice(
+    { ...base, id: "n64-test", title: "Test N64", platformSlug: "n64" },
+    cartridge,
+    "now",
+  );
+  assert.equal(planned.game.estimatedPriceLoose, 15);
+  assert.equal(planned.game.recommendedPrice, 15);
+  errorStatus(() => input({ conditions: [loose] }), 400);
 });
 test("identity gates exact edition, region and platform without regional keywords in listings", () => {
   errorStatus(() => planDirectPrice(base, input({ region: "USA" }), "now"), 409);
