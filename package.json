@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test:published-price-views": "tsx --test --test-concurrency=1 src/lib/price-history-model.test.ts src/lib/catalog-price-games.test.ts src/lib/collection-runtime-prices.test.ts src/components/game-price-history-chart.test.tsx src/lib/home-dashboard.test.ts src/lib/collection-store.test.ts src/lib/collection-display.test.ts src/lib/direct-price-connector.test.ts",
+    "test:published-price-views": "tsx --test --test-concurrency=1 src/lib/price-history-model.test.ts src/lib/catalog-price-games.test.ts src/lib/collection-runtime-prices.test.ts src/components/game-price-history-chart.test.tsx src/lib/home-dashboard.test.ts src/lib/collection-store.test.ts src/lib/collection-display.test.ts src/lib/direct-price-connector.test.ts src/lib/direct-catalog-connector.test.ts",
     "research:scan": "tsx scripts/research-engine-scan.ts",
     "research:queue": "tsx scripts/research-engine-queue.ts",
     "research:run": "tsx scripts/research-engine-run.ts",
