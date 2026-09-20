@@ -1,0 +1,817 @@
+{
+  "researchId": "a-way-out-2026-09-20",
+  "triggerQueueEntry": {
+    "queueId": "catalog-group:ps4-a-way-out",
+    "platform": "ps4",
+    "catalogIds": [
+      "ps4-a-way-out",
+      "ps4-usa-a-way-out"
+    ]
+  },
+  "researchedTitle": "A Way Out",
+  "platformsInvestigated": [
+    "ps4",
+    "xboxone"
+  ],
+  "releases": [
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Spain",
+      "distributionMarkets": [
+        "Spain"
+      ],
+      "packagingLanguages": [
+        "Spanish"
+      ],
+      "barcode": "5030931122767",
+      "productCode": "CUSA-08004",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA/retail product identifier 106327301601 is associated with this Spanish variant.",
+        "Fnac Spain independently records EAN 5030931122767.",
+        "Current RegionAtlas page shows CUSA-07919 for the Spain entry; the physical Spain evidence found here points to CUSA-08004 instead."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_fnac_es",
+        "s_serial_08004",
+        "s_regionatlas_current"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "United Kingdom",
+      "distributionMarkets": [
+        "United Kingdom"
+      ],
+      "packagingLanguages": [
+        "English"
+      ],
+      "barcode": "5030945122760",
+      "productCode": "CUSA-08004",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA/retail product identifier 106326801601 is associated with the EU/UK variant.",
+        "RF Generation identifies this barcode as the GB release."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_rfgen_uk",
+        "s_gadcet_uk",
+        "s_serial_08004"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "EU French/Dutch variant",
+      "distributionMarkets": [
+        "France",
+        "Belgium"
+      ],
+      "packagingLanguages": [
+        "French",
+        "Dutch"
+      ],
+      "barcode": "5030932122766",
+      "productCode": "CUSA-08004",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA/retail product identifier 106327401601 is associated with this variant.",
+        "Retail evidence confirms this EAN in France and Belgium; the wider exact distribution footprint is not asserted."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_auchan_fr",
+        "s_smartoys_be",
+        "s_serial_08004"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Germany",
+      "distributionMarkets": [
+        "Germany"
+      ],
+      "packagingLanguages": [
+        "German"
+      ],
+      "barcode": "5030933122765",
+      "productCode": "CUSA-08004",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA/retail product identifier 106327501601 is associated with this German variant."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_rebuy_de",
+        "s_serial_08004"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Poland",
+      "distributionMarkets": [
+        "Poland"
+      ],
+      "packagingLanguages": [
+        "Polish"
+      ],
+      "barcode": "5035228122758",
+      "productCode": "CUSA-08004",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA/retail product identifier 106327101601 is associated with this Polish variant."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_gamefinity_pl",
+        "s_xkom_pl",
+        "s_serial_08004"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Switzerland",
+      "distributionMarkets": [
+        "Switzerland"
+      ],
+      "packagingLanguages": [
+        "German",
+        "French",
+        "Italian"
+      ],
+      "barcode": "5030934122764",
+      "productCode": "CUSA-08004",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA/retail product identifier 106327601601 is associated with this Swiss variant.",
+        "World of Games explicitly documents German/French/Italian packaging.",
+        "Some collector databases group this SKU with Austria as well; Austria distribution was not promoted to a confirmed market here."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_wog_ch",
+        "s_serial_08004"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Nordic",
+      "distributionMarkets": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "packagingLanguages": [],
+      "barcode": "5030938122760",
+      "productCode": "CUSA-08004",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "Manufacturer item number 1063270 is shown by Nordic retailers.",
+        "The same EAN is documented by retailers/libraries in Denmark, Finland, Norway and Sweden.",
+        "Exact printed packaging languages were not established from the sources used."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_elgiganten_dk",
+        "s_finna_fi",
+        "s_elkjop_no",
+        "s_elgiganten_se"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Australia",
+      "distributionMarkets": [
+        "Australia"
+      ],
+      "packagingLanguages": [],
+      "barcode": "5030944122761",
+      "productCode": "CUSA-08004",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA/retail product identifier 106326701601 is associated with this Australian variant.",
+        "Australian retail listing confirms PAL physical release and MA15+ classification."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_gamesmen_ps4_au",
+        "s_serial_08004"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "United States",
+      "distributionMarkets": [
+        "United States"
+      ],
+      "packagingLanguages": [
+        "English"
+      ],
+      "barcode": "014633739138",
+      "productCode": "CUSA-07995",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA item identifiers 2103444 / 7391301601 are associated with this US release."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_jnl_ps4_us",
+        "s_vgcollect_na",
+        "s_serial_07995"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Canada",
+      "distributionMarkets": [
+        "Canada"
+      ],
+      "packagingLanguages": [],
+      "barcode": "014633373905",
+      "productCode": null,
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "EA product identifier 3739001601 is associated with the Canadian physical variant.",
+        "The Canadian PlayStation Store uses CUSA-07995, but the physical disc code was not directly verified from the physical-copy sources used, so productCode is left null."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_psstore_ca"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Brazil",
+      "distributionMarkets": [
+        "Brazil"
+      ],
+      "packagingLanguages": [],
+      "barcode": "7892110217033",
+      "productCode": null,
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "Brazilian physical retailers identify origin as Brazil and EAN 7892110217033.",
+        "One retailer records EA game/item identifiers 2103753 / 7395101601.",
+        "Brazilian PS Store uses CUSA-07995 digitally; no physical CUSA was directly verified from the Brazilian physical sources used."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_xande_br",
+        "s_arena_br",
+        "s_psstore_br"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Asia",
+      "distributionMarkets": [],
+      "packagingLanguages": [],
+      "barcode": "5030943500294",
+      "productCode": "PLAS-10166",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail Blu-ray",
+      "notes": [
+        "GameFAQs records this as an Asian physical release.",
+        "Exact country distribution and printed packaging languages were not established."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_cex_asia"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "United States",
+      "distributionMarkets": [
+        "United States"
+      ],
+      "packagingLanguages": [
+        "English"
+      ],
+      "barcode": "014633739152",
+      "productCode": "7391501601",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail disc",
+      "notes": [],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_xbox",
+        "s_jnl_xbox_us",
+        "s_dbox_xbox"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Canada",
+      "distributionMarkets": [
+        "Canada"
+      ],
+      "packagingLanguages": [],
+      "barcode": "014633373912",
+      "productCode": "3739101601",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail disc",
+      "notes": [],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_xbox",
+        "s_xbox_ca"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Europe",
+      "distributionMarkets": [],
+      "packagingLanguages": [],
+      "barcode": "5030937122761",
+      "productCode": "106327801601",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail disc",
+      "notes": [
+        "GameFAQs records this as the generic European physical SKU."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_xbox"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "EU French/Dutch variant",
+      "distributionMarkets": [
+        "France",
+        "Belgium"
+      ],
+      "packagingLanguages": [
+        "French",
+        "Dutch"
+      ],
+      "barcode": "5030946122769",
+      "productCode": "106328401601",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail disc",
+      "notes": [
+        "French retail sources independently confirm EAN 5030946122769."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_xbox",
+        "s_fnac_fr_xbox",
+        "s_leclerc_fr_xbox"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Poland",
+      "distributionMarkets": [
+        "Poland"
+      ],
+      "packagingLanguages": [
+        "Polish"
+      ],
+      "barcode": "5030940122765",
+      "productCode": "106328101601",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail disc",
+      "notes": [
+        "Polish marketplace evidence explicitly describes a Polish cover."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_xbox",
+        "s_allegro_pl_xbox"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "editionName": "Standard",
+      "market": "Australia",
+      "distributionMarkets": [
+        "Australia"
+      ],
+      "packagingLanguages": [],
+      "barcode": "5030935122763",
+      "productCode": "106327701601",
+      "releaseDate": "2018-03-23",
+      "releaseType": "Physical retail disc",
+      "notes": [
+        "Australian retailer confirms PAL physical release and MA15+ classification."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs_xbox",
+        "s_gamesmen_xbox_au"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "s_repo_platforms",
+      "url": "https://github.com/puntoracingrc/RegionAtlasGames/blob/research-pipeline/data/platforms.json",
+      "title": "RegionAtlas data/platforms.json",
+      "accessedAt": "2026-09-20",
+      "supports": "PS4 and Xbox One are RegionAtlas platform slugs; Xbox One is marked active in the current repository data."
+    },
+    {
+      "sourceId": "s_ea_launch",
+      "url": "https://news.ea.com/press-releases/press-releases-details/2018/Experience-a-Daring-Story-Driven-Adventure-With-a-Friend-in-A-Way-Out-Available-Worldwide-Today/default.aspx",
+      "title": "EA launch press release — A Way Out available worldwide",
+      "accessedAt": "2026-09-20",
+      "supports": "Official worldwide launch on PlayStation 4 and Xbox One on March 23, 2018."
+    },
+    {
+      "sourceId": "s_gamefaqs_ps4",
+      "url": "https://gamefaqs.gamespot.com/ps4/211217-a-way-out/data",
+      "title": "A Way Out Release Information for PlayStation 4 — GameFAQs",
+      "accessedAt": "2026-09-20",
+      "supports": "PS4 physical variant barcodes/product identifiers for US, Canada, EU, French/Dutch, German, Polish, Spanish, Swiss, Australia and Asia; CUSA-08004/CUSA-07995 mappings where listed."
+    },
+    {
+      "sourceId": "s_serial_08004",
+      "url": "https://serialstation.com/titles/CUSA/08004",
+      "title": "SerialStation — CUSA-08004",
+      "accessedAt": "2026-09-20",
+      "supports": "Physical A Way Out disc label/internal ID CUSA-08004."
+    },
+    {
+      "sourceId": "s_serial_07995",
+      "url": "https://serialstation.com/titles/CUSA/07995",
+      "title": "SerialStation — CUSA-07995",
+      "accessedAt": "2026-09-20",
+      "supports": "Physical A Way Out disc label/internal ID CUSA-07995."
+    },
+    {
+      "sourceId": "s_regionatlas_current",
+      "url": "https://www.regionatlas.games/catalogo/a-way-out-ps4-pal-es",
+      "title": "RegionAtlas — A Way Out PS4 PAL España",
+      "accessedAt": "2026-09-20",
+      "supports": "Current RegionAtlas Spain page presently displays CUSA-07919, creating a conflict with external physical Spain evidence."
+    },
+    {
+      "sourceId": "s_fnac_es",
+      "url": "https://www.fnac.es/A-Way-Out-PS4-Videojuego-PS4/a1441211",
+      "title": "Fnac España — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Spanish PS4 retail EAN 5030931122767 and EA SKU ELE*1063273."
+    },
+    {
+      "sourceId": "s_rfgen_uk",
+      "url": "https://www.rfgeneration.com/cgi-bin/getinfo.pl?ID=E-215-S-10010-A",
+      "title": "RF Generation — A Way Out PS4 GB",
+      "accessedAt": "2026-09-20",
+      "supports": "UK/GB PS4 release CUSA-08004 and EAN 5030945122760."
+    },
+    {
+      "sourceId": "s_gadcet_uk",
+      "url": "https://www.gadcet.com/products/a-way-out-ps4",
+      "title": "Gadcet UK — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "UK retail EAN 5030945122760."
+    },
+    {
+      "sourceId": "s_auchan_fr",
+      "url": "https://www.auchan.fr/a-way-out-ps4/pr-C1030598",
+      "title": "Auchan France — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "French retail EAN 5030932122766."
+    },
+    {
+      "sourceId": "s_smartoys_be",
+      "url": "https://www.smartoys.be/catalog/jeux-video-playstation-way-out-p-5030932122766.html?language=fr",
+      "title": "Smartoys Belgium — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Belgian retail presence of PS4 EAN 5030932122766."
+    },
+    {
+      "sourceId": "s_rebuy_de",
+      "url": "https://www.rebuy.de/i%2C10923779/playstation-4/a-way-out",
+      "title": "rebuy Germany — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "German PS4 EAN 5030933122765 and German-market physical release."
+    },
+    {
+      "sourceId": "s_gamefinity_pl",
+      "url": "https://gamefinity.pl/produkt/a-way-out-pl-ps4",
+      "title": "Gamefinity Poland — A Way Out PL PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Polish PS4 EAN 5035228122758."
+    },
+    {
+      "sourceId": "s_xkom_pl",
+      "url": "https://www.x-kom.pl/p/418398-gra-na-playstation-4-ea-a-way-out.html",
+      "title": "x-kom Poland — EA A WAY OUT PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Polish PS4 product, EAN 5035228122758, Polish/English version labeling."
+    },
+    {
+      "sourceId": "s_wog_ch",
+      "url": "https://www.wog.ch/en/index.cfm/details/product/61973-A-Way-Out",
+      "title": "World of Games Switzerland — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Swiss PS4 EAN 5030934122764; packaging explicitly German/French/Italian; game text German/English/French/Italian."
+    },
+    {
+      "sourceId": "s_elgiganten_dk",
+      "url": "https://www.elgiganten.dk/product/gaming/spil/a-way-out-ps4/PS4AWAYOUT",
+      "title": "Elgiganten Denmark — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Nordic EAN 5030938122760 and item 1063270 in Denmark."
+    },
+    {
+      "sourceId": "s_finna_fi",
+      "url": "https://www.finna.fi/Record/helmet.2336266",
+      "title": "Finna — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Finland holding identifies EAN 5030938122760 and publisher identifier CUSA08004."
+    },
+    {
+      "sourceId": "s_elkjop_no",
+      "url": "https://www.elkjop.no/product/gaming/spill/a-way-out-ps4/PS4AWAYOUT",
+      "title": "Elkjøp Norway — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Nordic EAN 5030938122760 in Norway."
+    },
+    {
+      "sourceId": "s_elgiganten_se",
+      "url": "https://www.elgiganten.se/product/gaming/spel/a-way-out-ps4/PS4AWAYOUT",
+      "title": "Elgiganten Sweden — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Nordic EAN 5030938122760 and item 1063270 in Sweden."
+    },
+    {
+      "sourceId": "s_gamesmen_ps4_au",
+      "url": "https://www.gamesmen.com.au/ps4-a-way-out",
+      "title": "The Gamesmen Australia — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Australian PS4 EAN 5030944122761, PAL physical release, release date and MA15+ classification."
+    },
+    {
+      "sourceId": "s_jnl_ps4_us",
+      "url": "https://www.jnlgame.com/products/a-way-out-playstation-4-pre-owned",
+      "title": "J&L Game — A Way Out PS4 US",
+      "accessedAt": "2026-09-20",
+      "supports": "US PS4 physical release CUSA-07995 and UPC 014633739138."
+    },
+    {
+      "sourceId": "s_vgcollect_na",
+      "url": "https://vgcollect.com/item/140995",
+      "title": "VGCollect — A Way Out PS4 North America",
+      "accessedAt": "2026-09-20",
+      "supports": "US PS4 item number 2103444, barcode 014633739138 and associated insert identifiers."
+    },
+    {
+      "sourceId": "s_psstore_ca",
+      "url": "https://store.playstation.com/en-ca/product/UP0006-CUSA07995_00-HAZELIGHTAWAYOUT/",
+      "title": "PlayStation Store Canada — A Way Out",
+      "accessedAt": "2026-09-20",
+      "supports": "Canadian PS4 digital title ID CUSA-07995 and release date; used only as contextual evidence, not to assert the Canadian physical disc code."
+    },
+    {
+      "sourceId": "s_xande_br",
+      "url": "https://www.xandealendagames.com.br/a-way-out-ps4-novo",
+      "title": "Xande A Lenda Games Brazil — A Way Out PS4",
+      "accessedAt": "2026-09-20",
+      "supports": "Brazil-origin PS4 physical release, EAN 7892110217033 and language information."
+    },
+    {
+      "sourceId": "s_arena_br",
+      "url": "https://lojaarenagames.com.br/a-way-out-ps4/",
+      "title": "Arena Games Brazil — A Way Out PS4 physical",
+      "accessedAt": "2026-09-20",
+      "supports": "Brazilian physical EAN 7892110217033 and EA item identifiers 2103753 / 7395101601."
+    },
+    {
+      "sourceId": "s_psstore_br",
+      "url": "https://store.playstation.com/pt-br/product/UP0006-CUSA07995_00-HAZELIGHTAWAYOUT",
+      "title": "PlayStation Store Brazil — A Way Out",
+      "accessedAt": "2026-09-20",
+      "supports": "Brazilian PS4 digital title uses CUSA-07995; contextual only, not used to assign a physical CUSA."
+    },
+    {
+      "sourceId": "s_cex_asia",
+      "url": "https://in.webuy.com/sell/product-detail/?id=5030943500294",
+      "title": "CeX — A Way Out PS4 EAN 5030943500294",
+      "accessedAt": "2026-09-20",
+      "supports": "Independent retail presence for Asian physical barcode 5030943500294."
+    },
+    {
+      "sourceId": "s_gamefaqs_xbox",
+      "url": "https://gamefaqs.gamespot.com/xboxone/211218-a-way-out/data",
+      "title": "A Way Out Release Information for Xbox One — GameFAQs",
+      "accessedAt": "2026-09-20",
+      "supports": "Xbox One physical barcodes/product identifiers for US, Canada, generic EU, French/Dutch, Polish and Australia."
+    },
+    {
+      "sourceId": "s_jnl_xbox_us",
+      "url": "https://www.jnlgame.com/products/a-way-out-xb1-xbox-one",
+      "title": "J&L Game — A Way Out Xbox One US",
+      "accessedAt": "2026-09-20",
+      "supports": "US Xbox One physical UPC 014633739152."
+    },
+    {
+      "sourceId": "s_dbox_xbox",
+      "url": "https://dbox.tools/releases/?system=XBOXONE",
+      "title": "DBox Xbox One releases",
+      "accessedAt": "2026-09-20",
+      "supports": "Independent preservation listing for A Way Out Xbox One US UPC 014633739152."
+    },
+    {
+      "sourceId": "s_xbox_ca",
+      "url": "https://www.xbox.com/en-ca/games/store/a-way-out/bwvbncmf22zk",
+      "title": "Xbox Canada — A Way Out",
+      "accessedAt": "2026-09-20",
+      "supports": "Official Xbox One release date and Canadian digital availability."
+    },
+    {
+      "sourceId": "s_fnac_fr_xbox",
+      "url": "https://www.fnac.com/a11299290/A-Way-Out-Xbox-One-Jeu-video-Xbox-One",
+      "title": "Fnac France — A Way Out Xbox One",
+      "accessedAt": "2026-09-20",
+      "supports": "French Xbox One retail EAN 5030946122769."
+    },
+    {
+      "sourceId": "s_leclerc_fr_xbox",
+      "url": "https://www.e.leclerc/fp/a-way-out-xboxone-5030946122769",
+      "title": "E.Leclerc France — A Way Out Xbox One",
+      "accessedAt": "2026-09-20",
+      "supports": "French Xbox One retail EAN 5030946122769 and release date."
+    },
+    {
+      "sourceId": "s_allegro_pl_xbox",
+      "url": "https://allegro.pl/oferta/a-way-out-po-polsku-fabula-dla-2-graczy-polska-okladka-gra-na-plycie-18868004598",
+      "title": "Allegro Poland — A Way Out Xbox One",
+      "accessedAt": "2026-09-20",
+      "supports": "Polish physical Xbox One version with Polish cover, EAN 5030940122765."
+    },
+    {
+      "sourceId": "s_gamesmen_xbox_au",
+      "url": "https://www.gamesmen.com.au/xb1-a-way-out",
+      "title": "The Gamesmen Australia — A Way Out Xbox One",
+      "accessedAt": "2026-09-20",
+      "supports": "Australian Xbox One EAN 5030935122763, PAL physical release and MA15+ classification."
+    },
+    {
+      "sourceId": "s_meristation_es_xbox",
+      "url": "https://as.com/meristation/2018/01/16/noticias/1516122840_172321.html",
+      "title": "Meristation — EA España estudiaba el lanzamiento físico de Xbox One",
+      "accessedAt": "2026-09-20",
+      "supports": "Pre-launch statement that Spanish physical distribution was confirmed for PS4 but not yet confirmed for Xbox One; other European countries had Xbox One physical listings."
+    },
+    {
+      "sourceId": "s_xbox_es",
+      "url": "https://www.xbox.com/es-ES/games/store/a-way-out/BWVBNCMF22ZK/0001/B488JGX7RSKC",
+      "title": "Xbox Spain — A Way Out",
+      "accessedAt": "2026-09-20",
+      "supports": "Official digital Xbox One release in Spain and backward-compatible play on Xbox Series X|S; no separate native Xbox Series release is indicated."
+    }
+  ],
+  "unresolved": [
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "field": "productCode",
+      "reason": "CUSA-07919 appears in the current RegionAtlas Spain page and as an A Way Out title ID in SerialStation, but SerialStation's physical-disc list only shows CUSA-07995 and CUSA-08004. No source found ties CUSA-07919 to the Spanish physical release; Spanish physical evidence instead points to CUSA-08004.",
+      "candidateValues": [
+        "CUSA-07919",
+        "CUSA-08004"
+      ],
+      "sourceRefs": [
+        "s_regionatlas_current",
+        "s_gamefaqs_ps4",
+        "s_serial_08004",
+        "s_serial_07995"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "field": "Japan physical release",
+      "reason": "GameFAQs lists Japan as TBA without barcode or product code; no confirmed Japanese physical PS4 SKU was located.",
+      "candidateValues": [],
+      "sourceRefs": [
+        "s_gamefaqs_ps4"
+      ]
+    },
+    {
+      "platform": "ps4",
+      "releaseTitle": "A Way Out",
+      "field": "special/promotional physical editions",
+      "reason": "No confirmed Collector's, Limited, Steelbook, Promo, Press, Review or Not For Resale physical PS4 edition was located in the sources searched. This is negative search evidence, not proof of nonexistence.",
+      "candidateValues": [],
+      "sourceRefs": []
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "field": "Spain-specific physical SKU",
+      "reason": "EA Spain stated before launch that only PS4 physical distribution was confirmed in Spain while Xbox One physical distribution was still being studied. A later Spain-specific Xbox One barcode/packaging SKU was not confirmed in this research; generic/french-polish European physical SKUs do exist.",
+      "candidateValues": [],
+      "sourceRefs": [
+        "s_meristation_es_xbox",
+        "s_gamefaqs_xbox",
+        "s_xbox_es"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "field": "Japan physical release",
+      "reason": "GameFAQs lists Japan as TBA without barcode or product code; no confirmed Japanese physical Xbox One SKU was located.",
+      "candidateValues": [],
+      "sourceRefs": [
+        "s_gamefaqs_xbox"
+      ]
+    },
+    {
+      "platform": "xboxone",
+      "releaseTitle": "A Way Out",
+      "field": "Xbox Series native release",
+      "reason": "The Xbox store lists the Xbox One title as playable on Xbox Series X|S, but no separate native Xbox Series physical or digital release was identified. Do not treat backward compatibility as a distinct Xbox Series release.",
+      "candidateValues": [],
+      "sourceRefs": [
+        "s_xbox_es"
+      ]
+    }
+  ],
+  "coveredQueueEntries": [
+    {
+      "queueId": "catalog-group:ps4-a-way-out",
+      "platform": "ps4",
+      "catalogIds": [
+        "ps4-a-way-out",
+        "ps4-usa-a-way-out"
+      ],
+      "coverage": "complete",
+      "reason": "The PS4 trigger entry was researched across the physical regional variants located in authoritative/retail/preservation sources, including Spain, UK, French/Dutch EU, Germany, Poland, Switzerland, Nordic, Australia, US, Canada, Brazil and Asia; remaining Japan/special-edition questions are explicitly recorded as unresolved rather than silently inferred.",
+      "sourceRefs": [
+        "s_gamefaqs_ps4",
+        "s_fnac_es",
+        "s_rfgen_uk",
+        "s_rebuy_de",
+        "s_wog_ch",
+        "s_gamesmen_ps4_au",
+        "s_jnl_ps4_us",
+        "s_xande_br"
+      ]
+    }
+  ],
+  "researchDate": "2026-09-20"
+}
