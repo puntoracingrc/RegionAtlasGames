@@ -1,11 +1,25 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { expandRegionalVariantBatch } from "./admin-regional-variant-batch";
+import {
+  applyExpandedRegionalIdentity,
+  expandRegionalVariantBatch,
+} from "./admin-regional-variant-batch";
 import {
   buildRuntimeCatalogEditionGuide,
   extendCatalogEditionGuideWithRuntimeGames,
 } from "./catalog-derived-edition-guides";
 import type { CatalogGame } from "./types";
+
+test("an existing catalog draft adopts both the exact market and its legacy region", () => {
+  const updated = applyExpandedRegionalIdentity(
+    { region: "PAL España", marketRegion: "ES" as const, title: "Pack" },
+    { region: "PAL UK", marketRegion: "GB" },
+  );
+
+  assert.equal(updated.region, "PAL UK");
+  assert.equal(updated.marketRegion, "GB");
+  assert.equal(updated.title, "Pack");
+});
 
 const MORTAL_SHELL_GROUPS = [
   { markets: ["GB"], barcode: "5056635624550" },
