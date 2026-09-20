@@ -112,7 +112,7 @@ export function GamePriceHero({
           {conditionPrices.map((entry) => (
             <div
               key={entry.bucket}
-              className="rounded-2xl border border-border/70 bg-background/45 p-4 transition"
+              className="flex flex-col rounded-2xl border border-border/70 bg-background/45 p-4 transition"
             >
               <div className="min-w-0">
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
@@ -122,7 +122,7 @@ export function GamePriceHero({
                   {CONDITION_PRICE_DESCRIPTIONS[entry.bucket]}
                 </p>
               </div>
-              <p className="mt-5 flex items-center gap-2 break-words text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+              <p className="mt-auto flex items-center gap-2 break-words pt-5 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
                 <span>{formatEur(entry.price)}</span>
                 <CatalogPriceTrendIndicator trend={trendForBucket(entry.bucket)} />
               </p>
