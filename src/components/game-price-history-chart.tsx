@@ -130,7 +130,7 @@ export function GamePriceHistoryChart({ catalogId, history, editionLabel, allowe
     <>
       <PanelTitle>Evolución del precio{editionLabel ? ` · ${editionLabel}` : ""}</PanelTitle>
       <p className="mb-4 text-sm text-muted">
-        Precios orientativos publicados por estado, en EUR y sin transporte. Solo de esta región y edición.
+        Precios orientativos publicados por estado, en EUR. Solo de esta región y edición.
       </p>
     </>
   );

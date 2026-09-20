@@ -1,5 +1,8 @@
 import type { CatalogGame } from "@/lib/types";
+import { CatalogPriceTrendIndicator } from "@/components/catalog-price-trend-indicator";
 import { formatEur } from "@/lib/price-format";
+import { getPublishedPriceHistory } from "@/lib/price-history";
+import { catalogPriceTrends } from "@/lib/price-history-model";
 import { getRegionDisplay } from "@/lib/region-display";
 import {
   CONDITION_PRICE_DESCRIPTIONS,
@@ -8,7 +11,6 @@ import {
   hasAnyConditionEstimate,
 } from "@/lib/condition-prices";
 import { catalogPriceDisplayLabel, hasVerifiedEsPrice } from "@/lib/price-display";
-import { ebayRegionalSearchPolicy } from "@/lib/ebay/ebay-regional-policy";
 import {
   bestJapanRetailPrice,
   hasJapanRetailReference,
@@ -41,8 +43,12 @@ export function GamePriceHero({
     : allowedBuckets
       ? conditionPrices.length > 0
       : hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
-  const regionalPolicy = ebayRegionalSearchPolicy(game.region);
-  const hasDeliveryEstimate = conditionPrices.some((entry) => entry.totalToSpain != null);
+  const priceTrends = catalogPriceTrends(getPublishedPriceHistory(game));
+  const trendForBucket = (bucket: ConditionBucket) => {
+    if (bucket === "loose" || bucket === "gameManual") return priceTrends.loose;
+    if (bucket === "complete" || bucket === "sealed") return priceTrends[bucket];
+    return undefined;
+  };
 
   const updatedLabel = game.updatedAt
     ? new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(game.updatedAt))
@@ -102,9 +108,6 @@ export function GamePriceHero({
           <p className="mt-1 text-xs text-muted">
             Importe convertido a EUR · precios por estado
           </p>
-          <p className="mt-1 text-xs text-muted">
-            Artículo en {regionalPolicy.originLabel} · entrega calculada para España
-          </p>
         </div>
         <Badge tone={status === "verified" ? "amber" : "rose"}>
           {status === "verified" ? "Precio verificado" : "Precio orientativo"}
@@ -126,23 +129,10 @@ export function GamePriceHero({
                   {CONDITION_PRICE_DESCRIPTIONS[entry.bucket]}
                 </p>
               </div>
-              <p className="mt-5 break-words text-2xl font-black tracking-tight text-foreground sm:text-3xl">
-                {formatEur(entry.price)}
+              <p className="mt-5 flex items-center gap-2 break-words text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+                <span>{formatEur(entry.price)}</span>
+                <CatalogPriceTrendIndicator trend={trendForBucket(entry.bucket)} />
               </p>
-              {entry.totalToSpain != null && (
-                <div className="mt-4 border-t border-border/70 pt-3 text-xs text-muted">
-                  <div className="flex items-center justify-between gap-3">
-                    <span>Transporte estimado</span>
-                    <span className="font-semibold text-foreground">
-                      {entry.shippingToSpain != null ? `+ ${formatEur(entry.shippingToSpain)}` : "Incluido"}
-                    </span>
-                  </div>
-                  <div className="mt-1 flex items-center justify-between gap-3">
-                    <span>Artículo + transporte</span>
-                    <span className="font-bold text-foreground">{formatEur(entry.totalToSpain)}</span>
-                  </div>
-                </div>
-              )}
             </div>
           ))}
         </div>
@@ -151,14 +141,6 @@ export function GamePriceHero({
       {conditionPrices.length === 0 && game.recommendedPrice != null && (
         <p className="mt-5 text-3xl font-bold text-accent sm:text-4xl">
           {formatEur(game.recommendedPrice)}
-        </p>
-      )}
-
-      {hasDeliveryEstimate && regionalPolicy.importCostsMayApply && (
-        <p className="mt-3 rounded-lg border border-amber-400/35 bg-amber-500/10 p-3 text-xs leading-5 text-amber-900 dark:text-amber-100">
-          El total mostrado suma artículo y transporte estimado. IVA de importación, gestión o
-          aduanas pueden añadirse si eBay no los anticipa en el anuncio; el checkout es el importe
-          definitivo.
         </p>
       )}
 

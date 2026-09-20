@@ -5,6 +5,7 @@ import {
   type PhysicalEditionGalleryImage,
 } from "@/components/physical-edition-image-gallery";
 import { CollectionToggle } from "@/components/collection-toggle";
+import { CatalogPriceTrendIndicator } from "@/components/catalog-price-trend-indicator";
 import { RegionFlag } from "@/components/region-flag";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { getCatalogGame } from "@/lib/catalog";
@@ -27,6 +28,8 @@ import { getOwnedScanSetById } from "@/lib/catalog-owned-scans";
 import { getCoverSrc } from "@/lib/cover-url";
 import { formatEur } from "@/lib/price-format";
 import { catalogConditionPriceRows } from "@/lib/price-display";
+import { getPublishedPriceHistory } from "@/lib/price-history";
+import { catalogPriceTrends } from "@/lib/price-history-model";
 import {
   catalogPhysicalEditionBroadRegionAnchorId,
   catalogPhysicalEditionOverviewRegions,
@@ -356,9 +359,12 @@ function PhysicalEditionRow({
 }) {
   const galleryImages = physicalEditionGalleryImages(edition);
   const linkedCatalogGame = editionPriceGame(edition.catalogIds, priceGames);
+  const priceTrends = linkedCatalogGame
+    ? catalogPriceTrends(getPublishedPriceHistory(linkedCatalogGame))
+    : {};
   const priceRows = linkedCatalogGame
     && edition.releaseStatus === "RELEASED"
-    ? catalogConditionPriceRows(linkedCatalogGame).filter((row) => row.condition !== "loose")
+    ? catalogConditionPriceRows({ ...linkedCatalogGame, priceTrends }).filter((row) => row.condition !== "loose")
     : [
         { condition: "sealed" as const, label: "Precintado" as const, price: null },
         { condition: "complete" as const, label: "Completo" as const, price: null },
@@ -449,8 +455,9 @@ function PhysicalEditionRow({
                   className="flex items-baseline justify-between gap-2 py-2 first:pt-0 last:pb-0"
                 >
                   <dt className="font-semibold text-foreground">{row.label}</dt>
-                  <dd className="shrink-0 font-semibold text-muted">
-                    {row.price == null ? "Pendiente" : formatEur(row.price)}
+                  <dd className="flex shrink-0 items-center gap-1.5 font-semibold text-muted">
+                    <span>{row.price == null ? "Pendiente" : formatEur(row.price)}</span>
+                    {row.price != null ? <CatalogPriceTrendIndicator trend={row.trend} /> : null}
                   </dd>
                 </div>
               ))}
