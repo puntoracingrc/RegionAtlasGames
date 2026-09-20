@@ -35,9 +35,7 @@ import { addAffiliateOfferWhitelistGame } from "./affiliate-offers";
 import { isInvalidGenreEntity } from "./genre-normalize";
 import { gameReleaseGenreSlug } from "./game-release-discovery";
 import {
-  buildCoverCatalogPath,
   downloadAndUploadCoverToCdn,
-  isCoverPathUrl,
   isRemoteCoverUrl,
 } from "./covers-upload";
 
@@ -111,10 +109,7 @@ async function registerDraftCompanies(draft: AdminGameDraft): Promise<void> {
 
 async function localizeRemoteDraftCover(draft: AdminGameDraft): Promise<AdminGameDraft | { error: string }> {
   const targetCatalogId = recomputeCatalogId(draft);
-  const targetCoverUrl = buildCoverCatalogPath(draft.platformSlug, targetCatalogId);
-  const shouldLocalize =
-    isRemoteCoverUrl(draft.coverUrl) ||
-    (isCoverPathUrl(draft.coverUrl) && draft.coverUrl !== targetCoverUrl);
+  const shouldLocalize = shouldLocalizeDraftCover(draft.coverUrl);
 
   if (!shouldLocalize) {
     return draft;
@@ -135,6 +130,12 @@ async function localizeRemoteDraftCover(draft: AdminGameDraft): Promise<AdminGam
     ...draft,
     coverUrl: uploaded.coverUrl,
   };
+}
+
+export function shouldLocalizeDraftCover(coverUrl: string | null | undefined): boolean {
+  // Internal cover paths are already served by the CDN and may be shared by
+  // several regional identities. Only external URLs need to be ingested.
+  return isRemoteCoverUrl(coverUrl);
 }
 
 function applyLocalizedDraftCover(target: AdminGameDraft, localized: AdminGameDraft): void {
