@@ -331,6 +331,7 @@ export function catalogPhysicalFilterOptions(platformSlug?: string): CatalogPhys
 
   const broadRegions = new Set<CatalogPhysicalEdition["broadRegion"]>();
   const editionTypes = new Set<CatalogPhysicalEdition["editionType"]>();
+  const editionFamilies = new Map<string, string>();
   const ratingSystems = new Set<string>();
   const documentedGuides = getCatalogEditionGuides();
   const documentedCatalogIds = new Set(documentedGuides.flatMap((guide) =>
@@ -340,6 +341,13 @@ export function catalogPhysicalFilterOptions(platformSlug?: string): CatalogPhys
     ]));
   for (const guide of documentedGuides) {
     if (platformSlug && guide.game.platformSlug !== platformSlug) continue;
+    for (const family of guide.editionFamilies) {
+      const hasReleasedEdition = family.physicalEditionIds.some((editionId) => {
+        const edition = guide.physicalEditions.find((candidate) => candidate.id === editionId);
+        return edition ? isReleasedPhysicalEdition(edition) : false;
+      });
+      if (hasReleasedEdition) editionFamilies.set(family.label.toLocaleLowerCase("es"), family.label);
+    }
     for (const edition of guide.physicalEditions) {
       if (!isReleasedPhysicalEdition(edition)) continue;
       broadRegions.add(edition.broadRegion);
@@ -351,11 +359,20 @@ export function catalogPhysicalFilterOptions(platformSlug?: string): CatalogPhys
     if (documentedCatalogIds.has(game.id) || (platformSlug && game.platformSlug !== platformSlug)) continue;
     broadRegions.add(catalogDerivedBroadRegion(game));
     editionTypes.add(catalogDerivedEditionType(game));
+    const rawFamilyLabel = game.physicalVariant?.trim() || game.edition?.trim() || "Estándar";
+    const familyLabel = rawFamilyLabel
+      .replace(/[-_]+/g, " ")
+      .replace(/\b\p{L}/gu, (character) => character.toLocaleUpperCase("es"));
+    const familyKey = familyLabel.toLocaleLowerCase("es");
+    if (!editionFamilies.has(familyKey)) editionFamilies.set(familyKey, familyLabel);
   }
 
   const options = {
     broadRegions: [...broadRegions].map((value) => ({ value, label: catalogBroadRegionLabel(value) })),
     editionTypes: [...editionTypes].map((value) => ({ value, label: catalogPhysicalEditionTypeLabel(value) })),
+    editionFamilies: [...editionFamilies.values()]
+      .sort((left, right) => left.localeCompare(right, "es"))
+      .map((label) => ({ value: label, label })),
     ratingSystems: [...ratingSystems].sort(),
   };
   catalogPhysicalFilterOptionsCache.set(cacheKey, options);

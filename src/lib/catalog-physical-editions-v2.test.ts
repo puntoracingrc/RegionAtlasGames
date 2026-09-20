@@ -162,6 +162,11 @@ test("optimized physical filters match the complete guide model", () => {
       actual.editionTypes.map((entry) => entry.value).sort(),
       [...new Set(guides.flatMap((guide) => guide.physicalEditions.filter(isReleasedPhysicalEdition).map((edition) => edition.editionType)))].sort(),
     );
+    assert.ok(actual.editionFamilies.length > 0);
+    assert.equal(
+      new Set(actual.editionFamilies.map((entry) => entry.value.toLocaleLowerCase("es"))).size,
+      actual.editionFamilies.length,
+    );
     assert.deepEqual(
       actual.ratingSystems,
       [...new Set(guides.flatMap((guide) => guide.physicalEditions.filter(isReleasedPhysicalEdition).flatMap((edition) => edition.ratingSystems)))].sort(),
@@ -520,6 +525,8 @@ test("Absolum exposes separate Standard and Special roots and filters each famil
   assert.deepEqual(usk.items.map((game) => game.id), ["ps5-absolum"]);
   const specialOnly = filterCatalogGames(grouped, { ...defaultFilters, physicalEditionType: "SPECIAL" }, { platforms: true, regions: true });
   assert.deepEqual(specialOnly.items.map((game) => game.id), ["ps5-absolum-special-edition"]);
+  const specialFamilyOnly = filterCatalogGames(grouped, { ...defaultFilters, physicalEditionFamily: "Special Edition" }, { platforms: true, regions: true });
+  assert.deepEqual(specialFamilyOnly.items.map((game) => game.id), ["ps5-absolum-special-edition"]);
   const standardOnly = filterCatalogGames(grouped, { ...defaultFilters, physicalEditionType: "STANDARD" }, { platforms: true, regions: true });
   assert.deepEqual(standardOnly.items.map((game) => game.id), ["ps5-absolum"]);
   const europe = filterCatalogGames(grouped, { ...defaultFilters, broadRegion: "EUROPE" }, { platforms: true, regions: true });

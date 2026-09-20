@@ -374,6 +374,7 @@ export function augmentCatalogBrowseFilterOptions(
   const companies = new Map(base.companies.map((option) => [option.value, option]));
   const broadRegions = new Map(base.physicalEditions.broadRegions.map((option) => [option.value, option]));
   const editionTypes = new Map(base.physicalEditions.editionTypes.map((option) => [option.value, option]));
+  const editionFamilies = new Map(base.physicalEditions.editionFamilies.map((option) => [option.value, option]));
   const ratingSystems = new Set(base.physicalEditions.ratingSystems);
 
   for (const game of games) {
@@ -412,6 +413,10 @@ export function augmentCatalogBrowseFilterOptions(
         });
       }
     }
+    const editionFamilyLabel = game.physicalEditionGroup?.editionFamilyLabel;
+    if (editionFamilyLabel && !editionFamilies.has(editionFamilyLabel)) {
+      editionFamilies.set(editionFamilyLabel, { value: editionFamilyLabel, label: editionFamilyLabel });
+    }
     for (const ratingSystem of game.physicalEditionGroup?.ratingSystems ?? []) {
       ratingSystems.add(ratingSystem);
     }
@@ -433,6 +438,9 @@ export function augmentCatalogBrowseFilterOptions(
     physicalEditions: {
       broadRegions: [...broadRegions.values()],
       editionTypes: [...editionTypes.values()],
+      editionFamilies: [...editionFamilies.values()].sort((left, right) =>
+        left.label.localeCompare(right.label, "es", { sensitivity: "base" }),
+      ),
       ratingSystems: [...ratingSystems].sort((left, right) => left.localeCompare(right, "es")),
     },
   };
