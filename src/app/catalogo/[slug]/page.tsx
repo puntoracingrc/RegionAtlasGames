@@ -6,7 +6,6 @@ import { CollectionToggle } from "@/components/collection-toggle";
 import { ShareGameButton } from "@/components/share-game-button";
 import { CatalogMarketplacePanel } from "@/components/catalog-marketplace-panel";
 import { CatalogCommercialRelationsPanel } from "@/components/catalog-commercial-relations-panel";
-import { GameFaq } from "@/components/game-faq";
 import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
 import {
@@ -55,8 +54,6 @@ import { collectionCatalogPath } from "@/lib/collection-path";
 import {
   buildBreadcrumbJsonLd,
   buildCatalogSeoSlug,
-  buildFaqJsonLd,
-  buildGameFaq,
   buildGameJsonLd,
   buildGameMetadata,
   catalogGamePath,
@@ -303,7 +300,6 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
   const regionLabel = getRegionDisplay(game.region).label;
   const pendingPs1 = game.platformSlug === "ps1" && game.regionalStatus === "review";
   const similar = getSimilarGames(game);
-  const faqs = buildGameFaq(game, platform, details, { physicalEditionIdentity });
   const priceHistory = getPublishedPriceHistory(game);
   const publicSeries = (await listPublicSeriesForGame(game.id)).filter(
     (series) => !getLegacySeriesRedirect(series.slug),
@@ -358,7 +354,6 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
         : []),
       { name: decodeHtmlEntities(game.title), href: catalogGamePath(game) },
     ]),
-    buildFaqJsonLd(faqs),
   ];
 
   const seoDescription =
@@ -903,8 +898,6 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
                 </dl>
               </Panel>
             )}
-
-            <GameFaq faqs={faqs} />
 
             <SimilarGames games={similar} />
           </div>
