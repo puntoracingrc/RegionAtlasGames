@@ -36,6 +36,7 @@ export type AdminRegionalVariantGroupInput = {
   images?: CatalogPhysicalReleaseGroup["images"];
   notes?: string[];
   marketPrices?: Record<string, AdminInitialPriceFields | undefined>;
+  existingCatalogIds?: Record<string, string | undefined>;
 };
 
 export type AdminRegionalVariantBatchInput = {
@@ -53,6 +54,7 @@ export type ExpandedRegionalVariantRow = {
   slug: string;
   group: CatalogPhysicalReleaseGroup;
   initialPrices: AdminInitialPriceFields | null;
+  existingCatalogId: string | null;
 };
 
 export const ADMIN_MARKET_GROUPS = [
@@ -147,6 +149,7 @@ export function expandRegionalVariantBatch(
   const rows: ExpandedRegionalVariantRow[] = [];
   const usedSlugs = new Set<string>();
   const usedMarkets = new Set<string>();
+  const usedExistingCatalogIds = new Set<string>();
 
   for (const [index, rawGroup] of input.groups.entries()) {
     const markets = [...new Set(rawGroup.markets ?? [])].map(marketData);
@@ -201,6 +204,11 @@ export function expandRegionalVariantBatch(
     };
 
     for (const market of resolvedMarkets) {
+      const existingCatalogId = rawGroup.existingCatalogIds?.[market.value]?.trim() || null;
+      if (existingCatalogId && usedExistingCatalogIds.has(existingCatalogId)) {
+        return { error: `La ficha existente ${existingCatalogId} está asignada más de una vez.` };
+      }
+      if (existingCatalogId) usedExistingCatalogIds.add(existingCatalogId);
       const marketSlug = slugify(market.shortLabel);
       let slug = `${baseSlug}-${marketSlug}`;
       if (usedSlugs.has(slug)) slug = `${slug}-${slugify(groupLabel) || index + 1}`;
@@ -212,6 +220,7 @@ export function expandRegionalVariantBatch(
         slug,
         group,
         initialPrices: rawGroup.marketPrices?.[market.value] ?? null,
+        existingCatalogId,
       });
     }
   }
