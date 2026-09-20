@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
-import { guessPcPath } from "./pc-path-guess";
+import { catalogIdFromStaging, guessPcPath } from "./pc-path-guess";
 
 test("PS Vita PAL uses the live PriceCharting console path", () => {
   assert.deepEqual(
@@ -31,6 +31,17 @@ test("NES Japan uses the live Famicom PriceCharting console path", () => {
       pcRegion: "Japón (referencia)",
       slug: "summer-carnival-92-recca",
     },
+  );
+});
+
+test("normalized regional labels keep USA and Japan catalog ids distinct", () => {
+  assert.equal(
+    catalogIdFromStaging({ platformSlug: "ps3", slug: "3d-dot-game-heroes", region: "NTSC USA" }),
+    "ps3-usa-3d-dot-game-heroes",
+  );
+  assert.equal(
+    catalogIdFromStaging({ platformSlug: "ps3", slug: "3d-dot-game-heroes", region: "NTSC-J Japón" }),
+    "ps3-japon-3d-dot-game-heroes",
   );
 });
 
