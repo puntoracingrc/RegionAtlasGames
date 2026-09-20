@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import { Minus, ShoppingCart, TrendingDown, TrendingUp } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { CoverArt } from "@/components/cover-art";
+import { CatalogPriceTrendIndicator } from "@/components/catalog-price-trend-indicator";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogListGame, CollectionView } from "@/lib/types";
 import { catalogGamePathWithEbayRegion } from "@/lib/catalog-ebay-region";
@@ -63,20 +64,6 @@ const CLIENT_PLATFORM_LABELS: Record<string, string> = {
   xboxone: "Xbox One",
   xboxseriesx: "Xbox Series X|S",
 };
-
-export function CatalogPriceTrendIndicator({ trend }: { trend: CatalogConditionPriceRow["trend"] }) {
-  if (!trend) return null;
-  const config = trend === "up"
-    ? { Icon: TrendingUp, label: "Subida de al menos 5 €", className: "text-emerald-500" }
-    : trend === "down"
-      ? { Icon: TrendingDown, label: "Bajada de al menos 5 €", className: "text-red-500" }
-      : { Icon: Minus, label: "Precio estable", className: "text-muted" };
-  return (
-    <span className={cn("inline-flex shrink-0", config.className)} title={config.label} aria-label={config.label}>
-      <config.Icon className="h-3 w-3" aria-hidden />
-    </span>
-  );
-}
 
 function platformLabel(slug: string): string {
   return CLIENT_PLATFORM_LABELS[slug] ?? slug.toUpperCase();

@@ -9,7 +9,7 @@ test("chart identifies exact edition and states, uses published prices and expos
     { at: "2026-08-27", complete: 75 }, { at: "2026-08-31", complete: 65 }, { at: "2026-09-19", complete: 70 },
   ]} />);
   assert.match(html, /PAL España · Estándar/);
-  assert.match(html, /sin transporte/);
+  assert.doesNotMatch(html, /transporte/);
   assert.match(html, /Completo: 70/);
   assert.match(html, /Precintado: sin historial/);
   assert.equal((html.match(/<circle /g) ?? []).length, 3);

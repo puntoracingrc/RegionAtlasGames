@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { LayoutGrid, LoaderCircle, Rows3, ShoppingCart } from "lucide-react";
-import { CatalogCardRegionFlags, CatalogGameCard, CatalogPriceTrendIndicator, catalogCardRegionLabels } from "@/components/game-card";
+import { CatalogPriceTrendIndicator } from "@/components/catalog-price-trend-indicator";
+import { CatalogCardRegionFlags, CatalogGameCard, catalogCardRegionLabels } from "@/components/game-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
 import { CollectionQuickAdd } from "@/components/collection-quick-add";
 import { HighlightLegend } from "@/components/highlight-legend";
