@@ -85,8 +85,13 @@ const JP_PC_CONSOLE: Record<string, string> = {
 
 function regionBucket(region: string): "pal" | "usa" | "japan" | "multi" {
   const r = region.trim().toLowerCase();
-  if (r === "usa" || r === "ntsc") return "usa";
-  if (r === "japón" || r === "japan" || r === "japon") return "japan";
+  if (r === "usa" || r === "ntsc" || r.includes("usa")) return "usa";
+  if (
+    r === "japón"
+    || r === "japan"
+    || r === "japon"
+    || r.includes("ntsc-j")
+  ) return "japan";
   if (r.includes("multi")) return "multi";
   return "pal";
 }
