@@ -57,6 +57,22 @@ export type ExpandedRegionalVariantRow = {
   existingCatalogId: string | null;
 };
 
+export function applyExpandedRegionalIdentity<
+  T extends { region: string; marketRegion?: string | null },
+>(
+  draft: T,
+  row: Pick<ExpandedRegionalVariantRow, "region" | "marketRegion">,
+): Omit<T, "region" | "marketRegion"> & {
+  region: string;
+  marketRegion: CatalogMarketRegion | null;
+} {
+  return {
+    ...draft,
+    region: row.region,
+    marketRegion: row.marketRegion,
+  };
+}
+
 export const ADMIN_MARKET_GROUPS = [
   { id: "europe", label: "Europa" },
   { id: "america", label: "América" },

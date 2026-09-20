@@ -13,6 +13,7 @@ import {
   updatePublishedCatalogGame,
 } from "@/lib/admin-catalog-publish";
 import {
+  applyExpandedRegionalIdentity,
   expandRegionalVariantBatch,
   type AdminRegionalVariantBatchInput,
 } from "@/lib/admin-regional-variant-batch";
@@ -110,12 +111,11 @@ export async function POST(request: Request) {
       existingDrafts.push({
         originalCatalogId: row.existingCatalogId,
         draft: {
-          ...current,
+          ...applyExpandedRegionalIdentity(current, row),
           title: body.title.trim(),
           titlePc: body.title.trim(),
           workId,
           regionalStatus: "resolved",
-          marketRegion: row.marketRegion,
           physicalReleaseGroup: row.group,
           initialPrices: enteredPrices,
           physicalVariant: body.physicalVariant?.trim() || null,
