@@ -750,6 +750,7 @@ export type UpdatePublishedResult =
 export async function updatePublishedCatalogGame(
   originalCatalogId: string,
   draft: AdminGameDraft,
+  options: { triggerDeploy?: boolean } = {},
 ): Promise<UpdatePublishedResult> {
   const original = originalCatalogId.trim();
   if (!original) return { error: "Falta el id de catálogo." };
@@ -815,7 +816,9 @@ export async function updatePublishedCatalogGame(
   }
 
   await registerDraftCompanies(draft);
-  const deployHook = await triggerCatalogDeployHook();
+  const deployHook = options.triggerDeploy === false
+    ? { triggered: false, detail: "Actualización agrupada: despliegue aplazado hasta completar el lote." }
+    : await triggerCatalogDeployHook();
 
   return {
     ok: true,

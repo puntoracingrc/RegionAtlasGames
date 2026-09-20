@@ -68,6 +68,31 @@ test("a physical box can group markets but cannot cross broad regions", () => {
   assert.match(invalidPrice.error, /precio no válido/);
 });
 
+test("a regional batch can explicitly reuse existing catalog entries", () => {
+  const result = expandRegionalVariantBatch({
+    title: "007 Blood Stone",
+    platformSlug: "ps3",
+    groups: [
+      { markets: ["ES"], existingCatalogIds: { ES: "ps3-007-blood-stone" } },
+      { markets: ["US"], existingCatalogIds: { US: "ps3-usa-007-blood-stone" } },
+    ],
+  });
+  assert.ok(!("error" in result));
+  assert.equal(result.rows.find((row) => row.market === "ES")?.existingCatalogId, "ps3-007-blood-stone");
+  assert.equal(result.rows.find((row) => row.market === "US")?.existingCatalogId, "ps3-usa-007-blood-stone");
+
+  const duplicate = expandRegionalVariantBatch({
+    title: "Duplicate",
+    platformSlug: "ps3",
+    groups: [
+      { markets: ["ES"], existingCatalogIds: { ES: "ps3-existing" } },
+      { markets: ["FR"], existingCatalogIds: { FR: "ps3-existing" } },
+    ],
+  });
+  assert.ok("error" in duplicate);
+  assert.match(duplicate.error, /asignada más de una vez/);
+});
+
 test("V2 keeps regional links but counts one physical edition per shared box", () => {
   const result = expandRegionalVariantBatch({
     title: "Mortal Shell II",

@@ -6,8 +6,11 @@ import {
   writeAdminGameDraft,
 } from "@/lib/admin-draft-storage";
 import {
+  draftFromCatalogGame,
   ensureManualStagingEntry,
+  getPublishedGameForAdmin,
   publishAdminGameDraft,
+  updatePublishedCatalogGame,
 } from "@/lib/admin-catalog-publish";
 import {
   expandRegionalVariantBatch,
@@ -76,9 +79,66 @@ export async function POST(request: Request) {
   }
 
   const drafts = [];
+  const existingDrafts: Array<{ originalCatalogId: string; draft: ReturnType<typeof draftFromCatalogGame> }> = [];
   const catalogIds = new Set<string>();
   const workId = slugify(body.baseSlug?.trim() || body.title);
   for (const row of expanded.rows) {
+    if (row.existingCatalogId) {
+      if (!body.publishNow) {
+        return NextResponse.json(
+          { error: "Las fichas existentes solo pueden incorporarse al publicar el lote." },
+          { status: 400 },
+        );
+      }
+      const resolved = await getPublishedGameForAdmin(row.existingCatalogId);
+      if (!resolved) {
+        return NextResponse.json(
+          { error: `No existe la ficha «${row.existingCatalogId}».` },
+          { status: 404 },
+        );
+      }
+      if (resolved.game.platformSlug !== body.platformSlug) {
+        return NextResponse.json(
+          { error: `La ficha «${row.existingCatalogId}» pertenece a otra plataforma.` },
+          { status: 400 },
+        );
+      }
+      const current = draftFromCatalogGame(resolved.game, resolved.details);
+      const enteredPrices = row.initialPrices && Object.values(row.initialPrices).some((value) => value != null)
+        ? row.initialPrices
+        : null;
+      existingDrafts.push({
+        originalCatalogId: row.existingCatalogId,
+        draft: {
+          ...current,
+          title: body.title.trim(),
+          titlePc: body.title.trim(),
+          workId,
+          regionalStatus: "resolved",
+          marketRegion: row.marketRegion,
+          physicalReleaseGroup: row.group,
+          initialPrices: enteredPrices,
+          physicalVariant: body.physicalVariant?.trim() || null,
+          reference: row.group.productCodes?.join(" / ") || current.reference,
+          coverUrl: row.group.coverUrl ?? body.coverUrl ?? current.coverUrl,
+          year: year ?? current.year,
+          releaseDate: body.releaseDate?.trim() || current.releaseDate,
+          pegi: pegi ?? current.pegi,
+          players: players ?? current.players,
+          support: body.support?.trim() || current.support,
+          developerName: body.developerName?.trim() || current.developerName,
+          developerSlug: body.developerSlug?.trim() || current.developerSlug,
+          publisherName: body.publisherName?.trim() || current.publisherName,
+          publisherSlug: body.publisherSlug?.trim() || current.publisherSlug,
+          genreNames: cleanList(body.genreNames).length ? cleanList(body.genreNames) : current.genreNames,
+          subgenreNames: cleanList(body.subgenreNames).length ? cleanList(body.subgenreNames) : current.subgenreNames,
+          facetNames: cleanList(body.facetNames).length ? cleanList(body.facetNames) : current.facetNames,
+          description: body.description?.trim() || current.description,
+          updatedAt: new Date().toISOString(),
+        },
+      });
+      continue;
+    }
     const pcId = await nextManualPcId();
     const draft = draftFromManualInput({
       title: body.title,
@@ -132,6 +192,21 @@ export async function POST(request: Request) {
   const published: string[] = [];
   let publicUrl: string | null = null;
   if (body.publishNow) {
+    for (const item of existingDrafts) {
+      const result = await updatePublishedCatalogGame(item.originalCatalogId, item.draft, { triggerDeploy: false });
+      if ("error" in result) {
+        return NextResponse.json(
+          {
+            error: `Se guardó el lote, pero la actualización se detuvo en ${item.originalCatalogId}: ${result.error}`,
+            created: drafts.map((entry) => entry.catalogId),
+            published,
+          },
+          { status: 409 },
+        );
+      }
+      published.push(result.catalogId);
+      publicUrl ??= result.url;
+    }
     for (const draft of drafts) {
       const result = await publishAdminGameDraft(draft, { triggerDeploy: false });
       if ("error" in result) {
@@ -161,6 +236,7 @@ export async function POST(request: Request) {
       marketRegion: draft.marketRegion,
       groupId: draft.physicalReleaseGroup?.id,
     })),
+    updated: existingDrafts.map((item) => item.originalCatalogId),
     published,
     workId,
     redirect: publicUrl ?? (drafts[0] ? `/admin/cola/${drafts[0].pcId}` : "/admin/cola"),

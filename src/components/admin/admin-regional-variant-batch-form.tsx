@@ -43,6 +43,7 @@ type VariantGroup = {
   imageEvidenceType: ImageEvidenceType;
   files: Partial<Record<ImageRole, File>>;
   marketPrices: Record<string, PriceFields>;
+  existingCatalogIds: Record<string, string>;
 };
 
 const MARKET_GROUP_LABELS: Record<string, string> = {
@@ -65,6 +66,7 @@ function emptyGroup(id: number): VariantGroup {
     physicalContentStatus: "PHYSICAL_FULL_GAME", physicalProductType: "NATIVE_GAME_DISC",
     physicalContents: "Caja, Juego", digitalContents: "", widthCm: "", heightCm: "",
     depthCm: "", notes: "", imageEvidenceType: "RETAILER_ASSET", files: {}, marketPrices: {},
+    existingCatalogIds: {},
   };
 }
 
@@ -146,8 +148,15 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
     const active = group.markets.includes(value);
     const markets = active ? group.markets.filter((market) => market !== value) : [...group.markets, value];
     const marketPrices = { ...group.marketPrices };
-    if (active) delete marketPrices[value]; else marketPrices[value] = { ...EMPTY_PRICES };
-    updateGroup(group.id, { markets, marketPrices });
+    const existingCatalogIds = { ...group.existingCatalogIds };
+    if (active) {
+      delete marketPrices[value];
+      delete existingCatalogIds[value];
+    } else {
+      marketPrices[value] = { ...EMPTY_PRICES };
+      existingCatalogIds[value] = "";
+    }
+    updateGroup(group.id, { markets, marketPrices, existingCatalogIds });
   }
   function updateMarketPrice(group: VariantGroup, market: string, key: keyof PriceFields, value: string) {
     updateGroup(group.id, { marketPrices: { ...group.marketPrices, [market]: { ...(group.marketPrices[market] ?? EMPTY_PRICES), [key]: value } } });
@@ -192,6 +201,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
           physicalProductType: group.physicalProductType, physicalContents: splitValues(group.physicalContents),
           digitalContents: splitValues(group.digitalContents), dimensions, images: imageEntries, notes: splitValues(group.notes),
           marketPrices: Object.fromEntries(group.markets.map((market) => [market, pricePayload(group.marketPrices[market] ?? EMPTY_PRICES)])),
+          existingCatalogIds: Object.fromEntries(group.markets.map((market) => [market, group.existingCatalogIds[market] ?? ""])),
         });
       }
       const response = await fetch("/api/admin/games/batch", {
@@ -270,9 +280,9 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
           const active = group.markets.includes(option.value); const usedElsewhere = !active && selectedMarkets.has(option.value);
           return <label key={option.value} className={`cursor-pointer rounded-md border px-3 py-2 text-sm ${active ? "border-accent bg-accent/10 text-foreground" : "border-border bg-background text-muted"} ${usedElsewhere ? "cursor-not-allowed opacity-40" : ""}`}><input type="checkbox" className="sr-only" checked={active} disabled={usedElsewhere} onChange={() => toggleMarket(group, option.value)} />{option.label}</label>;
         })}</div></fieldset>)}</div>
-        {group.markets.length > 0 ? <details className="mt-5 rounded-md border border-border bg-background/55 p-3" open><summary className="cursor-pointer text-sm font-semibold">Precios iniciales por región</summary><div className="mt-3 space-y-4">{group.markets.map((market) => {
+        {group.markets.length > 0 ? <details className="mt-5 rounded-md border border-border bg-background/55 p-3" open><summary className="cursor-pointer text-sm font-semibold">Ficha y precios por región</summary><div className="mt-3 space-y-4">{group.markets.map((market) => {
           const prices = group.marketPrices[market] ?? EMPTY_PRICES;
-          return <section key={market} className="rounded-md border border-border p-3"><h3 className="text-sm font-semibold">{marketByValue.get(market)?.label ?? market}</h3><div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{([
+          return <section key={market} className="rounded-md border border-border p-3"><h3 className="text-sm font-semibold">{marketByValue.get(market)?.label ?? market}</h3><div className="mt-3 max-w-xl"><TextField label="Ficha existente (opcional)" value={group.existingCatalogIds[market] ?? ""} onChange={(value) => updateGroup(group.id, { existingCatalogIds: { ...group.existingCatalogIds, [market]: value } })} placeholder="ps3-007-quantum-of-solace" /></div><div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{([
             ["estimatedPriceLoose", "Solo juego"], ["estimatedPriceGameManual", "Juego + manual"], ["estimatedPriceComplete", "Completo"], ["estimatedPriceSealed", "Precintado"], ["estimatedPriceNewRetail", "Nuevo en tienda"],
           ] as Array<[keyof PriceFields, string]>).map(([key, label]) => <label key={key} className="block space-y-1"><span className="text-[10px] uppercase tracking-wider text-muted">{label}</span><input type="number" min="0" step="0.01" className="input" value={prices[key]} onChange={(event) => updateMarketPrice(group, market, key, event.target.value)} placeholder="€" /></label>)}</div></section>;
         })}</div></details> : null}
