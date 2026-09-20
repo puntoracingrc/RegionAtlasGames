@@ -78,6 +78,7 @@ jobs:
 
       - name: Collector safety tests
         run: |
+          python3 scripts/test_catalog_source.py
           npm run test:collector-controls
           python3 scripts/test_ai_usage.py
           python3 scripts/test_ebay_review_inbox.py

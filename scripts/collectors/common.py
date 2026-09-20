@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from collectors.catalog_source import listed_platform_games, load_catalog
 from collectors.listing_images import attach_image_urls
 from collectors.reference_match import listing_reference_valid_for_catalog
 from collectors.region_inference import (
@@ -76,12 +77,8 @@ def platform_catalog_games(platform_slug: str, region: str | None = None) -> lis
     env_region = os.environ.get("PRICE_COLLECT_REGION", "").strip()
     if not region and env_region:
         region = env_region
-    catalog = load_json(CATALOG_FILE, [])
-    games = [
-        g
-        for g in catalog
-        if g.get("platformSlug") == platform_slug and g.get("listingStatus") != "excluded"
-    ]
+    catalog = load_catalog(CATALOG_FILE)
+    games = listed_platform_games(catalog, platform_slug)
     if region:
         games = [g for g in games if g.get("region") == region]
     selected_ids: set[str] = set()
