@@ -22,6 +22,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from collectors.catalog_source import load_catalog, require_platform_catalog
 from collectors.review_store import atomic_review_write, review_lock, validate_review_document
 
 from pc_worker_update import (
@@ -1113,11 +1114,7 @@ def _load_wallapop_state(settings: dict[str, Any]) -> dict[str, Any]:
 
 
 def _wallapop_catalog() -> list[dict[str, Any]]:
-    try:
-        value = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return []
-    return [item for item in value if isinstance(item, dict)] if isinstance(value, list) else []
+    return load_catalog(ROOT / "data" / "catalog.json")
 
 
 def _publish_wallapop_status(
@@ -1205,6 +1202,14 @@ def run_wallapop_pal_campaign(queue: SftpQueue, settings: dict[str, Any]) -> boo
     )
 
     catalog = _wallapop_catalog()
+    if settings.get("enabled"):
+        for platform_slug in settings.get("platforms") or ():
+            require_platform_catalog(
+                catalog,
+                str(platform_slug),
+                source=ROOT / "data" / "catalog.json",
+                region="PAL España",
+            )
     state = _load_wallapop_state(settings)
     active = state.get("activeBatch") if isinstance(state.get("activeBatch"), dict) else None
     if active:

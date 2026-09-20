@@ -121,6 +121,27 @@ def main() -> None:
             stored = json.loads(pc_sftp_worker.PC_RUNTIME_CONTROL.read_text(encoding="utf-8"))
             assert stored["wallapopPalCampaign"]["enabled"] is False
 
+            pc_sftp_worker.WALLAPOP_PAL_STATE.unlink()
+            ps5_queue = FakeQueue()
+            ps5_settings = effective_settings(
+                {
+                    "enabled": True,
+                    "platforms": ["ps5"],
+                    "batchSize": 20,
+                    "pauseMinutes": 10,
+                    "jitterMinutes": 0,
+                }
+            )
+            assert pc_sftp_worker.run_wallapop_pal_campaign(ps5_queue, ps5_settings) is True
+            ps5_requests = [
+                path for path in ps5_queue.files
+                if "/jobs/requests/wallapop-pal-" in path
+            ]
+            assert len(ps5_requests) == 1
+            ps5_job = ps5_queue.read_json(ps5_requests[0])
+            assert ps5_job["platformSlug"] == "ps5"
+            assert 1 <= len(ps5_job["catalogIds"]) <= 20
+
             os.environ["PRICE_PC_WALLAPOP_PAL_HARD_DISABLED"] = "1"
             hard_stopped = pc_sftp_worker.effective_wallapop_pal_config()
             assert hard_stopped["enabled"] is False

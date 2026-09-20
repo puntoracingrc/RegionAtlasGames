@@ -2,6 +2,19 @@
 
 El sistema separa **recolección**, **validación** y **publicación**. Vercel sirve la web y crea trabajos pequeños; el PC servidor ejecuta los collectors; Git publica únicamente artefactos verificados.
 
+## Catalogo canonico del worker
+
+Los collectors y campañas de precios leen exclusivamente `data/catalog.json`.
+`data/games.json` es una colección histórica legada y no sirve para determinar
+si una plataforma está disponible. El worker valida cada plataforma activada y
+se detiene con un error explícito si el catálogo canónico no contiene fichas
+válidas para ella.
+
+```bash
+# Inventario local autoritativo de PS5 y comprobación de PAL España
+python3 scripts/check_catalog_platform.py --platform ps5 --region "PAL España"
+```
+
 ## Motores automáticos vigentes
 
 | Motor | Ejecución | Alcance | Publicación |
