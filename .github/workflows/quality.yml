@@ -55,6 +55,7 @@ jobs:
 
       - name: Direct price connector
         run: |
+          npx tsx --test src/lib/blob-read-pathname.test.ts src/lib/json-document-store.test.ts
           npx tsx --test src/lib/direct-price-connector.test.ts
           python3 scripts/test_publish_direct_prices.py
 

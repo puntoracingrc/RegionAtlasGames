@@ -127,3 +127,32 @@ test("a concurrent publisher winning CAS cannot cause a second application", asy
   assert.equal(result.game.priceConnectorReceipts?.length, 1);
   assert.equal(attemptedWrites, 1);
 });
+
+for (const id of ["ps4-let%27s-sing-abba", "ps4-the-binding-of-isaac-afterbirth&#43;"]) {
+  test(`recovering a stored encoded-ID receipt does not blend twice: ${id}`, async () => {
+    const game = { ...base, id, estimatedPriceComplete: 10 };
+    const submission = input({ catalogId: id });
+    const first = planDirectPrice(game, submission, "first");
+    const raw = JSON.stringify(first.game);
+    const pathname = `region-atlas/catalog/overlay/games/${id}.json`;
+    const metadata = { url: "https://example.private.blob.vercel-storage.com/game.json", downloadUrl: "https://example.private.blob.vercel-storage.com/game.json", pathname, size: Buffer.byteLength(raw), uploadedAt: new Date(0), contentType: "application/json", contentDisposition: "", cacheControl: "private", etag: "v1" };
+    const dependencies = {
+      get: (async requested => {
+        const deliveredKey = decodeURIComponent(new URL(`https://example.private.blob.vercel-storage.com/${requested}`).pathname.slice(1));
+        if (deliveredKey !== pathname) return null;
+        return { statusCode: 200, stream: new Response(raw).body!, headers: new Headers(), blob: metadata };
+      }) as typeof get,
+      head: (async requested => { assert.equal(requested, pathname); return metadata; }) as typeof head,
+      put: (async () => { assert.fail("A stored receipt must prevent another write/blend"); }) as typeof put,
+      wait: async () => undefined,
+    };
+    const result = await mutateBlobJsonDocument({ pathname, empty: () => game, parse: text => JSON.parse(text) as CatalogGame }, current => {
+      const plan = planDirectPrice(current, submission, "retry");
+      return { next: plan.game, result: plan, changed: !plan.alreadyApplied };
+    }, 1, dependencies);
+    assert.equal(result.alreadyApplied, true);
+    assert.equal(result.game.estimatedPriceComplete, 15);
+    assert.deepEqual(result.receipt, first.receipt);
+    assert.equal(result.game.priceConnectorReceipts?.length, 1);
+  });
+}

@@ -79,6 +79,35 @@ test("reads UTF-8 Blob streams directly across chunk boundaries", async () => {
   assert.equal(await readUtf8Stream(stream), '{"label":"Colección PS5"}');
 });
 
+for (const catalogId of ["ps4-let%27s-sing-abba", "ps4-the-binding-of-isaac-afterbirth&#43;", "ps4-game?edition=1"]) {
+  test(`reads encoded transport paths but preserves storage keys: ${catalogId}`, async () => {
+    const pathname = `region-atlas/catalog/overlay/games/${catalogId}.json`;
+    const dependencies = {
+      get: (async (readPath, options) => {
+        assert.equal(readPath, pathname.split("/").map(encodeURIComponent).join("/"));
+        assert.equal(options.useCache, false);
+        return blobGetResult({ count: 4 }, '"same"');
+      }) as typeof get,
+      head: (async (metadataPath) => {
+        assert.equal(metadataPath, pathname);
+        return blobHeadResult("same");
+      }) as typeof head,
+      put: (async (writePath, body, options) => {
+        assert.equal(writePath, pathname);
+        assert.equal(options.ifMatch, "same");
+        assert.equal(JSON.parse(String(body)).count, 5);
+        return blobHeadResult("next");
+      }) as typeof put,
+      wait: async () => undefined,
+    };
+    assert.equal(await mutateBlobJsonDocument(
+      { pathname, empty: () => ({ count: 0 }), parse: parseCounter },
+      current => ({ next: { count: current.count + 1 }, result: current.count + 1 }),
+      1, dependencies,
+    ), 5);
+  });
+}
+
 test("retries a truncated Blob stream before parsing the document", async () => {
   let reads = 0;
   const waits: number[] = [];

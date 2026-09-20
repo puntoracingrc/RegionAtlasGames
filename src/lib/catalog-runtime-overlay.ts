@@ -15,6 +15,7 @@ import {
   resolveCatalogOverlayCandidate,
 } from "./catalog-overlay-merge";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
+import { blobReadPathname } from "./blob-read-pathname";
 import { mutateOverlayGame, mutateOverlayIndex, registerOverlayGame } from "./catalog-overlay-documents";
 import { preserveDirectPriceReceipts } from "./direct-price-connector";
 import { getStaticGameDetails } from "./static-game-details";
@@ -70,7 +71,7 @@ async function readIndexFromBlobFresh(): Promise<CatalogOverlayIndex> {
   if (!shouldUseBlobStorage()) return emptyIndex();
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(INDEX_PATH, { ...auth, useCache: false });
+    const result = await get(blobReadPathname(INDEX_PATH), { ...auth, useCache: false });
     if (!result?.stream || result.statusCode !== 200) return emptyIndex();
     const text = await new Response(result.stream).text();
     return parseIndex(text);
@@ -113,7 +114,7 @@ async function readCatalogOverlayGameFresh(catalogId: string): Promise<CatalogGa
   if (!shouldUseBlobStorage()) return null;
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(gameBlobPath(catalogId), { ...auth, useCache: false });
+    const result = await get(blobReadPathname(gameBlobPath(catalogId)), { ...auth, useCache: false });
     if (!result?.stream || result.statusCode !== 200) return null;
     const text = await new Response(result.stream).text();
     return normalizeCatalogGamePresentation(JSON.parse(text) as CatalogGame);
@@ -136,7 +137,7 @@ async function readCatalogOverlayDetailsFresh(catalogId: string): Promise<GameDe
   if (!shouldUseBlobStorage()) return null;
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(detailsBlobPath(catalogId), { ...auth, useCache: false });
+    const result = await get(blobReadPathname(detailsBlobPath(catalogId)), { ...auth, useCache: false });
     if (!result?.stream || result.statusCode !== 200) return null;
     const text = await new Response(result.stream).text();
     return JSON.parse(text) as GameDetails;
