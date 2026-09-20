@@ -153,6 +153,27 @@ test("V2 prefers a named physical variant over a legacy standard edition", () =>
   assert.equal(edition?.label, "Not For Resale");
 });
 
+test("V2 recognizes a legacy bracketed variant even without physicalVariant", () => {
+  const game = {
+    id: "ps3-007-quantum-of-solace-t-shirt-bundle",
+    slug: "007-quantum-of-solace-t-shirt-bundle",
+    title: "007 Quantum of Solace [T-Shirt Bundle]",
+    titlePc: "007 Quantum of Solace [T-Shirt Bundle]",
+    platformSlug: "ps3",
+    region: "NTSC USA",
+    edition: "standard",
+    listingStatus: "listed",
+    coverUrl: null,
+  } as CatalogGame;
+
+  const guide = buildRuntimeCatalogEditionGuide(game, [], [game]);
+  const edition = guide.physicalEditions.find((candidate) => candidate.catalogIds.includes(game.id));
+  const family = guide.editionFamilies.find((candidate) => edition && candidate.physicalEditionIds.includes(edition.id));
+
+  assert.equal(family?.label, "T-Shirt Bundle");
+  assert.equal(edition?.label, "T-Shirt Bundle");
+});
+
 test("the detail guide folds a published batch into the existing V2 central card", () => {
   const result = expandRegionalVariantBatch({
     title: "Mortal Shell II",

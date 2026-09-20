@@ -105,8 +105,9 @@ function relationshipKeys(game: CatalogGame): string[] {
 }
 
 export function catalogDerivedEditionType(game: CatalogGame): CatalogPhysicalEditionType {
+  const bracketVariant = game.title.match(/\[([^\]]+)\]\s*$/)?.[1];
   const editionIdentity = [...new Set(
-    [game.edition, game.physicalVariant]
+    [game.edition, game.physicalVariant, bracketVariant]
       .map(normalizedIdentity)
       .filter(Boolean),
   )].join(" ");
@@ -131,6 +132,7 @@ export function catalogDerivedEditionType(game: CatalogGame): CatalogPhysicalEdi
 function humanize(value: string): string {
   return decodeHtmlEntities(value)
     .trim()
+    .replace(/[‐‑‒–—−]/g, "-")
     .replace(/[-_]+/g, " ")
     .replace(/\b\p{L}/gu, (character) => character.toLocaleUpperCase("es"));
 }
@@ -140,7 +142,10 @@ function editionIdentityLabel(game: CatalogGame): string | undefined {
   if (physicalVariant && !/^(standard|standard edition)$/i.test(physicalVariant)) {
     return physicalVariant;
   }
-  return game.edition?.trim() || physicalVariant || undefined;
+  const edition = game.edition?.trim();
+  if (edition && !/^(standard|standard edition)$/i.test(edition)) return edition;
+  const bracketVariant = game.title.match(/\[([^\]]+)\]\s*$/)?.[1]?.trim();
+  return bracketVariant || edition || physicalVariant || undefined;
 }
 
 function familyIdentity(game: CatalogGame): string {
@@ -153,7 +158,13 @@ function familyLabel(game: CatalogGame): string {
   const type = catalogDerivedEditionType(game);
   if (type === "BUDGET_REISSUE" || type === "OTHER") {
     const raw = editionIdentityLabel(game);
-    if (raw) return humanize(raw);
+    if (raw) {
+      const displayRaw = decodeHtmlEntities(raw)
+        .trim()
+        .replace(/[‐‑‒–—−]/g, "-")
+        .replace(/\bT-shirt\b/gi, "T-Shirt");
+      return /[A-ZÁÉÍÓÚÑ]/.test(displayRaw) ? displayRaw : humanize(displayRaw);
+    }
   }
   return catalogPhysicalEditionTypeLabel(type);
 }

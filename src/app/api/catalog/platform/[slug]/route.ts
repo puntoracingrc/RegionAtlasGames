@@ -136,6 +136,7 @@ export async function GET(
   const broadRegion = parseCatalogBroadRegion(url.searchParams.get("broadRegion"));
   const ratingSystem = url.searchParams.get("ratingSystem") ?? "all";
   const physicalEditionType = parseCatalogPhysicalEditionType(url.searchParams.get("physicalEditionType"));
+  const physicalEditionFamily = url.searchParams.get("physicalEditionFamily")?.trim().slice(0, 200) || "all";
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
   const priceType = normalizeCatalogPriceTypeForPlatform(
     (url.searchParams.get("priceType") ?? DEFAULT_CATALOG_PRICE_TYPE) as CatalogPriceType,
@@ -159,7 +160,7 @@ export async function GET(
     : usesQuickIndex
       ? await getPlatformQuickSearchData(slug)
       : await getPlatformEditorialSearchData(slug, Boolean(q.trim()));
-  const filters = { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game" as const, includePending, pendingEdition, broadRegion, ratingSystem, physicalEditionType };
+  const filters = { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game" as const, includePending, pendingEdition, broadRegion, ratingSystem, physicalEditionType, physicalEditionFamily };
   let filtered = filterCatalogGames(
     games,
     filters,
@@ -184,7 +185,7 @@ export async function GET(
     ? {
       ...filterCatalogGames(
         browseData.reviewGames,
-        { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game", includePending, pendingEdition, broadRegion, ratingSystem, physicalEditionType },
+        { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game", includePending, pendingEdition, broadRegion, ratingSystem, physicalEditionType, physicalEditionFamily },
         { regions: true, platforms: false },
       ).reviewCounts,
       documented: filtered.reviewCounts.documented,

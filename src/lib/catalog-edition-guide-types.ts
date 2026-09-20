@@ -531,6 +531,7 @@ export type CatalogPhysicalEditionPublicIdentity = {
 export type CatalogPhysicalFilterOptions = {
   broadRegions: Array<{ value: CatalogBroadRegion; label: string }>;
   editionTypes: Array<{ value: CatalogPhysicalEditionType; label: string }>;
+  editionFamilies: Array<{ value: string; label: string }>;
   ratingSystems: string[];
 };
 

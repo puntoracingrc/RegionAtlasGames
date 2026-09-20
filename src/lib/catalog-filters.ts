@@ -245,6 +245,7 @@ export type CatalogFilterState = {
   broadRegion?: CatalogBroadRegion | "all";
   ratingSystem?: string;
   physicalEditionType?: CatalogPhysicalEditionType | "all";
+  physicalEditionFamily?: string;
 };
 
 export type CatalogTaxonomyFilterOption = {
@@ -344,6 +345,7 @@ export function filterCatalogGames(
     broadRegion = "all",
     ratingSystem = "all",
     physicalEditionType = "all",
+    physicalEditionFamily = "all",
   }: CatalogFilterState,
   options?: {
     regions?: boolean;
@@ -390,6 +392,9 @@ export function filterCatalogGames(
   }
   if (physicalEditionType !== "all") {
     list = list.filter((game) => game.physicalEditionGroup?.editionTypes.includes(physicalEditionType) ?? false);
+  }
+  if (physicalEditionFamily !== "all") {
+    list = list.filter((game) => game.physicalEditionGroup?.editionFamilyLabel === physicalEditionFamily);
   }
   if (q.trim()) {
     list = list.filter((g) => matchesScopedQuery(g, q, queryScope));

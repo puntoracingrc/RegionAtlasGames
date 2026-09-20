@@ -63,6 +63,7 @@ export async function GET(request: Request) {
   const broadRegion = parseCatalogBroadRegion(url.searchParams.get("broadRegion"));
   const ratingSystem = url.searchParams.get("ratingSystem") ?? "all";
   const physicalEditionType = parseCatalogPhysicalEditionType(url.searchParams.get("physicalEditionType"));
+  const physicalEditionFamily = url.searchParams.get("physicalEditionFamily")?.trim().slice(0, 200) || "all";
   const browse = await getCatalogBrowseData();
   const headers = {
     ...PUBLIC_CACHE_HEADERS,
@@ -110,6 +111,7 @@ export async function GET(request: Request) {
       broadRegion,
       ratingSystem,
       physicalEditionType,
+      physicalEditionFamily,
     },
     {
       platforms: true,
