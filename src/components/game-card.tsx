@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ShoppingCart } from "lucide-react";
+import { Minus, ShoppingCart, TrendingDown, TrendingUp } from "lucide-react";
 import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogListGame, CollectionView } from "@/lib/types";
@@ -63,6 +63,20 @@ const CLIENT_PLATFORM_LABELS: Record<string, string> = {
   xboxone: "Xbox One",
   xboxseriesx: "Xbox Series X|S",
 };
+
+export function CatalogPriceTrendIndicator({ trend }: { trend: CatalogConditionPriceRow["trend"] }) {
+  if (!trend) return null;
+  const config = trend === "up"
+    ? { Icon: TrendingUp, label: "Subida de al menos 5 €", className: "text-emerald-500" }
+    : trend === "down"
+      ? { Icon: TrendingDown, label: "Bajada de al menos 5 €", className: "text-red-500" }
+      : { Icon: Minus, label: "Precio estable", className: "text-muted" };
+  return (
+    <span className={cn("inline-flex shrink-0", config.className)} title={config.label} aria-label={config.label}>
+      <config.Icon className="h-3 w-3" aria-hidden />
+    </span>
+  );
+}
 
 function platformLabel(slug: string): string {
   return CLIENT_PLATFORM_LABELS[slug] ?? slug.toUpperCase();
@@ -510,15 +524,12 @@ function CardBody({
                 <dt className="truncate text-muted">{value.label}</dt>
                 <dd
                   className={cn(
-                    "whitespace-nowrap text-right font-semibold tabular-nums",
+                    "inline-flex items-center justify-end gap-1 whitespace-nowrap text-right font-semibold tabular-nums",
                     value.price == null ? "text-muted" : "text-accent",
                   )}
                 >
-                  {value.price == null
-                    ? "--"
-                    : value.maxPrice != null && value.maxPrice !== value.price
-                      ? `${formatEur(value.price)}–${formatEur(value.maxPrice)}`
-                      : formatEur(value.price)}
+                  <span>{value.price == null ? "--" : formatEur(value.price)}</span>
+                  {value.price != null ? <CatalogPriceTrendIndicator trend={value.trend} /> : null}
                 </dd>
               </div>
             ))}

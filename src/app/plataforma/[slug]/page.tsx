@@ -23,8 +23,7 @@ import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
 import { getUserCollectionViews } from "@/lib/collection-store";
 import { getCatalogByPlatformWithOverlay, loadCatalogOverlayIndex } from "@/lib/catalog-runtime-overlay";
 import { getAdminPlatform } from "@/lib/admin-entity-catalog";
-import { toCatalogCardGame } from "@/lib/catalog-card-game";
-import { enrichCatalogCards } from "@/lib/catalog-card-enrichment";
+import { enrichCatalogCards, toRegionalCatalogCardGames, withRegionalCatalogPriceSource } from "@/lib/catalog-card-enrichment";
 import { toCatalogListGameShell } from "@/lib/catalog-list-game-shell";
 import { getDefaultPlatformInitialPage } from "@/lib/public-catalog-initial-page";
 import { publicCatalogRegionFilterOptionsForPlatform, publicCompanyFilterOptions } from "@/lib/public-catalog-filter-options";
@@ -112,13 +111,19 @@ export default async function PlatformPage({ params, searchParams }: Props) {
         mergeSearchMetadata: needsEditorialIndex,
         mergeSearchText: Boolean(query?.q),
       });
-      const initialResult = hasInitialFilters ? filterCatalogGames(groupedListGames, initialFilters) : null;
+      const initialResult = hasInitialFilters
+        ? filterCatalogGames(groupedListGames, initialFilters, {
+          mapRegionalPriceSource: (game) => withRegionalCatalogPriceSource(game, initialFilters.region, false),
+        })
+        : null;
       const defaultGames = groupedListGames.filter(isDefaultCatalogGame);
       const pageItems = initialResult
         ? initialResult.items.slice(0, CATALOG_PAGE_SIZE)
         : sortCatalogListGames(defaultGames, "title-asc").slice(0, CATALOG_PAGE_SIZE);
       return {
-        games: needsEditorialIndex ? pageItems.map(toCatalogCardGame) : await enrichCatalogCards(pageItems),
+        games: needsEditorialIndex
+          ? toRegionalCatalogCardGames(pageItems, initialFilters.region)
+          : await enrichCatalogCards(pageItems, initialFilters.region),
         total: initialResult?.total ?? defaultGames.length,
         reviewCounts: initialResult?.reviewCounts ?? catalogReviewCounts(catalogGames),
       };

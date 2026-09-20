@@ -1,10 +1,12 @@
 import { CONDITION_PRICE_LABELS, type ConditionBucket } from "./condition-prices";
 import type { PriceReceipt } from "./direct-price-connector";
+import type { CatalogPriceTrend } from "./types";
 
 // Missing = no observation for that state; null = explicitly unavailable.
 export type PriceHistorySnapshot = { at: string } & Partial<Record<ConditionBucket, number | null>>;
 
 export const PRICE_HISTORY_BUCKETS: ConditionBucket[] = ["loose", "gameManual", "complete", "sealed", "newRetail"];
+export const PRICE_TREND_MIN_CHANGE_EUR = 5;
 export const CONDITION_CHART_COLORS: Record<ConditionBucket, { stroke: string; label: string }> = {
   loose: { stroke: "#d97706", label: CONDITION_PRICE_LABELS.loose },
   gameManual: { stroke: "#0ea5e9", label: CONDITION_PRICE_LABELS.gameManual },
@@ -54,4 +56,34 @@ export function priceHistoryAt(history: readonly PriceHistorySnapshot[], time: n
     }
   }
   return snapshot;
+}
+
+function positiveValues(
+  history: readonly PriceHistorySnapshot[],
+  condition: "sealed" | "complete" | "loose",
+): number[] {
+  return history.flatMap((snapshot) => {
+    const value = condition === "loose"
+      ? snapshot.loose ?? snapshot.gameManual
+      : snapshot[condition];
+    return typeof value === "number" && Number.isFinite(value) && value > 0 ? [value] : [];
+  });
+}
+
+/** Compara las dos últimas medias publicadas y absorbe oscilaciones menores de 5 €. */
+export function catalogPriceTrends(
+  history: readonly PriceHistorySnapshot[],
+): Partial<Record<"sealed" | "complete" | "loose", CatalogPriceTrend>> {
+  const trends: Partial<Record<"sealed" | "complete" | "loose", CatalogPriceTrend>> = {};
+  for (const condition of ["sealed", "complete", "loose"] as const) {
+    const values = positiveValues(history, condition);
+    if (values.length < 2) continue;
+    const change = values.at(-1)! - values.at(-2)!;
+    trends[condition] = change >= PRICE_TREND_MIN_CHANGE_EUR
+      ? "up"
+      : change <= -PRICE_TREND_MIN_CHANGE_EUR
+        ? "down"
+        : "stable";
+  }
+  return trends;
 }

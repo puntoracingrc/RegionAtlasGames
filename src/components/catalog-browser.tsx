@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { LayoutGrid, LoaderCircle, Rows3, ShoppingCart } from "lucide-react";
-import { CatalogCardRegionFlags, CatalogGameCard, catalogCardRegionLabels } from "@/components/game-card";
+import { CatalogCardRegionFlags, CatalogGameCard, CatalogPriceTrendIndicator, catalogCardRegionLabels } from "@/components/game-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
 import { CollectionQuickAdd } from "@/components/collection-quick-add";
 import { HighlightLegend } from "@/components/highlight-legend";
@@ -227,15 +227,12 @@ function CatalogCompactRow({
               <dt className="truncate text-muted">{value.label}</dt>
               <dd
                 className={cn(
-                  "whitespace-nowrap text-right font-semibold tabular-nums",
+                  "inline-flex items-center justify-end gap-1 whitespace-nowrap text-right font-semibold tabular-nums",
                   value.price == null ? "text-muted" : "text-accent",
                 )}
               >
-                {value.price == null
-                  ? "--"
-                  : value.maxPrice != null && value.maxPrice !== value.price
-                    ? `${formatEur(value.price)}–${formatEur(value.maxPrice)}`
-                    : formatEur(value.price)}
+                <span>{value.price == null ? "--" : formatEur(value.price)}</span>
+                {value.price != null ? <CatalogPriceTrendIndicator trend={value.trend} /> : null}
               </dd>
             </div>
           ))}

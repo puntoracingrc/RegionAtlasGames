@@ -8,7 +8,7 @@ import {
   type CatalogPriceType,
 } from "@/lib/catalog-filters";
 import { getCatalogBrowseData } from "@/lib/catalog-browse-index";
-import { toCatalogCardGame } from "@/lib/catalog-card-game";
+import { toRegionalCatalogCardGames, withRegionalCatalogPriceSource } from "@/lib/catalog-card-enrichment";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 import { parsePendingEdition } from "@/lib/catalog-review-policy";
@@ -66,7 +66,11 @@ export default async function CatalogPage({ searchParams }: Props) {
     genre: initialGenre,
     subgenre: initialSubgenre,
     facet: initialFacet,
-  }, { platforms: true, regions: true });
+  }, {
+    platforms: true,
+    regions: true,
+    mapRegionalPriceSource: (game) => withRegionalCatalogPriceSource(game, initialRegion, false),
+  });
   const options = browse.filterOptions;
   return (
     <>
@@ -84,7 +88,7 @@ export default async function CatalogPage({ searchParams }: Props) {
         </header>
 
         <CatalogBrowser
-          games={initialResult.items.slice(0, INITIAL_RESULT_COUNT).map(toCatalogCardGame)}
+          games={toRegionalCatalogCardGames(initialResult.items.slice(0, INITIAL_RESULT_COUNT), initialRegion)}
           contextName="todo el catálogo"
           source={{ kind: "catalog" }}
           totalCatalogEntryCount={initialResult.total}

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { mergePublishedPriceHistory, priceHistoryAt } from "./price-history-model";
+import { catalogPriceTrends, mergePublishedPriceHistory, priceHistoryAt } from "./price-history-model";
 import { getPublishedPriceHistory } from "./price-history";
 import { planDirectPrice, type PriceReceipt, type PriceConnectorGame, type PriceSubmission } from "./direct-price-connector";
 
@@ -55,4 +55,23 @@ test("new publication and retry expose one history event without another write",
   const retry = planDirectPrice(published.game, input, "2026-09-20T00:00:00Z");
   assert.equal(retry.alreadyApplied, true);
   assert.deepEqual(getPublishedPriceHistory(retry.game), [{ at, complete: 70 }]);
+});
+
+test("catalog trends require two observations and treat changes below 5 euros as stable", () => {
+  assert.deepEqual(catalogPriceTrends([
+    { at: "2026-09-01", sealed: 100, complete: 50, loose: 20 },
+    { at: "2026-09-02", sealed: 105, complete: 45, loose: 24.99 },
+  ]), {
+    sealed: "up",
+    complete: "down",
+    loose: "stable",
+  });
+  assert.deepEqual(catalogPriceTrends([{ at: "2026-09-01", complete: 50 }]), {});
+});
+
+test("loose trends can continue a previous game plus manual observation", () => {
+  assert.deepEqual(catalogPriceTrends([
+    { at: "2026-09-01", gameManual: 30 },
+    { at: "2026-09-02", loose: 24 },
+  ]), { loose: "down" });
 });

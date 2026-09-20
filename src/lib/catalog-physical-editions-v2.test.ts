@@ -61,7 +61,7 @@ import {
 } from "./catalog-runtime-overlay";
 import { getCompany, getGameDetails } from "./indexes";
 import { publicCatalogRegionFilterOptionsForPlatform } from "./public-catalog-filter-options";
-import { enrichCatalogCards } from "./catalog-card-enrichment";
+import { enrichCatalogCards, toRegionalCatalogCardGame } from "./catalog-card-enrichment";
 import { toCatalogQuickSearchGame } from "./catalog-quick-search-game";
 import { getDefaultCatalogInitialPage, getDefaultPlatformInitialPage } from "./public-catalog-initial-page";
 import { getRegionDisplay } from "./region-display";
@@ -204,6 +204,24 @@ test("quick catalog search finds and enriches direct game identities without the
   const ps5 = cards.find((game) => game.id === "ps5-absolum");
   assert.equal(ps5?.displayYear, 2025);
   assert(cards.some((game) => game.id === "ps5-absolum-special-edition"));
+});
+
+test("a V2 central card uses the exact selected regional release price", () => {
+  const grouped = groupedAbsolum().find((game) => game.id === "ps5-absolum");
+  assert.ok(grouped);
+  const usaCard = toRegionalCatalogCardGame(grouped, "USA");
+  assert.ok(usaCard);
+  assert.equal(usaCard.id, "ps5-absolum");
+  assert.equal(usaCard.region, "USA");
+  assert.equal(usaCard.estimatedPriceComplete, 28.47);
+  assert.equal(usaCard.estimatedPriceSealed, 28.76);
+  assert.equal(usaCard.physicalEditionGroup?.catalogIds.includes("ps5-usa-absolum"), true);
+
+  const spainCard = toRegionalCatalogCardGame(grouped, "PAL España");
+  assert.ok(spainCard);
+  assert.equal(spainCard.id, "ps5-absolum");
+  assert.equal(spainCard.region, "PAL España");
+  assert.equal(spainCard.estimatedPriceComplete ?? null, null);
 });
 
 test("V2 headings move markets, packaging languages and ratings out of legacy labels", () => {

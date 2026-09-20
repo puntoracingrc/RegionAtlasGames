@@ -10,8 +10,7 @@ import {
   type CatalogPriceType,
   type CatalogSort,
 } from "@/lib/catalog-filters";
-import { toCatalogCardGame } from "@/lib/catalog-card-game";
-import { enrichCatalogCards } from "@/lib/catalog-card-enrichment";
+import { enrichCatalogCards, toRegionalCatalogCardGames, withRegionalCatalogPriceSource } from "@/lib/catalog-card-enrichment";
 import { toCatalogListGameShell } from "@/lib/catalog-list-game-shell";
 import { toCatalogQuickSearchGame } from "@/lib/catalog-quick-search-game";
 import { getCatalogByPlatformWithOverlay, getCatalogOverlayRevision } from "@/lib/catalog-runtime-overlay";
@@ -164,12 +163,20 @@ export async function GET(
   let filtered = filterCatalogGames(
     games,
     filters,
-    { regions: true, platforms: false },
+    {
+      regions: true,
+      platforms: false,
+      mapRegionalPriceSource: (game) => withRegionalCatalogPriceSource(game, region, false),
+    },
   );
   if (usesQuickIndex && filtered.total === 0) {
     games = await getPlatformEditorialSearchData(slug, true);
     usesEditorialIndex = true;
-    filtered = filterCatalogGames(games, filters, { regions: true, platforms: false });
+    filtered = filterCatalogGames(games, filters, {
+      regions: true,
+      platforms: false,
+      mapRegionalPriceSource: (game) => withRegionalCatalogPriceSource(game, region, false),
+    });
   }
   const start = (page - 1) * CATALOG_PAGE_SIZE;
   const pageItems = filtered.items.slice(start, start + CATALOG_PAGE_SIZE);
@@ -184,7 +191,9 @@ export async function GET(
     }
     : filtered.reviewCounts;
   return NextResponse.json({
-    items: usesEditorialIndex ? pageItems.map(toCatalogCardGame) : await enrichCatalogCards(pageItems),
+    items: usesEditorialIndex
+      ? toRegionalCatalogCardGames(pageItems, region)
+      : await enrichCatalogCards(pageItems, region),
     total: filtered.total,
     reviewCounts,
   }, { headers: PUBLIC_CACHE_HEADERS });

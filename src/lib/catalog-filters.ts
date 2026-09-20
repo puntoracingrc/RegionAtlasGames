@@ -164,14 +164,6 @@ function yearKey(game: CatalogListGame): number | null {
 }
 
 function priceKey(game: CatalogListGame, priceType: CatalogPriceType): number | null {
-  const groupedRange = priceType === "sealed"
-    ? game.physicalEditionGroup?.priceRanges.sealed
-    : priceType === "complete"
-      ? game.physicalEditionGroup?.priceRanges.complete
-      : priceType === "loose"
-        ? game.physicalEditionGroup?.priceRanges.loose
-      : undefined;
-  if (groupedRange) return groupedRange.min;
   if (priceType === "sealed") return game.estimatedPriceSealed ?? null;
   if (priceType === "newRetail") return game.estimatedPriceNewRetail ?? null;
   if (priceType === "complete") return game.estimatedPriceComplete ?? null;
@@ -353,7 +345,11 @@ export function filterCatalogGames(
     ratingSystem = "all",
     physicalEditionType = "all",
   }: CatalogFilterState,
-  options?: { regions?: boolean; platforms?: boolean },
+  options?: {
+    regions?: boolean;
+    platforms?: boolean;
+    mapRegionalPriceSource?: (game: CatalogListGame) => CatalogListGame | null;
+  },
 ): { items: CatalogListGame[]; total: number; reviewCounts: CatalogReviewCounts } {
   let list = games;
 
@@ -362,6 +358,12 @@ export function filterCatalogGames(
   }
   if (options?.platforms && platform !== "all") {
     list = list.filter((g) => g.platformSlug === platform);
+  }
+  if (region !== "all" && options?.mapRegionalPriceSource) {
+    list = list.flatMap((game) => {
+      const regionalGame = options.mapRegionalPriceSource?.(game);
+      return regionalGame ? [regionalGame] : [];
+    });
   }
   if (priceFilter !== "all") {
     list = list.filter((g) => matchesPriceFilter(g, priceFilter));

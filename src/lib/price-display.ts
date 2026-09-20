@@ -1,4 +1,4 @@
-import type { CatalogGame, CatalogListGame, CollectionItem } from "./types";
+import type { CatalogGame, CatalogListGame, CatalogPriceTrend, CollectionItem } from "./types";
 import { hasAnyConditionEstimate, primaryConditionPriceEntry } from "./condition-prices";
 import { publicPriceConditionsForPlatform } from "./platform-price-condition-policy";
 
@@ -10,33 +10,26 @@ type PriceFields = Pick<
 type CatalogConditionPriceFields = Pick<
   CatalogGame | CollectionItem,
   "platformSlug" | "estimatedPriceSealed" | "estimatedPriceComplete" | "estimatedPriceLoose" | "estimatedPriceGameManual"
-> & Pick<Partial<CatalogListGame>, "physicalEditionGroup">;
+> & Pick<Partial<CatalogListGame>, "priceTrends">;
 
 export type CatalogConditionPriceRow = {
   condition: "sealed" | "complete" | "loose";
   label: "Precintado" | "Completo" | "Loose";
   price: number | null;
-  maxPrice?: number | null;
+  trend?: CatalogPriceTrend;
 };
 
 /** Los tres precios comparables que siempre aparecen en las vistas del catalogo. */
 export function catalogConditionPriceRows(
   game: CatalogConditionPriceFields,
 ): CatalogConditionPriceRow[] {
-  const grouped = game.physicalEditionGroup?.priceRanges;
-  if (game.physicalEditionGroup) {
-    const rows: CatalogConditionPriceRow[] = [
-      { condition: "sealed", label: "Precintado", price: grouped?.sealed?.min ?? null, maxPrice: grouped?.sealed?.max ?? null },
-      { condition: "complete", label: "Completo", price: grouped?.complete?.min ?? null, maxPrice: grouped?.complete?.max ?? null },
-      { condition: "loose", label: "Loose", price: grouped?.loose?.min ?? null, maxPrice: grouped?.loose?.max ?? null },
-    ];
-    const allowed = new Set(publicPriceConditionsForPlatform(game.platformSlug));
-    return rows.filter((row) => allowed.has(row.condition));
-  }
+  const trend = (condition: "sealed" | "complete" | "loose") => (
+    game.priceTrends?.[condition] ? { trend: game.priceTrends[condition] } : {}
+  );
   const rows: CatalogConditionPriceRow[] = [
-    { condition: "sealed", label: "Precintado", price: game.estimatedPriceSealed ?? null },
-    { condition: "complete", label: "Completo", price: game.estimatedPriceComplete ?? null },
-    { condition: "loose", label: "Loose", price: game.estimatedPriceLoose ?? game.estimatedPriceGameManual ?? null },
+    { condition: "sealed", label: "Precintado", price: game.estimatedPriceSealed ?? null, ...trend("sealed") },
+    { condition: "complete", label: "Completo", price: game.estimatedPriceComplete ?? null, ...trend("complete") },
+    { condition: "loose", label: "Loose", price: game.estimatedPriceLoose ?? game.estimatedPriceGameManual ?? null, ...trend("loose") },
   ];
   const allowed = new Set(publicPriceConditionsForPlatform(game.platformSlug));
   return rows.filter((row) => allowed.has(row.condition));
