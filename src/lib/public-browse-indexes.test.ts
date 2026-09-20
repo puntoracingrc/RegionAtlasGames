@@ -107,6 +107,44 @@ test("el overlay caliente actualiza y añade tarjetas sin reconstruir el catálo
   assert.match(inserted?.searchText ?? "", /worker new catalog game/);
 });
 
+test("el overlay caliente cambia una ficha existente de Estándar a Recopilatorio", async () => {
+  const indexed = await getCatalogBrowseData();
+  const base = indexed.games.find((game) => (
+    game.physicalEditionGroup?.catalogIds.length === 1 &&
+    game.physicalEditionGroup.editionTypes.includes("STANDARD")
+  ));
+  assert.ok(base);
+  const staticGame = publicListedCatalog.find((game) => game.id === base.id);
+  assert.ok(staticGame);
+
+  const overlay = {
+    ...staticGame,
+    physicalVariant: "Recopilatorio",
+    physicalReleaseGroup: {
+      id: `${staticGame.platformSlug}:runtime-compilation:recopilatorio:01-us`,
+      label: "USA · recopilatorio de 3 discos",
+      barcode: "710425473432",
+      confidence: "CONFIRMED" as const,
+      packagingLanguages: ["EN"],
+      ratingSystems: ["ESRB M"],
+      physicalContents: ["Disco 1", "Disco 2", "Disco 3"],
+    },
+  };
+  const merged = mergeCatalogBrowseOverlay(
+    indexed.games,
+    [overlay],
+    [{ slug: base.platformSlug, name: base.displayPlatform }],
+  );
+  const patched = merged.find((game) => game.id === base.id);
+  assert.equal(patched?.physicalVariant, "Recopilatorio");
+  assert.equal(patched?.physicalEditionGroup?.editionFamilyLabel, "Recopilatorio");
+  assert.deepEqual(patched?.physicalEditionGroup?.editionTypes, ["COMPILATION"]);
+
+  const filters = augmentCatalogBrowseFilterOptions(indexed.filterOptions, merged);
+  assert.ok(filters.physicalEditions.editionTypes.some((option) => option.value === "COMPILATION"));
+  assert.ok(filters.physicalEditions.editionFamilies.some((option) => option.value === "Recopilatorio"));
+});
+
 test("el overlay caliente agrupa las regiones nuevas bajo una tarjeta V2", async () => {
   const indexed = await getCatalogBrowseData();
   const seed = publicListedCatalog.find((game) => game.platformSlug === "ps5");
