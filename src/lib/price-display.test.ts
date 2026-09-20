@@ -18,6 +18,7 @@ const eur = (value: number | null) => (value == null ? "—" : `${value.toFixed(
 test("keeps the three catalog condition prices in a fixed order and preserves gaps", () => {
   assert.deepEqual(
     catalogConditionPriceRows({
+      platformSlug: "n64",
       estimatedPriceSealed: 42,
       estimatedPriceComplete: null,
       estimatedPriceLoose: 11,
@@ -25,7 +26,7 @@ test("keeps the three catalog condition prices in a fixed order and preserves ga
     [
       { condition: "sealed", label: "Precintado", price: 42 },
       { condition: "complete", label: "Completo", price: null },
-      { condition: "loose", label: "Solo juego", price: 11 },
+      { condition: "loose", label: "Loose", price: 11 },
     ],
   );
 });
@@ -79,6 +80,10 @@ test("offers only the three public catalog conditions in their display order", (
     PRICE_TYPE_OPTIONS.map((option) => option.value),
     ["sealed", "complete", "loose"],
   );
+});
+
+test("keeps loose available in the cross-platform catalog", () => {
+  assert.deepEqual(catalogPriceTypeOptions().map((option) => option.value), ["sealed", "complete", "loose"]);
 });
 
 test("sorts by the selected public condition price", () => {
@@ -136,22 +141,22 @@ test("sorts recommended prices even when their Spanish region is not verified", 
   );
 });
 
-test("offers the same comparable states on optical and cartridge platforms", () => {
+test("offers loose only on cartridge platforms", () => {
   assert.deepEqual(
     catalogPriceTypeOptions("ps3").map((option) => option.value),
-    ["sealed", "complete", "loose"],
+    ["sealed", "complete"],
   );
   assert.deepEqual(
     catalogPriceTypeOptions("n64").map((option) => option.value),
     ["sealed", "complete", "loose"],
   );
   assert.equal(
-    catalogPriceTypeOptions("ps3").find((option) => option.value === "loose")?.label,
-    "Solo juego",
+    catalogPriceTypeOptions("n64").find((option) => option.value === "loose")?.label,
+    "Loose",
   );
   assert.equal(normalizeCatalogPriceTypeForPlatform("recommended", "ps3"), "complete");
   assert.equal(normalizeCatalogPriceTypeForPlatform("newRetail", "ps5"), "complete");
-  assert.equal(normalizeCatalogPriceTypeForPlatform("gameManual", "n64"), "complete");
+  assert.equal(normalizeCatalogPriceTypeForPlatform("gameManual", "n64"), "loose");
 });
 
 test("keeps source-specific new retail prices available internally", () => {

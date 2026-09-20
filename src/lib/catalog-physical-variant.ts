@@ -12,6 +12,7 @@ import {
 import { getOwnedScanSetById } from "./catalog-owned-scans";
 import { collectionStorageIdentityKey } from "./collection-identity";
 import type { CollectionItem, CollectionView } from "./types";
+import { platformPriceMedia } from "./platform-price-condition-policy";
 
 type CollectionPhysicalIdentity = {
   catalogId?: CollectionItem["catalogId"];
@@ -166,6 +167,9 @@ function collectionEditionGroup(
 ): CatalogPhysicalEditionGroupSummary {
   const { guide, family, edition } = membership;
   const complete = singlePriceRange(item.estimatedPriceComplete);
+  const loose = platformPriceMedia(item.platformSlug) === "cartridge"
+    ? singlePriceRange(item.estimatedPriceLoose ?? item.estimatedPriceGameManual)
+    : undefined;
   const sealed = singlePriceRange(item.estimatedPriceSealed ?? item.estimatedPriceNewRetail);
   return {
     guideId: guide.id,
@@ -187,6 +191,7 @@ function collectionEditionGroup(
     ratingSystems: [...edition.ratingSystems],
     packagingLanguages: [...edition.packagingLanguages],
     priceRanges: {
+      ...(loose ? { loose } : {}),
       ...(complete ? { complete } : {}),
       ...(sealed ? { sealed } : {}),
     },

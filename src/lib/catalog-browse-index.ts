@@ -26,6 +26,7 @@ import {
 } from "./catalog-browse-index-codec";
 import { getCatalogOverlayLiteSnapshot } from "./catalog-overlay-lite";
 import { groupCatalogListGames } from "./catalog-physical-edition-browse";
+import { platformPriceMedia } from "./platform-price-condition-policy";
 
 const INDEX_VERSION = 2;
 const INDEX_FILE = "catalog-browse-index.json.gz";
@@ -143,6 +144,9 @@ function patchPhysicalEditionGroup(
         editionCount: 1,
       }];
   const complete = extendPriceRange(group.priceRanges.complete, [overlay.estimatedPriceComplete]);
+  const loose = platformPriceMedia(overlay.platformSlug) === "cartridge"
+    ? extendPriceRange(group.priceRanges.loose, [overlay.estimatedPriceLoose, overlay.estimatedPriceGameManual])
+    : undefined;
   const sealed = extendPriceRange(group.priceRanges.sealed, [
     overlay.estimatedPriceSealed,
     overlay.estimatedPriceNewRetail,
@@ -156,6 +160,7 @@ function patchPhysicalEditionGroup(
     overviewRegions: unique([...group.overviewRegions, overlay.region]),
     broadRegions,
     priceRanges: {
+      ...(loose ? { loose } : {}),
       ...(complete ? { complete } : {}),
       ...(sealed ? { sealed } : {}),
     },
@@ -185,6 +190,12 @@ function mergeGroupedCards(current: CatalogListGame, incoming: CatalogListGame):
     incomingGroup.priceRanges.complete?.min,
     incomingGroup.priceRanges.complete?.max,
   ]);
+  const loose = platformPriceMedia(preferred.platformSlug) === "cartridge"
+    ? extendPriceRange(currentGroup.priceRanges.loose, [
+      incomingGroup.priceRanges.loose?.min,
+      incomingGroup.priceRanges.loose?.max,
+    ])
+    : undefined;
   const sealed = extendPriceRange(currentGroup.priceRanges.sealed, [
     incomingGroup.priceRanges.sealed?.min,
     incomingGroup.priceRanges.sealed?.max,
@@ -205,6 +216,7 @@ function mergeGroupedCards(current: CatalogListGame, incoming: CatalogListGame):
       ratingSystems: unique([...currentGroup.ratingSystems, ...incomingGroup.ratingSystems]),
       packagingLanguages: unique([...currentGroup.packagingLanguages, ...incomingGroup.packagingLanguages]),
       priceRanges: {
+        ...(loose ? { loose } : {}),
         ...(complete ? { complete } : {}),
         ...(sealed ? { sealed } : {}),
       },

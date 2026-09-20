@@ -92,6 +92,11 @@ def test_condition_language() -> None:
         "precintado",
     )
     assert_equal(
+        infer_condition_bucket("Nuevo sin abrir"),
+        "sealed",
+        "sin abrir es precintado",
+    )
+    assert_equal(
         infer_condition_bucket("Solo desprecintado por predilección a coleccionar sin precinto."),
         "complete",
         "desprecintado",
@@ -138,6 +143,41 @@ def test_condition_language() -> None:
         ),
         None,
         "no marcar completo si falta un extra original conocido",
+    )
+    assert_equal(
+        infer_condition_bucket("Cartucho con caja, sin manual", platform_slug="n64"),
+        "loose",
+        "cartucho con caja incompleto entra en loose",
+    )
+    assert_equal(
+        infer_condition_bucket("Cartucho con manual, sin caja", platform_slug="n64"),
+        "loose",
+        "cartucho con manual entra en loose",
+    )
+    assert_equal(
+        infer_condition_bucket("Caja y manual sin cartucho", platform_slug="n64"),
+        None,
+        "caja y manual sin cartucho quedan fuera",
+    )
+    assert_equal(
+        infer_condition_bucket("Solo disco PS3", platform_slug="ps3"),
+        None,
+        "disco suelto queda fuera del precio óptico",
+    )
+    assert_equal(
+        infer_condition_bucket("Caja sola sin disco", platform_slug="ps3"),
+        None,
+        "caja sin disco queda fuera",
+    )
+    assert_equal(
+        infer_condition_bucket("Usado", condition_raw="used", platform_slug="n64"),
+        None,
+        "usado no demuestra los componentes incluidos",
+    )
+    assert_equal(
+        infer_condition_bucket("Como nuevo", platform_slug="ps3"),
+        "complete",
+        "como nuevo entra en completo",
     )
 
 

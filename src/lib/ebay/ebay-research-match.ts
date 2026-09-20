@@ -2,6 +2,7 @@ import { hasBlockedAffiliateKeyword } from "../affiliate/matching/score-offer-ma
 import { normalizeAffiliateText, titleTokens } from "../affiliate/matching/normalize-title.ts";
 import { physicalEditionsMatch } from "../physical-edition.ts";
 import type { EbayLocalizedAspect } from "./ebay.types.ts";
+import { normalizePublicPriceCondition, platformPriceMedia } from "../platform-price-condition-policy.ts";
 
 export type EbaySearchBasis = {
   kind: "gtin" | "epid" | "keyword";
@@ -24,6 +25,7 @@ export type EbayResearchEvidence = {
   gtin?: string | null;
   epid?: string | null;
   condition?: string | null;
+  description?: string | null;
   conditionId?: string | null;
   localizedAspects?: EbayLocalizedAspect[];
   searchBasis: EbaySearchBasis;
@@ -102,6 +104,7 @@ function evidenceText(evidence: EbayResearchEvidence): string {
     evidence.title,
     evidence.productTitle,
     evidence.condition,
+    evidence.description,
     aspectText(evidence.localizedAspects),
   ]
     .filter(Boolean)
@@ -209,19 +212,20 @@ function titleCoverage(targetTitle: string, candidateTitle: string): number {
   return Math.round((matched / expected.length) * 100) / 100;
 }
 
-function inferConditionBucket(evidence: EbayResearchEvidence, text: string): EbayConditionBucket {
+function inferConditionBucket(evidence: EbayResearchEvidence, text: string, platformSlug: string): EbayConditionBucket {
   const condition = normalizeAffiliateText(evidence.condition ?? "");
-  if (/\bsealed\b|\bprecintad[oa]\b|\bfactory sealed\b/.test(text)) return "sealed";
-  if (/\bnew\b|\bnuevo\b/.test(condition) && !/\bopen box\b|\bcaja abierta\b/.test(text)) return "sealed";
-  if (/\bgame (?:and|with) manual\b|\bjuego (?:y|con) manual\b|\bdisc (?:and|with) manual\b/.test(text) && !/\bwith box\b|\bcon caja\b/.test(text)) {
-    return "game_manual";
+  if (/\b(?:box|case|manual) only\b|\bsolo (?:caja|caratula|manual)\b|\bsin (?:juego|cartucho|disco)\b|\bwithout (?:game|cartridge|cart|disc)\b/.test(text)) {
+    return "unknown";
   }
-  if (/\bcib\b|\bcomplete\b|\bcompleto\b|\bwith box(?: and manual)?\b|\bcon caja(?: y manual)?\b|\bboxed\b/.test(text)) {
-    return "complete";
-  }
-  if (/\bloose\b|\bsolo (?:cartucho|disco|juego)\b|\bcartridge only\b|\bdisc only\b|\bgame only\b/.test(text)) {
-    return "loose";
-  }
+  if (/\bsealed\b|\bprecintad[oa]\b|\bfactory sealed\b|\bsin abrir\b|\bunopened\b/.test(text)) return "sealed";
+  const explicitComplete = /\bcib\b|\bcomplete\b|\bcompleto\b/.test(text);
+  const boxPresent = /\bwith box\b|\bcon caja\b|\bboxed\b|\bbox and manual\b|\bcaja y manual\b/.test(text);
+  const manualPresent = /\bwith manual\b|\bcon manual\b|\bgame (?:and|with) manual\b|\bjuego (?:y|con) manual\b/.test(text);
+  const looseSignal = /\bloose\b|\bsuelt[oa]\b|\bsolo (?:cartucho|disco|juego)\b|\b(?:cartridge|cart|disc|game) only\b/.test(text);
+  if (explicitComplete || (boxPresent && manualPresent)) return "complete";
+  if (platformPriceMedia(platformSlug) === "cartridge" && (looseSignal || boxPresent || manualPresent)) return "loose";
+  if (platformPriceMedia(platformSlug) === "optical" && boxPresent && !/\bsin manual\b|\bwithout manual\b/.test(text)) return "complete";
+  if (/\bcomo nuev[oa]\b|\blike new\b/.test(text) || /\bnew\b|\bnuevo\b|\bcomo nuevo\b|\blike new\b/.test(condition)) return "complete";
   return "unknown";
 }
 
@@ -299,7 +303,7 @@ export function evaluateEbayResearchMatch(
     regionMatch: region.match,
     regionEvidence: region.evidence,
     suggestedRegion: suggestedRegion(region.evidence),
-    conditionBucket: inferConditionBucket(evidence, text),
+    conditionBucket: normalizePublicPriceCondition(inferConditionBucket(evidence, text, target.platformSlug), target.platformSlug) ?? "unknown",
     reasons,
   };
 }

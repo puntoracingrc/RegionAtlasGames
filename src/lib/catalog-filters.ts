@@ -8,6 +8,7 @@ import { getRegionDisplay, sameRegionDisplayIdentity } from "@/lib/region-displa
 import { regionNavigationGroup, selectedRegionGroup } from "@/lib/region-navigation";
 import type { CatalogListGame } from "@/lib/types";
 import { catalogReviewCounts, isGroupedCatalogName, isPendingCatalogGame, pendingEditionForGame, type CatalogReviewCounts, type PendingEdition } from "@/lib/catalog-review-policy";
+import { publicPriceConditionsForPlatform } from "@/lib/platform-price-condition-policy";
 
 export type CatalogSort =
   | "title-asc"
@@ -48,20 +49,22 @@ export const DEFAULT_CATALOG_PRICE_TYPE: CatalogPriceType = "complete";
 export const PRICE_TYPE_OPTIONS: { value: CatalogPriceType; label: string }[] = [
   { value: "sealed", label: "Precintado" },
   { value: "complete", label: "Completo" },
-  { value: "loose", label: "Solo juego" },
+  { value: "loose", label: "Loose" },
 ];
 
 export function catalogPriceTypeOptions(
   platformSlug?: string | null,
 ): { value: CatalogPriceType; label: string }[] {
-  void platformSlug;
-  return PRICE_TYPE_OPTIONS;
+  if (!platformSlug) return PRICE_TYPE_OPTIONS;
+  const allowed = new Set(publicPriceConditionsForPlatform(platformSlug));
+  return PRICE_TYPE_OPTIONS.filter((option) => allowed.has(option.value as "sealed" | "complete" | "loose"));
 }
 
 export function normalizeCatalogPriceTypeForPlatform(
   value: CatalogPriceType,
   platformSlug?: string | null,
 ): CatalogPriceType {
+  if (value === "gameManual" && publicPriceConditionsForPlatform(platformSlug).includes("loose")) return "loose";
   return catalogPriceTypeOptions(platformSlug).some((option) => option.value === value)
     ? value
     : DEFAULT_CATALOG_PRICE_TYPE;
@@ -165,6 +168,8 @@ function priceKey(game: CatalogListGame, priceType: CatalogPriceType): number | 
     ? game.physicalEditionGroup?.priceRanges.sealed
     : priceType === "complete"
       ? game.physicalEditionGroup?.priceRanges.complete
+      : priceType === "loose"
+        ? game.physicalEditionGroup?.priceRanges.loose
       : undefined;
   if (groupedRange) return groupedRange.min;
   if (priceType === "sealed") return game.estimatedPriceSealed ?? null;

@@ -9,6 +9,7 @@ from typing import Any
 
 from collectors.game_content_profile import manual_missing_declared, missing_original_contents
 from collectors.jgo_match import infer_condition
+from collectors.platform_price_policy import normalize_price_bucket, platform_price_media
 
 ROOT = Path(__file__).resolve().parents[2]
 WEIGHTS_FILE = ROOT / "data" / "price-source-weights.json"
@@ -23,9 +24,10 @@ BUCKET_LABELS_ES: dict[str, str] = {
 }
 
 RAW_TO_BUCKET: dict[str, str] = {
-    "used": "loose",
-    "preowned": "complete",
-    "segunda mano": "complete",
+    "new": "complete",
+    "nuevo": "complete",
+    "like new": "complete",
+    "como nuevo": "complete",
     "loose": "loose",
     "game_manual": "game_manual",
     "with_manual": "game_manual",
@@ -35,7 +37,7 @@ RAW_TO_BUCKET: dict[str, str] = {
     "sealed": "sealed",
 }
 
-SEALED_RE = re.compile(r"\b(precintado|precintada|sellado|sealed|brand new sealed|new sealed)\b", re.I)
+SEALED_RE = re.compile(r"\b(precintado|precintada|sellado|sealed|brand new sealed|new sealed|sin abrir|unopened)\b", re.I)
 UNSEALED_RE = re.compile(
     r"\b(no precintado|no precintada|desprecintado|desprecintada|sin precinto|precinto abierto|caja abierta|open box|opened)\b",
     re.I,
@@ -54,6 +56,7 @@ COMPLETE_RE = re.compile(
     r")\b",
     re.I,
 )
+NEW_OR_LIKE_NEW_RE = re.compile(r"\b(nuevo|nueva|como nuevo|como nueva|like new)\b", re.I)
 GAME_MANUAL_RE = re.compile(
     r"\b("
     r"juego\s*(?:\+|y|con)\s*manual|"
@@ -71,11 +74,23 @@ GAME_MANUAL_RE = re.compile(
 LOOSE_RE = re.compile(
     r"\b("
     r"solo cartucho|solo juego|solo disco|only cart|only disc|"
-    r"loose|suelto|usado\b|used\b|cartucho nudo|solo el juego|"
+    r"loose|suelto|cartucho nudo|solo el juego|"
     r"cartucho|cartridge"
     r")\b",
     re.I,
 )
+
+ACCESSORY_ONLY_RE = re.compile(
+    r"\b("
+    r"solo (?:caja|caratula|carátula|manual)|(?:box|case|manual) only|"
+    r"sin (?:juego|cartucho|disco)|(?:no|without) (?:game|cartridge|cart|disc)|"
+    r"caja\s*(?:\+|y|con)\s*manual\s*(?:sin (?:juego|cartucho)|solos?)?"
+    r")\b",
+    re.I,
+)
+CARTRIDGE_GAME_RE = re.compile(r"\b(cartucho|cartridge|cart|juego)\b", re.I)
+OPTICAL_GAME_RE = re.compile(r"\b(disco|disc|dvd|blu[ -]?ray|juego)\b", re.I)
+BOX_RE = re.compile(r"\b(caja|box|boxed|case)\b", re.I)
 
 
 def bucket_from_raw(raw: str | None, *, manual_expected: bool | None = None) -> str | None:
@@ -94,34 +109,51 @@ def infer_condition_bucket(
     description: str = "",
     manual_expected: bool | None = None,
     original_contents_expected: list[str] | None = None,
+    platform_slug: str = "",
 ) -> str | None:
     """Devuelve estado; completo exige todo el contenido original conocido."""
     combined = f"{condition_raw} {title} {description}".strip()
     if not combined:
         return None
     missing_expected = bool(missing_original_contents(combined, original_contents_expected))
+    media = platform_price_media(platform_slug) if platform_slug else None
+
+    if ACCESSORY_ONLY_RE.search(combined):
+        return None
 
     if UNSEALED_RE.search(combined):
-        return None if missing_expected else "complete"
+        return normalize_price_bucket(None if missing_expected else "complete", platform_slug) if platform_slug else (None if missing_expected else "complete")
     if SEALED_RE.search(combined):
         return "sealed"
     if NO_BOX_RE.search(combined):
-        return "game_manual" if GAME_MANUAL_RE.search(combined) else "loose"
+        bucket = "game_manual" if GAME_MANUAL_RE.search(combined) else "loose"
+        return normalize_price_bucket(bucket, platform_slug) if platform_slug else bucket
     if manual_missing_declared(combined):
-        return "complete" if manual_expected is False else None
+        if media == "cartridge" and CARTRIDGE_GAME_RE.search(combined):
+            bucket = "loose"
+        else:
+            bucket = "complete" if manual_expected is False else None
+        return normalize_price_bucket(bucket, platform_slug) if platform_slug else bucket
     if GAME_MANUAL_RE.search(combined) and not COMPLETE_RE.search(combined):
-        return "game_manual"
+        return normalize_price_bucket("game_manual", platform_slug) if platform_slug else "game_manual"
+    if NEW_OR_LIKE_NEW_RE.search(combined):
+        return "complete"
     if COMPLETE_RE.search(combined):
-        return None if missing_expected else "complete"
+        bucket = None if missing_expected else "complete"
+        return normalize_price_bucket(bucket, platform_slug) if platform_slug else bucket
     if LOOSE_RE.search(combined):
-        return "loose"
+        return normalize_price_bucket("loose", platform_slug) if platform_slug else "loose"
 
     inferred = infer_condition(combined)
     bucket = bucket_from_raw(inferred, manual_expected=manual_expected)
     if bucket == "complete" and missing_expected:
         return None
     if bucket:
-        return bucket
+        if media == "cartridge" and CARTRIDGE_GAME_RE.search(combined) and (BOX_RE.search(combined) or GAME_MANUAL_RE.search(combined)):
+            bucket = "loose"
+        if media == "optical" and bucket in {"loose", "game_manual"}:
+            return None
+        return normalize_price_bucket(bucket, platform_slug) if platform_slug else bucket
     return None
 
 

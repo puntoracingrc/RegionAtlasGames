@@ -32,6 +32,7 @@ type PhysicalEditionGroupTuple = [
   packagingLanguages: string[],
   completePriceRange: PriceRangeTuple | null,
   sealedPriceRange: PriceRangeTuple | null,
+  loosePriceRange?: PriceRangeTuple | null,
 ];
 
 export type CatalogBrowseGameTuple = [
@@ -115,6 +116,7 @@ function encodePhysicalEditionGroup(
     group.packagingLanguages,
     encodePriceRange(group.priceRanges.complete),
     encodePriceRange(group.priceRanges.sealed),
+    encodePriceRange(group.priceRanges.loose),
   ];
 }
 
@@ -124,6 +126,7 @@ function decodePhysicalEditionGroup(
   if (!group) return undefined;
   const complete = decodePriceRange(group[14]);
   const sealed = decodePriceRange(group[15]);
+  const loose = decodePriceRange(group[16] ?? null);
   return {
     guideId: group[0],
     canonicalCatalogId: group[1],
@@ -144,6 +147,7 @@ function decodePhysicalEditionGroup(
     ratingSystems: group[12],
     packagingLanguages: group[13],
     priceRanges: {
+      ...(loose ? { loose } : {}),
       ...(complete ? { complete } : {}),
       ...(sealed ? { sealed } : {}),
     },

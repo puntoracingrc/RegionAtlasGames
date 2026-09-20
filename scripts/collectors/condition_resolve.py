@@ -13,6 +13,7 @@ from collectors.condition_buckets import (
 from collectors.condition_vision import classify_condition_from_images
 from collectors.game_content_profile import manual_missing_declared, missing_original_contents
 from collectors.listing_images import row_image_urls
+from collectors.platform_price_policy import normalize_price_bucket
 
 CONDITION_HINT_RE = re.compile(
     r"\b("
@@ -72,16 +73,17 @@ def _text_bucket(
     if manual_missing_declared(text) and manual_expected is not False:
         return None
     if explicit in DISPLAY_BUCKETS:
-        return explicit
+        return normalize_price_bucket(explicit, str(row.get("platformSlug") or ""))
     bucket = bucket_from_raw(condition_raw, manual_expected=manual_expected)
     if bucket:
-        return bucket
+        return normalize_price_bucket(bucket, str(row.get("platformSlug") or ""))
     return infer_condition_bucket(
         title,
         condition_raw=condition_raw,
         description=description,
         manual_expected=manual_expected,
         original_contents_expected=original_contents_expected,
+        platform_slug=str(row.get("platformSlug") or ""),
     )
 
 
@@ -140,8 +142,9 @@ def resolve_condition_bucket(
     if original_contents_expected is None and isinstance(row.get("originalContentsExpected"), list):
         original_contents_expected = [str(item) for item in row["originalContentsExpected"]]
 
+    row_with_platform = {**row, "platformSlug": platform_slug}
     bucket = _text_bucket(
-        row,
+        row_with_platform,
         title=title,
         condition_raw=condition_raw,
         manual_expected=manual_expected,
@@ -151,7 +154,7 @@ def resolve_condition_bucket(
         return bucket, "text"
 
     if not use_vision or not _needs_vision(
-        row,
+        row_with_platform,
         title=title,
         condition_raw=condition_raw,
         manual_expected=manual_expected,
@@ -183,6 +186,8 @@ def resolve_condition_bucket(
         manual_expected=manual_expected,
         original_contents_expected=original_contents_expected,
     )
+    if bucket:
+        bucket = normalize_price_bucket(bucket, platform_slug)
     if bucket:
         _VISION_STATS["resolved"] += 1
         return bucket, "vision"

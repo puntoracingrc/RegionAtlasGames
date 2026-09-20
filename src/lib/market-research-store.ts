@@ -18,6 +18,7 @@ import type {
   MarketResearchRun,
   StoredCoverCandidate,
 } from "./market-research-types";
+import { normalizePublicPriceCondition } from "./platform-price-condition-policy";
 
 const DEFAULT_RECENT_DAYS = 45;
 const MAX_OBSERVATIONS_PER_GAME = 500;
@@ -164,6 +165,7 @@ function withoutOutliers(values: number[], floor = 3): { accepted: number[]; out
 export function calculateStoredMarketEstimates(
   observations: MarketObservation[],
   now = Date.now(),
+  platformSlug?: string,
 ): MarketResearchEstimate[] {
   const groups = new Map<string, {
     condition: Exclude<MarketObservation["conditionBucket"], "unknown">;
@@ -178,9 +180,13 @@ export function calculateStoredMarketEstimates(
     if (observation.reviewStatus !== "accepted" || !isCurrentMarketObservation(observation, now)) continue;
     if (observation.conditionBucket === "unknown" || observation.price == null || observation.price <= 0) continue;
     if (!observation.currency) continue;
-    const key = `${observation.conditionBucket}:${observation.currency}`;
+    const normalizedCondition = platformSlug
+      ? normalizePublicPriceCondition(observation.conditionBucket, platformSlug)
+      : observation.conditionBucket;
+    if (!normalizedCondition) continue;
+    const key = `${normalizedCondition}:${observation.currency}`;
     const group = groups.get(key) ?? {
-      condition: observation.conditionBucket,
+      condition: normalizedCondition,
       currency: observation.currency,
       values: [],
       shippingValues: [],
@@ -236,7 +242,7 @@ function toView(document: MarketResearchCatalogDocument): MarketResearchCatalogV
     }),
     runs: [...document.runs].sort((a, b) => parsedTime(b.collectedAt) - parsedTime(a.collectedAt)),
     publications: [...document.publications].sort((a, b) => parsedTime(b.publishedAt) - parsedTime(a.publishedAt)),
-    estimates: calculateStoredMarketEstimates(observations, now),
+    estimates: calculateStoredMarketEstimates(observations, now, document.platformSlug),
     counts: {
       accepted: observations.filter((item) => item.reviewStatus === "accepted").length,
       pending: observations.filter((item) => item.reviewStatus === "pending").length,

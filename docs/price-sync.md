@@ -50,18 +50,27 @@ Los precios retail validados se conservan por fuente y vuelven a participar en e
 
 ## Estados del artículo
 
-No se mezclan estados diferentes:
+La política pública depende del soporte físico y se aplica igual en collectors,
+conector, historial, ficha y filtros:
 
-| Campo | Estado público |
-|---|---|
-| `estimatedPriceLoose` | Juego o cartucho suelto |
-| `estimatedPriceGameManual` | Juego + manual, sin caja completa |
-| `estimatedPriceComplete` | Abierto con todo el contenido que incluia esa edicion de fabrica |
-| `estimatedPriceSealed` | Precintado |
-| `estimatedPriceNewRetail` | Nuevo en tienda, sin confirmacion visual de precinto |
+| Soporte | Estados públicos | Incluido | Excluido |
+|---|---|---|---|
+| Cartucho o tarjeta | `Precintado`, `Completo`, `Loose` | `Loose` agrupa cartucho solo, cartucho + manual y cartucho + caja | Manual solo, caja sola y caja + manual sin cartucho |
+| CD, DVD, Blu-ray y otros discos | `Precintado`, `Completo` | Copia abierta con el contenido original requerido | Disco suelto, caja suelta, manual suelto y cualquier combinación incompleta |
 
-`recommendedPrice` usa, por orden, completo, juego + manual, suelto, precintado
-y nuevo en tienda. PAL UK, Francia, Alemania, Italia, USA, Japon/Asia,
+`estimatedPriceLoose`, `estimatedPriceComplete` y `estimatedPriceSealed` son los
+únicos destinos públicos. Los campos heredados `estimatedPriceGameManual` y
+`estimatedPriceNewRetail` se conservan para no destruir historial, pero ningún
+collector nuevo los alimenta y no aparecen como categorías públicas.
+
+`Precintado` exige evidencia explícita: por ejemplo `precintado`, `sellado`,
+`factory sealed`, `sin abrir` o `unopened`. El estado genérico `nuevo` o `como
+nuevo` se clasifica como `Completo`, nunca como `Precintado`, salvo que el texto
+o la descripción declaren contenido ausente. La clasificación usa título y
+descripción; la condición genérica `usado` no basta para deducir componentes.
+
+`recommendedPrice` usa, por orden, completo, loose cuando la plataforma es de
+cartucho y precintado. PAL UK, Francia, Alemania, Italia, USA, Japon/Asia,
 digitales, lotes y ediciones distintas nunca rellenan huecos de PAL España.
 
 La presencia de manual se decide por juego y edicion, no por una regla general de

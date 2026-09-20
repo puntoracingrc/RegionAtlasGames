@@ -88,6 +88,7 @@ import {
 } from "@/lib/company-credits";
 import { getPublishedPriceHistory } from "@/lib/price-history";
 import { editionPriceGame, loadCatalogPriceGames } from "@/lib/catalog-price-games";
+import { allowedConditionBucketsForPlatform } from "@/lib/platform-price-condition-policy";
 import { getCatalogRouteRedirect } from "@/lib/catalog-route-redirects";
 import { getRegionDisplay } from "@/lib/region-display";
 import { SITE_DEFAULT_URL } from "@/lib/site-brand";
@@ -424,6 +425,10 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
             ? getRegionDisplay(linkedPriceGame.region).label
             : documentedRegions.map(region => getRegionDisplay(region).label).join(" / ");
           const priceEditionLabel = `${priceRegionLabel} · ${edition.label}`;
+          const allowedPriceBuckets = allowedConditionBucketsForPlatform(
+            priceGame.platformSlug,
+            currentEditionFamily.priceConditions,
+          );
           return {
             id: edition.id,
             label: edition.label,
@@ -435,7 +440,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
                 game={priceGame}
                 regionLabelOverride={priceEditionLabel}
                 pendingMessage="Aún no hay suficientes ventas verificadas para esta edición."
-                allowedBuckets={currentEditionFamily.priceConditions}
+                allowedBuckets={allowedPriceBuckets}
                 forcePending={!linkedPriceGame}
               />
             ),
@@ -444,7 +449,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
                 catalogId={linkedPriceGame?.id ?? edition.id}
                 editionLabel={priceEditionLabel}
                 history={linkedPriceGame ? getPublishedPriceHistory(linkedPriceGame) : []}
-                allowedBuckets={currentEditionFamily.priceConditions}
+                allowedBuckets={allowedPriceBuckets}
               />
             ),
           };
@@ -596,6 +601,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
               <GamePriceHero
                 game={game}
                 regionLabelOverride={regionLabel}
+                allowedBuckets={allowedConditionBucketsForPlatform(game.platformSlug)}
                 pendingMessage={physicalEditionIdentity
                   ? "Aún no hay suficientes ventas verificadas para esta edición."
                   : undefined}
@@ -603,7 +609,12 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
             )}
 
             {!isCanceledPhysicalRelease && !physicalEditionPriceOptions.length && (
-              <GamePriceHistoryChart catalogId={game.id} editionLabel={regionLabel} history={priceHistory} />
+              <GamePriceHistoryChart
+                catalogId={game.id}
+                editionLabel={regionLabel}
+                history={priceHistory}
+                allowedBuckets={allowedConditionBucketsForPlatform(game.platformSlug)}
+              />
             )}
 
             {currentPhysicalEdition?.collectionIdentity !== "physical-variant"

@@ -657,6 +657,7 @@ def row_from_product(product: dict[str, Any], matched_game: dict[str, Any], resu
     condition = infer_condition_bucket(
         title,
         condition_raw=str(product.get("conditionRaw") or ""),
+        platform_slug=str(matched_game.get("platformSlug") or ""),
     ) or "unknown"
     row = {
         "catalogId": str(matched_game["id"]),

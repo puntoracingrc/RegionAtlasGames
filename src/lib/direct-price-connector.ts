@@ -1,5 +1,6 @@
 import { createHash, timingSafeEqual } from "node:crypto";
 import type { CatalogGame } from "./types";
+import { publicPriceConditionsForPlatform } from "./platform-price-condition-policy";
 
 export class PriceConnectorError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -54,7 +55,9 @@ export function parsePriceSubmission(raw: unknown): PriceSubmission {
   if (/[\\/]/.test(catalogId) || /%(2f|5c|2e)/i.test(catalogId) || catalogId.includes("..")) fail("catalogId no válido.");
   const batchId = text(body.batchId, "batchId", 120);
   if (!/^[a-zA-Z0-9_-]+$/.test(batchId)) fail("batchId no válido.");
-  if (!Array.isArray(body.conditions) || !body.conditions.length || body.conditions.length > 3) fail("Se requiere al menos un estado loose/complete/sealed.");
+  const platformSlug = text(body.platformSlug, "platformSlug", 50);
+  const allowedStates = new Set(publicPriceConditionsForPlatform(platformSlug));
+  if (!Array.isArray(body.conditions) || !body.conditions.length || body.conditions.length > allowedStates.size) fail(`Se requiere al menos un estado admitido para ${platformSlug}: ${[...allowedStates].join("/")}.`);
   const ids = new Set<string>();
   const states = new Set<string>();
   const conditions = body.conditions.map(rawCondition => {
@@ -62,6 +65,7 @@ export function parsePriceSubmission(raw: unknown): PriceSubmission {
     exactKeys(row, ["state", "meanEur", "listings"]);
     if (row.state !== "loose" && row.state !== "complete" && row.state !== "sealed") fail("Estado no admitido.");
     const state: PriceCondition = row.state;
+    if (!allowedStates.has(state)) fail(`El estado ${state} no se admite para el soporte de ${platformSlug}.`);
     if (states.has(state)) fail("Estado repetido.");
     states.add(state);
     if (!Array.isArray(row.listings) || !row.listings.length || row.listings.length > 500) fail("Cada estado necesita entre 1 y 500 anuncios.");
@@ -81,7 +85,7 @@ export function parsePriceSubmission(raw: unknown): PriceSubmission {
     if (meanEuro(listings) !== meanEur) fail("La media declarada no coincide con los anuncios aceptados.");
     return { state, meanEur, listings };
   }).sort((a, b) => a.state.localeCompare(b.state, "en"));
-  return { schemaVersion: 1, batchId, catalogId, catalogTitle: text(body.catalogTitle, "catalogTitle", 500), platformSlug: text(body.platformSlug, "platformSlug", 50), region: text(body.region, "region", 100), currency: "EUR", taskId: text(body.taskId, "taskId", 160), conditions };
+  return { schemaVersion: 1, batchId, catalogId, catalogTitle: text(body.catalogTitle, "catalogTitle", 500), platformSlug, region: text(body.region, "region", 100), currency: "EUR", taskId: text(body.taskId, "taskId", 160), conditions };
 }
 
 export function authorizePriceConnector(request: Request, env: Record<string, string | undefined> = process.env): void {
@@ -93,6 +97,9 @@ export function authorizePriceConnector(request: Request, env: Record<string, st
 
 function oldPrice(game: CatalogGame, state: PriceCondition): number | null {
   let value = game[FIELDS[state]];
+  if (value == null && state === "loose" && publicPriceConditionsForPlatform(game.platformSlug).includes("loose")) {
+    value = game.estimatedPriceGameManual;
+  }
   if (value == null && state === "complete" && ALL_FIELDS.every(field => game[field] == null)) value = game.recommendedPrice;
   if (value == null) return null;
   if (!Number.isFinite(value) || value <= 0) throw new PriceConnectorError(409, "El precio previo requiere revisión; no se puede combinar automáticamente.");
@@ -131,8 +138,11 @@ export function planDirectPrice(game: PriceConnectorGame, input: PriceSubmission
       next[TOTAL_FIELDS[condition.state]] = total;
     }
   }
-  const values = ALL_FIELDS.map(field => next[field]).filter((value): value is number => value != null);
-  next.recommendedPrice = values[0] ?? null;
+  const publicConditions = publicPriceConditionsForPlatform(game.platformSlug);
+  const values = publicConditions
+    .map((state) => next[FIELDS[state]])
+    .filter((value): value is number => value != null);
+  next.recommendedPrice = next.estimatedPriceComplete ?? (publicConditions.includes("loose") ? next.estimatedPriceLoose ?? next.estimatedPriceGameManual : null) ?? next.estimatedPriceSealed ?? null;
   next.marketMin = values.length ? Math.min(...values) : null;
   next.marketMax = values.length ? Math.max(...values) : null;
   next.hasEsPrice = next.region === "PAL España" && values.length > 0;
