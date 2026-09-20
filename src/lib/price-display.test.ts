@@ -31,6 +31,22 @@ test("keeps the three catalog condition prices in a fixed order and preserves ga
   );
 });
 
+test("shows the selected release price instead of a grouped min-max range", () => {
+  assert.deepEqual(
+    catalogConditionPriceRows({
+      platformSlug: "ps5",
+      estimatedPriceSealed: 45,
+      estimatedPriceComplete: 30,
+      estimatedPriceLoose: null,
+      priceTrends: { sealed: "up", complete: "stable" },
+    }),
+    [
+      { condition: "sealed", label: "Precintado", price: 45, trend: "up" },
+      { condition: "complete", label: "Completo", price: 30, trend: "stable" },
+    ],
+  );
+});
+
 test("shows an orientative condition price instead of hiding it as unverified", () => {
   assert.equal(
     formatEsPriceForCard(

@@ -16,7 +16,7 @@ import { normalizeCatalogSearchText } from "@/lib/catalog-search-normalize";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import { toCatalogCardGame } from "@/lib/catalog-card-game";
+import { toRegionalCatalogCardGames, withRegionalCatalogPriceSource } from "@/lib/catalog-card-enrichment";
 import { parsePendingEdition } from "@/lib/catalog-review-policy";
 import { parseCatalogBroadRegion, parseCatalogPhysicalEditionType } from "@/lib/catalog-edition-guide-types";
 import type { CatalogListGame } from "@/lib/types";
@@ -111,13 +111,17 @@ export async function GET(request: Request) {
       ratingSystem,
       physicalEditionType,
     },
-    { platforms: true, regions: true },
+    {
+      platforms: true,
+      regions: true,
+      mapRegionalPriceSource: (game) => withRegionalCatalogPriceSource(game, region, false),
+    },
   );
 
   if (mode === "browser") {
     const start = (page - 1) * CATALOG_PAGE_SIZE;
     return NextResponse.json({
-      items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE).map(toCatalogCardGame),
+      items: toRegionalCatalogCardGames(filtered.items.slice(start, start + CATALOG_PAGE_SIZE), region),
       total: filtered.total,
       reviewCounts: filtered.reviewCounts,
     }, { headers });

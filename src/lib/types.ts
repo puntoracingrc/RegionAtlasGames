@@ -499,6 +499,8 @@ export type CatalogListGame = Pick<
   displayYear: number | null;
   /** Agrupación aditiva Game + Platform declarada por una guía de ediciones v2. */
   physicalEditionGroup?: CatalogPhysicalEditionGroupSummary;
+  /** Tendencia reciente por estado para la variante regional mostrada. */
+  priceTrends?: Partial<Record<"sealed" | "complete" | "loose", CatalogPriceTrend>>;
   /** Campos internos del indice. Se omiten en las respuestas de tarjetas. */
   searchText?: string;
   gameSearchText?: string;
@@ -512,6 +514,8 @@ export type CatalogListGame = Pick<
   isGrail: boolean;
   isTopSegment: boolean;
 };
+
+export type CatalogPriceTrend = "up" | "down" | "stable";
 
 export type CollectionCondition = "sealed" | "complete" | "game-manual" | "loose" | "unknown";
 

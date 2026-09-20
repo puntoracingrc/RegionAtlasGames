@@ -24,6 +24,7 @@ export function toCatalogCardGame(game: CatalogListGame): CatalogListGame {
     pcRefPrice: game.pcRefPrice,
     hasEsPrice: game.hasEsPrice,
     priceRegionVerified: game.priceRegionVerified,
+    ...(game.priceTrends ? { priceTrends: game.priceTrends } : {}),
     displayPlatform: game.displayPlatform,
     displayYear: game.displayYear,
     ...(game.physicalEditionGroup ? { physicalEditionGroup: game.physicalEditionGroup } : {}),
