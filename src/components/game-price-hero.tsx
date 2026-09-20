@@ -101,17 +101,10 @@ export function GamePriceHero({
   return (
     <section className="overflow-hidden rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-card to-card p-5 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-            Valor de reventa · {regionLabel}
-          </p>
-          <p className="mt-1 text-xs text-muted">
-            Importe convertido a EUR · precios por estado
-          </p>
-        </div>
-        <Badge tone={status === "verified" ? "amber" : "rose"}>
-          {status === "verified" ? "Precio verificado" : "Precio orientativo"}
-        </Badge>
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+          Valor de reventa · {regionLabel}
+        </p>
+        {status === "verified" ? <Badge tone="amber">Precio verificado</Badge> : null}
       </div>
 
       {conditionPrices.length > 0 && (
