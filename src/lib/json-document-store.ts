@@ -9,6 +9,7 @@ import {
   put,
 } from "@vercel/blob";
 import { blobAuthOptions } from "./blob-auth";
+import { blobReadPathname } from "./blob-read-pathname";
 
 export type JsonMutation<T, R> = (
   current: T,
@@ -136,7 +137,7 @@ async function readVersionedBlobDocument<T>(
   dependencies: BlobDocumentDependencies = defaultBlobDependencies,
 ): Promise<VersionedBlobDocument<T>> {
   const auth = await blobAuthOptions("private");
-  const response = await dependencies.get(options.pathname, { ...auth, useCache: false });
+  const response = await dependencies.get(blobReadPathname(options.pathname), { ...auth, useCache: false });
   const metadata = await readBlobMetadata(options.pathname, auth, dependencies);
   if (!response) {
     if (metadata) throw new BlobDocumentVersionConflictError();
