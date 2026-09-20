@@ -18,6 +18,16 @@ La cola de origen ya contiene ocho entradas con varias plataformas. Se conservan
 
 La preparación de este intercambio no cambia ningún estado de la cola. Recibir un JSON tampoco ejecuta una importación ni modifica estados automáticamente.
 
+## Selección de la primera pasada automática
+
+Una entrada `pending` **no debe volver a seleccionarse** si ya existe en `research/results/` un resultado cuyo `triggerQueueEntry.queueId` coincida **exactamente** con su `canonicalId`.
+
+En ese caso se salta temporalmente y se continúa con el siguiente `pending`, respetando el orden de la cola. Esta exclusión no cambia su estado a `completed`, no modifica la estructura de `queue.json` y no se decide por coincidencia de título ni por el nombre del archivo de resultado.
+
+Así, una investigación parcial no bloquea la cola ni se repite indefinidamente. Los resultados parciales podrán revisitarse posteriormente mediante una segunda pasada específica de `unresolved`/`partial`.
+
+Esta regla define el protocolo de selección; no implementa ni ejecuta la automatización. `catalog-group:ps4-a-way-out` permanece `pending`, pero su resultado existente la excluye de la primera pasada.
+
 ## Formato de resultados
 
 Cada archivo `results/<researchId>.json` contiene un objeto con estos campos obligatorios:

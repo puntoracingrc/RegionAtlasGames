@@ -86,3 +86,46 @@ Validación final local, 21/09/2026:
 Los registros de hashes protegidos de compañías/personas incluyen una nueva entrada de auditoría con hashes anteriores y posteriores, sin reescribir las entradas históricas. La prueba de expansión del catálogo conserva los hashes anteriores y admite únicamente la ficha adicional documentada.
 
 Detalle por variante y campos aceptados/retenidos: `decisions.json`. No se ejecutó ninguna escritura remota, push, PR, merge ni despliegue. Rama local: `codex/research-a-way-out-import`. Se conserva el worktree porque el cambio no está fusionado y su publicación queda pendiente de revisión.
+
+## Revisión del commit ae3c8af3 y cierre de la primera prueba
+
+Clasificación de los archivos auxiliares del commit, sin modificar los datos ya validados:
+
+| Archivo | Clasificación | Motivo |
+|---|---|---|
+| `data/meta.json` | Regeneración derivada esperada | Incrementos de una ficha listada, total y con detalles, y contador Xbox One. No se recalculan datos históricos ajenos. |
+| `package.json` | Necesaria | Registra las seis regresiones de A Way Out en la suite física que ejecuta `test:unit`; sin cambios de dependencias. |
+| `data/research/company-study/manifest.json` | Necesaria | Actualiza los hashes protegidos de detalles/índice de compañías e incorpora un registro before/after. Conserva todos los registros históricos. |
+| `data/research/person-study/manifest.json` | Necesaria | Ese estudio protege los mismos dos archivos globales: registra el cambio autorizado sin alterar biografías ni investigación de personas. |
+| `src/lib/company-research.test.ts` | Necesaria | Añade el identificador de esta importación a la secuencia esperada de auditorías; mantiene las verificaciones de hashes. |
+| `src/lib/person-research.test.ts` | Necesaria | Misma actualización de la secuencia de auditoría, sin relajar las verificaciones de personas. |
+| `src/lib/catalog-physical-editions-v2.test.ts` | Necesaria | Admite exactamente la ficha Xbox One adicional y sigue exigiendo las 32 anteriores y sus hashes de preservación. |
+| `src/lib/catalog-runtime-overlay.ts` | Necesaria | Evita transferir CUSA/EAN de la ficha principal española a la estadounidense al compartir guía; mantiene los escaneos propios prioritarios. No modifica datos persistidos de otros juegos. |
+| `data/index/companies.json` | Regeneración derivada esperada | Añade exclusivamente la ficha Xbox One a Hazelight Studios/Electronic Arts y ajusta sus contadores. |
+| `data/index/catalog-browse-index.json.gz` | Regeneración derivada esperada | Publica en el índice existente las guías y la nueva ficha. |
+| `data/index/catalog-card-lookup.json.gz` | Regeneración derivada esperada | Incorpora la nueva identidad al índice de fichas. |
+| `data/index/catalog-editorial-filter-index.json.gz` | Regeneración derivada esperada | Refleja los identificadores y la ficha añadida en búsqueda/filtros. |
+| `data/index/company-browse-index.json.gz` | Regeneración derivada esperada | Refleja los enlaces y contadores de las dos compañías. |
+| `scripts/verify-a-way-out-research-import.mjs` | Necesaria | Auditoría reproducible contra la base: bloquea cambios en otros juegos, precios, cola y resultado original. No es un importador automático. |
+| `artifacts/research-import/a-way-out-2026-09-20/README.md` | Necesaria | Informe de fuentes, conflictos, alcance, validación y revisión solicitada. |
+| `artifacts/research-import/a-way-out-2026-09-20/decisions.json` | Necesaria | Trazabilidad por variante y campo, incluidos datos retenidos. |
+| `artifacts/research-import/a-way-out-2026-09-20/preservation.json` | Necesaria | Evidencia de preservación y hashes anteriores/posteriores. |
+
+No se detectaron modificaciones incidentales/prescindibles en el commit; no se retira ninguna. `data/catalog.json`, `data/game-details.json`, `data/catalog-edition-guides.json` y `src/lib/catalog-a-way-out-research.test.ts` son los datos y pruebas directos de A Way Out.
+
+El cierre añade únicamente la regla anti-repetición a `research/README.md` y esta revisión al informe. La regla compara exactamente `triggerQueueEntry.queueId` con `canonicalId`, salta los resultados ya existentes en la primera pasada y reserva los parciales para otra pasada específica. No ejecuta la cola ni cambia su formato o sus estados.
+
+Revalidación de cierre, 21/09/2026: todos los comandos terminaron con código 0.
+
+- `npm run test:unit`: PASS (850 pruebas sumando pretest, suite principal y posttest).
+- `npm run test:scanner`: PASS (64).
+- `npm run test:published-price-views`: PASS (62).
+- `NODE_OPTIONS=--max-old-space-size=8192 npm run typecheck`: PASS.
+- `npm run build`: PASS (296 páginas estáticas), incluidos los generadores habituales de índices/detalles; no produjeron cambios adicionales en archivos versionados.
+- `npm run lint`: PASS (0 errores, 32 advertencias existentes).
+- `node scripts/verify-a-way-out-research-import.mjs`: PASS; 81.461 fichas previas y 50.604 detalles ajenos preservados, 0 cambios de precios y 0 cambios de estados de cola.
+- Comprobación de selección: el resultado de A Way Out coincide exactamente con su `canonicalId`; la entrada permanece `pending`. El texto documenta expresamente la segunda pasada `unresolved`/`partial`.
+- `git diff ae3c8af3 -- data src scripts package.json`: vacío. No se alteró ningún dato ni código validado durante este cierre.
+- `git diff --check`: PASS.
+
+El diff acumulado frente a `f3f25892` contiene 22 archivos: los 21 del commit revisado (enumerados arriba) más `research/README.md`. El nuevo commit de cierre modifica sólo los dos README. No se procesó otro juego, no se cambió la estructura de la cola y no se hizo push, merge ni despliegue. El worktree se conserva al estar pendiente de fusión/publicación autorizada.
