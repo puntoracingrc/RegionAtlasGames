@@ -26,6 +26,12 @@ class DirectPriceClientTests(unittest.TestCase):
         self.assertEqual(rows[0]["conditions"][0]["listings"][0]["listingId"], "one")
         self.assertEqual(len(rows[0]["conditions"][0]["listings"]), 1)
 
+    def test_loose_condition_is_published(self):
+        doc = self.document()
+        doc["groups"][0]["condition"] = "loose"
+        rows = publisher.submissions(doc, "task")
+        self.assertEqual(rows[0]["conditions"][0]["state"], "loose")
+
     def test_tampered_mean_or_count_fails(self):
         for key, value in (("acceptedCount", 2), ("cleanMeanEur", 15)):
             doc = self.document()

@@ -7,7 +7,7 @@ El conector publica datos persistentes por HTTPS. Cada lote posterior **no neces
 `POST /api/integrations/prices?mode=publish`, con `Authorization: Bearer …`, una ficha exacta por solicitud. `mode=preview` comprueba contra los precios vigentes sin guardar nada. `GET` comprueba autenticación y almacenamiento.
 
 - El task lee/aplica el manual y decide qué anuncios acepta. El conector no sustituye esa investigación ni convierte un match automático en una validación humana.
-- Moneda EUR, sin mezclar envío. Estados `complete` (usado completo) y `sealed` (precintado), separados.
+- Moneda EUR, sin mezclar envío. Estados `loose` (juego/cartucho/disco suelto), `complete` (usado completo) y `sealed` (precintado), separados.
 - La identidad debe coincidir con una ficha pública exacta: `catalogId`, título/edición, plataforma y región. No se exigen palabras regionales en anuncios de USA/Japón u otros mercados; la investigación aplica esa regla únicamente a España.
 - El servidor vuelve a calcular la media de los anuncios incluidos. Si falta el precio del mismo estado, introduce esa media; si existe, publica `(anterior + media) / 2`, redondeando a céntimos (mitades hacia arriba).
 - No impone un mínimo de anuncios: muestra única sigue siendo provisional. La depuración por mediana ocurre antes, en la investigación, y se conserva en el informe original.
@@ -15,7 +15,7 @@ El conector publica datos persistentes por HTTPS. Cada lote posterior **no neces
 - El recibo guarda task, lote, enlaces, importes antes/media/después. Recibo y precios se escriben juntos mediante ETag/CAS en el Blob de la ficha.
 - Reintentar el mismo `batchId` y contenido devuelve el recibo anterior. Otro contenido con ese identificador falla. Un anuncio ya incorporado a esa ficha no se vuelve a promediar en otro lote.
 - La atomicidad es por ficha, no por todo el catálogo. Una interrupción permite repetir el archivo completo: las fichas ya publicadas se omiten. El cliente se detiene en el primer error y conserva todos los recibos previos.
-- Se conserva `recommendedPrice` antiguo como usado completo solo si no había ningún desglose por estado, igual que el importador provisional anterior. Ambos estados leen el mismo snapshot previo, independientemente de su orden.
+- Se conserva `recommendedPrice` antiguo como usado completo solo si no había ningún desglose por estado, igual que el importador provisional anterior. Todos los estados leen el mismo snapshot previo, independientemente de su orden.
 
 ## Credenciales
 

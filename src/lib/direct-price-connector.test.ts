@@ -23,6 +23,15 @@ test("missing condition inserts mean, existing condition blends once", () => {
   assert.equal(blended.game.estimatedPriceSealed, 99);
   assert.equal(previous.estimatedPriceComplete, 10);
 });
+test("loose is stored and blended independently with its own shipping total", () => {
+  const submission = input({ conditions: [{ state: "loose", meanEur: 20, listings: [{ listingId: "loose-1", url: "https://www.wallapop.com/item/1", priceEur: 20 }] }] });
+  const inserted = planDirectPrice({ ...base, estimatedShippingToSpainLoose: 3.5 }, submission, "now");
+  assert.equal(inserted.game.estimatedPriceLoose, 20);
+  assert.equal(inserted.game.estimatedTotalToSpainLoose, 23.5);
+  const blended = planDirectPrice({ ...base, estimatedPriceLoose: 10 }, submission, "now");
+  assert.equal(blended.game.estimatedPriceLoose, 15);
+  assert.equal(blended.game.estimatedPriceComplete, undefined);
+});
 test("legacy complete and sealed read the immutable old state regardless of key order", () => {
   const submission = input({ conditions: [
     { state: "sealed", meanEur: 22.48, listings: [{ listingId: "new", url: "https://www.ebay.es/itm/2", priceEur: 22.48 }] },
