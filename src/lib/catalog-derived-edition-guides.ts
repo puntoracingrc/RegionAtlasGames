@@ -135,16 +135,24 @@ function humanize(value: string): string {
     .replace(/\b\p{L}/gu, (character) => character.toLocaleUpperCase("es"));
 }
 
+function editionIdentityLabel(game: CatalogGame): string | undefined {
+  const physicalVariant = game.physicalVariant?.trim();
+  if (physicalVariant && !/^(standard|standard edition)$/i.test(physicalVariant)) {
+    return physicalVariant;
+  }
+  return game.edition?.trim() || physicalVariant || undefined;
+}
+
 function familyIdentity(game: CatalogGame): string {
   const type = catalogDerivedEditionType(game);
   if (type !== "BUDGET_REISSUE" && type !== "OTHER") return type;
-  return `${type}:${normalizedIdentity(game.edition || game.physicalVariant || type)}`;
+  return `${type}:${normalizedIdentity(editionIdentityLabel(game) || type)}`;
 }
 
 function familyLabel(game: CatalogGame): string {
   const type = catalogDerivedEditionType(game);
   if (type === "BUDGET_REISSUE" || type === "OTHER") {
-    const raw = game.edition?.trim() || game.physicalVariant?.trim();
+    const raw = editionIdentityLabel(game);
     if (raw) return humanize(raw);
   }
   return catalogPhysicalEditionTypeLabel(type);

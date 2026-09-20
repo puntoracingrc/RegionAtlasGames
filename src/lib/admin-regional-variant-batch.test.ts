@@ -130,6 +130,29 @@ test("V2 keeps regional links but counts one physical edition per shared box", (
   assert.equal(guide.editionFamilies[0].physicalEditionIds.length, 11);
 });
 
+test("V2 prefers a named physical variant over a legacy standard edition", () => {
+  const game = {
+    id: "ps3-007-quantum-of-solace-not-for-resale",
+    slug: "007-quantum-of-solace-not-for-resale",
+    title: "007 Quantum of Solace",
+    titlePc: "007 Quantum of Solace",
+    platformSlug: "ps3",
+    region: "PAL Europa",
+    marketRegion: "EU_GENERIC",
+    physicalVariant: "Not For Resale",
+    edition: "standard",
+    listingStatus: "listed",
+    coverUrl: null,
+  } as CatalogGame;
+
+  const guide = buildRuntimeCatalogEditionGuide(game, [], [game]);
+  const edition = guide.physicalEditions.find((candidate) => candidate.catalogIds.includes(game.id));
+  const family = guide.editionFamilies.find((candidate) => edition && candidate.physicalEditionIds.includes(edition.id));
+
+  assert.equal(family?.label, "Not For Resale");
+  assert.equal(edition?.label, "Not For Resale");
+});
+
 test("the detail guide folds a published batch into the existing V2 central card", () => {
   const result = expandRegionalVariantBatch({
     title: "Mortal Shell II",
