@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   try {
     authorizePriceConnector(request);
     const persistentStorage = catalogOverlayEnabled();
-    return Response.json({ ok: persistentStorage, schemaVersion: 1, persistentStorage, currency: "EUR", conditions: ["complete", "sealed"], formula: "missing => mean; existing => (existing + mean) / 2" }, { status: persistentStorage ? 200 : 503, headers });
+    return Response.json({ ok: persistentStorage, schemaVersion: 1, persistentStorage, currency: "EUR", conditions: ["loose", "complete", "sealed"], formula: "missing => mean; existing => (existing + mean) / 2" }, { status: persistentStorage ? 200 : 503, headers });
   } catch (error) { return failure(error); }
 }
 

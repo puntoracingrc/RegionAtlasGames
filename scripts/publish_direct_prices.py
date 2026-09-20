@@ -109,7 +109,7 @@ def submissions(document, task_id):
         if entry["catalogTitle"] != group["gameTitle"]:
             raise ValueError("Los estados de la ficha no tienen el mismo título/edición.")
         condition = group["condition"]
-        if condition not in ("complete", "sealed") or any(row["state"] == condition for row in entry["conditions"]):
+        if condition not in ("loose", "complete", "sealed") or any(row["state"] == condition for row in entry["conditions"]):
             raise ValueError("Estado incorrecto o duplicado.")
         listings = []
         for record in group["records"]:

@@ -4,7 +4,7 @@ import type { CatalogGame } from "./types";
 export class PriceConnectorError extends Error {
   constructor(public status: number, message: string) { super(message); }
 }
-export type PriceCondition = "complete" | "sealed";
+export type PriceCondition = "loose" | "complete" | "sealed";
 export type PriceObservation = { listingId: string; url: string; priceEur: number };
 export type PriceSubmission = {
   schemaVersion: 1; batchId: string; catalogId: string; catalogTitle: string;
@@ -16,7 +16,9 @@ export type PriceReceipt = {
   conditions: { state: PriceCondition; before: number | null; mean: number; after: number; listings: PriceObservation[] }[];
 };
 export type PriceConnectorGame = CatalogGame & { priceConnectorReceipts?: PriceReceipt[] };
-const FIELDS = { complete: "estimatedPriceComplete", sealed: "estimatedPriceSealed" } as const;
+const FIELDS = { loose: "estimatedPriceLoose", complete: "estimatedPriceComplete", sealed: "estimatedPriceSealed" } as const;
+const SHIPPING_FIELDS = { loose: "estimatedShippingToSpainLoose", complete: "estimatedShippingToSpainComplete", sealed: "estimatedShippingToSpainSealed" } as const;
+const TOTAL_FIELDS = { loose: "estimatedTotalToSpainLoose", complete: "estimatedTotalToSpainComplete", sealed: "estimatedTotalToSpainSealed" } as const;
 const ALL_FIELDS = ["estimatedPriceComplete", "estimatedPriceGameManual", "estimatedPriceLoose", "estimatedPriceSealed", "estimatedPriceNewRetail"] as const;
 
 function fail(message: string): never { throw new PriceConnectorError(400, message); }
@@ -52,13 +54,13 @@ export function parsePriceSubmission(raw: unknown): PriceSubmission {
   if (/[\\/]/.test(catalogId) || /%(2f|5c|2e)/i.test(catalogId) || catalogId.includes("..")) fail("catalogId no válido.");
   const batchId = text(body.batchId, "batchId", 120);
   if (!/^[a-zA-Z0-9_-]+$/.test(batchId)) fail("batchId no válido.");
-  if (!Array.isArray(body.conditions) || !body.conditions.length || body.conditions.length > 2) fail("Se requiere uno o ambos estados complete/sealed.");
+  if (!Array.isArray(body.conditions) || !body.conditions.length || body.conditions.length > 3) fail("Se requiere al menos un estado loose/complete/sealed.");
   const ids = new Set<string>();
   const states = new Set<string>();
   const conditions = body.conditions.map(rawCondition => {
     const row = object(rawCondition);
     exactKeys(row, ["state", "meanEur", "listings"]);
-    if (row.state !== "complete" && row.state !== "sealed") fail("Estado no admitido.");
+    if (row.state !== "loose" && row.state !== "complete" && row.state !== "sealed") fail("Estado no admitido.");
     const state: PriceCondition = row.state;
     if (states.has(state)) fail("Estado repetido.");
     states.add(state);
@@ -123,11 +125,10 @@ export function planDirectPrice(game: PriceConnectorGame, input: PriceSubmission
   if (!input.conditions.some(row => row.state === "complete") && ALL_FIELDS.every(field => game[field] == null) && game.recommendedPrice != null) next.estimatedPriceComplete = oldPrice(game, "complete");
   for (const condition of conditions) {
     next[FIELDS[condition.state]] = condition.after;
-    const shipping = condition.state === "complete" ? game.estimatedShippingToSpainComplete : game.estimatedShippingToSpainSealed;
+    const shipping = game[SHIPPING_FIELDS[condition.state]];
     if (shipping != null && Number.isFinite(shipping) && shipping >= 0) {
       const total = Math.round((condition.after + shipping + Number.EPSILON) * 100) / 100;
-      if (condition.state === "complete") next.estimatedTotalToSpainComplete = total;
-      else next.estimatedTotalToSpainSealed = total;
+      next[TOTAL_FIELDS[condition.state]] = total;
     }
   }
   const values = ALL_FIELDS.map(field => next[field]).filter((value): value is number => value != null);
