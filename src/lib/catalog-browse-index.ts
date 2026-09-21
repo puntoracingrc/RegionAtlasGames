@@ -15,6 +15,7 @@ import {
   type CatalogPhysicalFilterOptions,
 } from "./catalog-edition-guide-types";
 import { isDefaultCatalogGame } from "./catalog-review-policy";
+import { withReviewedCatalogOverride } from "./catalog-reviewed-overrides";
 import { normalizeCatalogSearchParts } from "./catalog-search-normalize";
 import { regionSortRank } from "./platform-catalog-insights";
 import { getRegionDisplay, regionDisplayIdentity } from "./region-display";
@@ -115,6 +116,11 @@ function overlaySearchText(game: CatalogGame): string {
     ...(game.languages ?? []),
     ...(game.canonicalSerials ?? []),
     ...(game.resolutionSerials ?? []),
+    game.physicalReleaseGroup?.barcode,
+    game.physicalReleaseGroup?.serial,
+    game.physicalReleaseGroup?.catalogNumber,
+    game.physicalReleaseGroup?.boxCode,
+    ...(game.physicalReleaseGroup?.productCodes ?? []),
   ]);
 }
 
@@ -177,9 +183,9 @@ function centralEditionIdentity(game: CatalogListGame): string | null {
 function mergeGroupedCards(current: CatalogListGame, incoming: CatalogListGame): CatalogListGame {
   const currentGroup = current.physicalEditionGroup!;
   const incomingGroup = incoming.physicalEditionGroup!;
-  const preferred = incomingGroup.physicalEditionCount >= currentGroup.physicalEditionCount
-    ? incoming
-    : current;
+  // A hot regional addition must enrich the existing central card without
+  // replacing its stable public route with the new region's route.
+  const preferred = current;
   const preferredGroup = preferred.physicalEditionGroup!;
   const broadRegions = new Map(preferredGroup.broadRegions.map((entry) => [entry.value, entry]));
   for (const entry of [...currentGroup.broadRegions, ...incomingGroup.broadRegions]) {
@@ -305,7 +311,8 @@ export function mergeCatalogBrowseOverlay(
     }
   });
 
-  for (const overlay of overlays) {
+  for (const rawOverlay of overlays) {
+    const overlay = withReviewedCatalogOverride(rawOverlay);
     const displayPlatform = activePlatforms.get(overlay.platformSlug);
     if (!displayPlatform || overlay.listingStatus === "excluded" || (overlay.catalogKind && overlay.catalogKind !== "game")) {
       continue;
