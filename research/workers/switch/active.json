@@ -1,40 +1,34 @@
 {
   "schemaVersion": 2,
-  "generation": 5,
+  "generation": 6,
   "workerId": "switch",
-  "state": "RESULT_READY",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": 11,
+  "resultOrderTemplateVersion": null,
   "currentItemResearchId": null,
   "workPackage": {
-    "packageId": "switch-2026-09-21-001",
-    "grouping": {
-      "type": "single",
-      "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."
-    },
+    "packageId": "switch-2026-09-21-002",
+    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible tras excluir resultados existentes por la regla anti-repetición; no se ha supuesto afinidad con entradas posteriores."},
     "items": [
       {
-        "queueId": "catalog-group:switch-japon-hack-gu-last-recode",
+        "queueId": "catalog:switch-blud",
         "platform": "switch",
-        "title": ".hack GU Last Recode",
-        "catalogIds": [
-          "switch-japon-hack-gu-last-recode",
-          "switch-usa-hack-gu-last-recode"
-        ],
-        "researchId": "hack-gu-last-recode-switch-2026-09-21",
-        "orderPath": "research/workers/switch/orders/hack-gu-last-recode-switch-2026-09-21.md",
-        "resultPath": "research/results/hack-gu-last-recode-switch-2026-09-21.json",
-        "status": "RESULT_READY",
-        "checkpointPath": "research/workers/switch/checkpoints/hack-gu-last-recode-switch-2026-09-21.json"
+        "title": "#BLUD",
+        "catalogIds": ["switch-blud"],
+        "researchId": "blud-switch-2026-09-21",
+        "orderPath": "research/workers/switch/orders/blud-switch-2026-09-21.md",
+        "resultPath": "research/results/blud-switch-2026-09-21.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/switch/checkpoints/blud-switch-2026-09-21.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:41:02Z",
-  "updatedBy": "chatgpt",
-  "note": "Result ready for hack-gu-last-recode-switch-2026-09-21."
+  "updatedAt": "2026-09-21T13:24:43Z",
+  "updatedBy": "codex",
+  "note": "Resultado hack-gu-last-recode-switch-2026-09-21 validado e incorporado mediante Admin; runtime público verificado. Siguiente paquete preparado sin repetir el resultado consumido."
 }
