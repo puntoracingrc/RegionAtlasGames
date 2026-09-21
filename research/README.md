@@ -52,6 +52,18 @@ Así, una investigación parcial no bloquea la cola ni se repite indefinidamente
 
 Esta regla define el protocolo de selección; no implementa ni ejecuta la automatización. `catalog-group:ps4-a-way-out` permanece `pending`, pero su resultado existente la excluye de la primera pasada.
 
+## Tamaño de cada tanda
+
+La selección normal entrega **una sola entrada** por investigación. Puede entregar hasta **tres entradas consecutivas** de la cola cuando existe entre ellas una relación explícita y comprobable en los datos actuales de RegionAtlas, como pertenecer a la misma saga, serie o familia de ediciones del mismo juego.
+
+No basta con compartir editor, desarrollador, plataforma, género o una palabra genérica del título. La relación debe proceder del catálogo actual o de una identidad ya documentada; no se inventa para completar una tanda. Si la relación es dudosa, se entrega una sola entrada.
+
+Una secuencia relacionada se divide siempre en bloques máximos de tres y sin saltar entradas ajenas para formar el grupo. Por ejemplo, diez LEGO consecutivos se procesan como `3 + 3 + 3 + 1`; cinco Gran Turismo como `3 + 2`; y una secuencia de Resident Evil como bloques de tres. Al terminar el bloque se retoma el orden exacto de la cola.
+
+Aunque ChatGPT reciba hasta tres juegos relacionados en la misma petición, debe devolver **un archivo de resultado independiente por cada entrada**, cada uno con su propio `triggerQueueEntry.queueId`. Los identificadores, regiones, variantes, evidencias, conflictos y campos pendientes permanecen separados por juego. Una fuente sólo puede repetirse entre resultados cuando acredita realmente cada producto concreto.
+
+Antes de formar la tanda se aplican individualmente a cada entrada `researchStatus`, `needsResearch` y la regla anti-repetición. Una entrada no elegible corta el bloque consecutivo; no se sustituye por otra posterior. El procesamiento y la incorporación administrativa también se validan juego por juego.
+
 ## Formato de resultados
 
 Cada archivo `results/<researchId>.json` contiene un objeto con estos campos obligatorios:
