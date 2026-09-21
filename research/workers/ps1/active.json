@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 4,
+  "generation": 5,
   "workerId": "ps1",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps1",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
-  "currentItemResearchId": "98-koshien-ps1-2026-09-21",
+  "resultOrderTemplateVersion": 11,
+  "currentItemResearchId": null,
   "workPackage": {
     "packageId": "ps1-2026-09-21-001",
     "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
@@ -22,17 +22,13 @@
         "researchId": "98-koshien-ps1-2026-09-21",
         "orderPath": "research/workers/ps1/orders/98-koshien-ps1-2026-09-21.md",
         "resultPath": "research/results/98-koshien-ps1-2026-09-21.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/ps1/checkpoints/98-koshien-ps1-2026-09-21.json"
       }
     ]
   },
-  "lease": {
-    "runId": "ps1-20260921T055643Z-7f2c1a9d",
-    "claimedAt": "2026-09-21T05:56:43Z",
-    "expiresAt": "2026-09-21T06:46:43Z"
-  },
-  "updatedAt": "2026-09-21T05:56:43Z",
+  "lease": null,
+  "updatedAt": "2026-09-21T06:17:03Z",
   "updatedBy": "chatgpt",
-  "note": "Claimed 98-koshien-ps1-2026-09-21 for research."
+  "note": "Research result ready for 98-koshien-ps1-2026-09-21."
 }
