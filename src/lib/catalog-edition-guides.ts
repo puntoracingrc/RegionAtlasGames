@@ -878,6 +878,22 @@ export function getCatalogEditionGuide(
   runtimeGames: CatalogGame[] = [],
 ): CatalogEditionGuideModel | undefined {
   const baseGuide = getCatalogEditionGuideModel(game);
+  // Las publicaciones regionales creadas desde Admin viven en el overlay y
+  // pueden enriquecer fichas legacy que ya estaban en el catálogo estático.
+  // En ese caso la agrupación runtime es la fuente vigente: partir de la guía
+  // derivada estática dejaría la ficha existente como una caja antigua y las
+  // regiones nuevas como cajas V2 separadas (o haría caer la página en V1 si
+  // cambió algún dato de identidad permitido por Admin).
+  if (
+    runtimeGames.length
+    && game.physicalReleaseGroup
+    && (!baseGuide || baseGuide.origin === "catalog-derived")
+  ) {
+    return withCurrentCatalogEdition(
+      buildRuntimeCatalogEditionGuide(game, getCatalogEditionGuides(), runtimeGames),
+      game.id,
+    );
+  }
   const guide = baseGuide && runtimeGames.length
     ? extendCatalogEditionGuideWithRuntimeGames(baseGuide, game, runtimeGames)
     : baseGuide;
