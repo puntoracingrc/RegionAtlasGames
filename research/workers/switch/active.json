@@ -1,13 +1,13 @@
 {
   "schemaVersion": 2,
-  "generation": 1,
+  "generation": 2,
   "workerId": "switch",
   "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
-  "currentOrderTemplateVersion": 9,
+  "currentOrderTemplateVersion": 10,
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": null,
   "workPackage": {
@@ -28,7 +28,7 @@
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T04:59:09Z",
+  "updatedAt": "2026-09-21T05:07:35Z",
   "updatedBy": "codex",
   "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
 }

@@ -1,6 +1,6 @@
 # Plantilla maestra de orden de investigación
 
-`ORDER_TEMPLATE_VERSION: 9`
+`ORDER_TEMPLATE_VERSION: 10`
 
 Esta plantilla se envía completa para cada entrada. Sólo se sustituyen los tres bloques de entrada, contexto y fecha. No se resumen, eliminan ni suavizan requisitos entre juegos. En una tanda relacionada se genera una orden completa por entrada y ChatGPT devuelve un JSON independiente por cada una.
 
@@ -364,11 +364,11 @@ Cada elemento de `regionalPrices` debe incluir:
 - `sourceRefs`;
 - `unresolvedReason`.
 
-Cada observación conserva `sourceId`, `listingId` si existe, `productUrl`, `soldPrice`, `shippingPrice`, `soldAt`, `conditionBucket`, `regionEvidence`, `editionEvidence` y `includedContents`. Dos capturas o páginas que representen la misma operación cuentan una sola vez.
+Cada observación conserva `sourceId`, `listingId` si existe, `marketplace`, `listingUrl`, `accessedAt`, `listingStatus: "active"`, `sellerId` cuando exista, `askingPriceWithoutShipping`, `shippingPrice`, `currency`, `conditionBucket`, `regionEvidence`, `editionEvidence` e `includedContents`. Dos capturas, republicaciones o páginas que representen el mismo anuncio cuentan una sola vez.
 
-Si para uno de los estados obligatorios no existen dos ventas comparables con región demostrada, devuelve ese elemento con `confidence: "unresolved"`, `proposedBasePrice: null` y una explicación precisa. Esto no invalida los demás estados que sí tengan evidencia. No inventes, extrapoles ni copies el precio de otra región, edición o estado.
+Si para uno de los estados obligatorios no existen dos anuncios activos e independientes comparables con región demostrada, devuelve ese elemento con `confidence: "unresolved"`, `proposedBasePrice: null` y una explicación precisa. Esto no invalida los demás estados que sí tengan evidencia. No inventes, extrapoles ni copies el precio de otra región, edición o estado.
 
-ChatGPT no publica ni modifica precios. Codex vuelve a validar las operaciones y sólo incorpora un precio confirmado mediante el administrador y el overlay runtime existente.
+ChatGPT no publica ni modifica precios. Codex vuelve a validar los anuncios activos, su identidad, comparabilidad y cálculo, y sólo incorpora un precio confirmado mediante el administrador y el overlay runtime existente.
 
 ### Acciones prohibidas y pausa
 
