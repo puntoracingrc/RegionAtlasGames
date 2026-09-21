@@ -3,8 +3,78 @@ import type { CatalogGame } from "./types";
 const NEXT_LEVEL_ID = "ps3-usa-this-is-the-next-level";
 const NEXT_LEVEL_ALIAS_ID = "ps3-usa-3d-logo-and-demo-disc";
 const GAMING_PACK_ID = "ps3-3d-gaming-pack";
+const JIGOKU_STANDARD_ID = "ps3-japon-3rd-super-robot-wars-z-jigoku-hen";
+const TENGOKU_STANDARD_ID = "ps3-japon-3rd-super-robot-wars-z-tengokuhen";
+
+const reviewedSuperRobotWarsZ = {
+  [JIGOKU_STANDARD_ID]: {
+    title: "3rd Super Robot Wars Z: Jigoku-hen",
+    workId: "3rd-super-robot-wars-z-jigoku-hen",
+    physicalVariant: "Standard",
+    releaseGroup: {
+      id: "ps3:3rd-super-robot-wars-z-jigoku-hen:standard:01-japan",
+      label: "Estándar · Japón",
+      barcode: "4560467043386",
+      productCodes: ["BLJS-10256"],
+      releaseDate: "2014-04-10",
+      releaseDateContext: "Lanzamiento japonés",
+      notes: [
+        "La primera tirada podía incluir un código para el remake HD de Super Robot Wars y un escenario bonus.",
+        "No se crea otra edición física: no se ha documentado un JAN o código exterior diferente para esa primera tirada.",
+      ],
+    },
+  },
+  [TENGOKU_STANDARD_ID]: {
+    title: "3rd Super Robot Wars Z: Tengoku-hen",
+    workId: "3rd-super-robot-wars-z-tengoku-hen",
+    physicalVariant: "Standard",
+    releaseGroup: {
+      id: "ps3:3rd-super-robot-wars-z-tengoku-hen:standard:01-japan",
+      label: "Estándar · Japón",
+      barcode: "4560467047209",
+      productCodes: ["BLJS-10299"],
+      releaseDate: "2015-04-02",
+      releaseDateContext: "Lanzamiento japonés",
+      notes: [
+        "Las primeras copias podían incluir un código para descargar 3rd Super Robot Wars Z: Rengoku-hen.",
+        "Rengoku-hen es un bonus digital no vendido por separado; no cuenta como edición física ni como Blu-ray.",
+      ],
+    },
+  },
+} as const;
 
 export function withReviewedCatalogOverride(game: CatalogGame): CatalogGame {
+  const reviewedSuperRobotWarsEntry = reviewedSuperRobotWarsZ[game.id as keyof typeof reviewedSuperRobotWarsZ];
+  if (reviewedSuperRobotWarsEntry) {
+    return {
+      ...game,
+      title: reviewedSuperRobotWarsEntry.title,
+      titlePc: reviewedSuperRobotWarsEntry.title,
+      workId: reviewedSuperRobotWarsEntry.workId,
+      physicalVariant: reviewedSuperRobotWarsEntry.physicalVariant,
+      regionalStatus: "resolved",
+      marketRegion: "JP",
+      physicalReleaseGroup: {
+        ...reviewedSuperRobotWarsEntry.releaseGroup,
+        productCodes: [...reviewedSuperRobotWarsEntry.releaseGroup.productCodes],
+        notes: [...reviewedSuperRobotWarsEntry.releaseGroup.notes],
+        packagingLanguages: ["ja"],
+        softwareLanguages: ["ja"],
+        confidence: "CONFIRMED",
+        coverUrl: game.coverUrl,
+        ratingSystems: ["CERO B"],
+        catalogNumber: null,
+        serial: reviewedSuperRobotWarsEntry.releaseGroup.productCodes[0],
+        boxCode: null,
+        physicalContentStatus: "PHYSICAL_FULL_GAME",
+        physicalProductType: "NATIVE_GAME_DISC",
+        physicalContents: ["Disco Blu-ray de juego"],
+        digitalContents: [],
+        images: [],
+      },
+    };
+  }
+
   if (game.id === NEXT_LEVEL_ALIAS_ID) {
     return {
       ...game,
