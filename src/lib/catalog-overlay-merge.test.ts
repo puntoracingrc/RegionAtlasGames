@@ -167,6 +167,28 @@ test("a confirmed reviewed physical identity survives a stale catalog overlay", 
   assert.equal(merged.physicalReleaseGroup?.serial, "BLES-01017");
 });
 
+test("an overlay-only reviewed physical identity joins its canonical edition family", () => {
+  const overlayOnly = {
+    ...game(
+      "ps3-007-quantum-of-solace-collectors-edition-au",
+      "007 Quantum of Solace Collector's Edition AU",
+      "ps3",
+    ),
+    region: "Australia",
+    physicalVariant: "Collector AU",
+  };
+
+  const [merged] = mergeCatalogPlatformGames("ps3", [], [overlayOnly]);
+
+  assert.equal(merged.title, "007 Quantum of Solace");
+  assert.equal(merged.workId, "007-quantum-of-solace");
+  assert.equal(merged.region, "PAL Australia");
+  assert.equal(merged.marketRegion, "AU");
+  assert.equal(merged.physicalVariant, "Collector's Edition");
+  assert.equal(merged.physicalReleaseGroup?.barcode, "5030917063701");
+  assert.equal(merged.physicalReleaseGroup?.serial, "BLES-00411");
+});
+
 test("an overlay moved to another platform removes the stale static entry", () => {
   const staticGame = game("nes-pal-mario", "Mario");
   const movedOverlay = { ...staticGame, platformSlug: "snes" };
