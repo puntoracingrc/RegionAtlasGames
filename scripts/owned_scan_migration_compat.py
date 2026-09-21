@@ -14,6 +14,7 @@ LEDGERS = [
     ROOT / 'data/research/resident-evil-ps4-dedup-2026-09-15-amendments.json',
     ROOT / 'data/research/ac-global-physical-integration-2026-09-16-amendments.json',
     ROOT / 'data/research/ps3-3d-products-2026-09-21-amendments.json',
+    ROOT / 'data/research/ps3-super-robot-wars-z-2026-09-21-amendments.json',
 ]
 
 

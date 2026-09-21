@@ -987,6 +987,7 @@ test("catalog expansion preserves the exact pre-V2 catalog and the original four
   const previousCatalog = rawCatalog.filter((entry) =>
     entry.seedSource !== "physical-editions-v2" &&
     entry.seedSource !== "reviewed-ps3-3d-sync" &&
+    entry.seedSource !== "reviewed-ps3-super-robot-wars-z" &&
     !AC_PS3_NEW_CATALOG_IDS.includes(entry.id as (typeof AC_PS3_NEW_CATALOG_IDS)[number]));
   const residentEvilBeforeById = new Map<string, (typeof rawCatalog)[number]>([
     [

@@ -364,6 +364,9 @@ export function catalogPhysicalFilterOptions(platformSlug?: string): CatalogPhys
     if (documentedCatalogIds.has(game.id) || (platformSlug && game.platformSlug !== platformSlug)) continue;
     broadRegions.add(catalogDerivedBroadRegion(game));
     editionTypes.add(catalogDerivedEditionType(game));
+    for (const ratingSystem of game.physicalReleaseGroup?.ratingSystems ?? []) {
+      ratingSystems.add(ratingSystem);
+    }
     const rawFamilyLabel = game.physicalVariant?.trim() || game.edition?.trim() || "Estándar";
     const familyLabel = rawFamilyLabel
       .replace(/[-_]+/g, " ")

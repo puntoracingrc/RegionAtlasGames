@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "batchId": "reviewed-ps3-super-robot-wars-z-20260921",
+  "reviewedAt": "2026-09-21",
+  "beforeCommit": "722dfd45b70a69530b150e829cda12a13e1e3436",
+  "reason": "Revision conservadora de las ediciones fisicas japonesas de 3rd Super Robot Wars Z. Completa Jigoku-hen Standard y PlayStation 3 the Best, completa Tengoku-hen Standard y conserva los bonus de primera tirada como contenido digital sin crear ediciones fisicas ni mercados no demostrados.",
+  "files": {
+    "data/catalog.json": {
+      "beforeSha256": "fa6c155d322da9b5c51d963714c0a685b9c4a80642e248e26c045505919f4602",
+      "afterSha256": "fc0267253c0bcea3c37db4334a6e321396371b0b90b5432215f2834f46afa9c3"
+    },
+    "data/curation-report.json": {
+      "beforeSha256": "ab8604b387282ea365715638d7ac200628bd3472b2578175c39af43b281a0a60",
+      "afterSha256": "389de1ec6155e67ef2eaf763e8733ad0f07e07274ae91e5746039e701e954e20"
+    },
+    "data/game-details.json": {
+      "beforeSha256": "65b2589288f7e2f7b11f1b8151af1f5777723a4c554eb72a13f690d1f450df42",
+      "afterSha256": "2ce2929c4ecfb3e52c9bce874496b63b09b47e0515dede8ee9f1bc5d760a0e67"
+    },
+    "data/meta.json": {
+      "beforeSha256": "bf0cdd5d74becb55113cab1eb174c6180b3a59c9eb38a3412645d4a307f65390",
+      "afterSha256": "0633a36027626dda3f3e05e1aba38d1bd03e9f720223ad59b736fefb9c6d1db8"
+    },
+    "data/research/company-study/manifest.json": {
+      "beforeSha256": "dd7d13c5160c2f61d592db6c74b06478b43587f7defa240e1f9e1203e21fa662",
+      "afterSha256": "bc8d3024cf096155749030719c85d99998ae0806446a84efa8bc2bda5c6eaa80"
+    },
+    "data/research/person-study/manifest.json": {
+      "beforeSha256": "e9d99fba4c735965659e7acfd911c3f3d22538a80bbce341190c1c1176de57c2",
+      "afterSha256": "4cae6d64f8500acd0a05104844b91a2b34d2ed2323db5c713176cf5ddb3734e5"
+    }
+  }
+}

@@ -503,6 +503,7 @@ test("preserves catalog, company and prior research files byte for byte", () => 
       "absolum-v2-public-url-and-details-2026-09-13",
       "resident-evil-ps4-dedup-20260915",
       "reviewed-ps3-3d-products-20260921",
+      "reviewed-ps3-super-robot-wars-z-20260921",
     ],
   );
 });
