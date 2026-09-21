@@ -1,6 +1,6 @@
 # Plantilla maestra de orden de investigación
 
-`ORDER_TEMPLATE_VERSION: 5`
+`ORDER_TEMPLATE_VERSION: 7`
 
 Esta plantilla se envía completa para cada entrada. Sólo se sustituyen los bloques delimitados por `{{...}}`. No se resumen, eliminan ni suavizan requisitos entre juegos. En una tanda relacionada se genera una orden completa por entrada y ChatGPT devuelve un JSON independiente por cada una.
 
@@ -164,16 +164,15 @@ Conserva la mejor imagen directa disponible de cada lado y evita duplicados, min
 
 No reutilices una imagen entre regiones o ediciones sin una fuente que demuestre que corresponde al mismo producto físico. Una portada genérica, promocional, fan-made, recreada o procedente de otra plataforma no sirve como portada regional del release.
 
-El JSON conserva siempre `pageUrl` e `imageUrl`. No incrustes bytes ni base64 dentro del JSON. Si el canal permite descargar y adjuntar archivos, crea además `<researchId>-images.zip` con los originales encontrados y añade opcionalmente a cada elemento:
+El JSON conserva siempre `pageUrl` e `imageUrl`. No incrustes bytes ni base64 y no es necesario adjuntar un ZIP. ChatGPT sólo descubre la mejor URL original disponible y conserva su procedencia. No recortes, reescales, conviertas, edites ni recompongas imágenes.
 
-- `localFileName`;
-- `mimeType`;
-- `width` y `height`, sólo si se conocen;
-- `sha256`, calculado sobre el archivo adjunto.
+La URL externa es exclusivamente una fuente de adquisición y evidencia; nunca será el `coverUrl` público definitivo. ChatGPT no publica la imagen ni decide cuál será la portada de RegionAtlas.
 
-El ZIP es evidencia auxiliar y nunca sustituye la procedencia. No recortes, reescales, conviertas, edites ni recompongas las imágenes. No descargues miniaturas cuando exista el original accesible. Si la descarga está bloqueada, conserva la URL y registra la limitación; no la eludas.
+Después de validar identidad, región, edición y lado, Codex descarga el original mediante el administrador, valida archivo, formato, tamaño y dimensiones, y lo sube al almacenamiento propio de RegionAtlas. La ficha pública debe apuntar únicamente al asset interno resultante. La URL externa se conserva sólo en los artefactos de procedencia.
 
-ChatGPT no publica estas imágenes, no las copia a assets públicos y no decide cuál será la portada de RegionAtlas. Codex valida identidad, calidad, procedencia y uso mediante el administrador antes de cualquier incorporación.
+El nombre del asset interno lo genera RegionAtlas a partir de datos canónicos, nunca a partir del nombre remoto. Debe ser legible y empezar por el título normalizado del juego, seguido cuando sea necesario de plataforma, mercado, edición y lado: `<titulo>-<plataforma>-<mercado>-<edicion>-front.jpg` o `<titulo>-<plataforma>-<mercado>-<edicion>-back.jpg`. Se omiten segmentos vacíos, se usa un slug estable y sólo se añade un identificador estable del catálogo o del producto para resolver una colisión real. No se conservan nombres opacos, marcas de otra web, timestamps ni cadenas de consulta del origen.
+
+Si la descarga está bloqueada, el archivo no es válido, la imagen no corresponde al producto o el administrador no puede almacenar ese lado, no uses hotlink ni publiques la URL externa como sustituto. Conserva el candidato como `unresolved` y pausa únicamente esa incorporación.
 
 No inventes códigos, idiomas, región, componentes ni contenido físico a partir de una miniatura o imagen ilegible. Una imagen de caja interior no acredita la caja exterior, y una fotografía del disco no acredita el código de barras del producto completo.
 
@@ -319,6 +318,7 @@ Antes de entregar el resultado, valida obligatoriamente:
 12. que se haya intentado obtener una portada frontal y una contraportada para cada release regional, dejando explícita cualquier ausencia o bloqueo.
 13. que ningún precio propuesto use menos de dos ventas completadas, mezcle estados o carezca de prueba de la región exacta;
 14. que cartucho sólo investigue `sealed`, `complete` y `loose`, y soporte óptico sólo `sealed` y `complete`.
+15. que ninguna URL externa de imagen se presente como asset público definitivo de RegionAtlas.
 
 Si falla cualquiera de estas comprobaciones, corrige la entrega antes de devolverla. No sustituyas la corrección formal por una nueva investigación.
 
