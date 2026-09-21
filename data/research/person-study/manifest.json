@@ -35,7 +35,7 @@
     "portraitHotlinkingAllowed": false
   },
   "protectedFileHashes": {
-    "data/game-details.json": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce",
+    "data/game-details.json": "65b2589288f7e2f7b11f1b8151af1f5777723a4c554eb72a13f690d1f450df42",
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
     "data/index/companies.json": "92cbd16f65ea267bb9b425324b10c1092d16fd0368edcb7db9278c7da4d9e906",
     "data/index/company-entities.json": "c63335eebaa27acf5fa7ce6e68d18717b472f02f7bd9698326c4635588fad7e1",
@@ -194,6 +194,16 @@
         "data/game-details.json": {
           "before": "e751e84adbe6677001f31e835212f0069141b0b89a409cc7bd84273973bc4972",
           "after": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce"
+        }
+      }
+    },
+    {
+      "batchId": "reviewed-ps3-3d-products-20260921",
+      "reviewedAt": "2026-09-21",
+      "files": {
+        "data/game-details.json": {
+          "before": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce",
+          "after": "65b2589288f7e2f7b11f1b8151af1f5777723a4c554eb72a13f690d1f450df42"
         }
       }
     }

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "batchId": "reviewed-ps3-3d-products-20260921",
+  "reviewedAt": "2026-09-21",
+  "beforeCommit": "da515e6938a41e15be95705aa9ed2ad16517da96",
+  "reason": "Sincronizacion auditada de 3D Gaming Pack como caja australiana con voucher y alta de 3D Collection como Blu-ray asiatico BCAS-20136. Mantiene ambas identidades fisicas separadas y no crea mercados ni identificadores sin evidencia.",
+  "files": {
+    "data/catalog.json": {
+      "beforeSha256": "623be7727426895c4634ca88a6d0bbdb2b29b74c9cde2d2a301026fd33dcf54b",
+      "afterSha256": "fa6c155d322da9b5c51d963714c0a685b9c4a80642e248e26c045505919f4602"
+    },
+    "data/curation-report.json": {
+      "beforeSha256": "7dd36dc85e3ab1148d7f9f47a9a266b9e70f21e313d70874e1508e21293c68a9",
+      "afterSha256": "ab8604b387282ea365715638d7ac200628bd3472b2578175c39af43b281a0a60"
+    },
+    "data/game-details.json": {
+      "beforeSha256": "cef3acaa9666480cdade985dcd0ed2380b073a08194d359f8b475af851b3a7ce",
+      "afterSha256": "65b2589288f7e2f7b11f1b8151af1f5777723a4c554eb72a13f690d1f450df42"
+    },
+    "data/meta.json": {
+      "beforeSha256": "aeca1aafaab52fd4009217a96c5f79e94f53435895c4f926ee1ec9c182a7e7ec",
+      "afterSha256": "bf0cdd5d74becb55113cab1eb174c6180b3a59c9eb38a3412645d4a307f65390"
+    },
+    "data/research/company-study/manifest.json": {
+      "beforeSha256": "51ab13426d3f32ed6f4cd32d74f3939bd1e2ed7de416d3e2ba2badd49b360df5",
+      "afterSha256": "dd7d13c5160c2f61d592db6c74b06478b43587f7defa240e1f9e1203e21fa662"
+    },
+    "data/research/person-study/manifest.json": {
+      "beforeSha256": "916efc4106b7ca5263747693ef5005f076cf88be2b4ea86c876da9e20153ec52",
+      "afterSha256": "e9d99fba4c735965659e7acfd911c3f3d22538a80bbce341190c1c1176de57c2"
+    }
+  }
+}
