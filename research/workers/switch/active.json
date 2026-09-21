@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 9,
+  "generation": 10,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "drive-rally-switch-2026-09-21",
   "workPackage": {
     "packageId": "switch-2026-09-21-003",
     "grouping": {
@@ -45,8 +45,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-21T16:58:48Z",
-  "updatedBy": "codex",
-  "note": "#BLUD validado, publicado y consumido. Preparado el siguiente paquete relacionado sin borrar el resultado histórico."
+  "lease": {
+    "runId": "switch-20260921T172335Z-6",
+    "claimedAt": "2026-09-21T17:23:35Z",
+    "expiresAt": "2026-09-21T18:18:35Z"
+  },
+  "updatedAt": "2026-09-21T17:23:35Z",
+  "updatedBy": "chatgpt",
+  "note": "Claimed #Drive Rally standard USA for autonomous research."
 }
