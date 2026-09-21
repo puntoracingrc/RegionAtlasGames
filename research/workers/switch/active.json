@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 3,
+  "generation": 6,
   "workerId": "switch",
   "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -11,24 +11,24 @@
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": null,
   "workPackage": {
-    "packageId": "switch-2026-09-21-001",
-    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
+    "packageId": "switch-2026-09-21-002",
+    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible tras excluir resultados existentes por la regla anti-repetición; no se ha supuesto afinidad con entradas posteriores."},
     "items": [
       {
-        "queueId": "catalog-group:switch-japon-hack-gu-last-recode",
+        "queueId": "catalog:switch-blud",
         "platform": "switch",
-        "title": ".hack GU Last Recode",
-        "catalogIds": ["switch-japon-hack-gu-last-recode", "switch-usa-hack-gu-last-recode"],
-        "researchId": "hack-gu-last-recode-switch-2026-09-21",
-        "orderPath": "research/workers/switch/orders/hack-gu-last-recode-switch-2026-09-21.md",
-        "resultPath": "research/results/hack-gu-last-recode-switch-2026-09-21.json",
+        "title": "#BLUD",
+        "catalogIds": ["switch-blud"],
+        "researchId": "blud-switch-2026-09-21",
+        "orderPath": "research/workers/switch/orders/blud-switch-2026-09-21.md",
+        "resultPath": "research/results/blud-switch-2026-09-21.json",
         "status": "PENDING",
-        "checkpointPath": "research/workers/switch/checkpoints/hack-gu-last-recode-switch-2026-09-21.json"
+        "checkpointPath": "research/workers/switch/checkpoints/blud-switch-2026-09-21.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:14:52Z",
+  "updatedAt": "2026-09-21T13:24:43Z",
   "updatedBy": "codex",
-  "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
+  "note": "Resultado hack-gu-last-recode-switch-2026-09-21 validado e incorporado mediante Admin; runtime público verificado. Siguiente paquete preparado sin repetir el resultado consumido."
 }
