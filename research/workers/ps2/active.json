@@ -1,37 +1,37 @@
 {
   "schemaVersion": 2,
-  "generation": 4,
+  "generation": 5,
   "workerId": "ps2",
-  "state": "PROCESSING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": 5,
+  "resultOrderTemplateVersion": null,
   "currentItemResearchId": null,
   "workPackage": {
-    "packageId": "ps2-2026-09-21-001",
+    "packageId": "ps2-2026-09-21-002",
     "grouping": {
       "type": "single",
-      "basis": "Resultado ya recibido; pendiente de validación e incorporación administrativa."
+      "basis": "Siguiente entrada HIGH elegible del worker. La investigación parcial anterior queda excluida de la primera pasada por coincidencia exacta de triggerQueueEntry.queueId."
     },
     "items": [
       {
-        "queueId": "catalog:ps2-japon-_summer-first-print-limited-edition",
+        "queueId": "catalog:ps2-japon-_summer",
         "platform": "ps2",
-        "title": "_Summer ## [First Print Limited Edition]",
-        "catalogIds": ["ps2-japon-_summer-first-print-limited-edition"],
-        "researchId": "summer-first-print-limited-edition-ps2-2026-09-21",
-        "orderPath": null,
-        "resultPath": "research/results/summer-first-print-limited-edition-ps2-2026-09-21.json",
-        "status": "RESULT_READY",
-        "checkpointPath": null
+        "title": "_Summer##",
+        "catalogIds": ["ps2-japon-_summer"],
+        "researchId": "summer-standard-ps2-2026-09-21",
+        "orderPath": "research/workers/ps2/orders/summer-standard-ps2-2026-09-21.md",
+        "resultPath": "research/results/summer-standard-ps2-2026-09-21.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/ps2/checkpoints/summer-standard-ps2-2026-09-21.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T14:05:34Z",
+  "updatedAt": "2026-09-21T19:04:41Z",
   "updatedBy": "codex",
-  "note": "Codex está validando e incorporando por Admin la evidencia factual confirmada de la edición limitada. Los precios quedan excluidos por no cumplir el contrato vigente."
+  "note": "_summer## First Print Limited Edition validado, publicado y cerrado para la primera pasada con cobertura parcial. La entrada de cola permanece pending para una futura pasada unresolved; se ha preparado la siguiente entrada elegible sin borrar el resultado histórico."
 }

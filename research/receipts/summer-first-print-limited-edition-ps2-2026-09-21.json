@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "researchId": "summer-first-print-limited-edition-ps2-2026-09-21",
+  "queueId": "catalog:ps2-japon-_summer-first-print-limited-edition",
+  "platform": "ps2",
+  "catalogIds": [
+    "ps2-japon-_summer-first-print-limited-edition"
+  ],
+  "coverage": "partial",
+  "publishedAt": "2026-09-21T14:05:34Z",
+  "verifiedAt": "2026-09-21T19:04:41Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/summer-first-print-limited-edition-ps2-pal-jp",
+  "publishedRegions": [
+    "Japan"
+  ],
+  "publishedEdition": "First Print Limited Edition",
+  "publishedIdentifiers": {
+    "barcode": "4571164030173",
+    "productCode": "GN-06017"
+  },
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_INSUFFICIENT_COMPARABLE_EVIDENCE",
+  "internalAssets": {
+    "front": null,
+    "back": null
+  },
+  "verification": {
+    "publicPage": "PASS",
+    "editionBinding": "PASS",
+    "identifierBinding": "PASS",
+    "frontAsset": "PENDING_NO_VALIDATED_ASSET",
+    "backAsset": "PENDING_NO_VALIDATED_ASSET"
+  },
+  "unresolvedPreserved": [
+    "packagingLanguages",
+    "barcodePhysicalLocation",
+    "innerCaseConfiguration",
+    "instructionManual",
+    "postcard",
+    "bonusDramaCdCatalogCode",
+    "regionalDistributor"
+  ],
+  "sourcePerformanceDecision": "NOT_AGGREGATED_LEGACY_RESULT_WITHOUT_QUERY_LEDGER_OR_SOURCE_ATTEMPTS",
+  "resultFile": "research/results/summer-first-print-limited-edition-ps2-2026-09-21.json",
+  "resultSha256": "ae2c0288c91cc9f351bcb10bd954a6620a46e4bb242c7cbf101a77b4e22aa770",
+  "workerResultCommit": "2c6efa118dc08ebf94207db4601f13a5000d9fe7"
+}
