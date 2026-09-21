@@ -1,0 +1,1225 @@
+{
+  "researchId": "summer-first-print-limited-edition-ps2-2026-09-21",
+  "triggerQueueEntry": {
+    "queueId": "catalog:ps2-japon-_summer-first-print-limited-edition",
+    "platform": "ps2",
+    "catalogIds": [
+      "ps2-japon-_summer-first-print-limited-edition"
+    ]
+  },
+  "researchedTitle": "_summer##",
+  "platformsInvestigated": [
+    "ps2"
+  ],
+  "gameFacts": {
+    "officialTitle": {
+      "value": "_summer##",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_mediaworld_standard",
+        "s_gamefaqs",
+        "s_mobygames"
+      ]
+    },
+    "originalTitle": {
+      "value": "_summer##",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_mediaworld_standard",
+        "s_gamefaqs",
+        "s_mobygames"
+      ]
+    },
+    "alternateTitles": [
+      {
+        "value": "アンダーバーサマー ダブルシャープ",
+        "type": "Japanese reading",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_mediaworld_standard",
+          "s_playasia_standard",
+          "s_mobygames"
+        ]
+      },
+      {
+        "value": "Underbar Summer Double Sharp",
+        "type": "English rendering",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_mobygames"
+        ]
+      }
+    ],
+    "developer": {
+      "value": "HOOKSOFT",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_mobygames",
+        "s_psx_standard"
+      ]
+    },
+    "publisher": {
+      "value": "GN Software / GoodNavigate Co., Ltd.",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_mobygames",
+        "s_mediaworld_standard"
+      ]
+    },
+    "genres": [
+      {
+        "value": "Adventure",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_gamefaqs",
+          "s_mediaworld_limited"
+        ]
+      },
+      {
+        "value": "Visual novel",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_gamefaqs",
+          "s_mobygames"
+        ]
+      },
+      {
+        "value": "Romance adventure",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_mediaworld_standard",
+          "s_mediaworld_best",
+          "s_mobygames"
+        ]
+      }
+    ],
+    "series": {
+      "value": null,
+      "confidence": "unresolved",
+      "sourceRefs": []
+    },
+    "players": {
+      "value": 1,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_mediaworld_standard",
+        "s_mediaworld_limited",
+        "s_mediaworld_best",
+        "s_gamefaqs",
+        "s_psx_standard"
+      ]
+    },
+    "modes": [
+      {
+        "value": "Single-player",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_gamefaqs",
+          "s_psx_standard"
+        ]
+      },
+      {
+        "value": "Offline only",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_gamefaqs",
+          "s_psx_standard"
+        ]
+      }
+    ],
+    "support": {
+      "value": "PlayStation 2 DVD-ROM; game disc documented as DVD-5 with one data track",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_mobygames",
+        "s_psx_standard",
+        "s_psx_limited",
+        "s_psx_best"
+      ]
+    }
+  },
+  "releases": [
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "Standard",
+      "market": "Japan",
+      "distributionMarkets": [
+        "Japan"
+      ],
+      "packagingLanguages": [],
+      "softwareLanguages": [
+        "Japanese"
+      ],
+      "barcode": "4571164030180",
+      "productCode": "SLPM-66460",
+      "serial": "SLPM-66460",
+      "releaseDate": "2006-08-24",
+      "releaseType": "Standard retail edition",
+      "ratingSystem": "CERO B (12+)",
+      "regionalPublisher": "GN Software",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "1 PlayStation 2 DVD-5 game disc"
+      ],
+      "components": [
+        {
+          "component": "retailProduct",
+          "barcode": "4571164030180",
+          "productCode": "SLPM-66460",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_mediaworld_standard",
+            "s_gamefaqs",
+            "s_psx_standard"
+          ]
+        },
+        {
+          "component": "retailCase",
+          "packagingLanguages": [],
+          "confidence": "unresolved",
+          "sourceRefs": []
+        },
+        {
+          "component": "gameDisc",
+          "media": "DVD-5",
+          "discCount": 1,
+          "tracks": 1,
+          "printedSerial": "SLPM-66460",
+          "internalSerial": "SLPM-66460",
+          "softwareLanguages": [
+            "Japanese"
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_psx_standard"
+          ]
+        },
+        {
+          "component": "instructionManual",
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      ],
+      "notes": [
+        "The commercial title includes the literal '##'; it is part of the title rather than an import separator.",
+        "Japanese sources give the reading アンダーバーサマー ダブルシャープ.",
+        "The standard release is physically distinct from the First Print Limited Edition and the later Best Version.",
+        "The earlier Windows title is _summer; the PS2 commercial title is _summer##."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_mediaworld_standard",
+        "s_psx_standard",
+        "s_mobygames"
+      ],
+      "fieldSourceRefs": {
+        "releaseTitle": [
+          "s_mediaworld_standard",
+          "s_mobygames"
+        ],
+        "market": [
+          "s_gamefaqs",
+          "s_playasia_standard",
+          "s_psx_standard"
+        ],
+        "softwareLanguages": [
+          "s_psx_standard"
+        ],
+        "barcode": [
+          "s_mediaworld_standard",
+          "s_gamefaqs",
+          "s_psx_standard"
+        ],
+        "productCode": [
+          "s_mediaworld_standard",
+          "s_gamefaqs",
+          "s_psx_standard"
+        ],
+        "serial": [
+          "s_psx_standard"
+        ],
+        "releaseDate": [
+          "s_mediaworld_standard",
+          "s_gamefaqs",
+          "s_psx_standard"
+        ],
+        "ratingSystem": [
+          "s_mediaworld_standard",
+          "s_gamefaqs"
+        ],
+        "regionalPublisher": [
+          "s_gamefaqs",
+          "s_mediaworld_standard"
+        ]
+      }
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "First Print Limited Edition",
+      "market": "Japan",
+      "distributionMarkets": [
+        "Japan"
+      ],
+      "packagingLanguages": [],
+      "softwareLanguages": [
+        "Japanese"
+      ],
+      "barcode": "4571164030173",
+      "productCode": "GN-06017",
+      "serial": "GN-06017",
+      "releaseDate": "2006-08-24",
+      "releaseType": "First-print limited-edition box set",
+      "ratingSystem": "CERO B (12+)",
+      "regionalPublisher": "GN Software",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "1 PlayStation 2 DVD-5 game disc",
+        "1 picture-label bonus drama CD",
+        "1 double-sided Konami Hatano illustrated dakimakura cover",
+        "1 original Konami Hatano mobile-phone strap",
+        "limited-edition outer box"
+      ],
+      "components": [
+        {
+          "component": "retailProduct",
+          "barcode": "4571164030173",
+          "productCode": "GN-06017",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_mediaworld_limited",
+            "s_gamefaqs",
+            "s_psx_limited"
+          ]
+        },
+        {
+          "component": "outerBox",
+          "name": "First Print Limited Edition BOX",
+          "packagingLanguages": [],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_mediaworld_limited",
+            "s_playasia_limited"
+          ]
+        },
+        {
+          "component": "innerCase",
+          "confidence": "unresolved",
+          "sourceRefs": []
+        },
+        {
+          "component": "gameDisc",
+          "media": "DVD-5",
+          "discCount": 1,
+          "tracks": 1,
+          "printedSerial": "GN-06017",
+          "internalSerial": "GN-06017",
+          "softwareLanguages": [
+            "Japanese"
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_psx_limited"
+          ]
+        },
+        {
+          "component": "instructionManual",
+          "name": "Instruction manual",
+          "confidence": "probable",
+          "sourceRefs": [
+            "s_yahoo_complete_set",
+            "s_mediaworld_limited_no_manual"
+          ]
+        },
+        {
+          "component": "bonusDramaCD",
+          "name": "_summer## First Press Bonus Drama CD",
+          "media": "CD",
+          "discCount": 1,
+          "catalogCode": "GN-06002",
+          "catalogCodeConfidence": "probable",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_mediaworld_limited",
+            "s_playasia_limited",
+            "s_surugaya_drama_cd",
+            "s_vgmdb_drama_cd"
+          ]
+        },
+        {
+          "component": "dakimakuraCover",
+          "name": "Konami Hatano illustrated double-sided dakimakura cover",
+          "details": "Approximately 125 cm × 46 cm; different costume artwork on each side",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_mediaworld_limited",
+            "s_playasia_limited",
+            "s_surugaya_pillow"
+          ]
+        },
+        {
+          "component": "mobilePhoneStrap",
+          "name": "Original Konami Hatano mobile-phone strap",
+          "details": "Approximately 165 mm excluding the cord",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_mediaworld_limited",
+            "s_playasia_limited",
+            "s_surugaya_strap"
+          ]
+        },
+        {
+          "component": "postcard",
+          "name": "Postcard / registration card",
+          "confidence": "probable",
+          "sourceRefs": [
+            "s_yahoo_complete_set"
+          ]
+        }
+      ],
+      "notes": [
+        "The First Print Limited Edition is a distinct physical product with JAN/EAN 4571164030173 and product identifier GN-06017.",
+        "The product-level barcode 4571164030173 is not assigned specifically to the outer box or inner case because the available sources do not establish which physical packaging component carries it.",
+        "PSX DataCenter documents GN-06017 as the printed and internal serial of the limited-edition game disc.",
+        "The standard-release serial SLPM-66460 is a different physical disc identity.",
+        "The existence of the bonus drama CD is confirmed; the separate catalog code GN-06002 is retained only as probable because the available code evidence comes from generic catalogue/search-style pages rather than a direct dedicated technical product record.",
+        "The advertised limited-edition bonuses are the picture-label drama CD, double-sided Konami Hatano dakimakura cover and original mobile-phone strap.",
+        "Manual and postcard evidence remains below confirmed threshold."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_mediaworld_limited",
+        "s_psx_limited",
+        "s_playasia_limited"
+      ],
+      "fieldSourceRefs": {
+        "releaseTitle": [
+          "s_mediaworld_limited",
+          "s_gamefaqs",
+          "s_psx_limited"
+        ],
+        "editionName": [
+          "s_mediaworld_limited",
+          "s_playasia_limited",
+          "s_gamefaqs"
+        ],
+        "market": [
+          "s_gamefaqs",
+          "s_playasia_limited",
+          "s_psx_limited"
+        ],
+        "distributionMarkets": [
+          "s_gamefaqs",
+          "s_playasia_limited"
+        ],
+        "softwareLanguages": [
+          "s_psx_limited"
+        ],
+        "barcode": [
+          "s_mediaworld_limited",
+          "s_gamefaqs",
+          "s_psx_limited"
+        ],
+        "productCode": [
+          "s_mediaworld_limited",
+          "s_gamefaqs",
+          "s_psx_limited"
+        ],
+        "serial": [
+          "s_psx_limited"
+        ],
+        "releaseDate": [
+          "s_mediaworld_limited",
+          "s_gamefaqs",
+          "s_psx_limited"
+        ],
+        "ratingSystem": [
+          "s_mediaworld_limited",
+          "s_gamefaqs",
+          "s_playasia_limited"
+        ],
+        "regionalPublisher": [
+          "s_gamefaqs",
+          "s_mediaworld_limited"
+        ],
+        "physicalContents": [
+          "s_mediaworld_limited",
+          "s_playasia_limited"
+        ]
+      }
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "Best Version",
+      "market": "Japan",
+      "distributionMarkets": [
+        "Japan"
+      ],
+      "packagingLanguages": [],
+      "softwareLanguages": [
+        "Japanese"
+      ],
+      "barcode": "4571164038186",
+      "productCode": "SLPM-66877",
+      "serial": "SLPM-66877",
+      "releaseDate": "2007-10-04",
+      "releaseType": "Budget reissue / GNsoftware Best",
+      "ratingSystem": "CERO B (12+)",
+      "regionalPublisher": "GN Software",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "1 PlayStation 2 DVD-5 game disc"
+      ],
+      "components": [
+        {
+          "component": "retailProduct",
+          "barcode": "4571164038186",
+          "productCode": "SLPM-66877",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_mediaworld_best",
+            "s_gamefaqs",
+            "s_psx_best"
+          ]
+        },
+        {
+          "component": "retailCase",
+          "packagingLanguages": [],
+          "confidence": "unresolved",
+          "sourceRefs": []
+        },
+        {
+          "component": "gameDisc",
+          "media": "DVD-5",
+          "discCount": 1,
+          "tracks": 1,
+          "printedSerial": "SLPM-66877",
+          "internalSerial": "SLPM-66877",
+          "softwareLanguages": [
+            "Japanese"
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_psx_best"
+          ]
+        },
+        {
+          "component": "instructionManual",
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      ],
+      "notes": [
+        "This is a lower-price physical reissue released after the standard and First Print Limited Edition.",
+        "It has a distinct JAN/EAN and PS2 serial."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_mediaworld_best",
+        "s_psx_best"
+      ],
+      "fieldSourceRefs": {
+        "releaseTitle": [
+          "s_mediaworld_best",
+          "s_gamefaqs",
+          "s_psx_best"
+        ],
+        "editionName": [
+          "s_mediaworld_best",
+          "s_gamefaqs",
+          "s_psx_best"
+        ],
+        "market": [
+          "s_gamefaqs",
+          "s_psx_best"
+        ],
+        "softwareLanguages": [
+          "s_psx_best"
+        ],
+        "barcode": [
+          "s_mediaworld_best",
+          "s_gamefaqs",
+          "s_psx_best"
+        ],
+        "productCode": [
+          "s_mediaworld_best",
+          "s_gamefaqs",
+          "s_psx_best"
+        ],
+        "serial": [
+          "s_psx_best"
+        ],
+        "releaseDate": [
+          "s_mediaworld_best",
+          "s_gamefaqs",
+          "s_psx_best"
+        ],
+        "ratingSystem": [
+          "s_mediaworld_best",
+          "s_gamefaqs"
+        ],
+        "regionalPublisher": [
+          "s_gamefaqs",
+          "s_mediaworld_best"
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "s_gamefaqs",
+      "url": "https://gamefaqs.gamespot.com/ps2/931604-summer-/data",
+      "title": "_summer ## Release Information for PlayStation 2 - GameFAQs",
+      "accessedAt": "2026-09-21",
+      "supports": "Structured PS2 release data for the standard, First Print Limited Edition and Best Version, including identifiers, dates, publisher, player count and network status."
+    },
+    {
+      "sourceId": "s_mediaworld_standard",
+      "url": "https://mediaworld.co.jp/products/10402756001",
+      "title": "[PS2] _summer## アンダーバーサマーダブルシャープ 通常版 - MediaWorld",
+      "accessedAt": "2026-09-21",
+      "supports": "Standard Japanese PS2 product title, reading, release date, SLPM-66460, JAN 4571164030180, GN Software, genre, CERO B and one-player metadata."
+    },
+    {
+      "sourceId": "s_mediaworld_limited",
+      "url": "https://mediaworld.co.jp/products/10402757001",
+      "title": "[PS2] _summer## 初回限定版 - MediaWorld",
+      "accessedAt": "2026-09-21",
+      "supports": "First Print Limited Edition identity, GN-06017, JAN 4571164030173, release date, publisher, CERO rating, player count and advertised limited-edition bonus contents."
+    },
+    {
+      "sourceId": "s_mediaworld_limited_no_manual",
+      "url": "https://mediaworld.co.jp/products/10402757003",
+      "title": "[PS2] _summer## First Print Limited Edition used-condition listing - MediaWorld",
+      "accessedAt": "2026-09-21",
+      "supports": "Condition-specific used listing identifies the limited product and states that cover/instruction-manual material is missing; used only as secondary evidence for manual existence."
+    },
+    {
+      "sourceId": "s_mediaworld_best",
+      "url": "https://mediaworld.co.jp/products/10403654001",
+      "title": "[PS2] _summer## Best Version - MediaWorld",
+      "accessedAt": "2026-09-21",
+      "supports": "Best Version identity, SLPM-66877, JAN 4571164038186, release date, publisher, genre, CERO B and one-player metadata."
+    },
+    {
+      "sourceId": "s_psx_standard",
+      "url": "https://psxdatacenter.com/psx2/games2/SLPM-66460.html",
+      "title": "_SUMMER ## - PSX DataCenter",
+      "accessedAt": "2026-09-21",
+      "supports": "Standard release technical record: printed/internal serial SLPM-66460, DVD-5, one data track, barcode 4571164030180, Japanese software language, one player and no network support."
+    },
+    {
+      "sourceId": "s_psx_limited",
+      "url": "https://psxdatacenter.com/psx2/games2/GN-06017.html",
+      "title": "_SUMMER ## [FIRST PRINT LIMITED EDITION] - PSX DataCenter",
+      "accessedAt": "2026-09-21",
+      "supports": "Limited-edition technical record: printed/internal game-disc serial GN-06017, DVD-5, one data track, product barcode 4571164030173, Japanese software language and release date."
+    },
+    {
+      "sourceId": "s_psx_best",
+      "url": "https://psxdatacenter.com/psx2/games2/SLPM-66877.html",
+      "title": "_SUMMER ## [BEST VERSION] - PSX DataCenter",
+      "accessedAt": "2026-09-21",
+      "supports": "Best Version technical record: printed/internal serial SLPM-66877, DVD-5, one data track, barcode 4571164038186, Japanese software language and release date."
+    },
+    {
+      "sourceId": "s_playasia_standard",
+      "url": "https://www.play-asia.com/en/summer/13/701fhm",
+      "title": "_summer## for PlayStation 2 - Play-Asia",
+      "accessedAt": "2026-09-21",
+      "supports": "Standard edition listed as Japan version, catalog SLPM-66460, with Japanese reading."
+    },
+    {
+      "sourceId": "s_playasia_limited",
+      "url": "https://www.play-asia.com/en/summer-first-print-limited-edition/13/701fhn",
+      "title": "_summer## [First Print Limited Edition] - Play-Asia",
+      "accessedAt": "2026-09-21",
+      "supports": "Limited Japan version and advertised picture-label drama CD, double-sided illustrated pillow cover and mobile-phone strap."
+    },
+    {
+      "sourceId": "s_mobygames",
+      "url": "https://www.mobygames.com/game/84052/_summer/",
+      "title": "_summer## - MobyGames",
+      "accessedAt": "2026-09-21",
+      "supports": "PS2 commercial title, alternate reading, Hooksoft developer, GoodNavigate publisher, visual-novel/adventure/romance classification, DVD-ROM media and one offline player."
+    },
+    {
+      "sourceId": "s_surugaya_three_editions",
+      "url": "https://www.suruga-ya.jp/kaitori/search_buy?category=&restrict%5B%5D=person_id%3D371374&search_word=",
+      "title": "Suruga-ya search results for _summer## PS2 editions",
+      "accessedAt": "2026-09-21",
+      "supports": "Generic search results showing entries corresponding to the standard, limited and Best products; treated only as secondary corroboration and not as sole proof of any identifier."
+    },
+    {
+      "sourceId": "s_surugaya_drama_cd",
+      "url": "https://www.suruga-ya.jp/kaitori/search_buy?adult_s=3&category=41708&page=92&restrict%5B%5D=media%3DCD&search_word=%3C%3C%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB",
+      "title": "Suruga-ya search results containing _summer## bonus drama CD",
+      "accessedAt": "2026-09-21",
+      "supports": "Generic search evidence for a separately catalogued _summer## bonus drama CD and candidate code GN-06002; insufficient alone to confirm the code."
+    },
+    {
+      "sourceId": "s_vgmdb_drama_cd",
+      "url": "https://vgmdb.net/db/covers.php",
+      "title": "VGMdb cover database",
+      "accessedAt": "2026-09-21",
+      "supports": "Generic gallery evidence associating GN-06002 with a _summer## First Press Bonus Drama CD; retained only as secondary evidence."
+    },
+    {
+      "sourceId": "s_surugaya_pillow",
+      "url": "https://www.suruga-ya.com/ja/product/864002406",
+      "title": "Suruga-ya - Konami Hatano dakimakura cover",
+      "accessedAt": "2026-09-21",
+      "supports": "Direct product page identifying the dakimakura cover as a First Print Limited Edition bonus, including approximate size and double-sided artwork."
+    },
+    {
+      "sourceId": "s_surugaya_strap",
+      "url": "https://www.suruga-ya.jp/product/detail/608251960",
+      "title": "Suruga-ya - Konami Hatano original mobile-phone strap",
+      "accessedAt": "2026-09-21",
+      "supports": "Direct product page identifying the strap as a First Print Limited Edition bonus and giving its approximate length."
+    },
+    {
+      "sourceId": "s_yahoo_complete_set",
+      "url": "https://store.shopping.yahoo.co.jp/usedgames/1000022997431.html",
+      "title": "Yahoo Shopping / Used Games - _summer## First Print Limited Edition complete used set",
+      "accessedAt": "2026-09-21",
+      "supports": "Secondary used-copy listing reporting software, box, instruction manual, drama CD, pillow cover, strap and postcard; used only for probable component evidence."
+    },
+    {
+      "sourceId": "s_hook_original",
+      "url": "https://www.hook-net.jp/htm/product.htm",
+      "title": "HOOKSOFT official product information - _summer",
+      "accessedAt": "2026-09-21",
+      "supports": "Official developer page identifying the earlier Windows title as _summer -アンダーバーサマー- and distinguishing it from the later PS2 title _summer##."
+    },
+    {
+      "sourceId": "s_goodnavigate_official_unavailable",
+      "url": "https://www.goodnavigate.com/GN/products/_summer/index.html",
+      "title": "Historical GN Software / GoodNavigate official _summer## product site",
+      "accessedAt": "2026-09-21",
+      "supports": "Historical official URL linked by Play-Asia; retrieval failed during the original research session, so no factual claim relies solely on this source."
+    },
+    {
+      "sourceId": "s_pricecharting_standard_sales",
+      "url": "https://www.pricecharting.com/game/jp-playstation-2/_summer",
+      "title": "_Summer## Prices JP Playstation 2 - PriceCharting",
+      "accessedAt": "2026-09-21",
+      "supports": "Historical completed-sale table for the standard Japanese PS2 release. It exposes one clearly sealed completed eBay sale at USD 66.98 on 2026-01-01 and an older used sale whose completeness is not established."
+    },
+    {
+      "sourceId": "s_mercari_standard_sold",
+      "url": "https://jp.mercari.com/item/m42811323957",
+      "title": "_summer## - Mercari sold listing",
+      "accessedAt": "2026-09-21",
+      "supports": "Completed Mercari sale at JPY 610 for a used PS2 copy. The listing does not establish that all complete-copy components were present, so it is not counted as a complete-state comparable."
+    },
+    {
+      "sourceId": "s_pricecharting_limited_market",
+      "url": "https://www.pricecharting.com/game/jp-playstation-2/_summer-first-print-limited-edition",
+      "title": "_Summer ## [First Print Limited Edition] Prices JP Playstation 2 - PriceCharting",
+      "accessedAt": "2026-09-21",
+      "supports": "Edition identity and market-price page for the Japanese First Print Limited Edition. The visible price is not supported by two auditable completed comparable sales, so it is not used as a confirmed regional price."
+    },
+    {
+      "sourceId": "s_mediaworld_best_incomplete_stock",
+      "url": "https://mediaworld.co.jp/products/10403654003",
+      "title": "_summer## Best Version used copy missing cover/manual - MediaWorld",
+      "accessedAt": "2026-09-21",
+      "supports": "Sold-out retailer page for an incomplete Best Version copy at JPY 310. It is not treated as a completed sale comparable and is not comparable to complete condition."
+    }
+  ],
+  "images": [
+    {
+      "pageUrl": "https://psxdatacenter.com/psx2/images2/covers/GN-06017/GN-06017-F-ALL.html",
+      "imageUrl": "https://psxdatacenter.com/psx2/images2/covers/GN-06017/GN-06017-F-ALL.jpg",
+      "component": "First Print Limited Edition front packaging image",
+      "status": "IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED",
+      "sourceRefs": [
+        "s_psx_limited"
+      ],
+      "observedFacts": [],
+      "observedText": [],
+      "confidence": "unresolved",
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "First Print Limited Edition",
+      "market": "Japan"
+    },
+    {
+      "pageUrl": "https://psxdatacenter.com/psx2/images2/covers/GN-06017/GN-06017-B-ALL.html",
+      "imageUrl": "https://psxdatacenter.com/psx2/images2/covers/GN-06017/GN-06017-B-ALL.jpg",
+      "component": "First Print Limited Edition back packaging image",
+      "status": "IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED",
+      "sourceRefs": [
+        "s_psx_limited"
+      ],
+      "observedFacts": [],
+      "observedText": [],
+      "confidence": "unresolved",
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "First Print Limited Edition",
+      "market": "Japan"
+    },
+    {
+      "pageUrl": "https://psxdatacenter.com/psx2/images2/covers/SLPM-66460/SLPM-66460-F-ALL.html",
+      "imageUrl": "https://psxdatacenter.com/psx2/images2/covers/SLPM-66460/SLPM-66460-F-ALL.jpg",
+      "component": "Standard edition front packaging image",
+      "status": "IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED",
+      "sourceRefs": [
+        "s_psx_standard"
+      ],
+      "observedFacts": [],
+      "observedText": [],
+      "confidence": "unresolved",
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "Standard",
+      "market": "Japan"
+    },
+    {
+      "pageUrl": "https://psxdatacenter.com/psx2/images2/covers/SLPM-66460/SLPM-66460-B-ALL.html",
+      "imageUrl": "https://psxdatacenter.com/psx2/images2/covers/SLPM-66460/SLPM-66460-B-ALL.jpg",
+      "component": "Standard edition back packaging image",
+      "status": "IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED",
+      "sourceRefs": [
+        "s_psx_standard"
+      ],
+      "observedFacts": [],
+      "observedText": [],
+      "confidence": "unresolved",
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "Standard",
+      "market": "Japan"
+    },
+    {
+      "pageUrl": "https://psxdatacenter.com/psx2/images2/covers/SLPM-66877/SLPM-66877-F-ALL.html",
+      "imageUrl": "https://psxdatacenter.com/psx2/images2/covers/SLPM-66877.jpg",
+      "component": "Best Version front packaging image",
+      "status": "IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED",
+      "sourceRefs": [
+        "s_psx_best"
+      ],
+      "observedFacts": [],
+      "observedText": [],
+      "confidence": "unresolved",
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "Best Version",
+      "market": "Japan"
+    },
+    {
+      "pageUrl": "https://psxdatacenter.com/psx2/images2/covers/SLPM-66877/SLPM-66877-B-ALL.html",
+      "imageUrl": "https://psxdatacenter.com/psx2/images2/covers/SLPM-66877/SLPM-66877-B-ALL.jpg",
+      "component": "Best Version back packaging image",
+      "status": "IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED",
+      "sourceRefs": [
+        "s_psx_best"
+      ],
+      "observedFacts": [],
+      "observedText": [],
+      "confidence": "unresolved",
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "Best Version",
+      "market": "Japan"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "title",
+      "regionAtlasValue": "_Summer ## [First Print Limited Edition]",
+      "researchFinding": "_summer## is the commercial game title. The literal ## is part of the title. First Print Limited Edition is the edition descriptor.",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_mediaworld_limited",
+        "s_gamefaqs",
+        "s_mobygames"
+      ]
+    },
+    {
+      "field": "market",
+      "regionAtlasValue": "NTSC-J · Mercado por determinar",
+      "researchFinding": "Japan",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_playasia_limited",
+        "s_psx_limited"
+      ]
+    },
+    {
+      "field": "barcode",
+      "regionAtlasValue": null,
+      "researchFinding": "4571164030173",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_mediaworld_limited",
+        "s_gamefaqs",
+        "s_psx_limited"
+      ]
+    },
+    {
+      "field": "productCode",
+      "regionAtlasValue": null,
+      "researchFinding": "GN-06017",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_mediaworld_limited",
+        "s_gamefaqs",
+        "s_psx_limited"
+      ]
+    },
+    {
+      "field": "serial",
+      "regionAtlasValue": null,
+      "researchFinding": "GN-06017",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_psx_limited"
+      ]
+    },
+    {
+      "field": "editionRelationships",
+      "regionAtlasValue": "Only the limited entry is represented in the supplied context",
+      "researchFinding": "Three distinct PS2 physical products are documented: Standard SLPM-66460 / 4571164030180, First Print Limited Edition GN-06017 / 4571164030173, and Best Version SLPM-66877 / 4571164038186.",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_mediaworld_standard",
+        "s_mediaworld_limited",
+        "s_mediaworld_best"
+      ]
+    },
+    {
+      "field": "limitedEditionDiscIdentity",
+      "regionAtlasValue": null,
+      "researchFinding": "The limited-edition game disc is documented with printed and internal serial GN-06017, while the standard game disc is SLPM-66460.",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_psx_limited",
+        "s_psx_standard"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "field": "formalSeriesName",
+      "reason": "The PS2 game is a console adaptation related to the earlier Windows title _summer, but the researched sources do not establish a formal series or franchise label.",
+      "candidateValues": [
+        "_summer"
+      ],
+      "sourceRefs": [
+        "s_mobygames",
+        "s_hook_original"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "field": "packagingLanguages",
+      "reason": "Japanese software language and Japanese-market distribution are confirmed for the standard release, but exact packaging-language coverage was not established from directly analysed packaging text.",
+      "candidateValues": [
+        "Japanese"
+      ],
+      "sourceRefs": [
+        "s_psx_standard",
+        "s_mediaworld_standard"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer## [First Print Limited Edition]",
+      "field": "packagingLanguages",
+      "reason": "Japanese software language and Japanese-market distribution are confirmed, but exact outer-box and inner-case packaging-language coverage was not established from directly analysed packaging text.",
+      "candidateValues": [
+        "Japanese"
+      ],
+      "sourceRefs": [
+        "s_psx_limited",
+        "s_mediaworld_limited"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer## [First Print Limited Edition]",
+      "field": "barcodePhysicalLocation",
+      "reason": "4571164030173 is confirmed as the limited-edition product barcode, but the available source metadata does not establish whether the printed barcode belongs specifically to the outer box, inner case or another packaging surface.",
+      "candidateValues": [
+        "outer box",
+        "inner case"
+      ],
+      "sourceRefs": [
+        "s_mediaworld_limited",
+        "s_gamefaqs",
+        "s_psx_limited"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer## [First Print Limited Edition]",
+      "field": "innerCaseConfiguration",
+      "reason": "The limited outer product, game disc and principal bonuses are documented, but the available evidence does not conclusively establish the exact inner-case configuration.",
+      "candidateValues": [],
+      "sourceRefs": [
+        "s_mediaworld_limited",
+        "s_psx_limited",
+        "s_yahoo_complete_set"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer## [First Print Limited Edition]",
+      "field": "instructionManual",
+      "reason": "A complete used-set listing reports an instruction manual and MediaWorld has a condition-specific listing described as missing cover/manual, but no retrieved publisher inventory explicitly enumerates the manual as a limited-edition component.",
+      "candidateValues": [
+        "Instruction manual included"
+      ],
+      "sourceRefs": [
+        "s_yahoo_complete_set",
+        "s_mediaworld_limited_no_manual"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer## [First Print Limited Edition]",
+      "field": "postcard",
+      "reason": "One used complete-set listing reports a postcard, but no second direct product source confirms it as a standard included component.",
+      "candidateValues": [
+        "Postcard / registration card included"
+      ],
+      "sourceRefs": [
+        "s_yahoo_complete_set"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer## [First Print Limited Edition]",
+      "field": "bonusDramaCdCatalogCode",
+      "reason": "The existence of the bonus drama CD is confirmed by direct product sources, but the candidate code GN-06002 is supported only by generic search/gallery-style pages and is therefore not promoted to confirmed.",
+      "candidateValues": [
+        "GN-06002"
+      ],
+      "sourceRefs": [
+        "s_mediaworld_limited",
+        "s_playasia_limited",
+        "s_surugaya_drama_cd",
+        "s_vgmdb_drama_cd"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer## [Best Version]",
+      "field": "packagingLanguages",
+      "reason": "Japanese software language and Japanese-market distribution are confirmed, but exact packaging-language coverage was not established from directly analysed packaging text.",
+      "candidateValues": [
+        "Japanese"
+      ],
+      "sourceRefs": [
+        "s_psx_best",
+        "s_mediaworld_best"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "field": "regionalDistributor",
+      "reason": "GN Software / GoodNavigate is documented as publisher or manufacturer, but no separate regional distributor was demonstrated.",
+      "candidateValues": [],
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_mediaworld_standard",
+        "s_mobygames"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "field": "nonJapanPhysicalMarkets",
+      "reason": "The researched sources consistently document Japanese PS2 products and no separate PAL, North American, Korean or other Asian physical SKU was located. This remains negative-search evidence rather than proof of absolute nonexistence.",
+      "candidateValues": [],
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_psx_standard",
+        "s_psx_limited",
+        "s_psx_best",
+        "s_playasia_standard",
+        "s_playasia_limited"
+      ]
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "field": "historicalOfficialProductPage",
+      "reason": "The historical GoodNavigate official product URL was linked by Play-Asia but could not be retrieved during the original research session. No factual claim depends solely on it.",
+      "candidateValues": [],
+      "sourceRefs": [
+        "s_goodnavigate_official_unavailable",
+        "s_playasia_limited"
+      ]
+    }
+  ],
+  "coveredQueueEntries": [
+    {
+      "queueId": "catalog:ps2-japon-_summer-first-print-limited-edition",
+      "platform": "ps2",
+      "catalogIds": [
+        "ps2-japon-_summer-first-print-limited-edition"
+      ],
+      "coverage": "partial",
+      "reason": "The trigger product identity, Japanese market, exact commercial title, edition, JAN/EAN, product code, game-disc serial, release date, publisher, developer, rating, player count, software language, media format and principal limited-edition bonuses are documented. Coverage remains partial because exact packaging-language coverage, barcode location on the limited packaging, inner-case configuration, manual/postcard status, formal series label and separate distributor remain unresolved.",
+      "sourceRefs": [
+        "s_mediaworld_limited",
+        "s_gamefaqs",
+        "s_psx_limited",
+        "s_playasia_limited"
+      ]
+    }
+  ],
+  "researchDate": "2026-09-21",
+  "orderTemplateVersion": 5,
+  "regionalPrices": [
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "Standard",
+      "market": "Japan",
+      "barcode": "4571164030180",
+      "productCode": "SLPM-66460",
+      "conditions": {
+        "sealed": {
+          "currency": "USD",
+          "sampleSize": 1,
+          "marketMin": 66.98,
+          "marketMax": 66.98,
+          "proposedBasePrice": null,
+          "confidence": "unresolved",
+          "completedSales": [
+            {
+              "sourceRef": "s_pricecharting_standard_sales",
+              "marketplace": "eBay",
+              "saleDate": "2026-01-01",
+              "priceWithoutShipping": 66.98,
+              "currency": "USD",
+              "saleTitle": "_ Summer ## (2005) Brand New Factory Sealed Japan Playstation 2 PS2 Import Japanese",
+              "state": "sealed"
+            }
+          ],
+          "unresolvedReason": "Only one auditable completed sale in a single currency was located for the exact standard Japanese sealed edition; two independent comparable completed sales are required."
+        },
+        "complete": {
+          "currency": null,
+          "sampleSize": 0,
+          "marketMin": null,
+          "marketMax": null,
+          "proposedBasePrice": null,
+          "confidence": "unresolved",
+          "completedSales": [],
+          "excludedEvidence": [
+            {
+              "sourceRef": "s_pricecharting_standard_sales",
+              "reason": "A historical used eBay sale is visible, but the record does not establish complete condition."
+            },
+            {
+              "sourceRef": "s_mercari_standard_sold",
+              "reason": "The Mercari listing is sold, but its text does not establish that case, manual and all standard components were present."
+            }
+          ],
+          "unresolvedReason": "No two independent completed sales were located that both prove the exact standard Japanese edition and complete condition in the same currency."
+        }
+      }
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "First Print Limited Edition",
+      "market": "Japan",
+      "barcode": "4571164030173",
+      "productCode": "GN-06017",
+      "conditions": {
+        "sealed": {
+          "currency": null,
+          "sampleSize": 0,
+          "marketMin": null,
+          "marketMax": null,
+          "proposedBasePrice": null,
+          "confidence": "unresolved",
+          "completedSales": [],
+          "excludedEvidence": [
+            {
+              "sourceRef": "s_pricecharting_limited_market",
+              "reason": "Visible market/asking-price information is not two auditable completed comparable sales."
+            }
+          ],
+          "unresolvedReason": "Fewer than two independent completed sales of the exact Japanese First Print Limited Edition in sealed condition were located."
+        },
+        "complete": {
+          "currency": null,
+          "sampleSize": 0,
+          "marketMin": null,
+          "marketMax": null,
+          "proposedBasePrice": null,
+          "confidence": "unresolved",
+          "completedSales": [],
+          "excludedEvidence": [
+            {
+              "sourceRef": "s_pricecharting_limited_market",
+              "reason": "The visible price information is not supported by two auditable completed sales and therefore cannot confirm a complete-condition base price."
+            }
+          ],
+          "unresolvedReason": "No pair of independent completed sales was located that proves the exact limited edition is complete with the required box and bonus contents in the same currency."
+        }
+      }
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "_summer##",
+      "editionName": "Best Version",
+      "market": "Japan",
+      "barcode": "4571164038186",
+      "productCode": "SLPM-66877",
+      "conditions": {
+        "sealed": {
+          "currency": null,
+          "sampleSize": 0,
+          "marketMin": null,
+          "marketMax": null,
+          "proposedBasePrice": null,
+          "confidence": "unresolved",
+          "completedSales": [],
+          "unresolvedReason": "No two independent auditable completed sales of the exact Japanese Best Version in sealed condition were located."
+        },
+        "complete": {
+          "currency": null,
+          "sampleSize": 0,
+          "marketMin": null,
+          "marketMax": null,
+          "proposedBasePrice": null,
+          "confidence": "unresolved",
+          "completedSales": [],
+          "excludedEvidence": [
+            {
+              "sourceRef": "s_mediaworld_best",
+              "reason": "The MediaWorld page is a sold-out retailer product page rather than an auditable completed-sale transaction."
+            },
+            {
+              "sourceRef": "s_mediaworld_best_incomplete_stock",
+              "reason": "The page is a sold-out retailer page and explicitly concerns a copy missing cover/manual, so it is not a complete-condition comparable."
+            }
+          ],
+          "unresolvedReason": "No two independent completed sales were located that establish the exact Best Version in complete condition and the same currency."
+        }
+      }
+    }
+  ]
+}

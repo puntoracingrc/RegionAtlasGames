@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "generation": 1,
+  "state": "RESULT_READY",
+  "repository": "puntoracingrc/RegionAtlasGames",
+  "branch": "research-pipeline",
+  "queuePath": "research/queue.json",
+  "instructionsPath": "research/ORDER_TEMPLATE.md",
+  "activeOrderPath": null,
+  "activeQueueEntry": {
+    "queueId": "catalog:ps2-japon-_summer-first-print-limited-edition",
+    "platform": "ps2",
+    "title": "_Summer ## [First Print Limited Edition]",
+    "catalogIds": [
+      "ps2-japon-_summer-first-print-limited-edition"
+    ]
+  },
+  "researchId": "summer-first-print-limited-edition-ps2-2026-09-21",
+  "resultPath": "research/results/summer-first-print-limited-edition-ps2-2026-09-21.json",
+  "currentOrderTemplateVersion": 8,
+  "resultOrderTemplateVersion": 5,
+  "lease": null,
+  "updatedAt": "2026-09-21T04:42:43Z",
+  "updatedBy": "codex",
+  "note": "Resultado V5 recibido y pendiente de validación e incorporación administrativa. Su evidencia factual e imágenes pueden validarse, pero sus precios no cumplen V8 y no autorizan publicación; la corrección futura será sólo de anuncios activos, sin repetir la investigación completa. No repetir la investigación ni seleccionar otra entrada."
+}

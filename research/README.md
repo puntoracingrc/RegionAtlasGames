@@ -37,6 +37,14 @@ La sustitución es atómica: nunca hay dos propuestas activas. Si el resultado e
 
 Una investigación parcial válida no vuelve a ejecutarse durante la primera pasada. Se conserva por su `queueId`, se registran sus pendientes y sólo puede reabrirse posteriormente en una pasada explícita de `unresolved`/`partial`.
 
+## Continuidad automática entre chats mediante Git
+
+`research/active.json` conserva el estado autoritativo de la única propuesta activa. `research/automation/PROTOCOL.md` define la máquina de estados y el lease, y `research/automation/CHATGPT_TASK_PROMPT.md` contiene el prompt durable de la tarea programada.
+
+La tarea de ChatGPT es independiente del chat: cada ejecución vuelve a leer la rama `research-pipeline` y puede iniciarse en una conversación nueva. Nunca continúa por memoria del chat anterior. Sólo investiga cuando `active.json` está en `READY`; en `RESULT_READY`, `PROCESSING`, `PAUSED` o con un lease vigente termina sin buscar ni escribir.
+
+Antes de investigar, ChatGPT publica un lease en Git. Al entregar un resultado, guarda el JSON y el cambio a `RESULT_READY` en la rama de intercambio. Codex es el único que valida el resultado, incorpora mediante Admin, verifica el runtime y genera la siguiente orden. De este modo alcanzar el límite de longitud de una conversación no pierde la posición ni provoca búsquedas repetidas.
+
 ## Incorporación al catálogo mediante el administrador
 
 Los resultados de cada juego se incorporan mediante las herramientas existentes del administrador de RegionAtlas. Para una ficha existente, Codex utiliza su edición administrativa. Para un lanzamiento nuevo o varias cajas regionales, utiliza el alta manual o el alta regional V2, con sus controles de duplicados, validaciones y publicación runtime.
