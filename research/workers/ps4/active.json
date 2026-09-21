@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 6,
+  "generation": 7,
   "workerId": "ps4",
   "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -28,12 +28,12 @@
     ]
   },
   "lease": {
-    "runId": "ps4-20260921T094116Z-b81d42f3",
-    "claimedAt": "2026-09-21T09:41:16Z",
-    "expiresAt": "2026-09-21T10:56:16Z",
-    "recoveredFromRunId": "ps4-20260921T073733Z-9f31c2a7"
+    "runId": "ps4-20260921T113909Z-a1f4c9d2",
+    "claimedAt": "2026-09-21T11:39:09Z",
+    "expiresAt": "2026-09-21T12:54:09Z",
+    "recoveredFromRunId": "ps4-20260921T094116Z-b81d42f3"
   },
-  "updatedAt": "2026-09-21T09:41:16Z",
+  "updatedAt": "2026-09-21T11:39:09Z",
   "updatedBy": "chatgpt",
-  "note": "Lease vencido recuperado para continuar exclusivamente el elemento actual; runId anterior: ps4-20260921T073733Z-9f31c2a7."
+  "note": "Lease vencido recuperado para continuar exclusivamente el elemento actual; runId anterior: ps4-20260921T094116Z-b81d42f3."
 }
