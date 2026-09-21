@@ -32,6 +32,10 @@ Si un juego queda completo y aún hay otro pendiente, el worker marca ese elemen
 
 Antes de buscar, ChatGPT guarda y publica un lease con `runId`, `claimedAt` y `expiresAt`. Otra ejecución del mismo worker no actúa mientras el lease siga vigente. Si ha vencido, una nueva ejecución puede recuperarlo dejando constancia del `runId` anterior.
 
+Recuperar un lease vencido no completa la ejecución. La misma ejecución que publica el lease recuperado debe releer el HEAD y, si conserva la autoridad, continuar inmediatamente el elemento actual desde su orden o checkpoint. No puede responder `RUNNING` por un lease que ella misma acaba de crear. `RUNNING` como respuesta terminal sólo es válido cuando la ejecución no ha escrito nada y ha encontrado un lease vigente perteneciente a otra ejecución.
+
+Toda ejecución que cree o recupere un lease debe cerrarlo de una de estas tres formas antes de terminar: resultado completo en `RESULT_READY`; checkpoint factual con estado global `READY`; o bloqueo real en `PAUSED`. Dejar un lease nuevo en `RUNNING` sin resultado ni checkpoint se considera una ejecución incompleta y un error de protocolo.
+
 Cada transición se confirma mediante un commit en la rama exclusiva del worker. Antes de escribir, la ejecución vuelve a leer el HEAD remoto. Si cambiaron `generation`, estado, paquete, elemento actual o lease, abandona su escritura y evalúa el estado nuevo. Un rechazo non-fast-forward obliga a releer; nunca se fuerza un push.
 
 ## Continuidad entre chats
