@@ -1,6 +1,6 @@
 # Plantilla maestra de orden de investigación
 
-`ORDER_TEMPLATE_VERSION: 1`
+`ORDER_TEMPLATE_VERSION: 2`
 
 Esta plantilla se envía completa para cada entrada. Sólo se sustituyen los bloques delimitados por `{{...}}`. No se resumen, eliminan ni suavizan requisitos entre juegos. En una tanda relacionada se genera una orden completa por entrada y ChatGPT devuelve un JSON independiente por cada una.
 
@@ -66,6 +66,8 @@ Nunca mezcles:
 
 Cada identificador debe quedar vinculado al juego, plataforma, edición y componente concretos que la fuente demuestra.
 
+Un identificador puede quedar confirmado a nivel de producto aunque el componente físico exacto siga sin resolverse. En ese caso se conserva en el release y el componente se declara `unknown`; nunca se inventa que pertenece a la caja exterior, caja interior, disco o tarjeta.
+
 ### Inferencias prohibidas
 
 No confirmes una región, mercado, edición, idioma o identidad utilizando solamente:
@@ -94,6 +96,17 @@ Cuando encuentres un EAN, UPC, JAN, serial o código candidato, realiza búsqued
 
 No confirmes un identificador por checksum, coincidencia parcial o repetición entre páginas que copian el mismo dato.
 
+Mantén separados:
+
+- código comercial o de fabricante del producto;
+- serial impreso en disco o tarjeta;
+- serial interno del soporte;
+- código de la caja;
+- código de un bonus, manual o accesorio;
+- pegatina o referencia interna del retailer.
+
+La coincidencia de dos valores no permite fusionar sus tipos ni sus componentes.
+
 ### Fuentes y procedencia
 
 Prioriza:
@@ -107,11 +120,38 @@ Prioriza:
 
 Para cada dato conserva la URL directa, el nombre de la fuente, la fecha de acceso, el campo que acredita y el producto o componente al que corresponde. Un agregador genérico o una descripción de vendedor no bastan como única prueba de un identificador físico.
 
+Cada fuente debe apuntar a la página exacta que contiene la evidencia. Una portada de buscador, página de resultados, galería general, categoría, perfil o listado agregado puede servir para descubrir una pista, pero no para confirmar por sí sola un hecho del producto. Si no existe una URL directa, registra la pista como `probable` o `unresolved`.
+
+En `sources[].url`, `images[].pageUrl` e `images[].imageUrl` escribe exclusivamente la URL absoluta canónica que empieza por `https://` o `http://`. No uses enlaces Markdown como `[URL](URL)`, referencias `[1]`, parámetros de seguimiento añadidos por ChatGPT ni texto alrededor de la URL.
+
+Todo campo `confirmed` necesita al menos una fuente primaria, técnica o física directa que demuestre exactamente el dato, o dos fuentes secundarias independientes que lo corroboren sin copiarse entre sí. La fuente debe demostrar además el título, plataforma, edición, mercado y componente necesarios para evitar atribuciones cruzadas.
+
 Si una fuente está bloqueada, no responde o carece de metadata útil, regístralo como limitación técnica. Nunca lo conviertas en prueba de ausencia.
 
 ### Imágenes
 
-Puedes conservar URLs de imágenes encontradas. Si no puedes inspeccionarlas o leerlas con claridad, usa exactamente `IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED`. No inventes códigos, idiomas, región, componentes ni contenido físico a partir de una miniatura o imagen ilegible.
+Puedes conservar URLs de imágenes encontradas. Cada elemento de `images` debe incluir:
+
+- `sourceId`;
+- `pageUrl`;
+- `imageUrl`;
+- `component`;
+- `status`;
+- `observedFacts`;
+- `observedText`;
+- `confidence`.
+
+`status` sólo puede ser:
+
+- `IMAGE_URL_FOUND`: se localizó la URL, sin usar su contenido como evidencia;
+- `IMAGE_EVIDENCE_READ`: se inspeccionó una imagen legible y se registró exactamente lo observado;
+- `IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED`: la imagen podría contener evidencia, pero no fue analizada o no es suficientemente legible.
+
+No uses `ANALYZED` como estado genérico. Para `IMAGE_EVIDENCE_READ`, `observedFacts` debe identificar el hecho visible y el componente observado; `observedText` debe contener únicamente el texto realmente legible relevante. Si esos campos están vacíos, la imagen no puede confirmar ningún dato.
+
+No inventes códigos, idiomas, región, componentes ni contenido físico a partir de una miniatura o imagen ilegible. Una imagen de caja interior no acredita la caja exterior, y una fotografía del disco no acredita el código de barras del producto completo.
+
+`packagingLanguages` sólo puede confirmarse mediante metadata que describa expresamente los idiomas del embalaje o mediante texto legible del componente físico correcto registrado como `IMAGE_EVIDENCE_READ`. No lo deduzcas del idioma del software, del sitio web, del mercado, del título ni de que el producto sea japonés.
 
 ### Confianza
 
@@ -129,7 +169,9 @@ Si consideras necesario alguno de esos cambios, detén la investigación y descr
 
 ### Formato obligatorio de salida
 
-Devuelve únicamente un objeto JSON válido, sin texto antes o después. Debe respetar el formato de intercambio de `research/README.md` e incluir como mínimo:
+La entrega autoritativa debe ser un único archivo JSON cuyo nombre sea `<researchId>.json`. Si la interfaz no permite crear o adjuntar el archivo, devuelve únicamente su contenido como un objeto JSON válido. No uses bloque Markdown, cercas de código, comentarios, introducciones, conclusiones, citas automáticas ni definiciones de referencias después del cierre `}`.
+
+El contenido completo debe poder procesarse con `JSON.parse` sin limpiar, recortar ni transformar nada. Debe respetar el formato de intercambio de `research/README.md` e incluir como mínimo:
 
 - `researchId`;
 - `triggerQueueEntry` con `queueId`, `platform` y `catalogIds` exactos;
@@ -143,6 +185,8 @@ Devuelve únicamente un objeto JSON válido, sin texto antes o después. Debe re
 - `unresolved`;
 - `coveredQueueEntries`;
 - `researchDate`.
+
+Cada elemento de `sources` debe incluir exactamente una identidad estable mediante `sourceId`, además de `url`, `title`, `accessedAt` y `supports`. `supports` describe en texto qué campos concretos acredita la página, pero no debe contener citas Markdown como `([Fuente][1])`. Todos los valores usados en `sourceRefs` y `fieldSourceRefs` deben coincidir exactamente con un `sourceId` existente.
 
 Cada release debe separar, cuando existan:
 
@@ -170,6 +214,21 @@ Cada release debe separar, cuando existan:
 
 Los valores desconocidos se expresan como `null`, `[]` o `unresolved`; nunca se completan por deducción. No marques ni solicites marcar la entrada como `completed`. Codex decidirá la cobertura después de validar las fuentes y publicar los datos confirmados mediante el administrador.
 
+Antes de entregar el resultado, valida obligatoriamente:
+
+1. que todo el contenido sea un solo JSON parseable;
+2. que no exista ningún carácter fuera del objeto raíz;
+3. que todas las URL sean URL directas sin Markdown ni tracking;
+4. que cada `sourceRef` exista;
+5. que cada `confirmed` esté demostrado por sus fuentes;
+6. que cada identificador esté ligado al producto y componente correctos;
+7. que `packagingLanguages` y `softwareLanguages` no se hayan mezclado;
+8. que toda evidencia visual cumpla el formato y los estados anteriores;
+9. que una página genérica no se haya usado como confirmación;
+10. que los IDs de cola y catálogo sean exactamente los recibidos.
+
+Si falla cualquiera de estas comprobaciones, corrige la entrega antes de devolverla. No sustituyas la corrección formal por una nueva investigación.
+
 Fecha de investigación: `{{RESEARCH_DATE}}`.
 
 ---
@@ -183,6 +242,8 @@ La orden no se envía si:
 - se ha reducido la lista de campos;
 - se ha eliminado una inferencia prohibida;
 - se ha relajado la definición de `confirmed`;
+- faltan las reglas de URL directa, evidencia visual o vinculación por componente;
+- la salida no exige ser parseable directamente y sin referencias externas;
 - se permite modificar RegionAtlas o decidir su arquitectura;
 - la entrada no cumple las reglas de selección y anti-repetición.
 
