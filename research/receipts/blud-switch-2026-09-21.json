@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "researchId": "blud-switch-2026-09-21",
+  "queueId": "catalog:switch-blud",
+  "platform": "switch",
+  "catalogIds": [
+    "switch-blud"
+  ],
+  "publishedAt": "2026-09-21T16:58:48Z",
+  "verifiedAt": "2026-09-21T16:58:48Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/blud-switch-pal-uk",
+  "publishedRegions": [
+    "PAL Reino Unido"
+  ],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_NO_EUR_CONVERSION_AND_ACTIVE_LISTINGS_ONLY",
+  "internalAssets": {
+    "front": "https://www.regionatlas.games/catalog-covers/runtime/switch/blud-switch-gb-standard-front.jpg",
+    "back": "https://www.regionatlas.games/catalog-covers/runtime/switch/blud-switch-gb-standard-back.jpg"
+  },
+  "verification": {
+    "publicPage": "PASS",
+    "catalogApi": "PASS",
+    "frontAsset": "PASS",
+    "backAsset": "PASS",
+    "duplicateCheck": "PASS"
+  },
+  "resultFile": "research/results/blud-switch-2026-09-21.json",
+  "resultSha256": "471a54c363724c9933a7c251fe123aec16f4e587aaafdb8d33de0f5d9a0b1d3e",
+  "workerResultCommit": "6179014451b6f582f7f73d9a80352acf79b1ceac"
+}
