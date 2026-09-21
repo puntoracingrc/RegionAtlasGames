@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 7,
+  "generation": 8,
   "workerId": "switch",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
-  "currentItemResearchId": "blud-switch-2026-09-21",
+  "resultOrderTemplateVersion": 11,
+  "currentItemResearchId": null,
   "workPackage": {
     "packageId": "switch-2026-09-21-002",
     "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible tras excluir resultados existentes por la regla anti-repetición; no se ha supuesto afinidad con entradas posteriores."},
@@ -22,17 +22,13 @@
         "researchId": "blud-switch-2026-09-21",
         "orderPath": "research/workers/switch/orders/blud-switch-2026-09-21.md",
         "resultPath": "research/results/blud-switch-2026-09-21.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/blud-switch-2026-09-21.json"
       }
     ]
   },
-  "lease": {
-    "runId": "switch-20260921T132735Z-5",
-    "claimedAt": "2026-09-21T13:27:35Z",
-    "expiresAt": "2026-09-21T14:17:35Z"
-  },
-  "updatedAt": "2026-09-21T13:27:35Z",
+  "lease": null,
+  "updatedAt": "2026-09-21T13:45:34Z",
   "updatedBy": "chatgpt",
-  "note": "Lease reclamado para investigar exclusivamente blud-switch-2026-09-21 según la orden preparada."
+  "note": "Resultado blud-switch-2026-09-21 completado y listo para validación; no se inició ningún otro juego."
 }
