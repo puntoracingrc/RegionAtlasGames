@@ -1316,3 +1316,31 @@ test("a SIAE marking is a collectible variant with its own price identity, not a
   assert.deepEqual(normalized.physicalEditions[0].variants[1].stickers, ["SIAE"]);
   assert.equal(normalized.physicalEditions[0].sharedDiscId, "resident-evil-4-ps5-europe-disc");
 });
+
+test("a reviewed overlay-only Quantum of Solace Collector region joins the existing family", () => {
+  const collectorEu = getCatalogGame("ps3-007-quantum-of-solace-collector%27s-edition");
+  const collectorUs = getCatalogGame("ps3-usa-007-quantum-of-solace-collector-s-edition");
+  assert.ok(collectorEu && collectorUs);
+  const runtimeAustralia = {
+    ...collectorEu,
+    id: "ps3-007-quantum-of-solace-collectors-edition-au",
+    slug: "007-quantum-of-solace-collectors-edition-au",
+    title: "007 Quantum of Solace Collector's Edition AU",
+    region: "Australia",
+    marketRegion: "AU" as const,
+    workId: null,
+    physicalVariant: "Collector AU",
+    physicalReleaseGroup: null,
+  };
+
+  const merged = mergePublicCatalogWithOverlayGames(
+    [collectorEu, collectorUs],
+    [runtimeAustralia],
+  );
+  const grouped = groupCatalogListGames(merged.map(toCatalogListGame));
+
+  assert.equal(grouped.length, 1);
+  assert.equal(grouped[0].physicalEditionGroup?.editionFamilyLabel, "Collector's Edition");
+  assert.equal(grouped[0].physicalEditionGroup?.physicalEditionCount, 3);
+  assert.deepEqual(grouped[0].physicalEditionGroup?.marketRegions, ["US", "AU"]);
+});

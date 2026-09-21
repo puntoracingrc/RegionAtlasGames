@@ -139,6 +139,21 @@ const reviewedPs3PhysicalIdentities: Record<string, ReviewedPs3PhysicalIdentity>
       notes: ["Collector's Edition norteamericana con disco e identificadores propios."],
     },
   },
+  "ps3-007-quantum-of-solace-collectors-edition-au": {
+    title: "007 Quantum of Solace",
+    workId: "007-quantum-of-solace",
+    physicalVariant: "Collector's Edition",
+    region: "PAL Australia",
+    marketRegion: "AU",
+    releaseGroup: {
+      id: "ps3:007-quantum-of-solace:collectors-edition:03-au",
+      label: "Collector's Edition · Australia",
+      barcode: "5030917063701",
+      productCodes: ["BLES-00411"],
+      serial: "BLES-00411",
+      notes: ["Collector's Edition australiana de la misma familia conceptual europea y norteamericana."],
+    },
+  },
   "ps3-007-quantum-of-solace-not-for-resale": {
     title: "007 Quantum of Solace",
     workId: "007-quantum-of-solace",

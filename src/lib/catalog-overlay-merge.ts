@@ -1,5 +1,6 @@
 import { getOwnedScanSet } from "./catalog-owned-scans";
 import { canonicalCatalogId, hasConsolidatedCatalogAliases } from "./catalog-id-aliases";
+import { withReviewedCatalogOverride } from "./catalog-reviewed-overrides";
 import type {
   CatalogGame,
   DetailEntity,
@@ -298,7 +299,9 @@ export function mergeCatalogPlatformGames(
       const staticGame = byId.get(overlay.id);
       byId.set(
         overlay.id,
-        staticGame ? mergeCatalogGameWithOverlay(staticGame, overlay) : overlay,
+        staticGame
+          ? mergeCatalogGameWithOverlay(staticGame, overlay)
+          : withReviewedCatalogOverride(overlay),
       );
     } else {
       byId.delete(overlay.id);

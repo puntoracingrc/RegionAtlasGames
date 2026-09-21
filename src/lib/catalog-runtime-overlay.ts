@@ -8,6 +8,7 @@ import {
   publicListedCatalog,
 } from "./catalog";
 import { canonicalCatalogId } from "./catalog-id-aliases";
+import { withReviewedCatalogOverride } from "./catalog-reviewed-overrides";
 import {
   mergeCatalogGameWithOverlay,
   mergeCatalogPlatformGames,
@@ -352,7 +353,9 @@ export function mergePublicCatalogWithOverlayGames(
     return isPublicCatalogGame(game) ? [game] : [];
   });
   for (const overlay of overlayGames) {
-    if (!seen.has(overlay.id) && isPublicCatalogGame(overlay)) merged.push(overlay);
+    if (!seen.has(overlay.id) && isPublicCatalogGame(overlay)) {
+      merged.push(withReviewedCatalogOverride(overlay));
+    }
   }
   return merged;
 }
