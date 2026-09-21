@@ -43,6 +43,10 @@ test("normalized regional labels keep USA and Japan catalog ids distinct", () =>
     catalogIdFromStaging({ platformSlug: "ps3", slug: "3d-dot-game-heroes", region: "NTSC-J Japón" }),
     "ps3-japon-3d-dot-game-heroes",
   );
+  assert.equal(
+    catalogIdFromStaging({ platformSlug: "ps3", slug: "3d-dot-game-heroes-kr", region: "NTSC-J Corea" }),
+    "ps3-3d-dot-game-heroes-kr",
+  );
 });
 
 test("PS Vita imports accept the corrected and legacy console slugs", () => {

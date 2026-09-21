@@ -87,10 +87,10 @@ function regionBucket(region: string): "pal" | "usa" | "japan" | "multi" {
   const r = region.trim().toLowerCase();
   if (r === "usa" || r === "ntsc" || r.includes("usa")) return "usa";
   if (
-    r === "japón"
-    || r === "japan"
-    || r === "japon"
-    || r.includes("ntsc-j")
+    r.includes("japón")
+    || r.includes("japan")
+    || r.includes("japon")
+    || r === "ntsc-j"
   ) return "japan";
   if (r.includes("multi")) return "multi";
   return "pal";
