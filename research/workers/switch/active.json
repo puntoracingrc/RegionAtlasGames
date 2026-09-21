@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 11,
+  "generation": 12,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "drive-rally-special-edition-switch-2026-09-21",
   "workPackage": {
     "packageId": "switch-2026-09-21-003",
     "grouping": {
@@ -45,8 +45,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-21T17:34:54Z",
+  "lease": {
+    "runId": "chatgpt-switch-20260921T182543Z-7",
+    "claimedAt": "2026-09-21T18:25:43Z",
+    "expiresAt": "2026-09-21T19:20:43Z"
+  },
+  "updatedAt": "2026-09-21T18:25:43Z",
   "updatedBy": "chatgpt",
-  "note": "#Drive Rally Standard USA researched and result published; Special Edition item remains pending."
+  "note": "Claimed #Drive Rally Special Edition for research."
 }
