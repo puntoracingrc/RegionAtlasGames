@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 8,
+  "generation": 9,
   "workerId": "ps4",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
-  "currentItemResearchId": "hack-gu-last-recode-ps4-2026-09-21",
+  "resultOrderTemplateVersion": 11,
+  "currentItemResearchId": null,
   "workPackage": {
     "packageId": "ps4-2026-09-21-001",
     "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
@@ -22,18 +22,12 @@
         "researchId": "hack-gu-last-recode-ps4-2026-09-21",
         "orderPath": "research/workers/ps4/orders/hack-gu-last-recode-ps4-2026-09-21.md",
         "resultPath": "research/results/hack-gu-last-recode-ps4-2026-09-21.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/ps4/checkpoints/hack-gu-last-recode-ps4-2026-09-21.json"
       }
     ]
   },
-  "lease": {
-    "runId": "ps4-20260921T134221Z-9d1eb277",
-    "claimedAt": "2026-09-21T13:42:21Z",
-    "expiresAt": "2026-09-21T14:57:21Z",
-    "recoveredFromRunId": "ps4-20260921T113909Z-a1f4c9d2"
-  },
-  "updatedAt": "2026-09-21T13:42:21Z",
+  "updatedAt": "2026-09-21T14:00:31Z",
   "updatedBy": "chatgpt",
-  "note": "Lease vencido recuperado para continuar exclusivamente el elemento actual; runId anterior: ps4-20260921T113909Z-a1f4c9d2."
+  "note": "Resultado de investigación escrito para .hack//G.U. Last Recode; paquete listo para validación e incorporación por Codex. Se conservan conflictos y campos unresolved en el resultado."
 }
