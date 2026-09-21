@@ -14,6 +14,7 @@ import { ps2ScannerKnowledge } from "./ps2-scanner-knowledge";
 import { ps2DocumentaryByCode } from "./ps2-documentary";
 import { getPs2EditionDetails } from "./ps2-edition-data";
 import { withReviewedPs2Cover, withReviewedPs2Photos } from "./ps2-reviewed-market-photos";
+import { withReviewedCatalogOverride } from "./catalog-reviewed-overrides";
 import { ps2GraphicLabel, type Ps2EditionDetails } from "./ps2-regional";
 import { toCatalogListGame } from "./catalog-list-game";
 import { matchesQuery } from "./catalog-filters";
@@ -147,7 +148,11 @@ test("reviewed eBay batches fill exactly 22 missing covers without changing iden
   const changed: string[] = [];
   for (const before of raw) {
     const after = byId.get(before.id)!;
-    assert.deepEqual({ ...after, coverUrl: before.coverUrl }, before, before.id);
+    assert.deepEqual(
+      { ...after, coverUrl: before.coverUrl },
+      withReviewedCatalogOverride(before),
+      before.id,
+    );
     if (before.coverUrl === after.coverUrl) continue;
     assert.equal(before.coverUrl, null);
     assert(["ES", "IT", "AU"].includes(before.regionCode!));
