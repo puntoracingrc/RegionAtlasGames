@@ -1,6 +1,6 @@
 # Plantilla maestra de orden de investigación
 
-`ORDER_TEMPLATE_VERSION: 3`
+`ORDER_TEMPLATE_VERSION: 4`
 
 Esta plantilla se envía completa para cada entrada. Sólo se sustituyen los bloques delimitados por `{{...}}`. No se resumen, eliminan ni suavizan requisitos entre juegos. En una tanda relacionada se genera una orden completa por entrada y ChatGPT devuelve un JSON independiente por cada una.
 
@@ -133,6 +133,10 @@ Si una fuente está bloqueada, no responde o carece de metadata útil, regístra
 Puedes conservar URLs de imágenes encontradas. Cada elemento de `images` debe incluir todos estos campos, aunque sus valores sean `[]`, `null` o `unresolved`:
 
 - `sourceRefs` como array de `sourceId` existentes;
+- `platform`;
+- `releaseTitle`;
+- `editionName`;
+- `market`;
 - `pageUrl`;
 - `imageUrl`;
 - `component`;
@@ -150,6 +154,26 @@ Puedes conservar URLs de imágenes encontradas. Cada elemento de `images` debe i
 No uses `ANALYZED` como estado genérico. Para `IMAGE_EVIDENCE_READ`, `observedFacts` debe identificar el hecho visible y el componente observado; `observedText` debe contener únicamente el texto realmente legible relevante. Si esos campos están vacíos, la imagen no puede confirmar ningún dato.
 
 Para `IMAGE_URL_FOUND` e `IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED`, usa `observedFacts: []`, `observedText: []` y `confidence: "unresolved"`. No omitas esos campos.
+
+Para cada release físico y mercado documentado, intenta localizar únicamente:
+
+1. una portada frontal;
+2. una contraportada.
+
+Conserva la mejor imagen directa disponible de cada lado y evita duplicados, miniaturas y variantes de resolución del mismo archivo. No amplíes esta adquisición a lomo, disco, tarjeta, manual, inserts o extras.
+
+No reutilices una imagen entre regiones o ediciones sin una fuente que demuestre que corresponde al mismo producto físico. Una portada genérica, promocional, fan-made, recreada o procedente de otra plataforma no sirve como portada regional del release.
+
+El JSON conserva siempre `pageUrl` e `imageUrl`. No incrustes bytes ni base64 dentro del JSON. Si el canal permite descargar y adjuntar archivos, crea además `<researchId>-images.zip` con los originales encontrados y añade opcionalmente a cada elemento:
+
+- `localFileName`;
+- `mimeType`;
+- `width` y `height`, sólo si se conocen;
+- `sha256`, calculado sobre el archivo adjunto.
+
+El ZIP es evidencia auxiliar y nunca sustituye la procedencia. No recortes, reescales, conviertas, edites ni recompongas las imágenes. No descargues miniaturas cuando exista el original accesible. Si la descarga está bloqueada, conserva la URL y registra la limitación; no la eludas.
+
+ChatGPT no publica estas imágenes, no las copia a assets públicos y no decide cuál será la portada de RegionAtlas. Codex valida identidad, calidad, procedencia y uso mediante el administrador antes de cualquier incorporación.
 
 No inventes códigos, idiomas, región, componentes ni contenido físico a partir de una miniatura o imagen ilegible. Una imagen de caja interior no acredita la caja exterior, y una fotografía del disco no acredita el código de barras del producto completo.
 
@@ -233,6 +257,7 @@ Antes de entregar el resultado, valida obligatoriamente:
 9. que una página genérica no se haya usado como confirmación;
 10. que los IDs de cola y catálogo sean exactamente los recibidos.
 11. que la entrega sea un archivo `.json` real y no contenido copiado desde una respuesta enriquecida.
+12. que se haya intentado obtener una portada frontal y una contraportada para cada release regional, dejando explícita cualquier ausencia o bloqueo.
 
 Si falla cualquiera de estas comprobaciones, corrige la entrega antes de devolverla. No sustituyas la corrección formal por una nueva investigación.
 
