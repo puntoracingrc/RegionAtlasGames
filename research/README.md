@@ -18,6 +18,25 @@ La cola de origen ya contiene ocho entradas con varias plataformas. Se conservan
 
 La preparación de este intercambio no cambia ningún estado de la cola. Recibir un JSON tampoco ejecuta una importación ni modifica estados automáticamente.
 
+## Orden activa única y avance de la cadena
+
+`research/queue.json` es el registro maestro y sus entradas no se eliminan al terminar un juego. Borrar una entrada perdería identificadores, orden e historial. La ejecución utiliza en cambio una única propuesta activa generada desde la primera entrada elegible y la versión vigente de `research/ORDER_TEMPLATE.md`.
+
+ChatGPT sólo investiga esa propuesta activa. Antes de buscar debe comprobar si ya existe un resultado cuyo `triggerQueueEntry.queueId` coincida exactamente con el `canonicalId` activo. Si existe, no repite búsquedas, no crea otro resultado y espera a que Codex termine de procesarlo.
+
+Codex sólo retira y sustituye la propuesta activa después de completar, en este orden:
+
+1. validar el archivo de resultado y sus fuentes;
+2. incorporar mediante el administrador únicamente fichas, portadas y precios confirmados;
+3. verificar que el runtime publicado refleja las escrituras previstas;
+4. conservar conflictos y campos `unresolved`;
+5. registrar la entrada realmente cubierta como `completed` o cerrada para la primera pasada;
+6. seleccionar la siguiente entrada elegible y generar su propuesta completa.
+
+La sustitución es atómica: nunca hay dos propuestas activas. Si el resultado es inválido, la incorporación falla, la verificación no coincide o se necesita una corrección, la propuesta actual permanece bloqueada o en corrección y no se crea la siguiente.
+
+Una investigación parcial válida no vuelve a ejecutarse durante la primera pasada. Se conserva por su `queueId`, se registran sus pendientes y sólo puede reabrirse posteriormente en una pasada explícita de `unresolved`/`partial`.
+
 ## Incorporación al catálogo mediante el administrador
 
 Los resultados de cada juego se incorporan mediante las herramientas existentes del administrador de RegionAtlas. Para una ficha existente, Codex utiliza su edición administrativa. Para un lanzamiento nuevo o varias cajas regionales, utiliza el alta manual o el alta regional V2, con sus controles de duplicados, validaciones y publicación runtime.
