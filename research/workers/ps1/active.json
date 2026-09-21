@@ -1,13 +1,13 @@
 {
   "schemaVersion": 2,
-  "generation": 2,
+  "generation": 3,
   "workerId": "ps1",
   "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps1",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
-  "currentOrderTemplateVersion": 10,
+  "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": null,
   "workPackage": {
@@ -28,7 +28,7 @@
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:07:35Z",
+  "updatedAt": "2026-09-21T05:14:52Z",
   "updatedBy": "codex",
   "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
 }

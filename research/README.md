@@ -57,7 +57,7 @@ Los archivos de `research/results/` son el intercambio factual y auditable entre
 
 ## Contrato persistente de las órdenes
 
-Toda orden se genera a partir de `research/ORDER_TEMPLATE.md`, actualmente `ORDER_TEMPLATE_VERSION: 10`. La plantilla completa es obligatoria y sólo permite sustituir la entrada de cola, el contexto actual de sus fichas y la fecha. No se redactan órdenes abreviadas o improvisadas para juegos posteriores.
+Toda orden se genera a partir de `research/ORDER_TEMPLATE.md`, actualmente `ORDER_TEMPLATE_VERSION: 11`. La plantilla completa es obligatoria y sólo permite sustituir la entrada de cola, el contexto actual de sus fichas y la fecha. No se redactan órdenes abreviadas o improvisadas para juegos posteriores.
 
 Antes de enviarla se comprueba que no queden marcadores, que estén presentes todas las secciones, campos, inferencias prohibidas y niveles de confianza, y que la entrada sea elegible. Si la orden no coincide con el contrato, la cadena se pausa y no se envía a ChatGPT.
 
@@ -116,6 +116,8 @@ Cada archivo `results/<researchId>.json` contiene un objeto con estos campos obl
 | `releases` | Array de lanzamientos o productos investigados; puede estar vacío. |
 | `sources` | Array de fuentes identificadas mediante `sourceId`. |
 | `regionalPrices` | Array de evidencia de precios por release y mercado; conserva un elemento `unresolved` cuando no existe muestra suficiente. |
+| `queryLedger` | Consultas exactas ejecutadas, su tipo, objetivo y resultados útiles. |
+| `sourceAttempts` | Páginas o fuentes realmente intentadas, incluidas las que no aportaron evidencia o fallaron técnicamente. |
 | `unresolved` | Array de campos pendientes, límites o conflictos; puede estar vacío. |
 | `coveredQueueEntries` | Array de referencias con justificación de la cobertura declarada; puede estar vacío. |
 | `researchDate` | Fecha ISO 8601 (`YYYY-MM-DD` o timestamp con zona horaria). |
@@ -157,6 +159,14 @@ La ruta administrativa actual permite localizar y subir la portada frontal al CD
 `regionalPrices` mantiene separadas región, edición y estado. Para cartuchos se crea un elemento por `sealed`, `complete` y `loose`; para soporte óptico se crea uno por `sealed` y `complete`. No se investigan otros estados ni se usa uno como sustituto de otro. Un precio confirmado requiere al menos dos anuncios activos e independientes en mercados de segunda mano del producto regional exacto, dentro del mismo `conditionBucket` y moneda. El precio de cada estado es la mediana de los precios solicitados sin envío; se conservan muestra, mínimo, máximo, envío, fecha de acceso, listing ID, marketplace, vendedor cuando esté disponible, URL directa y pruebas de región/edición. Dos publicaciones del mismo vendedor o del mismo artículo cruzado entre webs cuentan una sola vez. Ventas completadas, anuncios vendidos o inactivos, agregados y anuncios sin URL directa o sin estado activo verificable no cuentan para la muestra actual. Si la muestra de un estado no cumple, sólo ese `proposedBasePrice` permanece `null` y la razón se registra como `unresolved`.
 
 ChatGPT sólo entrega evidencia de precio. Codex verifica identidad, comparabilidad, duplicados, moneda y cálculo, y únicamente entonces puede escribir el precio mediante el administrador y el overlay runtime actual. Nunca se publica un precio por commit de catálogo ni se copia desde otra región.
+
+## Rendimiento acumulado de fuentes
+
+`research/source-performance.json` es un índice derivado mantenido exclusivamente por Codex después de validar cada resultado. Se agrupa por plataforma, campo objetivo, dominio y tipo de fuente. ChatGPT sólo aporta `queryLedger` y `sourceAttempts`; no edita el índice, no se asigna puntuaciones y no decide qué fuente será recomendada.
+
+Para evitar aprender de una casualidad, una ruta no puede marcarse como recomendada hasta acumular al menos tres intentos validados en dos investigaciones distintas y dos intentos útiles. Se distinguen evidencia confirmada, candidato, contexto, ausencia de datos, bloqueo y fallo técnico. Las plantillas de consulta almacenadas se normalizan y nunca contienen el identificador o la respuesta final de un juego concreto.
+
+Al generar una orden futura, Codex puede convertir las rutas recomendadas en prioridad de búsqueda para la plataforma y campo correspondientes. No elimina otras fuentes ni rebaja los umbrales de evidencia; sólo mejora el orden de consulta.
 
 Un elemento de `unresolved` contiene `platform`, `releaseTitle`, `field`, `reason` y `sourceRefs`; puede añadir `candidateValues` para registrar conflictos sin resolverlos arbitrariamente.
 

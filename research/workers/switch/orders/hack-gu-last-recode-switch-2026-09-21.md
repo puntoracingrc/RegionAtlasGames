@@ -1,6 +1,6 @@
 # Plantilla maestra de orden de investigación
 
-`ORDER_TEMPLATE_VERSION: 10`
+`ORDER_TEMPLATE_VERSION: 11`
 
 Esta plantilla se envía completa para cada entrada. Sólo se sustituyen los tres bloques de entrada, contexto y fecha. No se resumen, eliminan ni suavizan requisitos entre juegos. En una tanda relacionada se genera una orden completa por entrada y ChatGPT devuelve un JSON independiente por cada una.
 
@@ -370,6 +370,40 @@ Si para uno de los estados obligatorios no existen dos anuncios activos e indepe
 
 ChatGPT no publica ni modifica precios. Codex vuelve a validar los anuncios activos, su identidad, comparabilidad y cálculo, y sólo incorpora un precio confirmado mediante el administrador y el overlay runtime existente.
 
+### Registro de consultas y rendimiento de fuentes
+
+Conserva un ledger completo de la ruta de investigación. Su finalidad es que Codex pueda medir qué fuentes sirven realmente para cada plataforma y cada campo; no autoriza a ChatGPT a cambiar el routing, la plantilla ni las reglas.
+
+`queryLedger` contiene un elemento por consulta ejecutada con:
+
+- `queryId` estable dentro del resultado;
+- `queryType`: `general`, `exact_identifier`, `source_specific`, `image` o `marketplace`;
+- `query` exacta;
+- `provider` o buscador utilizado;
+- `targetFields`;
+- `resultCount` cuando sea observable;
+- `usefulResultRefs`, referidos a `sourceId` existentes;
+- `discoveredIdentifiers` únicamente cuando la consulta los descubrió;
+- `notes` para límites o reformulaciones.
+
+`sourceAttempts` contiene un elemento por página o fuente realmente intentada con:
+
+- `attemptId` estable;
+- `sourceName`;
+- `domain` normalizado;
+- `sourceType`;
+- `platform`;
+- `targetFields`;
+- `queryRefs`, referidos a `queryId` existentes;
+- `url` directa intentada;
+- `accessStatus`: `OPENED`, `BLOCKED`, `NOT_FOUND`, `TIMEOUT` o `SEARCH_RESULT_ONLY`;
+- `outcome`: `CONFIRMED_EVIDENCE`, `CANDIDATE`, `CONTEXT_ONLY`, `NO_RELEVANT_DATA` o `TECHNICAL_FAILURE`;
+- `useful` booleano;
+- `supportedClaimRefs`, referidos a claims o campos del propio resultado cuando existan;
+- `limitation` o `null`.
+
+Registra también los intentos fallidos; una fuente bloqueada no es una fuente inútil y una página abierta sin datos relevantes no es un fallo técnico. No inventes `resultCount`, coste, bloqueos ni consultas no ejecutadas. No declares una fuente como recomendada ni calcules rankings: Codex validará el ledger y actualizará por separado `research/source-performance.json`.
+
 ### Acciones prohibidas y pausa
 
 No investigues precios fuera del contrato regional anterior. Fuera de la entrega Git autorizada por el protocolo del worker —su lease, checkpoint, estado y archivo de resultado asignado— no modifiques GitHub ni ningún otro archivo. No modifiques RegionAtlas, la cola, el catálogo, la web, schemas, arquitectura, interfaz, administrador, umbrales ni reglas de RegionAtlas.
@@ -395,6 +429,8 @@ El contenido completo debe poder procesarse con `JSON.parse` sin limpiar, recort
 - `sources`;
 - `images` cuando existan;
 - `regionalPrices`, con un elemento por release y mercado confirmado aunque el precio quede `unresolved`;
+- `queryLedger` con todas las consultas ejecutadas;
+- `sourceAttempts` con cada fuente realmente intentada, incluidos intentos sin evidencia útil;
 - `conflicts`;
 - `unresolved`;
 - `coveredQueueEntries`;
@@ -447,6 +483,8 @@ Antes de entregar el resultado, valida obligatoriamente:
 13. que ningún precio propuesto use menos de dos anuncios activos e independientes de segunda mano, mezcle estados o carezca de prueba de la región exacta;
 14. que cartucho sólo investigue `sealed`, `complete` y `loose`, y soporte óptico sólo `sealed` y `complete`.
 15. que ninguna URL externa de imagen se presente como asset público definitivo de RegionAtlas.
+16. que cada `queryRef` exista en `queryLedger` y cada `usefulResultRef` exista en `sources`;
+17. que `sourceAttempts` distinga correctamente evidencia útil, ausencia de datos y fallo técnico.
 
 Si falla cualquiera de estas comprobaciones, corrige la entrega antes de devolverla. No sustituyas la corrección formal por una nueva investigación.
 

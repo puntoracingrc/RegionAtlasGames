@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": null,
+  "updatedBy": null,
+  "methodology": {
+    "unit": "validated source attempt for one platform and target field",
+    "maintainer": "codex_after_result_validation_only",
+    "recommendationMinimums": {
+      "attempts": 3,
+      "distinctResearchIds": 2,
+      "usefulAttempts": 2
+    },
+    "outcomes": [
+      "CONFIRMED_EVIDENCE",
+      "CANDIDATE",
+      "CONTEXT_ONLY",
+      "NO_RELEVANT_DATA",
+      "TECHNICAL_FAILURE"
+    ],
+    "accessStatuses": [
+      "OPENED",
+      "BLOCKED",
+      "NOT_FOUND",
+      "TIMEOUT",
+      "SEARCH_RESULT_ONLY"
+    ],
+    "notes": [
+      "ChatGPT reports raw query and source attempts; it never edits this aggregate.",
+      "Codex validates attempts before aggregation.",
+      "Blocked sources are tracked separately from irrelevant or technically failed sources.",
+      "Normalized query patterns must not contain game-specific final answers or identifiers."
+    ]
+  },
+  "platforms": {}
+}
