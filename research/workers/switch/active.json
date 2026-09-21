@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 6,
+  "generation": 7,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "blud-switch-2026-09-21",
   "workPackage": {
     "packageId": "switch-2026-09-21-002",
     "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible tras excluir resultados existentes por la regla anti-repetición; no se ha supuesto afinidad con entradas posteriores."},
@@ -27,8 +27,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-21T13:24:43Z",
-  "updatedBy": "codex",
-  "note": "Resultado hack-gu-last-recode-switch-2026-09-21 validado e incorporado mediante Admin; runtime público verificado. Siguiente paquete preparado sin repetir el resultado consumido."
+  "lease": {
+    "runId": "switch-20260921T132735Z-5",
+    "claimedAt": "2026-09-21T13:27:35Z",
+    "expiresAt": "2026-09-21T14:17:35Z"
+  },
+  "updatedAt": "2026-09-21T13:27:35Z",
+  "updatedBy": "chatgpt",
+  "note": "Lease reclamado para investigar exclusivamente blud-switch-2026-09-21 según la orden preparada."
 }
