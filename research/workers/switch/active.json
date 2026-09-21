@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 13,
+  "generation": 14,
   "workerId": "switch",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -21,9 +21,7 @@
         "queueId": "catalog:switch-usa-drive-rally",
         "platform": "switch",
         "title": "#Drive Rally",
-        "catalogIds": [
-          "switch-usa-drive-rally"
-        ],
+        "catalogIds": ["switch-usa-drive-rally"],
         "researchId": "drive-rally-switch-2026-09-21",
         "orderPath": "research/workers/switch/orders/drive-rally-switch-2026-09-21.md",
         "resultPath": "research/results/drive-rally-switch-2026-09-21.json",
@@ -34,24 +32,16 @@
         "queueId": "catalog:switch-drive-rally-special-edition",
         "platform": "switch",
         "title": "#Drive Rally [Special Edition]",
-        "catalogIds": [
-          "switch-drive-rally-special-edition"
-        ],
+        "catalogIds": ["switch-drive-rally-special-edition"],
         "researchId": "drive-rally-special-edition-switch-2026-09-21",
         "orderPath": "research/workers/switch/orders/drive-rally-special-edition-switch-2026-09-21.md",
         "resultPath": "research/results/drive-rally-special-edition-switch-2026-09-21.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/drive-rally-special-edition-switch-2026-09-21.json"
       }
     ]
   },
-  "lease": {
-    "runId": "chatgpt-switch-20260921T192410Z-7",
-    "claimedAt": "2026-09-21T19:24:10Z",
-    "expiresAt": "2026-09-21T20:19:10Z",
-    "recoveredFromRunId": "chatgpt-switch-20260921T182543Z-7"
-  },
-  "updatedAt": "2026-09-21T19:24:10Z",
+  "updatedAt": "2026-09-21T19:35:27Z",
   "updatedBy": "chatgpt",
-  "note": "Recovered expired lease for #Drive Rally Special Edition; previous runId chatgpt-switch-20260921T182543Z-7."
+  "note": "Completed #Drive Rally Special Edition research; result published at research/results/drive-rally-special-edition-switch-2026-09-21.json."
 }
