@@ -1,6 +1,6 @@
 # Plantilla maestra de orden de investigación
 
-`ORDER_TEMPLATE_VERSION: 2`
+`ORDER_TEMPLATE_VERSION: 3`
 
 Esta plantilla se envía completa para cada entrada. Sólo se sustituyen los bloques delimitados por `{{...}}`. No se resumen, eliminan ni suavizan requisitos entre juegos. En una tanda relacionada se genera una orden completa por entrada y ChatGPT devuelve un JSON independiente por cada una.
 
@@ -130,9 +130,9 @@ Si una fuente está bloqueada, no responde o carece de metadata útil, regístra
 
 ### Imágenes
 
-Puedes conservar URLs de imágenes encontradas. Cada elemento de `images` debe incluir:
+Puedes conservar URLs de imágenes encontradas. Cada elemento de `images` debe incluir todos estos campos, aunque sus valores sean `[]`, `null` o `unresolved`:
 
-- `sourceId`;
+- `sourceRefs` como array de `sourceId` existentes;
 - `pageUrl`;
 - `imageUrl`;
 - `component`;
@@ -148,6 +148,8 @@ Puedes conservar URLs de imágenes encontradas. Cada elemento de `images` debe i
 - `IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED`: la imagen podría contener evidencia, pero no fue analizada o no es suficientemente legible.
 
 No uses `ANALYZED` como estado genérico. Para `IMAGE_EVIDENCE_READ`, `observedFacts` debe identificar el hecho visible y el componente observado; `observedText` debe contener únicamente el texto realmente legible relevante. Si esos campos están vacíos, la imagen no puede confirmar ningún dato.
+
+Para `IMAGE_URL_FOUND` e `IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED`, usa `observedFacts: []`, `observedText: []` y `confidence: "unresolved"`. No omitas esos campos.
 
 No inventes códigos, idiomas, región, componentes ni contenido físico a partir de una miniatura o imagen ilegible. Una imagen de caja interior no acredita la caja exterior, y una fotografía del disco no acredita el código de barras del producto completo.
 
@@ -169,7 +171,11 @@ Si consideras necesario alguno de esos cambios, detén la investigación y descr
 
 ### Formato obligatorio de salida
 
-La entrega autoritativa debe ser un único archivo JSON cuyo nombre sea `<researchId>.json`. Si la interfaz no permite crear o adjuntar el archivo, devuelve únicamente su contenido como un objeto JSON válido. No uses bloque Markdown, cercas de código, comentarios, introducciones, conclusiones, citas automáticas ni definiciones de referencias después del cierre `}`.
+La entrega autoritativa debe ser un archivo JSON real cuyo nombre sea `<researchId>.json`, creado o adjuntado como archivo. No pegues el objeto como respuesta de texto enriquecido: la interfaz puede transformar las URL en enlaces Markdown aunque el contenido original fuera correcto.
+
+Si no puedes crear, guardar o adjuntar un archivo `.json` real, no simules la entrega pegando JSON en el mensaje. Devuelve únicamente `DELIVERY_BLOCKED_JSON_FILE_REQUIRED`. Este bloqueo no obliga a repetir la investigación; conserva el resultado y entrega el archivo cuando el canal lo permita.
+
+El archivo no contiene bloque Markdown, cercas de código, comentarios, introducciones, conclusiones, citas automáticas ni definiciones de referencias después del cierre `}`.
 
 El contenido completo debe poder procesarse con `JSON.parse` sin limpiar, recortar ni transformar nada. Debe respetar el formato de intercambio de `research/README.md` e incluir como mínimo:
 
@@ -226,6 +232,7 @@ Antes de entregar el resultado, valida obligatoriamente:
 8. que toda evidencia visual cumpla el formato y los estados anteriores;
 9. que una página genérica no se haya usado como confirmación;
 10. que los IDs de cola y catálogo sean exactamente los recibidos.
+11. que la entrega sea un archivo `.json` real y no contenido copiado desde una respuesta enriquecida.
 
 Si falla cualquiera de estas comprobaciones, corrige la entrega antes de devolverla. No sustituyas la corrección formal por una nueva investigación.
 

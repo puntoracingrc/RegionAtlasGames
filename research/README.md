@@ -30,15 +30,15 @@ Los archivos de `research/results/` son el intercambio factual y auditable entre
 
 ## Contrato persistente de las órdenes
 
-Toda orden se genera a partir de `research/ORDER_TEMPLATE.md`, actualmente `ORDER_TEMPLATE_VERSION: 2`. La plantilla completa es obligatoria y sólo permite sustituir la entrada de cola, el contexto actual de sus fichas y la fecha. No se redactan órdenes abreviadas o improvisadas para juegos posteriores.
+Toda orden se genera a partir de `research/ORDER_TEMPLATE.md`, actualmente `ORDER_TEMPLATE_VERSION: 3`. La plantilla completa es obligatoria y sólo permite sustituir la entrada de cola, el contexto actual de sus fichas y la fecha. No se redactan órdenes abreviadas o improvisadas para juegos posteriores.
 
 Antes de enviarla se comprueba que no queden marcadores, que estén presentes todas las secciones, campos, inferencias prohibidas y niveles de confianza, y que la entrada sea elegible. Si la orden no coincide con el contrato, la cadena se pausa y no se envía a ChatGPT.
 
 En tandas relacionadas se repite la plantilla completa para cada entrada. Compartir una petición no permite reducir los requisitos de ninguno de los juegos.
 
-La versión 2 exige además que la entrega sea un único JSON directamente parseable, con URL canónicas sin Markdown ni referencias automáticas, fuentes directas, procedencia válida por campo, separación explícita de componentes y evidencia visual auditable. Estas exigencias forman parte de todas las órdenes futuras y no son una corrección especial para un juego concreto.
+La versión 3 exige además que la entrega sea un archivo `.json` real directamente parseable, con URL canónicas sin Markdown ni referencias automáticas, fuentes directas, procedencia válida por campo, separación explícita de componentes y evidencia visual auditable. No se acepta como entrega autoritativa un objeto pegado desde una respuesta de texto enriquecido, porque la interfaz puede reescribir las URL. Estas exigencias forman parte de todas las órdenes futuras y no son una corrección especial para un juego concreto.
 
-Un resultado que no cumpla este contrato no se guarda en `research/results/`, no activa la regla anti-repetición, no se incorpora mediante el administrador y no permite seleccionar la siguiente entrada. Se solicita una corrección formal del mismo resultado, sin repetir la investigación. Una vez corregido y validado, se conserva con el mismo `researchId`.
+Un resultado que no cumpla este contrato no se guarda en `research/results/`, no activa la regla anti-repetición, no se incorpora mediante el administrador y no permite seleccionar la siguiente entrada. Se solicita una corrección formal del mismo resultado, sin repetir la investigación. Una vez corregido y validado, se conserva con el mismo `researchId`. Si ChatGPT no puede crear o adjuntar el archivo, debe responder `DELIVERY_BLOCKED_JSON_FILE_REQUIRED` y conservar su investigación para entregarla cuando disponga de un canal de archivos.
 
 ## Corte por desviación de la investigación
 
@@ -116,7 +116,7 @@ Los valores desconocidos se omiten o se expresan como `null` (campos escalares) 
 
 Una página de búsqueda, categoría, galería general o listado agregado sólo sirve para descubrir candidatos. No confirma un hecho salvo que la página vincule inequívocamente el dato con el producto exacto. Los identificadores se atribuyen al producto y componente demostrados; si el componente es desconocido, el dato permanece a nivel de release y no se asigna a la caja exterior, caja interior, disco, tarjeta, manual o extra.
 
-Cuando se incluyan imágenes, `status` será exactamente `IMAGE_URL_FOUND`, `IMAGE_EVIDENCE_READ` o `IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED`. Una imagen marcada `IMAGE_EVIDENCE_READ` registra `sourceId`, `pageUrl`, `imageUrl`, `component`, `observedFacts`, `observedText` y `confidence`. Sin observación legible y vinculada al componente correcto, la imagen no confirma campos. Los idiomas del embalaje nunca se infieren de los idiomas del software, del mercado o de la página web.
+Cuando se incluyan imágenes, `status` será exactamente `IMAGE_URL_FOUND`, `IMAGE_EVIDENCE_READ` o `IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED`. Cada imagen registra obligatoriamente `sourceRefs`, `pageUrl`, `imageUrl`, `component`, `status`, `observedFacts`, `observedText` y `confidence`. Para una imagen no analizada, los dos campos de observación son arrays vacíos y la confianza es `unresolved`; nunca se omiten. Sin observación legible y vinculada al componente correcto, la imagen no confirma campos. Los idiomas del embalaje nunca se infieren de los idiomas del software, del mercado o de la página web.
 
 Un elemento de `unresolved` contiene `platform`, `releaseTitle`, `field`, `reason` y `sourceRefs`; puede añadir `candidateValues` para registrar conflictos sin resolverlos arbitrariamente.
 
