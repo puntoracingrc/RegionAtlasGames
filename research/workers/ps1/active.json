@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 2,
+  "generation": 1,
+  "workerId": "ps1",
+  "state": "READY",
+  "repository": "puntoracingrc/RegionAtlasGames",
+  "branch": "research-worker/ps1",
+  "queuePath": "research/queue.json",
+  "instructionsPath": "research/ORDER_TEMPLATE.md",
+  "currentOrderTemplateVersion": 9,
+  "resultOrderTemplateVersion": null,
+  "currentItemResearchId": null,
+  "workPackage": {
+    "packageId": "ps1-2026-09-21-001",
+    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
+    "items": [
+      {
+        "queueId": "platform-work:ps1:ps1-work-af392f46612455ff",
+        "platform": "ps1",
+        "title": "'98 Koshien",
+        "catalogIds": ["ps1-japon-%2798-koshien"],
+        "researchId": "98-koshien-ps1-2026-09-21",
+        "orderPath": "research/workers/ps1/orders/98-koshien-ps1-2026-09-21.md",
+        "resultPath": "research/results/98-koshien-ps1-2026-09-21.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/ps1/checkpoints/98-koshien-ps1-2026-09-21.json"
+      }
+    ]
+  },
+  "lease": null,
+  "updatedAt": "2026-09-21T04:59:09Z",
+  "updatedBy": "codex",
+  "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
+}

@@ -13,13 +13,259 @@ Investiga exclusivamente la entrada de RegionAtlas incluida a continuación.
 ### Entrada asignada
 
 ```json
-{{QUEUE_ENTRY_JSON}}
+{
+  "canonicalId": "catalog-group:ps4-hack-gu-last-recode",
+  "canonicalTitle": ".hack GU Last Recode",
+  "sortTitle": ".hack GU Last Recode",
+  "franchise": null,
+  "series": null,
+  "releaseYear": 2017,
+  "platforms": [
+    "ps4"
+  ],
+  "physicalEditionCount": 1,
+  "physicalReleaseCount": 2,
+  "knownRegions": [
+    "PAL España",
+    "USA"
+  ],
+  "knownEditionTypes": [
+    "STANDARD"
+  ],
+  "knownProductCodes": [
+    "2102549 / CUSA-07559",
+    "CUSA-07691"
+  ],
+  "knownBarcodes": [
+    "3391891994972"
+  ],
+  "hasPhysicalRelease": true,
+  "hasPromoOrNFR": false,
+  "hasCollectorsOrLimited": false,
+  "hasBudgetReissue": false,
+  "missingRegionDataCount": 0,
+  "missingBarcodeCount": 1,
+  "missingProductCodeCount": 0,
+  "missingPackagingLanguageCount": 2,
+  "needsResearch": true,
+  "researchPriority": "HIGH",
+  "researchStatus": "pending",
+  "identityBasis": "derived-platform-title",
+  "catalogIds": [
+    "ps4-hack-gu-last-recode",
+    "ps4-usa-hack-gu-last-recode"
+  ],
+  "sourceTitles": [
+    ".hack GU Last Recode"
+  ],
+  "possibleDuplicateGroups": [
+    "title:hack gu last recode"
+  ]
+}
 ```
 
 ### Contexto actual de las fichas
 
 ```json
-{{CURRENT_CATALOG_CONTEXT_JSON}}
+{
+  "platformWorker": "ps4",
+  "catalogEntries": [
+    {
+      "id": "ps4-hack-gu-last-recode",
+      "slug": "hack-gu-last-recode",
+      "title": ".hack GU Last Recode",
+      "titlePc": ".hack GU Last Recode",
+      "platformSlug": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "listingStatus": "listed",
+      "coverUrl": "/covers/ps4/hack-gu-last-recode.jpg",
+      "pcPath": "/game/pal-playstation-4/hack-gu-last-recode",
+      "pcId": 57267,
+      "pcRegion": "PAL EU (referencia)",
+      "pcCondition": null,
+      "matchConfidence": "SEED_PC",
+      "marketMin": 65,
+      "marketMax": 65,
+      "recommendedPrice": 65,
+      "pcRefPrice": null,
+      "deltaEsVsPc": null,
+      "priceSource": "eBay ES · Estimación provisional",
+      "updatedAt": "2026-08-31T00:00:00Z",
+      "hasEsPrice": true,
+      "seedSource": "pricecharting-pal",
+      "priceRegionVerified": false,
+      "estimatedPriceComplete": 65,
+      "priceDataSources": "eBay ES · Estimación provisional",
+      "estimatedShippingToSpainComplete": 3.17,
+      "estimatedTotalToSpainComplete": 68.17,
+      "provisionalPriceBatchIds": [
+        "ps4-pal-es-first-page-2026-08-31"
+      ],
+      "provisionalPriceUpdatedAt": "2026-08-31T00:00:00Z"
+    },
+    {
+      "id": "ps4-usa-hack-gu-last-recode",
+      "slug": "hack-gu-last-recode",
+      "title": ".hack GU Last Recode",
+      "titlePc": ".hack GU Last Recode",
+      "platformSlug": "ps4",
+      "region": "USA",
+      "edition": "standard",
+      "listingStatus": "listed",
+      "coverUrl": "/covers/ps4/hack-gu-last-recode-2.jpg",
+      "pcPath": "/game/playstation-4/hack-gu-last-recode",
+      "pcId": 40438,
+      "pcRegion": "NTSC USA (referencia)",
+      "pcCondition": null,
+      "matchConfidence": "SEED_PC_NTSC",
+      "marketMin": null,
+      "marketMax": null,
+      "recommendedPrice": 12.07,
+      "pcRefPrice": 12.07,
+      "deltaEsVsPc": null,
+      "priceSource": "PriceCharting USA, convertido a EUR con referencia BCE",
+      "updatedAt": "2026-09-01",
+      "hasEsPrice": false,
+      "seedSource": "pricecharting-ntsc",
+      "museumRegion": "usa",
+      "priceChartingLooseUsd": 13.58,
+      "priceChartingCompleteUsd": 13.99,
+      "priceChartingSealedUsd": 22.09,
+      "priceChartingCurrency": "USD",
+      "priceChartingUsdPerEur": 1.159,
+      "priceChartingExchangeRateDate": "2026-09-01",
+      "priceChartingCollectedAt": "2026-09-01T17:10:00+02:00",
+      "estimatedPriceLoose": 11.72,
+      "estimatedPriceComplete": 12.07,
+      "estimatedPriceSealed": 19.06,
+      "priceDataSources": "PriceCharting USA"
+    }
+  ],
+  "gameDetailsByCatalogId": {
+    "ps4-hack-gu-last-recode": {
+      "year": 2017,
+      "releaseDate": "November 3, 2017",
+      "reference": "CUSA-07691",
+      "players": 1,
+      "support": null,
+      "developer": {
+        "name": "CyberConnect2",
+        "slug": "cyberconnect2",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "e77ed5c9-3c53-4d7b-ae5e-87155dcb8a54",
+        "source": "serialstation"
+      },
+      "publisher": {
+        "name": "Namco Bandai Games",
+        "slug": "namco-bandai-games",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "0a35a346-b7b4-4ccc-82c5-f5be4e5814bf",
+        "source": "serialstation"
+      },
+      "genres": [
+        {
+          "name": "Action",
+          "slug": "action",
+          "museumPath": null,
+          "pcPath": null,
+          "source": "pricecharting"
+        },
+        {
+          "name": "amp; Adventure",
+          "slug": "amp-adventure",
+          "museumPath": null,
+          "pcPath": null,
+          "source": "pricecharting"
+        }
+      ],
+      "series": null,
+      "museumPath": null,
+      "pcProductId": 57267,
+      "ean": "3391891994972",
+      "sources": {
+        "pricecharting": {
+          "pcPath": "/game/pal-playstation-4/hack-gu-last-recode",
+          "fetchedAt": "2026-06-13T16:50:20",
+          "productId": 57267
+        },
+        "serialstation": {
+          "serialstationId": "77d73386-18d8-4bc2-9c71-de79569dd52d",
+          "titleId": "CUSA07691",
+          "matchMethod": "reference",
+          "matchScore": 1,
+          "fetchedAt": "2026-06-19T04:25:26"
+        }
+      },
+      "fieldSources": {
+        "developer": "serialstation",
+        "publisher": "serialstation",
+        "genres": "pricecharting",
+        "reference": "serialstation",
+        "year": "pricecharting",
+        "releaseDate": "pricecharting",
+        "players": "pricecharting"
+      },
+      "fetchedAt": "2026-06-19T04:25:28",
+      "mergedAt": "2026-06-19T04:25:28",
+      "pegi": "PEGI 12"
+    },
+    "ps4-usa-hack-gu-last-recode": {
+      "year": 2017,
+      "releaseDate": "November 3, 2017",
+      "reference": "2102549 / CUSA-07559",
+      "players": 1,
+      "support": null,
+      "developer": {
+        "name": "CyberConnect2",
+        "slug": "cyberconnect2",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "pricecharting"
+      },
+      "publisher": {
+        "name": "Namco Bandai",
+        "slug": "namco-bandai",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "pricecharting"
+      },
+      "genres": [
+        {
+          "name": "RPG",
+          "slug": "rpg",
+          "museumPath": null,
+          "pcPath": null,
+          "source": "pricecharting"
+        }
+      ],
+      "series": null,
+      "museumPath": null,
+      "pcProductId": 40438,
+      "ean": null,
+      "sources": {
+        "pricecharting": {
+          "pcPath": "/game/playstation-4/hack-gu-last-recode",
+          "fetchedAt": "2026-06-14T23:46:27",
+          "productId": 40438
+        }
+      },
+      "fieldSources": {
+        "developer": "pricecharting",
+        "publisher": "pricecharting",
+        "genres": "pricecharting",
+        "reference": "pricecharting",
+        "year": "pricecharting",
+        "releaseDate": "pricecharting",
+        "players": "pricecharting"
+      },
+      "fetchedAt": "2026-06-15T00:22:12",
+      "mergedAt": "2026-06-15T00:22:12"
+    }
+  }
+}
 ```
 
 Los nombres, regiones, códigos, seeds e identificadores internos anteriores describen el estado actual de RegionAtlas. No son prueba externa. Debes verificarlos de forma independiente y registrar cualquier conflicto.
@@ -326,7 +572,7 @@ Antes de entregar el resultado, valida obligatoriamente:
 
 Si falla cualquiera de estas comprobaciones, corrige la entrega antes de devolverla. No sustituyas la corrección formal por una nueva investigación.
 
-Fecha de investigación: `{{RESEARCH_DATE}}`.
+Fecha de investigación: `2026-09-21`.
 
 ---
 

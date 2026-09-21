@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "repository": "puntoracingrc/RegionAtlasGames",
+  "coordinationBranch": "research-pipeline",
+  "workers": [
+    {
+      "workerId": "ps2",
+      "platforms": ["ps2"],
+      "branch": "research-worker/ps2",
+      "statePath": "research/workers/ps2/active.json",
+      "taskName": "RegionAtlas research PS2",
+      "schedule": {"frequency": "PT1H", "timezone": "Europe/Madrid"}
+    },
+    {
+      "workerId": "switch",
+      "platforms": ["switch"],
+      "branch": "research-worker/switch",
+      "statePath": "research/workers/switch/active.json",
+      "taskName": "RegionAtlas research Switch",
+      "schedule": {"frequency": "PT1H", "timezone": "Europe/Madrid"}
+    },
+    {
+      "workerId": "ps4",
+      "platforms": ["ps4"],
+      "branch": "research-worker/ps4",
+      "statePath": "research/workers/ps4/active.json",
+      "taskName": "RegionAtlas research PS4",
+      "schedule": {"frequency": "PT1H", "timezone": "Europe/Madrid"}
+    },
+    {
+      "workerId": "ps1",
+      "platforms": ["ps1"],
+      "branch": "research-worker/ps1",
+      "statePath": "research/workers/ps1/active.json",
+      "taskName": "RegionAtlas research PS1",
+      "schedule": {"frequency": "PT1H", "timezone": "Europe/Madrid"}
+    }
+  ]
+}

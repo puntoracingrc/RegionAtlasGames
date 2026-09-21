@@ -13,13 +13,137 @@ Investiga exclusivamente la entrada de RegionAtlas incluida a continuación.
 ### Entrada asignada
 
 ```json
-{{QUEUE_ENTRY_JSON}}
+{
+  "canonicalId": "catalog-group:switch-japon-hack-gu-last-recode",
+  "canonicalTitle": ".hack GU Last Recode",
+  "sortTitle": ".hack GU Last Recode",
+  "franchise": null,
+  "series": null,
+  "releaseYear": null,
+  "platforms": [
+    "switch"
+  ],
+  "physicalEditionCount": 1,
+  "physicalReleaseCount": 2,
+  "knownRegions": [
+    "Japón",
+    "USA"
+  ],
+  "knownEditionTypes": [
+    "STANDARD"
+  ],
+  "knownProductCodes": [],
+  "knownBarcodes": [],
+  "hasPhysicalRelease": true,
+  "hasPromoOrNFR": false,
+  "hasCollectorsOrLimited": false,
+  "hasBudgetReissue": false,
+  "missingRegionDataCount": 0,
+  "missingBarcodeCount": 2,
+  "missingProductCodeCount": 2,
+  "missingPackagingLanguageCount": 2,
+  "needsResearch": true,
+  "researchPriority": "HIGH",
+  "researchStatus": "pending",
+  "identityBasis": "derived-platform-title",
+  "catalogIds": [
+    "switch-japon-hack-gu-last-recode",
+    "switch-usa-hack-gu-last-recode"
+  ],
+  "sourceTitles": [
+    ".hack GU Last Recode"
+  ],
+  "possibleDuplicateGroups": [
+    "title:hack gu last recode"
+  ]
+}
 ```
 
 ### Contexto actual de las fichas
 
 ```json
-{{CURRENT_CATALOG_CONTEXT_JSON}}
+{
+  "platformWorker": "switch",
+  "catalogEntries": [
+    {
+      "id": "switch-japon-hack-gu-last-recode",
+      "slug": "hack-gu-last-recode",
+      "title": ".hack GU Last Recode",
+      "titlePc": ".hack GU Last Recode",
+      "platformSlug": "switch",
+      "region": "Japón",
+      "edition": "standard",
+      "listingStatus": "listed",
+      "coverUrl": "/covers/switch/hack-gu-last-recode.jpg",
+      "pcPath": "/game/jp-nintendo-switch/hack-gu-last-recode",
+      "pcId": 6198804,
+      "pcRegion": "Japón (referencia)",
+      "pcCondition": null,
+      "matchConfidence": "SEED_PC_JP",
+      "marketMin": null,
+      "marketMax": null,
+      "recommendedPrice": null,
+      "pcRefPrice": null,
+      "deltaEsVsPc": null,
+      "priceSource": null,
+      "updatedAt": null,
+      "hasEsPrice": false,
+      "seedSource": "pricecharting-jp",
+      "priceChartingLooseUsd": 33.42,
+      "priceChartingCompleteUsd": 38.29,
+      "priceChartingSealedUsd": 50.14,
+      "priceChartingCurrency": "USD",
+      "priceChartingCollectedAt": "2026-09-05T04:27:48Z",
+      "museumRegion": "japon"
+    },
+    {
+      "id": "switch-usa-hack-gu-last-recode",
+      "slug": "hack-gu-last-recode",
+      "title": ".hack GU Last Recode",
+      "titlePc": ".hack GU Last Recode",
+      "platformSlug": "switch",
+      "region": "USA",
+      "physicalVariant": null,
+      "edition": "standard",
+      "listingStatus": "listed",
+      "coverUrl": "/covers/switch/usa-hack-gu-last-recode.jpg",
+      "pcPath": "/game/nintendo-switch/hack-gu-last-recode",
+      "pcId": 3284180,
+      "pcRegion": "NTSC USA (referencia)",
+      "pcCondition": null,
+      "matchConfidence": "SEED_PC",
+      "marketMin": null,
+      "marketMax": null,
+      "recommendedPrice": 68.42,
+      "pcRefPrice": 68.42,
+      "deltaEsVsPc": null,
+      "priceSource": "PriceCharting USA, convertido a EUR con referencia BCE",
+      "updatedAt": "2026-09-02",
+      "hasEsPrice": false,
+      "priceRegionVerified": false,
+      "seedSource": "pricecharting-ntsc-user-list",
+      "regionEvidence": [
+        "pricecharting_ntsc_usa_user_list"
+      ],
+      "regionVerified": true,
+      "priceChartingLooseUsd": 42.99,
+      "priceChartingCompleteUsd": 79.3,
+      "priceChartingSealedUsd": 130.45,
+      "priceChartingCurrency": "USD",
+      "priceChartingUsdPerEur": 1.159,
+      "priceChartingExchangeRateDate": "2026-09-01",
+      "priceChartingCollectedAt": "2026-09-02T04:13:15+02:00",
+      "estimatedPriceLoose": 37.09,
+      "estimatedPriceComplete": 68.42,
+      "estimatedPriceSealed": 112.55,
+      "priceDataSources": "PriceCharting USA"
+    }
+  ],
+  "gameDetailsByCatalogId": {
+    "switch-japon-hack-gu-last-recode": null,
+    "switch-usa-hack-gu-last-recode": null
+  }
+}
 ```
 
 Los nombres, regiones, códigos, seeds e identificadores internos anteriores describen el estado actual de RegionAtlas. No son prueba externa. Debes verificarlos de forma independiente y registrar cualquier conflicto.
@@ -326,7 +450,7 @@ Antes de entregar el resultado, valida obligatoriamente:
 
 Si falla cualquiera de estas comprobaciones, corrige la entrega antes de devolverla. No sustituyas la corrección formal por una nueva investigación.
 
-Fecha de investigación: `{{RESEARCH_DATE}}`.
+Fecha de investigación: `2026-09-21`.
 
 ---
 

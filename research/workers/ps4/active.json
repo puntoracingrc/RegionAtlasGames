@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 2,
+  "generation": 1,
+  "workerId": "ps4",
+  "state": "READY",
+  "repository": "puntoracingrc/RegionAtlasGames",
+  "branch": "research-worker/ps4",
+  "queuePath": "research/queue.json",
+  "instructionsPath": "research/ORDER_TEMPLATE.md",
+  "currentOrderTemplateVersion": 9,
+  "resultOrderTemplateVersion": null,
+  "currentItemResearchId": null,
+  "workPackage": {
+    "packageId": "ps4-2026-09-21-001",
+    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
+    "items": [
+      {
+        "queueId": "catalog-group:ps4-hack-gu-last-recode",
+        "platform": "ps4",
+        "title": ".hack GU Last Recode",
+        "catalogIds": ["ps4-hack-gu-last-recode", "ps4-usa-hack-gu-last-recode"],
+        "researchId": "hack-gu-last-recode-ps4-2026-09-21",
+        "orderPath": "research/workers/ps4/orders/hack-gu-last-recode-ps4-2026-09-21.md",
+        "resultPath": "research/results/hack-gu-last-recode-ps4-2026-09-21.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/ps4/checkpoints/hack-gu-last-recode-ps4-2026-09-21.json"
+      }
+    ]
+  },
+  "lease": null,
+  "updatedAt": "2026-09-21T04:59:09Z",
+  "updatedBy": "codex",
+  "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
+}

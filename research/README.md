@@ -18,11 +18,11 @@ La cola de origen ya contiene ocho entradas con varias plataformas. Se conservan
 
 La preparación de este intercambio no cambia ningún estado de la cola. Recibir un JSON tampoco ejecuta una importación ni modifica estados automáticamente.
 
-## Orden activa única y avance de la cadena
+## Órdenes activas por worker y avance de la cadena
 
-`research/queue.json` es el registro maestro y sus entradas no se eliminan al terminar un juego. Borrar una entrada perdería identificadores, orden e historial. La ejecución utiliza en cambio una única propuesta activa generada desde la primera entrada elegible y la versión vigente de `research/ORDER_TEMPLATE.md`.
+`research/queue.json` es el registro maestro y sus entradas no se eliminan al terminar un juego. Borrar una entrada perdería identificadores, orden e historial. `research/workers.json` registra los workers autorizados y cada uno mantiene su propio estado en `research/workers/<workerId>/active.json`, su propia rama Git y como máximo un paquete activo.
 
-ChatGPT sólo investiga esa propuesta activa. Antes de buscar debe comprobar si ya existe un resultado cuyo `triggerQueueEntry.queueId` coincida exactamente con el `canonicalId` activo. Si existe, no repite búsquedas, no crea otro resultado y espera a que Codex termine de procesarlo.
+ChatGPT sólo investiga las órdenes enumeradas en el paquete de su worker. Antes de buscar cada juego debe comprobar si ya existe un resultado cuyo `triggerQueueEntry.queueId` coincida exactamente con el `canonicalId` asignado. Si existe, no repite búsquedas ni crea otro resultado.
 
 Codex sólo retira y sustituye la propuesta activa después de completar, en este orden:
 
@@ -33,17 +33,17 @@ Codex sólo retira y sustituye la propuesta activa después de completar, en est
 5. registrar la entrada realmente cubierta como `completed` o cerrada para la primera pasada;
 6. seleccionar la siguiente entrada elegible y generar su propuesta completa.
 
-La sustitución es atómica: nunca hay dos propuestas activas. Si el resultado es inválido, la incorporación falla, la verificación no coincide o se necesita una corrección, la propuesta actual permanece bloqueada o en corrección y no se crea la siguiente.
+La sustitución es atómica por worker: nunca hay dos paquetes activos para el mismo worker. Puede haber workers de plataforma distintos investigando en paralelo, pero no comparten rama, lease, orden ni estado. Si un resultado es inválido, la incorporación falla, la verificación no coincide o se necesita una corrección, ese worker permanece bloqueado o en corrección y no recibe otro paquete.
 
 Una investigación parcial válida no vuelve a ejecutarse durante la primera pasada. Se conserva por su `queueId`, se registran sus pendientes y sólo puede reabrirse posteriormente en una pasada explícita de `unresolved`/`partial`.
 
 ## Continuidad automática entre chats mediante Git
 
-`research/active.json` conserva el estado autoritativo de la única propuesta activa. `research/automation/PROTOCOL.md` define la máquina de estados y el lease, y `research/automation/CHATGPT_TASK_PROMPT.md` contiene el prompt durable de la tarea programada.
+`research/workers.json` identifica los workers y `research/workers/<workerId>/active.json` conserva el estado autoritativo de cada uno. `research/automation/PROTOCOL.md` define la máquina de estados y el lease, y `research/automation/CHATGPT_TASK_PROMPT.md` contiene el prompt durable común de las tareas programadas.
 
-La tarea de ChatGPT es independiente del chat: cada ejecución vuelve a leer la rama `research-pipeline` y puede iniciarse en una conversación nueva. Nunca continúa por memoria del chat anterior. Sólo investiga cuando `active.json` está en `READY`; en `RESULT_READY`, `PROCESSING`, `PAUSED` o con un lease vigente termina sin buscar ni escribir.
+Cada tarea de ChatGPT es independiente del chat: cada ejecución vuelve a leer la rama y el estado declarados para su worker y puede iniciarse en una conversación nueva. Nunca continúa por memoria del chat anterior. Sólo investiga cuando su estado está en `READY`; en `RESULT_READY`, `PROCESSING`, `PAUSED` o con un lease vigente termina sin buscar ni escribir.
 
-Antes de investigar, ChatGPT publica un lease en Git. Al entregar un resultado, guarda el JSON y el cambio a `RESULT_READY` en la rama de intercambio. Codex es el único que valida el resultado, incorpora mediante Admin, verifica el runtime y genera la siguiente orden. De este modo alcanzar el límite de longitud de una conversación no pierde la posición ni provoca búsquedas repetidas.
+Antes de investigar, ChatGPT publica un lease en la rama exclusiva del worker. Tras cada juego completo guarda su JSON y actualiza el elemento correspondiente del paquete en el mismo commit. Cuando termina todos los elementos cambia el estado a `RESULT_READY`. Codex es el único que valida cada resultado, incorpora mediante Admin, verifica el runtime y genera el siguiente paquete. De este modo alcanzar el límite de longitud de una conversación no pierde la posición ni provoca búsquedas repetidas.
 
 ## Incorporación al catálogo mediante el administrador
 
@@ -57,7 +57,7 @@ Los archivos de `research/results/` son el intercambio factual y auditable entre
 
 ## Contrato persistente de las órdenes
 
-Toda orden se genera a partir de `research/ORDER_TEMPLATE.md`, actualmente `ORDER_TEMPLATE_VERSION: 8`. La plantilla completa es obligatoria y sólo permite sustituir la entrada de cola, el contexto actual de sus fichas y la fecha. No se redactan órdenes abreviadas o improvisadas para juegos posteriores.
+Toda orden se genera a partir de `research/ORDER_TEMPLATE.md`, actualmente `ORDER_TEMPLATE_VERSION: 9`. La plantilla completa es obligatoria y sólo permite sustituir la entrada de cola, el contexto actual de sus fichas y la fecha. No se redactan órdenes abreviadas o improvisadas para juegos posteriores.
 
 Antes de enviarla se comprueba que no queden marcadores, que estén presentes todas las secciones, campos, inferencias prohibidas y niveles de confianza, y que la entrada sea elegible. Si la orden no coincide con el contrato, la cadena se pausa y no se envía a ChatGPT.
 
@@ -91,15 +91,15 @@ Así, una investigación parcial no bloquea la cola ni se repite indefinidamente
 
 Esta regla define el protocolo de selección; no implementa ni ejecuta la automatización. `catalog-group:ps4-a-way-out` permanece `pending`, pero su resultado existente la excluye de la primera pasada.
 
-## Tamaño de cada tanda
+## Tamaño y afinidad de cada paquete
 
-La selección normal entrega **una sola entrada** por investigación. Puede entregar hasta **tres entradas consecutivas** de la cola cuando existe entre ellas una relación explícita y comprobable en los datos actuales de RegionAtlas, como pertenecer a la misma saga, serie o familia de ediciones del mismo juego.
+La selección normal entrega **una sola entrada**. Un worker puede recibir hasta **seis entradas** cuando los datos actuales de RegionAtlas demuestran que pertenecen al mismo juego, saga, serie o familia de ediciones. También puede recibir hasta **cuatro entradas** cuando comparten la misma plataforma, mercado objetivo y un `regionalPublisher` o `physicalPublisherOrDistributor` verificado para el producto físico.
 
-No basta con compartir editor, desarrollador, plataforma, género o una palabra genérica del título. La relación debe proceder del catálogo actual o de una identidad ya documentada; no se inventa para completar una tanda. Si la relación es dudosa, se entrega una sola entrada.
+No basta con compartir desarrollador, editor global, plataforma, género o una palabra genérica del título. La relación debe proceder del catálogo actual o de una identidad ya documentada; no se inventa para completar un paquete. Si la relación o el rol regional/físico de la compañía es dudoso, se entrega una sola entrada.
 
-Una secuencia relacionada se divide siempre en bloques máximos de tres y sin saltar entradas ajenas para formar el grupo. Por ejemplo, diez LEGO consecutivos se procesan como `3 + 3 + 3 + 1`; cinco Gran Turismo como `3 + 2`; y una secuencia de Resident Evil como bloques de tres. Al terminar el bloque se retoma el orden exacto de la cola.
+El worker conserva el orden relativo de las entradas de su plataforma. No cruza plataformas para completar cupo ni salta una entrada elegible ajena para fabricar una relación. Cada juego se termina antes de comenzar el siguiente. Si no queda tiempo suficiente para iniciar y cerrar el siguiente, el worker conserva el paquete en `READY` y termina; una investigación ya iniciada se reanuda mediante su checkpoint hasta completarse o pausarse con un bloqueo explícito.
 
-Aunque ChatGPT reciba hasta tres juegos relacionados en la misma petición, debe devolver **un archivo de resultado independiente por cada entrada**, cada uno con su propio `triggerQueueEntry.queueId`. Los identificadores, regiones, variantes, evidencias, conflictos y campos pendientes permanecen separados por juego. Una fuente sólo puede repetirse entre resultados cuando acredita realmente cada producto concreto.
+Aunque ChatGPT reciba varios juegos relacionados en el mismo paquete, debe devolver **un archivo de resultado independiente por cada entrada**, cada uno con su propio `triggerQueueEntry.queueId`. Los identificadores, regiones, variantes, evidencias, conflictos y campos pendientes permanecen separados por juego. Una fuente sólo puede repetirse entre resultados cuando acredita realmente cada producto concreto.
 
 Antes de formar la tanda se aplican individualmente a cada entrada `researchStatus`, `needsResearch` y la regla anti-repetición. Una entrada no elegible corta el bloque consecutivo; no se sustituye por otra posterior. El procesamiento y la incorporación administrativa también se validan juego por juego.
 
