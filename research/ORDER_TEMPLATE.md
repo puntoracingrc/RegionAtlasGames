@@ -1,6 +1,6 @@
 # Plantilla maestra de orden de investigación
 
-`ORDER_TEMPLATE_VERSION: 4`
+`ORDER_TEMPLATE_VERSION: 5`
 
 Esta plantilla se envía completa para cada entrada. Sólo se sustituyen los bloques delimitados por `{{...}}`. No se resumen, eliminan ni suavizan requisitos entre juegos. En una tanda relacionada se genera una orden completa por entrada y ChatGPT devuelve un JSON independiente por cada una.
 
@@ -187,9 +187,67 @@ No inventes códigos, idiomas, región, componentes ni contenido físico a parti
 
 La etiqueta `confirmed` del contexto o de una fuente secundaria nunca sustituye tu comprobación de la evidencia.
 
+### Precios regionales contrastados
+
+Para cada release físico y mercado regional confirmado, intenta obtener los precios actuales por estado que correspondan a su tipo de soporte. La investigación de precio permanece separada de la identidad del producto: no rebajes ni completes la región para conseguir una coincidencia de precio.
+
+Un precio sólo puede proponerse como `confirmed` cuando existen al menos dos ventas completadas independientes del producto regional exacto que sean comparables en:
+
+- juego;
+- plataforma;
+- edición;
+- mercado o región física;
+- contenido incluido;
+- estado de conservación;
+- moneda.
+
+La ubicación del vendedor, el dominio nacional del marketplace, el idioma del anuncio, PAL/NTSC, PEGI/CERO/ESRB o un título parecido no demuestran la región del ejemplar. La evidencia regional debe proceder de identificadores, metadata específica o evidencia física ya vinculada al release.
+
+Prioriza ventas completadas recientes de los últimos doce meses. Un anuncio activo, precio solicitado, subasta sin precio final, PVP histórico, estimación de una web, promedio agregado sin operaciones auditables o una única venta no bastan para publicar un precio base. Pueden conservarse como pistas `probable`, pero `proposedBasePrice` debe ser `null`.
+
+Los estados obligatorios dependen del soporte:
+
+- juegos de cartucho: `sealed`, `complete` y `loose`;
+- juegos en soporte óptico —CD, DVD, Blu-ray o equivalente—: `sealed` y `complete`.
+
+No investigues ni propongas `game_manual`, `new_retail` u otros estados dentro de este intercambio. No promedies estados diferentes ni elijas uno como sustituto de otro. Crea un elemento independiente de `regionalPrices` para cada estado obligatorio. Cada estado puede quedar confirmado o `unresolved` de forma independiente.
+
+Calcula `proposedBasePrice` como la mediana de los precios de artículo comparables, excluyendo envío. Conserva por separado `marketMin`, `marketMax`, envío y precio total cuando estén disponibles. No elimines valores atípicos sin una causa documentada; si las observaciones no son realmente comparables o presentan un conflicto material, no propongas precio.
+
+Conserva la moneda original. Si RegionAtlas necesita una referencia en EUR, añade `proposedBasePriceEur` únicamente junto con `exchangeRate`, `exchangeRateDate` y `exchangeRateSource`; nunca sustituyas ni ocultes el valor original.
+
+Cada elemento de `regionalPrices` debe incluir:
+
+- `platform`;
+- `releaseTitle`;
+- `editionName`;
+- `market`;
+- `mediaType` con `cartridge` u `optical`;
+- `conditionBucket`;
+- `currency`;
+- `observations`;
+- `sampleSize`;
+- `calculationMethod`;
+- `marketMin`;
+- `marketMax`;
+- `proposedBasePrice`;
+- `proposedBasePriceEur`;
+- `exchangeRate`;
+- `exchangeRateDate`;
+- `exchangeRateSource`;
+- `confidence`;
+- `sourceRefs`;
+- `unresolvedReason`.
+
+Cada observación conserva `sourceId`, `listingId` si existe, `productUrl`, `soldPrice`, `shippingPrice`, `soldAt`, `conditionBucket`, `regionEvidence`, `editionEvidence` y `includedContents`. Dos capturas o páginas que representen la misma operación cuentan una sola vez.
+
+Si para uno de los estados obligatorios no existen dos ventas comparables con región demostrada, devuelve ese elemento con `confidence: "unresolved"`, `proposedBasePrice: null` y una explicación precisa. Esto no invalida los demás estados que sí tengan evidencia. No inventes, extrapoles ni copies el precio de otra región, edición o estado.
+
+ChatGPT no publica ni modifica precios. Codex vuelve a validar las operaciones y sólo incorpora un precio confirmado mediante el administrador y el overlay runtime existente.
+
 ### Acciones prohibidas y pausa
 
-No investigues precios. No modifiques GitHub, RegionAtlas, la cola, el catálogo ni ningún archivo. No propongas cambios en la web, schemas, arquitectura, interfaz, administrador, umbrales ni reglas de RegionAtlas.
+No investigues precios fuera del contrato regional anterior. No modifiques GitHub, RegionAtlas, la cola, el catálogo ni ningún archivo. No propongas cambios en la web, schemas, arquitectura, interfaz, administrador, umbrales ni reglas de RegionAtlas.
 
 Si consideras necesario alguno de esos cambios, detén la investigación y descríbelo en `unresolved`. Devuelve hechos y fuentes; Codex decide cómo aplicar los resultados mediante el administrador.
 
@@ -211,6 +269,7 @@ El contenido completo debe poder procesarse con `JSON.parse` sin limpiar, recort
 - `releases`, con un elemento por cada producto físico diferente;
 - `sources`;
 - `images` cuando existan;
+- `regionalPrices`, con un elemento por release y mercado confirmado aunque el precio quede `unresolved`;
 - `conflicts`;
 - `unresolved`;
 - `coveredQueueEntries`;
@@ -258,6 +317,8 @@ Antes de entregar el resultado, valida obligatoriamente:
 10. que los IDs de cola y catálogo sean exactamente los recibidos.
 11. que la entrega sea un archivo `.json` real y no contenido copiado desde una respuesta enriquecida.
 12. que se haya intentado obtener una portada frontal y una contraportada para cada release regional, dejando explícita cualquier ausencia o bloqueo.
+13. que ningún precio propuesto use menos de dos ventas completadas, mezcle estados o carezca de prueba de la región exacta;
+14. que cartucho sólo investigue `sealed`, `complete` y `loose`, y soporte óptico sólo `sealed` y `complete`.
 
 Si falla cualquiera de estas comprobaciones, corrige la entrega antes de devolverla. No sustituyas la corrección formal por una nueva investigación.
 

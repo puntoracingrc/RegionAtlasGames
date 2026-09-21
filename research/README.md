@@ -30,13 +30,13 @@ Los archivos de `research/results/` son el intercambio factual y auditable entre
 
 ## Contrato persistente de las órdenes
 
-Toda orden se genera a partir de `research/ORDER_TEMPLATE.md`, actualmente `ORDER_TEMPLATE_VERSION: 4`. La plantilla completa es obligatoria y sólo permite sustituir la entrada de cola, el contexto actual de sus fichas y la fecha. No se redactan órdenes abreviadas o improvisadas para juegos posteriores.
+Toda orden se genera a partir de `research/ORDER_TEMPLATE.md`, actualmente `ORDER_TEMPLATE_VERSION: 5`. La plantilla completa es obligatoria y sólo permite sustituir la entrada de cola, el contexto actual de sus fichas y la fecha. No se redactan órdenes abreviadas o improvisadas para juegos posteriores.
 
 Antes de enviarla se comprueba que no queden marcadores, que estén presentes todas las secciones, campos, inferencias prohibidas y niveles de confianza, y que la entrada sea elegible. Si la orden no coincide con el contrato, la cadena se pausa y no se envía a ChatGPT.
 
 En tandas relacionadas se repite la plantilla completa para cada entrada. Compartir una petición no permite reducir los requisitos de ninguno de los juegos.
 
-La versión 4 exige además que la entrega sea un archivo `.json` real directamente parseable, con URL canónicas sin Markdown ni referencias automáticas, fuentes directas, procedencia válida por campo, separación explícita de componentes y evidencia visual auditable. También exige intentar localizar únicamente una portada frontal y una contraportada por cada release regional, sin ampliar la adquisición a otros componentes. No se acepta como entrega autoritativa un objeto pegado desde una respuesta de texto enriquecido, porque la interfaz puede reescribir las URL. Estas exigencias forman parte de todas las órdenes futuras y no son una corrección especial para un juego concreto.
+La versión 5 exige además que la entrega sea un archivo `.json` real directamente parseable, con URL canónicas sin Markdown ni referencias automáticas, fuentes directas, procedencia válida por campo, separación explícita de componentes y evidencia visual auditable. También exige intentar localizar únicamente una portada frontal y una contraportada por cada release regional, sin ampliar la adquisición a otros componentes, e investigar precios regionales por estado únicamente a partir de al menos dos ventas completadas comparables. Para cartuchos se investigan `sealed`, `complete` y `loose`; para soporte óptico, `sealed` y `complete`. No se acepta como entrega autoritativa un objeto pegado desde una respuesta de texto enriquecido, porque la interfaz puede reescribir las URL. Estas exigencias forman parte de todas las órdenes futuras y no son una corrección especial para un juego concreto.
 
 Un resultado que no cumpla este contrato no se guarda en `research/results/`, no activa la regla anti-repetición, no se incorpora mediante el administrador y no permite seleccionar la siguiente entrada. Se solicita una corrección formal del mismo resultado, sin repetir la investigación. Una vez corregido y validado, se conserva con el mismo `researchId`. Si ChatGPT no puede crear o adjuntar el archivo, debe responder `DELIVERY_BLOCKED_JSON_FILE_REQUIRED` y conservar su investigación para entregarla cuando disponga de un canal de archivos.
 
@@ -88,6 +88,7 @@ Cada archivo `results/<researchId>.json` contiene un objeto con estos campos obl
 | `platformsInvestigated` | Array de slugs de plataformas existentes en RegionAtlas. |
 | `releases` | Array de lanzamientos o productos investigados; puede estar vacío. |
 | `sources` | Array de fuentes identificadas mediante `sourceId`. |
+| `regionalPrices` | Array de evidencia de precios por release y mercado; conserva un elemento `unresolved` cuando no existe muestra suficiente. |
 | `unresolved` | Array de campos pendientes, límites o conflictos; puede estar vacío. |
 | `coveredQueueEntries` | Array de referencias con justificación de la cobertura declarada; puede estar vacío. |
 | `researchDate` | Fecha ISO 8601 (`YYYY-MM-DD` o timestamp con zona horaria). |
@@ -119,6 +120,10 @@ Una página de búsqueda, categoría, galería general o listado agregado sólo 
 Cuando se incluyan imágenes, `status` será exactamente `IMAGE_URL_FOUND`, `IMAGE_EVIDENCE_READ` o `IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED`. Cada imagen registra obligatoriamente `sourceRefs`, `pageUrl`, `imageUrl`, `component`, `status`, `observedFacts`, `observedText` y `confidence`. Para una imagen no analizada, los dos campos de observación son arrays vacíos y la confianza es `unresolved`; nunca se omiten. Sin observación legible y vinculada al componente correcto, la imagen no confirma campos. Los idiomas del embalaje nunca se infieren de los idiomas del software, del mercado o de la página web.
 
 Cada registro de imagen identifica además `platform`, `releaseTitle`, `editionName` y `market`, de forma que una portada no pueda atribuirse por parecido a otra edición o región. El JSON conserva URL y procedencia; nunca contiene bytes o base64. Cuando el canal lo permita, ChatGPT puede adjuntar opcionalmente `<researchId>-images.zip` con los archivos originales sin modificar y relacionarlos mediante `localFileName`, `mimeType`, dimensiones conocidas y `sha256`. El ZIP no autoriza publicación ni mutaciones de assets: Codex debe validar cada imagen antes de incorporarla mediante el administrador.
+
+`regionalPrices` mantiene separadas región, edición y estado. Para cartuchos se crea un elemento por `sealed`, `complete` y `loose`; para soporte óptico se crea uno por `sealed` y `complete`. No se investigan otros estados ni se usa uno como sustituto de otro. Un precio confirmado requiere al menos dos ventas completadas independientes y recientes del producto regional exacto, dentro del mismo `conditionBucket` y moneda. El precio de cada estado es la mediana del artículo sin envío; se conservan muestra, mínimo, máximo, envío, URLs y pruebas de región/edición. Los anuncios activos y agregados sin operaciones auditables no autorizan publicación. Si la muestra de un estado no cumple, sólo ese `proposedBasePrice` permanece `null` y la razón se registra como `unresolved`.
+
+ChatGPT sólo entrega evidencia de precio. Codex verifica identidad, comparabilidad, duplicados, moneda y cálculo, y únicamente entonces puede escribir el precio mediante el administrador y el overlay runtime actual. Nunca se publica un precio por commit de catálogo ni se copia desde otra región.
 
 Un elemento de `unresolved` contiene `platform`, `releaseTitle`, `field`, `reason` y `sourceRefs`; puede añadir `candidateValues` para registrar conflictos sin resolverlos arbitrariamente.
 
@@ -152,6 +157,7 @@ Ejemplo de forma, con marcadores que deben sustituirse por IDs y datos reales:
     }
   ],
   "sources": [],
+  "regionalPrices": [],
   "unresolved": [],
   "coveredQueueEntries": [],
   "researchDate": "<fecha ISO 8601>"
