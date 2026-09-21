@@ -1,5 +1,5 @@
 import { del, get, put } from "@vercel/blob";
-import { revalidateTag, unstable_cache } from "next/cache";
+import { revalidatePath, revalidateTag, unstable_cache } from "next/cache";
 import { buildCatalogSeoSlug } from "./catalog-url";
 import {
   getCatalogGame,
@@ -35,6 +35,21 @@ import { loadCatalogPriceGames } from "./catalog-price-games";
 const OVERLAY_PREFIX = "region-atlas/catalog/overlay";
 const INDEX_PATH = `${OVERLAY_PREFIX}/index.json`;
 const OVERLAY_CACHE_TAG = "catalog-overlay";
+
+export function catalogOverlayRevalidationPaths(game: CatalogGame): string[] {
+  return [
+    `/api/catalog/platform/${game.platformSlug}`,
+    "/api/catalog/search",
+    `/plataforma/${game.platformSlug}`,
+    `/catalogo/${buildCatalogSeoSlug(game)}`,
+  ];
+}
+
+function revalidateCatalogOverlayPaths(game: CatalogGame): void {
+  for (const path of catalogOverlayRevalidationPaths(game)) {
+    revalidatePath(path);
+  }
+}
 
 export type CatalogOverlayIndex = {
   updatedAt: string;
@@ -181,6 +196,7 @@ export async function writeCatalogOverlay(input: {
 
   await registerOverlayGame(input.game);
   revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
+  revalidateCatalogOverlayPaths(input.game);
   return { ok: true };
 }
 
@@ -213,6 +229,7 @@ export async function deleteCatalogOverlayGame(
     seoSlugs: Object.fromEntries(Object.entries(current.seoSlugs).filter(([, id]) => id !== catalogId)),
   }));
   revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
+  if (game) revalidateCatalogOverlayPaths(game);
   return { ok: true, removed: true };
 }
 

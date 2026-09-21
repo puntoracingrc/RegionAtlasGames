@@ -55,6 +55,7 @@ import {
 import { catalogPhysicalEditionHeadingLabel } from "./catalog-physical-edition-display";
 import { buildGameFaq, buildGameJsonLd, buildGameMetadata } from "./catalog-seo";
 import {
+  catalogOverlayRevalidationPaths,
   catalogOverlayRevision,
   mergePublicCatalogWithOverlayGames,
   resolveCatalogGameDetailsCatalogId,
@@ -118,6 +119,18 @@ const RESIDENT_EVIL_PS4_GUIDE_IDS = [
   "resident-evil-7-biohazard-ps4",
   "resident-evil-4-remake-ps4",
 ] as const;
+
+test("a runtime catalog publication invalidates browse, search, platform and detail paths", () => {
+  const game = getCatalogGame("ps5-absolum");
+  assert.ok(game);
+
+  assert.deepEqual(catalogOverlayRevalidationPaths(game), [
+    "/api/catalog/platform/ps5",
+    "/api/catalog/search",
+    "/plataforma/ps5",
+    catalogGamePath(game),
+  ]);
+});
 
 function absolumGuide() {
   const guide = getCatalogEditionGuides().find((entry) => entry.id === "absolum-ps5");
