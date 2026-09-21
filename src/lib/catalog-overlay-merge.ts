@@ -38,6 +38,10 @@ const REVIEWED_REGIONAL_FIELDS = [
   "canonicalSerials", "sourceSerials", "resolutionSerials", "languages", "workId",
   "canonicalSeoSlug", "regionVerified", "coverUrl",
 ] as const satisfies readonly (keyof CatalogGame)[];
+const REVIEWED_PHYSICAL_IDENTITY_FIELDS = [
+  "title", "titlePc", "region", "marketRegion", "regionalStatus", "workId",
+  "physicalVariant", "physicalReleaseGroup",
+] as const satisfies readonly (keyof CatalogGame)[];
 const REVIEWED_PRICE_FIELDS = new Set([
   "marketMin", "marketMax", "recommendedPrice", "pcRefPrice", "deltaEsVsPc", "priceSource",
   "priceDataSources", "pcId", "pcPath", "pcRegion", "pcCondition", "matchConfidence", "gameCondition", "gameMatchedAt", "gameRetailPrice", "cexSellPrice", "cexCashPrice", "jgoRetailPrice",
@@ -216,6 +220,11 @@ export function mergeCatalogGameWithOverlay(
     merged.coverUrl = staticGame.coverUrl;
     merged.regionVerified = staticGame.regionVerified;
     merged.regionEvidence = staticGame.regionEvidence;
+  }
+  if (staticGame.physicalReleaseGroup?.confidence === "CONFIRMED") {
+    for (const field of REVIEWED_PHYSICAL_IDENTITY_FIELDS) {
+      (merged as Record<keyof CatalogGame, unknown>)[field] = staticGame[field];
+    }
   }
   if (["ps1", "ps2"].includes(staticGame.platformSlug) && staticGame.regionalStatus) {
     for (const field of REVIEWED_REGIONAL_FIELDS) {

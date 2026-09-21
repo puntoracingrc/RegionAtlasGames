@@ -72,3 +72,45 @@ test("the reviewed Super Robot Wars Z releases keep editions and digital bonuses
     false,
   );
 });
+
+test("the reviewed PS3 007 products group regions by physical family", () => {
+  const bloodStone = getCatalogGame("ps3-007-blood-stone");
+  const bloodPromo = getCatalogGame("ps3-007-blood-stone-not-for-resale");
+  const legendsUs = getCatalogGame("ps3-usa-007-legends");
+  const quantum = getCatalogGame("ps3-007-quantum-of-solace");
+  const quantumCollectorEu = getCatalogGame("ps3-007-quantum-of-solace-collector%27s-edition");
+  const quantumPromo = getCatalogGame("ps3-007-quantum-of-solace-not-for-resale");
+  const quantumShirt = getCatalogGame("ps3-usa-007-quantum-of-solace-tshirt-bundle");
+
+  assert.ok(bloodStone && bloodPromo && legendsUs && quantum && quantumCollectorEu && quantumPromo && quantumShirt);
+  assert.equal(bloodStone.physicalReleaseGroup?.barcode, "5030917091667");
+  assert.equal(bloodPromo.physicalVariant, "Promo / Not For Resale");
+  assert.equal(bloodPromo.region, "PAL Europa");
+  assert.equal(bloodPromo.marketRegion, null);
+  assert.equal(bloodPromo.physicalReleaseGroup?.physicalProductType, "NATIVE_GAME_DISC");
+  assert.equal(legendsUs.physicalReleaseGroup?.serial, "BLUS-30983");
+
+  const bloodGuide = getCatalogEditionGuide(bloodStone);
+  assert.deepEqual(
+    bloodGuide?.editionFamilies.map((family) => family.label).sort(),
+    ["Estándar", "Promo / Not For Resale"].sort(),
+  );
+  assert.equal(
+    bloodGuide?.physicalEditions.find((edition) => edition.catalogIds.includes(bloodPromo.id))?.editionType,
+    "OTHER",
+  );
+
+  assert.equal(quantumCollectorEu.region, "PAL Europa");
+  assert.equal(quantumCollectorEu.marketRegion, null);
+  assert.equal(quantumCollectorEu.physicalReleaseGroup?.serial, "BLES-00411");
+  assert.equal(quantumPromo.physicalVariant, "Promo / Not For Resale");
+  assert.equal(quantumShirt.physicalVariant, "T-Shirt Bundle");
+  assert.equal(quantumShirt.physicalReleaseGroup?.barcode, "047875835191");
+  assert.equal(quantumShirt.physicalReleaseGroup?.serial, "BLUS-30237");
+
+  const quantumGuide = getCatalogEditionGuide(quantum);
+  assert.deepEqual(
+    quantumGuide?.editionFamilies.map((family) => family.label).sort(),
+    ["Estándar", "Collector's Edition", "Promo / Not For Resale", "T-Shirt Bundle"].sort(),
+  );
+});
