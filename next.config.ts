@@ -91,6 +91,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/catalog-covers/runtime/:path*",
+        destination: `${ps2CoverHosting.origin}/catalog-covers/runtime/:path*`,
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "regionatlas.games" }],
         destination: "https://www.regionatlas.games/:path*",

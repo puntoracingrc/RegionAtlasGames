@@ -69,6 +69,21 @@ function physicalComponentLabel(component: CatalogPhysicalComponent): string {
   return PHYSICAL_COMPONENT_LABELS[component];
 }
 
+export function catalogEditionContentsLayout(hasContentsImage: boolean) {
+  return {
+    wrapper: cn(
+      "mt-4 grid gap-4 border-l-2 border-accent/40 pl-3",
+      hasContentsImage && "md:grid-cols-[minmax(0,0.85fr)_minmax(18rem,1.15fr)] md:items-start",
+    ),
+    details: cn(
+      "grid min-w-0 grid-cols-1 gap-y-1 text-sm leading-6",
+      hasContentsImage
+        ? "sm:grid-cols-[max-content_minmax(0,1fr)] sm:gap-x-2 md:grid-cols-1 md:gap-x-0 lg:grid-cols-[max-content_minmax(0,1fr)] lg:gap-x-2"
+        : "sm:grid-cols-[max-content_minmax(0,1fr)] sm:gap-x-2",
+    ),
+  };
+}
+
 function confidenceLabel(confidence: CatalogPhysicalEdition["confidence"]): string | null {
   if (!confidence) return null;
   return {
@@ -385,6 +400,7 @@ function PhysicalEditionRow({
     return target ? [target] : [];
   });
   const contentsImage = edition.images.find((image) => image.placement === "CONTENTS");
+  const contentsLayout = catalogEditionContentsLayout(Boolean(contentsImage));
   return (
     <article
       id={edition.id}
@@ -533,8 +549,8 @@ function PhysicalEditionRow({
       {edition.dimensions ? <DimensionsComparison dimensions={edition.dimensions} /> : null}
 
       {includedEditions.length || containedGames.length || edition.physicalContents.length || edition.digitalContents.length || contentsImage ? (
-        <div className="mt-4 grid gap-4 border-l-2 border-accent/40 pl-3 md:grid-cols-[minmax(0,0.85fr)_minmax(18rem,1.15fr)] md:items-start">
-          <dl className="grid grid-cols-1 gap-y-1 text-sm leading-6 sm:grid-cols-[max-content_minmax(0,1fr)] sm:gap-x-2 md:grid-cols-1 md:gap-x-0 lg:grid-cols-[max-content_minmax(0,1fr)] lg:gap-x-2">
+        <div className={contentsLayout.wrapper}>
+          <dl className={contentsLayout.details}>
             {includedEditions.length ? (
               <>
                 <dt className="font-semibold text-foreground">Incluye:</dt>
@@ -559,13 +575,13 @@ function PhysicalEditionRow({
             {edition.physicalContents.length ? (
               <>
                 <dt className="font-semibold text-foreground">Contenido físico:</dt>
-                <dd>{edition.physicalContents.join(" · ")}</dd>
+                <dd className="min-w-0 break-words">{edition.physicalContents.join(" · ")}</dd>
               </>
             ) : null}
             {edition.digitalContents.length ? (
               <>
                 <dt className="font-semibold text-foreground">Contenido digital:</dt>
-                <dd>{edition.digitalContents.join(" · ")}</dd>
+                <dd className="min-w-0 break-words">{edition.digitalContents.join(" · ")}</dd>
               </>
             ) : null}
           </dl>

@@ -150,6 +150,7 @@ export function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStaging
     titlePc: draft.titlePc,
   });
 
+  const verifiedAdminRegion = !draft.gameEsSource && draft.regionalStatus === "resolved" && Boolean(draft.marketRegion);
   const entry: CatalogGame = {
     id: draft.catalogId,
     slug: draft.slug,
@@ -180,8 +181,12 @@ export function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStaging
     hasEsPrice: false,
     priceRegionVerified: false,
     seedSource: draft.gameEsSource ? "game-es-release-discovery" : undefined,
-    regionEvidence: draft.gameEsSource ? ["game_es_retail_catalog"] : undefined,
-    regionVerified: draft.gameEsSource ? false : undefined,
+    regionEvidence: draft.gameEsSource
+      ? ["game_es_retail_catalog"]
+      : verifiedAdminRegion
+        ? ["admin_manual_regional_identity"]
+        : undefined,
+    regionVerified: draft.gameEsSource ? false : verifiedAdminRegion || undefined,
     gameEsSku: draft.gameEsSource?.sku ?? null,
     gameEsProductUrl: draft.gameEsSource?.productUrl ?? null,
     gameEsImageUrl: draft.gameEsSource?.imageUrl ?? null,
@@ -252,6 +257,7 @@ export function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDra
     titlePc: draft.titlePc,
   });
 
+  const verifiedAdminRegion = !draft.gameEsSource && draft.regionalStatus === "resolved" && Boolean(draft.marketRegion);
   const entry: CatalogGame = {
     ...existing,
     id: draft.catalogId,
@@ -267,6 +273,7 @@ export function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDra
     physicalVariant: draft.physicalVariant,
     edition: draft.edition || existing.edition || "standard",
     coverUrl: draft.coverUrl,
+    matchConfidence: draft.gameEsSource ? "GAME_ES_ADMIN" : "ADMIN_MANUAL",
     pcPath: existing.pcPath ?? guess.pcPath,
     pcRegion: existing.pcRegion ?? guess.pcRegion,
     updatedAt: new Date().toISOString().slice(0, 10),
@@ -280,6 +287,12 @@ export function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDra
           gameEsImageUrl: draft.gameEsSource.imageUrl,
           gameEsPreownedSku: draft.gameEsSource.preowned?.sku ?? null,
           gameEsPreownedProductUrl: draft.gameEsSource.preowned?.productUrl ?? null,
+        }
+      : {}),
+    ...(verifiedAdminRegion
+      ? {
+          regionEvidence: [...new Set([...(existing.regionEvidence ?? []), "admin_manual_regional_identity"])],
+          regionVerified: true,
         }
       : {}),
   };

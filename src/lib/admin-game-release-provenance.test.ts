@@ -92,6 +92,23 @@ test("publishes the shared V2 work identity created by a regional batch", () => 
   assert.equal(game.regionalStatus, "resolved");
 });
 
+test("marks an exact manual regional publication as authoritative", () => {
+  const draft = draftFromManualInput({
+    pcId: -1,
+    title: "Juego japonés revisado",
+    platformSlug: "ps2",
+    region: "Japón",
+    marketRegion: "JP",
+    regionalStatus: "resolved",
+  });
+
+  const game = buildCatalogEntry(draft, null);
+
+  assert.equal(game.matchConfidence, "ADMIN_MANUAL");
+  assert.equal(game.regionVerified, true);
+  assert.deepEqual(game.regionEvidence, ["admin_manual_regional_identity"]);
+});
+
 test("keeps verified region evidence and unrelated field provenance on later edits", () => {
   const gameEsSource = {
     sku: "123456",

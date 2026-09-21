@@ -205,6 +205,12 @@ export function mergeCatalogGameWithOverlay(
   }
 
   const merged = { ...overlayGame };
+  const authoritativeAdminRegionalIdentity =
+    overlayGame.matchConfidence === "ADMIN_MANUAL" &&
+    overlayGame.regionalStatus === "resolved" &&
+    Boolean(overlayGame.marketRegion) &&
+    overlayGame.regionVerified === true &&
+    overlayGame.regionEvidence?.includes("admin_manual_regional_identity") === true;
   if (hasConsolidatedCatalogAliases(staticGame.id) && sourceTimestamp(staticGame.updatedAt) > sourceTimestamp(overlayGame.updatedAt)) {
     for (const field of Object.keys({ ...staticGame, ...overlayGame })) {
       if (REVIEWED_PRICE_FIELDS.has(field) || ["hasEsPrice", "priceRegionVerified", "updatedAt"].includes(field) || /^(estimatedPrice|estimatedShippingToSpain|estimatedTotalToSpain)/.test(field)) {
@@ -222,12 +228,12 @@ export function mergeCatalogGameWithOverlay(
     merged.regionVerified = staticGame.regionVerified;
     merged.regionEvidence = staticGame.regionEvidence;
   }
-  if (staticGame.physicalReleaseGroup?.confidence === "CONFIRMED") {
+  if (staticGame.physicalReleaseGroup?.confidence === "CONFIRMED" && !authoritativeAdminRegionalIdentity) {
     for (const field of REVIEWED_PHYSICAL_IDENTITY_FIELDS) {
       (merged as Record<keyof CatalogGame, unknown>)[field] = staticGame[field];
     }
   }
-  if (["ps1", "ps2"].includes(staticGame.platformSlug) && staticGame.regionalStatus) {
+  if (["ps1", "ps2"].includes(staticGame.platformSlug) && staticGame.regionalStatus && !authoritativeAdminRegionalIdentity) {
     for (const field of REVIEWED_REGIONAL_FIELDS) {
       (merged as Record<keyof CatalogGame, unknown>)[field] = staticGame[field];
     }

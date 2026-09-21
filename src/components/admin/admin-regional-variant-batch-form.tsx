@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { Panel, PanelTitle } from "@/components/ui";
 import { adminToneClass } from "@/components/admin/admin-visual";
 import { attemptOptionalImageUpload } from "@/lib/admin-optional-image-upload";
+import { buildAdminVariantImageSlug } from "@/lib/admin-regional-variant-batch";
 
 type PlatformOption = { slug: string; name: string };
 type MarketOption = { value: string; label: string; shortLabel: string; flagCode: string; group: string; broadRegion: string };
@@ -188,16 +189,24 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
       const uploadedCommonCover = commonCoverAttempt.value;
       const preparedGroups = [];
       for (const [index, group] of groups.entries()) {
-        const imageAttempts = await Promise.all((Object.entries(group.files) as Array<[ImageRole, File]>).map(async ([role, file]) => {
-          const key = `${slugSeed}-caja-${index + 1}-${role}`;
-          return attemptOptionalImageUpload(
+        const imageAttempts = [];
+        for (const [role, file] of Object.entries(group.files) as Array<[ImageRole, File]>) {
+          const key = buildAdminVariantImageSlug({
+            titleSlug: slugSeed,
+            platformSlug,
+            markets: group.markets,
+            groupLabel: group.label,
+            physicalVariant,
+            role,
+          });
+          imageAttempts.push(await attemptOptionalImageUpload(
             `${IMAGE_ROLE_LABELS[role]} de ${group.label || `caja ${index + 1}`} pendiente`,
             async () => {
               const uploaded = await uploadImage(file, key);
               return { key, placement: role === "contents" ? "CONTENTS" : "GALLERY", url: uploaded.url, thumbnailUrl: uploaded.url, width: uploaded.width, height: uploaded.height, caption: IMAGE_ROLE_LABELS[role], evidenceType: group.imageEvidenceType };
             },
-          );
-        }));
+          ));
+        }
         const imageEntries = imageAttempts.flatMap((attempt) => attempt.value ? [attempt.value] : []);
         warnings.push(...imageAttempts.flatMap((attempt) => attempt.warning ? [attempt.warning] : []));
         const front = imageEntries.find((image) => image.key.endsWith("-front"));
