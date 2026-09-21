@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 3,
+  "generation": 4,
   "workerId": "ps2",
-  "state": "RESULT_READY",
+  "state": "PROCESSING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
@@ -31,7 +31,7 @@
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:14:52Z",
+  "updatedAt": "2026-09-21T14:05:34Z",
   "updatedBy": "codex",
-  "note": "No repetir la investigación. La evidencia factual e imágenes del resultado V5 están pendientes de validación; los precios no cumplen el contrato vigente y no autorizan publicación."
+  "note": "Codex está validando e incorporando por Admin la evidencia factual confirmada de la edición limitada. Los precios quedan excluidos por no cumplir el contrato vigente."
 }
