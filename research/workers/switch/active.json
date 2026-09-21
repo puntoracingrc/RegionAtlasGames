@@ -1,38 +1,40 @@
 {
   "schemaVersion": 2,
-  "generation": 4,
+  "generation": 5,
   "workerId": "switch",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
-  "currentItemResearchId": "hack-gu-last-recode-switch-2026-09-21",
+  "resultOrderTemplateVersion": 11,
+  "currentItemResearchId": null,
   "workPackage": {
     "packageId": "switch-2026-09-21-001",
-    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
+    "grouping": {
+      "type": "single",
+      "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."
+    },
     "items": [
       {
         "queueId": "catalog-group:switch-japon-hack-gu-last-recode",
         "platform": "switch",
         "title": ".hack GU Last Recode",
-        "catalogIds": ["switch-japon-hack-gu-last-recode", "switch-usa-hack-gu-last-recode"],
+        "catalogIds": [
+          "switch-japon-hack-gu-last-recode",
+          "switch-usa-hack-gu-last-recode"
+        ],
         "researchId": "hack-gu-last-recode-switch-2026-09-21",
         "orderPath": "research/workers/switch/orders/hack-gu-last-recode-switch-2026-09-21.md",
         "resultPath": "research/results/hack-gu-last-recode-switch-2026-09-21.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/hack-gu-last-recode-switch-2026-09-21.json"
       }
     ]
   },
-  "lease": {
-    "runId": "chatgpt-switch-20260921T052438Z-7f3c1a",
-    "claimedAt": "2026-09-21T05:24:38Z",
-    "expiresAt": "2026-09-21T06:19:38Z"
-  },
-  "updatedAt": "2026-09-21T05:24:38Z",
+  "lease": null,
+  "updatedAt": "2026-09-21T05:41:02Z",
   "updatedBy": "chatgpt",
-  "note": "Lease claimed for hack-gu-last-recode-switch-2026-09-21."
+  "note": "Result ready for hack-gu-last-recode-switch-2026-09-21."
 }
