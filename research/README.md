@@ -164,6 +164,8 @@ ChatGPT sólo entrega evidencia de precio. Codex verifica identidad, comparabili
 
 `research/source-performance.json` es un índice derivado mantenido exclusivamente por Codex después de validar cada resultado. Se agrupa por plataforma, campo objetivo, dominio y tipo de fuente. ChatGPT sólo aporta `queryLedger` y `sourceAttempts`; no edita el índice, no se asigna puntuaciones y no decide qué fuente será recomendada.
 
+Cada incorporación al índice conserva además un snapshot auditable en `research/source-observations/<researchId>.json`, con el hash del resultado validado, las fuentes, las consultas y los intentos que originaron las métricas. El agregado nunca se actualiza desde memoria ni desde un resumen conversacional. La validación de este rendimiento no autoriza a importar automáticamente los claims al catálogo: cada dato sigue necesitando su revisión de incorporación mediante el administrador.
+
 Para evitar aprender de una casualidad, una ruta no puede marcarse como recomendada hasta acumular al menos tres intentos validados en dos investigaciones distintas y dos intentos útiles. Se distinguen evidencia confirmada, candidato, contexto, ausencia de datos, bloqueo y fallo técnico. Las plantillas de consulta almacenadas se normalizan y nunca contienen el identificador o la respuesta final de un juego concreto.
 
 Al generar una orden futura, Codex puede convertir las rutas recomendadas en prioridad de búsqueda para la plataforma y campo correspondientes. No elimina otras fuentes ni rebaja los umbrales de evidencia; sólo mejora el orden de consulta.
