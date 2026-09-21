@@ -411,6 +411,8 @@ export function AdminGameEditor({
   const [publishing, setPublishing] = useState(false);
   const [enriching, setEnriching] = useState(false);
   const [coverUploading, setCoverUploading] = useState(false);
+  const [physicalImageUploading, setPhysicalImageUploading] = useState<"front" | "back" | null>(null);
+  const [physicalImageEvidenceType, setPhysicalImageEvidenceType] = useState("REAL_SCAN");
   const [aiRunning, setAiRunning] = useState(false);
   const [aiTargetRunning, setAiTargetRunning] = useState<string | null>(null);
   const [priceCollecting, setPriceCollecting] = useState(false);
@@ -693,6 +695,50 @@ export function AdminGameEditor({
       setError(error instanceof Error ? `Error al subir la portada: ${error.message}` : "Error al subir la portada.");
     } finally {
       setCoverUploading(false);
+    }
+  }
+
+  async function uploadPhysicalReleaseImage(file: File, role: "front" | "back") {
+    if (!isPublished || !draft.physicalReleaseGroup) return;
+    setPhysicalImageUploading(role);
+    setError(null);
+    setMessage(null);
+    try {
+      const form = new FormData();
+      form.append("file", file);
+      form.append("role", role);
+      form.append("evidenceType", physicalImageEvidenceType);
+      const res = await fetch(`/api/admin/catalog/${encodeURIComponent(catalogId)}/physical-image`, {
+        method: "POST",
+        body: form,
+      });
+      const text = await res.text();
+      let data: {
+        error?: string;
+        imageUrl?: string;
+        physicalReleaseGroup?: AdminGameDraft["physicalReleaseGroup"];
+      } = {};
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch {
+        data = { error: text.slice(0, 500) || "Respuesta no válida del servidor." };
+      }
+      if (!res.ok || !data.physicalReleaseGroup || !data.imageUrl) {
+        setError(data.error ?? "No se pudo añadir la imagen a la caja física.");
+        return;
+      }
+      setDraft((current) => ({
+        ...current,
+        physicalReleaseGroup: data.physicalReleaseGroup,
+        coverUrl: role === "front" ? data.imageUrl ?? current.coverUrl : current.coverUrl,
+      }));
+      setMessage(`${role === "front" ? "Portada" : "Contraportada"} añadida a la caja física.`);
+    } catch (uploadError) {
+      setError(uploadError instanceof Error
+        ? `Error al subir la imagen física: ${uploadError.message}`
+        : "Error al subir la imagen física.");
+    } finally {
+      setPhysicalImageUploading(null);
     }
   }
 
@@ -1032,6 +1078,53 @@ export function AdminGameEditor({
                   : "Clave para no mezclar precios de portadas españolas, UK, USK, ESRB, CERO, etc."}
               </p>
             </label>
+
+            {isPublished && draft.physicalReleaseGroup ? (
+              <fieldset className="space-y-3 rounded-xl border border-border bg-background/50 p-4 sm:col-span-2">
+                <legend className="px-1 text-xs font-semibold uppercase tracking-wider text-muted">
+                  Imágenes de la caja física
+                </legend>
+                <p className="text-xs leading-5 text-muted">
+                  {draft.physicalReleaseGroup.label}. La portada y la contraportada son opcionales: si una subida falla, la ficha publicada se conserva sin cambios.
+                </p>
+                <label className="block space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider text-muted">Procedencia</span>
+                  <select
+                    className="input"
+                    value={physicalImageEvidenceType}
+                    disabled={physicalImageUploading !== null || locked}
+                    onChange={(event) => setPhysicalImageEvidenceType(event.target.value)}
+                  >
+                    <option value="REAL_SCAN">Escaneo de la caja real</option>
+                    <option value="REAL_PHOTO">Fotografía de la caja real</option>
+                    <option value="RETAILER_ASSET">Imagen de tienda/distribuidor</option>
+                    <option value="PUBLISHER_MOCKUP">Imagen oficial del editor</option>
+                    <option value="OWNER_CONFIRMATION">Confirmación del propietario</option>
+                  </select>
+                </label>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {(["front", "back"] as const).map((role) => (
+                    <label key={role} className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">
+                        {role === "front" ? "Añadir o sustituir portada" : "Añadir o sustituir contraportada"}
+                      </span>
+                      <input
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                        className="block w-full text-sm text-muted file:mr-3 file:rounded-md file:border-0 file:bg-accent file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-accent-fg"
+                        disabled={physicalImageUploading !== null || locked}
+                        onChange={(event) => {
+                          const file = event.target.files?.[0];
+                          if (file) void uploadPhysicalReleaseImage(file, role);
+                          event.target.value = "";
+                        }}
+                      />
+                      {physicalImageUploading === role ? <span className="text-xs text-muted">Subiendo…</span> : null}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            ) : null}
 
             <label className="block space-y-1 sm:col-span-2">
               <span className="flex items-center justify-between gap-2">

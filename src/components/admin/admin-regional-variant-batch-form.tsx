@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { Panel, PanelTitle } from "@/components/ui";
 import { adminToneClass } from "@/components/admin/admin-visual";
+import { attemptOptionalImageUpload } from "@/lib/admin-optional-image-upload";
 
 type PlatformOption = { slug: string; name: string };
 type MarketOption = { value: string; label: string; shortLabel: string; flagCode: string; group: string; broadRegion: string };
@@ -129,6 +130,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
   const [nextId, setNextId] = useState(2);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [uploadWarnings, setUploadWarnings] = useState<string[]>([]);
   const [result, setResult] = useState<{ physicalVariantCount: number; regionalRecordCount: number } | null>(null);
 
   const marketByValue = useMemo(() => new Map(marketOptions.map((option) => [option.value, option])), [marketOptions]);
@@ -174,17 +176,30 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
     if (publishNow && !window.confirm(`Se publicará una ficha central de ${title.trim()}, con ${groups.length} cajas físicas y ${regionalRecordCount} identidades regionales. ¿Continuar?`)) {
       return;
     }
-    setLoading(true); setError(null); setResult(null);
+    setLoading(true); setError(null); setUploadWarnings([]); setResult(null);
     try {
       const slugSeed = slugPart(baseSlug || title) || `juego-${Date.now()}`;
-      const uploadedCommonCover = commonCoverFile ? await uploadImage(commonCoverFile, `${slugSeed}-portada-comun`) : null;
+      const warnings: string[] = [];
+      const commonCoverAttempt = commonCoverFile
+        ? await attemptOptionalImageUpload("Portada común pendiente", () =>
+            uploadImage(commonCoverFile, `${slugSeed}-portada-comun`))
+        : { value: null, warning: null };
+      if (commonCoverAttempt.warning) warnings.push(commonCoverAttempt.warning);
+      const uploadedCommonCover = commonCoverAttempt.value;
       const preparedGroups = [];
       for (const [index, group] of groups.entries()) {
-        const imageEntries = await Promise.all((Object.entries(group.files) as Array<[ImageRole, File]>).map(async ([role, file]) => {
+        const imageAttempts = await Promise.all((Object.entries(group.files) as Array<[ImageRole, File]>).map(async ([role, file]) => {
           const key = `${slugSeed}-caja-${index + 1}-${role}`;
-          const uploaded = await uploadImage(file, key);
-          return { key, placement: role === "contents" ? "CONTENTS" : "GALLERY", url: uploaded.url, thumbnailUrl: uploaded.url, width: uploaded.width, height: uploaded.height, caption: IMAGE_ROLE_LABELS[role], evidenceType: group.imageEvidenceType };
+          return attemptOptionalImageUpload(
+            `${IMAGE_ROLE_LABELS[role]} de ${group.label || `caja ${index + 1}`} pendiente`,
+            async () => {
+              const uploaded = await uploadImage(file, key);
+              return { key, placement: role === "contents" ? "CONTENTS" : "GALLERY", url: uploaded.url, thumbnailUrl: uploaded.url, width: uploaded.width, height: uploaded.height, caption: IMAGE_ROLE_LABELS[role], evidenceType: group.imageEvidenceType };
+            },
+          );
         }));
+        const imageEntries = imageAttempts.flatMap((attempt) => attempt.value ? [attempt.value] : []);
+        warnings.push(...imageAttempts.flatMap((attempt) => attempt.warning ? [attempt.warning] : []));
         const front = imageEntries.find((image) => image.key.endsWith("-front"));
         const dimensions = group.widthCm && group.heightCm && group.depthCm ? {
           widthCm: numberOrNull(group.widthCm), heightCm: numberOrNull(group.heightCm), depthCm: numberOrNull(group.depthCm),
@@ -213,6 +228,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
           facetNames: splitValues(facetNames), description: description || null, publishNow, groups: preparedGroups }),
       });
       const data = await response.json();
+      setUploadWarnings(warnings);
       if (!response.ok) { setError(data.error ?? "No se pudo crear el lote."); return; }
       setResult({ physicalVariantCount: data.physicalVariantCount, regionalRecordCount: data.regionalRecordCount });
       if (data.redirect) router.push(data.redirect);
@@ -292,5 +308,6 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
     <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5"><p className="text-sm text-muted"><strong className="text-foreground">1</strong> ficha central V2 · <strong className="text-foreground">{groups.length}</strong> cajas físicas · <strong className="text-foreground">{regionalRecordCount}</strong> identidades regionales</p><div className="flex flex-wrap gap-2"><button type="button" className="btn-secondary" disabled={loading || !canSubmit} onClick={() => void submit(false)}>{loading ? "Guardando y subiendo imágenes…" : "Crear lote para revisar"}</button><button type="button" className="btn-primary" disabled={loading || !canSubmit} onClick={() => void submit(true)}>{loading ? "Publicando…" : "Crear y publicar ficha V2"}</button></div></div>
     {error ? <p className="mt-4 rounded-md border border-danger/35 bg-danger/10 p-3 text-sm text-danger">{error}</p> : null}
     {result ? <p className="mt-4 rounded-md border border-success/35 bg-success/10 p-3 text-sm text-foreground">Ficha central creada con {result.physicalVariantCount} cajas físicas y {result.regionalRecordCount} identidades regionales.</p> : null}
+    {uploadWarnings.length > 0 ? <div className="mt-4 rounded-md border border-amber-500/35 bg-amber-500/10 p-3 text-sm text-foreground"><p className="font-semibold">La ficha se guardó sin bloquearse; estas imágenes quedan pendientes:</p><ul className="mt-2 list-disc space-y-1 pl-5">{uploadWarnings.map((warning) => <li key={warning}>{warning}</li>)}</ul></div> : null}
   </Panel>;
 }
