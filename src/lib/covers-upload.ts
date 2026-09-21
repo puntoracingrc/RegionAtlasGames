@@ -1,9 +1,12 @@
 import { execFile } from "child_process";
 import { existsSync, mkdirSync, unlinkSync } from "fs";
+import { readFile } from "fs/promises";
 import os from "os";
 import path from "path";
 import { promisify } from "util";
+import { put } from "@vercel/blob";
 import sharp from "sharp";
+import coverHosting from "../../data/ps2-cover-hosting.json";
 import { safeRemoteFetch } from "./remote-fetch";
 import { COVERS_PUBLIC_BASE_URL } from "./site-brand";
 import { slugify } from "./slug";
@@ -25,6 +28,10 @@ export function buildCoverCatalogPath(platformSlug: string, slug: string): strin
   return `/covers/${platformSlug}/${slug}.jpg`;
 }
 
+export function buildCoverBlobPath(platformSlug: string, slug: string): string {
+  return `/catalog-covers/runtime/${slugify(platformSlug)}/${slugify(slug)}.jpg`;
+}
+
 export function buildCoverFileSlug(input: { slug: string; catalogId?: string | null }): string {
   return slugify(input.catalogId?.trim() || input.slug);
 }
@@ -35,6 +42,14 @@ export function coversFtpConfigured(): boolean {
       process.env.COVERS_FTP_USER?.trim() &&
       process.env.COVERS_FTP_PASSWORD?.trim(),
   );
+}
+
+export function coversBlobConfigured(): boolean {
+  return Boolean(process.env.COVERS_READ_WRITE_TOKEN?.trim());
+}
+
+export function coversUploadConfigured(): boolean {
+  return coversBlobConfigured() || coversFtpConfigured();
 }
 
 export function isRemoteCoverUrl(coverUrl: string | null | undefined): boolean {
@@ -147,6 +162,73 @@ async function uploadSftp(localFile: string, remoteRel: string, remoteRoot?: str
   } finally {
     await client.end().catch(() => undefined);
   }
+}
+
+async function uploadCoverBlob(localFile: string, platformSlug: string, slug: string): Promise<string> {
+  const token = process.env.COVERS_READ_WRITE_TOKEN?.trim();
+  if (!token) throw new Error("Vercel Blob de portadas no configurado.");
+
+  const publicPath = buildCoverBlobPath(platformSlug, slug);
+  const pathname = publicPath.slice(1);
+  const uploaded = await put(pathname, await readFile(localFile), {
+    token,
+    access: "public",
+    addRandomSuffix: false,
+    allowOverwrite: true,
+    contentType: "image/jpeg",
+    cacheControlMaxAge: 60 * 60 * 24 * 365,
+  });
+
+  const uploadedUrl = new URL(uploaded.url);
+  const expectedOrigin = new URL(coverHosting.origin).origin;
+  if (uploadedUrl.origin !== expectedOrigin || decodeURIComponent(uploadedUrl.pathname).slice(1) !== pathname) {
+    throw new Error("El almacén devolvió un destino de portada inesperado.");
+  }
+
+  const verified = await fetch(uploaded.url, {
+    method: "HEAD",
+    cache: "no-store",
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!verified.ok || !verified.headers.get("content-type")?.startsWith("image/")) {
+    throw new Error(`La portada se escribió, pero no superó la verificación pública (${verified.status}).`);
+  }
+
+  return publicPath;
+}
+
+async function uploadCoverFile(localFile: string, platformSlug: string, slug: string): Promise<string> {
+  const errors: string[] = [];
+  if (coversBlobConfigured()) {
+    try {
+      return await uploadCoverBlob(localFile, platformSlug, slug);
+    } catch (error) {
+      errors.push(`Blob: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+
+  if (coversFtpConfigured()) {
+    try {
+      const remoteRel = `${platformSlug}/${slug}.jpg`;
+      const cfg = coverUploadConfig();
+      if (cfg.protocol === "sftp") {
+        await uploadSftp(localFile, remoteRel);
+      } else {
+        const script = path.join(process.cwd(), "scripts", "upload_single_cover_ftp.py");
+        const { stderr } = await execFileAsync(
+          "python3",
+          [script, "--platform", platformSlug, "--slug", slug, "--file", localFile],
+          { timeout: 120_000, env: process.env },
+        );
+        if (stderr?.trim()) console.warn(`cover upload stderr: ${stderr.trim()}`);
+      }
+      return buildCoverCatalogPath(platformSlug, slug);
+    } catch (error) {
+      errors.push(`FTP: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+
+  throw new Error(errors.join(" | ") || "No hay un almacén de portadas configurado.");
 }
 
 export async function uploadSagaBackgroundToCdn(input: {
@@ -262,8 +344,8 @@ export async function uploadCoverToCdn(input: {
   fileBuffer: Buffer;
   mimeType?: string;
 }): Promise<{ ok: true; coverUrl: string; width: number; height: number } | { error: string }> {
-  if (!coversFtpConfigured()) {
-    return { error: "FTP de portadas no configurado (COVERS_FTP_* en env)." };
+  if (!coversUploadConfigured()) {
+    return { error: "Almacén de portadas no configurado (Blob o COVERS_FTP_*)." };
   }
 
   const slug = buildCoverFileSlug(input);
@@ -293,24 +375,11 @@ export async function uploadCoverToCdn(input: {
       .jpeg({ quality: 88, mozjpeg: true })
       .toFile(tmpFile);
 
-    const remoteRel = `${platformSlug}/${slug}.jpg`;
-    const cfg = coverUploadConfig();
-    if (cfg.protocol === "sftp") {
-      await uploadSftp(tmpFile, remoteRel);
-    } else {
-      const script = path.join(process.cwd(), "scripts", "upload_single_cover_ftp.py");
-      const { stderr } = await execFileAsync("python3", [script, "--platform", platformSlug, "--slug", slug, "--file", tmpFile], {
-        timeout: 120_000,
-        env: process.env,
-      });
-      if (stderr?.trim()) {
-        console.warn(`cover upload stderr: ${stderr.trim()}`);
-      }
-    }
+    const coverUrl = await uploadCoverFile(tmpFile, platformSlug, slug);
 
     return {
       ok: true,
-      coverUrl: buildCoverCatalogPath(platformSlug, slug),
+      coverUrl,
       width: info.width,
       height: info.height,
     };
@@ -342,8 +411,8 @@ export async function downloadAndUploadCoverToCdn(input: {
     return { error: "URL de portada inválida." };
   }
 
-  if (!coversFtpConfigured()) {
-    return { error: "FTP de portadas no configurado (COVERS_FTP_* en env)." };
+  if (!coversUploadConfigured()) {
+    return { error: "Almacén de portadas no configurado (Blob o COVERS_FTP_*)." };
   }
 
   try {

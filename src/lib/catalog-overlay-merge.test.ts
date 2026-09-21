@@ -167,6 +167,43 @@ test("a confirmed reviewed physical identity survives a stale catalog overlay", 
   assert.equal(merged.physicalReleaseGroup?.serial, "BLES-01017");
 });
 
+test("an exact Admin regional publication resolves a pending PS2 identity", () => {
+  const staticGame = {
+    ...game("ps2-japon-summer-limited", "_Summer limited", "ps2"),
+    region: "NTSC-J · Mercado por determinar",
+    regionalStatus: "review" as const,
+    regionVerified: false,
+  };
+  const overlayGame = {
+    ...staticGame,
+    title: "_summer##",
+    region: "Japón",
+    marketRegion: "JP" as const,
+    regionalStatus: "resolved" as const,
+    matchConfidence: "ADMIN_MANUAL",
+    regionVerified: true,
+    regionEvidence: ["admin_manual_regional_identity"],
+    physicalReleaseGroup: {
+      id: "ps2:summer:first-print-limited",
+      label: "First Print Limited Edition",
+      barcode: "4571164030173",
+      productCodes: ["GN-06017"],
+      packagingLanguages: ["JA"],
+      softwareLanguages: ["JA"],
+      confidence: "CONFIRMED" as const,
+      coverUrl: null,
+    },
+  };
+
+  const merged = mergeCatalogGameWithOverlay(staticGame, overlayGame);
+
+  assert.equal(merged.title, "_summer##");
+  assert.equal(merged.region, "Japón");
+  assert.equal(merged.marketRegion, "JP");
+  assert.equal(merged.regionalStatus, "resolved");
+  assert.equal(merged.physicalReleaseGroup?.barcode, "4571164030173");
+});
+
 test("an overlay-only reviewed physical identity joins its canonical edition family", () => {
   const overlayOnly = {
     ...game(

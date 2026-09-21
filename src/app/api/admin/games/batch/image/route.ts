@@ -36,6 +36,13 @@ export async function POST(request: Request) {
     mimeType: file.type,
   });
   if ("error" in uploaded) {
+    console.error("[admin-batch-image] cover upload failed", {
+      platformSlug,
+      targetSlug,
+      fileSize: file.size,
+      mimeType: file.type,
+      error: uploaded.error,
+    });
     return NextResponse.json({ error: uploaded.error }, { status: 400 });
   }
   return NextResponse.json({

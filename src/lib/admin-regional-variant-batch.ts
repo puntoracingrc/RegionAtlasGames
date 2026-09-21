@@ -57,6 +57,23 @@ export type ExpandedRegionalVariantRow = {
   existingCatalogId: string | null;
 };
 
+export function buildAdminVariantImageSlug(input: {
+  titleSlug: string;
+  platformSlug: string;
+  markets: string[];
+  groupLabel?: string;
+  physicalVariant?: string;
+  role: string;
+}): string {
+  return [
+    input.titleSlug,
+    input.platformSlug,
+    input.markets.join("-"),
+    input.groupLabel || input.physicalVariant || "standard",
+    input.role,
+  ].map(slugify).filter(Boolean).join("-");
+}
+
 export function applyExpandedRegionalIdentity<
   T extends { region: string; marketRegion?: string | null },
 >(

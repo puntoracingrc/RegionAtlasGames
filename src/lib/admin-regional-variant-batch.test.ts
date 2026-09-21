@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   applyExpandedRegionalIdentity,
+  buildAdminVariantImageSlug,
   expandRegionalVariantBatch,
 } from "./admin-regional-variant-batch";
 import {
@@ -9,6 +10,19 @@ import {
   extendCatalogEditionGuideWithRuntimeGames,
 } from "./catalog-derived-edition-guides";
 import type { CatalogGame } from "./types";
+
+test("names Admin images from the game, platform, market, edition and side", () => {
+  assert.equal(
+    buildAdminVariantImageSlug({
+      titleSlug: "_summer",
+      platformSlug: "ps2",
+      markets: ["JP"],
+      groupLabel: "First Print Limited Edition",
+      role: "back",
+    }),
+    "summer-ps2-jp-first-print-limited-edition-back",
+  );
+});
 
 test("an existing catalog draft adopts both the exact market and its legacy region", () => {
   const updated = applyExpandedRegionalIdentity(
