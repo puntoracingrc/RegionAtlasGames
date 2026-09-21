@@ -1,6 +1,6 @@
 # Plantilla maestra de orden de investigación
 
-`ORDER_TEMPLATE_VERSION: 7`
+`ORDER_TEMPLATE_VERSION: 8`
 
 Esta plantilla se envía completa para cada entrada. Sólo se sustituyen los bloques delimitados por `{{...}}`. No se resumen, eliminan ni suavizan requisitos entre juegos. En una tanda relacionada se genera una orden completa por entrada y ChatGPT devuelve un JSON independiente por cada una.
 
@@ -190,7 +190,7 @@ La etiqueta `confirmed` del contexto o de una fuente secundaria nunca sustituye 
 
 Para cada release físico y mercado regional confirmado, intenta obtener los precios actuales por estado que correspondan a su tipo de soporte. La investigación de precio permanece separada de la identidad del producto: no rebajes ni completes la región para conseguir una coincidencia de precio.
 
-Un precio sólo puede proponerse como `confirmed` cuando existen al menos dos ventas completadas independientes del producto regional exacto que sean comparables en:
+Un precio sólo puede proponerse como `confirmed` cuando existen al menos dos anuncios activos e independientes en mercados de segunda mano del producto regional exacto que sean comparables en:
 
 - juego;
 - plataforma;
@@ -202,7 +202,9 @@ Un precio sólo puede proponerse como `confirmed` cuando existen al menos dos ve
 
 La ubicación del vendedor, el dominio nacional del marketplace, el idioma del anuncio, PAL/NTSC, PEGI/CERO/ESRB o un título parecido no demuestran la región del ejemplar. La evidencia regional debe proceder de identificadores, metadata específica o evidencia física ya vinculada al release.
 
-Prioriza ventas completadas recientes de los últimos doce meses. Un anuncio activo, precio solicitado, subasta sin precio final, PVP histórico, estimación de una web, promedio agregado sin operaciones auditables o una única venta no bastan para publicar un precio base. Pueden conservarse como pistas `probable`, pero `proposedBasePrice` debe ser `null`.
+Cada observación debe ser un anuncio directo que siga activo en `accessedAt`, tenga precio solicitado numérico y permita auditar `listingId`, marketplace, URL, moneda, vendedor cuando esté disponible, estado, contenido incluido y prueba de región/edición. Dos anuncios del mismo vendedor o del mismo artículo republicado o cruzado entre webs cuentan una sola vez. Pueden proceder del mismo marketplace si pertenecen a vendedores y artículos distintos, aunque se prefieren fuentes diferentes cuando existan.
+
+Una venta completada, anuncio vendido o inactivo, subasta sin precio de compra actual, PVP histórico, estimación de una web, promedio agregado, precio sin URL directa o un único anuncio activo no bastan para publicar un precio base. Pueden conservarse como contexto, pero no cuentan en `sampleSize` y `proposedBasePrice` debe ser `null` si quedan menos de dos anuncios activos comparables.
 
 Los estados obligatorios dependen del soporte:
 
@@ -300,6 +302,8 @@ Cada release debe separar, cuando existan:
 - `sourceRefs`;
 - `fieldSourceRefs`.
 
+Cada elemento de `observations` debe conservar como mínimo `listingId`, `marketplace`, `listingUrl`, `accessedAt`, `listingStatus: "active"`, `sellerId` o identificador público equivalente cuando exista, `askingPriceWithoutShipping`, `shippingPrice`, `currency`, `conditionBucket`, `regionEvidence` y `editionEvidence`. El precio solicitado es una referencia inicial de oferta actual, no una venta efectivamente realizada.
+
 Los valores desconocidos se expresan como `null`, `[]` o `unresolved`; nunca se completan por deducción. No marques ni solicites marcar la entrada como `completed`. Codex decidirá la cobertura después de validar las fuentes y publicar los datos confirmados mediante el administrador.
 
 Antes de entregar el resultado, valida obligatoriamente:
@@ -316,7 +320,7 @@ Antes de entregar el resultado, valida obligatoriamente:
 10. que los IDs de cola y catálogo sean exactamente los recibidos.
 11. que la entrega sea un archivo `.json` real y no contenido copiado desde una respuesta enriquecida.
 12. que se haya intentado obtener una portada frontal y una contraportada para cada release regional, dejando explícita cualquier ausencia o bloqueo.
-13. que ningún precio propuesto use menos de dos ventas completadas, mezcle estados o carezca de prueba de la región exacta;
+13. que ningún precio propuesto use menos de dos anuncios activos e independientes de segunda mano, mezcle estados o carezca de prueba de la región exacta;
 14. que cartucho sólo investigue `sealed`, `complete` y `loose`, y soporte óptico sólo `sealed` y `complete`.
 15. que ninguna URL externa de imagen se presente como asset público definitivo de RegionAtlas.
 
