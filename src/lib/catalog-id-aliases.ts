@@ -1,6 +1,9 @@
 import aliasesData from "../../data/catalog-id-aliases.json";
 
-const aliases = aliasesData as Record<string, string>;
+const reviewedAliases: Record<string, string> = {
+  "ps3-usa-3d-logo-and-demo-disc": "ps3-usa-this-is-the-next-level",
+};
+const aliases = { ...(aliasesData as Record<string, string>), ...reviewedAliases };
 const canonicalTargets = new Set(Object.values(aliases));
 
 export function hasConsolidatedCatalogAliases(id: string): boolean {
