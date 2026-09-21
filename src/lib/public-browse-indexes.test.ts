@@ -107,6 +107,42 @@ test("el overlay caliente actualiza y añade tarjetas sin reconstruir el catálo
   assert.match(inserted?.searchText ?? "", /worker new catalog game/);
 });
 
+test("una variante física revisada del overlay se agrupa y se busca por EAN", async () => {
+  const indexed = await getCatalogBrowseData();
+  const collector = indexed.games.find((game) => (
+    game.id === "ps3-007-quantum-of-solace-collector%27s-edition"
+  ));
+  const collectorSource = publicListedCatalog.find((game) => (
+    game.id === "ps3-007-quantum-of-solace-collector%27s-edition"
+  ));
+  assert.ok(collector && collectorSource);
+  const runtimeAustralia = {
+    ...collectorSource,
+    id: "ps3-007-quantum-of-solace-collectors-edition-au",
+    slug: "007-quantum-of-solace-collectors-edition-au",
+    title: "007 Quantum of Solace Collector's Edition AU",
+    region: "Australia",
+    marketRegion: "AU" as const,
+    workId: null,
+    physicalVariant: "Collector AU",
+    physicalReleaseGroup: null,
+  };
+
+  const merged = mergeCatalogBrowseOverlay(
+    indexed.games,
+    [runtimeAustralia],
+    indexed.filterOptions.platforms,
+  );
+  const grouped = merged.find((game) => (
+    game.physicalEditionGroup?.catalogIds.includes(runtimeAustralia.id)
+  ));
+
+  assert.equal(grouped?.id, collector.id);
+  assert.equal(grouped?.physicalEditionGroup?.physicalEditionCount, 3);
+  assert.match(grouped?.searchText ?? "", /5030917063701/);
+  assert.match(grouped?.searchText ?? "", /bles 00411/);
+});
+
 test("el overlay caliente cambia una ficha existente de Estándar a Recopilatorio", async () => {
   const indexed = await getCatalogBrowseData();
   const base = indexed.games.find((game) => (
