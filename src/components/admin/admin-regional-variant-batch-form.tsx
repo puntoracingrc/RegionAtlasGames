@@ -174,9 +174,6 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
   }
 
   async function submit(publishNow: boolean) {
-    if (publishNow && !window.confirm(`Se publicará una ficha central de ${title.trim()}, con ${groups.length} cajas físicas y ${regionalRecordCount} identidades regionales. ¿Continuar?`)) {
-      return;
-    }
     setLoading(true); setError(null); setUploadWarnings([]); setResult(null);
     try {
       const slugSeed = slugPart(baseSlug || title) || `juego-${Date.now()}`;
