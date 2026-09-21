@@ -13,10 +13,20 @@ La cola de origen ya contiene ocho entradas con varias plataformas. Se conservan
 1. ChatGPT toma una entrada `pending` como punto de partida. Puede investigar el mismo videojuego en otras plataformas que formen parte actualmente de RegionAtlas.
 2. ChatGPT devuelve datos factuales y fuentes en un archivo JSON dentro de `results/`, identificado por `researchId`. ChatGPT no decide cómo se estructura el catálogo.
 3. Codex interpreta el resultado usando la estructura actual de RegionAtlas e identifica las fichas existentes a las que corresponde cada dato. Una coincidencia de título por sí sola **no** demuestra que dos entradas sean el mismo videojuego.
-4. Codex incorpora únicamente datos suficientemente confirmados, evita duplicados e informa de conflictos. `confidence: confirmed` es una declaración de la investigación; Codex debe comprobar su evidencia antes de incorporarla. `probable` y `unresolved` no autorizan incorporaciones como hechos confirmados.
+4. Codex incorpora únicamente datos suficientemente confirmados mediante el administrador de RegionAtlas: edita la ficha existente o usa el alta manual/regional V2 cuando procede crear una ficha o sus variantes. `confidence: confirmed` es una declaración de la investigación; Codex debe comprobar su evidencia antes de incorporarla. `probable` y `unresolved` no autorizan incorporaciones como hechos confirmados.
 5. Una investigación puede cubrir varias entradas plataforma-juego. `coveredQueueEntries` declara el alcance y su justificación; Codex verifica qué entradas quedaron realmente cubiertas. Sólo esas entradas pueden marcarse posteriormente como `completed`. Cobertura parcial o una simple coincidencia de título no completan una entrada.
 
 La preparación de este intercambio no cambia ningún estado de la cola. Recibir un JSON tampoco ejecuta una importación ni modifica estados automáticamente.
+
+## Incorporación al catálogo mediante el administrador
+
+Los resultados de cada juego se incorporan mediante las herramientas existentes del administrador de RegionAtlas. Para una ficha existente, Codex utiliza su edición administrativa. Para un lanzamiento nuevo o varias cajas regionales, utiliza el alta manual o el alta regional V2, con sus controles de duplicados, validaciones y publicación runtime.
+
+La incorporación ordinaria de un resultado **no crea un commit de catálogo, no modifica los JSON estáticos del catálogo y no reconstruye ni despliega la web**. El administrador guarda la ficha y sus detalles en el almacenamiento runtime, registra la nueva identidad en el índice runtime y fuerza la actualización de la caché correspondiente.
+
+Los commits del repositorio quedan reservados para cambios del propio pipeline, reglas, schemas, controles del administrador o correcciones de código. Si un dato confirmado no puede representarse con el administrador actual, se registra como pendiente y se corrige la herramienta en una tarea separada; no se sustituye el flujo administrativo por un commit específico para ese juego.
+
+Los archivos de `research/results/` son el intercambio factual y auditable entre ChatGPT y Codex. No son la fuente runtime del catálogo ni obligan a publicar todos sus campos.
 
 ## Selección de la primera pasada automática
 
