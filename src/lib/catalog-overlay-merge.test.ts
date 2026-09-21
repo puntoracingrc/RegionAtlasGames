@@ -8,6 +8,7 @@ import {
 } from "./catalog-overlay-merge";
 import type { CatalogGame, GameDetails } from "./types";
 import { getVerifiedCompanyCreditDetails } from "./verified-company-credits";
+import { getCatalogGame } from "./catalog";
 
 function game(id: string, title: string, platformSlug = "nes"): CatalogGame {
   return {
@@ -142,6 +143,28 @@ test("verified physical-edition facts survive a stale runtime overlay", () => {
   assert.equal(merged.manualExpected, false);
   assert.deepEqual(merged.originalContents, []);
   assert.deepEqual(merged.regionalPackaging, staticGame.regionalPackaging);
+});
+
+test("a confirmed reviewed physical identity survives a stale catalog overlay", () => {
+  const staticPromo = getCatalogGame("ps3-007-blood-stone-not-for-resale");
+  assert.ok(staticPromo);
+  const staleOverlay = {
+    ...staticPromo,
+    title: "007 Blood Stone [Not For Resale]",
+    titlePc: "007 Blood Stone [Not For Resale]",
+    region: "PAL España",
+    marketRegion: "ES" as const,
+    physicalVariant: "Standard",
+    physicalReleaseGroup: null,
+  };
+
+  const merged = mergeCatalogGameWithOverlay(staticPromo, staleOverlay);
+
+  assert.equal(merged.title, "007 Blood Stone");
+  assert.equal(merged.region, "PAL Europa");
+  assert.equal(merged.marketRegion, null);
+  assert.equal(merged.physicalVariant, "Promo / Not For Resale");
+  assert.equal(merged.physicalReleaseGroup?.serial, "BLES-01017");
 });
 
 test("an overlay moved to another platform removes the stale static entry", () => {
