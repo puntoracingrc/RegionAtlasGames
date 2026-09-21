@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 5,
+  "generation": 6,
   "workerId": "ps2",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "summer-standard-ps2-2026-09-21",
   "workPackage": {
     "packageId": "ps2-2026-09-21-002",
     "grouping": {
@@ -30,8 +30,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-21T19:04:41Z",
-  "updatedBy": "codex",
-  "note": "_summer## First Print Limited Edition validado, publicado y cerrado para la primera pasada con cobertura parcial. La entrada de cola permanece pending para una futura pasada unresolved; se ha preparado la siguiente entrada elegible sin borrar el resultado histórico."
+  "lease": {
+    "runId": "ps2-20260921T190844Z-8-7f3c2b1a",
+    "claimedAt": "2026-09-21T19:08:44Z",
+    "expiresAt": "2026-09-21T20:03:44Z"
+  },
+  "updatedAt": "2026-09-21T19:08:44Z",
+  "updatedBy": "chatgpt",
+  "note": "Claimed summer-standard-ps2-2026-09-21 for this execution."
 }
