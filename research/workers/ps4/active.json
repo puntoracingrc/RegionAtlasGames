@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 16,
+  "generation": 17,
   "workerId": "ps4",
-  "state": "RUNNING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
@@ -27,17 +27,12 @@
         "researchId": "2dark-limited-edition-ps4-2026-09-22",
         "orderPath": "research/workers/ps4/orders/2dark-limited-edition-ps4-2026-09-22.md",
         "resultPath": "research/results/2dark-limited-edition-ps4-2026-09-22.json",
-        "status": "PENDING",
+        "status": "CHECKPOINTED",
         "checkpointPath": "research/workers/ps4/checkpoints/2dark-limited-edition-ps4-2026-09-22.json"
       }
     ]
   },
-  "lease": {
-    "runId": "ps4-20260922T113721Z-a91c42",
-    "claimedAt": "2026-09-22T11:37:21Z",
-    "expiresAt": "2026-09-22T12:27:21Z"
-  },
-  "updatedAt": "2026-09-22T11:37:21Z",
+  "updatedAt": "2026-09-22T11:56:42Z",
   "updatedBy": "chatgpt",
-  "note": "Lease reclamado para continuar exclusivamente 2Dark [Limited Edition] desde el checkpoint factual existente; no se repite investigación externa salvo que la validación formal del borrador revele un hueco concreto."
+  "note": "Checkpoint corregido y validado formalmente; contiene el JSON final comprimido listo para serializar en resultPath. No repetir investigación externa; revalidar referencias y cerrar atómicamente en la siguiente ejecución."
 }
