@@ -19,6 +19,7 @@ import {
   normalizeCatalogEditionGuide,
   type RawCatalogEditionGuide,
 } from "./catalog-edition-guides";
+import { extendCatalogEditionGuideWithRuntimeGames } from "./catalog-derived-edition-guides";
 import {
   BROAD_REGION_VALUES,
   CATALOG_MARKET_REGION_META,
@@ -945,6 +946,65 @@ test("sitewide V2 groups published regional pages and keeps their catalog collec
     )),
     false,
   );
+});
+
+test("runtime editions with the same resolved work id join the central V2 across families", () => {
+  const base = getCatalogGame("ps4-hack-gu-last-recode");
+  assert.ok(base);
+  const sourceGuide = getCatalogEditionGuide(base);
+  assert.ok(sourceGuide);
+
+  const current = {
+    ...base,
+    workId: "hack-gu-last-recode",
+    regionalStatus: "resolved" as const,
+  };
+  const premium = {
+    ...current,
+    id: "runtime-hack-gu-premium-jp",
+    slug: "hack-gu-premium-jp",
+    region: "NTSC-J Japón",
+    marketRegion: "JP" as const,
+    physicalVariant: "Premium Edition",
+    physicalReleaseGroup: {
+      id: "runtime:hack-gu:premium:jp",
+      label: "Premium Edition Japan",
+      barcode: "4573173322195",
+      productCodes: ["PLJS-74023"],
+      packagingLanguages: [],
+      softwareLanguages: [],
+      ratingSystems: ["CERO B"],
+      confidence: "CONFIRMED" as const,
+      physicalContents: ["Caja", "Juego"],
+      digitalContents: [],
+      images: [],
+      notes: [],
+    },
+  };
+  const unrelated = {
+    ...premium,
+    id: "runtime-unrelated-premium-jp",
+    slug: "unrelated-premium-jp",
+    workId: "another-game-with-the-same-title",
+    physicalReleaseGroup: {
+      ...premium.physicalReleaseGroup,
+      id: "runtime:unrelated:premium:jp",
+      barcode: "0000000000000",
+    },
+  };
+
+  const guide = extendCatalogEditionGuideWithRuntimeGames(
+    sourceGuide,
+    current,
+    [current, premium, unrelated],
+  );
+
+  assert.ok(guide.physicalEditions.some((edition) => edition.catalogIds.includes(premium.id)));
+  assert.equal(
+    guide.physicalEditions.some((edition) => edition.catalogIds.includes(unrelated.id)),
+    false,
+  );
+  assert.ok(guide.editionFamilies.some((family) => family.label === "Premium Edition"));
 });
 
 test("scoped V2 grouping exposes only editions present in the input", () => {

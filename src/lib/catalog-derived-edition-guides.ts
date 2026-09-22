@@ -518,11 +518,17 @@ export function extendCatalogEditionGuideWithRuntimeGames(
 ): CatalogEditionGuideModel {
   const currentTitle = normalizedIdentity(currentGame.title);
   const currentFamily = familyIdentity(currentGame);
+  const currentWork = workIdentity(currentGame);
   const matches = runtimeGames.filter((candidate) => (
     candidate.listingStatus === "listed"
     && candidate.platformSlug === currentGame.platformSlug
     && normalizedIdentity(candidate.title) === currentTitle
-    && familyIdentity(candidate) === currentFamily
+    && (() => {
+      const candidateWork = workIdentity(candidate);
+      if (!currentWork) return familyIdentity(candidate) === currentFamily;
+      if (candidateWork) return candidateWork === currentWork;
+      return familyIdentity(candidate) === currentFamily;
+    })()
   ));
   if (!matches.length) return sourceGuide;
 
