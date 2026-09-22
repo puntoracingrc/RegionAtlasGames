@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 10,
+  "generation": 11,
   "workerId": "ps2",
   "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -46,12 +46,12 @@
     ]
   },
   "lease": {
-    "runId": "ps2-20260922T110932Z-77c1a4",
-    "claimedAt": "2026-09-22T11:09:32Z",
-    "expiresAt": "2026-09-22T11:54:32Z",
-    "recoveredFromRunId": "ps2-20260922T100716Z-4d8f2a"
+    "runId": "ps2-20260922T121110Z-a61f2e",
+    "claimedAt": "2026-09-22T12:11:10Z",
+    "expiresAt": "2026-09-22T12:56:10Z",
+    "recoveredFromRunId": "ps2-20260922T110932Z-77c1a4"
   },
-  "updatedAt": "2026-09-22T11:09:32Z",
+  "updatedAt": "2026-09-22T12:11:10Z",
   "updatedBy": "chatgpt",
-  "note": "Lease vencido recuperado de ps2-20260922T100716Z-4d8f2a; continúa .Hack - G.U. Vol.2 - Reminisce."
+  "note": "Lease vencido recuperado de ps2-20260922T110932Z-77c1a4; continúa .Hack - G.U. Vol.2 - Reminisce."
 }
