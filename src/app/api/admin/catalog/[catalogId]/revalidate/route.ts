@@ -4,6 +4,7 @@ import { getPublishedGameForAdmin } from "@/lib/admin-catalog-publish";
 import { resolveCatalogIdParam } from "@/lib/catalog";
 import { buildCatalogSeoSlug } from "@/lib/catalog-url";
 import { revalidateCatalogOverlayGame } from "@/lib/catalog-runtime-overlay";
+import { registerOverlayGame } from "@/lib/catalog-overlay-documents";
 
 type RouteParams = { params: Promise<{ catalogId: string }> };
 
@@ -18,6 +19,7 @@ export async function POST(_request: Request, { params }: RouteParams) {
     return NextResponse.json({ error: "Juego no encontrado." }, { status: 404 });
   }
 
+  await registerOverlayGame(resolved.game);
   revalidateCatalogOverlayGame(resolved.game);
 
   return NextResponse.json({
