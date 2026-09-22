@@ -212,9 +212,27 @@ function physicalEditionGalleryImages(edition: CatalogPhysicalEdition): Physical
   return images;
 }
 
-function familyHref(family: CatalogEditionFamily): string | null {
+export function catalogEditionFamilyHref(
+  family: CatalogEditionFamily,
+  guide: CatalogEditionGuideModel,
+): string | null {
   const game = getCatalogGame(family.representativeCatalogId);
-  return game ? catalogGamePath(game) : null;
+  if (game) return catalogGamePath(game);
+
+  // Admin-published editions live in the runtime overlay and therefore are
+  // intentionally absent from the build-time catalog imported above. Their
+  // guide links are nevertheless authoritative and already contain the public
+  // route. Falling back to those links keeps every runtime edition family
+  // reachable from the same central V2 page.
+  const familyEditions = guide.physicalEditions.filter((edition) =>
+    family.physicalEditionIds.includes(edition.id),
+  );
+  const representativeLink = familyEditions
+    .flatMap((edition) => edition.catalogLinks)
+    .find((link) => link.catalogId === family.representativeCatalogId);
+  return representativeLink?.href
+    ?? familyEditions.flatMap((edition) => edition.catalogLinks)[0]?.href
+    ?? null;
 }
 
 function RegionRail({ identity }: { identity: CatalogRegionRailIdentity }) {
@@ -260,7 +278,7 @@ function PhysicalEditionGuide({
         {guide.editionFamilies.length > 1 ? (
           <nav aria-label="Familias de edición" className="flex flex-wrap gap-2 border-b border-border pb-4">
             {guide.editionFamilies.map((family) => {
-              const href = familyHref(family);
+              const href = catalogEditionFamilyHref(family, guide);
               const current = family.id === currentFamily?.id;
               return href ? (
                 <Link
