@@ -377,6 +377,15 @@ export function mergePublicCatalogWithOverlayGames(
   return merged;
 }
 
+export const CATALOG_DEPLOY_HOOK_TIMEOUT_MS = 5_000;
+
+export function catalogDeployHookRequestInit(): RequestInit {
+  return {
+    method: "POST",
+    signal: AbortSignal.timeout(CATALOG_DEPLOY_HOOK_TIMEOUT_MS),
+  };
+}
+
 export async function triggerCatalogDeployHook(): Promise<{ triggered: boolean; detail?: string }> {
   const hook = process.env.VERCEL_DEPLOY_HOOK_URL?.trim();
   if (!hook) return { triggered: false, detail: "VERCEL_DEPLOY_HOOK_URL no configurada." };
@@ -391,7 +400,9 @@ export async function triggerCatalogDeployHook(): Promise<{ triggered: boolean; 
   }
 
   try {
-    const res = await fetch(hook, { method: "POST" });
+    // The hot catalog overlay is already durable before this best-effort hook runs.
+    // Never keep the Admin request open indefinitely when Vercel does not answer.
+    const res = await fetch(hook, catalogDeployHookRequestInit());
     if (!res.ok) {
       return { triggered: false, detail: `Deploy hook HTTP ${res.status}` };
     }
