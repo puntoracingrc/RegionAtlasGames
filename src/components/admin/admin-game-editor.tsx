@@ -416,6 +416,7 @@ export function AdminGameEditor({
   const [aiRunning, setAiRunning] = useState(false);
   const [aiTargetRunning, setAiTargetRunning] = useState<string | null>(null);
   const [priceCollecting, setPriceCollecting] = useState(false);
+  const [publicPageRevalidating, setPublicPageRevalidating] = useState(false);
   const [priceJob, setPriceJob] = useState<PriceJobState | null>(null);
   const [publishJob, setPublishJob] = useState<PublishJobState | null>(null);
   const [deleting, setDeleting] = useState(false);
@@ -883,6 +884,29 @@ export function AdminGameEditor({
       setError("Error al eliminar la ficha.");
     } finally {
       setDeleting(false);
+    }
+  }
+
+  async function revalidatePublicPage() {
+    if (!catalogId) return;
+    setPublicPageRevalidating(true);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(
+        `/api/admin/catalog/${encodeURIComponent(catalogId)}/revalidate`,
+        { method: "POST" },
+      );
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo regenerar la ficha pública.");
+        return;
+      }
+      setMessage("Caché pública invalidada. La ficha central se regenerará con el catálogo vigente.");
+    } catch {
+      setError("Error de red al regenerar la ficha pública.");
+    } finally {
+      setPublicPageRevalidating(false);
     }
   }
 
@@ -1384,6 +1408,16 @@ export function AdminGameEditor({
                 onClick={() => void submitForReview()}
               >
                 {publishing ? "Enviando…" : "Enviar a revisión"}
+              </button>
+            )}
+            {isPublished && (
+              <button
+                type="button"
+                className="btn-secondary"
+                disabled={publicPageRevalidating}
+                onClick={() => void revalidatePublicPage()}
+              >
+                {publicPageRevalidating ? "Regenerando ficha pública…" : "Regenerar ficha pública"}
               </button>
             )}
             {isPublished && (
