@@ -69,9 +69,10 @@ async function findDraftIdentityCollision(
       region: draft.region,
       edition: draft.edition,
       physicalVariant: draft.physicalVariant,
+      physicalReleaseGroup: draft.physicalReleaseGroup,
       title: draft.title,
     },
-    { excludeCatalogId },
+    { excludeCatalogId, allowDistinctPhysicalBarcode: true },
   );
 }
 

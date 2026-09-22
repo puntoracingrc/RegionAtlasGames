@@ -56,3 +56,54 @@ test("finds an equivalent title while allowing the edited record itself", () => 
     null,
   );
 });
+
+test("allows separate physical boxes in the same market when confirmed barcodes differ", () => {
+  const existing = game({
+    physicalReleaseGroup: {
+      id: "ps4:adam:standard:01",
+      label: "Standard Europa A",
+      barcode: "1111111111111",
+    },
+  });
+  const incoming = game({
+    id: "draft",
+    physicalReleaseGroup: {
+      id: "ps4:adam:standard:02",
+      label: "Standard Europa B",
+      barcode: "2222222222222",
+    },
+  });
+
+  assert.equal(
+    findCatalogIdentityCollision([existing], incoming, { allowDistinctPhysicalBarcode: true }),
+    null,
+  );
+});
+
+test("still rejects the same barcode or an unidentified duplicate box", () => {
+  const existing = game({
+    physicalReleaseGroup: {
+      id: "ps4:adam:standard:01",
+      label: "Standard Europa A",
+      barcode: "1111111111111",
+    },
+  });
+  const sameBarcode = game({
+    id: "same-barcode",
+    physicalReleaseGroup: {
+      id: "ps4:adam:standard:02",
+      label: "Standard Europa B",
+      barcode: "1111111111111",
+    },
+  });
+  const unidentified = game({ id: "unidentified", physicalReleaseGroup: null });
+
+  assert.equal(
+    findCatalogIdentityCollision([existing], sameBarcode, { allowDistinctPhysicalBarcode: true })?.id,
+    existing.id,
+  );
+  assert.equal(
+    findCatalogIdentityCollision([existing], unidentified, { allowDistinctPhysicalBarcode: true })?.id,
+    existing.id,
+  );
+});
