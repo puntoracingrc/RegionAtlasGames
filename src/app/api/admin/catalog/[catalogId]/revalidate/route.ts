@@ -19,12 +19,15 @@ export async function POST(_request: Request, { params }: RouteParams) {
     return NextResponse.json({ error: "Juego no encontrado." }, { status: 404 });
   }
 
-  await registerOverlayGame(resolved.game);
+  const registeredFamily = await registerOverlayGame(resolved.game);
   revalidateCatalogOverlayGame(resolved.game);
 
   return NextResponse.json({
     ok: true,
     catalogId: resolved.game.id,
     url: `/catalogo/${buildCatalogSeoSlug(resolved.game)}`,
+    familyCatalogIds: registeredFamily.workCatalogIds.length
+      ? registeredFamily.workCatalogIds
+      : registeredFamily.titleCatalogIds,
   });
 }
