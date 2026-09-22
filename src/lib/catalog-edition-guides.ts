@@ -877,7 +877,13 @@ export function getCatalogEditionGuide(
   game: CatalogGame,
   runtimeGames: CatalogGame[] = [],
 ): CatalogEditionGuideModel | undefined {
-  const baseGuide = getCatalogEditionGuideModel(game);
+  // The route-level lookup and the platform catalog are loaded independently.
+  // When Admin has enriched a legacy catalog row, the route can briefly hold
+  // the static row while the platform catalog already contains the current
+  // physical identity. Always prefer that exact runtime row so the detail page
+  // and the platform browse build the same central V2 guide.
+  const currentGame = runtimeGames.find((candidate) => candidate.id === game.id) ?? game;
+  const baseGuide = getCatalogEditionGuideModel(currentGame);
   // Las publicaciones regionales creadas desde Admin viven en el overlay y
   // pueden enriquecer fichas legacy que ya estaban en el catálogo estático.
   // En ese caso la agrupación runtime es la fuente vigente: partir de la guía
@@ -886,19 +892,19 @@ export function getCatalogEditionGuide(
   // cambió algún dato de identidad permitido por Admin).
   if (
     runtimeGames.length
-    && game.physicalReleaseGroup
+    && currentGame.physicalReleaseGroup
     && (!baseGuide || baseGuide.origin === "catalog-derived")
   ) {
     return withCurrentCatalogEdition(
-      buildRuntimeCatalogEditionGuide(game, getCatalogEditionGuides(), runtimeGames),
-      game.id,
+      buildRuntimeCatalogEditionGuide(currentGame, getCatalogEditionGuides(), runtimeGames),
+      currentGame.id,
     );
   }
   const guide = baseGuide && runtimeGames.length
-    ? extendCatalogEditionGuideWithRuntimeGames(baseGuide, game, runtimeGames)
+    ? extendCatalogEditionGuideWithRuntimeGames(baseGuide, currentGame, runtimeGames)
     : baseGuide;
   if (!guide) return undefined;
-  return withCurrentCatalogEdition(guide, game.id);
+  return withCurrentCatalogEdition(guide, currentGame.id);
 }
 
 function withCurrentCatalogEdition(
