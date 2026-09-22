@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 16,
+  "generation": 17,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -34,8 +34,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T11:16:56Z",
-  "updatedBy": "codex",
-  "note": "#DRIVE Rally Special Edition validado, publicado y consumido. Siguiente orden preparada para 1-2 Switch."
+  "lease": {
+    "runId": "chatgpt-switch-20260922T112806Z-1a2s",
+    "claimedAt": "2026-09-22T11:28:06Z",
+    "expiresAt": "2026-09-22T12:23:06Z"
+  },
+  "updatedAt": "2026-09-22T11:28:06Z",
+  "updatedBy": "chatgpt",
+  "note": "Investigación de 1-2 Switch reclamada por el worker switch."
 }
