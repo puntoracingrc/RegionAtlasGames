@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 9,
+  "generation": 15,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "resultOrderTemplateVersion": 11,
+  "currentItemResearchId": "drive-rally-special-edition-switch-2026-09-21",
   "workPackage": {
     "packageId": "switch-2026-09-21-003",
     "grouping": {
@@ -18,35 +18,20 @@
     },
     "items": [
       {
-        "queueId": "catalog:switch-usa-drive-rally",
-        "platform": "switch",
-        "title": "#Drive Rally",
-        "catalogIds": [
-          "switch-usa-drive-rally"
-        ],
-        "researchId": "drive-rally-switch-2026-09-21",
-        "orderPath": "research/workers/switch/orders/drive-rally-switch-2026-09-21.md",
-        "resultPath": "research/results/drive-rally-switch-2026-09-21.json",
-        "status": "PENDING",
-        "checkpointPath": "research/workers/switch/checkpoints/drive-rally-switch-2026-09-21.json"
-      },
-      {
         "queueId": "catalog:switch-drive-rally-special-edition",
         "platform": "switch",
         "title": "#Drive Rally [Special Edition]",
-        "catalogIds": [
-          "switch-drive-rally-special-edition"
-        ],
+        "catalogIds": ["switch-drive-rally-special-edition"],
         "researchId": "drive-rally-special-edition-switch-2026-09-21",
         "orderPath": "research/workers/switch/orders/drive-rally-special-edition-switch-2026-09-21.md",
         "resultPath": "research/results/drive-rally-special-edition-switch-2026-09-21.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/drive-rally-special-edition-switch-2026-09-21.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T16:58:48Z",
+  "updatedAt": "2026-09-22T10:27:55Z",
   "updatedBy": "codex",
-  "note": "#BLUD validado, publicado y consumido. Preparado el siguiente paquete relacionado sin borrar el resultado histórico."
+  "note": "#DRIVE Rally Standard USA validado, publicado y consumido. La investigación separada de Special Edition permanece RESULT_READY para la siguiente ejecución."
 }
