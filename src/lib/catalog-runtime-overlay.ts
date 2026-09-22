@@ -17,7 +17,14 @@ import {
 } from "./catalog-overlay-merge";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { blobReadPathname } from "./blob-read-pathname";
-import { mutateOverlayGame, mutateOverlayIndex, registerOverlayGame } from "./catalog-overlay-documents";
+import {
+  mutateOverlayGame,
+  mutateOverlayIndex,
+  overlayTitlePlatformKey,
+  overlayWorkKey,
+  registerOverlayGame,
+  type OverlayIndexDocument,
+} from "./catalog-overlay-documents";
 import { preserveDirectPriceReceipts } from "./direct-price-connector";
 import { getStaticGameDetails } from "./static-game-details";
 import { withOwnedScanDetails } from "./catalog-owned-scans";
@@ -60,12 +67,7 @@ export function revalidateCatalogOverlayGame(game: CatalogGame): void {
   revalidateCatalogOverlayPaths(game);
 }
 
-export type CatalogOverlayIndex = {
-  updatedAt: string;
-  ids: string[];
-  byPlatform: Record<string, string[]>;
-  seoSlugs: Record<string, string>;
-};
+export type CatalogOverlayIndex = OverlayIndexDocument;
 
 function shouldUseBlobStorage(): boolean {
   if (process.env.CATALOG_RUNTIME_OVERLAY_ENABLED !== "1") return false;
@@ -74,7 +76,14 @@ function shouldUseBlobStorage(): boolean {
 }
 
 function emptyIndex(): CatalogOverlayIndex {
-  return { updatedAt: new Date().toISOString(), ids: [], byPlatform: {}, seoSlugs: {} };
+  return {
+    updatedAt: new Date().toISOString(),
+    ids: [],
+    byPlatform: {},
+    byWork: {},
+    byTitlePlatform: {},
+    seoSlugs: {},
+  };
 }
 
 function parseIndex(raw: string): CatalogOverlayIndex {
@@ -85,6 +94,8 @@ function parseIndex(raw: string): CatalogOverlayIndex {
       updatedAt: parsed.updatedAt ?? new Date().toISOString(),
       ids: parsed.ids,
       byPlatform: parsed.byPlatform ?? {},
+      byWork: parsed.byWork ?? {},
+      byTitlePlatform: parsed.byTitlePlatform ?? {},
       seoSlugs: parsed.seoSlugs ?? {},
     };
   } catch {
@@ -234,6 +245,8 @@ export async function deleteCatalogOverlayGame(
     ...current,
     ids: current.ids.filter(id => id !== catalogId),
     byPlatform: Object.fromEntries(Object.entries(current.byPlatform).map(([platform, ids]) => [platform, ids.filter(id => id !== catalogId)]).filter(([, ids]) => ids.length > 0)),
+    byWork: Object.fromEntries(Object.entries(current.byWork ?? {}).map(([work, ids]) => [work, ids.filter(id => id !== catalogId)]).filter(([, ids]) => ids.length > 0)),
+    byTitlePlatform: Object.fromEntries(Object.entries(current.byTitlePlatform ?? {}).map(([title, ids]) => [title, ids.filter(id => id !== catalogId)]).filter(([, ids]) => ids.length > 0)),
     seoSlugs: Object.fromEntries(Object.entries(current.seoSlugs).filter(([, id]) => id !== catalogId)),
   }));
   revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
@@ -350,6 +363,37 @@ export async function getCatalogByPlatformWithOverlay(platformSlug: string): Pro
   )).filter((g): g is CatalogGame => g != null);
 
   return mergeCatalogPlatformGames(platformSlug, staticGames, overlayGames);
+}
+
+/**
+ * Detail pages only need the current work, not every runtime publication on the
+ * platform. The lightweight overlay index keeps that request bounded after a
+ * cache invalidation, while exact-title fallback preserves reviewed legacy rows.
+ */
+export async function getCatalogFamilyWithOverlay(game: CatalogGame): Promise<CatalogGame[]> {
+  const titleKey = overlayTitlePlatformKey(game);
+  const workKey = overlayWorkKey(game);
+  const staticGames = listedCatalog.filter((candidate) => (
+    candidate.platformSlug === game.platformSlug
+    && (
+      (workKey != null && overlayWorkKey(candidate) === workKey)
+      || overlayTitlePlatformKey(candidate) === titleKey
+    )
+  ));
+  const index = await loadCatalogOverlayIndex();
+  const overlayIds = [...new Set([
+    ...(workKey ? (index.byWork?.[workKey] ?? []) : []),
+    ...(index.byTitlePlatform?.[titleKey] ?? []),
+    ...(index.ids.includes(game.id) ? [game.id] : []),
+  ])];
+  if (overlayIds.length === 0) return staticGames.length ? staticGames : [game];
+
+  const overlayGames = Object.values(await loadCatalogPriceGames(
+    overlayIds,
+    async id => (await readCatalogOverlayGame(id)) ?? undefined,
+  )).filter((candidate): candidate is CatalogGame => candidate != null);
+
+  return mergeCatalogPlatformGames(game.platformSlug, staticGames, overlayGames);
 }
 
 /** Catálogo público completo, incluida la publicación caliente del worker. */

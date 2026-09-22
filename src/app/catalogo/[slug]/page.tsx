@@ -60,7 +60,7 @@ import {
   getSimilarGames,
 } from "@/lib/catalog-seo";
 import {
-  getCatalogByPlatformWithOverlay,
+  getCatalogFamilyWithOverlay,
   getCatalogGameDetailsWithOverlay,
   resolveCatalogGameWithOverlay,
 } from "@/lib/catalog-runtime-overlay";
@@ -167,7 +167,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!game || !isPublicCatalogGame(game)) return { title: "Juego no encontrado" };
   const platform = getPlatform(game.platformSlug);
   const details = await getCatalogGameDetailsWithOverlay(game);
-  const platformCatalog = await getCatalogByPlatformWithOverlay(game.platformSlug);
+  const platformCatalog = await getCatalogFamilyWithOverlay(game);
   const editionGuide = getCatalogEditionGuide(game, platformCatalog);
   const physicalEditionIdentity = getCatalogPhysicalEditionPublicIdentity(
     game,
@@ -207,7 +207,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
   }
 
   const platform = getPlatform(game.platformSlug);
-  const platformCatalog = await getCatalogByPlatformWithOverlay(game.platformSlug);
+  const platformCatalog = await getCatalogFamilyWithOverlay(game);
   const editionGuide = getCatalogEditionGuide(game, platformCatalog);
   const currentPhysicalEdition = editionGuide?.physicalEditions.find(
     (edition) => edition.id === editionGuide.currentEditionId,
