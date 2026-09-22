@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 11,
+  "generation": 12,
   "workerId": "ps2",
-  "state": "RUNNING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
@@ -21,22 +21,18 @@
         "queueId": "platform-work:ps2:ps2-work-07d80321bb4e5575",
         "platform": "ps2",
         "title": ".Hack - G.U. Vol.2 - Reminisce",
-        "catalogIds": [
-          "ps2-us-slus-21488"
-        ],
+        "catalogIds": ["ps2-us-slus-21488"],
         "researchId": "hack-gu-vol-2-reminisce-ps2-2026-09-22",
         "orderPath": "research/workers/ps2/orders/hack-gu-vol-2-reminisce-ps2-2026-09-22.md",
         "resultPath": "research/results/hack-gu-vol-2-reminisce-ps2-2026-09-22.json",
-        "status": "PENDING",
+        "status": "CHECKPOINTED",
         "checkpointPath": "research/workers/ps2/checkpoints/hack-gu-vol-2-reminisce-ps2-2026-09-22.json"
       },
       {
         "queueId": "platform-work:ps2:ps2-work-9433e7c2b4166344",
         "platform": "ps2",
         "title": ".Hack - G.U. Vol.3 - Redemption",
-        "catalogIds": [
-          "ps2-us-slus-21489"
-        ],
+        "catalogIds": ["ps2-us-slus-21489"],
         "researchId": "hack-gu-vol-3-redemption-ps2-2026-09-22",
         "orderPath": "research/workers/ps2/orders/hack-gu-vol-3-redemption-ps2-2026-09-22.md",
         "resultPath": "research/results/hack-gu-vol-3-redemption-ps2-2026-09-22.json",
@@ -45,13 +41,8 @@
       }
     ]
   },
-  "lease": {
-    "runId": "ps2-20260922T121110Z-a61f2e",
-    "claimedAt": "2026-09-22T12:11:10Z",
-    "expiresAt": "2026-09-22T12:56:10Z",
-    "recoveredFromRunId": "ps2-20260922T110932Z-77c1a4"
-  },
-  "updatedAt": "2026-09-22T12:11:10Z",
+  "lease": null,
+  "updatedAt": "2026-09-22T12:17:35Z",
   "updatedBy": "chatgpt",
-  "note": "Lease vencido recuperado de ps2-20260922T110932Z-77c1a4; continúa .Hack - G.U. Vol.2 - Reminisce."
+  "note": "Checkpoint factual guardado para .Hack - G.U. Vol.2 - Reminisce; lease liberado. Continuar el mismo elemento antes de iniciar Vol.3."
 }

@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "researchId": "hack-gu-vol-2-reminisce-ps2-2026-09-22",
+  "queueId": "platform-work:ps2:ps2-work-07d80321bb4e5575",
+  "platform": "ps2",
+  "catalogIds": [
+    "ps2-us-slus-21488"
+  ],
+  "orderTemplateVersion": 11,
+  "status": "CHECKPOINTED",
+  "savedAt": "2026-09-22T12:17:35Z",
+  "progress": {
+    "identityAndCoreFacts": "substantially researched",
+    "physicalReleases": "four candidates documented; promotional bundle needs final normalization",
+    "images": "front/back located for US standard and JP standard; front located for JP Best with back still unresolved; promotional bundle front/back located",
+    "prices": "active-listing attempts made; no price state yet has two fully validated independent comparable active listings",
+    "finalResult": "not yet written"
+  },
+  "facts": {
+    "canonicalWork": {
+      "usTitle": ".hack//G.U. vol. 2//Reminisce",
+      "japanTitle": ".hack//G.U. Vol.2 君想フ声",
+      "romanizedJapanTitle": ".hack//G.U. Vol. 2: Kimi Omou Koe",
+      "developer": "CyberConnect2",
+      "series": ".hack//G.U.",
+      "genre": "Action RPG",
+      "players": 1,
+      "onlineMultiplayer": false,
+      "media": "DVD-ROM",
+      "discCount": 1,
+      "confidence": "confirmed",
+      "evidence": [
+        "https://www.bandainamcoent.co.jp/corporate/press/pdf/52-035.pdf",
+        "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data",
+        "https://www.mobygames.com/game/33604/hackgu-vol-2reminisce/",
+        "https://www.pricecharting.com/game/playstation-2/hack-gu-reminisce"
+      ]
+    },
+    "regionalReleases": [
+      {
+        "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+        "editionName": "Standard",
+        "market": "Japan",
+        "releaseDate": "2006-09-28",
+        "barcode": "4582224491117",
+        "productCode": "SLPS-25655",
+        "ratingSystem": "CERO A",
+        "publisher": "Bandai Namco Games",
+        "softwareLanguages": ["Japanese"],
+        "packagingLanguages": ["Japanese"],
+        "confidence": "confirmed",
+        "evidence": [
+          "https://www.bandainamcoent.co.jp/corporate/press/pdf/52-035.pdf",
+          "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data",
+          "https://www.retroplace.com/en/games/68373--hack-g-u-vol-2-kimi-omou-koe",
+          "https://redump.info/discs?advanced=1&dumper=Lowquillo9&letter=D&page=2"
+        ]
+      },
+      {
+        "releaseTitle": ".hack//G.U. vol. 2//Reminisce",
+        "editionName": "Standard",
+        "market": "USA",
+        "releaseDate": "2007-05-08",
+        "barcode": "722674100649",
+        "productCode": "SLUS-21488",
+        "ratingSystem": "ESRB Teen",
+        "regionalPublisher": "Namco Bandai Games America",
+        "softwareLanguages": ["English"],
+        "packagingLanguages": ["English"],
+        "confidence": "confirmed",
+        "evidence": [
+          "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data",
+          "https://www.mobygames.com/game/33604/hackgu-vol-2reminisce/releases/",
+          "https://redump.info/discs?letter=D&page=2&sort=region&system=PS2",
+          "https://www.jnlgame.com/products/hack-g-u-vol-2-reminisce-ps2-playstation-2-pre-owned"
+        ]
+      },
+      {
+        "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+        "editionName": "PlayStation 2 the Best",
+        "market": "Japan",
+        "releaseDate": "2009-11-26",
+        "barcode": "4582224492190",
+        "productCode": "SLPS-73266",
+        "ratingSystem": "CERO A",
+        "publisher": "Bandai Namco Games",
+        "softwareLanguages": ["Japanese"],
+        "packagingLanguages": [],
+        "confidence": "confirmed",
+        "evidence": [
+          "https://sonyinteractive.com/jp/press-releases/2009/ps2best-3/",
+          "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data",
+          "https://www.retroplace.com/en/games/68375--hack-g-u-vol-2-reminisce",
+          "https://books.rakuten.co.jp/search?g=006506003&l-id=item-c-topic-04"
+        ],
+        "unresolved": ["Packaging language not yet confirmed from a readable back cover or explicit metadata."]
+      },
+      {
+        "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+        "editionName": "Promotional box set",
+        "market": "Japan",
+        "releaseDate": null,
+        "barcode": null,
+        "productCode": null,
+        "ratingSystem": null,
+        "publisher": "Bandai",
+        "softwareLanguages": ["Japanese"],
+        "packagingLanguages": [],
+        "confidence": "probable",
+        "evidence": [
+          "https://redump.info/discs?advanced=1&dumper=Lowquillo9&letter=D&page=2",
+          "https://www.ebay.com/itm/406197298492",
+          "https://auctions.yahoo.co.jp/jp/auction/k1206264314"
+        ],
+        "notes": [
+          "Redump labels the Vol.2 disc as present in a 'The Complete Works of .hack//G.U. Saga-Trilogy' edition.",
+          "A physical eBay listing describes a 5-disc Japanese box including .hack//G.U. Vols 1, 2, 3 and a .hack//G.U. Trilogy anime DVD, and says the outer box is a promotional item marked 'not for sale'.",
+          "Yahoo auction photos show the outer box and a label listing .hack//G.U. Vol.1, Vol.2 and Vol.3; front/back images visibly show 'NOT FOR SALE'.",
+          "Final result must avoid inventing a retail barcode or release date and should clarify that the Vol.2 game disc retains the standard Japanese disc identity."
+        ]
+      }
+    ]
+  },
+  "images": [
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. vol. 2//Reminisce",
+      "editionName": "Standard",
+      "market": "USA",
+      "component": "back",
+      "pageUrl": "https://www.jnlgame.com/products/hack-g-u-vol-2-reminisce-ps2-playstation-2-pre-owned",
+      "imageUrl": "https://www.jnlgame.com/cdn/shop/products/image_feb111f3-12d3-48d6-a5e8-074a765fb6de.jpg?v=1655330623&width=5760",
+      "observedFacts": [
+        "Back cover visibly prints UPC 722674100649.",
+        "Back cover is English and shows ESRB Teen.",
+        "Back cover shows DVD-ROM and 1-player icons.",
+        "Back cover advertises inclusion of the first episode of .hack//ROOTS."
+      ],
+      "status": "IMAGE_EVIDENCE_READ"
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "Standard",
+      "market": "Japan",
+      "component": "front",
+      "pageUrl": "https://auctions.yahoo.co.jp/jp/auction/r1202660596",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0110/user/f472380336aee7e1f396fe42037ea073e5c888f60b735a4560cfb06d505c48bc/i-img828x1142-17595740686946uyuxqf33.jpg",
+      "observedFacts": ["Front cover shows .hack//G.U. Vol.2 君想フ声, CERO A and Bandai branding."],
+      "status": "IMAGE_EVIDENCE_READ"
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "Standard",
+      "market": "Japan",
+      "component": "back",
+      "pageUrl": "https://auctions.yahoo.co.jp/jp/auction/r1202660596",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0110/user/f472380336aee7e1f396fe42037ea073e5c888f60b735a4560cfb06d505c48bc/i-img828x1142-17595740687500jjwzuh33.jpg",
+      "observedFacts": [
+        "Back cover visibly prints barcode 4582224491117.",
+        "Back cover text is Japanese and visibly says FOR JAPAN ONLY.",
+        "Back cover shows 1-player and DVD-ROM information."
+      ],
+      "status": "IMAGE_EVIDENCE_READ"
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "component": "front",
+      "pageUrl": "https://www.play-asia.com/en/hackgu-vol2-kimi-omou-koe-playstation2-the-best/13/703lft",
+      "imageUrl": "https://s.pacn.ws/1/p/9b/pa.167753.1.jpg?v=ktaoc7&width=120",
+      "observedFacts": ["Front image shows PlayStation 2 the Best branding and the Vol.2 Japanese cover."],
+      "status": "IMAGE_EVIDENCE_READ"
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "component": "front",
+      "pageUrl": "https://auctions.yahoo.co.jp/jp/auction/k1206264314",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0111/user/e8f1eb33a91cb710152f3378ecc917972fced3b37b67faf67aa5db97c6835964/i-img600x600-17620036514032cuqhki33.jpg",
+      "observedFacts": ["Outer set visibly shows 'the complete works of .hack//G.U. saga-trilogy' and 'NOT FOR SALE'."],
+      "status": "IMAGE_EVIDENCE_READ"
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "component": "back",
+      "pageUrl": "https://auctions.yahoo.co.jp/jp/auction/k1206264314",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0111/user/e8f1eb33a91cb710152f3378ecc917972fced3b37b67faf67aa5db97c6835964/i-img600x600-17620036514118wppgi433.jpg",
+      "observedFacts": ["Back/outer-set label visibly lists .hack//G.U. Vol.1, Vol.2 and Vol.3 and is marked NOT FOR SALE."],
+      "status": "IMAGE_EVIDENCE_READ"
+    }
+  ],
+  "priceObservations": [
+    {
+      "release": "USA Standard",
+      "conditionBucket": "sealed",
+      "listingId": "156171688698",
+      "marketplace": "eBay",
+      "listingUrl": "https://www.ebay.com/itm/156171688698",
+      "accessedAt": "2026-09-22",
+      "listingStatus": "active",
+      "sellerId": "DreamSymphony",
+      "askingPriceWithoutShipping": 80.0,
+      "shippingPrice": null,
+      "currency": "USD",
+      "regionEvidence": "UPC 0722674100649/722674100649, PS2, title and ESRB T shown on listing.",
+      "editionEvidence": "Brand New / original shrink wrap.",
+      "includedContents": ["sealed retail copy"]
+    },
+    {
+      "release": "Japan Standard",
+      "conditionBucket": "sealed",
+      "listingId": "196124106445",
+      "marketplace": "eBay",
+      "listingUrl": "https://www.ebay.com/itm/196124106445",
+      "accessedAt": "2026-09-22",
+      "listingStatus": "active",
+      "sellerId": "ncsxshop",
+      "askingPriceWithoutShipping": 68.98,
+      "shippingPrice": 23.4,
+      "currency": "USD",
+      "regionEvidence": "MPN SLPS-25655, UPC 4582224491117 and NTSC-J (Japan) shown.",
+      "editionEvidence": "Brand New / factory sealed.",
+      "includedContents": ["sealed retail copy"]
+    },
+    {
+      "release": "Japan Standard",
+      "conditionBucket": "complete",
+      "listingId": "397728366185",
+      "marketplace": "eBay",
+      "listingUrl": "https://www.ebay.com/itm/397728366185",
+      "accessedAt": "2026-09-22",
+      "listingStatus": "active",
+      "sellerId": "Kensi-49CultureJapan",
+      "askingPriceWithoutShipping": 23.33,
+      "shippingPrice": null,
+      "currency": "USD",
+      "regionEvidence": "MPN SLPS-25655, UPC 4582224491117 and NTSC-J (Japan) shown.",
+      "editionEvidence": "Seller states manual included and listing title identifies CIB.",
+      "includedContents": ["case", "disc", "manual"]
+    },
+    {
+      "release": "Japan PlayStation 2 the Best",
+      "conditionBucket": "complete",
+      "listingId": null,
+      "marketplace": "Play-Asia",
+      "listingUrl": "https://www.play-asia.com/en/hackgu-vol2-kimi-omou-koe-playstation2-the-best/13/703lft",
+      "accessedAt": "2026-09-22",
+      "listingStatus": "active",
+      "sellerId": "Play-Asia",
+      "askingPriceWithoutShipping": 23.99,
+      "shippingPrice": null,
+      "currency": "USD",
+      "regionEvidence": "Product page identifies Japan version and exact PlayStation2 the Best release.",
+      "editionEvidence": "Product title explicitly says PlayStation2 the Best; stock page shows one copy.",
+      "includedContents": []
+    },
+    {
+      "release": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "conditionBucket": "complete",
+      "listingId": "406197298492",
+      "marketplace": "eBay",
+      "listingUrl": "https://www.ebay.com/itm/406197298492",
+      "accessedAt": "2026-09-22",
+      "listingStatus": "uncertain",
+      "sellerId": "Retro*dream's retro games",
+      "askingPriceWithoutShipping": 89.99,
+      "shippingPrice": null,
+      "currency": "USD",
+      "regionEvidence": "Seller notes describe Japanese region-locked discs and Japan origin.",
+      "editionEvidence": "Seller describes 5-disc box set, outer promotional box marked not for sale.",
+      "includedContents": [".hack//G.U. Vol.1", ".hack//G.U. Vol.2", ".hack//G.U. Vol.3", ".hack//G.U. Trilogy anime DVD", "promotional outer box"],
+      "notes": "Page did not show a live Buy It Now control in the fetched snapshot; do not count this observation toward sampleSize without revalidation."
+    }
+  ],
+  "sources": [
+    {"url":"https://www.bandainamcoent.co.jp/corporate/press/pdf/52-035.pdf","role":"official Japanese release title/platform/date/action-RPG/trilogy position"},
+    {"url":"https://www.bandainamcoent.co.jp/corporate/bnours/vol02/pdf/02_03_11.pdf","role":"official Japanese title, PS2, 2006-09-28, CERO A"},
+    {"url":"https://sonyinteractive.com/jp/press-releases/2009/ps2best-3/","role":"official PlayStation 2 the Best reissue, publisher/date/price"},
+    {"url":"https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data","role":"technical release matrix for JP/US/Best identifiers, dates, ratings; developer/genre/players"},
+    {"url":"https://www.retroplace.com/en/games/68373--hack-g-u-vol-2-kimi-omou-koe","role":"JP standard country/version, developer/publisher/date, EAN, box code"},
+    {"url":"https://www.retroplace.com/en/games/68375--hack-g-u-vol-2-reminisce","role":"JP Best country/version, developer/publisher/date, EAN, box code"},
+    {"url":"https://redump.info/discs?advanced=1&dumper=Lowquillo9&letter=D&page=2","role":"Japanese disc language/serial/edition labels including Complete Works"},
+    {"url":"https://redump.info/discs?letter=D&page=2&sort=region&system=PS2","role":"US disc language and SLUS-21488"},
+    {"url":"https://www.mobygames.com/game/33604/hackgu-vol-2reminisce/","role":"US date/developer/publisher/genre/DVD-ROM/1 player"},
+    {"url":"https://www.mobygames.com/game/33604/hackgu-vol-2reminisce/releases/","role":"US publisher/date/development/localization"},
+    {"url":"https://www.pricecharting.com/game/playstation-2/hack-gu-reminisce","role":"US identity/UPC/disc count/player count; historical prices not valid for v11 active-listing price confirmation"},
+    {"url":"https://psxdatacenter.com/psx2/jlist2.html","role":"JP SLPS-25655 and SLPS-73266 title mappings"},
+    {"url":"https://psxdatacenter.com/psx2/manuals2.html","role":"US SLUS-21488 English manual exists"},
+    {"url":"https://books.rakuten.co.jp/search?g=006506003&l-id=item-c-topic-04","role":"JP Best JAN, SLPS code, date, publisher, CERO A"},
+    {"url":"https://www.furu1.online/product/detail/10031369","role":"JP Best SLPS/date/manufacturer; out of stock"},
+    {"url":"https://www.ebay.com/itm/156171688698","role":"current US sealed listing"},
+    {"url":"https://www.ebay.com/itm/196124106445","role":"current JP standard sealed listing"},
+    {"url":"https://www.ebay.com/itm/397728366185","role":"current JP standard CIB listing"},
+    {"url":"https://www.play-asia.com/en/hackgu-vol2-kimi-omou-koe-playstation2-the-best/13/703lft","role":"current JP Best stock listing and front image"},
+    {"url":"https://www.ebay.com/itm/406197298492","role":"Complete Works physical set contents and promotional-not-for-sale outer box"},
+    {"url":"https://auctions.yahoo.co.jp/jp/auction/k1206264314","role":"Complete Works physical photos; ended listing only"},
+    {"url":"https://www.ebay.com/itm/124808443510","role":"US complete listing checked; sold/inactive and therefore excluded from v11 active price sample"}
+  ],
+  "queriesRecordedThisCheckpoint": [
+    "\".hack//G.U. Vol.2\" \"The Complete Works of .hack//G.U. Saga-Trilogy\"",
+    "\"SLPS-25655\" \".hack\" \"complete works\"",
+    "\"SLPS-73266\" \".hack//G.U.\" \"The Best\"",
+    "\"722674100649\" \".hack G.U. Vol.2\" eBay",
+    "\"4582224491117\" \".hack G.U. Vol.2\" ebay",
+    "\"4582224492190\" \".hack G.U. Vol.2\" ebay",
+    "\"The Complete Works of .hack//G.U. Saga-Trilogy\" PS2",
+    "\"The Complete Works of .hack//G.U. Saga-Trilogy\" barcode",
+    "\".hack//G.U. saga-trilogy\" PS2 box",
+    "\"コンプリートセット\" \".hack//G.U.\" \"saga-trilogy\"",
+    "\".hack//G.U. Saga-Trilogy\" \"SLPS-25655\"",
+    "\"SLPS-73266\" \"Yahoo!オークション\"",
+    "\"4582224492190\" \".hack\" PS2",
+    "image: \".hack//G.U. Vol.2 Kimi Omou Koe PlayStation2 the Best SLPS-73266 front back\"",
+    "image: \"The Complete Works of .hack//G.U. Saga-Trilogy box PS2 Japan front back\""
+  ],
+  "remainingWork": [
+    "Re-run only the discovery queries whose exact query strings were not preserved in this checkpoint before relying on their discovered sources in the final queryLedger; do not fabricate missing ledger entries.",
+    "Attempt a readable back cover for the Japanese PlayStation 2 the Best release; if unavailable, leave packagingLanguages unresolved and record the failed attempt.",
+    "Normalize whether The Complete Works should be represented as a distinct promotional bundle release containing the standard Vol.2 disc; preserve 'not for sale' and do not invent barcode/date.",
+    "For each release/market, finish v11 regionalPrices for sealed and complete. Only confirm a price when two active independent comparable listings exist with exact regional evidence; otherwise use unresolved and null proposedBasePrice.",
+    "Build complete queryLedger and sourceAttempts from only queries/pages actually executed.",
+    "Write the final parseable result JSON to the assigned resultPath only after all v11 validation checks pass."
+  ],
+  "limitations": [
+    "A previous research transcript was compacted before every exact search query string was preserved. Evidence URLs and factual findings above remain available, but final v11 queryLedger must not invent missing queries; selectively re-query those sources/identifiers on the next execution.",
+    "No final result has been published and no public price/image/catalog data was modified."
+  ]
+}
