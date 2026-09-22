@@ -63,21 +63,35 @@ export async function mutateOverlayIndex(mutation: (index: OverlayIndexDocument)
   }, current => ({ next: { ...mutation(current), updatedAt: new Date().toISOString() }, result: undefined }));
 }
 export async function registerOverlayGame(game: CatalogGame) {
+  let registeredFamily = {
+    workKey: overlayWorkKey(game),
+    titleKey: overlayTitlePlatformKey(game),
+    workCatalogIds: [] as string[],
+    titleCatalogIds: [] as string[],
+  };
   await mutateOverlayIndex(index => {
     const workKey = overlayWorkKey(game);
     const titleKey = overlayTitlePlatformKey(game);
+    const workCatalogIds = workKey
+      ? [...new Set([...(index.byWork?.[workKey] ?? []), game.id])].sort()
+      : [];
+    const titleCatalogIds = [
+      ...new Set([...(index.byTitlePlatform?.[titleKey] ?? []), game.id]),
+    ].sort();
+    registeredFamily = { workKey, titleKey, workCatalogIds, titleCatalogIds };
     return {
       ...index,
       ids: [...new Set([...index.ids, game.id])].sort(),
       byPlatform: { ...index.byPlatform, [game.platformSlug]: [...new Set([...(index.byPlatform[game.platformSlug] ?? []), game.id])].sort() },
       byWork: workKey
-        ? { ...(index.byWork ?? {}), [workKey]: [...new Set([...(index.byWork?.[workKey] ?? []), game.id])].sort() }
+        ? { ...(index.byWork ?? {}), [workKey]: workCatalogIds }
         : (index.byWork ?? {}),
       byTitlePlatform: {
         ...(index.byTitlePlatform ?? {}),
-        [titleKey]: [...new Set([...(index.byTitlePlatform?.[titleKey] ?? []), game.id])].sort(),
+        [titleKey]: titleCatalogIds,
       },
       seoSlugs: { ...index.seoSlugs, [buildCatalogSeoSlug(game)]: game.id },
     };
   });
+  return registeredFamily;
 }

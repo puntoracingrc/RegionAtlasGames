@@ -138,6 +138,16 @@ export async function loadCatalogOverlayIndex(): Promise<CatalogOverlayIndex> {
   return readIndexFromBlob();
 }
 
+/**
+ * Detail pages are regenerated immediately after an Admin publication. Reading
+ * the small relationship index fresh here prevents a previously rendered
+ * edition from keeping the family snapshot that existed before its siblings
+ * were published.
+ */
+export async function loadCatalogOverlayIndexFresh(): Promise<CatalogOverlayIndex> {
+  return readIndexFromBlob({ fresh: true });
+}
+
 export function catalogOverlayRevision(index: CatalogOverlayIndex): string {
   return index.ids.length ? `${index.updatedAt}:${index.ids.join("\u001f")}` : "static";
 }
@@ -380,7 +390,10 @@ export async function getCatalogFamilyWithOverlay(game: CatalogGame): Promise<Ca
       || overlayTitlePlatformKey(candidate) === titleKey
     )
   ));
-  const index = await loadCatalogOverlayIndex();
+  // A family is tiny compared with a platform catalog. Prefer the latest
+  // durable relationship index so all Admin-created editions converge on the
+  // same central V2 page as soon as the cache is regenerated.
+  const index = await loadCatalogOverlayIndexFresh();
   const overlayIds = [...new Set([
     ...(workKey ? (index.byWork?.[workKey] ?? []) : []),
     ...(index.byTitlePlatform?.[titleKey] ?? []),
