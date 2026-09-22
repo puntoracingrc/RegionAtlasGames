@@ -193,7 +193,10 @@ export async function POST(request: Request) {
   let publicUrl: string | null = null;
   if (body.publishNow) {
     for (const item of existingDrafts) {
-      const result = await updatePublishedCatalogGame(item.originalCatalogId, item.draft, { triggerDeploy: false });
+      const result = await updatePublishedCatalogGame(item.originalCatalogId, item.draft, {
+        triggerDeploy: false,
+        preserveCatalogId: true,
+      });
       if ("error" in result) {
         return NextResponse.json(
           {
