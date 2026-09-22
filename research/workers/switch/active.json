@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 24,
+  "generation": 25,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -10,6 +10,11 @@
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": "1-2-switch-switch-2026-09-22",
+  "lease": {
+    "runId": "chatgpt-switch-20260922T162601Z-a11",
+    "claimedAt": "2026-09-22T16:26:01Z",
+    "expiresAt": "2026-09-22T17:16:01Z"
+  },
   "workPackage": {
     "packageId": "switch-2026-09-22-004",
     "grouping": {
@@ -34,7 +39,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-22T15:48:47Z",
+  "updatedAt": "2026-09-22T16:26:01Z",
   "updatedBy": "chatgpt",
-  "note": "Lease liberado de forma segura; el checkpoint autoritativo de 1-2 Switch se conserva para reanudar exclusivamente este mismo juego en la siguiente ejecución."
+  "note": "Lease reclamado para continuar exclusivamente 1-2 Switch desde el checkpoint factual existente y cerrar ORDER_TEMPLATE_VERSION 11."
 }
