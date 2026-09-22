@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "circuit": "Circuit de Modelisme de Cerdanyola",
+  "lapLengthMeters": 215.15,
+  "status": "estimated",
+  "method": "Medición manual de la cuerda del trazado en Google Maps facilitada por el usuario",
+  "capturedAt": "2026-09-22",
+  "precisionNote": "Las velocidades y distancias son estimaciones orientativas; no sustituyen una longitud homologada por el circuito u organización."
+}

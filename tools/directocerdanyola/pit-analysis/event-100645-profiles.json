@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "eventKey": "100645",
+  "eventDate": "2026-09-20",
+  "circuit": "Cerdanyola",
+  "sectionKey": "398202",
+  "sourceUrl": "https://www.myrcm.ch/en/report/100645/398202",
+  "capturedAt": "2026-09-22T04:15:00+02:00",
+  "status": "inferred-not-official",
+  "methodNote": "Perfiles iniciales inferidos de vueltas publicas de MyRCM. Las mangas recientes de la jornada sustituyen progresivamente el ritmo historico. Las paradas e incidencias son probabilidades, no decisiones oficiales.",
+  "profiles": [
+    {
+      "name": "MARC GARCIA CANADELL",
+      "aliases": [
+        "MARC GARCIA",
+        "GARCIA CANADELL MARC"
+      ],
+      "nextEventName": "MARC GARCIA CANADELL",
+      "baselineSeconds": 17.837,
+      "madSeconds": 0.228,
+      "consistency": "very-stable",
+      "reliability": 0.94,
+      "firstStopLap": 20,
+      "refuelIntervalLaps": 19,
+      "refuelIntervalSeconds": 356,
+      "pitLossSeconds": 7.5,
+      "pitLossRangeSeconds": [
+        6.0,
+        14.0
+      ],
+      "confidence": "medium",
+      "evidenceStopLaps": [
+        20
+      ],
+      "evidence": "Ritmo limpio de 42 vueltas de dos clasificatorias; una parada probable en la final. La final termino tras 38 vueltas y se conserva como abandono/incidencia, no como patron completo.",
+      "retirementReference": {
+        "laps": 38,
+        "total": "12:16.424",
+        "winnerLaps": 95
+      },
+      "fuelWindowSecondsRange": [
+        350,
+        390
+      ],
+      "crossTrackEvidence": {
+        "eventKey": "95551",
+        "circuit": "ARCA Alcobendas",
+        "semifinalStopLaps": [
+          16,
+          32,
+          46
+        ],
+        "finalStopLaps": [
+          16,
+          32,
+          48,
+          74,
+          90,
+          106
+        ],
+        "cleanPaceSeconds": 22.291,
+        "typicalWindowSeconds": 365,
+        "note": "La vuelta 58 de la final fue una demora atipica; no se usa como repostaje normal."
+      },
+      "almussafesEvidence": {
+        "eventKey": "94567",
+        "semifinalStopLaps": [
+          17,
+          34,
+          49
+        ],
+        "finalStopLaps": [
+          18,
+          34,
+          47,
+          63
+        ],
+        "cleanPaceSeconds": 20.665,
+        "note": "La vuelta 47 de la final tuvo demora adicional; el ritmo de semifinal fue 20,966 s."
+      }
+    },
+    {
+      "name": "RAUL FERNANDEZ",
+      "aliases": [
+        "RAUL FERNANDEZ GUISADO",
+        "FERNANDEZ GUISADO RAUL"
+      ],
+      "nextEventName": "RAUL FERNANDEZ GUISADO",
+      "baselineSeconds": 18.052,
+      "madSeconds": 0.214,
+      "consistency": "very-stable",
+      "reliability": 0.96,
+      "firstStopLap": 21,
+      "refuelIntervalLaps": 19,
+      "refuelIntervalSeconds": 358,
+      "pitLossSeconds": 8.1,
+      "pitLossRangeSeconds": [
+        6.0,
+        13.0
+      ],
+      "confidence": "high",
+      "evidenceStopLaps": [
+        21,
+        40,
+        59,
+        77
+      ],
+      "evidence": "Cadencia repetida de 18-19 vueltas. La demora extraordinaria de la vuelta 40 se excluye de la perdida tipica de boxes.",
+      "fuelWindowSecondsRange": [
+        350,
+        410
+      ],
+      "crossTrackEvidence": {
+        "eventKey": "95551",
+        "circuit": "ARCA Alcobendas",
+        "semifinalStopLaps": [
+          15,
+          32
+        ],
+        "finalStopLaps": [
+          17,
+          34,
+          51,
+          68,
+          84,
+          100
+        ],
+        "cleanPaceSeconds": 23.143,
+        "typicalWindowSeconds": 397
+      },
+      "almussafesEvidence": {
+        "eventKey": "94567",
+        "semifinalStopLaps": [
+          19,
+          35,
+          49
+        ],
+        "finalStopLaps": [
+          17,
+          34,
+          51,
+          67,
+          84,
+          100
+        ],
+        "cleanPaceSeconds": 22.34,
+        "note": "La final incluye una incidencia larga entre las vueltas 17 y 19; se excluye del coste normal."
+      }
+    },
+    {
+      "name": "JORDI CANADELL",
+      "aliases": [
+        "JORDI CANADELL GARCIA",
+        "CANADELL GARCIA JORDI"
+      ],
+      "nextEventName": "JORDI CANADELL GARCIA (+40)",
+      "baselineSeconds": 19.463,
+      "madSeconds": 0.357,
+      "consistency": "stable",
+      "reliability": 0.9,
+      "firstStopLap": 17,
+      "refuelIntervalLaps": 19,
+      "refuelIntervalSeconds": 386,
+      "pitLossSeconds": 11.8,
+      "pitLossRangeSeconds": [
+        8.0,
+        18.0
+      ],
+      "confidence": "high",
+      "evidenceStopLaps": [
+        17,
+        36,
+        55,
+        74
+      ],
+      "evidence": "Cuatro ventanas separadas exactamente por 19 vueltas; el tiempo transcurrido entre ellas fue de 385,8 a 386,9 segundos."
+    },
+    {
+      "name": "EDUARD CHAMERO ESPINOSA",
+      "aliases": [
+        "CHAMERO ESPINOSA EDUARD"
+      ],
+      "nextEventName": "EDUARD CHAMERO ESPINOSA",
+      "baselineSeconds": 18.63,
+      "madSeconds": 0.257,
+      "consistency": "very-stable",
+      "reliability": 0.92,
+      "firstStopLap": 20,
+      "refuelIntervalLaps": 19.3,
+      "refuelIntervalSeconds": 376,
+      "pitLossSeconds": 10.2,
+      "pitLossRangeSeconds": [
+        7.0,
+        16.0
+      ],
+      "confidence": "high",
+      "evidenceStopLaps": [
+        20,
+        39,
+        58,
+        78
+      ],
+      "evidence": "Ventanas a 19, 19 y 20 vueltas. Las demoras muy largas de las vueltas 20 y 78 se tratan como parada con incidencia adicional y no como coste normal.",
+      "fuelWindowSecondsRange": [
+        330,
+        405
+      ],
+      "almussafesEvidence": {
+        "eventKey": "94567",
+        "semifinalStopLaps": [
+          16,
+          31,
+          46
+        ],
+        "cleanPaceSeconds": 22.116,
+        "note": "La final fue irregular; la semifinal es la referencia principal."
+      }
+    },
+    {
+      "name": "HENRIQUE ALMEIDA",
+      "aliases": [
+        "ALMEIDA HENRIQUE"
+      ],
+      "nextEventName": "HENRIQUE ALMEIDA",
+      "baselineSeconds": null,
+      "madSeconds": null,
+      "consistency": "stable",
+      "reliability": 0.55,
+      "firstStopLap": null,
+      "refuelIntervalLaps": null,
+      "refuelIntervalSeconds": 405,
+      "fuelWindowSecondsRange": [
+        370,
+        430
+      ],
+      "pitLossSeconds": 10.5,
+      "pitLossRangeSeconds": [
+        7,
+        15
+      ],
+      "confidence": "low",
+      "windowMarginLaps": 2,
+      "trackTransfer": true,
+      "evidenceStopLaps": [
+        18,
+        36
+      ],
+      "evidence": "ARCA: semifinal con señales en 18 y 36. Referencia entre circuitos; Cerdanyola debe recalibrar ritmo y consumo.",
+      "almussafesEvidence": {
+        "eventKey": "94567",
+        "semifinalStopLaps": [
+          19,
+          37
+        ],
+        "finalStopLaps": [
+          19,
+          36,
+          55,
+          71,
+          88,
+          104
+        ],
+        "cleanPaceSeconds": 21.872
+      }
+    },
+    {
+      "name": "CRISTIAN DELGADO MENDOZA",
+      "aliases": [
+        "DELGADO MENDOZA CRISTIAN"
+      ],
+      "nextEventName": "CRISTIAN DELGADO MENDOZA (JUN)",
+      "baselineSeconds": null,
+      "madSeconds": null,
+      "consistency": "very-stable",
+      "reliability": 0.62,
+      "firstStopLap": null,
+      "refuelIntervalLaps": null,
+      "refuelIntervalSeconds": 390,
+      "fuelWindowSecondsRange": [
+        360,
+        410
+      ],
+      "pitLossSeconds": 9.7,
+      "pitLossRangeSeconds": [
+        7,
+        14
+      ],
+      "confidence": "low",
+      "windowMarginLaps": 2,
+      "trackTransfer": true,
+      "evidenceStopLaps": [
+        17,
+        33,
+        50,
+        67
+      ],
+      "evidence": "ARCA: semifinal y final muestran intervalos de 16-17 vueltas. La traslación a Cerdanyola espera datos locales.",
+      "almussafesEvidence": {
+        "eventKey": "94567",
+        "semifinalStopLaps": [
+          17,
+          33,
+          47
+        ],
+        "finalStopLaps": [
+          17,
+          32,
+          47,
+          61,
+          73,
+          87,
+          104
+        ],
+        "cleanPaceSeconds": 21.865
+      }
+    },
+    {
+      "name": "VICENTE JOSE SAEZ LEON",
+      "aliases": [
+        "SAEZ LEON VICENTE JOSE"
+      ],
+      "nextEventName": "VICENTE JOSE SAEZ LEON (+40)",
+      "baselineSeconds": null,
+      "madSeconds": null,
+      "consistency": "stable",
+      "reliability": 0.55,
+      "firstStopLap": null,
+      "refuelIntervalLaps": null,
+      "refuelIntervalSeconds": 370,
+      "fuelWindowSecondsRange": [
+        335,
+        400
+      ],
+      "pitLossSeconds": 10,
+      "pitLossRangeSeconds": [
+        7,
+        15
+      ],
+      "confidence": "low",
+      "windowMarginLaps": 2,
+      "trackTransfer": true,
+      "evidenceStopLaps": [
+        16,
+        31,
+        47,
+        61,
+        77
+      ],
+      "evidence": "ARCA: semifinal y final sugieren 14-16 vueltas, con variación suficiente para mantener margen amplio."
+    },
+    {
+      "name": "JOAO BARAHONA",
+      "aliases": [
+        "BARAHONA JOAO"
+      ],
+      "nextEventName": "JOAO BARAHONA (+40)",
+      "baselineSeconds": null,
+      "madSeconds": null,
+      "consistency": "stable",
+      "reliability": 0.45,
+      "firstStopLap": null,
+      "refuelIntervalLaps": null,
+      "refuelIntervalSeconds": 360,
+      "fuelWindowSecondsRange": [
+        330,
+        410
+      ],
+      "pitLossSeconds": 9.5,
+      "pitLossRangeSeconds": [
+        5,
+        16
+      ],
+      "confidence": "low",
+      "windowMarginLaps": 2,
+      "trackTransfer": true,
+      "evidenceStopLaps": [
+        17,
+        33,
+        48
+      ],
+      "evidence": "ARCA: la Last Chance aporta tres señales, pero la semifinal tuvo tráfico o incidencias; referencia de baja confianza.",
+      "almussafesEvidence": {
+        "eventKey": "94567",
+        "semifinalStopLaps": [
+          20,
+          39
+        ],
+        "finalStopLaps": [
+          19,
+          37,
+          56,
+          74,
+          91,
+          106
+        ],
+        "cleanPaceSeconds": 21.951
+      }
+    },
+    {
+      "name": "RAUL DARAS ANTON",
+      "aliases": [
+        "DARAS ANTON RAUL"
+      ],
+      "nextEventName": "RAUL DARAS ANTON (+40)",
+      "baselineSeconds": null,
+      "madSeconds": null,
+      "consistency": "very-stable",
+      "reliability": 0.62,
+      "firstStopLap": null,
+      "refuelIntervalLaps": null,
+      "refuelIntervalSeconds": 360,
+      "fuelWindowSecondsRange": [
+        335,
+        390
+      ],
+      "pitLossSeconds": 6.4,
+      "pitLossRangeSeconds": [
+        5,
+        11
+      ],
+      "confidence": "low",
+      "windowMarginLaps": 2,
+      "trackTransfer": true,
+      "evidenceStopLaps": [
+        16,
+        32,
+        48,
+        64,
+        80,
+        95
+      ],
+      "evidence": "ARCA: final con patrón muy repetido de unas 16 vueltas. Cerdanyola debe ajustar el consumo al trazado más rápido.",
+      "almussafesEvidence": {
+        "eventKey": "94567",
+        "finalStopLaps": [
+          18
+        ],
+        "cleanPaceSeconds": 20.469,
+        "note": "Abandono tras 32 vueltas; solo sirve como primera ventana."
+      }
+    }
+  ],
+  "referenceCircuits": [
+    {
+      "name": "Cerdanyola",
+      "lapLengthMeters": 215.15,
+      "status": "estimated",
+      "role": "same-track calibration"
+    },
+    {
+      "name": "ARCA Alcobendas",
+      "lapLengthMeters": 276.42,
+      "status": "estimated",
+      "role": "cross-track driver and fuel-behaviour reference"
+    },
+    {
+      "name": "Associació Autet · Almussafes",
+      "lapLengthMeters": 290.56,
+      "status": "estimated",
+      "role": "cross-track reference pending lap-history analysis"
+    },
+    {
+      "name": "ASOGER · Getafe",
+      "lapLengthMeters": 287.0,
+      "status": "estimated",
+      "role": "cross-track reference pending MyRCM event identification"
+    }
+  ]
+}

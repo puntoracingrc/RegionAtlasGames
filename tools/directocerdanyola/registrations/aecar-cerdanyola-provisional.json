@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "eventId": "cerdanyola-gt8-2026",
+  "eventName": "Cerdanyola 3.ª prueba del Nacional de GT8",
+  "organizer": "MODELCAR",
+  "status": "open",
+  "capturedAt": "2026-09-22T05:36:45+02:00",
+  "assumption": "Todos los pilotos visibles se incluyen provisionalmente en las simulaciones; sourceStatus no equivale a participación definitiva.",
+  "privacy": "Solo se conservan nombre, ranking, zona, estado de licencia, estado visible y fecha de inscripción.",
+  "categories": {
+    "NITRO": {
+      "sourceUrl": "https://www.aecar.org/inscripciones.php?tipo=ins_rg__63",
+      "sourceSha256": "63213749c952b0c61d030129e29a8089034260bb80629bfa549971c021ac36ad",
+      "eventDate": "2026-10-04",
+      "closesAt": "2026-09-28T23:56:00+02:00",
+      "counts": {
+        "total": 16,
+        "confirmed": 4,
+        "unconfirmed": 12
+      },
+      "entrants": [
+        {
+          "name": "MARC GARCIA CANADELL",
+          "rank": 4,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "confirmed",
+          "registeredAt": "2026-09-01T19:11:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "JAVIER MILAN ALBENTOSA (+40)",
+          "rank": 999,
+          "zone": "LEVANTE",
+          "licenceStatus": "Ok",
+          "sourceStatus": "confirmed",
+          "registeredAt": "2026-09-19T09:58:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "HENRIQUE ALMEIDA",
+          "rank": 999,
+          "zone": "EXTRANJERO",
+          "licenceStatus": "Ok",
+          "sourceStatus": "confirmed",
+          "registeredAt": "2026-09-13T11:28:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "CARLOS SIMÃO (+40)",
+          "rank": 999,
+          "zone": "Extranjero",
+          "licenceStatus": "Pdte.",
+          "sourceStatus": "confirmed",
+          "registeredAt": "2026-09-09T12:22:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "JESUS RICO GOMEZ (+40)",
+          "rank": 999,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-17T15:52:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "ALEJANDRO DARAS ANTON",
+          "rank": 999,
+          "zone": "LEVANTE",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-04T08:37:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "JOSEBA DEHESA VICEN",
+          "rank": 999,
+          "zone": "LA RIOJA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-18T20:07:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "VICENTE JOSE SAEZ LEON (+40)",
+          "rank": 9,
+          "zone": "LEVANTE",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-07T14:01:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "ALEJANDRO GARCIA AGUILERA",
+          "rank": 999,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-10T19:26:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "JORDI CANADELL GARCIA (+40)",
+          "rank": 999,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-02T21:32:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "ISRAEL PEREZ GONZALEZ (+40)",
+          "rank": 999,
+          "zone": "CANARIAS",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-06T20:14:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "RAUL DARAS ANTON (+40)",
+          "rank": 1,
+          "zone": "LEVANTE",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-13T20:10:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "CRISTIAN DELGADO MENDOZA (JUN)",
+          "rank": 999,
+          "zone": "CANARIAS",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-01T22:57:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "EDUARD CHAMERO ESPINOSA",
+          "rank": 999,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-17T21:23:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "RAUL FERNANDEZ GUISADO",
+          "rank": 7,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-02T19:37:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "JOAO BARAHONA (+40)",
+          "rank": 7,
+          "zone": "MADRID",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-03T22:37:00+02:00",
+          "assumedParticipant": true
+        }
+      ]
+    },
+    "ECO": {
+      "sourceUrl": "https://www.aecar.org/inscripciones.php?tipo=ins_rg__64",
+      "sourceSha256": "d09d0e86f3ced0b8df13ca05efa764b22551b36aa60ed87d45ae55b7ae6278dd",
+      "eventDate": "2026-10-04",
+      "closesAt": "2026-09-28T23:56:00+02:00",
+      "counts": {
+        "total": 12,
+        "confirmed": 4,
+        "unconfirmed": 8
+      },
+      "entrants": [
+        {
+          "name": "CARLES ECHARRI SANTIAGO",
+          "rank": 12,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "confirmed",
+          "registeredAt": "2026-09-01T18:42:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "OSWALDO PENA VELASCO (+40)",
+          "rank": 999,
+          "zone": "MADRID",
+          "licenceStatus": "Ok",
+          "sourceStatus": "confirmed",
+          "registeredAt": "2026-09-21T16:00:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "XISCO REUS (+40)",
+          "rank": 999,
+          "zone": "BALEARES",
+          "licenceStatus": "Ok",
+          "sourceStatus": "confirmed",
+          "registeredAt": "2026-09-04T12:38:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "THIAGO PENA ASTUDILLO",
+          "rank": 999,
+          "zone": "Madrid (Madrid)",
+          "licenceStatus": "Día",
+          "sourceStatus": "confirmed",
+          "registeredAt": "2026-09-21T16:09:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "ALEJANDRO DARAS ANTON",
+          "rank": 999,
+          "zone": "LEVANTE",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-04T08:38:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "SERGIO ALONSO CALVO (+40)",
+          "rank": 999,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-08-31T19:04:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "GUSTAVO GINES GOMEZ (+40)",
+          "rank": 111,
+          "zone": "ARAGON",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-05T09:39:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "DAVID TAMAYO JIMENEZ (+40)",
+          "rank": 2,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-14T07:04:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "DANIEL NOCETE ROCA (+40)",
+          "rank": 999,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-07T11:23:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "CRISTIAN DELGADO MENDOZA (JUN)",
+          "rank": 999,
+          "zone": "CANARIAS",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-01T22:56:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "RAMON ESPINOSA (+40)",
+          "rank": 999,
+          "zone": "CATALUÑA",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-08T14:35:00+02:00",
+          "assumedParticipant": true
+        },
+        {
+          "name": "JOAO BARAHONA (+40)",
+          "rank": 1,
+          "zone": "MADRID",
+          "licenceStatus": "Ok",
+          "sourceStatus": "unconfirmed",
+          "registeredAt": "2026-09-03T22:41:00+02:00",
+          "assumedParticipant": true
+        }
+      ]
+    }
+  }
+}
