@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 12,
+  "generation": 13,
   "workerId": "ps2",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
@@ -35,14 +35,18 @@
         "catalogIds": ["ps2-us-slus-21489"],
         "researchId": "hack-gu-vol-3-redemption-ps2-2026-09-22",
         "orderPath": "research/workers/ps2/orders/hack-gu-vol-3-redemption-ps2-2026-09-22.md",
-        "resultPath": "research/results/hack-gu-vol-3-redemption-ps2-2026-09-22.json",
+        "resultPath": "research/results/hack-gu-vol-3-reminisce-ps2-2026-09-22.json",
         "status": "PENDING",
         "checkpointPath": "research/workers/ps2/checkpoints/hack-gu-vol-3-redemption-ps2-2026-09-22.json"
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T12:17:35Z",
+  "lease": {
+    "runId": "ps2-20260922T130910Z-11",
+    "claimedAt": "2026-09-22T13:09:10Z",
+    "expiresAt": "2026-09-22T13:59:10Z"
+  },
+  "updatedAt": "2026-09-22T13:09:10Z",
   "updatedBy": "chatgpt",
-  "note": "Checkpoint factual guardado para .Hack - G.U. Vol.2 - Reminisce; lease liberado. Continuar el mismo elemento antes de iniciar Vol.3."
+  "note": "Lease reclamado para continuar el checkpoint de .Hack - G.U. Vol.2 - Reminisce."
 }
