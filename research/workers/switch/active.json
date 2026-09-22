@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 19,
+  "generation": 20,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -10,6 +10,11 @@
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": "1-2-switch-switch-2026-09-22",
+  "lease": {
+    "runId": "chatgpt-switch-20260922T132704Z-a11",
+    "claimedAt": "2026-09-22T13:27:04Z",
+    "expiresAt": "2026-09-22T14:17:04Z"
+  },
   "workPackage": {
     "packageId": "switch-2026-09-22-004",
     "grouping": {
@@ -34,7 +39,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-22T12:39:22Z",
+  "updatedAt": "2026-09-22T13:27:04Z",
   "updatedBy": "chatgpt",
-  "note": "Checkpoint factual guardado para 1-2 Switch; identidad y tres productos regionales asignados investigados. Pendiente cerrar la entrega ORDER_TEMPLATE_VERSION 11, principalmente adquisición visual exacta y validación final del JSON/precios antes de RESULT_READY."
+  "note": "Lease reclamado para continuar exclusivamente 1-2 Switch desde el checkpoint factual existente y cerrar ORDER_TEMPLATE_VERSION 11."
 }
