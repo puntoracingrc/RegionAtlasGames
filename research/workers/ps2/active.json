@@ -1,37 +1,52 @@
 {
   "schemaVersion": 2,
-  "generation": 3,
+  "generation": 8,
   "workerId": "ps2",
-  "state": "RESULT_READY",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": 5,
+  "resultOrderTemplateVersion": null,
   "currentItemResearchId": null,
   "workPackage": {
-    "packageId": "ps2-2026-09-21-001",
+    "packageId": "ps2-2026-09-22-003",
     "grouping": {
-      "type": "single",
-      "basis": "Resultado ya recibido; pendiente de validación e incorporación administrativa."
+      "type": "related-series",
+      "basis": "Entradas HIGH consecutivas de PlayStation 2 pertenecientes a la serie .Hack G.U. y numeradas como Vol.2 y Vol.3 en el catálogo actual."
     },
     "items": [
       {
-        "queueId": "catalog:ps2-japon-_summer-first-print-limited-edition",
+        "queueId": "platform-work:ps2:ps2-work-07d80321bb4e5575",
         "platform": "ps2",
-        "title": "_Summer ## [First Print Limited Edition]",
-        "catalogIds": ["ps2-japon-_summer-first-print-limited-edition"],
-        "researchId": "summer-first-print-limited-edition-ps2-2026-09-21",
-        "orderPath": null,
-        "resultPath": "research/results/summer-first-print-limited-edition-ps2-2026-09-21.json",
-        "status": "RESULT_READY",
-        "checkpointPath": null
+        "title": ".Hack - G.U. Vol.2 - Reminisce",
+        "catalogIds": [
+          "ps2-us-slus-21488"
+        ],
+        "researchId": "hack-gu-vol-2-reminisce-ps2-2026-09-22",
+        "orderPath": "research/workers/ps2/orders/hack-gu-vol-2-reminisce-ps2-2026-09-22.md",
+        "resultPath": "research/results/hack-gu-vol-2-reminisce-ps2-2026-09-22.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/ps2/checkpoints/hack-gu-vol-2-reminisce-ps2-2026-09-22.json"
+      },
+      {
+        "queueId": "platform-work:ps2:ps2-work-9433e7c2b4166344",
+        "platform": "ps2",
+        "title": ".Hack - G.U. Vol.3 - Redemption",
+        "catalogIds": [
+          "ps2-us-slus-21489"
+        ],
+        "researchId": "hack-gu-vol-3-redemption-ps2-2026-09-22",
+        "orderPath": "research/workers/ps2/orders/hack-gu-vol-3-redemption-ps2-2026-09-22.md",
+        "resultPath": "research/results/hack-gu-vol-3-redemption-ps2-2026-09-22.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/ps2/checkpoints/hack-gu-vol-3-redemption-ps2-2026-09-22.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:14:52Z",
+  "updatedAt": "2026-09-22T09:53:28Z",
   "updatedBy": "codex",
-  "note": "No repetir la investigación. La evidencia factual e imágenes del resultado V5 están pendientes de validación; los precios no cumplen el contrato vigente y no autorizan publicación."
+  "note": "_summer## validado y publicado como ficha central V2 con Standard, First Print Limited Edition y Best Version. Resultado consumido para la primera pasada; se prepara el siguiente paquete relacionado de .Hack G.U. Vol.2 y Vol.3."
 }

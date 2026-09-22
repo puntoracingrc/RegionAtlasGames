@@ -1,0 +1,1906 @@
+{
+  "schemaVersion": 1,
+  "researchId": "drive-rally-switch-2026-09-21",
+  "platform": "switch",
+  "resultFile": "research/results/drive-rally-switch-2026-09-21.json",
+  "resultSha256": "85d1f7bade9d538bb4b693aa11ed6f2eaf98c97829301062c5ea78199fd712b3",
+  "observedAt": "2026-09-22",
+  "validation": {
+    "jsonParse": "PASS",
+    "requiredFields": "PASS",
+    "sourceReferenceIntegrity": "PASS",
+    "queryReferenceIntegrity": "PASS",
+    "priceContractIntegrity": "PASS_NO_PRICE_PUBLISHED",
+    "focusedDirectSourceSpotCheck": {
+      "status": "PASS",
+      "domains": [
+        "pm-studios.com",
+        "nintendo.com",
+        "esrb.org",
+        "meridiem-games.com",
+        "gamefaqs.gamespot.com"
+      ]
+    },
+    "claimLevelImportReview": "PASS",
+    "catalogMutations": 2,
+    "priceMutations": 0
+  },
+  "counts": {
+    "sources": 27,
+    "queries": 66,
+    "sourceAttempts": 27,
+    "usefulSourceAttempts": 27,
+    "releases": 2,
+    "images": 2,
+    "regionalPriceBlocks": 6
+  },
+  "sources": [
+    {
+      "sourceId": "s_pm_official",
+      "url": "https://www.pm-studios.com/games/drive-rally",
+      "title": "#Drive Rally | PM Studios",
+      "accessedAt": "2026-09-21",
+      "supports": "Official PM Studios game page: developer Pixel Perfect Dude, publishers Pixel Perfect Dude and PM Studios, console platforms, June 18 2026 console release date, and Racing/Driving/Arcade/Retro genre framing."
+    },
+    {
+      "sourceId": "s_nintendo_us",
+      "url": "https://www.nintendo.com/us/store/products/drive-rally-switch/",
+      "title": "#DRIVE Rally for Nintendo Switch - Nintendo Official Site",
+      "accessedAt": "2026-09-21",
+      "supports": "Official Nintendo software page: Nintendo Switch identity, PM Studios publisher, June 18 2026 date, ESRB context, single-system player support and supported software languages."
+    },
+    {
+      "sourceId": "s_esrb",
+      "url": "https://www.esrb.org/ratings/40942/drive-rally/",
+      "title": "#DRIVE Rally - ESRB",
+      "accessedAt": "2026-09-21",
+      "supports": "Official ESRB rating record for #DRIVE Rally on Nintendo Switch/PS5: E for Everyone, no descriptors and no interactive elements."
+    },
+    {
+      "sourceId": "s_meridiem",
+      "url": "https://meridiem-games.com/en/new/meridiem-announces-physical-edition-of-drive-rally-for-playstation-5-and-nintendo-switch",
+      "title": "Meridiem Announces Physical Edition of #DRIVE Rally for PlayStation 5 and Nintendo Switch",
+      "accessedAt": "2026-09-21",
+      "supports": "Official Meridiem announcement: European physical Special Edition on Switch/PS5 for June 18 2026; North American physical publishing handled by PM Studios; Special Edition includes exclusive stickers and artbook."
+    },
+    {
+      "sourceId": "s_gamefaqs",
+      "url": "https://gamefaqs.gamespot.com/switch/435197-drive-rally/data",
+      "title": "#DRIVE Rally Release Information for Nintendo Switch - GameFAQs",
+      "accessedAt": "2026-09-21",
+      "supports": "Technical release table distinguishes US physical PM Studios release UPC 850080032398 from EU Special Edition Meridiem release EAN 8436622260775, both dated June 18 2026, and records ESRB E / PEGI 3+."
+    },
+    {
+      "sourceId": "s_vast",
+      "url": "https://vastvideogames.com/homepage-display/drive-rally-switch/",
+      "title": "#DRIVE Rally - Switch - Vast Inc",
+      "accessedAt": "2026-09-21",
+      "supports": "Exact PM Studios Switch physical product: UPC 850080032398, MPN PM-00234, June 18 2026, ESRB Everyone, fold-out poster, and in-game text/audio languages."
+    },
+    {
+      "sourceId": "s_gamestop",
+      "url": "https://www.gamestop.com/video-games/products/drive-rally/20033658.html",
+      "title": "DRIVE Rally | PM Studios | GameStop",
+      "accessedAt": "2026-09-21",
+      "supports": "Current retailer record for PM Studios #DRIVE Rally on Nintendo Switch, including new/pre-owned offer context; alternate GameStop exact product record exposed UPC 850080032398 and vendor part number PM-00234 during research."
+    },
+    {
+      "sourceId": "s_pnp",
+      "url": "https://pnpgamesonline.com/product/drive-rally-switch-e/",
+      "title": "DRIVE Rally - Switch - PNP Games Online Store",
+      "accessedAt": "2026-09-21",
+      "supports": "Exact physical Switch product: PM Studios, UPC 850080032398, June 18 2026, ESRB Everyone, fold-out poster, local Party Mode up to 12 taking turns, software text languages and English voice."
+    },
+    {
+      "sourceId": "s_bitjump",
+      "url": "https://bitjumpgames.com/products/drive-rally-nintendo-switch",
+      "title": "#DRIVE Rally - Nintendo Switch - Bitjump Games",
+      "accessedAt": "2026-09-21",
+      "supports": "Exact North America physical Switch product with barcode 850080032398, PM Studios branding, ESRB E, physical media format, fold-out poster, Party Mode description and software language metadata."
+    },
+    {
+      "sourceId": "s_vgp",
+      "url": "https://videogamesplus.ca/products/drive-rally-nintendo-switch-pre-order",
+      "title": "#DRIVE Rally - Nintendo Switch - Video Games Plus",
+      "accessedAt": "2026-09-21",
+      "supports": "Canadian specialist retailer page for the PM Studios physical Switch product; physical case and poster imagery, June 2026 product context and software-language/bonus-poster description."
+    },
+    {
+      "sourceId": "s_vgp_front",
+      "url": "https://videogamesplus.ca/cdn/shop/files/DRIVERally_NSW_EFrontCover_433x700.jpg?v=1772558663",
+      "title": "#DRIVE Rally Nintendo Switch North American front cover image - Video Games Plus",
+      "accessedAt": "2026-09-21",
+      "supports": "Inspected direct front-cover image showing Nintendo Switch #DRIVE Rally, ESRB Everyone badge, Pixel Perfect Dude branding and PM Studios branding."
+    },
+    {
+      "sourceId": "s_deepdiscount",
+      "url": "https://www.deepdiscount.com/drive-rally-for-nintendo-switch/850080032398",
+      "title": "#DRIVE Rally for Nintendo Switch - DeepDiscount",
+      "accessedAt": "2026-09-21",
+      "supports": "Retail metadata corroborating exact Switch product UPC 850080032398, PM Studios and physical release."
+    },
+    {
+      "sourceId": "s_popmarket",
+      "url": "https://www.popmarket.com/drive-rally-for-nintendo-switch/850080032398",
+      "title": "#DRIVE Rally for Nintendo Switch - PopMarket",
+      "accessedAt": "2026-09-21",
+      "supports": "Independent retail metadata corroborating exact Switch product UPC 850080032398 and PM Studios physical release."
+    },
+    {
+      "sourceId": "s_pricecharting",
+      "url": "https://www.pricecharting.com/game/nintendo-switch/drive-rally",
+      "title": "#DRIVE Rally Prices Nintendo Switch - PriceCharting",
+      "accessedAt": "2026-09-21",
+      "supports": "Secondary technical/market record for UPC 850080032398 and historical aggregate pricing. Its completed/historical prices were not counted as current active-listing observations."
+    },
+    {
+      "sourceId": "s_steam",
+      "url": "https://store.steampowered.com/app/2494780/DRIVE_Rally",
+      "title": "#DRIVE Rally on Steam",
+      "accessedAt": "2026-09-21",
+      "supports": "Official PC storefront record for Pixel Perfect Dude development/publishing and the full PC release on April 16 2025 after Early Access."
+    },
+    {
+      "sourceId": "s_gematsu",
+      "url": "https://www.gematsu.com/2026/03/drive-rally-for-ps5-xbox-series-and-switch-launches-june-18",
+      "title": "#DRIVE Rally for PS5, Xbox Series, and Switch launches June 18",
+      "accessedAt": "2026-09-21",
+      "supports": "Independent release coverage corroborating console launch date and the earlier PC Early Access/full-release chronology."
+    },
+    {
+      "sourceId": "s_racesim",
+      "url": "https://racesimcentral.net/drive-rally-coming-to-console-this-june-announce-physical-edition-for-ps5-and-switch/",
+      "title": "#DRIVE Rally Coming To Console This June, Also Announces Physical Edition For PS5 And Switch",
+      "accessedAt": "2026-09-21",
+      "supports": "Press-release reproduction identifying Pixel Perfect Dude as the developer behind the #DRIVE franchise and naming #DRIVE and #DRIVE Rally as franchise entries."
+    },
+    {
+      "sourceId": "s_ebay_dealtavern",
+      "url": "https://www.ebay.com/itm/406986038214",
+      "title": "#DRIVE Rally - Nintendo Switch 850080032398 | eBay",
+      "accessedAt": "2026-09-21",
+      "supports": "Active Deal Tavern listing: item 406986038214, Brand New, $40.40 with free shipping, >10 available, UPC 850080032398, MPN PM-00234, PM Studios and Nintendo Switch."
+    },
+    {
+      "sourceId": "s_ebay_popngames",
+      "url": "https://www.ebay.com/itm/236879100207",
+      "title": "#DRIVE Rally (Nintendo Switch) BRAND NEW | eBay",
+      "accessedAt": "2026-09-21",
+      "supports": "Active independent POPnGAMES listing: item 236879100207, Brand New, $42.95 with free shipping, 2 available, UPC 850080032398, NTSC-U/C region code, PM Studios and Nintendo Switch."
+    },
+    {
+      "sourceId": "s_ebay_deepdiscount_used",
+      "url": "https://www.ebay.com/itm/188541743337",
+      "title": "#DRIVE Rally for Nintendo Switch [Used Very Good Video Game] | eBay",
+      "accessedAt": "2026-09-21",
+      "supports": "Active DeepDiscount used listing: item 188541743337, Very Good, $34.99 plus $1.99 shipping, exact #DRIVE Rally Switch product/UPC context. Included poster is not stated, so it is not counted as a complete comparable sample."
+    },
+    {
+      "sourceId": "s_proshop_special",
+      "url": "https://www.proshop.dk/Spil/DRIVE-Rally-Special-Edition-Nintendo-Switch-Racing/3441558",
+      "title": "#DRIVE Rally (Special Edition) - Nintendo Switch - Proshop",
+      "accessedAt": "2026-09-21",
+      "supports": "European specialist retailer exact Special Edition product: Nintendo Switch, Meridiem Games, EAN/model 8436622260775 and PEGI 3."
+    },
+    {
+      "sourceId": "s_proshop_special_front",
+      "url": "https://www.proshop.dk/Images/915x900/3441558_90c12e8b786f.png",
+      "title": "#DRIVE Rally Special Edition Nintendo Switch front image - Proshop",
+      "accessedAt": "2026-09-21",
+      "supports": "Inspected direct front product image showing Nintendo Switch branding, #DRIVE Rally, Special Edition marking, PEGI 3 and Meridiem logo."
+    },
+    {
+      "sourceId": "s_saturn_special",
+      "url": "https://www.saturn.de/de/product/_drive-rally-nintendo-switch-171089096.html",
+      "title": "#DRIVE Rally [Nintendo Switch] | SATURN",
+      "accessedAt": "2026-09-21",
+      "supports": "Exact EAN 8436622260775 technical data: Nintendo Switch Game Card, PEGI 3, and German/French/English/Italian language/subtitle metadata. The page's displayed release date conflicts with stronger June 18 evidence and is not used for release date."
+    },
+    {
+      "sourceId": "s_wog_special",
+      "url": "https://www.wog.ch/en/index.cfm/details/product/240429-DRIVE-Rally",
+      "title": "#DRIVE Rally [Nintendo Switch] - World of Games",
+      "accessedAt": "2026-09-21",
+      "supports": "Exact EAN 8436622260775 specialist metadata: June 18 2026, Meridiem Games, game on cartridge, game text languages German/English/French/Italian/Japanese, English audio, and packaging English/French/Italian."
+    },
+    {
+      "sourceId": "s_tradergames_special",
+      "url": "https://www.tradergames.fr/fr/nintendo-switch/336044-drive-rally-special-edition-switch-euro-new-game-in-englishfrancaisdeesit-8436622260775.html",
+      "title": "DRIVE RALLY - SPECIAL EDITION SWITCH EURO NEW - Trader Games",
+      "accessedAt": "2026-09-21",
+      "supports": "Specialist listing explicitly identifies EAN 8436622260775 as European Special Edition, region free, and lists artbook and stickers; language wording is ambiguous between software/package and therefore not used alone as packaging evidence."
+    },
+    {
+      "sourceId": "s_gamesrs_special",
+      "url": "https://www.games.rs/nintendo-switch-igre/42054-switch-drive-rally-special-edition",
+      "title": "Switch Drive Rally - Special Edition - Games Online Shop",
+      "accessedAt": "2026-09-21",
+      "supports": "Exact Special Edition Switch product with barcode 8436622260775, June 18 2026 and included base game, sticker set and artbook."
+    },
+    {
+      "sourceId": "s_ebay_special",
+      "url": "https://www.ebay.com/itm/236878796546",
+      "title": "Drive Rally Juego para Consola Nintendo Switch | eBay",
+      "accessedAt": "2026-09-21",
+      "supports": "Active ARREGLATELO listing tied to UPC 8436622260775, Nintendo Switch, Brand New, $28.85 plus $12 shipping and PEGI 3+; exact barcode maps it to the Meridiem European Special Edition."
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q01",
+      "queryType": "general",
+      "query": "#Drive Rally Nintendo Switch physical USA UPC physical edition",
+      "provider": "web search",
+      "targetFields": [
+        "identity",
+        "physical releases",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pm_official",
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q02",
+      "queryType": "general",
+      "query": "#Drive Rally Nintendo Switch \"Special Edition\" physical",
+      "provider": "web search",
+      "targetFields": [
+        "editions",
+        "regional releases"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_meridiem",
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q03",
+      "queryType": "general",
+      "query": "#Drive Rally Switch physical PM Studios",
+      "provider": "web search",
+      "targetFields": [
+        "publisher",
+        "physical release"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pm_official",
+        "s_vast"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q04",
+      "queryType": "general",
+      "query": "#Drive Rally Switch ESRB UPC",
+      "provider": "web search",
+      "targetFields": [
+        "rating",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_esrb",
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q05",
+      "queryType": "general",
+      "query": "#Drive Rally Switch physical release 2025",
+      "provider": "web search",
+      "targetFields": [
+        "release chronology"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q06",
+      "queryType": "image",
+      "query": "#Drive Rally Nintendo Switch physical USA back cover",
+      "provider": "web search",
+      "targetFields": [
+        "images",
+        "packaging"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No readable exact rear-package image found."
+    },
+    {
+      "queryId": "q07",
+      "queryType": "exact_identifier",
+      "query": "\"850080032398\" \"#Drive Rally\"",
+      "provider": "web search",
+      "targetFields": [
+        "barcode",
+        "identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_vast",
+        "s_pnp",
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [
+        "850080032398"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q08",
+      "queryType": "exact_identifier",
+      "query": "\"PM-00234\" \"#Drive Rally\"",
+      "provider": "web search",
+      "targetFields": [
+        "productCode",
+        "identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_vast",
+        "s_gamestop"
+      ],
+      "discoveredIdentifiers": [
+        "PM-00234"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q09",
+      "queryType": "exact_identifier",
+      "query": "\"#Drive Rally\" \"850080032398\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "barcode",
+        "platform"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs",
+        "s_bitjump"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q10",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" Nintendo Switch PM Studios \"poster\"",
+      "provider": "web search",
+      "targetFields": [
+        "physicalContents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_vast",
+        "s_pnp"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q11",
+      "queryType": "general",
+      "query": "\"#DRIVE Rally\" Switch \"North America\" PM Studios",
+      "provider": "web search",
+      "targetFields": [
+        "market",
+        "regionalPublisher"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_meridiem",
+        "s_bitjump"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q12",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" Switch \"ESRB\" \"PM Studios\"",
+      "provider": "web search",
+      "targetFields": [
+        "rating",
+        "publisher"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_esrb",
+        "s_vast"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q13",
+      "queryType": "image",
+      "query": "\"850080032398\" Switch #DRIVE Rally front back",
+      "provider": "web search",
+      "targetFields": [
+        "images",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_vgp_front"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q14",
+      "queryType": "image",
+      "query": "\"PM-00234\" Nintendo Switch #DRIVE Rally",
+      "provider": "web search",
+      "targetFields": [
+        "images",
+        "productCode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q15",
+      "queryType": "exact_identifier",
+      "query": "\"850080032398\" image",
+      "provider": "web search",
+      "targetFields": [
+        "images",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q16",
+      "queryType": "exact_identifier",
+      "query": "\"850080032398\" \"back\" Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "back cover",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No readable exact rear-package image found."
+    },
+    {
+      "queryId": "q17",
+      "queryType": "exact_identifier",
+      "query": "\"850080032398\" \"front\" Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "front cover",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_vgp_front"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q18",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" \"gamefaqs\" switch 850080032398",
+      "provider": "web search",
+      "targetFields": [
+        "release table",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [
+        "850080032398",
+        "8436622260775"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q19",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" \"Release Information\" Nintendo Switch GameFAQs",
+      "provider": "web search",
+      "targetFields": [
+        "release table"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q20",
+      "queryType": "exact_identifier",
+      "query": "\"#DRIVE Rally\" \"HAC-P\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q21",
+      "queryType": "exact_identifier",
+      "query": "\"Drive Rally\" \"HAC-P\" Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q22",
+      "queryType": "exact_identifier",
+      "query": "\"850080032398\" \"HAC-P\"",
+      "provider": "web search",
+      "targetFields": [
+        "serial",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q23",
+      "queryType": "exact_identifier",
+      "query": "\"DRIVE Rally\" \"LA-H\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q24",
+      "queryType": "exact_identifier",
+      "query": "\"DRIVE Rally\" \"USA\" \"HAC\"",
+      "provider": "web search",
+      "targetFields": [
+        "serial",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q25",
+      "queryType": "exact_identifier",
+      "query": "\"HAC-P-BQ35A\" \"#DRIVE Rally\"",
+      "provider": "web search",
+      "targetFields": [
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q26",
+      "queryType": "exact_identifier",
+      "query": "\"HAC-P-BQ35A\" Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q27",
+      "queryType": "exact_identifier",
+      "query": "\"BQ35A\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q28",
+      "queryType": "exact_identifier",
+      "query": "\"#DRIVE Rally\" \"BQ35A\" Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q29",
+      "queryType": "exact_identifier",
+      "query": "\"#DRIVE Rally\" \"PM-00234\" \"HAC-P-BQ35A\"",
+      "provider": "web search",
+      "targetFields": [
+        "serial",
+        "productCode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q30",
+      "queryType": "exact_identifier",
+      "query": "\"#DRIVE Rally\" \"HAC-BQ35A-USA\"",
+      "provider": "web search",
+      "targetFields": [
+        "boxCode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q31",
+      "queryType": "exact_identifier",
+      "query": "\"#DRIVE Rally\" \"LA-H-BQ35A\"",
+      "provider": "web search",
+      "targetFields": [
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q32",
+      "queryType": "exact_identifier",
+      "query": "\"#DRIVE Rally\" \"BQ35A-USA\"",
+      "provider": "web search",
+      "targetFields": [
+        "boxCode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q33",
+      "queryType": "image",
+      "query": "\"HAC-P-BQ35A\" Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "images",
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No independently corroborated Nintendo HAC/box serial found."
+    },
+    {
+      "queryId": "q34",
+      "queryType": "image",
+      "query": "\"850080032398\" back cover",
+      "provider": "web search",
+      "targetFields": [
+        "back cover",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No readable exact rear-package image found."
+    },
+    {
+      "queryId": "q35",
+      "queryType": "image",
+      "query": "\"#DRIVE Rally\" \"Nintendo Switch\" \"back cover\" PM Studios",
+      "provider": "web search",
+      "targetFields": [
+        "back cover"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No readable exact rear-package image found."
+    },
+    {
+      "queryId": "q36",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" \"packaging language\" Switch 850080032398",
+      "provider": "web search",
+      "targetFields": [
+        "packagingLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q37",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" Pixel Perfect Dude official",
+      "provider": "web search",
+      "targetFields": [
+        "developer",
+        "official title"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pm_official"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q38",
+      "queryType": "source_specific",
+      "query": "site:pixelperfectdude.com \"#DRIVE Rally\"",
+      "provider": "web search",
+      "targetFields": [
+        "developer",
+        "official source"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q39",
+      "queryType": "source_specific",
+      "query": "site:pixelperfectdude.com \"#DRIVE franchise\"",
+      "provider": "web search",
+      "targetFields": [
+        "series",
+        "franchise"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_racesim"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q40",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"850080032398\" \"#DRIVE Rally\" Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "sealed price",
+        "active listings"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q41",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"#DRIVE Rally\" \"Nintendo Switch\" \"Brand New\"",
+      "provider": "web search",
+      "targetFields": [
+        "sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q42",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"#DRIVE Rally\" Switch \"Very Good\"",
+      "provider": "web search",
+      "targetFields": [
+        "complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_deepdiscount_used"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q43",
+      "queryType": "marketplace",
+      "query": "\"850080032398\" \"#DRIVE Rally\" \"Used\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_deepdiscount_used"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q44",
+      "queryType": "marketplace",
+      "query": "\"850080032398\" \"#DRIVE Rally\" \"New\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q45",
+      "queryType": "image",
+      "query": "\"#DRIVE Rally\" Nintendo Switch back cover 850080032398",
+      "provider": "web search",
+      "targetFields": [
+        "back cover"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No readable exact rear-package image found."
+    },
+    {
+      "queryId": "q46",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"0850080032398\" \"#Drive Rally\" \"Brand New\"",
+      "provider": "web search",
+      "targetFields": [
+        "sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q47",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"850080032398\" \"PM-00234\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "sealed price",
+        "productCode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q48",
+      "queryType": "marketplace",
+      "query": "\"#DRIVE Rally - Nintendo Switch\" \"$\" \"Brand New\" \"850080032398\"",
+      "provider": "web search",
+      "targetFields": [
+        "sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q49",
+      "queryType": "marketplace",
+      "query": "\"#DRIVE Rally\" \"PM-00234\" \"Brand New\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q50",
+      "queryType": "marketplace",
+      "query": "\"#DRIVE Rally - Nintendo Switch\" \"36.38\" eBay",
+      "provider": "web search",
+      "targetFields": [
+        "sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q51",
+      "queryType": "marketplace",
+      "query": "\"#DRIVE Rally - Nintendo Switch\" \"40.40\" \"34.99\"",
+      "provider": "web search",
+      "targetFields": [
+        "price listings"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern",
+        "s_ebay_deepdiscount_used"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q52",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm/ \"#DRIVE Rally\" \"PM Studios\" \"Nintendo Switch\" -406986038214",
+      "provider": "web search",
+      "targetFields": [
+        "additional active listings"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q53",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" Nintendo Switch \"game card\"",
+      "provider": "web search",
+      "targetFields": [
+        "mediaType"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_saturn_special",
+        "s_wog_special"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q54",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" Switch cartridge PM Studios",
+      "provider": "web search",
+      "targetFields": [
+        "mediaType"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q55",
+      "queryType": "source_specific",
+      "query": "\"#DRIVE Rally\" Switch \"cartridge\"",
+      "provider": "web search",
+      "targetFields": [
+        "mediaType"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_saturn_special",
+        "s_wog_special"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q56",
+      "queryType": "image",
+      "query": "\"8436622260775\" \"#DRIVE Rally\" Switch Special Edition front back",
+      "provider": "web search",
+      "targetFields": [
+        "special edition images",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_proshop_special",
+        "s_proshop_special_front"
+      ],
+      "discoveredIdentifiers": [
+        "8436622260775"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q57",
+      "queryType": "image",
+      "query": "\"8436622260775\" \"#DRIVE Rally\" back Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "special edition back cover"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_wog_special"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "No readable exact rear-package image found."
+    },
+    {
+      "queryId": "q58",
+      "queryType": "source_specific",
+      "query": "\"850080032398\" \"Packaging\" \"#DRIVE Rally\"",
+      "provider": "web search",
+      "targetFields": [
+        "packagingLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bitjump",
+        "s_ebay_popngames"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q59",
+      "queryType": "source_specific",
+      "query": "\"850080032398\" \"#DRIVE Rally\" \"English\" \"Packaging\"",
+      "provider": "web search",
+      "targetFields": [
+        "packagingLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bitjump"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q60",
+      "queryType": "source_specific",
+      "query": "\"850080032398\" \"Game Texts\" \"#DRIVE Rally\"",
+      "provider": "web search",
+      "targetFields": [
+        "packagingLanguages",
+        "softwareLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bitjump"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q61",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"850080032398\" \"#DRIVE Rally\" \"Very Good\" -188541743337",
+      "provider": "web search",
+      "targetFields": [
+        "complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_dealtavern"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q62",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"850080032398\" \"#DRIVE Rally\" \"Pre-Owned\" Nintendo Switch",
+      "provider": "web search",
+      "targetFields": [
+        "complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q63",
+      "queryType": "marketplace",
+      "query": "\"#DRIVE Rally\" \"850080032398\" \"Used Very Good Video Game\"",
+      "provider": "web search",
+      "targetFields": [
+        "complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q64",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"8436622260775\" \"#DRIVE Rally\" Switch",
+      "provider": "web search",
+      "targetFields": [
+        "special sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_special"
+      ],
+      "discoveredIdentifiers": [
+        "8436622260775"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q65",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"Drive Rally Special Edition\" \"Nintendo Switch\" \"8436622260775\"",
+      "provider": "web search",
+      "targetFields": [
+        "special sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_special"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q66",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"#DRIVE Rally Special Edition\" \"Brand New\" Switch -236878796546",
+      "provider": "web search",
+      "targetFields": [
+        "special sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_special"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a01",
+      "sourceName": "PM Studios",
+      "domain": "pm-studios.com",
+      "sourceType": "official",
+      "platform": "switch",
+      "targetFields": [
+        "identity",
+        "developer",
+        "publisher",
+        "console date"
+      ],
+      "queryRefs": [
+        "q01",
+        "q03",
+        "q37"
+      ],
+      "url": "https://www.pm-studios.com/games/drive-rally",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.officialTitle",
+        "gameFacts.developer",
+        "gameFacts.publisher",
+        "gameFacts.switchReleaseDate"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a02",
+      "sourceName": "Nintendo US",
+      "domain": "nintendo.com",
+      "sourceType": "official",
+      "platform": "switch",
+      "targetFields": [
+        "software languages",
+        "players",
+        "publisher",
+        "date"
+      ],
+      "queryRefs": [
+        "q03"
+      ],
+      "url": "https://www.nintendo.com/us/store/products/drive-rally-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.players",
+        "releases[0].softwareLanguages"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a03",
+      "sourceName": "ESRB",
+      "domain": "esrb.org",
+      "sourceType": "official",
+      "platform": "switch",
+      "targetFields": [
+        "rating",
+        "platform"
+      ],
+      "queryRefs": [
+        "q04",
+        "q12"
+      ],
+      "url": "https://www.esrb.org/ratings/40942/drive-rally/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].ratingSystem"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a04",
+      "sourceName": "Meridiem",
+      "domain": "meridiem-games.com",
+      "sourceType": "official",
+      "platform": "switch",
+      "targetFields": [
+        "regional physical releases",
+        "special contents",
+        "distribution"
+      ],
+      "queryRefs": [
+        "q02",
+        "q11"
+      ],
+      "url": "https://meridiem-games.com/en/new/meridiem-announces-physical-edition-of-drive-rally-for-playstation-5-and-nintendo-switch",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].distributionMarkets",
+        "releases[1].editionName",
+        "releases[1].physicalContents"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a05",
+      "sourceName": "GameFAQs",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "technical_database",
+      "platform": "switch",
+      "targetFields": [
+        "physical regions",
+        "barcodes",
+        "dates",
+        "ratings"
+      ],
+      "queryRefs": [
+        "q18",
+        "q19"
+      ],
+      "url": "https://gamefaqs.gamespot.com/switch/435197-drive-rally/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].market",
+        "releases[0].barcode",
+        "releases[1].barcode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a06",
+      "sourceName": "Vast Inc",
+      "domain": "vastvideogames.com",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "UPC",
+        "MPN",
+        "poster",
+        "languages"
+      ],
+      "queryRefs": [
+        "q07",
+        "q08",
+        "q10"
+      ],
+      "url": "https://vastvideogames.com/homepage-display/drive-rally-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode",
+        "releases[0].productCode",
+        "releases[0].physicalContents",
+        "releases[0].softwareLanguages"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a07",
+      "sourceName": "GameStop",
+      "domain": "gamestop.com",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "product code",
+        "retail offer"
+      ],
+      "queryRefs": [
+        "q08",
+        "q51"
+      ],
+      "url": "https://www.gamestop.com/video-games/products/drive-rally/20033658.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].productCode"
+      ],
+      "limitation": "Product page opened; attempts to fetch several linked product-image assets failed in the browsing layer, so they were not used as image evidence."
+    },
+    {
+      "attemptId": "a08",
+      "sourceName": "PNP Games",
+      "domain": "pnpgamesonline.com",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "UPC",
+        "poster",
+        "languages",
+        "party mode"
+      ],
+      "queryRefs": [
+        "q07",
+        "q10"
+      ],
+      "url": "https://pnpgamesonline.com/product/drive-rally-switch-e/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode",
+        "releases[0].physicalContents",
+        "gameFacts.players"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a09",
+      "sourceName": "Bitjump Games",
+      "domain": "bitjumpgames.com",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "North America region",
+        "physical format",
+        "UPC",
+        "languages"
+      ],
+      "queryRefs": [
+        "q09",
+        "q11",
+        "q58",
+        "q59",
+        "q60"
+      ],
+      "url": "https://bitjumpgames.com/products/drive-rally-nintendo-switch",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].market",
+        "releases[0].distributionMarkets",
+        "releases[0].barcode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a10",
+      "sourceName": "Video Games Plus",
+      "domain": "videogamesplus.ca",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "physical product",
+        "poster",
+        "images"
+      ],
+      "queryRefs": [
+        "q13",
+        "q17"
+      ],
+      "url": "https://videogamesplus.ca/products/drive-rally-nintendo-switch-pre-order",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].physicalContents",
+        "images[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a11",
+      "sourceName": "Video Games Plus front image",
+      "domain": "videogamesplus.ca",
+      "sourceType": "image",
+      "platform": "switch",
+      "targetFields": [
+        "front cover",
+        "rating branding"
+      ],
+      "queryRefs": [
+        "q13",
+        "q17"
+      ],
+      "url": "https://videogamesplus.ca/cdn/shop/files/DRIVERally_NSW_EFrontCover_433x700.jpg?v=1772558663",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a12",
+      "sourceName": "DeepDiscount",
+      "domain": "deepdiscount.com",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "UPC",
+        "physical product"
+      ],
+      "queryRefs": [
+        "q07"
+      ],
+      "url": "https://www.deepdiscount.com/drive-rally-for-nintendo-switch/850080032398",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a13",
+      "sourceName": "PopMarket",
+      "domain": "popmarket.com",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "UPC",
+        "physical product"
+      ],
+      "queryRefs": [
+        "q07"
+      ],
+      "url": "https://www.popmarket.com/drive-rally-for-nintendo-switch/850080032398",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a14",
+      "sourceName": "PriceCharting",
+      "domain": "pricecharting.com",
+      "sourceType": "market_aggregator",
+      "platform": "switch",
+      "targetFields": [
+        "identifier",
+        "historical price context"
+      ],
+      "queryRefs": [
+        "q07"
+      ],
+      "url": "https://www.pricecharting.com/game/nintendo-switch/drive-rally",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode"
+      ],
+      "limitation": "Historical/completed aggregate pricing was not counted toward active-listing sampleSize."
+    },
+    {
+      "attemptId": "a15",
+      "sourceName": "Steam",
+      "domain": "steampowered.com",
+      "sourceType": "official_storefront",
+      "platform": "switch",
+      "targetFields": [
+        "original release",
+        "developer",
+        "publisher"
+      ],
+      "queryRefs": [
+        "q37"
+      ],
+      "url": "https://store.steampowered.com/app/2494780/DRIVE_Rally",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.generalReleaseDate",
+        "gameFacts.developer",
+        "gameFacts.publisher"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a16",
+      "sourceName": "Gematsu",
+      "domain": "gematsu.com",
+      "sourceType": "news",
+      "platform": "switch",
+      "targetFields": [
+        "release chronology"
+      ],
+      "queryRefs": [
+        "q05"
+      ],
+      "url": "https://www.gematsu.com/2026/03/drive-rally-for-ps5-xbox-series-and-switch-launches-june-18",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.generalReleaseDate",
+        "gameFacts.earlyAccessDate"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a17",
+      "sourceName": "Race Sim Central",
+      "domain": "racesimcentral.net",
+      "sourceType": "press_release_republication",
+      "platform": "switch",
+      "targetFields": [
+        "franchise"
+      ],
+      "queryRefs": [
+        "q39"
+      ],
+      "url": "https://racesimcentral.net/drive-rally-coming-to-console-this-june-announce-physical-edition-for-ps5-and-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.series",
+        "gameFacts.franchise"
+      ],
+      "limitation": "Used only at probable confidence because it is a press-release reproduction rather than the developer's own accessible page."
+    },
+    {
+      "attemptId": "a18",
+      "sourceName": "eBay Deal Tavern",
+      "domain": "ebay.com",
+      "sourceType": "marketplace",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price",
+        "UPC",
+        "MPN"
+      ],
+      "queryRefs": [
+        "q40",
+        "q41",
+        "q44",
+        "q46",
+        "q47",
+        "q48",
+        "q49",
+        "q50",
+        "q51"
+      ],
+      "url": "https://www.ebay.com/itm/406986038214",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[0]",
+        "releases[0].barcode",
+        "releases[0].productCode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a19",
+      "sourceName": "eBay POPnGAMES",
+      "domain": "ebay.com",
+      "sourceType": "marketplace",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price",
+        "UPC",
+        "region code"
+      ],
+      "queryRefs": [
+        "q58"
+      ],
+      "url": "https://www.ebay.com/itm/236879100207",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a20",
+      "sourceName": "eBay DeepDiscount used",
+      "domain": "ebay.com",
+      "sourceType": "marketplace",
+      "platform": "switch",
+      "targetFields": [
+        "used price",
+        "condition"
+      ],
+      "queryRefs": [
+        "q42",
+        "q43",
+        "q51",
+        "q61",
+        "q62",
+        "q63"
+      ],
+      "url": "https://www.ebay.com/itm/188541743337",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[1]"
+      ],
+      "limitation": "Poster inclusion is not stated, so the used listing is retained as context but excluded from complete sampleSize."
+    },
+    {
+      "attemptId": "a21",
+      "sourceName": "Proshop Special Edition",
+      "domain": "proshop.dk",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "EAN",
+        "edition",
+        "PEGI"
+      ],
+      "queryRefs": [
+        "q56"
+      ],
+      "url": "https://www.proshop.dk/Spil/DRIVE-Rally-Special-Edition-Nintendo-Switch-Racing/3441558",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1].barcode",
+        "releases[1].ratingSystem"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a22",
+      "sourceName": "Proshop Special Edition front image",
+      "domain": "proshop.dk",
+      "sourceType": "image",
+      "platform": "switch",
+      "targetFields": [
+        "front cover",
+        "edition",
+        "PEGI"
+      ],
+      "queryRefs": [
+        "q56"
+      ],
+      "url": "https://www.proshop.dk/Images/915x900/3441558_90c12e8b786f.png",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a23",
+      "sourceName": "Saturn",
+      "domain": "saturn.de",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "media type",
+        "EAN",
+        "languages",
+        "PEGI"
+      ],
+      "queryRefs": [
+        "q53",
+        "q54",
+        "q55"
+      ],
+      "url": "https://www.saturn.de/de/product/_drive-rally-nintendo-switch-171089096.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1].components[1]",
+        "releases[1].softwareLanguages",
+        "releases[1].ratingSystem"
+      ],
+      "limitation": "Displayed release-date field conflicts with stronger official June 18 evidence and was not used."
+    },
+    {
+      "attemptId": "a24",
+      "sourceName": "World of Games",
+      "domain": "wog.ch",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "media type",
+        "packaging languages",
+        "software languages",
+        "EAN"
+      ],
+      "queryRefs": [
+        "q53",
+        "q55",
+        "q57"
+      ],
+      "url": "https://www.wog.ch/en/index.cfm/details/product/240429-DRIVE-Rally",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1].components[1]",
+        "releases[1].packagingLanguages",
+        "releases[1].softwareLanguages"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a25",
+      "sourceName": "Trader Games",
+      "domain": "tradergames.fr",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "EU edition",
+        "EAN",
+        "contents"
+      ],
+      "queryRefs": [
+        "q02",
+        "q56"
+      ],
+      "url": "https://www.tradergames.fr/fr/nintendo-switch/336044-drive-rally-special-edition-switch-euro-new-game-in-englishfrancaisdeesit-8436622260775.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1].market",
+        "releases[1].physicalContents"
+      ],
+      "limitation": "Language wording is ambiguous between software and packaging, so it was not used alone to confirm packagingLanguages."
+    },
+    {
+      "attemptId": "a26",
+      "sourceName": "Games.rs",
+      "domain": "games.rs",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "EAN",
+        "contents",
+        "date"
+      ],
+      "queryRefs": [
+        "q02",
+        "q56"
+      ],
+      "url": "https://www.games.rs/nintendo-switch-igre/42054-switch-drive-rally-special-edition",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1].barcode",
+        "releases[1].physicalContents",
+        "releases[1].releaseDate"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a27",
+      "sourceName": "eBay ARREGLATELO",
+      "domain": "ebay.com",
+      "sourceType": "marketplace",
+      "platform": "switch",
+      "targetFields": [
+        "special sealed price",
+        "EAN"
+      ],
+      "queryRefs": [
+        "q64",
+        "q65",
+        "q66"
+      ],
+      "url": "https://www.ebay.com/itm/236878796546",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[3]",
+        "releases[1].barcode"
+      ],
+      "limitation": null
+    }
+  ]
+}

@@ -44,6 +44,21 @@ La tarea programada es independiente y puede iniciar una conversación nueva en 
 
 El cambio de conversación no autoriza una nueva búsqueda. `RESULT_READY`, `PROCESSING` o `PAUSED` hacen que ChatGPT termine sin modificar nada. Sólo `READY` o un `RUNNING` recuperable permiten continuar.
 
+## Publicación y corrección por Codex
+
+Cuando Codex incorpora un resultado mediante el administrador, la publicación y el diálogo final de confirmación están previamente autorizados. Codex debe pulsar por sí mismo la acción de crear, guardar o publicar y aceptar el diálogo final; no espera una aprobación adicional del usuario para esa ficha.
+
+Después de cada creación o edición, Codex verifica la ficha pública, sus ediciones, cajas, identidades regionales, datos confirmados y assets internos. Si detecta un fallo causado o revelado por esa publicación, no se limita a notificarlo ni consume el resultado como correcto: intenta corregirlo y vuelve a verificarlo antes de continuar.
+
+La corrección sigue este orden:
+
+1. corregir los datos o la vinculación usando las capacidades existentes del administrador;
+2. si existe un defecto reproducible del administrador o del runtime, repararlo de forma general para todas las fichas afectadas, con sus pruebas y el flujo de código habitual;
+3. no crear un parche de catálogo específico para el juego, no rediseñar la arquitectura y no aceptar una propuesta estructural procedente del resultado externo;
+4. no marcar el resultado como consumido ni preparar otro paquete hasta que la ficha publicada quede verificada.
+
+Sólo se pasa a `PAUSED` cuando la reparación exige una decisión real de producto o arquitectura, afectaría datos ajenos sin una corrección segura, o existe un bloqueo externo de acceso, autenticación, infraestructura o proveedor que Codex no puede resolver. Un error corregible de validación, subida, agrupación, edición o publicación no requiere volver a pedir permiso al usuario.
+
 ## Límites
 
 ChatGPT no modifica el catálogo, los precios runtime, la cola maestra, el código, la plantilla, las reglas ni los estados de otros workers. No selecciona el siguiente juego y no incorpora datos en RegionAtlas. Codex valida cada resultado, incorpora mediante Admin, verifica el runtime y sólo entonces prepara otro paquete.

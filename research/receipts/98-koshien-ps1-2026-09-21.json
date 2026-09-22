@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "researchId": "98-koshien-ps1-2026-09-21",
+  "queueId": "platform-work:ps1:ps1-work-af392f46612455ff",
+  "platform": "ps1",
+  "catalogIds": [
+    "ps1-japon-%2798-koshien",
+    "ps1-japon-98-koshien-jp-magical-1500",
+    "ps1-japon-98-koshien-jp-taikenban-demo"
+  ],
+  "publishedAt": "2026-09-22T12:47:46Z",
+  "verifiedAt": "2026-09-22T12:47:46Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/98-koshien-ps1-pal-jp",
+  "relatedPublicUrls": [
+    "https://www.regionatlas.games/catalogo/98-koshien-jp-magical-1500-ps1-pal-jp",
+    "https://www.regionatlas.games/catalogo/98-koshien-jp-taikenban-demo-ps1-pal-jp"
+  ],
+  "publishedRegions": [
+    "NTSC-J Japón"
+  ],
+  "publishedEditions": [
+    "Standard",
+    "Magical 1500",
+    "Taikenban / Demo"
+  ],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_ACTIVE_LISTINGS_NOT_ACCEPTED_FOR_THIS_CONSUMPTION",
+  "internalAssets": {
+    "standardFront": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/e5/e514df89ded57ffd93d4736ed8ddb9576b989e039d588b937537f388f5a63a69.jpg",
+    "standardBack": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/84/84c7947bb41771b9278d581d32e617e2f1f32056cbaf0dd7c22b9988e422febb.jpg",
+    "magical1500Front": null,
+    "magical1500Back": null,
+    "taikenbanFront": null,
+    "taikenbanBack": null
+  },
+  "verification": {
+    "publicPage": "PASS",
+    "centralV2Families": "PASS_THREE_EDITIONS_ONE_CENTRAL_CARD",
+    "standardIdentifiers": "PASS",
+    "magical1500Identifiers": "PASS",
+    "taikenbanIdentifiers": "PASS",
+    "regionalScope": "PASS_JAPAN_ONLY",
+    "prices": "PASS_NONE_PUBLISHED",
+    "standardAssets": "PASS_EXISTING_INTERNAL_ASSETS_PRESERVED",
+    "otherAssets": "PENDING_EXTERNAL_DOWNLOAD_BLOCKED_NON_BLOCKING",
+    "duplicateCheck": "PASS"
+  },
+  "repair": {
+    "issue": "Same-market boxes with blank custom labels generated a duplicate slug.",
+    "pullRequest": "https://github.com/puntoracingrc/RegionAtlasGames/pull/346",
+    "productionCommit": "99433698f170934b3fbc123b665ffaf537473a85",
+    "status": "DEPLOYED_AND_VERIFIED"
+  },
+  "resultFile": "research/results/98-koshien-ps1-2026-09-21.json",
+  "resultSha256": "caa25334d42e737477411c5ca23b2f064ab25c8c865a935d786a84983fc20edd",
+  "workerResultCommit": "07a3ead2aebbfd8a443720e6db87196673b58543"
+}

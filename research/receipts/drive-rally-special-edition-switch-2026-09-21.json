@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "researchId": "drive-rally-special-edition-switch-2026-09-21",
+  "queueId": "catalog:switch-drive-rally-special-edition",
+  "platform": "switch",
+  "catalogIds": [
+    "switch-drive-rally-special-edition"
+  ],
+  "publishedAt": "2026-09-22T11:16:56Z",
+  "verifiedAt": "2026-09-22T11:16:56Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/drive-rally-special-edition-switch-pal-eu",
+  "relatedPublicUrls": [
+    "https://www.regionatlas.games/catalogo/drive-rally-switch-pal-us"
+  ],
+  "publishedRegions": [
+    "PAL Europa"
+  ],
+  "distributionMarketsConfirmed": [
+    "España"
+  ],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_ACTIVE_LISTINGS_NOT_ACCEPTED_FOR_THIS_CONSUMPTION",
+  "internalAssets": {
+    "specialEditionFront": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/switch/drive-rally-special-edition.jpg",
+    "specialEditionBack": null
+  },
+  "verification": {
+    "publicSpecialEditionPage": "PASS",
+    "sharedV2EditionNavigation": "PASS",
+    "editionType": "PASS",
+    "barcode": "PASS",
+    "regionalScope": "PASS_EUROPE_WITH_SPAIN_DISTRIBUTION_NO_SPAIN_ONLY_SKU",
+    "packagingLanguages": "UNRESOLVED_CONFLICT_PRESERVED",
+    "frontAsset": "PASS_EXISTING_INTERNAL_ASSET_PRESERVED",
+    "backAsset": "PENDING_NOT_PROVIDED",
+    "duplicateCheck": "PASS"
+  },
+  "resultFile": "research/results/drive-rally-special-edition-switch-2026-09-21.json",
+  "resultSha256": "c6c18b436a7dc11a573be9ec7339db1a6b4f8df2bb90b21bcf6206b06c65ba07",
+  "workerResultCommit": "505a6f9cec08708bf38e3835f27915c67e2e3ba9"
+}

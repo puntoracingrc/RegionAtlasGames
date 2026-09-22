@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "updatedAt": null,
-  "updatedBy": null,
+  "updatedAt": "2026-09-22",
+  "updatedBy": "codex_after_contract_validation",
   "methodology": {
     "unit": "validated source attempt for one platform and target field",
     "maintainer": "codex_after_result_validation_only",
@@ -31,5 +31,3680 @@
       "Normalized query patterns must not contain game-specific final answers or identifiers."
     ]
   },
-  "platforms": {}
+  "platforms": {
+    "n64": {
+      "researchIds": [
+        "007-world-is-not-enough-n64-2026-09-21"
+      ],
+      "observationCount": 1,
+      "queryTotals": {
+        "exact_identifier": 15,
+        "general": 13,
+        "image": 9,
+        "marketplace": 58,
+        "source_specific": 3
+      },
+      "sourceAttemptTotals": {
+        "total": 56,
+        "useful": 42,
+        "byOutcome": {
+          "CANDIDATE": 7,
+          "CONFIRMED_EVIDENCE": 37,
+          "CONTEXT_ONLY": 8,
+          "TECHNICAL_FAILURE": 4
+        },
+        "byAccessStatus": {
+          "BLOCKED": 3,
+          "NOT_FOUND": 1,
+          "OPENED": 49,
+          "SEARCH_RESULT_ONLY": 3
+        }
+      },
+      "recommendations": [],
+      "recommendationStatus": "INSUFFICIENT_CROSS_RESEARCH_EVIDENCE",
+      "domains": {
+        "64scener.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical_release_list"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "arcade-history.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "secondary_database"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "box21games.com.br": {
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_image",
+            "direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "age_rating",
+            "front_back_images",
+            "physical_contents",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "image": 2,
+            "marketplace": 4
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "cdon.se": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 10
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "dkoldies.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "gamefaqs.gamespot.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "specialist_database"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "gameland-groningen.nl": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "physical_contents",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 5
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "gamesdb.launchbox-app.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "image_gallery"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "front_back_images"
+          ],
+          "queryTypeCounts": {
+            "image": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "github.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical_preservation_list"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "images.launchbox-app.com": {
+          "attempts": 6,
+          "usefulAttempts": 6,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 6,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_image"
+          ],
+          "targetCategories": [
+            "front_back_images"
+          ],
+          "queryTypeCounts": {
+            "image": 6
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "img.tradera.net": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_image"
+          ],
+          "targetCategories": [
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "meanwhileblog.wordpress.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "secondary_code_list"
+          ],
+          "targetCategories": [
+            "identifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "mercadolivre.com.br": {
+          "attempts": 2,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 2,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "search_results"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "front_back_images"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 5
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "micro-64.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "mobygames.com": {
+          "attempts": 6,
+          "usefulAttempts": 6,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 5,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "physical_cover_archive",
+            "specialist_database"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "credits_distribution",
+            "front_back_images",
+            "physical_contents",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 7,
+            "image": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "myretroshop.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 1,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "release_date"
+          ],
+          "queryTypeCounts": {},
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "nesworld.com": {
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical_database",
+            "technical_release_list"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "identifiers",
+            "languages",
+            "physical_contents",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 4,
+            "general": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "nintendo64ever.com": {
+          "attempts": 11,
+          "usefulAttempts": 10,
+          "usefulnessRate": 0.9091,
+          "confirmedEvidenceAttempts": 9,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "physical_content_index",
+            "release_index",
+            "technical_database"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "front_back_images",
+            "identifiers",
+            "languages",
+            "physical_contents",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 7,
+            "general": 5,
+            "source_specific": 6
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "olx.com.br": {
+          "attempts": 2,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_listing",
+            "search_results"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "front_back_images",
+            "identifiers",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 4
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "pricecharting.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "completed_sales_aggregator"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "languages"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "retrospillkongen.no": {
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_image",
+            "direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "age_rating",
+            "front_back_images",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "image": 2,
+            "marketplace": 4
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "tradera.com": {
+          "attempts": 5,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.4,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 2,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "direct_listing",
+            "marketplace_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 24
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "vgdb.com.br": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "specialist_database"
+          ],
+          "targetCategories": [
+            "credits_distribution",
+            "identifiers",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "vgpreise.de": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "007-world-is-not-enough-n64-2026-09-21"
+          ],
+          "sourceTypes": [
+            "price_aggregator"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "front_back_images",
+            "languages",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        }
+      }
+    },
+    "switch": {
+      "researchIds": [
+        "blud-switch-2026-09-21",
+        "drive-rally-special-edition-switch-2026-09-21",
+        "drive-rally-switch-2026-09-21"
+      ],
+      "observationCount": 3,
+      "queryTotals": {
+        "exact_identifier": 31,
+        "general": 34,
+        "image": 15,
+        "marketplace": 39,
+        "source_specific": 31
+      },
+      "sourceAttemptTotals": {
+        "total": 61,
+        "useful": 56,
+        "byOutcome": {
+          "CONFIRMED_EVIDENCE": 49,
+          "CONTEXT_ONLY": 9,
+          "TECHNICAL_FAILURE": 2,
+          "CANDIDATE": 1
+        },
+        "byAccessStatus": {
+          "BLOCKED": 2,
+          "OPENED": 59
+        }
+      },
+      "recommendations": [
+        {
+          "domain": "ebay.com",
+          "targetCategories": [
+            "active_market_price",
+            "game_metadata",
+            "identifiers",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "attempts": 9,
+          "usefulAttempts": 6,
+          "distinctResearchIds": 3
+        },
+        {
+          "domain": "gamefaqs.gamespot.com",
+          "targetCategories": [
+            "age_rating",
+            "game_metadata",
+            "identifiers",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "distinctResearchIds": 3
+        },
+        {
+          "domain": "nintendo.com",
+          "targetCategories": [
+            "age_rating",
+            "credits_distribution",
+            "game_metadata",
+            "languages",
+            "release_date"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "proshop.dk",
+          "targetCategories": [
+            "front_back_images",
+            "game_metadata",
+            "identifiers",
+            "physical_contents"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "videogamesplus.ca",
+          "targetCategories": [
+            "age_rating",
+            "front_back_images",
+            "game_metadata",
+            "physical_contents"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "distinctResearchIds": 2
+        }
+      ],
+      "recommendationStatus": "VALIDATED_ROUTES_AVAILABLE",
+      "domains": {
+        "2dehands.be": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace_direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "general": 1,
+            "marketplace": 5
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "balorgames.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "publisher_current_official"
+          ],
+          "targetCategories": [
+            "credits_distribution",
+            "game_metadata",
+            "languages",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "bitjumpgames.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "languages",
+            "physical_contents",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "general": 1,
+            "source_specific": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "bludgame.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "developer_official"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "physical_contents",
+            "print_run",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "computinghistory.org.uk": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "institutional_collection"
+          ],
+          "targetCategories": [
+            "credits_distribution",
+            "identifiers",
+            "physical_contents",
+            "print_run",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 6,
+            "general": 1,
+            "image": 1,
+            "marketplace": 13,
+            "source_specific": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "deepdiscount.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "identifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "ebay.co.uk": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace_direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "age_rating",
+            "front_back_images",
+            "identifiers",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 6,
+            "image": 1,
+            "marketplace": 12,
+            "source_specific": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "ebay.com": {
+          "attempts": 9,
+          "usefulAttempts": 6,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 5,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 4,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 3,
+          "researchIds": [
+            "blud-switch-2026-09-21",
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace",
+            "marketplace_direct_listing",
+            "marketplace_historical_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "game_metadata",
+            "identifiers",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 12,
+            "image": 2,
+            "marketplace": 43,
+            "source_specific": 5
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "ebay.es": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace_direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "age_rating",
+            "identifiers",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "esrb.org": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "game.es": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gamefaqs.gamespot.com": {
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 3,
+          "researchIds": [
+            "blud-switch-2026-09-21",
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "game_metadata",
+            "identifiers",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 2,
+            "source_specific": 3,
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "games.rs": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "physical_contents",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gamestop.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "identifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gematsu.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "news"
+          ],
+          "targetCategories": [
+            "game_metadata"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "i.ebayimg.com": {
+          "attempts": 4,
+          "usefulAttempts": 4,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 4,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "physical_image"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "credits_distribution",
+            "front_back_images",
+            "identifiers",
+            "languages"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 4,
+            "general": 2,
+            "image": 7,
+            "source_specific": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "limitedgamenews.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "news_secondary"
+          ],
+          "targetCategories": [
+            "physical_contents",
+            "print_run",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "general": 2,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "meridiem-games.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "credits_distribution",
+            "physical_contents",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "general": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "nintendo.com": {
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "blud-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official",
+            "platform_holder_official"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "credits_distribution",
+            "game_metadata",
+            "languages",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 2,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "ogdb.eu": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "credits_distribution",
+            "identifiers",
+            "languages"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "pm-studios.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "credits_distribution",
+            "game_metadata",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 3,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "pnpgamesonline.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "identifiers",
+            "languages",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "popmarket.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "identifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "pricecharting.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "blud-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "market_aggregator",
+            "technical_price_database"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "age_rating",
+            "credits_distribution",
+            "game_metadata",
+            "identifiers",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 7,
+            "general": 5,
+            "image": 1,
+            "marketplace": 8,
+            "source_specific": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "proshop.dk": {
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "image",
+            "retailer"
+          ],
+          "targetCategories": [
+            "front_back_images",
+            "game_metadata",
+            "identifiers",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "image": 3,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "racesimcentral.net": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "press_release_republication"
+          ],
+          "targetCategories": [
+            "franchise_relationships"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "rpgamer.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "news_secondary"
+          ],
+          "targetCategories": [
+            "print_run",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "general": 2,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "saturn.de": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "identifiers",
+            "languages"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "steampowered.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official_storefront"
+          ],
+          "targetCategories": [
+            "credits_distribution",
+            "game_metadata"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "superraregames.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "publisher_distributor_official"
+          ],
+          "targetCategories": [
+            "languages",
+            "physical_contents",
+            "print_run",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "general": 2,
+            "marketplace": 5,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "tokyogamestory.com": {
+          "attempts": 2,
+          "usefulAttempts": 1,
+          "usefulnessRate": 0.5,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "blud-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "specialist_retailer"
+          ],
+          "targetCategories": [
+            "front_back_images",
+            "languages",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "source_specific": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "tradergames.fr": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "languages",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "image": 1,
+            "exact_identifier": 1,
+            "source_specific": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "vastvideogames.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "languages",
+            "physical_contents",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "source_specific": 1,
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "videogamesplus.ca": {
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "image",
+            "retailer"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "front_back_images",
+            "game_metadata",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "image": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "wog.ch": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "identifiers",
+            "languages"
+          ],
+          "queryTypeCounts": {
+            "image": 1,
+            "source_specific": 5,
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "xtralife.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        }
+      }
+    },
+    "ps1": {
+      "researchIds": [
+        "98-koshien-ps1-2026-09-21"
+      ],
+      "observationCount": 1,
+      "queryTotals": {
+        "exact_identifier": 19,
+        "general": 2,
+        "image": 10,
+        "marketplace": 29,
+        "source_specific": 5
+      },
+      "sourceAttemptTotals": {
+        "total": 23,
+        "useful": 18,
+        "byOutcome": {
+          "CANDIDATE": 1,
+          "CONFIRMED_EVIDENCE": 14,
+          "CONTEXT_ONLY": 4,
+          "TECHNICAL_FAILURE": 4
+        },
+        "byAccessStatus": {
+          "BLOCKED": 1,
+          "OPENED": 14,
+          "SEARCH_RESULT_ONLY": 5,
+          "TIMEOUT": 3
+        }
+      },
+      "recommendations": [],
+      "recommendationStatus": "INSUFFICIENT_CROSS_RESEARCH_EVIDENCE",
+      "domains": {
+        "arcade-history.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "budgetIdentifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "auctions.yahoo.co.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "ended_secondhand_listing"
+          ],
+          "targetCategories": [
+            "budgetImages",
+            "demoImages"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 3,
+            "image": 8,
+            "marketplace": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "famitsu.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "release_schedule"
+          ],
+          "targetCategories": [
+            "budgetReleaseType"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "gamefaqs.gamespot.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "game_database"
+          ],
+          "targetCategories": [
+            "releaseData"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "jp.mercari.com": {
+          "attempts": 4,
+          "usefulAttempts": 3,
+          "usefulnessRate": 0.75,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 2,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "active_secondhand_listing",
+            "marketplace_search",
+            "sold_secondhand_listing"
+          ],
+          "targetCategories": [
+            "completePrice",
+            "demoIdentity",
+            "editionIdentity",
+            "standardPrice"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 1,
+            "marketplace": 12
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "mobygames.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 1,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "game_database"
+          ],
+          "targetCategories": [
+            "identity"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "paypayfleamarket.yahoo.co.jp": {
+          "attempts": 2,
+          "usefulAttempts": 1,
+          "usefulnessRate": 0.5,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 1,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "secondhand_listing",
+            "sold_secondhand_listing"
+          ],
+          "targetCategories": [
+            "demoPrice",
+            "standardContents"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "psxdatacenter.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "redump.org": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "preservation_database"
+          ],
+          "targetCategories": [
+            "discSerial"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 4
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "retroplace.com": {
+          "attempts": 2,
+          "usefulAttempts": 1,
+          "usefulnessRate": 0.5,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 1,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "collector_database"
+          ],
+          "targetCategories": [
+            "budgetImages",
+            "standardIdentifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "image": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "suruga-ya.jp": {
+          "attempts": 4,
+          "usefulAttempts": 4,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer_metadata",
+            "secondhand_retail_listing"
+          ],
+          "targetCategories": [
+            "budgetIdentifiers",
+            "budgetPrice",
+            "demoIdentity",
+            "standardIdentifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 7,
+            "marketplace": 1,
+            "source_specific": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "w.atwiki.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 2,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "reference_database"
+          ],
+          "targetCategories": [
+            "series"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "general": 2,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        },
+        "yugiyahiranonetshop.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21"
+          ],
+          "sourceTypes": [
+            "active_secondhand_listing"
+          ],
+          "targetCategories": [
+            "standardImages"
+          ],
+          "queryTypeCounts": {
+            "image": 1,
+            "marketplace": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-21"
+        }
+      }
+    },
+    "ps4": {
+      "researchIds": [
+        "hack-gu-last-recode-ps4-2026-09-21"
+      ],
+      "observationCount": 1,
+      "queryTotals": {
+        "exact_identifier": 11,
+        "general": 1,
+        "image": 9,
+        "marketplace": 10,
+        "source_specific": 5
+      },
+      "sourceAttemptTotals": {
+        "total": 34,
+        "useful": 32,
+        "byOutcome": {
+          "CANDIDATE": 4,
+          "CONFIRMED_EVIDENCE": 27,
+          "CONTEXT_ONLY": 2,
+          "TECHNICAL_FAILURE": 1
+        },
+        "byAccessStatus": {
+          "BLOCKED": 1,
+          "OPENED": 33
+        }
+      },
+      "recommendations": [],
+      "recommendationStatus": "INSUFFICIENT_CROSS_RESEARCH_EVIDENCE",
+      "domains": {
+        "bandainamcoent.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "developer",
+            "genre",
+            "identity",
+            "regionalPublisher",
+            "releaseDate"
+          ],
+          "queryTypeCounts": {
+            "general": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "bol.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "EAN 5092",
+            "media"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "books.rakuten.co.jp": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "Japan Standard identifiers",
+            "contents"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "ebay.de": {
+          "attempts": 4,
+          "usefulAttempts": 4,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 4,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "complete price",
+            "sealed price"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 8
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "ecommerce.datablitz.com.ph": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "USA UPC",
+            "front image",
+            "packaging languages"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "es.bandainamcoent.eu": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "European release",
+            "releaseDate"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gamefaqs.gamespot.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical-database"
+          ],
+          "targetCategories": [
+            "Japan product codes",
+            "dates"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gameshop-twente.nl": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "European EAN variants"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gamesmen.com.au": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "Australia EAN",
+            "date",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "hackgul.bn-ent.net": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "Japan editions",
+            "date",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "japanzon.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "Japan identifiers",
+            "software language"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "jp.mercari.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "Premium contents",
+            "complete price"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "kaitori-world.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "specialist-retailer"
+          ],
+          "targetCategories": [
+            "Premium identifiers",
+            "Welcome Price identifiers",
+            "contents",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "paypayfleamarket.yahoo.co.jp": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace-image"
+          ],
+          "targetCategories": [
+            "Japan Standard front image"
+          ],
+          "queryTypeCounts": {
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "play-asia.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer",
+            "retailer-image"
+          ],
+          "targetCategories": [
+            "Australia version",
+            "Welcome Price front image"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "pricecharting.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "aggregator-technical"
+          ],
+          "targetCategories": [
+            "CUSA",
+            "EAN 4972",
+            "disc count",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "proshop.se": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "EAN 4972",
+            "front image"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "retroplace.com": {
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical-database"
+          ],
+          "targetCategories": [
+            "Australia EAN",
+            "Austria Switzerland EAN",
+            "CUSA",
+            "USA UPC",
+            "date",
+            "productCode"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 4
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "rickiegames.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "USA back image",
+            "packaging languages",
+            "price"
+          ],
+          "queryTypeCounts": {
+            "image": 1,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "saturn.de": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "German EAN",
+            "disc count",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "serialstation.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical-database"
+          ],
+          "targetCategories": [
+            "CUSA",
+            "EAN 5092"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "store.shopping.yahoo.co.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace-retailer",
+            "retailer"
+          ],
+          "targetCategories": [
+            "Japan Standard identifiers",
+            "Welcome Price identifiers",
+            "price"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "suruga-ya.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "specialist-retailer"
+          ],
+          "targetCategories": [
+            "Premium identifiers",
+            "Welcome Price identifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "wog.ch": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "German EAN",
+            "software languages"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        }
+      }
+    }
+  }
 }

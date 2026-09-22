@@ -1,0 +1,6175 @@
+{
+  "researchId": "007-world-is-not-enough-n64-2026-09-21",
+  "orderTemplateVersion": 11,
+  "triggerQueueEntry": {
+    "queueId": "catalog:n64-007-world-is-not-enough",
+    "platform": "n64",
+    "catalogIds": [
+      "n64-007-world-is-not-enough"
+    ],
+    "queueIdBasis": "The order provides canonicalId catalog:n64-007-world-is-not-enough but no separate queueId field; that received canonical identifier is preserved here rather than inventing another ID."
+  },
+  "researchedTitle": "007: The World Is Not Enough",
+  "platformsInvestigated": [
+    "n64"
+  ],
+  "gameFacts": {
+    "officialTitle": {
+      "value": "007: The World Is Not Enough",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src001",
+        "src003"
+      ]
+    },
+    "originalTitle": {
+      "value": "007: The World Is Not Enough",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src001"
+      ]
+    },
+    "alternateTitles": [
+      {
+        "title": "007: Die Welt ist nicht genug",
+        "marketOrLanguage": "Germany / German",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src001",
+          "src014"
+        ]
+      },
+      {
+        "title": "007: Le Monde ne Suffit pas",
+        "marketOrLanguage": "France / French",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src001",
+          "src013"
+        ]
+      },
+      {
+        "title": "007: O Mundo Não é o Bastante",
+        "marketOrLanguage": "Brazil / Brazilian Portuguese",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src017",
+          "src018"
+        ]
+      },
+      {
+        "title": "TWINE",
+        "marketOrLanguage": "abbreviation",
+        "confidence": "probable",
+        "sourceRefs": [
+          "src001"
+        ]
+      }
+    ],
+    "developer": {
+      "value": "Eurocom Developments Ltd.",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src001",
+        "src003",
+        "src011"
+      ]
+    },
+    "generalPublisher": {
+      "value": "Electronic Arts",
+      "label": "EA Games",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src001",
+        "src011",
+        "src015"
+      ]
+    },
+    "franchiseOrSeries": {
+      "value": "James Bond / 007",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src017"
+      ]
+    },
+    "genres": {
+      "value": [
+        "Action",
+        "First-person shooter"
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src001",
+        "src003"
+      ]
+    },
+    "players": {
+      "minimum": 1,
+      "maximum": 4,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src002",
+        "src011",
+        "src015"
+      ]
+    },
+    "modes": {
+      "value": [
+        "single-player",
+        "multiplayer free-for-all",
+        "multiplayer team play",
+        "multiplayer with bots"
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src002"
+      ]
+    },
+    "physicalMedium": {
+      "mediaType": "cartridge",
+      "productType": "Nintendo 64 Game Pak",
+      "mediaUnits": 1,
+      "capacityMbit": 256,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src011",
+        "src015",
+        "src017"
+      ]
+    },
+    "accessorySupport": {
+      "value": [
+        "Controller Pak",
+        "Rumble Pak",
+        "Expansion Pak"
+      ],
+      "controllerPakPages": 2,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src002",
+        "src011",
+        "src015"
+      ]
+    },
+    "releaseYear": {
+      "value": 2000,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src001",
+        "src004",
+        "src024"
+      ]
+    },
+    "generalReleaseDate": {
+      "value": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "src001",
+        "src003",
+        "src004",
+        "src007",
+        "src024",
+        "src042"
+      ],
+      "candidates": [
+        "2000-10-17",
+        "2000-11-01"
+      ],
+      "unresolvedReason": "Specialist sources conflict on the US date; the earliest/global date is therefore not normalized to a single value."
+    },
+    "physicalEditionCoverage": {
+      "value": [
+        "Standard"
+      ],
+      "physicalVariants": [
+        "US blue-cartridge first print",
+        "US grey-cartridge second print"
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src005",
+        "src006",
+        "src007",
+        "src009"
+      ],
+      "notes": "No collector, limited, budget or promotional retail edition was positively documented in the checked worldwide release lists; this is not treated as proof of absolute absence."
+    }
+  },
+  "releases": [
+    {
+      "releaseId": "n64-usa-standard",
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United States",
+      "distributionMarkets": [
+        {
+          "market": "United States",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src012"
+          ]
+        },
+        {
+          "market": "Canada",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src012"
+          ]
+        },
+        {
+          "market": "Mexico",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src012"
+          ],
+          "note": "Distribution statement on the USA-coded outer box; this does not replace the separately documented MSA product."
+        },
+        {
+          "market": "Latin America",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src012"
+          ]
+        }
+      ],
+      "packagingLanguages": [
+        {
+          "language": "English",
+          "component": "outer_box",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src007",
+            "src009",
+            "src012"
+          ]
+        },
+        {
+          "language": "English",
+          "component": "manual",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src007",
+            "src009"
+          ]
+        }
+      ],
+      "softwareLanguages": {
+        "text": [
+          {
+            "language": "English",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src007",
+              "src009"
+            ]
+          }
+        ],
+        "audio": [],
+        "audioConfidence": "unresolved",
+        "audioUnresolvedReason": "No consulted source linked an exact audio-language inventory to the USA physical release."
+      },
+      "barcode": {
+        "value": "014633141849",
+        "component": "outer_box",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src007",
+          "src009",
+          "src011",
+          "src012"
+        ],
+        "identifierType": "UPC"
+      },
+      "productCode": {
+        "value": "NUS-NO7E-USA",
+        "component": "release",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src005",
+          "src006",
+          "src011"
+        ],
+        "identifierType": "Nintendo regional product identifier",
+        "candidates": [
+          "NUS-NO7E-USA",
+          "NUS-N07E-USA"
+        ],
+        "note": "Physical/release-list sources use NO7; several databases transcribe N07. The character conflict is retained separately."
+      },
+      "serial": [
+        {
+          "value": "NUS-NO7E-USA",
+          "component": "outer_box",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src011"
+          ]
+        },
+        {
+          "value": "NUS-NO7E-USA",
+          "component": "manual",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src011"
+          ]
+        },
+        {
+          "value": "NO7E",
+          "component": "cartridge_gamepak_id",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src011"
+          ]
+        },
+        {
+          "value": "NUS-N07E-USA",
+          "component": "outer_box/cartridge/manual",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src007",
+            "src009"
+          ],
+          "note": "Conflicting N07 transcription retained verbatim from Nintendo64EVER."
+        }
+      ],
+      "releaseDate": {
+        "value": null,
+        "confidence": "unresolved",
+        "candidates": [
+          "2000-10-17",
+          "2000-11-01"
+        ],
+        "sourceRefs": [
+          "src007",
+          "src024",
+          "src001",
+          "src042",
+          "src003",
+          "src004"
+        ],
+        "unresolvedReason": "Nintendo64EVER/MobyGames/Arcade-History give 2000-10-17; GameFAQs/Micro-64 give 2000-11-01."
+      },
+      "releaseType": "standard",
+      "ratingSystem": {
+        "system": "ESRB",
+        "rating": "Teen",
+        "descriptors": [
+          "Animated Violence"
+        ],
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src002",
+          "src007",
+          "src012"
+        ]
+      },
+      "regionalPublisher": {
+        "name": "EA Games / Electronic Arts",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src011",
+          "src001"
+        ]
+      },
+      "regionalDistributor": {
+        "name": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "physicalContents": [
+        {
+          "item": "outer box",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src008",
+            "src010"
+          ]
+        },
+        {
+          "item": "Nintendo 64 cartridge",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src008",
+            "src010"
+          ]
+        },
+        {
+          "item": "manual",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src008",
+            "src010"
+          ]
+        }
+      ],
+      "components": {
+        "outerBox": {
+          "codes": [
+            "NUS-NO7E-USA"
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src011",
+            "src012"
+          ]
+        },
+        "innerBox": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        },
+        "cartridge": {
+          "model": "NUS-006 (USA)",
+          "gamePakId": "NO7E",
+          "capacityMbit": 256,
+          "variants": [
+            {
+              "name": "first print",
+              "shellColor": "blue",
+              "confidence": "confirmed",
+              "sourceRefs": [
+                "src005",
+                "src007"
+              ]
+            },
+            {
+              "name": "second print",
+              "shellColor": "grey",
+              "confidence": "confirmed",
+              "sourceRefs": [
+                "src005",
+                "src009"
+              ]
+            }
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src005",
+            "src007",
+            "src009",
+            "src011"
+          ]
+        },
+        "manual": {
+          "codes": [
+            "NUS-NO7E-USA"
+          ],
+          "language": "English",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src007",
+            "src009",
+            "src011"
+          ]
+        },
+        "extras": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      },
+      "downloadsOrCodes": {
+        "value": null,
+        "confidence": "unresolved",
+        "sourceRefs": [],
+        "unresolvedReason": "No consulted physical source established downloadable content or a download-code insert."
+      },
+      "notes": [
+        "The blue and grey cartridges are documented as print/color variants under the same US barcode and regional identifier rather than separate barcoded editions.",
+        "USA-coded packaging visibly states authorized sale/rental/use in USA, Canada, Mexico and Latin America; seller geography was not used to establish this."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src005",
+        "src006",
+        "src007",
+        "src009",
+        "src011",
+        "src012"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "src011"
+        ],
+        "barcode": [
+          "src007",
+          "src009",
+          "src011",
+          "src012"
+        ],
+        "productCode": [
+          "src005",
+          "src006",
+          "src011"
+        ],
+        "packagingLanguages": [
+          "src007",
+          "src009",
+          "src012"
+        ],
+        "softwareLanguages": [
+          "src007",
+          "src009"
+        ],
+        "ratingSystem": [
+          "src002",
+          "src007",
+          "src012"
+        ],
+        "physicalVariants": [
+          "src005",
+          "src007",
+          "src009"
+        ]
+      }
+    },
+    {
+      "releaseId": "n64-ukv-standard",
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United Kingdom",
+      "distributionMarkets": [
+        {
+          "market": "United Kingdom",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015",
+            "src022"
+          ]
+        }
+      ],
+      "packagingLanguages": [
+        {
+          "language": "English",
+          "component": "outer_box",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src022",
+            "src025"
+          ]
+        },
+        {
+          "language": null,
+          "component": "manual",
+          "confidence": "unresolved",
+          "sourceRefs": [
+            "src015"
+          ]
+        }
+      ],
+      "softwareLanguages": {
+        "text": [
+          {
+            "language": "English",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src015"
+            ]
+          },
+          {
+            "language": "French",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src015"
+            ]
+          },
+          {
+            "language": "German",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src015"
+            ]
+          }
+        ],
+        "audio": [],
+        "audioConfidence": "unresolved",
+        "audioUnresolvedReason": "No exact UKV physical source in this investigation supplied a distinct audio-language inventory."
+      },
+      "barcode": {
+        "value": "5030930024871",
+        "component": "outer_box",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src015",
+          "src025"
+        ],
+        "identifierType": "EAN-13"
+      },
+      "productCode": {
+        "value": "NUS-NO7P-UKV",
+        "component": "release",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src005",
+          "src006",
+          "src015",
+          "src025"
+        ],
+        "identifierType": "Nintendo regional product identifier",
+        "candidates": [
+          "NUS-NO7P-UKV",
+          "NUS-N07P-UKV"
+        ],
+        "note": "NO7 spelling is present in NESWorld and physical/release-list evidence; N07 appears in preservation/database transcriptions."
+      },
+      "serial": [
+        {
+          "value": "NUS-NO7P-UKV",
+          "component": "outer_box",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015",
+            "src025"
+          ]
+        },
+        {
+          "value": "NUS-NO7P-UKV",
+          "component": "manual",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015"
+          ]
+        },
+        {
+          "value": "NO7P",
+          "component": "cartridge_gamepak_id",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015"
+          ]
+        },
+        {
+          "value": "NUS-EUR-3",
+          "component": "precaution_leaflet",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015"
+          ]
+        }
+      ],
+      "releaseDate": {
+        "value": "2000-12-08",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src003",
+          "src024"
+        ]
+      },
+      "releaseType": "standard",
+      "ratingSystem": {
+        "system": "ELSPA",
+        "rating": "15+",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src002",
+          "src025"
+        ]
+      },
+      "regionalPublisher": {
+        "name": "EA Games / Electronic Arts",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src015",
+          "src025"
+        ]
+      },
+      "regionalDistributor": {
+        "name": null,
+        "confidence": "unresolved",
+        "sourceRefs": [],
+        "note": "EA UK address is visible on packaging, but a separate distributor role was not explicitly established."
+      },
+      "physicalContents": [
+        {
+          "item": "outer box",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src015",
+            "src025"
+          ]
+        },
+        {
+          "item": "Nintendo 64 cartridge",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src015",
+            "src025"
+          ]
+        },
+        {
+          "item": "manual",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src015",
+            "src025"
+          ]
+        },
+        {
+          "item": "precaution leaflet NUS-EUR-3",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src015"
+          ]
+        },
+        {
+          "item": "cardboard inner insert",
+          "factoryIncluded": "probable",
+          "sourceRefs": [
+            "src025"
+          ],
+          "note": "Present as original insert in the inspected used copy; no independent factory checklist corroboration."
+        }
+      ],
+      "components": {
+        "outerBox": {
+          "codes": [
+            "NUS-NO7P-UKV"
+          ],
+          "barcode": "5030930024871",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015",
+            "src025"
+          ]
+        },
+        "innerBox": {
+          "details": "original cardboard insert",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src025"
+          ]
+        },
+        "cartridge": {
+          "model": "NUS-006 (EUR)",
+          "gamePakId": "NO7P",
+          "code": "NUS-NO7P-UKV",
+          "capacityMbit": 256,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015",
+            "src025"
+          ]
+        },
+        "manual": {
+          "code": "NUS-NO7P-UKV",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015"
+          ]
+        },
+        "extras": {
+          "details": [
+            "precaution leaflet NUS-EUR-3"
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src015"
+          ]
+        }
+      },
+      "downloadsOrCodes": {
+        "value": null,
+        "confidence": "unresolved",
+        "sourceRefs": [],
+        "unresolvedReason": "No consulted source established downloadable content or a download-code insert."
+      },
+      "notes": [
+        "UKV is treated as a physical regional product, not inferred from seller location or PAL/ELSPA alone."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src005",
+        "src006",
+        "src015",
+        "src022",
+        "src025"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "src015",
+          "src022"
+        ],
+        "barcode": [
+          "src015",
+          "src025"
+        ],
+        "productCode": [
+          "src005",
+          "src006",
+          "src015",
+          "src025"
+        ],
+        "releaseDate": [
+          "src003",
+          "src024"
+        ],
+        "packagingLanguages": [
+          "src022",
+          "src025"
+        ],
+        "softwareLanguages": [
+          "src015"
+        ],
+        "ratingSystem": [
+          "src002",
+          "src025"
+        ],
+        "physicalContents": [
+          "src015",
+          "src025"
+        ]
+      }
+    },
+    {
+      "releaseId": "n64-fra-standard",
+      "platform": "n64",
+      "releaseTitle": "007: Le Monde ne Suffit pas",
+      "editionName": "Standard",
+      "market": "France",
+      "distributionMarkets": [
+        {
+          "market": "France",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src005",
+            "src006",
+            "src013"
+          ]
+        }
+      ],
+      "packagingLanguages": [
+        {
+          "language": "French",
+          "component": "outer_box",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src013",
+            "src012"
+          ]
+        },
+        {
+          "language": "French",
+          "component": "manual",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src013"
+          ]
+        }
+      ],
+      "softwareLanguages": {
+        "text": [
+          {
+            "language": "English",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src013"
+            ]
+          },
+          {
+            "language": "French",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src013"
+            ]
+          },
+          {
+            "language": "German",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src013"
+            ]
+          }
+        ],
+        "audio": [],
+        "audioConfidence": "unresolved",
+        "audioUnresolvedReason": "Audio-language inventory was not tied to the FRA physical release by the consulted source."
+      },
+      "barcode": {
+        "value": "5030931024870",
+        "component": "outer_box",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src013"
+        ],
+        "identifierType": "EAN-13"
+      },
+      "productCode": {
+        "value": "NUS-NO7P-FRA",
+        "component": "release",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src005",
+          "src006"
+        ],
+        "identifierType": "Nintendo regional product identifier",
+        "candidates": [
+          "NUS-NO7P-FRA",
+          "NUS-N07P-FRA"
+        ],
+        "note": "Worldwide release lists use NO7; Nintendo64EVER component transcription uses N07."
+      },
+      "serial": [
+        {
+          "value": "NUS-N07P-FRA",
+          "component": "outer_box",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src013"
+          ],
+          "note": "Retained verbatim from Nintendo64EVER; character differs from NO7 in independent release lists."
+        },
+        {
+          "value": "NUS-N07P-FRA",
+          "component": "manual",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src013"
+          ]
+        },
+        {
+          "value": "NUS-N07P-FRA",
+          "component": "cartridge",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src013"
+          ]
+        }
+      ],
+      "releaseDate": {
+        "value": "2000-12-08",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src013",
+          "src024"
+        ]
+      },
+      "releaseType": "standard",
+      "ratingSystem": {
+        "system": "SELL",
+        "rating": "12",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src013",
+          "src012"
+        ]
+      },
+      "regionalPublisher": {
+        "name": "Electronic Arts / EA Games",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src013",
+          "src005"
+        ]
+      },
+      "regionalDistributor": {
+        "name": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "physicalContents": [
+        {
+          "item": "outer box",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src013"
+          ]
+        },
+        {
+          "item": "Nintendo 64 cartridge",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src013"
+          ]
+        },
+        {
+          "item": "manual",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src013"
+          ]
+        }
+      ],
+      "components": {
+        "outerBox": {
+          "codeTranscription": "NUS-N07P-FRA",
+          "barcode": "5030931024870",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src013"
+          ]
+        },
+        "innerBox": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        },
+        "cartridge": {
+          "model": "NUS-006 (EUR)",
+          "codeTranscription": "NUS-N07P-FRA",
+          "capacityMbit": 256,
+          "confidence": "probable",
+          "sourceRefs": [
+            "src013"
+          ]
+        },
+        "manual": {
+          "codeTranscription": "NUS-N07P-FRA",
+          "language": "French",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src013"
+          ]
+        },
+        "extras": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      },
+      "downloadsOrCodes": {
+        "value": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "notes": [
+        "The product-level NO7 spelling and the Nintendo64EVER per-component N07 transcription are kept separate rather than silently normalized."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src005",
+        "src006",
+        "src013",
+        "src024"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "src005",
+          "src006",
+          "src013"
+        ],
+        "barcode": [
+          "src013"
+        ],
+        "productCode": [
+          "src005",
+          "src006"
+        ],
+        "releaseDate": [
+          "src013",
+          "src024"
+        ],
+        "packagingLanguages": [
+          "src013",
+          "src012"
+        ],
+        "softwareLanguages": [
+          "src013"
+        ],
+        "ratingSystem": [
+          "src013",
+          "src012"
+        ]
+      }
+    },
+    {
+      "releaseId": "n64-noe-standard",
+      "platform": "n64",
+      "releaseTitle": "007: Die Welt ist nicht Genug",
+      "editionName": "Standard",
+      "market": "Germany",
+      "distributionMarkets": [
+        {
+          "market": "Germany",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src005",
+            "src006",
+            "src014",
+            "src023"
+          ]
+        }
+      ],
+      "packagingLanguages": [
+        {
+          "language": "German",
+          "component": "outer_box",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src014",
+            "src012"
+          ]
+        },
+        {
+          "language": "German",
+          "component": "manual",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src014"
+          ]
+        }
+      ],
+      "softwareLanguages": {
+        "text": [
+          {
+            "language": "English",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src014"
+            ]
+          },
+          {
+            "language": "French",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src014"
+            ]
+          },
+          {
+            "language": "German",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src014"
+            ]
+          }
+        ],
+        "audio": [],
+        "audioConfidence": "unresolved",
+        "audioUnresolvedReason": "Audio-language inventory was not tied to the NOE physical release by the consulted source."
+      },
+      "barcode": {
+        "value": "5030932024879",
+        "component": "outer_box",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src014",
+          "src012"
+        ],
+        "identifierType": "EAN-13"
+      },
+      "productCode": {
+        "value": "NUS-NO7P-NOE",
+        "component": "release",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src005",
+          "src006"
+        ],
+        "identifierType": "Nintendo regional product identifier",
+        "candidates": [
+          "NUS-NO7P-NOE",
+          "NUS-N07P-NOE"
+        ],
+        "note": "Worldwide release lists use NO7; Nintendo64EVER component transcription uses N07."
+      },
+      "serial": [
+        {
+          "value": "NUS-N07P-NOE",
+          "component": "outer_box",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src014"
+          ]
+        },
+        {
+          "value": "NUS-N07P-NOE",
+          "component": "manual",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src014"
+          ]
+        },
+        {
+          "value": "NUS-N07P-NOE",
+          "component": "cartridge",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src014"
+          ]
+        }
+      ],
+      "releaseDate": {
+        "value": "2000-12-08",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src014",
+          "src024"
+        ]
+      },
+      "releaseType": "standard",
+      "ratingSystem": {
+        "system": "USK",
+        "rating": "18",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src002",
+          "src014",
+          "src012"
+        ]
+      },
+      "regionalPublisher": {
+        "name": "Electronic Arts / EA Games",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src014",
+          "src005"
+        ]
+      },
+      "regionalDistributor": {
+        "name": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "physicalContents": [
+        {
+          "item": "outer box",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src014"
+          ]
+        },
+        {
+          "item": "Nintendo 64 cartridge",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src014"
+          ]
+        },
+        {
+          "item": "manual",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src014"
+          ]
+        }
+      ],
+      "components": {
+        "outerBox": {
+          "codeTranscription": "NUS-N07P-NOE",
+          "barcode": "5030932024879",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src014"
+          ]
+        },
+        "innerBox": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        },
+        "cartridge": {
+          "model": "NUS-006 (EUR)",
+          "codeTranscription": "NUS-N07P-NOE",
+          "capacityMbit": 256,
+          "confidence": "probable",
+          "sourceRefs": [
+            "src014"
+          ]
+        },
+        "manual": {
+          "codeTranscription": "NUS-N07P-NOE",
+          "language": "German",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src014"
+          ]
+        },
+        "extras": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      },
+      "downloadsOrCodes": {
+        "value": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "notes": [
+        "The product-level NO7 spelling and the Nintendo64EVER per-component N07 transcription are retained as a documented character conflict."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src005",
+        "src006",
+        "src014",
+        "src023",
+        "src024"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "src005",
+          "src006",
+          "src014",
+          "src023"
+        ],
+        "barcode": [
+          "src014",
+          "src012"
+        ],
+        "productCode": [
+          "src005",
+          "src006"
+        ],
+        "releaseDate": [
+          "src014",
+          "src024"
+        ],
+        "packagingLanguages": [
+          "src014",
+          "src012"
+        ],
+        "softwareLanguages": [
+          "src014"
+        ],
+        "ratingSystem": [
+          "src002",
+          "src014",
+          "src012"
+        ]
+      }
+    },
+    {
+      "releaseId": "n64-bra-gradiente-standard",
+      "platform": "n64",
+      "releaseTitle": "007: O Mundo Não é o Bastante",
+      "editionName": "Standard",
+      "market": "Brazil",
+      "distributionMarkets": [
+        {
+          "market": "Brazil",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src005",
+            "src006",
+            "src016",
+            "src017",
+            "src018"
+          ]
+        }
+      ],
+      "packagingLanguages": [
+        {
+          "language": "Brazilian Portuguese",
+          "component": "outer_box",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src016",
+            "src018"
+          ]
+        },
+        {
+          "language": "Brazilian Portuguese",
+          "component": "manual",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src016",
+            "src018"
+          ]
+        }
+      ],
+      "softwareLanguages": {
+        "text": [
+          {
+            "language": "English",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src016"
+            ]
+          },
+          {
+            "language": "French",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src016"
+            ]
+          },
+          {
+            "language": "German",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src016"
+            ]
+          },
+          {
+            "language": "Japanese",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src016"
+            ]
+          }
+        ],
+        "audio": [
+          {
+            "language": "English",
+            "confidence": "confirmed",
+            "sourceRefs": [
+              "src016"
+            ]
+          }
+        ]
+      },
+      "barcode": {
+        "value": null,
+        "component": "outer_box",
+        "confidence": "unresolved",
+        "sourceRefs": [
+          "src016",
+          "src017"
+        ],
+        "identifierType": "EAN-13",
+        "candidates": [
+          "7896723606352",
+          "7896273606352"
+        ],
+        "note": "Two specialist sources disagree; no readable Brazilian box-back barcode was obtained to resolve the transposition."
+      },
+      "productCode": {
+        "value": null,
+        "component": "release",
+        "confidence": "unresolved",
+        "sourceRefs": [
+          "src005",
+          "src006",
+          "src016"
+        ],
+        "identifierType": "Nintendo regional product identifier",
+        "candidates": [],
+        "note": "Worldwide cartridge lists explicitly record the Gradiente entry as NO GAMEPAK ID; Nintendo64EVER states Brazilian games do not carry a serial. Absence is not converted into an invented code."
+      },
+      "serial": [],
+      "releaseDate": {
+        "value": "2000-11-16",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src016",
+          "src024"
+        ]
+      },
+      "releaseType": "standard",
+      "ratingSystem": {
+        "system": "Brazilian age classification",
+        "rating": "13+",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src016",
+          "src018"
+        ]
+      },
+      "regionalPublisher": {
+        "name": "Electronic Arts / EA Games",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src016",
+          "src017",
+          "src018"
+        ]
+      },
+      "regionalDistributor": {
+        "name": "Gradiente",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src017",
+          "src018"
+        ]
+      },
+      "physicalContents": [
+        {
+          "item": "outer box",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src018"
+          ]
+        },
+        {
+          "item": "Nintendo 64 cartridge",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src018"
+          ]
+        },
+        {
+          "item": "manual",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src018"
+          ]
+        },
+        {
+          "item": "cardboard inner insert",
+          "factoryIncluded": "probable",
+          "sourceRefs": [
+            "src018"
+          ],
+          "note": "Visible in the photographed CIB copy but not independently confirmed by a factory checklist."
+        }
+      ],
+      "components": {
+        "outerBox": {
+          "localizedTitle": "007: O Mundo Não é o Bastante",
+          "barcode": null,
+          "barcodeConfidence": "unresolved",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src016",
+            "src018"
+          ]
+        },
+        "innerBox": {
+          "details": "cardboard insert visible in CIB photograph",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src018"
+          ]
+        },
+        "cartridge": {
+          "localizedPackaging": "Gradiente-branded Brazilian cartridge",
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src005",
+            "src018"
+          ]
+        },
+        "manual": {
+          "language": "Brazilian Portuguese",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src016",
+            "src018"
+          ]
+        },
+        "extras": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      },
+      "downloadsOrCodes": {
+        "value": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "notes": [
+        "The Brazilian barcode remains unresolved because the two specialist transcriptions differ by transposed digits."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src005",
+        "src006",
+        "src016",
+        "src017",
+        "src018",
+        "src024"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "src005",
+          "src006",
+          "src016",
+          "src017",
+          "src018"
+        ],
+        "barcode": [
+          "src016",
+          "src017"
+        ],
+        "productCode": [
+          "src005",
+          "src006",
+          "src016"
+        ],
+        "releaseDate": [
+          "src016",
+          "src024"
+        ],
+        "packagingLanguages": [
+          "src016",
+          "src018"
+        ],
+        "softwareLanguages": [
+          "src016"
+        ],
+        "ratingSystem": [
+          "src016",
+          "src018"
+        ],
+        "regionalDistributor": [
+          "src017",
+          "src018"
+        ]
+      }
+    },
+    {
+      "releaseId": "n64-mex-standard",
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "Mexico",
+      "distributionMarkets": [
+        {
+          "market": "Mexico",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "src019",
+            "src020"
+          ]
+        }
+      ],
+      "packagingLanguages": [
+        {
+          "language": null,
+          "component": "outer_box",
+          "confidence": "unresolved",
+          "sourceRefs": [
+            "src019"
+          ]
+        },
+        {
+          "language": null,
+          "component": "manual",
+          "confidence": "unresolved",
+          "sourceRefs": [
+            "src019"
+          ]
+        }
+      ],
+      "softwareLanguages": {
+        "text": [],
+        "audio": [],
+        "confidence": "unresolved",
+        "unresolvedReason": "The Mexico-specific physical source does not provide language metadata."
+      },
+      "barcode": {
+        "value": null,
+        "component": "outer_box",
+        "confidence": "unresolved",
+        "sourceRefs": [
+          "src019"
+        ],
+        "identifierType": "barcode"
+      },
+      "productCode": {
+        "value": null,
+        "component": "release",
+        "confidence": "unresolved",
+        "sourceRefs": [
+          "src019",
+          "src041"
+        ],
+        "identifierType": "Nintendo regional product identifier",
+        "candidates": [
+          "NUS-N07E-MSA",
+          "NUS-NO7E-MSA"
+        ],
+        "note": "Nintendo64EVER transcribes N07E-MSA; a secondary code list transcribes NO7E-MSA. No readable Mexico-specific physical scan resolved the character."
+      },
+      "serial": [
+        {
+          "value": "NUS-N07E-MSA",
+          "component": "outer_box",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src019"
+          ]
+        },
+        {
+          "value": "NUS-N07E-MSA",
+          "component": "manual",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src019"
+          ]
+        },
+        {
+          "value": "NUS-N07E-MSA",
+          "component": "cartridge",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src019"
+          ]
+        }
+      ],
+      "releaseDate": {
+        "value": null,
+        "confidence": "unresolved",
+        "candidates": [
+          "2000-10-17"
+        ],
+        "sourceRefs": [
+          "src020",
+          "src019"
+        ],
+        "unresolvedReason": "MobyGames supplies 2000-10-17 for the Mexico entry while Nintendo64EVER leaves the Mexican date unknown; the date is not promoted without corroboration."
+      },
+      "releaseType": "standard",
+      "ratingSystem": {
+        "system": null,
+        "rating": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "regionalPublisher": {
+        "name": "Electronic Arts / EA Games",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src019",
+          "src020"
+        ]
+      },
+      "regionalDistributor": {
+        "name": "EA México S. de R.L. de C.V.",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "src020"
+        ]
+      },
+      "physicalContents": [
+        {
+          "item": "outer box",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src019"
+          ]
+        },
+        {
+          "item": "Nintendo 64 cartridge",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src019"
+          ]
+        },
+        {
+          "item": "manual",
+          "factoryIncluded": "confirmed",
+          "sourceRefs": [
+            "src019"
+          ]
+        }
+      ],
+      "components": {
+        "outerBox": {
+          "codeTranscription": "NUS-N07E-MSA",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src019"
+          ]
+        },
+        "innerBox": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        },
+        "cartridge": {
+          "model": "NUS-006 (USA)",
+          "codeTranscription": "NUS-N07E-MSA",
+          "shellColor": "grey",
+          "capacityMbit": 256,
+          "confidence": "probable",
+          "sourceRefs": [
+            "src019"
+          ]
+        },
+        "manual": {
+          "codeTranscription": "NUS-N07E-MSA",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src019"
+          ]
+        },
+        "extras": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      },
+      "downloadsOrCodes": {
+        "value": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "notes": [
+        "Mexico is independently documented as a market; seller location was not used. Exact N07/NO7 character form remains unresolved."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "src019",
+        "src020",
+        "src041"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "src019",
+          "src020"
+        ],
+        "productCode": [
+          "src019",
+          "src041"
+        ],
+        "regionalDistributor": [
+          "src020"
+        ],
+        "physicalContents": [
+          "src019"
+        ]
+      }
+    },
+    {
+      "releaseId": "n64-aus-candidate",
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "Australia",
+      "distributionMarkets": [
+        {
+          "market": "Australia",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src021"
+          ]
+        }
+      ],
+      "packagingLanguages": [
+        {
+          "language": null,
+          "component": "outer_box",
+          "confidence": "unresolved",
+          "sourceRefs": [
+            "src021"
+          ]
+        },
+        {
+          "language": null,
+          "component": "manual",
+          "confidence": "unresolved",
+          "sourceRefs": [
+            "src021"
+          ]
+        }
+      ],
+      "softwareLanguages": {
+        "text": [],
+        "audio": [],
+        "confidence": "unresolved",
+        "unresolvedReason": "No Australia-specific software-language record was tied to a verified physical identifier."
+      },
+      "barcode": {
+        "value": null,
+        "component": "outer_box",
+        "confidence": "unresolved",
+        "sourceRefs": [
+          "src021"
+        ],
+        "identifierType": "barcode"
+      },
+      "productCode": {
+        "value": null,
+        "component": "release",
+        "confidence": "unresolved",
+        "sourceRefs": [
+          "src021",
+          "src005",
+          "src006",
+          "src032"
+        ],
+        "identifierType": "Nintendo regional product identifier",
+        "candidates": [],
+        "note": "MobyGames documents an Australian physical cover group, but worldwide cartridge lists checked here do not list an AUS identifier for this title."
+      },
+      "serial": [],
+      "releaseDate": {
+        "value": null,
+        "confidence": "unresolved",
+        "sourceRefs": [
+          "src021"
+        ]
+      },
+      "releaseType": "standard",
+      "ratingSystem": {
+        "system": "ACB",
+        "rating": "M15+",
+        "confidence": "probable",
+        "sourceRefs": [
+          "src002"
+        ],
+        "note": "Game-level Australian rating metadata is not sufficient on its own to identify a distinct physical package."
+      },
+      "regionalPublisher": {
+        "name": "Electronic Arts",
+        "confidence": "probable",
+        "sourceRefs": [
+          "src001",
+          "src021"
+        ]
+      },
+      "regionalDistributor": {
+        "name": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "physicalContents": [
+        {
+          "item": "outer box",
+          "factoryIncluded": "probable",
+          "sourceRefs": [
+            "src021"
+          ]
+        },
+        {
+          "item": "Nintendo 64 cartridge",
+          "factoryIncluded": "probable",
+          "sourceRefs": [
+            "src021"
+          ]
+        },
+        {
+          "item": "manual",
+          "factoryIncluded": "probable",
+          "sourceRefs": [
+            "src021"
+          ]
+        }
+      ],
+      "components": {
+        "outerBox": {
+          "details": "Australian cover-gallery item documented, exact code unread",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src021"
+          ]
+        },
+        "innerBox": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        },
+        "cartridge": {
+          "details": "media represented in Australian cover group, exact regional serial unresolved",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src021"
+          ]
+        },
+        "manual": {
+          "details": "manual represented in Australian cover group, exact regional identifier unresolved",
+          "confidence": "probable",
+          "sourceRefs": [
+            "src021"
+          ]
+        },
+        "extras": {
+          "details": null,
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      },
+      "downloadsOrCodes": {
+        "value": null,
+        "confidence": "unresolved",
+        "sourceRefs": []
+      },
+      "notes": [
+        "Australian physical packaging is documented by a preservation gallery, but a distinct AUS product code/barcode could not be reconciled with release lists that omit an AUS entry."
+      ],
+      "confidence": "probable",
+      "sourceRefs": [
+        "src021",
+        "src002",
+        "src005",
+        "src006",
+        "src032"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "src021"
+        ],
+        "productCode": [
+          "src021",
+          "src005",
+          "src006",
+          "src032"
+        ],
+        "ratingSystem": [
+          "src002"
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "src001",
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/",
+      "sourceName": "MobyGames",
+      "title": "007: The World Is Not Enough",
+      "accessedAt": "2026-09-21",
+      "supports": "Nintendo 64 identity; title and alternate regional titles; developer Eurocom Developments; publisher Electronic Arts; action/first-person/shooter classification; one-to-four player metadata."
+    },
+    {
+      "sourceId": "src002",
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/specs/n64/",
+      "sourceName": "MobyGames",
+      "title": "007: The World Is Not Enough - Nintendo 64 specs",
+      "accessedAt": "2026-09-21",
+      "supports": "Nintendo 64 player count; multiplayer free-for-all/team/bot modes; Controller Pak, Expansion Pak and Rumble Pak support; ESRB, USK, ACB and ELSPA rating metadata."
+    },
+    {
+      "sourceId": "src003",
+      "url": "https://gamefaqs.gamespot.com/n64/914163-007-the-world-is-not-enough/data",
+      "sourceName": "GameFAQs",
+      "title": "007: The World Is Not Enough - Data",
+      "accessedAt": "2026-09-21",
+      "supports": "Nintendo 64 developer, genre and players; US product identifier transcription NUS-N07E-USA and UPC 014633141849; European identifier transcription NUS-N07P-EUR; US and European date metadata."
+    },
+    {
+      "sourceId": "src004",
+      "url": "https://micro-64.com/database/masterlist.shtml",
+      "sourceName": "Micro-64",
+      "title": "Nintendo 64 Master List",
+      "accessedAt": "2026-09-21",
+      "supports": "Nintendo 64 release-list entry for 007: The World Is Not Enough; Eurocom and Electronic Arts attribution; North American and PAL dates; identifier transcriptions NUS-N07E-USA and NUS-N07P-EUR."
+    },
+    {
+      "sourceId": "src005",
+      "url": "https://www.64scener.com/index.php?page=nintendo64-world-wide-cartridge-release-list",
+      "sourceName": "64scener",
+      "title": "Nintendo 64 World Wide Cartridge Release List",
+      "accessedAt": "2026-09-21",
+      "supports": "Worldwide physical-cartridge entries for the Gradiente Brazilian release, NUS-NO7E-USA including a cartridge-color variant, NUS-NO7P-FRA, NUS-NO7P-NOE and NUS-NO7P-UKV."
+    },
+    {
+      "sourceId": "src006",
+      "url": "https://nesworld.com/article.php?data=n64releaselist&system=n64",
+      "sourceName": "NESWorld",
+      "title": "Nintendo 64 release list",
+      "accessedAt": "2026-09-21",
+      "supports": "Independent worldwide release-list corroboration for Gradiente Brazil, US cartridge-color variant and physical regional identifiers NUS-NO7E-USA, NUS-NO7P-FRA, NUS-NO7P-NOE and NUS-NO7P-UKV."
+    },
+    {
+      "sourceId": "src007",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,2,007-The-World-is-not-Enough.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "007: The World is not Enough - United States first print",
+      "accessedAt": "2026-09-21",
+      "supports": "US first-print blue-cartridge variant; 256 Mbit cartridge; four players; English box/manual/text metadata; barcode 014633141849; component identifier transcription NUS-N07E-USA; ESRB Teen."
+    },
+    {
+      "sourceId": "src008",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Content,2,007-The-World-is-not-Enough.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "007: The World is not Enough - United States first print content",
+      "accessedAt": "2026-09-21",
+      "supports": "US first-print physical component inventory and scan availability for box, cartridge and manual."
+    },
+    {
+      "sourceId": "src009",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1,007-The-World-is-not-Enough.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "007: The World is not Enough - United States second print",
+      "accessedAt": "2026-09-21",
+      "supports": "US second-print grey-cartridge variant; same barcode and identifier transcription; 256 Mbit cartridge; four players; English packaging/manual/text; ESRB Teen."
+    },
+    {
+      "sourceId": "src010",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Content,1,007-The-World-is-not-Enough.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "007: The World is not Enough - United States second print content",
+      "accessedAt": "2026-09-21",
+      "supports": "US second-print physical component inventory and scan availability; front scan was discoverable but no sufficiently verified edition-specific back image was retained."
+    },
+    {
+      "sourceId": "src011",
+      "url": "https://www.nesworld.com/n64list-game.php?gameid=1115",
+      "sourceName": "NESWorld",
+      "title": "007: The World Is Not Enough - NUS-NO7E-USA",
+      "accessedAt": "2026-09-21",
+      "supports": "US physical metadata: GamePak ID NO7E, region USA, 256 Mbit, one-to-four players, Box ID NUS-NO7E-USA, barcode 014633141849, Manual ID NUS-NO7E-USA, Controller Pak, Rumble Pak and Expansion Pak."
+    },
+    {
+      "sourceId": "src012",
+      "url": "https://gamesdb.launchbox-app.com/games/images/225-007-the-world-is-not-enough",
+      "sourceName": "LaunchBox Games Database",
+      "title": "007: The World Is Not Enough - Images",
+      "accessedAt": "2026-09-21",
+      "supports": "Discovery page for inspected direct front/back image assets for North American, French and German Nintendo 64 packaging."
+    },
+    {
+      "sourceId": "src013",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet%2C4%2C007-Le-Monde-ne-Suffit-pas.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "007 : Le Monde ne Suffit pas - France",
+      "accessedAt": "2026-09-21",
+      "supports": "French physical release; 2000-12-08 date; barcode 5030931024870; component identifier transcription NUS-N07P-FRA; French box/manual; software text languages English, French and German; SELL age 12."
+    },
+    {
+      "sourceId": "src014",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet%2C5%2C007-Die-Welt-ist-nicht-Genug.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "007: Die Welt ist nicht Genug - Germany",
+      "accessedAt": "2026-09-21",
+      "supports": "German physical release; 2000-12-08 date; barcode 5030932024879; component identifier transcription NUS-N07P-NOE; German box/manual; software text languages English, French and German; USK 18."
+    },
+    {
+      "sourceId": "src015",
+      "url": "https://www.nesworld.com/n64list-game.php?gameid=468",
+      "sourceName": "NESWorld",
+      "title": "007: The World Is Not Enough - NUS-NO7P-UKV",
+      "accessedAt": "2026-09-21",
+      "supports": "UKV physical metadata: GamePak ID NO7P, region UKV, 256 Mbit, English/French/German game languages, one-to-four players, Box ID NUS-NO7P-UKV, barcode 5030930024871, Manual ID NUS-NO7P-UKV and precaution leaflet NUS-EUR-3."
+    },
+    {
+      "sourceId": "src016",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet%2C11%2C007-O-Mundo-nao-e-o-Bastante.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "007: O Mundo não é o Bastante - Brazil",
+      "accessedAt": "2026-09-21",
+      "supports": "Brazilian Gradiente-market release metadata; 2000-11-16 date; barcode candidate 7896723606352; Portuguese box/manual; English voices; English/French/German/Japanese text; 13+ rating metadata; statement that Brazilian game has no serial number."
+    },
+    {
+      "sourceId": "src017",
+      "url": "https://www.vgdb.com.br/nintendo-64/jogos/007-the-world-is-not-enought/",
+      "sourceName": "VGDB",
+      "title": "007: O Mundo Não é o Bastante",
+      "accessedAt": "2026-09-21",
+      "supports": "Brazilian title, Nintendo 64 platform, Eurocom, Electronic Arts and Gradiente association, cartridge medium, James Bond/007 franchise metadata, and conflicting Brazilian barcode candidate 7896273606352."
+    },
+    {
+      "sourceId": "src018",
+      "url": "https://box21games.com.br/loja/007-o-mundo-nao-e-o-bastante-n64",
+      "sourceName": "Box 21 Games",
+      "title": "007: O Mundo Não é o Bastante — Nintendo 64 (Gradiente) · CIB",
+      "accessedAt": "2026-09-21",
+      "supports": "Active used Brazilian Gradiente CIB listing at R$499.90; explicitly includes original cartridge, box and manual; direct listing states Brazilian Gradiente distribution and in-stock status."
+    },
+    {
+      "sourceId": "src019",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1821,007-The-World-is-not-Enough.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "007: The World is not Enough - Mexico",
+      "accessedAt": "2026-09-21",
+      "supports": "Mexican physical-release record; box/manual/cartridge identifier transcription NUS-N07E-MSA; grey cartridge; 256 Mbit; four players; barcode and language metadata unresolved on source."
+    },
+    {
+      "sourceId": "src020",
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/releases/",
+      "sourceName": "MobyGames",
+      "title": "007: The World Is Not Enough - Releases",
+      "accessedAt": "2026-09-21",
+      "supports": "Country-specific release metadata including Mexico with Electronic Arts México distribution and a 2000-10-17 date record; broader Nintendo 64 release chronology."
+    },
+    {
+      "sourceId": "src021",
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/covers/",
+      "sourceName": "MobyGames",
+      "title": "007: The World Is Not Enough - Covers",
+      "accessedAt": "2026-09-21",
+      "supports": "Preservation cover-gallery metadata documenting Nintendo 64 physical cover groups including Australia; direct original extraction was not reliably available for all Australian sides."
+    },
+    {
+      "sourceId": "src022",
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/covers/group-93022/",
+      "sourceName": "MobyGames",
+      "title": "007: The World Is Not Enough - United Kingdom cover group",
+      "accessedAt": "2026-09-21",
+      "supports": "United Kingdom Nintendo 64 physical-cover group corroboration."
+    },
+    {
+      "sourceId": "src023",
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/covers/group-22153/",
+      "sourceName": "MobyGames",
+      "title": "007: Die Welt ist nicht genug - German cover group",
+      "accessedAt": "2026-09-21",
+      "supports": "German Nintendo 64 physical-cover group corroboration."
+    },
+    {
+      "sourceId": "src024",
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Games-2000.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "Nintendo 64 Games - 2000",
+      "accessedAt": "2026-09-21",
+      "supports": "Cross-release date index: France/Germany/UK on 2000-12-08, Brazil on 2000-11-16, and US print entries on 2000-10-17."
+    },
+    {
+      "sourceId": "src025",
+      "url": "https://retrospillkongen.no/products/007-the-world-is-not-enough-n64-spill-i-eske",
+      "sourceName": "Retrospillkongen",
+      "title": "007 The World Is Not Enough - N64 spill (I eske)",
+      "accessedAt": "2026-09-21",
+      "supports": "Active used boxed copy at NOK 999; one unit in stock; original box, cartridge, manual and original cardboard insert; product photographs inspected for UKV packaging/cart evidence."
+    },
+    {
+      "sourceId": "src026",
+      "url": "https://www.dkoldies.com/007-the-world-is-not-enough-grey-n64-game/",
+      "sourceName": "DKOldies",
+      "title": "007 The World is Not Enough - N64 Game",
+      "accessedAt": "2026-09-21",
+      "supports": "Active used cartridge-only offer and grey/blue color selection context; text-level region evidence was not sufficient to attribute an exact USA physical suffix for pricing."
+    },
+    {
+      "sourceId": "src027",
+      "url": "https://sp.olx.com.br/regiao-de-sao-paulo/games/jogos-de-video-game/cartucho-nintendo-64-n64-007-the-world-is-not-enough-james-bond-original-1528644987",
+      "sourceName": "OLX Brasil",
+      "title": "Cartucho Nintendo 64 N64 007 The World Is Not Enough James Bond Original",
+      "accessedAt": "2026-09-21",
+      "supports": "Loose-cartridge candidate with NUS-N07E-USA transcription; direct parsed page did not expose an auditable current asking price, so it was excluded from price sampleSize."
+    },
+    {
+      "sourceId": "src028",
+      "url": "https://lista.mercadolivre.com.br/nintendo-64-cib",
+      "sourceName": "Mercado Livre",
+      "title": "Nintendo 64 CIB search results",
+      "accessedAt": "2026-09-21",
+      "supports": "Discovery-only search result that surfaced a Brazilian 007 CIB candidate; no qualifying direct listing page was available for auditable price inclusion."
+    },
+    {
+      "sourceId": "src029",
+      "url": "https://lista.mercadolivre.com.br/007-the-world-is-not-enough-n64",
+      "sourceName": "Mercado Livre",
+      "title": "007 The World Is Not Enough N64 search results",
+      "accessedAt": "2026-09-21",
+      "supports": "Discovery-only active-market search; regional identity and direct-listing evidence were insufficient for price sampling."
+    },
+    {
+      "sourceId": "src030",
+      "url": "https://www.olx.com.br/anuncios/nintendo-64-007",
+      "sourceName": "OLX Brasil",
+      "title": "Nintendo 64 007 search results",
+      "accessedAt": "2026-09-21",
+      "supports": "Discovery-only results for Brazilian and imported loose copies; results were not used as direct listing price evidence."
+    },
+    {
+      "sourceId": "src031",
+      "url": "https://github.com/mbit2/melt/blob/master/hash/n64.xml",
+      "sourceName": "melt / MAME-derived Nintendo 64 software list",
+      "title": "n64.xml",
+      "accessedAt": "2026-09-21",
+      "supports": "Picture-confirmed Euro cartridge technical record with serial transcription NUS-N07P-(UKV,FRA,NOE), PCB NUS-01A-03, ROM NUS-N07P-0, CIC-NUS-7101A, NUS-006(EUR) cart model and 32 MiB ROM size."
+    },
+    {
+      "sourceId": "src032",
+      "url": "https://www.nintendo64ever.com/All-Nintendo-64-Games.html",
+      "sourceName": "Nintendo64EVER",
+      "title": "All Nintendo 64 Games",
+      "accessedAt": "2026-09-21",
+      "supports": "Release-index corroboration for US first/second prints, France, Germany, Brazil and United Kingdom; no Australian entry for this title in that index."
+    },
+    {
+      "sourceId": "src033",
+      "url": "https://cdon.se/produkt/007-the-world-is-not-enough-nintendo-64-n64-pal-eur-begagnad-b1e06293053d5b8b/",
+      "sourceName": "CDON / Retroplay",
+      "title": "007- The World Is Not Enough - Nintendo 64/N64 - PAL/EUR (Begagnad)",
+      "accessedAt": "2026-09-21",
+      "supports": "Active seller-designated Complete in Box offer at SEK 995; explicit region-code transcription NUS-N07P-UKV; sold and delivered by Retroplay. Cross-listing relationship prevents treating it independently from Retroplay's Tradera offer."
+    },
+    {
+      "sourceId": "src034",
+      "url": "https://www.tradera.com/item/340668/335064447/007-the-world-is-not-enough-nintendo-64-n64-pal-eur-complete-cib-",
+      "sourceName": "Tradera / Retroplay",
+      "title": "007- The World Is Not Enough - Nintendo 64/N64 - PAL/EUR - Complete (CIB)",
+      "accessedAt": "2026-09-21",
+      "supports": "Active fixed-price CIB listing at SEK 995 plus SEK 79 shipping; stock shown; seller Retroplay; explicit NUS-N07P-UKV region-code transcription."
+    },
+    {
+      "sourceId": "src035",
+      "url": "https://www.tradera.com/item/340668/306976749/007-the-world-is-not-enough-nintendo-64-n64-pal-eur-cart-only",
+      "sourceName": "Tradera / Retroplay",
+      "title": "007- The World Is Not Enough - Nintendo 64/N64 - PAL/EUR - Cart Only",
+      "accessedAt": "2026-09-21",
+      "supports": "Active fixed-price cartridge-only listing at SEK 495 plus SEK 79 shipping; stock shown; seller Retroplay; explicit NUS-N07P-UKV region-code transcription."
+    },
+    {
+      "sourceId": "src036",
+      "url": "https://www.gameland-groningen.nl/nl/007-the-world-is-not-enough-boxed-ukv-nintendo-64.html",
+      "sourceName": "Gameland-Groningen",
+      "title": "007 The World is not Enough (Boxed, UKV)",
+      "accessedAt": "2026-09-21",
+      "supports": "UKV boxed-product context at EUR 24.95 but explicitly sold out; ineligible for active price sampleSize."
+    },
+    {
+      "sourceId": "src037",
+      "url": "https://www.tradera.com/item/340668/677022872/007-the-world-is-not-enough-komplett",
+      "sourceName": "Tradera / Spelmaffian",
+      "title": "007 - The World Is Not Enough - Komplett",
+      "accessedAt": "2026-09-21",
+      "supports": "Active CIB-labeled offer at SEK 495 plus shipping; listing warns multiple copies may differ from pictured copy and does not textually establish the exact regional suffix, so excluded from exact-region price sample."
+    },
+    {
+      "sourceId": "src038",
+      "url": "https://www.tradera.com/item/340668/470800064/007-the-world-is-not-enough-spel-till-nintendo-64",
+      "sourceName": "Tradera / Spelmaffian",
+      "title": "007 - The World Is Not Enough, Spel till Nintendo 64",
+      "accessedAt": "2026-09-21",
+      "supports": "Active cartridge-only offer at SEK 295 plus shipping; listing warns multiple copies may differ from pictured copy and does not establish exact regional suffix, so excluded from exact-region price sample."
+    },
+    {
+      "sourceId": "src039",
+      "url": "https://www.pricecharting.com/game/pal-nintendo-64/007-world-is-not-enough",
+      "sourceName": "PriceCharting",
+      "title": "007 World is Not Enough Prices PAL Nintendo 64",
+      "accessedAt": "2026-09-21",
+      "supports": "Completed-sale context only. Sold/completed records were explicitly excluded from current active price sampleSize."
+    },
+    {
+      "sourceId": "src040",
+      "url": "https://www.vgpreise.de/gameslist/N64",
+      "sourceName": "VGPreise",
+      "title": "Nintendo 64 price and variant list",
+      "accessedAt": "2026-09-21",
+      "supports": "Variant-index context listing USA, UKV, NOE and FRA product codes; aggregated offer averages were not used as direct price observations."
+    },
+    {
+      "sourceId": "src041",
+      "url": "https://meanwhileblog.wordpress.com/n64-game-code-list/",
+      "sourceName": "MEANWHILE…",
+      "title": "N64 Game Code List",
+      "accessedAt": "2026-09-21",
+      "supports": "Secondary identifier list with NUS-NO7E-MSA and NUS-NO7P-UKV; used only as corroborative/candidate code context."
+    },
+    {
+      "sourceId": "src042",
+      "url": "https://www.arcade-history.com/game/57559/",
+      "sourceName": "Arcade-History",
+      "title": "007: The World Is Not Enough (2000) - Nintendo 64 cart",
+      "accessedAt": "2026-09-21",
+      "supports": "Secondary technical context for N64 cartridge identity, US date 2000-10-17 and exported UK/NOE model transcriptions using N07 spelling."
+    }
+  ],
+  "images": [
+    {
+      "sourceRefs": [
+        "src012",
+        "src011"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United States",
+      "pageUrl": "https://gamesdb.launchbox-app.com/games/images/225-007-the-world-is-not-enough",
+      "imageUrl": "https://images.launchbox-app.com/98ec9344-62c0-4a81-a073-0ec115a93dfd.jpg",
+      "component": "outer_box_front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Outer-box front for the English North American Nintendo 64 package.",
+        "EA Games, Nintendo 64, ESRB Teen, accessory-support icons and one-to-four simultaneous players are visibly printed."
+      ],
+      "observedText": [
+        "007 The World Is Not Enough",
+        "EA GAMES",
+        "TEEN",
+        "1-4 Players/Simultaneous"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "src012",
+        "src011"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United States",
+      "pageUrl": "https://gamesdb.launchbox-app.com/games/images/225-007-the-world-is-not-enough",
+      "imageUrl": "https://images.launchbox-app.com/5c3c9c86-b90c-4799-aac4-783ba2d304f9.jpg",
+      "component": "outer_box_back",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Outer-box back visibly carries North American distribution wording, barcode digits and the NO7E base code.",
+        "The back states use of two Controller Pak pages and ESRB Animated Violence."
+      ],
+      "observedText": [
+        "FOR SALES, RENTAL AND USE ONLY IN USA, CANADA, MEXICO AND LATIN AMERICA",
+        "NUS P NO7E",
+        "0 14633 14184 9",
+        "Animated Violence"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "src025",
+        "src015"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United Kingdom",
+      "pageUrl": "https://retrospillkongen.no/products/007-the-world-is-not-enough-n64-spill-i-eske",
+      "imageUrl": "https://retrospillkongen.no/cdn/shop/files/DSC_2146_result.webp?v=1751541985&width=1200",
+      "component": "outer_box_front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "English PAL outer-box front with ELSPA 15 mark and EA Games branding."
+      ],
+      "observedText": [
+        "007 The World Is Not Enough",
+        "PAL VERSION",
+        "15",
+        "EA GAMES"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "src025",
+        "src015"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United Kingdom",
+      "pageUrl": "https://retrospillkongen.no/products/007-the-world-is-not-enough-n64-spill-i-eske",
+      "imageUrl": "https://retrospillkongen.no/cdn/shop/files/DSC_2148_result.webp?v=1751541985&width=1200",
+      "component": "outer_box_back",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "English outer-box back from the same boxed listing; NO7P base code, UK Electronic Arts address and Controller Pak two-page statement are legible.",
+        "The product is linked independently to UKV by the cart/box metadata in NESWorld and the inspected listing set."
+      ],
+      "observedText": [
+        "NUS P NO7P",
+        "This Game Pak uses '2 pages' of N64 Controller Pak memory"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "src012",
+        "src013"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: Le Monde ne Suffit pas",
+      "editionName": "Standard",
+      "market": "France",
+      "pageUrl": "https://gamesdb.launchbox-app.com/games/images/225-007-the-world-is-not-enough",
+      "imageUrl": "https://images.launchbox-app.com/f7c77bbf-6a01-4560-b066-16309d36f619.jpg",
+      "component": "outer_box_front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Localized French PAL outer-box front."
+      ],
+      "observedText": [
+        "007 Le Monde ne Suffit Pas",
+        "PAL"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "src012",
+        "src013"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: Le Monde ne Suffit pas",
+      "editionName": "Standard",
+      "market": "France",
+      "pageUrl": "https://gamesdb.launchbox-app.com/games/images/225-007-the-world-is-not-enough",
+      "imageUrl": "https://images.launchbox-app.com/15560a94-3f34-472e-a701-591bb5361930.jpg",
+      "component": "outer_box_back",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "French-language outer-box back; SELL 12 mark and NO7P base code are visible."
+      ],
+      "observedText": [
+        "NUS P NO7P",
+        "12"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "src012",
+        "src014"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: Die Welt ist nicht Genug",
+      "editionName": "Standard",
+      "market": "Germany",
+      "pageUrl": "https://gamesdb.launchbox-app.com/games/images/225-007-the-world-is-not-enough",
+      "imageUrl": "https://images.launchbox-app.com/37ab240b-d2cd-4750-941c-936e50e8a27a.jpg",
+      "component": "outer_box_front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Localized German PAL outer-box front."
+      ],
+      "observedText": [
+        "007 Die Welt ist nicht Genug",
+        "PAL"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "src012",
+        "src014"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: Die Welt ist nicht Genug",
+      "editionName": "Standard",
+      "market": "Germany",
+      "pageUrl": "https://gamesdb.launchbox-app.com/games/images/225-007-the-world-is-not-enough",
+      "imageUrl": "https://images.launchbox-app.com/827ae0d7-b9ed-4dc5-853b-d67565bcdd2f.jpg",
+      "component": "outer_box_back",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "German-language outer-box back with USK age marking, NO7P base code and the German barcode visible."
+      ],
+      "observedText": [
+        "NUS P NO7P",
+        "5030932024879",
+        "18"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "src018",
+        "src016"
+      ],
+      "platform": "n64",
+      "releaseTitle": "007: O Mundo Não é o Bastante",
+      "editionName": "Standard",
+      "market": "Brazil",
+      "pageUrl": "https://box21games.com.br/loja/007-o-mundo-nao-e-o-bastante-n64",
+      "imageUrl": "https://box21games.com.br/_next/image?q=75&url=%2Fprodutos%2F007-o-mundo-nao-e-o-bastante-n64.jpg&w=3840",
+      "component": "outer_box_front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Composite product photograph visibly includes the localized Brazilian outer-box front together with cartridge and manual.",
+        "Gradiente/Nintendo branding and the 13+ age mark are visible on the Brazilian packaging."
+      ],
+      "observedText": [
+        "007 O Mundo Não é o Bastante",
+        "13",
+        "EA GAMES"
+      ],
+      "confidence": "confirmed"
+    }
+  ],
+  "regionalPrices": [
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United States",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active USA-coded listings with exact NUS-NO7E-USA physical-region proof, matching condition and currency were found. General NTSC/US marketplace metadata was not accepted as exact physical-region proof."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United States",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active USA-coded listings with exact NUS-NO7E-USA physical-region proof, matching condition and currency were found. General NTSC/US marketplace metadata was not accepted as exact physical-region proof."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United States",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active USA-coded listings with exact NUS-NO7E-USA physical-region proof, matching condition and currency were found. General NTSC/US marketplace metadata was not accepted as exact physical-region proof."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United Kingdom",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active sealed UKV listings with direct exact-region proof were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United Kingdom",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": "NOK",
+      "observations": [
+        {
+          "sourceId": "src025",
+          "listingId": "007-the-world-is-not-enough-n64-spill-i-eske-eske-1",
+          "marketplace": "Retrospillkongen",
+          "listingUrl": "https://retrospillkongen.no/products/007-the-world-is-not-enough-n64-spill-i-eske",
+          "accessedAt": "2026-09-21",
+          "listingStatus": "active",
+          "sellerId": "Retrospillkongen",
+          "askingPriceWithoutShipping": 999.0,
+          "shippingPrice": 69.0,
+          "shippingNote": "Page states shipping from NOK 69; final shipping depends on destination.",
+          "currency": "NOK",
+          "conditionBucket": "complete",
+          "regionEvidence": [
+            "Inspected listing photograph set is linked to UKV by NUS-NO7P-UKV physical metadata and UKV specialist record."
+          ],
+          "editionEvidence": [
+            "Standard original box, cartridge and manual; original cardboard inner insert listed."
+          ],
+          "includedContents": [
+            "outer box",
+            "cartridge",
+            "manual",
+            "cardboard inner insert"
+          ]
+        }
+      ],
+      "sampleSize": 1,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": 999.0,
+      "marketMax": 999.0,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "src025"
+      ],
+      "unresolvedReason": "Only one active exact UKV complete observation was found in NOK. SEK listings cannot be pooled with it, and CDON/Tradera Retroplay cross-listings count as one seller observation.",
+      "nonComparableObservations": [
+        {
+          "sourceId": "src034",
+          "listingId": "335064447",
+          "marketplace": "Tradera",
+          "listingUrl": "https://www.tradera.com/item/340668/335064447/007-the-world-is-not-enough-nintendo-64-n64-pal-eur-complete-cib-",
+          "accessedAt": "2026-09-21",
+          "listingStatus": "active",
+          "sellerId": "Retroplay",
+          "askingPriceWithoutShipping": 995.0,
+          "shippingPrice": 79.0,
+          "currency": "SEK",
+          "conditionBucket": "complete",
+          "regionEvidence": [
+            "Listing text explicitly states NUS-N07P-UKV."
+          ],
+          "editionEvidence": [
+            "Seller labels item Complete (CIB)."
+          ],
+          "includedContents": [
+            "seller-designated Complete (CIB)"
+          ],
+          "exclusionReason": "Different currency from primary NOK observation; cannot be pooled. CDON cross-listing by the same Retroplay seller is also not independent."
+        }
+      ]
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "United Kingdom",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": "SEK",
+      "observations": [
+        {
+          "sourceId": "src035",
+          "listingId": "306976749",
+          "marketplace": "Tradera",
+          "listingUrl": "https://www.tradera.com/item/340668/306976749/007-the-world-is-not-enough-nintendo-64-n64-pal-eur-cart-only",
+          "accessedAt": "2026-09-21",
+          "listingStatus": "active",
+          "sellerId": "Retroplay",
+          "askingPriceWithoutShipping": 495.0,
+          "shippingPrice": 79.0,
+          "currency": "SEK",
+          "conditionBucket": "loose",
+          "regionEvidence": [
+            "Listing text explicitly states NUS-N07P-UKV."
+          ],
+          "editionEvidence": [
+            "Listing is explicitly cartridge only."
+          ],
+          "includedContents": [
+            "cartridge only"
+          ]
+        }
+      ],
+      "sampleSize": 1,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": 495.0,
+      "marketMax": 495.0,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "src035"
+      ],
+      "unresolvedReason": "Only one active exact UKV cartridge-only observation was found in SEK; other candidates lacked exact-region proof or were auctions/inactive."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: Le Monde ne Suffit pas",
+      "editionName": "Standard",
+      "market": "France",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active NUS-NO7P-FRA listings with direct exact-region proof, matching condition and currency were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: Le Monde ne Suffit pas",
+      "editionName": "Standard",
+      "market": "France",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active NUS-NO7P-FRA listings with direct exact-region proof, matching condition and currency were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: Le Monde ne Suffit pas",
+      "editionName": "Standard",
+      "market": "France",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active NUS-NO7P-FRA listings with direct exact-region proof, matching condition and currency were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: Die Welt ist nicht Genug",
+      "editionName": "Standard",
+      "market": "Germany",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active NUS-NO7P-NOE listings with direct exact-region proof, matching condition and currency were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: Die Welt ist nicht Genug",
+      "editionName": "Standard",
+      "market": "Germany",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active NUS-NO7P-NOE listings with direct exact-region proof, matching condition and currency were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: Die Welt ist nicht Genug",
+      "editionName": "Standard",
+      "market": "Germany",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active NUS-NO7P-NOE listings with direct exact-region proof, matching condition and currency were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: O Mundo Não é o Bastante",
+      "editionName": "Standard",
+      "market": "Brazil",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active sealed Brazilian Gradiente listings with direct exact-region proof were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: O Mundo Não é o Bastante",
+      "editionName": "Standard",
+      "market": "Brazil",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": "BRL",
+      "observations": [
+        {
+          "sourceId": "src018",
+          "listingId": "007-o-mundo-nao-e-o-bastante-n64",
+          "marketplace": "Box 21 Games",
+          "listingUrl": "https://box21games.com.br/loja/007-o-mundo-nao-e-o-bastante-n64",
+          "accessedAt": "2026-09-21",
+          "listingStatus": "active",
+          "sellerId": "Box 21 Games",
+          "askingPriceWithoutShipping": 499.9,
+          "shippingPrice": null,
+          "currency": "BRL",
+          "conditionBucket": "complete",
+          "regionEvidence": [
+            "Direct listing explicitly states Brazilian version distributed by Gradiente.",
+            "Inspected product image shows Brazilian localized packaging/Gradiente branding."
+          ],
+          "editionEvidence": [
+            "Standard retail CIB; listing explicitly includes original cartridge, box and manual."
+          ],
+          "includedContents": [
+            "cartridge",
+            "outer box",
+            "manual"
+          ]
+        }
+      ],
+      "sampleSize": 1,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": 499.9,
+      "marketMax": 499.9,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "src018"
+      ],
+      "unresolvedReason": "Only one active exact Brazilian Gradiente CIB listing with direct price and region evidence was found; Mercado Livre/OLX candidates did not satisfy the direct-listing evidence contract."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: O Mundo Não é o Bastante",
+      "editionName": "Standard",
+      "market": "Brazil",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active loose Brazilian Gradiente listings with direct exact-region proof and auditable prices were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "Mexico",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active Mexico MSA listings with direct exact-product evidence, condition comparability and auditable current prices were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "Mexico",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active Mexico MSA listings with direct exact-product evidence, condition comparability and auditable current prices were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "Mexico",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active Mexico MSA listings with direct exact-product evidence, condition comparability and auditable current prices were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "Australia",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "Australian physical package identity remains probable rather than fully resolved, and no two active exact Australian-product listings satisfying the price contract were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "Australia",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "Australian physical package identity remains probable rather than fully resolved, and no two active exact Australian-product listings satisfying the price contract were found."
+    },
+    {
+      "platform": "n64",
+      "releaseTitle": "007: The World Is Not Enough",
+      "editionName": "Standard",
+      "market": "Australia",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": null,
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "Median of active independent exact-regional listing item prices excluding shipping; minimum two comparable listings in the same currency required.",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "Australian physical package identity remains probable rather than fully resolved, and no two active exact Australian-product listings satisfying the price contract were found."
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q001",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" Nintendo 64 NUS code barcode PAL",
+      "provider": "web_search",
+      "targetFields": [
+        "identity",
+        "product codes",
+        "barcodes",
+        "regions"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src003",
+        "src004",
+        "src005",
+        "src006"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q002",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" N64 \"NUS-\" cartridge",
+      "provider": "web_search",
+      "targetFields": [
+        "cartridge identifiers",
+        "regional releases"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src005",
+        "src006",
+        "src011",
+        "src015"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q003",
+      "queryType": "general",
+      "query": "\"The World Is Not Enough\" Nintendo 64 PAL box barcode",
+      "provider": "web_search",
+      "targetFields": [
+        "PAL packaging",
+        "barcodes"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src013",
+        "src014",
+        "src015"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q004",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" Nintendo 64 Europe manual pdf",
+      "provider": "web_search",
+      "targetFields": [
+        "manuals",
+        "packaging languages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q005",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" Nintendo 64 MobyGames",
+      "provider": "web_search",
+      "targetFields": [
+        "identity",
+        "developer",
+        "publisher",
+        "players",
+        "release metadata"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src001",
+        "src002",
+        "src020",
+        "src021"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q006",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" Nintendo 64 release date Eurocom EA",
+      "provider": "web_search",
+      "targetFields": [
+        "developer",
+        "publisher",
+        "release date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src001",
+        "src003",
+        "src004",
+        "src042"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q007",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" N64 UKV FRA NOE EUR",
+      "provider": "web_search",
+      "targetFields": [
+        "regional releases",
+        "product codes"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src005",
+        "src006",
+        "src015"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q008",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" N64 \"NUS-N07P-UKV\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UKV product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src015",
+        "src031",
+        "src041"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q009",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" N64 \"NUS-N07P-FRA\"",
+      "provider": "web_search",
+      "targetFields": [
+        "FRA product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src005",
+        "src006",
+        "src013",
+        "src031"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q010",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" N64 \"NUS-N07P-NOE\"",
+      "provider": "web_search",
+      "targetFields": [
+        "NOE product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src005",
+        "src006",
+        "src014",
+        "src031"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q011",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" N64 \"NUS-N07E-MSA\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Mexico product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src019",
+        "src041"
+      ],
+      "notes": "Dynamic result count was not used as a factual field.",
+      "discoveredIdentifiers": [
+        "NUS-N07E-MSA",
+        "NUS-NO7E-MSA"
+      ]
+    },
+    {
+      "queryId": "q012",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" N64 Gradiente Brazil",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil release",
+        "publisher/distributor",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src016",
+        "src017",
+        "src018"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q013",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" N64 Australia NUS",
+      "provider": "web_search",
+      "targetFields": [
+        "Australia release",
+        "product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src021"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q014",
+      "queryType": "image",
+      "query": "\"007 The World Is Not Enough\" N64 UKV box front back",
+      "provider": "image_search",
+      "targetFields": [
+        "UKV front image",
+        "UKV back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src012",
+        "src022"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q015",
+      "queryType": "image",
+      "query": "\"007 The World Is Not Enough\" N64 FRA box front back",
+      "provider": "image_search",
+      "targetFields": [
+        "France front image",
+        "France back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src012",
+        "src013"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q016",
+      "queryType": "image",
+      "query": "\"007 Die Welt ist nicht genug\" N64 NOE box front back",
+      "provider": "image_search",
+      "targetFields": [
+        "Germany front image",
+        "Germany back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src012",
+        "src014",
+        "src023"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q017",
+      "queryType": "image",
+      "query": "\"007 O Mundo nao e o Bastante\" N64 Brazil box front back",
+      "provider": "image_search",
+      "targetFields": [
+        "Brazil front image",
+        "Brazil back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src018"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q018",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" \"Australia\" \"NUS-NO7P\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Australia product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src021"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q019",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" \"NUS-NO7P-AUS\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Australia product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q020",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" \"NUS-N07P-AUS\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Australia product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q021",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" \"Australia\" Nintendo 64 \"barcode\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Australia barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src021"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q022",
+      "queryType": "source_specific",
+      "query": "\"007 The World Is Not Enough\" Nintendo64EVER UKV",
+      "provider": "web_search",
+      "targetFields": [
+        "UKV technical page"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src032"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q023",
+      "queryType": "exact_identifier",
+      "query": "\"007 The World Is Not Enough\" N64 \"5030930024871\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src015"
+      ],
+      "notes": "Dynamic result count was not used as a factual field.",
+      "discoveredIdentifiers": [
+        "5030930024871",
+        "NUS-NO7P-UKV"
+      ]
+    },
+    {
+      "queryId": "q024",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" N64 \"ELSPA\" 15",
+      "provider": "web_search",
+      "targetFields": [
+        "UK rating"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src002",
+        "src022"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q025",
+      "queryType": "source_specific",
+      "query": "site:nintendo64ever.com \"007: The World is not Enough (United Kingdom)\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UKV technical page"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src032"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q026",
+      "queryType": "source_specific",
+      "query": "site:nintendo64ever.com \"NUS-N07P-UKV\" \"007\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UKV product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src032"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q027",
+      "queryType": "image",
+      "query": "\"007 The World Is Not Enough\" N64 Mexico MSA box",
+      "provider": "image_search",
+      "targetFields": [
+        "Mexico front/back images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q028",
+      "queryType": "general",
+      "query": "\"007 The World Is Not Enough\" N64 Mexico MSA box front back",
+      "provider": "web_search",
+      "targetFields": [
+        "Mexico front/back images",
+        "MSA code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src019"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q029",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7E-USA\" \"007 The World Is Not Enough\" Nintendo 64 sealed eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "US sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q030",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7E-USA\" \"007 The World Is Not Enough\" Nintendo 64 complete eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "US complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q031",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7E-USA\" \"007 The World Is Not Enough\" Nintendo 64 loose eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "US loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q032",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" \"007 The World Is Not Enough\" Nintendo 64 sealed eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "UK sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q033",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" \"007 The World Is Not Enough\" Nintendo 64 complete eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src025",
+        "src033",
+        "src034"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q034",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" \"007 The World Is Not Enough\" Nintendo 64 loose eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "UK loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src035"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q035",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-FRA\" \"007 Le Monde ne Suffit Pas\" Nintendo 64 scellé eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "France sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q036",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-FRA\" \"007 Le Monde ne Suffit Pas\" Nintendo 64 complet eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "France complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q037",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-FRA\" \"007 Le Monde ne Suffit Pas\" Nintendo 64 cartouche eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "France loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q038",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-NOE\" \"007 Die Welt ist nicht genug\" Nintendo 64 sealed eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "Germany sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q039",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-NOE\" \"007 Die Welt ist nicht genug\" Nintendo 64 komplett eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "Germany complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q040",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-NOE\" \"007 Die Welt ist nicht genug\" Nintendo 64 Modul eBay",
+      "provider": "web_search",
+      "targetFields": [
+        "Germany loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q041",
+      "queryType": "marketplace",
+      "query": "\"007 O Mundo Não é o Bastante\" Nintendo 64 Gradiente lacrado",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q042",
+      "queryType": "marketplace",
+      "query": "\"007 O Mundo Não é o Bastante\" Nintendo 64 Gradiente completo",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src018",
+        "src028"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q043",
+      "queryType": "marketplace",
+      "query": "\"007 O Mundo Não é o Bastante\" Nintendo 64 Gradiente cartucho usado",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src030"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q044",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7E-MSA\" \"007 The World Is Not Enough\" Nintendo 64 Mexico",
+      "provider": "web_search",
+      "targetFields": [
+        "Mexico current prices"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q045",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" Nintendo 64 Australia PAL box complete",
+      "provider": "web_search",
+      "targetFields": [
+        "Australia complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q046",
+      "queryType": "marketplace",
+      "query": "\"007 O Mundo Não É O Bastante\" \"Nintendo 64\" \"R$\" \"caixa\" \"manual\" -Box21",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src028"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q047",
+      "queryType": "marketplace",
+      "query": "\"007 O Mundo Não É O Bastante\" \"Nintendo 64\" \"Gradiente\" \"R$\" \"em estoque\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil active price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src018"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q048",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" \"NUS-NO7P-UKV\" \"£\" \"Buy It Now\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK active price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q049",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" \"NUS-NO7P-UKV\" \"complete\" \"£\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q050",
+      "queryType": "marketplace",
+      "query": "\"007 Die Welt ist nicht genug\" \"NUS-NO7P-NOE\" \"EUR\" Nintendo 64 \"sofort\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Germany current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q051",
+      "queryType": "marketplace",
+      "query": "\"007 Le Monde ne Suffit Pas\" \"NUS-NO7P-FRA\" \"EUR\" Nintendo 64 \"complet\"",
+      "provider": "web_search",
+      "targetFields": [
+        "France current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q052",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" \"NUS-NO7E-USA\" \"$\" Nintendo 64 \"complete in box\"",
+      "provider": "web_search",
+      "targetFields": [
+        "US complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q053",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" \"NUS-NO7E-USA\" \"$\" Nintendo 64 \"cartridge only\"",
+      "provider": "web_search",
+      "targetFields": [
+        "US loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src026"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q054",
+      "queryType": "marketplace",
+      "query": "\"007 o mundo não é o bastante\" Nintendo 64 OLX",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil current prices"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src030"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q055",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" Nintendo 64 OLX",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil/import current prices"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src027",
+        "src030"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q056",
+      "queryType": "marketplace",
+      "query": "\"007 O Mundo Não É O Bastante Nintendo 64 Original Cib\" Mercado Livre",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src028"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q057",
+      "queryType": "marketplace",
+      "query": "\"Cartucho Nintendo 64 N64 007 The World Is Not Enough James Bond Original\" \"R$ 150\"",
+      "provider": "web_search",
+      "targetFields": [
+        "loose price candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src027"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q058",
+      "queryType": "marketplace",
+      "query": "\"007 o mundo não é o bastante de nintendo 64\" \"R$ 400\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil price candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q059",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough Original Nintendo 64\" \"R$ 160\"",
+      "provider": "web_search",
+      "targetFields": [
+        "price candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q060",
+      "queryType": "image",
+      "query": "\"007 O Mundo Não é o Bastante\" Nintendo 64 Gradiente caixa verso",
+      "provider": "image_search",
+      "targetFields": [
+        "Brazil back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q061",
+      "queryType": "general",
+      "query": "\"007 O Mundo Não é o Bastante\" Nintendo 64 Gradiente caixa verso barcode",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil back image",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src016",
+        "src017"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q062",
+      "queryType": "exact_identifier",
+      "query": "\"007: The World Is Not Enough\" Nintendo 64 \"NUS-NO7P-UKV\" \"5030930024871\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK product code",
+        "UK barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src015"
+      ],
+      "notes": "Dynamic result count was not used as a factual field.",
+      "discoveredIdentifiers": [
+        "NUS-NO7P-UKV",
+        "5030930024871"
+      ]
+    },
+    {
+      "queryId": "q063",
+      "queryType": "exact_identifier",
+      "query": "\"007: Le Monde ne Suffit pas\" Nintendo 64 \"NUS-NO7P-FRA\" \"5030931024870\"",
+      "provider": "web_search",
+      "targetFields": [
+        "France product code",
+        "France barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src005",
+        "src006",
+        "src013"
+      ],
+      "notes": "Dynamic result count was not used as a factual field.",
+      "discoveredIdentifiers": [
+        "NUS-NO7P-FRA",
+        "5030931024870"
+      ]
+    },
+    {
+      "queryId": "q064",
+      "queryType": "exact_identifier",
+      "query": "\"007: Die Welt ist nicht Genug\" Nintendo 64 \"NUS-NO7P-NOE\" \"5030932024879\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Germany product code",
+        "Germany barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src005",
+        "src006",
+        "src014"
+      ],
+      "notes": "Dynamic result count was not used as a factual field.",
+      "discoveredIdentifiers": [
+        "NUS-NO7P-NOE",
+        "5030932024879"
+      ]
+    },
+    {
+      "queryId": "q065",
+      "queryType": "exact_identifier",
+      "query": "\"007: O Mundo Não é o Bastante\" Nintendo 64 Gradiente barcode 7896",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src016",
+        "src017"
+      ],
+      "notes": "Dynamic result count was not used as a factual field.",
+      "discoveredIdentifiers": [
+        "7896723606352",
+        "7896273606352"
+      ]
+    },
+    {
+      "queryId": "q066",
+      "queryType": "general",
+      "query": "\"007: The World Is Not Enough\" Nintendo 64 Australia box EA \"NUS\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Australia package",
+        "product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src021"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q067",
+      "queryType": "image",
+      "query": "\"007 The World Is Not Enough\" Nintendo 64 Australia box",
+      "provider": "image_search",
+      "targetFields": [
+        "Australia front/back images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src021"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q068",
+      "queryType": "image",
+      "query": "\"7896723606352\" 007 N64",
+      "provider": "image_search",
+      "targetFields": [
+        "Brazil barcode image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q069",
+      "queryType": "image",
+      "query": "\"7896273606352\" 007 N64",
+      "provider": "image_search",
+      "targetFields": [
+        "Brazil barcode image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q070",
+      "queryType": "exact_identifier",
+      "query": "\"7896723606352\" \"007\" Nintendo 64",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src016"
+      ],
+      "notes": "Dynamic result count was not used as a factual field.",
+      "discoveredIdentifiers": [
+        "7896723606352",
+        "7896273606352"
+      ]
+    },
+    {
+      "queryId": "q071",
+      "queryType": "exact_identifier",
+      "query": "\"7896273606352\" \"007\" Nintendo 64",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src017"
+      ],
+      "notes": "Dynamic result count was not used as a factual field.",
+      "discoveredIdentifiers": [
+        "7896723606352",
+        "7896273606352"
+      ]
+    },
+    {
+      "queryId": "q072",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" N64 grey cartridge \"$\" in stock",
+      "provider": "web_search",
+      "targetFields": [
+        "US loose current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src026"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q073",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" N64 blue cartridge \"$\" in stock",
+      "provider": "web_search",
+      "targetFields": [
+        "US loose current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src026"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q074",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" N64 complete box \"$\" in stock",
+      "provider": "web_search",
+      "targetFields": [
+        "US complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q075",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" N64 sealed \"$\" in stock",
+      "provider": "web_search",
+      "targetFields": [
+        "US sealed current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q076",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" \"007 The World Is Not Enough\" \"in stock\" \"complete\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src033",
+        "src034",
+        "src036"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q077",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" \"007 The World Is Not Enough\" \"box manual\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src025",
+        "src033",
+        "src034"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q078",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" 007 \"£\" \"box\" \"manual\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q079",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" 007 \"€\" complete",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src036"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q080",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" \"007\" Nintendo 64 boxed",
+      "provider": "web_search",
+      "targetFields": [
+        "UK boxed current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src015",
+        "src033",
+        "src034",
+        "src036",
+        "src040"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q081",
+      "queryType": "marketplace",
+      "query": "\"NUS-NO7P-UKV\" \"007 The World Is Not Enough\" CIB",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src033",
+        "src034"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q082",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" N64 boxed complete \"UKV\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src033",
+        "src034",
+        "src036"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q083",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" \"NUS-NO7P-UKV\" shop",
+      "provider": "web_search",
+      "targetFields": [
+        "UK active shops"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src033",
+        "src034",
+        "src036"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q084",
+      "queryType": "marketplace",
+      "query": "\"007 O Mundo Não é o Bastante\" N64 caixa manual Gradiente",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src018"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q085",
+      "queryType": "marketplace",
+      "query": "\"007 O Mundo Não é o Bastante\" Nintendo 64 completo Gradiente loja",
+      "provider": "web_search",
+      "targetFields": [
+        "Brazil complete current price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src018"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q086",
+      "queryType": "marketplace",
+      "query": "\"NUS-N07P-UKV\" \"995 kr\" 007",
+      "provider": "web_search",
+      "targetFields": [
+        "UK price duplicates"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src033",
+        "src034"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q087",
+      "queryType": "marketplace",
+      "query": "\"NUS-N07P-UKV\" \"kr\" Nintendo 64 complete",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src033",
+        "src034"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q088",
+      "queryType": "marketplace",
+      "query": "\"NUS-N07P-UKV\" \"SEK\" 007",
+      "provider": "web_search",
+      "targetFields": [
+        "UK SEK prices"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src033",
+        "src034"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q089",
+      "queryType": "marketplace",
+      "query": "\"NUS-N07P-UKV\" \"NOK\" 007",
+      "provider": "web_search",
+      "targetFields": [
+        "UK NOK prices"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src025"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q090",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" \"UKV\" \"995 kr\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src033",
+        "src034"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q091",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" \"UKV\" \"999\" \"kr\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src025"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q092",
+      "queryType": "marketplace",
+      "query": "\"007 the world is not enough | UKV | Nintendo 64\" Tradera",
+      "provider": "web_search",
+      "targetFields": [
+        "UK marketplace listings"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src034",
+        "src035"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q093",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" \"NUS-N07P-UKV\" Tradera -Retroplay",
+      "provider": "web_search",
+      "targetFields": [
+        "UK independent seller search"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src037",
+        "src038"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q094",
+      "queryType": "marketplace",
+      "query": "\"007 The World Is Not Enough\" UKV Nintendo 64 \"Köp nu\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK fixed-price listings"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src034",
+        "src035",
+        "src037",
+        "src038"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    },
+    {
+      "queryId": "q095",
+      "queryType": "marketplace",
+      "query": "\"007 the world is not enough\" \"UKV\" \"199 kr\" Tradera",
+      "provider": "web_search",
+      "targetFields": [
+        "UK loose independent seller search"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q096",
+      "queryType": "marketplace",
+      "query": "\"007 the world is not enough\" \"UKV\" \"199 kr\" Nintendo 64",
+      "provider": "web_search",
+      "targetFields": [
+        "UK loose independent seller search"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q097",
+      "queryType": "marketplace",
+      "query": "\"007 the world is not enough\" \"NUS-NO7P-UKV\" \"199\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK loose independent seller search"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": "No qualifying direct evidence was promoted from this query."
+    },
+    {
+      "queryId": "q098",
+      "queryType": "marketplace",
+      "query": "\"007 the world is not enough\" \"NUS-N07P-UKV\" \"199\"",
+      "provider": "web_search",
+      "targetFields": [
+        "UK loose independent seller search"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src035"
+      ],
+      "notes": "Dynamic result count was not used as a factual field."
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a001",
+      "sourceName": "MobyGames",
+      "domain": "mobygames.com",
+      "sourceType": "specialist_database",
+      "platform": "n64",
+      "targetFields": [
+        "identity",
+        "developer",
+        "publisher",
+        "genres",
+        "players"
+      ],
+      "queryRefs": [
+        "q005",
+        "q006"
+      ],
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.officialTitle",
+        "gameFacts.developer",
+        "gameFacts.generalPublisher",
+        "gameFacts.genres",
+        "gameFacts.players"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a002",
+      "sourceName": "MobyGames",
+      "domain": "mobygames.com",
+      "sourceType": "specialist_database",
+      "platform": "n64",
+      "targetFields": [
+        "modes",
+        "accessories",
+        "ratings"
+      ],
+      "queryRefs": [
+        "q005"
+      ],
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/specs/n64/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.modes",
+        "gameFacts.accessorySupport"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a003",
+      "sourceName": "GameFAQs",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "specialist_database",
+      "platform": "n64",
+      "targetFields": [
+        "dates",
+        "codes",
+        "barcode",
+        "players"
+      ],
+      "queryRefs": [
+        "q001",
+        "q006"
+      ],
+      "url": "https://gamefaqs.gamespot.com/n64/914163-007-the-world-is-not-enough/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-usa-standard.barcode",
+        "releases.n64-ukv-standard.releaseDate"
+      ],
+      "limitation": "US date conflicts with other specialist sources."
+    },
+    {
+      "attemptId": "a004",
+      "sourceName": "Micro-64",
+      "domain": "micro-64.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "dates",
+        "regions",
+        "codes"
+      ],
+      "queryRefs": [
+        "q001",
+        "q006"
+      ],
+      "url": "https://micro-64.com/database/masterlist.shtml",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.releaseYear"
+      ],
+      "limitation": "Uses N07 transcription and a US date that conflicts with 2000-10-17 sources."
+    },
+    {
+      "attemptId": "a005",
+      "sourceName": "64scener",
+      "domain": "64scener.com",
+      "sourceType": "technical_release_list",
+      "platform": "n64",
+      "targetFields": [
+        "regional releases",
+        "product codes",
+        "variants"
+      ],
+      "queryRefs": [
+        "q001",
+        "q007"
+      ],
+      "url": "https://www.64scener.com/index.php?page=nintendo64-world-wide-cartridge-release-list",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-usa-standard",
+        "releases.n64-ukv-standard",
+        "releases.n64-fra-standard",
+        "releases.n64-noe-standard",
+        "releases.n64-bra-gradiente-standard"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a006",
+      "sourceName": "NESWorld",
+      "domain": "nesworld.com",
+      "sourceType": "technical_release_list",
+      "platform": "n64",
+      "targetFields": [
+        "regional releases",
+        "product codes",
+        "variants"
+      ],
+      "queryRefs": [
+        "q001",
+        "q007"
+      ],
+      "url": "https://nesworld.com/article.php?data=n64releaselist&system=n64",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-usa-standard",
+        "releases.n64-ukv-standard",
+        "releases.n64-fra-standard",
+        "releases.n64-noe-standard",
+        "releases.n64-bra-gradiente-standard"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a007",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "US first print",
+        "barcode",
+        "languages",
+        "components"
+      ],
+      "queryRefs": [
+        "q001"
+      ],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,2,007-The-World-is-not-Enough.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-usa-standard"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a008",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "physical_content_index",
+      "platform": "n64",
+      "targetFields": [
+        "US first print components",
+        "front/back scan attempt"
+      ],
+      "queryRefs": [],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Content,2,007-The-World-is-not-Enough.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-usa-standard.physicalContents"
+      ],
+      "limitation": "Available scan links were not retained when only low-resolution thumbnail evidence was available."
+    },
+    {
+      "attemptId": "a009",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "US second print",
+        "variant",
+        "barcode",
+        "languages"
+      ],
+      "queryRefs": [
+        "q001"
+      ],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1,007-The-World-is-not-Enough.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-usa-standard.components.cartridge.variants"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a010",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "physical_content_index",
+      "platform": "n64",
+      "targetFields": [
+        "US second print components",
+        "front/back scan attempt"
+      ],
+      "queryRefs": [],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Content,1,007-The-World-is-not-Enough.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-usa-standard.physicalContents"
+      ],
+      "limitation": "No sufficiently verified edition-specific outer-box back image was retained."
+    },
+    {
+      "attemptId": "a011",
+      "sourceName": "NESWorld",
+      "domain": "nesworld.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "US code",
+        "barcode",
+        "components",
+        "accessories"
+      ],
+      "queryRefs": [
+        "q002"
+      ],
+      "url": "https://www.nesworld.com/n64list-game.php?gameid=1115",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-usa-standard.productCode",
+        "releases.n64-usa-standard.barcode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a012",
+      "sourceName": "LaunchBox Games Database",
+      "domain": "gamesdb.launchbox-app.com",
+      "sourceType": "image_gallery",
+      "platform": "n64",
+      "targetFields": [
+        "front/back images US/FRA/NOE"
+      ],
+      "queryRefs": [
+        "q014",
+        "q015",
+        "q016"
+      ],
+      "url": "https://gamesdb.launchbox-app.com/games/images/225-007-the-world-is-not-enough",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images"
+      ],
+      "limitation": "Gallery page was discovery metadata; confirmation came from inspected direct images plus regional technical sources."
+    },
+    {
+      "attemptId": "a013",
+      "sourceName": "LaunchBox direct image",
+      "domain": "images.launchbox-app.com",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "US front"
+      ],
+      "queryRefs": [
+        "q014"
+      ],
+      "url": "https://images.launchbox-app.com/98ec9344-62c0-4a81-a073-0ec115a93dfd.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a014",
+      "sourceName": "LaunchBox direct image",
+      "domain": "images.launchbox-app.com",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "US back"
+      ],
+      "queryRefs": [
+        "q014"
+      ],
+      "url": "https://images.launchbox-app.com/5c3c9c86-b90c-4799-aac4-783ba2d304f9.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a015",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "France code",
+        "barcode",
+        "languages",
+        "date",
+        "rating"
+      ],
+      "queryRefs": [
+        "q009",
+        "q063"
+      ],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet%2C4%2C007-Le-Monde-ne-Suffit-pas.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-fra-standard"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a016",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "Germany code",
+        "barcode",
+        "languages",
+        "date",
+        "rating"
+      ],
+      "queryRefs": [
+        "q010",
+        "q064"
+      ],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet%2C5%2C007-Die-Welt-ist-nicht-Genug.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-noe-standard"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a017",
+      "sourceName": "NESWorld",
+      "domain": "nesworld.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "UK code",
+        "barcode",
+        "languages",
+        "components"
+      ],
+      "queryRefs": [
+        "q008",
+        "q023",
+        "q062"
+      ],
+      "url": "https://www.nesworld.com/n64list-game.php?gameid=468",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-ukv-standard"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a018",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "Brazil release",
+        "barcode candidate",
+        "languages",
+        "date",
+        "rating"
+      ],
+      "queryRefs": [
+        "q012",
+        "q065",
+        "q070"
+      ],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet%2C11%2C007-O-Mundo-nao-e-o-Bastante.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-bra-gradiente-standard"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a019",
+      "sourceName": "VGDB",
+      "domain": "vgdb.com.br",
+      "sourceType": "specialist_database",
+      "platform": "n64",
+      "targetFields": [
+        "Brazil title",
+        "distributor",
+        "barcode candidate"
+      ],
+      "queryRefs": [
+        "q012",
+        "q065",
+        "q071"
+      ],
+      "url": "https://www.vgdb.com.br/nintendo-64/jogos/007-the-world-is-not-enought/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-bra-gradiente-standard.regionalDistributor",
+        "conflicts"
+      ],
+      "limitation": "Brazilian barcode conflicts with Nintendo64EVER."
+    },
+    {
+      "attemptId": "a020",
+      "sourceName": "Box 21 Games",
+      "domain": "box21games.com.br",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "Brazil release",
+        "physical contents",
+        "active complete price",
+        "front image"
+      ],
+      "queryRefs": [
+        "q012",
+        "q042",
+        "q047",
+        "q084",
+        "q085"
+      ],
+      "url": "https://box21games.com.br/loja/007-o-mundo-nao-e-o-bastante-n64",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-bra-gradiente-standard",
+        "regionalPrices"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a021",
+      "sourceName": "Box 21 image",
+      "domain": "box21games.com.br",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "Brazil front image"
+      ],
+      "queryRefs": [
+        "q017"
+      ],
+      "url": "https://box21games.com.br/_next/image?q=75&url=%2Fprodutos%2F007-o-mundo-nao-e-o-bastante-n64.jpg&w=3840",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[8]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a022",
+      "sourceName": "Box 21 raw image",
+      "domain": "box21games.com.br",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "Brazil original image acquisition"
+      ],
+      "queryRefs": [
+        "q017"
+      ],
+      "url": "https://box21games.com.br/produtos/007-o-mundo-nao-e-o-bastante-n64.jpg",
+      "accessStatus": "BLOCKED",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct raw path was not retrievable; the site's working image-optimizer URL was retained instead."
+    },
+    {
+      "attemptId": "a023",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "Mexico release",
+        "MSA code",
+        "components"
+      ],
+      "queryRefs": [
+        "q011",
+        "q028"
+      ],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet,1821,007-The-World-is-not-Enough.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-mex-standard"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a024",
+      "sourceName": "MobyGames",
+      "domain": "mobygames.com",
+      "sourceType": "specialist_database",
+      "platform": "n64",
+      "targetFields": [
+        "Mexico release",
+        "regional distributor",
+        "date candidate"
+      ],
+      "queryRefs": [
+        "q005"
+      ],
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/releases/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-mex-standard.market",
+        "releases.n64-mex-standard.regionalDistributor"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a025",
+      "sourceName": "MobyGames",
+      "domain": "mobygames.com",
+      "sourceType": "physical_cover_archive",
+      "platform": "n64",
+      "targetFields": [
+        "Australia physical release",
+        "front/back acquisition"
+      ],
+      "queryRefs": [
+        "q013",
+        "q021",
+        "q066",
+        "q067"
+      ],
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/covers/",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-aus-candidate"
+      ],
+      "limitation": "Australian cover-group metadata was available, but a clean direct original front/back pair with readable regional identifiers was not extracted."
+    },
+    {
+      "attemptId": "a026",
+      "sourceName": "MobyGames",
+      "domain": "mobygames.com",
+      "sourceType": "physical_cover_archive",
+      "platform": "n64",
+      "targetFields": [
+        "UK physical cover corroboration"
+      ],
+      "queryRefs": [
+        "q014"
+      ],
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/covers/group-93022/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-ukv-standard.market"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a027",
+      "sourceName": "MobyGames",
+      "domain": "mobygames.com",
+      "sourceType": "physical_cover_archive",
+      "platform": "n64",
+      "targetFields": [
+        "German physical cover corroboration"
+      ],
+      "queryRefs": [
+        "q016"
+      ],
+      "url": "https://www.mobygames.com/game/3969/007-the-world-is-not-enough/covers/group-22153/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-noe-standard.market"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a028",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "release_index",
+      "platform": "n64",
+      "targetFields": [
+        "regional dates"
+      ],
+      "queryRefs": [
+        "q006"
+      ],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Games-2000.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-ukv-standard.releaseDate",
+        "releases.n64-fra-standard.releaseDate",
+        "releases.n64-noe-standard.releaseDate",
+        "releases.n64-bra-gradiente-standard.releaseDate"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a029",
+      "sourceName": "Retrospillkongen",
+      "domain": "retrospillkongen.no",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "UK complete price",
+        "contents",
+        "front/back images"
+      ],
+      "queryRefs": [
+        "q033",
+        "q077",
+        "q089",
+        "q091"
+      ],
+      "url": "https://retrospillkongen.no/products/007-the-world-is-not-enough-n64-spill-i-eske",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices.n64-ukv-standard.complete",
+        "images"
+      ],
+      "limitation": "Price is NOK and therefore cannot be pooled with SEK observations."
+    },
+    {
+      "attemptId": "a030",
+      "sourceName": "Retrospillkongen image",
+      "domain": "retrospillkongen.no",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "UK front"
+      ],
+      "queryRefs": [
+        "q014"
+      ],
+      "url": "https://retrospillkongen.no/cdn/shop/files/DSC_2146_result.webp?v=1751541985&width=1200",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[2]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a031",
+      "sourceName": "Retrospillkongen image",
+      "domain": "retrospillkongen.no",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "UK back"
+      ],
+      "queryRefs": [
+        "q014"
+      ],
+      "url": "https://retrospillkongen.no/cdn/shop/files/DSC_2148_result.webp?v=1751541985&width=1200",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[3]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a032",
+      "sourceName": "DKOldies",
+      "domain": "dkoldies.com",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "US loose price candidate"
+      ],
+      "queryRefs": [
+        "q053",
+        "q072",
+        "q073"
+      ],
+      "url": "https://www.dkoldies.com/007-the-world-is-not-enough-grey-n64-game/",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Active listing lacked sufficient exact physical-region proof for the specific USA-coded release; excluded from sampleSize."
+    },
+    {
+      "attemptId": "a033",
+      "sourceName": "OLX Brasil",
+      "domain": "olx.com.br",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "loose USA-code price candidate"
+      ],
+      "queryRefs": [
+        "q055",
+        "q057"
+      ],
+      "url": "https://sp.olx.com.br/regiao-de-sao-paulo/games/jogos-de-video-game/cartucho-nintendo-64-n64-007-the-world-is-not-enough-james-bond-original-1528644987",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct parsed page did not provide a reliably auditable active numeric asking price."
+    },
+    {
+      "attemptId": "a034",
+      "sourceName": "Mercado Livre",
+      "domain": "mercadolivre.com.br",
+      "sourceType": "search_results",
+      "platform": "n64",
+      "targetFields": [
+        "Brazil CIB price discovery"
+      ],
+      "queryRefs": [
+        "q042",
+        "q046",
+        "q056"
+      ],
+      "url": "https://lista.mercadolivre.com.br/nintendo-64-cib",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Search result surfaced a CIB candidate but no direct listing evidence meeting the contract was available; not counted."
+    },
+    {
+      "attemptId": "a035",
+      "sourceName": "Mercado Livre",
+      "domain": "mercadolivre.com.br",
+      "sourceType": "search_results",
+      "platform": "n64",
+      "targetFields": [
+        "current marketplace discovery"
+      ],
+      "queryRefs": [
+        "q042",
+        "q043"
+      ],
+      "url": "https://lista.mercadolivre.com.br/007-the-world-is-not-enough-n64",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Aggregate search page cannot confirm exact region or active-listing comparability."
+    },
+    {
+      "attemptId": "a036",
+      "sourceName": "OLX Brasil",
+      "domain": "olx.com.br",
+      "sourceType": "search_results",
+      "platform": "n64",
+      "targetFields": [
+        "Brazil/import price discovery"
+      ],
+      "queryRefs": [
+        "q054",
+        "q055"
+      ],
+      "url": "https://www.olx.com.br/anuncios/nintendo-64-007",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Search-result page only; seller location and listing language were not used as region evidence."
+    },
+    {
+      "attemptId": "a037",
+      "sourceName": "melt GitHub",
+      "domain": "github.com",
+      "sourceType": "technical_preservation_list",
+      "platform": "n64",
+      "targetFields": [
+        "Euro cartridge serial",
+        "PCB",
+        "ROM",
+        "cart model"
+      ],
+      "queryRefs": [
+        "q008",
+        "q009",
+        "q010"
+      ],
+      "url": "https://github.com/mbit2/melt/blob/master/hash/n64.xml",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "conflicts.codeCharacter"
+      ],
+      "limitation": "Preservation serial uses N07 spelling, conflicting with NO7 on physical/release-list sources."
+    },
+    {
+      "attemptId": "a038",
+      "sourceName": "Nintendo64EVER",
+      "domain": "nintendo64ever.com",
+      "sourceType": "release_index",
+      "platform": "n64",
+      "targetFields": [
+        "release coverage"
+      ],
+      "queryRefs": [
+        "q022",
+        "q025",
+        "q026"
+      ],
+      "url": "https://www.nintendo64ever.com/All-Nintendo-64-Games.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.physicalEditionCoverage",
+        "releases.n64-aus-candidate"
+      ],
+      "limitation": "Index omits Australia; omission is not treated as proof of nonexistence."
+    },
+    {
+      "attemptId": "a039",
+      "sourceName": "CDON / Retroplay",
+      "domain": "cdon.se",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "UK complete price"
+      ],
+      "queryRefs": [
+        "q033",
+        "q076",
+        "q080",
+        "q081",
+        "q082",
+        "q083",
+        "q086",
+        "q087",
+        "q088",
+        "q090"
+      ],
+      "url": "https://cdon.se/produkt/007-the-world-is-not-enough-nintendo-64-n64-pal-eur-begagnad-b1e06293053d5b8b/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices.n64-ukv-standard.complete"
+      ],
+      "limitation": "Same seller/cross-listed inventory as Retroplay on Tradera; counted once at most."
+    },
+    {
+      "attemptId": "a040",
+      "sourceName": "Tradera / Retroplay",
+      "domain": "tradera.com",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "UK complete price"
+      ],
+      "queryRefs": [
+        "q033",
+        "q076",
+        "q080",
+        "q081",
+        "q082",
+        "q083",
+        "q086",
+        "q087",
+        "q088",
+        "q090",
+        "q092",
+        "q094"
+      ],
+      "url": "https://www.tradera.com/item/340668/335064447/007-the-world-is-not-enough-nintendo-64-n64-pal-eur-complete-cib-",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices.n64-ukv-standard.complete"
+      ],
+      "limitation": "Cross-listed with the same seller on CDON; not an independent second observation."
+    },
+    {
+      "attemptId": "a041",
+      "sourceName": "Tradera / Retroplay",
+      "domain": "tradera.com",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "UK loose price"
+      ],
+      "queryRefs": [
+        "q034",
+        "q092",
+        "q094",
+        "q098"
+      ],
+      "url": "https://www.tradera.com/item/340668/306976749/007-the-world-is-not-enough-nintendo-64-n64-pal-eur-cart-only",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices.n64-ukv-standard.loose"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a042",
+      "sourceName": "Gameland-Groningen",
+      "domain": "gameland-groningen.nl",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "UK boxed price candidate"
+      ],
+      "queryRefs": [
+        "q076",
+        "q079",
+        "q080",
+        "q082",
+        "q083"
+      ],
+      "url": "https://www.gameland-groningen.nl/nl/007-the-world-is-not-enough-boxed-ukv-nintendo-64.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Explicitly sold out; ineligible for active price sampleSize."
+    },
+    {
+      "attemptId": "a043",
+      "sourceName": "Tradera / Spelmaffian",
+      "domain": "tradera.com",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "UK complete independent-seller candidate"
+      ],
+      "queryRefs": [
+        "q093",
+        "q094"
+      ],
+      "url": "https://www.tradera.com/item/340668/677022872/007-the-world-is-not-enough-komplett",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Active, but exact regional suffix is not established in listing text; seller also warns the shipped copy may differ from the photographed copy."
+    },
+    {
+      "attemptId": "a044",
+      "sourceName": "Tradera / Spelmaffian",
+      "domain": "tradera.com",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "UK loose independent-seller candidate"
+      ],
+      "queryRefs": [
+        "q093",
+        "q094"
+      ],
+      "url": "https://www.tradera.com/item/340668/470800064/007-the-world-is-not-enough-spel-till-nintendo-64",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Active, but exact regional suffix is not established; seller warns multiple copies may differ from photograph."
+    },
+    {
+      "attemptId": "a045",
+      "sourceName": "Tradera image CDN",
+      "domain": "img.tradera.net",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "Spelmaffian loose region verification"
+      ],
+      "queryRefs": [
+        "q093",
+        "q094"
+      ],
+      "url": "https://img.tradera.net/large-fit/288/418891288_f7551422-fc0e-4aa1-ad9d-816ff83849ff.jpg",
+      "accessStatus": "BLOCKED",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "403 prevented inspection of the candidate image; no region inference was made."
+    },
+    {
+      "attemptId": "a046",
+      "sourceName": "PriceCharting",
+      "domain": "pricecharting.com",
+      "sourceType": "completed_sales_aggregator",
+      "platform": "n64",
+      "targetFields": [
+        "PAL price context"
+      ],
+      "queryRefs": [
+        "q033",
+        "q034"
+      ],
+      "url": "https://www.pricecharting.com/game/pal-nintendo-64/007-world-is-not-enough",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Completed/sold transactions and aggregate pricing are excluded by the order from active sampleSize."
+    },
+    {
+      "attemptId": "a047",
+      "sourceName": "VGPreise",
+      "domain": "vgpreise.de",
+      "sourceType": "price_aggregator",
+      "platform": "n64",
+      "targetFields": [
+        "regional variant context",
+        "offer discovery"
+      ],
+      "queryRefs": [
+        "q080"
+      ],
+      "url": "https://www.vgpreise.de/gameslist/N64",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "conflicts.codeCharacter"
+      ],
+      "limitation": "Aggregated offer averages were not used as price observations."
+    },
+    {
+      "attemptId": "a048",
+      "sourceName": "MEANWHILE…",
+      "domain": "meanwhileblog.wordpress.com",
+      "sourceType": "secondary_code_list",
+      "platform": "n64",
+      "targetFields": [
+        "MSA code",
+        "UKV code"
+      ],
+      "queryRefs": [
+        "q011"
+      ],
+      "url": "https://meanwhileblog.wordpress.com/n64-game-code-list/",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.n64-mex-standard.productCode"
+      ],
+      "limitation": "Secondary code list; Mexico code retained as candidate because a readable physical MSA scan was not obtained."
+    },
+    {
+      "attemptId": "a049",
+      "sourceName": "Arcade-History",
+      "domain": "arcade-history.com",
+      "sourceType": "secondary_database",
+      "platform": "n64",
+      "targetFields": [
+        "US date",
+        "codes"
+      ],
+      "queryRefs": [
+        "q006"
+      ],
+      "url": "https://www.arcade-history.com/game/57559/",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "conflicts.usReleaseDate",
+        "conflicts.codeCharacter"
+      ],
+      "limitation": "Secondary source only; date/code conflicts were not resolved by this page."
+    },
+    {
+      "attemptId": "a050",
+      "sourceName": "Nintendo64EVER guessed UK page",
+      "domain": "nintendo64ever.com",
+      "sourceType": "technical_database",
+      "platform": "n64",
+      "targetFields": [
+        "UK page"
+      ],
+      "queryRefs": [
+        "q022",
+        "q025",
+        "q026"
+      ],
+      "url": "https://www.nintendo64ever.com/Nintendo-64-Game-Data-Sheet%2C3%2C007-The-World-is-not-Enough.html",
+      "accessStatus": "BLOCKED",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "The guessed UK data-sheet URL did not return usable content; the failure was not treated as evidence of absence."
+    },
+    {
+      "attemptId": "a051",
+      "sourceName": "MyRetroShop",
+      "domain": "myretroshop.com",
+      "sourceType": "direct_listing",
+      "platform": "n64",
+      "targetFields": [
+        "current price candidate"
+      ],
+      "queryRefs": [],
+      "url": "https://www.myretroshop.com/product-page/007-the-world-is-not-enough-nintendo-64-n64",
+      "accessStatus": "NOT_FOUND",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Page returned not found and was not used as evidence."
+    },
+    {
+      "attemptId": "a052",
+      "sourceName": "Tradera current category / auction candidate",
+      "domain": "tradera.com",
+      "sourceType": "marketplace_listing",
+      "platform": "n64",
+      "targetFields": [
+        "UK loose independent listing"
+      ],
+      "queryRefs": [
+        "q095",
+        "q096",
+        "q097",
+        "q098"
+      ],
+      "url": "https://www.tradera.com/de/item/340668/696722455/007-the-world-is-not-enough-n64",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "The direct URL redirected to the category page; the visible current 007 listing was auction-only with no qualifying fixed current buy price."
+    },
+    {
+      "attemptId": "a053",
+      "sourceName": "LaunchBox direct image",
+      "domain": "images.launchbox-app.com",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "France front"
+      ],
+      "queryRefs": [
+        "q015"
+      ],
+      "url": "https://images.launchbox-app.com/f7c77bbf-6a01-4560-b066-16309d36f619.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[4]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a054",
+      "sourceName": "LaunchBox direct image",
+      "domain": "images.launchbox-app.com",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "France back"
+      ],
+      "queryRefs": [
+        "q015"
+      ],
+      "url": "https://images.launchbox-app.com/15560a94-3f34-472e-a701-591bb5361930.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[5]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a055",
+      "sourceName": "LaunchBox direct image",
+      "domain": "images.launchbox-app.com",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "Germany front"
+      ],
+      "queryRefs": [
+        "q016"
+      ],
+      "url": "https://images.launchbox-app.com/37ab240b-d2cd-4750-941c-936e50e8a27a.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[6]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a056",
+      "sourceName": "LaunchBox direct image",
+      "domain": "images.launchbox-app.com",
+      "sourceType": "direct_image",
+      "platform": "n64",
+      "targetFields": [
+        "Germany back"
+      ],
+      "queryRefs": [
+        "q016"
+      ],
+      "url": "https://images.launchbox-app.com/827ae0d7-b9ed-4dc5-853b-d67565bcdd2f.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[7]"
+      ],
+      "limitation": null
+    }
+  ],
+  "conflicts": [
+    {
+      "conflictId": "c001-us-release-date",
+      "field": "releaseDate",
+      "scope": "n64-usa-standard",
+      "values": [
+        {
+          "value": "2000-10-17",
+          "sourceRefs": [
+            "src001",
+            "src007",
+            "src024",
+            "src042"
+          ]
+        },
+        {
+          "value": "2000-11-01",
+          "sourceRefs": [
+            "src003",
+            "src004"
+          ]
+        }
+      ],
+      "resolution": "unresolved",
+      "notes": "No value was promoted over the conflicting specialist records."
+    },
+    {
+      "conflictId": "c002-no7-n07-character",
+      "field": "productCode/serial",
+      "scope": "USA and PAL regional releases",
+      "values": [
+        {
+          "valuePattern": "NUS-NO7E/NUS-NO7P",
+          "sourceRefs": [
+            "src005",
+            "src006",
+            "src011",
+            "src015",
+            "src040"
+          ]
+        },
+        {
+          "valuePattern": "NUS-N07E/NUS-N07P",
+          "sourceRefs": [
+            "src003",
+            "src004",
+            "src007",
+            "src009",
+            "src013",
+            "src014",
+            "src031",
+            "src042"
+          ]
+        }
+      ],
+      "resolution": "partial",
+      "notes": "Physical/release-list evidence supports NO7 for regional product IDs; N07 remains preserved verbatim where technical/database sources transcribe component/ROM identifiers. Types/components are not silently merged."
+    },
+    {
+      "conflictId": "c003-brazil-barcode",
+      "field": "barcode",
+      "scope": "n64-bra-gradiente-standard",
+      "values": [
+        {
+          "value": "7896723606352",
+          "sourceRefs": [
+            "src016"
+          ]
+        },
+        {
+          "value": "7896273606352",
+          "sourceRefs": [
+            "src017"
+          ]
+        }
+      ],
+      "resolution": "unresolved",
+      "notes": "No readable Brazilian outer-box back barcode was obtained."
+    },
+    {
+      "conflictId": "c004-australia-release-identity",
+      "field": "physicalRelease",
+      "scope": "n64-aus-candidate",
+      "values": [
+        {
+          "value": "Australian physical cover group documented",
+          "sourceRefs": [
+            "src021"
+          ]
+        },
+        {
+          "value": "No AUS-specific entry in checked worldwide cartridge indexes",
+          "sourceRefs": [
+            "src005",
+            "src006",
+            "src032"
+          ]
+        }
+      ],
+      "resolution": "unresolved",
+      "notes": "Australian market presence is probable, but whether this is a distinct AUS-coded product or distribution of another PAL regional product was not established."
+    },
+    {
+      "conflictId": "c005-regionatlas-pal-europa-granularity",
+      "field": "region/productCode",
+      "scope": "RegionAtlas seed",
+      "values": [
+        {
+          "value": "Seed: PAL Europa / NUS-N07P",
+          "sourceRefs": []
+        },
+        {
+          "value": "Externally documented physical PAL products: UKV, FRA, NOE",
+          "sourceRefs": [
+            "src005",
+            "src006",
+            "src013",
+            "src014",
+            "src015"
+          ]
+        }
+      ],
+      "resolution": "external-research-delta",
+      "notes": "The RegionAtlas seed is context only. Research found multiple specific PAL physical products; the generic seed was not treated as external evidence."
+    },
+    {
+      "conflictId": "c006-regionatlas-general-date",
+      "field": "releaseDate",
+      "scope": "RegionAtlas seed",
+      "values": [
+        {
+          "value": "Seed date 2000-12-08",
+          "sourceRefs": []
+        },
+        {
+          "value": "2000-12-08 is independently supported for PAL UK/FRA/NOE, while US sources document an earlier 2000 release",
+          "sourceRefs": [
+            "src013",
+            "src014",
+            "src024",
+            "src001",
+            "src003"
+          ]
+        }
+      ],
+      "resolution": "external-research-delta",
+      "notes": "The seed date should not be interpreted as a single worldwide release date."
+    },
+    {
+      "conflictId": "c007-regionatlas-price-seed",
+      "field": "price",
+      "scope": "RegionAtlas seed",
+      "values": [
+        {
+          "value": "Seed has EUR 75.18 from eBay ES with region unverified",
+          "sourceRefs": []
+        },
+        {
+          "value": "One-shot price contract requires two active independent exact-regional listings in the same condition and currency",
+          "sourceRefs": [
+            "src018",
+            "src025",
+            "src034",
+            "src035"
+          ]
+        }
+      ],
+      "resolution": "unresolved-for-publication",
+      "notes": "The seed price was not reused or validated; every proposedBasePrice in this result remains null."
+    }
+  ],
+  "unresolved": [
+    {
+      "unresolvedId": "u001",
+      "field": "US exact release date",
+      "scope": "n64-usa-standard",
+      "reason": "2000-10-17 and 2000-11-01 are both reported by specialist sources.",
+      "sourceRefs": [
+        "src001",
+        "src003",
+        "src004",
+        "src007",
+        "src024",
+        "src042"
+      ]
+    },
+    {
+      "unresolvedId": "u002",
+      "field": "Brazil barcode",
+      "scope": "n64-bra-gradiente-standard",
+      "reason": "Conflicting 7896723606352 and 7896273606352 transcriptions; no readable box-back barcode obtained.",
+      "sourceRefs": [
+        "src016",
+        "src017"
+      ]
+    },
+    {
+      "unresolvedId": "u003",
+      "field": "Mexico exact N07/NO7 code character",
+      "scope": "n64-mex-standard",
+      "reason": "NUS-N07E-MSA and NUS-NO7E-MSA candidates remain; no readable MSA physical image resolved the character.",
+      "sourceRefs": [
+        "src019",
+        "src041"
+      ]
+    },
+    {
+      "unresolvedId": "u004",
+      "field": "Mexico barcode, packaging languages, software languages, age rating and exact date",
+      "scope": "n64-mex-standard",
+      "reason": "The Mexico-specific physical database entry does not supply those fields; no replacement direct physical source was found.",
+      "sourceRefs": [
+        "src019",
+        "src020"
+      ]
+    },
+    {
+      "unresolvedId": "u005",
+      "field": "Australia distinct product identity/code/barcode/languages/date",
+      "scope": "n64-aus-candidate",
+      "reason": "Australian physical-cover metadata exists but no readable regional identifier was obtained, while worldwide cartridge lists omit an AUS entry.",
+      "sourceRefs": [
+        "src021",
+        "src005",
+        "src006",
+        "src032"
+      ]
+    },
+    {
+      "unresolvedId": "u006",
+      "field": "US second-print edition-specific outer-box back image",
+      "scope": "n64-usa-standard",
+      "reason": "Second-print source exposed low-resolution scan discovery, but an edition-specific original back image was not retained; generic packaging was not duplicated as proof of the second print.",
+      "sourceRefs": [
+        "src009",
+        "src010"
+      ]
+    },
+    {
+      "unresolvedId": "u007",
+      "field": "Brazil outer-box back image",
+      "scope": "n64-bra-gradiente-standard",
+      "reason": "Front/composite and cartridge photographs were available, but no sufficiently linked readable Brazilian outer-box back image was found.",
+      "sourceRefs": [
+        "src018"
+      ]
+    },
+    {
+      "unresolvedId": "u008",
+      "field": "Mexico front/back images",
+      "scope": "n64-mex-standard",
+      "reason": "Image searches did not produce a sufficiently verified MSA front/back pair.",
+      "sourceRefs": [
+        "src019"
+      ]
+    },
+    {
+      "unresolvedId": "u009",
+      "field": "Australia direct front/back original image URLs",
+      "scope": "n64-aus-candidate",
+      "reason": "Preservation gallery documented the Australian group, but direct originals were gated/not sufficiently extracted and linked to readable regional identifiers.",
+      "sourceRefs": [
+        "src021"
+      ]
+    },
+    {
+      "unresolvedId": "u010",
+      "field": "Audio languages for USA/UKV/FRA/NOE/MEX/AUS",
+      "scope": "multiple releases",
+      "reason": "No source tied a complete audio-language inventory to those exact physical products.",
+      "sourceRefs": [
+        "src007",
+        "src009",
+        "src013",
+        "src014",
+        "src015",
+        "src019",
+        "src021"
+      ]
+    },
+    {
+      "unresolvedId": "u011",
+      "field": "Factory extras/inner packaging for several regions",
+      "scope": "USA/FRA/NOE/MEX/AUS",
+      "reason": "Sources confirmed box/cartridge/manual for several products but did not provide a complete factory checklist for inner tray/inserts/extras.",
+      "sourceRefs": [
+        "src008",
+        "src010",
+        "src013",
+        "src014",
+        "src019",
+        "src021"
+      ]
+    },
+    {
+      "unresolvedId": "u012",
+      "field": "Download codes/downloadable content",
+      "scope": "all releases",
+      "reason": "No consulted physical source established downloadable/code content; absence was not inferred.",
+      "sourceRefs": []
+    },
+    {
+      "unresolvedId": "u013",
+      "field": "Regional prices",
+      "scope": "all releases / sealed-complete-loose",
+      "reason": "No condition/market reached two active independent comparable listings in the same currency with exact physical-region proof. UK complete, UK loose and Brazil complete each produced only one qualifying observation in the selected currency.",
+      "sourceRefs": [
+        "src018",
+        "src025",
+        "src034",
+        "src035"
+      ]
+    }
+  ],
+  "coveredQueueEntries": [
+    {
+      "queueId": "catalog:n64-007-world-is-not-enough",
+      "platform": "n64",
+      "catalogIds": [
+        "n64-007-world-is-not-enough"
+      ],
+      "coverage": "researched_not_marked_completed"
+    }
+  ],
+  "researchDate": "2026-09-21"
+}

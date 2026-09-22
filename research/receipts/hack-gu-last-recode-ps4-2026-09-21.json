@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "researchId": "hack-gu-last-recode-ps4-2026-09-21",
+  "queueId": "catalog-group:ps4-hack-gu-last-recode",
+  "platform": "ps4",
+  "catalogIds": [
+    "ps4-hack-gu-last-recode",
+    "ps4-hack-gu-last-recode-eu-standard-europa-3391891995092",
+    "ps4-usa-hack-gu-last-recode",
+    "ps4-japon-hack-gu-last-recode-jp",
+    "ps4-japon-hack-gu-last-recode-jp-premium-edition-japan",
+    "ps4-japon-hack-gu-last-recode-jp-welcome-price-japan",
+    "ps4-hack-gu-last-recode-de",
+    "ps4-hack-gu-last-recode-au"
+  ],
+  "publishedAt": "2026-09-22T09:03:24Z",
+  "verifiedAt": "2026-09-22T09:03:24Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/hack-gu-last-recode-jp-ps4-pal-jp",
+  "publishedRegions": [
+    "PAL Europa",
+    "NTSC USA",
+    "NTSC-J Japón",
+    "PAL Alemania",
+    "PAL Australia"
+  ],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_NO_ADMISSIBLE_SOLD_PRICE_EVIDENCE",
+  "internalAssets": {
+    "front": null,
+    "back": null
+  },
+  "verification": {
+    "publicPage": "PASS",
+    "catalogApi": "PASS",
+    "centralV2Families": "PASS",
+    "duplicateCheck": "PASS"
+  },
+  "resultFile": "research/results/hack-gu-last-recode-ps4-2026-09-21.json",
+  "resultSha256": "44d1d014802f5bf5be7a947336b7ce35271055b86e04123513b7ff217715a582",
+  "workerResultCommit": "ac7aae5fbfde867ee8aa320a7f8f90383b7aae9a"
+}

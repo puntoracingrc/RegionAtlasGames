@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 3,
+  "generation": 16,
   "workerId": "switch",
   "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -9,26 +9,33 @@
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "1-2-switch-switch-2026-09-22",
   "workPackage": {
-    "packageId": "switch-2026-09-21-001",
-    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
+    "packageId": "switch-2026-09-22-004",
+    "grouping": {
+      "type": "independent",
+      "basis": "Primera entrada pending de Switch no cubierta por un resultado previo, según el orden estable y la regla anti-repetición."
+    },
     "items": [
       {
-        "queueId": "catalog-group:switch-japon-hack-gu-last-recode",
+        "queueId": "catalog-group:switch-1-2-switch",
         "platform": "switch",
-        "title": ".hack GU Last Recode",
-        "catalogIds": ["switch-japon-hack-gu-last-recode", "switch-usa-hack-gu-last-recode"],
-        "researchId": "hack-gu-last-recode-switch-2026-09-21",
-        "orderPath": "research/workers/switch/orders/hack-gu-last-recode-switch-2026-09-21.md",
-        "resultPath": "research/results/hack-gu-last-recode-switch-2026-09-21.json",
+        "title": "1-2 Switch",
+        "catalogIds": [
+          "switch-1-2-switch",
+          "switch-japon-1-2-switch",
+          "switch-usa-1-2-switch"
+        ],
+        "researchId": "1-2-switch-switch-2026-09-22",
+        "orderPath": "research/workers/switch/orders/1-2-switch-switch-2026-09-22.md",
+        "resultPath": "research/results/1-2-switch-switch-2026-09-22.json",
         "status": "PENDING",
-        "checkpointPath": "research/workers/switch/checkpoints/hack-gu-last-recode-switch-2026-09-21.json"
+        "checkpointPath": "research/workers/switch/checkpoints/1-2-switch-switch-2026-09-22.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:14:52Z",
+  "updatedAt": "2026-09-22T11:16:56Z",
   "updatedBy": "codex",
-  "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
+  "note": "#DRIVE Rally Special Edition validado, publicado y consumido. Siguiente orden preparada para 1-2 Switch."
 }
