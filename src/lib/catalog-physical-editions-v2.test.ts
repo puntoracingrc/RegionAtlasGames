@@ -19,7 +19,10 @@ import {
   normalizeCatalogEditionGuide,
   type RawCatalogEditionGuide,
 } from "./catalog-edition-guides";
-import { extendCatalogEditionGuideWithRuntimeGames } from "./catalog-derived-edition-guides";
+import {
+  buildRuntimeCatalogEditionGuide,
+  extendCatalogEditionGuideWithRuntimeGames,
+} from "./catalog-derived-edition-guides";
 import {
   BROAD_REGION_VALUES,
   CATALOG_MARKET_REGION_META,
@@ -958,6 +961,21 @@ test("runtime editions with the same resolved work id join the central V2 across
     ...base,
     workId: "hack-gu-last-recode",
     regionalStatus: "resolved" as const,
+    physicalVariant: "Standard",
+    physicalReleaseGroup: {
+      id: "runtime:hack-gu:standard:eu",
+      label: "Standard Europe",
+      barcode: "3391891994972",
+      productCodes: ["CUSA-07691"],
+      packagingLanguages: [],
+      softwareLanguages: [],
+      ratingSystems: ["PEGI 12"],
+      confidence: "CONFIRMED" as const,
+      physicalContents: ["Caja", "Juego"],
+      digitalContents: [],
+      images: [],
+      notes: [],
+    },
   };
   const premium = {
     ...current,
@@ -1005,6 +1023,28 @@ test("runtime editions with the same resolved work id join the central V2 across
     false,
   );
   assert.ok(guide.editionFamilies.some((family) => family.label === "Premium Edition"));
+
+  const runtimeGuide = buildRuntimeCatalogEditionGuide(
+    current,
+    getCatalogEditionGuides(),
+    [current, premium, unrelated],
+  );
+
+  assert.ok(runtimeGuide.physicalEditions.some((edition) => edition.catalogIds.includes(premium.id)));
+  assert.equal(
+    runtimeGuide.physicalEditions.some((edition) => edition.catalogIds.includes(unrelated.id)),
+    false,
+  );
+  assert.ok(runtimeGuide.editionFamilies.some((family) => family.label === "Premium Edition"));
+
+  const detailGuide = getCatalogEditionGuide(base, [current, premium, unrelated]);
+  assert.ok(detailGuide);
+  assert.ok(detailGuide.physicalEditions.some((edition) => edition.catalogIds.includes(premium.id)));
+  assert.equal(
+    detailGuide.physicalEditions.some((edition) => edition.catalogIds.includes(unrelated.id)),
+    false,
+  );
+  assert.ok(detailGuide.editionFamilies.some((family) => family.label === "Premium Edition"));
 });
 
 test("scoped V2 grouping exposes only editions present in the input", () => {
