@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 19,
+  "generation": 20,
   "workerId": "ps2",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "hack-gu-vol-3-redemption-ps2-2026-09-22",
   "workPackage": {
     "packageId": "ps2-2026-09-22-003",
     "grouping": {
@@ -41,7 +41,12 @@
       }
     ]
   },
-  "updatedAt": "2026-09-22T16:22:24Z",
+  "lease": {
+    "runId": "chatgpt-ps2-20260922T171219Z-r11",
+    "claimedAt": "2026-09-22T17:12:19Z",
+    "expiresAt": "2026-09-22T18:12:19Z"
+  },
+  "updatedAt": "2026-09-22T17:12:19Z",
   "updatedBy": "chatgpt",
-  "note": "Completed .Hack - G.U. Vol.2 - Reminisce under ORDER_TEMPLATE_VERSION 11; result written and lease released. Vol.3 remains pending."
+  "note": "Claimed .Hack - G.U. Vol.3 - Redemption for ORDER_TEMPLATE_VERSION 11 research."
 }
