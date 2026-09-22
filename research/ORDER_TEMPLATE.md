@@ -109,6 +109,10 @@ La coincidencia de dos valores no permite fusionar sus tipos ni sus componentes.
 
 ### Fuentes y procedencia
 
+Antes de aplicar el orden genérico siguiente, lee `research/source-performance.json`. Si la plataforma tiene `recommendationStatus: "VALIDATED_ROUTES_AVAILABLE"`, consulta primero las rutas de `recommendations` cuyas `targetCategories` coincidan con el campo pendiente. Estas rutas aprendidas son prioritarias, no exclusivas: una ruta bloqueada, inexistente para el producto exacto o sin evidencia suficiente se registra y se abandona para continuar con las demás fuentes, queries y rutas normales. Agotar las recomendaciones no permite detener la investigación ni declarar `unresolved` mientras queden rutas normales de alto valor sin intentar.
+
+Una recomendación sólo cambia el orden de consulta. No convierte el dominio en evidencia, no confirma el dato y no rebaja las reglas de procedencia, corroboración o vinculación por componente.
+
 Prioriza:
 
 1. fabricante, editor o distribuidor oficial;

@@ -18,3 +18,27 @@ test("a recovered worker lease must continue in the same scheduled execution", (
   assert.match(protocol, /checkpoint factual con estado global `READY`/);
   assert.match(protocol, /bloqueo real en `PAUSED`/);
 });
+
+test("validated source routes are prioritized without becoming exclusive", () => {
+  const prompt = readResearchInstruction("research/automation/CHATGPT_TASK_PROMPT.md");
+  const protocol = readResearchInstruction("research/automation/PROTOCOL.md");
+  const readme = readResearchInstruction("research/README.md");
+  const orderTemplate = readResearchInstruction("research/ORDER_TEMPLATE.md");
+
+  assert.match(prompt, /`research\/source-performance\.json`/);
+  assert.match(prompt, /rutas \*\*prioritarias, no exclusivas\*\*/);
+  assert.match(prompt, /continúa con las demás fuentes, queries y rutas normales/);
+
+  assert.match(protocol, /`VALIDATED_ROUTES_AVAILABLE`/);
+  assert.match(protocol, /Las entradas de `recommendations` son rutas prioritarias, no exclusivas/);
+  assert.match(protocol, /Agotar las recomendaciones no es una condición de parada/);
+  assert.match(protocol, /INSUFFICIENT_CROSS_RESEARCH_EVIDENCE/);
+
+  assert.match(readme, /se consultan primero/);
+  assert.match(readme, /Son rutas prioritarias, no exclusivas/);
+  assert.match(readme, /continúa con las fuentes, queries y rutas normales/);
+
+  assert.match(orderTemplate, /consulta primero las rutas de `recommendations`/);
+  assert.match(orderTemplate, /Estas rutas aprendidas son prioritarias, no exclusivas/);
+  assert.match(orderTemplate, /Agotar las recomendaciones no permite detener la investigación/);
+});

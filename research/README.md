@@ -174,7 +174,7 @@ Cada incorporación al índice conserva además un snapshot auditable en `resear
 
 Para evitar aprender de una casualidad, una ruta no puede marcarse como recomendada hasta acumular al menos tres intentos validados en dos investigaciones distintas y dos intentos útiles. Se distinguen evidencia confirmada, candidato, contexto, ausencia de datos, bloqueo y fallo técnico. Las plantillas de consulta almacenadas se normalizan y nunca contienen el identificador o la respuesta final de un juego concreto.
 
-Al generar una orden futura, Codex puede convertir las rutas recomendadas en prioridad de búsqueda para la plataforma y campo correspondientes. No elimina otras fuentes ni rebaja los umbrales de evidencia; sólo mejora el orden de consulta.
+Cada ejecución del worker lee este índice antes de investigar. Cuando la plataforma tenga `recommendationStatus: "VALIDATED_ROUTES_AVAILABLE"`, las rutas de `recommendations` se consultan primero para los campos incluidos en sus `targetCategories`. Son rutas prioritarias, no exclusivas: si están bloqueadas, no contienen el producto exacto o no aportan prueba suficiente, el worker registra el intento y continúa con las fuentes, queries y rutas normales de la orden. Agotar las recomendaciones no es una condición de parada y nunca rebaja los umbrales de evidencia.
 
 Un elemento de `unresolved` contiene `platform`, `releaseTitle`, `field`, `reason` y `sourceRefs`; puede añadir `candidateValues` para registrar conflictos sin resolverlos arbitrariamente.
 
