@@ -22,6 +22,7 @@ type ImageEvidenceType = "REAL_SCAN" | "REAL_PHOTO" | "RETAILER_ASSET" | "PUBLIS
 type VariantGroup = {
   id: number;
   label: string;
+  physicalVariant: string;
   markets: string[];
   barcode: string;
   productCodes: string;
@@ -62,7 +63,7 @@ const EMPTY_PRICES: PriceFields = {
 
 function emptyGroup(id: number): VariantGroup {
   return {
-    id, label: "", markets: [], barcode: "", productCodes: "", packagingLanguages: "", softwareLanguages: "",
+    id, label: "", physicalVariant: "", markets: [], barcode: "", productCodes: "", packagingLanguages: "", softwareLanguages: "",
     confidence: "PENDING_IDENTIFIER", ratingSystems: "",
     catalogNumber: "", serial: "", boxCode: "", releaseDate: "", releaseDateContext: "",
     physicalContentStatus: "PHYSICAL_FULL_GAME", physicalProductType: "NATIVE_GAME_DISC",
@@ -192,7 +193,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
             platformSlug,
             markets: group.markets,
             groupLabel: group.label,
-            physicalVariant,
+            physicalVariant: group.physicalVariant || physicalVariant,
             role,
           });
           imageAttempts.push(await attemptOptionalImageUpload(
@@ -211,7 +212,8 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
           approximate: true, sourceLabel: "Alta manual de Region Atlas", notes: [],
         } : undefined;
         preparedGroups.push({
-          label: group.label || undefined, markets: group.markets, barcode: group.barcode || null,
+          label: group.label || undefined, physicalVariant: group.physicalVariant || null,
+          markets: group.markets, barcode: group.barcode || null,
           productCodes: splitValues(group.productCodes), packagingLanguages: splitValues(group.packagingLanguages),
           softwareLanguages: splitValues(group.softwareLanguages), confidence: group.confidence,
           coverUrl: front?.url ?? uploadedCommonCover?.url ?? (coverUrl || null),
@@ -251,7 +253,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
       <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <TextField label="Título" value={title} onChange={setTitle} className="lg:col-span-2" />
         <label className="block space-y-1"><span className="text-[10px] uppercase tracking-wider text-muted">Plataforma</span><select className="input" value={platformSlug} onChange={(event) => setPlatformSlug(event.target.value)}>{platforms.map((platform) => <option key={platform.slug} value={platform.slug}>{platform.name}</option>)}</select></label>
-        <TextField label="Edición física" value={physicalVariant} onChange={setPhysicalVariant} />
+        <TextField label="Edición física predeterminada" value={physicalVariant} onChange={setPhysicalVariant} />
         <FileField label="Subir portada común" file={commonCoverFile} onChange={setCommonCoverFile} />
         <TextField label="URL portada (alternativa)" value={coverUrl} onChange={setCoverUrl} />
         <TextField label="Slug base" value={baseSlug} onChange={setBaseSlug} placeholder="mortal-shell-ii" />
@@ -275,6 +277,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
         <div className="flex items-center justify-between gap-3"><div><h2 className="text-base font-semibold">Caja física {groupIndex + 1}</h2><p className="mt-1 text-xs text-muted">Nombre automático: {automaticLabel || "selecciona mercados"}</p></div>{groups.length > 1 ? <button type="button" className="icon-btn" title="Eliminar caja física" onClick={() => setGroups((current) => current.filter((item) => item.id !== group.id))}><Trash2 size={18} aria-hidden="true" /><span className="sr-only">Eliminar caja física</span></button> : null}</div>
         <div className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           <TextField label="Nombre personalizado (opcional)" value={group.label} onChange={(value) => updateGroup(group.id, { label: value })} placeholder={automaticLabel || "US/CA"} />
+          <TextField label="Edición de esta caja (opcional)" value={group.physicalVariant} onChange={(value) => updateGroup(group.id, { physicalVariant: value })} placeholder={physicalVariant || "Standard"} />
           <TextField label="EAN / UPC / JAN" value={group.barcode} onChange={(value) => updateGroup(group.id, { barcode: value, confidence: value.trim() ? "CONFIRMED" : "PENDING_IDENTIFIER" })} />
           <TextField label="Códigos de producto" value={group.productCodes} onChange={(value) => updateGroup(group.id, { productCodes: value })} />
           <TextField label="Idiomas de caja" value={group.packagingLanguages} onChange={(value) => updateGroup(group.id, { packagingLanguages: value })} />
