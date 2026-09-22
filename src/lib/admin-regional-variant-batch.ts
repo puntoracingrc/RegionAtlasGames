@@ -15,6 +15,7 @@ export type AdminMarketValue = CatalogMarketRegion | GenericMarketValue;
 
 export type AdminRegionalVariantGroupInput = {
   label?: string;
+  physicalVariant?: string | null;
   markets: string[];
   barcode?: string | null;
   productCodes?: string[];
@@ -52,6 +53,7 @@ export type ExpandedRegionalVariantRow = {
   marketRegion: CatalogMarketRegion | null;
   region: string;
   slug: string;
+  physicalVariant: string | null;
   group: CatalogPhysicalReleaseGroup;
   initialPrices: AdminInitialPriceFields | null;
   existingCatalogId: string | null;
@@ -205,9 +207,10 @@ export function expandRegionalVariantBatch(
 
     const regionLabel = resolvedMarkets.map((market) => market.shortLabel).join("/");
     const groupLabel = rawGroup.label?.trim() || regionLabel;
+    const physicalVariant = rawGroup.physicalVariant?.trim() || input.physicalVariant?.trim() || null;
     const groupKey = `${String(index + 1).padStart(2, "0")}-${slugify(groupLabel) || "variante"}`;
     const group: CatalogPhysicalReleaseGroup = {
-      id: `${platformSlug}:${baseSlug}:${slugify(input.physicalVariant || "standard")}:${groupKey}`,
+      id: `${platformSlug}:${baseSlug}:${slugify(physicalVariant || "standard")}:${groupKey}`,
       label: groupLabel,
       barcode: rawGroup.barcode?.trim() || null,
       productCodes: cleanList(rawGroup.productCodes),
@@ -245,6 +248,7 @@ export function expandRegionalVariantBatch(
         marketRegion: market.marketRegion,
         region: market.region,
         slug,
+        physicalVariant,
         group,
         initialPrices: rawGroup.marketPrices?.[market.value] ?? null,
         existingCatalogId,

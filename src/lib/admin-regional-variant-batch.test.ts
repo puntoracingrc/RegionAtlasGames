@@ -362,3 +362,27 @@ test("a regional box keeps its gallery, physical data and independent market pri
   assert.equal(edition.releaseDate, "2026-08-20");
   assert.equal(edition.releaseDateContext, "Lanzamiento norteamericano");
 });
+
+test("boxes from the same market can keep different physical editions", () => {
+  const result = expandRegionalVariantBatch({
+    title: ".hack//G.U. Last Recode",
+    platformSlug: "ps4",
+    physicalVariant: "Standard",
+    groups: [
+      { label: "JP Standard", markets: ["JP"], barcode: "4573173322188" },
+      { label: "JP Premium", physicalVariant: "Premium Edition", markets: ["JP"], barcode: "4573173322195" },
+      { label: "JP Welcome Price!!", physicalVariant: "Welcome Price!!", markets: ["JP"], barcode: "4573173343343" },
+    ],
+  });
+
+  assert.ok(!("error" in result));
+  assert.deepEqual(result.rows.map((row) => row.physicalVariant), [
+    "Standard",
+    "Premium Edition",
+    "Welcome Price!!",
+  ]);
+  assert.equal(new Set(result.rows.map((row) => row.slug)).size, 3);
+  assert.match(result.rows[0].group.id, /:standard:/);
+  assert.match(result.rows[1].group.id, /:premium-edition:/);
+  assert.match(result.rows[2].group.id, /:welcome-price:/);
+});
