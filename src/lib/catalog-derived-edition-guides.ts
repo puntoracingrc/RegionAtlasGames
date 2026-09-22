@@ -385,11 +385,13 @@ function matchingFamily(guide: CatalogEditionGuideModel, game: CatalogGame): Cat
     const first = guide.physicalEditions.find((edition) => family.physicalEditionIds.includes(edition.id));
     return first?.editionType === type;
   });
-  if (candidates.length === 1) return candidates[0];
-  const identity = normalizedIdentity(game.edition || game.physicalVariant);
+  const identity = normalizedIdentity(familyLabel(game));
+  if (type !== "OTHER" && type !== "BUDGET_REISSUE" && candidates.length === 1) {
+    return candidates[0];
+  }
   return candidates.find((family) => {
     const label = normalizedIdentity(family.label);
-    return identity && (label.includes(identity) || identity.includes(label));
+    return identity && label === identity;
   });
 }
 

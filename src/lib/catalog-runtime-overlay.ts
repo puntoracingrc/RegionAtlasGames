@@ -35,6 +35,8 @@ import { loadCatalogPriceGames } from "./catalog-price-games";
 const OVERLAY_PREFIX = "region-atlas/catalog/overlay";
 const INDEX_PATH = `${OVERLAY_PREFIX}/index.json`;
 const OVERLAY_CACHE_TAG = "catalog-overlay";
+const CATALOG_DETAIL_ROUTE_PATTERN = "/catalogo/[slug]";
+const OVERLAY_CACHE_VERSION = "v2";
 
 export function catalogOverlayRevalidationPaths(game: CatalogGame): string[] {
   return [
@@ -42,12 +44,14 @@ export function catalogOverlayRevalidationPaths(game: CatalogGame): string[] {
     "/api/catalog/search",
     `/plataforma/${game.platformSlug}`,
     `/catalogo/${buildCatalogSeoSlug(game)}`,
+    CATALOG_DETAIL_ROUTE_PATTERN,
   ];
 }
 
 function revalidateCatalogOverlayPaths(game: CatalogGame): void {
   for (const path of catalogOverlayRevalidationPaths(game)) {
-    revalidatePath(path);
+    if (path === CATALOG_DETAIL_ROUTE_PATTERN) revalidatePath(path, "page");
+    else revalidatePath(path);
   }
 }
 
@@ -98,7 +102,7 @@ async function readIndexFromBlobFresh(): Promise<CatalogOverlayIndex> {
 
 const readIndexFromBlobCached = unstable_cache(
   readIndexFromBlobFresh,
-  ["catalog-overlay-index"],
+  [`catalog-overlay-index-${OVERLAY_CACHE_VERSION}`],
   { revalidate: 60, tags: [OVERLAY_CACHE_TAG] },
 );
 
@@ -141,7 +145,7 @@ async function readCatalogOverlayGameFresh(catalogId: string): Promise<CatalogGa
 
 const readCatalogOverlayGameCached = unstable_cache(
   readCatalogOverlayGameFresh,
-  ["catalog-overlay-game"],
+  [`catalog-overlay-game-${OVERLAY_CACHE_VERSION}`],
   { revalidate: 60, tags: [OVERLAY_CACHE_TAG] },
 );
 

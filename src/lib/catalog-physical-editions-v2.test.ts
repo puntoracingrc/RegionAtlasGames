@@ -133,6 +133,7 @@ test("a runtime catalog publication invalidates browse, search, platform and det
     "/api/catalog/search",
     "/plataforma/ps5",
     catalogGamePath(game),
+    "/catalogo/[slug]",
   ]);
 });
 
@@ -999,6 +1000,19 @@ test("runtime editions with the same resolved work id join the central V2 across
       notes: [],
     },
   };
+  const welcomePrice = {
+    ...premium,
+    id: "runtime-hack-gu-welcome-price-jp",
+    slug: "hack-gu-welcome-price-jp",
+    physicalVariant: "Welcome Price!!",
+    physicalReleaseGroup: {
+      ...premium.physicalReleaseGroup,
+      id: "runtime:hack-gu:welcome-price:jp",
+      label: "Welcome Price!! Japan",
+      barcode: "4573173343343",
+      productCodes: ["PLJS-36095"],
+    },
+  };
   const unrelated = {
     ...premium,
     id: "runtime-unrelated-premium-jp",
@@ -1014,37 +1028,43 @@ test("runtime editions with the same resolved work id join the central V2 across
   const guide = extendCatalogEditionGuideWithRuntimeGames(
     sourceGuide,
     current,
-    [current, premium, unrelated],
+    [current, premium, welcomePrice, unrelated],
   );
 
   assert.ok(guide.physicalEditions.some((edition) => edition.catalogIds.includes(premium.id)));
+  assert.ok(guide.physicalEditions.some((edition) => edition.catalogIds.includes(welcomePrice.id)));
   assert.equal(
     guide.physicalEditions.some((edition) => edition.catalogIds.includes(unrelated.id)),
     false,
   );
   assert.ok(guide.editionFamilies.some((family) => family.label === "Premium Edition"));
+  assert.ok(guide.editionFamilies.some((family) => family.label === "Welcome Price!!"));
 
   const runtimeGuide = buildRuntimeCatalogEditionGuide(
     current,
     getCatalogEditionGuides(),
-    [current, premium, unrelated],
+    [current, premium, welcomePrice, unrelated],
   );
 
   assert.ok(runtimeGuide.physicalEditions.some((edition) => edition.catalogIds.includes(premium.id)));
+  assert.ok(runtimeGuide.physicalEditions.some((edition) => edition.catalogIds.includes(welcomePrice.id)));
   assert.equal(
     runtimeGuide.physicalEditions.some((edition) => edition.catalogIds.includes(unrelated.id)),
     false,
   );
   assert.ok(runtimeGuide.editionFamilies.some((family) => family.label === "Premium Edition"));
+  assert.ok(runtimeGuide.editionFamilies.some((family) => family.label === "Welcome Price!!"));
 
-  const detailGuide = getCatalogEditionGuide(base, [current, premium, unrelated]);
+  const detailGuide = getCatalogEditionGuide(base, [current, premium, welcomePrice, unrelated]);
   assert.ok(detailGuide);
   assert.ok(detailGuide.physicalEditions.some((edition) => edition.catalogIds.includes(premium.id)));
+  assert.ok(detailGuide.physicalEditions.some((edition) => edition.catalogIds.includes(welcomePrice.id)));
   assert.equal(
     detailGuide.physicalEditions.some((edition) => edition.catalogIds.includes(unrelated.id)),
     false,
   );
   assert.ok(detailGuide.editionFamilies.some((family) => family.label === "Premium Edition"));
+  assert.ok(detailGuide.editionFamilies.some((family) => family.label === "Welcome Price!!"));
 
   const staleRegionalRoute = {
     ...current,
@@ -1058,10 +1078,13 @@ test("runtime editions with the same resolved work id join the central V2 across
     staleRegionalRoute,
     current,
     premium,
+    welcomePrice,
   ]);
   assert.ok(staleRouteGuide);
   assert.ok(staleRouteGuide.physicalEditions.some((edition) => edition.catalogIds.includes(premium.id)));
+  assert.ok(staleRouteGuide.physicalEditions.some((edition) => edition.catalogIds.includes(welcomePrice.id)));
   assert.ok(staleRouteGuide.editionFamilies.some((family) => family.label === "Premium Edition"));
+  assert.ok(staleRouteGuide.editionFamilies.some((family) => family.label === "Welcome Price!!"));
 });
 
 test("scoped V2 grouping exposes only editions present in the input", () => {
