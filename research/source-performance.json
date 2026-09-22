@@ -2349,40 +2349,127 @@
     },
     "ps1": {
       "researchIds": [
-        "98-koshien-ps1-2026-09-21"
+        "98-koshien-ps1-2026-09-21",
+        "99-koshien-ps1-2026-09-22"
       ],
-      "observationCount": 1,
+      "observationCount": 2,
       "queryTotals": {
-        "exact_identifier": 19,
-        "general": 2,
-        "image": 10,
-        "marketplace": 29,
-        "source_specific": 5
+        "general": 3,
+        "exact_identifier": 24,
+        "image": 17,
+        "source_specific": 11,
+        "marketplace": 40
       },
       "sourceAttemptTotals": {
-        "total": 23,
-        "useful": 18,
+        "total": 56,
+        "useful": 38,
         "byOutcome": {
-          "CANDIDATE": 1,
-          "CONFIRMED_EVIDENCE": 14,
-          "CONTEXT_ONLY": 4,
-          "TECHNICAL_FAILURE": 4
+          "CONFIRMED_EVIDENCE": 26,
+          "TECHNICAL_FAILURE": 16,
+          "CONTEXT_ONLY": 11,
+          "CANDIDATE": 2,
+          "NO_RELEVANT_DATA": 1
         },
         "byAccessStatus": {
+          "OPENED": 35,
+          "SEARCH_RESULT_ONLY": 17,
           "BLOCKED": 1,
-          "OPENED": 14,
-          "SEARCH_RESULT_ONLY": 5,
           "TIMEOUT": 3
         }
       },
-      "recommendations": [],
-      "recommendationStatus": "INSUFFICIENT_CROSS_RESEARCH_EVIDENCE",
+      "recommendations": [
+        {
+          "domain": "auctions.yahoo.co.jp",
+          "targetCategories": [
+            "active_market_price",
+            "budgetImages",
+            "budget_active_price",
+            "demoImages",
+            "demo_active_price",
+            "demo_physical_identity",
+            "demo_release_type",
+            "price_context",
+            "release_variant_discovery",
+            "standard_active_price"
+          ],
+          "attempts": 9,
+          "usefulAttempts": 4,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "gamefaqs.gamespot.com",
+          "targetCategories": [
+            "budget_box",
+            "budget_box_image",
+            "developer",
+            "identifiers",
+            "identity",
+            "players",
+            "publisher",
+            "releaseData",
+            "release_dates",
+            "release_variant_visual_identity",
+            "release_variants",
+            "series",
+            "standard_box",
+            "standard_box_image"
+          ],
+          "attempts": 6,
+          "usefulAttempts": 4,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "redump.org",
+          "targetCategories": [
+            "budget_disc_serial",
+            "budget_software_language",
+            "discSerial",
+            "disc_serial",
+            "market",
+            "software_language"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "suruga-ya.jp",
+          "targetCategories": [
+            "budgetIdentifiers",
+            "budgetPrice",
+            "budget_identifiers",
+            "budget_publisher",
+            "budget_release_date",
+            "demoIdentity",
+            "demo_identity",
+            "demo_product_code",
+            "release_type",
+            "standardIdentifiers"
+          ],
+          "attempts": 6,
+          "usefulAttempts": 6,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "w.atwiki.jp",
+          "targetCategories": [
+            "product_codes",
+            "release_dates",
+            "release_variants",
+            "series"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "distinctResearchIds": 2
+        }
+      ],
+      "recommendationStatus": "VALIDATED_ROUTES_AVAILABLE",
       "domains": {
         "arcade-history.com": {
-          "attempts": 1,
-          "usefulAttempts": 0,
-          "usefulnessRate": 0,
-          "confirmedEvidenceAttempts": 0,
+          "attempts": 2,
+          "usefulAttempts": 1,
+          "usefulnessRate": 0.5,
+          "confirmedEvidenceAttempts": 1,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -2391,61 +2478,111 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "98-koshien-ps1-2026-09-21"
+            "98-koshien-ps1-2026-09-21",
+            "99-koshien-ps1-2026-09-22"
           ],
           "sourceTypes": [
             "technical_database"
           ],
           "targetCategories": [
-            "budgetIdentifiers"
+            "budgetIdentifiers",
+            "demo_identity",
+            "media",
+            "product_code",
+            "publisher"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 1
+            "exact_identifier": 2,
+            "source_specific": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
         },
-        "auctions.yahoo.co.jp": {
-          "attempts": 2,
-          "usefulAttempts": 2,
-          "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 2,
+        "auctions.c.yimg.jp": {
+          "attempts": 3,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
-          "technicalFailures": 0,
+          "technicalFailures": 3,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
+          "searchResultOnlyAttempts": 3,
           "distinctResearchIds": 1,
           "researchIds": [
-            "98-koshien-ps1-2026-09-21"
+            "99-koshien-ps1-2026-09-22"
           ],
           "sourceTypes": [
-            "ended_secondhand_listing"
+            "direct_image"
           ],
           "targetCategories": [
-            "budgetImages",
-            "demoImages"
+            "demo_front_back_images"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 3,
-            "image": 8,
-            "marketplace": 3
+            "image": 6
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
+        },
+        "auctions.yahoo.co.jp": {
+          "attempts": 9,
+          "usefulAttempts": 4,
+          "usefulnessRate": 0.4444,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 5,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 5,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21",
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "ended_secondhand_listing",
+            "marketplace_listing",
+            "marketplace_search"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "budgetImages",
+            "budget_active_price",
+            "demoImages",
+            "demo_active_price",
+            "demo_physical_identity",
+            "demo_release_type",
+            "price_context",
+            "release_variant_discovery",
+            "standard_active_price"
+          ],
+          "queryTypeCounts": {
+            "image": 8,
+            "exact_identifier": 3,
+            "marketplace": 12
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
         },
         "famitsu.com": {
           "attempts": 1,
@@ -2478,9 +2615,130 @@
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
+        },
+        "furu1.online": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace_listing"
+          ],
+          "targetCategories": [
+            "standard_active_price",
+            "standard_identity"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
         },
         "gamefaqs.gamespot.com": {
+          "attempts": 6,
+          "usefulAttempts": 4,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 2,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 2,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21",
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "game_database",
+            "image_gallery",
+            "image_page",
+            "specialist_database"
+          ],
+          "targetCategories": [
+            "budget_box",
+            "budget_box_image",
+            "developer",
+            "identifiers",
+            "identity",
+            "players",
+            "publisher",
+            "releaseData",
+            "release_dates",
+            "release_variant_visual_identity",
+            "release_variants",
+            "series",
+            "standard_box",
+            "standard_box_image"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "source_specific": 5,
+            "exact_identifier": 2,
+            "image": 8
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gamesdb.launchbox-app.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "image_gallery"
+          ],
+          "targetCategories": [
+            "standard_back_image",
+            "standard_front_image"
+          ],
+          "queryTypeCounts": {
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gavas.jp": {
           "attempts": 1,
           "usefulAttempts": 1,
           "usefulnessRate": 1,
@@ -2495,24 +2753,132 @@
           "searchResultOnlyAttempts": 0,
           "distinctResearchIds": 1,
           "researchIds": [
-            "98-koshien-ps1-2026-09-21"
+            "99-koshien-ps1-2026-09-22"
           ],
           "sourceTypes": [
-            "game_database"
+            "retailer_metadata"
           ],
           "targetCategories": [
-            "releaseData"
+            "standard_date",
+            "standard_identity",
+            "standard_product_code"
           ],
           "queryTypeCounts": {
-            "general": 1,
-            "source_specific": 1
+            "exact_identifier": 1,
+            "general": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
+        },
+        "gsdb.f5.si": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "release_database"
+          ],
+          "targetCategories": [
+            "budget_date",
+            "budget_identity",
+            "budget_product_code"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "images.launchbox-app.com": {
+          "attempts": 2,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 2,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 2,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "direct_image"
+          ],
+          "targetCategories": [
+            "standard_back_image",
+            "standard_front_image"
+          ],
+          "queryTypeCounts": {
+            "image": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "item.rakuten.co.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace_listing"
+          ],
+          "targetCategories": [
+            "active_market_context",
+            "release_date_conflict",
+            "standard_date",
+            "standard_identifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "marketplace": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
         },
         "jp.mercari.com": {
           "attempts": 4,
@@ -2543,16 +2909,16 @@
             "standardPrice"
           ],
           "queryTypeCounts": {
+            "marketplace": 12,
             "exact_identifier": 1,
-            "image": 1,
-            "marketplace": 12
+            "image": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
         },
         "mobygames.com": {
           "attempts": 1,
@@ -2585,7 +2951,42 @@
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
+        },
+        "muuseo.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "collection_catalog"
+          ],
+          "targetCategories": [
+            "demo_identity",
+            "demo_image_discovery"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
         },
         "paypayfleamarket.yahoo.co.jp": {
           "attempts": 2,
@@ -2620,15 +3021,15 @@
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
         },
-        "psxdatacenter.com": {
+        "pricecharting.com": {
           "attempts": 1,
           "usefulAttempts": 1,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 1,
+          "confirmedEvidenceAttempts": 0,
           "candidateAttempts": 0,
-          "contextOnlyAttempts": 0,
+          "contextOnlyAttempts": 1,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 0,
           "blockedAttempts": 0,
@@ -2637,30 +3038,33 @@
           "searchResultOnlyAttempts": 0,
           "distinctResearchIds": 1,
           "researchIds": [
-            "98-koshien-ps1-2026-09-21"
+            "99-koshien-ps1-2026-09-22"
           ],
           "sourceTypes": [
-            "technical_database"
+            "price_aggregator"
           ],
           "targetCategories": [
-            "identity"
+            "barcode",
+            "physical_contents",
+            "price_context",
+            "standard_identity"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 2,
-            "general": 1
+            "exact_identifier": 1,
+            "marketplace": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
         },
-        "redump.org": {
-          "attempts": 1,
-          "usefulAttempts": 1,
+        "psxdatacenter.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 1,
+          "confirmedEvidenceAttempts": 2,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -2668,26 +3072,73 @@
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 1,
-          "distinctResearchIds": 1,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "98-koshien-ps1-2026-09-21"
+            "98-koshien-ps1-2026-09-21",
+            "99-koshien-ps1-2026-09-22"
           ],
           "sourceTypes": [
-            "preservation_database"
+            "technical_database"
           ],
           "targetCategories": [
-            "discSerial"
+            "identifiers",
+            "identity",
+            "languages",
+            "media",
+            "players",
+            "release_date"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 4
+            "general": 2,
+            "exact_identifier": 3
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
+        },
+        "redump.org": {
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 1,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "98-koshien-ps1-2026-09-21",
+            "99-koshien-ps1-2026-09-22"
+          ],
+          "sourceTypes": [
+            "preservation_database"
+          ],
+          "targetCategories": [
+            "budget_disc_serial",
+            "budget_software_language",
+            "discSerial",
+            "disc_serial",
+            "market",
+            "software_language"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 4,
+            "source_specific": 4
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
         },
         "retroplace.com": {
           "attempts": 2,
@@ -2722,13 +3173,13 @@
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
         },
         "suruga-ya.jp": {
-          "attempts": 4,
-          "usefulAttempts": 4,
+          "attempts": 6,
+          "usefulAttempts": 6,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 3,
+          "confirmedEvidenceAttempts": 5,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 1,
           "noRelevantDataAttempts": 0,
@@ -2737,9 +3188,10 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "98-koshien-ps1-2026-09-21"
+            "98-koshien-ps1-2026-09-21",
+            "99-koshien-ps1-2026-09-22"
           ],
           "sourceTypes": [
             "retailer_metadata",
@@ -2748,26 +3200,32 @@
           "targetCategories": [
             "budgetIdentifiers",
             "budgetPrice",
+            "budget_identifiers",
+            "budget_publisher",
+            "budget_release_date",
             "demoIdentity",
+            "demo_identity",
+            "demo_product_code",
+            "release_type",
             "standardIdentifiers"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 7,
-            "marketplace": 1,
-            "source_specific": 2
+            "exact_identifier": 11,
+            "source_specific": 2,
+            "marketplace": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
         },
         "w.atwiki.jp": {
-          "attempts": 2,
-          "usefulAttempts": 2,
+          "attempts": 3,
+          "usefulAttempts": 3,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 2,
+          "confirmedEvidenceAttempts": 3,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -2776,61 +3234,70 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 2,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "98-koshien-ps1-2026-09-21"
+            "98-koshien-ps1-2026-09-21",
+            "99-koshien-ps1-2026-09-22"
           ],
           "sourceTypes": [
-            "reference_database"
+            "reference_database",
+            "specialist_database"
           ],
           "targetCategories": [
+            "product_codes",
+            "release_dates",
+            "release_variants",
             "series"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 1,
             "general": 2,
+            "exact_identifier": 3,
             "source_specific": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
         },
         "yugiyahiranonetshop.com": {
-          "attempts": 1,
-          "usefulAttempts": 1,
+          "attempts": 2,
+          "usefulAttempts": 2,
           "usefulnessRate": 1,
           "confirmedEvidenceAttempts": 1,
           "candidateAttempts": 0,
-          "contextOnlyAttempts": 0,
+          "contextOnlyAttempts": 1,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "98-koshien-ps1-2026-09-21"
+            "98-koshien-ps1-2026-09-21",
+            "99-koshien-ps1-2026-09-22"
           ],
           "sourceTypes": [
-            "active_secondhand_listing"
+            "active_secondhand_listing",
+            "marketplace_listing"
           ],
           "targetCategories": [
-            "standardImages"
+            "standardImages",
+            "standard_active_price",
+            "standard_physical_contents"
           ],
           "queryTypeCounts": {
             "image": 1,
-            "marketplace": 3
+            "marketplace": 4
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-21"
+          "lastObservedAt": "2026-09-22"
         }
       }
     },
