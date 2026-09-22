@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 6,
+  "generation": 7,
   "workerId": "ps1",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps1",
   "queuePath": "research/queue.json",
@@ -30,8 +30,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T12:47:46Z",
-  "updatedBy": "codex",
-  "note": "'98 Koshien validado, publicado y consumido. Siguiente orden preparada para '99 Koshien."
+  "lease": {
+    "runId": "chatgpt-ps1-20260922T135705Z-a7",
+    "claimedAt": "2026-09-22T13:57:05Z",
+    "expiresAt": "2026-09-22T14:47:05Z"
+  },
+  "updatedAt": "2026-09-22T13:57:05Z",
+  "updatedBy": "chatgpt",
+  "note": "Research lease claimed for '99 Koshien."
 }
