@@ -1,0 +1,9 @@
+{
+  "name": "ARCA Alcobendas",
+  "lapLengthMeters": 276.42,
+  "status": "estimated",
+  "sourceType": "user-supplied Google Maps manual measurement",
+  "capturedAt": "2026-09-22T06:13:59+02:00",
+  "precisionNote": "Medición manual orientativa sobre imagen aérea; la etiqueta visible indica 276,42 m. No es una longitud homologada.",
+  "usage": "Comparación histórica de ritmo y consumo entre circuitos; no sustituye la calibración de la jornada en Cerdanyola."
+}

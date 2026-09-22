@@ -1,0 +1,947 @@
+{
+  "schemaVersion": 1,
+  "title": "Historial nacional AECAR Rally Game / GT8",
+  "scope": "Podios del Campeonato de España publicados por AECAR entre 1999 y 2025. Rally Game es el antecedente de la actual 1/8 GT; se conservan las denominaciones de cada temporada.",
+  "officialHistoryUrl": "https://www.aecar.org/modalidades.php?tipo=rg",
+  "sourceText": "history/sources/aecar-historial-campeonatos-1999-2025.txt",
+  "championshipPodiums": [
+    {
+      "year": 1999,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Ramón Guasch Palma",
+        "Marc Ibars Pola",
+        "Ricardo Royo"
+      ],
+      "evidence": {
+        "type": "official_history",
+        "url": "https://www.aecar.org/modalidades.php?tipo=rg"
+      },
+      "verification": "official_history_only",
+      "notes": "No se conserva una clasificación final enlazada; además, el PDF de 2000 se titula “1er Campeonato de España”."
+    },
+    {
+      "year": 2000,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Marc Ibars Pola",
+        "Enric Martínez Benito",
+        "Francesc Bistué Martí"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "CLAS. CTO. ESP. 2000.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2001,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Juan Antonio Martínez",
+        "Agustín Lafuente",
+        "Joan Fradera Fernández"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "CLAS. CTO. ESP. 2001.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2002,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Marc Ibars Pola",
+        "Adrián Pérez Mayoral",
+        "Joan Fradera Fernández"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "CLAS. CTO. ESP. 2002.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2003,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Adrián Pérez Mayoral",
+        "Joan Fradera Fernández",
+        "Sergio Martínez"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "clasificacion_2003.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2004,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Marc Ibars Pola",
+        "Sheila Lucena Moratalla",
+        "Joan Fradera Fernández"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "clasificacion_2004.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2005,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Goyo Vidal Gracia",
+        "Joan Fradera Fernández",
+        "Carlos Pineda Vidal"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "clasificacion_2005.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2006,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Marc Ibars Pola",
+        "Goyo Vidal Gracia",
+        "Carlos Saval Fernández"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "clasificacion_2006.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2007,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Sergio García Mercado",
+        "Carlos Pineda Vidal",
+        "Francisco Javier Saura Reyes"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "clasificacion_2007.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2008,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Goyo Vidal Gracia",
+        "Francisco Javier Saura Reyes",
+        "Carlos Saval Fernández"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "CLAS. CTO. ESP. 2008.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2009,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Toni Santana Yanes",
+        "Carlos Saval Fernández",
+        "Sergio García Mercado"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "CLAS._CTO._ESP._2009.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2010,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Sergio García Mercado",
+        "Toni Santana Yanes",
+        "Sergio Felipe Martín"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "CLAS._CTO._ESP._2010.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2011,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Sergio García Mercado",
+        "José Antón Moraga",
+        "Johnny Manuel Magdaleno Pita"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "CLAS._CTO._ESP._2011.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2012,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Francisco Escribano Carreño",
+        "Sergio Frutos Larrañaga",
+        "Daniel Leal Rodríguez"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "Cpto._Espana_2012.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2013,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Daniel Otero Porto",
+        "Jesús Rico Gómez",
+        "Bruno Durán Anidos"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "Cpto._Espana_RG_2013_tras_Naron.pdf"
+      },
+      "verification": "provisional_document_matches",
+      "notes": "El archivo disponible indica “tras Narón”; coincide con el podio histórico, pero no acredita por sí solo el cierre final de temporada."
+    },
+    {
+      "year": 2014,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Miguel Ángel Ramírez",
+        "Daniel Otero Porto",
+        "Daniel Leal Rodríguez"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "clasificacion_espana_2014.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2015,
+      "competition": "Campeonato de España",
+      "category": "Rally Game",
+      "podium": [
+        "Daniel Otero Porto",
+        "Miguel Ángel Ramírez",
+        "Joaquín Hernández"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "clasificacion_espana_2015.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2016,
+      "competition": "Campeonato de España",
+      "category": "Super GT",
+      "podium": [
+        "Toni Santana Yanes",
+        "Alberto Ibáñez",
+        "Sergio Alonso Calvo"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "espana201final6.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2016,
+      "competition": "Campeonato de España",
+      "category": "GT Series",
+      "podium": [
+        "Toni Santana Yanes",
+        "Alberto Ibáñez",
+        "Jesús Rico Gómez"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "espana201final6.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2016,
+      "competition": "Campeonato de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "Francisco Raúl Dumont Azorín",
+        "Xavier Clerias",
+        "Manuel Isaías García Camarillo"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "espana201final6.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2017,
+      "competition": "Campeonato de España",
+      "category": "Super GT",
+      "podium": [
+        "Toni Santana Yanes",
+        "Daniel Otero Porto",
+        "Sergio Alonso Calvo"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "2017total.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2017,
+      "competition": "Campeonato de España",
+      "category": "GT Series",
+      "podium": [
+        "Toni Santana Yanes",
+        "Sara Cortés Martínez",
+        "Miguel Acosta Sánchez"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "2017total.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2017,
+      "competition": "Campeonato de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "José Manuel González Román",
+        "Daniel Asensi Gueri",
+        "Francisco Raúl Dumont Azorín"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "2017total.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2018,
+      "competition": "Campeonato de España",
+      "category": "Super GT",
+      "podium": [
+        "Daniel Nocete Roca",
+        "Daniel Otero Porto",
+        "Mario Guerra"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "clasi_TOT_2018_pdf.pdf"
+      },
+      "verification": "identity_conflict",
+      "notes": "El historial oficial dice “Mario Guerra”; la clasificación final muestra “GARCIA MARIO”. Se conserva el nombre del historial hasta resolver la identidad."
+    },
+    {
+      "year": 2018,
+      "competition": "Campeonato de España",
+      "category": "GT Series",
+      "podium": [
+        "Toni Santana Yanes",
+        "Jorge Revert Tatay",
+        "Borja Gutarra Hernández"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "clasi_TOT_2018_pdf.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2018,
+      "competition": "Campeonato de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "Jorge Revert Tatay",
+        "Carlos Fernández Espinosa",
+        "Francisco Raúl Dumont Azorín"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "clasi_TOT_2018_pdf.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2019,
+      "competition": "Campeonato de España",
+      "category": "Super GT",
+      "podium": [
+        "Álvaro Poveda Hernández",
+        "Sergio Alonso Calvo",
+        "Daniel Nocete Roca"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "CLASIFICACION2019.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2019,
+      "competition": "Campeonato de España",
+      "category": "GT Series",
+      "podium": [
+        "Toni Santana Yanes",
+        "Joseba Dehesa Vicen",
+        "Borja Gutarra Hernández"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "CLASIFICACION2019.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2019,
+      "competition": "Campeonato de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "Toni Santana Yanes",
+        "David Rebollo Alba",
+        "Gustavo Ginés Gómez"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "CLASIFICACION2019.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2020,
+      "competition": "Campeonato de España",
+      "category": "Super GT",
+      "podium": [
+        "David Rovira",
+        "Ricard Esteve",
+        "Sergio Alonso Calvo"
+      ],
+      "evidence": {
+        "type": "official_pdf",
+        "url": "https://aecar.org/mod/rg/doc/CLASI_TOT_%202020.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2020,
+      "competition": "Campeonato de España",
+      "category": "GT Series",
+      "podium": [
+        "Toni Santana Yanes",
+        "Borja Gutarra Hernández",
+        "Álex Fernández Zarza"
+      ],
+      "evidence": {
+        "type": "official_pdf",
+        "url": "https://aecar.org/mod/rg/doc/CLASI_TOT_%202020.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2020,
+      "competition": "Campeonato de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "Toni Santana Yanes",
+        "David Rebollo Alba",
+        "Gustavo Ginés Gómez"
+      ],
+      "evidence": {
+        "type": "official_pdf",
+        "url": "https://aecar.org/mod/rg/doc/CLASI_TOT_%202020.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2021,
+      "competition": "Campeonato de España",
+      "category": "Super GT",
+      "podium": [
+        "Sergio Alonso Calvo",
+        "Fernando Criado",
+        "David Grande"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "SGT 2021.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2021,
+      "competition": "Campeonato de España",
+      "category": "GT Series",
+      "podium": [
+        "Borja Gutarra Hernández",
+        "Joseba Dehesa Vicen",
+        "Marc García Canadell"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "CAMPEONATO DE ESTAÑA GT SERIES 2021.docx"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2021,
+      "competition": "Campeonato de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "Luis Manuel García Pérez",
+        "David Rebollo Alba",
+        "Sergio Alonso Calvo"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "CAMPEONATO DE ESPAÑA GTE 2021.docx"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2022,
+      "competition": "Campeonato de España",
+      "category": "GT Nitro",
+      "podium": [
+        "Toni Santana Yanes",
+        "Marco Delgado Valdivia",
+        "Marc García Canadell"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "Campeonato de España GTS 2022.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2022,
+      "competition": "Campeonato de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "Toni Santana Yanes",
+        "Ehedey Ramos Castro",
+        "Joel Alejandro Fariña Baute"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "Campeonato de España GTE 2022.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2023,
+      "competition": "Campeonato de España",
+      "category": "GT Nitro",
+      "podium": [
+        "Raúl Darás Antón",
+        "Alexis Rodríguez González",
+        "Toni Santana Yanes"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "Clasificacion 2023 GT Nitro.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2023,
+      "competition": "Campeonato de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "Joel Alejandro Fariña Baute",
+        "Ehedey Ramos Castro",
+        "Raúl Darás Antón"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "Clasificacion 2023 GT Eco.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2024,
+      "competition": "Campeonato de España",
+      "category": "GT8 Nitro",
+      "podium": [
+        "Daniel Schepis",
+        "Marc García Canadell",
+        "David Rebollo Alba"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "gt8 nitro final 2024.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2024,
+      "competition": "Campeonato de España",
+      "category": "GT8 Eléctrico",
+      "podium": [
+        "Rosario Giaimo",
+        "Daniel Schepis",
+        "Ehedey Ramos Castro"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "gt8 electrico final 2024.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2025,
+      "competition": "Campeonato de España",
+      "category": "GT8 Nitro",
+      "podium": [
+        "Raúl Darás Antón",
+        "Fabio Barbosa",
+        "Aleix Piqué Fernández"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "final nitro 2025.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    },
+    {
+      "year": 2025,
+      "competition": "Campeonato de España",
+      "category": "GT8 Eléctrico",
+      "podium": [
+        "Javier Rojo Fernández",
+        "David Tamayo Jiménez",
+        "Cristian Delgado Mendoza"
+      ],
+      "evidence": {
+        "type": "local_pdf_or_docx",
+        "file": "final eco 2025.pdf"
+      },
+      "verification": "verified_document",
+      "notes": ""
+    }
+  ],
+  "titleClaims": {
+    "Toni Santana Yanes": 12,
+    "Marc Ibars Pola": 4,
+    "Sergio García Mercado": 3,
+    "Daniel Otero Porto": 2,
+    "Goyo Vidal Gracia": 2,
+    "Raúl Darás Antón": 2,
+    "Adrián Pérez Mayoral": 1,
+    "Álvaro Poveda Hernández": 1,
+    "Borja Gutarra Hernández": 1,
+    "Daniel Nocete Roca": 1,
+    "David Rovira": 1,
+    "Daniel Schepis": 1,
+    "Francisco Escribano Carreño": 1,
+    "Francisco Raúl Dumont Azorín": 1,
+    "Javier Rojo Fernández": 1,
+    "José Manuel González Román": 1,
+    "Joel Alejandro Fariña Baute": 1,
+    "Jorge Revert Tatay": 1,
+    "Juan Antonio Martínez": 1,
+    "Luis Manuel García Pérez": 1,
+    "Miguel Ángel Ramírez": 1,
+    "Ramón Guasch Palma": 1,
+    "Rosario Giaimo": 1,
+    "Sergio Alonso Calvo": 1
+  },
+  "computedTitleCounts": {
+    "Toni Santana Yanes": 12,
+    "Marc Ibars Pola": 4,
+    "Sergio García Mercado": 3,
+    "Daniel Otero Porto": 2,
+    "Goyo Vidal Gracia": 2,
+    "Raúl Darás Antón": 2,
+    "Adrián Pérez Mayoral": 1,
+    "Borja Gutarra Hernández": 1,
+    "Daniel Nocete Roca": 1,
+    "Daniel Schepis": 1,
+    "David Rovira": 1,
+    "Francisco Escribano Carreño": 1,
+    "Francisco Raúl Dumont Azorín": 1,
+    "Javier Rojo Fernández": 1,
+    "Joel Alejandro Fariña Baute": 1,
+    "Jorge Revert Tatay": 1,
+    "José Manuel González Román": 1,
+    "Juan Antonio Martínez": 1,
+    "Luis Manuel García Pérez": 1,
+    "Miguel Ángel Ramírez": 1,
+    "Ramón Guasch Palma": 1,
+    "Rosario Giaimo": 1,
+    "Sergio Alonso Calvo": 1,
+    "Álvaro Poveda Hernández": 1
+  },
+  "titleComparisons": [
+    {
+      "pilot": "Adrián Pérez Mayoral",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Borja Gutarra Hernández",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Daniel Nocete Roca",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Daniel Otero Porto",
+      "claimed": 2,
+      "computed": 2,
+      "matches": true
+    },
+    {
+      "pilot": "Daniel Schepis",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "David Rovira",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Francisco Escribano Carreño",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Francisco Raúl Dumont Azorín",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Goyo Vidal Gracia",
+      "claimed": 2,
+      "computed": 2,
+      "matches": true
+    },
+    {
+      "pilot": "Javier Rojo Fernández",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Joel Alejandro Fariña Baute",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Jorge Revert Tatay",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "José Manuel González Román",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Juan Antonio Martínez",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Luis Manuel García Pérez",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Marc Ibars Pola",
+      "claimed": 4,
+      "computed": 4,
+      "matches": true
+    },
+    {
+      "pilot": "Miguel Ángel Ramírez",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Ramón Guasch Palma",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Raúl Darás Antón",
+      "claimed": 2,
+      "computed": 2,
+      "matches": true
+    },
+    {
+      "pilot": "Rosario Giaimo",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Sergio Alonso Calvo",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    },
+    {
+      "pilot": "Sergio García Mercado",
+      "claimed": 3,
+      "computed": 3,
+      "matches": true
+    },
+    {
+      "pilot": "Toni Santana Yanes",
+      "claimed": 12,
+      "computed": 12,
+      "matches": true
+    },
+    {
+      "pilot": "Álvaro Poveda Hernández",
+      "claimed": 1,
+      "computed": 1,
+      "matches": true
+    }
+  ],
+  "otherNationalCompetitions": [
+    {
+      "year": 2022,
+      "competition": "Copa de España",
+      "category": "GT Series",
+      "podium": [
+        "Joseba Dehesa Vicen",
+        "Jordi Roca Serra",
+        "Jorge Esteban Alonso"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "Copa de España GTS 2022.pdf"
+      },
+      "countsForChampionshipTitles": false
+    },
+    {
+      "year": 2022,
+      "competition": "Copa de España",
+      "category": "GT Eléctrico",
+      "podium": [
+        "David Rebollo Alba",
+        "Toni Méndez Luceno",
+        "Sergio Alonso Calvo"
+      ],
+      "evidence": {
+        "type": "local_pdf",
+        "file": "Copa de España GTE 2022.pdf"
+      },
+      "countsForChampionshipTitles": false
+    }
+  ],
+  "knownConflicts": [
+    {
+      "key": "2018-super-gt-third",
+      "historyValue": "Mario Guerra",
+      "classificationValue": "GARCIA MARIO",
+      "status": "UNRESOLVED"
+    },
+    {
+      "key": "1999-first-championship-label",
+      "historyValue": "AECAR publica un podio de 1999",
+      "classificationValue": "El PDF de 2000 se titula “1er Campeonato de España”",
+      "status": "UNRESOLVED"
+    },
+    {
+      "key": "2013-finality",
+      "historyValue": "Podio anual publicado por AECAR",
+      "classificationValue": "El PDF disponible indica “tras Narón”",
+      "status": "PARTIAL_SUPPORT"
+    }
+  ]
+}

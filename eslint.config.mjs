@@ -22,6 +22,7 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Standalone Cerdanyola calculator package keeps its own CommonJS tests.
     "tools/carreracerdanyola/**",
+    "tools/directocerdanyola/tests/**",
   ]),
 ]);
 

@@ -1,0 +1,9 @@
+{
+  "name": "ASOGER · Getafe",
+  "lapLengthMeters": 287.0,
+  "status": "estimated",
+  "sourceType": "user-supplied measurement",
+  "capturedAt": "2026-09-22T06:20:00+02:00",
+  "precisionNote": "Longitud orientativa facilitada por el usuario; no es una longitud homologada.",
+  "usage": "Referencia para pruebas nacionales MyRCM cuando se identifique el evento correspondiente."
+}

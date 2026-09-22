@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#07090d"><title>Cerdanyola Live Race Center · PuntoRacing</title><style>/*__CSS__*/</style></head>
+<body data-category="ECO" data-view="live"><div class="ambient" aria-hidden="true"></div><div class="app-shell">
+  <header class="masthead">
+    <div class="identity"><img src="/herramientas/logopunto-512x91.png" alt="PuntoRacing"><span class="slash">/</span><div><strong>LIVE RACE CENTER</strong><small>Cerdanyola 2026</small></div></div>
+    <nav class="view-switch" role="tablist" aria-label="Vista de la aplicación"><button type="button" role="tab" class="selected" data-view-button="live" aria-selected="true">Directo</button><button type="button" role="tab" data-view-button="analysis" aria-selected="false">Análisis</button></nav>
+    <div class="connection-pill" id="connectionPill" data-state="connecting"><i></i><span id="connectionLabel">Conectando con MyRCM</span></div>
+  </header>
+
+  <section class="control-deck" aria-label="Conexión de cronometraje">
+    <div class="event-source"><label for="eventKey">Evento MyRCM</label><div><input id="eventKey" inputmode="numeric" pattern="[0-9]*" value="100645" aria-describedby="eventHelp"><button type="button" id="connectButton" class="primary">Conectar</button><button type="button" id="pauseButton">Pausar pantalla</button></div><small id="eventHelp">Demo: repetición de la última Final Nitro del evento 100645. El Campeonato de España tendrá otro número.</small></div>
+    <div class="category-switch" role="tablist" aria-label="Categoría o modo"><button type="button" role="tab" data-category="NITRO" aria-selected="false">Nitro</button><button type="button" role="tab" data-category="ECO" class="selected" aria-selected="true">Eléctrico</button><button type="button" role="tab" id="demoTab" aria-selected="false">Demo</button></div>
+    <div class="source-meta"><span>FUENTE</span><strong>MyRCM · lectura pública</strong><small id="lastUpdate">Esperando datos…</small></div>
+  </section>
+
+  <section class="registration-strip surface analysis-only" aria-labelledby="registrationTitle">
+    <div class="registration-summary"><span class="kicker">PREINSCRIPCIÓN AECAR</span><h2 id="registrationTitle">Parrilla provisional para las simulaciones</h2><p id="registrationAssumption">Todos los nombres publicados se consideran participantes y pueden puntuar mientras la inscripción siga abierta.</p></div>
+    <div class="registration-counts"><div><strong id="registrationTotal">—</strong><span>inscritos visibles</span></div><div><strong id="registrationConfirmed">—</strong><span>confirmados</span></div><div><strong id="registrationPending">—</strong><span>por confirmar</span></div></div>
+    <details class="registration-details"><summary>Ver pilotos y estado</summary><div id="registrationRoster" class="registration-roster"></div></details>
+    <div class="registration-source"><strong id="registrationClosure">Cierre pendiente</strong><span id="registrationCaptured">Captura pendiente</span><a id="registrationLink" href="https://www.aecar.org/modalidades.php?tipo=rg" target="_blank" rel="noopener noreferrer">Abrir lista oficial</a></div>
+  </section>
+
+  <section class="race-hero live-only">
+    <div class="race-title"><span class="eyebrow" id="raceCategory">GT ECO</span><h1 id="eventName">Cerdanyola Live Timing</h1><p id="groupName">Esperando la manga activa</p><small class="track-reference" id="trackReference">Cuerda estimada: 215,15 m · medición orientativa</small></div>
+    <div class="race-clock"><span id="raceState">EN ESPERA</span><strong id="remainingTime">--:--</strong><small id="raceClockLabel">tiempo restante</small></div>
+    <div class="race-progress" aria-hidden="true"><i id="raceProgress"></i></div>
+  </section>
+
+  <section class="intelligence-center surface analysis-only" aria-labelledby="intelligenceTitle">
+    <div class="section-head"><div><span class="kicker">CENTRO DE RETRANSMISIÓN</span><h2 id="intelligenceTitle">Qué cambia en el campeonato ahora</h2></div><span class="intelligence-source" id="intelligenceSource">Esperando el agregado de MyRCM</span></div>
+    <div class="intelligence-lead"><div><span id="decisiveTag">LECTURA EN DIRECTO</span><strong id="decisiveHeadline">Esperando datos suficientes para calcular los cruces</strong><p id="decisiveDetail">La manga en pantalla y la clasificación general permanecen separadas hasta disponer de una proyección responsable.</p></div><div id="securedPositions" class="secured-positions"></div></div>
+    <div class="intelligence-grid"><div><h3>Cruces decisivos</h3><div id="swingFeed" class="swing-feed"><div class="empty-compact">Se calcularán al recibir posiciones agregadas.</div></div></div><div><h3>Camino a la final</h3><div id="phaseTimeline" class="phase-timeline"><div class="empty-compact">MyRCM publicará aquí clasificatorias, cuartos, semifinales y finales.</div></div></div></div>
+    <div class="event-impact"><div class="event-impact-head"><div><h3>General de la prueba y efecto en el campeonato</h3><p id="eventImpactLabel">Esperando clasificación agregada</p></div><span>PRUEBA → CAMPEONATO</span></div><div id="eventImpactRows" class="event-impact-rows"><div class="empty-compact">Cuando MyRCM publique el agregado, cada puesto mostrará su consecuencia en la general.</div></div></div>
+  </section>
+
+  <section class="rules-center surface analysis-only" aria-labelledby="rulesTitle">
+    <div class="section-head"><div><span class="kicker">REGLAMENTO EN DIRECTO</span><h2 id="rulesTitle">Por qué cambia el resultado</h2></div><a id="categoryRuleLink" class="rule-link" href="#" target="_blank" rel="noopener noreferrer">Abrir reglamento oficial</a></div>
+    <div class="rules-layout">
+      <div class="rule-live"><h3>Situaciones para explicar en retransmisión</h3><div id="ruleFeed" class="rule-feed"></div><div class="incident-console"><div><label>Piloto<select id="incidentPilot"></select></label><label>Decisión confirmada<select id="incidentType"><option value="technical">Infracción técnica</option><option value="track">Penalización en pista</option><option value="blackFlag">Bandera negra</option><option value="disqualification">Descalificación</option></select></label></div><button type="button" id="addIncident">Añadir al guion</button><small>La incidencia explica la norma. La clasificación solo cambia cuando MyRCM o dirección de carrera publica el resultado corregido.</small><div id="incidentFeed" class="incident-feed"></div></div></div>
+      <aside class="technical-card"><span id="technicalCategory">GT8 Eléctrico</span><h3>Características principales del coche</h3><p id="technicalFormat"></p><div id="technicalSpecs" class="technical-specs"></div></aside>
+    </div>
+  </section>
+
+  <section class="metric-strip live-only" aria-label="Datos destacados de carrera">
+    <article><span>LÍDER</span><strong id="metricLeader">—</strong><small id="metricLeaderDetail">Sin datos</small></article>
+    <article id="metricFastestCard" aria-live="polite"><span>VUELTA RÁPIDA</span><strong id="metricFastest">—</strong><small id="metricFastestDetail">Sin datos</small></article>
+    <article><span>VELOCIDAD MEDIA</span><strong id="metricPace">—</strong><small id="metricPaceDetail">Calculada sobre la vuelta media</small></article>
+    <article><span>CAMPEONATO</span><strong id="metricChampionship">—</strong><small id="metricChampionshipDetail">Proyección pendiente</small></article>
+  </section>
+
+  <section class="track-map-card surface live-only" aria-labelledby="trackMapTitle">
+    <div class="section-head"><div><span class="kicker">MAPA DE CARRERA</span><h2 id="trackMapTitle">Posición virtual en el circuito</h2><p>Cuerda de referencia: 215,15 m. Los cruces y tiempos son reales; entre ellos se simulan frenada, paso por curva y aceleración según la geometría del trazado. No es GPS.</p></div><span class="track-live-status" id="trackLiveStatus">Cerdanyola · 215,15 m</span></div>
+    <div class="demo-replay-controls" id="demoControls" hidden><div><strong>Final Nitro real · MyRCM 100645</strong><span id="demoClockSummary">0:00 / 30:12</span></div><button type="button" id="demoPlayPause">❚❚ Pausar</button><button type="button" id="demoRestart">↺ Reiniciar</button><label>Velocidad<select id="demoSpeed"><option value="1" selected>1× · tiempo real</option><option value="4">4×</option><option value="10">10×</option></select></label><a href="https://www.myrcm.ch/en/report/100645/398202?reportKey=1150&amp;reportType=final" target="_blank" rel="noopener noreferrer">Informe original</a></div>
+    <div class="track-map-layout">
+      <div class="track-stage">
+        <svg id="trackMap" viewBox="0 0 1000 390" role="img" aria-labelledby="trackMapSvgTitle trackMapSvgDesc">
+          <title id="trackMapSvgTitle">Circuito de Cerdanyola orientado como la vista aérea, con pilotos en sentido antihorario</title>
+          <desc id="trackMapSvgDesc">La línea roja marca el transpondedor en el extremo inferior derecho. La chicane está a la izquierda y el carril de boxes discurre por la parte inferior. Los coches aparecen en la línea al completar la primera vuelta.</desc>
+          <defs><marker id="directionArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+          <g class="track-infields" aria-hidden="true"><path d="M92 76 H856 C891 76 912 99 915 132 C899 114 877 103 850 103 C818 103 787 119 765 143 C750 112 726 96 694 96 C660 96 630 111 609 136 C593 113 569 102 538 99 L429 91 C391 88 358 103 342 128 C326 99 291 91 261 107 C240 119 226 127 200 130 L104 139 C82 141 68 126 68 106 C68 89 77 79 92 76 Z"></path><path d="M282 129 C298 113 322 117 328 136 C333 151 323 164 311 178 C300 190 303 204 317 215 C289 207 274 191 275 171 C276 155 270 142 282 129 Z"></path><path d="M403 139 C427 125 470 128 495 137 C511 143 513 155 501 165 C490 174 470 169 447 169 C424 169 407 162 403 150 C402 146 402 142 403 139 Z"></path><path d="M581 151 C600 139 615 151 606 169 C598 185 574 198 558 211 C544 222 535 238 538 255 C522 233 524 211 542 194 C559 178 567 161 581 151 Z"></path><path d="M682 143 C704 130 735 136 742 156 C749 177 733 191 713 208 C694 225 686 248 696 268 C674 251 669 228 681 208 C695 184 662 156 682 143 Z"></path><path d="M819 145 C843 128 878 141 882 169 C886 199 865 217 843 239 C824 258 817 281 826 299 C803 282 797 258 810 237 C827 211 815 190 801 174 C790 162 802 153 819 145 Z"></path></g>
+          <path id="circuitGuide" class="track-shadow" d="M900 320 C925 285 945 230 948 172 C952 105 925 62 875 48 C842 38 815 40 775 40 L118 40 C72 40 45 61 42 96 C38 128 58 151 92 157 C123 163 162 155 203 148 C235 143 256 132 272 115 C291 94 323 98 338 118 C352 138 345 158 328 177 C313 194 317 210 341 220 C374 233 419 238 462 242 C500 246 523 234 525 213 C527 191 508 179 478 178 L419 177 C388 177 370 163 374 145 C378 125 406 113 442 114 L562 124 C601 127 622 144 622 166 C622 190 602 204 576 220 C548 237 544 260 561 279 C579 299 612 304 634 288 C654 273 656 249 640 230 C622 209 617 191 626 170 C640 139 670 120 704 120 C737 120 758 137 760 161 C762 185 745 201 725 218 C704 236 699 257 713 276 C729 298 762 301 781 283 C798 266 795 244 780 226 C763 205 759 184 771 163 C787 135 821 119 853 124 C885 129 901 150 900 178 C899 209 878 229 858 248 C836 269 833 294 850 309 C864 322 883 326 900 320"></path>
+          <use href="#circuitGuide" class="track-surface"></use>
+          <use href="#circuitGuide" class="track-guide"></use>
+          <g class="pit-lane" aria-label="Carril de boxes"><path class="pit-shadow" d="M230 143 C225 185 250 235 300 275 C370 330 475 350 590 348 C650 347 692 326 713 276"></path><path class="pit-surface" d="M230 143 C225 185 250 235 300 275 C370 330 475 350 590 348 C650 347 692 326 713 276"></path><path class="pit-guide" d="M230 143 C225 185 250 235 300 275 C370 330 475 350 590 348 C650 347 692 326 713 276"></path><text x="385" y="355">BOXES</text><text x="207" y="188">ENTRADA</text><text x="664" y="342">SALIDA</text></g>
+          <g class="start-grid" transform="translate(397 235) rotate(7)" aria-label="Zona de salida delante de boxes"><line x1="0" y1="-17" x2="0" y2="17"></line><line x1="18" y1="-15" x2="18" y2="15"></line><line x1="36" y1="-13" x2="36" y2="13"></line><text x="18" y="-24" text-anchor="middle">SALIDA</text></g>
+          <g class="direction-guide" aria-hidden="true"><path d="M760 40 H620" marker-end="url(#directionArrow)"></path><path d="M943 226 C950 196 952 166 947 139" marker-end="url(#directionArrow)"></path><path d="M354 225 L430 239" marker-end="url(#directionArrow)"></path></g>
+          <g class="timing-line" transform="translate(900 320)"><line x1="-3" y1="-20" x2="3" y2="20"></line><text x="-18" y="22" text-anchor="end">TRANSPONDER</text></g>
+          <g id="trackMarkers"></g>
+        </svg>
+        <div class="track-incident-dock" id="trackIncidentDock" hidden></div>
+      </div>
+      <div class="track-legend" id="trackLegend"><div class="empty-compact">Esperando pilotos en pista.</div></div>
+    </div>
+  </section>
+
+  <section class="live-general-card surface live-only" aria-labelledby="liveGeneralTitle">
+    <div class="section-head compact"><div><span class="kicker">GENERAL PROVISIONAL</span><h2 id="liveGeneralTitle">Campeonato ahora</h2></div><span id="liveGeneralStatus">Esperando resultados</span></div>
+    <div class="live-general-head"><span>POS</span><span>PILOTO</span><span>HOY</span><span>PTS</span></div>
+    <div id="liveGeneralRows" class="live-general-rows"><div class="empty-compact">La general aparecerá al calcular los resultados.</div></div>
+  </section>
+
+  <main class="dashboard">
+    <section class="timing-panel surface live-only" aria-labelledby="timingTitle">
+      <div class="section-head"><div><span class="kicker">CLASIFICACIÓN EN PISTA</span><h2 id="timingTitle">Torre de tiempos</h2></div><div class="legend"><span><i class="status running"></i>En pista</span><span><i class="status finished"></i>Finalizado</span></div></div>
+      <div class="timing-head"><span>POS</span><span>PILOTO</span><span>INTERVALO</span><span>ÚLTIMA</span><span>MEJOR</span><span>VUELTAS</span></div>
+      <div class="timing-tower" id="timingTower"><div class="empty-state">Conectando con el cronometraje…</div></div>
+      <div class="panel-foot"><span id="matchStatus">Los nombres se comparan automáticamente con el campeonato.</span><span id="streamStatus">WebSocket público</span></div>
+    </section>
+
+    <aside class="analysis-rail analysis-only">
+      <section class="broadcast-card surface" aria-labelledby="broadcastTitle"><div class="section-head compact"><div><span class="kicker">GUION PARA RETRANSMISIÓN</span><h2 id="broadcastTitle">Lo que está pasando</h2></div><button type="button" id="copyBroadcast">Copiar</button></div><div id="broadcastText" class="broadcast-copy"><p>Cuando llegue la clasificación, aquí aparecerán las claves del campeonato listas para leer.</p></div><div id="liveInsights" class="insight-stack"></div></section>
+      <section class="pit-card surface" id="pitStrategyCard" aria-labelledby="pitStrategyTitle" hidden><div class="section-head compact"><div><span class="kicker">ESTRATEGIA NITRO</span><h2 id="pitStrategyTitle">Ventanas de repostaje</h2></div><a href="https://www.myrcm.ch/en/report/100645/398202" target="_blank" rel="noopener noreferrer">Patrón base</a></div><p class="pit-method" id="pitMethod">Estimaciones aprendidas de vueltas públicas y corregidas con el ritmo reciente de la jornada.</p><div id="pitStrategyFeed" class="pit-strategy-feed"></div><p class="pit-disclaimer">Señales probabilísticas para retransmisión. Dirección de carrera y MyRCM siguen siendo la referencia oficial.</p></section>
+      <section class="objectives-card surface" aria-labelledby="objectivesTitle"><div class="section-head compact"><div><span class="kicker">ESCENARIOS</span><h2 id="objectivesTitle">Qué necesita cada piloto</h2></div></div><div class="scenario-selectors"><label class="pilot-selector">Piloto<select id="scenarioPilot"></select></label><label class="pilot-selector">Objetivo<select id="scenarioTarget"><option value="1">Campeón</option><option value="2">Top 2</option><option value="3">Top 3</option><option value="4">Top 4</option></select></label></div><div id="objectiveGrid" class="objective-grid"></div><div class="rival-thresholds"><h3>Rivales que deciden el objetivo</h3><div id="rivalThresholds"></div></div><details><summary>Combinaciones exactas para ser campeón</summary><div id="titlePaths" class="title-paths"></div></details></section>
+      <section class="history-card surface" aria-labelledby="historyTitle"><div class="section-head compact"><div><span class="kicker">ARCHIVO AECAR</span><h2 id="historyTitle">Palmarés del grupo</h2></div><a id="historySource" href="https://www.aecar.org/modalidades.php?tipo=rg" target="_blank" rel="noopener noreferrer">Fuente oficial</a></div><div id="historyFeed" class="history-feed"><div class="empty-compact">El historial aparecerá al identificar pilotos de esta manga.</div></div><p id="historyCoverage" class="history-coverage"></p></section>
+    </aside>
+  </main>
+
+  <section class="championship-section analysis-only">
+    <div class="section-head"><div><span class="kicker">SI TERMINARA ASÍ</span><h2>Campeonato en este instante</h2></div><p>Proyección dinámica · dos mejores resultados de tres</p></div>
+    <div class="championship-podium" id="championshipPodium"></div>
+    <div class="championship-grid">
+      <section class="surface standings-card"><div class="section-head compact"><h3>Clasificación proyectada</h3><span id="projectionLabel">Datos parciales</span></div><div class="standings-head"><span>#</span><span>Piloto</span><span>Hoy</span><span>Puntos</span><span>Estado</span></div><div id="standingsBody" class="standings-body"></div></section>
+      <section class="surface story-card"><div class="section-head compact"><div><span class="kicker">RACE INTELLIGENCE</span><h3>Claves del directo</h3></div></div><div id="storyFeed" class="story-feed"></div></section>
+    </div>
+  </section>
+
+  <footer class="analysis-only"><div><strong>Modo demostración con datos reales de MyRCM.</strong> Durante una manga se muestran posiciones provisionales; la clasificación oficial completa se confirma al publicarse el informe final.</div><span>PuntoRacing · Herramienta orientativa</span></footer>
+</div><div id="toast" class="toast" hidden></div>
+<script>/*__ENGINE__*/</script><script>/*__SCENARIOS__*/</script><script>/*__BROADCAST__*/</script><script>/*__LIVE_CORE__*/</script><script>/*__REPLAY_CORE__*/</script><script>/*__PIT_ANALYSIS__*/</script><script>/*__RULES_DATA__*/</script><script id="seedData" type="application/json">/*__SEED__*/</script><script id="historyData" type="application/json">/*__HISTORY__*/</script><script id="registrationsData" type="application/json">/*__REGISTRATIONS__*/</script><script id="trackData" type="application/json">/*__TRACK__*/</script><script id="pitProfilesData" type="application/json">/*__PIT_PROFILES__*/</script><script id="demoReplayData" type="application/json">/*__DEMO_REPLAY__*/</script><script>/*__APP__*/</script></body></html>
