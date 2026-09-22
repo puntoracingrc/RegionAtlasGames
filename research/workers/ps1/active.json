@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 10,
+  "generation": 11,
   "workerId": "ps1",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps1",
   "queuePath": "research/queue.json",
@@ -45,8 +45,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T15:56:52Z",
-  "updatedBy": "codex",
-  "note": "'99 Koshien validado, publicado, verificado y consumido. Siguiente paquete relacionado de dos juegos preparado."
+  "lease": {
+    "runId": "chatgpt-ps1-20260922T165704Z-9",
+    "claimedAt": "2026-09-22T16:57:04Z",
+    "expiresAt": "2026-09-22T17:27:04Z"
+  },
+  "updatedAt": "2026-09-22T16:57:04Z",
+  "updatedBy": "chatgpt",
+  "note": "Investigación reclamada para 0 Kara no Shogi - Shogi Youchien Ayumi-Gumi [Limited Edition]."
 }
