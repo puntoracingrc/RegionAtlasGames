@@ -35,7 +35,7 @@
         "catalogIds": ["ps2-us-slus-21489"],
         "researchId": "hack-gu-vol-3-redemption-ps2-2026-09-22",
         "orderPath": "research/workers/ps2/orders/hack-gu-vol-3-redemption-ps2-2026-09-22.md",
-        "resultPath": "research/results/hack-gu-vol-3-reminisce-ps2-2026-09-22.json",
+        "resultPath": "research/results/hack-gu-vol-3-redemption-ps2-2026-09-22.json",
         "status": "PENDING",
         "checkpointPath": "research/workers/ps2/checkpoints/hack-gu-vol-3-redemption-ps2-2026-09-22.json"
       }
