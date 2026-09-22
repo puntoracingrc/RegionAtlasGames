@@ -125,6 +125,32 @@ test("different physical boxes can reuse a market without sharing an identity", 
   assert.notEqual(result.rows[0].group.id, result.rows[1].group.id);
 });
 
+test("same-market boxes use their physical edition when custom labels are blank", () => {
+  const result = expandRegionalVariantBatch({
+    title: "'98 Koshien",
+    platformSlug: "ps1",
+    baseSlug: "98-koshien",
+    physicalVariant: "Standard",
+    groups: [
+      {
+        physicalVariant: "Standard",
+        markets: ["JP"],
+        existingCatalogIds: { JP: "ps1-japon-%2798-koshien" },
+      },
+      { physicalVariant: "Magical 1500", markets: ["JP"] },
+      { physicalVariant: "Taikenban / Demo", markets: ["JP"] },
+    ],
+  });
+
+  assert.ok(!("error" in result));
+  assert.deepEqual(result.rows.map((row) => row.slug), [
+    "98-koshien-jp",
+    "98-koshien-jp-magical-1500",
+    "98-koshien-jp-taikenban-demo",
+  ]);
+  assert.equal(new Set(result.rows.map((row) => row.slug)).size, 3);
+});
+
 test("a regional batch can explicitly reuse existing catalog entries", () => {
   const result = expandRegionalVariantBatch({
     title: "007 Blood Stone",

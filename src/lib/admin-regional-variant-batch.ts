@@ -241,7 +241,13 @@ export function expandRegionalVariantBatch(
       if (existingCatalogId) usedExistingCatalogIds.add(existingCatalogId);
       const marketSlug = slugify(market.shortLabel);
       let slug = `${baseSlug}-${marketSlug}`;
-      if (usedSlugs.has(slug)) slug = `${slug}-${slugify(groupLabel) || index + 1}`;
+      const editionSlug = slugify(rawGroup.label?.trim() || physicalVariant || "") || String(index + 1);
+      if (usedSlugs.has(slug)) slug = `${slug}-${editionSlug}`;
+      let duplicateIndex = 2;
+      while (usedSlugs.has(slug)) {
+        slug = `${baseSlug}-${marketSlug}-${editionSlug}-${duplicateIndex}`;
+        duplicateIndex += 1;
+      }
       usedSlugs.add(slug);
       rows.push({
         market: market.value,
