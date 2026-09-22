@@ -1,14 +1,14 @@
 {
   "schemaVersion": 2,
-  "generation": 8,
+  "generation": 9,
   "workerId": "ps1",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps1",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
+  "resultOrderTemplateVersion": 11,
   "currentItemResearchId": "99-koshien-ps1-2026-09-22",
   "workPackage": {
     "packageId": "ps1-2026-09-22-002",
@@ -21,21 +21,19 @@
         "queueId": "platform-work:ps1:ps1-work-e1395f1867436fa4",
         "platform": "ps1",
         "title": "'99 Koshien",
-        "catalogIds": ["ps1-japon-%2799-koshien"],
+        "catalogIds": [
+          "ps1-japon-%2799-koshien"
+        ],
         "researchId": "99-koshien-ps1-2026-09-22",
         "orderPath": "research/workers/ps1/orders/99-koshien-ps1-2026-09-22.md",
         "resultPath": "research/results/99-koshien-ps1-2026-09-22.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/ps1/checkpoints/99-koshien-ps1-2026-09-22.json"
       }
     ]
   },
-  "lease": {
-    "runId": "chatgpt-ps1-20260922T145538Z-a8",
-    "claimedAt": "2026-09-22T14:55:38Z",
-    "expiresAt": "2026-09-22T15:45:38Z"
-  },
-  "updatedAt": "2026-09-22T14:55:38Z",
+  "lease": null,
+  "updatedAt": "2026-09-22T15:09:42Z",
   "updatedBy": "chatgpt",
-  "note": "Recovered expired lease from chatgpt-ps1-20260922T135705Z-a7 and resumed '99 Koshien."
+  "note": "Research completed for '99 Koshien; result ready for Codex validation."
 }
