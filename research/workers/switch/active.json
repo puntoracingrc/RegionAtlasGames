@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 20,
+  "generation": 21,
   "workerId": "switch",
   "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -11,9 +11,9 @@
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": "1-2-switch-switch-2026-09-22",
   "lease": {
-    "runId": "chatgpt-switch-20260922T132704Z-a11",
-    "claimedAt": "2026-09-22T13:27:04Z",
-    "expiresAt": "2026-09-22T14:17:04Z"
+    "runId": "chatgpt-switch-20260922T142311Z-a12",
+    "claimedAt": "2026-09-22T14:23:11Z",
+    "expiresAt": "2026-09-22T15:13:11Z"
   },
   "workPackage": {
     "packageId": "switch-2026-09-22-004",
@@ -39,7 +39,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-22T13:27:04Z",
+  "updatedAt": "2026-09-22T14:23:11Z",
   "updatedBy": "chatgpt",
-  "note": "Lease reclamado para continuar exclusivamente 1-2 Switch desde el checkpoint factual existente y cerrar ORDER_TEMPLATE_VERSION 11."
+  "note": "Lease vencido chatgpt-switch-20260922T132704Z-a11 recuperado; continuar exclusivamente 1-2 Switch desde el checkpoint factual existente y cerrar ORDER_TEMPLATE_VERSION 11."
 }
