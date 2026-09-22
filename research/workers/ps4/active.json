@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 14,
+  "generation": 15,
   "workerId": "ps4",
-  "state": "RUNNING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
@@ -32,12 +32,7 @@
       }
     ]
   },
-  "lease": {
-    "runId": "ps4-20260922T110846Z-4f3a7c",
-    "claimedAt": "2026-09-22T11:08:46Z",
-    "expiresAt": "2026-09-22T11:58:46Z"
-  },
-  "updatedAt": "2026-09-22T11:08:46Z",
+  "updatedAt": "2026-09-22T11:29:03Z",
   "updatedBy": "chatgpt",
-  "note": "Lease reclamado para continuar exclusivamente 2Dark [Limited Edition] desde el checkpoint factual existente, sin repetir investigación externa."
+  "note": "Lease liberado tras validar el checkpoint de 2Dark. El borrador persistido conserva la investigación factual, pero requiere corrección formal antes de escribir resultPath; no se repitió investigación general ni se creó un resultado incompleto."
 }
