@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 12,
+  "generation": 13,
   "workerId": "ps1",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps1",
   "queuePath": "research/queue.json",
@@ -45,8 +45,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T17:12:00Z",
+  "lease": {
+    "runId": "chatgpt-ps1-20260922T175706Z-09",
+    "claimedAt": "2026-09-22T17:57:06Z",
+    "expiresAt": "2026-09-22T18:57:06Z"
+  },
+  "updatedAt": "2026-09-22T17:57:06Z",
   "updatedBy": "chatgpt",
-  "note": "Checkpoint factual guardado para 0 Kara no Shogi - Shogi Youchien Ayumi-Gumi [Limited Edition]. Quedan pendientes la validación front/back, packagingLanguages y muestras suficientes para precios sealed/complete; no se inició el siguiente elemento."
+  "note": "Continuando checkpoint factual de 0 Kara no Shogi - Shogi Youchien Ayumi-Gumi [Limited Edition]."
 }
